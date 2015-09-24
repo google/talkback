@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"அணுகல் மாற்றுதல்"</string>
+    <string name="switch_access_service_description" msgid="7316829370005579941">"உள்ளமைக்கக்கூடிய விசைச் சேர்க்கைகளைப் பயன்படுத்தி, சாதனத்தைக் கட்டுப்படுத்த அணுகல் மாற்றுதல் அனுமதிக்கிறது. கிளிக் செய்யக்கூடியவற்றிற்கு கவனத்தை நகர்த்தி, அவற்றைத் தேர்ந்தெடுக்கலாம்."</string>
+    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"தானியங்கு ஸ்கேன்"</string>
+    <string name="title_pref_auto_scan" msgid="6856662972215508038">"தானியங்கு ஸ்கேனை இயக்கு"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"நேர தாமதம்"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"தானியங்கு ஸ்கேன் வரிசையை பின்னோக்கி மாற்று"</string>
+  <plurals name="auto_scan_time_delay_summary_format">
+    <item quantity="one" msgid="815853953952465870">"1 வினாடி"</item>
+    <item quantity="other" msgid="1223387233862989964">"%.2f வினாடிகள்"</item>
+  </plurals>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"ஸ்கேனிங் முறை"</string>
+    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"விசைப்பலகை ஸ்கேனிங்"</string>
+    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"ஸ்கேனிங் முறைகளைக் காட்டு"</string>
+    <string name="title_pref_category_key_mappings" msgid="463227090301036752">"செயல்களுக்கு, விசைகளை ஒதுக்கவும்"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"ஸ்கேன் செய்வதற்காக, விசைகளை ஒதுக்கவும்"</string>
+    <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' விசையானது \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\'க்கு ஏற்கனவே அமைக்கப்பட்டது"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one" msgid="8372086689828893172">"%d விசை அமைக்கப்பட்டது"</item>
+    <item quantity="other" msgid="2361393301173230834">"%d விசைகள் அமைக்கப்பட்டன"</item>
+  </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"ஸ்கேன் விருப்ப ஸ்விட்ச் %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"அடுத்து"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"முந்தையது"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"தேர்ந்தெடு"</string>
+    <string name="action_name_long_click" msgid="5708679123666477849">"நெடுநேரம் அழுத்து"</string>
+    <string name="action_name_scroll_forward" msgid="6969788891937406270">"முன்னோக்கி உருட்டு"</string>
+    <string name="action_name_scroll_backward" msgid="579045012327139100">"பின்னோக்கி உருட்டு"</string>
+    <string name="context_menu_layout_description" msgid="330592638837220675">"சூழல் மெனு"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"மெனு"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"முந்தையது"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"முகப்பு"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"மேலோட்டப் பார்வை"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"அறிவிப்புகள்"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"உடனடி அமைப்புகள்"</string>
+    <string name="scrollable_forward" msgid="6312908487874132401">"முன்னோக்கி உருட்டு"</string>
+    <string name="scrollable_backward" msgid="5109861709058665917">"பின்னோக்கி உருட்டு"</string>
+    <string name="switch_access_preferences_title" msgid="8339289604407443597">"அணுகல் மாற்ற விருப்பத்தேர்வுகள்"</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"பட்டியலில் இதைச் சேர்க்க மற்றும் அதிலிருந்து அகற்ற, விசை சேர்க்கையை அழுத்தவும்"</string>
+    <string name="key_combo_preference_reset_button" msgid="766369207787941384">"விசை ஒதுக்கீட்டை அழி"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="2792530694141012295">"விசை எதுவும் ஒதுக்கப்படவில்லை"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"இடைவெளி"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"எண்டர்"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"டேப்"</string>
+    <string name="save" msgid="5398278773451196019">"சேமி"</string>
+    <string name="title_pref_highlight_0" msgid="3039542597362059267">"ஸ்கேன் செய்வதற்காக, தனிப்படுத்தப்படுகிறது"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"முதன்மை ஸ்கேன் நடை"</string>
+    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"தனிப்படுத்தல் வண்ணம்"</string>
+    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"தனிப்படுத்தலின் அடர்த்தி"</string>
+</resources>

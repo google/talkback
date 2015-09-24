@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/keycombo_assign_dialog_message"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="12dp"/>
+
+    <ImageView
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/keycombo_assign_dialog_clear"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="18sp"
+        android:layout_marginEnd="18sp"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/message"
+        android:src="@drawable/ic_clear"
+        android:padding="6dp"/>
+
+    <TextView
+        android:id="@+id/assigned_combination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:accessibilityLiveRegion="assertive"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:focusableInTouchMode="true"
+        android:layout_alignTop="@id/clear"
+        android:layout_alignBottom="@id/clear"
+        android:layout_toLeftOf="@id/clear"
+        android:layout_toStartOf="@id/clear"
+        android:gravity="start|center_vertical"
+        android:singleLine="true"
+        android:ellipsize="end"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/light_gray"
+        android:layout_below="@id/clear"
+        android:layout_alignLeft="@id/assigned_combination"
+        android:layout_alignStart="@id/assigned_combination"
+        android:layout_alignRight="@id/clear"
+        android:layout_alignEnd="@id/clear"/>
+
+    <TextView
+        android:id="@+id/instruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/divider"
+        android:layout_marginRight="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/keycombo_assign_dialog_instruction"/>
+
+</RelativeLayout>

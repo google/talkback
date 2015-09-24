@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.google.android.marvin.talkback.com/speechstrategy"
+        elementFormDefault="qualified"
+        attributeFormDefault="qualified"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:ss="http://www.google.android.marvin.talkback.com/speechstrategy">
+
+  <simpleType name="queuingType">
+    <restriction base="string">
+      <enumeration value="QUEUE"/>
+      <enumeration value="INTERRUPT"/>
+      <enumeration value="UNINTERRUPTIBLE"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="resourceReferenceType">
+    <restriction base="string">
+      <pattern value="@([a-z]+(\.[a-z]+)*:)?(string|raw|array|id)/[a-zA-Z_]+"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="rangeType">
+    <restriction base="string">
+      <pattern value="((&gt;|&lt;)=?)?\d+"/>
+      <pattern value="\d+(\|\|\d+)*"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="classNameType">
+    <restriction base="string">
+      <pattern value="([a-zA-Z_$][a-zA-Z\d_$]*\.)*[a-zA-Z_$][a-zA-Z\d_$]*"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="propertyNameType">
+    <restriction base="string">
+      <enumeration value="className"/>
+      <enumeration value="text"/>
+      <enumeration value="beforeText"/>
+      <enumeration value="contentDescription"/>
+      <enumeration value="contentDescriptionOrText"/>
+      <enumeration value="nodeDescriptionOrFallback"/>
+      <enumeration value="itemCount"/>
+      <enumeration value="currentItemIndex"/>
+      <enumeration value="fromIndex"/>
+      <enumeration value="checked"/>
+      <enumeration value="enabled"/>
+      <enumeration value="fullScreen"/>
+      <enumeration value="password"/>
+      <enumeration value="addedCount"/>
+      <enumeration value="removedCount"/>
+      <enumeration value="packageName"/>
+      <enumeration value="parcelableData"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="eventTypeType">
+    <restriction base="string">
+      <pattern value="((TYPE_ANNOUNCEMENT|TYPE_GESTURE_DETECTION_END|TYPE_GESTURE_DETECTION_START|TYPE_NOTIFICATION_STATE_CHANGED|TYPE_TOUCH_EXPLORATION_GESTURE_END|TYPE_TOUCH_EXPLORATION_GESTURE_START|TYPE_TOUCH_INTERACTION_END|TYPE_TOUCH_INTERACTION_START|TYPE_VIEW_ACCESSIBILITY_FOCUSED|TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED|TYPE_VIEW_CLICKED|TYPE_VIEW_FOCUSED|TYPE_VIEW_HOVER_ENTER|TYPE_VIEW_HOVER_EXIT|TYPE_VIEW_LONG_CLICKED|TYPE_VIEW_SCROLLED|TYPE_VIEW_SELECTED|TYPE_VIEW_TEXT_CHANGED|TYPE_VIEW_TEXT_SELECTION_CHANGED|TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY|TYPE_WINDOW_CONTENT_CHANGED|TYPE_WINDOW_STATE_CHANGED)(\|\|)?)+"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="filterType">
+    <choice>
+      <element name="custom" type="ss:classNameType" minOccurs="0" maxOccurs="1"/>
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <element name="eventType" type="ss:eventTypeType"/>
+        <element name="packageName" type="ss:classNameType"/>
+        <element name="className" type="ss:classNameType"/>
+        <element name="classNameStrict" type="ss:classNameType"/>
+        <element name="platformSdk" type="ss:rangeType"/>
+        <element name="versionCode" type="ss:rangeType"/>
+        <element name="recordCount" type="ss:rangeType"/>
+        <element name="currentItemIndex" type="ss:rangeType"/>
+        <element name="itemCount" type="ss:rangeType"/>
+        <element name="fromIndex" type="ss:rangeType"/>
+        <element name="addedCount" type="ss:rangeType"/>
+        <element name="removedCount" type="ss:rangeType"/>
+        <element name="text" type="string"/>
+        <element name="beforeText" type="string"/>
+        <element name="contentDescription" type="string"/>
+        <element name="checked" type="boolean"/>
+        <element name="enabled" type="boolean"/>
+        <element name="fullScreen" type="boolean"/>
+        <element name="password" type="boolean"/>
+      </choice>
+    </choice>
+  </complexType>
+
+  <complexType name="metadataType">
+    <sequence minOccurs="1" maxOccurs="unbounded">
+        <choice>
+          <element name="queuing" type="ss:queuingType" minOccurs="0" maxOccurs="1"/>
+          <choice minOccurs="0" maxOccurs="unbounded">
+            <element name="customVibration" type="ss:resourceReferenceType"/>
+            <element name="customEarcon" type="ss:resourceReferenceType"/>
+          </choice>
+        </choice>
+    </sequence>
+  </complexType>
+
+  <complexType name="formatterType">
+    <sequence>
+      <choice>
+        <element name="custom" type="ss:classNameType" minOccurs="0" maxOccurs="1"/>
+        <sequence>
+          <element name="template" type="string" minOccurs="0" maxOccurs="1"/>
+          <choice minOccurs="0" maxOccurs="1">
+            <element name="split" type="string"/>
+            <choice minOccurs="1" maxOccurs="unbounded">
+              <element name="regex" type="string"/>
+              <element name="quantity" type="ss:propertyNameType"/>
+              <element name="property" type="ss:propertyNameType"/>
+            </choice>
+          </choice>
+        </sequence>
+      </choice>
+    </sequence>
+  </complexType>
+
+
+  <complexType name="speechStrategyType">
+    <sequence>
+      <element name="rule" minOccurs="1" maxOccurs="unbounded">
+        <complexType>
+          <sequence minOccurs="1" maxOccurs="unbounded">
+            <choice minOccurs="0">
+              <element name="metadata" type="ss:metadataType"/>
+              <element name="filter" type="ss:filterType"/>
+              <element name="formatter" type="ss:formatterType"/>
+            </choice>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+
+  <element name="speechstrategy" type="ss:speechStrategyType"/>
+
+</schema>

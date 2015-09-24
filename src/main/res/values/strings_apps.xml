@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Volume manager -->
+
+    <!--
+      Source: An utterance template for announcing the current volume for a particular stream (e.g. music, alarm, etc) before changes are made.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="template_stream_volume"><xliff:g id="stream_name">%1$s</xliff:g> volume <xliff:g id="percent">%2$d</xliff:g> percent.</string>
+
+    <!--
+      Source: An utterance template for announcing the current volume for a particular stream (e.g. music, alarm, etc) after changes have been made.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="template_stream_volume_set"><xliff:g id="stream_name">%1$s</xliff:g> volume set to <xliff:g id="percent">%2$d</xliff:g> percent.</string>
+
+    <!--
+      Source: A value for announcing the "master" volume stream.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="value_stream_master">Master</string>
+
+    <!--
+      Source: A value for announcing the "voice call" volume stream.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="value_stream_voice_call">Phone call</string>
+
+    <!--
+      Source: A value for announcing the "system" volume stream.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="value_stream_system">System sound</string>
+
+    <!--
+      Source: A value for announcing the "ring" volume stream.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="value_stream_ring">Ring tone</string>
+
+    <!--
+      Source: A value for announcing the "music" volume stream.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="value_stream_music">Music</string>
+
+    <!--
+      Source: A value for announcing the "alarm" volume stream.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="value_stream_alarm">Alarm</string>
+
+    <!--
+      Source: A value for announcing the "notification" volume stream.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="value_stream_notification">Notification</string>
+
+    <!--
+      Source: A value for announcing the "DTMF" volume stream.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="value_stream_dtmf">Touch tone dialing</string>
+
+    <!-- VALUES for GoogleTV -->
+    <!--
+      Source: A value for announcing that the screen saver is active.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="value_googletv_screen_saver">Screen saver</string>
+</resources>

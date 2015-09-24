@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Message for the alert shown when a user attempts to suspend TalkBack, which also disables the Explore by Touch feature. -->
+    <string name="dialog_message_suspend_talkback">Are you sure you want to suspend TalkBack?\n\nWhile TalkBack is suspended, your device will not provide feedback and Explore by Touch will be disabled.</string>
+
+</resources>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="talkback_service_description" msgid="7512754982950145749">"TalkBack ഓണായിരിക്കുമ്പോൾ, നിങ്ങളുടെ ഉപകരണം കാഴ്ചശേഷി ഇല്ലാത്തവരും കാഴ്‌ചവൈകല്യമുള്ളവരുമായ ഉപയോക്താക്കളെ സഹായിക്കുന്നതിനുള്ള സംഭാഷണ ഫീഡ്ബാക്ക് നൽകുന്നു. ഉദാഹരണമായി, അത് നിങ്ങൾ സ്‌പർശിക്കുന്നതും തിരഞ്ഞെടുക്കുന്നതും സജീവമാക്കുന്നതും എന്തെല്ലാമാണെന്ന് വിവരിയ്ക്കുന്നു."</string>
+    <string name="talkback_on" msgid="315529674405160699">"TalkBack ഓണാണ്"</string>
+    <string name="talkback_preferences_title" msgid="4249486159144445549">"TalkBack ക്രമീകരണം"</string>
+    <string name="tts_preferences_title" msgid="6233811187483633874">"ടെക്‌സ്റ്റ്-ടു-സ്‌പീച്ച് ക്രമീകരണം"</string>
+    <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"പതിപ്പ് <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
+    <string name="label_manager_summary_title" msgid="6786694853113585661">"കസ്റ്റംലേബൽ നിയന്ത്രിക്കൂ"</string>
+    <string name="label_manager_package_title" msgid="6984665343963494151">"<xliff:g id="APPLICATIONLABEL">%1$s</xliff:g> എന്നതിനായി ലേബലുകൾ നിയന്ത്രിക്കുക"</string>
+    <string name="label_manager_no_packages_message" msgid="4478523067360108574">"നിലവിൽ ഇഷ്‌ടാനുസൃത ലേബലുകൾ ഒന്നുമില്ല. ലേബൽ ചെയ്യാത്ത ഒരു ചിത്രത്തിലേയ്ക്ക് നാവിഗേറ്റുചെയ്‌ത് പ്രാദേശിക സന്ദർഭ മെനുവിൽ നിന്ന് ഒരു ലേബൽ ചേർക്കുന്നതിലൂടെ നിങ്ങൾക്കൊന്ന് സൃഷ്‌ടിക്കാനാകും."</string>
+    <string name="label_manager_timestamp_text" msgid="2632240906498521602">"അവസാനം പരിഷ്‌ക്കരിച്ചത് <xliff:g id="TIMESTAMP">%1$s</xliff:g>"</string>
+    <string name="search_dialog_label" msgid="7273037326593054813">"തിരയൽ: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>"</string>
+    <string name="search_mode_open" msgid="910823044260738937">"തിരയൽ മോഡ് തുറന്നു."</string>
+    <string name="search_mode_cancel" msgid="4938867934958343710">"തിരയൽ റദ്ദാക്കി."</string>
+    <string name="search_mode_finish" msgid="7166574479757238944">"തിരയൽ അവസാനിച്ചു."</string>
+    <string name="search_mode_hint_start" msgid="4597528088567439979">"തിരയൽ മോഡ്."</string>
+    <string name="search_mode_hint_no_query" msgid="3919282680896571220">"ചോദ്യങ്ങളൊന്നും നൽകിയിട്ടില്ല."</string>
+    <string name="search_mode_hint_query" msgid="5896493032072187997">"നിലവിലെ ചോദ്യം: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>."</string>
+    <string name="search_mode_hint_no_selection" msgid="882227441829755961">"തിരഞ്ഞെടുത്ത ഇനമൊന്നുമില്ല."</string>
+    <string name="search_mode_hint_selection" msgid="8541673936818652399">"നിലവിൽ തിരഞ്ഞെടുത്തത്: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>."</string>
+    <string name="notification_type_missed_call" msgid="6585664098525214473">"മിസ്‌ഡ് കോൾ"</string>
+    <string name="notification_type_status_mute" msgid="2024742614005804613">"മ്യൂട്ടുചെയ്യുക"</string>
+    <string name="notification_type_status_chat" msgid="3593906461181368010">"ചാറ്റുചെയ്യുക"</string>
+    <string name="notification_type_status_error" msgid="8762616334364573004">"പിശക്"</string>
+    <string name="notification_type_status_more" msgid="4889548393564513820">"കൂടുതൽ"</string>
+    <string name="notification_type_status_sdcard" msgid="6675459139116184337">"SD കാർഡ്"</string>
+    <string name="notification_type_status_sdcard_usb" msgid="6882955062811560802">"SD കാർഡ് USB"</string>
+    <string name="notification_status_sync" msgid="7913123792593843784">"സമന്വയിപ്പിക്കുക"</string>
+    <string name="notification_type_status_sync_noanim" msgid="3708903607797168409">"സമന്വയിപ്പിക്കുക"</string>
+    <string name="notification_type_status_voicemail" msgid="1611063561670902017">"വോയ്‌സ്‌മെയിൽ"</string>
+    <string name="notification_type_status_started" msgid="1071939833188591219">"ആരംഭിച്ചു"</string>
+    <string name="notification_type_status_stopped" msgid="6004666820256747725">"അവസാനിപ്പിച്ചു"</string>
+    <string name="template_current_tts_engine" msgid="3963364867159704159">"<xliff:g id="ENGINE_NAME">%1$s</xliff:g> ഉപയോഗിച്ച്"</string>
+    <string name="template_menu" msgid="2592357933256217001">"<xliff:g id="TITLE">%1$s</xliff:g> മെനു"</string>
+    <string name="template_edit_box" msgid="5395366637528473616">"എഡിറ്റ് ബോക്‌സ്. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
+    <string name="template_edit_box_current" msgid="2778286668618391188">"എഡിറ്റ് ബോക്‌സ്, നിലവിൽ എഡിറ്റുചെയ്യുന്നു. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
+    <string name="template_alert_dialog_template" msgid="5493715708649314332">"അലേർട്ട് <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
+    <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g> മെനു"</string>
+    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g>, <xliff:g id="OLD_TEXT">%2$s</xliff:g> എന്നത് മാറ്റി പകരം വച്ചു."</string>
+    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> ഇല്ലാതാക്കി"</string>
+    <string name="template_text_error" msgid="153775825635730287">"ഇൻപുട്ട് അസാധുവാണ് <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
+    <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> പ്രതീകങ്ങൾ ഉപയോഗിച്ച് <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> പ്രതീകങ്ങൾ മാറ്റി പകരം വച്ചു."</string>
+    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="LABEL">%2$s</xliff:g> എന്നതിനുള്ള <xliff:g id="ITEM">%1$s</xliff:g>"</string>
+    <string name="template_long_clicked" msgid="1962442828386303832">"<xliff:g id="TITLE">%1$s</xliff:g> ദീർഘനേരം അമർത്തിപ്പിടിച്ചു"</string>
+    <string name="template_button" msgid="2640124317262628933">"<xliff:g id="TITLE">%1$s</xliff:g> ബട്ടൺ"</string>
+    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"ചിത്രം <xliff:g id="TITLE">%1$d</xliff:g>. ലേബൽ ചെയ്യാത്തത്"</string>
+    <string name="template_unlabeled_button" msgid="8907013770433741191">"ബട്ടൺ <xliff:g id="TITLE">%1$d</xliff:g>. ലേബൽ ചെയ്യാത്തത്"</string>
+    <string name="template_seek_bar" msgid="9010890122601609426">"<xliff:g id="TITLE">%1$s</xliff:g> സീക്ക് നിയന്ത്രണം."</string>
+    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> ശതമാനം."</string>
+    <string name="template_charging" msgid="2038200557537960378">"ചാർജ്ജുചെയ്യുന്നു <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g>, ബാറ്ററി നില <xliff:g id="CHANGING_STATUS">%1$s</xliff:g> ശതമാനം."</string>
+  <plurals name="template_containers">
+    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="COUNT">%2$d</xliff:g> ഇനത്തിന്റെ <xliff:g id="TYPE">%1$s</xliff:g> കാണിക്കുന്നു."</item>
+    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="COUNT">%2$d</xliff:g> ഇനങ്ങളുടെ <xliff:g id="TYPE">%1$s</xliff:g> കാണിക്കുന്നു."</item>
+  </plurals>
+    <string name="value_gridview" msgid="1382219539169157957">"ഗ്രിഡ്"</string>
+    <string name="value_listview" msgid="7625152822709234439">"ലിസ്റ്റ്"</string>
+    <string name="value_tabwidget" msgid="6935453013254857519">"ടാബ് ബാർ"</string>
+    <string name="template_scroll_from_to_count" msgid="2060702043504844709">"<xliff:g id="TOTAL_COUNT">%3$d</xliff:g> / <xliff:g id="FROM_INDEX">%1$d</xliff:g> - <xliff:g id="TO_INDEX">%2$d</xliff:g> ഇനങ്ങൾ കാണിക്കുന്നു."</string>
+    <string name="template_scroll_from_count" msgid="4696666433263950881">"<xliff:g id="FROM_INDEX">%1$d</xliff:g> / <xliff:g id="TOTAL_COUNT">%2$d</xliff:g> ഇനം കാണിക്കുന്നു."</string>
+    <string name="template_spinner" msgid="1240658876427369167">"<xliff:g id="TITLE">%1$s</xliff:g> ഡ്രോപ്പ് ഡൗൺ ലിസ്റ്റ്."</string>
+    <string name="template_password_selected" msgid="3751806880345903886">"<xliff:g id="FROM_INDEX">%1$s</xliff:g> മുതൽ <xliff:g id="TO_INDEX">%2$s</xliff:g> വരെയുള്ള പ്രതീകങ്ങൾ തിരഞ്ഞെടുത്തു"</string>
+    <string name="template_capital_letter" msgid="4920626008395727629">"വലിയക്ഷരം <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
+    <string name="template_checkbox" msgid="8582666147313623418">"<xliff:g id="TITLE">%1$s</xliff:g> ചെക്ക് ബോക്‌സ്"</string>
+    <string name="template_radio_button" msgid="5796532059726219957">"<xliff:g id="TITLE">%1$s</xliff:g> റേഡിയോ ബട്ടൺ"</string>
+    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>, സ്വിച്ച്"</string>
+    <string name="value_password" msgid="7285572231215250557">"പാസ്‌വേഡ്"</string>
+    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"സ്ലൈഡുചെയ്യുന്ന ഡ്രോയർ തുറന്നു"</string>
+    <string name="value_notification_shade_opened" msgid="5404406119689977269">"ഷേഡ് തുറന്നു"</string>
+    <string name="value_options_menu_open" msgid="4936310094261315665">"ഓപ്ഷനുകൾ."</string>
+    <string name="value_text_cleared" msgid="6558192295636412162">"ടെക്‌സ്റ്റ് മായ്ച്ചു"</string>
+    <string name="value_text_max_length" msgid="4129865255646994586">"പരമാവധി ദൈർഘ്യത്തിലെത്തി"</string>
+    <string name="value_text_removed" msgid="9064311081864073839">"ഇല്ലാതാക്കി"</string>
+    <string name="value_checked" msgid="3006751014125833966">"ചെക്കുചെയ്‌തു"</string>
+    <string name="value_not_checked" msgid="37422559536361725">"ചെക്കുചെയ്‌തിട്ടില്ല"</string>
+    <string name="value_disabled" msgid="5160977094078900656">"പ്രവർത്തനരഹിതമാക്കി"</string>
+    <string name="value_double_tap" msgid="6104708724544509699">"ഇരട്ട ടാപ്പുചെയ്യൽ"</string>
+    <string name="value_single_tap" msgid="5044168772549910285">"ടാപ്പുചെയ്യുക"</string>
+    <string name="template_hint_clickable" msgid="1398769454100543369">"തിരഞ്ഞെടുക്കാൻ <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_long_clickable" msgid="4546854599035099034">"ദീർഘനേരം അമർത്തിപ്പിടിയ്‌ക്കാൻ <xliff:g id="ACTION">%1$s</xliff:g> ചെയ്ത് പിടിക്കുക."</string>
+    <string name="template_hint_checkable" msgid="504233139047201761">"ടോഗിൾ ചെയ്യാൻ <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_edit_text" msgid="2298057410435081106">"ടെക്‌സ്റ്റ് നൽകാൻ <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_spinner" msgid="7251008361827086735">"മാറ്റാൻ <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="hint_radial_menu" msgid="5110846707339818828">"ഒരു ഇനം കണ്ടെത്തുന്നതിന് സ്‌ക്രീനിൽ സ്‌പർശിച്ച് ഒരു സർക്കിളിലൂടെ സഞ്ചരിക്കുക, തുടർന്ന് തിരഞ്ഞെടുക്കാൻ വിരൽ മാറ്റുക."</string>
+    <string name="hint_summary_jog_dial" msgid="2050246931229863299">"ഓൺ-സ്ക്രീൻ ഉള്ളടക്കം നാവിഗേറ്റുചെയ്യുന്നതിന് സ്‌ക്രീനിൽ സ്‌പർശിച്ച് ഒരു സർക്കിളിലൂടെ സഞ്ചരിക്കുക, തുടർന്ന് ഫോക്കസ് ചെയ്യുന്നതിന് വിരൽ മാറ്റുക."</string>
+    <string name="template_hint_custom_actions" msgid="543401796694872575">"ഇഷ്‌ടാനുസൃത പ്രവർത്തനങ്ങൾ:"</string>
+    <string name="value_ringer_vibrate" msgid="2453075127843329125">"റിംഗർ വൈബ്രേറ്റ് ചെയ്യുന്നു."</string>
+    <string name="value_ringer_silent" msgid="3881352685288650823">"റിംഗർ നിശ്ശബ്‌ദമാണ്."</string>
+    <string name="value_screen_on" msgid="4051568127659724519">"സ്‌ക്രീൻ ഓണാക്കുക."</string>
+    <string name="value_screen_off" msgid="4442166505764238236">"സ്ക്രീൻ ഓഫാണ്."</string>
+    <string name="value_device_unlocked" msgid="5503481137448624626">"ഉപകരണം അൺലോക്കുചെയ്‌തു."</string>
+    <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"സംഭാഷണം"</string>
+    <string name="title_pref_speech_volume" msgid="17846978416951489">"സംഭാഷണ വോളിയം"</string>
+    <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"സ്ക്രീനോഫായിരിയ്ക്കുമ്പോൾ സംസാരിക്കൂ"</string>
+    <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"സ്ക്രീൻ ഓഫായിരിക്കുമ്പോൾ അറിയിപ്പുകൾ സംസാരിക്കപ്പെടുന്നു"</string>
+    <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"സ്‌കീൻ ഓഫായിരിക്കുമ്പോൾ സംഭാഷണമൊന്നും ഉണ്ടാകില്ല"</string>
+    <string name="title_pref_caller_id" msgid="3583991410676669265">"കോളർ ഐഡി പറയുക"</string>
+    <string name="title_pref_proximity" msgid="4533552749993575929">"പ്രോക്‌സിമിറ്റിസെൻസർ ഉപയോഗിക്കൂ"</string>
+    <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"പ്രോക്‌സിമിറ്റി സെൻസർ സംഭാഷണത്തെ നിശബ്‌ദമാക്കുന്നു"</string>
+    <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"പ്രോക്‌സിമിറ്റി സെൻസർ സംഭാഷണത്തെ നിയന്ത്രിക്കില്ല"</string>
+    <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"ഫൊണിറ്റിക്ക് അക്ഷരങ്ങൾ പറഞ്ഞുതരിക"</string>
+    <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"ഫോണിറ്റിക്ക് അക്ഷരങ്ങൾ പറഞ്ഞുതരില്ല."</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"കീബോർഡിൽ നീണ്ട സമയം അമർത്തിക്കൊണ്ട് പ്രതീക പ്രകാരം നീങ്ങുമ്പോൾ ഫൊണിറ്റിക്ക് അക്ഷരങ്ങൾ പറഞ്ഞുതരും."</string>
+    <string name="title_pref_a11y_hints" msgid="3770770318417664565">"ഉപയോഗ സൂചനകൾ പറഞ്ഞുതരിക"</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"ലീനിയർ നാവിഗേഷൻ വേളയിൽ ഉപയോഗ സൂചനകൾ പറഞ്ഞുതരില്ല."</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"ഒരു ചെറിയ കാലതാമസത്തിന് ശേഷം, ലീനിയർ നാവിഗേഷൻ പ്രകാരം ഫോക്കസ് നീങ്ങുമ്പോൾ ഉപയോഗ സൂചകനൾ പറഞ്ഞുതരും."</string>
+    <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"ടച്ച് വഴി അടുത്തറിയൽ"</string>
+    <string name="title_pref_auto_scroll" msgid="306503376875826605">"ലിസ്‌റ്റുകൾ സ്വയം സ്‌ക്രോൾ ചെയ്യുക"</string>
+    <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"ടച്ച് വഴി അടുത്തറിയൽ"</string>
+    <string name="title_pref_single_tap" msgid="3366282780861635094">"ഒരൊറ്റ ടാപ്പിൽ തിരഞ്ഞെടുക്കൽ"</string>
+    <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"സന്ദർഭമെനുവിനെ ലിസ്റ്റായി കാണിക്കൂ"</string>
+    <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"TalkBack പ്രവർത്തനക്ഷമമാക്കിയിരിക്കുമ്പോൾ സ്‌ക്രീൻ മങ്ങിക്കുക"</string>
+    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(പരീക്ഷണാത്മകം) നിലവിൽ ഫോക്കസ്സുചെയ്‌തിരിയ്ക്കുന്ന ഇനം തിരഞ്ഞെടുക്കുന്നതിന് ടാപ്പുചെയ്യുക"</string>
+    <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"തുടർവായനയ്ക്ക് കുലുക്കുക"</string>
+    <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"സവിശേഷതകൾ നിയന്ത്രിക്കുക"</string>
+    <string name="title_pref_manage_labels" msgid="8796338627297226539">"കസ്റ്റംലേബൽ നിയന്ത്രിക്കൂ"</string>
+    <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"കീബോഡ് കുറുക്കുവഴി നിയന്ത്രിക്കുക"</string>
+    <string name="title_pref_play_store" msgid="5158596411034985043">"Play Store-ൽ TalkBack തുറക്കുക"</string>
+    <string name="summary_pref_play_store" msgid="3575108337945375864">"നിലവിലെ TalkBack പതിപ്പ്: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_show_tos" msgid="6167834013879233992">"സേവന നിബന്ധനകള്‍"</string>
+    <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"സ്വകാര്യതാ നയം"</string>
+    <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"കുറുക്കുവഴി സവിശേഷതകൾ"</string>
+    <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"അന്തർ നിർമ്മിത സവിശേഷതകൾ"</string>
+    <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(പരീക്ഷണാത്മകം) ഉപകരണത്തിന്റെ വശത്ത് ടാപ്പുചെയ്യുക"</string>
+    <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"നാവിഗേഷൻ പ്രവർത്തനങ്ങൾ"</string>
+    <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"അടുത്തതിലേക്ക് നാവിഗേറ്റുചെയ്യുക"</string>
+    <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"മുമ്പത്തേതിലേക്ക് നാവിഗേറ്റുചെയ്യുക"</string>
+    <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"ആദ്യത്തേതിലേക്ക് നാവിഗേറ്റുചെയ്യുക"</string>
+    <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"അവസാനത്തേതിലേക്ക് നാവിഗേറ്റുചെയ്യുക"</string>
+    <string name="keycombo_menu_perform_click" msgid="243666968746657931">"ക്ലിക്കുചെയ്യുക"</string>
+    <string name="keycombo_menu_category_global" msgid="7309875734492478067">"മൊത്തത്തിലുള്ള പ്രവർത്തനങ്ങൾ"</string>
+    <string name="keycombo_menu_global_back" msgid="4567585750566224959">"മടങ്ങുക"</string>
+    <string name="keycombo_menu_global_home" msgid="7189369064773623371">"ഹോം"</string>
+    <string name="keycombo_menu_global_recent" msgid="927586811460340459">"പുതിയ അപ്ലിക്കേഷനുകൾ"</string>
+    <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"അറിയിപ്പുകൾ"</string>
+    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"TalkBack താൽക്കാലികമായി നിർത്തുക"</string>
+    <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"നാവിഗേഷൻ ക്രമീകരണം"</string>
+    <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"അടുത്ത നാവിഗേഷൻ ക്രമീകരണം"</string>
+    <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"മുമ്പത്തെ നാവിഗേഷൻ ക്രമീകരണം"</string>
+    <string name="keycombo_menu_category_other" msgid="440132295339458288">"മറ്റ് പ്രവർത്തനങ്ങൾ"</string>
+    <string name="keycombo_menu_other_read_from_top" msgid="5903852171117275622">"മുകളിൽ നിന്നും വായിക്കുക"</string>
+    <string name="keycombo_menu_other_read_from_next_item" msgid="1511843443312220392">"അടുത്ത ഇനത്തിൽ നിന്നും വായിക്കുക"</string>
+    <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"ഒരു ഇനത്തിനായുള്ള സ്‌ക്രീൻ തിരയുക"</string>
+    <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"പ്രാദേശിക സന്ദർഭ മെനു കാണിക്കുക"</string>
+    <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"ഗ്ലോബൽ സന്ദർഭ മെനു കാണിക്കുക"</string>
+    <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"കീബോർഡ് കുറുക്കുവഴി ഇതാണ്"</string>
+    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"പുതിയ കുറുക്കുവഴി സജ്ജമാക്കാൻ കീ കോമ്പിനേഷൻ അമർത്തുക. ഇതിൽ ALT അല്ലെങ്കിൽ Control കീയെങ്കിലും ഉണ്ടായിരിക്കണം."</string>
+    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"കുറുക്കുവഴി ബട്ടൺ മായ്‌ക്കുക"</string>
+    <string name="keycombo_unassigned" msgid="5817151372114230015">"നൽകിയിട്ടില്ല"</string>
+    <string name="override_keycombo" msgid="9043246837899844909">"കീ ഇതിനകം ഉപയോഗത്തിലുണ്ട്"</string>
+    <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"\'<xliff:g id="ID_1">%1$s</xliff:g>\' പ്രവർത്തനത്തിനായാണ് ഈ കീ കോമ്പിനേഷൻ ഉപയോഗിക്കുന്നത്. നിങ്ങൾക്കത് മായ്‌ച്ച് ഈ കുറുക്കുവഴി \'<xliff:g id="ID_2">%2$s</xliff:g>\' എന്നതിന് നിയുക്തമാക്കണോ?"</string>
+    <string name="title_pref_intonation" msgid="7375380428425494034">"പിച്ച് മാറ്റങ്ങൾ ഉപയോഗിക്കുക"</string>
+    <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"കീബോർഡ് എക്കോ"</string>
+    <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"താഴ്ന്ന പിച്ചിലുള്ള വോയ്‌സിൽ കീബോർഡ് ഫീഡ്ബാക്ക് സംസാരിക്കുക"</string>
+    <string name="summaryOff_pref_intonation" msgid="5187278527518557715">"സംഭാഷണത്തിനിടെ വോയ്‌സ് പിച്ച് മാറ്റരുത്"</string>
+    <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"മറ്റ് ഫീഡ്ബാക്ക്"</string>
+    <string name="title_pref_vibration" msgid="4156396276749836864">"വൈബ്രേഷൻ ഫീഡ്ബാക്ക്"</string>
+    <string name="title_pref_soundback" msgid="3131811048184077738">"ശബ്ദ ഫീഡ്ബാക്ക്"</string>
+    <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"സംഭാഷണ ഓഡിയോ ഫോക്കസ് ചെയ്യുക"</string>
+    <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"സംഭാഷണത്തിനിടെ മറ്റ് ഓഡിയോ വോളിയം കുറയ്ക്കുക"</string>
+    <string name="title_pref_soundback_volume" msgid="8633886470832131926">"ശബ്ദ വോളിയം"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Talkback താൽക്കാലികമായി നിർത്തുകയും കുറുക്കുവഴി പുനരാരംഭിക്കുകയും ചെയ്യുക"</string>
+    <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"പലവക"</string>
+    <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"ഡവലപ്പർ ക്രമീകരണങ്ങൾ"</string>
+    <string name="title_pref_log_level" msgid="267415170405921603">"ലോഗ് ഔട്ട്പുട്ട് നില"</string>
+    <string name="title_pref_tts_overlay" msgid="4448445593132620627">"സംഭാഷണ ഔട്ട്പുട്ട് ദൃശ്യമാക്കുക"</string>
+    <string name="title_pref_tree_debug" msgid="1525763448981997023">"നോഡ് ട്രീ ഡീബഗ്ഗിംഗ് സജീവമാക്കൂ"</string>
+    <string name="title_pref_web_scripts" msgid="3016793641076890473">"വെബ് പ്രവേശനക്ഷമത മെച്ചപ്പെടുത്തുക"</string>
+    <string name="summary_pref_web_scripts" msgid="3996491708050765411">"വെബ് ഉള്ളടക്കത്തിനായി പ്രവേശനക്ഷമത സ്ക്രി‌പ്‌റ്റുകൾ ഡൗൺലോഡുചെയ്യുക"</string>
+    <string name="title_pref_resume_talkback" msgid="4098949311311089235">"സസ്‌പെൻഡുചെയ്തതിൽ നിന്നും പുനരാരംഭിക്കൂ"</string>
+    <string name="screen_dimmed" msgid="8072279323762069231">"സ്‌ക്രീൻ മങ്ങി"</string>
+    <string name="screen_brightness_restored" msgid="378010604065368658">"സ്‌ക്രീൻ തെളിച്ചം പുനഃസ്ഥാപിച്ചു"</string>
+    <string name="screen_dimming_exit_instruction_line1" msgid="176693707001658416">"TalkBack പ്രവേശനക്ഷമത സേവനം, സ്‌ക്രീനിന്റെ തെളിച്ചം കുറച്ചു."</string>
+    <string name="screen_dimming_exit_instruction_line2" msgid="2111548310775079127">"വോളിയം കൂട്ടുക, കുറയ്‌ക്കുക കീകൾ ഒരുമിച്ച് മൂന്നുതവണ വേഗത്തിൽ അമർത്തിക്കൊണ്ട് പഴയപടിയാക്കുക."</string>
+    <string name="screen_dimming_exit_instruction_line3" msgid="7006494712728198438">"TalkBack ക്രമീകരണത്തിൽ നിന്ന് സ്‌ക്രീൻ തെളിച്ചം നിയന്ത്രിക്കാനാകും."</string>
+    <string name="axis_character" msgid="8528412412593489695">"പ്രതീകത്തിലൂടെ നാവിഗേറ്റുചെയ്യുക."</string>
+    <string name="axis_word" msgid="8823389407337076750">"പദത്തിലൂടെ നാവിഗേറ്റുചെയ്യുക."</string>
+    <string name="axis_sentence" msgid="4398740201672273541">"വാക്യത്തിലൂടെ നാവിഗേറ്റുചെയ്യുക."</string>
+    <string name="axis_heading" msgid="8829265824683632088">"തലക്കെട്ടിലൂടെ നാവിഗേറ്റുചെയ്യുക."</string>
+    <string name="axis_sibling" msgid="3267377527761217139">"സിബ്ലിംഗിലൂടെ നാവിഗേറ്റുചെയ്യുക."</string>
+    <string name="axis_document" msgid="8037283796488966887">"പ്രമാണത്തിലൂടെ നാവിഗേറ്റുചെയ്യുക."</string>
+    <string name="axis_default_web_view_behavior" msgid="816142869754118685">"സ്ഥിര വെബ് കാഴ്ച പ്രവർത്തനരീതിയിലൂടെ നാവിഗേറ്റുചെയ്യുക."</string>
+    <string name="granularity_default" msgid="4948042687369948597">"സ്ഥിരസ്ഥിതി"</string>
+    <string name="granularity_character" msgid="2036726841460203840">"പ്രതീകങ്ങള്‍‌"</string>
+    <string name="granularity_word" msgid="2653776823920279013">"വാക്കുകൾ"</string>
+    <string name="granularity_line" msgid="727359260064093782">"ലൈനുകൾ"</string>
+    <string name="granularity_paragraph" msgid="3760401274833105422">"ഖണ്ഡികകൾ"</string>
+    <string name="granularity_page" msgid="2739238666516816581">"പേജുകൾ"</string>
+    <string name="granularity_web_section" msgid="496466197528091152">"വിഭാഗ നാവിഗേഷൻ"</string>
+    <string name="granularity_web_list" msgid="8598575022728013551">"ലിസ്റ്റ് നാവിഗേഷൻ"</string>
+    <string name="granularity_web_control" msgid="5346924945146680639">"നാവിഗേഷൻ നിയന്ത്രിക്കുക"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"പ്രത്യേക ഉള്ളടക്ക നാവിഗേഷൻ"</string>
+    <string name="orientation_portrait" msgid="7714435567541027105">"പോർട്രെയ്‌റ്റ്"</string>
+    <string name="orientation_landscape" msgid="2204457920803882766">"ലാൻഡ്‌സ്‌കേപ്പ്"</string>
+    <string name="shortcut_unassigned" msgid="1803159459924262469">"നൽകിയിട്ടില്ല"</string>
+    <string name="shortcut_next" msgid="6887743145853506373">"അടുത്ത ഇനം"</string>
+    <string name="shortcut_previous" msgid="3679790113454394245">"മുമ്പത്തെ ഇനം"</string>
+    <string name="shortcut_scroll_forward" msgid="7299589176359902775">"മുമ്പിലേക്ക് സ്‌ക്രോൾ ചെയ്യുക"</string>
+    <string name="shortcut_scroll_back" msgid="1025337926618449476">"പുറകിലേക്ക് സ്‌ക്രോൾ ചെയ്യുക"</string>
+    <string name="shortcut_back" msgid="2558372839282319745">"മടങ്ങുക ബട്ടൺ"</string>
+    <string name="shortcut_home" msgid="6670249804418900175">"ഹോം ബട്ടൺ"</string>
+    <string name="shortcut_overview" msgid="3649651004283936027">"ചുരുക്കവിവരണ ബട്ടൺ"</string>
+    <string name="shortcut_notifications" msgid="5291839248233515759">"അറിയിപ്പുകൾ തുറക്കുക"</string>
+    <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"ഗ്ലോബൽ സന്ദർഭ മെനു തുറക്കുക"</string>
+    <string name="shortcut_local_breakout" msgid="8164203174881196072">"പ്രാദേശിക സന്ദർഭ മെനു തുറക്കുക"</string>
+    <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"അവസാന ഉച്ചാരണം ആവർത്തിക്കുക"</string>
+    <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"അവസാന ഉച്ചാരണം അക്ഷരാനുസൃതം പറയുക"</string>
+    <string name="shortcut_pause_feedback" msgid="1412613174540942399">"ഫീഡ്ബാക്ക് താൽക്കാലികമായി നിർത്തുക"</string>
+    <string name="shortcut_read_from_top" msgid="6031418895933550221">"മുകളിൽ നിന്നും വായിക്കുക"</string>
+    <string name="shortcut_read_from_current" msgid="5769337869539736463">"അടുത്ത ഇനത്തിൽ നിന്നും വായിക്കുക"</string>
+    <string name="shortcut_print_node_tree" msgid="7570974794642091616">"നോഡ് ട്രീ പ്രിന്റുചെയ്യുക"</string>
+    <string name="shortcut_next_granularity" msgid="5058063575500265017">"അടുത്ത നാവിഗേഷൻ ക്രമീകരണം"</string>
+    <string name="shortcut_previous_granularity" msgid="5483850878839529117">"മുമ്പത്തെ നാവിഗേഷൻ ക്രമീകരണം"</string>
+    <string name="shortcut_first_in_screen" msgid="4549343120881649603">"സ്‌ക്രീനിലെ ആദ്യത്തെ ഇനത്തിൽ കേന്ദ്രീകരിക്കുക"</string>
+    <string name="shortcut_last_in_screen" msgid="1584183195221110323">"സ്‌ക്രീനിലെ അവസാനത്തെ ഇനത്തിൽ കേന്ദ്രീകരിക്കുക"</string>
+    <string name="local_context_menu_title" msgid="6672321005470828526">"പ്രാദേശിക സന്ദർഭ മെനു"</string>
+    <string name="global_context_menu_title" msgid="2580664964591545065">"ഗ്ലോബൽ സന്ദർഭ മെനു"</string>
+    <string name="title_local_breakout_no_items" msgid="5016265453627241456">"മെനു ഇനങ്ങൾ ഒന്നുമില്ല."</string>
+    <string name="title_web_breakout_next_section" msgid="7355139595269361571">"അടുത്ത വിഭാഗം"</string>
+    <string name="title_web_breakout_next_list" msgid="801337905459445939">"അടുത്ത ലിസ്‌റ്റ്"</string>
+    <string name="title_web_breakout_next_control" msgid="7663977538463352430">"അടുത്ത നിയന്ത്രണം"</string>
+    <string name="title_web_breakout_prev_section" msgid="1738336598629616234">"മുമ്പത്തെ വിഭാഗം"</string>
+    <string name="title_web_breakout_prev_list" msgid="744039532529277819">"മുമ്പത്തെ ലിസ്‌റ്റ്"</string>
+    <string name="title_web_breakout_prev_control" msgid="2637721101068457234">"മുമ്പത്തെ നിയന്ത്രണം"</string>
+    <string name="title_edittext_controls" msgid="2102286116390895883">"കഴ്‌സർ നിയന്ത്രണം"</string>
+    <string name="title_edittext_breakout_move_to_beginning" msgid="4021304144865258223">"ആരംഭത്തിലേയ്‌ക്ക് കഴ്സർ നീക്കുക"</string>
+    <string name="title_edittext_breakout_move_to_end" msgid="3197737555808584828">"അവസാനത്തിലേയ്‌ക്ക് കഴ്‌സർ നീക്കുക"</string>
+    <string name="title_edittext_breakout_start_selection_mode" msgid="4183196270306568761">"തിരഞ്ഞെടുക്കൽ മോഡ് ആരംഭിക്കുക"</string>
+    <string name="title_edittext_breakout_end_selection_mode" msgid="55211944889868460">"തിരഞ്ഞെടുക്കൽ മോഡ് അവസാനിപ്പിക്കുക"</string>
+    <string name="title_viewpager_controls" msgid="3775818290312516095">"പേജ് നാവിഗേഷൻ"</string>
+    <string name="title_viewpager_breakout_next_page" msgid="6936782185806198910">"അടുത്ത പേജ്"</string>
+    <string name="title_viewpager_breakout_prev_page" msgid="1352284456691236167">"മുന്‍ പേജ്"</string>
+    <string name="title_labeling_controls" msgid="5005702316138877183">"ലേബലുകൾ"</string>
+    <string name="title_summary" msgid="3037924006370977165">"ദ്രുത നാവിഗേഷൻ"</string>
+    <string name="title_granularity" msgid="399801096771904747">"നാവിഗേഷൻ ക്രമീകരണം"</string>
+    <string name="title_custom_action" msgid="7908169922901920318">"ഇഷ്‌ടാനുസൃത പ്രവർത്തനങ്ങൾ"</string>
+    <string name="value_direction_up" msgid="1646290331150992975">"മുകളിലേയ്‌ക്ക്"</string>
+    <string name="value_direction_down" msgid="8072362433982733982">"താഴേയ്‌ക്ക്"</string>
+    <string name="value_direction_left" msgid="676932617445677488">"ഇടത്തേക്ക്"</string>
+    <string name="value_direction_right" msgid="3555261520059818184">"വലത്തേക്ക്"</string>
+    <string name="value_direction_up_and_down" msgid="3964398023350956969">"മുകളിലോട്ടും പിന്നീട് താഴോട്ടും"</string>
+    <string name="value_direction_down_and_up" msgid="8751291630548709587">"താഴേയ്‌ക്കും പിന്നെ മുകളിലേയ്‌ക്കും"</string>
+    <string name="value_direction_right_and_left" msgid="8982138891493120929">"വലത്തേയ്‌ക്കും പിന്നീട് ഇടത്തേയ്‌ക്കും"</string>
+    <string name="value_direction_left_and_right" msgid="5700946272615649006">"ഇടത്തേക്കും പിന്നീട് വലത്തേയ്‌ക്കും"</string>
+    <string name="value_direction_down_and_left" msgid="8554316039693996323">"താഴേക്ക് പിന്നീട് ഇടത്തേയ്ക്ക്"</string>
+    <string name="value_direction_down_and_right" msgid="7001881662779097616">"താഴേയ്ക്ക് പിന്നീട് വലത്തേയ്ക്ക്"</string>
+    <string name="value_direction_up_and_left" msgid="2880257670663743521">"മുകളിലേയ്ക്ക് പിന്നീട് ഇടത്തേയ്ക്ക്"</string>
+    <string name="value_direction_up_and_right" msgid="1769623264993139598">"മുകളിലേയ്ക്ക് പിന്നീട് വലത്തേയ്ക്ക്"</string>
+    <string name="value_direction_right_and_down" msgid="3939890273004054796">"വലത്തേയ്ക്ക് പിന്നീട് താഴേയ്ക്ക്"</string>
+    <string name="value_direction_right_and_up" msgid="9165127187203257982">"വലത്തേയ്ക്ക് പിന്നീട് മുകളിലേയ്ക്ക്"</string>
+    <string name="value_direction_left_and_down" msgid="7803183066938070433">"ഇടത്തേയ്ക്ക് പിന്നീട് താഴേയ്ക്ക്"</string>
+    <string name="value_direction_left_and_up" msgid="1953824696291100833">"ഇടത്തേയ്ക്ക് പിന്നീട് മുകളിലേയ്ക്ക്"</string>
+    <string name="title_pref_shortcut_up" msgid="464026441232788284">"മുകളിലോട്ട് സ്വൈപ്പുചെയ്യുക"</string>
+    <string name="title_pref_shortcut_down" msgid="7510938211617979299">"താഴോട്ട് സ്വൈപ്പുചെയ്യുക"</string>
+    <string name="title_pref_shortcut_left" msgid="1294673470106169765">"ഇടത്തേയ്‌ക്ക് സ്വൈപ്പുചെയ്യുക"</string>
+    <string name="title_pref_shortcut_right" msgid="2563651710870983074">"വലത്തേക്ക് സ്വൈപ്പുചെയ്യുക"</string>
+    <string name="title_pref_shortcut_up_and_down" msgid="7970635117146596582">"മുകളിലേക്ക് പിന്നെ താഴേക്ക് സ്വൈപ്പുചെയ്യൂ"</string>
+    <string name="title_pref_shortcut_down_and_up" msgid="862181907993343425">"താഴേക്ക് പിന്നെ മുകളിലേക്ക് സ്വൈപ്പുചെയ്യൂ"</string>
+    <string name="title_pref_shortcut_left_and_right" msgid="320138621029568357">"ഇടത്തേക്കും പിന്നീട് വലത്തേയ്‌ക്കും സ്വൈപ്പുചെയ്യുക"</string>
+    <string name="title_pref_shortcut_right_and_left" msgid="1184543975336584677">"വലത്തേയ്‌ക്കും പിന്നീട് ഇടത്തേയ്‌ക്കും സ്വൈപ്പുചെയ്യുക"</string>
+    <string name="title_pref_shortcut_down_and_left" msgid="6249716604721789627">"താഴേക്ക് പിന്നെ ഇടത്തേക്ക് സ്വൈപ്പുചെയ്യൂ"</string>
+    <string name="title_pref_shortcut_down_and_right" msgid="7683422992972248031">"താഴേക്ക് പിന്നെ വലത്തേക്ക് സ്വൈപ്പുചെയ്യൂ"</string>
+    <string name="title_pref_shortcut_up_and_left" msgid="6548364994546979158">"മുകളിലേക്കും പിന്നെ ഇടത്തേയ്ക്കും സ്വൈപ്പുചെയ്യൂ"</string>
+    <string name="title_pref_shortcut_up_and_right" msgid="8856595421274730440">"മുകളിലേയ്ക്കും പിന്നെ വലത്തേയ്ക്കും സ്വൈപ്പുചെയ്യൂ"</string>
+    <string name="title_pref_shortcut_right_and_down" msgid="4893018634563250104">"വലത്തേക്ക് പിന്നെ താഴേക്ക് സ്വൈപ്പുചെയ്യൂ"</string>
+    <string name="title_pref_shortcut_right_and_up" msgid="6848971895903777166">"വലത്തേക്ക് പിന്നെ മുകളിലേക്ക് സ്വൈപ്പുചെയ്യൂ"</string>
+    <string name="title_pref_shortcut_left_and_down" msgid="2899217574677150730">"ഇടത്തേക്ക് പിന്നെ താഴേക്ക് സ്വൈപ്പുചെയ്യൂ"</string>
+    <string name="title_pref_shortcut_left_and_up" msgid="369887751217245542">"ഇടത്തേയ്ക്കും പിന്നെ മുകളിലേക്കും സ്വൈപ്പുചെയ്യൂ"</string>
+    <string name="title_pref_shortcut_single_tap" msgid="7220195169492947031">"ഒരുവശത്തുള്ള ടാപ്പ്"</string>
+    <string name="title_pref_shortcut_double_tap" msgid="4454853121476703529">"രണ്ടുവശത്തുള്ള ടാപ്പ്"</string>
+    <string name="title_pref_tap_sensitivity" msgid="3737945934603267137">"ടാപ്പ് ഡിറ്റക്‌ടർ സംവേദനക്ഷമത"</string>
+    <string name="tap_sensitivity_high" msgid="7563462166661082029">"ഉയർന്നത്"</string>
+    <string name="tap_sensitivity_medium" msgid="5512827926666078515">"ഇടത്തരം"</string>
+    <string name="tap_sensitivity_low" msgid="6514475998218787336">"കുറഞ്ഞത്"</string>
+    <string name="tap_sensitivity_lowest" msgid="1137618443590383650">"ഏറ്റവും കുറഞ്ഞത്"</string>
+    <string name="title_pref_two_part_vertical_gestures" msgid="2306010395434853106">"രണ്ട് ഭാഗമായി ലംബമായുള്ള സവിശേഷതകൾ"</string>
+    <string name="value_volume_100_percent" formatted="false" msgid="1925212291067338164">"മീഡിയ വോളിയം അനുയോജ്യമാക്കുക"</string>
+    <string name="value_volume_75_percent" formatted="false" msgid="4112643575612833142">"മീഡിയ വോളിയത്തിന്റെ 75%"</string>
+    <string name="value_volume_50_percent" formatted="false" msgid="571313670701581653">"മീഡിയ വോളിയത്തിന്റെ 50%"</string>
+    <string name="value_volume_25_percent" formatted="false" msgid="7765340636472447035">"മീഡിയ വോളിയത്തിന്റെ 25%"</string>
+    <string name="value_resume_screen_on" msgid="2104101584116309597">"സ്ക്രീൻ ഓണാക്കുമ്പോൾ"</string>
+    <string name="value_resume_keyguard" msgid="2780570849205482994">"ലോക്ക് സ്‌ക്രീൻ കാണിക്കുമ്പോൾ"</string>
+    <string name="value_resume_manual" msgid="615523100721295547">"അറിയിപ്പിൽ നിന്ന് മാത്രം"</string>
+    <string name="value_shake_to_read_disabled" msgid="33115748930768552">"പ്രവർത്തനരഹിതമാക്കി"</string>
+    <string name="value_shake_to_read_threshold_very_light" msgid="2767872234193772050">"വളരെ ലളിതമായത്"</string>
+    <string name="value_shake_to_read_threshold_light" msgid="6122029921067500618">"ലളിതമായത്"</string>
+    <string name="value_shake_to_read_threshold_medium" msgid="8892692566516131981">"ഇടത്തരം"</string>
+    <string name="value_shake_to_read_threshold_hard" msgid="7661843662865960874">"കഠിനമായത്"</string>
+    <string name="value_shake_to_read_threshold_very_hard" msgid="3423392173494851854">"വളരെ കഠിനമായത്"</string>
+    <string name="value_keyboard_echo_always" msgid="6889426165608387394">"ടൈപ്പുചെയ്ത കീകൾ എല്ലായ്‌പ്പോഴും പറയുക"</string>
+    <string name="value_keyboard_echo_softkeys" msgid="1595001302535254665">"ഓൺ സ്ക്രീൻ കീബോർഡിനായി മാത്രം"</string>
+    <string name="value_keyboard_echo_never" msgid="7181327459690946870">"ടൈപ്പുചെയ്ത കീകൾ ഒരിക്കലും പറയരുത്"</string>
+    <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"TalkBack സവിശേഷതകൾ മാറ്റി"</string>
+    <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"പ്രവേശനക്ഷമത സവിശേഷതകളിലെ മാറ്റങ്ങൾ അവലോകനം ചെയ്യുന്നതിന് ടാപ്പുചെയ്യുക"</string>
+    <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack താൽക്കാലികമായി പ്രവർത്തനരഹിതമാക്കി"</string>
+    <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"പുനരാരംഭിക്കുന്നതിന് ടാപ്പുചെയ്യുക."</string>
+    <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"TalkBack താൽക്കാലികമായി പ്രവർത്തനരഹിതമാക്കണോ?"</string>
+    <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"നിങ്ങൾക്ക് ഉറപ്പാണോ? നിങ്ങളുടെ ഉപകരണം ഫീഡ്‌ബാക്ക് നൽകുന്നതല്ല ഒപ്പം \'സ്‌പർശനം ഉപയോഗിച്ച് പര്യവേക്ഷണം ചെയ്യുക\' പ്രവർത്തനരഹിതമാക്കുക. ലോക്ക്‌സ്‌ക്രീനിലേക്ക് മടങ്ങിയോ വോളിയം കീ കുറുക്കുവഴി വഴിയോ അറിയിപ്പുകളിൽ നിന്ന് നിങ്ങൾക്ക് TalkBack പുനരാരംഭിക്കാനാകും."</string>
+    <string name="message_resume_manual" msgid="6522293510722570646">"അറിയിപ്പുകളുടെ ഷെയ്‌ഡിൽ നിന്ന് നിങ്ങൾക്ക് TalkBack പുനരാരംഭിക്കാം."</string>
+    <string name="message_resume_screen_on" msgid="9016720947126938212">"അറിയിപ്പുകളുടെ ഷെയ്‌ഡിൽ നിന്നോ സ്‌ക്രീൻ ഓണാക്കുന്നതിലൂടെയോ നിങ്ങൾക്ക് TalkBack പുനരാരംഭിക്കാം."</string>
+    <string name="message_resume_keyguard" msgid="6721228114050709276">"അറിയിപ്പുകളുടെ ഷെയ്‌ഡിൽ നിന്നോ ലോക്ക് സ്ക്രീനിലേയ്ക്ക് മടങ്ങുന്നതിലൂടെയോ നിങ്ങൾക്ക് TalkBack പുനരാരംഭിക്കാം."</string>
+    <string name="show_suspend_warning_label" msgid="3193206799395252518">"ഈ മുന്നറിയിപ്പ് എപ്പോഴും കാണിക്കുക"</string>
+    <string name="cannot_add_label" msgid="2754406023113433479">"ഈ ഇനം ലേബൽ ചെയ്യാനാകില്ല."</string>
+    <string name="label_dialog_title_add" msgid="1255044087558866043">"ലേബൽ ചേർക്കുക"</string>
+    <string name="label_dialog_title_edit" msgid="7914376979667771585">"ലേബൽ എഡിറ്റുചെയ്യുക"</string>
+    <string name="label_dialog_title_remove" msgid="1791163736307626930">"ലേബൽ നീക്കംചെയ്യുക"</string>
+    <string name="label_dialog_text" msgid="5879506218245648848">"ചുവടെയുള്ള ഫീൽഡിൽ ഈ ചിത്രത്തിന് ഉപയോഗിക്കേണ്ട ടെക്സ്റ്റ് നൽകുക."</string>
+    <string name="label_remove_dialog_text" msgid="372916461303485723">"\"<xliff:g id="LABEL">%1$s</xliff:g>\" എന്ന ലേബൽ നീക്കംചെയ്യണമെന്നത് തീർച്ചയാണോ?"</string>
+    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"<xliff:g id="APP_NAME">%2$s</xliff:g> എന്നതിലുള്ള \"<xliff:g id="LABEL">%1$s</xliff:g>\" ലേബൽ നീക്കംചെയ്യണമെന്ന് തീർച്ചയാണോ?"</string>
+    <string name="label_dialog_edit_hint" msgid="4342585248215824717">"ടെക്സ്‌റ്റ് ലേബൽ ചെയ്യുക"</string>
+    <string name="talkback_gesture_change_details" msgid="1242896734553682887">"TalkBack-ന്റെ ഈ പതിപ്പിൽ, സ്ഥിര പ്രവേശനക്ഷമത സവിശേഷതകളിലെ മാറ്റങ്ങൾ ഉൾപ്പെടുന്നു. ഈ സവിശേഷതകളുമായി ബന്ധപ്പെടുത്തിയ പ്രവർത്തനങ്ങൾ TalkBack ക്രമീകരണങ്ങളിൽ ഇഷ്‌ടാനുസൃതമാക്കാനാവും. \'ടച്ച് വഴി അടുത്തറിയുക\' പ്രവർത്തനക്ഷമമാക്കുമ്പോൾ, ചില പ്രവർത്തനങ്ങൾ നടത്തുന്നതിന് ഇനിപ്പറയുന്ന സവിശേഷതകൾ നിങ്ങൾക്ക് ഉപയോഗിക്കാനാകും.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
+    <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"വോളിയം കൂട്ടുക, കുറയ്‌ക്കുക കീകൾ ദീർഘനേരം അമർത്തുക"</string>
+    <string name="dialog_title_dim_screen" msgid="603850602120147151">"സ്‌ക്രീനിന്റെ തെളിച്ചം കുറയ്‌ക്കണോ?"</string>
+    <string name="dialog_message_dim_screen" msgid="7595558180210850775">"സ്‌ക്രീനിന്റെ തെളിച്ചം കുറക്കണമെന്ന് തീർച്ചയാണോ?"</string>
+    <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"TalkBack-ന്റെ ഈ പതിപ്പിൽ, സ്ഥിര പ്രവേശനക്ഷമത സവിശേഷതകളിലെ മാറ്റങ്ങൾ ഉൾപ്പെടുന്നു.\n\nസ്ക്രീനിലെ ആദ്യ ഇനത്തിലേക്ക് നീക്കുന്നതിന് \'മുകളിലേയ്ക്ക്-പിന്നീട്-താഴേക്ക്\' സവിശേഷത നിങ്ങളെ അനുവദിയ്ക്കും, \'താഴേക്ക്-പിന്നീട്-മുകളിലേയ്ക്ക്\' സവിശേഷത അവസാന ഇനത്തിലേക്ക് നീക്കും.\n\nഒരു ഇനം ഫോക്കസുചെയ്‌ത് പ്രാദേശിക സന്ദർഭ മെനുവിൽ നിന്നും ഒരു ഗ്രാനുലാരിറ്റി തിരഞ്ഞെടുക്കുന്നതിലൂടെ ഇപ്പോൾ വായനാ ഗ്രാനുലാരിറ്റി മാറ്റാനാകും.\n\nTalkBack ക്രമീകരണത്തിൽ ഈ സവിശേഷതകൾ നടത്തുന്ന പ്രവർത്തനങ്ങൾ നിങ്ങൾക്ക് മാറ്റാനാകും."</string>
+    <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"സവിശേഷതകൾ അംഗീകരിക്കുക"</string>
+    <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"സവിശേഷതകൾ ഇഷ്‌ടാനുസൃതമാക്കുക"</string>
+    <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"\'ടച്ച് വഴി അടുത്തറിയുന്നത്\' പ്രവർത്തനരഹിതമാക്കണോ?"</string>
+    <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"\'ടച്ച് വഴി അടുത്തറിയുന്നത്\' ഓഫുചെയ്യണമെന്ന് തീർച്ചയാണോ?\n\nസ്‌ക്രീനിൽ സ്‌പർശിക്കുമ്പോൾ, നിങ്ങളുടെ ഉപകരണം കുറുക്കുവഴി സവിശേഷതകളോടോ സംഭാഷണ ഇനങ്ങളോടോ ഇനി പ്രതികരിക്കില്ല."</string>
+    <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"നോഡ് ട്രീ ഡീബഗ്ഗിംഗ് സജീവമാക്കണോ?"</string>
+    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"നോഡ് ട്രീ ഡീബഗ്ഗിംഗ് ഓണാക്കണമെന്ന് തീർച്ചയാണോ?\n\nനോഡ് ട്രീ ഡീബഗ്ഗിംഗ്, സ്ക്രീനിന്റെ ഉള്ളടക്കം മറ്റ് അപ്ലിക്കേഷനുകൾ റീഡ് ചെയ്യാനിടയുള്ള നിങ്ങളുടെ ഉപകരണത്തിന്റെ ലോഗുകളിൽ ദൃശ്യമാക്കുന്നു."</string>
+    <string name="hint_script_injection" msgid="6139951755594105602">"വെബ് ഉള്ളടക്കത്തിൽ \'ടച്ച് വഴി അടുത്തറിയുന്നത്\' ലഭ്യമല്ല. വെബ് ഉള്ളടക്കം അടുത്തറിയാൻ, പ്രവേശനക്ഷമത ക്രമീകരണത്തിലെ <xliff:g id="PREFERENCE_NAME">%1$s</xliff:g> ഓൺ ചെയ്യുക."</string>
+    <string name="label_talkback_context_menu" msgid="6758073806811666684">"TalkBack ഗ്ലോബൽ സന്ദർഭ മെനു"</string>
+    <string name="permission_talkback_label" msgid="2235244838320678938">"TalkBack നിയന്ത്രിക്കുക"</string>
+    <string name="permission_talkback_desc" msgid="8320433482567759963">"സവിശേഷതകൾ TalkBack-ലേക്ക് അയച്ച് സംഭാഷണ ഫീഡ്ബാക്ക് പുനരാരംഭിക്കുന്നതിനുള്ള അനുമതി."</string>
+    <string name="permission_labeling_label" msgid="2956001661481169498">"TalkBack കസ്റ്റംലേബൽ നിയന്ത്രിക്കൂ"</string>
+    <string name="permission_labeling_desc" msgid="8065967887484901473">"TalkBack സംസാരിക്കുന്ന ഇഷ്‌ടാനുസൃത ലേബലുകൾ ആക്‌സസ്സുചെയ്യുന്നതിനും പരിഷ്‌ക്കരിയ്ക്കുന്നതിനും ഇല്ലാതാക്കുന്നതിനുമുള്ള അനുമതി."</string>
+    <string name="links" msgid="3448225474115458693">"ലിങ്കുകൾ"</string>
+    <string name="end_of_text" msgid="3595733062526019550">"അവസാനിപ്പിക്കുക"</string>
+    <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
+    <string name="row_index_template" msgid="4107789959609911947">"വരി <xliff:g id="ROW">%1$d</xliff:g>"</string>
+    <string name="column_index_template" msgid="258393957626754806">"നിര <xliff:g id="COL">%1$d</xliff:g>"</string>
+    <string name="heading_template" msgid="3585514481777782183">"തലക്കെട്ട്"</string>
+    <string name="item_index_template" msgid="71505978833721807">"ഇനം <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+</resources>

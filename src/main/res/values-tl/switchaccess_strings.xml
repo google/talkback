@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Paglipat ng Pag-access"</string>
+    <string name="switch_access_service_description" msgid="7316829370005579941">"Ang Paglipat ng Pag-access ay nagbibigay-daan sa iyong kontrolin ang iyong device gamit ang mga nako-configure na kumbinasyon ng key. Maaari mong ilipat ang focus sa mga naki-click na item at piliin ang mga ito."</string>
+    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"Auto Scan"</string>
+    <string name="title_pref_auto_scan" msgid="6856662972215508038">"I-enable ang Auto Scan"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"Delay ng Oras"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"Baliktarin ang Pag-auto Scan"</string>
+  <plurals name="auto_scan_time_delay_summary_format">
+    <item quantity="one" msgid="815853953952465870">"1 Segundo"</item>
+    <item quantity="other" msgid="1223387233862989964">"%.2f (na) Segundo"</item>
+  </plurals>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Paraan ng pag-ii-scan"</string>
+    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"Pag-ii-scan sa keyboard"</string>
+    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"Pag-ii-scan sa pagtingin"</string>
+    <string name="title_pref_category_key_mappings" msgid="463227090301036752">"Magtalaga ng Mga Key sa Mga Pagkilos"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"Magtalaga ng Mga Key para sa Pag-ii-scan"</string>
+    <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"Nakatalaga na ang key na \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' sa \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\'"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one" msgid="8372086689828893172">"%d key ang nakatalaga"</item>
+    <item quantity="other" msgid="2361393301173230834">"%d (na) key ang nakatalaga"</item>
+  </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"Switch %1$d ng Pag-scan sa Opsyon"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Susunod"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Nakaraan"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Pumili"</string>
+    <string name="action_name_long_click" msgid="5708679123666477849">"Pindutin nang Matagal"</string>
+    <string name="action_name_scroll_forward" msgid="6969788891937406270">"Mag-scroll Pasulong"</string>
+    <string name="action_name_scroll_backward" msgid="579045012327139100">"Mag-scroll Pabalik"</string>
+    <string name="context_menu_layout_description" msgid="330592638837220675">"Menu ng Konteksto"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENU"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Bumalik"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Home"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Pangkalahatang-ideya"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Mga Notification"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Mga Mabilisang Setting"</string>
+    <string name="scrollable_forward" msgid="6312908487874132401">"Mag-scroll Pasulong"</string>
+    <string name="scrollable_backward" msgid="5109861709058665917">"Mag-scroll Pabalik"</string>
+    <string name="switch_access_preferences_title" msgid="8339289604407443597">"Mga Kagustuhan sa Paglipat ng Pag-access"</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"Pumindot ng kumbinasyon ng key upang idagdag o alisin ito sa listahan"</string>
+    <string name="key_combo_preference_reset_button" msgid="766369207787941384">"I-clear ang Nakatalagang Key"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="2792530694141012295">"Walang Key na Nakatalaga"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Space"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
+    <string name="save" msgid="5398278773451196019">"I-save"</string>
+    <string name="title_pref_highlight_0" msgid="3039542597362059267">"Pag-highlight para sa pag-scan"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Pangunahing estilo ng pag-scan"</string>
+    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"Kulay ng highlight"</string>
+    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"Lapad ng highlight"</string>
+</resources>

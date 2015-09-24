@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+    <TextView android:id="@+id/key_combo_preference_instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:text="@string/key_combo_preference_instructions" />
+
+    <Button android:id="@+id/key_combo_preference_reset_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/key_combo_preference_reset_button" />
+
+    <ListView android:id="@+id/key_combo_preference_key_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+    </ListView>
+</LinearLayout>

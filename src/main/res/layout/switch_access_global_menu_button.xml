@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_with_menu_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center">
+
+    <Button style="@android:style/Widget.Material.Button"
+        tools:targetApi="21"
+        android:id="@+id/top_screen_menu_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text ="@string/option_scanning_menu_button"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:minHeight="0dp"
+        android:minWidth="0dp"/>
+</LinearLayout>
+

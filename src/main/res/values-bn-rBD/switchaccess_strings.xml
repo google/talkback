@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"অ্যাক্সেস পাল্টান"</string>
+    <string name="switch_access_service_description" msgid="7316829370005579941">"অ্যাক্সেস পাল্টানো আপনাকে কনফিগারযোগ্য কী সমন্বয় ব্যবহার করে আপনার ডিভাইস নিয়ন্ত্রণ করতে দেয়৷ ক্লিক করা যাবে এমন আইটেমগুলিতে আপনি ফোকাস সরিয়ে নিয়ে গিয়ে সেগুলি নির্বাচন করতে পারবেন৷"</string>
+    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"স্বয়ং স্ক্যান"</string>
+    <string name="title_pref_auto_scan" msgid="6856662972215508038">"স্বয়ং স্ক্যান সক্রিয় করুন"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"সময় বিলম্ব"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"বিপরীত স্বয়ংক্রিয় স্ক্যান"</string>
+  <plurals name="auto_scan_time_delay_summary_format">
+    <item quantity="one" msgid="815853953952465870">"১ সেকেন্ড"</item>
+    <item quantity="other" msgid="1223387233862989964">"%.2f সেকেন্ড"</item>
+  </plurals>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"স্ক্যান করার পদ্ধতি"</string>
+    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"কীবোর্ড স্ক্যানিং"</string>
+    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"দর্শন স্ক্যানিং"</string>
+    <string name="title_pref_category_key_mappings" msgid="463227090301036752">"অ্যাকশনের জন্য নির্দিষ্ট করা কীগুলি"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"স্ক্যান করার জন্য নির্দিষ্ট করা কীগুলি"</string>
+    <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' কী ইতিমধ্যেই \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' এ নির্দিষ্ট করা হয়েছে"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one" msgid="8372086689828893172">"%dটি কী নির্দিষ্ট করা হয়েছে"</item>
+    <item quantity="other" msgid="2361393301173230834">"%dটি কী নির্দিষ্ট করা হয়েছে"</item>
+  </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"বিকল্প স্ক্যান %1$d এ পাল্টান"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"পরবর্তী"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"পূর্ববর্তী"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"নির্বাচন করুন"</string>
+    <string name="action_name_long_click" msgid="5708679123666477849">"দীর্ঘ সময় ধরে চাপুন"</string>
+    <string name="action_name_scroll_forward" msgid="6969788891937406270">"সামনের দিকে স্ক্রোল করুন"</string>
+    <string name="action_name_scroll_backward" msgid="579045012327139100">"পিছনের দিকে স্ক্রোল করুন"</string>
+    <string name="context_menu_layout_description" msgid="330592638837220675">"বিষয়বস্তু মেনু"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"মেনু"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"ফিরুন"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"হোম"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"এক নজরে"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"বিজ্ঞপ্তিগুলি"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"দ্রুত সেটিংস"</string>
+    <string name="scrollable_forward" msgid="6312908487874132401">"সামনের দিকে স্ক্রোল করুন"</string>
+    <string name="scrollable_backward" msgid="5109861709058665917">"পিছনের দিকে স্ক্রোল করুন"</string>
+    <string name="switch_access_preferences_title" msgid="8339289604407443597">"অ্যাক্সেস পাল্টানোর পছন্দগুলি"</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"এটিকে যোগ করতে বা তালিকা থেকে সরাতে একটি কী সমন্বয় টিপুন"</string>
+    <string name="key_combo_preference_reset_button" msgid="766369207787941384">"কী হস্তান্তরণ সাফ করুন"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="2792530694141012295">"কোনো কী নির্দিষ্ট করা নেই"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Space"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
+    <string name="save" msgid="5398278773451196019">"সংরক্ষণ"</string>
+    <string name="title_pref_highlight_0" msgid="3039542597362059267">"স্ক্যান  করার জন্য হাইলাইটিং"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"প্রাথমিক স্ক্যান করার শৈলী"</string>
+    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"হাইলাইটের রঙ"</string>
+    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"হাইলাইটের ওজন"</string>
+</resources>

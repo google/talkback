@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Defines whether support for speaking text replacements is enabled.  Disabled for Korean. -->
+    <bool name="supports_text_replacement">false</bool>
+
+</resources>

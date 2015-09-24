@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array translatable="false" name="switch_access_highlight_color_pref_keys">
+        <item>@string/pref_highlight_0_color_key</item>
+        <item>@string/pref_highlight_1_color_key</item>
+        <item>@string/pref_highlight_2_color_key</item>
+        <item>@string/pref_highlight_3_color_key</item>
+        <item>@string/pref_highlight_4_color_key</item>
+    </string-array>
+
+    <string-array translatable="false" name="switch_access_highlight_color_defaults">
+        <item>@string/pref_highlight_0_color_default</item>
+        <item>@string/pref_highlight_1_color_default</item>
+        <item>@string/pref_highlight_2_color_default</item>
+        <item>@string/pref_highlight_3_color_default</item>
+        <item>@string/pref_highlight_4_color_default</item>
+    </string-array>
+
+    <!-- Colors used to highlight view for selection -->
+    <string-array translatable="true" name="switch_access_color_entries">
+        <!-- Green color for highlighting items to select -->
+        <item>Green</item>
+        <!-- Orange color for highlighting items to select -->
+        <item>Orange</item>
+        <!-- Red color for highlighting items to select -->
+        <item>Red</item>
+        <!-- Blue color for highlighting items to select -->
+        <item>Blue</item>
+        <!-- White color for highlighting items to select -->
+        <item>White</item>
+    </string-array>
+
+    <!-- Colors are rgb hex values -->
+    <string-array translatable="false" name="switch_access_color_values">
+        <item>@string/material_green_500</item>
+        <item>@string/material_orange_500</item>
+        <item>@string/material_red_500</item>
+        <item>@string/material_blue_500</item>
+        <item>@string/white</item>
+    </string-array>
+
+    <string-array translatable="false" name="switch_access_highlight_weight_pref_keys">
+        <item>@string/pref_highlight_0_weight_key</item>
+        <item>@string/pref_highlight_1_weight_key</item>
+        <item>@string/pref_highlight_2_weight_key</item>
+        <item>@string/pref_highlight_3_weight_key</item>
+        <item>@string/pref_highlight_4_weight_key</item>
+    </string-array>
+
+    <!-- Thicknesses of rectangles that highlight view for selection -->
+    <string-array translatable="true" name="switch_access_weight_entries">
+        <!-- Source: Solid line of thickness 4 dp to highlight items to select -->
+        <item>Thin solid line</item>
+        <!-- Source: Solid line of thickness 8 dp to highlight items to select -->
+        <item>Medium solid line</item>
+        <!-- Source: Solid line of thickness 16 dp to highlight items to select -->
+        <item>Thick solid line</item>
+    </string-array>
+
+    <!-- Weights are in dp -->
+    <string-array translatable="false" name="switch_access_weight_values">
+        <item translatable="false">@string/thickness_4_dp</item>
+        <item translatable="false">@string/thickness_8_dp</item>
+        <item translatable="false">@string/thickness_16_dp</item>
+    </string-array>
+
+    <!--
+        The scanning methods which specify the order in which the user wants the views to be
+        traversed/highlighted. So for example, if the user chooses row/column scanning, all the
+        views in a certain row are highlighted and scanning moves from the top row to the bottom
+        row. Once a row is selected, the views in that row are scanned one after the other in
+        a linear fashion.
+    -->
+    <string-array translatable="true" name="switch_access_scanning_methods_entries">
+        <!--
+            Linear scanning is a method that the user chooses to indicate how the views in a
+            window should be highlighted/traversed. In linear scanning the highlighting of views
+            moves from left to right, presenting one item at a time.
+
+            Row/Column scanning is a method that the user chooses to indicate how the views in a
+            window should be highlighted/traversed. In row/column scanning all the views in a
+            certain row are highlighted and scanning moves from the top row to the bottom row. Once
+            a row is selected, the views in that row are scanned one after the other.
+
+            This option uses row-column scanning for keyboards, but linear scanning the rest of
+            the time.
+         -->
+        <item>Row-column scan keyboards only</item>
+        <!--
+            See previous item for context. This choice uses row-column scanning everywhere
+         -->
+        <item>Row-column scan everything</item>
+        <!--
+            Option scanning is a method that the user chooses to indicate how the views in a
+            window should be highlighted/traversed. In option scanning the views are highlighted
+            in groups. The user presses a button to choose a group. The options in the selected
+            group are then divided into new groups. Eventually there's just one option that the
+            user chooses.
+         -->
+        <item>Option scanning</item>
+    </string-array>
+
+    <string-array translatable="false" name="switch_access_scanning_methods_values">
+        <item>@string/views_linear_ime_row_col_key</item>
+        <item>@string/row_col_scanning_key</item>
+        <item>@string/option_scanning_key</item>
+    </string-array>
+
+</resources>

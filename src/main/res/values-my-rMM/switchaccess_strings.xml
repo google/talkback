@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"အသုံးပြုမှု ပြောင်းမည်"</string>
+    <string name="switch_access_service_description" msgid="7316829370005579941">"Switch Access သည် သော့ချက် ပေါင်းချိတ်မှုများကို စီစဉ်ပေးခြင်းဖြင့် သင်၏ ကိရိယာကို ထိန်းချုပ်ခွင့် ပြုသည်။ သင်သည် အာရုံပြုမှုကို ကလစ်ရနိုင်သည့် အရာများဆီ ရွှေ့ပြောင်းလျက် ၎င်းတို့ကို ရွေးနိုင်ပါသည်။"</string>
+    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"အော်တို စကင်"</string>
+    <string name="title_pref_auto_scan" msgid="6856662972215508038">"အော်တို စကင် ခွင့်ပြုပါ"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"အချိန် နှောင့်နှေးမှု"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"အော်တို စကင်ကို နောက်ပြန်ပါ"</string>
+  <plurals name="auto_scan_time_delay_summary_format">
+    <item quantity="one" msgid="815853953952465870">"1 စက္ကန့်"</item>
+    <item quantity="other" msgid="1223387233862989964">"%.2f စက္ကန့်"</item>
+  </plurals>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"ဖြန့်ကျက်ရှာဖွေမှု နည်းလမ်း"</string>
+    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"ကီးဘုတ် ရှာဖွေနေပါသည်"</string>
+    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"မြင်ကွင်း ရှာဖွေနေသည်"</string>
+    <string name="title_pref_category_key_mappings" msgid="463227090301036752">"ဆောင်ရွက်ရန် ခလုတ်များ သတ်မှတ်ပါ"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"စစ်ဆေးရန်အတွက် သော့များသတ်မှတ်မည်"</string>
+    <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"ကီး \'\' <xliff:g id="KEY_NAME">%1$s</xliff:g> \'\' ကို \'\' <xliff:g id="ACTION_NAME">%2$s</xliff:g> \'\' အတွက် သတ်မှတ်ပေးထားပြီ"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one" msgid="8372086689828893172">"ကီး % d အတွက် တာဝန်သတ်မှတ်ပြီး"</item>
+    <item quantity="other" msgid="2361393301173230834">"ကီး % d အတွက် တာဝန်သတ်မှတ်ပြီး"</item>
+  </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"ရွေးချယ်နိုင်သည့် စစ်ဆေးမှုခလုတ် %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"ရှေသို့"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"ယခင်"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"ရွေးရန်"</string>
+    <string name="action_name_long_click" msgid="5708679123666477849">"ကြာအောင် နှိပ်ထားပါ"</string>
+    <string name="action_name_scroll_forward" msgid="6969788891937406270">"ရှေ့သို့ လှိမ့်သွားရန်"</string>
+    <string name="action_name_scroll_backward" msgid="579045012327139100">"နောက်သို့ လှိမ့်သွားရန်"</string>
+    <string name="context_menu_layout_description" msgid="330592638837220675">"ဆက်စပ် မီနူး"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"မီနျူး"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"နောက်သို့"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"ပင်မ"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"ခြုံငုံသုံးသပ်ချ"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"အကြောင်းကြားချက်များ"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"အမြန် ဆက်တင်များ"</string>
+    <string name="scrollable_forward" msgid="6312908487874132401">"ရှေ့သို့ လှိမ့်သွားရန်"</string>
+    <string name="scrollable_backward" msgid="5109861709058665917">"နောက်သို့ လှိမ့်သွားရန်"</string>
+    <string name="switch_access_preferences_title" msgid="8339289604407443597">"Switch Access ဦးစားပေးချက်များ"</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"စာရင်းထဲသို့ ထည့်ရန် သို့မဟုတ် ဖယ်ရှားရန် ကီးအတွဲကို နှိပ်ပါ"</string>
+    <string name="key_combo_preference_reset_button" msgid="766369207787941384">"Clear Key သတ်မှတ်ချက်"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="2792530694141012295">"ခလုတ် မသတ်မှတ်ထားပါ"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Space ခလုတ်"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter ခလုတ်"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab ခလုတ်"</string>
+    <string name="save" msgid="5398278773451196019">"Save ခလုတ်"</string>
+    <string name="title_pref_highlight_0" msgid="3039542597362059267">"ရှာဖွေရန်အတွက် အသုံးပြုသည့် သိသာထင်ရှားစေခြင်း"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"အဓိကစစ်ဆေးမှု စတိုင်"</string>
+    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"သိသာထင်ရှားစေရန် အရောင်"</string>
+    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"သိသာထင်ရှားစေရန် အလေးချိန်"</string>
+</resources>

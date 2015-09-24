@@ -1,0 +1,7 @@
+TalkBack uses gradle as build system.
+Here are commands to build, install and test the project from command line:
+1) Assemble debug and release apks: ./gradlew assemble
+2) Assemble only debug apk: ./gradlew assembleDebug
+3) Install debug apk on connected device: ./gradlew installDebug
+4) Run instrumentation tests: ./gradlew instrumentationTest
+5) Run robolectric tests: ./gradlew test

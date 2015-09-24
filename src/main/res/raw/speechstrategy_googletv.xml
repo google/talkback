@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <ss:speechstrategy
+      xmlns:ss="http://www.google.android.marvin.talkback.com/speechstrategy"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.google.android.marvin.talkback.com/speechstrategy ../../schema/speechstrategy.xsd">
+
+  <!-- TYPE_WINDOW_STATE_CHANGED -->
+
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <ss:packageName>android</ss:packageName>
+      <ss:className>com.android.internal.policy.impl.tv.ui.Screensaver$Ui</ss:className>
+    </ss:filter>
+    <ss:formatter>
+      <ss:template>@string/value_googletv_screen_saver</ss:template>
+    </ss:formatter>
+  </ss:rule>
+
+</ss:speechstrategy>

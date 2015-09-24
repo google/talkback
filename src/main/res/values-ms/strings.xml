@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="talkback_service_description" msgid="983212841294665356">"Apabila TalkBack dihidupkan, peranti anda menyediakan maklum balas bersuara untuk membantu pengguna yang buta dan mempunyai daya penglihatan rendah. Sebagai contoh, ia menggambarkan apa yang anda sentuh, pilih dan aktifkan."</string>
+    <string name="talkback_preferences_title" msgid="615685549632541311">"Tetapan TalkBack"</string>
+    <string name="label_manager_summary_title" msgid="6129629673621990309">"Urus Label Peribadi"</string>
+    <string name="label_manager_package_title" msgid="5518823554025145373">"Urus Label untuk <xliff:g id="APPLICATIONLABEL">%1$s</xliff:g>"</string>
+    <string name="label_manager_no_packages_message" msgid="2531887372542054600">"Tiada label peribadi pada masa ini. Anda boleh membuat label dengan menavigasi ke imej tidak berlabel dan kemudian tambahkan label dari Menu Konteks Setempat."</string>
+    <string name="label_manager_timestamp_text" msgid="5161359164826380670">"Terakhir diubah suai <xliff:g id="TIMESTAMP">%1$s</xliff:g>"</string>
+    <string name="notification_type_missed_call" msgid="4227042474220035667">"Panggilan tidak dijawab"</string>
+    <string name="notification_type_status_mute" msgid="575502984311443548">"Redam"</string>
+    <string name="notification_type_status_chat" msgid="6270641711377218448">"Sembang"</string>
+    <string name="notification_type_status_error" msgid="9106600515811868558">"Ralat"</string>
+    <string name="notification_type_status_more" msgid="3191659976249507098">"Lagi"</string>
+    <string name="notification_type_status_sdcard" msgid="2268627072134312579">"Kad SD"</string>
+    <string name="notification_type_status_sdcard_usb" msgid="410122674028987252">"USB kad SD"</string>
+    <string name="notification_status_sync" msgid="4919271166470257796">"Penyegerakan"</string>
+    <string name="notification_type_status_sync_noanim" msgid="7207653060078653323">"Penyegerakan"</string>
+    <string name="notification_type_status_voicemail" msgid="7888717277194798847">"Mel suara"</string>
+    <string name="template_current_tts_engine" msgid="2402080656466274253">"Menggunakan <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
+    <string name="template_menu" msgid="1721331413132447874">"<xliff:g id="TITLE">%1$s</xliff:g> menu"</string>
+    <string name="template_edit_box" msgid="8644462446565912356">"Edit kotak. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
+    <string name="template_alert_dialog_template" msgid="578525726030867650">"<xliff:g id="MESSAGE">%1$s</xliff:g> awasan"</string>
+    <string name="template_text_replaced" msgid="7412248329207268610">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> menggantikan <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
+    <string name="template_text_removed" msgid="515933675336971194">"<xliff:g id="TEXT">%1$s</xliff:g> dipadam"</string>
+    <string name="template_replaced_characters" msgid="5425385364820310962">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> aksara digantikan dengan <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> aksara"</string>
+    <string name="template_labeled_item" msgid="3704140260750999514">"<xliff:g id="ITEM">%1$s</xliff:g> untuk <xliff:g id="LABEL">%2$s</xliff:g>"</string>
+    <string name="template_long_clicked" msgid="915072513538350747">"Lama ditekan <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_button" msgid="6774709818484366257">"Butang <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_unlabeled_image_view" msgid="6539830337756717284">"Imej <xliff:g id="TITLE">%1$d</xliff:g>. Tidak berlabel"</string>
+    <string name="template_unlabeled_button" msgid="510330666175123037">"Butang <xliff:g id="TITLE">%1$d</xliff:g>. Tidak berlabel"</string>
+    <string name="template_seek_bar" msgid="8598603084443742698">"<xliff:g id="TITLE">%1$s</xliff:g> mencari kawalan."</string>
+    <string name="template_percent" msgid="8298434876867671403">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> peratus."</string>
+    <string name="value_gridview" msgid="9093738961981389981">"Grid"</string>
+    <string name="value_listview" msgid="3437715684913760710">"Senarai"</string>
+    <string name="value_tabwidget" msgid="5550633699198799743">"Bar tab"</string>
+    <string name="template_scroll_from_to_count" msgid="3686789962835061906">"Mempamerkan item <xliff:g id="FROM_INDEX">%1$d</xliff:g> ke <xliff:g id="TO_INDEX">%2$d</xliff:g> daripada <xliff:g id="TOTAL_COUNT">%3$d</xliff:g>."</string>
+    <string name="template_scroll_from_count" msgid="677594507054979865">"Mempamerkan item <xliff:g id="FROM_INDEX">%1$d</xliff:g> daripada <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>."</string>
+    <string name="template_spinner" msgid="3914981448273826697">"<xliff:g id="TITLE">%1$s</xliff:g> senarai lungsur turun."</string>
+    <string name="template_password_selected" msgid="7528235887386963927">"Aksara pilihan <xliff:g id="FROM_INDEX">%1$s</xliff:g> hingga <xliff:g id="TO_INDEX">%2$s</xliff:g>"</string>
+    <string name="template_capital_letter" msgid="9151240217884890264">"huruf besar <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
+    <string name="template_checkbox" msgid="5452847405394165465">"Kotak pilihan <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_radio_button" msgid="6220410400770793883">"Butang radio <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_switch" msgid="1615681613214625067">"<xliff:g id="TITLE">%1$s</xliff:g>, suis"</string>
+    <string name="value_password" msgid="52094746222829357">"kata laluan"</string>
+    <string name="value_sliding_drawer_opened" msgid="2149064620861446612">"Laci gelangsar dibuka"</string>
+    <string name="value_notification_shade_opened" msgid="3832526419695611670">"Bidai dibuka"</string>
+    <string name="value_options_menu_open" msgid="8668502811176292723">"Pilihan."</string>
+    <string name="value_text_cleared" msgid="3190458526844389854">"Teks telah dipadam bersih"</string>
+    <string name="value_text_removed" msgid="2700105425865376595">"dipadamkan"</string>
+    <string name="value_checked" msgid="5234989698372864892">"ditandakan"</string>
+    <string name="value_not_checked" msgid="193134740901545340">"tidak ditandakan"</string>
+    <string name="value_disabled" msgid="65077823320194685">"dilumpuhkan"</string>
+    <string name="value_double_tap" msgid="7829968646330038608">"Kelik dua kali"</string>
+    <string name="value_single_tap" msgid="6461432282985355533">"Ketik"</string>
+    <string name="template_hint_clickable" msgid="1687873106975426560">"<xliff:g id="ACTION">%1$s</xliff:g> untuk memilih."</string>
+    <string name="template_hint_long_clickable" msgid="4276746786982054368">"<xliff:g id="ACTION">%1$s</xliff:g> dan tahan untuk tekan lama."</string>
+    <string name="template_hint_checkable" msgid="6312875663486456665">"<xliff:g id="ACTION">%1$s</xliff:g> untuk menogol."</string>
+    <string name="template_hint_edit_text" msgid="4793267613633348902">"<xliff:g id="ACTION">%1$s</xliff:g> untuk memasukkan teks."</string>
+    <string name="template_hint_spinner" msgid="1320498935380159474">"<xliff:g id="ACTION">%1$s</xliff:g> untuk ubah."</string>
+    <string name="hint_radial_menu" msgid="3815241030009647972">"Sentuh skrin dan teroka dalam bulatan untuk mencari item, kemudian angkat untuk memilih."</string>
+    <string name="hint_summary_jog_dial" msgid="8205055415827657230">"Sentuh skrin dan teroka dalam bulatan untuk menavigasi kandungan pada skrin, kemudian angkat untuk memilih."</string>
+    <string name="value_ringer_vibrate" msgid="4632889587347385751">"Pendering bergetar."</string>
+    <string name="value_ringer_silent" msgid="672965424730167385">"Pendering senyap."</string>
+    <string name="value_screen_off" msgid="8705438751467344903">"Skrin dimatikan."</string>
+    <string name="value_device_unlocked" msgid="1424846510201818289">"Peranti dibuka kunci."</string>
+    <string name="title_pref_category_when_to_speak" msgid="9082038550046119493">"Pertuturan"</string>
+    <string name="title_pref_speech_volume" msgid="4013853601342391397">"Kelantangan pertuturan"</string>
+    <string name="title_pref_speak_screenoff" msgid="1278357255432372076">"Brckp bila skrin dimatikn"</string>
+    <string name="summaryOn_pref_speak_screenoff" msgid="8939554146179627909">"Pemberitahuan disebut apabila skrin dimatikan"</string>
+    <string name="summaryOff_pref_speak_screenoff" msgid="6148656407539902635">"Tiada pertuturan berlaku apabila skrin dimatikan"</string>
+    <string name="title_pref_caller_id" msgid="1414845059814636961">"Sebut ID Pemanggil"</string>
+    <string name="title_pref_proximity" msgid="4957940010293002852">"Gnakn penderia kehampiran"</string>
+    <string name="summaryOn_pref_proximity" msgid="9000886370261892995">"Pengesan tahap jejak menyenyapkan pertuturan"</string>
+    <string name="summaryOff_pref_proximity" msgid="3024213283254452034">"Pengesan tahap jarak tidak mengawal pertuturan"</string>
+    <string name="title_pref_explore_by_touch" msgid="4051040843081874790">"Jelajah dengan sentuhan"</string>
+    <string name="title_pref_auto_scroll" msgid="5676036153048224469">"Tatal senarai secara automatik"</string>
+    <string name="title_pref_category_touch_exploration" msgid="4152747299134842442">"Penjelajahan sentuhan"</string>
+    <string name="title_pref_single_tap" msgid="3053869870881145209">"Pemilihan satu ketikan"</string>
+    <string name="summary_pref_single_tap" msgid="3011671416541372042">"(Percubaan) Ketik pada item yang sedang difokus untuk memilih"</string>
+    <string name="title_pref_shake_to_read_threshold" msgid="544749941147543935">"Goncang untuk memulakan pembacaan berterusan"</string>
+    <string name="title_pref_category_manage_gestures" msgid="5457025819029526883">"Urus gerak isyarat"</string>
+    <string name="title_pref_manage_labels" msgid="593992209353672625">"Urus label peribadi"</string>
+    <string name="title_pref_category_touch_shortcuts" msgid="4220670726993962812">"Gerak isyarat pintasan"</string>
+    <string name="title_pref_category_built_in_gestures" msgid="1088371786802119419">"Gerak isyarat terbina dalam"</string>
+    <string name="title_pref_intonation" msgid="7762392438106753854">"Gunakan perubahan nada"</string>
+    <string name="title_pref_keyboard_echo" msgid="860353418869467119">"Gema papan kekunci"</string>
+    <string name="summaryOn_pref_intonation" msgid="9077400986652228237">"Cakap maklum balas papan kekunci dalam nada suara yang lebih rendah"</string>
+    <string name="summaryOff_pref_intonation" msgid="8702174746754615499">"Jangan ubah nada suara apabila bercakap"</string>
+    <string name="title_pref_category_feedback_settings" msgid="1245161004109313841">"Maklum balas lain"</string>
+    <string name="title_pref_vibration" msgid="3844312655168149890">"Maklum balas getaran"</string>
+    <string name="title_pref_soundback" msgid="4700299128916932277">"Maklum balas bunyi"</string>
+    <string name="title_pref_use_audio_focus" msgid="3377176622565829045">"Fokuskan audio pertuturan"</string>
+    <string name="summary_pref_use_audio_focus" msgid="6384160228414065955">"Kurangkan kelantangan audio lain semasa bercakap"</string>
+    <string name="title_pref_soundback_volume" msgid="7800640782909840723">"Kelantangan bunyi"</string>
+    <string name="title_pref_category_miscellaneous_settings" msgid="4300919879277841983">"Pelbagai"</string>
+    <string name="title_pref_category_developer_settings" msgid="6580150385309942699">"Tetapan pemaju"</string>
+    <string name="title_pref_log_level" msgid="1608733715034404715">"Tahap output log"</string>
+    <string name="title_pref_tts_overlay" msgid="7821227047722471620">"Paparkan output pertuturan"</string>
+    <string name="title_pref_web_scripts" msgid="4384237853588668209">"Tingkatkan kebolehaksesan web"</string>
+    <string name="summary_pref_web_scripts" msgid="5271359440699022407">"Muat turun skrip kebolehaksesan untuk kandungan web"</string>
+    <string name="title_pref_resume_talkback" msgid="7672596366500481032">"Disambung dari penangguhan"</string>
+    <string name="axis_character" msgid="5059604520074645703">"Navigasi mengikut aksara."</string>
+    <string name="axis_word" msgid="7745798763195184060">"Navigasi mengikut perkataan."</string>
+    <string name="axis_sentence" msgid="5569363499210008882">"Navigasi mengikut ayat."</string>
+    <string name="axis_heading" msgid="8928386537164255063">"Navigasi mengikut pengepala."</string>
+    <string name="axis_sibling" msgid="7260754205862306385">"Navigasi mengikut saudara."</string>
+    <string name="axis_document" msgid="1581988340856497809">"Navigasi mengikut dokumen."</string>
+    <string name="axis_default_web_view_behavior" msgid="4427026616802959980">"Navigasi mengikut kelakuan paparan web lalai."</string>
+    <string name="granularity_default" msgid="1492012550776943179">"Granulariti lalai"</string>
+    <string name="granularity_character" msgid="4193116470272754377">"Granulariti aksara"</string>
+    <string name="granularity_word" msgid="6605314874729471957">"Granulariti perkataan"</string>
+    <string name="granularity_line" msgid="1793187671583430921">"Granulariti garisan"</string>
+    <string name="granularity_paragraph" msgid="679117001255664930">"Granulariti perenggan"</string>
+    <string name="granularity_page" msgid="6606518772023711853">"Granulariti halaman"</string>
+    <string name="granularity_web_section" msgid="2970666819922742515">"Navigasi bahagian"</string>
+    <string name="granularity_web_list" msgid="2865126503773287493">"Navigasi senarai"</string>
+    <string name="granularity_web_control" msgid="8614337019107379031">"Navigasi kawalan"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="8235312346324504685">"Navigasi kandungan khas"</string>
+    <string name="orientation_portrait" msgid="5280362272647722922">"Potret"</string>
+    <string name="orientation_landscape" msgid="129313890178554132">"Landskap"</string>
+    <string name="shortcut_unassigned" msgid="8631675444401168361">"Tidak ditugaskan"</string>
+    <string name="shortcut_back" msgid="8404153155835310379">"Butang kembali"</string>
+    <string name="shortcut_home" msgid="3905505999818649470">"Butang laman utama"</string>
+    <string name="shortcut_notifications" msgid="7234767026975704922">"Buka pemberitahuan"</string>
+    <string name="shortcut_talkback_breakout" msgid="568168492542718040">"Buka menu konteks global"</string>
+    <string name="shortcut_local_breakout" msgid="6177140532797600317">"Buka menu konteks setempat"</string>
+    <string name="shortcut_repeat_last_utterance" msgid="2063136654845335137">"Ulang sebutan terakhir"</string>
+    <string name="shortcut_spell_last_utterance" msgid="106643257328883413">"Eja sebutan terakhir"</string>
+    <string name="shortcut_pause_feedback" msgid="1125364186583919621">"Jedakan maklum balas"</string>
+    <string name="shortcut_read_from_top" msgid="2022846874992888639">"Baca dari atas"</string>
+    <string name="shortcut_read_from_current" msgid="5207148703245353791">"Baca dari item seterusnya"</string>
+    <string name="title_local_breakout_no_items" msgid="1550674209206752498">"Tiada item menu."</string>
+    <string name="title_web_breakout_next_section" msgid="5988697179364261514">"Bahagian seterusnya"</string>
+    <string name="title_web_breakout_next_list" msgid="7718977609680126993">"Senarai seterusnya"</string>
+    <string name="title_web_breakout_next_control" msgid="2232647062212814971">"Kawalan seterusnya"</string>
+    <string name="title_web_breakout_prev_section" msgid="5962027293396650880">"Bahagian sebelumnya"</string>
+    <string name="title_web_breakout_prev_list" msgid="324873118848501053">"Senarai sebelumnya"</string>
+    <string name="title_web_breakout_prev_control" msgid="4941025100780529097">"Kawalan sebelumnya"</string>
+    <string name="title_edittext_controls" msgid="3244305133134056288">"Kawalan kursor"</string>
+    <string name="title_edittext_breakout_move_to_beginning" msgid="8890923524547821086">"Gerakkan kursor ke permulaan"</string>
+    <string name="title_edittext_breakout_move_to_end" msgid="2374451054202604999">"Gerakkan kursor ke hujung"</string>
+    <string name="title_edittext_breakout_start_selection_mode" msgid="7089324238012221820">"Mulakan mod pemilihan"</string>
+    <string name="title_edittext_breakout_end_selection_mode" msgid="4598173414473149328">"Tamatkan mod pemilihan"</string>
+    <string name="title_viewpager_controls" msgid="5445165716688066887">"Kawalan halaman"</string>
+    <string name="title_viewpager_breakout_next_page" msgid="8569901339110496653">"Halaman seterusnya"</string>
+    <string name="title_viewpager_breakout_prev_page" msgid="628828561164930528">"Halaman sebelumnya"</string>
+    <string name="title_labeling_controls" msgid="5329026809097946643">"Kawalan label"</string>
+    <string name="title_summary" msgid="1892383897326964505">"Navigasi pantas"</string>
+    <string name="title_granularity" msgid="8810561997342447201">"Ubah kebutiran"</string>
+    <string name="value_direction_down_and_left" msgid="1136254602001079211">"bawah kemudian kiri"</string>
+    <string name="value_direction_down_and_right" msgid="140660680925482349">"bawah kemudian kanan"</string>
+    <string name="value_direction_up_and_left" msgid="7249297190773068777">"atas kemudian kiri"</string>
+    <string name="value_direction_up_and_right" msgid="4554541402217255929">"atas kemudian kanan"</string>
+    <string name="value_direction_right_and_down" msgid="2454015754931124603">"kanan kemudian bawah"</string>
+    <string name="value_direction_right_and_up" msgid="3852212966335840721">"kanan kemudian atas"</string>
+    <string name="value_direction_left_and_down" msgid="4588058477082880034">"kiri kemudian bawah"</string>
+    <string name="value_direction_left_and_up" msgid="4226646383830488949">"kiri kemudian atas"</string>
+    <string name="title_pref_shortcut_down_and_left" msgid="5252410921504649704">"Leret ke bawah kemudian ke kiri"</string>
+    <string name="title_pref_shortcut_down_and_right" msgid="70468539039651273">"Leret ke bawah kemudian ke kanan"</string>
+    <string name="title_pref_shortcut_up_and_left" msgid="6488345551912922700">"Leret ke atas kemudian ke kiri"</string>
+    <string name="title_pref_shortcut_up_and_right" msgid="8936164693273303141">"Leret ke atas kemudian ke kanan"</string>
+    <string name="title_pref_shortcut_right_and_down" msgid="8367941430094918701">"Leret ke kanan kemudian ke bawah"</string>
+    <string name="title_pref_shortcut_right_and_up" msgid="3803984082758463130">"Leret ke kanan kemudian ke atas"</string>
+    <string name="title_pref_shortcut_left_and_down" msgid="7133444152727902323">"Leret ke kiri kemudian ke bawah"</string>
+    <string name="title_pref_shortcut_left_and_up" msgid="2432229113065295801">"Leret ke kiri kemudian ke atas"</string>
+    <string name="title_pref_two_part_vertical_gestures" msgid="3232021917181479854">"Gerak isyarat menegak dua bahagian"</string>
+    <string name="value_volume_100_percent" formatted="false" msgid="6676030754946177658">"Padankan kelantangan media"</string>
+    <string name="value_volume_75_percent" formatted="false" msgid="7578844180160160971">"75% daripada kelantangan media"</string>
+    <string name="value_volume_50_percent" formatted="false" msgid="2830571913174435107">"50% daripada kelantangan media"</string>
+    <string name="value_volume_25_percent" formatted="false" msgid="4441038207089946938">"25% daripada kelantangan media"</string>
+    <string name="value_resume_screen_on" msgid="578384141075489503">"Apabila skrin dihidupkan"</string>
+    <string name="value_resume_keyguard" msgid="8491148490485472512">"Apabila skrin kunci ditunjukkan"</string>
+    <string name="value_resume_manual" msgid="3579426418356648756">"Dari pemberitahuan sahaja"</string>
+    <string name="value_shake_to_read_disabled" msgid="7945430806615898289">"Dilumpuhkan"</string>
+    <string name="value_shake_to_read_threshold_very_light" msgid="8259101887571872418">"Sangat perlahan"</string>
+    <string name="value_shake_to_read_threshold_light" msgid="4580119834253168964">"Perlahan"</string>
+    <string name="value_shake_to_read_threshold_medium" msgid="2529807635899614805">"Sederhana"</string>
+    <string name="value_shake_to_read_threshold_hard" msgid="7069014518326801700">"Kuat"</string>
+    <string name="value_shake_to_read_threshold_very_hard" msgid="8601099072316359601">"Sangat kuat"</string>
+    <string name="value_keyboard_echo_always" msgid="6227871839200687680">"Sentiasa sebut kekunci yang ditaip"</string>
+    <string name="value_keyboard_echo_softkeys" msgid="6592352879887617590">"Hanya untuk papan kekunci pada skrin"</string>
+    <string name="value_keyboard_echo_never" msgid="7272733066649438914">"Jangan sekali-kali sebut kekunci yang ditaip"</string>
+    <string name="notification_title_talkback_gestures_changed" msgid="8384253637363301938">"Gerak isyarat TalkBack berubah"</string>
+    <string name="notification_message_talkback_gestures_changed" msgid="5639775622146513884">"Ketik untuk menyemak perubahan kepada gerak isyarat kebolehaksesan"</string>
+    <string name="notification_title_talkback_suspended" msgid="2185046615850691522">"TalkBack ditangguh"</string>
+    <string name="notification_message_talkback_suspended" msgid="3312683762001713772">"Ketik untuk menyambung semula."</string>
+    <string name="dialog_title_suspend_talkback" msgid="452536442417893349">"Tangguh TalkBack?"</string>
+    <string name="dialog_message_suspend_talkback" msgid="7378497787526587410">"Adakah anda pasti anda mahu menangguhkan TalkBack?\n\nSemasa TalkBack ditangguhkan, peranti anda tidak akan memberikan maklum balas."</string>
+    <string name="message_resume_manual" msgid="4491108398618252430">"Anda boleh menyambung TalkBack dari bidai pemberitahuan."</string>
+    <string name="message_resume_screen_on" msgid="2080032080971819102">"Anda boleh menyambung semula TalkBack dari bidai pemberitahuan atau dengan menghidupkan skrin."</string>
+    <string name="message_resume_keyguard" msgid="8347218053451487513">"Anda boleh menyambung TalkBack dari bidai pemberitahuan atau dengan kembali ke skrin kunci."</string>
+    <string name="show_suspend_warning_label" msgid="2767993698595859057">"Sentiasa tunjukkan amaran ini"</string>
+    <string name="label_dialog_title_add" msgid="5382481431231127704">"Tambah label"</string>
+    <string name="label_dialog_title_edit" msgid="4092558174381892707">"Edit label"</string>
+    <string name="label_dialog_title_remove" msgid="3378715305025501902">"Padam label"</string>
+    <string name="label_dialog_text" msgid="1215316331086955256">"Masukkan teks untuk digunakan bagi imej ini dalam medan di bawah."</string>
+    <string name="label_remove_dialog_text" msgid="3934146603628571606">"Adakah anda pasti anda mahu memadam label \"<xliff:g id="LABEL">%1$s</xliff:g>\"?"</string>
+    <string name="label_remove_dialog_text_app_name" msgid="2384427835919655322">"Adakah anda pasti anda mahu memadam label \"<xliff:g id="LABEL">%1$s</xliff:g>\" dalam <xliff:g id="APP_NAME">%2$s</xliff:g>?"</string>
+    <string name="label_dialog_edit_hint" msgid="1909934608642527277">"Teks label"</string>
+    <string name="talkback_gesture_change_details" msgid="2919155220372343154">"Versi TalkBack ini termasuk perubahan kepada gerak isyarat kebolehaksesan lalai. Tindakan yang dikaitkan dengan gerak balas ini boleh diperibadikan dalam tetapan TalkBack. Apabila Jelajah melalui sentuhan didayakan, anda boleh menggunakan gerak isyarat berikut untuk melakukan tindakan tertentu.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
+    <string name="talkback_built_in_gesture_change_details" msgid="1504489384911892122">"Versi TalkBack ini mengandungi perubahan pada gerak isyarat kebolehaksesan lalai.\n\nGerak isyarat atas kemudian bawah akan membolehkan anda beralih ke item pertama pada skrin dan gerak isyarat bawah kemudian atas akan beralih ke item terakhir.\n\nKebutiran bacaan kini boleh ditukar dengan memfokuskan satu item, kemudian memilih kebutiran dari menu konteks setempat.\n\nAnda boleh menukar tindakan yang dilakukan oleh gerak isyarat ini dalam Tetapan TalkBack."</string>
+    <string name="button_accept_changed_gesture_mappings" msgid="3709582843147387025">"Terima gerak isyarat"</string>
+    <string name="button_customize_gesture_mappings" msgid="6198453024008558647">"Peribadikan gerak isyarat"</string>
+    <string name="dialog_title_disable_exploration" msgid="6318745977662978395">"Lumpuhkan Jelajah melalui sentuhan?"</string>
+    <string name="dialog_message_disable_exploration" msgid="206632033549219529">"Adakah anda pasti anda mahu mematikan Jelajah melalui sentuhan?\n\nPeranti anda tidak akan bertindak balas kepada gerak isyarat pintasan atau menyebut item apabila anda menyentuh skrin."</string>
+    <string name="hint_script_injection" msgid="2973894305173271874">"Jelajah melalui sentuhan tidak tersedia dalam kandungan web. Hidupkan <xliff:g id="PREFERENCE_NAME">%1$s</xliff:g> dalam tetapan Kebolehaksesan untuk menerokai kandungan web."</string>
+    <string name="label_talkback_context_menu" msgid="102441078934343795">"Menu kandungan global TalkBack"</string>
+    <string name="permission_talkback_label" msgid="7399199628843033396">"Kawal TalkBack"</string>
+    <string name="permission_talkback_desc" msgid="7998251777426211557">"Kebenaran untuk menghantar gerak isyarat kepada TalkBack dan menyambung semula maklum balas yang disebut."</string>
+    <string name="permission_labeling_label" msgid="1480122506788515888">"Urus label peribadi TalkBack"</string>
+    <string name="permission_labeling_desc" msgid="2506887117365155231">"Kebenaran untuk mengakses, mengubah suai dan memadam label peribadi yang disebut oleh TalkBack."</string>
+    <string name="links" msgid="5674175288909957654">"Pautan"</string>
+    <string name="end_of_text" msgid="4039485166364049724">"Tamat"</string>
+    <string name="character_collapse_template" msgid="6127861834252515898">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
+</resources>

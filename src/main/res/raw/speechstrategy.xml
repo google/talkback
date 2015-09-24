@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <ss:speechstrategy
+      xmlns:ss="http://www.google.android.marvin.talkback.com/speechstrategy"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.google.android.marvin.talkback.com/speechstrategy ../../schema/speechstrategy.xsd">
+
+  <!-- This file contains only generic speech strategy rules that could apply to any app. -->
+  <!-- Rules specific to just one app should go in speechstrategy_apps.xml or -->
+  <!-- speechstrategy_thirdparty.xml. -->
+
+  <!-- The EventRuleProcessor should drop certain events handled by other processors -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_TOUCH_INTERACTION_START||TYPE_TOUCH_INTERACTION_END||TYPE_GESTURE_DETECTION_START||TYPE_GESTURE_DETECTION_END||TYPE_TOUCH_EXPLORATION_GESTURE_START||TYPE_TOUCH_EXPLORATION_GESTURE_END</ss:eventType>
+    </ss:filter>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.DropEventFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- Live updates -->
+  <ss:rule>
+    <ss:filter>
+        <ss:custom>com.android.talkback.formatter.LiveViewFormatter</ss:custom>
+    </ss:filter>
+    <ss:metadata>
+      <!-- TODO: Need to add vibration / earcon
+      <ss:customVibration>@id/patterns_notification</ss:customVibration>
+      <ss:customEarcon>@id/sounds_notification</ss:customEarcon> -->
+    </ss:metadata>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.LiveViewFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- ANNOUNCEMENT -->
+
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_ANNOUNCEMENT</ss:eventType>
+    </ss:filter>
+    <ss:metadata>
+      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
+      <ss:customVibration>@array/notification_pattern</ss:customVibration>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:property>contentDescriptionOrText</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- TOUCH EXPLORATION -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_ACCESSIBILITY_FOCUSED</ss:eventType>
+    </ss:filter>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.TouchExplorationFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- TYPE_VIEW_SCROLLED -->
+
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_SCROLLED</ss:eventType>
+    </ss:filter>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.ScrollFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- TYPE_VIEW_CLICKED -->
+
+  <!-- Checkable views -->
+  <ss:rule>
+    <ss:filter>
+      <ss:custom>com.android.talkback.formatter.CheckableClickedFormatter</ss:custom>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/view_clicked_pattern</ss:customVibration>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.CheckableClickedFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- All other clicks -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_CLICKED</ss:eventType>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/view_clicked_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/tick</ss:customEarcon>
+    </ss:metadata>
+  </ss:rule>
+
+  <!-- TYPE_VIEW_LONG_CLICKED -->
+
+  <!-- All other long clicks -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_LONG_CLICKED</ss:eventType>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/view_long_clicked_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/long_clicked</ss:customEarcon>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:template>@string/template_long_clicked</ss:template>
+      <ss:property>nodeDescriptionOrFallback</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- TYPE_VIEW_FOCUSED -->
+
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_FOCUSED||TYPE_VIEW_HOVER_ENTER</ss:eventType>
+    </ss:filter>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.FallbackFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- TYPE_VIEW_SELECTED -->
+
+  <!-- Spinner (sometimes gets selected event instead of focused event) -->
+  <!--<ss:rule>-->
+    <!--<ss:filter>-->
+      <!--<ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>-->
+      <!--<ss:className>android.widget.Spinner</ss:className>-->
+    <!--</ss:filter>-->
+    <!--<ss:metadata>-->
+      <!--<ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>-->
+      <!--<ss:customEarcon>@raw/focus_actionable</ss:customEarcon>-->
+    <!--</ss:metadata>-->
+    <!--<ss:formatter>-->
+      <!--<ss:template>@string/template_spinner</ss:template>-->
+      <!--<ss:property>contentDescriptionOrText</ss:property>-->
+    <!--</ss:formatter>-->
+  <!--</ss:rule>-->
+
+  <!-- WebView -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_SELECTED||TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY</ss:eventType>
+      <ss:className>android.webkit.WebView</ss:className>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/focus_actionable</ss:customEarcon>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.WebContentFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- ProgressBar -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>
+      <ss:className>android.widget.SeekBar</ss:className>
+    </ss:filter>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.speechrules.RuleSeekBar</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- ProgressBar -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>
+      <ss:className>android.widget.ProgressBar</ss:className>
+    </ss:filter>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.ProgressBarFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- TabWidget -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>
+      <ss:className>android.widget.TabWidget</ss:className>
+    </ss:filter>
+    <ss:metadata>
+      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:property>contentDescriptionOrText</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- All other objects -->
+  <!--<ss:rule>-->
+    <!--<ss:filter>-->
+      <!--<ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>-->
+    <!--</ss:filter>-->
+    <!--<ss:formatter>-->
+      <!--<ss:custom>com.android.talkback.formatter.FallbackFormatter</ss:custom>-->
+    <!--</ss:formatter>-->
+  <!--</ss:rule>-->
+
+
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/focus_actionable</ss:customEarcon>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:property>contentDescriptionOrText</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- TYPE_WINDOW_STATE_CHANGED -->
+
+  <!-- Dialog -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <ss:className>android.app.Dialog</ss:className>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/window_state_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/window_state</ss:customEarcon>
+      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.DialogFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- DrawerLayout -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <ss:className>android.support.v4.widget.DrawerLayout</ss:className>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/window_state_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/window_state</ss:customEarcon>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:template>@string/template_drawer_opened</ss:template>
+      <ss:property>contentDescriptionOrText</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- IconMenuView -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <ss:className>com.android.internal.view.menu.IconMenuView</ss:className>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/window_state_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/window_state</ss:customEarcon>
+      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:template>@string/value_options_menu_open</ss:template>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- SlidingDrawer -->
+  <ss:rule>
+      <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <!--suppress DeprecatedClassUsageInspection -->
+      <ss:className>android.widget.SlidingDrawer</ss:className>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/window_state_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/window_state</ss:customEarcon>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:template>@string/value_sliding_drawer_opened</ss:template>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- Notification bar -->
+  <ss:rule>
+    <ss:filter>
+      <ss:platformSdk>&lt;17</ss:platformSdk>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <ss:packageName>com.android.systemui</ss:packageName>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/window_state_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/window_state</ss:customEarcon>
+      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:template>@string/value_notification_shade_opened</ss:template>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- Window state change for a menu -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <ss:className>android.widget.ListView</ss:className>
+      <ss:text></ss:text>
+      <ss:contentDescription></ss:contentDescription>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/window_state_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/window_state</ss:customEarcon>
+      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:template>@plurals/template_containers</ss:template>
+      <ss:quantity>itemCount</ss:quantity>
+      <ss:property>contentDescriptionOrText</ss:property>
+      <ss:property>itemCount</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- Lock screen appearance -->
+    <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <ss:packageName>android</ss:packageName>
+      <ss:className>android.widget.FrameLayout</ss:className>
+      <ss:contentDescription></ss:contentDescription>
+    </ss:filter>
+    <ss:formatter>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- All other state changes -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/window_state_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/window_state</ss:customEarcon>
+      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:property>contentDescriptionOrText</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- TYPE_VIEW_TEXT_CHANGED -->
+
+  <!-- Text added, removed, or replaced -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_TEXT_CHANGED</ss:eventType>
+    </ss:filter>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.TextFormatters$ChangedTextFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- TYPE_VIEW_TEXT_SELECTION_CHANGED and TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY -->
+
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_TEXT_SELECTION_CHANGED||TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY</ss:eventType>
+    </ss:filter>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.TextFormatters$SelectedTextFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- TYPE_NOTIFICATION_STATE_CHANGED -->
+
+  <!-- Toast -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_NOTIFICATION_STATE_CHANGED</ss:eventType>
+      <ss:className>android.widget.Toast$TN</ss:className>
+    </ss:filter>
+    <ss:metadata>
+      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
+      <ss:customVibration>@array/notification_pattern</ss:customVibration>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:property>contentDescriptionOrText</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- All -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_NOTIFICATION_STATE_CHANGED</ss:eventType>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/notification_pattern</ss:customVibration>
+      <ss:queuing>QUEUE</ss:queuing>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.NotificationFormatter</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+</ss:speechstrategy>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"按掣功能"</string>
+    <string name="switch_access_service_description" msgid="7316829370005579941">"「按掣功能」允許您使用可供設定的組合鍵來控制裝置。只要把焦點移至可點擊的項目上，即可選取。"</string>
+    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"自動掃瞄功能"</string>
+    <string name="title_pref_auto_scan" msgid="6856662972215508038">"啟用自動掃瞄功能"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"延時"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"反向自動掃瞄"</string>
+  <plurals name="auto_scan_time_delay_summary_format">
+    <item quantity="one" msgid="815853953952465870">"1 秒"</item>
+    <item quantity="other" msgid="1223387233862989964">"%.2f 秒"</item>
+  </plurals>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"掃瞄方法"</string>
+    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"鍵盤掃瞄"</string>
+    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"檢視掃瞄"</string>
+    <string name="title_pref_category_key_mappings" msgid="463227090301036752">"為操作指派按鍵"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"為掃瞄指派按鍵"</string>
+    <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"「<xliff:g id="KEY_NAME">%1$s</xliff:g>」鍵已分配為「<xliff:g id="ACTION_NAME">%2$s</xliff:g>」"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one" msgid="8372086689828893172">"已分配 %d 個按鍵"</item>
+    <item quantity="other" msgid="2361393301173230834">"已分配 %d 個按鍵"</item>
+  </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"選項掃瞄切換按鈕 %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"繼續"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"返回"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"選取"</string>
+    <string name="action_name_long_click" msgid="5708679123666477849">"長按"</string>
+    <string name="action_name_scroll_forward" msgid="6969788891937406270">"向前捲動"</string>
+    <string name="action_name_scroll_backward" msgid="579045012327139100">"向後捲動"</string>
+    <string name="context_menu_layout_description" msgid="330592638837220675">"內容選單"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"選單"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"返回"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"主頁"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"概覽"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"通知"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"快速設定"</string>
+    <string name="scrollable_forward" msgid="6312908487874132401">"向前捲動"</string>
+    <string name="scrollable_backward" msgid="5109861709058665917">"向後捲動"</string>
+    <string name="switch_access_preferences_title" msgid="8339289604407443597">"按掣功能偏好設定"</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"按下按鍵組合即可將它加入清單或從清單中移除。"</string>
+    <string name="key_combo_preference_reset_button" msgid="766369207787941384">"清除指派按鍵"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="2792530694141012295">"無指派按鍵"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"空白"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"輸入"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
+    <string name="save" msgid="5398278773451196019">"儲存"</string>
+    <string name="title_pref_highlight_0" msgid="3039542597362059267">"用於掃瞄的突顯效果"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"主要掃瞄樣式"</string>
+    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"選取方框的顏色"</string>
+    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"選取方框的粗幼度"</string>
+</resources>

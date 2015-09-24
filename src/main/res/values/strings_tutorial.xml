@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Label for the button to launch the touch exploration tutorial. [CHAR LIMIT=50] -->
+    <string name="title_pref_tutorial">Launch \"Explore by touch\" tutorial</string>
+
+    <!-- Title for the touch exploration tutorial. [CHAR LIMIT=40] -->
+    <string name="accessibility_tutorial_title">Accessibility tutorial</string>
+    <!-- Button label to go to the next touch exploration tutorial lesson. [CHAR LIMIT=15] -->
+    <string name="accessibility_tutorial_next">Next</string>
+    <!-- Button label to go back to the previous touch exploration tutorial lesson. [CHAR LIMIT=15] -->
+    <string name="accessibility_tutorial_back">Previous</string>
+    <!-- Button label to exit the touch exploration tutorial. [CHAR LIMIT=15] -->
+    <string name="accessibility_tutorial_finish">Finish</string>
+    <!-- Button label to skip the touch exploration tutorial. [CHAR LIMIT=15] -->
+    <string name="accessibility_tutorial_skip">Exit</string>
+    <!-- Message explaining that touch input is disabled while the tutorial is speaking. -->
+    <string name="accessibility_tutorial_touch_disabled">Touch disabled while tutorial is speaking</string>
+
+    <!-- Title for touch exploration tutorial lesson 1. -->
+    <string name="accessibility_tutorial_lesson_1_title">Lesson 1: Exploring the screen</string>
+    <!-- Instruction for touch exploration tutorial lesson 1. "Explore by touch" should match the string for "Title for accessibility preference to enable touch exploration mode." -->
+    <string name="accessibility_tutorial_lesson_1_text_1">When Explore by Touch is turned on, you can touch the screen to learn what\’s under your finger. For example, the current screen contains app icons. Find one of them by touching the screen and sliding your finger around.</string>
+    <!-- Instruction for touch exploration tutorial lesson 1, displayed after the user touches one icon. -->
+    <string name="accessibility_tutorial_lesson_1_text_2_more">Good. Keep sliding your finger around the screen until you find at least one more icon.</string>
+    <!-- Instruction for touch exploration tutorial lesson 1, displayed after the user touches a second icon. -->
+    <string name="accessibility_tutorial_lesson_1_text_3">You can also explore by swiping your finger left and right anywhere on the screen. Try quickly swiping from left to right to move to the next icon.</string>
+    <!-- Instruction for touch exploration tutorial lesson 1, displayed after the user swipes from left to right. -->
+    <string name="accessibility_tutorial_lesson_1_text_4">To activate something that you\'ve explored, tap the screen twice. Explore until you find the <xliff:g id="app_name" example="Browser">%1$s</xliff:g> icon. Then double-tap anywhere on the screen to activate it.</string>
+    <!-- Instruction for touch exploration tutorial lesson 1, displayed after the user touches the target icon. -->
+    <string name="accessibility_tutorial_lesson_1_text_5">You found the <xliff:g id="app_name" example="Browser">%1$s</xliff:g> icon. Double-tap anywhere on the screen to activate the icon.</string>
+    <!-- Instruction for touch exploration tutorial lesson 1, displayed after the user touches the target icon but then touches another icon. -->
+    <string name="accessibility_tutorial_lesson_1_text_5_exited">You explored past the <xliff:g id="app_name" example="Browser">%1$s</xliff:g> icon. Try exploring the screen until you find the <xliff:g id="app_name" example="Browser">%1$s</xliff:g> icon again.</string>
+    <!-- Instruction for touch exploration tutorial lesson 1, displayed after the user activates the target icon. -->
+    <string name="accessibility_tutorial_lesson_1_text_6">To move to the next lesson, find the <xliff:g id="next" example="Next">%1$s</xliff:g> button, located near the bottom-right corner of the screen, then double-tap to activate it.</string>
+
+    <!-- Title for touch exploration tutorial lesson 2. -->
+    <string name="accessibility_tutorial_lesson_2_title">Lesson 2: Scrolling through lists</string>
+    <!-- Instruction for touch exploration tutorial lesson 2. -->
+    <string name="accessibility_tutorial_lesson_2_text_1">To scroll through a list, you can slide two fingers along the screen. For example, the current screen contains a list of app names that can scroll up or down. First, try to explore the screen and identify an app.</string>
+    <!-- Instruction for touch exploration tutorial lesson 2, displayed after the user touches a list item. -->
+    <string name="accessibility_tutorial_lesson_2_text_2">Now place two fingers on an item in the list and slide both fingers up. If you reach the top of the screen, lift your fingers, place them lower on the list, and continue sliding up.</string>
+    <!-- Instruction for touch exploration tutorial lesson 2, displayed after the user scrolls down some. -->
+    <string name="accessibility_tutorial_lesson_2_text_3">Explore the screen to find one more app.</string>
+    <!-- Instruction for touch exploration tutorial lesson 2, displayed after the user touches a list item again. -->
+    <string name="accessibility_tutorial_lesson_2_text_4">You can also scroll an entire page by swiping your finger. To scroll to the next page, swipe right then left using a single motion. Try to scroll to the next page by swiping right then left.</string>
+    <!-- Instruction for touch exploration tutorial lesson 2, displayed after the user scrolls using gestures. -->
+    <string name="accessibility_tutorial_lesson_2_text_5">Explore the screen again to find an app in the current page.</string>
+    <!-- Instruction for touch exploration tutorial lesson 2, displayed after the user touches another list item. -->
+    <string name="accessibility_tutorial_lesson_2_text_6">Swiping the opposite direction, left then right in a single motion, will move to the previous page. Try to scroll to the previous page by swiping left then right.</string>
+    <!-- Instruction for touch exploration tutorial lesson 2, displayed after the user has finished the lesson. -->
+    <string name="accessibility_tutorial_lesson_2_text_7">To move to the next lesson, find the <xliff:g id="next" example="Next">%1$s</xliff:g> button, located near the bottom-right corner of the screen, then double-tap to activate it.</string>
+
+    <!-- Title for touch exploration tutorial lesson 3. -->
+    <string name="accessibility_tutorial_lesson_3_title">Lesson 3: Context menus</string>
+    <!-- Instruction for touch exploration tutorial lesson 3. -->
+    <string name="accessibility_tutorial_lesson_3_text_1">TalkBack has two context menus that make it easy to find settings and controls, the Global Context Menu and the Local Context Menu. You can activate a menu item by sliding your finger around the circle of menu items and releasing when you hear the desired item. Try bringing up the Global Context Menu by swiping your finger <xliff:g id="global_context_menu_gesture_direction" example="down then right">%1$s</xliff:g> in a single motion.</string>
+    <!-- Instruction for touch exploration tutorial lesson 3, displayed after the user brings up the Global Context Menu. -->
+    <string name="accessibility_tutorial_lesson_3_text_2">The Global Context Menu contains general commands that work everywhere throughout TalkBack. Try reading all the text on the screen. Press on the center of the screen to bring up a circular menu around your finger, and then slide your finger around the circle of options until you hear \"<xliff:g id="read_from_top_item_text" example="Read from top">%1$s</xliff:g>.\"</string>
+    <!-- Instruction for touch exploration tutorial lesson 3, displayed after the user closes the Global Context Menu without clicking the correct option. -->
+    <string name="accessibility_tutorial_lesson_3_text_3_hidden">You closed the Global Context Menu. Try bringing up the Global Context Menu again by swiping your finger <xliff:g id="global_context_menu_gesture_direction" example="down then right">%1$s</xliff:g> in a single motion.</string>
+    <!-- Instruction for touch exploration tutorial lesson 3, displayed after the user selects the option to reads all text on the screen. -->
+    <string name="accessibility_tutorial_lesson_3_text_3">Good. That command will read all of the items on the screen. In addition to a Global Context Menu, TalkBack also has a Local Context Menu. The Local Context Menu contains controls that change based on what item on the screen you have selected. Try bringing up the Local Context Menu by swiping your finger <xliff:g id="local_context_menu_gesture_direction" example="up then right">%1$s</xliff:g> in a single motion.</string>
+    <!-- Instruction for touch exploration tutorial lesson 3, displayed after the user brings up the Local Context Menu. -->
+    <string name="accessibility_tutorial_lesson_3_text_4">Pressing your finger down in the center of the screen and then lifting it will cancel and close the menu. Try closing the Local Context Menu now.</string>
+    <!-- Instruction for touch exploration tutorial lesson 3, displayed after the user has finished the lesson. -->
+    <string name="accessibility_tutorial_lesson_3_text_5">You now know how to bring up and navigate through the context menus. You will learn more about when to use the context menus in the following lesson. Find and activate the <xliff:g id="next" example="Next">%1$s</xliff:g> button near the bottom-right corner of the screen to continue.</string>
+
+    <!-- Title for touch exploration tutorial lesson 4. -->
+    <string name="accessibility_tutorial_lesson_4_title">Lesson 4: Reading granularities</string>
+    <!-- Instruction for touch exploration tutorial lesson 4. -->
+    <string name="accessibility_tutorial_lesson_4_text_1">TalkBack has granularity controls that give you different ways to navigate through text. For example, you can read text paragraph by paragraph, word by word, or even character by character. To get started, find the text box in the center of the screen to read its content.</string>
+    <!-- Instruction for touch exploration tutorial lesson 4, displayed after the user focuses the text view. -->
+    <string name="accessibility_tutorial_lesson_4_text_2">Focusing an item will read all of its text using the default granularity. Try changing the granularity to read this text one character at a time. This can be helpful if you want to spell a name or read an email address, for example. First, swipe your finger <xliff:g id="local_context_menu_gesture_direction" example="up then right">%1$s</xliff:g> to bring up the Local Context Menu.</string>
+    <!-- Instruction for touch exploration tutorial lesson 4, displayed after the user navigates away from the text view. -->
+    <string name="accessibility_tutorial_lesson_4_text_3_focus_lost">You navigated away from the target text box. Try tapping on the center of the screen to navigate back to the text box.</string>
+    <!-- Instruction for touch exploration tutorial lesson 4, displayed after the user opens the local context menu with the text view focused. -->
+    <string name="accessibility_tutorial_lesson_4_text_3">Good. Now, slide your finger around the menu until you hear <xliff:g id="character_granularity" example="Character granularity">%1$s</xliff:g>, then select it.</string>
+    <!-- Instruction for touch exploration tutorial lesson 4, displayed after the user closes the Local Context Menu without clicking the correct option. -->
+    <string name="accessibility_tutorial_lesson_4_text_4_menu_hidden">You closed the Local Context Menu without changing to <xliff:g id="character_granularity" example="Character granularity">%1$s</xliff:g>. Swipe your finger <xliff:g id="local_context_menu_gesture_direction" example="up then right">%2$s</xliff:g> to bring up the Local Context Menu again.</string>
+    <!-- Instruction for touch exploration tutorial lesson 4, displayed after the user switches to character granularity. -->
+    <string name="accessibility_tutorial_lesson_4_text_4">Good. You are now navigating by character granularity. Swiping from the top of the screen to the bottom of the screen will move forward by one character. Try swiping from the top of the screen to the bottom of the screen 3 times to read the next 3 characters of the text.</string>
+    <!-- Instruction for touch exploration tutorial lesson 4, displayed after the user switches to an incorrect granularity other than character granularity. -->
+    <string name="accessibility_tutorial_lesson_4_text_5_granularity_changed">You changed the granularity so that it is no longer <xliff:g id="character_granularity" example="Character granularity">%1$s</xliff:g>. You can change back to <xliff:g id="character_granularity" example="Character granularity">%1$s</xliff:g> from the Local Context Menu by swiping your finger <xliff:g id="local_context_menu_gesture_direction" example="up then right">%2$s</xliff:g> in a single motion.</string>
+    <!-- Instruction for touch exploration tutorial lesson 4, displayed after the user has finished the lesson if this is not the last lesson. -->
+    <string name="accessibility_tutorial_lesson_4_text_5_next">You now know how to change the reading granularity and read text. To continue, activate the <xliff:g id="next" example="Next">%1$s</xliff:g> button, located near the bottom-right corner of the screen.</string>
+    <!-- Instruction for touch exploration tutorial lesson 4, displayed after the user has finished the lesson if this the last lesson. -->
+    <string name="accessibility_tutorial_lesson_4_text_5_finish">You now know how to change the reading granularity and read text. This concludes the TalkBack tutorial. To exit the tutorial, find and activate the <xliff:g id="finish" example="Finish">%1$s</xliff:g> button, located near the bottom-right corner of the screen.</string>
+    <!-- Text used to fill in the text view for the user to practice reading at different granularities. -->
+    <string name="accessibility_tutorial_lesson_4_text_view_text">This is some example text that you can read at different granularities.</string>
+
+    <!-- Title for touch exploration tutorial lesson 5. -->
+    <string name="accessibility_tutorial_lesson_5_title">Lesson 5: Editing text</string>
+    <!-- Instruction for touch exploration tutorial lesson 5, displayed after the user starts the lesson. -->
+    <string name="accessibility_tutorial_lesson_5_text_1">This lesson will help you use TalkBack to edit a piece of text. To get started, find the text box in the center of the screen.</string>
+    <!-- Instruction for touch exploration tutorial lesson 5, displayed after the user focuses the edit text. -->
+    <string name="accessibility_tutorial_lesson_5_text_2">Once you have selected a text field that can be edited, you can tap twice anywhere on the screen to bring up the keyboard and start editing the text. Try double-tapping the screen now.</string>
+    <!-- Instruction for touch exploration tutorial lesson 5, displayed after the user starts editing the text in the edit text field. -->
+    <string name="accessibility_tutorial_lesson_5_text_3">There is already some text in the field. You can move the cursor to the beginning of the text from the local context menu. Swipe <xliff:g id="local_context_menu_gesture_direction" example="up then right">%1$s</xliff:g> in a single motion, activate <xliff:g id="cursor_control" example="Cursor control">%2$s</xliff:g>, then activate <xliff:g id="move_cursor_to_beginning" example="Move cursor to beginning">%3$s</xliff:g>.</string>
+    <!-- Instruction for touch exploration tutorial lesson 5, displayed after the user moves the cursor to the beginning of the text in the edit text field. -->
+    <string name="accessibility_tutorial_lesson_5_text_4">When editing text, it is helpful to choose an appropriate granularity from the local context menu. Swipe <xliff:g id="local_context_menu_gesture_direction" example="up then right">%1$s</xliff:g> in a single motion, activate <xliff:g id="change_granularity" example="Change granularity">%2$s</xliff:g>, then activate <xliff:g id="word_granularity" example="Word granularity">%3$s</xliff:g>.</string>
+    <!-- Instruction for touch exploration tutorial lesson 5, displayed after the user changes to word granularity. -->
+    <string name="accessibility_tutorial_lesson_5_text_5">Good. Now, swipe your finger from top to bottom to navigate through the text one word at a time. Continue swiping from top to bottom until you reach the end of the text.</string>
+    <!-- Instruction for touch exploration tutorial lesson 5, displayed after the user traverses to the end of the text in the edit text field. -->
+    <string name="accessibility_tutorial_lesson_5_text_6">When you are editing text, you can also use the volume keys on your device to navigate through the text instead of swiping your finger. TalkBack also gives you controls for selecting text. You can select all the text in the box using the local context menu. Swipe <xliff:g id="local_context_menu_gesture_direction" example="up then right">%1$s</xliff:g> in a single motion, activate <xliff:g id="cursor_control" example="Cursor control">%2$s</xliff:g>, then activate <xliff:g id="select_all" example="Select all">%3$s</xliff:g>.</string>
+    <!-- Instruction for touch exploration tutorial lesson 5, displayed after the user selects all the text in the edit text field. -->
+    <string name="accessibility_tutorial_lesson_5_text_7">Good. You selected all the text. If you want finer control over what you have selected, you can activate selection mode from the local context menu. When you are editing text, you can type using the on-screen keyboard by sliding your finger around the keyboard and lifting when you hear the desired key. Try typing some text to replace the text you selected.</string>
+    <!-- Instruction for touch exploration tutorial lesson 5, displayed after the user finishes editing the text in the edit text field. -->
+    <string name="accessibility_tutorial_lesson_5_text_8">When you are finished editing the text, you can close the keyboard. Slide your finger until you find the Done button, then lift your finger to activate it. This concludes the TalkBack tutorial. To exit the tutorial, find and activate the <xliff:g id="finish" example="Finish">%1$s</xliff:g> button, located near the bottom-right corner of the screen.</string>
+    <!-- Text used to fill in the editable text box for the user to practice editing. -->
+    <string name="accessibility_tutorial_lesson_5_editable_text">Sample text</string>
+
+    <!-- Button label on the alert dialog used to exit the touch exploration tutorial when TalkBack encounters an error and shows a dialog. [CHAR LIMIT=15] -->
+    <string name="accessibility_tutorial_alert_dialog_exit">Exit</string>
+    <!-- Alert dialog title for when the user starts the TalkBack tutorial and TalkBack is inactive or explore by touch is disabled. -->
+    <string name="accessibility_tutorial_service_inactive_title">Explore by Touch Required</string>
+    <!-- Alert message for when the user starts the TalkBack tutorial and TalkBack is inactive or explore by touch is disabled. -->
+    <string name="accessibility_tutorial_service_inactive_message">This tutorial requires Explore by touch. Please turn TalkBack on and enable Explore by touch before launching the tutorial.</string>
+    <!-- Alert dialog title for when TalkBack is suspended while the tutorial is active, or when the tutorial launches with TalkBack suspended. -->
+    <string name="accessibility_tutorial_service_suspended_title">TalkBack Suspended</string>
+    <!-- Alert message for when TalkBack is suspended while the tutorial is active, or when the tutorial launches with TalkBack suspended. -->
+    <string name="accessibility_tutorial_service_suspended_message">The TalkBack tutorial is not available while feedback is paused. Please resume TalkBack feedback and relaunch the tutorial to continue.</string>
+    <!-- Alert dialog title for when the user is missing a required shortcut gesture assignment. [CHAR LIMIT=40] -->
+    <string name="accessibility_tutorial_missing_assignment_title">Missing gesture assignment</string>
+    <!-- Alert message when the user is missing a shortcut gesture mapping to a given action. -->
+    <string name="accessibility_tutorial_missing_assignment_message">There is no gesture assigned to the \"<xliff:g id="action" example="Global context menu">%1$s</xliff:g>\" action. Please visit TalkBack Settings to set a shortcut gesture for that action, and then relaunch the TalkBack tutorial.</string>
+
+</resources>

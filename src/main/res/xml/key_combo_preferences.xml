@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/pref_category_manage_gestures_key"
+    android:title="@string/title_pref_manage_keyboard_shortcuts" >
+    <PreferenceCategory
+        android:title="@string/keycombo_menu_category_navigation" >
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next"
+            android:title="@string/keycombo_menu_navigate_next"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous"
+            android:title="@string/keycombo_menu_navigate_previous"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_first"
+            android:title="@string/keycombo_menu_navigate_first"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_last"
+            android:title="@string/keycombo_menu_navigate_last"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_perform_click"
+            android:title="@string/keycombo_menu_perform_click"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/keycombo_menu_category_global" >
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_back"
+            android:title="@string/keycombo_menu_global_back"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_home"
+            android:title="@string/keycombo_menu_global_home"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_recents"
+            android:title="@string/keycombo_menu_global_recent"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_notifications"
+            android:title="@string/keycombo_menu_global_notifications"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_suspend"
+            android:title="@string/keycombo_menu_global_suspend"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/keycombo_menu_category_granularity" >
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_granularity_increase"
+            android:title="@string/keycombo_menu_granularity_increase"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_granularity_decrease"
+            android:title="@string/keycombo_menu_granularity_decrease"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/keycombo_menu_category_other" >
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_read_from_top"
+            android:title="@string/keycombo_menu_other_read_from_top"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_read_from_next_item"
+            android:title="@string/keycombo_menu_other_read_from_next_item"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_toggle_search"
+            android:title="@string/keycombo_menu_other_toggle_search"/>
+
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_local_context_menu"
+            android:title="@string/keycombo_menu_other_local_context_menu"/>
+        <com.android.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_global_context_menu"
+            android:title="@string/keycombo_menu_other_global_context_menu"/>
+    </PreferenceCategory>
+</PreferenceScreen>

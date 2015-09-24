@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/read_from_top"
+        android:title="@string/shortcut_read_from_top"/>
+    <item
+        android:id="@+id/repeat_last_utterance"
+        android:title="@string/shortcut_repeat_last_utterance"/>
+    <item
+        android:id="@+id/spell_last_utterance"
+        android:title="@string/shortcut_spell_last_utterance"/>
+    <item
+        android:id="@+id/read_from_current"
+        android:title="@string/shortcut_read_from_current"/>
+    <item
+        android:id="@+id/quick_navigation"
+        android:title="@string/title_summary">
+        <menu>
+            <!-- Dynamically populated. -->
+        </menu>
+    </item>
+
+    <group android:id="@id/group_corners" >
+        <item
+            android:id="@+id/pause_feedback"
+            android:orderInCategory="@integer/corner_NW"
+            android:title="@string/shortcut_pause_feedback"/>
+        <item
+                android:id="@+id/talkback_settings"
+                android:orderInCategory="@integer/corner_NE"
+                android:title="@string/talkback_preferences_title"/>
+        <item
+                android:id="@+id/tts_settings"
+                android:orderInCategory="@integer/corner_SE"
+                android:title="@string/tts_preferences_title"/>
+    </group>
+
+</menu>

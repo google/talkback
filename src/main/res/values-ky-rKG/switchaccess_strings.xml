@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Мүмкүнчүлүктү которуу"</string>
+    <string name="switch_access_service_description" msgid="7316829370005579941">"Мүмкүнчүлүктү которуу аркылуу түзмөгүңүздү конфигурациялануучу баскыч айкалыштары аркылуу көзөмөлдөй аласыз. Фокусту чыкылдатылуучу нерселерге жылдырып, аларды тандасаңыз болот."</string>
+    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"Авто скандоо"</string>
+    <string name="title_pref_auto_scan" msgid="6856662972215508038">"Авто скандоону иштетүү"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"Убакыт кечиктирүүсү"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"Тескерисинен автоскандоо"</string>
+  <plurals name="auto_scan_time_delay_summary_format">
+    <item quantity="one" msgid="815853953952465870">"1 секунд"</item>
+    <item quantity="other" msgid="1223387233862989964">"%.2f секунд"</item>
+  </plurals>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Скандоо ыкмасы"</string>
+    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"Баскычтопту скандоо"</string>
+    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"Көрүнүштү скандоо"</string>
+    <string name="title_pref_category_key_mappings" msgid="463227090301036752">"Аракеттерге баскычтарды дайындоо"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"Скандоо үчүн ачкычтарды дайындоо"</string>
+    <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"\"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" баскычы мурунтан эле \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\" үчүн дайындалып койгон"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one" msgid="8372086689828893172">"%d баскычтары дайындалган"</item>
+    <item quantity="other" msgid="2361393301173230834">"%d баскычтары дайындалган"</item>
+  </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"Скандоо параметрин которуштуруу %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Кийинки"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Мурунку"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Тандоо"</string>
+    <string name="action_name_long_click" msgid="5708679123666477849">"Узакка басып туруу"</string>
+    <string name="action_name_scroll_forward" msgid="6969788891937406270">"Алдыга сыдыруу"</string>
+    <string name="action_name_scroll_backward" msgid="579045012327139100">"Артка сыдыруу"</string>
+    <string name="context_menu_layout_description" msgid="330592638837220675">"Контексттик меню"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"МЕНЮ"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Артка"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Башкы бет"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Көз жүгүртүү"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Эскертмелер"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Ыкчам жөндөөлөр"</string>
+    <string name="scrollable_forward" msgid="6312908487874132401">"Алдыга сыдыруу"</string>
+    <string name="scrollable_backward" msgid="5109861709058665917">"Артка сыдыруу"</string>
+    <string name="switch_access_preferences_title" msgid="8339289604407443597">"Мүмкүнчүлүк жөндөөлөрүн которуу"</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"Тизмеге кошуу жана алып салуу үчүн баскычтардын айкалышын басыңыз"</string>
+    <string name="key_combo_preference_reset_button" msgid="766369207787941384">"Баскыч дайындоосун тазалоо"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="2792530694141012295">"Бир дагы баскыч дайындалган эмес"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Боштук"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Кирүү"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Өтмөк"</string>
+    <string name="save" msgid="5398278773451196019">"Сактоо"</string>
+    <string name="title_pref_highlight_0" msgid="3039542597362059267">"Бөлүп көрсөтүү скандоо үчүн колдонулат"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Негизги скандоо стили"</string>
+    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"Бөлүп көрсөтүүчү өң"</string>
+    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"Бөлүп көрсөтүүнүн калыңдыгы"</string>
+</resources>

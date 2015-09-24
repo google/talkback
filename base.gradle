@@ -1,0 +1,157 @@
+apply plugin: 'com.android.application'
+apply plugin: 'robolectric'
+
+def projectDir = System.getProperty('projectPath')
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath 'org.aspectj:aspectjtools:1.8.1'
+        classpath 'org.robolectric:robolectric-gradle-plugin:0.13.2'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+    }
+    compileSdkVersion "android-23"
+    buildToolsVersion '22.0.1'
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 23
+        testInstrumentationRunner 'android.test.InstrumentationTestRunner'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),    \
+               "$projectDir/src/main/proguard-project.txt"
+            signingConfig signingConfigs.debug
+        }
+    }
+    signingConfigs {
+        debug {
+            storeFile file("$projectDir/cert/debug.keystore")
+            storePassword "android"
+            keyAlias "debug"
+        }
+    }
+    sourceSets {
+        androidTest {
+            setRoot("$projectDir/src/test")
+        }
+        main {
+            setRoot("$projectDir/src/main")
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    dexOptions {
+        preDexLibraries = false
+        javaMaxHeapSize "4g"
+    }
+}
+
+dependencies {
+    androidTestCompile 'junit:junit:4.12'
+    androidTestCompile('com.squareup.dagger:dagger:1.1.0') {
+        exclude module: 'junit'
+    }
+
+    androidTestCompile('org.robolectric:robolectric:3.0-rc2') {
+        exclude module: 'classworlds'
+        exclude module: 'commons-logging'
+        exclude module: 'maven-artifact'
+        exclude module: 'maven-artifact-manager'
+        exclude module: 'maven-error-diagnostics'
+        exclude module: 'maven-model'
+        exclude module: 'maven-project'
+        exclude module: 'maven-settings'
+        exclude module: 'plexus-container-default'
+        exclude module: 'plexus-interpolation'
+        exclude module: 'plexus-utils'
+        exclude module: 'wagon-file'
+        exclude module: 'wagon-http-lightweight'
+        exclude module: 'wagon-provider-api'
+        exclude module: 'support-v4'
+    }
+    androidTestCompile('com.squareup:fest-android:1.0.8') {
+        exclude module: 'support-v4'
+    }
+    androidTestCompile('org.mockito:mockito-core:1.10.8') {
+        exclude module: 'hamcrest-core'
+    }
+}
+
+/*
+Both instrumentation tests task that is defined in android plugin and robolectric tests task
+that is defined in robolectric plugin use the same configuration androidTest.
+To split running robolectric and instrumetation tests we define different paths to test sources.
+
+When gradle run task on project script it does configuration phase where it parse whole script
+and defines tasks, theirs dependecies and counfigurations. Then it does execution phase when
+it executes the task. We have to set all source paths (android.sourceSets.androidTest...)
+on configuration phase.
+
+So here we check what task was started and if it was instrumentation test task we set paths
+to instrumentation tests as source for androidTest configuration.
+ */
+task addInstrumenationPaths {
+    if(startedWithTask('instrumentationTest')) {
+        android.sourceSets.androidTest.manifest.srcFile "$projectDir/src/instrumentation_tests/AndroidManifest.xml"
+        android.sourceSets.androidTest.java.srcDirs = ["$projectDir/src/instrumentation_tests/src"]
+        android.sourceSets.main.res.srcDirs = ["$projectDir/src/main/res", "$projectDir/src/instrumentation_tests/res"]
+    }
+
+    if(startedWithTask('test')) {
+        android {
+            defaultConfig {
+                targetSdkVersion 22
+            }
+        }
+    }
+}
+
+def startedWithTask(String taskName) {
+    if(project.getGradle().startParameter.taskRequests.size() > 0) {
+        def startingArgs = project.getGradle().startParameter.taskRequests.get(0).args
+        if (startingArgs.toString().contains(taskName)) {
+            return true
+        }
+    }
+    return false
+}
+
+ext.startedWith = this.&startedWithTask
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
+
+afterEvaluate {
+    tasks.matching {
+        it.name.startsWith('dex')
+    }.each { dx ->
+        if (dx.additionalParameters == null) {
+            dx.additionalParameters = []
+        }
+        dx.additionalParameters += '--multi-dex'
+    }
+}

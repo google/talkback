@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="talkback_service_description" msgid="7512754982950145749">"Kun TalkBack on käytössä, laite auttaa sokeita ja heikkonäköisiä käyttäjiä puheen avulla. Laite esimerkiksi kertoo, mitä kohteita kosketat, valitset ja aktivoit."</string>
+    <string name="talkback_on" msgid="315529674405160699">"TalkBack päällä"</string>
+    <string name="talkback_preferences_title" msgid="4249486159144445549">"TalkBack-asetukset"</string>
+    <string name="tts_preferences_title" msgid="6233811187483633874">"Tekstistä puheeksi -asetukset"</string>
+    <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Versio <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
+    <string name="label_manager_summary_title" msgid="6786694853113585661">"Hallinnoi omia tunnisteita"</string>
+    <string name="label_manager_package_title" msgid="6984665343963494151">"Hallinnoi sovelluksen <xliff:g id="APPLICATIONLABEL">%1$s</xliff:g> tunnisteita"</string>
+    <string name="label_manager_no_packages_message" msgid="4478523067360108574">"Omia tunnisteita ei tällä hetkellä ole. Voit luoda tunnisteen siirtymällä merkitsemättömään kuvaan ja lisäämällä tunnisteen paikallisesta kontekstivalikosta."</string>
+    <string name="label_manager_timestamp_text" msgid="2632240906498521602">"Viimeksi muokattu <xliff:g id="TIMESTAMP">%1$s</xliff:g>"</string>
+    <string name="search_dialog_label" msgid="7273037326593054813">"Haku: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>"</string>
+    <string name="search_mode_open" msgid="910823044260738937">"Hakutila avattiin."</string>
+    <string name="search_mode_cancel" msgid="4938867934958343710">"Haku peruutettiin."</string>
+    <string name="search_mode_finish" msgid="7166574479757238944">"Haku on valmis."</string>
+    <string name="search_mode_hint_start" msgid="4597528088567439979">"Hakutila."</string>
+    <string name="search_mode_hint_no_query" msgid="3919282680896571220">"Hakulauseke puuttuu."</string>
+    <string name="search_mode_hint_query" msgid="5896493032072187997">"Nykyinen haku: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>."</string>
+    <string name="search_mode_hint_no_selection" msgid="882227441829755961">"Ei valittua kohdetta."</string>
+    <string name="search_mode_hint_selection" msgid="8541673936818652399">"Nykyinen valinta: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>."</string>
+    <string name="notification_type_missed_call" msgid="6585664098525214473">"Vastaamaton puhelu"</string>
+    <string name="notification_type_status_mute" msgid="2024742614005804613">"Ohita keskustelu"</string>
+    <string name="notification_type_status_chat" msgid="3593906461181368010">"Keskustelu"</string>
+    <string name="notification_type_status_error" msgid="8762616334364573004">"Virhe"</string>
+    <string name="notification_type_status_more" msgid="4889548393564513820">"Lisää"</string>
+    <string name="notification_type_status_sdcard" msgid="6675459139116184337">"SD-kortti"</string>
+    <string name="notification_type_status_sdcard_usb" msgid="6882955062811560802">"SD-kortin USB"</string>
+    <string name="notification_status_sync" msgid="7913123792593843784">"Synkronointi"</string>
+    <string name="notification_type_status_sync_noanim" msgid="3708903607797168409">"Synkronointi"</string>
+    <string name="notification_type_status_voicemail" msgid="1611063561670902017">"Puhelinvastaaja"</string>
+    <string name="notification_type_status_started" msgid="1071939833188591219">"Alkanut"</string>
+    <string name="notification_type_status_stopped" msgid="6004666820256747725">"Pysäytetty"</string>
+    <string name="template_current_tts_engine" msgid="3963364867159704159">"Käytössä <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
+    <string name="template_menu" msgid="2592357933256217001">"Valikko <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_edit_box" msgid="5395366637528473616">"Muokkauskenttä. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
+    <string name="template_edit_box_current" msgid="2778286668618391188">"Muokkauskenttä, muokkaus käynnissä. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
+    <string name="template_alert_dialog_template" msgid="5493715708649314332">"Ilmoitus <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
+    <string name="template_drawer_opened" msgid="384588741799097665">"Valikko <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="OLD_TEXT">%2$s</xliff:g> korvattiin tekstillä <xliff:g id="NEW_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> poistettiin"</string>
+    <string name="template_text_error" msgid="153775825635730287">"Virheellinen sisältö <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
+    <string name="template_replaced_characters" msgid="6384850410145990959">"Merkit <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> korvattiin merkeillä <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g>"</string>
+    <string name="template_labeled_item" msgid="6575017531554968477">"kohteen <xliff:g id="LABEL">%2$s</xliff:g> <xliff:g id="ITEM">%1$s</xliff:g>"</string>
+    <string name="template_long_clicked" msgid="1962442828386303832">"Pitkä painallus: <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_button" msgid="2640124317262628933">"<xliff:g id="TITLE">%1$s</xliff:g>-painike"</string>
+    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"Kuva <xliff:g id="TITLE">%1$d</xliff:g>. Nimetön"</string>
+    <string name="template_unlabeled_button" msgid="8907013770433741191">"Painike <xliff:g id="TITLE">%1$d</xliff:g>. Nimetön"</string>
+    <string name="template_seek_bar" msgid="9010890122601609426">"Liukuvalitsin <xliff:g id="TITLE">%1$s</xliff:g>."</string>
+    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> prosenttia"</string>
+    <string name="template_charging" msgid="2038200557537960378">"Ladataan <xliff:g id="CHANGING_STATUS">%1$s</xliff:g> Akun varaus <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> prosenttia."</string>
+  <plurals name="template_containers">
+    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="TYPE">%1$s</xliff:g> näyttää <xliff:g id="COUNT">%2$d</xliff:g> kohteen."</item>
+    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="TYPE">%1$s</xliff:g> näyttää <xliff:g id="COUNT">%2$d</xliff:g> kohdetta."</item>
+  </plurals>
+    <string name="value_gridview" msgid="1382219539169157957">"Ruudukko"</string>
+    <string name="value_listview" msgid="7625152822709234439">"Luettelo"</string>
+    <string name="value_tabwidget" msgid="6935453013254857519">"Välilehtirivi"</string>
+    <string name="template_scroll_from_to_count" msgid="2060702043504844709">"Näytetään kohteet <xliff:g id="FROM_INDEX">%1$d</xliff:g>–<xliff:g id="TO_INDEX">%2$d</xliff:g>/<xliff:g id="TOTAL_COUNT">%3$d</xliff:g>."</string>
+    <string name="template_scroll_from_count" msgid="4696666433263950881">"Näytetään kohde <xliff:g id="FROM_INDEX">%1$d</xliff:g>/<xliff:g id="TOTAL_COUNT">%2$d</xliff:g>."</string>
+    <string name="template_spinner" msgid="1240658876427369167">"Avattava valikko <xliff:g id="TITLE">%1$s</xliff:g>."</string>
+    <string name="template_password_selected" msgid="3751806880345903886">"Merkit <xliff:g id="FROM_INDEX">%1$s</xliff:g>–<xliff:g id="TO_INDEX">%2$s</xliff:g> valittu"</string>
+    <string name="template_capital_letter" msgid="4920626008395727629">"iso kirjain <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
+    <string name="template_checkbox" msgid="8582666147313623418">"valintaruutu <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_radio_button" msgid="5796532059726219957">"Valintaruutu <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>, säädin"</string>
+    <string name="value_password" msgid="7285572231215250557">"salasana"</string>
+    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Liu\'utettava laatikko avattu"</string>
+    <string name="value_notification_shade_opened" msgid="5404406119689977269">"Alue avattu"</string>
+    <string name="value_options_menu_open" msgid="4936310094261315665">"Asetukset."</string>
+    <string name="value_text_cleared" msgid="6558192295636412162">"Teksti tyhjennetty"</string>
+    <string name="value_text_max_length" msgid="4129865255646994586">"Enimmäispituus saavutettu"</string>
+    <string name="value_text_removed" msgid="9064311081864073839">"poistettu"</string>
+    <string name="value_checked" msgid="3006751014125833966">"valittu"</string>
+    <string name="value_not_checked" msgid="37422559536361725">"ei tarkistettu"</string>
+    <string name="value_disabled" msgid="5160977094078900656">"ei käytössä"</string>
+    <string name="value_double_tap" msgid="6104708724544509699">"Kaksoisnapauta"</string>
+    <string name="value_single_tap" msgid="5044168772549910285">"Napauta"</string>
+    <string name="template_hint_clickable" msgid="1398769454100543369">"Valitse tekemällä toiminto <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> pitkään tehdäksesi pitkän klikkauksen."</string>
+    <string name="template_hint_checkable" msgid="504233139047201761">"Vaihda tekemällä toiminto <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> kirjoittaaksesi tekstiä."</string>
+    <string name="template_hint_spinner" msgid="7251008361827086735">"Vaihda tekemällä toiminto <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="hint_radial_menu" msgid="5110846707339818828">"Kosketa ruutua ja tutki sen sisältöä ympyrän kehää pitkin. Kun löydät kohteen, valitse se nostamalla sormi ruudulta."</string>
+    <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Kosketa ruutua ja tutki sen sisältöä ympyrän kehää pitkin. Kun löydät kohteen, kohdista siihen nostamalla sormi ruudulta."</string>
+    <string name="template_hint_custom_actions" msgid="543401796694872575">"Muokatut toiminnot:"</string>
+    <string name="value_ringer_vibrate" msgid="2453075127843329125">"Soittoääni: värinä."</string>
+    <string name="value_ringer_silent" msgid="3881352685288650823">"Soittoääni: äänetön."</string>
+    <string name="value_screen_on" msgid="4051568127659724519">"Näyttö päällä."</string>
+    <string name="value_screen_off" msgid="4442166505764238236">"Näyttö sammutettu."</string>
+    <string name="value_device_unlocked" msgid="5503481137448624626">"Laitteen lukitus avattu."</string>
+    <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Puhe"</string>
+    <string name="title_pref_speech_volume" msgid="17846978416951489">"Puheen äänenvoimakkuus"</string>
+    <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"Puhe, kun näyttö ei päällä"</string>
+    <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"Ilmoitukset puhutaan, kun näyttö on pois päältä"</string>
+    <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"Puhetta ei tuoteta, kun näyttö on pois päältä"</string>
+    <string name="title_pref_caller_id" msgid="3583991410676669265">"Sano soittajan tunnus"</string>
+    <string name="title_pref_proximity" msgid="4533552749993575929">"Käytä lähestymisanturia"</string>
+    <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Lähestymisanturi hiljentää puheen"</string>
+    <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Lähestymisanturi ei hallitse puhetta"</string>
+    <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Lausu foneettiset kirjaimet ääneen"</string>
+    <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Foneettisia kirjaimia ei lausuta ääneen."</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"Foneettiset kirjaimet lausutaan ääneen, kun näppäimistöä painetaan pitkään ja kohteesta toiseen siirrytään kirjain kerrallaan."</string>
+    <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Lausu käyttövinkit ääneen"</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"Käyttövinkkejä ei lausuta ääneen, kun siirryt kohteesta toiseen lineaarisesti."</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"Käyttövinkit lausutaan ääneen pienen viiveen jälkeen, kun kohdistus muuttuu siirryttäessä lineaarisesti kohteesta toiseen."</string>
+    <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Kosketuksella tutkiminen"</string>
+    <string name="title_pref_auto_scroll" msgid="306503376875826605">"Vieritä luetteloita automaattisesti"</string>
+    <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Kosketuksella tutkiminen"</string>
+    <string name="title_pref_single_tap" msgid="3366282780861635094">"Valinta yhdellä napautuksella"</string>
+    <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Näytä kontekstivalikko luettelona"</string>
+    <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Himmennä näyttö, kun TalkBack on käytössä."</string>
+    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(Kokeellinen) Valitse kohdistettu kohde napauttamalla"</string>
+    <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Aloita jatkuva lukeminen ravistamalla laitetta"</string>
+    <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Eleiden hallinta"</string>
+    <string name="title_pref_manage_labels" msgid="8796338627297226539">"Hallinnoi omia tunnisteita"</string>
+    <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Hallitse pikanäppäimiä"</string>
+    <string name="title_pref_play_store" msgid="5158596411034985043">"Avaa TalkBack Play Kaupassa"</string>
+    <string name="summary_pref_play_store" msgid="3575108337945375864">"Nykyinen TalkBack-versio: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_show_tos" msgid="6167834013879233992">"Käyttöehdot"</string>
+    <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Tietosuojakäytäntö"</string>
+    <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Pikaeleet"</string>
+    <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Valmiiksi määritetyt eleet"</string>
+    <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(Kokeellinen) Napauta laitteen sivua"</string>
+    <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"Navigointitoiminnot"</string>
+    <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"Siirry seuraavaan kohteeseen"</string>
+    <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"Siirry edelliseen kohteeseen"</string>
+    <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"Siirry ensimmäiseen kohteeseen"</string>
+    <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"Siirry viimeiseen kohteeseen"</string>
+    <string name="keycombo_menu_perform_click" msgid="243666968746657931">"Suorita klikkaus"</string>
+    <string name="keycombo_menu_category_global" msgid="7309875734492478067">"Yleiset toiminnot"</string>
+    <string name="keycombo_menu_global_back" msgid="4567585750566224959">"Edellinen"</string>
+    <string name="keycombo_menu_global_home" msgid="7189369064773623371">"Koti"</string>
+    <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Viimeaikaiset sovellukset"</string>
+    <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Ilmoitukset"</string>
+    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"Keskeytä TalkBack"</string>
+    <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Siirtymisasetukset"</string>
+    <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Seuraava siirtymisasetus"</string>
+    <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Edellinen siirtymisasetus"</string>
+    <string name="keycombo_menu_category_other" msgid="440132295339458288">"Muut toiminnot"</string>
+    <string name="keycombo_menu_other_read_from_top" msgid="5903852171117275622">"Lue alusta alkaen"</string>
+    <string name="keycombo_menu_other_read_from_next_item" msgid="1511843443312220392">"Lue seuraavasta kohteesta alkaen"</string>
+    <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Hae kohdetta näytöltä"</string>
+    <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Näytä paikallinen kontekstivalikko"</string>
+    <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Näytä yleinen kontekstivalikko"</string>
+    <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"Pikanäppäin on"</string>
+    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Aseta uusi pikanäppäin painamalla näppäinyhdistelmää. Vähintään alt- tai ctrl-painike vaaditaan."</string>
+    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"Poista pikanäppäin"</string>
+    <string name="keycombo_unassigned" msgid="5817151372114230015">"Määrittämätön"</string>
+    <string name="override_keycombo" msgid="9043246837899844909">"Näppäin on jo käytössä."</string>
+    <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Tämä näppäinyhdistelmä on käytössä toiminnolle <xliff:g id="ID_1">%1$s</xliff:g>. Haluatko poistaa toiminnon ja korvata sen toiminnolla <xliff:g id="ID_2">%2$s</xliff:g>?"</string>
+    <string name="title_pref_intonation" msgid="7375380428425494034">"Käytä äänenkorkeuden muutoksia"</string>
+    <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"Sano painetut näppäimet"</string>
+    <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"Puhu näppäimistön toiminnot matalalla äänenkorkeudella"</string>
+    <string name="summaryOff_pref_intonation" msgid="5187278527518557715">"Älä muuta äänenkorkeutta puhuttaessa"</string>
+    <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"Muu palaute"</string>
+    <string name="title_pref_vibration" msgid="4156396276749836864">"Värinäpalaute"</string>
+    <string name="title_pref_soundback" msgid="3131811048184077738">"Äänipalaute"</string>
+    <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"Keskitä puheääneen"</string>
+    <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Pienennä muiden sovelluksien äänenvoimakkuutta puhuttaessa"</string>
+    <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Äänenvoimakkuus"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Talkbackin keskeytyksen ja jatkamisen pikanäppäin"</string>
+    <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Muut"</string>
+    <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Kehittäjän asetukset"</string>
+    <string name="title_pref_log_level" msgid="267415170405921603">"Lokiin tallennuksen lähtötaso"</string>
+    <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Näytä puhe"</string>
+    <string name="title_pref_tree_debug" msgid="1525763448981997023">"Solmupuun virheenkorjaus käyttöön"</string>
+    <string name="title_pref_web_scripts" msgid="3016793641076890473">"Verkon esteettömyyden parantaminen"</string>
+    <string name="summary_pref_web_scripts" msgid="3996491708050765411">"Lataa esteettömyysohjelmia verkkosisällön käyttöön"</string>
+    <string name="title_pref_resume_talkback" msgid="4098949311311089235">"Jatka käyttöä"</string>
+    <string name="screen_dimmed" msgid="8072279323762069231">"Näyttö on himmennetty."</string>
+    <string name="screen_brightness_restored" msgid="378010604065368658">"Näytön kirkkaus on palautettu."</string>
+    <string name="screen_dimming_exit_instruction_line1" msgid="176693707001658416">"TalkBackin esteettömyyspalvelu on himmentänyt näytön."</string>
+    <string name="screen_dimming_exit_instruction_line2" msgid="2111548310775079127">"Kumoa painamalla yhtä aikaa äänenvoimakkuuden lisäys- ja vähennyspainiketta nopeasti kolme kertaa."</string>
+    <string name="screen_dimming_exit_instruction_line3" msgid="7006494712728198438">"Näytön himmennystä voi hallinnoida TalkBackin asetuksissa."</string>
+    <string name="axis_character" msgid="8528412412593489695">"Navigoi merkin avulla."</string>
+    <string name="axis_word" msgid="8823389407337076750">"Navigoi sanan avulla."</string>
+    <string name="axis_sentence" msgid="4398740201672273541">"Navigoi lauseen avulla."</string>
+    <string name="axis_heading" msgid="8829265824683632088">"Navigoi otsikon avulla."</string>
+    <string name="axis_sibling" msgid="3267377527761217139">"Navigoi sisaren avulla."</string>
+    <string name="axis_document" msgid="8037283796488966887">"Navigoi asiakirjan avulla."</string>
+    <string name="axis_default_web_view_behavior" msgid="816142869754118685">"Navigoi oletusverkkonäkymän avulla."</string>
+    <string name="granularity_default" msgid="4948042687369948597">"Oletus"</string>
+    <string name="granularity_character" msgid="2036726841460203840">"Merkit"</string>
+    <string name="granularity_word" msgid="2653776823920279013">"Sanat"</string>
+    <string name="granularity_line" msgid="727359260064093782">"Rivit"</string>
+    <string name="granularity_paragraph" msgid="3760401274833105422">"Kappaleet"</string>
+    <string name="granularity_page" msgid="2739238666516816581">"Sivut"</string>
+    <string name="granularity_web_section" msgid="496466197528091152">"Osionavigointi"</string>
+    <string name="granularity_web_list" msgid="8598575022728013551">"Luettelonavigointi"</string>
+    <string name="granularity_web_control" msgid="5346924945146680639">"Ohjausnavigointi"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"Erityissisällön navigointi"</string>
+    <string name="orientation_portrait" msgid="7714435567541027105">"Pysty"</string>
+    <string name="orientation_landscape" msgid="2204457920803882766">"Vaaka"</string>
+    <string name="shortcut_unassigned" msgid="1803159459924262469">"Määrittämätön"</string>
+    <string name="shortcut_next" msgid="6887743145853506373">"Seuraava kohde"</string>
+    <string name="shortcut_previous" msgid="3679790113454394245">"Edellinen kohde"</string>
+    <string name="shortcut_scroll_forward" msgid="7299589176359902775">"Vieritä eteenpäin"</string>
+    <string name="shortcut_scroll_back" msgid="1025337926618449476">"Vieritä taaksepäin"</string>
+    <string name="shortcut_back" msgid="2558372839282319745">"Edellinen-painike"</string>
+    <string name="shortcut_home" msgid="6670249804418900175">"Etusivu-painike"</string>
+    <string name="shortcut_overview" msgid="3649651004283936027">"Viimeisimmät-painike"</string>
+    <string name="shortcut_notifications" msgid="5291839248233515759">"Avaa ilmoitukset"</string>
+    <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Avaa yleinen kontekstivalikko"</string>
+    <string name="shortcut_local_breakout" msgid="8164203174881196072">"Avaa paikallinen kontekstivalikko"</string>
+    <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Toista viimeinen lausahdus"</string>
+    <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"Tavaa viimeinen lausahdus"</string>
+    <string name="shortcut_pause_feedback" msgid="1412613174540942399">"Keskeytä palaute"</string>
+    <string name="shortcut_read_from_top" msgid="6031418895933550221">"Lue alusta alkaen"</string>
+    <string name="shortcut_read_from_current" msgid="5769337869539736463">"Lue seuraavasta kohteesta alkaen"</string>
+    <string name="shortcut_print_node_tree" msgid="7570974794642091616">"Tulosta solmupuu"</string>
+    <string name="shortcut_next_granularity" msgid="5058063575500265017">"Seuraava siirtymisasetus"</string>
+    <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Edellinen siirtymisasetus"</string>
+    <string name="shortcut_first_in_screen" msgid="4549343120881649603">"Tarkenna näytön ensimmäiseen kohteeseen"</string>
+    <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Tarkenna näytön viimeiseen kohteeseen"</string>
+    <string name="local_context_menu_title" msgid="6672321005470828526">"Paikallinen kontekstivalikko"</string>
+    <string name="global_context_menu_title" msgid="2580664964591545065">"Yleinen kontekstivalikko"</string>
+    <string name="title_local_breakout_no_items" msgid="5016265453627241456">"Valikossa ei ole kohteita."</string>
+    <string name="title_web_breakout_next_section" msgid="7355139595269361571">"Seuraava osio"</string>
+    <string name="title_web_breakout_next_list" msgid="801337905459445939">"Seuraava luettelo"</string>
+    <string name="title_web_breakout_next_control" msgid="7663977538463352430">"Seuraava säädin"</string>
+    <string name="title_web_breakout_prev_section" msgid="1738336598629616234">"Edellinen osio"</string>
+    <string name="title_web_breakout_prev_list" msgid="744039532529277819">"Edellinen luettelo"</string>
+    <string name="title_web_breakout_prev_control" msgid="2637721101068457234">"Edellinen säädin"</string>
+    <string name="title_edittext_controls" msgid="2102286116390895883">"Kohdistimen ohjaus"</string>
+    <string name="title_edittext_breakout_move_to_beginning" msgid="4021304144865258223">"Siirrä kohdistin alkuun"</string>
+    <string name="title_edittext_breakout_move_to_end" msgid="3197737555808584828">"Siirrä kohdistin loppuun"</string>
+    <string name="title_edittext_breakout_start_selection_mode" msgid="4183196270306568761">"Avaa valintatila"</string>
+    <string name="title_edittext_breakout_end_selection_mode" msgid="55211944889868460">"Sulje valintatila"</string>
+    <string name="title_viewpager_controls" msgid="3775818290312516095">"Sivulla liikkuminen"</string>
+    <string name="title_viewpager_breakout_next_page" msgid="6936782185806198910">"Seuraava sivu"</string>
+    <string name="title_viewpager_breakout_prev_page" msgid="1352284456691236167">"Edellinen sivu"</string>
+    <string name="title_labeling_controls" msgid="5005702316138877183">"Tunnisteet"</string>
+    <string name="title_summary" msgid="3037924006370977165">"Pikanavigointi"</string>
+    <string name="title_granularity" msgid="399801096771904747">"Siirtymisasetukset"</string>
+    <string name="title_custom_action" msgid="7908169922901920318">"Muokatut toiminnot"</string>
+    <string name="value_direction_up" msgid="1646290331150992975">"ylös"</string>
+    <string name="value_direction_down" msgid="8072362433982733982">"alas"</string>
+    <string name="value_direction_left" msgid="676932617445677488">"vasemmalle"</string>
+    <string name="value_direction_right" msgid="3555261520059818184">"oikealle"</string>
+    <string name="value_direction_up_and_down" msgid="3964398023350956969">"ylös ja alas"</string>
+    <string name="value_direction_down_and_up" msgid="8751291630548709587">"alas ja ylös"</string>
+    <string name="value_direction_right_and_left" msgid="8982138891493120929">"oikealle ja vasemmalle"</string>
+    <string name="value_direction_left_and_right" msgid="5700946272615649006">"vasemmalle ja oikealle"</string>
+    <string name="value_direction_down_and_left" msgid="8554316039693996323">"alas ja vasemmalle"</string>
+    <string name="value_direction_down_and_right" msgid="7001881662779097616">"alas ja oikealle"</string>
+    <string name="value_direction_up_and_left" msgid="2880257670663743521">"ylös ja vasemmalle"</string>
+    <string name="value_direction_up_and_right" msgid="1769623264993139598">"ylös ja oikealle"</string>
+    <string name="value_direction_right_and_down" msgid="3939890273004054796">"oikealle ja alas"</string>
+    <string name="value_direction_right_and_up" msgid="9165127187203257982">"oikealle ja ylös"</string>
+    <string name="value_direction_left_and_down" msgid="7803183066938070433">"vasemmalle ja alas"</string>
+    <string name="value_direction_left_and_up" msgid="1953824696291100833">"vasemmalle ja ylös"</string>
+    <string name="title_pref_shortcut_up" msgid="464026441232788284">"Pyyhkäise ylös"</string>
+    <string name="title_pref_shortcut_down" msgid="7510938211617979299">"Pyyhkäise alas"</string>
+    <string name="title_pref_shortcut_left" msgid="1294673470106169765">"Pyyhkäise vasemmalle"</string>
+    <string name="title_pref_shortcut_right" msgid="2563651710870983074">"Pyyhkäise oikealle"</string>
+    <string name="title_pref_shortcut_up_and_down" msgid="7970635117146596582">"Pyyhkäise ylös ja alas"</string>
+    <string name="title_pref_shortcut_down_and_up" msgid="862181907993343425">"Pyyhkäise alas ja ylös"</string>
+    <string name="title_pref_shortcut_left_and_right" msgid="320138621029568357">"Pyyhkäise vasemmalle ja oikealle"</string>
+    <string name="title_pref_shortcut_right_and_left" msgid="1184543975336584677">"Pyyhkäise oikealle ja vasemmalle"</string>
+    <string name="title_pref_shortcut_down_and_left" msgid="6249716604721789627">"Liu\'uta sormea alas ja vasemmalle"</string>
+    <string name="title_pref_shortcut_down_and_right" msgid="7683422992972248031">"Liu\'uta sormea alas ja oikealle"</string>
+    <string name="title_pref_shortcut_up_and_left" msgid="6548364994546979158">"Liu\'uta sormea ylös ja vasemmalle"</string>
+    <string name="title_pref_shortcut_up_and_right" msgid="8856595421274730440">"Liu\'uta sormea ylös ja oikealle"</string>
+    <string name="title_pref_shortcut_right_and_down" msgid="4893018634563250104">"Liu\'uta oikealle ja sitten alas"</string>
+    <string name="title_pref_shortcut_right_and_up" msgid="6848971895903777166">"Liu\'uta oikealle ja sitten ylös"</string>
+    <string name="title_pref_shortcut_left_and_down" msgid="2899217574677150730">"Liu\'uta vasemmalle ja sitten alas"</string>
+    <string name="title_pref_shortcut_left_and_up" msgid="369887751217245542">"Liu\'uta vasemmalle ja sitten ylös"</string>
+    <string name="title_pref_shortcut_single_tap" msgid="7220195169492947031">"Laitteen sivun yksi napautus"</string>
+    <string name="title_pref_shortcut_double_tap" msgid="4454853121476703529">"Laitteen sivun kaksoisnapautus"</string>
+    <string name="title_pref_tap_sensitivity" msgid="3737945934603267137">"Napautustunnistimen herkkyys"</string>
+    <string name="tap_sensitivity_high" msgid="7563462166661082029">"Korkea"</string>
+    <string name="tap_sensitivity_medium" msgid="5512827926666078515">"Keskitaso"</string>
+    <string name="tap_sensitivity_low" msgid="6514475998218787336">"Matala"</string>
+    <string name="tap_sensitivity_lowest" msgid="1137618443590383650">"Matalin"</string>
+    <string name="title_pref_two_part_vertical_gestures" msgid="2306010395434853106">"Kaksiosaiset pystysuuntaiset eleet"</string>
+    <string name="value_volume_100_percent" formatted="false" msgid="1925212291067338164">"Sama kuin median äänenvoimakkuus"</string>
+    <string name="value_volume_75_percent" formatted="false" msgid="4112643575612833142">"75 % median äänenvoimakkuudesta"</string>
+    <string name="value_volume_50_percent" formatted="false" msgid="571313670701581653">"50 % median äänenvoimakkuudesta"</string>
+    <string name="value_volume_25_percent" formatted="false" msgid="7765340636472447035">"25 % median äänenvoimakkuudesta"</string>
+    <string name="value_resume_screen_on" msgid="2104101584116309597">"Kun näyttö kytketään päälle"</string>
+    <string name="value_resume_keyguard" msgid="2780570849205482994">"Kun lukitusruutu näkyy"</string>
+    <string name="value_resume_manual" msgid="615523100721295547">"Vain ilmoitusalueelta valittaessa"</string>
+    <string name="value_shake_to_read_disabled" msgid="33115748930768552">"Pois käytöstä"</string>
+    <string name="value_shake_to_read_threshold_very_light" msgid="2767872234193772050">"Hyvin kevyt"</string>
+    <string name="value_shake_to_read_threshold_light" msgid="6122029921067500618">"Kevyt"</string>
+    <string name="value_shake_to_read_threshold_medium" msgid="8892692566516131981">"Keskitaso"</string>
+    <string name="value_shake_to_read_threshold_hard" msgid="7661843662865960874">"Voimakas"</string>
+    <string name="value_shake_to_read_threshold_very_hard" msgid="3423392173494851854">"Hyvin voimakas"</string>
+    <string name="value_keyboard_echo_always" msgid="6889426165608387394">"Sano aina painetut näppäimet"</string>
+    <string name="value_keyboard_echo_softkeys" msgid="1595001302535254665">"Vain näppäimistössä painetut"</string>
+    <string name="value_keyboard_echo_never" msgid="7181327459690946870">"Älä sano painettuja näppäimiä"</string>
+    <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"TalkBack-eleitä on muutettu"</string>
+    <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Tarkastele eleitä napauttamalla"</string>
+    <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBackin käyttö on keskeytetty"</string>
+    <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Jatka napauttamalla."</string>
+    <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"Keskeytetäänkö TalkBackin käyttö?"</string>
+    <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Oletko varma? Laitteesi ei anna palautetta ja Kosketuksella tutkiminen poistetaan käytöstä. Voit ottaa TalkBackin uudelleen käyttöön ilmoitusalueelta, palaamalla lukitusnäyttöön tai äänenvoimakkuusnäppäimen avulla."</string>
+    <string name="message_resume_manual" msgid="6522293510722570646">"Voit palauttaa TalkBackin käyttöön ilmoitusalueella."</string>
+    <string name="message_resume_screen_on" msgid="9016720947126938212">"Voit palauttaa TalkBackin käyttöön ilmoitusalueella tai kytkemällä näytön päälle."</string>
+    <string name="message_resume_keyguard" msgid="6721228114050709276">"Voit palauttaa TalkBackin käyttöön ilmoitusalueella tai palaamalla lukitusruutuun."</string>
+    <string name="show_suspend_warning_label" msgid="3193206799395252518">"Näytä tämä varoitus aina"</string>
+    <string name="cannot_add_label" msgid="2754406023113433479">"Kohteeseen ei voi lisätä tunnistetta."</string>
+    <string name="label_dialog_title_add" msgid="1255044087558866043">"Lisää tunniste"</string>
+    <string name="label_dialog_title_edit" msgid="7914376979667771585">"Muokkaa tunnistetta"</string>
+    <string name="label_dialog_title_remove" msgid="1791163736307626930">"Poista tunniste"</string>
+    <string name="label_dialog_text" msgid="5879506218245648848">"Kirjoita tämän kuvan teksti oheiseen kenttään."</string>
+    <string name="label_remove_dialog_text" msgid="372916461303485723">"Haluatko varmasti poistaa tunnisteen <xliff:g id="LABEL">%1$s</xliff:g>?"</string>
+    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Haluatko varmasti poistaa tunnisteen <xliff:g id="LABEL">%1$s</xliff:g> sovelluksessa <xliff:g id="APP_NAME">%2$s</xliff:g>?"</string>
+    <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Tunnisteteksti"</string>
+    <string name="talkback_gesture_change_details" msgid="1242896734553682887">"Tämä TalkBackin versio sisältää muutoksia peruseleisiin. Eleisiin liittyviä toimintoja voi muokata TalkBack-asetuksissa. Kun kosketuksella tutkiminen on käytössä, voit suorittaa tiettyjä toimintoja seuraavilla eleillä.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
+    <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Äänenvoimakkuuden lisäys- ja vähennyspainikkeiden pitkä painallus"</string>
+    <string name="dialog_title_dim_screen" msgid="603850602120147151">"Himmennetäänkö näyttö?"</string>
+    <string name="dialog_message_dim_screen" msgid="7595558180210850775">"Haluatko varmasti himmentää näytön?"</string>
+    <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"Tämä TalkBackin versio sisältää muutoksia oletusarvoisesti käytettäviin eleisiin.\n\nYlös-alas-eleen avulla voit siirtyä ruudun ensimmäiseen kohteeseen, alas-ylös siirtää sinut viimeiseen kohteeseen.\n\nLukemistarkkuutta voi nyt muuttaa kohdistamalla kohteeseen ja valitsemalla tarkkuuden paikallisesta kontekstivalikosta.\n\nVoit muuttaa eleiden toimintoja TalkBackin asetuksissa."</string>
+    <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Hyväksy eleet"</string>
+    <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Mukauta eleitä"</string>
+    <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"Poistetaanko kosketuksella tutkiminen käytöstä?"</string>
+    <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Haluatko varmasti poistaa kosketuksella tutkimisen käytöstä?\n\nLaitteesi ei enää vastaa pikaeleisiin tai sano kohteiden nimiä koskettaessasi ruutua."</string>
+    <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Käytetäänkö solmupuun virheenkorjausta?"</string>
+    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"Haluatko varmasti ottaa solmupuun virheenkorjauksen käyttöön?\n\nRuudun sisältö saattaa tällöin päätyä laitteen lokitiedostoihin, jotka saattavat olla muiden sovellusten luettavissa."</string>
+    <string name="hint_script_injection" msgid="6139951755594105602">"Kosketuksella tutkiminen ei ole käytössä verkkosisällölle. Tutki verkkosisältöä ottamalla <xliff:g id="PREFERENCE_NAME">%1$s</xliff:g> käyttöön esteettömyysasetuksissa."</string>
+    <string name="label_talkback_context_menu" msgid="6758073806811666684">"TalkBackin yleinen kontekstivalikko"</string>
+    <string name="permission_talkback_label" msgid="2235244838320678938">"Hallitse TalkBackia"</string>
+    <string name="permission_talkback_desc" msgid="8320433482567759963">"Lupa lähettää eleitä TalkBackiin ja ottaa puhepalaute käyttöön."</string>
+    <string name="permission_labeling_label" msgid="2956001661481169498">"Hallitse TalkBackin omia tunnisteita"</string>
+    <string name="permission_labeling_desc" msgid="8065967887484901473">"Lupa käyttää, muokata ja poistaa TalkBackin syöttämiä omia tunnisteita."</string>
+    <string name="links" msgid="3448225474115458693">"Linkit"</string>
+    <string name="end_of_text" msgid="3595733062526019550">"Loppu"</string>
+    <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
+    <string name="row_index_template" msgid="4107789959609911947">"Rivi <xliff:g id="ROW">%1$d</xliff:g>"</string>
+    <string name="column_index_template" msgid="258393957626754806">"Sarake <xliff:g id="COL">%1$d</xliff:g>"</string>
+    <string name="heading_template" msgid="3585514481777782183">"Otsikko"</string>
+    <string name="item_index_template" msgid="71505978833721807">"Kohde <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+</resources>

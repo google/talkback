@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="bottom">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/DimmingInstructionText"
+        android:textSize="24sp"
+        android:text="@string/screen_dimming_exit_instruction_line1"/>
+
+    <TextView
+        android:id="@+id/message_line_1"
+        style="@style/DimmingInstructionText"
+        android:text="@string/screen_dimming_exit_instruction_line2"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:id="@+id/message_line_2"
+        style="@style/DimmingInstructionText"
+        android:layout_marginTop="24dp"
+        android:text="@string/screen_dimming_exit_instruction_line3"/>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        style="@style/DimmingInstructionText"
+        android:textColor="#DEFFFFFF"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="@dimen/dim_screen_bottom_offset"/>
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <ss:speechstrategy
+      xmlns:ss="http://www.google.android.marvin.talkback.com/speechstrategy"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.google.android.marvin.talkback.com/speechstrategy ../../schema/speechstrategy.xsd">
+
+  <!-- TYPE_VIEW_SELECTED -->
+
+  <!-- Action bar tab selection (MR2 and up) -->
+  <ss:rule>
+      <ss:filter>
+      <ss:platformSdk>&gt;=18</ss:platformSdk>
+      <ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>
+      <!--suppress DeprecatedClassUsageInspection -->
+      <ss:classNameStrict>android.app.ActionBar$Tab</ss:classNameStrict>
+    </ss:filter>
+    <ss:metadata>
+      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
+      <ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/focus_actionable</ss:customEarcon>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:property>contentDescriptionOrText</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- Pattern unlock widget (prior to KK-MR1 fixes) -->
+  <ss:rule>
+    <ss:filter>
+      <ss:platformSdk>16</ss:platformSdk>
+      <ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>
+      <ss:classNameStrict>android.view.View</ss:classNameStrict>
+      <ss:packageName>android</ss:packageName>
+      <ss:text></ss:text>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/focus_actionable</ss:customEarcon>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:property>contentDescription</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- Phone - Speak in-call screen -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <ss:className>com.android.phone.InCallScreen</ss:className>
+      <ss:packageName>com.android.phone</ss:packageName>
+      <ss:platformSdk>&gt;=16</ss:platformSdk>
+    </ss:filter>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.phone.InCallScreenFormatterJB</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
+</ss:speechstrategy>

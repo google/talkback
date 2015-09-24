@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"ആക്‌സസ്സ് മാറുക"</string>
+    <string name="switch_access_service_description" msgid="7316829370005579941">"കോൺഫിഗർ ചെയ്യാനാവുന്ന കീ സംയോജനങ്ങൾ ഉപയോഗിച്ച് നിങ്ങളുടെ ഉപകരണം നിയന്ത്രിക്കുന്നതിന് \'ആക്‌സസ്സ് മാറുക\' എന്നത് നിങ്ങളെ അനുവദിക്കുന്നു. ക്ലിക്കുചെയ്യാവുന്ന ഇനങ്ങളിലേക്ക് ഫോക്കസ് നീക്കിക്കൊണ്ട് അവയെ തിരഞ്ഞെടുക്കാനാവും."</string>
+    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"സ്വയമേവയുള്ള സ്‌കാൻ"</string>
+    <string name="title_pref_auto_scan" msgid="6856662972215508038">"ഓട്ടോസ്കാൻ സജീവമാക്കുക"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"കാലതാമസം"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"വിപരീതദിശയിലുള്ള യാന്ത്രിക സ്‌കാൻ"</string>
+  <plurals name="auto_scan_time_delay_summary_format">
+    <item quantity="one" msgid="815853953952465870">"ഒരു സെക്കൻഡ്"</item>
+    <item quantity="other" msgid="1223387233862989964">"%.2f സെക്കൻഡ്"</item>
+  </plurals>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"സ്കാൻ രീതി"</string>
+    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"കീബോർഡ് സ്കാനിംഗ്"</string>
+    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"കാഴ്‌ച സ്കാനിംഗ്"</string>
+    <string name="title_pref_category_key_mappings" msgid="463227090301036752">"പ്രവർത്തനങ്ങൾക്ക് കീ നൽകുന്നു"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"സ്കാനിംഗിനായി കീകൾ നിയോഗിക്കുക"</string>
+    <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' എന്ന കീ ഇതിനകം തന്നെ \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' എന്നതിലേക്ക് നിയോഗിച്ചിട്ടുണ്ട്"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one" msgid="8372086689828893172">"%d കീ നിയോഗിച്ചു"</item>
+    <item quantity="other" msgid="2361393301173230834">"%d കീകൾ നിയോഗിച്ചു"</item>
+  </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"ഓപ്ഷൻ സ്കാൻ സ്വിച്ച് %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"അടുത്തത്"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"മുമ്പത്തെ"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"തിരഞ്ഞെടുക്കുക"</string>
+    <string name="action_name_long_click" msgid="5708679123666477849">"ദീർഘനേരം അമർത്തുക"</string>
+    <string name="action_name_scroll_forward" msgid="6969788891937406270">"മുമ്പിലേക്ക് സ്‌ക്രോൾ ചെയ്യുക"</string>
+    <string name="action_name_scroll_backward" msgid="579045012327139100">"പുറകിലേക്ക് സ്‌ക്രോൾ ചെയ്യുക"</string>
+    <string name="context_menu_layout_description" msgid="330592638837220675">"സന്ദർഭ മെനു"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"മെനു"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"മടങ്ങുക"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"ഹോം"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"ചുരുക്കവിവരണം"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"അറിയിപ്പുകൾ"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"ദ്രുത ക്രമീകരണം"</string>
+    <string name="scrollable_forward" msgid="6312908487874132401">"മുമ്പിലേക്ക് സ്‌ക്രോൾ ചെയ്യുക"</string>
+    <string name="scrollable_backward" msgid="5109861709058665917">"പുറകിലേക്ക് സ്‌ക്രോൾ ചെയ്യുക"</string>
+    <string name="switch_access_preferences_title" msgid="8339289604407443597">"ആക്‌സസ്സ് മുൻഗണന മാറുക"</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"ഒരു കീ കോമ്പിനേഷനിൽ അമർത്തിക്കൊണ്ട് ലിസ്റ്റിലേക്കത് ചേർക്കുക അല്ലെങ്കിൽ നീക്കംചെയ്യുക"</string>
+    <string name="key_combo_preference_reset_button" msgid="766369207787941384">"കീ നൽകൽ മായ്‌ക്കുക"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="2792530694141012295">"കീ ഒന്നും തന്നെ നൽകിയിട്ടില്ല"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"സ്പെയ്സ്"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"നല്‍കുക"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"ടാബ്"</string>
+    <string name="save" msgid="5398278773451196019">"സംരക്ഷിക്കുക"</string>
+    <string name="title_pref_highlight_0" msgid="3039542597362059267">"സ്‌കാനിംഗിനുപയോഗിക്കുന്ന ഹൈലൈറ്റിംഗ്"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"പ്രാഥമിക സ്കാൻ ശൈലി"</string>
+    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"ഹൈലൈറ്റിന്റെ വർണ്ണം"</string>
+    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"ഹൈലൈറ്റിന്റെ കനം"</string>
+</resources>

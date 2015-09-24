@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/pref_category_manage_gestures_key"
+    android:title="@string/title_pref_category_manage_gestures" >
+    <PreferenceCategory
+        android:key="@string/pref_category_touch_shortcuts_key"
+        android:title="@string/title_pref_category_touch_shortcuts" >
+        <!-- Simple directions, up, down, left, right -->
+        <ListPreference
+                android:defaultValue="@string/pref_shortcut_up_default"
+                android:entries="@array/pref_shortcut_entries"
+                android:entryValues="@array/pref_shortcut_values"
+                android:key="@string/pref_shortcut_up_key"
+                android:summary="%s"
+                android:title="@string/title_pref_shortcut_up" />
+        <ListPreference
+                android:defaultValue="@string/pref_shortcut_down_default"
+                android:entries="@array/pref_shortcut_entries"
+                android:entryValues="@array/pref_shortcut_values"
+                android:key="@string/pref_shortcut_down_key"
+                android:summary="%s"
+                android:title="@string/title_pref_shortcut_down" />
+        <ListPreference
+                android:defaultValue="@string/pref_shortcut_left_default"
+                android:entries="@array/pref_shortcut_entries"
+                android:entryValues="@array/pref_shortcut_values"
+                android:key="@string/pref_shortcut_left_key"
+                android:summary="%s"
+                android:title="@string/title_pref_shortcut_left" />
+        <ListPreference
+                android:defaultValue="@string/pref_shortcut_right_default"
+                android:entries="@array/pref_shortcut_entries"
+                android:entryValues="@array/pref_shortcut_values"
+                android:key="@string/pref_shortcut_right_key"
+                android:summary="%s"
+                android:title="@string/title_pref_shortcut_right" />
+
+        <!-- vertical and horizontal gestures, up-down, down-up, left-right, right-left -->
+        <ListPreference
+                android:defaultValue="@string/pref_shortcut_up_and_down_default"
+                android:entries="@array/pref_shortcut_entries"
+                android:entryValues="@array/pref_shortcut_values"
+                android:key="@string/pref_shortcut_up_and_down_key"
+                android:summary="%s"
+                android:title="@string/title_pref_shortcut_up_and_down" />
+        <ListPreference
+                android:defaultValue="@string/pref_shortcut_down_and_up_default"
+                android:entries="@array/pref_shortcut_entries"
+                android:entryValues="@array/pref_shortcut_values"
+                android:key="@string/pref_shortcut_down_and_up_key"
+                android:summary="%s"
+                android:title="@string/title_pref_shortcut_down_and_up" />
+        <ListPreference
+                android:defaultValue="@string/pref_shortcut_left_and_right_default"
+                android:entries="@array/pref_shortcut_entries"
+                android:entryValues="@array/pref_shortcut_values"
+                android:key="@string/pref_shortcut_left_and_right_key"
+                android:summary="%s"
+                android:title="@string/title_pref_shortcut_left_and_right" />
+        <ListPreference
+                android:defaultValue="@string/pref_shortcut_right_and_left_default"
+                android:entries="@array/pref_shortcut_entries"
+                android:entryValues="@array/pref_shortcut_values"
+                android:key="@string/pref_shortcut_right_and_left_key"
+                android:summary="%s"
+                android:title="@string/title_pref_shortcut_right_and_left" />
+
+        <!-- L-shaped gestures, down-right etc -->
+        <ListPreference
+                android:defaultValue="@string/pref_shortcut_up_and_right_default"
+                android:entries="@array/pref_shortcut_entries"
+                android:entryValues="@array/pref_shortcut_values"
+                android:key="@string/pref_shortcut_up_and_right_key"
+                android:summary="%s"
+                android:title="@string/title_pref_shortcut_up_and_right" />
+        <ListPreference
+                android:defaultValue="@string/pref_shortcut_up_and_left_default"
+                android:entries="@array/pref_shortcut_entries"
+                android:entryValues="@array/pref_shortcut_values"
+                android:key="@string/pref_shortcut_up_and_left_key"
+                android:summary="%s"
+                android:title="@string/title_pref_shortcut_up_and_left" />
+        <ListPreference
+            android:defaultValue="@string/pref_shortcut_down_and_right_default"
+            android:entries="@array/pref_shortcut_entries"
+            android:entryValues="@array/pref_shortcut_values"
+            android:key="@string/pref_shortcut_down_and_right_key"
+            android:summary="%s"
+            android:title="@string/title_pref_shortcut_down_and_right" />
+        <ListPreference
+            android:defaultValue="@string/pref_shortcut_down_and_left_default"
+            android:entries="@array/pref_shortcut_entries"
+            android:entryValues="@array/pref_shortcut_values"
+            android:key="@string/pref_shortcut_down_and_left_key"
+            android:summary="%s"
+            android:title="@string/title_pref_shortcut_down_and_left" />
+        <ListPreference
+            android:defaultValue="@string/pref_shortcut_right_and_down_default"
+            android:entries="@array/pref_shortcut_entries"
+            android:entryValues="@array/pref_shortcut_values"
+            android:key="@string/pref_shortcut_right_and_down_key"
+            android:summary="%s"
+            android:title="@string/title_pref_shortcut_right_and_down" />
+        <ListPreference
+            android:defaultValue="@string/pref_shortcut_right_and_up_default"
+            android:entries="@array/pref_shortcut_entries"
+            android:entryValues="@array/pref_shortcut_values"
+            android:key="@string/pref_shortcut_right_and_up_key"
+            android:summary="%s"
+            android:title="@string/title_pref_shortcut_right_and_up" />
+        <ListPreference
+            android:defaultValue="@string/pref_shortcut_left_and_down_default"
+            android:entries="@array/pref_shortcut_entries"
+            android:entryValues="@array/pref_shortcut_values"
+            android:key="@string/pref_shortcut_left_and_down_key"
+            android:summary="%s"
+            android:title="@string/title_pref_shortcut_left_and_down" />
+        <ListPreference
+            android:defaultValue="@string/pref_shortcut_left_and_up_default"
+            android:entries="@array/pref_shortcut_entries"
+            android:entryValues="@array/pref_shortcut_values"
+            android:key="@string/pref_shortcut_left_and_up_key"
+            android:summary="%s"
+            android:title="@string/title_pref_shortcut_left_and_up" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="@string/pref_category_side_tap_shortcuts_key"
+        android:title="@string/title_pref_category_side_tap_shortcuts" >
+        <ListPreference
+            android:defaultValue="@string/pref_shortcut_single_tap_default"
+            android:entries="@array/pref_shortcut_entries"
+            android:entryValues="@array/pref_shortcut_values"
+            android:key="@string/pref_shortcut_single_tap_key"
+            android:summary="%s"
+            android:title="@string/title_pref_shortcut_single_tap" />
+        <ListPreference
+            android:defaultValue="@string/pref_shortcut_double_tap_default"
+            android:entries="@array/pref_shortcut_entries"
+            android:entryValues="@array/pref_shortcut_values"
+            android:key="@string/pref_shortcut_double_tap_key"
+            android:summary="%s"
+            android:title="@string/title_pref_shortcut_double_tap" />
+        <ListPreference
+            android:defaultValue="@string/pref_tap_sensitivity_default"
+            android:entries="@array/pref_tap_sensitivity_entries"
+            android:entryValues="@array/pref_tap_sensitivity_values"
+            android:key="@string/pref_tap_sensitivity_key"
+            android:summary="%s"
+            android:title="@string/title_pref_tap_sensitivity" />
+        </PreferenceCategory>
+
+</PreferenceScreen>

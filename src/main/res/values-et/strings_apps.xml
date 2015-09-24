@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="template_stream_volume" msgid="7768533936282059501">"Voo <xliff:g id="STREAM_NAME">%1$s</xliff:g> helitugevus <xliff:g id="PERCENT">%2$d</xliff:g> protsenti."</string>
+    <string name="template_stream_volume_set" msgid="5961200256130745221">"<xliff:g id="STREAM_NAME">%1$s</xliff:g> helitugevuseks on määratud <xliff:g id="PERCENT">%2$d</xliff:g> protsenti."</string>
+    <string name="value_stream_master" msgid="6130733378374740098">"Peamine"</string>
+    <string name="value_stream_voice_call" msgid="5305385298856357591">"Telefonikõne"</string>
+    <string name="value_stream_system" msgid="3108718602352746749">"Süsteemi heli"</string>
+    <string name="value_stream_ring" msgid="426689477101897215">"Helin"</string>
+    <string name="value_stream_music" msgid="2420531377342647139">"Muusika"</string>
+    <string name="value_stream_alarm" msgid="8999482549602611898">"Alarm"</string>
+    <string name="value_stream_notification" msgid="4097029371092384177">"Teatis"</string>
+    <string name="value_stream_dtmf" msgid="7153448300406120426">"Toonvalimine"</string>
+    <string name="value_googletv_screen_saver" msgid="4641188128529437451">"Ekraanisäästja"</string>
+</resources>

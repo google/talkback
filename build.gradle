@@ -1,0 +1,46 @@
+apply from: 'base.gradle'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath 'org.aspectj:aspectjtools:1.8.1'
+        classpath 'org.robolectric:robolectric-gradle-plugin:0.13.2'
+    }
+}
+
+android {
+    sourceSets {
+        aosp {
+            java.srcDirs = ["$projectDir/src/aosp/java"]
+            res.srcDirs = ["$projectDir/src/aosp/res"]
+        }
+        robolectric {
+            java.srcDirs = ["$projectDir/src/aosp/java"]
+            res.srcDirs = ["$projectDir/src/aosp/res"]
+        }
+    }
+    productFlavors {
+        aosp {
+            applicationId "com.android.talkback"
+            testApplicationId "com.android.talkback.test"
+            versionName "4.3.1_aosp"
+        }
+    }
+}
+
+dependencies {
+    compile 'com.google.android.gms:play-services:7.0.0'
+    compile 'com.android.support:support-v4:23.0.0'
+}
+
+task grantPermission(type: Exec, dependsOn: ['installAospDebug', 'installAospDebugTest']) {
+    commandLine 'adb', 'shell', 'pm', 'grant', 'com.android.talkback.test',
+            'android.permission.WRITE_SECURE_SETTINGS'
+}
+
+task instrumentationTest(type: Exec, dependsOn: ['installAospDebug', 'installAospDebugTest', 'grantPermission']) {
+    commandLine 'adb', 'shell', 'am', 'instrument', '-w', 'com.android.talkback.test/android.test.InstrumentationTestRunner'
+}

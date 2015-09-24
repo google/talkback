@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- None of the strings here should be translated -->
+    <string name="main_pref_screen_key">main_pref_screen</string>
+    <string name="pref_category_key_auto_scan">pref_category_key_auto_scan</string>
+    <string name="pref_key_auto_scan_enabled">pref_key_auto_scan_enabled</string>
+    <string name="pref_key_auto_scan_time_delay">pref_key_auto_scan_time_delay</string>
+    <string name="pref_key_mapped_to_auto_scan_key">pref_key_mapped_to_auto_scan</string>
+    <string name="pref_key_mapped_to_reverse_auto_scan_key">pref_key_mapped_to_reverse_auto_scan</string>
+
+    <string name="pref_scanning_methods_key">pref_scanning_methods_key</string>
+    <string name="pref_scanning_methods_default">@string/views_linear_ime_row_col_key</string>
+
+    <string name="pref_category_scan_mappings_key">pref_category_scan_mappings</string>
+    <string name="pref_category_action_mappings_key">pref_category_action_mappings</string>
+    <string name="pref_key_mapped_to_next_key">pref_key_mapped_to_next</string>
+    <string name="pref_key_mapped_to_previous_key">pref_key_mapped_to_previous</string>
+    <string name="pref_key_mapped_to_click_key">pref_key_mapped_to_click</string>
+    <string name="pref_key_mapped_to_long_click_key">pref_key_mapped_to_long_click</string>
+    <string name="pref_key_mapped_to_scroll_forward_key">pref_key_mapped_to_scroll_forward</string>
+    <string name="pref_key_mapped_to_scroll_backward_key">pref_key_mapped_to_scroll_backward</string>
+    <string name="pref_key_mapped_to_back_key">pref_key_mapped_to_scroll_back</string>
+    <string name="pref_key_mapped_to_home_key">pref_key_mapped_to_scroll_home</string>
+    <string name="pref_key_mapped_to_notifications_key">pref_key_mapped_to_notifications</string>
+    <string name="pref_key_mapped_to_quick_settings_key">pref_key_mapped_to_quick_settings</string>
+    <string name="pref_key_mapped_to_overview_key">pref_key_mapped_to_scroll_recents</string>
+    <string name="pref_key_mapped_to_switch_3_key">pref_key_mapped_to_switch_3</string>
+    <string name="pref_key_mapped_to_switch_4_key">pref_key_mapped_to_switch_4</string>
+    <string name="pref_key_mapped_to_switch_5_key">pref_key_mapped_to_switch_5</string>
+
+    <string name="pref_auto_scan_default_value">false</string>
+    <string name="pref_auto_scan_time_delay_default_value">1</string>
+    <string name="pref_rowcol_scan_default_value">false</string>
+
+    <string name="pref_highlights_key">pref_highlights_key</string>
+    <string name="pref_highlight_weight_default">@string/thickness_8_dp</string>
+    <string name="pref_highlight_0_key">pref_highlight_0_key</string>
+    <string name="pref_highlight_0_color_key">pref_highlight_0_color_key</string>
+    <string name="pref_highlight_0_color_default">@string/material_green_500</string>
+    <string name="pref_highlight_0_weight_key">pref_highlight_0_weight_key</string>
+
+    <string name="pref_highlight_1_key">pref_highlight_1_key</string>
+    <string name="pref_highlight_1_color_key">pref_highlight_1_color_key</string>
+    <string name="pref_highlight_1_color_default">@string/material_red_500</string>
+    <string name="pref_highlight_1_weight_key">pref_highlight_1_weight_key</string>
+
+    <string name="pref_highlight_2_key">pref_highlight_2_key</string>
+    <string name="pref_highlight_2_color_key">pref_highlight_2_color_key</string>
+    <string name="pref_highlight_2_color_default">@string/material_blue_500</string>
+    <string name="pref_highlight_2_weight_key">pref_highlight_2_weight_key</string>
+
+    <string name="pref_highlight_3_key">pref_highlight_3_key</string>
+    <string name="pref_highlight_3_color_key">pref_highlight_3_color_key</string>
+    <string name="pref_highlight_3_color_default">@string/white</string>
+    <string name="pref_highlight_3_weight_key">pref_highlight_3_weight_key</string>
+
+    <string name="pref_highlight_4_key">pref_highlight_4_key</string>
+    <string name="pref_highlight_4_color_key">pref_highlight_4_color_key</string>
+    <string name="pref_highlight_4_color_default">@string/material_orange_500</string>
+    <string name="pref_highlight_4_weight_key">pref_highlight_4_weight_key</string>
+
+    <!-- Highlight Colors -->
+    <string name="material_green_500">4caf50</string>
+    <string name="material_orange_500">ff9800</string>
+    <string name="material_red_500">f44336</string>
+    <string name="material_blue_500">2196f3</string>
+    <string name="white">ffffff</string>
+
+    <!-- Highlight Thicknesses -->
+    <string name="thickness_4_dp">4</string>
+    <string name="thickness_8_dp">8</string>
+    <string name="thickness_16_dp">16</string>
+
+    <!-- Scanning methods -->
+    <string name="views_linear_ime_row_col_key">views_linear_ime_row_col_key</string>
+    <string name="row_col_scanning_key">row_col_scanning_key</string>
+    <string name="option_scanning_key">option_scanning_key</string>
+</resources>

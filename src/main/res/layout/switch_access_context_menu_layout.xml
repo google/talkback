@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contextMenuLayout"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:contentDescription="@string/context_menu_layout_description" >
+
+    <Button android:id="@+id/global_context_menu_back_key"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/global_action_back" />
+
+    <Button android:id="@+id/global_context_menu_home_key"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/global_action_home" />
+
+    <Button android:id="@+id/global_context_menu_overview_key"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/global_action_overview" />
+
+    <Button android:id="@+id/global_context_menu_notifications_key"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/global_action_notifications" />
+
+    <Button android:id="@+id/global_context_menu_quick_settings_key"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/global_action_quick_settings" />
+
+    <Button android:id="@+id/scrollable_context_menu_forward_key"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/scrollable_forward" />
+
+    <Button android:id="@+id/scrollable_context_menu_backward_key"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/scrollable_backward" />
+</LinearLayout>

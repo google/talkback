@@ -1,0 +1,633 @@
+/*
+ * Copyright (C) 2013 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+package com.android.utils.labeling;
+
+import android.annotation.TargetApi;
+import android.content.ContentProviderClient;
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Build;
+import android.os.RemoteException;
+import android.util.Log;
+import com.android.utils.LogUtils;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * A client for storing and retrieving custom TalkBack view labels using the
+ * {@link Label} model class and a connection to a
+ * {@link android.content.ContentProvider} for labels.
+ */
+@TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+public class LabelProviderClient {
+    private static final String EQUALS_ARG = " = ?";
+    private static final String LEQ_ARG = " <= ?";
+    private static final String AND = " AND ";
+    private static final String GET_LABELS_FOR_APPLICATION_QUERY_WHERE =
+            LabelsTable.KEY_PACKAGE_NAME + EQUALS_ARG + AND + LabelsTable.KEY_LOCALE + EQUALS_ARG +
+            AND + LabelsTable.KEY_PACKAGE_VERSION + LEQ_ARG;
+    private static final String GET_LABEL_QUERY_WHERE = LabelsTable.KEY_PACKAGE_NAME + EQUALS_ARG +
+            AND + LabelsTable.KEY_VIEW_NAME + EQUALS_ARG + AND + LabelsTable.KEY_LOCALE +
+            EQUALS_ARG + AND + LabelsTable.KEY_PACKAGE_VERSION + LEQ_ARG;
+    private static final String PACKAGE_SUMMARY_QUERY_WHERE = LabelsTable.KEY_LOCALE + EQUALS_ARG;
+
+    private static final String LABELS_PATH = "labels";
+    private static final String PACKAGE_SUMMARY_PATH = "packageSummary";
+
+    private ContentProviderClient mClient;
+    private final Uri mLabelsContentUri;
+    private final Uri mPackageSummaryContentUri;
+
+    /**
+     * Constructs a new client instance for the provider at the given URI.
+     *
+     * @param context The current context.
+     * @param authority The authority of the labels content provider to access.
+     */
+    public LabelProviderClient(Context context, String authority) {
+        mLabelsContentUri = new Uri.Builder()
+                .scheme("content")
+                .authority(authority)
+                .path(LABELS_PATH)
+                .build();
+        mPackageSummaryContentUri = new Uri.Builder()
+                .scheme("content")
+                .authority(authority)
+                .path(PACKAGE_SUMMARY_PATH)
+                .build();
+
+        final ContentResolver contentResolver = context.getContentResolver();
+        mClient = contentResolver.acquireContentProviderClient(mLabelsContentUri);
+
+        if (mClient == null) {
+            LogUtils.log(this, Log.WARN, "Failed to acquire content provider client.");
+        }
+    }
+
+    /**
+     * Inserts the specified label into the labels database via a client for the
+     * labels {@link android.content.ContentProvider}.
+     * <p>
+     * Don't run this method on the UI thread. Use {@link android.os.AsyncTask}.
+     *
+     * @param label The model object for the label to store in the database.
+     * @return A new label object with the assigned label ID from the database,
+     *         or {@code null} if the insert operation failed.
+     */
+    public Label insertLabel(Label label) {
+        LogUtils.log(this, Log.DEBUG, "Inserting label: %s.", label);
+
+        if (label == null) {
+            return null;
+        }
+
+        final long labelId = label.getId();
+        if (label.getId() != Label.NO_ID) {
+            LogUtils.log(this, Log.WARN, "Cannot insert label with existing ID (id=%d).", labelId);
+            return null;
+        }
+
+        if (!checkClient()) {
+            return null;
+        }
+
+        final ContentValues values = buildContentValuesForLabel(label);
+
+        final Uri resultUri;
+        try {
+            resultUri = mClient.insert(mLabelsContentUri, values);
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return null;
+        }
+
+        if (resultUri == null) {
+            LogUtils.log(this, Log.WARN, "Failed to insert label.");
+            return null;
+        }
+
+        final long newLabelId = Long.parseLong(resultUri.getLastPathSegment());
+        return new Label(label, newLabelId);
+    }
+
+    /**
+     * Gets a list of all labels in the label database.
+     * <p>
+     * Don't run this method on the UI thread. Use {@link android.os.AsyncTask}.
+     *
+     * @return An unmodifiable list of all labels in the database,
+     *         or an empty list if the query returns no results,
+     *         or {@code null} if the query fails.
+     */
+    public List<Label> getAllLabels() {
+        LogUtils.log(this, Log.DEBUG, "Querying all labels.");
+
+        if (!checkClient()) {
+            return null;
+        }
+
+        Cursor cursor = null;
+        try {
+            cursor = mClient.query(mLabelsContentUri, LabelsTable.ALL_COLUMNS /* projection */,
+                    null /* where */, null /* whereArgs */, null /* sortOrder */);
+
+            return getLabelListFromCursor(cursor);
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return null;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    /**
+     * Gets a summary of label info for each package from the label database.
+     * <p>
+     * Don't run this method on the UI thread. Use {@link android.os.AsyncTask}.
+     *
+     * @return An unmodifiable list of {@link PackageLabelInfo} objects, or an
+     *         empty map if the query returns no results, or {@code null} if the
+     *         query fails.
+     */
+    public List<PackageLabelInfo> getPackageSummary(String locale) {
+        LogUtils.log(this, Log.DEBUG, "Querying package summary.");
+
+        if (!checkClient()) {
+            return null;
+        }
+
+        final String[] whereArgs = { locale };
+
+        Cursor cursor = null;
+        try {
+            cursor = mClient.query(mPackageSummaryContentUri, null /* projection */,
+                    PACKAGE_SUMMARY_QUERY_WHERE, whereArgs, null /* sortOrder */);
+
+            return getPackageSummaryFromCursor(cursor);
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return null;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    /**
+     * Queries for labels matching a particular package and locale.
+     * <p>
+     * Don't run this method on the UI thread. Use {@link android.os.AsyncTask}.
+     *
+     * @param packageName The package name to match.
+     * @param locale The locale to match.
+     * @param maxPackageVersion The maximum package version for result labels.
+     * @return An unmodifiable map from view names to label objects that
+     *         contains all labels matching the criteria, or {@code null} if the
+     *         query failed.
+     */
+    public Map<String, Label> getLabelsForPackage(String packageName, String locale,
+            int maxPackageVersion) {
+        LogUtils.log(this, Log.DEBUG,
+                "Querying labels for package: packageName=%s, locale=%s, maxPackageVersion=%s.",
+                packageName, locale, maxPackageVersion);
+
+        if (!checkClient()) {
+            return null;
+        }
+
+        final String[] whereArgs = new String[] {
+                packageName, locale, Integer.toString(maxPackageVersion) };
+
+        Cursor cursor = null;
+        try {
+            cursor = mClient.query(mLabelsContentUri, LabelsTable.ALL_COLUMNS /* projection */,
+                    GET_LABELS_FOR_APPLICATION_QUERY_WHERE, whereArgs,
+                    null /* sortOrder */);
+
+            return getLabelMapFromCursor(cursor);
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return null;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    /**
+     * Queries for labels matching a particular package and locale for all
+     * versions of that package.
+     * <p>
+     * Don't run this method on the UI thread. Use {@link android.os.AsyncTask}.
+     *
+     * @param packageName The package name to match.
+     * @param locale The locale to match.
+     * @return An unmodifiable map from view names to label objects that
+     *         contains all labels matching the criteria, or {@code null} if the
+     *         query failed.
+     */
+    public Map<String, Label> getLabelsForPackage(String packageName, String locale) {
+        return getLabelsForPackage(packageName, locale, Integer.MAX_VALUE);
+    }
+
+    /**
+     * Queries for a single label matching a particular view and locale.
+     * <p>
+     * Don't run this method on the UI thread. Use {@link android.os.AsyncTask}.
+     *
+     * @param packageName The package name for the view's application.
+     * @param viewName The identifier of the view for which to find a label.
+     * @param locale The desired locale for the label.
+     * @param maxPackageVersion The maximum package version for result labels.
+     * @return A single label matching the criteria,
+     *         or {@code null} if no matching label was found.
+     */
+    public Label getLabel(String packageName, String viewName, String locale,
+            int maxPackageVersion) {
+        LogUtils.log(this, Log.DEBUG, "Querying single label: " +
+                "packageName=%s, viewName=%s, locale=%s, maxPackageVersion=%s.",
+                packageName, viewName, locale, maxPackageVersion);
+
+        if (!checkClient()) {
+            return null;
+        }
+
+        final String[] whereArgs = new String[] {
+                packageName, viewName, locale, Integer.toString(maxPackageVersion) };
+        Cursor cursor = null;
+        try {
+            cursor = mClient.query(mLabelsContentUri, LabelsTable.ALL_COLUMNS,
+                    GET_LABEL_QUERY_WHERE, whereArgs, null /* sortOrder */);
+
+            return getLabelFromCursor(cursor);
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return null;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    /**
+     * Queries for a single label by its label ID.
+     * <p>
+     * Don't run this method on the UI thread. Use {@link android.os.AsyncTask}.
+     *
+     * @param id The ID of the label to find.
+     * @return The label with the given ID,
+     *         or {@code null} if no such label was found.
+     */
+    public Label getLabelById(long id) {
+        LogUtils.log(this, Log.DEBUG, "Querying single label: id=%d.", id);
+
+        if (!checkClient()) {
+            return null;
+        }
+
+        final Uri uri = ContentUris.withAppendedId(mLabelsContentUri, id);
+        Cursor cursor = null;
+        try {
+            cursor = mClient.query(uri, LabelsTable.ALL_COLUMNS, null /* where */,
+                    null /* whereArgs */, null /* sortOrder */);
+
+            return getLabelFromCursor(cursor);
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return null;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    /**
+     * Updates a single label.
+     * <p>
+     * Don't run this method on the UI thread. Use {@link android.os.AsyncTask}.
+     *
+     * @param label The label with updated values to store.
+     * @return {@code true} if the update succeeded, or {@code false} otherwise.
+     */
+    public boolean updateLabel(Label label) {
+        LogUtils.log(this, Log.DEBUG, "Updating label: %s.", label);
+
+        if (label == null) {
+            return false;
+        }
+
+        if (!checkClient()) {
+            return false;
+        }
+
+        final long labelId = label.getId();
+
+        if (labelId == Label.NO_ID) {
+            LogUtils.log(this, Log.WARN, "Cannot update label with no ID.");
+            return false;
+        }
+
+        final Uri uri = ContentUris.withAppendedId(mLabelsContentUri, labelId);
+        final ContentValues values = buildContentValuesForLabel(label);
+
+        try {
+            final int rowsAffected = mClient.update(
+                    uri, values, null /* selection */, null /* selectionArgs */);
+            return rowsAffected > 0;
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return false;
+        }
+    }
+
+    /**
+     * Deletes a single label.
+     * <p>
+     * Don't run this method on the UI thread. Use {@link android.os.AsyncTask}.
+     *
+     * @param label The label to delete.
+     * @return {@code true} if the delete succeeded, or {@code false} otherwise.
+     */
+    public boolean deleteLabel(Label label) {
+        LogUtils.log(this, Log.DEBUG, "Deleting label: %s.", label);
+
+        if (label == null) {
+            return false;
+        }
+
+        if (!checkClient()) {
+            return false;
+        }
+
+        final long labelId = label.getId();
+
+        if (labelId == Label.NO_ID) {
+            LogUtils.log(this, Log.WARN, "Cannot delete label with no ID.");
+            return false;
+        }
+
+        final Uri uri = ContentUris.withAppendedId(mLabelsContentUri, labelId);
+
+        try {
+            final int rowsAffected = mClient.delete(
+                    uri, null /* selection */, null /* selectionArgs */);
+            return rowsAffected > 0;
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return false;
+        }
+    }
+
+    /**
+     * Shuts down the client and releases any resources.
+     */
+    public void shutdown() {
+        if (checkClient()) {
+            mClient.release();
+            mClient = null;
+        }
+    }
+
+    /**
+     * Returns whether the client was properly initialized (non-null).
+     * @return {@code true} if client is non-null, or {@code false} otherwise.
+     */
+    public boolean isInitialized() {
+        return mClient != null;
+    }
+
+    /**
+     * Builds content values for the fields of a label.
+     *
+     * @param label The source of the values.
+     * @return A set of values representing the label.
+     */
+    private static ContentValues buildContentValuesForLabel(Label label) {
+        final ContentValues values = new ContentValues();
+
+        values.put(LabelsTable.KEY_PACKAGE_NAME, label.getPackageName());
+        values.put(LabelsTable.KEY_PACKAGE_SIGNATURE, label.getPackageSignature());
+        values.put(LabelsTable.KEY_VIEW_NAME, label.getViewName());
+        values.put(LabelsTable.KEY_TEXT, label.getText());
+        values.put(LabelsTable.KEY_LOCALE, label.getLocale());
+        values.put(LabelsTable.KEY_PACKAGE_VERSION, label.getPackageVersion());
+        values.put(LabelsTable.KEY_SCREENSHOT_PATH, label.getScreenshotPath());
+        values.put(LabelsTable.KEY_TIMESTAMP, label.getTimestamp());
+
+        return values;
+    }
+
+    /**
+     * Gets a {@link Label} object from the data in the given cursor at the
+     * current row position.
+     *
+     * @param cursor The cursor to use to get the label.
+     * @return The label at the current cursor position,
+     *         or {@code null} if the current cursor position has no row.
+     */
+    private Label getLabelFromCursorAtCurrentPosition(Cursor cursor) {
+        if (cursor == null || cursor.isClosed() || cursor.isAfterLast()) {
+            LogUtils.log(this, Log.WARN, "Failed to get label from cursor.");
+            return null;
+        }
+
+        final long labelId = cursor.getLong(LabelsTable.INDEX_ID);
+        final String packageName = cursor.getString(LabelsTable.INDEX_PACKAGE_NAME);
+        final String packageSignature = cursor.getString(LabelsTable.INDEX_PACKAGE_SIGNATURE);
+        final String viewName = cursor.getString(LabelsTable.INDEX_VIEW_NAME);
+        final String text = cursor.getString(LabelsTable.INDEX_TEXT);
+        final String locale = cursor.getString(LabelsTable.INDEX_LOCALE);
+        final int packageVersion = cursor.getInt(LabelsTable.INDEX_PACKAGE_VERSION);
+        final String screenshotPath = cursor.getString(LabelsTable.INDEX_SCREENSHOT_PATH);
+        final long timestamp = cursor.getLong(LabelsTable.INDEX_TIMESTAMP);
+
+        return new Label(labelId, packageName, packageSignature, viewName, text, locale,
+                packageVersion, screenshotPath, timestamp);
+    }
+
+    /**
+     * Gets a pair of package name and label count from the data in the given
+     * cursor at the current row position.
+     *
+     * @param cursor The cursor to use to get the label.
+     * @return A pair of package name and label count, or {@code null} if the
+     *         current cursor position has no row.
+     */
+    private PackageLabelInfo getPackageLabelInfoFromCursor(Cursor cursor) {
+        if (cursor == null || cursor.isClosed() || cursor.isAfterLast()) {
+            LogUtils.log(this, Log.WARN, "Failed to get PackageLabelInfo from cursor.");
+            return null;
+        }
+
+        final String packageName = cursor.getString(0);
+        final int labelCount = cursor.getInt(1
+                );
+
+        return new PackageLabelInfo(packageName, labelCount);
+    }
+
+    /**
+     * Gets a single label from a cursor as the result of a query.
+     *
+     * @param cursor The cursor from which to get the label.
+     * @return The label returned from the query, or {@code null} if no valid
+     *         label was returned.
+     */
+    private Label getLabelFromCursor(Cursor cursor) {
+        if (cursor == null) {
+            return null;
+        }
+
+        cursor.moveToFirst();
+        final Label result = getLabelFromCursorAtCurrentPosition(cursor);
+
+        logResult(result);
+
+        return result;
+    }
+
+    /**
+     * Gets an unmodifiable list of labels from a cursor resulting from a query.
+     *
+     * @param cursor The cursor from which to get the labels.
+     * @return The unmodifiable list of labels returned from the query.
+     */
+    private List<Label> getLabelListFromCursor(Cursor cursor) {
+        if (cursor == null) {
+            return Collections.emptyList();
+        }
+
+        final List<Label> result = new LinkedList<>();
+        while (cursor.moveToNext()) {
+            final Label label = getLabelFromCursorAtCurrentPosition(cursor);
+            if (label != null) {
+                result.add(label);
+            }
+        }
+
+        logResult(result);
+
+        return Collections.unmodifiableList(result);
+    }
+
+    /**
+     * Gets an unmodifiable list of {@link PackageLabelInfo} objects from a
+     * cursor resulting from a query.
+     *
+     * @param cursor The cursor from which to get the package summary.
+     * @return The unmodifiable list built from the query.
+     */
+    private List<PackageLabelInfo> getPackageSummaryFromCursor(Cursor cursor) {
+        if (cursor == null) {
+            return Collections.emptyList();
+        }
+
+        final List<PackageLabelInfo> result = new LinkedList<>();
+        while (cursor.moveToNext()) {
+            final PackageLabelInfo packageLabelInfo = getPackageLabelInfoFromCursor(cursor);
+            if (packageLabelInfo != null) {
+                result.add(packageLabelInfo);
+            }
+        }
+
+        return Collections.unmodifiableList(result);
+    }
+
+    /**
+     * Gets an unmodifiable map of labels from a cursor resulting from a query.
+     *
+     * @param cursor The cursor from which to get the labels.
+     * @return An unmodifiable map from view names to label objects containing
+     *         all labels returned from the query.
+     */
+    private Map<String, Label> getLabelMapFromCursor(Cursor cursor) {
+        if (cursor == null) {
+            return Collections.emptyMap();
+        }
+
+        final int labelCount = cursor.getCount(); // can return -1
+        final int initialCapacity = Math.max(labelCount, 0);
+
+        final Map<String, Label> result = new HashMap<>(initialCapacity);
+        while (cursor.moveToNext()) {
+            final Label label = getLabelFromCursorAtCurrentPosition(cursor);
+            if (label != null) {
+                result.put(label.getViewName(), label);
+            }
+        }
+
+        logResult(result.values());
+
+        return Collections.unmodifiableMap(result);
+    }
+
+    /**
+     * Logs a label resulting from a query.
+     *
+     * @param label The label to log.
+     */
+    private void logResult(Label label) {
+        LogUtils.log(this, Log.VERBOSE, "Query result: %s.", label);
+    }
+
+    /**
+     * Logs labels resulting from a query.
+     *
+     * @param result The labels to log.
+     */
+    private void logResult(Iterable<Label> result) {
+        if (LogUtils.LOG_LEVEL >= Log.VERBOSE) {
+            final StringBuilder logMessageBuilder = new StringBuilder("Query result: [");
+            for (Label label : result) {
+                logMessageBuilder.append("\n  ");
+                logMessageBuilder.append(label);
+            }
+            logMessageBuilder.append("].");
+
+            LogUtils.log(this, Log.VERBOSE, logMessageBuilder.toString());
+        }
+    }
+
+    /**
+     * Checks for a client and logs a warning if it is {@code null}.
+     *
+     * @return Whether the client is non-{@code null}.
+     */
+    private boolean checkClient() {
+        if (mClient == null) {
+            LogUtils.log(this, Log.WARN,
+                    "Aborting operation: the client failed to initialize or already shut down.");
+            return false;
+        }
+
+        return true;
+    }
+}

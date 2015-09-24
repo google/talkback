@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string-array name="switch_access_color_entries">
+    <item msgid="7934595828699536711">"সবুজ"</item>
+    <item msgid="7616478199824616148">"কমলা"</item>
+    <item msgid="528738291475141372">"লাল"</item>
+    <item msgid="3613307072137891343">"নীল"</item>
+    <item msgid="1719741716015833575">"সাদা"</item>
+  </string-array>
+  <string-array name="switch_access_weight_entries">
+    <item msgid="5215195704613305820">"পাতলা নিরেট লাইন"</item>
+    <item msgid="7698398358042168523">"মাঝারি নিরেট লাইন"</item>
+    <item msgid="4047443674448719927">"পুরু নিরেট লাইন"</item>
+  </string-array>
+  <string-array name="switch_access_scanning_methods_entries">
+    <item msgid="1781370855612874933">"সারি-কলাম স্ক্যান শুধুমাত্র কীবোর্ড"</item>
+    <item msgid="2081445217241144307">"সারি-কলাম স্ক্যান সবকিছু"</item>
+    <item msgid="4021832268378176260">"বিকল্প স্ক্যান করা হচ্ছে"</item>
+  </string-array>
+</resources>

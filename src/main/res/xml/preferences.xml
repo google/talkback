@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:key="@string/pref_category_when_to_speak_key"
+        android:title="@string/title_pref_category_when_to_speak" >
+        <ListPreference
+            android:defaultValue="@string/pref_speech_volume_default"
+            android:dialogTitle="@string/title_pref_speech_volume"
+            android:entries="@array/pref_speech_volume_entries"
+            android:entryValues="@array/pref_speech_volume_values"
+            android:key="@string/pref_speech_volume_key"
+            android:summary="%s"
+            android:title="@string/title_pref_speech_volume" />
+
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_intonation_default"
+            android:key="@string/pref_intonation_key"
+            android:summaryOff="@string/summaryOff_pref_intonation"
+            android:summaryOn="@string/summaryOn_pref_intonation"
+            android:title="@string/title_pref_intonation" />
+        <ListPreference
+            android:defaultValue="@string/pref_keyboard_echo_default"
+            android:dialogTitle="@string/title_pref_keyboard_echo"
+            android:entries="@array/pref_keyboard_echo_entries"
+            android:entryValues="@array/pref_keyboard_echo_values"
+            android:key="@string/pref_keyboard_echo_key"
+            android:summary="%s"
+            android:title="@string/title_pref_keyboard_echo" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_screenoff_default"
+            android:key="@string/pref_screenoff_key"
+            android:summaryOff="@string/summaryOff_pref_speak_screenoff"
+            android:summaryOn="@string/summaryOn_pref_speak_screenoff"
+            android:title="@string/title_pref_speak_screenoff" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_proximity_default"
+            android:key="@string/pref_proximity_key"
+            android:summaryOff="@string/summaryOff_pref_proximity"
+            android:summaryOn="@string/summaryOn_pref_proximity"
+            android:title="@string/title_pref_proximity" />
+        <ListPreference
+            android:defaultValue="@string/pref_shake_to_read_threshold_default"
+            android:dialogTitle="@string/title_pref_shake_to_read_threshold"
+            android:entries="@array/pref_shake_to_read_threshold_entries"
+            android:entryValues="@array/pref_shake_to_read_threshold_values"
+            android:key="@string/pref_shake_to_read_threshold_key"
+            android:summary="%s"
+            android:title="@string/title_pref_shake_to_read_threshold" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_caller_id_default"
+            android:key="@string/pref_caller_id_key"
+            android:title="@string/title_pref_caller_id" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_phonetic_letters_default"
+            android:key="@string/pref_phonetic_letters_key"
+            android:summaryOff="@string/summaryOff_pref_phonetic_letters"
+            android:summaryOn="@string/summaryOn_pref_phonetic_letters"
+            android:title="@string/title_pref_phonetic_letters" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_a11y_hints_default"
+            android:key="@string/pref_a11y_hints_key"
+            android:summaryOff="@string/summaryOff_pref_a11y_hints"
+            android:summaryOn="@string/summaryOn_pref_a11y_hints"
+            android:title="@string/title_pref_a11y_hints" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="@string/pref_category_feedback_key"
+        android:title="@string/title_pref_category_feedback_settings" >
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_vibration_default"
+            android:key="@string/pref_vibration_key"
+            android:title="@string/title_pref_vibration" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_soundback_default"
+            android:key="@string/pref_soundback_key"
+            android:title="@string/title_pref_soundback" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_use_audio_focus_default"
+            android:key="@string/pref_use_audio_focus_key"
+            android:title="@string/title_pref_use_audio_focus"
+            android:summary="@string/summary_pref_use_audio_focus" />
+        <ListPreference
+            android:defaultValue="@string/pref_soundback_volume_default"
+            android:dependency="@string/pref_soundback_key"
+            android:dialogTitle="@string/title_pref_soundback_volume"
+            android:entries="@array/pref_soundback_volume_entries"
+            android:entryValues="@array/pref_soundback_volume_values"
+            android:key="@string/pref_soundback_volume_key"
+            android:summary="%s"
+            android:title="@string/title_pref_soundback_volume" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="@string/pref_category_touch_exploration_key"
+        android:title="@string/title_pref_category_touch_exploration" >
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_explore_by_touch_default"
+            android:key="@string/pref_explore_by_touch_reflect_key"
+            android:title="@string/title_pref_explore_by_touch" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_auto_scroll_default"
+            android:key="@string/pref_auto_scroll_key"
+            android:title="@string/title_pref_auto_scroll" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_single_tap_default"
+            android:dependency="@string/pref_explore_by_touch_reflect_key"
+            android:key="@string/pref_single_tap_key"
+            android:summary="@string/summary_pref_single_tap"
+            android:title="@string/title_pref_single_tap" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_show_menu_as_list"
+            android:key="@string/pref_show_context_menu_as_list_key"
+            android:title="@string/title_pref_show_context_menu_as_list" />
+        <Preference
+            android:key="@string/pref_tutorial_key"
+            android:title="@string/title_pref_tutorial"
+            android:dependency="@string/pref_explore_by_touch_reflect_key" />
+        <Preference
+            android:key="@string/pref_category_manage_gestures_key"
+            android:title="@string/title_pref_category_manage_gestures" />
+        <Preference
+            android:key="@string/pref_manage_labels_key"
+            android:title="@string/title_pref_manage_labels" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="@string/pref_category_miscellaneous_key"
+        android:title="@string/title_pref_category_miscellaneous_settings" >
+        <Preference
+            android:key="@string/pref_category_manage_keyboard_shortcut_key"
+            android:title="@string/title_pref_manage_keyboard_shortcuts" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_resume_volume_buttons_long_click_default"
+            android:key="@string/pref_two_volume_long_press_key"
+            android:summary="@string/value_long_volume_pressed_suspend_talkback"
+            android:title="@string/title_pref_two_volume_button_long_click" />
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_dim_when_talkback_enabled_default"
+            android:key="@string/pref_dim_when_talkback_enabled_key"
+            android:title="@string/title_dim_screen_when_talkback_enabled" />
+        <PreferenceScreen
+            android:key="@string/pref_play_store_key"
+            android:title="@string/title_pref_play_store">
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="@string/pref_show_tos_key"
+            android:title="@string/title_pref_show_tos">
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="@string/pref_policy_key"
+            android:title="@string/title_pref_show_privacy_policy">
+        </PreferenceScreen>
+        <ListPreference
+            android:defaultValue="@string/pref_resume_talkback_default"
+            android:dialogTitle="@string/title_pref_resume_talkback"
+            android:entries="@array/pref_resume_talkback_entries"
+            android:entryValues="@array/pref_resume_talkback_values"
+            android:key="@string/pref_resume_talkback_key"
+            android:summary="%s"
+            android:title="@string/title_pref_resume_talkback" />
+        <PreferenceScreen
+            android:key="@string/pref_category_developer_key"
+            android:title="@string/title_pref_category_developer_settings" >
+            <ListPreference
+                android:defaultValue="@string/pref_log_level_default"
+                android:dialogTitle="@string/title_pref_log_level"
+                android:entries="@array/pref_log_level_entries"
+                android:entryValues="@array/pref_log_level_values"
+                android:key="@string/pref_log_level_key"
+                android:summary="%s"
+                android:title="@string/title_pref_log_level" />
+
+            <CheckBoxPreference
+                android:defaultValue="@bool/pref_tts_overlay_default"
+                android:key="@string/pref_tts_overlay_key"
+                android:title="@string/title_pref_tts_overlay" />
+
+            <CheckBoxPreference
+                android:defaultValue="@bool/pref_tree_debug_default"
+                android:key="@string/pref_tree_debug_reflect_key"
+                android:title="@string/title_pref_tree_debug" />
+
+            <CheckBoxPreference
+                android:defaultValue="@bool/pref_web_scripts_default"
+                android:key="@string/pref_web_scripts_key"
+                android:title="@string/title_pref_web_scripts"
+                android:summary="@string/summary_pref_web_scripts" />
+        </PreferenceScreen>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

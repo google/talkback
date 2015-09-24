@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.google.android.marvin.talkback.com/feedbacktheme"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:theme="http://www.google.android.marvin.talkback.com/feedbacktheme">
+
+  <simpleType name="auditoryResourceType">
+    <restriction base="string">
+      <pattern value="@(array|raw)/[a-zA-Z_]+"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="hapticResourceType">
+    <restriction base="string">
+      <pattern value="@(array)/[a-zA-Z_]+"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="resourceType">
+    <restriction base="string">
+      <pattern value="@([a-z]+(\.[a-z]+)*:)?(string|raw|array|int)/[a-zA-Z_]+"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="streamType">
+    <restriction base="string">
+      <enumeration value="music" />
+      <enumeration value="ring" />
+      <enumeration value="system" />
+    </restriction>
+  </simpleType>
+
+  <complexType name="auditoryType">
+    <choice minOccurs="0">
+      <element name="resource" type="theme:auditoryResourceType"/>
+    </choice>
+    <attribute name="id" type="string" use="required"/>
+    <attribute name="stream" type="theme:streamType" use="optional"/>
+  </complexType>
+
+  <complexType name="hapticType">
+    <choice minOccurs="0">
+      <element name="resource" type="theme:hapticResourceType"/>
+    </choice>
+    <attribute name="id" type="string" use="required"/>
+  </complexType>
+
+  <complexType name="feedbackThemeType">
+    <sequence maxOccurs="unbounded">
+      <choice>
+        <element name="auditory" type="theme:auditoryType"/>
+        <element name="haptic" type="theme:hapticType"/>
+      </choice>
+    </sequence>
+  </complexType>
+
+  <element name="feedbacktheme" type="theme:feedbackThemeType"/>
+
+</schema>

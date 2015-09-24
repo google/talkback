@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string-array name="switch_access_color_entries">
+    <item msgid="7934595828699536711">"Okuluhlaza okotshani"</item>
+    <item msgid="7616478199824616148">"Okuwolintshi"</item>
+    <item msgid="528738291475141372">"Okubomvu"</item>
+    <item msgid="3613307072137891343">"Okuluhlaza okwesibhakabhaka"</item>
+    <item msgid="1719741716015833575">"Okumhlophe"</item>
+  </string-array>
+  <string-array name="switch_access_weight_entries">
+    <item msgid="5215195704613305820">"Umugqa oqinile"</item>
+    <item msgid="7698398358042168523">"Umugqa oqinile omaphakathi"</item>
+    <item msgid="4047443674448719927">"Umugqa oqinile"</item>
+  </string-array>
+  <string-array name="switch_access_scanning_methods_entries">
+    <item msgid="1781370855612874933">"Umugqa nokholomu kuskena ikhibhodi kuphela"</item>
+    <item msgid="2081445217241144307">"Umugqa nokholomu kuskena yonke into"</item>
+    <item msgid="4021832268378176260">"Ukuskena kwenketho"</item>
+  </string-array>
+</resources>

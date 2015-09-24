@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="group_corners" type="id"/>
+    <item name="group_keyboard" type="id"/>
+    <item name="corner_NW" type="integer">0</item>
+    <item name="corner_NE" type="integer">1</item>
+    <item name="corner_SW" type="integer">2</item>
+    <item name="corner_SE" type="integer">3</item>
+</resources>

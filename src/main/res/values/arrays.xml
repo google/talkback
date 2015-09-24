@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array translatable="false" name="html_input_to_desc_keys">
+    <item translatable="false">button</item>
+    <item translatable="false">checkbox</item>
+    <item translatable="false">color</item>
+    <item translatable="false">datetime</item>
+    <item translatable="false">datetime-local</item>
+    <item translatable="false">date</item>
+    <item translatable="false">email</item>
+    <item translatable="false">file</item>
+    <item translatable="false">hidden</item>
+    <item translatable="false">image</item>
+    <item translatable="false">month</item>
+    <item translatable="false">number</item>
+    <item translatable="false">password</item>
+    <item translatable="false">radio</item>
+    <item translatable="false">range</item>
+    <item translatable="false">reset</item>
+    <item translatable="false">search</item>
+    <item translatable="false">submit</item>
+    <item translatable="false">tel</item>
+    <item translatable="false">text</item>
+    <item translatable="false">url</item>
+    <item translatable="false">week</item>
+  </string-array>
+
+  <string-array name="html_input_to_desc_values">
+
+    <!--
+      Source: The user selected a button on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Button</item>
+
+    <!--
+      Source: The user selected a check box on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Check box</item>
+
+    <!--
+      Source: The user selected a color picker on a web page. Description: The
+      type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Color picker</item>
+
+    <!--
+      Source: The user selected a date time control on a web page. Description:
+      The type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Date time control</item>
+
+    <!--
+      Source: The user selected a date time control on a web page. Description:
+      The type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Date time control</item>
+
+    <!--
+      Source: The user selected a date control on a web page. Description: The
+      type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Date control</item>
+
+    <!--
+      Source: The user selected an email input element on a web page. This
+      element is a control for editing a list of email addresses. Description:
+      The type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Edit text for email</item>
+
+    <!--
+      Source: The user selected a file selection on a web page. Description: The
+      type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>File selection</item>
+
+    <!--
+      Source: The user selected a hidden item on a web page. Description: The
+      type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item translatable="false"></item>
+
+    <!--
+      Source: The user selected a button on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Button</item>
+
+    <!--
+      Source: The user selected a month control on a web page. Description: The
+      type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Month control</item>
+
+    <!--
+      Source: The user selected an edit text on a web page that only accepts
+      numeric input (a number field in an HTML form). Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Edit text numeric only</item>
+
+    <!--
+      Source: The user selected a password input box on a web page. This is an
+      editable text box where the user will type a password to log in.
+      Description: The type of object the user has selected will be spoken out
+      loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Password edit text</item>
+
+    <!--
+      Source: The user selected a radio button on a web page. Description: The
+      type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Radio button</item>
+
+    <!--
+      Source: The user selected a slider on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Slider</item>
+
+    <!--
+      Source: The user selected a reset on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Reset</item>
+
+    <!--
+      Source: The user selected a edit text for search on a web page.
+
+      Description: The type of object the user has selected will be spoken out
+      loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Edit text for search</item>
+
+    <!--
+      Source: The user selected a button on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Button</item>
+
+    <!--
+      Source: The user selected a edit text for telephone number on a web page.
+
+      Description: The type of object the user has selected will be spoken out
+      loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Edit text for telephone number</item>
+
+    <!--
+      Source: The user selected a edit text on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Edit text</item>
+
+    <!--
+      Source: The user selected a edit text for url on a web page. Description:
+      The type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Edit text for URL</item>
+
+    <!--
+      Source: The user selected a week of the year control on a web page.
+
+      Description: The type of object the user has selected will be spoken out
+      loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Week of the year control</item>
+  </string-array>
+
+  <string-array translatable="false" name="html_role_to_desc_keys">
+    <item translatable="false">alert</item>
+    <item translatable="false">alertdialog</item>
+    <item translatable="false">button</item>
+    <item translatable="false">checkbox</item>
+    <item translatable="false">combobox</item>
+    <item translatable="false">dialog</item>
+    <item translatable="false">gridcell</item>
+    <item translatable="false">link</item>
+    <item translatable="false">log</item>
+    <item translatable="false">marquee</item>
+    <item translatable="false">menuitem</item>
+    <item translatable="false">menuitemcheckbox</item>
+    <item translatable="false">menuitemradio</item>
+    <item translatable="false">option</item>
+    <item translatable="false">progressbar</item>
+    <item translatable="false">radio</item>
+    <item translatable="false">radiogroup</item>
+    <item translatable="false">scrollbar</item>
+    <item translatable="false">slider</item>
+    <item translatable="false">spinbutton</item>
+    <item translatable="false">status</item>
+    <item translatable="false">tab</item>
+    <item translatable="false">tabpanel</item>
+    <item translatable="false">textbox</item>
+    <item translatable="false">timer</item>
+    <item translatable="false">toolbar</item>
+    <item translatable="false">tooltip</item>
+    <item translatable="false">treeitem</item>
+  </string-array>
+
+  <string-array name="html_role_to_desc_values">
+
+    <!--
+      Source: The user selected an alert on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Alert</item>
+
+    <!--
+      Source: The user selected an alert dialog on a web page. Description: The
+      type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Alert dialog</item>
+
+    <!--
+      Source: The user selected a button on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Button</item>
+
+    <!--
+      Source: The user selected a check box on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Check box</item>
+
+    <!--
+      Source: The user selected a combo box on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Combo box</item>
+
+    <!--
+      Source: The user selected a dialog on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Dialog</item>
+
+    <!--
+      Source: The user selected a grid cell on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Grid cell</item>
+
+    <!--
+      Source: The user selected a link on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Link</item>
+
+    <!--
+      Source: The user selected a log on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Log</item>
+
+    <!--
+      Source: The user selected a marquee on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Marquee</item>
+
+    <!--
+      Source: The user selected a menu item on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Menu item</item>
+
+    <!--
+      Source: The user selected a menu item check box on a web page.
+
+      Description: The type of object the user has selected will be spoken out
+      loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Menu item check box</item>
+
+    <!--
+      Source: The user selected a menu item radio button on a web page.
+
+      Description: The type of object the user has selected will be spoken out
+      loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Menu item radio button</item>
+
+    <!--
+      Source: The user selected an option on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Option</item>
+
+    <!--
+      Source: The user selected a progress bar on a web page. Description: The
+      type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Progress bar</item>
+
+    <!--
+      Source: The user selected a radio button on a web page. Description: The
+      type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Radio button</item>
+
+    <!--
+      Source: The user selected a group of radio buttons on a web page.
+      Description: The type of object the user has selected will be spoken out
+      loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Radio button group</item>
+
+    <!--
+      Source: The user selected a scroll bar on a web page. Description: The
+      type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Scroll bar</item>
+
+    <!--
+      Source: The user selected a slider on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Slider</item>
+
+    <!--
+      Source: The user selected a spin button on a web page. Description: The
+      type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Spin button</item>
+
+    <!--
+      Source: The user selected a status on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Status</item>
+
+    <!--
+      Source: The user selected a tab on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Tab</item>
+
+    <!--
+      Source: The user selected a tab panel on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Tab panel</item>
+
+    <!--
+      Source: The user selected a text box on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Text box</item>
+
+    <!--
+      Source: The user selected a timer on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Timer</item>
+
+    <!--
+      Source: The user selected a tool bar on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Tool bar</item>
+
+    <!--
+      Source: The user selected a tool tip on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Tool tip</item>
+
+    <!--
+      Source: The user selected a tree item on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Tree item</item>
+
+  </string-array>
+  <string-array translatable="false" name="html_tag_to_desc_keys">
+    <item translatable="false">a</item>
+    <item translatable="false">h1</item>
+    <item translatable="false">h2</item>
+    <item translatable="false">h3</item>
+    <item translatable="false">h4</item>
+    <item translatable="false">h5</item>
+    <item translatable="false">h6</item>
+    <item translatable="false">button</item>
+    <item translatable="false">select</item>
+    <item translatable="false">table</item>
+    <item translatable="false">textarea</item>
+  </string-array>
+
+  <string-array name="html_tag_to_desc_values">
+
+    <!--
+      Source: The user selected a link on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Link</item>
+
+    <!--
+      Source: The user selected a level one heading on a web page. Description:
+      The type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Heading one</item>
+
+    <!--
+      Source: The user selected a level two heading on a web page. Description:
+      The type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Heading two</item>
+
+    <!--
+      Source: The user selected a level three heading on a web page.
+      Description: The type of object the user has selected will be spoken out
+      loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Heading three</item>
+
+    <!--
+      Source: The user selected a level four heading on a web page. Description:
+      The type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Heading four</item>
+
+    <!--
+      Source: The user selected a level five heading on a web page. Description:
+      The type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Heading five</item>
+
+    <!--
+      Source: The user selected a level six heading on a web page. Description:
+      The type of object the user has selected will be spoken out loud. [CHAR
+      LIMIT=NONE]
+    -->
+    <item>Heading six</item>
+
+    <!--
+      Source: The user selected a button on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Button</item>
+
+    <!--
+      Source: The user selected a combo box on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Combo box</item>
+
+    <!--
+      Source: The user selected a table on a web page. Description: The type of
+      object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Table</item>
+
+    <!--
+      Source: The user selected a text area on a web page. Description: The type
+      of object the user has selected will be spoken out loud. [CHAR LIMIT=NONE]
+    -->
+    <item>Text area</item>
+  </string-array>
+
+</resources>

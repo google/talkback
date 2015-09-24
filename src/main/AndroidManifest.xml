@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.android.talkback"
+    android:installLocation="internalOnly"
+    android:sharedUserId="com.google.android.marvin.feedback"
+    android:versionCode="40301002">
+
+    <!-- Permission used to restrict sending gestures and resuming feedback. -->
+    <permission
+        android:name="com.google.android.marvin.feedback.permission.TALKBACK"
+        android:description="@string/permission_talkback_desc"
+        android:icon="@drawable/icon"
+        android:label="@string/permission_talkback_label"
+        android:protectionLevel="signature" />
+
+    <!-- Permission used to restrict storing and retrieving custom view labels. -->
+    <permission
+        android:name="com.google.android.marvin.talkback.permission.LABELING"
+        android:description="@string/permission_labeling_desc"
+        android:icon="@drawable/icon"
+        android:label="@string/permission_labeling_label"
+        android:protectionLevel="signature" />
+
+    <!-- Required to monitor phone busy state. -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- Required for haptic feedback. -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Required for various overlays. -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- Required for keeping the screen awake during continuous reading and key filtering. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Required for shortcuts and widgets. -->
+    <uses-permission android:name="com.google.android.marvin.feedback.permission.TALKBACK" />
+
+    <!-- Required for labeling. -->
+    <uses-permission android:name="com.google.android.marvin.talkback.permission.LABELING" />
+
+    <!-- Required for managing audio levels on GB. -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <!-- Required for sending data to Google Analytics. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Hardware compatibility. -->
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="false" />
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/talkback_title"
+        android:supportsRtl="true">
+
+        <receiver android:name=".BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+                android:name="com.android.utils.TestActivity"
+                android:label="TestActivity"
+                android:launchMode="singleTop" >
+        </activity>
+
+        <!-- TalkBack -->
+        <service
+            android:name="com.google.android.marvin.talkback.TalkBackService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:settingsActivity="com.android.talkback.TalkBackPreferencesActivity" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+
+                <category android:name="android.accessibilityservice.category.FEEDBACK_AUDIBLE" />
+                <category android:name="android.accessibilityservice.category.EEDBACK_HAPTIC" />
+                <category android:name="android.accessibilityservice.category.FEEDBACK_SPOKEN" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibilityservice" />
+        </service>
+
+        <!-- TalkBack Preferences -->
+        <activity
+            android:name=".TalkBackPreferencesActivity"
+            android:label="@string/talkback_preferences_title"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.android.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.accessibilityservice.SERVICE_SETTINGS" />
+            </intent-filter>
+        </activity>
+
+        <!-- TalkBack Gesture Shortcut Preferences -->
+        <activity
+            android:name=".TalkBackShortcutPreferencesActivity"
+            android:label="@string/talkback_preferences_title"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.android.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- TalkBack Keyboard Shortcut Preferences -->
+        <activity
+            android:name=".TalkBackKeyboardShortcutPreferencesActivity"
+            android:label="@string/talkback_preferences_title"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.android.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- Accessibility tutorial -->
+        <activity
+            android:name=".tutorial.AccessibilityTutorialActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:immersive="true"
+            android:label="@string/accessibility_tutorial_title"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Material"/>
+
+        <!-- Notification Activity used to obtain label text from the user -->
+        <activity
+            android:name=".labeling.LabelDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:launchMode="singleInstance"
+            android:permission="com.google.android.marvin.talkback.permission.LABELING"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="com.google.android.marvin.talkback.labeling.ADD_LABEL" />
+                <action android:name="com.google.android.marvin.talkback.labeling.EDIT_LABEL" />
+                <action android:name="com.google.android.marvin.talkback.labeling.REMOVE_LABEL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Custom Label Manager - Summary Activity -->
+        <activity
+            android:name=".labeling.LabelManagerSummaryActivity"
+            android:label="@string/label_manager_summary_title"
+            android:launchMode="singleTop"
+            android:theme="@style/TalkBackSettings"
+            android:taskAffinity="com.android.talkback.SettingsAffinity" />
+
+        <!-- Custom Label Manager - Package Activity -->
+        <activity
+            android:name=".labeling.LabelManagerPackageActivity"
+            android:label="@string/label_manager_package_title"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.android.talkback.SettingsAffinity" />
+
+        <!-- Gesture Change Notification Activity -->
+        <activity
+            android:name=".GestureChangeNotificationActivity"
+            android:theme="@style/DialogStyle"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- Notification Activity used periodically to inform the user of changes -->
+        <activity
+            android:name=".NotificationActivity"
+            android:theme="@style/DialogStyle"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- Proxy for search button long-press -->
+        <activity
+            android:name=".ShortcutProxyActivity"
+            android:enabled="false"
+            android:excludeFromRecents="true"
+            android:label="@string/label_talkback_context_menu"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoDisplay"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH_LONG_PRESS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".WebActivity">
+        </activity>
+
+        <!-- Content provider for custom label data -->
+        <provider
+            android:name=".labeling.LabelProvider"
+            android:authorities="${applicationId}.providers.LabelProvider"
+            android:exported="true"
+            android:readPermission="com.google.android.marvin.talkback.permission.LABELING"
+            android:writePermission="com.google.android.marvin.talkback.permission.LABELING" />
+
+        <service
+            android:label="@string/switch_service_name"
+            android:name="com.android.switchaccess.SwitchAccessService"
+            android:enabled="@bool/atLeastL"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+
+                <category android:name="android.accessibilityservice.category.FEEDBACK_GENERIC" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/switch_access_accessibilityservice" />
+        </service>
+
+        <activity
+            android:name="com.android.switchaccess.SwitchAccessPreferenceActivity"
+            android:label="@string/switch_access_preferences_title"
+            android:theme="@style/TalkBackSettings"
+            android:enabled="@bool/atLeastL" >
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>

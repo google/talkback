@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+             android:key="@string/main_pref_screen_key">
+    <ListPreference
+            android:key="@string/pref_scanning_methods_key"
+            android:title="@string/title_pref_scanning_methods"
+            android:summary="%s"
+            android:entries="@array/switch_access_scanning_methods_entries"
+            android:entryValues="@array/switch_access_scanning_methods_values"
+            android:defaultValue="@string/pref_scanning_methods_default" />
+
+    <PreferenceScreen
+            android:key="@string/pref_highlights_key"
+            android:title="@string/title_pref_highlight_0"
+            android:persistent="false">
+
+        <PreferenceScreen
+                android:key="@string/pref_highlight_0_key"
+                android:title="@string/title_pref_primary_scan_style"
+                android:persistent="false">
+
+            <ListPreference
+                    android:key="@string/pref_highlight_0_color_key"
+                    android:title="@string/title_pref_highlight_0_color"
+                    android:summary="%s"
+                    android:entries="@array/switch_access_color_entries"
+                    android:entryValues="@array/switch_access_color_values"
+                    android:defaultValue="@string/pref_highlight_0_color_default" />
+
+            <ListPreference
+                    android:key="@string/pref_highlight_0_weight_key"
+                    android:title="@string/title_pref_highlight_0_weight"
+                    android:summary="%s"
+                    android:entries="@array/switch_access_weight_entries"
+                    android:entryValues="@array/switch_access_weight_values"
+                    android:defaultValue="@string/pref_highlight_weight_default" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+                android:key="@string/pref_highlight_1_key"
+                android:persistent="false">
+
+            <ListPreference
+                    android:key="@string/pref_highlight_1_color_key"
+                    android:title="@string/title_pref_highlight_0_color"
+                    android:summary="%s"
+                    android:entries="@array/switch_access_color_entries"
+                    android:entryValues="@array/switch_access_color_values"
+                    android:defaultValue="@string/pref_highlight_1_color_default" />
+
+            <ListPreference
+                    android:key="@string/pref_highlight_1_weight_key"
+                    android:title="@string/title_pref_highlight_0_weight"
+                    android:summary="%s"
+                    android:entries="@array/switch_access_weight_entries"
+                    android:entryValues="@array/switch_access_weight_values"
+                    android:defaultValue="@string/pref_highlight_weight_default" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+                android:key="@string/pref_highlight_2_key"
+                android:persistent="false">
+
+            <ListPreference
+                    android:key="@string/pref_highlight_2_color_key"
+                    android:title="@string/title_pref_highlight_0_color"
+                    android:summary="%s"
+                    android:entries="@array/switch_access_color_entries"
+                    android:entryValues="@array/switch_access_color_values"
+                    android:defaultValue="@string/pref_highlight_2_color_default" />
+
+            <ListPreference
+                    android:key="@string/pref_highlight_2_weight_key"
+                    android:title="@string/title_pref_highlight_0_weight"
+                    android:summary="%s"
+                    android:entries="@array/switch_access_weight_entries"
+                    android:entryValues="@array/switch_access_weight_values"
+                    android:defaultValue="@string/pref_highlight_weight_default" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+                android:key="@string/pref_highlight_3_key"
+                android:persistent="false">
+
+            <ListPreference
+                    android:key="@string/pref_highlight_3_color_key"
+                    android:title="@string/title_pref_highlight_0_color"
+                    android:summary="%s"
+                    android:entries="@array/switch_access_color_entries"
+                    android:entryValues="@array/switch_access_color_values"
+                    android:defaultValue="@string/pref_highlight_3_color_default" />
+
+            <ListPreference
+                    android:key="@string/pref_highlight_3_weight_key"
+                    android:title="@string/title_pref_highlight_0_weight"
+                    android:summary="%s"
+                    android:entries="@array/switch_access_weight_entries"
+                    android:entryValues="@array/switch_access_weight_values"
+                    android:defaultValue="@string/pref_highlight_weight_default" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+                android:key="@string/pref_highlight_4_key"
+                android:persistent="false">
+
+            <ListPreference
+                    android:key="@string/pref_highlight_4_color_key"
+                    android:title="@string/title_pref_highlight_0_color"
+                    android:summary="%s"
+                    android:entries="@array/switch_access_color_entries"
+                    android:entryValues="@array/switch_access_color_values"
+                    android:defaultValue="@string/pref_highlight_4_color_default" />
+
+            <ListPreference
+                    android:key="@string/pref_highlight_4_weight_key"
+                    android:title="@string/title_pref_highlight_0_weight"
+                    android:summary="%s"
+                    android:entries="@array/switch_access_weight_entries"
+                    android:entryValues="@array/switch_access_weight_values"
+                    android:defaultValue="@string/pref_highlight_weight_default" />
+        </PreferenceScreen>
+
+    </PreferenceScreen>
+
+    <CheckBoxPreference
+            android:key="@string/pref_key_auto_scan_enabled"
+            android:title="@string/title_pref_auto_scan"
+            android:defaultValue="@string/pref_auto_scan_default_value" />
+
+    <EditTextPreference
+            android:key="@string/pref_key_auto_scan_time_delay"
+            android:title="@string/title_pref_auto_scan_time_delay"
+            android:defaultValue="@string/pref_auto_scan_time_delay_default_value"
+            android:inputType="numberDecimal" />
+
+    <PreferenceScreen
+            android:key="@string/pref_category_scan_mappings_key"
+            android:title="@string/title_pref_category_scan_key_mappings" >
+
+        <com.android.switchaccess.KeyComboPreference
+                android:key="@string/pref_key_mapped_to_auto_scan_key"
+                android:title="@string/title_pref_category_auto_scan" />
+
+        <com.android.switchaccess.KeyComboPreference
+                android:key="@string/pref_key_mapped_to_reverse_auto_scan_key"
+                android:title="@string/action_name_reverse_auto_scan" />
+
+        <com.android.switchaccess.KeyComboPreference
+                android:key="@string/pref_key_mapped_to_click_key"
+                android:title="@string/action_name_click" />
+
+        <com.android.switchaccess.KeyComboPreference
+                android:key="@string/pref_key_mapped_to_next_key"
+                android:title="@string/action_name_next" />
+
+        <com.android.switchaccess.KeyComboPreference
+                android:key="@string/pref_key_mapped_to_switch_3_key" />
+
+        <com.android.switchaccess.KeyComboPreference
+                android:key="@string/pref_key_mapped_to_switch_4_key" />
+
+        <com.android.switchaccess.KeyComboPreference
+                android:key="@string/pref_key_mapped_to_switch_5_key" />
+
+        <com.android.switchaccess.KeyComboPreference
+                android:key="@string/pref_key_mapped_to_previous_key"
+                android:title="@string/action_name_previous" />
+
+    </PreferenceScreen>
+
+    <PreferenceScreen
+            android:key="@string/pref_category_action_mappings_key"
+            android:title="@string/title_pref_category_key_mappings" >
+
+        <com.android.switchaccess.KeyComboPreference
+            android:key="@string/pref_key_mapped_to_long_click_key"
+            android:title="@string/action_name_long_click" />
+
+        <com.android.switchaccess.KeyComboPreference
+            android:key="@string/pref_key_mapped_to_scroll_forward_key"
+            android:title="@string/action_name_scroll_forward" />
+
+        <com.android.switchaccess.KeyComboPreference
+            android:key="@string/pref_key_mapped_to_scroll_backward_key"
+            android:title="@string/action_name_scroll_backward" />
+
+        <com.android.switchaccess.KeyComboPreference
+            android:key="@string/pref_key_mapped_to_back_key"
+            android:title="@string/global_action_back" />
+
+        <com.android.switchaccess.KeyComboPreference
+            android:key="@string/pref_key_mapped_to_home_key"
+            android:title="@string/global_action_home" />
+
+        <com.android.switchaccess.KeyComboPreference
+            android:key="@string/pref_key_mapped_to_notifications_key"
+            android:title="@string/global_action_notifications" />
+
+        <com.android.switchaccess.KeyComboPreference
+            android:key="@string/pref_key_mapped_to_quick_settings_key"
+            android:title="@string/global_action_quick_settings" />
+
+        <com.android.switchaccess.KeyComboPreference
+            android:key="@string/pref_key_mapped_to_overview_key"
+            android:title="@string/global_action_overview" />
+
+        </PreferenceScreen>
+
+</PreferenceScreen>

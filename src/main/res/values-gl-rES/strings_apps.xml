@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="template_stream_volume" msgid="1816951995792085063">"Volume de <xliff:g id="STREAM_NAME">%1$s</xliff:g> ao <xliff:g id="PERCENT">%2$d</xliff:g> por cento."</string>
+    <string name="template_stream_volume_set" msgid="4964670773272907835">"Volume de <xliff:g id="STREAM_NAME">%1$s</xliff:g> definido no <xliff:g id="PERCENT">%2$d</xliff:g> por cento."</string>
+    <string name="value_stream_master" msgid="4636086067147877021">"Principal"</string>
+    <string name="value_stream_voice_call" msgid="3808346037153621863">"Chamada de teléfono"</string>
+    <string name="value_stream_system" msgid="2589285265752092053">"Son do sistema"</string>
+    <string name="value_stream_ring" msgid="5981333765536911375">"Ton de chamada"</string>
+    <string name="value_stream_music" msgid="3472112192147204509">"Música"</string>
+    <string name="value_stream_alarm" msgid="7440086841584851897">"Alarma"</string>
+    <string name="value_stream_notification" msgid="7166743133549871424">"Notificación"</string>
+    <string name="value_stream_dtmf" msgid="433463500088767280">"Marcación por tons"</string>
+    <string name="value_googletv_screen_saver" msgid="7426444022147570511">"Protector de pantalla"</string>
+</resources>

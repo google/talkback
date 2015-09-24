@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Accesibilidad mediante interruptor"</string>
+    <string name="switch_access_service_description" msgid="7316829370005579941">"La función Accesibilidad mediante interruptor permite controlar el dispositivo utilizando combinaciones de teclas configurables. Puedes dirigir el foco a elementos interactivos y seleccionarlos."</string>
+    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"Búsqueda automática"</string>
+    <string name="title_pref_auto_scan" msgid="6856662972215508038">"Habilitar"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"Tiempo de retraso"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"Invertir búsqueda automática"</string>
+  <plurals name="auto_scan_time_delay_summary_format">
+    <item quantity="one" msgid="815853953952465870">"1 segundo"</item>
+    <item quantity="other" msgid="1223387233862989964">"%.2f segundos"</item>
+  </plurals>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Método de búsqueda"</string>
+    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"Búsqueda de teclado"</string>
+    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"Búsqueda de vista"</string>
+    <string name="title_pref_category_key_mappings" msgid="463227090301036752">"Asignar teclas a acciones"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"Asignar teclas para la búsqueda"</string>
+    <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"La tecla <xliff:g id="KEY_NAME">%1$s</xliff:g> ya se ha asignado a <xliff:g id="ACTION_NAME">%2$s</xliff:g>"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one" msgid="8372086689828893172">"%d clave asignada"</item>
+    <item quantity="other" msgid="2361393301173230834">"%d claves asignadas"</item>
+  </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"Conmutador %1$d de búsqueda de opciones"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Siguiente"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Anterior"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Seleccionar"</string>
+    <string name="action_name_long_click" msgid="5708679123666477849">"Mantener pulsado"</string>
+    <string name="action_name_scroll_forward" msgid="6969788891937406270">"Ir hacia delante"</string>
+    <string name="action_name_scroll_backward" msgid="579045012327139100">"Ir hacia atrás"</string>
+    <string name="context_menu_layout_description" msgid="330592638837220675">"Menú contextual"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENÚ"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Atrás"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Inicio"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Visión general"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Notificaciones"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Ajustes rápidos"</string>
+    <string name="scrollable_forward" msgid="6312908487874132401">"Desplazarse hacia delante"</string>
+    <string name="scrollable_backward" msgid="5109861709058665917">"Desplazarse hacia atrás"</string>
+    <string name="switch_access_preferences_title" msgid="8339289604407443597">"Preferencias de Accesibilidad mediante interruptor"</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"Pulsa una combinación de teclas para añadir elementos a la lista o para quitarlos de esta"</string>
+    <string name="key_combo_preference_reset_button" msgid="766369207787941384">"Borrar asignación de teclas"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"MAYÚS + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="2792530694141012295">"No hay teclas asignadas"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Espacio"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Intro"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tabulador"</string>
+    <string name="save" msgid="5398278773451196019">"Guardar"</string>
+    <string name="title_pref_highlight_0" msgid="3039542597362059267">"Destacar para buscar"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Estilo principal de búsqueda"</string>
+    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"Color del área destacada"</string>
+    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"Grosor del área destacada"</string>
+</resources>

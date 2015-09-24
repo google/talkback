@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Vibration pattern for haptic feedback when view hovered. -->
+    <integer-array name="view_hovered_pattern">
+        <item>0</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+    </integer-array>
+
+    <!-- Vibration pattern for haptic feedback when actionable view hovered or focused. -->
+    <integer-array name="view_actionable_pattern">
+        <item>0</item>
+        <item>50</item>
+    </integer-array>
+
+    <!-- Vibration pattern for haptic feedback when view focused or selected. -->
+    <integer-array name="view_focused_or_selected_pattern">
+        <item>0</item>
+        <item>15</item>
+        <item>10</item>
+        <item>15</item>
+    </integer-array>
+
+    <!-- Vibration pattern for haptic feedback when view clicked. Matches system feedback. -->
+    <integer-array name="view_clicked_pattern">
+        <item>0</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+    </integer-array>
+
+    <!-- Vibration pattern for haptic feedback when view long clicked. Matches system feedback. -->
+    <integer-array name="view_long_clicked_pattern">
+        <item>0</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
+    </integer-array>
+
+    <!-- Vibration pattern for haptic feedback when a notification appears. -->
+    <integer-array name="notification_pattern">
+        <item>0</item>
+        <item>10</item>
+        <item>20</item>
+        <item>20</item>
+        <item>10</item>
+        <item>40</item>
+    </integer-array>
+
+    <!-- Vibration pattern for haptic feedback when window state changes. -->
+    <integer-array name="window_state_pattern">
+        <item>0</item>
+        <item>10</item>
+        <item>20</item>
+        <item>20</item>
+        <item>10</item>
+        <item>40</item>
+    </integer-array>
+
+    <!-- Repeating vibration pattern for gesture recognition. -->
+    <integer-array name="gesture_detection_repeated_pattern">
+        <item>0</item>
+        <item>10</item>
+        <item>70</item>
+        <item>10</item>
+        <item>70</item>
+        <item>10</item>
+        <item>70</item>
+        <item>10</item>
+    </integer-array>
+</resources>

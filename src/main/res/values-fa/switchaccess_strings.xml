@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"دسترسی سوئیچ"</string>
+    <string name="switch_access_service_description" msgid="7316829370005579941">"دسترسی سوئیچ به شما امکان می‌دهد با استفاده از ترکیبات قابل پیکربندی کلید، دستگاهتان را کنترل کنید. می‌توانید روی موارد کلیک شدنی تمرکز کنید و آنها را انتخاب نمایید."</string>
+    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"اسکن خودکار"</string>
+    <string name="title_pref_auto_scan" msgid="6856662972215508038">"فعال کردن اسکن خودکار"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"زمان تأخیر"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"معکوس اسکن خودکار"</string>
+  <plurals name="auto_scan_time_delay_summary_format">
+    <item quantity="one" msgid="815853953952465870">"۱ ثانیه"</item>
+    <item quantity="other" msgid="1223387233862989964">"‏%.2f ثانیه"</item>
+  </plurals>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"روش اسکن"</string>
+    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"اسکن صفحه‌ کلید"</string>
+    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"اسکن نما"</string>
+    <string name="title_pref_category_key_mappings" msgid="463227090301036752">"اختصاص کلیدها به اقدامات"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"اختصاص دادن کلیدها برای اسکن کردن"</string>
+    <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"کلید «<xliff:g id="KEY_NAME">%1$s</xliff:g>» قبلاً به «<xliff:g id="ACTION_NAME">%2$s</xliff:g>» اختصاص داده شده است"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one" msgid="8372086689828893172">"‏%d کلید اختصاص داده شد"</item>
+    <item quantity="other" msgid="2361393301173230834">"‏%d کلید اختصاص داده شد"</item>
+  </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"‏سوئیچ اسکن گزینه‌ای %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"بعدی"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"قبلی"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"انتخاب"</string>
+    <string name="action_name_long_click" msgid="5708679123666477849">"فشار طولانی"</string>
+    <string name="action_name_scroll_forward" msgid="6969788891937406270">"پیمایش به جلو"</string>
+    <string name="action_name_scroll_backward" msgid="579045012327139100">"پیمایش به عقب"</string>
+    <string name="context_menu_layout_description" msgid="330592638837220675">"منوی بافت"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"منو"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"برگشت"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"صفحه اصلی"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"نمای کلی"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"اعلان‌ها"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"تنظیمات سریع"</string>
+    <string name="scrollable_forward" msgid="6312908487874132401">"پیمایش به جلو"</string>
+    <string name="scrollable_backward" msgid="5109861709058665917">"پیمایش به عقب"</string>
+    <string name="switch_access_preferences_title" msgid="8339289604407443597">"تنظیمات برگزیده تعویض دسترسی"</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"ترکیب کلیدی را برای افزودن به فهرست یا پاک کردن از آن، فشار دهید"</string>
+    <string name="key_combo_preference_reset_button" msgid="766369207787941384">"پاک کردن اختصاص کلید"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL +‎ "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT +‎ "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT +‎ "</string>
+    <string name="no_key_assigned" msgid="2792530694141012295">"هیچ کلیدی اختصاص داده نشده است"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"کلید فاصله"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
+    <string name="save" msgid="5398278773451196019">"کلید ذخیره"</string>
+    <string name="title_pref_highlight_0" msgid="3039542597362059267">"برجسته‌سازی استفاده شده در اسکن"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"سبک اسکن اولیه"</string>
+    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"رنگ برجسته‌سازی"</string>
+    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"ضخامت برجسته‌سازی"</string>
+</resources>

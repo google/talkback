@@ -1,0 +1,171 @@
+<resources xmlns:xliff="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Name of the service that allows users with motor impairments to operate the device using
+        a small number of buttons (or switches).
+    -->
+    <string name="switch_service_name">Switch Access</string>
+    <string name="switch_access_service_description">Switch Access allows you to control your device using configurable key combinations. You can move focus to clickable items and select them.</string>
+
+    <!--
+        Auto scanning highlights each item, one after another, spending a set amount of time
+        (the Time Delay) on each item. The user presses a button when the item they want to
+        activate is highlighted.
+    -->
+    <string name="title_pref_category_auto_scan">Auto Scan</string>
+    <!--
+        Auto scanning highlights each item, one after another, spending a set amount of time
+        (the Time Delay) on each item. The user presses a button when the item they want to
+        activate is highlighted.
+    -->
+    <string name="title_pref_auto_scan">Enable Auto Scan</string>
+    <!--
+         Auto scanning highlights each item, one after another, spending a set amount of time
+         (the Time Delay) on each item.
+     -->
+    <string name="title_pref_auto_scan_time_delay">Time Delay</string>
+
+    <!--
+         Reverse auto scanning highlights each item, starting from the last item and moving backward.
+         The user presses a 'REVERSE AUTO SCAN' key when they want to start reverse auto scan or to
+         activate highlighted item.
+     -->
+    <string name="action_name_reverse_auto_scan">Reverse Auto Scan</string>
+
+    <plurals name="auto_scan_time_delay_summary_format">
+        <item quantity="one">1 Second</item>
+        <item quantity="other">%.2f Seconds</item>
+    </plurals>
+
+    <!--
+         Label for preference for how items in a certain window are traversed/highlighted. So for
+         example, if the user chooses row/column scanning, all the views in a certain row are
+         highlighted and scanning moves from the top row to the bottom row. Once a row is selected,
+         the views in that row are scanned one after the other.
+     -->
+    <string name="title_pref_scanning_methods">Scanning method</string>
+    <!--
+        Label for the scanning methods (i.e sequential, row/column) for the keyboard. In linear
+        scanning keys are highlighted one after the other moving from left to right. In row/column
+        scanning all the views in a certain row are highlighted and scanning moves from the
+        top row to the bottom row. Once a row is selected, the views in that row are scanned
+        one after the other.
+    -->
+    <string name="title_pref_scanning_methods_keyboard">Keyboard scanning</string>
+    <!--
+        Label for the scanning methods (i.e sequential, row/column) for windows other than the
+        keyboard. In linear scanning views are highlighted one after the other moving from
+        left to right. In row/column scanning all the views in a certain row are highlighted and
+        scanning moves from the top row to the bottom row. Once a row is selected, the views in
+        that row are scanned one after the other.
+    -->
+    <string name="title_pref_scanning_methods_views">View scanning</string>
+
+    <!--
+        Settings heading for the section that allows users to assign combinations of keys to actions
+        on the device.
+    -->
+    <string name="title_pref_category_key_mappings">Assign Keys to Actions</string>
+
+    <!--
+        Settings heading for the section that allows users to assign combinations of keys to actions
+        that shift focus (scan) to different views or groups of views
+    -->
+    <string name="title_pref_category_scan_key_mappings">Assign Keys for Scanning</string>
+
+    <!--
+        Toast shown when the user tries to assign a key to action currently being configured
+        when the key is already assigned to another action.
+    -->
+    <string name="toast_msg_key_already_assigned">The key \'<xliff:g id="key_name" example="A">%1$s</xliff:g>\' is already assigned to \'<xliff:g id="action_name" example="Long Press">%2$s</xliff:g>\'</string>
+
+    <!-- Label showing how many keys are mapped to a particular action. -->
+    <plurals name="label_num_keys_assigned_format">
+        <item quantity="one">%d key assigned</item>
+        <item quantity="other">%d keys assigned</item>
+    </plurals>
+
+    <!-- Option scanning allows a user to navigate (scan) through a tree of all actions (options)
+         that are possible in a user interface. The navigation uses switches such as large buttons
+         or specialized hardware attached to a wheelchair.
+
+         As the user navigates the UI, as each moment they may press one of several switches
+         to choose an action. They may configure various switches for this purpose. This string
+         labels each one with a number.
+    -->
+    <string name="option_scan_switch_format">Option Scan Switch %1$d</string>
+
+    <!-- Name of action that moves highlighting to the next option on the screen. -->
+    <string name="action_name_next">Next</string>
+
+    <!-- Name of action that moves highlighting to the previous option on the screen.
+         Note that another item is for the BACK button. These options should be labeled
+         differently. -->
+    <string name="action_name_previous">Previous</string>
+
+    <!--
+        Name of action that selects (clicks on) the currently highlighted View.
+    -->
+    <string name="action_name_click">Select</string>
+
+    <!--
+        Name of action that long-clicks the currently highlighted View.
+    -->
+    <string name="action_name_long_click">Long Press</string>
+
+    <!--
+        Name of action that scrolls the currently highlighted View forward.
+    -->
+    <string name="action_name_scroll_forward">Scroll Forward</string>
+
+    <!--
+        Name of action that scrolls the currently highlighted View backward.
+    -->
+    <string name="action_name_scroll_backward">Scroll Backward</string>
+
+    <string name="context_menu_layout_description">Context Menu</string>
+
+    <string name="option_scanning_menu_button">MENU</string>
+    <string name="global_action_back">Back</string>
+    <string name="global_action_home">Home</string>
+    <string name="global_action_overview">Overview</string>
+    <string name="global_action_notifications">Notifications</string>
+    <string name="global_action_quick_settings">Quick Settings</string>
+
+    <string name="scrollable_forward">Scroll Forward</string>
+    <string name="scrollable_backward">Scroll Backward</string>
+
+    <string name="switch_access_preferences_title">Switch Access Preferences</string>
+    <string name="key_combo_preference_instructions">Press a key combination to add or remove it from the list</string>
+    <string name="key_combo_preference_reset_button">Clear Key Assignment</string>
+    <string name="key_combo_preference_control_plus">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus">"ALT + "</string>
+    <string name="no_key_assigned">No Key Assigned</string>
+
+    <!-- Shown when the space bar is assigned to an action. -->
+    <string name="name_of_space_bar">"Space"</string>
+
+    <!-- Shown when the enter key is assigned to an action. -->
+    <string name="name_of_enter_key">"Enter"</string>
+
+    <!-- Shown when the tab key is assigned to an action. -->
+    <string name="name_of_tab_key">"Tab"</string>
+
+    <!-- Name of button that closes key assignment dialog and saves changes for which buttons are used for an action -->
+    <string name="save">Save</string>
+
+    <!-- Label for preference for how an item is highlighted before it is selected. -->
+    <string name="title_pref_highlight_0">"Highlighting used for scanning"</string>
+
+    <!--
+        Label for preference for how an item is highlighted before it is selected when using a
+         scanning method that only highlights in one color
+    -->
+    <string name="title_pref_primary_scan_style">"Primary scan style"</string>
+
+    <!-- Label for the color of a rectangle that highlights an item before it is selected. -->
+    <string name="title_pref_highlight_0_color">"Color of highlight"</string>
+    <!-- Label for the thickness of a rectangle that highlights an item before it is selected. -->
+    <string name="title_pref_highlight_0_weight">"Weight of highlight"</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="template_stream_volume" msgid="1816951995792085063">"<xliff:g id="STREAM_NAME">%1$s</xliff:g> वॉल्यूम <xliff:g id="PERCENT">%2$d</xliff:g> प्रतिशत."</string>
+    <string name="template_stream_volume_set" msgid="4964670773272907835">"<xliff:g id="STREAM_NAME">%1$s</xliff:g> वॉल्यूम <xliff:g id="PERCENT">%2$d</xliff:g> प्रतिशत पर सेट है."</string>
+    <string name="value_stream_master" msgid="4636086067147877021">"मास्टर"</string>
+    <string name="value_stream_voice_call" msgid="3808346037153621863">"फ़ोन कॉल"</string>
+    <string name="value_stream_system" msgid="2589285265752092053">"सिस्‍टम ध्‍वनि"</string>
+    <string name="value_stream_ring" msgid="5981333765536911375">"रिंग टोन"</string>
+    <string name="value_stream_music" msgid="3472112192147204509">"संगीत"</string>
+    <string name="value_stream_alarm" msgid="7440086841584851897">"अलार्म"</string>
+    <string name="value_stream_notification" msgid="7166743133549871424">"नोटिफिकेशन"</string>
+    <string name="value_stream_dtmf" msgid="433463500088767280">"टोन डायलिंग स्‍पर्श करें"</string>
+    <string name="value_googletv_screen_saver" msgid="7426444022147570511">"स्क्रीन सेवर"</string>
+</resources>

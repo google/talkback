@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <ss:speechstrategy
+      xmlns:ss="http://www.google.android.marvin.talkback.com/speechstrategy"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.google.android.marvin.talkback.com/speechstrategy ../../schema/speechstrategy.xsd">
+
+  <!-- This file contains speech strategy rules for built-in Android apps. -->
+  <!-- They override the default handlers to work around apps in current -->
+  <!-- and previous Android versions that should have had more -->
+  <!-- contentDescriptions. -->
+
+  <!-- Calculator - Just speak everything in text fields -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_TEXT_CHANGED</ss:eventType>
+      <ss:className>android.widget.EditText</ss:className>
+      <ss:packageName>com.android.calculator2</ss:packageName>
+      <ss:platformSdk>&lt;=18</ss:platformSdk>
+    </ss:filter>
+    <ss:formatter>
+      <ss:property>text</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- Calculator - Drop all selection events -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_TEXT_SELECTION_CHANGED</ss:eventType>
+      <ss:className>android.widget.EditText</ss:className>
+      <ss:packageName>com.android.calculator2</ss:packageName>
+      <ss:platformSdk>&lt;=18</ss:platformSdk>
+    </ss:filter>
+  </ss:rule>
+
+  <!-- Voice Search - Don't speak when voice search window pops up -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_FOCUSED</ss:eventType>
+      <ss:className>android.widget.TextView</ss:className>
+      <ss:packageName>com.google.android.voicesearch</ss:packageName>
+      <ss:currentItemIndex>0</ss:currentItemIndex>
+      <ss:versionCode>&lt;30002002</ss:versionCode>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/focus_actionable</ss:customEarcon>
+    </ss:metadata>
+  </ss:rule>
+
+  <!-- Voice Search - Don't speak when voice search window pops up -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <ss:className>com.google.android.voicesearch.RecognitionActivity</ss:className>
+      <ss:versionCode>&lt;30002002</ss:versionCode>
+    </ss:filter>
+  </ss:rule>
+
+  <!-- Voice Search - Don't speak when voice search window pops up -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <ss:className>com.google.android.voicesearch.MainActivity</ss:className>
+      <ss:versionCode>&gt;=30002002</ss:versionCode>
+    </ss:filter>
+  </ss:rule>
+
+  <!-- Calendar - Speak FOCUSED event text of manually sent events on ICS and above -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_FOCUSED</ss:eventType>
+      <ss:className>android.view.View</ss:className>
+      <ss:packageName>com.google.android.calendar</ss:packageName>
+      <ss:platformSdk>&gt;=14</ss:platformSdk>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/focus_actionable</ss:customEarcon>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:property>text</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+</ss:speechstrategy>
