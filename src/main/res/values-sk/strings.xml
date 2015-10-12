@@ -37,7 +37,7 @@
     <string name="template_edit_box_current" msgid="2778286668618391188">"Pole pre úpravy, momentálne prebiehajú úpravy. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"Upozornenie <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"Ponuka <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"Text <xliff:g id="NEW_TEXT">%1$s</xliff:g> bol nahradený textom <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
+    <string name="template_text_replaced" msgid="837970148139617839">"Text <xliff:g id="OLD_TEXT">%1$s</xliff:g> bol nahradený textom <xliff:g id="NEW_TEXT">%2$s</xliff:g>"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"Text <xliff:g id="TEXT">%1$s</xliff:g> bol odstránený"</string>
     <string name="template_text_error" msgid="153775825635730287">"Neplatný vstup: <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"Niekoľko znakov (počet: <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g>) bolo nahradených inými znakmi (počet: <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g>)"</string>
@@ -47,12 +47,8 @@
     <string name="template_unlabeled_image_view" msgid="7358716152395139095">"Obrázok <xliff:g id="TITLE">%1$d</xliff:g>. Neoznačený"</string>
     <string name="template_unlabeled_button" msgid="8907013770433741191">"Tlačidlo <xliff:g id="TITLE">%1$d</xliff:g>. Neoznačené"</string>
     <string name="template_seek_bar" msgid="9010890122601609426">"Posúvač <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <!-- String.format failed for translation -->
-    <!-- no translation found for template_percent (6118803183030408820) -->
-    <skip />
-    <!-- String.format failed for translation -->
-    <!-- no translation found for template_charging (2038200557537960378) -->
-    <skip />
+    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> percent."</string>
+    <string name="template_charging" msgid="2038200557537960378">"Nabíjanie <xliff:g id="CHANGING_STATUS">%1$s</xliff:g> Úroveň batérie <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> percent."</string>
   <plurals name="template_containers">
     <item quantity="one" msgid="5101805097109325482">"<xliff:g id="TYPE">%1$s</xliff:g> zobrazuje <xliff:g id="COUNT">%2$d</xliff:g> položku"</item>
     <item quantity="other" msgid="6665234198539687446">"<xliff:g id="TYPE">%1$s</xliff:g> zobrazuje položky (počet: <xliff:g id="COUNT">%2$d</xliff:g>)"</item>
@@ -102,9 +98,9 @@
     <string name="title_pref_proximity" msgid="4533552749993575929">"Používať senzor blízkosti"</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Senzor blízkosti stíši reč"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Senzor blízkosti neovláda reč"</string>
-    <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Vyslovovať fonetické písmená"</string>
-    <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Fonetické písmená sa nebudú vyslovovať."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"Fonetické písmená sa budú vyslovovať pri dlhom stlačení klávesa na klávesnici a posúvaní po znakoch."</string>
+    <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Fonetické hláskovanie"</string>
+    <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Fonetické hláskovanie nebude aktívne."</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"Počas posúvania po znakoch a pri dlhom stlačení klávesov na klávesnici bude aktívne fonetické hláskovanie."</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Vyslovovať tipy na používanie"</string>
     <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"Počas lineárnej navigácie sa nebudú vyslovovať tipy na používanie."</string>
     <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"Keď lineárna navigácia presunie zameranie, tipy na používanie sa budú vyslovovať s krátkym oneskorením."</string>
@@ -112,9 +108,9 @@
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Automaticky posúvať zoznamy"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Preskúmavanie dotykom"</string>
     <string name="title_pref_single_tap" msgid="3366282780861635094">"Výber jedným klepnutím"</string>
-    <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Kontextovú ponuka ako zoznam"</string>
+    <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Kontextovú ponuku ako zoznam"</string>
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Stmaviť obrazovku, keď je povolená aplikácia TalkBack"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(Experimentálne) Položku, ktorá je práve aktívna, je možné vybrať klepnutím"</string>
+    <string name="summary_pref_single_tap" msgid="7244030788179833364">"Položku, ktorá je práve aktívna, je možné vybrať klepnutím (Experimentálne)"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Zatrasením spustiť súvislé čítanie"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Správa gest"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"Spravovať vlastné štítky"</string>
@@ -125,7 +121,7 @@
     <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Pravidlá ochrany osobných údajov"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Gestá pre skratky"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Vstavané gestá"</string>
-    <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(Experiment) Klepnutie na bok zariadenia"</string>
+    <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"Klepnutie na bok zariadenia (Experimentálne)"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"Akcie navigácie"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"Prejsť na nasledujúcu položku"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"Prejsť na predchádzajúcu položku"</string>
@@ -161,8 +157,8 @@
     <string name="title_pref_vibration" msgid="4156396276749836864">"Vibračná spätná väzba"</string>
     <string name="title_pref_soundback" msgid="3131811048184077738">"Zvuková spätná väzba"</string>
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"Zvýrazniť zvuk reči"</string>
-    <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Zníži hlasitosť ostatných zvukov počas hovoru"</string>
-    <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Hlasitosť zvuku"</string>
+    <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Zníži hlasitosť ostatných zvukov počas rozprávania"</string>
+    <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Hlasitosť zvukovej spätnej väzby"</string>
     <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Pozastavenie aplikácie Talkback a skratka na jej opätovné spustenie"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Rôzne"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Nastavenia pre vývojárov"</string>
@@ -180,7 +176,7 @@
     <string name="axis_character" msgid="8528412412593489695">"Navigovať podľa znakov"</string>
     <string name="axis_word" msgid="8823389407337076750">"Navigovať podľa slov"</string>
     <string name="axis_sentence" msgid="4398740201672273541">"Navigovať podľa viet"</string>
-    <string name="axis_heading" msgid="8829265824683632088">"Navigovať podľa hlavičiek"</string>
+    <string name="axis_heading" msgid="8829265824683632088">"Navigovať podľa nadpisov"</string>
     <string name="axis_sibling" msgid="3267377527761217139">"Navigovať podľa stránok na rovnocennej úrovni"</string>
     <string name="axis_document" msgid="8037283796488966887">"Navigovať podľa dokumentov"</string>
     <string name="axis_default_web_view_behavior" msgid="816142869754118685">"Navigovať podľa predvoleného správania zobrazenia webu"</string>
@@ -192,7 +188,7 @@
     <string name="granularity_page" msgid="2739238666516816581">"Strany"</string>
     <string name="granularity_web_section" msgid="496466197528091152">"Navigácia v sekcii"</string>
     <string name="granularity_web_list" msgid="8598575022728013551">"Navigácia v zozname"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"Ovládanie navigácie"</string>
+    <string name="granularity_web_control" msgid="5346924945146680639">"Navigácia v ovládacích prvkoch"</string>
     <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"Navigácia v špeciálnom obsahu"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"Na výšku"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"Na šírku"</string>
@@ -226,7 +222,7 @@
     <string name="title_web_breakout_prev_section" msgid="1738336598629616234">"Predchádzajúca sekcia"</string>
     <string name="title_web_breakout_prev_list" msgid="744039532529277819">"Predchádzajúci zoznam"</string>
     <string name="title_web_breakout_prev_control" msgid="2637721101068457234">"Predchádzajúci ovládací prvok"</string>
-    <string name="title_edittext_controls" msgid="2102286116390895883">"Ovládací prvok kurzora"</string>
+    <string name="title_edittext_controls" msgid="2102286116390895883">"Ovládanie textového kurzora"</string>
     <string name="title_edittext_breakout_move_to_beginning" msgid="4021304144865258223">"Presunúť kurzor na začiatok"</string>
     <string name="title_edittext_breakout_move_to_end" msgid="3197737555808584828">"Presunúť kurzor na koniec"</string>
     <string name="title_edittext_breakout_start_selection_mode" msgid="4183196270306568761">"Spustiť režim výberu"</string>
@@ -313,7 +309,7 @@
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Naozaj chcete v aplikácii <xliff:g id="LABEL">%1$s</xliff:g> odstrániť štítok <xliff:g id="APP_NAME">%2$s</xliff:g>?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Text štítku"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"Táto verzia funkcie TalkBack zahrnuje zmeny predvolených gest dostupnosti. Akcie združené s týmito gestami je možné prispôsobiť v nastaveniach funkcie TalkBack. Keď je funkcia Preskúmanie dotykom zapnutá, určité akcie môžete vykonať pomocou nasledovných gest.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
-    <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Dlhé stlačenie klávesa na zvýšenie a klávesa na zníženie hlasitosti"</string>
+    <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Dlhé stlačenie klávesu na zvýšenie a klávesu na zníženie hlasitosti"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"Stmaviť obrazovku?"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"Naozaj chcete stmaviť obrazovku?"</string>
     <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"Táto verzia aplikácie TalkBack obsahuje zmenené predvolené gestá dostupnosti.\n\nGesto pohybu hore a dole vám umožní prejsť na prvú položku na obrazovke. Gesto pohybu dole a hore vám umožní prejsť na poslednú položku.\n\nNastavenie podrobnosti čítania je možné zmeniť zameraním na položku a výberom stupňa podrobnosti z miestnej kontextovej ponuky.\n\nAkcie vykonávané na základe týchto gest môžete zmeniť v nastaveniach aplikácie TalkBack."</string>
