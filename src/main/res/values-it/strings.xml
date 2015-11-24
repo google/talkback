@@ -8,7 +8,7 @@
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Versione <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
     <string name="label_manager_summary_title" msgid="6786694853113585661">"Gestisci etichette personalizzate"</string>
     <string name="label_manager_package_title" msgid="6984665343963494151">"Gestisci etichette di <xliff:g id="APPLICATIONLABEL">%1$s</xliff:g>"</string>
-    <string name="label_manager_no_packages_message" msgid="4478523067360108574">"Al momento non ci sono etichette personalizzate. Puoi crearne una passando a un\'immagine senza etichetta e aggiungendo un\'etichetta dal menu contestuale locale."</string>
+    <string name="label_manager_no_packages_message" msgid="4478523067360108574">"Al momento non ci sono etichette personalizzate. Puoi crearne una passando a un\'immagine senza etichetta e aggiungerne una dal menu contestuale locale."</string>
     <string name="label_manager_timestamp_text" msgid="2632240906498521602">"Ultima modifica: <xliff:g id="TIMESTAMP">%1$s</xliff:g>"</string>
     <string name="search_dialog_label" msgid="7273037326593054813">"Cerca: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>"</string>
     <string name="search_mode_open" msgid="910823044260738937">"Modalità di ricerca aperta."</string>
@@ -42,10 +42,10 @@
     <string name="template_text_error" msgid="153775825635730287">"Immissione non valida: <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> caratteri sostituiti con <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> caratteri"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> per <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_long_clicked" msgid="1962442828386303832">"Pressione lunga di <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_long_clicked" msgid="1962442828386303832">"Pressione lunga su <xliff:g id="TITLE">%1$s</xliff:g>"</string>
     <string name="template_button" msgid="2640124317262628933">"Pulsante <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"Immagine <xliff:g id="TITLE">%1$d</xliff:g>. Senza etichetta"</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"Pulsante <xliff:g id="TITLE">%1$d</xliff:g>. Senza etichetta"</string>
+    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"Immagine <xliff:g id="TITLE">%1$d</xliff:g>. non etichettato"</string>
+    <string name="template_unlabeled_button" msgid="8907013770433741191">"Pulsante <xliff:g id="TITLE">%1$d</xliff:g>. Non etichettato"</string>
     <string name="template_seek_bar" msgid="9010890122601609426">"Dispositivo di scorrimento <xliff:g id="TITLE">%1$s</xliff:g>."</string>
     <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> percento."</string>
     <string name="template_charging" msgid="2038200557537960378">"Ricarica: <xliff:g id="CHANGING_STATUS">%1$s</xliff:g> Livello batteria: <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> percento."</string>
@@ -62,17 +62,17 @@
     <string name="template_password_selected" msgid="3751806880345903886">"Caratteri selezionati: da <xliff:g id="FROM_INDEX">%1$s</xliff:g> a <xliff:g id="TO_INDEX">%2$s</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"<xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g> maiuscola"</string>
     <string name="template_checkbox" msgid="8582666147313623418">"Casella di controllo <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"Pulsante di opzione <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>, opzione"</string>
+    <string name="template_radio_button" msgid="5796532059726219957">"Pulsante radio <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>, interruttore"</string>
     <string name="value_password" msgid="7285572231215250557">"password"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Riquadro a scomparsa scorrevole aperto"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Area aperta"</string>
     <string name="value_options_menu_open" msgid="4936310094261315665">"Opzioni."</string>
     <string name="value_text_cleared" msgid="6558192295636412162">"Testo cancellato"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Lunghezza massima raggiunta"</string>
+    <string name="value_text_max_length" msgid="4129865255646994586">"Raggiunta la unghezza massima"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"eliminato"</string>
-    <string name="value_checked" msgid="3006751014125833966">"selezionato/a"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"non selezionato/a"</string>
+    <string name="value_checked" msgid="3006751014125833966">"selezionato"</string>
+    <string name="value_not_checked" msgid="37422559536361725">"non selezionato"</string>
     <string name="value_disabled" msgid="5160977094078900656">"disattivato"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"Tocca due volte"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"Tocca"</string>
@@ -81,10 +81,10 @@
     <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> per attivare/disattivare."</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> per inserire testo."</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> per modificare."</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"Tocca lo schermo e spostati in un cerchio per trovare un elemento, quindi solleva il dito per selezionare."</string>
-    <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Tocca lo schermo e spostati in un cerchio per esplorare i contenuti sullo schermo, quindi solleva il dito per attivare i contenuti."</string>
+    <string name="hint_radial_menu" msgid="5110846707339818828">"Tocca lo schermo e muoiviti a cerchio per trovare un elemento, quindi solleva il dito per attivarlo."</string>
+    <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Tocca lo schermo e muoviti a cerchio per esplorare i contenuti sullo schermo, quindi solleva il dito per attivarli."</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"Azioni personalizzate:"</string>
-    <string name="value_ringer_vibrate" msgid="2453075127843329125">"Suoneria con vibrazione."</string>
+    <string name="value_ringer_vibrate" msgid="2453075127843329125">"Suoneria solo vibrazione."</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Suoneria disattivata."</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Schermo acceso."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Schermo spento."</string>
@@ -92,11 +92,11 @@
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Voce"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Volume voce"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"Feedback vocale con schermo non attivo"</string>
-    <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"Notifiche vocali quando lo schermo non è attivo"</string>
-    <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"Nessun feedback vocale con schermo non attivo"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"Pronuncia ID chiamante"</string>
+    <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"Notifiche vocali quando lo schermo è spento"</string>
+    <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"Nessuna notifica vocale quando lo schermo è spento"</string>
+    <string name="title_pref_caller_id" msgid="3583991410676669265">"leggi ID chiamante"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"Usa sensore di prossimità"</string>
-    <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Il sensore di prossimità disattiva la voce"</string>
+    <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Il sensore di prossimità zittisce la voce"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Il sensore di prossimità non controlla la voce"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Pronuncia lettere fonetiche"</string>
     <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Le lettere fonetiche non verranno pronunciate."</string>
@@ -151,7 +151,7 @@
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Questa combinazione di tasti è già stata utilizzata per l\'azione \"<xliff:g id="ID_1">%1$s</xliff:g>\". Vuoi cancellarla e assegnare questa scorciatoia a \"<xliff:g id="ID_2">%2$s</xliff:g>\"?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Usa variazioni tono"</string>
     <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"Eco tastiera"</string>
-    <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"Feedback vocale della tastiera con tono di voce più basso"</string>
+    <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"Feedback vocale della tastiera con tono di voce più alto"</string>
     <string name="summaryOff_pref_intonation" msgid="5187278527518557715">"Non cambiare tono di voce per feedback vocale"</string>
     <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"Altro feedback"</string>
     <string name="title_pref_vibration" msgid="4156396276749836864">"Feedback con vibrazione"</string>
@@ -181,7 +181,7 @@
     <string name="axis_document" msgid="8037283796488966887">"Esplora per documento."</string>
     <string name="axis_default_web_view_behavior" msgid="816142869754118685">"Esplora in base a comportamento visualizzazione web predefinito."</string>
     <string name="granularity_default" msgid="4948042687369948597">"Predefinita"</string>
-    <string name="granularity_character" msgid="2036726841460203840">"Personaggi"</string>
+    <string name="granularity_character" msgid="2036726841460203840">"Caratteri"</string>
     <string name="granularity_word" msgid="2653776823920279013">"Parole"</string>
     <string name="granularity_line" msgid="727359260064093782">"Righe"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"Paragrafi"</string>
@@ -266,8 +266,8 @@
     <string name="title_pref_shortcut_right_and_up" msgid="6848971895903777166">"Scorri verso destra, poi verso l\'alto"</string>
     <string name="title_pref_shortcut_left_and_down" msgid="2899217574677150730">"Scorri verso sinistra, poi verso il basso"</string>
     <string name="title_pref_shortcut_left_and_up" msgid="369887751217245542">"Scorri verso sinistra, poi verso l\'alto"</string>
-    <string name="title_pref_shortcut_single_tap" msgid="7220195169492947031">"Singolo tocco a lato"</string>
-    <string name="title_pref_shortcut_double_tap" msgid="4454853121476703529">"Doppio tocco a lato"</string>
+    <string name="title_pref_shortcut_single_tap" msgid="7220195169492947031">"Singolo tocco laterale"</string>
+    <string name="title_pref_shortcut_double_tap" msgid="4454853121476703529">"Doppio tocco laterale"</string>
     <string name="title_pref_tap_sensitivity" msgid="3737945934603267137">"Sensibilità rilevatore tocco"</string>
     <string name="tap_sensitivity_high" msgid="7563462166661082029">"Alta"</string>
     <string name="tap_sensitivity_medium" msgid="5512827926666078515">"Media"</string>
@@ -287,9 +287,9 @@
     <string name="value_shake_to_read_threshold_medium" msgid="8892692566516131981">"Medio"</string>
     <string name="value_shake_to_read_threshold_hard" msgid="7661843662865960874">"Forte"</string>
     <string name="value_shake_to_read_threshold_very_hard" msgid="3423392173494851854">"Molto forte"</string>
-    <string name="value_keyboard_echo_always" msgid="6889426165608387394">"Enuncia sempre i tasti premuti"</string>
+    <string name="value_keyboard_echo_always" msgid="6889426165608387394">"Vocalizza sempre i tasti premuti"</string>
     <string name="value_keyboard_echo_softkeys" msgid="1595001302535254665">"Solo per tastiera sullo schermo"</string>
-    <string name="value_keyboard_echo_never" msgid="7181327459690946870">"Non enunciare mai i tasti premuti"</string>
+    <string name="value_keyboard_echo_never" msgid="7181327459690946870">"Non vocalizzare mai i tasti premuti"</string>
     <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"Gesti TalkBack modificati"</string>
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Tocca per esaminare le modifiche ai gesti di accessibilità"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack è sospeso"</string>

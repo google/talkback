@@ -3,24 +3,24 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="symbol_apostrophe" msgid="7208629120802819915">"Apostrofo"</string>
     <string name="symbol_ampersand" msgid="2896965192299496498">"E commerciale"</string>
-    <string name="symbol_angle_bracket_left" msgid="7380903071611293121">"Parentesi angolare sinistra"</string>
-    <string name="symbol_angle_bracket_right" msgid="1868235467151646558">"Parentesi angolare destra"</string>
+    <string name="symbol_angle_bracket_left" msgid="7380903071611293121">"Parentesi angolare aperta"</string>
+    <string name="symbol_angle_bracket_right" msgid="1868235467151646558">"Parentesi angolare chiusa"</string>
     <string name="symbol_asterisk" msgid="6817126584493630223">"Asterisco"</string>
     <string name="symbol_at_sign" msgid="2065827119717043200">"Chiocciola"</string>
-    <string name="symbol_backslash" msgid="1611754081972480510">"Barra rovesciata"</string>
+    <string name="symbol_backslash" msgid="1611754081972480510">"Controbarra"</string>
     <string name="symbol_bullet" msgid="8476099303225493047">"Pallino"</string>
     <string name="symbol_caret" msgid="3928223571254608359">"Accento circonflesso"</string>
     <string name="symbol_cent" msgid="2397683564958310433">"Centesimo"</string>
     <string name="symbol_colon" msgid="4099865219187606667">"Due punti"</string>
     <string name="symbol_comma" msgid="5645826628625828518">"Virgola"</string>
     <string name="symbol_copyright" msgid="4560734240781916706">"Copyright"</string>
-    <string name="symbol_curly_bracket_left" msgid="2875419571455950965">"Parentesi graffa sinistra"</string>
-    <string name="symbol_curly_bracket_right" msgid="7223443061586552971">"Parentesi graffa destra"</string>
+    <string name="symbol_curly_bracket_left" msgid="2875419571455950965">"Parentesi graffa aperta"</string>
+    <string name="symbol_curly_bracket_right" msgid="7223443061586552971">"Parentesi graffa chiusa"</string>
     <string name="symbol_degree" msgid="2370756516179429371">"Grado"</string>
     <string name="symbol_division" msgid="8469030548234745900">"Segno di divisione"</string>
     <string name="symbol_dollar_sign" msgid="7172720889757863645">"Simbolo del dollaro"</string>
     <string name="symbol_ellipsis" msgid="6107023479924320264">"Puntini di sospensione"</string>
-    <string name="symbol_em_dash" msgid="9095293634011901230">"Lineetta"</string>
+    <string name="symbol_em_dash" msgid="9095293634011901230">"lineetta"</string>
     <string name="symbol_en_dash" msgid="7221481427651082891">"Trattino"</string>
     <string name="symbol_euro" msgid="7368999812147737584">"Euro"</string>
     <string name="symbol_exclamation_mark" msgid="988583649131855220">"Punto esclamativo"</string>
@@ -30,8 +30,8 @@
     <string name="symbol_multiplication" msgid="4500464364344640871">"Segno di moltiplicazione"</string>
     <string name="symbol_new_line" msgid="6848635267438885623">"Nuova riga"</string>
     <string name="symbol_paragraph_mark" msgid="5514376704992468938">"Segno di paragrafo"</string>
-    <string name="symbol_parenthesis_left" msgid="6800146954886245634">"Parent. sinistra"</string>
-    <string name="symbol_parenthesis_right" msgid="7215651695123277015">"Parent. destra"</string>
+    <string name="symbol_parenthesis_left" msgid="6800146954886245634">"Parentesi aperta"</string>
+    <string name="symbol_parenthesis_right" msgid="7215651695123277015">"Parentesi chiusa"</string>
     <string name="symbol_percent" msgid="5459242644598387133">"Percentuale"</string>
     <string name="symbol_period" msgid="5437120137086222612">"Punto"</string>
     <string name="symbol_pi" msgid="9110332441949361829">"Pi greco"</string>
@@ -44,15 +44,15 @@
     <string name="symbol_slash" msgid="7183595255121136380">"Barra"</string>
     <string name="symbol_smiley" msgid="5566592322045991166">"Emoticon faccina sorridente"</string>
     <string name="symbol_space" msgid="5752206151798562920">"Spazio"</string>
-    <string name="symbol_square_bracket_left" msgid="8272586261793885172">"Parentesi quadra sinistra"</string>
-    <string name="symbol_square_bracket_right" msgid="5927399844117072754">"Parentesi quadra destra"</string>
+    <string name="symbol_square_bracket_left" msgid="8272586261793885172">"Parentesi quadra aperta"</string>
+    <string name="symbol_square_bracket_right" msgid="5927399844117072754">"Parentesi quadra chiusa"</string>
     <string name="symbol_square_root" msgid="683692620277245490">"Radice quadrata"</string>
     <string name="symbol_trademark" msgid="3263529639090333558">"Marchio"</string>
     <string name="symbol_underscore" msgid="7192169250700774805">"Carattere di sottolineatura"</string>
     <string name="symbol_vertical_bar" msgid="1121156640601168272">"Barra verticale"</string>
     <string name="symbol_yen" msgid="5956873078564706159">"Yen"</string>
     <string name="symbol_not_sign" msgid="6673590940229304440">"Segno di negazione"</string>
-    <string name="symbol_broken_bar" msgid="6813132652561276644">"Barra verticale interrotta"</string>
+    <string name="symbol_broken_bar" msgid="6813132652561276644">"Barra verticale spezzata"</string>
     <string name="symbol_micro_sign" msgid="3513065482309329740">"Simbolo micro"</string>
     <string name="symbol_almost_equals" msgid="7456083235616834438">"Quasi uguale"</string>
     <string name="symbol_not_equals" msgid="5319485097346278422">"Non uguale"</string>
@@ -91,10 +91,10 @@
     <string name="symbol_beamed_sixteenth_note" msgid="5289487097432366247">"Semicrome"</string>
     <string name="symbol_female" msgid="2832652212740214355">"Simbolo della donna"</string>
     <string name="symbol_male" msgid="614668218440322904">"Simbolo dell\'uomo"</string>
-    <string name="symbol_left_black_lenticular_bracket" msgid="4461462147632976820">"Parentesi lenticolare sinistra nera"</string>
-    <string name="symbol_right_black_lenticular_bracket" msgid="3919101748915826659">"Parentesi lenticolare destra nera"</string>
-    <string name="symbol_left_corner_bracket" msgid="2662006752461479838">"Parentesi angolare sinistra"</string>
-    <string name="symbol_right_corner_bracket" msgid="4305940879297701054">"Parentesi angolare destra"</string>
+    <string name="symbol_left_black_lenticular_bracket" msgid="4461462147632976820">"Parentesi lenticolare nera aperta"</string>
+    <string name="symbol_right_black_lenticular_bracket" msgid="3919101748915826659">"Parentesi lenticolare nera chiusa"</string>
+    <string name="symbol_left_corner_bracket" msgid="2662006752461479838">"Parentesi angolare aperta"</string>
+    <string name="symbol_right_corner_bracket" msgid="4305940879297701054">"Parentesi angolare chiusa"</string>
     <string name="symbol_rightwards_arrow" msgid="3621071010761086207">"Freccia destra"</string>
     <string name="symbol_downwards_arrow" msgid="1093826934627615258">"Freccia rivolta verso il basso"</string>
     <string name="symbol_plus_minus_sign" msgid="9058945923657357434">"Segno più-o-meno"</string>
