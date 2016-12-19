@@ -28,13 +28,8 @@ public class TextCursorControllerApp implements TextCursorController {
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-        switch (event.getEventType()) {
-            case AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED:
-                processTextSelectionChange(event);
-                break;
-            case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
-                clear();
-                break;
+        if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED) {
+            processTextSelectionChange(event);
         }
     }
 
@@ -79,5 +74,11 @@ public class TextCursorControllerApp implements TextCursorController {
     @Override
     public int getPreviousCursorPosition() {
         return mPreviousCursorPosition;
+    }
+
+    @Override
+    public void forceSetCursorPosition(int previousCursorPosition, int currentCursorPosition) {
+        mPreviousCursorPosition = previousCursorPosition;
+        mCurrentCursorPosition = currentCursorPosition;
     }
 }

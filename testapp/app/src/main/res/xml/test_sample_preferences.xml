@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:enabled="true"
+        android:title="Screen Category">
+        <PreferenceScreen
+            android:key="screen1"
+            android:title="Screen 1">
+            <CheckBoxPreference
+                android:key="checkboxa"
+                android:title="CheckBox a" />
+            <CheckBoxPreference
+                android:key="checkboxb"
+                android:title="CheckBox b" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="screen2"
+            android:summary="intent"
+            android:title="Screen 2">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://www.android.com" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:enabled="true"
+        android:title="CheckBox Category">
+        <CheckBoxPreference
+            android:key="checkbox1"
+            android:summary="summary"
+            android:title="CheckBox 1" />
+        <CheckBoxPreference
+            android:key="checkbox2"
+            android:summary="summary"
+            android:title="CheckBox 2" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:enabled="true"
+        android:title="List Category">
+        <ListPreference
+            android:dialogTitle="List 1"
+            android:entries="@array/content_37_list1_name_array"
+            android:entryValues="@array/content_37_list1_value_array"
+            android:key="list1"
+            android:summary="single select list"
+            android:title="List 1" />
+
+        <MultiSelectListPreference
+            android:defaultValue="@array/content_37_empty_array"
+            android:dialogTitle="List 2"
+            android:entries="@array/content_37_list2_name_array"
+            android:entryValues="@array/content_37_list2_value_array"
+            android:key="list2"
+            android:persistent="@array/content_37_empty_array"
+            android:summary="multi select list"
+            android:title="List 2" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:enabled="true"
+        android:title="EditText Category">
+        <EditTextPreference
+            android:dialogTitle="EditText 1"
+            android:key="editbox1"
+            android:summary="summary"
+            android:title="EditText 1" />
+        <EditTextPreference
+            android:dialogTitle="EditText 2"
+            android:key="editbox2"
+            android:summary="summary"
+            android:title="EditText 2" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

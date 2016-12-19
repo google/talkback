@@ -17,8 +17,11 @@
 package com.android.switchaccess;
 
 import android.accessibilityservice.AccessibilityService;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Rect;
+import android.os.Build;
+
 import com.android.talkback.R;
 
 import java.util.*;
@@ -26,14 +29,15 @@ import java.util.*;
 /**
  * Option scan node that performs a global action
  */
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class GlobalActionNode extends OptionScanActionNode {
 
     private int mAction;
     private CharSequence mActionLabel;
-    private AccessibilityService mService;
+    protected AccessibilityService mService;
 
-    public static List<GlobalActionNode> getGlobalActionList(AccessibilityService service) {
-        List<GlobalActionNode> globalActionList = new ArrayList<>();
+    public static List<ContextMenuItem> getGlobalActionList(AccessibilityService service) {
+        List<ContextMenuItem> globalActionList = new ArrayList<>();
         globalActionList.add(new GlobalActionNode(AccessibilityService.GLOBAL_ACTION_BACK,
                 service, service.getResources().getString(R.string.global_action_back)));
         globalActionList.add(new GlobalActionNode(AccessibilityService.GLOBAL_ACTION_HOME,
@@ -44,6 +48,27 @@ public class GlobalActionNode extends OptionScanActionNode {
                 service, service.getResources().getString(R.string.global_action_quick_settings)));
         globalActionList.add(new GlobalActionNode(AccessibilityService.GLOBAL_ACTION_RECENTS,
                 service, service.getResources().getString(R.string.global_action_overview)));
+
+        /* Controls auto-select behavior from menu */
+        globalActionList.add(new GlobalActionNode(0, service, null) {
+            @Override
+            public CharSequence getActionLabel(Context context) {
+                /* Return the opposite of state of preference */
+                boolean isAutoSelectOn =
+                        SwitchAccessPreferenceActivity.isGlobalMenuAutoselectOn(this.mService);
+                return context.getString(isAutoSelectOn
+                        ? R.string.switch_access_global_menu_disable_autoselect
+                        : R.string.switch_access_global_menu_enable_autoselect);
+            }
+
+            @Override
+            public void performAction() {
+                /* Toggle preference */
+                SwitchAccessPreferenceActivity.setGlobalMenuAutoselectOn(this.mService,
+                        !SwitchAccessPreferenceActivity
+                                .isGlobalMenuAutoselectOn(this.mService));
+            }
+        });
         return globalActionList;
     }
 

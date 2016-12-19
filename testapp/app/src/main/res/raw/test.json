@@ -1,0 +1,404 @@
+{
+  "testsessions": [
+    {
+      "title": "@string/common_widgets_session_title",
+      "description": "@string/common_widgets_session_description",
+      "content": [
+        {
+          "subtitle": "@string/standard_android_widgets_test_subtitle",
+          "description": "@string/standard_android_widgets_test_description",
+          "classname": "com.android.talkbacktests.testsession.StandardAndroidWidgetTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/collections_session_title",
+      "description": "@string/collections_session_description",
+      "content": [
+        {
+          "subtitle": "@string/list_test_subtitle",
+          "description": "@string/list_test_description",
+          "classname": "com.android.talkbacktests.testsession.ListTest"
+        },
+        {
+          "subtitle": "@string/grid_test_subtitle",
+          "description": "@string/grid_test_description",
+          "classname": "com.android.talkbacktests.testsession.GridTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/recycler_view_session_title",
+      "description": "@string/recycler_view_session_description",
+      "content": [
+        {
+          "subtitle": "@string/recycler_view_test_subtitle",
+          "description": "@string/recycler_view_test_description",
+          "classname": "com.android.talkbacktests.testsession.RecyclerViewTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/tabs_session_title",
+      "description": "@string/tabs_session_description",
+      "content": [
+        {
+          "subtitle": "@string/standard_tab_widget_test_subtitle",
+          "description": "@string/standard_tab_widget_test_description",
+          "classname": "com.android.talkbacktests.testsession.StandardTabWidgetTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/radio_group_session_title",
+      "description": "@string/radio_group_session_description",
+      "content": [
+        {
+          "subtitle": "@string/radio_group_test_subtitle",
+          "description": "@string/radio_group_test_description",
+          "classname": "com.android.talkbacktests.testsession.RadioGroupTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/popup_view_session_title",
+      "description": "@string/popup_view_session_description",
+      "content": [
+        {
+          "subtitle": "@string/popup_view_test_subtitle",
+          "description": "@string/popup_view_test_description",
+          "classname": "com.android.talkbacktests.testsession.PopupViewTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/headings_session_title",
+      "description": "@string/headings_session_description",
+      "content": [
+        {
+          "subtitle": "@string/section_header_test_subtitle",
+          "description": "@string/section_header_test_description",
+          "classname": "com.android.talkbacktests.testsession.SectionHeaderTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/value_pickers_session_title",
+      "description": "@string/value_pickers_session_description",
+      "content": [
+        {
+          "subtitle": "@string/value_picker_test_subtitle",
+          "description": "@string/value_picker_test_description",
+          "classname": "com.android.talkbacktests.testsession.ValuePickerTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/alerts_session_title",
+      "description": "@string/alerts_session_description",
+      "content": [
+        {
+          "subtitle": "@string/alert_dialog_test_subtitle",
+          "description": "@string/alert_dialog_test_description",
+          "classname": "com.android.talkbacktests.testsession.AlertDialogTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/notifications_session_title",
+      "description": "@string/notifications_session_description",
+      "content": [
+        {
+          "subtitle": "@string/notification_test_subtitle",
+          "description": "@string/notification_test_description",
+          "classname": "com.android.talkbacktests.testsession.NotificationTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/toast_session_title",
+      "description": "@string/toast_session_description",
+      "content": [
+        {
+          "subtitle": "@string/toast_test_subtitle",
+          "description": "@string/toast_test_description",
+          "classname": "com.android.talkbacktests.testsession.ToastTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/view_pager_session_title",
+      "description": "@string/view_pager_session_description",
+      "content": [
+        {
+          "subtitle": "@string/view_pager_test_subtitle",
+          "description": "@string/view_pager_test_description",
+          "classname": "com.android.talkbacktests.testsession.ViewPagerTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/web_view_session_title",
+      "description": "@string/web_view_session_description",
+      "content": [
+        {
+          "subtitle": "@string/web_view_test_subtitle",
+          "description": "@string/web_view_test_description",
+          "classname": "com.android.talkbacktests.testsession.WebViewTest"
+        },
+        {
+          "subtitle": "@string/web_view_in_scrollable_view_test_subtitle",
+          "description": "@string/web_view_in_scrollable_view_test_description",
+          "classname": "com.android.talkbacktests.testsession.WebViewInScrollableViewTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/single_line_edit_Field_session_title",
+      "description": "@string/single_line_edit_Field_session_description",
+      "content": [
+        {
+          "subtitle": "@string/one_line_text_field_test_subtitle",
+          "description": "@string/one_line_text_field_test_description",
+          "classname": "com.android.talkbacktests.testsession.OneLineTextFieldTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/multi_line_edit_field_session_title",
+      "description": "@string/multi_line_edit_field_session_description",
+      "content": [
+        {
+          "subtitle": "@string/multi_line_text_field_test_subtitle",
+          "description": "@string/multi_line_text_field_test_description",
+          "classname": "com.android.talkbacktests.testsession.MultiLineEditFieldTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/URL_span_session_title",
+      "description": "@string/URL_span_session_description",
+      "content": [
+        {
+          "subtitle": "@string/URL_span_test_subtitle",
+          "description": "@string/URL_span_test_description",
+          "classname": "com.android.talkbacktests.testsession.URLSpanTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/clickable_span_session_title",
+      "description": "@string/clickable_span_session_description",
+      "content": [
+        {
+          "subtitle": "@string/clickable_span_test_subtitle",
+          "description": "@string/clickable_span_test_description",
+          "classname": "com.android.talkbacktests.testsession.ClickableSpanTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/view_grouping_session_title",
+      "description": "@string/view_grouping_session_description",
+      "content": [
+        {
+          "subtitle": "@string/view_grouping_test_subtitle",
+          "description": "@string/view_grouping_test_description",
+          "classname": "com.android.talkbacktests.testsession.ViewGroupingTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/custom_action_session_title",
+      "description": "@string/custom_action_session_description",
+      "content": [
+        {
+          "subtitle": "@string/custom_action_test_subtitle",
+          "description": "@string/custom_action_test_description",
+          "classname": "com.android.talkbacktests.testsession.CustomActionTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/dismissible_view_session_title",
+      "description": "@string/dismissible_view_session_description",
+      "content": [
+        {
+          "subtitle": "@string/dismissible_view_test_subtitle",
+          "description": "@string/dismissible_view_test_description",
+          "classname": "com.android.talkbacktests.testsession.DismissibleViewTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/collapsible_expandable_view_session_title",
+      "description": "@string/collapsible_expandable_view_session_description",
+      "content": [
+        {
+          "subtitle": "@string/collapsible_expandable_view_test_subtitle",
+          "description": "@string/collapsible_expandable_view_test_description",
+          "classname": "com.android.talkbacktests.testsession.CollapsibleExpandableViewTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/live_region_session_title",
+      "description": "@string/live_region_session_description",
+      "content": [
+        {
+          "subtitle": "@string/live_region_test_subtitle",
+          "description": "@string/live_region_test_description",
+          "classname": "com.android.talkbacktests.testsession.LiveRegionTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/announce_for_accessibility_session_title",
+      "description": "@string/announce_for_accessibility_session_description",
+      "content": [
+        {
+          "subtitle": "@string/announce_for_accessibility_test_subtitle",
+          "description": "@string/announce_for_accessibility_test_description",
+          "classname": "com.android.talkbacktests.testsession.AnnounceForAccessibilityTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/TTS_span_session_title",
+      "description": "@string/TTS_span_session_description",
+      "content": [
+        {
+          "subtitle": "@string/TTS_span_test_subtitle",
+          "description": "@string/TTS_span_test_description",
+          "classname": "com.android.talkbacktests.testsession.TTSSpanTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/focus_test_session_title",
+      "description": "@string/focus_test_session_description",
+      "content": [
+        {
+          "subtitle": "@string/focus_test_subtitle",
+          "description": "@string/focus_test_description",
+          "classname": "com.android.talkbacktests.testsession.FocusTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/auto_scroll_session_title",
+      "description": "@string/auto_scroll_session_description",
+      "content": [
+        {
+          "subtitle": "@string/auto_scroll_test_subtitle",
+          "description": "@string/auto_scroll_test_description",
+          "classname": "com.android.talkbacktests.testsession.AutoScrollTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/important_for_accessibility_session_title",
+      "description": "@string/important_for_accessibility_session_description",
+      "content": [
+        {
+          "subtitle": "@string/important_for_accessibility_test_subtitle",
+          "description": "@string/important_for_accessibility_test_description",
+          "classname": "com.android.talkbacktests.testsession.ImportantForAccessibilityTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/content_description_session_title",
+      "description": "@string/content_description_session_description",
+      "content": [
+        {
+          "subtitle": "@string/content_description_test_subtitle",
+          "description": "@string/content_description_test_description",
+          "classname": "com.android.talkbacktests.testsession.ContentDescriptionTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/label_session_title",
+      "description": "@string/label_session_description",
+      "content": [
+        {
+          "subtitle": "@string/label_test_subtitle",
+          "description": "@string/label_test_description",
+          "classname": "com.android.talkbacktests.testsession.LabelTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/role_description_session_title",
+      "description": "@string/role_description_session_description",
+      "content": [
+        {
+          "subtitle": "@string/role_description_test_subtitle",
+          "description": "@string/role_description_test_description",
+          "classname": "com.android.talkbacktests.testsession.RoleDescriptionTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/audio_player_session_title",
+      "description": "@string/audio_player_session_description",
+      "content": [
+        {
+          "subtitle": "@string/audio_player_test_subtitle",
+          "description": "@string/audio_player_test_description",
+          "classname": "com.android.talkbacktests.testsession.AudioPlayerTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/preference_fragment_session_title",
+      "description": "@string/preference_fragment_session_description",
+      "content": [
+        {
+          "subtitle": "@string/preference_fragment_test_subtitle",
+          "description": "@string/preference_fragment_test_description",
+          "classname": "com.android.talkbacktests.testsession.PreferenceFragmentTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/edit_text_session_title",
+      "description": "@string/edit_text_session_description",
+      "content": [
+        {
+          "subtitle": "@string/edit_field_test_subtitle",
+          "description": "@string/edit_field_test_description",
+          "classname": "com.android.talkbacktests.testsession.EditFieldTest"
+        },
+        {
+          "subtitle": "@string/password_field_test_subtitle",
+          "description": "@string/password_field_test_description",
+          "classname": "com.android.talkbacktests.testsession.PasswordFieldTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/focus_synchronization_session_title",
+      "description": "@string/focus_synchronization_session_description",
+      "content": [
+        {
+          "subtitle": "@string/focus_synchronization_test_subtitle",
+          "description": "@string/focus_synchronization_test_description",
+          "classname": "com.android.talkbacktests.testsession.FocusSynchronizationTest"
+        }
+      ]
+    },
+    {
+      "title": "@string/security_overlay_session_title",
+      "description": "@string/security_overlay_session_description",
+      "content": [
+        {
+          "subtitle": "@string/security_overlay_test_subtitle",
+          "description": "@string/security_overlay_test_description",
+          "classname": "com.android.talkbacktests.testsession.SecurityOverlayTest"
+        }
+      ]
+    }
+  ]
+}

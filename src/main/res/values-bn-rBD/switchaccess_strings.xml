@@ -2,25 +2,23 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="switch_service_name" msgid="6043415138576713888">"অ্যাক্সেস পাল্টান"</string>
-    <string name="switch_access_service_description" msgid="7316829370005579941">"অ্যাক্সেস পাল্টানো আপনাকে কনফিগারযোগ্য কী সমন্বয় ব্যবহার করে আপনার ডিভাইস নিয়ন্ত্রণ করতে দেয়৷ ক্লিক করা যাবে এমন আইটেমগুলিতে আপনি ফোকাস সরিয়ে নিয়ে গিয়ে সেগুলি নির্বাচন করতে পারবেন৷"</string>
-    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"স্বয়ং স্ক্যান"</string>
-    <string name="title_pref_auto_scan" msgid="6856662972215508038">"স্বয়ং স্ক্যান সক্রিয় করুন"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"সময় বিলম্ব"</string>
+    <string name="switch_access_service_description" msgid="1958519878116811543">"অ্যাক্সেস পাল্টান এক বা তার বেশি স্যুইচ ব্যবহার করে আপনাকে স্ক্যান ও আইটেমগুলি নির্বাচন করতে দেয়।"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"সহায়তা ও মতামত"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"স্বয়ং স্ক্যান"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"স্বয়ং-স্ক্যানের সময়"</string>
     <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"বিপরীত স্বয়ংক্রিয় স্ক্যান"</string>
-  <plurals name="auto_scan_time_delay_summary_format">
-    <item quantity="one" msgid="815853953952465870">"১ সেকেন্ড"</item>
-    <item quantity="other" msgid="1223387233862989964">"%.2f সেকেন্ড"</item>
-  </plurals>
+    <plurals name="auto_scan_time_delay_summary_format" formatted="false" msgid="5524438721359954583">
+      <item quantity="one">%.2f সেকেন্ড</item>
+      <item quantity="other">%.2f সেকেন্ড</item>
+    </plurals>
     <string name="title_pref_scanning_methods" msgid="2351427385843210311">"স্ক্যান করার পদ্ধতি"</string>
-    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"কীবোর্ড স্ক্যানিং"</string>
-    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"দর্শন স্ক্যানিং"</string>
     <string name="title_pref_category_key_mappings" msgid="463227090301036752">"অ্যাকশনের জন্য নির্দিষ্ট করা কীগুলি"</string>
     <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"স্ক্যান করার জন্য নির্দিষ্ট করা কীগুলি"</string>
     <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' কী ইতিমধ্যেই \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' এ নির্দিষ্ট করা হয়েছে"</string>
-  <plurals name="label_num_keys_assigned_format">
-    <item quantity="one" msgid="8372086689828893172">"%dটি কী নির্দিষ্ট করা হয়েছে"</item>
-    <item quantity="other" msgid="2361393301173230834">"%dটি কী নির্দিষ্ট করা হয়েছে"</item>
-  </plurals>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="8070929030388121623">
+      <item quantity="one">%dটি কী নির্দিষ্ট করা হয়েছে</item>
+      <item quantity="other">%dটি কী নির্দিষ্ট করা হয়েছে</item>
+    </plurals>
     <string name="option_scan_switch_format" msgid="2034348456907055979">"বিকল্প স্ক্যান %1$d এ পাল্টান"</string>
     <string name="action_name_next" msgid="4106603510441280028">"পরবর্তী"</string>
     <string name="action_name_previous" msgid="5382750123072539005">"পূর্ববর্তী"</string>
@@ -28,6 +26,7 @@
     <string name="action_name_long_click" msgid="5708679123666477849">"দীর্ঘ সময় ধরে চাপুন"</string>
     <string name="action_name_scroll_forward" msgid="6969788891937406270">"সামনের দিকে স্ক্রোল করুন"</string>
     <string name="action_name_scroll_backward" msgid="579045012327139100">"পিছনের দিকে স্ক্রোল করুন"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"খারিজ করুন"</string>
     <string name="context_menu_layout_description" msgid="330592638837220675">"বিষয়বস্তু মেনু"</string>
     <string name="option_scanning_menu_button" msgid="4460266289722058928">"মেনু"</string>
     <string name="global_action_back" msgid="8326879739948707767">"ফিরুন"</string>
@@ -48,8 +47,23 @@
     <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
     <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
     <string name="save" msgid="5398278773451196019">"সংরক্ষণ"</string>
-    <string name="title_pref_highlight_0" msgid="3039542597362059267">"স্ক্যান  করার জন্য হাইলাইটিং"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"হাইলাইট শৈলী স্ক্যান করা হচ্ছে"</string>
     <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"প্রাথমিক স্ক্যান করার শৈলী"</string>
-    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"হাইলাইটের রঙ"</string>
-    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"হাইলাইটের ওজন"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"হাইলাইটের রঙ"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"লাইনের শৈলী হাইলাইট করুন"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="1781611399874689922">"স্বতঃ-নির্বাচন সক্ষম করুন"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="777214990214649732">"স্বতঃ-নির্বাচন অক্ষম করুন"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"পরবর্তী অক্ষর"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"পরবর্তী শব্দ"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"পরবর্তী লাইন"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"পরবর্তী অনুচ্ছেদ"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"পরবর্তী পৃষ্ঠা"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"পূর্ববর্তী অক্ষর"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"পূর্ববর্তী শব্দ"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"পূর্ববর্তী লাইন"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"পূর্ববর্তী অনুচ্ছেদ"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"পূর্ববর্তী পৃষ্ঠা"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"স্ক্যানিং স্বয়ংক্রিয়ভাবে শুরু হয়"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"স্যুইচে টেপা ছাড়াই স্ক্যান শুরু হয়"</string>
 </resources>

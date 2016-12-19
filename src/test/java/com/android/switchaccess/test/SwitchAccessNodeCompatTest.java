@@ -18,6 +18,8 @@ package com.android.switchaccess.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import android.annotation.TargetApi;
@@ -26,6 +28,7 @@ import android.os.Build;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import com.android.switchaccess.SwitchAccessNodeCompat;
+import com.android.talkback.BuildConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,6 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.internal.ShadowExtractor;
@@ -42,14 +46,14 @@ import org.robolectric.internal.ShadowExtractor;
  * Robolectric tests of ExtendedNodeCompat
  */
 @Config(
+        constants = BuildConfig.class,
         manifest = Config.NONE,
-        emulateSdk = 18,
+        sdk = 21,
         shadows = {
                 ShadowAccessibilityNodeInfo.class,
-                ShadowAccessibilityNodeInfoCompat.class,
                 ShadowAccessibilityWindowInfo.class})
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class SwitchAccessNodeCompatTest {
 
     /* Build a simple tree with a parent and two children */
@@ -75,7 +79,7 @@ public class SwitchAccessNodeCompatTest {
 
     @After
     public void tearDown() {
-        assertFalse(ShadowAccessibilityNodeInfoCompat.areThereUnrecycledNodes(true));
+        assertFalse(ShadowAccessibilityNodeInfo.areThereUnrecycledNodes(true));
     }
 
     @Test
@@ -173,6 +177,110 @@ public class SwitchAccessNodeCompatTest {
         Rect windowBounds = new Rect(110, 300, 50, 150);
         Rect visibleBounds = getBoundsForNodeCoveredByWindow(nodeBounds, windowBounds);
         assertEquals(new Rect(110, 100, 200, 200), visibleBounds);
+        mChildNode0.recycle();
+        mChildNode1.recycle();
+    }
+
+    @Test
+    public void testGetHasSameBoundsAsAncestor_differentBounds_shouldReturnFalse() {
+        mParentNode.setBoundsInScreen(new Rect(100, 200, 300, 400));
+        mChildNode0.setBoundsInScreen(new Rect(0, 0, 50, 50));
+        SwitchAccessNodeCompat child = new SwitchAccessNodeCompat(mChildNode0);
+        assertFalse(child.getHasSameBoundsAsAncestor());
+        child.recycle();
+        mParentNode.recycle();
+        mChildNode1.recycle();
+    }
+
+    @Test
+    public void testGetHasSameBoundsAsAncestor_sameBoundsAsParent_shouldReturnTrue() {
+        Rect nodeBounds = new Rect(200, 200, 100, 100);
+        mParentNode.setBoundsInScreen(nodeBounds);
+        mChildNode0.setBoundsInScreen(nodeBounds);
+        SwitchAccessNodeCompat child = new SwitchAccessNodeCompat(mChildNode0);
+        assertTrue(child.getHasSameBoundsAsAncestor());
+        child.recycle();
+        mParentNode.recycle();
+        mChildNode1.recycle();
+    }
+
+    @Test
+    public void testGetDescendantsWithDuplicateBounds_noChildren_returnsEmptyList() {
+        SwitchAccessNodeCompat compat = new SwitchAccessNodeCompat(mChildNode0);
+        assertTrue(compat.getDescendantsWithDuplicateBounds().isEmpty());
+        compat.recycle();
+        mChildNode1.recycle();
+        mParentNode.recycle();
+    }
+
+    @Test
+    public void testGetDescendantsWithDuplicateBounds_childHasDifferentBounds_returnsEmptyList() {
+        mParentNode.setBoundsInScreen(new Rect(100, 200, 300, 400));
+        mChildNode0.setBoundsInScreen(new Rect(0, 0, 50, 50));
+        mChildNode1.setBoundsInScreen(new Rect(1, 1, 50, 50));
+        SwitchAccessNodeCompat parent = new SwitchAccessNodeCompat(mParentNode);
+        assertTrue(parent.getDescendantsWithDuplicateBounds().isEmpty());
+        parent.recycle();
+        mChildNode0.recycle();
+        mChildNode1.recycle();
+    }
+
+    @Test
+    public void testGetDescendantsWithDuplicateBounds_childHasSameBounds_shouldReturnChild() {
+        Rect nodeBounds = new Rect(200, 200, 100, 100);
+        mParentNode.setBoundsInScreen(nodeBounds);
+        mChildNode0.setBoundsInScreen(nodeBounds);
+        mChildNode1.setBoundsInScreen(new Rect(1, 1, 50, 50));
+        SwitchAccessNodeCompat parent = new SwitchAccessNodeCompat(mParentNode);
+        SwitchAccessNodeCompat duplicateBoundsChild =
+                parent.getDescendantsWithDuplicateBounds().get(0);
+        assertEquals(mChildNode0, duplicateBoundsChild.getInfo());
+        parent.recycle();
+        duplicateBoundsChild.recycle();
+        mChildNode0.recycle();
+        mChildNode1.recycle();
+    }
+
+    @Test
+    public void testGetDescendantsWithDuplicateBounds_twoDescendantsHaveSameBounds_returnBoth() {
+        Rect nodeBounds = new Rect(200, 200, 100, 100);
+        mParentNode.setBoundsInScreen(nodeBounds);
+        mChildNode0.setBoundsInScreen(nodeBounds);
+        mChildNode1.setBoundsInScreen(new Rect(1, 1, 50, 50));
+        AccessibilityNodeInfo grandchildInfo = AccessibilityNodeInfo.obtain();
+        grandchildInfo.setContentDescription("grandchild");
+        grandchildInfo.setBoundsInScreen(nodeBounds);
+        ShadowAccessibilityNodeInfo shadowChild0 =
+                (ShadowAccessibilityNodeInfo) ShadowExtractor.extract(mChildNode0);
+        shadowChild0.addChild(grandchildInfo);
+
+        SwitchAccessNodeCompat parent = new SwitchAccessNodeCompat(mParentNode);
+        List<SwitchAccessNodeCompat> duplicateBoundsDescendants =
+                parent.getDescendantsWithDuplicateBounds();
+        assertEquals(2, duplicateBoundsDescendants.size());
+        assertEquals(mChildNode0, duplicateBoundsDescendants.get(0).getInfo());
+        assertEquals(grandchildInfo, duplicateBoundsDescendants.get(1).getInfo());
+        parent.recycle();
+        mChildNode0.recycle();
+        mChildNode1.recycle();
+        grandchildInfo.recycle();
+        for (SwitchAccessNodeCompat compat : duplicateBoundsDescendants) {
+            compat.recycle();
+        }
+    }
+
+    @Test
+    public void testGetDescendantsWithDuplicateBounds_withLoop_doesNotExplode() {
+        ShadowAccessibilityNodeInfo shadowChild0 =
+                (ShadowAccessibilityNodeInfo) ShadowExtractor.extract(mChildNode0);
+        shadowChild0.addChild(mParentNode);
+        SwitchAccessNodeCompat parent = new SwitchAccessNodeCompat(mParentNode);
+        List<SwitchAccessNodeCompat> duplicateBoundsDescendants =
+                parent.getDescendantsWithDuplicateBounds();
+        for (SwitchAccessNodeCompat compat : duplicateBoundsDescendants) {
+            compat.recycle();
+        }
+        parent.recycle();
         mChildNode0.recycle();
         mChildNode1.recycle();
     }

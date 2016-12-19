@@ -16,10 +16,13 @@
 
 package com.android.talkback.eventprocessor;
 
+import android.content.Context;
 import android.os.Message;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.view.View;
 
 import android.os.Build;
@@ -28,6 +31,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import com.android.talkback.R;
+import com.android.talkback.SpeechCleanupUtils;
 import com.android.talkback.SpeechController;
 import com.google.android.marvin.talkback.TalkBackService;
 import com.android.talkback.Utterance;
@@ -72,11 +76,15 @@ public class ProcessorEventQueue implements AccessibilityEventListener {
     /** Event time for the most recent window state changed event. */
     private long mLastWindowStateChanged = 0;
 
+    /** Context for accessing resources. */
+    private Context mContext;
+
     public ProcessorEventQueue(SpeechController speechController, TalkBackService context) {
         if (speechController == null) throw new IllegalStateException();
 
         mSpeechController = speechController;
         mEventSpeechRuleProcessor = new EventSpeechRuleProcessor(context);
+        mContext = context;
 
         loadDefaultRules();
     }
@@ -109,10 +117,8 @@ public class ProcessorEventQueue implements AccessibilityEventListener {
         mEventSpeechRuleProcessor.addSpeechStrategy(R.raw.speechstrategy_googletv);
 
         // Add platform-specific speech strategies for bundled apps.
-        if (Build.VERSION.SDK_INT >= 19) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             mEventSpeechRuleProcessor.addSpeechStrategy(R.raw.speechstrategy_kitkat);
-        } else if (Build.VERSION.SDK_INT >= 16) {
-            mEventSpeechRuleProcessor.addSpeechStrategy(R.raw.speechstrategy_jellybean);
         }
 
         // Add generic speech strategy. This should always be added last so that
@@ -162,8 +168,19 @@ public class ProcessorEventQueue implements AccessibilityEventListener {
         nonSpeechMetadata.putFloat(Utterance.KEY_METADATA_EARCON_RATE, earconRate);
         nonSpeechMetadata.putFloat(Utterance.KEY_METADATA_EARCON_VOLUME, earconVolume);
 
-        // Retrieve and play all spoken text.
-        final CharSequence textToSpeak = StringBuilderUtils.getAggregateText(utterance.getSpoken());
+        // Perform cleanup of spoken text for each separate part of the utterance, e.g. we do not
+        // want to combine repeated characters if they span different parts, and we still want to
+        // expand single-character symbols if a certain part is a single character.
+        final SpannableStringBuilder textToSpeak = new SpannableStringBuilder();
+        for (CharSequence text : utterance.getSpoken()) {
+            if (!TextUtils.isEmpty(text)) {
+                CharSequence processedText =
+                        SpeechCleanupUtils.collapseRepeatedCharactersAndCleanUp(mContext, text);
+                StringBuilderUtils.appendWithSeparator(textToSpeak, processedText);
+            }
+        }
+
+        // Get speech settings from utterance.
         final int flags = metadata.getInt(Utterance.KEY_METADATA_SPEECH_FLAGS, 0);
         final Bundle speechMetadata = metadata.getBundle(Utterance.KEY_METADATA_SPEECH_PARAMS);
 

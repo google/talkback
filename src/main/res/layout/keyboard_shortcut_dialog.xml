@@ -66,8 +66,18 @@
         android:layout_below="@id/divider"
         android:layout_marginRight="24dp"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/navigation_reminder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:layout_below="@id/instruction"
+        android:layout_marginRight="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/keycombo_assign_dialog_instruction"/>
+        android:text="@string/keycombo_assign_dialog_navigation_reminder"/>
 
 </RelativeLayout>

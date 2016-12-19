@@ -49,7 +49,6 @@ import java.util.List;
  * ViewCompat.setAccessibilityDelegate(someView, mHelper);
  * </pre>
  */
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
 
     /** Virtual node identifier value for invalid nodes. */
@@ -265,7 +264,6 @@ abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         // Don't allow the client to override these properties.
         event.setPackageName(mHost.getContext().getPackageName());
 
-        // Virtual view hierarchies are only supported in API 16+.
         final AccessibilityRecordCompat record = AccessibilityEventCompat.asRecord(event);
         record.setSource(mHost, virtualViewId);
 
@@ -457,8 +455,7 @@ abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     }
 
     /**
-     * Exposes a virtual view hierarchy to the accessibility framework. Only
-     * supported in API 16+.
+     * Exposes a virtual view hierarchy to the accessibility framework.
      */
     private AccessibilityNodeProviderCompat mNodeProvider = new AccessibilityNodeProviderCompat() {
         @Override

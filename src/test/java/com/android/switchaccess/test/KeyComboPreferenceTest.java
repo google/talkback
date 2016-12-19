@@ -37,6 +37,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.talkback.BuildConfig;
 import com.android.talkback.R;
 import com.android.switchaccess.KeyComboPreference;
 
@@ -45,6 +46,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
@@ -60,9 +62,10 @@ import java.util.Set;
  * Robolectric tests for KeyComboPreference
  */
 @Config(
-        emulateSdk = 18)
+        constants = BuildConfig.class,
+        sdk = 21)
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class KeyComboPreferenceTest {
 
     private final Context mContext = RuntimeEnvironment.application.getApplicationContext();
@@ -146,16 +149,6 @@ public class KeyComboPreferenceTest {
                 buildPreference(R.string.pref_key_mapped_to_click_key, R.string.action_name_click);
         String summary = (String) keyComboPreference.getSummary();
         assertTrue(summary.contains("0"));
-    }
-
-    @Test
-    public void testOneKeyConfigured_showsKeyInSummary() {
-        KeyEvent keyEventZ = new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_Z);
-        TestableKeyComboPreference keyComboPreference = buildPreference(
-                R.string.pref_key_mapped_to_click_key, R.string.action_name_click, keyEventZ);
-
-        String summary = (String) keyComboPreference.getSummary();
-        assertTrue(summary.contains("Z"));
     }
 
     @Test

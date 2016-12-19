@@ -28,11 +28,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.os.Build;
+import android.support.v4.os.UserManagerCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import com.android.talkback.BuildConfig;
 import com.android.utils.LogUtils;
 import com.android.utils.labeling.LabelsTable;
+
+import java.util.Locale;
 
 /**
  * A content provider for accessing TalkBack custom label data.
@@ -102,6 +105,10 @@ public class LabelProvider extends ContentProvider {
             return null;
         }
 
+        if (!UserManagerCompat.isUserUnlocked(getContext())) {
+            return null;
+        }
+
         switch (sUriMatcher.match(uri)) {
             case LABELS:
                 initializeDatabaseIfNull();
@@ -151,6 +158,10 @@ public class LabelProvider extends ContentProvider {
             return null;
         }
 
+        if (!UserManagerCompat.isUserUnlocked(getContext())) {
+            return null;
+        }
+
         final SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
         queryBuilder.setTables(LabelsTable.TABLE_NAME);
 
@@ -172,7 +183,8 @@ public class LabelProvider extends ContentProvider {
                     return null;
                 }
 
-                final String where = String.format("%s = %d", LabelsTable.KEY_ID, labelId);
+                final String where = String.format(Locale.ROOT,
+                        "%s = %d", LabelsTable.KEY_ID, labelId);
                 queryBuilder.appendWhere(where);
                 break;
             case PACKAGE_SUMMARY:
@@ -208,8 +220,20 @@ public class LabelProvider extends ContentProvider {
             return 0;
         }
 
+        if (!UserManagerCompat.isUserUnlocked(getContext())) {
+            return 0;
+        }
+
         switch (sUriMatcher.match(uri)) {
-            case LABELS_ID:
+            case LABELS: {
+                initializeDatabaseIfNull();
+
+                int result = mDatabase.update(LabelsTable.TABLE_NAME, values, selection,
+                        selectionArgs);
+                getContext().getContentResolver().notifyChange(uri, null /* observer */);
+                return result;
+            }
+            case LABELS_ID: {
                 initializeDatabaseIfNull();
 
                 final String labelIdString = uri.getLastPathSegment();
@@ -221,13 +245,15 @@ public class LabelProvider extends ContentProvider {
                     return 0;
                 }
 
-                final String where = String.format("%s = %d", LabelsTable.KEY_ID, labelId);
+                final String where = String.format(Locale.ROOT,
+                        "%s = %d", LabelsTable.KEY_ID, labelId);
                 final int result = mDatabase.update(LabelsTable.TABLE_NAME, values,
                         combineSelectionAndWhere(selection, where), selectionArgs);
 
                 getContext().getContentResolver().notifyChange(uri, null /* observer */);
 
                 return result;
+            }
             default:
                 LogUtils.log(this, Log.WARN, UNKNOWN_URI_FORMAT_STRING, uri);
                 return 0;
@@ -250,8 +276,19 @@ public class LabelProvider extends ContentProvider {
             return 0;
         }
 
+        if (!UserManagerCompat.isUserUnlocked(getContext())) {
+            return 0;
+        }
+
         switch (sUriMatcher.match(uri)) {
-            case LABELS_ID:
+            case LABELS: {
+                initializeDatabaseIfNull();
+
+                int result = mDatabase.delete(LabelsTable.TABLE_NAME, selection, selectionArgs);
+                getContext().getContentResolver().notifyChange(uri, null /* observer */);
+                return result;
+            }
+            case LABELS_ID: {
                 initializeDatabaseIfNull();
 
                 final String labelIdString = uri.getLastPathSegment();
@@ -263,13 +300,15 @@ public class LabelProvider extends ContentProvider {
                     return 0;
                 }
 
-                final String where = String.format("%s = %d", LabelsTable.KEY_ID, labelId);
+                final String where = String.format(Locale.ROOT,
+                        "%s = %d", LabelsTable.KEY_ID, labelId);
                 final int result = mDatabase.delete(LabelsTable.TABLE_NAME,
                         combineSelectionAndWhere(selection, where), selectionArgs);
 
                 getContext().getContentResolver().notifyChange(uri, null /* observer */);
 
                 return result;
+            }
             default:
                 LogUtils.log(this, Log.WARN, UNKNOWN_URI_FORMAT_STRING, uri);
                 return 0;
@@ -298,7 +337,7 @@ public class LabelProvider extends ContentProvider {
             return where;
         }
 
-        return String.format("(%s) AND (%s)", where, selection);
+        return String.format(Locale.ROOT, "(%s) AND (%s)", where, selection);
     }
 
     /**
@@ -324,7 +363,7 @@ public class LabelProvider extends ContentProvider {
          * sure to implement the onUpgrade method for the database and each
          * relevant table that it includes.
          */
-        private static final int DATABASE_VERSION = 2;
+        private static final int DATABASE_VERSION = 3;
 
         public LabelsDatabaseOpenHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);

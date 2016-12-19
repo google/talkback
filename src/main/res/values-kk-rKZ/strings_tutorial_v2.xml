@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Арнайы мүмкіндіктер оқулығы"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"TalkBack оқулығын іске қосу"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack оқулығы"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack негізінен соқыр және көру қабілеті нашар адамдарға арналған экранды оқу құралы болып табылады. Ол құрылғыны дауыс арқылы басқаруға мүмкіндік береді."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBack функциясын өшіру"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Сабақты ашу"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Тәжірибе"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"<xliff:g id="INDEX">%1$d</xliff:g> сабағын үйрену"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"<xliff:g id="INDEX">%1$d</xliff:g> тәжірибелік сабағы"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"1-сабақ: Негізгі навигация"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Танысу үшін түрту немесе сырғыту, белсендіру үшін екі рет түрту"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"1-бөлім: Explore by Touch"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Explore by Touch функциясы саусағыңыздың астында не тұрғанын естуге мүмкіндік береді. Саусағыңызды экранның ортасындағы элементтердің үстімен жылжытыңыз. Бес элементті зерттегеннен кейін, сабақ жалғасады."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"2-бөлім: белсендіру үшін екі рет түртіңіз"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Естіген соңғы элементті белсендіру үшін кез келген жерде екі рет түртіңіз. Қазір 7-элементті тауып, белсендіріңіз. Содан кейін жалғастыру үшін \"Келесі\" түймесін басыңыз."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"7-элемент белсендірілген. Жалғастыру үшін \"Келесі\" түймесін тауып, белсендіріңіз"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"3-бөлім: Навигация туралы сабақтар"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack сабақтарының құрылымы бірдей келеді. Жоғарғы аумақта сабақ тұрады, оны кез келген уақытта ашып, оқуға болады. Оның жоғарғы сол жақ бұрышында \"Оқулықтың негізгі беті\" түймесі бар. Ортада тәжірибе аумағы орналасқан. Төменде орындалу барысының көрсеткіші және сабақ ішінде жылжу түймелері тұр. Жалғастыру үшін \"Келесі\" түймесін белсендіріңіз."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"4-бөлім: Сырғыту арқылы зерттеу"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Сонымен қатар экранды саусақпен сырғыту арқылы зерттеуге болады. Солға сырғытса, жоғарғы және сол жақ, ал оңға сырғытса, төменгі және оң жақ зерттеледі. Қазір қолданып көріңіз."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"5-бөлім: Тәжірибе"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Саусақ астында қандай элемент екенін есту үшін саусақты экранда жылжытыңыз. Естіген элементті белсендіру үшін кез келген жерде екі рет түртіңіз. Танысу үшін солға немесе оңға сырғытыңыз."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"2-сабақ: Айналдыру"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Екі саусақпен айналдыру, алдыға және артқа жылжу"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"1-бөлім: Екі саусақпен айналдыру"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Тік тізімді сырғыту үшін тізім элементін табыңыз, содан кейін екі саусақты жоғары немесе төмен жылжытыңыз. Көлденең тізімді сырғыту үшін тізім элементін табыңыз, содан кейін екі саусақты солға немесе оңға жылжытыңыз."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"2-бөлім: Айналдыру қимылдары"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Тиісті қимылдардың көмегімен тізімді жылдам алдыға немесе артқа жылжытуға болады. Алдыға жылжыту үшін саусағыңызды оңға, содан кейін бірден солға жылжытыңыз. Артқа жылжыту үшін бір саусақты солға, содан кейін бірден оңға жылжытыңыз. Орындап көріңіз."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"3-бөлім: Тәжірибе"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Айналдыру үшін екі саусақты жоғары немесе төмен сырғытыңыз. Бір саусақты оңға, содан кейін солға сырғытса, тізім алдыға жылжиды. Бір саусақты солға, содан кейін оңға сырғытса, артқа жылжиды."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"3-сабақ: TalkBack мәзірлері"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Global TalkBack мәзірі, Local TalkBack мәзірі"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"1-бөлім: Global TalkBack мәзірі"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack оқуылығында екі түрлі мәзір бар. Бірінші Global TalkBack мәзіріндегі пәрмендер ешқашан өзгермейді. Бұл мәзірді саусақты төмен, содан кейін бірден оңға жылжытып, көтеру арқылы қосуға болады. Тәжірибеге арналған нұсқасын қазір қосыңыз."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Мәзір опциялары экранның ортасында тігінен тізіледі. Танысып көріңіз. Аяқтағанда \"Бас тарту\" пәрменін белсендіріңіз."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"2 бөлім: Local TalkBack мәзірі"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Екінші мәзір – Local TalkBack мәзірі. Бұл мәзірдегі элементтер соңғы не естігеніңізге байланысты өзгереді. Бұл мәзірді саусақты жоғары, содан кейін бірден кейін оңға жылжытып, көтеру арқылы белсендіруге болады. Тәжірибеге арналған мәзірді қазір белсендіріңіз."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"3-бөлім: Тәжірибе"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Global TalkBack мәзірін қосу үшін саусақты төмен, содан кейін оңға жылжытыңыз. Local TalkBack мәзірін қосу үшін саусақты жоғары, содан кейін оңға жылжытыңыз."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Төмен, содан кейін оңға"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Жоғары, содан кейін оңға"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Global TalkBack мәзірі: Төмен, содан кейін оңға. Local TalkBack мәзірі: Жоғары, содан кейін оңға"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"4-сабақ: Мәтінде қозғалу"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Мәтінде қозғалу параметрлерін таңдау"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"1-бөлім: Навигация параметрлерін таңдау"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack мәтінді оқу режимін басқаруға мүмкіндік береді: бір ежеден, бір сөзден немесе бір таңбадан. Таңба бойынша оқу емлені түсінуге көмектесе алады. Мәтінді оқу жылдамдығын таңбаларға орнату үшін төмендегі мәтінді түрту, содан кейін жоғары және төмен сырғыту қажет."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Мұнда оқу жылдамдығының опциялары тігінен тізілген. \"Таңба бойынша оқу\" опциясын тауып, белсендіріңіз."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"2 бөлім: Мәтінде қозғалу"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Енді сіз таңба бойынша оқып жатырсыз. Үлгі мәтінді таңдаңыз, содан кейін таңба бойынша оқу үшін оңға сырғытыңыз."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"3-бөлім: Тәжірибе"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Жоғары және төмен сырғыту арқылы мәтінді оқу жылдамдығын өзгертуге болады. Оңға сырғыту арқылы үлгі мәтіндегі келесі таңбаны оқыңыз."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Мұнда TalkBack қолданбасын жаттықтыру үшін үлгі мәтін берілген. Адам таңданып: «Канзас қайда?», – деп сұрады. Дороти қайғылы үнмен: «Білмеймін, менің үйім ғой, міндетті түрде бір жерде болуы керек», – деп жауап берді.\n\n«Әрине. Оз кез келген нәрсені істей алады, саған Канзасты да тауып беретін шығар. Бірақ алдымен Озды көруің керек, ал бұл оңайға түсе қоймас. Ұлы сиқыршы ешкіммен көрісуді ұнатпайды және әдетте өзі қалағанын істейді. Ал СЕН нені қалайсың?», – деп жалғастырды ол Тотоға сөйлеп."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"5-сабақ: Мәтінді өңдеу"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Өңдеу өрісін белсендіру, теру, жүгіргіні жылжыту, мәтінді таңдау және түрлі әрекеттер жасау"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"1-бөлім: өңдеу өрісін белсендіру"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"TalkBack көмегімен мәтінді теру, таңдау және өңдеу үшін өңдеу өрісін пайдалануға болады. Өңдеу өрісін белсендіргеннен кейін, экранның төменгі жағында пернетақта пайда болады. \"Артқа\" түймесін түрту арқылы пернетақтаны жабуға болады. Енді өңдеу өрісін белсендіріп көріңіз. Аяқтағанда, \"Келесі\" пәрменін (ол енді пернетақта үстінде) белсендіріңіз."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"2 бөлім: Өңдеу өрісіне теру"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Теру үшін өңдеу өрісін белсендіріп, саусақты экрандық пернетақта бетімен жылжытыңыз. Қажет таңбаны естігенде, белсендіру үшін саусақты көтеріңіз. Қазір төмендегі өңдеу өрісін белсендіріп, теріп көріңіз."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"3-бөлім: Курсорды пайдалану"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Жүгіргіні құрылғыдағы дыбыс деңгейі түймелерін пайдаланып немесе жергілікті TalkBack мәзірі арқылы жылжытуға болады. Сондай-ақ, осы мәзірдегі \"Жүгіргіні басқару\" опциясының көмегімен мәтінді таңдауға, қиюға, көшіруге немесе қоюға болады. Төмендегі өңдеу өрісін белсендіріп, жүгіргіні үлгі мәтінде жылжытып көріңіз."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Дороти Гейлдің электрондық пошта мекенжайы – dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"4-бөлім: Тәжірибе"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Өңдеу өрісін екі рет түрту арқылы белсендіріңіз. Саусақты таңба үстіне алып барып, содан кейін көтеру арқылы мәтін теріңіз. Жүгіргі дыбыс деңгейі түймелері және жергілікті TalkBack мәзірі көмегімен жылжытылады. Бір мәтінді таңдап, жергілікті TalkBack мәзіріндегі \"Жүгіргіні басқару\" опциясымен онда түрлі өңдеу әрекеттерін орындаңыз."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Мәтінді өңдеу"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"АЛДЫҢҒЫ"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"КЕЛЕСІ"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"АЛДЫҢҒЫ САБАҚ"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"КЕЛЕСІ САБАҚ"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"ОҚУЛЫҚТЫҢ НЕГІЗГІ БЕТІ"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"%1$d-сабақ"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"%1$d бөлімі"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"%2$d ішінен %1$d бөлімі"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Жаттығу аяқталды, сәлден соң келесі сабақ басталады"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Тәжірибе аумағы"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s тәжірибе режимінде қосылған. Шығу үшін ЖАБУ түймесін басыңыз."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Оқулықтың негізгі бет түймесі"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"<xliff:g id="INDEX">%1$d</xliff:g> элементі"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Шығу"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Explore by Touch функциясы қажет"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Бұл оқулық үшін Explore by Touch қажет. Оқулықты қолдану үшін алдымен Explore by Touch мүмкіндігін қосыңыз."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack өшірілген"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Бұл оқулық үшін TalkBack мүмкіндігі қажет. Оқулықты қолдану үшін TalkBack мүмкіндігін қосыңыз."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack уақытша тоқтатылды"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"TalkBack оқулығы дауыстық көмек өшіп тұрғанда істемейді. Жалғастыру үшін TalkBack дауыстық көмегін іске қосып, оқулықты қайта ашыңыз."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Мәзірді сипаттау"</string>
+</resources>

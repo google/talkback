@@ -19,6 +19,7 @@ package com.android.talkback;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
@@ -31,11 +32,16 @@ import android.text.format.DateUtils;
 import android.util.Log;
 import com.android.talkback.contextmenu.MenuManager;
 import com.android.talkback.controller.FeedbackController;
+import com.android.talkback.controller.TelevisionNavigationController;
 import com.android.utils.LogUtils;
 import com.android.utils.StringBuilderUtils;
 import com.google.android.marvin.talkback.TalkBackService;
 
-// TODO(CB): Refactor this class into two separate receivers
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
+
+// TODO: Refactor this class into two separate receivers
 // with listener interfaces. This will remove the need to hold dependencies
 // and call into other classes.
 /**
@@ -56,10 +62,12 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
     private final Context mContext;
     private final SpeechController mSpeechController;
     private final ShakeDetector mShakeDetector;
+    private final TelevisionNavigationController mTelevisionNavigationController;
     private final AudioManager mAudioManager;
     private final FeedbackController mFeedbackController;
     private final MenuManager mMenuManager;
     private final TelephonyManager mTelephonyManager;
+    private final Set<DialogInterface> mOpenDialogs = new HashSet<>();
 
     /** The current ringer mode. */
     private int mRingerMode = AudioManager.RINGER_MODE_NORMAL;
@@ -84,6 +92,7 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
         mMenuManager = menuManager;
         mSpeechController = speechController;
         mShakeDetector = shakeDetector;
+        mTelevisionNavigationController = context.getTelevisionNavigationController();
 
         mAudioManager = (AudioManager) context.getSystemService(Service.AUDIO_SERVICE);
         mTelephonyManager = (TelephonyManager) context.getSystemService(Service.TELEPHONY_SERVICE);
@@ -149,6 +158,14 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
     private void handleScreenOff() {
         mSpeechController.setScreenIsOn(false);
         mMenuManager.dismissAll();
+
+        // Iterate over a copy because dialog dismiss handlers might try to unregister dialogs.
+        LinkedList<DialogInterface> openDialogsCopy = new LinkedList<>(mOpenDialogs);
+        for (DialogInterface dialog : openDialogsCopy) {
+            dialog.cancel();
+        }
+        mOpenDialogs.clear();
+
         final SpannableStringBuilder builder =
                 new SpannableStringBuilder(mContext.getString(R.string.value_screen_off));
         // Only announce ringer state if we're not in a call.
@@ -179,6 +196,11 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
             }
 
             mFeedbackController.playAuditory(soundId, 1.0f /* rate */, volume);
+        }
+
+        // Always reset the television remote mode to the standard (navigate) mode on screen off.
+        if (mTelevisionNavigationController != null) {
+            mTelevisionNavigationController.resetToNavigateMode();
         }
 
         mSpeechController.speak(
@@ -286,5 +308,15 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
         final int currentVolume = mAudioManager.getStreamVolume(streamType);
         final int maxVolume = mAudioManager.getStreamMaxVolume(streamType);
         return (currentVolume / (float) maxVolume);
+    }
+
+    /** Registers a dialog to be auto-cancelled when the screen turns off. */
+    public void registerDialog(DialogInterface dialog) {
+        mOpenDialogs.add(dialog);
+    }
+
+    /** Removes a dialog from the list of dialogs to be auto-cancelled. */
+    public void unregisterDialog(DialogInterface dialog) {
+        mOpenDialogs.remove(dialog);
     }
 }

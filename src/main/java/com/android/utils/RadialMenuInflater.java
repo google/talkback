@@ -47,7 +47,7 @@ class RadialMenuInflater extends MenuInflater {
      *         menu.
      */
     public List<RadialMenuItem> inflate(int menuRes) {
-        // TODO(CB): See if supporting corners is feasible.
+        // TODO: See if supporting corners is feasible.
         mHolderMenu.clear();
         inflate(menuRes, mHolderMenu);
         final ArrayList<RadialMenuItem> items = new ArrayList<>(mHolderMenu.size());

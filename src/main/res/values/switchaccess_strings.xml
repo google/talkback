@@ -1,29 +1,38 @@
 <resources xmlns:xliff="http://schemas.android.com/apk/res/android">
 
     <!--
+        Background for switch access:
+        Public documentation: https://support.google.com/accessibility/android/answer/6122836
+
+        Some users with significant motor impairments interact with the device using a small number
+        of switches. These switches may be large buttons, devices that respond to sips and puffs,
+        sensors that detect muscle contractions, or anything else that can be turned on and off.
+    -->
+    <!--
         Name of the service that allows users with motor impairments to operate the device using
-        a small number of buttons (or switches).
+        a small number of buttons (or switches). So "Switch" is meant as a noun (like light switch),
+        not as a verb (like bait-and-switch).
     -->
     <string name="switch_service_name">Switch Access</string>
-    <string name="switch_access_service_description">Switch Access allows you to control your device using configurable key combinations. You can move focus to clickable items and select them.</string>
+    <string name="switch_access_service_description">Switch Access lets you scan and select items using one or more switches.</string>
+
+    <!--
+        Lablel for preference in Switch Access settings that takes the user to help & feedback.
+    -->
+    <string name="title_pref_help_feedback">Help &#38; feedback</string>
 
     <!--
         Auto scanning highlights each item, one after another, spending a set amount of time
-        (the Time Delay) on each item. The user presses a button when the item they want to
+        (the Auto Scan Time) on each item. The user presses a button when the item they want to
         activate is highlighted.
     -->
-    <string name="title_pref_category_auto_scan">Auto Scan</string>
-    <!--
-        Auto scanning highlights each item, one after another, spending a set amount of time
-        (the Time Delay) on each item. The user presses a button when the item they want to
-        activate is highlighted.
-    -->
-    <string name="title_pref_auto_scan">Enable Auto Scan</string>
+    <string name="title_pref_category_auto_scan">Auto-scan</string>
+
     <!--
          Auto scanning highlights each item, one after another, spending a set amount of time
-         (the Time Delay) on each item.
+         (the Auto Scan Time) on each item.
      -->
-    <string name="title_pref_auto_scan_time_delay">Time Delay</string>
+    <string name="title_pref_auto_scan_time_delay">Auto-scan time</string>
 
     <!--
          Reverse auto scanning highlights each item, starting from the last item and moving backward.
@@ -44,22 +53,6 @@
          the views in that row are scanned one after the other.
      -->
     <string name="title_pref_scanning_methods">Scanning method</string>
-    <!--
-        Label for the scanning methods (i.e sequential, row/column) for the keyboard. In linear
-        scanning keys are highlighted one after the other moving from left to right. In row/column
-        scanning all the views in a certain row are highlighted and scanning moves from the
-        top row to the bottom row. Once a row is selected, the views in that row are scanned
-        one after the other.
-    -->
-    <string name="title_pref_scanning_methods_keyboard">Keyboard scanning</string>
-    <!--
-        Label for the scanning methods (i.e sequential, row/column) for windows other than the
-        keyboard. In linear scanning views are highlighted one after the other moving from
-        left to right. In row/column scanning all the views in a certain row are highlighted and
-        scanning moves from the top row to the bottom row. Once a row is selected, the views in
-        that row are scanned one after the other.
-    -->
-    <string name="title_pref_scanning_methods_views">View scanning</string>
 
     <!--
         Settings heading for the section that allows users to assign combinations of keys to actions
@@ -123,6 +116,11 @@
     -->
     <string name="action_name_scroll_backward">Scroll Backward</string>
 
+    <!--
+        Name of action that dismisses the currently highlighted View.
+    -->
+    <string name="action_name_dismiss">Dismiss</string>
+
     <string name="context_menu_layout_description">Context Menu</string>
 
     <string name="option_scanning_menu_button">MENU</string>
@@ -156,7 +154,7 @@
     <string name="save">Save</string>
 
     <!-- Label for preference for how an item is highlighted before it is selected. -->
-    <string name="title_pref_highlight_0">"Highlighting used for scanning"</string>
+    <string name="title_pref_highlight_0">"Scanning highlight style"</string>
 
     <!--
         Label for preference for how an item is highlighted before it is selected when using a
@@ -165,7 +163,90 @@
     <string name="title_pref_primary_scan_style">"Primary scan style"</string>
 
     <!-- Label for the color of a rectangle that highlights an item before it is selected. -->
-    <string name="title_pref_highlight_0_color">"Color of highlight"</string>
+    <string name="title_pref_highlight_0_color">"Highlight color"</string>
     <!-- Label for the thickness of a rectangle that highlights an item before it is selected. -->
-    <string name="title_pref_highlight_0_weight">"Weight of highlight"</string>
+    <string name="title_pref_highlight_0_weight">"Highlight line style"</string>
+
+    <!--
+        Menu item to start automatically peforming "select" actions when possible
+        (see comment "Background for multi-action support" above for more context).
+    -->
+    <string name="switch_access_global_menu_enable_autoselect">"Enable Auto-select"</string>
+
+    <!--
+        Menu item to stop automatically peforming "select" actions when possible.
+        (see comment "Background for multi-action support" above for more context).
+    -->
+    <string name="switch_access_global_menu_disable_autoselect">"Disable Auto-select"</string>
+
+    <!--
+        Menu item to move forward by one character when editing or navigating text.
+    -->
+    <string name="switch_access_move_next_character">"Next character"</string>
+
+    <!--
+        Menu item to move forward by one character when editing or navigating text.
+    -->
+    <string name="switch_access_move_next_word">"Next word"</string>
+
+    <!--
+        Menu item to move forward by one character when editing or navigating text.
+    -->
+    <string name="switch_access_move_next_line">"Next line"</string>
+
+    <!--
+        Menu item to move forward by one character when editing or navigating text.
+    -->
+    <string name="switch_access_move_next_paragraph">"Next paragraph"</string>
+
+    <!--
+        Menu item to move forward by one character when editing or navigating text.
+    -->
+    <string name="switch_access_move_next_page">"Next page"</string>
+
+    <!--
+        Menu item to move back by one character when editing or navigating text.
+    -->
+    <string name="switch_access_move_prev_character">"Previous character"</string>
+
+    <!--
+        Menu item to move forward by one character when editing or navigating text.
+    -->
+    <string name="switch_access_move_prev_word">"Previous word"</string>
+
+    <!--
+        Menu item to move forward by one character when editing or navigating text.
+    -->
+    <string name="switch_access_move_prev_line">"Previous line"</string>
+
+    <!--
+        Menu item to move forward by one character when editing or navigating text.
+    -->
+    <string name="switch_access_move_prev_paragraph">"Previous paragraph"</string>
+
+    <!--
+        Menu item to move forward by one character when editing or navigating text.
+    -->
+    <string name="switch_access_move_prev_page">"Previous page"</string>
+
+    <!--
+        Format string used to add a view number to an action for actions that may go to two targets
+        that are otherwise difficult for the user to tell apart (usually this is due to a bug).
+        Example would be two views with the same bounds, either of which can be selected. They will
+        be displayed as "Select (1)" and "Select (2)". The user will need to figure out which view
+        performs the action properly.
+    -->
+    <string name="switch_access_dup_bounds_format">"%1$s (%2$d)"</string>
+
+    <!--
+        Title of switch preference allowing user to save a button press by automatically starting
+        scanning.
+    -->
+    <string name="switch_access_auto_start_scan_title">"Automatically start scanning"</string>
+
+    <!--
+        Summary of switch preference allowing user to save a button press by automatically starting
+        scanning when the preference is on.
+    -->
+    <string name="switch_access_auto_start_scan_summary">"Scan starts without pressing switch"</string>
 </resources>

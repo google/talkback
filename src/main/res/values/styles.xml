@@ -45,7 +45,9 @@
         <item name="android:shadowColor">#B0000000</item>
     </style>
 
-    <style name="DialogStyle" parent="@android:style/Theme.Dialog" />
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
 
     <style name="Transparent" parent="android:Theme">
         <item name="android:windowIsTranslucent">true</item>
@@ -64,6 +66,47 @@
         <item name="android:gravity">left</item>
         <item name="android:layout_marginLeft">48dp</item>
         <item name="android:layout_marginRight">48dp</item>
+    </style>
+
+    <style name="TutorialDescription" parent="MaterialTextBody1">
+        <item name="android:background">@color/tutorial_header_background</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingLeft">@dimen/tutorial_content_horizontal_offset</item>
+        <item name="android:paddingRight">@dimen/tutorial_content_horizontal_offset</item>
+        <item name="android:minHeight">@dimen/tutorial_header_min_height</item>
+    </style>
+
+    <!-- the theme applied to the application or activity -->
+    <style name="TutorialActivityTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/TutorialActionBar</item>
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="TutorialActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/tutorial_action_bar_background</item>
+        <item name="android:icon">@android:color/transparent</item>
+    </style>
+
+    <style name="MaterialTextTitle">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="MaterialTextSubHeading">
+        <item name="android:textAppearance">?android:attr/textAppearance</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="MaterialTextBody1">
+        <item name="android:textAppearance">?android:attr/textAppearance</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="MaterialTextButton">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
 </resources>

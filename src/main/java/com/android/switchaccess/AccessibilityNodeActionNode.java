@@ -21,7 +21,10 @@ import android.content.Context;
 import android.annotation.TargetApi;
 import android.graphics.Rect;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import android.util.SparseArray;
+
 import com.android.talkback.R;
 import com.android.utils.PerformActionUtils;
 
@@ -34,8 +37,43 @@ import java.util.Set;
  */
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class AccessibilityNodeActionNode extends OptionScanActionNode {
+    private static final SparseArray<Integer> MAP_FORWARD_GRANULARITY_IDS = new SparseArray<>();
+    private static final SparseArray<Integer> MAP_BACKWARD_GRANULARITY_IDS = new SparseArray<>();
+
     private final SwitchAccessNodeCompat mNodeCompat;
     private final AccessibilityNodeInfoCompat.AccessibilityActionCompat mAction;
+    private final Bundle mArgs;
+
+    /*
+     * If this action can easily be confused with another because, for example, two views
+     * with identical bounds expose the same action, this value is appended to the action's
+     * description so the user can see the duplicated action. -1 indicates no duplication.
+     */
+    private int mNumberToAppendToDuplicateAction;
+
+    static {
+        MAP_FORWARD_GRANULARITY_IDS.put(AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_CHARACTER,
+                R.string.switch_access_move_next_character);
+        MAP_FORWARD_GRANULARITY_IDS.put(AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_LINE,
+                R.string.switch_access_move_next_line);
+        MAP_FORWARD_GRANULARITY_IDS.put(AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_PAGE,
+                R.string.switch_access_move_next_page);
+        MAP_FORWARD_GRANULARITY_IDS.put(AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_PARAGRAPH,
+                R.string.switch_access_move_next_paragraph);
+        MAP_FORWARD_GRANULARITY_IDS.put(AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_WORD,
+                R.string.switch_access_move_next_word);
+
+        MAP_BACKWARD_GRANULARITY_IDS.put(AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_CHARACTER,
+                R.string.switch_access_move_prev_character);
+        MAP_BACKWARD_GRANULARITY_IDS.put(AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_LINE,
+                R.string.switch_access_move_prev_line);
+        MAP_BACKWARD_GRANULARITY_IDS.put(AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_PAGE,
+                R.string.switch_access_move_prev_page);
+        MAP_BACKWARD_GRANULARITY_IDS.put(AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_PARAGRAPH,
+                R.string.switch_access_move_prev_paragraph);
+        MAP_BACKWARD_GRANULARITY_IDS.put(AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_WORD,
+                R.string.switch_access_move_prev_word);
+    }
 
     /**
      * Note that this object must be recycled to prevent nodeCompat from leaking.
@@ -44,8 +82,37 @@ public class AccessibilityNodeActionNode extends OptionScanActionNode {
      */
     public AccessibilityNodeActionNode(SwitchAccessNodeCompat nodeCompat,
             AccessibilityNodeInfoCompat.AccessibilityActionCompat action) {
+        this(nodeCompat, action, null, -1);
+    }
+
+    /**
+     * Note that this object must be recycled to prevent nodeCompat from leaking.
+     * @param nodeCompat The node on which to perform the action
+     * @param action The action the node should perform.
+     * @param args The arguments that should be used when performing the action
+     */
+    public AccessibilityNodeActionNode(SwitchAccessNodeCompat nodeCompat,
+            AccessibilityNodeInfoCompat.AccessibilityActionCompat action,
+            Bundle args) {
+        this(nodeCompat, action, args, -1);
+    }
+
+    /**
+     * Note that this object must be recycled to prevent nodeCompat from leaking.
+     *
+     * @param nodeCompat The node on which to perform the action
+     * @param action The action the node should perform.
+     * @param args The arguments that should be used when performing the action
+     * @param numberToAppendToDuplicateAction If >= 0, the number will be added to the action's
+     * description
+     */
+    public AccessibilityNodeActionNode(SwitchAccessNodeCompat nodeCompat,
+            AccessibilityNodeInfoCompat.AccessibilityActionCompat action,
+            Bundle args, int numberToAppendToDuplicateAction) {
         mNodeCompat = nodeCompat.obtainCopy();
         mAction = action;
+        mArgs = args;
+        mNumberToAppendToDuplicateAction = numberToAppendToDuplicateAction;
     }
 
     /**
@@ -54,6 +121,17 @@ public class AccessibilityNodeActionNode extends OptionScanActionNode {
      */
     public SwitchAccessNodeCompat getNodeInfoCompat() {
         return mNodeCompat.obtainCopy();
+    }
+
+    /**
+     * Set the number to append to the action's description. Negative values indicate that
+     * no value will be appended. The default number is -1.
+     *
+     * @param numberToAppendToDuplicateAction If 0 or greater, number to be appended to action's
+     * description.
+     */
+    public void setNumberToAppendToDuplicateAction(int numberToAppendToDuplicateAction) {
+        mNumberToAppendToDuplicateAction = numberToAppendToDuplicateAction;
     }
 
     /**
@@ -88,7 +166,7 @@ public class AccessibilityNodeActionNode extends OptionScanActionNode {
 
     @Override
     public void performAction() {
-        PerformActionUtils.performAction(mNodeCompat, mAction.getId());
+        PerformActionUtils.performAction(mNodeCompat, mAction.getId(), mArgs);
     }
 
     @Override
@@ -102,6 +180,17 @@ public class AccessibilityNodeActionNode extends OptionScanActionNode {
 
     @Override
     public CharSequence getActionLabel(Context context) {
+        CharSequence label = getActionLabelInternal(context);
+        if (mNumberToAppendToDuplicateAction >= 0) {
+            String formatString =
+                    context.getResources().getString(R.string.switch_access_dup_bounds_format);
+            return String.format(
+                    formatString, label.toString(), mNumberToAppendToDuplicateAction);
+        }
+        return label;
+    }
+
+    public CharSequence getActionLabelInternal(Context context) {
         CharSequence label = mAction.getLabel();
         if (label != null) {
             return label;
@@ -117,6 +206,22 @@ public class AccessibilityNodeActionNode extends OptionScanActionNode {
                 return context.getResources().getString(R.string.action_name_scroll_backward);
             case AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD:
                 return context.getResources().getString(R.string.action_name_scroll_forward);
+            case AccessibilityNodeInfoCompat.ACTION_DISMISS:
+                return context.getResources().getString(R.string.action_name_dismiss);
+            case AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY: {
+                // Movement requires a granularity argument
+                int granularity = mArgs.getInt(
+                        AccessibilityNodeInfoCompat.ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT);
+                Integer stringId = MAP_FORWARD_GRANULARITY_IDS.get(granularity);
+                return (stringId == null) ? null : context.getString(stringId);
+            }
+            case AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY: {
+                // Movement requires a granularity argument
+                int granularity = mArgs.getInt(
+                        AccessibilityNodeInfoCompat.ACTION_ARGUMENT_MOVEMENT_GRANULARITY_INT);
+                Integer stringId = MAP_BACKWARD_GRANULARITY_IDS.get(granularity);
+                return (stringId == null) ? null : context.getString(stringId);
+            }
             default:
                 return null;
         }

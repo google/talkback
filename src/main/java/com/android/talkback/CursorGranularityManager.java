@@ -27,6 +27,7 @@ import android.widget.EditText;
 import com.android.utils.AccessibilityNodeInfoUtils;
 import com.android.utils.LogUtils;
 import com.android.utils.PerformActionUtils;
+import com.android.utils.Role;
 import com.android.utils.WebInterfaceUtils;
 
 import java.util.ArrayList;
@@ -38,7 +39,6 @@ import java.util.Set;
 /**
  * Class to manage the navigation granularity for a given {@link AccessibilityNodeInfoCompat}.
  */
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class CursorGranularityManager {
     /** Unsupported movement within a granularity */
     private static final int NOT_SUPPORTED = -1;
@@ -343,6 +343,9 @@ public class CursorGranularityManager {
             case WEB_SECTION:
                 htmlElementType = WebInterfaceUtils.HTML_ELEMENT_MOVE_BY_SECTION;
                 break;
+            case WEB_LINK:
+                htmlElementType = WebInterfaceUtils.HTML_ELEMENT_MOVE_BY_LINK;
+                break;
             case WEB_LIST:
                 htmlElementType = WebInterfaceUtils.HTML_ELEMENT_MOVE_BY_LIST;
                 break;
@@ -389,7 +392,11 @@ public class CursorGranularityManager {
             final boolean hasWebContent = WebInterfaceUtils.hasNavigableWebContent(
                     mContext, mLockedNode);
 
-            CursorGranularity.extractFromMask(supportedMask, hasWebContent, supported);
+            String[] supportedHtmlElements =
+                WebInterfaceUtils.getSupportedHtmlElements(mLockedNode);
+
+            CursorGranularity.extractFromMask(supportedMask, hasWebContent, supportedHtmlElements,
+                    supported);
         }
     }
 
@@ -402,7 +409,7 @@ public class CursorGranularityManager {
      */
     private boolean shouldClearSelection(AccessibilityNodeInfoCompat node) {
         // EditText has has a stable cursor position, so don't clear selection.
-        return !AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, EditText.class);
+        return Role.getRole(node) != Role.ROLE_EDIT_TEXT;
     }
 
     /**
@@ -421,7 +428,10 @@ public class CursorGranularityManager {
         AccessibilityNodeInfoUtils.recycleNodes(visitedNodes);
         final boolean hasWebContent = WebInterfaceUtils.hasNavigableWebContent(context, root);
 
-        CursorGranularity.extractFromMask(supportedMask, hasWebContent, supported);
+        String[] supportedHtmlElements = WebInterfaceUtils.getSupportedHtmlElements(root);
+
+        CursorGranularity.extractFromMask(supportedMask, hasWebContent, supportedHtmlElements,
+                supported);
 
         return supported;
     }
@@ -454,8 +464,13 @@ public class CursorGranularityManager {
 
         int supportedGranularities = root.getMovementGranularities();
 
-        // Don pull children from nodes with content descriptions.
+        // Don't pull children from nodes with content descriptions.
         if (!TextUtils.isEmpty(root.getContentDescription())) {
+            return supportedGranularities;
+        }
+
+        // Don't pull children from nodes with web navigation actions.
+        if (WebInterfaceUtils.supportsWebActions(root)) {
             return supportedGranularities;
         }
 

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:accessibilityLiveRegion="polite"
+        android:background="#FAFAFA"
+        android:elevation="2dp"
+        android:focusable="true"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/content25_image1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="13dp"
+            android:src="@android:drawable/ic_dialog_email"
+            android:tint="#D3D3D3" />
+
+        <Button
+            android:id="@+id/test_live_region_button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#E9E9E9"
+            android:text="@string/live_region_button"
+            android:textColor="#999999" />
+
+        <TextView
+            android:id="@+id/content25_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/test_live_region_button1"
+            android:layout_toRightOf="@id/content25_image1"
+            android:text="@string/live_region_value_polite"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/content25_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content25_title1"
+            android:layout_toLeftOf="@id/test_live_region_button1"
+            android:layout_toRightOf="@id/content25_image1"
+            android:text="@string/live_region_initial_text"
+            android:textColor="#808080" />
+
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:accessibilityLiveRegion="assertive"
+        android:background="#FAFAFA"
+        android:elevation="2dp"
+        android:focusable="true"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/content25_image2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="13dp"
+            android:src="@android:drawable/ic_dialog_email"
+            android:tint="#D3D3D3" />
+
+        <Button
+            android:id="@+id/test_live_region_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#E9E9E9"
+            android:text="@string/live_region_button"
+            android:textColor="#999999" />
+
+        <TextView
+            android:id="@+id/content25_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/test_live_region_button2"
+            android:layout_toRightOf="@id/content25_image2"
+            android:text="@string/live_region_value_assertive"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/content25_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content25_title2"
+            android:layout_toLeftOf="@id/test_live_region_button2"
+            android:layout_toRightOf="@id/content25_image2"
+            android:text="@string/live_region_initial_text"
+            android:textColor="#808080" />
+
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:accessibilityLiveRegion="none"
+        android:background="#FAFAFA"
+        android:elevation="2dp"
+        android:focusable="true"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/content25_image3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="13dp"
+            android:src="@android:drawable/ic_dialog_email"
+            android:tint="#D3D3D3" />
+
+        <Button
+            android:id="@+id/test_live_region_button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#E9E9E9"
+            android:text="@string/live_region_button"
+            android:textColor="#999999" />
+
+        <TextView
+            android:id="@+id/content25_title3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/test_live_region_button3"
+            android:layout_toRightOf="@id/content25_image3"
+            android:text="@string/live_region_value_none"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/content25_text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/content25_title3"
+            android:layout_toLeftOf="@id/test_live_region_button3"
+            android:layout_toRightOf="@id/content25_image3"
+            android:text="@string/live_region_initial_text"
+            android:textColor="#808080" />
+
+    </RelativeLayout>
+
+</LinearLayout>

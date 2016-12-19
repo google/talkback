@@ -28,12 +28,14 @@ import android.os.Build;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import com.android.switchaccess.SwitchAccessWindowInfo;
+import com.android.talkback.BuildConfig;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.internal.ShadowExtractor;
@@ -42,14 +44,14 @@ import org.robolectric.internal.ShadowExtractor;
  * Robolectric tests of ExtendedWindowInfo
  */
 @Config(
+        constants = BuildConfig.class,
         manifest = Config.NONE,
-        emulateSdk = 18,
+        sdk = 21,
         shadows = {
                 ShadowAccessibilityNodeInfo.class,
-                ShadowAccessibilityNodeInfoCompat.class,
                 ShadowAccessibilityWindowInfo.class})
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class SwitchAccessWindowInfoTest {
     @Test
     public void testGetRootWithNullInfo_shouldReturnNull() {

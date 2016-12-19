@@ -22,11 +22,11 @@ import android.os.Build;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.android.switchaccess.test.ShadowAccessibilityNodeInfo;
-import com.android.switchaccess.test.ShadowAccessibilityNodeInfoCompat;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
@@ -39,12 +39,13 @@ import static org.junit.Assert.assertEquals;
 /**
  * Tests for CursorGranularityManager
  */
-@Config(emulateSdk = 18,
+@Config(
+        constants = BuildConfig.class,
+        sdk = 21,
         shadows = {
-                ShadowAccessibilityNodeInfo.class,
-                ShadowAccessibilityNodeInfoCompat.class})
+                ShadowAccessibilityNodeInfo.class})
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 
 public class CursorGranularityManagerTest {
 
@@ -54,16 +55,16 @@ public class CursorGranularityManagerTest {
     @Before
     public void setUp() {
         mGranularityManager = new CursorGranularityManager(mContext);
-        ShadowAccessibilityNodeInfoCompat.resetObtainedInstances();
+        ShadowAccessibilityNodeInfo.resetObtainedInstances();
     }
 
     @After
     public void tearDown() {
         try {
             mGranularityManager.shutdown();
-            assertFalse(ShadowAccessibilityNodeInfoCompat.areThereUnrecycledNodes(true));
+            assertFalse(ShadowAccessibilityNodeInfo.areThereUnrecycledNodes(true));
         } finally {
-            ShadowAccessibilityNodeInfoCompat.resetObtainedInstances();
+            ShadowAccessibilityNodeInfo.resetObtainedInstances();
         }
     }
 

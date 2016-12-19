@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <string name="main_description">A collection of test cases that demonstrate TalkBack behavior for various standard widgets and patterns. It is best to test with the latest version of TalkBack.</string>
+
+    <string name="common_widgets_session_title">Common Widgets</string>
+    <string name="common_widgets_session_description">Button, checkbox, seekbar, switch, etc</string>
+
+    <string name="collections_session_title">Collections</string>
+    <string name="collections_session_description">Lists and grids</string>
+
+    <string name="recycler_view_session_title">Recycler View</string>
+    <string name="recycler_view_session_description">Scrollable, flexible list</string>
+
+    <string name="tabs_session_title">Tabs</string>
+    <string name="tabs_session_description">Standard tab widget</string>
+
+    <string name="radio_group_session_title">Radio Group</string>
+    <string name="radio_group_session_description">A group of radiobuttons</string>
+
+    <string name="popup_view_session_title">Popup View</string>
+    <string name="popup_view_session_description">Used for menus and popup windows</string>
+
+    <string name="headings_session_title">Headings</string>
+    <string name="headings_session_description">Section headers inside collections</string>
+
+    <string name="value_pickers_session_title">Pickers</string>
+    <string name="value_pickers_session_description">Date picker, time picker and number picker</string>
+
+    <string name="alerts_session_title">Alerts</string>
+    <string name="alerts_session_description">Alert dialog</string>
+
+    <string name="notifications_session_title">Notifications</string>
+    <string name="notifications_session_description">Standard and custom notifications</string>
+
+    <string name="toast_session_title">Toast</string>
+    <string name="toast_session_description">Informational and interactive messages</string>
+
+    <string name="view_pager_session_title">ViewPager</string>
+    <string name="view_pager_session_description">Multi-page view</string>
+
+    <string name="explore_by_touch_session_title">ExploreByTouchHelper</string>
+    <string name="explore_by_touch_session_description">Custom virtual view</string>
+
+    <string name="custom_view_session_title">Custom View</string>
+    <string name="custom_view_session_description">Non-standard view</string>
+
+    <string name="web_view_session_title">WebView</string>
+    <string name="web_view_session_description">View with web content</string>
+
+    <string name="single_line_edit_Field_session_title">Single Line Edit Field</string>
+    <string name="single_line_edit_Field_session_description">Single-line editable text field</string>
+
+    <string name="multi_line_edit_field_session_title">Multi Line Edit Field</string>
+    <string name="multi_line_edit_field_session_description">Multi-line editable text area</string>
+
+    <string name="URL_span_session_title">URLSpan</string>
+    <string name="URL_span_session_description">Link to another resource</string>
+
+    <string name="clickable_span_session_title">ClickableSpan</string>
+    <string name="clickable_span_session_description">Clickable view linking to another resource</string>
+
+    <string name="view_grouping_session_title">View Grouping</string>
+    <string name="view_grouping_session_description">Groupping views into a single view</string>
+
+    <string name="custom_action_session_title">Custom Actions</string>
+    <string name="custom_action_session_description">Developer-defined accessibility actions</string>
+
+    <string name="dismissible_view_session_title">Dismissible View</string>
+    <string name="dismissible_view_session_description">View dismissible by the user</string>
+
+    <string name="collapsible_expandable_view_session_title">Collapsible/Expandable View</string>
+    <string name="collapsible_expandable_view_session_description">View that can be collapsed or expanded by the user</string>
+
+    <string name="live_region_session_title">Live Region</string>
+    <string name="live_region_session_description">Screen area that changes dynamically</string>
+
+    <string name="announce_for_accessibility_session_title">AnnounceForAccessibility</string>
+    <string name="announce_for_accessibility_session_description">Screen reader-only announcements</string>
+
+    <string name="TTS_span_session_title">TtsSpan</string>
+    <string name="TTS_span_session_description">Tells TTS how to pronounce things</string>
+
+    <string name="focus_test_session_title">Traversal</string>
+    <string name="focus_test_session_description">Controls traversal order</string>
+
+    <string name="auto_scroll_session_title">Auto Scroll</string>
+    <string name="auto_scroll_session_description">List scrolled by TalkBack</string>
+
+    <string name="important_for_accessibility_session_title">ImportantForAccessibility</string>
+    <string name="important_for_accessibility_session_description">Exposes and hides elements for accessibility</string>
+
+    <string name="content_description_session_title">ContentDescription</string>
+    <string name="content_description_session_description">Provides accessibility label for elements</string>
+
+    <string name="label_session_title">getLabelFor/getLabeledBy</string>
+    <string name="label_session_description">Labels elements with on-screen text</string>
+
+    <string name="role_description_session_title">roleDescription</string>
+    <string name="role_description_session_description">Provides extra information for accessibility</string>
+
+    <string name="audio_player_session_title">Audio Player</string>
+    <string name="audio_player_session_description">Demonstrates audio playback</string>
+
+    <string name="preference_fragment_session_title">PreferenceFragment/PreferenceFragmentCompat</string>
+    <string name="preference_fragment_session_description">Various preference fragments</string>
+
+    <string name="edit_text_session_title">Text Fields</string>
+    <string name="edit_text_session_description">contentDescription, hint and text</string>
+
+    <string name="focus_synchronization_session_title">Focus Synchronization</string>
+    <string name="focus_synchronization_session_description">Input and accessibility focus synchronization for edit fields</string>
+
+    <string name="security_overlay_session_title">Security Overlay</string>
+    <string name="security_overlay_session_description">TalkBack behavior inside security overlay</string>
+
+    <string name="standard_android_widgets_test_subtitle">Standard Android Widgets</string>
+    <string name="standard_android_widgets_test_description">With TalkBack: swipe between elements, double-tap to activate, use volume keys to operate seekbars.</string>
+
+    <string name="list_test_subtitle">Lists</string>
+    <string name="list_test_description"><![CDATA[ With TalkBack: swipe between elements. Accessibility implemented via <a href="https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo.CollectionInfo.html">AccessibilityNodeInfo.CollectionInfo class</a>. ]]></string>
+
+    <string name="grid_test_subtitle">Grids</string>
+    <string name="grid_test_description"><![CDATA[ With TalkBack: swipe between elements. Accessibility implemented via <a href="https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo.CollectionInfo.html">AccessibilityNodeInfo.CollectionInfo class</a>. ]]></string>
+
+    <string name="recycler_view_test_subtitle">Scrollable, Flexible List</string>
+    <string name="recycler_view_test_description">With TalkBack: swipe between items, listen to feedback.</string>
+
+    <string name="standard_tab_widget_test_subtitle">Standard Tab Widget</string>
+    <string name="standard_tab_widget_test_description">With TalkBack: swipe between tabs and content area, double-tap to select a tab, swipe with two fingers to switch between tab pages.</string>
+
+    <string name="radio_group_test_subtitle">Group of Radiobuttons</string>
+    <string name="radio_group_test_description">With TalkBack: swipe between radiobuttons, double-tap to select .</string>
+
+    <string name="popup_view_test_subtitle">Popup Menu</string>
+    <string name="popup_view_test_description">With TalkBack: swipe to the menu, double-tap to activate, explore menu items.</string>
+
+    <string name="section_header_test_subtitle">Section Headers Inside Collections</string>
+    <string name="section_header_test_description"><![CDATA[ With TalkBack: swipe between items, listen to feedback. Accessibility implemented via <a href="https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo.CollectionItemInfo.html#isHeading()">isHeading method</a>. ]]></string>
+
+    <string name="value_picker_test_subtitle">Value Pickers</string>
+    <string name="value_picker_test_description">Date Picker, Time Picker &amp; Number Picker. With TalkBack: swipe between items, double-tap to activate, choose OK to complete date or time entry.</string>
+
+    <string name="alert_dialog_test_subtitle">Alert Dialog</string>
+    <string name="alert_dialog_test_description">With TalkBack: swipe to the dialog, double-tap to activate, listen to feedback, explore dialog.</string>
+
+    <string name="notification_test_subtitle">Standard and Custom Notifications</string>
+    <string name="notification_test_description">With TalkBack: swipe between items, double-tap to generate standard or custom notification, explore status bar for notification text.</string>
+
+    <string name="toast_test_subtitle">Informational Messages</string>
+    <string name="toast_test_description">With TalkBack: swipe between buttons, double-tap to generate standard and custom toasts.</string>
+
+    <string name="view_pager_test_subtitle">Multi-page View</string>
+    <string name="view_pager_test_description">With TalkBack: swipe to multi-page view, use two fingers to switch pages.</string>
+
+    <string name="web_view_test_subtitle">View with Web Content</string>
+    <string name="web_view_test_description">With TalkBack: swipe between web elements, double-tap to activate, swipe up and down to select element type. Note: requires Chrome 50 or above to work.</string>
+
+    <string name="web_view_in_scrollable_view_test_subtitle">WebView Inside ScrollView</string>
+    <string name="web_view_in_scrollable_view_test_description">With TalkBack: swipe between web elements until the view scrolls, double-tap to activate. Note: requires Chrome 50 or above to work.</string>
+
+    <string name="one_line_text_field_test_subtitle">One-line Text Field</string>
+    <string name="one_line_text_field_test_description">With TalkBack: swipe to field, double-tap to activate, type. Open Local Context Menu (up-then-right) to perform editing operations.</string>
+
+    <string name="multi_line_text_field_test_subtitle">Multi-line Text Area</string>
+    <string name="multi_line_text_field_test_description">With TalkBack: swipe to text area, double-tap to activate, type. Use Local Context Menu (up-then-right) to perform editing operations.</string>
+
+    <string name="URL_span_test_subtitle">Links to Other Resources</string>
+    <string name="URL_span_test_description">With TalkBack: swipe between items. When you hear a &quot;trill&quot; sound, open Local Context Menu (up-then-right), then pick the &quot;Links&quot; option.</string>
+
+    <string name="clickable_span_test_subtitle">Clickable Targets to Other Resources</string>
+    <string name="clickable_span_test_description">This test currently does not do anything with TalkBack.</string>
+
+    <string name="view_grouping_test_subtitle">Groupping Views for Readability</string>
+    <string name="view_grouping_test_description">With TalkBack: swipe between items, observe screen layout, listen to spoken feedback.</string>
+
+    <string name="custom_action_test_subtitle">Developer-defined Accessibility Actions</string>
+    <string name="custom_action_test_description"><![CDATA[ With TalkBack: swipe to field, listen to feedback, open Local Context Menu (up-then-right), pick a custom action from the menu. Accessibility implemented via <a href="https://developer.android.com/reference/android/view/accessibility/AccessibilityNodeInfo.AccessibilityAction.html">AccessibilityNodeInfo.AccessibilityAction class</a> ]]></string>
+
+    <string name="dismissible_view_test_subtitle">User-dismissible View</string>
+    <string name="dismissible_view_test_description">With TalkBack: swipe between items. Upon hearing &quot;dismissible&quot;, open Local Context Menu (swipe up-then-right), then choose &quot;dismiss&quot; from Custom Actions. Also, use buttons to dismiss and restore the view.</string>
+
+    <string name="collapsible_expandable_view_test_subtitle">Expandable and Collapsible Views</string>
+    <string name="collapsible_expandable_view_test_description">With TalkBack: swipe between expandable/collapsible items, double-tap to expand or collapse.</string>
+
+    <string name="live_region_test_subtitle">Dynamic Areas with Changing Content</string>
+    <string name="live_region_test_description">With TalkBack: swipe between buttons, double-tap to generate different types of live regions, listen to feedback.</string>
+
+    <string name="announce_for_accessibility_test_subtitle">Assertive Screen Reader Announcement</string>
+    <string name="announce_for_accessibility_test_description">With TalkBack: swipe to button, double-tap to generate announcement, listen to feedback.</string>
+
+    <string name="TTS_span_test_subtitle">Tell TTS how to Pronounce Things</string>
+    <string name="TTS_span_test_description"><![CDATA[ With TalkBack: swipe between items, listen to feedback. See <a href="https://developer.android.com/reference/android/text/style/TtsSpan.html">more TTSSpan types</a>. ]]></string>
+
+    <string name="focus_test_subtitle">Traversal Order</string>
+    <string name="focus_test_description">With TalkBack: swipe between items, look at the screen layout and listen to spoken feedback.</string>
+
+    <string name="auto_scroll_test_subtitle">List Auto-scrolling</string>
+    <string name="auto_scroll_test_description">With TalkBack: swipe between list items, observe screen.</string>
+
+    <string name="important_for_accessibility_test_subtitle">Expose or Hide Elements for Accessibility</string>
+    <string name="important_for_accessibility_test_description">With TalkBack: swipe between elements, observe screen, listen to feedback.</string>
+
+    <string name="content_description_test_subtitle">Content Descriptions</string>
+    <string name="content_description_test_description">With TalkBack: swipe between items, observe screen, listen to feedback.</string>
+
+    <string name="label_test_subtitle">Labeling Using On-screen Text</string>
+    <string name="label_test_description">With TalkBack: swipe between items, observe screen, listen to feedback.</string>
+
+    <string name="role_description_test_subtitle">Extra Accessibility Information</string>
+    <string name="role_description_test_description">With TalkBack: swipe between items, observe screen, listen to feedback.</string>
+
+    <string name="audio_player_test_subtitle">Audio Player</string>
+    <string name="audio_player_test_description">With TalkBack: swipe to &quot;Play&quot; button, double-tap to play or pause sound.</string>
+
+    <string name="preference_fragment_test_subtitle">Various Preference Fragments</string>
+    <string name="preference_fragment_test_description">With TalkBack: swipe between buttons, double-tap to open fragments, observe spoken feedback</string>
+
+    <string name="edit_field_test_subtitle">Edit Fields with Hint and contentDescription</string>
+    <string name="edit_field_test_description">With TalkBack: swipe between fields, observe spoken feedback for each field.</string>
+
+    <string name="password_field_test_subtitle">Password Fields</string>
+    <string name="password_field_test_description">With TalkBack: swipe between fields, listen to feedback. Double-tap to edit, listen to feedback.</string>
+
+    <string name="focus_synchronization_test_subtitle">Input and Accessibility Focus Synchronization</string>
+    <string name="focus_synchronization_test_description">With TalkBack: swipe between items, double-tap to activate, observe input and accessibility focus.</string>
+
+    <string name="security_overlay_test_subtitle">Security Overlay</string>
+    <string name="security_overlay_test_description">With TalkBack: dim the screen via Global Context Menu (down-then-right), swipe to button, double-tap to open security overlay.</string>
+
+</resources>

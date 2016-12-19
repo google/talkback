@@ -5,9 +5,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.0'
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath 'org.robolectric:robolectric-gradle-plugin:0.13.2'
+        classpath 'com.android.tools.build:gradle:1.5.0'
     }
 }
 
@@ -17,30 +16,35 @@ android {
             java.srcDirs = ["$projectDir/src/aosp/java"]
             res.srcDirs = ["$projectDir/src/aosp/res"]
         }
-        robolectric {
-            java.srcDirs = ["$projectDir/src/aosp/java"]
-            res.srcDirs = ["$projectDir/src/aosp/res"]
-        }
     }
     productFlavors {
         aosp {
             applicationId "com.android.talkback"
             testApplicationId "com.android.talkback.test"
-            versionName "4.3.1_aosp"
+            versionName "5.0.7_aosp"
         }
     }
 }
 
 dependencies {
-    compile 'com.google.android.gms:play-services:7.0.0'
-    compile 'com.android.support:support-v4:23.0.0'
+    compile 'com.google.android.gms:play-services:8.4.0'
+    compile 'com.android.support:support-v4:24.0.0'
 }
 
-task grantPermission(type: Exec, dependsOn: ['installAospDebug', 'installAospDebugTest']) {
+task grantPermission(type: Exec) {
     commandLine 'adb', 'shell', 'pm', 'grant', 'com.android.talkback.test',
             'android.permission.WRITE_SECURE_SETTINGS'
 }
 
-task instrumentationTest(type: Exec, dependsOn: ['installAospDebug', 'installAospDebugTest', 'grantPermission']) {
-    commandLine 'adb', 'shell', 'am', 'instrument', '-w', 'com.android.talkback.test/android.test.InstrumentationTestRunner'
+task instrumentationTest(type: Exec, dependsOn: ['installAospDebug',
+                                                 'installAospDebugAndroidTest',
+                                                 'grantPermission']) {
+    commandLine 'adb', 'shell', 'am', 'instrument', '-w',
+            'com.android.talkback.test/android.test.InstrumentationTestRunner'
+}
+
+afterEvaluate {
+    tasks.withType (org.gradle.api.tasks.compile.AbstractCompile) {
+        compileTask -> compileTask.dependsOn(copyPreferencesXmlForV21)
+    }
 }

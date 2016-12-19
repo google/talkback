@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Tutorial Kebolehaksesan"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Lancarkan tutorial TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Tutorial TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack ialah pembaca skrin terutamanya untuk orang buta dan rabun. Aplikasi ini membenarkan interaksi dengan peranti menggunakan maklum balas yang dituturkan."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Matikan TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Belajar"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Latihan"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"pelajari pelajaran <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"berlatih pelajaran <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Pelajaran 1: Navigasi asas"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Ketik untuk meneroka, leret untuk meneroka, ketik dua kali untuk mengaktifkan"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Bahagian 1: Jelajah melalui sentuhan"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Apabila didayakan, Jelajah melalui sentuhan membolehkan anda mendengar item yang terdapat di bawah jari anda. Alihkan jari ke item di tengah-tengah skrin anda. Pelajaran akan diteruskan setelah anda menjelajah lima item."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Bahagian 2: Ketik dua kali untuk mengaktifkan item"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Untuk mengaktifkan item terakhir yang anda dengar, ketik dua kali di mana-mana. Cari Item 7 dan aktifkannya sekarang. Selepas itu, aktifkan Seterusnya untuk meneruskan."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Item 7 diaktifkan. Cari dan aktifkan butang Seterusnya untuk meneruskan"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Bahagian 3: Menavigasi pelajaran"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Pelajaran TalkBack disusun dengan cara yang serupa. Di bahagian atasnya terdapat pelajaran yang boleh anda teroka dan baca pada bila-bila masa. Halaman ini turut dilengkapi dengan butang Skrin Utama di penjuru kiri sebelah atas. Bahagian tengah pula ialah kawasan latihan. Penunjuk kemajuan dan butang navigasi pelajaran terletak di bahagian bawah. Aktifkan Seterusnya sekarang untuk meneruskan."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Bahagian 4: Leret untuk menjelajah"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Anda juga boleh menjelajah dengan meleretkan jari pada skrin. Tindakan meleret ke kiri secara umumnya menjelajah ke atas dan ke kiri manakala meleret ke kanan pula menjelajah ke bawah dan ke kanan. Cubalah sekarang."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Bahagian 5: Latihan"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Untuk mendengar item yang terdapat di bawah jari anda, gerakkannya merentasi skrin. Ketik dua kali di mana-mana untuk mengaktifkan item yang anda dengar. Leret ke kiri atau kanan untuk meneroka."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Pelajaran 2: Penatalan"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Penatalan dua jari, melangkau ke depan dan belakang"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Bahagian 1: Penatalan dua jari"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Untuk menatal senarai menegak, mula-mula cari item senarai, kemudian gerakkan dua jari ke atas atau bawah. Untuk menatal senarai mendatar, mula-mula cari item senarai, kemudian gerakkan dua jari ke kiri atau kanan."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Bahagian 2: Pintasan penatalan"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Anda boleh melangkau ke depan atau belakang dalam senarai dengan menggunakan pintasan. Untuk melangkau ke depan, gerakkan satu jari ke kanan, kemudian ke kiri dalam satu gerakan. Untuk melangkau kembali, gerakkan satu jari ke kiri, kemudian ke kanan. Cubalah di sini."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Bahagian 3: Latihan"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Tatal dengan meluncurkan dua jari ke atas atau bawah. Langkau ke depan dengan menggerakkan satu jari ke kanan, kemudian ke kiri. Langkau kembali dengan menggerakkan satu jari ke kiri, kemudian ke kanan."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Pelajaran 3: Menu TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menu TalkBack Global, menu TalkBack setempat"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Bahagian 1: Menu TalkBack Global"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack mempunyai dua menu yang berbeza. Menu pertama ialah menu TalkBack Global yang mengandungi perintah yang sama. Anda boleh mengaktifkannya dengan menggerakkan satu jari ke bawah, kemudian ke kanan dalam satu gerakan. Selepas itu angkat jari anda. Aktfkan versi latihan sekarang."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Pilihan menu disenaraikan secara menegak di bahagian tengah skrin. Cuba teroka. Setelah selesai, aktifkan Batal."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Bahagian 2: Menu TalkBack Setempat"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Menu kedua ialah Menu TalkBack Setempat. Item dalam menu ini berbeza, bergantung pada perkara terakhir yang anda dengar. Anda boleh mengaktifkan menu ini dengan menggerakkan satu jari ke atas, kemudian ke kanan dalam satu gerakan. Selepas itu angkat jari anda. Aktifkan menu latihan sekarang."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Bahagian 3: Latihan"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Gerakkan jari anda ke bawah, kemudian ke kanan untuk mengaktifkan menu TalkBack Global. Gerakkan jari anda ke atas, kemudian ke kanan untuk mengaktifkan menu TalkBack Setempat."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Ke bawah, kemudian ke kanan"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Ke atas, kemudian ke kanan"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Menu TalkBack Global: Ke bawah, kemudian ke kanan. Menu TalkBack Setempat: Ke atas, kemudian ke kanan"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Pelajaran 4: Navigasi Teks"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Memilih tetapan navigasi teks"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Bahagian 1: Memilih tetapan navigasi"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack membolehkan anda mengawal sama ada teks dibacakan kepada anda mengikut perenggan, baris, perkataan atau aksara pada satu-satu masa. Membaca mengikut aksara dapat membantu tentang ejaan. Tetapkan kadar navigasi teks kepada aksara dengan mengetik pada teks di bawah, kemudian meleret ke atas dan bawah."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Terokai pilihan kadar pembacaan yang disenaraikan secara menegak di sini. Cari dan aktifkan pilihan Baca mengikut aksara."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Bahagian 2: Teks Navigasi"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Anda sedang membaca mengikut aksara. Pilih teks sampel, kemudian leret ke kanan untuk membaca mengikut aksara."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Bahagian 3: Latihan"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Tukar kadar navigasi teks dengan meleret ke atas dan bawah. Baca aksara seterusnya dalam teks sampel dengan meleret ke kanan."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Berikut ialah teks sampel untuk latihan TalkBack. \"Di manakah Kansas?\" tanya lelaki itu, terkejut. \"Saya tidak tahu,\" jawab Dorothy kesedihan, \"tetapi di sanalah rumah saya dan saya pasti tempat itu ada.\"\n\n\"Besar kemungkinannya. Lagipun Oz boleh berbuat apa-apa saja; jadi saya rasa dia boleh mencari Kansas untuk awak. Tetapi awak mesti berjumpa dia dahulu dan ini bukan mudah kerana Ahli Sihir Agung tidak suka berjumpa sesiapa. Biasanya dia ada caranya yang tersediri. Apakah yang AWAK mahu?\" ujarnya kepada Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Pelajaran 5: Pengeditan teks"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Mengaktifkan kotak edit, menaip, menggerakkan kursor, memilih dan membuat tindakan pada teks"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Bahagian 1: Mengaktifkan kotak edit"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Dengan TalkBack, anda boleh menggunakan kotak edit untuk menaip, memilih dan mengedit teks. Ketik dua kali pada kotak edit untuk mengaktifkannya. Selepas anda mengaktifkan kotak edit, papan kunci akan tersedia di bahagian bawah skrin. Anda boleh mengetepikan papan kekunci itu dengan mengetik butang Kembali. Cuba aktifkan kotak edit sekarang. Setelah selesai, aktifkan Seterusnya yang terdapat di sebelah atas papan kekunci."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Bahagian 2: Menaip dalam kotak edit"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Untuk menaip, aktifkan kotak edit dan gerakkan jari anda merentasi papan kekunci pada skrin. Apabila anda mendengar aksara yang diingini, angkat jari anda untuk mengaktifkannya. Cuba buat pengaktifan dan taip dalam kotak edit di bawah."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Bahagian 3: Menggunakan kursor"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Anda boleh menggerakkan kursor menggunakan butang kelantangan pada peranti anda atau melalui menu TalkBack setempat. Anda dapat memilih, memotong, menyalin atau menampalkan teks menggunakan pilihan kawalan Kursor dalam menu ini. Aktifkan kotak edit di bawah dan gerakkan kursor di sekitar teks sampel."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Alamat e-mel Dorothy Gale ialah dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Bahagian 4: Latihan"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Aktifkan kotak edit dengan mengetik dua kali. Taip dengan menggerakkan jari anda ke atas satu aksara, kemudian mengangkat jari anda. Gerakkan kursor menggunakan butang kelantangan dan menu TalkBack Setempat. Pilih dan buat tindakan pada teks menggunakan pilihan kawalan kursor dalam menu TalkBack Setempat."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Edit teks"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"SEBELUMNYA"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"SETERUSNYA"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"PELAJARAN SEBELUMNYA"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"PELAJARAN SETERUSNYA"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"LAMAN UTAMA TUTORIAL"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Pelajaran %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Bahagian %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Bahagian %1$d daripada %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Latihan ini sudah selesai dan pelajaran akan diteruskan sebentar lagi"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Kawasan Latihan"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s diaktifkan dalam mod latihan. Aktifkan butang BATAL untuk keluar."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Butang Laman Utama Tutorial"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Item <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Keluar"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Jelajah melalui Sentuhan Diperlukan"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Tutorial ini memerlukan Jelajah melalui sentuhan. Sila dayakan Jelajah melalui sentuhan sebelum melancarkan tutorial."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack Dilumpuhkan"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"TalkBack perlu didayakan untuk tutorial ini. Sila hidupkan TalkBack sebelum melancarkan tutorial."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack Ditangguhkan"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Tutorial TalkBack tidak tersedia semasa maklum balas dijeda. Sila sambung semula maklum balas TalkBack dan lancarkan semula tutorial untuk meneruskan."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Terangkan menu"</string>
+</resources>

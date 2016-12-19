@@ -45,7 +45,7 @@ public class OrderedTraversalStrategy implements TraversalStrategy {
         mSpeakingNodesCache = new HashMap<>();
         mController = new OrderedTraversalController();
         mController.setSpeakNodesCache(mSpeakingNodesCache);
-        mController.initOrder(mRootNode);
+        mController.initOrder(mRootNode, false);
     }
 
     @Override
@@ -64,11 +64,11 @@ public class OrderedTraversalStrategy implements TraversalStrategy {
 
     @Override
     public AccessibilityNodeInfoCompat findFocus(AccessibilityNodeInfoCompat startNode,
-                                                 int direction) {
+                                                 @SearchDirection int direction) {
         switch (direction) {
-            case SEARCH_FOCUS_FORWARD:
+            case TraversalStrategy.SEARCH_FOCUS_FORWARD:
                 return focusNext(startNode);
-            case SEARCH_FOCUS_BACKWARD:
+            case TraversalStrategy.SEARCH_FOCUS_BACKWARD:
                 return focusPrevious(startNode);
         }
 
@@ -100,12 +100,15 @@ public class OrderedTraversalStrategy implements TraversalStrategy {
     }
 
     @Override
-    public AccessibilityNodeInfoCompat focusFirst(AccessibilityNodeInfoCompat root) {
-        return mController.findFirst(root);
+    public AccessibilityNodeInfoCompat focusInitial(AccessibilityNodeInfoCompat root,
+            @SearchDirection int direction) {
+        if (direction == SEARCH_FOCUS_FORWARD) {
+            return mController.findFirst(root);
+        } else if (direction == SEARCH_FOCUS_BACKWARD) {
+            return mController.findLast(root);
+        } else {
+            return null;
+        }
     }
 
-    @Override
-    public AccessibilityNodeInfoCompat focusLast(AccessibilityNodeInfoCompat root) {
-        return mController.findLast(root);
-    }
 }

@@ -17,10 +17,20 @@
 package com.android.utils;
 
 import android.annotation.TargetApi;
+import android.content.Context;
+import android.graphics.Rect;
 import android.os.Build;
+import android.support.annotation.Nullable;
+import android.support.v4.os.BuildCompat;
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 
+import com.android.talkback.R;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -33,23 +43,68 @@ public class WindowManager {
     private static final int CURRENT = 0;
     private static final int NEXT = 1;
 
-    private  List<AccessibilityWindowInfo> mWindows;
+    private final boolean mIsInRTL;
+    private final List<AccessibilityWindowInfo> mWindows = new ArrayList<AccessibilityWindowInfo>();
+
+    public static class WindowPositionComparator implements Comparator<AccessibilityWindowInfo> {
+
+        private final boolean mIsInRTL;
+        private Rect mRectA = new Rect();
+        private Rect mRectB = new Rect();
+
+        public WindowPositionComparator(boolean isInRTL) {
+            mIsInRTL = isInRTL;
+        }
+
+        @Override
+        public int compare(AccessibilityWindowInfo windowA, AccessibilityWindowInfo windowB) {
+            windowA.getBoundsInScreen(mRectA);
+            windowB.getBoundsInScreen(mRectB);
+
+            if (mRectA.top != mRectB.top) {
+                return mRectA.top - mRectB.top;
+            } else {
+                return mIsInRTL ? mRectB.right - mRectA.right : mRectA.left - mRectB.left;
+            }
+        }
+
+    }
+
+    public WindowManager(boolean isInRTL) {
+        mIsInRTL = isInRTL;
+    }
 
     /**
      * Set windows that would be used by WindowManager
      * @param windows Set the windows on the screen.
      */
     public void setWindows(List<AccessibilityWindowInfo> windows) {
-        mWindows = windows;
+        // Copy list not to sort the original one.
+        mWindows.clear();
+        mWindows.addAll(windows);
+
+        Collections.sort(mWindows, new WindowPositionComparator(mIsInRTL));
     }
 
     /**
-     * returns wheather accessibility focused window has AccessibilityWindowInfo.TYPE_APPLICATION
-     * type
+     * Returns whether accessibility focused window has AccessibilityWindowInfo.TYPE_APPLICATION
+     * type.
      */
     public boolean isApplicationWindowFocused() {
-        AccessibilityWindowInfo info = getCurrentWindow();
-        return info != null && info.getType() == AccessibilityWindowInfo.TYPE_APPLICATION;
+        return isFocusedWindowType(AccessibilityWindowInfo.TYPE_APPLICATION);
+    }
+
+    /**
+     * Returns whether accessibility focused window has
+     * AccessibilityWindowInfo.TYPE_SPLIT_SCREEN_DIVIDER type.
+     */
+    public boolean isSplitScreenDividerFocused() {
+        return isFocusedWindowType(AccessibilityWindowInfo.TYPE_SPLIT_SCREEN_DIVIDER);
+    }
+
+    private boolean isFocusedWindowType(int windowType) {
+        AccessibilityWindowInfo info = getCurrentWindow(false /* useInputFocus */);
+        return info != null && info.getType() == windowType;
     }
 
     /**
@@ -96,8 +151,18 @@ public class WindowManager {
      * If there is no accessibility focused window it returns first window that has TYPE_APPLICATION
      * or null if there is no window with TYPE_APPLICATION type
      */
-    public AccessibilityWindowInfo getCurrentWindow() {
-        int currentWindowIndex = getAccessibilityFocusedWindowIndex(mWindows);
+    public AccessibilityWindowInfo getCurrentWindow(boolean useInputFocus) {
+        int currentWindowIndex = getFocusedWindowIndex(mWindows,
+                AccessibilityNodeInfo.FOCUS_ACCESSIBILITY);
+        if (currentWindowIndex != WRONG_INDEX) {
+            return mWindows.get(currentWindowIndex);
+        }
+
+        if (!useInputFocus) {
+            return null;
+        }
+
+        currentWindowIndex = getFocusedWindowIndex(mWindows, AccessibilityNodeInfo.FOCUS_INPUT);
         if (currentWindowIndex != WRONG_INDEX) {
             return mWindows.get(currentWindowIndex);
         }
@@ -112,6 +177,35 @@ public class WindowManager {
      */
     public AccessibilityWindowInfo getPreviousWindow(AccessibilityWindowInfo pivotWindow) {
         return getWindow(pivotWindow, PREVIOUS);
+    }
+
+    /**
+     * Gets the window whose anchor equals the given node.
+     */
+    public AccessibilityWindowInfo getAnchoredWindow(
+            @Nullable AccessibilityNodeInfoCompat targetAnchor) {
+        if (!BuildCompat.isAtLeastN() || targetAnchor == null) {
+            return null;
+        }
+
+        int windowCount = mWindows.size();
+        for (int i = 0; i < windowCount; ++i) {
+            AccessibilityWindowInfo window = mWindows.get(i);
+            if (window != null) {
+                AccessibilityNodeInfo anchor = window.getAnchor();
+                if (anchor != null) {
+                    try {
+                        if (anchor.equals(targetAnchor.getInfo())) {
+                            return window;
+                        }
+                    } finally {
+                        anchor.recycle();
+                    }
+                }
+            }
+        }
+
+        return null;
     }
 
     public boolean isInputWindowOnScreen() {
@@ -138,6 +232,25 @@ public class WindowManager {
         }
 
         return WRONG_WINDOW_TYPE;
+    }
+
+    public boolean isStatusBar(int windowId) {
+        if (mWindows == null || mWindows.size() == 0) {
+            return false;
+        }
+
+        return mWindows.get(0).getId() == windowId &&
+                mWindows.get(0).getType() == AccessibilityWindowInfo.TYPE_SYSTEM;
+    }
+
+    public boolean isNavigationBar(int windowId) {
+        if (mWindows == null || mWindows.size() < 2) {
+            return false;
+        }
+
+        int lastIndex = mWindows.size() - 1;
+        return mWindows.get(lastIndex).getId() == windowId &&
+                mWindows.get(lastIndex).getType() == AccessibilityWindowInfo.TYPE_SYSTEM;
     }
 
     /**
@@ -211,14 +324,21 @@ public class WindowManager {
         return WRONG_INDEX;
     }
 
-    private static int getAccessibilityFocusedWindowIndex(List<AccessibilityWindowInfo> windows) {
+    private static int getFocusedWindowIndex(List<AccessibilityWindowInfo> windows, int focusType) {
         if (windows == null) {
             return WRONG_INDEX;
         }
 
         for (int i = 0, size = windows.size(); i < size; i++) {
             AccessibilityWindowInfo window = windows.get(i);
-            if (window != null && window.isAccessibilityFocused()) {
+            if (window == null) {
+                continue;
+            }
+
+            if (focusType == AccessibilityNodeInfo.FOCUS_ACCESSIBILITY &&
+                    window.isAccessibilityFocused()) {
+                return i;
+            } else if (focusType == AccessibilityNodeInfo.FOCUS_INPUT && window.isFocused()) {
                 return i;
             }
         }
@@ -238,5 +358,14 @@ public class WindowManager {
         }
 
         return windows.get(0);
+    }
+
+    public static CharSequence formatWindowTitleForFeedback(
+            CharSequence windowTitle, Context context) {
+        if (windowTitle == null) {
+            return context.getString(R.string.untitled_window);
+        }
+
+        return windowTitle;
     }
 }

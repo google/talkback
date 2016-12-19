@@ -1,35 +1,36 @@
 apply plugin: 'com.android.application'
-apply plugin: 'robolectric'
 
 def projectDir = System.getProperty('projectPath')
+def rootDir = "$projectDir/../../.."
 
 buildscript {
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.0'
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath 'org.robolectric:robolectric-gradle-plugin:0.13.2'
+        classpath 'com.android.tools.build:gradle:1.5.0'
     }
 }
 
 repositories {
     mavenCentral()
+    maven {
+        // TODO: Remove this after support library v24 public release.
+        url "$rootDir/prebuilts/fullsdk/extras/android/m2repository"
+    }
 }
 
 android {
     packagingOptions {
-        exclude 'LICENSE.txt'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE'
+        exclude 'LICENSE'
+        exclude 'README'
     }
-    compileSdkVersion "android-23"
+    compileSdkVersion "android-24"
     buildToolsVersion '22.0.1'
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 24
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'
     }
     compileOptions {
@@ -52,11 +53,16 @@ android {
         }
     }
     sourceSets {
-        androidTest {
-            setRoot("$projectDir/src/test")
-        }
         main {
             setRoot("$projectDir/src/main")
+        }
+        test {
+            setRoot("$projectDir/src/test")
+        }
+        androidTest {
+            setRoot("$projectDir/src/instrumentation_tests")
+            android.sourceSets.main.res.srcDirs = ["$projectDir/src/main/res",
+                                                   "$projectDir/src/instrumentation_tests/res"]
         }
     }
     lintOptions {
@@ -70,12 +76,9 @@ android {
 }
 
 dependencies {
-    androidTestCompile 'junit:junit:4.12'
-    androidTestCompile('com.squareup.dagger:dagger:1.1.0') {
-        exclude module: 'junit'
-    }
+    testCompile 'junit:junit:4.12'
 
-    androidTestCompile('org.robolectric:robolectric:3.0-rc2') {
+    testCompile('org.robolectric:robolectric:3.0') {
         exclude module: 'classworlds'
         exclude module: 'commons-logging'
         exclude module: 'maven-artifact'
@@ -92,6 +95,15 @@ dependencies {
         exclude module: 'wagon-provider-api'
         exclude module: 'support-v4'
     }
+    testCompile('org.mockito:mockito-core:1.10.8') {
+        exclude module: 'hamcrest-core'
+    }
+
+    androidTestCompile 'junit:junit:4.12'
+    androidTestCompile('com.squareup.dagger:dagger:1.1.0') {
+        exclude module: 'junit'
+    }
+
     androidTestCompile('com.squareup:fest-android:1.0.8') {
         exclude module: 'support-v4'
     }
@@ -100,49 +112,15 @@ dependencies {
     }
 }
 
-/*
-Both instrumentation tests task that is defined in android plugin and robolectric tests task
-that is defined in robolectric plugin use the same configuration androidTest.
-To split running robolectric and instrumetation tests we define different paths to test sources.
-
-When gradle run task on project script it does configuration phase where it parse whole script
-and defines tasks, theirs dependecies and counfigurations. Then it does execution phase when
-it executes the task. We have to set all source paths (android.sourceSets.androidTest...)
-on configuration phase.
-
-So here we check what task was started and if it was instrumentation test task we set paths
-to instrumentation tests as source for androidTest configuration.
- */
-task addInstrumenationPaths {
-    if(startedWithTask('instrumentationTest')) {
-        android.sourceSets.androidTest.manifest.srcFile "$projectDir/src/instrumentation_tests/AndroidManifest.xml"
-        android.sourceSets.androidTest.java.srcDirs = ["$projectDir/src/instrumentation_tests/src"]
-        android.sourceSets.main.res.srcDirs = ["$projectDir/src/main/res", "$projectDir/src/instrumentation_tests/res"]
-    }
-
-    if(startedWithTask('test')) {
-        android {
-            defaultConfig {
-                targetSdkVersion 22
-            }
-        }
-    }
-}
-
-def startedWithTask(String taskName) {
-    if(project.getGradle().startParameter.taskRequests.size() > 0) {
-        def startingArgs = project.getGradle().startParameter.taskRequests.get(0).args
-        if (startingArgs.toString().contains(taskName)) {
-            return true
-        }
-    }
-    return false
-}
-
-ext.startedWith = this.&startedWithTask
-
 task wrapper(type: Wrapper) {
     gradleVersion = '2.1'
+}
+
+// Copy preferences.xml to xml-v21 replacing CheckBoxPreference with SwitchPreference.
+task copyPreferencesXmlForV21(type: Copy) {
+    from "$projectDir/src/main/res/xml/preferences.xml"
+    into "$projectDir/src/main/res/xml-v21/"
+    filter { String l -> l.replaceAll("CheckBoxPreference", "SwitchPreference") }
 }
 
 afterEvaluate {

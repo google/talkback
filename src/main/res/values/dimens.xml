@@ -42,4 +42,14 @@
 
     <dimen name="tts_overlay_text_padding">8dp</dimen>
     <dimen name="tts_overlay_text_bottom_margin">12dp</dimen>
+
+    <!-- tutorial -->
+    <dimen name="tutorial_header_text">14sp</dimen>
+    <dimen name="tutorial_header_min_height">160dp</dimen>
+    <dimen name="tutorial_grid_item_width">90dp</dimen>
+    <dimen name="tutorial_grid_item_height">90dp</dimen>
+    <dimen name="tutorial_content_horizontal_offset">16dp</dimen>
+    <dimen name="tutorial_grid_horizontal_offset">0dp</dimen>
+    <dimen name="tutorial_list_horizontal_offset">8dp</dimen>
+    <dimen name="tutorial_footer_horizontal_padding">16dp</dimen>
 </resources>

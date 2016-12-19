@@ -17,14 +17,21 @@
 package com.android.talkback.speechrules;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
+
+import com.android.talkback.InputModeManager;
+import com.android.talkback.KeyComboManager;
 import com.android.talkback.R;
+import com.android.talkback.keyboard.KeyComboModel;
 import com.android.utils.AccessibilityNodeInfoUtils;
 import com.android.utils.StringBuilderUtils;
+
+import com.google.android.marvin.talkback.TalkBackService;
 
 import java.util.List;
 
@@ -49,16 +56,26 @@ public interface NodeHintRule {
 
     class NodeHintHelper {
         private static int sActionResId;
+        private static boolean sAllowLongClick;
+        private static boolean sAllowCustomActions;
 
         static {
-            updateActionResId(false);
+            updateHints(false /* singleTap */, false /* television */);
         }
 
-        public static void updateActionResId(boolean forceSingleTap) {
-            if (forceSingleTap) {
-                sActionResId = R.string.value_single_tap;
+        public static void updateHints(boolean forceSingleTap, boolean isTelevision) {
+            if (isTelevision) {
+                sAllowLongClick = false;
+                sAllowCustomActions = false;
+                sActionResId = R.string.value_press_select;
             } else {
-                sActionResId = R.string.value_double_tap;
+                sAllowLongClick = true;
+                sAllowCustomActions = true;
+                if (forceSingleTap) {
+                    sActionResId = R.string.value_single_tap;
+                } else {
+                    sActionResId = R.string.value_double_tap;
+                }
             }
         }
 
@@ -70,7 +87,50 @@ public interface NodeHintRule {
          */
         public static CharSequence getDefaultHintString(Context context,
                                                         AccessibilityNodeInfoCompat node) {
+            TalkBackService service = TalkBackService.getInstance();
+            if (service == null) {
+                // If TalkBackService is not available, falls back to touch operation.
+                return getCustomHintString(context, node, null, null, false,
+                        InputModeManager.INPUT_MODE_TOUCH, null /* keyComboManager */);
+            } else {
+                return getCustomHintString(context, node, null, null, false,
+                        service.getInputModeManager().getInputMode(), service.getKeyComboManager());
+            }
+        }
+
+        /**
+         * Get hint string from each action's label, overriding the default click and long-click
+         * action hints.
+         * @param context application context
+         * @param node node to be examined
+         * @param customClickHint the custom hint for the click (or check) action
+         * @param customLongClickHint the custom hint for the long-click action
+         * @param skipClickHints set to true if we should skip the click/long-click action hints.
+         * @return hint strings
+         */
+        public static CharSequence getCustomHintString(Context context,
+                                                       AccessibilityNodeInfoCompat node,
+                                                       @Nullable CharSequence customClickHint,
+                                                       @Nullable CharSequence customLongClickHint,
+                                                       boolean skipClickHints,
+                                                       int inputMode,
+                                                       @Nullable KeyComboManager keyComboManager) {
             final SpannableStringBuilder builder = new SpannableStringBuilder();
+
+            // Speak custom actions first, if available
+            if (sAllowCustomActions) {
+                List<AccessibilityActionCompat> customActions =
+                        AccessibilityNodeInfoUtils.getCustomActions(node);
+                if (!customActions.isEmpty()) {
+                    // TODO: Should describe how to get to custom actions
+                    StringBuilderUtils.appendWithSeparator(builder,
+                            NodeHintHelper.getHintString(context,
+                                    R.string.template_hint_custom_actions));
+                    for (AccessibilityActionCompat action : customActions) {
+                        StringBuilderUtils.appendWithSeparator(builder, action.getLabel());
+                    }
+                }
+            }
 
             // Get hints from available action's label
             final List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actions
@@ -78,56 +138,137 @@ public interface NodeHintRule {
             boolean hasClickActionHint = false;
             boolean hasLongClickActionHint = false;
             if (actions != null && !actions.isEmpty()) {
-                for(AccessibilityNodeInfoCompat.AccessibilityActionCompat action: actions) {
+                for (AccessibilityNodeInfoCompat.AccessibilityActionCompat action : actions) {
                     if (!AccessibilityNodeInfoUtils.isCustomAction(action) &&
-                        !TextUtils.isEmpty(action.getLabel())) {
+                            !TextUtils.isEmpty(action.getLabel())) {
                         switch (action.getId()) {
                             case AccessibilityNodeInfoCompat.ACTION_CLICK:
                                 hasClickActionHint = true;
+                                if (!skipClickHints) {
+                                    StringBuilderUtils.appendWithSeparator(builder,
+                                            getHintForInputMode(context, inputMode,
+                                                keyComboManager,
+                                                context.getString(
+                                                        R.string.keycombo_shortcut_perform_click),
+                                                R.string.template_custom_hint_for_actions,
+                                                R.string.template_custom_hint_for_actions_keyboard,
+                                                action.getLabel()));
+                                }
                                 break;
                             case AccessibilityNodeInfoCompat.ACTION_LONG_CLICK:
-                                hasLongClickActionHint = true;
+                                if (sAllowLongClick) {
+                                    hasLongClickActionHint = true;
+                                    if (!skipClickHints) {
+                                        int longClickShortcutId = R.string.
+                                                keycombo_shortcut_perform_long_click;
+                                        int longClickHintIdForTouch = R.string.
+                                                template_custom_hint_for_long_clickable_actions;
+                                        int longClickHintIdForKeyboard = R.string.
+                                                template_custom_hint_for_actions_keyboard;
+                                        StringBuilderUtils.appendWithSeparator(builder,
+                                                getHintForInputMode(context, inputMode,
+                                                    keyComboManager,
+                                                    context.getString(longClickShortcutId),
+                                                    longClickHintIdForTouch,
+                                                    longClickHintIdForKeyboard,
+                                                    action.getLabel()));
+                                    }
+                                }
                                 break;
                             default:
-                                // left bank on purpose
+                                StringBuilderUtils.appendWithSeparator(builder, action.getLabel());
+                                break;
                         }
-                        StringBuilderUtils.appendWithSeparator(builder, action.getLabel());
                     }
                 }
             }
 
-            // Add default clickable hint if action doesn't have corresponding label
-            // Don't read both the checkable AND clickable hints!
-            if (node.isCheckable()) {
-                StringBuilderUtils.appendWithSeparator(builder,
-                        NodeHintHelper.getHintString(context, R.string.template_hint_checkable));
-            } else if (AccessibilityNodeInfoUtils.isClickable(node)
-                    && !hasClickActionHint) {
-                StringBuilderUtils.appendWithSeparator(builder,
-                        NodeHintHelper.getHintString(context, R.string.template_hint_clickable));
+            if (skipClickHints) {
+                return builder;
             }
 
-            // Add default long click hint if action doesn't have corresponding label
-            if (AccessibilityNodeInfoUtils.isLongClickable(node)
-                    && !hasLongClickActionHint) {
-                StringBuilderUtils.appendWithSeparator(builder,
-                        NodeHintHelper.getHintString(context,
-                                R.string.template_hint_long_clickable));
+            boolean checkable = node.isCheckable();
+            boolean clickable = AccessibilityNodeInfoUtils.isClickable(node);
+            boolean longClickable = AccessibilityNodeInfoUtils.isLongClickable(node);
+
+            // Add a click hint if there's a click action but no corresponding label.
+            if ((clickable || checkable) && !hasClickActionHint) {
+                // If a custom click hint is provided, use that; otherwise choose a default hint
+                // depending on whether we have a checkable node or not.
+                if (!TextUtils.isEmpty(customClickHint)) {
+                    StringBuilderUtils.appendWithSeparator(builder, customClickHint);
+                } else if (checkable) {
+                    StringBuilderUtils.appendWithSeparator(builder,
+                            getHintForInputMode(context, inputMode, keyComboManager,
+                                context.getString(R.string.keycombo_shortcut_perform_click),
+                                R.string.template_hint_checkable,
+                                R.string.template_hint_checkable_keyboard,
+                                null /* label */));
+                } else {
+                    StringBuilderUtils.appendWithSeparator(builder,
+                            getHintForInputMode(context, inputMode, keyComboManager,
+                                context.getString(R.string.keycombo_shortcut_perform_click),
+                                R.string.template_hint_clickable,
+                                R.string.template_hint_clickable_keyboard,
+                                null /* label */));
+                }
             }
 
-            List<AccessibilityActionCompat> customActions =
-                    AccessibilityNodeInfoUtils.getCustomActions(node);
-            if (!customActions.isEmpty()) {
-                // TODO: Should describe how to get to custom actions
-                StringBuilderUtils.appendWithSeparator(builder,
-                        NodeHintHelper.getHintString(context,
-                                R.string.template_hint_custom_actions));
-                for (AccessibilityActionCompat action : customActions) {
-                    StringBuilderUtils.appendWithSeparator(builder, action.getLabel());
+            // Add a long click hint if there's a long-click action but no corresponding label.
+            if (sAllowLongClick && longClickable && !hasLongClickActionHint) {
+                // If a custom long-click hint is provided, use that; otherwise use default.
+                if (!TextUtils.isEmpty(customLongClickHint)) {
+                    StringBuilderUtils.appendWithSeparator(builder, customLongClickHint);
+                } else {
+                    StringBuilderUtils.appendWithSeparator(builder,
+                            getHintForInputMode(context, inputMode, keyComboManager,
+                                context.getString(R.string.keycombo_shortcut_perform_long_click),
+                                R.string.template_hint_long_clickable,
+                                R.string.template_hint_long_clickable_keyboard,
+                                null /* label */));
                 }
             }
 
             return builder;
+        }
+
+        // TODO: make this method private and provide different interface to callers of this
+        // method, i.e. refactor interfaces of this class considering keyboard based navigation
+        // hints.
+        public static CharSequence getHintForInputMode(
+                Context context, int inputMode, @Nullable KeyComboManager keyComboManager,
+                String keyboardShortcutKey, int templateResourceIdForTouch,
+                int templateResourceIdForKeyboard, @Nullable CharSequence label) {
+            // If keyCombo is not available (e.g. no key combo is assigned, keyComboManager is not
+            // provided), falls back to touch operation hint.
+            boolean doesProvideKeyboardHint = inputMode == InputModeManager.INPUT_MODE_KEYBOARD &&
+                    keyComboManager != null &&
+                    keyComboManager.getKeyComboModel().getKeyComboCodeForKey(keyboardShortcutKey) !=
+                    KeyComboModel.KEY_COMBO_CODE_UNASSIGNED;
+
+            String action;
+            int templateResourceId;
+            if (doesProvideKeyboardHint) {
+                KeyComboModel keyComboModel = keyComboManager.getKeyComboModel();
+                long keyComboCode = keyComboModel.getKeyComboCodeForKey(keyboardShortcutKey);
+                long keyComboCodeWithTriggerModifier = KeyComboManager.getKeyComboCode(
+                        KeyComboManager.getModifier(keyComboCode) |
+                        keyComboModel.getTriggerModifier(),
+                        KeyComboManager.getKeyCode(keyComboCode));
+
+                action = keyComboManager.getKeyComboStringRepresentation(
+                        keyComboCodeWithTriggerModifier);
+                templateResourceId = templateResourceIdForKeyboard;
+            } else {
+                action = context.getString(sActionResId);
+                templateResourceId = templateResourceIdForTouch;
+            }
+
+            if (label == null) {
+                return context.getString(templateResourceId, action);
+            } else {
+                return context.getString(templateResourceId, action, label);
+            }
         }
 
         /**

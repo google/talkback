@@ -41,7 +41,6 @@ import java.util.List;
  * ViewCompat.setAccessibilityDelegate(someView, mHelper);
  * </pre>
  */
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 public abstract class ExploreByTouchObjectHelper<T> extends ExploreByTouchHelper {
     /**
      * Constructs a new object-based Explore by Touch helper.

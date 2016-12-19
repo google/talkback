@@ -17,7 +17,9 @@
 package com.android.talkback;
 
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import com.android.utils.WebInterfaceUtils;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,7 +27,7 @@ import java.util.List;
  */
 public enum CursorGranularity {
     // 0 is the default Android value when you want something outside the bit mask
-    // TODO(KM): If rewriting this as a class, use a constant for 0.
+    // TODO: If rewriting this as a class, use a constant for 0.
     DEFAULT(R.string.granularity_default, 0),
     CHARACTER(R.string.granularity_character,
             AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_CHARACTER),
@@ -33,8 +35,8 @@ public enum CursorGranularity {
     LINE(R.string.granularity_line, AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_LINE),
     PARAGRAPH(R.string.granularity_paragraph,
             AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_PARAGRAPH),
-    PAGE(R.string.granularity_page, AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_PAGE),
     WEB_SECTION(R.string.granularity_web_section, 0),
+    WEB_LINK(R.string.granularity_web_link, 0),
     WEB_LIST(R.string.granularity_web_list, 0),
     WEB_CONTROL(R.string.granularity_web_control, 0);
 
@@ -87,14 +89,28 @@ public enum CursorGranularity {
      * @param result The list to populate with supported granularities.
      */
     public static void extractFromMask(
-            int bitmask, boolean hasWebContent, List<CursorGranularity> result) {
+            int bitmask, boolean hasWebContent, String[] supportedHtmlElements,
+            List<CursorGranularity> result) {
         result.clear();
         result.add(DEFAULT);
 
         if (hasWebContent) {
-            result.add(WEB_SECTION);
-            result.add(WEB_LIST);
-            result.add(WEB_CONTROL);
+            if (supportedHtmlElements == null) {
+                result.add(WEB_SECTION);
+                result.add(WEB_LIST);
+                result.add(WEB_CONTROL);
+            } else {
+                List<String> elements = Arrays.asList(supportedHtmlElements);
+                if (elements.contains(WebInterfaceUtils.HTML_ELEMENT_MOVE_BY_SECTION)) {
+                    result.add(WEB_SECTION);
+                }
+                if (elements.contains(WebInterfaceUtils.HTML_ELEMENT_MOVE_BY_LINK)) {
+                    result.add(WEB_LINK);
+                }
+                if (elements.contains(WebInterfaceUtils.HTML_ELEMENT_MOVE_BY_CONTROL)) {
+                    result.add(WEB_CONTROL);
+                }
+            }
         }
 
         for (CursorGranularity value : values()) {
@@ -114,6 +130,7 @@ public enum CursorGranularity {
     public boolean isWebGranularity() {
         // For some reason R.string cannot be used in a switch statement
         return resourceId == R.string.granularity_web_section ||
+                resourceId == R.string.granularity_web_link ||
                 resourceId == R.string.granularity_web_list ||
                 resourceId == R.string.granularity_web_control;
     }

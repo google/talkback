@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Udhëzuesi i qasshmërisë"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Nis udhëzuesin e TalkBack-ut"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Udhëzuesi i TalkBack-ut"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack është një lexues ekrani kryesisht për personat e verbër dhe më shikim të dobët. Ai lejon ndërveprimin me pajisjen duke përdorur reagime në të folur."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Çaktivizo TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Mëso"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Praktiko"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"mëso mësimin <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"mësimi praktik <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Mësimi 1: Navigimi bazë"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Prek për të eksploruar, rrëshqit shpejt për të eksploruar, trokit dy herë për të aktivizuar"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Pjesa 1: \"Eksploro me prekje\""</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Kur aktivizohet, \"Eksploro me prekje\" të lejon të dëgjosh se çfarë ka poshtë gishtit tënd. Lëvize gishtin mbi artikujt në qendër të ekranit. Pasi të kesh eksploruar pesë artikuj, mësimi do të vazhdojë."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Pjesa 2: Trokit dy herë për ta aktivizuar"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Për të aktivizuar artikullin e fundit që ke dëgjuar, trokit dy herë në çdo vend. Gjej artikullin 7 dhe aktivizoje tani. Më pas aktivizo \"Përpara\" për të vazhduar."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Artikulli 7 u aktivizua. Gjej dhe aktivizo butonin \"Përpara\" për të vazhduar"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Pjesa 3: Mësimet e navigimit"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Mësimet e TalkBack janë të organizuara në mënyrë të ngjashme. Zona e sipërme ka mësimin, të cilin mund ta lexosh dhe ta eksplorosh në çdo kohë. Ai ka edhe një buton \"Kreu i udhëzuesit\" në këndin lart majtas. Në mes është zona e praktikës. Në fund është treguesi i progresit dhe butonat e navigimit në mësim. Aktivizo \"Përpara\" tani për të vazhduar."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Pjesa 4: Rrëshqit për të eksploruar"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Mund të eksplorosh po ashtu, duke e rrëshqitur gishtin majtas mbi ekran. Rrëshqitja nga e majta eksploron lart dhe majtas, rrëshqitja në të djathtë eksploron poshtë dhe djathtas. Provoje tani."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Pjesa 5: Praktika"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Për të dëgjuar se çfarë ke poshtë gishtit, lëvize nëpër ekran. Trokit dy herë në çdo vend për të aktivizuar atë që po dëgjon. Rrëshqit shpejt majtas ose djathtas për të eksploruar."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Mësimi 2: Lëvizja"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Lëvizja me dy gishta, kërcimi përpara dhe pas"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Pjesa 1: Lëvizja me dy gishta"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Për të lëvizur në një listë vertikale, gjej artikullin e listës dhe më pas lëviz dy gishta lart ose poshtë. Për të lëvizur në një listë horizontale, gjej artikullin e listës dhe më pas lëviz dy gishta majtas ose djathtas."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Pjesa 2: Shkurtesat e lëvizjes"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Mund të kërcesh para ose prapa në një listë duke përdorur një shkurtore. Për të kaluar përpara, lëvize një gisht në të djathtë më pas në të majtë në një lëvizje të vetme. Për të kërcyer pas, lëviz një gisht majtas pastaj djathtas. Provoje këtu."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Pjesa 3: Praktika"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Lëviz duke rrëshqitur dy gishta lart ose poshtë. Kërce përpara duke lëvizur një gisht në të djathtë dhe më pas në të majtë. Kërce pas duke lëvizur një gisht në të majtë më pas në të djathtë."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Mësimi 3: Menytë e TalkBack-ut"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menyja globale e TalkBack-ut, menyja lokale e TalkBack-ut"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Pjesa 1: Menyja globale e TalkBack-ut"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack-u ka dy meny të ndryshme. E para, menyja globale e TalkBack-ut, gjithmonë përmban të njëjtat komanda. Mund ta aktivizosh atë duke lëvizur një gisht poshtë më pas djathtas në një lëvizje të vetme, më pas duke e hequr gishtin. Aktivizo tani një version praktikimi."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Opsionet e menysë listohen vertikalisht në mes të ekranit. Provo të eksplorosh. Kur të përfundosh, aktivizo \"Anulo\"."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Pjesa 2: Menyja lokale e TalkBack-ut"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Menyja e dytë është menyja lokale e TalkBack-ut. Artikujt në këtë meny janë të ndryshëm në varësi të asaj që ke dëgjuar së fundi. Mund ta aktivizosh atë duke lëvizur një gisht lart më pas djathtas në një lëvizje të vetme, më pas duke e hequr gishtin. Aktivizo tani një meny praktikimi."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Pjesa 3: Praktika"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Lëvize gishtin poshtë më pas djathtas për të aktivizuar menynë globale e TalkBack-ut. Lëvize gishtin lart më pas djathtas për të aktivizuar menynë lokale e TalkBack-ut."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Poshtë dhe më pas djathtas"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Lart dhe më pas djathtas"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Menyja globale e TalkBack-ut: Poshtë më pas djathtas. Menyja lokale e TalkBack-ut: Lart më pas djathtas"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Mësimi 4: Navigimi i tekstit"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Zgjedhja e cilësimeve të navigimit të tekstit"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Pjesa 1: Zgjedhja e cilësimeve të navigimit"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack të lejon të kontrollosh nëse teksti do të lexohet sipas paragrafëve, rreshtave, fjalëve ose karaktereve. Leximi sipas karaktereve mund të ndihmojë për shqiptimin. Caktoje shpejtësinë e navigimit të tekstit te karakteret duke trokitur në tekstin më poshtë dhe më pas rrëshqit shpejt lart ose poshtë."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Eksploro opsionet e shpejtësisë së leximit të listuara vertikalisht këtu. Gjej dhe aktivizo opsionin \"Lexo sipas karaktereve\"."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Pjesa 2: Navigimi në tekst"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Tani po lexon sipas karaktereve. Zgjidh tekstin e shembullit dhe më pas rrëshqit shpejt djathtas për të lexuar sipas karaktereve."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Pjesa 3: Praktika"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Ndrysho shpejtësinë e navigimit të tekstit duke rrëshqitur shpejt lart ose poshtë. Lexo karakterin tjetër në tekstin e shembullit duke rrëshqitur shpejt djathtas."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Ja një shembull teksti për praktikimin e TalkBack. \"E ku është Kansasi?\" pyeti burri, i çuditur. \"Nuk e di\" u përgjigj Doroti me keqardhje, \"por është vendi ku kam shtëpinë, dhe sigurisht që ndodhet diku.\"\n\n\"Ashtu duhet të jetë. Epo, Ozi mund të bëjë çdo gjë, prandaj besoj se do të ta gjejë Kansasin. Por në fillim duhet të shkosh ta takosh dhe kjo është punë e vështirë, sepse Magjistarit të Madh nuk i pëlqen të shohë njeri, dhe zakonisht bën si i thotë koka. Po ti? Ti çfarë do?\" vazhdoi ai duke i folur Totos."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Mësimi 5: Redaktimi i tekstit"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Aktivizimi i një kutie redaktimi, shkrimi, lëvizja e një kursori, zgjedhja dhe kryerja e veprimeve te teksti"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Pjesa 1: Aktivizimi i kutisë së redaktimit"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Me TalkBack, mund të përdorësh një kuti redaktimi për të shkruar, zgjedhur dhe redaktuar tekstin. Për të aktivizuar një kuti redaktimi, trokit dy herë tek ajo. Pasi të aktivizosh një kuti redaktimi, në fund të ekranit do të kesh të disponueshme një tastierë. Mund ta heqësh tastierën duke trokitur te butoni \"Prapa\". Provo ta aktivizosh tani kutinë e redaktimit. Kur të përfundosh, aktivizo \"Përpara\" që është tani mbi tastierë."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Pjesa 2: Shkrimi në një kuti redaktimi"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Për të shkruar, aktivizo kutinë e redaktimit dhe lëvize gishtin nëpër tastierën në ekran. Kur të dëgjosh karakterin e dëshiruar, ngrije gishtin për ta aktivizuar. Provo ta aktivizosh dhe të shkruash në kutinë e redaktimit më poshtë."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Pjesa 3: Përdorimi i një kursori"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Mund ta lëvizësh një kursor duke përdorur butonat e volumit në pajisje, ose nëpërmjet \"Menysë lokale\" të TalkBack. Me opsionin e \"Kontrollit të kursorit\" në këtë meny mund të zgjedhësh, të presësh, të kopjosh ose të ngjitësh tekstin po ashtu. Aktivizo kutinë e redaktimit më poshtë dhe lëvize kursorin rreth tekstit të shembullit."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Adresa e mail-it të Doroti Gejl është dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Pjesa 4: Praktika"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Aktivizo kutinë e redaktimit duke trokitur dy herë. Shkruaj duke e lëvizur gishtin mbi një karakter dhe duke e ngritur më pas gishtin. Lëvize kursorin me butonat e volumit dhe \"Menysë lokale\" të TalkBack. Zgjidh dhe kryej një veprim te teksti duke përdorur opsionin e \"Kontrollit të kursorit\" në \"Menynë lokale\" të TalkBack."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Redakto tekstin"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"PRAPA"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"TJETËR"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"MËSIMI I MËPARSHËM"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"MËSIMI TJETËR"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"FAQJA KRYESORE E UDHËZUESIT"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Mësimi %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Pjesa %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Pjesa %1$d nga %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Ushtrimi ka përfunduar dhe do të vazhdojë brenda një momenti"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Zona e praktikimit"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s u aktivizua në modalitetin e praktikës. Aktivizo butonin ANULO për të dalë."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Butoni i faqes kryesore të udhëzuesit"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Artikulli <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Dil"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Kërkohet funksioni \"Eksploro me prekje\""</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Ky udhëzues kërkon funksionin \"Eksploro me prekje\". Aktivizo \"Eksploro me prekje\" para se të hapësh udhëzuesin."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack-u është çaktivizuar"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Ky udhëzues kërkon aktivizimin e funksionit të TalkBack-ut. Aktivizo TalkBack-un para se të hapësh udhëzuesin."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack-u u pezullua"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Udhëzuesi i TalkBack-ut nuk mundësohet kur reagimi ndërpritet. Rifillo reagimin e TalkBack-ut dhe hap përsëri udhëzuesin për të vazhduar."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Përshkruaj menynë"</string>
+</resources>

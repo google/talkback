@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   xml-v21/preferences.xml will be generated from this file by copyPreferencesXmlForV21 gradle task
+   replacing CheckBoxPreference with SwitchPreference.
+-->
+
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <PreferenceCategory
@@ -12,7 +18,9 @@
             android:key="@string/pref_speech_volume_key"
             android:summary="%s"
             android:title="@string/title_pref_speech_volume" />
-
+        <Preference
+            android:key="@string/pref_tts_settings_key"
+            android:title="@string/tts_preferences_title" />
         <CheckBoxPreference
             android:defaultValue="@bool/pref_intonation_default"
             android:key="@string/pref_intonation_key"
@@ -47,10 +55,6 @@
             android:key="@string/pref_shake_to_read_threshold_key"
             android:summary="%s"
             android:title="@string/title_pref_shake_to_read_threshold" />
-        <CheckBoxPreference
-            android:defaultValue="@bool/pref_caller_id_default"
-            android:key="@string/pref_caller_id_key"
-            android:title="@string/title_pref_caller_id" />
         <CheckBoxPreference
             android:defaultValue="@bool/pref_phonetic_letters_default"
             android:key="@string/pref_phonetic_letters_key"
@@ -137,18 +141,11 @@
             android:defaultValue="@bool/pref_dim_when_talkback_enabled_default"
             android:key="@string/pref_dim_when_talkback_enabled_key"
             android:title="@string/title_dim_screen_when_talkback_enabled" />
-        <PreferenceScreen
-            android:key="@string/pref_play_store_key"
-            android:title="@string/title_pref_play_store">
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:key="@string/pref_show_tos_key"
-            android:title="@string/title_pref_show_tos">
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:key="@string/pref_policy_key"
-            android:title="@string/title_pref_show_privacy_policy">
-        </PreferenceScreen>
+        <CheckBoxPreference
+            android:defaultValue="@bool/pref_dim_volume_three_clicks_default"
+            android:key="@string/pref_dim_volume_three_clicks_key"
+            android:summary="@string/value_dim_volume_three_clicks"
+            android:title="@string/title_pref_dim_volume_three_clicks" />
         <ListPreference
             android:defaultValue="@string/pref_resume_talkback_default"
             android:dialogTitle="@string/title_pref_resume_talkback"
@@ -157,6 +154,10 @@
             android:key="@string/pref_resume_talkback_key"
             android:summary="%s"
             android:title="@string/title_pref_resume_talkback" />
+        <PreferenceScreen
+            android:key="@string/pref_play_store_key"
+            android:title="@string/title_pref_play_store">
+        </PreferenceScreen>
         <PreferenceScreen
             android:key="@string/pref_category_developer_key"
             android:title="@string/title_pref_category_developer_settings" >
@@ -168,24 +169,34 @@
                 android:key="@string/pref_log_level_key"
                 android:summary="%s"
                 android:title="@string/title_pref_log_level" />
-
             <CheckBoxPreference
                 android:defaultValue="@bool/pref_tts_overlay_default"
                 android:key="@string/pref_tts_overlay_key"
                 android:title="@string/title_pref_tts_overlay" />
-
             <CheckBoxPreference
                 android:defaultValue="@bool/pref_tree_debug_default"
                 android:key="@string/pref_tree_debug_reflect_key"
                 android:title="@string/title_pref_tree_debug" />
-
             <CheckBoxPreference
                 android:defaultValue="@bool/pref_web_scripts_default"
                 android:key="@string/pref_web_scripts_key"
                 android:title="@string/title_pref_web_scripts"
                 android:summary="@string/summary_pref_web_scripts" />
+            <Preference
+                android:key="@string/pref_dump_a11y_event_key"
+                android:title="@string/title_pref_dump_a11y_event" />
         </PreferenceScreen>
-
+        <PreferenceScreen
+            android:key="@string/pref_help_and_feedback_key">
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="@string/pref_policy_key"
+            android:title="@string/title_pref_show_privacy_policy">
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="@string/pref_show_tos_key"
+            android:title="@string/title_pref_show_tos">
+        </PreferenceScreen>
     </PreferenceCategory>
 
 </PreferenceScreen>

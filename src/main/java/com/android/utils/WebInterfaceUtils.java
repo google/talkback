@@ -22,6 +22,8 @@ import android.provider.Settings;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import com.android.utils.PerformActionUtils;
 
+import java.util.HashSet;
+
 /**
  * Utility class for sending commands to ChromeVox.
  */
@@ -34,6 +36,9 @@ public class WebInterfaceUtils {
      * true, 0 is false).
      */
     private static final String ACCESSIBILITY_SCRIPT_INJECTION = "accessibility_script_injection";
+
+    private static final String ACTION_ARGUMENT_HTML_ELEMENT_STRING_VALUES =
+            "ACTION_ARGUMENT_HTML_ELEMENT_STRING_VALUES";
 
     /**
      * Direction constant for forward movement within a page.
@@ -101,6 +106,13 @@ public class WebInterfaceUtils {
     /**
      * HTML element argument to use with
      * {@link #performNavigationToHtmlElementAction(AccessibilityNodeInfoCompat,
+     * int, String)} to instruct ChromeVox to move to the next or previous link.
+     */
+    public static final String HTML_ELEMENT_MOVE_BY_LINK = "LINK";
+
+    /**
+     * HTML element argument to use with
+     * {@link #performNavigationToHtmlElementAction(AccessibilityNodeInfoCompat,
      * int, String)} to instruct ChromeVox to move to the next or previous list.
      */
     public static final String HTML_ELEMENT_MOVE_BY_LIST = "LIST";
@@ -138,6 +150,31 @@ public class WebInterfaceUtils {
         args.putString(
                 AccessibilityNodeInfoCompat.ACTION_ARGUMENT_HTML_ELEMENT_STRING, htmlElement);
         return PerformActionUtils.performAction(node, action, args);
+    }
+
+    public static String[] getSupportedHtmlElements(AccessibilityNodeInfoCompat node) {
+        HashSet<AccessibilityNodeInfoCompat> visitedNodes =
+            new HashSet<AccessibilityNodeInfoCompat>();
+
+        while (node != null) {
+            if (visitedNodes.contains(node)) {
+                return null;
+            }
+
+            visitedNodes.add(node);
+
+            Bundle bundle = node.getExtras();
+            CharSequence supportedHtmlElements =
+                bundle.getCharSequence(ACTION_ARGUMENT_HTML_ELEMENT_STRING_VALUES);
+
+            if (supportedHtmlElements != null) {
+                return supportedHtmlElements.toString().split(",");
+            }
+
+            node = node.getParent();
+        }
+
+        return null;
     }
 
     /**
@@ -309,7 +346,12 @@ public class WebInterfaceUtils {
             return false;
         }
 
-        if (!supportsWebActions(node)) {
+        // TODO: Need better checking for native versus legacy web content.
+        // Right now Firefox is accidentally treated as legacy web content using the current
+        // detection routines; the `isNodeFromFirefox` check blacklists any Firefox that supports
+        // the native web actions from being treated as "legacy" content.
+        // Once we have resolved this issue, remove the `isNodeFromFirefox` disjunct from the check.
+        if (!supportsWebActions(node) || isNodeFromFirefox(node)) {
             return false;
         }
 
@@ -363,9 +405,16 @@ public class WebInterfaceUtils {
         if (node == null) {
             return false;
         }
-        final String packageName
-                = node.getPackageName() != null ? node.getPackageName().toString() : "";
-        return hasNativeWebContent(node) || packageName.startsWith("org.mozilla.");
+        return hasNativeWebContent(node) || isNodeFromFirefox(node);
+    }
 
+    private static boolean isNodeFromFirefox(AccessibilityNodeInfoCompat node) {
+        if (node == null) {
+            return false;
+        }
+
+        final String packageName = node.getPackageName() != null ?
+                node.getPackageName().toString() : "";
+        return packageName.startsWith("org.mozilla.");
     }
 }

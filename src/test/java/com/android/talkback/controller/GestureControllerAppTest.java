@@ -19,27 +19,34 @@ package com.android.talkback.controller;
 import android.accessibilityservice.AccessibilityService;
 import android.annotation.TargetApi;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.view.accessibility.AccessibilityEvent;
+import com.android.talkback.BuildConfig;
+import com.android.talkback.InputModeManager;
 import com.android.talkback.R;
 import com.android.talkback.contextmenu.MenuManager;
+import com.android.utils.SharedPreferencesUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 import static org.mockito.Mockito.*;
 
-@Config(emulateSdk = 18)
-@RunWith(RobolectricTestRunner.class)
+import com.google.android.marvin.talkback.TalkBackService;
+
+@Config(
+        constants = BuildConfig.class,
+        sdk = 21)
+@RunWith(RobolectricGradleTestRunner.class)
 @TargetApi(16)
 public class GestureControllerAppTest {
-    // TODO(KM): AccessibilityService.performGlobalAction not tested since it is final
+    // TODO: AccessibilityService.performGlobalAction not tested since it is final
 
     SharedPreferences prefs;
 
-    AccessibilityService mockAccessibilityService = new MockAccessibilityService();
+    TalkBackService mockTalkBackService = new MockTalkBackService();
     CursorController mockCursorController;
     FeedbackController mockFeedbackController;
     FullScreenReadController mockFullScreenReadController;
@@ -50,7 +57,7 @@ public class GestureControllerAppTest {
     @Before
     public void beforeTests() {
         // Clear prefs
-        prefs = PreferenceManager.getDefaultSharedPreferences(mockAccessibilityService);
+        prefs = SharedPreferencesUtils.getSharedPreferences(mockTalkBackService);
         prefs.edit().clear().apply();
 
         // Set a new mock for each test
@@ -61,7 +68,7 @@ public class GestureControllerAppTest {
 
         // new controller with mocks for each test
         gestureController = new GestureControllerApp(
-                        mockAccessibilityService,
+                        mockTalkBackService,
                         mockCursorController,
                         mockFeedbackController,
                         mockFullScreenReadController,
@@ -70,25 +77,25 @@ public class GestureControllerAppTest {
 
     @Test
     public void testOverridingPrefs() {
-        prefs.edit().putString(mockAccessibilityService.getString(R.string.pref_shortcut_up_key),
-                mockAccessibilityService.getString(R.string.shortcut_value_next)).apply();
+        prefs.edit().putString(mockTalkBackService.getString(R.string.pref_shortcut_up_key),
+                mockTalkBackService.getString(R.string.shortcut_value_next)).apply();
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_UP);
-        verify(mockCursorController).next(true, true, true);
+        verify(mockCursorController).next(true, true, true, InputModeManager.INPUT_MODE_TOUCH);
     }
 
     @Test
     public void testLegacyPrefs() {
         prefs.edit().putString(
-                mockAccessibilityService.getString(R.string.pref_two_part_vertical_gestures_key),
-                mockAccessibilityService.getString(R.string.value_two_part_vertical_gestures_jump))
+                mockTalkBackService.getString(R.string.pref_two_part_vertical_gestures_key),
+                mockTalkBackService.getString(R.string.value_two_part_vertical_gestures_jump))
                 .apply();
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_UP_AND_DOWN);
-        verify(mockCursorController).jumpToTop();
+        verify(mockCursorController).jumpToTop(InputModeManager.INPUT_MODE_TOUCH);
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_DOWN_AND_UP);
-        verify(mockCursorController).jumpToBottom();
+        verify(mockCursorController).jumpToBottom(InputModeManager.INPUT_MODE_TOUCH);
         prefs.edit().putString(
-                mockAccessibilityService.getString(R.string.pref_two_part_vertical_gestures_key),
-                mockAccessibilityService.getString(R.string.value_two_part_vertical_gestures_cycle))
+                mockTalkBackService.getString(R.string.pref_two_part_vertical_gestures_key),
+                mockTalkBackService.getString(R.string.value_two_part_vertical_gestures_cycle))
                 .apply();
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_UP_AND_DOWN);
         verify(mockCursorController).previousGranularity();
@@ -99,18 +106,18 @@ public class GestureControllerAppTest {
     @Test
     public void testDefaults() {
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_UP);
-        verify(mockCursorController).previous(true, true, true);
+        verify(mockCursorController).previousGranularity();
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_LEFT);
-        verify(mockCursorController, times(2)).previous(true, true, true);
+        verify(mockCursorController).previous(true, true, true, InputModeManager.INPUT_MODE_TOUCH);
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_DOWN);
-        verify(mockCursorController).next(true, true, true);
+        verify(mockCursorController).nextGranularity();
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_RIGHT);
-        verify(mockCursorController, times(2)).next(true, true, true);
+        verify(mockCursorController).next(true, true, true, InputModeManager.INPUT_MODE_TOUCH);
 
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_DOWN_AND_UP);
-        verify(mockCursorController).jumpToBottom();
+        verify(mockCursorController).jumpToBottom(InputModeManager.INPUT_MODE_TOUCH);
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_UP_AND_DOWN);
-        verify(mockCursorController).jumpToTop();
+        verify(mockCursorController).jumpToTop(InputModeManager.INPUT_MODE_TOUCH);
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_LEFT_AND_RIGHT);
         verify(mockCursorController).less();
         gestureController.onGesture(AccessibilityService.GESTURE_SWIPE_RIGHT_AND_LEFT);
@@ -135,7 +142,7 @@ public class GestureControllerAppTest {
         // Global notifications
     }
 
-    private class MockAccessibilityService extends AccessibilityService {
+    private class MockTalkBackService extends TalkBackService {
         @Override
         public void onAccessibilityEvent(AccessibilityEvent accessibilityEvent) {}
 

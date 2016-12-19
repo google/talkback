@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="7512754982950145749">"TalkBack aktiv olduqda, sizin cihazınız görmə qabiliyyəti zəif olan istifadəçilərə yardım məqsədilə şifahi şərh verir. Məsələn, o, toxunduğunuz, seçdiyiniz və aktiv etdiyiniz əməliyyatları təsvir edir."</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"TalkBack aktiv olduqda, cihazınız görmə qabiliyyəti zəif olan istifadəçilərə yardım məqsədilə şifahi şərh verir. Məsələn, o, toxunduğunuz, seçdiyiniz və aktiv etdiyiniz əməliyyatları təsvir edir. \n\n Əgər Talkback\'i səhvən yandırmısınızsa, söndürmək üçün yaşıl xətt əmələ gələnə kimi keçidin üzərinə tıklayın, sonra iki dəfə tıklayın."</string>
     <string name="talkback_on" msgid="315529674405160699">"Talkback aktivdir"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack dayandırıldı"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack davam edir"</string>
+    <string name="talkback_disabled" msgid="2536155587482587238">"TalkBack deaktiv edildi."</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"TalkBack ayarları"</string>
     <string name="tts_preferences_title" msgid="6233811187483633874">"Mətndən danışığa Parametrləri"</string>
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Versiya <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
@@ -19,11 +22,16 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"Cari sorğu: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>."</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"Heç bir element seçilməyib."</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"Cari seçim: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>."</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Sahənin əvvəli"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Sahənin sonu"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Seçim rejimi aktivdir"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Seçim rejimi deaktivdir"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Seçim təmizləndi"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"Buraxılmış zəng"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"Susdur"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"Çat"</string>
     <string name="notification_type_status_error" msgid="8762616334364573004">"Xəta"</string>
-    <string name="notification_type_status_more" msgid="4889548393564513820">"Daha çox"</string>
+    <string name="notification_type_status_more" msgid="4889548393564513820">"Digər"</string>
     <string name="notification_type_status_sdcard" msgid="6675459139116184337">"SD kart"</string>
     <string name="notification_type_status_sdcard_usb" msgid="6882955062811560802">"SD kart USB"</string>
     <string name="notification_status_sync" msgid="7913123792593843784">"Sinx"</string>
@@ -33,37 +41,49 @@
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"Dayandırıldı"</string>
     <string name="template_current_tts_engine" msgid="3963364867159704159">"<xliff:g id="ENGINE_NAME">%1$s</xliff:g> istifadə edilir"</string>
     <string name="template_menu" msgid="2592357933256217001">"<xliff:g id="TITLE">%1$s</xliff:g> menyu"</string>
-    <string name="template_edit_box" msgid="5395366637528473616">"Düzəliş xanası. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
-    <string name="template_edit_box_current" msgid="2778286668618391188">"Edit qutusu, hazırda redaktə. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"Siqnal <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g> menyu"</string>
     <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="OLD_TEXT">%2$s</xliff:g> <xliff:g id="NEW_TEXT">%1$s</xliff:g> ilə əvəzləndi"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> silinib"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"kopyalandı, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"kəsildi, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"yerləşdirildi, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, seçilib"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"Seçilmiş mətn: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"Mətn seçilməyib"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, seçilməyib"</string>
     <string name="template_text_error" msgid="153775825635730287">"Yanlış daxiletmə <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> simvol <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> simvol ilə əvəzləndi"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="LABEL">%2$s</xliff:g> üçün <xliff:g id="ITEM">%1$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"Davamlı basılmış<xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_button" msgid="2640124317262628933">"<xliff:g id="TITLE">%1$s</xliff:g> düyməsi"</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"<xliff:g id="TITLE">%1$d</xliff:g> şəkli. Etiketsiz"</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"<xliff:g id="TITLE">%1$d</xliff:g> düyməsi. Etiketsiz"</string>
-    <string name="template_seek_bar" msgid="9010890122601609426">"<xliff:g id="TITLE">%1$s</xliff:g> axtarış kontrolu."</string>
     <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> faiz."</string>
     <string name="template_charging" msgid="2038200557537960378">"<xliff:g id="CHANGING_STATUS">%1$s</xliff:g> Batareya səviyyəsi <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> faiz yüklənir."</string>
-  <plurals name="template_containers">
-    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="TYPE">%1$s</xliff:g> showing <xliff:g id="COUNT">%2$d</xliff:g> item."</item>
-    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="TYPE">%1$s</xliff:g> <xliff:g id="COUNT">%2$d</xliff:g> element göstərir."</item>
-  </plurals>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> <xliff:g id="COUNT_3">%2$d</xliff:g> element göstərir.</item>
+      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> <xliff:g id="COUNT_1">%2$d</xliff:g> element göstərir.</item>
+    </plurals>
     <string name="value_gridview" msgid="1382219539169157957">"Tor"</string>
     <string name="value_listview" msgid="7625152822709234439">"Siyahı"</string>
     <string name="value_tabwidget" msgid="6935453013254857519">"Tab paneli"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"Aşağı açılan siyahı"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"Qeyd xanası"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"Radio düymə"</string>
+    <string name="value_button" msgid="2459787142940409576">"Düymə"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"Axtarış kontrolu"</string>
+    <string name="value_switch" msgid="6946709666466895221">"Keçid"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"Redaktə qutusu"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"Redaktəetmə"</string>
+    <string name="value_image" msgid="5114229220871881124">"Təsvir"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"Etiketsiz"</string>
+    <string name="value_pager" msgid="7708574424402835461">"Çox saylı səhifə görünüşü"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"Səhifə"</string>
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"<xliff:g id="TOTAL_COUNT">%3$d</xliff:g> elementdən <xliff:g id="FROM_INDEX">%1$d</xliff:g> ədəddən <xliff:g id="TO_INDEX">%2$d</xliff:g> ədədə qədər göstərilir."</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"<xliff:g id="TOTAL_COUNT">%2$d</xliff:g> elementdən <xliff:g id="FROM_INDEX">%1$d</xliff:g> ədədi göstərilir."</string>
-    <string name="template_spinner" msgid="1240658876427369167">"<xliff:g id="TITLE">%1$s</xliff:g> aşağıya açılan siyahı."</string>
-    <string name="template_password_selected" msgid="3751806880345903886">"<xliff:g id="FROM_INDEX">%1$s</xliff:g> - <xliff:g id="TO_INDEX">%2$s</xliff:g> seçilmiş simvollar"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"<xliff:g id="TOTAL_COUNT">%2$d</xliff:g> səhifədən <xliff:g id="PAGE_INDEX">%1$d</xliff:g> səhifə"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="TOTAL_COUNT">%2$d</xliff:g> səhifədən <xliff:g id="PAGE_INDEX">%1$d</xliff:g> səhifə"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"<xliff:g id="FROM_INDEX">%1$d</xliff:g> səhifədən <xliff:g id="TO_INDEX">%2$d</xliff:g> səhifəyə simvollar"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"Simvol <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"böyük <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="template_checkbox" msgid="8582666147313623418">"<xliff:g id="TITLE">%1$s</xliff:g> xana"</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"<xliff:g id="TITLE">%1$s</xliff:g> keçirici"</string>
-    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>, keçid"</string>
     <string name="value_password" msgid="7285572231215250557">"parol"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Siyirtmə açıldı"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Kölgə açıldı"</string>
@@ -71,69 +91,115 @@
     <string name="value_text_cleared" msgid="6558192295636412162">"Silinmiş mətn"</string>
     <string name="value_text_max_length" msgid="4129865255646994586">"Maksimum uzunluğa çatıb"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"silinib"</string>
+    <string name="value_selected" msgid="1307429702194660766">"seçilib"</string>
     <string name="value_checked" msgid="3006751014125833966">"yoxlanılıb"</string>
     <string name="value_not_checked" msgid="37422559536361725">"yoxlanılmayıb"</string>
+    <string name="value_on" msgid="39454338086317219">"aktiv"</string>
+    <string name="value_off" msgid="6700497510945744608">"deaktiv"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"genişləndirilib"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"yığcamlaşdırılıb"</string>
     <string name="value_disabled" msgid="5160977094078900656">"deaktiv"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"İkili tıklama"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"Tıkla"</string>
-    <string name="template_hint_clickable" msgid="1398769454100543369">"<xliff:g id="ACTION">%1$s</xliff:g> seçim üçün."</string>
+    <string name="value_press_select" msgid="4270348255373188872">"Seçin düyməsini basın"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"Aktivləşdirmək üçün <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Aktivləşdirmək üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
     <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> və davamlı basın."</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Uzun basım üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
     <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> keçid üçün."</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Keçid üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> mətni daxil etmək üçün."</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Mətn daxil etmək üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> dəyişmək üçün."</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"Ekrana toxunun və elementi tapmaq üçün çevrəni araşdırın, sonra isə seçmək üçün qaldırın."</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Dəyişdirmək üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"Səhifədən səhifəyə keçmək üçün iki barmaqla sürüşdürün."</string>
+    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"Əlavə səhifələr əlçatan deyil."</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"Dəyişdirmək üçün <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"Ekrana toxunun və elementi tapmaq üçün çevrəni araşdırın, sonra isə aktivləşdirmək üçün qaldırın."</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Ekran kontentini idarə etmək üçün ekrana toxunun və çevrəni araşdırın, sonra isə fokuslamaq üçün qaldırın."</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"Fərdi əməliyyatlar:"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="HINT">%2$s</xliff:g> üçün <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"<xliff:g id="HINT">%2$s</xliff:g> üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="HINT">%2$s</xliff:g> üçün <xliff:g id="ACTION">%1$s</xliff:g> və saxlayın."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"Zəng vibrasiyadadır."</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Zəng səssiz."</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Ekran aktivdir."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Ekran deaktiv."</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"Böyük hərflər aktivdir."</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"Böyük hərflər deaktivdir."</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"Nömrələr aktivdir."</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"Nömrələr aktivdir."</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Sürüşdürmə aktivdir."</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Sürüşdürmə deaktivdir."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"Cihaz kilidi açıldı."</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Nitq"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Nitqin səs həcmi"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"Ekran qapalı olan zaman danış"</string>
     <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"Ekran sönülü olarkən bildirişlər səsləndirilir"</string>
     <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"Ekran sönülü olarkən danışıq olmur"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"Danışanın kimliyini səsləndir"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"Yaxınlıq sensorundan istifadə edin"</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Yaxınlıq sensoru nitqi susdurur"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Yaxınlıq sensoru nitqə nəzarət etmir"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Fonetik hərfləri səsləndirin"</string>
     <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Fonetik hərflər səsləndirilməyəcək."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"Klaviaturada uzun basımda və simvol ilə köçürdükdə fonetik hərflər səsləndiriləcək."</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"Klaviaturada uzun basımda və simvol ilə köçürdükdə fonetik hərflər səsləndiriləcək."</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"İstifadə işlətmələrini səsləndirin"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"Xətti naviqasiya zamanı istifadə işlətmələri səsləndirilməyəcək."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"Qısa zamandan sonra fokus xətti naviqasiya ilə köçürüldükdə istifadə işlətmələri səsləndirilməyəcək."</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"Əlçatımlılıq fokusu hərəkət edərkən istifadə işlətmələri səsləndirilməyəcək."</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"Qısa zamandan sonra naviqasiya ərzində istifadə işlətmələri səsləndirilməyəcək."</string>
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Toxunuşla kəşf"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Avtomatik sürüşdürmə siyahıları"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Toxunuşla kəşf"</string>
-    <string name="title_pref_single_tap" msgid="3366282780861635094">"Tək tıklama ilə seçim"</string>
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"Tək tıklama ilə aktivləşdirmə"</string>
     <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Kontekst Menyusunu siyahı kimi göstərin"</string>
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"TalkBack aktiv olanda ekranı tutqun edin"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(Eksperimental) Seçmək üçün indiki fokuslanmış elementə toxunun"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"(Eksperimental) Aktivləşdirmək üçün cari fokuslanmış elementə toxunun"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Fasiləsiz oxunuşa başlamaq üçün silkələyin"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Jestləri idarə edin"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"Fərdi etiketləri idarə edin"</string>
     <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Klaviatura qısa yollarını idarə edin"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"Xüsusi etiketləri ixrac edin"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"Play Store\'da TalkBack açın"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"Cari TalkBack versiyası: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"Yardım və rəy"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"Yardım"</string>
     <string name="title_pref_show_tos" msgid="6167834013879233992">"Xidmət Şərtləri"</string>
     <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Məxfilik Siyasəti"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Qısayol jestləri"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Daxili jestlər"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(Eksperimental) Cihazın bir tərəfinə tıklayın"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"Əsas xəritə"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"Əsas xəritə seçin"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"Əsas xəritəni sıfırlayın"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"Dəyişdirici açarı seçin"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"TalkBack əsas xəritəni sıfırlayacaq"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"TalkBack əsas xəritəni sıfırlayacaq və dəyişdirici açarını <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g> ilə dəyişdirəcək"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"Dəyişdirici açar <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g> ilə dəyişdirildi."</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"<xliff:g id="KEYMAP_NAME">%1$s</xliff:g> indi aktivdir."</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"Əsas xəritə sıfırlandı."</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"Qısayol dəstəklənmir"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"Klassik əsas xəritə"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"Defolt əsas xəritə"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"Naviqasiya əməliyyatları"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"Növbəti elementə keçin"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"Əvvəlki elementə keçin"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"Yuxarıdakı elementə keçin"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"Aşağıdakı elementə keçin"</string>
     <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"İlk elementə keçin"</string>
     <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"Sonuncu elementə keçin"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"Növbəti pəncərəyə keçin"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"Əvvəlki pəncərəyə keçin"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"Növbəti sözə keçin"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"Əvvəlki sözə keçin"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"Növbəti simvola keçin"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"Əvvəlki simvola keçin"</string>
     <string name="keycombo_menu_perform_click" msgid="243666968746657931">"Klikləyin"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"Davamlı klikləyin"</string>
     <string name="keycombo_menu_category_global" msgid="7309875734492478067">"Qlobal əməliyyatlar"</string>
     <string name="keycombo_menu_global_back" msgid="4567585750566224959">"Geri"</string>
     <string name="keycombo_menu_global_home" msgid="7189369064773623371">"Əsas səhifə"</string>
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Son tətbiqlər"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Bildirişlər"</string>
-    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"TalkBack-i durdurun"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"TalkBack-i durdurun və ya yenidən başladın"</string>
     <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Naviqasiya ayarları"</string>
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Növbəti naviqasiya ayarı"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Əvvəlki naviqasiya ayarı"</string>
@@ -143,10 +209,63 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Ekranda elementi axtarın"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Lokal Kontekst Menyunu göstərin"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Qlobal Kontekst Menyunu göstərin"</string>
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"Klaviatura qısa yollarını idarə edin"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"TalkBack ayarlarını açın"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"Veb naviqasiya əməliyyatları"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"Növbəti düyməyə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"Əvvəlki düyməyə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"Növbəti nəzarətə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"Əvvəlki nəzarətə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"Növbəti qeyd qutusuna keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"Əvvəlki qeyd qutusuna keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"Növbəti ARIA nöqtəsinə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"Əvvəlki ARIA nişangahına keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"Növbəti redaktə sahəsinə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"Əvvəlki redaktə sahəsinə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"Növbəti fokuslana bilən elementə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"Əvvəlki fokuslana bilən elementə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"Növbəti qrafikə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"Əvvəlki qrafikə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"Növbəti başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"Əvvəlki başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"Növbəti 1-ci başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"Əvvəlki 1-ci başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"Növbəti 2-ci başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"Əvvəlki 2-ci başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"Növbəti 3-cü başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"Əvvəlki 3-cü başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"Növbəti 4-cü başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"Əvvəlki 4-cü başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"Növbəti 5-ci başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"Əvvəlki 5-ci başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"Növbəti 6-cı başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"Əvvəlki 6-cı başlığa keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"Növbəti siyahı elementinə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"Əvvəlki siyahı elementinə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"Növbəti linkə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"Əvvəlki linkə keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"Növbəti siyahıya keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"Əvvəlki siyahıya keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"Növbəti cədvələ keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"Əvvəlki cədvələ keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"Növbəti siyahı xanasına keçin"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"Əvvəlki siyahı xanasına keçin"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"Klaviatura qısayolu:"</string>
     <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Yeni qısayol yaratmaq üçün klaviş kombinasiyasına basın. Bu ən azı ALT və ya Kontrol düyməsindən ibarət olmalıdır."</string>
-    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"Qısayol düyməsini silin"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Yeni qısayol yerləşdirmək üçün <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> dəyişdirici açarı ilə birlikdə açar kombinasiyasına basın."</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"Qısayolu təmizləmək üçün Backspace düyməsini, yadda saxlamaq üçün Enter düyməsini,və ya ləğv etmək üçün Escape düyməsini basın."</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"Qisayolu təmizləyin"</string>
     <string name="keycombo_unassigned" msgid="5817151372114230015">"Təyin edilməyib"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Axtarış"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Sağ Ox"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Sol Ox"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Yuxarı Ox"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Aşağı Ox"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"Bu əsas xəritə üçün qısayol düymələrini defolt dəyərlərə sıfırlamaq istədiyinizə əminsiniz. Lütfən, nəzərə alın ki, bu əməliyyat geri qaytarıla bilməz."</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"Sıfırlayın"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"Bu klaviş artıq istifadə olunur"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Bu klaviş kombinasiyası \'<xliff:g id="ID_1">%1$s</xliff:g>\' əməliyyatı üçün istifadə edilir. Bu silmək və bu qısayolu \'<xliff:g id="ID_2">%2$s</xliff:g>\' üçün təyin etmək istəyirsiniz?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Ton dəyişikliklərindən istifadə edin"</string>
@@ -159,9 +278,12 @@
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"Nitq audiosunu fokusla"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Danışarkən digər audio səs səviyyəsini azaldın"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Səs həcmi"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Talkback dayandırma və yenidən başlatma qısayolu"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Talkback dayandırma və yenidən başlatma qısayolu"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"Tutqun ekran qısayolu"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Müxtəlif"</string>
-    <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Tərtibatçı ayarları"</string>
+    <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Developer ayarları"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"Daxil etmək üçün tədbirlər seçin"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"Filter əlçatımlığı tədbir daxiletməsi"</string>
     <string name="title_pref_log_level" msgid="267415170405921603">"Xaricetmə səviyyəsi jurnalı"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Nitq xaricetməsini göstər"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"Data strukturu bağ ləğvinə icazə verin"</string>
@@ -186,10 +308,11 @@
     <string name="granularity_line" msgid="727359260064093782">"Xətlər"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"Paraqraflar"</string>
     <string name="granularity_page" msgid="2739238666516816581">"Səhifələr"</string>
-    <string name="granularity_web_section" msgid="496466197528091152">"Bölmə naviqasiyası"</string>
-    <string name="granularity_web_list" msgid="8598575022728013551">"Siyahı naviqasiyası"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"Kontrol naviqasiyası"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"Xüsusi məzmun naviqasiyası"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"Başlıq və Orientirlər"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"Siyahılar"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"Linklər"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"Kontrollar"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Xüsusi məzmun"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"Portret"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"Peyzaj"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"Təyin edilməyib"</string>
@@ -201,10 +324,12 @@
     <string name="shortcut_home" msgid="6670249804418900175">"Əsas ekran düyməsı"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"Baxış düyməsi"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"Bildirişləri açın"</string>
+    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"Xüsusi tədbirləri göstərin"</string>
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Qlobal kontekst menyusunu açın"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"Lokal kontekst menyunu açın"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Son sözü təkrar edin"</string>
     <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"Son sözü hərfləyin"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"Son sözü panoya kopyalayın"</string>
     <string name="shortcut_pause_feedback" msgid="1412613174540942399">"Geri əlaqəni durdur"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"Başdan oxuyun"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"Növbəti elementdən etibarən oxuyun"</string>
@@ -213,6 +338,8 @@
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Əvvəlki naviqasiya ayarı"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"İlk elementi ekranda fokuslayın"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Son elementi ekranda fokuslayın"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"Tutqun ekran"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"Qeyri-tutqun ekran"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"Lokal Kontekst Menyu"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"Qlobal Kontekst Menyu"</string>
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"Menyu elementi yoxdur."</string>
@@ -234,6 +361,13 @@
     <string name="title_summary" msgid="3037924006370977165">"Sürətli Naviqasiya"</string>
     <string name="title_granularity" msgid="399801096771904747">"Naviqasiya ayarları"</string>
     <string name="title_custom_action" msgid="7908169922901920318">"Fərdi əməliyyatlar"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"Təklifləri avtomatik tamamlayın"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"Təkliflərə keçin"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"Redaktə sahəsinə qayıdın"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"Axtarış kontrolu"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"Axtarış nəzarəti səviyyəsini redaktə edin"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"0 və 100 arasında rəqəm daxil edin."</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
     <string name="value_direction_up" msgid="1646290331150992975">"yuxarı"</string>
     <string name="value_direction_down" msgid="8072362433982733982">"aşağı"</string>
     <string name="value_direction_left" msgid="676932617445677488">"sol"</string>
@@ -294,6 +428,7 @@
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Əlçatımlı jestlərdəki dəyişiklikləri görmək üçün toxunun"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack dayandırıldı"</string>
     <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Yenidən başlatmaq üçün toxunun."</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"Dərs 1-ə avtomatik olaraq irəliləyir."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"TalkBack dayandırılsın?"</string>
     <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Əminsiniz? Cihazınız cavab rəyini təmin etməyəcək və Toxunaraq Kəşf et funksiyası deaktiv ediləcək. Talkback\'i bidlirişlərdən, ekran kilidinə geri qayıdaraq və ya səs düyməsi qısayolu ilə yenidən başlada bilərsiniz."</string>
     <string name="message_resume_manual" msgid="6522293510722570646">"Siz TalkBack\'i işlətməyə bildirişlər kölgəsindən davam edə bilərsiniz."</string>
@@ -308,13 +443,30 @@
     <string name="label_remove_dialog_text" msgid="372916461303485723">"\"<xliff:g id="LABEL">%1$s</xliff:g>\" etiketini silmək istədiyinizə əminsiniz?"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"<xliff:g id="APP_NAME">%2$s</xliff:g> daxilində \"<xliff:g id="LABEL">%1$s</xliff:g>\" tətbiqini silmək istədiyinizə əminsiniz?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Etiket mətni"</string>
+    <string name="label_import" msgid="1773817433300194935">"Xüsusi etiketləri import edin"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"Xüsusi etketləri Talkback\'ə idxal edin"</string>
+    <string name="label_import_dialog_message" msgid="7975227530187709469">"Münaqişə zamanı mövcud etiketlərin üzərinə yazmaq və ya üzərindən keçmək istədiyinizi seçin."</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"Ötürün"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"Üzərinə yazın"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"Heçnə ixrac olunmayıb. Heç bir etiket əlavə etməmisiniz"</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"Etiket ixracı uğursuz oldu"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"Etiket idxalı uğursuz oldu"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="other">%d etiket yeniləndi</item>
+      <item quantity="one">1 etiket yeniləndi</item>
+    </plurals>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"Etiketləri eksport etmək üçün tətbiq seçin:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"TalkBack funksiyasının bu versiyasına defolt girişimlik jestlərinə dəyişikliklər daxildir. Bu jestlərlə əlaqəli əməliyyatlar TalkBack ayarlarında dəyişdirilə bilər. Toxunuşla Kəşf aktiv ediləndən sonra, müəyyən əməliyyatları həyata keçirmək üçün aşağıdakı jestləri edə bilərsiniz.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Səsi artırmaq və azaltmaq düymələrini uzun basmaq"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"Ekran tutqunluğunu aktiv və ya deaktiv etmək üçün hər iki səs düyməsini üç dəfə cəld basın"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"Ekran tutqunlaşsın?"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"Ekranı qaraltmaq istəyirsiniz?"</string>
     <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"TalkBack funksiyasının bu versiyasına defolt girişimlik jestlərinə dəyişikliklər daxildir.\n\nYuxarı-sonra-aşağı jesti ekrandakı ilk elementə keçməyinizə yardım edəcək, aşağı-sonra-yuxarı jesti ekrandakı son elementə keçməyinizə imkan verəcək.\n\nOxunuş detalizasiyası elementə fokuslanaraq, sonra lokal məzmun menyusundan detalizasiyanın seçilməsi ilə dəyişə bilər.\n\nTalkBack Ayarlarında edilmiş əməliyyatları bu jestlər vasitəsilə dəyişə bilərsiniz."</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"Bu TalkBack versiyasına defolt əlçatımlılıq jestlərinə dəyişikliklər daxildir.\n\nYuxarı jest əvvəlki naviqasiya ayarına aparır, aşağı jest isə növbəti naviqasiya ayarına aparır."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Jestləri qəbul edin"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Jestləri fərdiləşdirin"</string>
+    <string name="button_clear_all_events" msgid="2128349101908653825">"Hamısını silin"</string>
+    <string name="button_check_all_events" msgid="301383322727007726">"Hamısını yoxlayın"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"Toxunuşla Kəşf funksiyası deaktiv edilsin?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Toxunuşla Kəşffunksiyasını söndürmək istəyirsiniz?\n\nCihazınızdan bir daha rəy gəlməyəcək."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Ağac düyünü debağı aktiv edilsin?"</string>
@@ -327,9 +479,77 @@
     <string name="permission_labeling_desc" msgid="8065967887484901473">"TalkBack tərəfindən deyilən fərdi etiketlərə giriş, dəyişiklik və silmək üçün icazə."</string>
     <string name="links" msgid="3448225474115458693">"Linklər"</string>
     <string name="end_of_text" msgid="3595733062526019550">"Son"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"Əvvəlki <xliff:g id="ID_1">%1$s</xliff:g> yoxdur"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"Növbəti <xliff:g id="ID_1">%1$s</xliff:g> yoxdur"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"başlıq"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"düymə"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"kombo xanası"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"ARIA nişangahı"</string>
+    <string name="display_name_edit_field" msgid="5014778180731737501">"redaktə_sahəsi"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"fokuslanan element"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"başlıq 1"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"başlıq 2"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"başlıq 3"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"başlıq 4"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"başlıq 5"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"başlıq 6"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"link"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"nəzarət"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"qrafik"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"siyahı elementi"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"siyahı"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"cədvəl"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"Qeyd qutusu"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"başlıq və ya nişangah"</string>
     <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
     <string name="row_index_template" msgid="4107789959609911947">"Sıra <xliff:g id="ROW">%1$d</xliff:g>"</string>
     <string name="column_index_template" msgid="258393957626754806">"Sütun <xliff:g id="COL">%1$d</xliff:g>"</string>
     <string name="heading_template" msgid="3585514481777782183">"Başlıq"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"Cərgə başlığı"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"Sütun başlığı"</string>
     <string name="item_index_template" msgid="71505978833721807">"Element <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"Idxal edilmiş etiketləri geri qaytarın"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"İdxal olunmuş etiketlər geri qayıtdı"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g> yuxarıda, <xliff:g id="ID_2">%2$s</xliff:g> aşağıda"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g> solda, <xliff:g id="ID_2">%2$s</xliff:g> sağda"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g> sağda, <xliff:g id="ID_2">%2$s</xliff:g> solda"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="untitled_window" msgid="7017590766394623328">"başlıqsız"</string>
+    <string name="status_bar" msgid="6000275621941971563">"status paneli"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"naviqasiya paneli"</string>
+    <string name="template_collection_start" msgid="4362535543397747567">"<xliff:g id="COLLECTION_NAME">%1$s</xliff:g> kolleksiyasında"</string>
+    <string name="template_collection_end" msgid="2167296836815021551">"<xliff:g id="COLLECTION_NAME">%1$s</xliff:g> kolleksiyasından kənar"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"Səviyyə <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> element</item>
+      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> element</item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> cərgə</item>
+      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> cərgə</item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> sütun</item>
+      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> sütun</item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> simvol</item>
+      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> simvol</item>
+    </plurals>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT">%1$d</xliff:g> tədbir seçildi</item>
+      <item quantity="one">1 tədbir seçildi</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> başladı"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> bitdi"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"Axtarış nəzarəti rejimi"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"Dəyəri dəyişmək üçün ox düymələrinə basın, və ya bitirmək üçün seçim düyməsinə basın."</string>
+    <string name="arc_android_window" msgid="697316167642517245">"Android pəncərəsi"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"Naviqasiya üçün oxlarla birlikdə axtarışa basın"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"Qısayolların siyahısını görmək üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> düyməsinə basın"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"TalkBack ayarlarını açmaq üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın"</string>
+    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"Toxunaraq danışılan əks əlaqədə ən yaxşı nəticə üçün, tətbiq pəncərəsinin ölçüsünü maksimum edin"</string>
 </resources>

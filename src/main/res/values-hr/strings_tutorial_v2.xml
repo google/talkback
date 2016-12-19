@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Vodič za pristupačnost"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Pokreni vodič kroz TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Vodič kroz TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack je čitač zaslona namijenjen prvenstveno slijepim i slabovidnim osobama. Omogućuje interakciju s uređajem uz pomoć govornih povratnih informacija."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Isključi TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Saznajte više"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Vježbaj"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"<xliff:g id="INDEX">%1$d</xliff:g>. lekcija"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"<xliff:g id="INDEX">%1$d</xliff:g>. vježba"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Prva lekcija: Osnovno kretanje"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Istražite dodirom i prelaskom prstom, dodirnite dvaput za aktivaciju"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Prvi dio: Istraži dodirom"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Kada je istraživanje dodirom omogućeno, možete čuti što dodirujete prstom. Prelazite prstom po stavkama na sredini zaslona. Kada istražite pet stavki, lekcija će se nastaviti."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Drugi dio: dvostruki dodir za aktivaciju"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Da biste aktivirali zadnju izgovorenu stavku, dvaput dodirnite na bilo kojem mjestu. Sada pronađite stavku 7 i aktivirajte je. Nakon toga aktivirajte Dalje da biste nastavili."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Aktivirana je stavka 7. Pronađite i aktivirajte gumb Dalje da biste nastavili"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Treći dio: Lekcije o kretanju"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Lekcije TalkBacka uređene su na sličan način. U gornjem području nalazi se lekcija koju možete istražiti i pročitati kada god želite. U gornjem lijevom kutu nalazi se i gumb Početni zaslon vodiča. Središnji dio služi za vježbu. U donjem se dijelu nalazi pokazivač napretka i gumbi za kretanje lekcijom. Sada aktivirajte Dalje da biste nastavili."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Četvrti dio: Istraživanje klizeći prstom"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Istraživati možete i klizeći prstom po zaslonu. Kliznite ulijevo da biste istražili što je gore i lijevo ili udesno da biste istražili što je dolje i desno. Isprobajte odmah."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Peti dio: Vježba"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Da biste čuli što vam je ispod prsta, pomičite ga po zaslonu. Dvaput dodirnite na bilo kojem mjestu da biste aktivirali ono što je izgovoreno. Prelazite prstom ulijevo ili udesno da biste istraživali."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Druga lekcija: Pomicanje"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Pomicanje s dva prsta, preskakanje unaprijed i unatrag"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Prvi dio: Pomicanje s dva prsta"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Da biste se pomicali po okomitom popisu, pronađite stavku popisa, pa s dva prsta prelazite prema gore ili dolje. Da biste se pomicali po vodoravnom popisu, pronađite stavku popisa, a zatim s dva prsta prelazite ulijevo ili udesno."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Drugi dio: Prečaci za pomicanje"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Za preskakanje unaprijed ili unatrag na popisu možete se koristiti prečacem. Da biste preskočili unaprijed, jednom kretnjom prijeđite prstom udesno pa ulijevo. Da biste preskočili unatrag, jednim prstom prijeđite ulijevo pa udesno. Isprobajte ovdje."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Treći dio: Vježba"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Da biste se pomicali, povucite s dva prsta prema gore ili dolje. Da biste preskočili unaprijed, jednim prstom prijeđite udesno pa ulijevo. Da biste preskočili unatrag, jednim prstom prijeđite ulijevo pa udesno."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Treća lekcija: TalkBackovi izbornici"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Globalni TalkBackov izbornik, lokalni TalkBackov izbornik"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Prvi dio: Globalni TalkBackov izbornik"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack ima dva različita izbornika. Prvi, globalni TalkBackov izbornik, uvijek sadrži iste naredbe. Možete ga aktivirati tako da jednim prstom u jednom pokretu prijeđete prema dolje pa udesno, a zatim podignete prst. Odmah aktivirajte verziju za vježbu."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Opcije izbornika navedene su okomito na sredini zaslona. Pokušajte istraživati. Kada završite, aktivirajte Odustani."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Drugi dio: Lokalni TalkBackov izbornik"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Drugi je izbornik lokalni TalkBackov izbornik. Stavke tog izbornika razlikuju se ovisno o onom što ste posljednje čuli. Taj izbornik možete aktivirati tako da jednim prstom u jednom pokretu prijeđete prema gore pa udesno, a zatim podignete prst. Odmah aktivirajte izbornik za vježbu."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Treći dio: Vježba"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Prijeđite prstom prema dolje pa udesno da biste aktivirali globalni TalkBackov izbornik. Prijeđite prstom prema gore pa udesno da biste aktivirali lokalni TalkBackov izbornik."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Dolje pa desno"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Gore pa desno"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Globalni TalkBackov izbornik: dolje pa desno. Lokalni TalkBackov izbornik: gore pa desno"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Četvrta lekcija: Kretanje tekstom"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Odabir postavki kretanja tekstom"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Prvi dio: Odabir postavki kretanja"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack vam omogućuje da odaberete hoće li se tekst čitati odlomak po odlomak, redak po redak, riječ po riječ ili znak po znak. Čitanje znak po znak korisno je za provjeru pisanja. Kretanje po tekstu možete postaviti na razinu znakova tako što ćete dodirnuti tekst u nastavku, a zatim prstom prijeći prema gore pa dolje."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Ovdje istražite opcije razina čitanja koje su navedene okomito. Pronađite i aktivirajte opciju Čitaj znak po znak."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Drugi dio: Kretanje tekstom"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Sada čitate znak po znak. Odaberite primjer teksta i prijeđite prstom udesno da biste čitali znak po znak."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Treći dio: Vježba"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Razinu kretanja tekstom promijenite tako što ćete prstom prijeći prema gore, pa dolje. Sljedeći znak u primjeru teksta pročitajte tako što ćete prstom prijeći udesno."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Evo primjera teksta za vježbu s TalkBackom. \"Gdje je Kansas?\" upitao je čovjek iznenađeno. \"Ne znam\", odgovorila je Dorothy žalosno, \"no to je moj dom i sigurna sam da se negdje nalazi.\"\n\n\"Vrlo vjerojatno. Pa, Oz može sve, pa pretpostavljam da će ti pronaći Kansas. No najprije ga moraš posjetiti, a to će biti teško jer Veliki čarobnjak ne voli posjete i obično ga se ne može nagovoriti da nekog primi. A što ti želiš?\" nastavio je obraćajući se Totu."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Peta lekcija: Uređivanje teksta"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Aktiviranje uređivačkog okvira, pisanje, pomicanje pokazivača, odabir teksta i ostale radnje na tekstu"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Prvi dio: aktiviranje uređivačkog okvira"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"TalkBack pruža mogućnost upotrebe uređivačkog okvira za pisanje, odabir i uređivanje teksta. Da biste aktivirali uređivački okvir, dvaput ga dodirnite. Kada aktivirate uređivački okvir, pri dnu zaslona pojavit će se tipkovnica. Ako je želite odbaciti, dodirnite gumb Natrag. Sada pokušajte aktivirati uređivački okvir. Kada završite, aktivirajte opciju Dalje koja se sada nalazi iznad tipkovnice."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Drugi dio: Pisanje u uređivačkom okviru"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Da biste pisali, aktivirajte uređivački okvir i klizite prstom po tipkovnici na zaslonu. Kada čujete željeni znak, podignite prst da biste ga aktivirali. U nastavku pokušajte aktivirati uređivački okvir i pisati u njemu."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Treći dio: Upotreba pokazivača"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Pokazivač možete pomicati tipkama za glasnoću na uređaju ili pomoću lokalnog izbornika TalkBacka. Opcija kontrole pokazivača na tom izborniku omogućuje vam i da odaberete, izrežete, kopirate i zalijepite tekst. U nastavku aktivirajte uređivački okvir i pomičite pokazivač po primjeru teksta."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"E-adresa Dorothy Gale glasi dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Četvrti dio: Vježba"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Aktivirajte uređivački okvir tako što ćete ga dvaput dodirnuti. Da biste pisali, klizite prstom po znakovima, a zatim ga podignite. Pokazivač pomičite tipkama za glasnoću i pomoću lokalnog izbornika TalkBacka. Odaberite, izrežite, kopirajte ili zalijepite tekst pomoću opcije kontrole pokazivača na lokalnom izborniku TalkBacka."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Uređivanje teksta"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"PRETHODNO"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"DALJE"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"PRETHODNA LEKCIJA"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"SLJEDEĆA LEKCIJA"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"POČETNA STRANICA VODIČA"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"%1$d. lekcija"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"%1$d. dio"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"%1$d. dio od %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Vježba je dovršena i uskoro će se nastaviti"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Područje za vježbu"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"Stavka %1$s aktivirana je u načinu vježbe. Aktivirajte gumb ODUSTANI da biste napustili taj način."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Gumb Početna stranica vodiča"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Stavka <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Izlaz"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Potrebna je značajka Istraži dodirom"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Za ovaj je vodič potrebna značajka Istraži dodirom. Omogućite Istraži dodirom prije pokretanja vodiča."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack onemogućen"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Da bi ovaj vodič funkcionirao, TalkBack mora biti omogućen. Uključite TalkBack prije pokretanja vodiča."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack obustavljen"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Vodič kroz TalkBack nije dostupan dok su povratne informacije pauzirane. Ponovo pokrenite povratne informacije značajke TalkBack i vodič da biste nastavili."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Opiši izbornik"</string>
+</resources>

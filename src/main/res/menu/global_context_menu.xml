@@ -5,14 +5,17 @@
         android:id="@+id/read_from_top"
         android:title="@string/shortcut_read_from_top"/>
     <item
+        android:id="@+id/read_from_current"
+        android:title="@string/shortcut_read_from_current"/>
+    <item
         android:id="@+id/repeat_last_utterance"
         android:title="@string/shortcut_repeat_last_utterance"/>
     <item
         android:id="@+id/spell_last_utterance"
         android:title="@string/shortcut_spell_last_utterance"/>
     <item
-        android:id="@+id/read_from_current"
-        android:title="@string/shortcut_read_from_current"/>
+        android:id="@+id/copy_last_utterance_to_clipboard"
+        android:title="@string/shortcut_copy_last_utterance_to_clipboard"/>
     <item
         android:id="@+id/quick_navigation"
         android:title="@string/title_summary">

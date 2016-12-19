@@ -16,32 +16,25 @@
 
 package com.android.talkback.speechrules;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
-import android.widget.Switch;
-import android.widget.ToggleButton;
 
 import com.android.talkback.R;
 import com.android.utils.AccessibilityEventUtils;
-import com.android.utils.AccessibilityNodeInfoUtils;
+import com.android.utils.Role;
 import com.android.utils.StringBuilderUtils;
 
 /**
  * Formats speech for CompoundButton widgets.
  */
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 public class RuleSwitch extends RuleDefault {
     @Override
-    public boolean accept(AccessibilityNodeInfoCompat node,
-            AccessibilityEvent event) {
-        return AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, Switch.class) ||
-                AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, ToggleButton.class);
+    public boolean accept(AccessibilityNodeInfoCompat node, AccessibilityEvent event) {
+        int role = Role.getRole(node);
+        return role == Role.ROLE_SWITCH || role == Role.ROLE_TOGGLE_BUTTON;
     }
 
     @Override
@@ -51,20 +44,16 @@ public class RuleSwitch extends RuleDefault {
         final CharSequence text = (!TextUtils.isEmpty(node.getText())) ? node.getText()
                 : AccessibilityEventUtils.getEventAggregateText(event);
         final CharSequence contentDescription = node.getContentDescription();
+        final CharSequence roleText = Role.getRoleDescriptionOrDefault(context, node);
 
         // Prepend any contentDescription, if present
         StringBuilderUtils.appendWithSeparator(output, contentDescription);
 
         // Append node or event text
-        final String switchDescription = context.getString(R.string.template_switch,
-                (!TextUtils.isEmpty(text)) ? text : "");
-        final Spannable spannableSwitchDescription =
-                StringBuilderUtils.createSpannableFromTextWithTemplate(switchDescription, text);
-        StringBuilderUtils.appendWithSeparator(output, spannableSwitchDescription);
+        StringBuilderUtils.append(output, text, roleText);
 
         // The text should contain the current state.  Explicitly speak state for ToggleButtons.
-        if (TextUtils.isEmpty(text) || AccessibilityNodeInfoUtils.nodeMatchesClassByType(node,
-                ToggleButton.class)) {
+        if (TextUtils.isEmpty(text) || Role.getRole(node) == Role.ROLE_TOGGLE_BUTTON) {
             final CharSequence state = context.getString(
                     node.isChecked() ? R.string.value_checked : R.string.value_not_checked);
             StringBuilderUtils.appendWithSeparator(output, state);

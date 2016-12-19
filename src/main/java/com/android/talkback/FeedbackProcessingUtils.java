@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.text.Spannable;
 import android.text.TextUtils;
+import android.text.style.CharacterStyle;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 
@@ -86,7 +87,6 @@ class FeedbackProcessingUtils {
 
         // Process the FeedbackItem
         addFormattingCharacteristics(feedbackItem);
-        cleanupItemText(context, feedbackItem);
         splitLongText(feedbackItem);
 
         return feedbackItem;
@@ -123,7 +123,7 @@ class FeedbackProcessingUtils {
                 while (start < end) {
                     final int fragmentEnd = start + maxUtteranceLength - 1;
 
-                    // TODO(CB): We currently split only on spaces.
+                    // TODO: We currently split only on spaces.
                     // Find a better way to do this for languages that don't
                     // use spaces.
                     int splitLocation = TextUtils.lastIndexOf(
@@ -153,7 +153,7 @@ class FeedbackProcessingUtils {
      *
      * @param item The item to process for formatted text.
      */
-    private static void addFormattingCharacteristics(FeedbackItem item) {
+    static void addFormattingCharacteristics(FeedbackItem item) {
         for (int i = 0; i < item.getFragments().size(); ++i) {
             final FeedbackFragment fragment = item.getFragments().get(i);
             final CharSequence fragmentText = fragment.getText();
@@ -162,121 +162,91 @@ class FeedbackProcessingUtils {
             }
 
             Spannable spannable = (Spannable) fragmentText;
-            final Object[] spans = spannable.getSpans(0, spannable.length(), Object.class);
-            for (Object span : spans) {
-                boolean spanHandled = false;
-                if (span instanceof URLSpan) {
-                    final URLSpan urlSpan = (URLSpan) span;
-                    spanHandled = handleUrlSpan(item, fragment, i, spannable, urlSpan);
-                } else if (span instanceof StyleSpan) {
-                    final StyleSpan styleSpan = (StyleSpan) span;
-                    spanHandled = handleStyleSpan(item, fragment, i, spannable, styleSpan);
+
+            int len = spannable.length();
+            int next;
+            for (int begin = 0; begin < len; begin = next) {
+                // CharacterStyle is a superclass of both URLSpan and StyleSpan; we want to split by
+                // only URLSpan/StyleSpan, but it is OK if we request any CharacterStyle in the list
+                // of spans since we ignore the ones that are not URLSpan/StyleSpan.
+                next = nextSpanTransition(spannable, begin, len, URLSpan.class, StyleSpan.class);
+                CharacterStyle[] spans = spannable.getSpans(begin, next, CharacterStyle.class);
+
+                // Since we add earcons and change pitch for URLs and styling, we can only handle
+                // one type of span per block. URLs seem more important, so they get priority.
+                CharacterStyle chosenSpan = null;
+                for (CharacterStyle span : spans) {
+                    if (span instanceof URLSpan) {
+                        chosenSpan = span;
+                    } else if (span instanceof StyleSpan && !(chosenSpan instanceof URLSpan)) {
+                        chosenSpan = span;
+                    }
                 }
 
-                if (spanHandled) {
-                    // If the span was handled, truncate the handled section
-                    // from the spannable source
-                    spannable = (Spannable) spannable.subSequence(
-                            spannable.getSpanEnd(span), spannable.toString().length());
+                final FeedbackFragment newFragment;
+                if (begin == 0) {
+                    // This is the first new fragment, so we should reuse the old fragment.
+                    // That way, we'll keep the existing haptic/earcon feedback at the beginning!
+                    newFragment = fragment;
+                    newFragment.setText(spannable.subSequence(0, next));
+                } else {
+                    // Otherwise, add after the last fragment processed/added.
+                    newFragment = new FeedbackFragment(spannable.subSequence(begin, next), null);
 
-                    // Adjust iterative position by the number of fragments
-                    // added to the item
-                    i += 2;
+                    ++i;
+                    item.addFragmentAtPosition(newFragment, i);
+                }
+
+                if (chosenSpan instanceof URLSpan) {
+                    handleUrlSpan(newFragment);
+                } else if (chosenSpan instanceof StyleSpan) {
+                    handleStyleSpan(newFragment, (StyleSpan) chosenSpan);
                 }
             }
         }
     }
 
-    private static void cleanupItemText(Context context, FeedbackItem item) {
-        for (FeedbackFragment fragment : item.getFragments()) {
-            if (!TextUtils.isEmpty(fragment.getText())) {
-                CharSequence processedText = SpeechCleanupUtils.collapseRepeatedCharacters(
-                        context, fragment.getText());
-                processedText = SpeechCleanupUtils.cleanUp(context, processedText);
-                fragment.setText(processedText);
+    private static int nextSpanTransition(Spannable spannable, int start, int limit,
+            Class... types) {
+        int next = limit;
+        for (Class type : types) {
+            int currentNext = spannable.nextSpanTransition(start, limit, type);
+            if (currentNext < next) {
+                next = currentNext;
             }
         }
+
+        return next;
     }
 
     /**
      * Handles the splitting of {@link StyleSpan}s into multiple
      * {@link FeedbackFragment}s.
-     * <p>
-     * NOTE: in the case that this method returns {@code true}, two new
-     * {@link FeedbackFragment}s will always be added to the given
-     * {@link FeedbackItem}.
      *
-     * @param item The item to which new fragments should be added.
      * @param fragment The fragment containing the spannable text to process.
-     * @param spannable The spannable text containing the span to process
-     * @param span The individual {@link StyleSpan} that represents the span
-     * @return {@code true} if processed, {@code false} otherwise
      */
-    private static boolean handleUrlSpan(FeedbackItem item, FeedbackFragment fragment,
-            int fragmentPosition, Spannable spannable, URLSpan span) {
-        final int spanStart = spannable.getSpanStart(span);
-        final int spanEnd = spannable.getSpanEnd(span);
-
-        if (spanStart < 0 || spanEnd < 0) {
-            return false;
-        }
-
-        // Add a fragment for the text and metadata from before the span.
-        // Copying this metadata preserves earcons and other speech and
-        // non-speech parameters that were originally associated with the
-        // initial section of the fragment.
-        final FeedbackFragment beforeSpanFragment = new FeedbackFragment(
-                spannable.subSequence(0, spanStart), null);
-        copyFragmentMetadata(fragment, beforeSpanFragment);
-        item.addFragmentAtPosition(beforeSpanFragment, fragmentPosition);
-
-        // Add a fragment for the span and add appropriate feedback and metadata
-        // specific to the span.
-        FeedbackFragment spanFragment = new FeedbackFragment(
-                spannable.subSequence(spanStart, spanEnd), null);
+    private static void handleUrlSpan(FeedbackFragment fragment) {
         final Bundle speechParams = new Bundle(Bundle.EMPTY);
         speechParams.putFloat(SpeechController.SpeechParam.PITCH, PITCH_CHANGE_HYPERLINK);
-        spanFragment.setSpeechParams(speechParams);
-        spanFragment.addEarcon(R.raw.hyperlink);
-        item.addFragmentAtPosition(spanFragment, fragmentPosition + 1);
-
-        // Use the existing fragment to hold any remaining text after the span.
-        // We clear the metadata associated with this fragment as it's now
-        // included in its proper location within beforeSpanFragment
-        fragment.setText(spannable.subSequence(spanEnd, spannable.length()));
-        clearFragmentMetadata(fragment);
-
-        return true;
+        fragment.setSpeechParams(speechParams);
+        fragment.addEarcon(R.raw.hyperlink);
     }
 
     /**
      * Handles the splitting of {@link URLSpan}s into multiple
      * {@link FeedbackFragment}s.
-     * <p>
-     * NOTE: in the case that this method returns {@code true}, two new
-     * {@link FeedbackFragment}s will always be added to the given
-     * {@link FeedbackItem}.
      *
-     * @param item The item to which new fragments should be added.
      * @param fragment The fragment containing the spannable text to process.
-     * @param spannable The spannable text containing the span to process
      * @param span The individual {@link StyleSpan} that represents the span
-     * @return {@code true} if processed, {@code false} otherwise
      */
-    private static boolean handleStyleSpan(FeedbackItem item, FeedbackFragment fragment,
-            int fragmentPosition, Spannable spannable, StyleSpan span) {
-        final int spanStart = spannable.getSpanStart(span);
-        final int spanEnd = spannable.getSpanEnd(span);
+    private static void handleStyleSpan(FeedbackFragment fragment, StyleSpan span) {
         final int style = span.getStyle();
-
-        if (spanStart < 0 || spanEnd < 0) {
-            return false;
-        }
 
         final int earconId;
         final float voicePitch;
         switch (style) {
             case Typeface.BOLD:
+            case Typeface.BOLD_ITALIC:
                 voicePitch = PITCH_CHANGE_BOLD;
                 earconId = R.raw.bold;
                 break;
@@ -285,35 +255,13 @@ class FeedbackProcessingUtils {
                 earconId = R.raw.italic;
                 break;
             default:
-                return false;
+                return;
         }
 
-        // Add a fragment for the text and metadata from before the span.
-        // Copying this metadata preserves earcons and other speech and
-        // non-speech parameters that were originally associated with the
-        // initial section of the fragment.
-        final FeedbackFragment beforeSpanFragment = new FeedbackFragment(
-                spannable.subSequence(0, spanStart), null);
-        copyFragmentMetadata(fragment, beforeSpanFragment);
-        item.addFragmentAtPosition(beforeSpanFragment, fragmentPosition);
-
-        // Add a fragment for the span and add appropriate feedback and metadata
-        // specific to the span.
-        FeedbackFragment spanFragment = new FeedbackFragment(
-                spannable.subSequence(spanStart, spanEnd), null);
         final Bundle speechParams = new Bundle(Bundle.EMPTY);
         speechParams.putFloat(SpeechController.SpeechParam.PITCH, voicePitch);
-        spanFragment.setSpeechParams(speechParams);
-        spanFragment.addEarcon(earconId);
-        item.addFragmentAtPosition(spanFragment, fragmentPosition + 1);
-
-        // Use the existing fragment to hold any remaining text after the span.
-        // We clear the metadata associated with this fragment as it's now
-        // included in its proper location within beforeSpanFragment
-        fragment.setText(spannable.subSequence(spanEnd, spannable.length()));
-        clearFragmentMetadata(fragment);
-
-        return true;
+        fragment.setSpeechParams(speechParams);
+        fragment.addEarcon(earconId);
     }
 
     private static void copyFragmentMetadata(FeedbackFragment from, FeedbackFragment to) {

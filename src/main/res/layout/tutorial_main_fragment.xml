@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.talkback.tutorial.HoverTrackingLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical"
+    android:id="@+id/parentLayout">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/tutorial_header_background"
+        >
+        <TextView
+            android:id="@+id/description"
+            style="@style/TutorialDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_description"
+            android:textColor="@color/tutorial_header_text"/>
+        <com.android.talkback.tutorial.HoverTrackingButton
+            android:id="@+id/offButton"
+            android:text="@string/turn_off_talkback"
+            style="@style/MaterialTextButton"
+            android:background="@color/tutorial_header_button_background"
+            android:paddingTop="8dp"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:paddingBottom="8dp"
+            android:textAlignment="center"
+            android:gravity="center_vertical|right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@id/description"
+            android:layout_marginRight="@dimen/tutorial_content_horizontal_offset"
+            android:layout_marginBottom="8dp"
+            android:importantForAccessibility="no" />
+
+
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:paddingTop="8dp"
+        android:clipToPadding="false"
+        android:scrollbarStyle="outsideOverlay"/>
+
+
+</com.android.talkback.tutorial.HoverTrackingLinearLayout>

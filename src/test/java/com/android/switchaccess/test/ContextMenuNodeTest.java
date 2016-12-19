@@ -16,6 +16,7 @@
 
 package com.android.switchaccess.test;
 
+import com.android.talkback.BuildConfig;
 import com.android.talkback.R;
 
 import android.annotation.TargetApi;
@@ -43,6 +44,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.MockitoAnnotations;
 import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.Shadows;
@@ -72,12 +74,13 @@ import static org.mockito.Mockito.when;
  * Tests for ContextMenuNode
  */
 @Config(
-        emulateSdk = 18,
+        constants = BuildConfig.class,
+        sdk = 21,
         shadows = {
                 ContextMenuNodeTest.HandlerThatDelaysPostedRunnables.class,
                 ContextMenuNodeTest.ShadowLayoutInflater.class})
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class ContextMenuNodeTest {
 
     private static final CharSequence ITEM_0_LABEL = "Label0";

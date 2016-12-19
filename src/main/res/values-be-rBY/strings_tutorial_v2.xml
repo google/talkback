@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Дапаможнік па спецыяльных магчымасцях"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Запуск кіраўніцтва па выкарыстанні TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Кіраўніцтва TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack – гэта праграма для чытання з экрана, якая прызначана ў першую чаргу для сляпых людзей і людзей са слабым зрокам. Яна забяспечвае магчымасць узаемадзеяння з прыладай пры дапамозе галасавой зваротнай сувязі."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Адключыць TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Вучыцца"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Практыкавацца"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"вывучыць урок <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"практыкаванні па ўроку <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Урок 1: асновы навігацыі"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Кранайце або праводзьце пальцам, каб даследаваць, кранайце двойчы, каб актываваць"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Частка 1: азнаямленне дакрананнем"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Калі ўключана функцыя «Азнаямленне дакрананнем», вы можаце пачуць, што знаходзіцца пад вашым пальцам. Перамяшчайце палец па элементах у цэнтры экрана. Урок працягнецца пасля таго, як вы азнёміцеся з пяццю элементамі."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Частка 2: краніце двойчы, каб актываваць"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Каб актываваць апошні элемент, які вы пачулі, краніце двойчы ў любым месцы. Знайдзіце элемент 7 і актывуйце яго зараз. Пасля гэтага актывуйце кнопку «Далей», каб працягнуць."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Элемент 7 актываваны. Знайдзіце і актывуйце кнопку «Далей», каб працягнуць."</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Частка 3: урокі па навігацыі"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Урокі па навучанні выкарыстанню TalkBack упарадкаваны аналагічным чынам. У верхняй частцы знаходзіцца ўрок, які вы можаце даследаваць і чытаць у любы час. У верхнім левым куце ёсць кнопка «Галоўная старонка падручніка». Пасярэдзіне знаходзіцца вобласць практыкаванняў. Унізе ёсць індыкатар ходу выканання і кнопкі навігацыі па ўроку. Каб працягнуць, актывуйце кнопку «Далей»."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Частка 4: правядзенне пальцам, каб даследаваць"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Вы таксама можаце даследаваць, праводзячы пальцам па экране. Праводзячы пальцам уверх, вы, у асноўным, даследуеце тое, што знаходзіцца вышэй і злева, а праводзячы ўніз – тое, што знізу і справа. Паспрабуйце зрабіць гэта зараз."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Частка 5: практыка"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Каб пачуць, што знаходзіцца пад вашым пальцам, перамяшчайце яго па экране. Краніце двойчы ў любым месцы, каб актываваць элемент, пра які вы чуеце. Правядзіце пальцам улева або ўправа, каб даследаваць."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Урок 2: пракрутка"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Пракрутка двума пальцамі, пераход наперад і назад"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Частка 1: пракрутка двума пальцамі"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Каб прагартаць вертыкальны спіс, знайдзіце элемент спіса, затым правядзіце двума пальцамі ўверх або ўніз. Каб прагартаць гарызантальны спіс, знайдзіце элемент спіса, затым правядзіце двума пальцамі ўлева або ўправа."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Частка 2: хуткі доступ для пракруткі"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Вы можаце перайсці наперад або назад у спісе з дапамогай хуткага доступу. Для пераходу наперад перамясціце адзін палец управа, а затым улева адным рухам. Для пераходу назад, перамясціце адзін палец улева, а затым управа. Паспрабуйце зрабіць гэта."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Частка 3: практыка"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Каб пракруціць, перамясціце два пальцы ўверх ці ўніз. Для пераходу наперад перамясціце адзін палец управа, а затым улева. Для пераходу назад перамясціце адзін палец улева, а затым управа."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Урок 3: меню TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Глабальнае меню TalkBack, лакальнае меню TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Частка 1: глабальнае меню TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack мае два розных меню. Першае меню TalkBack – глабальнае, яно заўсёды ўтрымлівае адны і тыя ж каманды. Вы можаце актываваць яго, перамясціўшы адзін палец уніз, а затым управа адным рухам і падняўшы палец. Актывуйце версію меню для практыкі зараз."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Параметры меню выводзяцца спісам вертыкальна пасярэдзіне экрана. Паспрабуйце даследаваць іх. Калі скончыце, актывуйце кнопку «Скасаваць»."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Частка 2: лакальнае меню TalkBack"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Другое меню – гэта лакальнае меню TalkBack. Элементы гэтага меню адрозніваюцца ў залежнасці ад таго, што вы пачулі апошнім. Вы можаце актываваць гэта меню, перамясціўшы адзін палец уверх, а затым управа адным рухам і падняўшы палец. Актывуйце версію меню для практыкі зараз."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Частка 3: практыка"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Перамясціце палец уніз, затым управа, каб актываваць глабальнае меню TalkBack. Перамясціце палец уверх, затым управа, каб актываваць лакальнае меню TalkBack."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Уніз, затым управа"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Уверх, затым управа"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Глабальнае меню TalkBack: уніз, затым управа. Лакальнае меню TalkBack: уверх, затым управа"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Урок 4: навігацыя па тэксце"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Выбар налад навігацыі па тэксце"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Частка 1: выбар налад навігацыі"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack дазваляе вам выбраць, якім чынам вам будзе чытацца тэкст: па абзацы, па радку, па слове або па сімвале. Чытанне па сімвале можа дапамагчы даведацца напісанне. Каб задаць для хуткасці пераходу па тэксце рэжым «па сімвале», краніце тэкст ніжэй, а потым правядзіце пальцам уверх і ўніз."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Азнаёмцеся з параметрамі хуткасці чытання, пералічанымі ў вертыкальным спісе тут. Знайдзіце і актывуйце параметр «Чытаць па сімвале»."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Частка 2: навігацыя па тэксце"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Зараз зададзены рэжым чытання па сімвале. Выберыце ўзор тэксту, затым правядзіце пальцам управа, каб пачуць чытанне па сімвале."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Частка 3: практыка"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Змяніце хуткасць пераходу па тэксце, правёўшы пальцам уверх і ўніз. Пачуйце чытанне наступнага сімвала ва ўзоры тэксту, правёўшы пальцам управа."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Вось узор тэксту для трэніроўкі выкарыстання TalkBack. \"Дзе знаходзіцца Канзас?\" – спытаў ён са здзіўленнем. \"Я не ведаю, — сумна адказала Дораці,  — але гэта мой дом, і я ўпэўненая, што ён недзе ёсць.\"\n\n\"Вельмі імаверна. Ну, Оз можа ўсё; і я думаю, што ён знойдзе табе Канзас. Але спачатку табе трэба ўбачыць яго, а гэта – цяжкая задача; бо Вялікі Чараўнік не хоча бачыць нікога, і ён звычайна ўсё робіць па-свойму. Але чаго хочаш ТЫ?\" працягнуў ён, звяртаючыся да Татосіка."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Урок 5: рэдагаванне тэксту"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Актывацыя поля рэдагавання, набор тэксту, перамяшчэнне курсора, вылучэнне тэксту і праца з ім"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Частка 1: Актывацыя поля рэдагавання"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"З дапамогай функцыі TalkBack вы можаце выкарыстоўваць поле рэдагавання, каб набіраць тэкст, вылучаць і рэдагаваць тэкст. Каб актываваць поле рэдагавання, краніце яго двойчы. Пасля актывацыі поля рэдагавання ўнізе экрана з\'яўляецца клавіятура. Вы можаце схаваць яе, крануўшы кнопку «Назад». Паспрабуйце актываваць поле рэдагавання зараз. Калі скончыце, актывуйце кнопку «Далей», якая зараз знаходзіцца вышэй клавіятуры."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Частка 2: увод у поле для рэдагавання"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Каб уводзіць тэкст, актывуйце поле рэдагавання і перамяшчайце свой палец па экраннай клавіятуры. Калі вы пачуеце патрэбны сімвал, падніміце палец, каб актываваць яго. Паспрабуйце актываваць поле рэдагавання ўнізе і набраць у ім тэкст."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Частка 3: выкарыстанне курсора"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Вы можаце перамяшчаць курсор з дапамогай кнопак рэгулявання гучнасці на вашай прыладзе або праз лакальнае меню TalkBack. З дапамогай параметра Кіраванне курсорам у гэтым меню вы таксама можаце вылучаць, выразаць, капіраваць і ўстаўляць тэкст. Актывуйце поле рэдагавання ўнізе і перамяшчайце курсор па ўзоры тэксту."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Адрас электроннай пошты Дораці Гейл: dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Частка 4: практыка"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Краніце поле рэдагавання двойчы, каб актываваць яго. Уводзьце тэкст, пераводзячы палец на патрэбны сімвал, а потым падымаючы яго. Перамяшчайце курсор з дапамогай кнопак рэгулявання гучнасці і лакальнага меню TalkBack. Вылучайце тэкст і працуйце з ім, выкарыстоўваючы опцыю Кіраванне курсорам у лакальным меню TalkBack."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Рэдагаванне тэксту"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"ПАПЯРЭДНІ"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"ДАЛЕЙ"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"ПАПЯРЭДНІ ЎРОК"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"НАСТУПНЫ ЎРОК"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"ГАЛОЎНАЯ СТАРОНКА КІРАЎНІЦТВА"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Урок %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Частка %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Частка %1$d з %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Практыкаванне завершана, навучанне працягнецца праз хвіліну"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Вобласць для практыкі"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s: актывавана ў рэжыме практыкавання. Каб выйсці, актывуйце кнопку «СКАСАВАЦЬ»."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Кнопка «Галоўная старонка» кіраўніцтва"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Элемент <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Выхад"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Патрабуецца функцыя «Азнаямленне дакрананнем»"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Для гэтага кіраўніцтва патрабуецца функцыя «Азнаямленне дакрананнем». Калі ласка, уключыце функцыю «Азнаямленне дакрананнем» перад запускам кіраўніцтва."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"Функцыя TalkBack адключана"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Для гэтага кіраўніцтва патрабуецца ўключэнне функцыі TalkBack. Калі ласка, уключыце функцыю TalkBack перад запускам кіраўніцтва."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"Праца TalkBack прыпынена"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Кіраўніцтва па выкарыстанні TalkBack недаступна, пакуль прыпынена зваротная сувязь. Калі ласка, узнавіце зваротную сувязь TalkBack і перазапусціце кіраўніцтва."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Апісанне меню"</string>
+</resources>

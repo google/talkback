@@ -60,6 +60,21 @@
     </restriction>
   </simpleType>
 
+  <complexType name="nullableStringType">
+    <simpleContent>
+      <extension base="string">
+        <attribute name="require">
+          <simpleType>
+            <restriction base="string">
+              <enumeration value="nonEmpty"/>
+              <enumeration value="empty"/>
+            </restriction>
+          </simpleType>
+        </attribute>
+      </extension>
+    </simpleContent>
+  </complexType>
+
   <complexType name="filterType">
     <choice>
       <element name="custom" type="ss:classNameType" minOccurs="0" maxOccurs="1"/>
@@ -76,9 +91,10 @@
         <element name="fromIndex" type="ss:rangeType"/>
         <element name="addedCount" type="ss:rangeType"/>
         <element name="removedCount" type="ss:rangeType"/>
-        <element name="text" type="string"/>
-        <element name="beforeText" type="string"/>
-        <element name="contentDescription" type="string"/>
+        <element name="text" type="ss:nullableStringType"/>
+        <element name="beforeText" type="ss:nullableStringType"/>
+        <element name="contentDescription" type="ss:nullableStringType"/>
+        <element name="contentDescriptionOrText" type="ss:nullableStringType"/>
         <element name="checked" type="boolean"/>
         <element name="enabled" type="boolean"/>
         <element name="fullScreen" type="boolean"/>
@@ -91,6 +107,7 @@
     <sequence minOccurs="1" maxOccurs="unbounded">
         <choice>
           <element name="queuing" type="ss:queuingType" minOccurs="0" maxOccurs="1"/>
+          <element name="skipDuplicates" type="boolean" minOccurs="0" maxOccurs="1" />
           <choice minOccurs="0" maxOccurs="unbounded">
             <element name="customVibration" type="ss:resourceReferenceType"/>
             <element name="customEarcon" type="ss:resourceReferenceType"/>

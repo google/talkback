@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Erabilerraztasunari buruzko tutoriala"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Abiarazi TalkBack tutoriala"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack tutoriala"</string>
+    <string name="main_description" msgid="4795202818108740382">"Itsuentzako edo ikusmen-arazoak dituztenentzako pantaila-irakurgailua da TalkBack. Gailuarekiko interakzioa ahalbidetzen du ahozko argibideak erabilita."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Desaktibatu TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Ikasi"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Praktika"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"ekin <xliff:g id="INDEX">%1$d</xliff:g>. ikasgaiari"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"probak egiteko <xliff:g id="INDEX">%1$d</xliff:g>. ikasgaia"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"1. ikasgaia: Oinarrizko nabigazioa"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Ukitu arakatzeko, pasatu hatza arakatzeko, sakatu birritan aktibatzeko"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"1. zatia: Arakatu ukituta"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Gaitzen bada, \"Arakatu ukituta\" eginbideak ozen esango du hatzaren azpian duzuna. Pasatu hatza pantailaren erdialdean dauden elementuen gainetik. Bost elementu arakatu ondoren aurrera egingo du ikasgaiak."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"2. zatia: aktibatzeko, sakatu birritan"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Entzundako azken elementua aktibatzeko, sakatu birritan pantailako edozein puntu. Bilatu 7. elementua eta aktiba ezazu. Ondoren, jarraitzeko, aktibatu Hurrengoa."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"7. elementua aktibatu da. Jarraitzeko, aurkitu eta aktibatu Hurrengoa botoia."</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"3. zatia: Nabigazio-ikasgaiak"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack ikasgai guztiak antzeko moduan daude antolatuta. Goiko eremuan ikasgaia bera dago, edonoiz aztertzeko edo irakurtzeko. Tutorialaren hasierara joateko botoia ere badu, goian, ezkerrean. Erdialdea probak egiteko da. Behealdean, egoera-adierazlea dago, ikasgaian nabigatzeko botoiekin batera. Jarraitzeko, aktibatu Hurrengoa."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"4. zatia: Arakatu hatza pasatuta"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Hatza pasatuta ere araka dezakezu pantaila. Hatza ezkerrera pasatuz gero, goiko eta ezkerreko gauzak arakatu ohi dira eta eskuinera pasatuz gero, berriz, behekoak eta eskuinekoak. Proba ezazu."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"5. zatia: Praktika"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Hatzaren azpian duzuna entzuteko, mugi ezazu pantailan. Entzuten duzuna aktibatzeko, sakatu birritan pantailako edozein puntu. Aukerak aztertzeko, pasatu hatza eskuinera edo ezkerrera."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"2. ikasgaia: Gora edo behera egitea"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Bi hatz pasatuta gora edo behera egitea, eta aurrera eta atzera saltatzea"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"1. zatia: Bi hatz pasatuta gora edo behera egitea"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Zerrenda bertikaletan ibiltzeko eta bertako elementuak bilatzeko, mugitu bi hatz gora edo behera. Zerrenda horizontaletan ibiltzeko eta bertako elementuak bilatzeko, mugitu bi hatz eskuinera edo ezkerrera."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"2. zatia: Gora edo behera egiteko lasterbideak"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Zerrendetan aurrera edo atzera saltatzeko, lasterbideak erabil ditzakezu. Aurrera saltatzeko, mugitu hatz bat eskuin-ezker mugimendu bakarrean. Atzera saltatzeko, berriz, mugi ezazu hatza ezker-eskuin. Proba ezazu hemen."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"3. zatia: Praktika"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Egin gora edo behera bi hatz gora edo behera lerratuta. Aurrera saltatzeko, mugitu hatz bat eskuinera eta, ondoren, ezkerrera. Atzera saltatzeko, mugitu hatz bat ezkerrera eta, ondoren, eskuinera."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"3. ikasgaia: TalkBack menuak"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"TalkBack-en menu orokorra, tokiko TalkBack menua"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"1. zatia: TalkBack-en menu orokorra"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack-ek bi menu ditu. Lehenengoan, TalkBack-en menu orokorrean, agindu berak agertzen dira beti. Hura aktibatzeko, mugitu hatz bat behera eta eskuinera mugimendu bakarrean, eta jaso hatza. Aktibatu praktikatzeko bertsioa."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Menuko aukerak bertikalki daude zerrendatuta pantailaren erdialdean. Azter itzazu. Amaitzen duzunean, aktibatu Utzi."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"2. zatia: Tokiko TalkBack menua"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Bigarren menua, berriz, tokiko TalkBack menua da. Menu horretako elementuak aldatu egiten dira entzun duzun azken gauzaren arabera. Menu hori aktibatzeko, mugitu hatz bat gora eta eskuinera mugimendu bakarrean, eta jaso hatza. Aktibatu praktikatzeko menua."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"3. zatia: Praktika"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"TalkBack-en menu orokorra aktibatzeko, mugitu hatza behera eta, ondoren, eskuinera. Tokiko TalkBack menua aktibatzeko, berriz, mugitu hatza gora eta, ondoren, eskuinera."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Behera eta, gero, eskuinera"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Gora eta, ondoren, eskuinera"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"TalkBack-en menu orokorra: behera eta, ondoren, eskuinera. Tokiko TalkBack menua: gora eta, ondoren, eskuinera."</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"4. ikasgaia: Testuan nabigatzea"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Testuan nabigatzeko ezarpenak aukeratzea"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"1. zatia: Nabigazio-ezarpenak aukeratzea"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack-ekin, paragrafoka, lerroka, hitzeka edo karaktereka irakur dezakezu testua. Karaktereka irakurrita, hitzak nola idatzi jakin dezakezu. Ezarri testu-nabigazioaren xehetasun-maila karakteretan beheko testua sakatuta eta, ondoren, hatza gora eta behera pasatuta."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Aztertu irakurtzeko xehetasun-mailaren aukerak; behean dituzu bertikalki zerrendatuta. Bilatu eta aktibatu karaktereka irakurtzeko aukera."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"2. zatia: Testuan nabigatzea"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Karaktereka ari zara irakurtzen orain. Hautatu adibideko testua, eta pasatu hatza eskuinera karaktereka irakurtzeko."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"3. zatia: Praktika"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Aldatu testu-nabigazioaren xehetasun-maila hatza gora eta behera pasatuta. Irakurri adibideko hurrengo karakterea hatza eskuinera pasatuta."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Hona hemen TalkBack trebatzeko erabil dezakezun lagin-testu bat. \"Non da Kansas?\" galdetu zuen gizonak, txunditurik. \"Ez dakit\" erantzun zuen Dorothyk goibel, \"baina hura da nire etxea eta ziur nago badela nonbait.\"\n\n\"Hala izango da, bai. Tira, Ozek edozer egin dezake; beraz, Kansas ere aurkituko dizula pentsatzen dut. Baina, lehendabizi, harengana iritsi behar duzu eta hori ez da ahuntzaren gauerdiko eztula: Azti Handiari ez zaio gustatzen inorekin egotea eta berearekin ateratzera lortzen du normalean. Eta zer egin nahi duzu ZUK?\" esan zuen gero, Totori oraingoan."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"5. ikasgaia: Testua editatzea"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Editatze-koadroak aktibatzea, idaztea, kurtsorea mugitzea, testua hautatzea eta testuan ekintzak gauzatzea"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"1. zatia: editatze-koadroak aktibatzea"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"TalkBack-ekin,  testua idazteko, hautatzeko eta editatzeko erabil ditzakezu editatze-koadroak. Editatze-koadro bat aktibatzeko, saka ezazu birritan. Editatze-koadroa aktibatu ondoren, teklatua agertuko da pantailaren behealdean. Hura kentzeko, sakatu Atzera botoia. Aktibatu editatze-koadroa. Amaitzen duzunean, aktibatu Hurrengoa, teklatuaren gainean."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"2. zatia: Edizio-koadroetan idaztea"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Idazteko, aktibatu editatze-koadroa eta mugitu hatzak pantailako teklatuan. Nahi duzun karakterea entzuten duzunean, hura aktibatzeko, jaso hatza. Aktibatu editatze-koadroa eta idatzi bertan."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"3. zatia: Kurtsorea erabiltzea"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Kurtsorea mugitzeko, erabili gailuko bolumen-teklak edo zoaz TalkBack menu lokala atalera. Menu horretan, kurtsorea kontrolatzeko aukera erabilita, testua hauta, ebaki, kopia eta itsats dezakezu. Aktibatu beheko editatze-koadroa, eta mugitu kurtsorea adibideko testuan."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Dorothy Galeren helbide elektronikoa dorothy@ozmail.com da"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"4. zatia: Praktika"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Sakatu birritan editatze-koadroa, aktiba dadin. Idazteko, mugitu hatza karaktere baten gainetik, eta jaso hatza. Kurtsorea mugitzeko, erabili gailuko bolumen-teklak edo TalkBack menu lokala. Hautatu testua eta gauzatu ekintzak bertan kurtsorea kontrolatzeko aukera erabilita TalkBack menu lokalean."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Editatu testua"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"AURREKOA"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"HURRENGOA"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"AURREKO IKASGAIA"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"HURRENGO IKASGAIA"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"TUTORIALAREN ORRI NAGUSIA"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"%1$d. ikasgaia"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"%1$d. zatia"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"%1$d/%2$d zatia"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Amaitu da ariketa eta berehala izango duzu prest hurrengoa"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Praktikatzeko eremua"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"Probatzeko moduan aktibatu da %1$s. Irteteko, aktibatu UTZI botoia."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Tutorialaren hasierako botoia"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"<xliff:g id="INDEX">%1$d</xliff:g>. elementua"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Irten"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"\"Arakatu ukituta\" behar da"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Tutorial hau erabiltzeko \"Arakatu ukituta\" eginbidea behar da. Tutoriala abiarazi aurretik, gaitu \"Arakatu ukituta\"."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"Desgaituta dago TalkBack"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Tutorial hau erabiltzeko TalkBack gaitu behar da. Tutoriala abiarazi aurretik, aktibatu TalkBack."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"Eten egin da TalkBack"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"TalkBack tutoriala ez dago erabilgarri azalpenak pausatuta dauden bitartean. Aurrera egiteko, berrekin TalkBack azalpenak erabiltzeari eta berrabiarazi tutoriala."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Azaldu menua"</string>
+</resources>

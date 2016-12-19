@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="template_stream_volume" msgid="1816951995792085063">"Volum de l\'activitat <xliff:g id="STREAM_NAME">%1$s</xliff:g>, <xliff:g id="PERCENT">%2$d</xliff:g> per cent"</string>
+    <string name="template_stream_volume" msgid="1816951995792085063">"Volum de <xliff:g id="STREAM_NAME">%1$s</xliff:g> establert al <xliff:g id="PERCENT">%2$d</xliff:g> per cent."</string>
     <string name="template_stream_volume_set" msgid="4964670773272907835">"Volum de l\'activitat <xliff:g id="STREAM_NAME">%1$s</xliff:g> definit al <xliff:g id="PERCENT">%2$d</xliff:g> per cent"</string>
     <string name="value_stream_master" msgid="4636086067147877021">"Mestre"</string>
     <string name="value_stream_voice_call" msgid="3808346037153621863">"Trucada de veu"</string>

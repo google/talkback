@@ -19,15 +19,18 @@ package com.android.switchaccess;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Handler;
-import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.WindowManager.BadTokenException;
+
 import com.android.talkback.R;
+import com.android.utils.LogUtils;
 import com.android.utils.SharedPreferencesUtils;
 
 /**
  * Auto-scanning allows the user to control the phone with one button. The user presses the button
  * to start moving focus around, and presses it again to select the currently focused item.
  */
-public class AutoScanController implements OptionManager.FocusClearedListener {
+public class AutoScanController implements OptionManager.OptionManagerListener {
 
     private static final int MILLISECONDS_PER_SECOND = 1000;
 
@@ -51,17 +54,22 @@ public class AutoScanController implements OptionManager.FocusClearedListener {
             }
 
             /*
-             * TODO(PW): Option selection should be configurable. This choice mimics
+             * TODO: Option selection should be configurable. This choice mimics
              * linear scanning
              */
             if (mIsScanInProgress) {
-                if (mReverseScan) {
-                    mOptionManager.moveToParent(true);
-                } else {
-                    mOptionManager.selectOption(OptionManager.OPTION_INDEX_NEXT);
-                }
-                if (mIsScanInProgress) {
-                    mHandler.postDelayed(mAutoScanRunnable, getAutoScanDelay());
+                try {
+                    if (mReverseScan) {
+                        mOptionManager.moveToParent(true);
+                    } else {
+                        mOptionManager.selectOption(OptionManager.OPTION_INDEX_NEXT);
+                    }
+                    if (mIsScanInProgress) {
+                        mHandler.postDelayed(mAutoScanRunnable, getAutoScanDelay());
+                    }
+                } catch (BadTokenException exception) {
+                    stopScan();
+                    LogUtils.log(this, Log.DEBUG, "Unable to start scan: %s", exception);
                 }
             }
         }
@@ -72,7 +80,7 @@ public class AutoScanController implements OptionManager.FocusClearedListener {
 
     public AutoScanController(OptionManager optionManager, Handler handler, Context context) {
         mOptionManager = optionManager;
-        mOptionManager.addFocusClearedListener(this);
+        mOptionManager.addOptionManagerListener(this);
         mHandler = handler;
         mContext = context;
     }
@@ -107,6 +115,17 @@ public class AutoScanController implements OptionManager.FocusClearedListener {
     }
 
     /**
+     * If auto-scan starts, schedule runnable to continue scanning
+     */
+    public void onOptionManagerStartedAutoScan() {
+        if (SwitchAccessPreferenceActivity.isAutoScanEnabled(mContext) && !mIsScanInProgress) {
+            mIsScanInProgress = true;
+            mReverseScan = false;
+            mHandler.postDelayed(mAutoScanRunnable, getAutoScanDelay());
+        }
+    }
+
+    /**
      * Starts the auto scan if it is not already running
      * @param reverseScan if true - scanning starts at the last item and moves backward.
      */
@@ -119,7 +138,7 @@ public class AutoScanController implements OptionManager.FocusClearedListener {
     /**
      * Stops the auto scan if it is currently running
      */
-    private void stopScan() {
+    public void stopScan() {
         mIsScanInProgress = false;
         mHandler.removeCallbacks(mAutoScanRunnable);
     }
@@ -128,7 +147,7 @@ public class AutoScanController implements OptionManager.FocusClearedListener {
      * @return the current auto scan time delay that is selected in the preferences
      */
     private int getAutoScanDelay() {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+        final SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(mContext);
         return (int) (MILLISECONDS_PER_SECOND
                 * SharedPreferencesUtils.getFloatFromStringPref(prefs, mContext.getResources(),
                 R.string.pref_key_auto_scan_time_delay,

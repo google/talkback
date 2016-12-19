@@ -22,21 +22,21 @@ import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
-import android.widget.EditText;
 
-import android.widget.SeekBar;
 import com.android.talkback.CursorGranularity;
 import com.android.talkback.R;
 import com.android.talkback.SpeechController;
+import com.android.utils.Role;
+import com.android.utils.WeakReferenceHandler;
 import com.google.android.marvin.talkback.TalkBackService;
 import com.android.talkback.controller.CursorController;
 import com.android.talkback.controller.DimScreenController;
@@ -57,6 +57,9 @@ public class ProcessorVolumeStream implements AccessibilityEventListener,
         TalkBackService.KeyEventListener, VolumeButtonPatternDetector.OnPatternMatchListener {
     /** Minimum API version required for this class to function. */
     public static final int MIN_API_LEVEL = Build.VERSION_CODES.JELLY_BEAN_MR2;
+
+    private static final boolean API_LEVEL_SUPPORTS_WINDOW_NAVIGATION =
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1;
 
     /** Default flags for volume adjustment while touching the screen. */
     private static final int DEFAULT_FLAGS_TOUCHING_SCREEN = (AudioManager.FLAG_SHOW_UI
@@ -80,6 +83,9 @@ public class ProcessorVolumeStream implements AccessibilityEventListener,
 
     /** WakeLock used to keep the screen active during key events */
     private final WakeLock mWakeLock;
+
+    /** Handler for completing volume key handling outside of the main key-event handler. */
+    private final VolumeStreamHandler mHandler = new VolumeStreamHandler(this);
 
     /**
      * The cursor controller, used for determining the focused node and
@@ -120,7 +126,7 @@ public class ProcessorVolumeStream implements AccessibilityEventListener,
         mWakeLock = pm.newWakeLock(
                 PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, WL_TAG);
 
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(service);
+        mPrefs = SharedPreferencesUtils.getSharedPreferences(service);
         mService = service;
         mDimScreenController = dimScreenController;
         mPatternDetector = new VolumeButtonPatternDetector();
@@ -172,13 +178,17 @@ public class ProcessorVolumeStream implements AccessibilityEventListener,
                 R.bool.pref_resume_volume_buttons_long_click_default);
     }
 
-    private void navigateSlider(int button) {
+    private void navigateSlider(int button, @NonNull AccessibilityNodeInfoCompat node) {
+        int action;
         if (button == VolumeButtonPatternDetector.VOLUME_UP) {
-            mCursorController.more();
+            action = AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD;
+        } else if (button == VolumeButtonPatternDetector.VOLUME_DOWN) {
+            action = AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD;
+        } else {
+            return;
         }
-        else if (button == VolumeButtonPatternDetector.VOLUME_DOWN) {
-            mCursorController.less();
-        }
+
+        PerformActionUtils.performAction(node, action);
     }
 
     private void navigateEditText(int button, @NonNull AccessibilityNodeInfoCompat node) {
@@ -199,6 +209,11 @@ public class ProcessorVolumeStream implements AccessibilityEventListener,
                     AccessibilityNodeInfoCompat.ACTION_ARGUMENT_EXTEND_SELECTION_BOOLEAN, true);
         }
 
+        EventState.getInstance().addEvent(
+                EventState.EVENT_SKIP_FOCUS_PROCESSING_AFTER_GRANULARITY_MOVE);
+        EventState.getInstance().addEvent(
+                EventState.EVENT_SKIP_HINT_AFTER_GRANULARITY_MOVE);
+
         if (button == VolumeButtonPatternDetector.VOLUME_UP) {
             result = PerformActionUtils.performAction(node,
                     AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY, args);
@@ -212,41 +227,12 @@ public class ProcessorVolumeStream implements AccessibilityEventListener,
         }
     }
 
-    private AccessibilityNodeInfoCompat findInputFocus() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-            List<AccessibilityWindowInfo> awis = mService.getWindows();
-            for (AccessibilityWindowInfo awi : awis) {
-                if (awi.getType() == AccessibilityWindowInfo.TYPE_INPUT_METHOD) continue;
-                AccessibilityNodeInfo info = awi.getRoot();
-                if (info == null) continue;
-                AccessibilityNodeInfoCompat root = new AccessibilityNodeInfoCompat(awi.getRoot());
-                AccessibilityNodeInfoCompat focus = root.findFocus(AccessibilityNodeInfo.FOCUS_INPUT);
-                if (focus != null) {
-                    if (!root.equals(focus)) root.recycle();
-                    return focus;
-                } else {
-                    root.recycle();
-                }
-            }
-            return null;
-        } else {
-            AccessibilityNodeInfo info = mService.getRootInActiveWindow();
-            if (info == null) return null;
-            AccessibilityNodeInfoCompat root =
-                    new AccessibilityNodeInfoCompat(info);
-            AccessibilityNodeInfoCompat focus =
-                    root.findFocus(AccessibilityNodeInfoCompat.FOCUS_INPUT);
-            if (focus != null && !focus.equals(root)) root.recycle();
-            return focus;
-        }
-    }
-
     private boolean attemptNavigation(int button) {
-        AccessibilityNodeInfoCompat node = mCursorController.getCursor();
+        AccessibilityNodeInfoCompat node = mCursorController.getCursorOrInputCursor();
 
         // Clear focus if it is on an IME
         if (node != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            if (API_LEVEL_SUPPORTS_WINDOW_NAVIGATION) {
                 for (AccessibilityWindowInfo awi : mService.getWindows()) {
                     if (awi.getId() == node.getWindowId()) {
                         if (awi.getType() == AccessibilityWindowInfo.TYPE_INPUT_METHOD) {
@@ -259,29 +245,41 @@ public class ProcessorVolumeStream implements AccessibilityEventListener,
             }
         }
 
+        // If we cleared the focus before it is on an IME, try to get the current node again.
         if (node == null) {
-            node = findInputFocus();
+            node = mCursorController.getCursorOrInputCursor();
         }
 
         if (node == null) return false;
         try {
-            if (AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, SeekBar.class)) {
-                navigateSlider(button);
+            if (Role.getRole(node) == Role.ROLE_SEEK_CONTROL) {
+                navigateSlider(button, node);
                 return true;
             }
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                if (((AccessibilityNodeInfo) node.getInfo()).isEditable()) {
-                    navigateEditText(button, node);
-                    return true;
-                }
+            // In general, do not allow volume key navigation when the a11y focus is placed but
+            // it is not on the edit field that the keyboard is currently editing.
+            //
+            // Example 1:
+            // EditText1 has input focus and EditText2 has accessibility focus.
+            // getCursorOrInputCursor() will return EditText2 based on its priority order.
+            // EditText2.isFocused() = false, so we should not allow volume keys to control text.
+            //
+            // Example 2:
+            // EditText1 in Window1 has input focus. EditText2 in Window2 has input focus as well.
+            // If Window1 is input-focused but Window2 has the accessibility focus, don't allow
+            // the volume keys to control the text.
+            boolean nodeWindowFocused;
+            if (API_LEVEL_SUPPORTS_WINDOW_NAVIGATION) {
+                nodeWindowFocused = node.getWindow() != null && node.getWindow().isFocused();
             } else {
-                if (AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, EditText.class) ||
-                    AccessibilityNodeInfoUtils.nodeMatchesClassByName(node,
-                            "com.google.android.search.searchplate.SimpleSearchText")) {
-                    navigateEditText(button, node);
-                    return true;
-                }
+                nodeWindowFocused = true;
+            }
+
+            if (node.isFocused() && nodeWindowFocused &&
+                    AccessibilityNodeInfoUtils.isEditable(node)) {
+                navigateEditText(button, node);
+                return true;
             }
 
             return false;
@@ -309,6 +307,10 @@ public class ProcessorVolumeStream implements AccessibilityEventListener,
 
     @Override
     public void onPatternMatched(int patternCode, int buttonCombination) {
+        mHandler.postPatternMatched(patternCode, buttonCombination);
+    }
+
+    public void onPatternMatchedInternal(int patternCode, int buttonCombination) {
         switch (patternCode) {
             case VolumeButtonPatternDetector.SHORT_PRESS_PATTERN:
                 handleSingleTap(buttonCombination);
@@ -318,18 +320,23 @@ public class ProcessorVolumeStream implements AccessibilityEventListener,
                 mPatternDetector.clearState();
                 break;
             case VolumeButtonPatternDetector.TWO_BUTTONS_THREE_PRESS_PATTERN:
-                if (mDimScreenController.isInstructionDisplayed()) {
-                    mDimScreenController.makeScreenBright();
-                    resetDimScreenSettings();
+                if (!mService.isInstanceActive()) {
+                    // If the service isn't active, the user won't get any feedback that
+                    // anything happened, so we shouldn't change the dimming setting.
+                    return;
                 }
+
+                boolean globalShortcut = isTripleClickEnabledGlobally();
+                boolean dimmed = mDimScreenController.isDimmingEnabled();
+
+                if (dimmed && (globalShortcut || mDimScreenController.isInstructionDisplayed())) {
+                    mDimScreenController.disableDimming();
+                } else if (!dimmed && globalShortcut) {
+                    mDimScreenController.showDimScreenDialog();
+                }
+
                 break;
         }
-    }
-
-    private void resetDimScreenSettings() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mService);
-        SharedPreferencesUtils.putBooleanPref(prefs, mService.getResources(),
-                R.string.pref_dim_when_talkback_enabled_key, false);
     }
 
     private void handleSingleTap(int button) {
@@ -338,5 +345,39 @@ public class ProcessorVolumeStream implements AccessibilityEventListener,
         }
 
         adjustVolumeFromKeyEvent(button);
+    }
+
+    private boolean isTripleClickEnabledGlobally() {
+        SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(mService);
+        return SharedPreferencesUtils.getBooleanPref(prefs, mService.getResources(),
+                R.string.pref_dim_volume_three_clicks_key,
+                R.bool.pref_dim_volume_three_clicks_default);
+    }
+
+    /**
+     * Used to run potentially long methods outside of the key handler so that we don't ever
+     * hit the key handler timeout.
+     */
+    private static final class VolumeStreamHandler
+            extends WeakReferenceHandler<ProcessorVolumeStream> {
+
+        public VolumeStreamHandler(ProcessorVolumeStream parent) {
+            super(parent);
+        }
+
+        @Override
+        protected void handleMessage(Message msg, ProcessorVolumeStream parent) {
+            int patternCode = msg.arg1;
+            int buttonCombination = msg.arg2;
+            parent.onPatternMatchedInternal(patternCode, buttonCombination);
+        }
+
+        public void postPatternMatched(int patternCode, int buttonCombination) {
+            Message msg = obtainMessage(0 /* what */,
+                    patternCode /* arg1 */,
+                    buttonCombination /* arg2 */);
+            sendMessage(msg);
+        }
+
     }
 }

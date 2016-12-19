@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"ユーザー補助のチュートリアル"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"TalkBack チュートリアルを起動"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack チュートリアル"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack は主に視覚障害者を対象としたスクリーンリーダー ツールです。音声フィードバックを使って端末を操作することができます。"</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBack を OFF にする"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"レッスンを開始"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"練習"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"レッスン <xliff:g id="INDEX">%1$d</xliff:g> を開始"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"練習 <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"レッスン 1: 基本的なナビゲーション"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"タップまたはスワイプしてアイテムを探し、ダブルタップして有効にします"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"パート 1: タッチガイド"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"有効にすると、指で触れた項目をタッチガイドの音声で聞くことができます。画面の中央にある複数の項目を指で触れてみてください。5 つの項目の確認が終わると、次のレッスンに進みます。"</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"パート 2: ダブルタップして有効にする"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"最後に聞こえたアイテムを有効にするには、どこでもダブルタップします。今から、アイテム 7 を探して有効にしてください。その後を続けるには、[次へ] を有効にします。"</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"アイテム 7 が有効になりました。続けるには [次へ] ボタンを探して有効にします。"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"パート 3: ナビゲーションのレッスン"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack レッスンは同じように配置されています。上部にレッスンの領域があり、そこを探していつでも読み上げることができます。左上にはチュートリアルの [ホーム] ボタンもあります。中央は練習する領域です。下部には達成状況インジケーターとレッスンのナビゲーション ボタンがあります。続けるには今から [次へ] を有効にしてください。"</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"パート 4: スワイプによる確認"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"画面の項目を指でスワイプして確認することもできます。左にスワイプすると、通常は左から上を確認し、右にスワイプすると、右から下を確認します。では、試してみましょう。"</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"パート 5: 練習"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"指で何をさわっているかを聞くには、画面の中で指を動かします。聞こえたものを有効にするには、どこでもダブルタップします。左右にスワイプして探します。"</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"レッスン 2: スクロール"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"2 本の指のスクロールと前または次の項目への移動"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"パート 1: 2 本の指でのスクロール"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"縦に並んだリストをスクロールするには、リストのアイテムを探してから、2 本の指を上下に動かします。横に並んだリストをスクロールするには、リストのアイテムを探してから、2 本の指を左右に動かします。"</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"パート 2: スクロールのショートカット"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"ショートカットを使って、リスト内の前の項目または次の項目に移動できます。次の項目に移動するには、1 本の指で右にスワイプしてから左にスワイプします。前の項目に移動するには、1 本の指で左にスワイプしてから右にスワイプします。試してみましょう。"</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"パート 3: 練習"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"スクロールするには、2 本の指を上下にスライドします。次の項目に進むには、1 本の指で右にスワイプしてから左にスワイプします。前の項目に移動するには、1 本の指で左にスワイプしてから右にスワイプします。"</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"レッスン 3: TalkBack のメニュー"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"TalkBack グローバル メニューと TalkBack ローカル メニュー"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"パート 1: TalkBack グローバル メニュー"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack には 2 種類のメニューがあります。1 つは TalkBack グローバル メニューで、常に同じコマンドを利用できます。このメニューを起動するには、1 本の指で下にスワイプしてから右にスワイプし、指を離します。練習用のメニューを起動してみましょう。"</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"メニュー項目は画面の中央に縦にリストされています。探してみてください。終了するには、[キャンセル] を有効にします。"</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"パート 2: TalkBack ローカル メニュー"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"もう 1 つは TalkBack ローカル メニューです。このメニューで利用できるコマンドは、最後に音声で聞いた項目に基づいて変わります。このメニューを起動するには、1 本の指で上にスワイプしてから右にスワイプし、指を離します。練習用のメニューを起動してみましょう。"</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"パート 3: 練習"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"1 本の指で下にスワイプしてから右にスワイプして TalkBack グローバル メニューを起動します。1 本の指で上にスワイプしてから右にスワイプして TalkBack ローカル メニューを起動します。"</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"下にスワイプしてから右にスワイプ"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"上にスワイプしてから右にスワイプ"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"TalkBack グローバル メニュー: 下にスワイプしてから右にスワイプ。TalkBack ローカル メニュー: 上にスワイプしてから右にスワイプ。"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"レッスン 4: テキストのナビゲーション"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"テキストのナビゲーション設定の選択"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"パート 1: ナビゲーション設定の選択"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack では、テキストを段落、行、単語、文字のどの単位で読み上げるかを制御できます。1 文字ずつ読み上げるとスペルがわかります。テキストの移動速度を文字単位で設定するには、下にあるテキストをタップしてから、上下にスワイプします。"</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"ここに縦にリストされている読み上げ速度の選択肢を確認してください。1 文字ずつの読み上げを探して、有効にします。"</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"パート 2: テキストのナビゲーション"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"今度は 1 文字ずつ読み上げるようにします。サンプルのテキストを選択し、右にスワイプすると 1 文字ずつ読み上げます。"</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"パート 3: 練習"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"テキストの移動速度を変更するには、上下にスワイプします。サンプルのテキストの次の文字を読み上げるには、右にスワイプします。"</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"こちらは、TalkBack 練習用のサンプル テキストです。「カンザスってどこだい？」と男は驚いて尋ねました。「わからないの」とドロシーは悲しそうに言いました。「でも私の家がある場所よ。きっとどこかにあるはず。」\n\n「そうだね。オズは何でもできるんだ。だからきっとカンザスも見つけてくれるよ。でも、それにはまず彼に会わないといけないが、そいつがなかなか難しい。大魔法使いは誰にも会いたがらないんだ。いつも自分の道を行くのさ」と彼は言って、トトにこう話しかけました。「ところで、君の望みは？」"</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"レッスン 5: テキストの編集"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"編集ボックスを有効にして入力し、カーソルを移動し、テキストを選択して操作します"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"パート 1: 編集ボックスを有効にする"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"TalkBack では、編集ボックスを使って、テキストを入力、選択、編集することができます。編集ボックスを有効にするには、ボックスをダブルタップします。編集ボックスを有効にすると、画面の下部でキーボードが利用できるようになります。キーボードを閉じるには、[戻る] ボタンをタップします。今から、編集ボックスを有効にしてみてください。有効にしたら、キーボードの上にある [次へ] を有効にします。"</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"パート 2: 編集ボックスへの入力"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"入力するには、編集ボックスを有効にし、画面キーボード上で指を移動します。入力したい文字が聞こえたら、指を離してその文字を有効にします。下にある編集ボックスを有効にして、入力してみてください。"</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"パート 3: カーソルの使用"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"カーソルは端末上の音量ボタン、または TalkBack のローカル メニューを使って移動できます。ローカル メニューのカーソル コントロールを使って、テキストの選択、カット、コピー、貼り付けをすることもできます。下にある編集ボックスを有効にして、サンプル テキスト上でカーソルを移動してみてください。"</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"ドロシー・ゲイルのメールアドレスは dorothy@ozmail.com です"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"パート 4: 練習"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"ダブルタップして編集ボックスを有効にします。文字の上で指を移動し、指を離して入力します。音量ボタンや TalkBack のローカル メニューでカーソルを移動します。TalkBack のローカル メニューのカーソル コントロールを使って、テキストを選択して操作します。"</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"テキストの編集"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"前へ"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"次へ"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"前のレッスン"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"次のレッスン"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"チュートリアル ホーム"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"レッスン %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"パート %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"全 %2$d ページのパート %1$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"練習は終わりです。まもなく次に進みます"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"練習エリア"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s は現在練習モードです。終了するには [キャンセル] ボタンを有効にします。"</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"チュートリアルのホームボタン"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"項目 <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"終了"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"タッチガイドが必要です"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"このチュートリアルではタッチガイドが必要です。チュートリアルを起動する前にタッチガイドを有効にしてください。"</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack が無効です"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"このチュートリアルでは TalkBack を有効にしておく必要があります。チュートリアルを起動する前に TalkBack を有効にしてください。"</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack が停止しています"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"音声応答が一時停止状態の場合、TalkBack チュートリアルは使用できません。TalkBack の音声応答を再開してからチュートリアルを再起動して続行してください。"</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"メニューを説明"</string>
+</resources>

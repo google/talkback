@@ -56,4 +56,18 @@ public class MenuManagerWrapper implements MenuManager {
             mMenuManager.onGesture(gesture);
         }
     }
+
+    @Override
+    public void setMenuTransformer(MenuTransformer transformer) {
+        if (mMenuManager != null) {
+            mMenuManager.setMenuTransformer(transformer);
+        }
+    }
+
+    @Override
+    public void setMenuActionInterceptor(MenuActionInterceptor actionInterceptor) {
+        if (mMenuManager != null) {
+            mMenuManager.setMenuActionInterceptor(actionInterceptor);
+        }
+    }
 }

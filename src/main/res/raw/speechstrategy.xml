@@ -8,6 +8,56 @@
   <!-- Rules specific to just one app should go in speechstrategy_apps.xml or -->
   <!-- speechstrategy_thirdparty.xml. -->
 
+  <!-- TYPE_VIEW_SELECTED -->
+
+  <!-- Action bar tab selection (JellyBeanMR2 and up) -->
+  <ss:rule>
+      <ss:filter>
+      <ss:platformSdk>&gt;=18</ss:platformSdk>
+      <ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>
+      <!--suppress DeprecatedClassUsageInspection -->
+      <ss:classNameStrict>android.app.ActionBar$Tab</ss:classNameStrict>
+    </ss:filter>
+    <ss:metadata>
+      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
+      <ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/focus_actionable</ss:customEarcon>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:property>contentDescriptionOrText</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- Pattern unlock widget (prior to KK-MR1 fixes) -->
+  <ss:rule>
+    <ss:filter>
+      <ss:platformSdk>16</ss:platformSdk>
+      <ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>
+      <ss:classNameStrict>android.view.View</ss:classNameStrict>
+      <ss:packageName>android</ss:packageName>
+      <ss:text ss:require="empty" />
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/focus_actionable</ss:customEarcon>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:property>contentDescription</ss:property>
+    </ss:formatter>
+  </ss:rule>
+
+  <!-- Phone - Speak in-call screen -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
+      <ss:className>com.android.phone.InCallScreen</ss:className>
+      <ss:packageName>com.android.phone</ss:packageName>
+    </ss:filter>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.phone.InCallScreenFormatterJB</ss:custom>
+    </ss:formatter>
+  </ss:rule>
+
   <!-- The EventRuleProcessor should drop certain events handled by other processors -->
   <ss:rule>
     <ss:filter>
@@ -41,6 +91,7 @@
     </ss:filter>
     <ss:metadata>
       <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
+      <ss:skipDuplicates>true</ss:skipDuplicates>
       <ss:customVibration>@array/notification_pattern</ss:customVibration>
     </ss:metadata>
     <ss:formatter>
@@ -71,10 +122,11 @@
 
   <!-- TYPE_VIEW_CLICKED -->
 
-  <!-- Checkable views -->
+  <!-- Checkable views for <= K -->
   <ss:rule>
     <ss:filter>
       <ss:custom>com.android.talkback.formatter.CheckableClickedFormatter</ss:custom>
+      <!-- Note: custom filter will verify platformSdk < 21. -->
     </ss:filter>
     <ss:metadata>
       <ss:customVibration>@array/view_clicked_pattern</ss:customVibration>
@@ -84,15 +136,32 @@
     </ss:formatter>
   </ss:rule>
 
-  <!-- All other clicks -->
+  <!-- Other clicks for <= K -->
   <ss:rule>
     <ss:filter>
       <ss:eventType>TYPE_VIEW_CLICKED</ss:eventType>
+      <ss:platformSdk>&lt;21</ss:platformSdk>
     </ss:filter>
     <ss:metadata>
       <ss:customVibration>@array/view_clicked_pattern</ss:customVibration>
       <ss:customEarcon>@raw/tick</ss:customEarcon>
     </ss:metadata>
+  </ss:rule>
+
+  <!-- All clicks for >= L -->
+  <ss:rule>
+    <ss:filter>
+      <ss:eventType>TYPE_VIEW_CLICKED</ss:eventType>
+      <ss:platformSdk>&gt;=21</ss:platformSdk>
+    </ss:filter>
+    <ss:metadata>
+      <ss:customVibration>@array/view_clicked_pattern</ss:customVibration>
+      <ss:customEarcon>@raw/tick</ss:customEarcon>
+      <ss:skipDuplicates>true</ss:skipDuplicates>
+    </ss:metadata>
+    <ss:formatter>
+      <ss:custom>com.android.talkback.formatter.ClickFormatter</ss:custom>
+    </ss:formatter>
   </ss:rule>
 
   <!-- TYPE_VIEW_LONG_CLICKED -->
@@ -125,25 +194,10 @@
 
   <!-- TYPE_VIEW_SELECTED -->
 
-  <!-- Spinner (sometimes gets selected event instead of focused event) -->
-  <!--<ss:rule>-->
-    <!--<ss:filter>-->
-      <!--<ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>-->
-      <!--<ss:className>android.widget.Spinner</ss:className>-->
-    <!--</ss:filter>-->
-    <!--<ss:metadata>-->
-      <!--<ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>-->
-      <!--<ss:customEarcon>@raw/focus_actionable</ss:customEarcon>-->
-    <!--</ss:metadata>-->
-    <!--<ss:formatter>-->
-      <!--<ss:template>@string/template_spinner</ss:template>-->
-      <!--<ss:property>contentDescriptionOrText</ss:property>-->
-    <!--</ss:formatter>-->
-  <!--</ss:rule>-->
-
   <!-- WebView -->
   <ss:rule>
     <ss:filter>
+      <ss:platformSdk>&lt;19</ss:platformSdk>
       <ss:eventType>TYPE_VIEW_SELECTED||TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY</ss:eventType>
       <ss:className>android.webkit.WebView</ss:className>
     </ss:filter>
@@ -193,19 +247,11 @@
   </ss:rule>
 
   <!-- All other objects -->
-  <!--<ss:rule>-->
-    <!--<ss:filter>-->
-      <!--<ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>-->
-    <!--</ss:filter>-->
-    <!--<ss:formatter>-->
-      <!--<ss:custom>com.android.talkback.formatter.FallbackFormatter</ss:custom>-->
-    <!--</ss:formatter>-->
-  <!--</ss:rule>-->
-
-
   <ss:rule>
     <ss:filter>
       <ss:eventType>TYPE_VIEW_SELECTED</ss:eventType>
+      <!-- Err on side of discarding the selected earcon; probably not useful if no text -->
+      <ss:contentDescriptionOrText ss:require="nonEmpty" />
     </ss:filter>
     <ss:metadata>
       <ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>
@@ -217,22 +263,6 @@
   </ss:rule>
 
   <!-- TYPE_WINDOW_STATE_CHANGED -->
-
-  <!-- Dialog -->
-  <ss:rule>
-    <ss:filter>
-      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
-      <ss:className>android.app.Dialog</ss:className>
-    </ss:filter>
-    <ss:metadata>
-      <ss:customVibration>@array/window_state_pattern</ss:customVibration>
-      <ss:customEarcon>@raw/window_state</ss:customEarcon>
-      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
-    </ss:metadata>
-    <ss:formatter>
-      <ss:custom>com.android.talkback.formatter.DialogFormatter</ss:custom>
-    </ss:formatter>
-  </ss:rule>
 
   <!-- DrawerLayout -->
   <ss:rule>
@@ -304,8 +334,8 @@
     <ss:filter>
       <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
       <ss:className>android.widget.ListView</ss:className>
-      <ss:text></ss:text>
-      <ss:contentDescription></ss:contentDescription>
+      <ss:text ss:require="empty" />
+      <ss:contentDescription ss:require="empty" />
     </ss:filter>
     <ss:metadata>
       <ss:customVibration>@array/window_state_pattern</ss:customVibration>
@@ -326,24 +356,9 @@
       <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
       <ss:packageName>android</ss:packageName>
       <ss:className>android.widget.FrameLayout</ss:className>
-      <ss:contentDescription></ss:contentDescription>
+      <ss:contentDescription ss:require="empty" />
     </ss:filter>
     <ss:formatter>
-    </ss:formatter>
-  </ss:rule>
-
-  <!-- All other state changes -->
-  <ss:rule>
-    <ss:filter>
-      <ss:eventType>TYPE_WINDOW_STATE_CHANGED</ss:eventType>
-    </ss:filter>
-    <ss:metadata>
-      <ss:customVibration>@array/window_state_pattern</ss:customVibration>
-      <ss:customEarcon>@raw/window_state</ss:customEarcon>
-      <ss:queuing>UNINTERRUPTIBLE</ss:queuing>
-    </ss:metadata>
-    <ss:formatter>
-      <ss:property>contentDescriptionOrText</ss:property>
     </ss:formatter>
   </ss:rule>
 

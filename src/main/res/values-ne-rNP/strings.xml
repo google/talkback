@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="7512754982950145749">"कुरा फर्काउने खुल्ला हुँदा तपाईँको उपकरणले दृष्टिबिहिन र कम दृष्टि भएका प्रयोगकर्ताहरूलाई मद्दत गर्न बोली प्रतिक्रिया प्रदान गर्दछ। उदाहरणको लागि यसले तपाईँले के स्पर्श गर्नु हुन्छ, के छान्नु हुन्छ र के सक्रिय गर्नु हुन्छ।"</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"TalkBack सक्रिय भएको बेला तपाईँको यन्त्रले दृष्टिविहीन र स्पष्ट रूपमा देख्न नसक्ने प्रयोगकर्ताहरूलाई मद्दत गर्नका लागि बोली प्रतिक्रिया प्रदान गर्दछ। उदाहरणका लागि यसले तपाईँ के छुनुहुन्छ, के चयन गर्नुहुन्छ र के सक्रिय गर्नुहुन्छ भन्ने कुरा वर्णन गर्दछ।\n\nयदि तपाईँले झुक्किएर TalkBack लाई सक्रिय गर्नुभयो भने स्विचको चारै‍तिर हरियो रूपरेखा रहुन्जेल त्यसलाई ट्याप गरेर र त्यसपछि डबल ट्याप गरेर TalkBack लाई निष्क्रिय पार्नुहोस्। परिणामस्वरूप देखिने पुष्टिकरण संवादका लागि पनि त्यस्तै अन्तर्क्रिया गर्नुहोस्।"</string>
     <string name="talkback_on" msgid="315529674405160699">"TalkBack सक्रिय गर्नुहोस्"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack निलम्बित भयो"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack पुन:सुरू भयो"</string>
+    <string name="talkback_disabled" msgid="2536155587482587238">"TalkBack लाई निष्क्रिय पारिएको छ।"</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"कुरा फर्काउने सेटिङ्हरू"</string>
     <string name="tts_preferences_title" msgid="6233811187483633874">"पाठबाट वाणि सेटिङहरू"</string>
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"संस्करण <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
@@ -19,6 +22,11 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"अहिलेको प्रश्न: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>।"</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"कुनै वस्तु चयन गरिएन।"</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"वर्तमान चयन: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>।"</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"क्षेत्रको सुरुवात"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"क्षेत्रको अन्त"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"चयन गर्ने मोड सक्रिय छ"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"चयन गर्ने मोड निष्क्रिय छ"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"चयनलाई खाली गरियो"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"छुटेको कल"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"मौन"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"कुराकानी"</string>
@@ -33,37 +41,49 @@
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"रोकियो"</string>
     <string name="template_current_tts_engine" msgid="3963364867159704159">"प्रयोग गर्दै <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"<xliff:g id="TITLE">%1$s</xliff:g> मेनु"</string>
-    <string name="template_edit_box" msgid="5395366637528473616">"बाकस सम्पादन गर्नुहोस्। <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
-    <string name="template_edit_box_current" msgid="2778286668618391188">"सम्पादन बाकस, हालै सम्पादन गरिँदै। <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"चेतावनी <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g> मेनु"</string>
     <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> ले <xliff:g id="OLD_TEXT">%2$s</xliff:g> लाई विस्थापन गर्‍यो"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> हटाइयो"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"प्रतिलिपि बनाइयो, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"काटियो, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"टाँसियो, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g> लाई चयन गरियो"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"चयन गरिएको पाठ: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"कुनै पाठलाई चयन गरिएको छैन"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g> को चयन हटाइयो"</string>
     <string name="template_text_error" msgid="153775825635730287">"अवैध इन्पुट <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> वर्ण साथ <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> वर्णहरू प्रतिस्थापित"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="LABEL">%2$s</xliff:g> को लागि <xliff:g id="ITEM">%1$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"लामो समय सम्म थिचिएको <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_button" msgid="2640124317262628933">"<xliff:g id="TITLE">%1$s</xliff:g> बटन"</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"तस्वीर <xliff:g id="TITLE">%1$d</xliff:g>। नाम नदिएको"</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"बटन <xliff:g id="TITLE">%1$d</xliff:g>। नाम नदिएको"</string>
-    <string name="template_seek_bar" msgid="9010890122601609426">"<xliff:g id="TITLE">%1$s</xliff:g> नियन्त्रण खोज्छन्।"</string>
     <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> प्रतिशत।"</string>
     <string name="template_charging" msgid="2038200557537960378">"चार्ज हुँदै<xliff:g id="CHANGING_STATUS">%1$s</xliff:g> ब्याट्री स्तर <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> प्रतिशत।"</string>
-  <plurals name="template_containers">
-    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="COUNT">%2$d</xliff:g> बस्तु <xliff:g id="TYPE">%1$s</xliff:g> देखाउँदै।"</item>
-    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="COUNT">%2$d</xliff:g> बस्तुहरू <xliff:g id="TYPE">%1$s</xliff:g> देखाउँदै।"</item>
-  </plurals>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> ले <xliff:g id="COUNT_3">%2$d</xliff:g> वस्तुहरू देखाउँदैछ।</item>
+      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> ले <xliff:g id="COUNT_1">%2$d</xliff:g> वस्तु देखाउँदैछ।</item>
+    </plurals>
     <string name="value_gridview" msgid="1382219539169157957">"ग्रिड"</string>
     <string name="value_listview" msgid="7625152822709234439">"सूची"</string>
     <string name="value_tabwidget" msgid="6935453013254857519">"ट्याब पट्टि"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"ड्रप-डाउन सूची"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"जाँच बाकस"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"रेडियो बटन"</string>
+    <string name="value_button" msgid="2459787142940409576">"बटन"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"खोजको लागि नियन्त्रण पट्टी"</string>
+    <string name="value_switch" msgid="6946709666466895221">"स्विच"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"सम्पादन बाकस"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"सम्पादन गरिँदै"</string>
+    <string name="value_image" msgid="5114229220871881124">"छवि"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"नाम नदिइएको"</string>
+    <string name="value_pager" msgid="7708574424402835461">"बहु-पृष्ठको दृश्य"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"पृष्ठ"</string>
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"<xliff:g id="TOTAL_COUNT">%3$d</xliff:g> को <xliff:g id="TO_INDEX">%2$d</xliff:g> लाई.<xliff:g id="FROM_INDEX">%1$d</xliff:g> आइटम देखाउँदै।"</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"<xliff:g id="TOTAL_COUNT">%2$d</xliff:g> को <xliff:g id="FROM_INDEX">%1$d</xliff:g> आइटम देखाउँदै।"</string>
-    <string name="template_spinner" msgid="1240658876427369167">"<xliff:g id="TITLE">%1$s</xliff:g> ड्रप डाउन सूची।"</string>
-    <string name="template_password_selected" msgid="3751806880345903886">"चयन गरिएका अक्षरहरू <xliff:g id="FROM_INDEX">%1$s</xliff:g> देखि <xliff:g id="TO_INDEX">%2$s</xliff:g>"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"<xliff:g id="TOTAL_COUNT">%2$d</xliff:g> मध्ये पृष्ठ <xliff:g id="PAGE_INDEX">%1$d</xliff:g>"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="TOTAL_COUNT">%2$d</xliff:g> मध्ये <xliff:g id="PAGE_INDEX">%1$d</xliff:g>"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"<xliff:g id="TO_INDEX">%2$d</xliff:g> देखि <xliff:g id="FROM_INDEX">%1$d</xliff:g> सम्मका वर्णहरू"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"वर्ण <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"ठूलो <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="template_checkbox" msgid="8582666147313623418">"<xliff:g id="TITLE">%1$s</xliff:g> चेक बक्स"</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"<xliff:g id="TITLE">%1$s</xliff:g> रेडियो बटन"</string>
-    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>, स्विच"</string>
     <string name="value_password" msgid="7285572231215250557">"पासवर्ड"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"स्लाइडिङ दराज खोलिएको"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"छायाँ खुलेको"</string>
@@ -71,69 +91,115 @@
     <string name="value_text_cleared" msgid="6558192295636412162">"हटाइएको पाठ"</string>
     <string name="value_text_max_length" msgid="4129865255646994586">"अधिकतम लम्बाइ पुग्यो"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"मेटिएको"</string>
+    <string name="value_selected" msgid="1307429702194660766">"चयन गरिएको"</string>
     <string name="value_checked" msgid="3006751014125833966">"जाँचिएको"</string>
     <string name="value_not_checked" msgid="37422559536361725">"नजाँचिएको"</string>
+    <string name="value_on" msgid="39454338086317219">"सक्रिय"</string>
+    <string name="value_off" msgid="6700497510945744608">"निष्क्रिय"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"विस्तृत गरिएको"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"संक्षिप्त गरिएको"</string>
     <string name="value_disabled" msgid="5160977094078900656">"असक्षम गरिएको"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"दुईचोटि ट्याप गर्नुहोस्"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"ट्याप गर्नुहोस्"</string>
-    <string name="template_hint_clickable" msgid="1398769454100543369">"<xliff:g id="ACTION">%1$s</xliff:g> चयन गर्न।"</string>
+    <string name="value_press_select" msgid="4270348255373188872">"चयन गर्ने बटनलाई थिच्नुहोस्"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"सक्रिय गर्नका लागि <xliff:g id="ACTION">%1$s</xliff:g>।"</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"सक्रिय गर्न <xliff:g id="KEYCOMBO">%1$s</xliff:g> लाई थिच्नुहोस्।"</string>
     <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> र लामो समयसम्म थिच्न समाउनुहोस्।"</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"लामो समयसम्म थिच्न <xliff:g id="KEYCOMBO">%1$s</xliff:g> लाई थिच्नुहोस्।"</string>
     <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> टोगल गर्न।"</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"टगल गर्न <xliff:g id="KEYCOMBO">%1$s</xliff:g> लाई थिच्नुहोस्।"</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> पाठ प्रविष्टि गर्न।"</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"पाठ प्रविष्ट गर्न <xliff:g id="KEYCOMBO">%1$s</xliff:g> लाई थिच्नुहोस्।"</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> बदल्न।"</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"स्क्रिनमा छुनुहोस् र वस्तु पत्ता लगाउन वृतमा खोज्नुहोस्, त्यसपछि चयन गर्न छोड्नुहोस्।"</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"परिवर्तन गर्न <xliff:g id="KEYCOMBO">%1$s</xliff:g> लाई थिच्नुहोस्।"</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"एक पृष्ठबाट अर्को पृष्ठमा जान दुई औँलाहरूले स्वाइप गर्नुहोस्।"</string>
+    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"कुनै अतिरिक्त पृष्ठ उपलब्ध छैन।"</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"परिवर्तन गर्न <xliff:g id="ACTION">%1$s</xliff:g>।"</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"स्क्रिनमा छुनुहोस् र वस्तु पत्ता लगाउन वृत्तमा अन्वेषण गर्नुहोस्, त्यसपछि सक्रिय गर्नका लागि औँला उठाउनुहोस्।"</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"स्क्रिनलाई छुनुहोस् र स्क्रिनको सामग्री पत्ता लगाउन वृतमा नेभिगेट गर्नुहोस् र ध्यान केन्द्रित गर्न उचाल्नुहोस्।"</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"अनुकूलन कार्यहरू:"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="HINT">%2$s</xliff:g> को लागि <xliff:g id="ACTION">%1$s</xliff:g>।"</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"<xliff:g id="HINT">%2$s</xliff:g> को लागि <xliff:g id="KEYCOMBO">%1$s</xliff:g> लाई थिच्नुहोस्।"</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="HINT">%2$s</xliff:g> को लागि <xliff:g id="ACTION">%1$s</xliff:g> गरी थिचिराख्नुहोस्।"</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"घन्टी र कम्पन"</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"घन्टी मौन।"</string>
     <string name="value_screen_on" msgid="4051568127659724519">"स्क्रिन खुला।"</string>
     <string name="value_screen_off" msgid="4442166505764238236">"स्क्रिन बन्द।"</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock सक्रिय छ।"</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock निष्क्रिय छ।"</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock सक्रिय छ।"</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock निष्क्रिय छ।"</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock सक्रिय छ।"</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock निष्क्रिय छ।"</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"उपकरण बन्द खोलियो"</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"वाणी"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"बोलीको मात्रा"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"स्क्रिन बन्द हुँदा बोल्नुहोस्"</string>
     <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"स्क्रिन बन्द हुँदा अधिसूचनाहरू सुनाइन्छ"</string>
     <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"स्क्रिन बन्द गरिएको बेला कुनै पनि ध्वनि सुनिँदैन।"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"कलर ID भन्नुहोस्"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"निकटता सेन्सरको प्रयोग गर्नुहोस्"</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"निकटता सेन्सर चुपचाप बोली"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"निकटता सेन्सरले बोली नियन्त्रण गर्दैन"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"फोनेटिक अक्षर बोल्नुहोस्"</string>
     <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"फोनेटिक अक्षरहरू बोलिने छैन।"</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"किबोर्डमा लामो समय कुञ्जी थिच्दा र वर्ण अनुसार सर्दा फोनेटिक अक्षर बोलिन्छ।"</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"लामो समय किबोर्ड थिचेमा फोनेटिक अक्षरहरू बोलिनेछन् र वर्णद्वारा पहुँच फोकस सर्दै जानेछ।"</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"उपयोग संकेत बोल्नुहोस्"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"उपयोग संकेत रैखिक नेविगेशन समयमा बोलिने छैन।"</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"जब रैखिक ढंगले फोकस नेविगेशन हुन्छ प्रयोगको संकेत छोटो विलम्ब पछि बोलिन्छ।"</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"पहुँच फोकस सार्ने बेला उपयोग सुझावहरू बोलिने छैनन्।"</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"नेभिगेसनको बेला छोटो विलम्ब पछि प्रयोग सम्बन्धी सुझावहरू बोलिन्छन्।"</string>
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"छोएर अन्वेषण"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"सूचीहरू स्वचालित रूपमा स्क्रोल गर्नुहोस्"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"छोएर अन्वेषण"</string>
-    <string name="title_pref_single_tap" msgid="3366282780861635094">"एकल ट्याप चयन"</string>
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"एकै-ट्यापले सक्रिय गर्ने"</string>
     <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"सूचीको रूपमा प्रसङ्ग मेनु देखाउनुहोस्"</string>
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"टकब्याक सक्षम हुँदा स्क्रिन मधुरो पार्नुहोस्"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(प्रयोगात्मक) चयन गर्नको लागि हालैमा ध्यान केन्द्रित भएको आइटमलाई ट्याप गर्नुहोस्।"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"(परीक्षणात्मक) सक्रिय गर्नका लागि हाल चयन केन्द्रित गरिएको वस्तुलाई ट्याप गर्नुहोस्"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"निरन्तर पढाइ सुरु गर्न हल्लाउनुहोस्"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"इशाराहरू प्रबन्ध गर्नुहोस्"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"अनुकूलन लेबल प्रबन्ध गर्नुहोस्"</string>
     <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"किबोर्ड शर्टकटहरू व्यवस्थापन गर्नुहोस्"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"अनुकूलन लेबलहरू निर्यात गर्नुहोस्"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"प्ले स्टोरमा कुराफर्काउने खोल्नुहोस्"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"वर्तमान कुरा फर्काउने संस्करण: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
-    <string name="title_pref_show_tos" msgid="6167834013879233992">"सेवाका सर्तहरू"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"मद्दत र प्रतिक्रिया"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"मद्दत"</string>
+    <string name="title_pref_show_tos" msgid="6167834013879233992">"सेवा सर्तहरू"</string>
     <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"गोपनीयता नीति"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"सर्टकट इशाराहरू"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"पूर्वनिर्मित इशाराहरू"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(प्रयोगात्मक) उपकरणको साइडमा छुनुहोस्"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"किम्याप"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"किम्यापलाई चयन गर्नुहोस्"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"किम्यापलाई रिसेट गर्नुहोस्"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"परिमार्जक कुञ्जी छान्नुहोस्"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"TalkBack ले किम्यापलाई रिसेट गर्नेछ"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"TalkBack ले किम्यापलाई रिसेट गर्नेछ र परिमार्जक कुञ्जीलाई <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g> मा परिवर्तन गर्नेछ"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"परिमार्जक कुञ्जीलाई <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g> मा परिवर्तन गरिएको छ।"</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"<xliff:g id="KEYMAP_NAME">%1$s</xliff:g> अहिले सक्रिय छ।"</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"किम्यापलाई रिसेट गरिएको छ।"</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"सर्टकट समर्थित छैन"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"क्लासिक किम्याप"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"पूर्वनिर्धारित किम्याप"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"नेभिगेसन कार्यहरू"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"अर्को वस्तुमा नेभिगेट गर्नुहोस्"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"अघिल्लो वस्तुमा नेभिगेट गर्नुहोस्"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"माथिको वस्तुमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"तलको वस्तुमा नेभिगसन गर्नुहोस्"</string>
     <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"पहिलो वस्तुमा नेभिगेट गर्नुहोस्"</string>
     <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"पछिल्लो वस्तुमा नेभिगेट गर्नुहोस्"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"अर्को विन्डोमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"अघिल्लो विन्डोमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"अर्को शब्दमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"अघिल्लो शब्दमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"अर्को वर्णमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"अघिल्लो वर्णमा नेभिगेसन गर्नुहोस्"</string>
     <string name="keycombo_menu_perform_click" msgid="243666968746657931">"क्लिक कार्य गर्नुहोस्"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"लामो समयसम्म क्लिक गर्नुहोस्"</string>
     <string name="keycombo_menu_category_global" msgid="7309875734492478067">"ग्लोबल कार्यहरू"</string>
     <string name="keycombo_menu_global_back" msgid="4567585750566224959">"पछाडि"</string>
     <string name="keycombo_menu_global_home" msgid="7189369064773623371">"गृह पृष्ठ"</string>
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"हालका अनुप्रयोगहरू"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"सूचनाहरू"</string>
-    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"TalkBack रोक्नुहोस्"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"TalkBack रोक्नुहोस् वा पुन:सुरू गर्नुहोस्"</string>
     <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"नेभिगेशन सेटिङहरू"</string>
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"अर्को नेभिगेशन सेटिङ"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"अघिल्‍लो नेभिगेशन सेटिङ"</string>
@@ -143,10 +209,63 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"एक वस्तुको लागि स्क्रिन खोज्नुहोस्"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"स्थानीय प्रसङ्ग मेनु देखाउनुहोस्"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"ग्लोबल प्रसङ्ग मेनु देखाउनुहोस्"</string>
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"किबोर्डका सर्टकटहरूको व्यवस्थापन गर्नुहोस्"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"TalkBack सम्बन्धी सेटिङहरू खोल्नुहोस्"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"वेबमा नेभिगेसन गर्ने सम्बन्धी कारबाहीहरू"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"अर्को बटनमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"अघिल्लो बटनमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"अर्को नियन्त्रणमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"अघिल्लो नियन्त्रणमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"अर्को जाँच बाकसमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"अघिल्लो जाँच बाकसमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"अर्को ARIA ल्यान्डमार्कमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"अघिल्लो ARIA ल्यान्डमार्कमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"अर्को सम्पादन क्षेत्रमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"अघिल्लो सम्पादन क्षेत्रमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"अर्को फोकस गर्न मिल्ने वस्तुमा नेभिगेसन"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"अघिल्लो फोकस गर्न मिल्ने वस्तुमा नेभिगेसन"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"अर्को ग्राफिकमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"अघिल्लो ग्राफिकमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"अर्को शीर्षकमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"अघिल्लो शीर्षकमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"अर्को शीर्षक १ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"अघिल्लो शीर्षक १ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"अर्को शीर्षक २ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"अघिल्लो शीर्षक २ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"अर्को शीर्षक ३ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"अघिल्लो शीर्षक ३ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"अर्को शीर्षक ४ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"अघिल्लो शीर्षक ४ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"अर्को शीर्षक ५ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"अघिल्लो शीर्षक ५ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"अर्को शीर्षक ६ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"अघिल्लो शीर्षक ६ मा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"अर्को सूचीको वस्तुमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"अघिल्लो सूचीको वस्तुमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"अर्को लिंकमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"अघिल्लो लिंकमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"अर्को सूचीमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"अघिल्लो सूचीमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"अर्को तालिकामा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"अघिल्लो तालिकामा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"अर्को कम्बो बाकसमा नेभिगेसन गर्नुहोस्"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"अघिल्लो कम्बो बाकसमा नेभिगेसन गर्नुहोस्"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"किबोर्ड सर्टकट छ"</string>
     <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"नयाँ सर्टकट सेट गर्न कुञ्जी संयोजन थिच्नुहोस्। यसमा कम्तीमा ALT वा नियन्त्रण कुञ्जी हुनु पर्छ।"</string>
-    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"क्लियर सर्टकट बटन"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"नयाँ सर्टकट सेट गर्नका लागि <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> परिमार्जक कुञ्जी सँगसँगै कुनै अर्को कुञ्जीलाई थिच्नुहोस्।"</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"सर्टकट मेटाउन Backspace थिच्नुहोस्, सुरक्षित गर्न Enter थिच्नुहोस्, वा रद्द गर्न Escape थिच्नुहोस्।"</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"खाली गर्नुहोस् भन्ने बटनको सर्टकट"</string>
     <string name="keycombo_unassigned" msgid="5817151372114230015">"काम नतोकिएको"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"खोज"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"दायाँ फर्केको तीर"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"बायाँ फर्केको तीर"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"माथि फर्केको तीर"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"तल फर्केको तीर"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"तपाईँ निश्चित रूपमा यस किम्यापका लागि आफ्ना सर्टकटका कुञ्जीहरूलाई तिनीहरूका पूर्वनिर्धारित मानहरूमा रिसेट गर्न चाहनुहुन्छ? कृपया याद गर्नुहोस्, यस कार्यलाई अनडू गर्न सकिँदैन।"</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"रिसेट गर्नुहोस्"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"कुञ्जी पहिले नै प्रयोगमा छ"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"यो कुञ्जी संयोजन \'<xliff:g id="ID_1">%1$s</xliff:g>\' कार्य को लागि प्रयोग गरिन्छ। के तपाईँ यसलाई हटाएर यो सर्टकट <xliff:g id="ID_2">%2$s</xliff:g>मा तोक्न चाहनुहुन्छ?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"पिच परिवर्तनहरू प्रयोग गर्नुहोस्"</string>
@@ -159,9 +278,12 @@
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"बोली अडियोमा केन्द्रित गर्नुहोस्"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"बोलिरहँदा अन्य अडियोको आवाज घटाउनुहोस्।"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"ध्वनिको मात्रा"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Talkback निलम्बन गरी सर्टकट पुन:सुरू गर्न"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Talkback लाई निलम्बन र पुनःसुरु गर्नका लागि सर्टकट"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"स्क्रिन मधुरो सर्टकट"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"विविध"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"विकासक सेटिङ्हरू"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"लग गर्न घटनाक्रमहरूलाई चयन गर्नुहोस्"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"पहुँच सम्बन्धी घटनाक्रम लग गर्ने कार्यलाई फिल्टर गर्नुहोस्"</string>
     <string name="title_pref_log_level" msgid="267415170405921603">"उत्पादन स्तर लग गर्नुहोस्"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"बोली उत्पादन प्रदर्शन गर्नुहोस्"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"नोड रूख डिबग सक्षम"</string>
@@ -186,10 +308,11 @@
     <string name="granularity_line" msgid="727359260064093782">"लाइनहरू"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"अनुच्छेदहरु"</string>
     <string name="granularity_page" msgid="2739238666516816581">"पृष्ठहरू"</string>
-    <string name="granularity_web_section" msgid="496466197528091152">"परिच्छेद नेभिगेसन"</string>
-    <string name="granularity_web_list" msgid="8598575022728013551">"सूची नेभिगेसन"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"नियन्त्रण नेभिगेसन"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"विशेष सामग्री नेभिगेसन"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"शीर्षक र ल्यान्डमार्कहरू"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"सूचीहरू"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"लिंकहरू"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"नियन्त्रणहरू"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"विशेष सामग्री"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"पोट्रेट"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"परिदृश्य"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"काम नतोकिएको"</string>
@@ -201,10 +324,12 @@
     <string name="shortcut_home" msgid="6670249804418900175">"गृह बटन"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"अवलोकन बटन"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"अधिसूचनाहरू खोल्नुहोस्"</string>
+    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"अनुकूलन गर्न मिल्ने कार्यहरू देखाउनुहोस्"</string>
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"संसार सन्दर्भ मेनु खोल्नुहोस्"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"स्थानीय सन्दर्भ मेनु खोल्नुहोस्"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"अन्तिम कथन दोहर्‍याउनुहोस्"</string>
     <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"अन्तिम बोलीको हिज्जे भन्नुहोस्"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"पछिल्लो बोलीको क्लिपबोर्डमा प्रतिलिपि बनाउनुहोस्"</string>
     <string name="shortcut_pause_feedback" msgid="1412613174540942399">"प्रतिक्रिया रोक्नुहोस्"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"माथि बाट पढ्नुहोस्"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"अर्को आइटम बाट पढ्नुहोस्"</string>
@@ -213,6 +338,8 @@
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"अघिल्‍लो नेभिगेशन सेटिङ"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"स्क्रिनमा पहिलो वस्तुमा केन्द्रित गर्नुहोस्"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"स्क्रिनमा अन्तिम वस्तुमा केन्द्रित गर्नुहोस्"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"स्क्रिन मधुरो गर्नुहोस्"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"स्क्रिन उज्यालो पार्नुहोस्"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"स्थानीय कन्टेक्स्ट मेनु"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"ग्लोबल कन्टेक्स्ट मेनु"</string>
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"कुनै मेनु आइटम छैन।"</string>
@@ -234,6 +361,13 @@
     <string name="title_summary" msgid="3037924006370977165">"छिटो नेभिगेसन"</string>
     <string name="title_granularity" msgid="399801096771904747">"नेभिगेशन सेटिङहरू"</string>
     <string name="title_custom_action" msgid="7908169922901920318">"अनुकूलन कार्यहरू"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"स्वतः पूर्ण गर्ने सम्बन्धी सुझावहरू"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"सुझावहरूमा जानुहोस्"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"सम्पादन क्षेत्रमा फर्कनुहोस्"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"खोजको लागि नियन्त्रण पट्टी"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"खोजको नियन्त्रण सम्बन्धी स्तरलाई सम्पादन गर्नुहोस्"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"० देखि १०० सम्मको कुनै संख्या प्रविष्ट गर्नुहोस्।"</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
     <string name="value_direction_up" msgid="1646290331150992975">"माथि"</string>
     <string name="value_direction_down" msgid="8072362433982733982">"तल"</string>
     <string name="value_direction_left" msgid="676932617445677488">"बायाँ"</string>
@@ -294,6 +428,7 @@
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"पहुँच इशाराहरूमा परिवर्तनहरूको समीक्षा गर्न ट्याप गर्नुहोस्।"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"कुरा फर्काउने निलम्बित गरियो।"</string>
     <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"पुनःसुरु गर्न ट्याप गर्नुहोस्।"</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"पाठ १ तिर स्वतः बढ्दै।"</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"कुरा फर्काउने निलम्बन गर्नुहुन्छ?"</string>
     <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"के तपाईँ निश्चित हुनुहुन्छ? तपाईँको यन्त्रले प्रतिक्रिया प्रदान गर्नेछैन र छोएर अन्वेषण अक्षम गरिनेछ। तपाईँले सूचनाहरू बाट, lockscreen मा फर्काएर वा आवाज बटन सर्टकट मार्फत TalkBack पुनःसुरु गर्न सक्नुहुन्छ।"</string>
     <string name="message_resume_manual" msgid="6522293510722570646">"तपाईँ अधिसूचना क्षेत्रबाट कुरा फर्काउने पुनःसुरु गर्न सक्नु हुन्छ।"</string>
@@ -306,19 +441,36 @@
     <string name="label_dialog_title_remove" msgid="1791163736307626930">"लेबल हटाउनुहोस्"</string>
     <string name="label_dialog_text" msgid="5879506218245648848">"उल्लेखित क्षेत्रमा तस्बिर प्रयोगको लागि पाठ प्रविष्ट गर्नुहोस्।"</string>
     <string name="label_remove_dialog_text" msgid="372916461303485723">"के \"<xliff:g id="LABEL">%1$s</xliff:g>\" लेबल लाई तपाईँ हटाउने कुरामा निश्चित हुनुहुन्छ?"</string>
-    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"के <xliff:g id="APP_NAME">%2$s</xliff:g> लेबलभित्र \"<xliff:g id="LABEL">%1$s</xliff:g>\" हटाउने कुरामा तपाईं निश्चित हुनुहुन्छ?"</string>
+    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"के <xliff:g id="APP_NAME">%2$s</xliff:g> लेबलभित्र \"<xliff:g id="LABEL">%1$s</xliff:g>\" हटाउने कुरामा तपाईँ निश्चित हुनुहुन्छ?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"पाठ लेबल गर्नुहोस्"</string>
+    <string name="label_import" msgid="1773817433300194935">"अनुकूलन लेबलहरू आयात गर्नुहोस्"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"TalkBack मा अनुकूलन लेबलहरू आयात गर्नुहोस्"</string>
+    <string name="label_import_dialog_message" msgid="7975227530187709469">"लेबल जुधेको अवस्था ओभरराइड गर्ने वा छोड्न आफ्नो निर्णय छनौट गर्नुहोस्।"</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"छोड्नुहोस्"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"ओभरराइड"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"निर्यात गर्न केही छैन। तपाईँले कुनै पनि लेबल हाल्नु भएको छैन"</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"लेबल निर्यात विफल भयो"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"लेबल आयात गर्न असफल"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="other">%d लेबलहरू अद्यावधिक गरियो</item>
+      <item quantity="one">१ लेबल अद्यावधिक गरियो</item>
+    </plurals>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"लेबलहरू निर्यात गर्न अनुप्रयोगहरू छनौट गर्नुहोस्:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"कुरा फर्काउने यो संस्करणमा पूर्वनिर्धारित पहुँच इशाराहरूमा परिवर्तनहरू समावेश छन्। यी इशाराहरूसँग सम्बन्धित कार्यहरू कुरा फर्काउने सेटिङ्हरूभित्र अनुकूलिन गरी मिलाउन सकिन्छ। स्पर्श बाट खोजीलाई सक्षम गराउँदा खास कार्य सम्पन्न गर्नको लागि तपाईँ निम्न ‍‍इशाराहरूलाई प्रयोग गर्न सक्नु हुन्छ।\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"भोल्युम तल र माथि गर्न लामो थिच्ने कुञ्जीहरू"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"स्क्रिन प्रकाश सक्षम वा असक्षम गर्न आवाजको दुवै बटन तीन पटक चाँडै थिच्नुहोस्"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"स्क्रिन मधुरो पार्ने हो?"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"के तपाईँ स्क्रिन मधुरो पार्ने बारे निश्चित हुनुहुन्छ?"</string>
     <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"कुरा फर्काउने यस संस्करणमा पूर्वनिर्धारित पहुँच इशाराहरूको परिवर्तनहरू सामेल छन्।\n\nमाथि-अनि-तल इशाराले तपाईँलाई स्क्रिनको पहिलो वस्तुमा जान अनुमति दिन्छ र तल-अनि-माथि इशाराले अन्तिम वस्तुमा जाने छ।\n\nएउटा वस्तुमा ध्यान केन्द्रित गरी, अनि स्थानीय सन्दर्भ मेनुबाट मूलभुत छानेर पढाइ अब मूलभूत परिवर्तन गर्न सकिन्छ।\n\nतपाईँ यी इशाराहरू द्वारा गरिएका कार्यहरूलाई कुरा फर्काउने सेटिङ्हरू मा परिवर्तन गर्न सक्नु हुन्छ।"</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"TalkBack को यस संस्करणमा पूर्वनिर्धारित पहुँच सम्बन्धी इसाराहरूमा गरिएका परिवर्तनहरू सामेल छन्।\n\nमाथितिर गरिने इसाराले अब अघिल्लो नेभिगेसनको सेटिङमा लैजान्छ र तलतिर गरिने इसाराले अब अर्को नेभिगेसनको सेटिङमा लैजान्छ।"</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"इशाराहरू स्वीकार्नुहोस्।"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"इशाराहरूलाई मिलाउनुहोस्"</string>
+    <string name="button_clear_all_events" msgid="2128349101908653825">"सबैलाई खाली गर्नुहोस्"</string>
+    <string name="button_check_all_events" msgid="301383322727007726">"सबैलाई चिन्ह मार्फत चयन गर्नुहोस्"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"स्पर्श द्वारा खोजी असक्षम पार्ने?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"स्पर्श द्वारा अन्वेषण हुने बन्द गर्न चाहनु हुन्छ?\n\nतपाईँले स्क्रिनलाई छुँदा तपाईँको उपकरणले सर्टकट इशाराहरू वा बोल्ने आइटमहरू लाई प्रतिक्रिया गर्दैन।"</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"नोड रूख डिबग सक्षम गर्ने?"</string>
-    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"तपाईं नोड रूख डिबग खोल्न चाहनुहुन्छ भनी निश्चित हुनुहुन्छ?\n\nनोड रूख डिबग अन्य अनुप्रयोग द्वारा पढ्न सक्छ जो आफ्नो उपकरणको लगको आफ्नो पर्दाको सामाग्री खुला गर्छ।"</string>
+    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"तपाईँ नोड रूख डिबग खोल्न चाहनुहुन्छ भनी निश्चित हुनुहुन्छ?\n\nनोड रूख डिबग अन्य अनुप्रयोग द्वारा पढ्न सक्छ जो आफ्नो उपकरणको लगको आफ्नो पर्दाको सामाग्री खुला गर्छ।"</string>
     <string name="hint_script_injection" msgid="6139951755594105602">"स्पर्श द्वारा अन्वेषण वेब सामग्रीमा उपलब्ध छैन। वेब सामग्री पत्ता लगाउनको लागि पहुँच सेटिङ्हरूमा <xliff:g id="PREFERENCE_NAME">%1$s</xliff:g> लाई खोल्नुहोस्।"</string>
     <string name="label_talkback_context_menu" msgid="6758073806811666684">"कुरा फर्काउने विश्व सन्दर्भ मेनु"</string>
     <string name="permission_talkback_label" msgid="2235244838320678938">"कुरा फर्काउने नियन्त्रण गर्नुहोस्"</string>
@@ -327,9 +479,77 @@
     <string name="permission_labeling_desc" msgid="8065967887484901473">"पहुँच गर्न, संशोधन गर्न र कुरा फर्काउने द्वारा बोलिएका कस्टम लेबलहरू हटाउनको लागि अनुमति।"</string>
     <string name="links" msgid="3448225474115458693">"लिङ्कहरू"</string>
     <string name="end_of_text" msgid="3595733062526019550">"अन्त्य गर्नुहोस्"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"कुनै अघिल्लो <xliff:g id="ID_1">%1$s</xliff:g> छैन"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"अर्को <xliff:g id="ID_1">%1$s</xliff:g> छैन"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"शीर्षक"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"बटन"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"कम्बोबाकस"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"ARIA ल्यान्डमार्क"</string>
+    <string name="display_name_edit_field" msgid="5014778180731737501">"सम्पादन क्षेत्र"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"फोकस गर्न मिल्ने वस्तु"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"शीर्षक १"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"शीर्षक २"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"शीर्षक ३"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"शीर्षक ४"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"शीर्षक ५"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"शीर्षक ६"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"लिंक"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"नियन्त्रण"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"ग्राफिक"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"सूचीको वस्तु"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"सूची"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"तालिका"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"जाँच बाकस"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"शीर्षक वा ल्यान्डमार्क"</string>
     <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
     <string name="row_index_template" msgid="4107789959609911947">"पङ्क्ति <xliff:g id="ROW">%1$d</xliff:g>"</string>
     <string name="column_index_template" msgid="258393957626754806">"स्तम्भ <xliff:g id="COL">%1$d</xliff:g>"</string>
     <string name="heading_template" msgid="3585514481777782183">"शीर्षक"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"पङ्क्तिको शीर्षक"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"स्तम्भको शीर्षक"</string>
     <string name="item_index_template" msgid="71505978833721807">"बस्तु <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"आयात गरिएका लेबलहरू उल्टाउनुहोस्"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"आयातित लेबलहरू उल्टाइयो"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"टुप्पोमा <xliff:g id="ID_1">%1$s</xliff:g>, फेदमा <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"बायॉंतिर <xliff:g id="ID_1">%1$s</xliff:g>, दायॉंतिर <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"दायॉंतिर <xliff:g id="ID_1">%1$s</xliff:g>, बायॉंतिर <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="untitled_window" msgid="7017590766394623328">"शीर्षक नभएको"</string>
+    <string name="status_bar" msgid="6000275621941971563">"वस्तुस्थिति पट्टी"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"नेभिगेसन पट्टी"</string>
+    <string name="template_collection_start" msgid="4362535543397747567">"<xliff:g id="COLLECTION_NAME">%1$s</xliff:g> मा"</string>
+    <string name="template_collection_end" msgid="2167296836815021551">"<xliff:g id="COLLECTION_NAME">%1$s</xliff:g> बाट बाहिर"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"चरण <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> वस्तुहरू</item>
+      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> वस्तु</item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> पङ्क्तिहरू</item>
+      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> पङ्क्ति</item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> स्तम्भहरू</item>
+      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> स्तम्भ</item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> वर्णहरू</item>
+      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> वर्ण</item>
+    </plurals>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT">%1$d</xliff:g> घटनाक्रमहरूलाई चयन गरियो</item>
+      <item quantity="one">१ घटनाक्रमलाई चयन गरियो</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> सुरु भयो"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> अन्त्य भयो"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"खोजलाई नियन्त्रण गर्ने मोड"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"मान परिवर्तन गर्न तीर बटनहरूलाई थिन्नुहोस् वा अन्त्य गर्न चयन गर्ने बटनलाई थिच्नुहोस्।"</string>
+    <string name="arc_android_window" msgid="697316167642517245">"Android को विन्डो"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"नेभिगेट गर्न खोज र तीर कुञ्जीहरूको प्रयोग गर्नुहोस्"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"सर्टकटहरूको सूची हेर्न <xliff:g id="KEYCOMBO">%1$s</xliff:g> थिच्नुहोस्"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"TalkBack सम्बन्धी सेटिङहरू खोल्न <xliff:g id="KEYCOMBO">%1$s</xliff:g> थिच्नुहोस्"</string>
+    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"स्पर्श र बोलीको प्रतिक्रियामा उत्कृष्ट परिणाम पाउन अनुप्रयोगको विन्डोलाई ठूलो पार्नुहोस्"</string>
 </resources>

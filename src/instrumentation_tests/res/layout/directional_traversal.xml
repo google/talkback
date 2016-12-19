@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layoutDirection="ltr">
+
+  <LinearLayout
+    android:id="@+id/directional_root"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:focusable="true"
+    android:contentDescription="Test Layout Root"
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp">
+
+    <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="0dp"
+      android:layout_weight="0.3"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal">
+      <Button
+        android:id="@+id/directional_1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="0dp"
+      android:layout_weight="0.7"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal">
+      <Button
+        android:id="@+id/directional_2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="2"/>
+      <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+        <Button
+          android:id="@+id/directional_3"
+          android:layout_width="0dp"
+          android:layout_weight="0.6"
+          android:layout_height="100dp"
+          android:text="3"/>
+        <Button
+          android:id="@+id/directional_4"
+          android:layout_width="0dp"
+          android:layout_weight="0.4"
+          android:layout_height="100dp"
+          android:text="4"/>
+      </LinearLayout>
+      <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+        <Button
+          android:id="@+id/directional_5"
+          android:layout_width="0dp"
+          android:layout_weight="0.2"
+          android:layout_height="50dp"
+          android:text="5"/>
+        <Button
+          android:id="@+id/directional_6"
+          android:layout_width="0dp"
+          android:layout_weight="0.2"
+          android:layout_height="50dp"
+          android:text="6"/>
+        <Button
+          android:id="@+id/directional_7"
+          android:layout_width="0dp"
+          android:layout_weight="0.6"
+          android:layout_height="50dp"
+          android:text="7"/>
+      </LinearLayout>
+    </LinearLayout>
+
+  </LinearLayout>
+
+</LinearLayout>

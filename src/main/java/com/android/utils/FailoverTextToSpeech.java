@@ -42,8 +42,6 @@ import android.util.Log;
 
 import com.android.utils.compat.provider.SettingsCompatUtils.SecureCompatUtils;
 import com.android.utils.compat.speech.tts.TextToSpeechCompatUtils;
-import com.android.utils.LogUtils;
-import com.android.utils.WeakReferenceHandler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,7 +75,15 @@ public class FailoverTextToSpeech {
     /** Number of times a TTS engine can fail before switching. */
     private static final int MAX_TTS_FAILURES = 3;
 
-    /** Constant to flush speech globally. This is a private API. */
+    /** Maximum number of TTS error messages to print to the log. */
+    private static final int MAX_LOG_MESSAGES = 10;
+
+    /**
+     * Constant to flush speech globally.
+     * The constant corresponds to the non-public API {@link TextToSpeech#QUEUE_DESTROY}.
+     * To avoid a bug, we always need to use {@link TextToSpeech#QUEUE_FLUSH} before using
+     * {@link #SPEECH_FLUSH_ALL} -- on Android version M only.
+     **/
     private static final int SPEECH_FLUSH_ALL = 2;
 
     /**
@@ -239,7 +245,19 @@ public class FailoverTextToSpeech {
      */
     public void stopAll() {
         try {
+            ensureQueueFlush();
             mTts.speak("", SPEECH_FLUSH_ALL, null);
+        } catch (Exception e) {
+            // Don't care, we're not speaking.
+        }
+    }
+
+    /**
+     * Stops all speech that originated from TalkBack. No utterance callbacks will be sent.
+     */
+    public void stopFromTalkBack() {
+        try {
+            mTts.speak("", TextToSpeech.QUEUE_FLUSH, null);
         } catch (Exception e) {
             // Don't care, we're not speaking.
         }
@@ -296,7 +314,7 @@ public class FailoverTextToSpeech {
                 mTts.setSpeechRate(effectiveRate);
             }
 
-            result = speakCompat(text, params);
+            result = mTts.speak(text.toString(), SPEECH_FLUSH_ALL, params);
         }
 
         mCurrentPitch = effectivePitch;
@@ -309,10 +327,6 @@ public class FailoverTextToSpeech {
             Log.d(TAG, "Speak call for " + utteranceId + " returned " + result);
         }
         return result;
-    }
-
-    private int speakCompat(CharSequence text, HashMap<String, String> params) {
-        return mTts.speak(text.toString(), SPEECH_FLUSH_ALL, params);
     }
 
     @TargetApi(21)
@@ -331,7 +345,19 @@ public class FailoverTextToSpeech {
         bundle.putInt(Engine.KEY_PARAM_STREAM, stream);
         bundle.putFloat(SpeechController.SpeechParam.VOLUME, volume);
 
+        ensureQueueFlush();
         return mTts.speak(text, SPEECH_FLUSH_ALL, bundle, utteranceId);
+    }
+
+    /**
+     * Flushes the TextToSpeech queue for fast speech queueing, needed only on Android M.
+     * See bug BUG
+     */
+    @TargetApi(21)
+    private void ensureQueueFlush() {
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
+            mTts.speak("", TextToSpeech.QUEUE_FLUSH, null, null);
+        }
     }
 
     /**
@@ -353,7 +379,8 @@ public class FailoverTextToSpeech {
             return;
         }
 
-        LogUtils.log(SpeechController.class, Log.INFO, "Switching to TTS engine: %s", engine);
+        LogUtils.logWithLimit(SpeechController.class, Log.INFO, mTtsFailures, MAX_LOG_MESSAGES,
+                "Switching to TTS engine: %s", engine);
 
         mTempTtsEngine = engine;
         mTempTts = new TextToSpeech(mContext, mTtsChangeListener, engine);
@@ -366,8 +393,8 @@ public class FailoverTextToSpeech {
      * @param failedEngine The package name of the engine to switch from.
      */
     private void attemptTtsFailover(String failedEngine) {
-        LogUtils.log(
-                SpeechController.class, Log.ERROR, "Attempting TTS failover from %s", failedEngine);
+        LogUtils.logWithLimit(SpeechController.class, Log.ERROR, mTtsFailures, MAX_LOG_MESSAGES,
+                "Attempting TTS failover from %s", failedEngine);
 
         mTtsFailures++;
 
@@ -493,7 +520,7 @@ public class FailoverTextToSpeech {
         }
     }
 
-    private void updateDefaultEngine() {
+    public void updateDefaultEngine() {
         final ContentResolver resolver = mContext.getContentResolver();
 
         // Always refresh the list of available engines, since the user may have
@@ -505,8 +532,16 @@ public class FailoverTextToSpeech {
         // This may be null if the user hasn't specified an engine.
         mDefaultTtsEngine = Secure.getString(resolver, Secure.TTS_DEFAULT_SYNTH);
 
-        // Always switch engines when the system default changes.
-        setTtsEngine(mDefaultTtsEngine, true);
+        // Switch engines when the system default changes and it's not the current engine.
+        if (mTtsEngine == null || !mTtsEngine.equals(mDefaultTtsEngine)) {
+            if (mInstalledTtsEngines.contains(mDefaultTtsEngine)) {
+                // Can load the default engine.
+                setTtsEngine(mDefaultTtsEngine, true);
+            } else if (!mInstalledTtsEngines.isEmpty()) {
+                // We'll take whatever TTS we can get.
+                setTtsEngine(mInstalledTtsEngines.get(0), true);
+            }
+        }
     }
 
     /**
@@ -531,31 +566,23 @@ public class FailoverTextToSpeech {
 
     /**
      * Preferred locale for fallback language.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
     private static final Locale PREFERRED_FALLBACK_LOCALE = Locale.US;
 
     /**
      * The system's default locale.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
     private Locale mSystemLocale = Locale.getDefault();
 
     /**
      * The current engine's default locale. This will be {@code null} if the
      * user never specified a preference.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
     private Locale mDefaultLocale = null;
 
     /**
      * Whether we're using a fallback locale because the TTS attempted to use an
      * unsupported locale.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
     private boolean mUsingFallbackLocale;
 
@@ -564,8 +591,6 @@ public class FailoverTextToSpeech {
      * {@link TextToSpeech#setLanguage}. If so, we'll need to work around a TTS
      * bug and manually update the TTS locale every time the user changes
      * locale-related settings.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
     private boolean mHasSetLocale;
 
@@ -574,10 +599,9 @@ public class FailoverTextToSpeech {
      * user is using the Google TTS and has the system set to a non-embedded
      * language.
      * <p>
-     * This method should be called on API >= 15 whenever the TTS engine is
+     * This method should be called whenever the TTS engine is
      * loaded, the system locale changes, or the default TTS locale changes.
      */
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     private void ensureSupportedLocale() {
         if (needsFallbackLocale()) {
             attemptSetFallbackLanguage();
@@ -592,10 +616,7 @@ public class FailoverTextToSpeech {
 
     /**
      * Returns whether we need to attempt to use a fallback language.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     private boolean needsFallbackLocale() {
         // If the user isn't using Google TTS, or if they set a preferred
         // locale, we do not need to check locale support.
@@ -618,10 +639,7 @@ public class FailoverTextToSpeech {
 
     /**
      * Attempts to obtain and set a fallback TTS locale.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     private void attemptSetFallbackLanguage() {
         final Locale fallbackLocale = getBestAvailableLocale();
         if (fallbackLocale == null) {
@@ -651,10 +669,7 @@ public class FailoverTextToSpeech {
      * {@link #PREFERRED_FALLBACK_LOCALE}. The resulting locale may not be
      * optimal for the user, but it will likely be enough to understand what's
      * on the screen.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     private Locale getBestAvailableLocale() {
         if (mTts == null) {
             return null;
@@ -690,10 +705,7 @@ public class FailoverTextToSpeech {
     /**
      * Attempts to restore the user's preferred TTS locale, if set. Otherwise
      * attempts to restore the system locale.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     private void attemptRestorePreferredLocale() {
         if (mTts == null) {
             return;
@@ -714,10 +726,7 @@ public class FailoverTextToSpeech {
 
     /**
      * Handles updating the default locale.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     private void updateDefaultLocale() {
         final String defaultLocale = TextToSpeechUtils.getDefaultLocaleForEngine(
                 mResolver, mTtsEngine);
@@ -730,10 +739,7 @@ public class FailoverTextToSpeech {
 
     /**
      * Handles updating the system locale.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     private void onConfigurationChanged(Configuration newConfig) {
         final Locale newLocale = newConfig.locale;
         if (newLocale.equals(mSystemLocale)) {
@@ -749,10 +755,7 @@ public class FailoverTextToSpeech {
 
     /**
      * Registers the configuration change callback.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     private void registerGoogleTtsFixCallbacks() {
         final Uri defaultLocaleUri = Secure.getUriFor(SecureCompatUtils.TTS_DEFAULT_LOCALE);
         mResolver.registerContentObserver(defaultLocaleUri, false, mLocaleObserver);
@@ -761,10 +764,7 @@ public class FailoverTextToSpeech {
 
     /**
      * Unregisters the configuration change callback.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
     private void unregisterGoogleTtsFixCallbacks() {
         mResolver.unregisterContentObserver(mLocaleObserver);
         mContext.unregisterComponentCallbacks(mComponentCallbacks);
@@ -842,8 +842,6 @@ public class FailoverTextToSpeech {
 
     /**
      * Callbacks used to observe changes to the TTS locale.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
     private final ContentObserver mLocaleObserver = new ContentObserver(mHandler) {
         @Override
@@ -875,8 +873,6 @@ public class FailoverTextToSpeech {
 
     /**
      * Callbacks used to observe configuration changes.
-     * <p>
-     * Only used on API >= 15 to work around language issues with Google TTS.
      */
     private final ComponentCallbacks mComponentCallbacks = new ComponentCallbacks() {
         @Override

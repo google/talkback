@@ -23,13 +23,13 @@ import android.content.IntentFilter;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.hardware.SensorManager;
-import android.preference.PreferenceManager;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.view.accessibility.AccessibilityEvent;
 
 import com.android.talkback.controller.FeedbackController;
 import com.android.talkback.controller.GestureController;
 import com.android.utils.AccessibilityEventListener;
+import com.android.utils.SharedPreferencesUtils;
 import com.android.utils.picidae.IntegratedTapDetector;
 import com.google.android.marvin.talkback.TalkBackService;
 
@@ -90,7 +90,7 @@ public class SideTapManager extends BroadcastReceiver
      * Enables tap detection if appropriate based on preferences.
      */
     public void onReloadPreferences() {
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(mContext);
+        SharedPreferences settings = SharedPreferencesUtils.getSharedPreferences(mContext);
 
         boolean enableTapDetection = false;
         if (!settings.getString(mContext.getString(R.string.pref_shortcut_single_tap_key),
@@ -166,7 +166,7 @@ public class SideTapManager extends BroadcastReceiver
         boolean tapIsntFromHaptic =
                 (Math.abs(timeStamp - mLastHapticTime) > MIN_TIME_BETWEEN_HAPTIC_AND_TAP_NANOS);
         if (talkBackActive && tapIsntFromScreenTouch && tapIsntFromHaptic) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+            SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(mContext);
             mGestureController.performAction(prefs.getString(
                     mContext.getString(R.string.pref_shortcut_single_tap_key),
                     mContext.getString(R.string.pref_shortcut_single_tap_default)));
@@ -182,7 +182,7 @@ public class SideTapManager extends BroadcastReceiver
         boolean tapIsntFromHaptic =
                 (Math.abs(timeStamp - mLastHapticTime) > MIN_TIME_BETWEEN_HAPTIC_AND_TAP_NANOS);
         if (talkBackActive && tapIsntFromScreenTouch && tapIsntFromHaptic) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+            SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(mContext);
             mGestureController.performAction(prefs.getString(
                     mContext.getString(R.string.pref_shortcut_double_tap_key),
                     mContext.getString(R.string.pref_shortcut_double_tap_default)));

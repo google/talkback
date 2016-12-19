@@ -53,7 +53,7 @@ public class AccessibilityNodeInfoRef {
      * Clears this object, recycling the underlying node if owned.
      * This object should not be used after this method is called.
      */
-    // TODO(PL): Add a pool if proven necessary.
+    // TODO: Add a pool if proven necessary.
     public void recycle() {
         clear();
     }

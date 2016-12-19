@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/tutorial_grid_item_width"
+    android:layout_height="@dimen/tutorial_grid_item_height"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/MaterialTextBody1"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:layout_margin="8dp"/>
+
+
+    <View
+        android:id="@+id/circle"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/tutorial_grid_item_background"
+        android:layout_above="@id/title"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

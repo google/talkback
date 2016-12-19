@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- String.format failed for translation -->
-    <!-- no translation found for template_stream_volume (1816951995792085063) -->
-    <skip />
-    <!-- String.format failed for translation -->
-    <!-- no translation found for template_stream_volume_set (4964670773272907835) -->
-    <skip />
+    <string name="template_stream_volume" msgid="1816951995792085063">"Lautstärke für <xliff:g id="STREAM_NAME">%1$s</xliff:g>: <xliff:g id="PERCENT">%2$d</xliff:g> Prozent."</string>
+    <string name="template_stream_volume_set" msgid="4964670773272907835">"Lautstärke für <xliff:g id="STREAM_NAME">%1$s</xliff:g> auf <xliff:g id="PERCENT">%2$d</xliff:g> Prozent eingestellt"</string>
     <string name="value_stream_master" msgid="4636086067147877021">"Standard"</string>
     <string name="value_stream_voice_call" msgid="3808346037153621863">"Telefonanruf"</string>
     <string name="value_stream_system" msgid="2589285265752092053">"Systemton"</string>

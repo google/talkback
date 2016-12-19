@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Tillgänglighetsguide"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Starta guiden för TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack-guiden"</string>
+    <string name="main_description" msgid="4795202818108740382">"Talkback är en skärmläsare som främst är avsedd för personer med helt eller delvis nedsatt syn. Den gör att de kan använda enheten med hjälp av talad feedback."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Stäng av TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Lär dig mer"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Öva"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"lär dig lektion <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"öva på lektion <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lektion 1: Grundläggande navigering"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Utforska genom att trycka, utforska med svep, aktivera genom att trycka snabbt två gånger"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Del 1: Explore by touch"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"När du har aktiverat Explore by touch kan du höra vad som finns under ditt finger. Flytta fingret över objekten på mitten av skärmen. När du har utforskat fem objekt fortsätter lektionen."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Del 2: Aktivera genom att trycka snabbt två gånger"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Om du vill aktivera det sista objektet du hörde trycker du snabbt två gånger var som helst. Hitta objekt 7 och aktivera det nu. Aktivera sedan Nästa för att fortsätta."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Objekt 7 har aktiverats. Hitta och aktivera knappen Nästa när du vill fortsätta"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Del 3: Navigera mellan lektioner"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Lektionerna om TalkBack är ordnade på liknande sätt. Lektionen finns i den övre delen och därifrån kan du utforska och läsa den när som helst. Dessutom finns en knapp för självstudiens startsida i övre vänstra hörnet. I mitten finns ett övningsområde. Nedtill finns en förloppsindikator och knappar för lektionsnavigering. Aktivera Nästa nu för att fortsätta."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Del 4: Utforska genom att svepa"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Du kan också utforska genom att svepa på skärmen med fingret. Om du sveper åt vänster utforskar du uppåt och åt vänster, och om du sveper åt höger utforskar du nedåt och åt höger. Testa detta nu."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Del 5: Övning"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Flytta fingret på skärmen så får du höra vad som finns under det. Aktivera det du hör genom att trycka snabbt två gånger var som helst på skärmen. Utforska genom att svepa åt vänster eller höger."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lektion 2: Rulla"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Rulla med två fingrar, hoppa framåt och bakåt"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Del 1: Rulla med två fingrar"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Bläddra i en lodrät lista genom att utgå från ett objekt i listan och föra två fingrar uppåt eller nedåt. Bläddra i en vågrät lista genom att utgå från ett objekt i listan och föra två fingrar åt vänster eller höger."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Del 2: Kortkommandon för att rulla"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Du kan hoppa bakåt och framåt i en lista med hjälp av ett kortkommando. Om du vill hoppa framåt flyttar du ett finger åt höger och sedan vänster i en enda rörelse. Om du vill hoppa bakåt flyttar du ett finger åt vänster och sedan höger. Testa här."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Del 3: Övning"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Rulla genom att dra med två fingrar uppåt eller nedåt. Hoppa framåt genom att dra ett finger åt höger och sedan åt vänster. Hoppa bakåt genom att dra ett finger åt vänster och sedan åt höger."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lektion 3: TalkBack-menyerna"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Global TalkBack-meny, lokal TalkBack-meny"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Del 1: Global TalkBack-meny"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"Det finns två olika menyer i TalkBack. Den första är den globala TalkBack-menyn som alltid innehåller samma kommandon. Du kan aktivera den genom att dra ett finger nedåt och sedan åt höger i en enda rörelse. Sedan lyfter du fingret. Aktivera en övningsversion nu."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Menyalternativen visas i en lodrät lista mitt på skärmen. Testa att utforska dem. Aktivera Avbryt när du är klar."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Del 2: Lokal TalkBack-meny"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Den andra menyn är den lokala TalkBack-menyn. Objekten i den här menyn är olika beroende på vad du hörde senast. Du kan aktivera menyn genom att dra ett finger uppåt och sedan åt höger i en enda rörelse. Sedan lyfter du fingret. Aktivera en övningsmenyn nu."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Del 3: Övning"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Flytta fingret nedåt och sedan åt höger om du vill aktivera den globala TalkBack-menyn. Flytta fingret uppåt och sedan åt höger om du vill aktivera den lokala TalkBack-menyn."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Nedåt, sedan åt höger"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Uppåt, sedan åt höger"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Global TalkBack-meny: nedåt ,sedan åt höger. Lokal TalkBack-meny: uppåt, sedan åt höger"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Lektion 4: Textnavigering"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Välja inställningar för textnavigering"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Del 1: Välja navigeringsinställningar"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"Med TalkBack kan du styra om texten ska läsas upp ett stycke i taget eller en rad, ett ord eller ett tecken i taget. Att läsa upp ett tecken i taget kan hjälpa dig med stavningen. Ställ in textnavigeringen på tecken genom att trycka på texten nedan och sedan svepa uppåt och nedåt."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Utforska alternativen för läshastighet som visas i en vertikal lista här. Hitta och aktivera alternativet för att läsa ett tecken i taget."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Del 2: Navigera i texten"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Du läser nu ett tecken i taget. Markera exempeltexten och och svep åt höger så läses ett tecken i taget upp."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Del 3: Övning"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Ändra hastigheten för textnavigering genom att svepa uppåt eller nedåt. Läs nästa tecken i exemplet genom att svepa åt höger."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Här är en text som du kan använda för att testa TalkBack. ”Var ligger Kansas?” frågade mannen förvånat. ”Det vet jag inte”, svarade Dorothy sorgset, ”men det är där jag bor så jag är säker på att det ligger någonstans.”\n\n”Det verkar troligt. Nåja, Oz klarar allt, så han hittar säkert Kansas åt dig. Men först måste du träffa honom och det är inte så lätt för den store trollkarlen gillar inte att träffa folk. Och han brukar få som han vill. Men vad vill DU?” fortsatte han, vänd mot Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Lektion 5: Textredigering"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Aktivera en redigeringsruta, skriva, flytta en markör, markera och arbeta med text"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Del 1: Aktivera en redigeringsruta"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Med TalkBack kan du använda en redigeringsruta för att skriva, markera och redigera text. Aktivera en redigeringsruta genom att trycka snabbt två gånger på den. När du har aktiverat en redigeringsruta visas ett tangentbord längst ned på skärmen. Du kan stänga tangentbordet med knappen Bakåt. Testa att aktivera redigeringsrutan nu. Aktivera Nästa precis ovanför tangentbordet när du är klar."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Del 2: Skriva i en redigeringsruta"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"När du vill skriva aktiverar du redigeringsrutan och drar med fingret över skärmtangentbordet. När du hör det tecken du vill ha aktiverar du det genom att lyfta fingret. Testa att aktivera och skriva i redigeringsrutan nedan."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Del 3: Använda en markör"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Du kan flytta markören med enhetens volymknappar eller via den lokala TalkBack-menyn. Med alternativet Markörstyrning på menyn kan du också markera, klippa ut, kopiera eller klistra in text. Aktivera redigeringsrutan nedan och flytta runt markören i exempeltexten."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Dorothy Gales e-postadress är dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Del 4: Övning"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Aktivera redigeringsrutan genom att trycka snabbt två gånger. Skriv genom att flytta fingret över ett tecken och sedan lyfta det. Flytta markören med volymknapparna och den lokala TalkBack-menyn. Markera och utför åtgärder med texten med alternativet Markörstyrning på den lokala TalkBack-menyn."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Redigera text"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"FÖREGÅENDE"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"NÄSTA"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"FÖREGÅENDE LEKTION"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"NÄSTA LEKTION"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"STARTSIDA FÖR GUIDEN"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Lektion %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Del %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Del %1$d av %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Övningen är klar och du kan strax fortsätta med nästa lektion"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Övningsområde"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s aktiverades i övningsläge. Aktivera knappen AVBRYT om du vill avsluta."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Startsidesknapp för guiden"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Objekt <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Stäng"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Explore by touch krävs"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Explore by touch krävs för den här guiden. Aktivera Explore by touch innan du startar guiden."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack har inaktiverats"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"TalkBack krävs för den här guiden. Aktivera TalkBack innan du startar den."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack har stängts av"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Självstudierna för TalkBack är inte tillgängliga när feedback för TalkBack har inaktiverats. Aktivera feedback för TalkBack och starta om guiden om du vill fortsätta."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Beskriv menyn"</string>
+</resources>

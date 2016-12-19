@@ -38,6 +38,9 @@ public class ProximitySensor {
      */
     private static final long REGISTRATION_EVENT_FILTER_TIMEOUT = 120;
 
+    // Trigger proximity if distance is less than 5 cm.
+    private static final float TYPICAL_PROXIMITY_THRESHOLD = 5.0f;
+
     private final SensorManager mSensorManager;
     private final Sensor mProxSensor;
     private final Handler mHandler = new Handler();
@@ -66,7 +69,11 @@ public class ProximitySensor {
     public ProximitySensor(Context context) {
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         mProxSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-        mFarValue = (mProxSensor != null) ? mProxSensor.getMaximumRange() : 0;
+        if (mProxSensor != null) {
+            mFarValue = Math.min(mProxSensor.getMaximumRange(), TYPICAL_PROXIMITY_THRESHOLD);
+        } else {
+            mFarValue = 0;
+        }
     }
 
     public void setProximityChangeListener(ProximityChangeListener listener) {

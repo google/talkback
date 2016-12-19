@@ -30,6 +30,7 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import com.android.utils.AccessibilityNodeInfoUtils;
 import com.android.utils.LogUtils;
+import com.android.utils.Role;
 import com.android.utils.StringBuilderUtils;
 import com.android.utils.traversal.ReorderedChildrenIterator;
 
@@ -50,20 +51,15 @@ public class NodeSpeechRuleProcessor {
     static {
         // Rules are matched in the order they are added, so make sure to place
         // general rules after specific ones (e.g. Button after RadioButton).
-        mRules.add(new RuleSimpleHintTemplate(android.widget.Spinner.class,
-                R.string.template_spinner, R.string.template_hint_spinner));
+        mRules.add(new RuleSimpleHintTemplate(Role.ROLE_DROP_DOWN_LIST,
+                R.string.template_hint_spinner, R.string.template_hint_spinner_keyboard));
         mRules.add(mRuleSwitch);
         mRules.add(new RuleNonTextViews()); // ImageViews and ImageButtons
-        mRules.add(new RuleSimpleTemplate(android.widget.RadioButton.class,
-                R.string.template_radio_button));
-        mRules.add(new RuleSimpleTemplate(android.widget.CompoundButton.class,
-                R.string.template_checkbox));
-        mRules.add(new RuleSimpleTemplate(android.widget.Button.class,
-                R.string.template_button));
         mRules.add(new RuleEditText());
         mRules.add(new RuleSeekBar());
+        mRules.add(new RulePager());
+        mRules.add(new RulePagerPage());
         mRules.add(new RuleContainer());
-        mRules.add(new RuleCollection());
 
         mRules.add(new RuleViewGroup());
 
@@ -71,12 +67,12 @@ public class NodeSpeechRuleProcessor {
         mRules.add(new RuleDefault());
     }
 
-    // TODO(KM): remove this
+    // TODO: remove this
     public static void initialize(Context context) {
         sInstance = new NodeSpeechRuleProcessor(context);
     }
 
-    // TODO(KM): remove this
+    // TODO: remove this
     public static NodeSpeechRuleProcessor getInstance() {
         if (sInstance == null) {
             throw new RuntimeException("NodeSpeechRuleProcessor not initialized");
@@ -126,6 +122,11 @@ public class NodeSpeechRuleProcessor {
      * @return The node's hint text.
      */
     public CharSequence getHintForNode(AccessibilityNodeInfoCompat node) {
+        // Disabled items don't have any hint text.
+        if (!node.isEnabled()) {
+            return null;
+        }
+
         for (NodeSpeechRule rule : mRules) {
             if ((rule instanceof NodeHintRule) && rule.accept(node, null)) {
                 LogUtils.log(this, Log.VERBOSE, "Processing node hint using %s", rule);
@@ -149,33 +150,59 @@ public class NodeSpeechRuleProcessor {
             return;
         }
 
-        // Append the full description for the root node.
         final AccessibilityEvent nodeEvent = (announcedNode.equals(source)) ? event : null;
         final CharSequence nodeDesc = getDescriptionForNode(announcedNode, nodeEvent);
-        if (!TextUtils.isEmpty(nodeDesc)) {
+        final boolean blockChildDescription = hasOverridingContentDescription(announcedNode);
+
+        SpannableStringBuilder childStringBuilder = new SpannableStringBuilder();
+
+        if (!blockChildDescription) {
+            // Recursively append descriptions for visible and non-focusable child nodes.
+            ReorderedChildrenIterator iterator = ReorderedChildrenIterator
+                    .createAscendingIterator(announcedNode);
+            while (iterator.hasNext()) {
+                AccessibilityNodeInfoCompat child = iterator.next();
+                if (AccessibilityNodeInfoUtils.isVisible(child)
+                        && !AccessibilityNodeInfoUtils.isAccessibilityFocusable(child)) {
+                    appendDescriptionForTree(child, childStringBuilder, event, source,
+                            visitedNodes);
+                }
+            }
+
+            iterator.recycle();
+        }
+
+        // If any one of the following is satisfied:
+        // 1. The root node has a description.
+        // 2. The root has no override content description and the children have some description.
+        // Then we should append the status information for this node.
+        // This is used to avoid displaying checked/expanded status alone without node description.
+        //
+        if (!TextUtils.isEmpty(nodeDesc) || !TextUtils.isEmpty(childStringBuilder)) {
+            appendExpandedOrCollapsedStatus(announcedNode, event, builder);
             appendCheckedStatus(announcedNode, event, builder);
-
-            StringBuilderUtils.appendWithSeparator(builder, nodeDesc);
-
-            // Setting a content description overrides subtree descriptions.
-            final CharSequence announcedDescription = announcedNode.getContentDescription();
-            if (!TextUtils.isEmpty(announcedDescription)) {
-                return;
-            }
         }
 
-        // Recursively append descriptions for visible and non-focusable child nodes.
-        ReorderedChildrenIterator iterator = ReorderedChildrenIterator
-                .createAscendingIterator(announcedNode);
-        while (iterator.hasNext()) {
-            AccessibilityNodeInfoCompat child = iterator.next();
-            if (AccessibilityNodeInfoUtils.isVisible(child)
-                    && !AccessibilityNodeInfoUtils.isAccessibilityFocusable(child)) {
-                appendDescriptionForTree(child, builder, event, source, visitedNodes);
-            }
-        }
+        StringBuilderUtils.appendWithSeparator(builder, nodeDesc);
+        StringBuilderUtils.appendWithSeparator(builder, childStringBuilder);
+    }
 
-        iterator.recycle();
+    /**
+     * Determines whether the node has a contentDescription that should cause its subtree's
+     * description to be ignored.
+     * The traditional behavior in TalkBack has been to return {@code true} for any node with a
+     * non-empty contentDescription. In this function, we thus whitelist certain roles where it
+     * doesn't make sense for the contentDescription to override the entire subtree.
+     */
+    private static boolean hasOverridingContentDescription(AccessibilityNodeInfoCompat node) {
+        switch (Role.getRole(node)) {
+            case Role.ROLE_PAGER:
+            case Role.ROLE_GRID:
+            case Role.ROLE_LIST:
+                return false;
+            default:
+                return node != null && !TextUtils.isEmpty(node.getContentDescription());
+        }
     }
 
     /**
@@ -208,7 +235,7 @@ public class NodeSpeechRuleProcessor {
             AccessibilityNodeInfoCompat node, SpannableStringBuilder builder) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) return;
 
-        // TODO(KM): add getLabeledBy to support lib
+        // TODO: add getLabeledBy to support lib
         AccessibilityNodeInfo info = (AccessibilityNodeInfo) node.getInfo();
         if (info == null) return;
         AccessibilityNodeInfo labeledBy = info.getLabeledBy();
@@ -247,11 +274,10 @@ public class NodeSpeechRuleProcessor {
         }
 
         // Append the control's selected state.
-        // TODO: Selected had no meaning outside of TabWidget and ListView.
-        // if (node.isSelected()) {
-        // StringBuilderUtils.appendWithSeparator(descriptionBuilder,
-        // mContext.getString(R.string.value_selected));
-        // }
+        if (node.isSelected()) {
+            StringBuilderUtils.appendWithSeparator(descriptionBuilder,
+                    mContext.getString(R.string.value_selected));
+        }
     }
 
     /**
@@ -269,6 +295,27 @@ public class NodeSpeechRuleProcessor {
             CharSequence checkedString = mContext.getString(
                     node.isChecked() ? R.string.value_checked : R.string.value_not_checked);
             StringBuilderUtils.appendWithSeparator(descriptionBuilder, checkedString);
+        }
+    }
+
+    /**
+     * Appends meta-data about the node's expandable/collapsible states.
+     * <p>
+     * This should be applied to all nodes in a tree, including the root.
+     */
+    private void appendExpandedOrCollapsedStatus(AccessibilityNodeInfoCompat node,
+                                                 AccessibilityEvent event,
+                                                 SpannableStringBuilder descriptionBuilder) {
+        // Append the control's expandable/collapsible state, if applicable.
+        if (AccessibilityNodeInfoUtils.isExpandable(node)) {
+            CharSequence collapsedString = mContext.getString(
+                    R.string.value_collapsed);
+            StringBuilderUtils.appendWithSeparator(descriptionBuilder, collapsedString);
+        }
+        if (AccessibilityNodeInfoUtils.isCollapsible(node)) {
+            CharSequence expandedString = mContext.getString(
+                    R.string.value_expanded);
+            StringBuilderUtils.appendWithSeparator(descriptionBuilder, expandedString);
         }
     }
 }

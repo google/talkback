@@ -20,10 +20,10 @@ import android.content.Context;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import com.android.utils.AccessibilityNodeInfoUtils;
 import com.android.utils.LogUtils;
+import com.android.utils.Role;
 
 /**
  * Formats speech for ViewGroup widgets.
@@ -31,7 +31,7 @@ import com.android.utils.LogUtils;
 public class RuleViewGroup implements NodeSpeechRule {
     @Override
     public boolean accept(AccessibilityNodeInfoCompat node, AccessibilityEvent event) {
-        return AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, ViewGroup.class);
+        return Role.getRole(node) == Role.ROLE_VIEW_GROUP;
     }
 
     @Override

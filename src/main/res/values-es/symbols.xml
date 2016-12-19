@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="symbol_apostrophe" msgid="7208629120802819915">"Apóstrofo"</string>
-    <string name="symbol_ampersand" msgid="2896965192299496498">"Et"</string>
+    <string name="symbol_apostrophe" msgid="7208629120802819915">"Apóstrofe"</string>
+    <string name="symbol_ampersand" msgid="2896965192299496498">"Ampersand"</string>
     <string name="symbol_angle_bracket_left" msgid="7380903071611293121">"Paréntesis angular de apertura"</string>
     <string name="symbol_angle_bracket_right" msgid="1868235467151646558">"Paréntesis angular de cierre"</string>
     <string name="symbol_asterisk" msgid="6817126584493630223">"Asterisco"</string>
@@ -20,12 +20,12 @@
     <string name="symbol_division" msgid="8469030548234745900">"Signo de división"</string>
     <string name="symbol_dollar_sign" msgid="7172720889757863645">"Símbolo del dólar"</string>
     <string name="symbol_ellipsis" msgid="6107023479924320264">"Puntos suspensivos"</string>
-    <string name="symbol_em_dash" msgid="9095293634011901230">"Guión largo"</string>
+    <string name="symbol_em_dash" msgid="9095293634011901230">"Raya"</string>
     <string name="symbol_en_dash" msgid="7221481427651082891">"Guion corto"</string>
     <string name="symbol_euro" msgid="7368999812147737584">"Euro"</string>
     <string name="symbol_exclamation_mark" msgid="988583649131855220">"Signo de exclamación"</string>
     <string name="symbol_grave_accent" msgid="2871187029685072964">"Acento grave"</string>
-    <string name="symbol_hyphen_minus" msgid="6395913704731547145">"Guión"</string>
+    <string name="symbol_hyphen_minus" msgid="6395913704731547145">"Guion"</string>
     <string name="symbol_low_double_quote" msgid="1311537029059161496">"Comillas dobles bajas"</string>
     <string name="symbol_multiplication" msgid="4500464364344640871">"Signo de multiplicación"</string>
     <string name="symbol_new_line" msgid="6848635267438885623">"Nueva línea"</string>
@@ -33,7 +33,7 @@
     <string name="symbol_parenthesis_left" msgid="6800146954886245634">"Paréntesis de apertura"</string>
     <string name="symbol_parenthesis_right" msgid="7215651695123277015">"Paréntesis de cierre"</string>
     <string name="symbol_percent" msgid="5459242644598387133">"Porcentaje"</string>
-    <string name="symbol_period" msgid="5437120137086222612">"Período"</string>
+    <string name="symbol_period" msgid="5437120137086222612">"Punto"</string>
     <string name="symbol_pi" msgid="9110332441949361829">"Pi"</string>
     <string name="symbol_pound" msgid="93826676999305096">"Almohadilla"</string>
     <string name="symbol_pound_sterling" msgid="728725055605726481">"Libra esterlina"</string>
@@ -48,14 +48,14 @@
     <string name="symbol_square_bracket_right" msgid="5927399844117072754">"Corchete de cierre"</string>
     <string name="symbol_square_root" msgid="683692620277245490">"Raíz cuadrada"</string>
     <string name="symbol_trademark" msgid="3263529639090333558">"Marca comercial"</string>
-    <string name="symbol_underscore" msgid="7192169250700774805">"Guión bajo"</string>
+    <string name="symbol_underscore" msgid="7192169250700774805">"Guion bajo"</string>
     <string name="symbol_vertical_bar" msgid="1121156640601168272">"Barra vertical"</string>
     <string name="symbol_yen" msgid="5956873078564706159">"Yen"</string>
     <string name="symbol_not_sign" msgid="6673590940229304440">"Signo de negación"</string>
     <string name="symbol_broken_bar" msgid="6813132652561276644">"Barra partida"</string>
-    <string name="symbol_micro_sign" msgid="3513065482309329740">"Símbolo de la micra"</string>
-    <string name="symbol_almost_equals" msgid="7456083235616834438">"Similar a"</string>
-    <string name="symbol_not_equals" msgid="5319485097346278422">"Diferente a"</string>
+    <string name="symbol_micro_sign" msgid="3513065482309329740">"Símbolo de micra"</string>
+    <string name="symbol_almost_equals" msgid="7456083235616834438">"Casi igual a"</string>
+    <string name="symbol_not_equals" msgid="5319485097346278422">"No es igual a"</string>
     <string name="symbol_currency_sign" msgid="3851601116109370799">"Símbolo de moneda"</string>
     <string name="symbol_section_sign" msgid="1425993244831126813">"Signo de sección"</string>
     <string name="symbol_upwards_arrow" msgid="6338361764081105639">"Flecha hacia arriba"</string>
@@ -63,7 +63,7 @@
     <string name="symbol_rupee" msgid="5442584145297714761">"Rupia"</string>
     <string name="symbol_black_heart" msgid="2472170057113549474">"Palo de corazones negro"</string>
     <string name="symbol_tilde" msgid="8207841648391314530">"Virgulilla"</string>
-    <string name="symbol_equal" msgid="5554709359828733331">"Igual"</string>
+    <string name="symbol_equal" msgid="5554709359828733331">"Signo de igual"</string>
     <string name="symbol_won" msgid="6959844046981982031">"Signo del won"</string>
     <string name="symbol_reference" msgid="905951483425189419">"Marca de referencia"</string>
     <string name="symbol_white_star" msgid="6150436720760853960">"Estrella blanca"</string>

@@ -66,6 +66,7 @@ public class NotificationActivity extends Activity {
         if (extras == null) {
             LogUtils.log(this, Log.WARN, "NotificationActivity received an empty extras bundle.");
             finish();
+            return;
         }
 
         mNotificationId = extras.getInt(EXTRA_INT_NOTIFICATION_ID, Integer.MIN_VALUE);
@@ -83,6 +84,7 @@ public class NotificationActivity extends Activity {
         if (TextUtils.isEmpty(dialogMessage)) {
             // No point in showing an empty message.
             finish();
+            return;
         }
 
         final OnClickListener acceptButtonListener = new OnClickListener() {

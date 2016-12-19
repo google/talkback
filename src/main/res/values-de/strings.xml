@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="7512754982950145749">"Wenn TalkBack aktiviert ist, gibt das Gerät blinden Nutzern und Nutzern mit geringem Sehvermögen gesprochenes Feedback. So werden etwa die Elemente beschrieben, die Sie berühren, auswählen und aktivieren."</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"Wenn TalkBack aktiviert ist, gibt das Gerät blinden Nutzern und Nutzern mit geringem Sehvermögen gesprochenes Feedback. So werden etwa die Elemente beschrieben, die du berührst, auswählst und aktivierst.\n\nWenn du TalkBack versehentlich aktiviert hast, kannst du es deaktivieren, indem du den Schalter solange berührst, bis er grün umrandet ist. Tippe dann doppelt darauf. Mache dasselbe in dem angezeigten Bestätigungsfenster."</string>
     <string name="talkback_on" msgid="315529674405160699">"TalkBack aktiviert"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack gesperrt"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack fortgesetzt"</string>
+    <string name="talkback_disabled" msgid="2536155587482587238">"TalkBack wurde ausgeschaltet."</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"TalkBack-Einstellungen"</string>
     <string name="tts_preferences_title" msgid="6233811187483633874">"Text-in-Sprache-Einstellungen"</string>
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Version <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
     <string name="label_manager_summary_title" msgid="6786694853113585661">"Benutzerdefinierte Labels verwalten"</string>
     <string name="label_manager_package_title" msgid="6984665343963494151">"Labels für <xliff:g id="APPLICATIONLABEL">%1$s</xliff:g> verwalten"</string>
-    <string name="label_manager_no_packages_message" msgid="4478523067360108574">"Zurzeit sind keine benutzerdefinierten Labels vorhanden. Sie können eines erstellen, indem Sie zu einem Bild ohne Label navigieren und über das lokale Kontextmenü ein Label hinzufügen."</string>
+    <string name="label_manager_no_packages_message" msgid="4478523067360108574">"Zurzeit sind keine benutzerdefinierten Labels vorhanden. Du kannst eines erstellen, indem du zu einem Bild ohne Label navigierst und über das lokale Kontextmenü ein Label hinzufügst."</string>
     <string name="label_manager_timestamp_text" msgid="2632240906498521602">"Zuletzt geändert am <xliff:g id="TIMESTAMP">%1$s</xliff:g>"</string>
     <string name="search_dialog_label" msgid="7273037326593054813">"Suchen: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>"</string>
     <string name="search_mode_open" msgid="910823044260738937">"Suchmodus geöffnet"</string>
@@ -19,6 +22,11 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"Aktuelle Suchanfrage: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>"</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"Kein Element ausgewählt"</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"Aktuelle Auswahl: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>"</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Anfang des Felds"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Ende des Felds"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Auswahlmodus an"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Auswahlmodus aus"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Auswahl gelöscht"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"Verpasster Anruf"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"Stummgeschaltet"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"Chat"</string>
@@ -33,37 +41,49 @@
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"Gestoppt"</string>
     <string name="template_current_tts_engine" msgid="3963364867159704159">"<xliff:g id="ENGINE_NAME">%1$s</xliff:g> wird verwendet."</string>
     <string name="template_menu" msgid="2592357933256217001">"Menü \"<xliff:g id="TITLE">%1$s</xliff:g>\""</string>
-    <string name="template_edit_box" msgid="5395366637528473616">"Bearbeitungsfeld. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
-    <string name="template_edit_box_current" msgid="2778286668618391188">"Das Bearbeitungsfeld wird gerade bearbeitet. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"Benachrichtigung \"<xliff:g id="MESSAGE">%1$s</xliff:g>\""</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"Menü \"<xliff:g id="TITLE">%1$s</xliff:g>\""</string>
     <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="OLD_TEXT">%2$s</xliff:g> ersetzt durch <xliff:g id="NEW_TEXT">%1$s</xliff:g>"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> gelöscht"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"Kopiert, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"Ausgeschnitten, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"Eingefügt, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, ausgewählt"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"Ausgewählter Text: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"Kein Text ausgewählt"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, Auswahl aufgehoben"</string>
     <string name="template_text_error" msgid="153775825635730287">"Ungültige Eingabe: <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> Zeichen durch <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> Zeichen ersetzt"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> für <xliff:g id="LABEL">%2$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"Langes Drücken von <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_button" msgid="2640124317262628933">"Schaltfläche \"<xliff:g id="TITLE">%1$s</xliff:g>\""</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"Bild \"<xliff:g id="TITLE">%1$d</xliff:g>\", unbenannt"</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"Schaltfläche \"<xliff:g id="TITLE">%1$d</xliff:g>\", unbenannt"</string>
-    <string name="template_seek_bar" msgid="9010890122601609426">"Suchleiste \"<xliff:g id="TITLE">%1$s</xliff:g>\""</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> Prozent"</string>
-    <string name="template_charging" msgid="2038200557537960378">"Laden: <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>. Akkustand: <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> Prozent"</string>
-  <plurals name="template_containers">
-    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="TYPE">%1$s</xliff:g> mit <xliff:g id="COUNT">%2$d</xliff:g> sichtbaren Element"</item>
-    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="TYPE">%1$s</xliff:g> mit <xliff:g id="COUNT">%2$d</xliff:g> sichtbaren Elementen"</item>
-  </plurals>
+    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> Prozent."</string>
+    <string name="template_charging" msgid="2038200557537960378">"Laden: <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>. Akkustand: <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> Prozent."</string>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> mit <xliff:g id="COUNT_3">%2$d</xliff:g> sichtbaren Elementen.</item>
+      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> mit <xliff:g id="COUNT_1">%2$d</xliff:g> sichtbaren Element.</item>
+    </plurals>
     <string name="value_gridview" msgid="1382219539169157957">"Raster"</string>
     <string name="value_listview" msgid="7625152822709234439">"Liste"</string>
     <string name="value_tabwidget" msgid="6935453013254857519">"Tableiste"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"Drop-down-Liste"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"Kästchen"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"Optionsfeld"</string>
+    <string name="value_button" msgid="2459787142940409576">"Schaltfläche"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"Suchleiste"</string>
+    <string name="value_switch" msgid="6946709666466895221">"Schalter"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"Bearbeitungsfeld"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"In Bearbeitung"</string>
+    <string name="value_image" msgid="5114229220871881124">"Bild"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"Unbenannt"</string>
+    <string name="value_pager" msgid="7708574424402835461">"Mehrseitenansicht"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"Seite"</string>
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"Elemente <xliff:g id="FROM_INDEX">%1$d</xliff:g> bis <xliff:g id="TO_INDEX">%2$d</xliff:g> von insgesamt <xliff:g id="TOTAL_COUNT">%3$d</xliff:g> werden angezeigt."</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"Element <xliff:g id="FROM_INDEX">%1$d</xliff:g> von <xliff:g id="TOTAL_COUNT">%2$d</xliff:g> wird angezeigt."</string>
-    <string name="template_spinner" msgid="1240658876427369167">"Drop-down-Liste \"<xliff:g id="TITLE">%1$s</xliff:g>\""</string>
-    <string name="template_password_selected" msgid="3751806880345903886">"Ausgewählte Zeichen: <xliff:g id="FROM_INDEX">%1$s</xliff:g> bis <xliff:g id="TO_INDEX">%2$s</xliff:g>"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"Seite <xliff:g id="PAGE_INDEX">%1$d</xliff:g> von <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> von <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"Zeichen <xliff:g id="FROM_INDEX">%1$d</xliff:g> bis <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"Zeichen <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"großes <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="template_checkbox" msgid="8582666147313623418">"Kontrollkästchen \"<xliff:g id="TITLE">%1$s</xliff:g>\""</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"Optionsfeld \"<xliff:g id="TITLE">%1$s</xliff:g>\""</string>
-    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>, Schalter"</string>
     <string name="value_password" msgid="7285572231215250557">"Passwort"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Schieberegler geöffnet"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Leiste geöffnet"</string>
@@ -71,69 +91,115 @@
     <string name="value_text_cleared" msgid="6558192295636412162">"Text gelöscht"</string>
     <string name="value_text_max_length" msgid="4129865255646994586">"Maximale Länge erreicht"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"gelöscht"</string>
+    <string name="value_selected" msgid="1307429702194660766">"ausgewählt"</string>
     <string name="value_checked" msgid="3006751014125833966">"aktiviert"</string>
     <string name="value_not_checked" msgid="37422559536361725">"nicht aktiviert"</string>
+    <string name="value_on" msgid="39454338086317219">"an"</string>
+    <string name="value_off" msgid="6700497510945744608">"aus"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"Maximiert"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"Minimiert"</string>
     <string name="value_disabled" msgid="5160977094078900656">"deaktiviert"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"Doppeltippen"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"Tippen"</string>
-    <string name="template_hint_clickable" msgid="1398769454100543369">"Zum Auswählen <xliff:g id="ACTION">%1$s</xliff:g>"</string>
+    <string name="value_press_select" msgid="4270348255373188872">"Auswahltaste drücken"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"Zum Auswählen <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Zum Aktivieren <xliff:g id="KEYCOMBO">%1$s</xliff:g> drücken."</string>
     <string name="template_hint_long_clickable" msgid="4546854599035099034">"Zum langen Drücken <xliff:g id="ACTION">%1$s</xliff:g> und halten"</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Zum langen Drücken <xliff:g id="KEYCOMBO">%1$s</xliff:g> drücken."</string>
     <string name="template_hint_checkable" msgid="504233139047201761">"Zum Umschalten <xliff:g id="ACTION">%1$s</xliff:g>"</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Zum Wechseln <xliff:g id="KEYCOMBO">%1$s</xliff:g> drücken."</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"Zur Eingabe von Text <xliff:g id="ACTION">%1$s</xliff:g>"</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Zur Texteingabe <xliff:g id="KEYCOMBO">%1$s</xliff:g> drücken."</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"Zum Ändern <xliff:g id="ACTION">%1$s</xliff:g>"</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"Berühren Sie den Bildschirm und suchen Sie in einer kreisförmigen Bewegung nach einem Element. Heben Sie anschließend den Finger an, um es auszuwählen."</string>
-    <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Berühren Sie den Bildschirm und navigieren Sie in einer kreisförmigen Bewegung durch den Bildschirminhalt. Heben Sie anschließend den Finger an, um den Fokus zu setzen."</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Zum Ändern <xliff:g id="KEYCOMBO">%1$s</xliff:g> drücken."</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"Mit zwei Fingern wischen, um umzublättern."</string>
+    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"Keine weiteren Seiten verfügbar."</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"Zum Ändern <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"Berühre den Bildschirm und suche in einer kreisförmigen Bewegung ein Element. Hebe dann den Finger an, um es auszuwählen."</string>
+    <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Berühre den Bildschirm und navigiere in einer kreisförmigen Bewegung durch den Bildschirminhalt. Hebe anschließend den Finger an, um den Fokus zu setzen."</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"Benutzerdefinierte Aktionen:"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"Zum <xliff:g id="HINT">%2$s</xliff:g> <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Zum <xliff:g id="HINT">%2$s</xliff:g> <xliff:g id="KEYCOMBO">%1$s</xliff:g> drücken."</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"Zum <xliff:g id="HINT">%2$s</xliff:g> <xliff:g id="ACTION">%1$s</xliff:g> und halten."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"Klingeltonmodus \"Vibration\""</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Klingelton lautlos"</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Bildschirm ein"</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Bildschirm aus"</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"Feststelltaste aktiviert."</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"Feststelltaste deaktiviert."</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"Num-Taste aktiviert."</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"Num-Taste deaktiviert."</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Rollen-Taste aktiviert."</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Rollen-Taste deaktiviert."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"Gerät entsperrt"</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Sprachausgabe"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Sprachlautstärke"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"Bei ausgeschaltetem Bildschirm sprechen"</string>
     <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"Benachrichtigungen werden auch bei deaktiviertem Bildschirm gesprochen."</string>
     <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"Keine Sprachausgabe bei deaktiviertem Bildschirm"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"Anrufer-ID sprechen"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"Näherungssensor verwenden"</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Näherungssensor bewirkt Stummschaltung"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Näherungssensor wirkt sich nicht auf Sprache aus."</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Laut-Buchstaben vorlesen"</string>
     <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Laut-Buchstaben werden nicht vorgelesen."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"Laut-Buchstaben werden vorgelesen, wenn Nutzer Zeichen für Zeichen auswählen und lange auf die entsprechende Taste auf der Tastatur drücken."</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"Laut-Buchstaben werden vorgelesen, wenn Nutzer den Bedienungshilfenfokus Zeichen für Zeichen auswählen und lange auf die entsprechende Taste auf der Tastatur drücken."</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Nutzungsstatistiken vorlesen"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"Nutzungshinweise werden während der linearen Navigation nicht vorgelesen."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"Nutzungshinweise werden nach einer kurzen Verzögerung vorgelesen, wenn der Fokus durch die lineare Navigation verschoben wird."</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"Nutzungshinweise werden während der Verschiebung des Bedienungshilfenfokus nicht vorgelesen."</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"Nutzungshinweise werden während der Navigation nach einer kurzen Verzögerung vorgelesen."</string>
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Tippen &amp; Entdecken"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Listen automatisch scrollen"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Tippen &amp; Entdecken"</string>
-    <string name="title_pref_single_tap" msgid="3366282780861635094">"Auswahl durch einmaliges Tippen"</string>
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"Auswahl durch einmaliges Tippen"</string>
     <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Kontextmenü als Liste anzeigen"</string>
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Beim Aktivieren von TalkBack Display dimmen"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(Experimentell) Zum Auswählen auf das Element tippen, auf dem momentan der Fokus liegt"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"(Experimentell) Zum Auswählen auf das Element tippen, auf dem momentan der Fokus liegt"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Für kontinuierliches Lesen schütteln"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Bewegungen verwalten"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"Benutzerdefinierte Labels verwalten"</string>
-    <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Tastaturkürzel verwalten"</string>
+    <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Tastenkombinationen verwalten"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"Benutzerdefinierte Labels exportieren"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"TalkBack im Play Store öffnen"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"Aktuelle TalkBack-Version: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"Hilfe &amp; Feedback"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"Hilfe"</string>
     <string name="title_pref_show_tos" msgid="6167834013879233992">"Nutzungsbedingungen"</string>
     <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Datenschutzerklärung"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Bewegungskürzel"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Integrierte Bewegungen"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(Experimentell) Tippen auf Geräteseite"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"Tastaturbelegung"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"Tastaturbelegung auswählen"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"Tastaturbelegung zurücksetzen"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"Modifikatortaste wählen"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"TalkBack setzt die Tastaturbelegung zurück"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"TalkBack setzt die Tastaturbelegung zurück und ändert die Modifikatortaste in <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"Modifikatortaste wurde geändert in <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>."</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"<xliff:g id="KEYMAP_NAME">%1$s</xliff:g> ist jetzt aktiv."</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"Die Tastaturbelegung wurde zurückgesetzt."</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"Tastenkombination nicht unterstützt"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"Klassische Tastaturbelegung"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"Standardtastaturbelegung"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"Navigationsaktionen"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"Zum nächsten Element navigieren"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"Zum vorherigen Element navigieren"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"Zum Element darüber gehen"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"Zum Element darunter gehen"</string>
     <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"Zum ersten Element navigieren"</string>
     <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"Zum letzten Element navigieren"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"Zum nächsten Fenster gehen"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"Zum vorherigen Fenster gehen"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"Zum nächsten Wort gehen"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"Zum vorherigen Wort gehen"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"Zum nächsten Zeichen gehen"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"Zum vorherigen Zeichen gehen"</string>
     <string name="keycombo_menu_perform_click" msgid="243666968746657931">"Klick ausführen"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"Langen Klick ausführen"</string>
     <string name="keycombo_menu_category_global" msgid="7309875734492478067">"Globale Aktionen"</string>
     <string name="keycombo_menu_global_back" msgid="4567585750566224959">"Zurück"</string>
     <string name="keycombo_menu_global_home" msgid="7189369064773623371">"Startseite"</string>
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Zuletzt aktive Apps"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Benachrichtigungen"</string>
-    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"TalkBack pausieren"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"TalkBack pausieren oder fortsetzen"</string>
     <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Navigationseinstellungen"</string>
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Nächste Navigationseinstellung"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Vorherige Navigationseinstellung"</string>
@@ -143,12 +209,65 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Auf dem Bildschirm nach einem Element suchen"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Lokales Kontextmenü anzeigen"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Globales Kontextmenü anzeigen"</string>
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"Tastenkombinationen verwalten"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"TalkBack-Einstellungen öffnen"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"Webnavigationsaktionen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"Zur nächsten Schaltfläche gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"Zur vorherigen Schaltfläche gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"Zum nächsten Steuerelement gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"Zum vorherigen Steuerelement gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"Zum nächsten Kästchen gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"Zum vorherigen Kästchen gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"Zur nächsten ARIA-Markierung gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"Zur vorherigen ARIA-Markierung gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"Zum nächsten Bearbeitungsfeld gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"Zum vorherigen Bearbeitungsfeld gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"Zum nächsten fokussierbaren Element"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"Zum vorherigen fokussierbaren Element"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"Zur nächsten Grafik gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"Zur vorherigen Grafik gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"Zur nächsten Überschrift gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"Zur vorherigen Überschrift gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"Zur nächsten Überschrift der Ebene 1"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"Zur vorherigen Überschrift der Ebene 1"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"Zur nächsten Überschrift der Ebene 2"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"Zur vorherigen Überschrift der Ebene 2"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"Zur nächsten Überschrift der Ebene 3"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"Zur vorherigen Überschrift der Ebene 3"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"Zur nächsten Überschrift der Ebene 4"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"Zur vorherigen Überschrift der Ebene 4"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"Zur nächsten Überschrift der Ebene 5"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"Zur vorherigen Überschrift der Ebene 5"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"Zur nächsten Überschrift der Ebene 6"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"Zur vorherigen Überschrift der Ebene 6"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"Zum nächsten Listeneintrag gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"Zum vorherigen Listeneintrag gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"Zum nächsten Link gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"Zum vorherigen Link gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"Zur nächsten Liste gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"Zur vorherigen Liste gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"Zur nächsten Tabelle gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"Zur vorherigen Tabelle gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"Zum nächsten Kombinationsfeld gehen"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"Zum vorherigen Kombinationsfeld gehen"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"Tastenkombination lautet"</string>
-    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Drücken Sie die Tastenkombination, um eine neue Kombination festzulegen. Diese muss mindestens eine der Tasten \"Alt\" oder \"Strg\" umfassen."</string>
-    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"Tastenkombination löschen"</string>
+    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Drücke die Tastenkombination, um eine neue Kombination festzulegen. Diese muss mindestens eine der Tasten \"Alt\" oder \"Strg\" umfassen."</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Drücke die Tastenkombination mit <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g>, um die neue Kombination festzulegen."</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"Drücke die Rücktaste, um die Verknüpfung zu löschen, drücke die Eingabetaste zum Speichern oder \"Esc\" zum Abbrechen."</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"Tastenkombination löschen"</string>
     <string name="keycombo_unassigned" msgid="5817151372114230015">"Nicht zugewiesen"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Strg"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Suche"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Pfeil nach rechts"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Pfeil nach links"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Pfeil nach oben"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Pfeil nach unten"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"Möchtest du die Tastenkombinationen für diese Tastaturbelegung wirklich auf die Standardwerte zurücksetzen? Diese Aktion kann nicht rückgängig gemacht werden."</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"Zurücksetzen"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"Taste wird bereits verwendet."</string>
-    <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Diese Tastenkombination wird für die Aktion \"<xliff:g id="ID_1">%1$s</xliff:g>\" verwendet. Möchten Sie diese löschen und diese Tastenkombination der Aktion \"<xliff:g id="ID_2">%2$s</xliff:g>\" zuweisen?"</string>
+    <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Diese Tastenkombination wird für die Aktion \"<xliff:g id="ID_1">%1$s</xliff:g>\" verwendet. Möchtest du diese löschen und diese Tastenkombination der Aktion \"<xliff:g id="ID_2">%2$s</xliff:g>\" zuweisen?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Änderungen der Stimmlage"</string>
     <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"Tastatur-Echo"</string>
     <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"Feedback zu Tastatureingabe wird in tieferer Stimmlage wiedergegeben."</string>
@@ -159,9 +278,12 @@
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"Fokus auf Sprachaudio"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Andere Audioquellen während der Spracheingabe leiser stellen"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Tonlautstärke"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Talkback sperren und über Tastenkombination erneut starten"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"TalkBack sperren und über Tastenkombination erneut starten"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"\"Display dimmen\"-Tastenkombination"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Sonstiges"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Entwicklereinstellungen"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"Termine zum Protokollieren auswählen"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"Bedienungshilfen nach Terminprotokollierung filtern"</string>
     <string name="title_pref_log_level" msgid="267415170405921603">"Ebene für Protokollausgabe"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Sprachausgabe anzeigen"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"Knotenstruktur-Debugging aktivieren"</string>
@@ -171,7 +293,7 @@
     <string name="screen_dimmed" msgid="8072279323762069231">"Display gedimmt"</string>
     <string name="screen_brightness_restored" msgid="378010604065368658">"Displayhelligkeit wiederhergestellt"</string>
     <string name="screen_dimming_exit_instruction_line1" msgid="176693707001658416">"Die TalkBack-Bedienungshilfe hat das Display gedimmt."</string>
-    <string name="screen_dimming_exit_instruction_line2" msgid="2111548310775079127">"Sie können dies rückgängig machen, indem Sie die Lautstärketasten \"Lauter\" und \"Leiser\" dreimal schnell hintereinander gleichzeitig drücken."</string>
+    <string name="screen_dimming_exit_instruction_line2" msgid="2111548310775079127">"Du kannst dies rückgängig machen, indem du die Lautstärketasten \"Lauter\" und \"Leiser\" gleichzeitig dreimal schnell hintereinander drückst."</string>
     <string name="screen_dimming_exit_instruction_line3" msgid="7006494712728198438">"Der Displaydimmer kann über die TalkBack-Einstellungen gesteuert werden."</string>
     <string name="axis_character" msgid="8528412412593489695">"Von einem Zeichen zum nächsten navigieren"</string>
     <string name="axis_word" msgid="8823389407337076750">"Von einem Wort zum nächsten navigieren"</string>
@@ -186,10 +308,11 @@
     <string name="granularity_line" msgid="727359260064093782">"Zeilen"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"Abschnitte"</string>
     <string name="granularity_page" msgid="2739238666516816581">"Seiten"</string>
-    <string name="granularity_web_section" msgid="496466197528091152">"Navigation – Abschnitt"</string>
-    <string name="granularity_web_list" msgid="8598575022728013551">"Navigation – Liste"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"Navigation – Steuerelement"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"Navigation – spezielle Inhalte"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"Überschriften und Markierungen"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"Listen"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"Links"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"Steuerungselemente"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Spezieller Inhalt"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"Hochformat"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"Querformat"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"Nicht zugewiesen"</string>
@@ -198,13 +321,15 @@
     <string name="shortcut_scroll_forward" msgid="7299589176359902775">"Nach vorne scrollen"</string>
     <string name="shortcut_scroll_back" msgid="1025337926618449476">"Nach hinten scrollen"</string>
     <string name="shortcut_back" msgid="2558372839282319745">"Schaltfläche \"Zurück\""</string>
-    <string name="shortcut_home" msgid="6670249804418900175">"Schaltfläche \"Startbildschirm\""</string>
+    <string name="shortcut_home" msgid="6670249804418900175">"Startbildschirmtaste"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"Schaltfläche \"Übersicht\""</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"Benachrichtigungen öffnen"</string>
+    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"Benutzerdefinierte Aktionen anzeigen"</string>
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Globales Kontextmenü öffnen"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"Lokales Kontextmenü öffnen"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Letzte Äußerung wiederholen"</string>
     <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"Letzte Äußerung buchstabieren"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"Letzte Äußerung in Zwischenablage kopieren"</string>
     <string name="shortcut_pause_feedback" msgid="1412613174540942399">"Feedback anhalten"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"Von oben an lesen"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"Ab dem nächsten Element lesen"</string>
@@ -213,6 +338,8 @@
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Vorherige Navigationseinstellung"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"Erstes Bildschirmelement fokussieren"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Letztes Bildschirmelement fokussieren"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"Display dimmen"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"Display anzeigen"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"Lokales Kontextmenü"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"Globales Kontextmenü"</string>
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"Keine Menüelemente"</string>
@@ -234,6 +361,13 @@
     <string name="title_summary" msgid="3037924006370977165">"Schnelle Navigation"</string>
     <string name="title_granularity" msgid="399801096771904747">"Navigationseinstellungen"</string>
     <string name="title_custom_action" msgid="7908169922901920318">"Benutzerdefinierte Aktionen"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"Vorschläge automat. vervollständigen"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"Zu Vorschlägen wechseln"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"Zurück zum Bearbeitungsfeld"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"Suchleiste"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"Suchleistenlevel bearbeiten"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"Gib eine Zahl zwischen 0 und 100 ein."</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
     <string name="value_direction_up" msgid="1646290331150992975">"Nach oben"</string>
     <string name="value_direction_down" msgid="8072362433982733982">"Nach unten"</string>
     <string name="value_direction_left" msgid="676932617445677488">"Nach links"</string>
@@ -294,32 +428,50 @@
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Berühren, um geänderte Bewegungen für Bedienungshilfen zu überprüfen"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack ist gesperrt"</string>
     <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Zum Fortfahren tippen"</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"Automatisch weitergehen zu Lektion 1."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"TalkBack sperren?"</string>
-    <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Möchten Sie TalkBack wirklich sperren? Ihr Gerät gibt dann kein Feedback und \"Tippen &amp; Entdecken\" ist deaktiviert. Sie können TalkBack in der Benachrichtigungsleiste oder über die Lautstärketasten erneut starten oder indem Sie zum Sperrbildschirm zurückkehren."</string>
-    <string name="message_resume_manual" msgid="6522293510722570646">"Sie können TalkBack über die Benachrichtigungsleiste erneut starten."</string>
-    <string name="message_resume_screen_on" msgid="9016720947126938212">"Sie können TalkBack über die Benachrichtigungsleiste oder durch Aktivieren des Bildschirms erneut starten."</string>
-    <string name="message_resume_keyguard" msgid="6721228114050709276">"Sie können TalkBack über die Benachrichtigungsleiste oder den Sperrbildschirm erneut starten."</string>
+    <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Möchtest du TalkBack wirklich sperren? Dein Gerät gibt dann kein Feedback und \"Tippen &amp; Entdecken\" ist deaktiviert. Du kannst TalkBack in der Benachrichtigungsleiste oder über die Lautstärketasten erneut starten oder indem du zum Sperrbildschirm zurückkehrst."</string>
+    <string name="message_resume_manual" msgid="6522293510722570646">"Du kannst TalkBack über die Benachrichtigungsleiste erneut starten."</string>
+    <string name="message_resume_screen_on" msgid="9016720947126938212">"Du kannst TalkBack über die Benachrichtigungsleiste oder durch Aktivieren des Bildschirms erneut starten."</string>
+    <string name="message_resume_keyguard" msgid="6721228114050709276">"Du kannst TalkBack über die Benachrichtigungsleiste oder den Sperrbildschirm erneut starten."</string>
     <string name="show_suspend_warning_label" msgid="3193206799395252518">"Diese Warnung immer anzeigen"</string>
     <string name="cannot_add_label" msgid="2754406023113433479">"Dieses Element kann nicht benannt werden."</string>
     <string name="label_dialog_title_add" msgid="1255044087558866043">"Label hinzufügen"</string>
     <string name="label_dialog_title_edit" msgid="7914376979667771585">"Label bearbeiten"</string>
     <string name="label_dialog_title_remove" msgid="1791163736307626930">"Label entfernen"</string>
-    <string name="label_dialog_text" msgid="5879506218245648848">"Geben Sie in das Feld unten den Text ein, der für dieses Bild verwendet werden soll."</string>
-    <string name="label_remove_dialog_text" msgid="372916461303485723">"Möchten Sie das Label \"<xliff:g id="LABEL">%1$s</xliff:g>\" wirklich entfernen?"</string>
-    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Möchten Sie das Label \"<xliff:g id="LABEL">%1$s</xliff:g>\" in <xliff:g id="APP_NAME">%2$s</xliff:g> wirklich entfernen?"</string>
+    <string name="label_dialog_text" msgid="5879506218245648848">"Gib in das Feld unten den Text ein, der für dieses Bild verwendet werden soll."</string>
+    <string name="label_remove_dialog_text" msgid="372916461303485723">"Möchtest du das Label \"<xliff:g id="LABEL">%1$s</xliff:g>\" wirklich entfernen?"</string>
+    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Möchtest du das Label \"<xliff:g id="LABEL">%1$s</xliff:g>\" in <xliff:g id="APP_NAME">%2$s</xliff:g> wirklich entfernen?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Labeltext"</string>
-    <string name="talkback_gesture_change_details" msgid="1242896734553682887">"Diese Version von TalkBack enthält Änderungen an den Standardbewegungen der Bedienungshilfen. Die Aktionen, die diesen Bewegungen zugewiesen sind, können in den TalkBack-Einstellungen angepasst werden. Wenn \"Tippen &amp; Entdecken\" aktiviert ist, können Sie die folgenden Bewegungen einsetzen, um bestimmte Aktionen auszuführen.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
+    <string name="label_import" msgid="1773817433300194935">"Benutzerdefinierte Labels importieren"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"Benutzerdefinierte Labels in TalkBack importieren"</string>
+    <string name="label_import_dialog_message" msgid="7975227530187709469">"Wähle aus, ob du bestehende Labels im Falle einer Überschneidung überschreiben oder überspringen möchtest."</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"Überspringen"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"Überschreiben"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"Nichts zum Exportieren vorhanden. Du hast keine Labels hinzugefügt."</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"Fehler beim Labelexport"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"Fehler beim Labelimport"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="other">%d Labels aktualisiert</item>
+      <item quantity="one">1 Label aktualisiert</item>
+    </plurals>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"App zum Exportieren von Labels wählen:"</string>
+    <string name="talkback_gesture_change_details" msgid="1242896734553682887">"Diese Version von TalkBack enthält Änderungen an den Standardbewegungen der Bedienungshilfen. Die Aktionen, die diesen Bewegungen zugewiesen sind, können in den TalkBack-Einstellungen angepasst werden. Wenn \"Tippen &amp; Entdecken\" aktiviert ist, kannst du die folgenden Bewegungen einsetzen, um bestimmte Aktionen auszuführen.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Lautstärketasten \"Lauter\" und \"Leiser\" lange drücken"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"Drücke beide Lautstärketasten dreimal, um das Dimmen des Displays zu aktivieren oder zu deaktivieren."</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"Display dimmen?"</string>
-    <string name="dialog_message_dim_screen" msgid="7595558180210850775">"Möchten Sie das Display wirklich dimmen?"</string>
-    <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"Diese Version von TalkBack beinhaltet Änderungen an den Standardbewegungen der Bedienungshilfen.\n\nMithilfe der Bewegung \"nach oben, dann nach unten\" gelangen Sie zum ersten Element auf dem Bildschirm, mit der Bewegung \"nach unten, nach oben\" zum letzten Element.\n\nDie Leseeinheit können Sie jetzt ändern, indem Sie den Fokus auf ein Element setzen und anschließend die Einheit aus dem entsprechenden Kontextmenü auswählen.\n\nSie können die Aktionen zu diesen Bewegungen in den TalkBack-Einstellungen ändern."</string>
+    <string name="dialog_message_dim_screen" msgid="7595558180210850775">"Möchtest du das Display wirklich dimmen?"</string>
+    <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"Diese Version von TalkBack beinhaltet Änderungen an den Standardbewegungen der Bedienungshilfen.\n\nMithilfe der Bewegung \"nach oben, dann nach unten\" gelangst du zum ersten Element auf dem Bildschirm, mit der Bewegung \"nach unten, nach oben\" zum letzten Element.\n\nDie Leseeinheit kannst du jetzt ändern, indem du den Fokus auf ein Element setzt und anschließend die Einheit aus dem entsprechenden Kontextmenü auswählst.\n\nDu kannst die Aktionen zu diesen Bewegungen in den TalkBack-Einstellungen ändern."</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"Diese Version von TalkBack enthält Änderungen an den Standardbewegungen der Bedienungshilfen.\n\nMit der Bewegung nach oben gelangst du jetzt zur vorherigen Navigationsaktion und mit der Bewegung nach unten zur nächsten Navigationsaktion."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Bewegungen übernehmen"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Bewegungen anpassen"</string>
+    <string name="button_clear_all_events" msgid="2128349101908653825">"Alle deaktivieren"</string>
+    <string name="button_check_all_events" msgid="301383322727007726">"Alle aktivieren"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"\"Tippen &amp; Entdecken\" deaktivieren?"</string>
-    <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Möchten Sie \"Tippen &amp; Entdecken\" wirklich deaktivieren?\n\nIhr Gerät reagiert dann nicht mehr auf Bewegungskürzel und benennt auch nicht die Elemente beim Berühren des Bildschirms."</string>
+    <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Möchtest du \"Tippen &amp; Entdecken\" wirklich deaktivieren?\n\nDein Gerät reagiert dann nicht mehr auf Bewegungskürzel und benennt auch nicht die Elemente beim Berühren des Bildschirms."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Knotenstruktur-Debugging aktivieren?"</string>
-    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"Soll das Knotenstruktur-Debugging wirklich aktiviert werden?\n\nDadurch werden Ihre Bildschirminhalte in den Geräteprotokollen gespeichert, die möglicherweise von anderen Apps eingesehen werden."</string>
-    <string name="hint_script_injection" msgid="6139951755594105602">"\"Tippen &amp; Entdecken\" ist für Webinhalte nicht verfügbar. Aktivieren Sie \"<xliff:g id="PREFERENCE_NAME">%1$s</xliff:g>\" in den Einstellungen für Bedienungshilfen, um Webinhalte zu erkunden."</string>
+    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"Soll das Knotenstruktur-Debugging wirklich aktiviert werden?\n\nDadurch werden deine Bildschirminhalte in den Geräteprotokollen gespeichert, die möglicherweise von anderen Apps eingesehen werden."</string>
+    <string name="hint_script_injection" msgid="6139951755594105602">"\"Tippen &amp; Entdecken\" ist für Webinhalte nicht verfügbar. Aktiviere \"<xliff:g id="PREFERENCE_NAME">%1$s</xliff:g>\" in den Einstellungen für Bedienungshilfen, um Webinhalte zu erkunden."</string>
     <string name="label_talkback_context_menu" msgid="6758073806811666684">"Globales Kontextmenü für TalkBack"</string>
     <string name="permission_talkback_label" msgid="2235244838320678938">"TalkBack steuern"</string>
     <string name="permission_talkback_desc" msgid="8320433482567759963">"Berechtigung zum Senden von Bewegungen an TalkBack und Fortsetzen des gesprochenen Feedbacks"</string>
@@ -327,9 +479,77 @@
     <string name="permission_labeling_desc" msgid="8065967887484901473">"Berechtigung zum Abrufen, Ändern und Löschen von benutzerdefinierten Labels, die von TalkBack gesprochen werden"</string>
     <string name="links" msgid="3448225474115458693">"Links"</string>
     <string name="end_of_text" msgid="3595733062526019550">"Ende"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"Keine vorherige <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"Keine weitere <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"Überschrift"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"Schaltfläche"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"Kombinationsfeld"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"ARIA-Markierung"</string>
+    <string name="display_name_edit_field" msgid="5014778180731737501">"Bearbeitungsfeld"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"Fokussierbares Element"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"Überschrift 1"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"Überschrift 2"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"Überschrift 3"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"Überschrift 4"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"Überschrift 5"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"Überschrift 6"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"Link"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"Steuerung"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"Grafik"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"Listeneintrag"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"Liste"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"Tabelle"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"Kästchen"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"Überschrift oder Markierung"</string>
     <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
     <string name="row_index_template" msgid="4107789959609911947">"Zeile <xliff:g id="ROW">%1$d</xliff:g>"</string>
     <string name="column_index_template" msgid="258393957626754806">"Spalte <xliff:g id="COL">%1$d</xliff:g>"</string>
     <string name="heading_template" msgid="3585514481777782183">"Überschrift"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"Zeilenüberschrift"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"Spaltenüberschrift"</string>
     <string name="item_index_template" msgid="71505978833721807">"Element <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"Importierte Labels wiederherstellen"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"Importierte Labels wiederhergestellt"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g> oben, <xliff:g id="ID_2">%2$s</xliff:g> unten"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g> links, <xliff:g id="ID_2">%2$s</xliff:g> rechts"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g> rechts, <xliff:g id="ID_2">%2$s</xliff:g> links"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="untitled_window" msgid="7017590766394623328">"Ohne Titel"</string>
+    <string name="status_bar" msgid="6000275621941971563">"Statusleiste"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"Navigationsleiste"</string>
+    <string name="template_collection_start" msgid="4362535543397747567">"Du bist in <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_end" msgid="2167296836815021551">"<xliff:g id="COLLECTION_NAME">%1$s</xliff:g> verlassen"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"Ebene <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> Einträge</item>
+      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> Eintrag</item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> Zeilen</item>
+      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> Zeile</item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> Spalten</item>
+      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> Spalte</item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> Zeichen</item>
+      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> Zeichen</item>
+    </plurals>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT">%1$d</xliff:g> Termine ausgewählt</item>
+      <item quantity="one">1 Termin ausgewählt</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> begonnen"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> beendet"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"Suchleistenmodus"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"Drücke die Pfeiltasten, um den Wert zu ändern, oder drücke die Auswahltaste, um den Vorgang zu beenden."</string>
+    <string name="arc_android_window" msgid="697316167642517245">"Android-Fenster"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"Drücke die Suchtaste und die Pfeiltasten, um zu navigieren"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"Drücke <xliff:g id="KEYCOMBO">%1$s</xliff:g>, um eine Liste der Tastenkombinationen zu sehen"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"Auf \"<xliff:g id="KEYCOMBO">%1$s</xliff:g>\" drücken, um die TalkBack-Einstellungen zu öffnen"</string>
+    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"Um optimale Ergebnisse beim haptischen und gesprochenen Feedback zu erzielen, maximiere das App-Fenster"</string>
 </resources>

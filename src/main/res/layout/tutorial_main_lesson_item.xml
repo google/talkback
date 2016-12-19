@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="@dimen/tutorial_list_horizontal_offset"
+        android:layout_marginRight="@dimen/tutorial_list_horizontal_offset"
+        android:background="@drawable/tutorial_main_menu_item_background"
+        android:elevation="2dp">
+
+        <RelativeLayout
+            android:id="@+id/title_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/lesson_title"
+                style="@style/MaterialTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:paddingTop="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="4dp"
+                android:textColor="@color/tutorial_main_item_title" />
+
+            <TextView
+                android:id="@+id/lesson_description"
+                style="@style/MaterialTextBody1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="10dp"
+                android:layout_below="@id/lesson_title"
+                android:focusable="false"
+                android:textColor="@color/tutorial_semi_black" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/start_lesson"
+            style="@style/MaterialTextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_group"
+            android:focusable="true"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:minWidth="0dp"
+            android:text="@string/tutorial_start_lesson"
+            android:textColor="@color/tutorial_main_item_buttons"
+            android:background="@null"/>
+
+        <Button
+            android:id="@+id/practice"
+            style="@style/MaterialTextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_group"
+            android:layout_toRightOf="@id/start_lesson"
+            android:layout_toEndOf="@id/start_lesson"
+            android:focusable="true"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:minWidth="0dp"
+            android:text="@string/tutorial_practice"
+            android:textColor="@color/tutorial_main_item_buttons"
+            android:background="@null"/>
+
+    </RelativeLayout>
+
+</FrameLayout>
+

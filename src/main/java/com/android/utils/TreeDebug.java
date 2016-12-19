@@ -134,6 +134,12 @@ public class TreeDebug {
             if ((actions & AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD) != 0) {
                 sb.append("+");
             }
+            if ((actions & AccessibilityNodeInfoCompat.ACTION_EXPAND) != 0) {
+                sb.append("e");
+            }
+            if ((actions & AccessibilityNodeInfoCompat.ACTION_COLLAPSE) != 0) {
+                sb.append("c");
+            }
         }
 
         if (node.isCheckable()) {
@@ -171,6 +177,27 @@ public class TreeDebug {
 
         if (!node.isEnabled()) {
             sb.append(":disabled");
+        }
+
+        if (node.getCollectionInfo() != null) {
+            sb.append(":collection");
+            sb.append("#R");
+            sb.append(node.getCollectionInfo().getRowCount());
+            sb.append("C");
+            sb.append(node.getCollectionInfo().getColumnCount());
+        }
+
+        if (node.getCollectionItemInfo() != null) {
+            if (node.getCollectionItemInfo().isHeading()) {
+                sb.append(":heading");
+            } else {
+                sb.append(":item");
+            }
+
+            sb.append("#r");
+            sb.append(node.getCollectionItemInfo().getRowIndex());
+            sb.append("c");
+            sb.append(node.getCollectionItemInfo().getColumnIndex());
         }
 
         return sb.toString();

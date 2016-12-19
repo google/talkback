@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="7512754982950145749">"Ko je funkcija TalkBack vklopljena, naprava daje glasovne povratne informacije, ki so v pomoč slepim in slabovidnim uporabnikom. Opiše na primer, česa se dotikate, kaj izbirate in aktivirate."</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"Ko je funkcija TalkBack vklopljena, naprava daje glasovne povratne informacije, ki so v pomoč slepim in slabovidnim uporabnikom. Opiše na primer, česa se dotikate, kaj izbirate in aktivirate.\n\nČe ste funkcijo TalkBack vklopili pomotoma, jo izklopite tako, da se dotaknete stikala, dokler ni okoli njega zelen obris, nato se ga dvakrat dotaknite. Enako storite pri pogovornem oknu za potrditev, ki se odpre."</string>
     <string name="talkback_on" msgid="315529674405160699">"TalkBack vklopljen"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"Funkcija TalkBack je začasno onemogočena"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"Funkcija TalkBack je znova omogočena"</string>
+    <string name="talkback_disabled" msgid="2536155587482587238">"TalkBack je izklopljen."</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"Nastavitve funkcije TalkBack"</string>
     <string name="tts_preferences_title" msgid="6233811187483633874">"Nastavitve pretvorbe besedila v govor"</string>
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Različica <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
@@ -19,6 +22,11 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"Trenutna poizvedba: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>."</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"Izbran ni bil noben element."</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"Trenutna izbira: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>."</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Začetek polja"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Konec polja"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Način za izbiro je vklopljen"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Način za izbiro je izklopljen"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Izbor je počiščen"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"Neodgovorjeni klic"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"Izklop zvoka"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"Klepet"</string>
@@ -33,39 +41,51 @@
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"Ustavitev"</string>
     <string name="template_current_tts_engine" msgid="3963364867159704159">"Uporaba mehanizma <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"Meni <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_edit_box" msgid="5395366637528473616">"Polje za urejanje. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
-    <string name="template_edit_box_current" msgid="2778286668618391188">"Polje za urejanje, trenutno poteka urejanje. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"Opozorilo <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"Meni <xliff:g id="TITLE">%1$s</xliff:g>"</string>
     <string name="template_text_replaced" msgid="837970148139617839">"Novo besedilo <xliff:g id="NEW_TEXT">%1$s</xliff:g> je zamenjalo staro besedilo <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"Besedilo <xliff:g id="TEXT">%1$s</xliff:g> je izbrisano"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"kopirano, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"izrezano, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"prilepljeno, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, izbrano"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"Izbrano besedilo: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"NI izbranega besedila"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, preklican izbor"</string>
     <string name="template_text_error" msgid="153775825635730287">"Neveljaven vnos <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"Število znakov: <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> je zamenjano s številom znakov: <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g>"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> za <xliff:g id="LABEL">%2$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"Pridržano <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_button" msgid="2640124317262628933">"Gumb <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"Slika <xliff:g id="TITLE">%1$d</xliff:g>. Brez oznake."</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"Gumb <xliff:g id="TITLE">%1$d</xliff:g>. Brez oznake."</string>
-    <string name="template_seek_bar" msgid="9010890122601609426">"Drsnik <xliff:g id="TITLE">%1$s</xliff:g>."</string>
-    <!-- String.format failed for translation -->
-    <!-- no translation found for template_percent (6118803183030408820) -->
-    <skip />
-    <string name="template_charging" msgid="2038200557537960378">"Polnjenje – <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>. Raven napolnjenosti akumulatorja je toliko odstotkov: <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g>."</string>
-  <plurals name="template_containers">
-    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="TYPE">%1$s</xliff:g> prikazuje <xliff:g id="COUNT">%2$d</xliff:g> element."</item>
-    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="TYPE">%1$s</xliff:g> prikazuje toliko elementov: <xliff:g id="COUNT">%2$d</xliff:g>."</item>
-  </plurals>
+    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> odstotkov."</string>
+    <string name="template_charging" msgid="2038200557537960378">"Polnjenje – <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>. Raven napolnjenosti akumulatorja je <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> odstotkov."</string>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="one"><xliff:g id="TYPE_2">%1$s</xliff:g> prikazuje <xliff:g id="COUNT_3">%2$d</xliff:g> element.</item>
+      <item quantity="two"><xliff:g id="TYPE_2">%1$s</xliff:g> prikazuje <xliff:g id="COUNT_3">%2$d</xliff:g> elementa.</item>
+      <item quantity="few"><xliff:g id="TYPE_2">%1$s</xliff:g> prikazuje <xliff:g id="COUNT_3">%2$d</xliff:g> elemente.</item>
+      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> prikazuje <xliff:g id="COUNT_3">%2$d</xliff:g> elementov.</item>
+    </plurals>
     <string name="value_gridview" msgid="1382219539169157957">"Mreža"</string>
     <string name="value_listview" msgid="7625152822709234439">"Seznam"</string>
     <string name="value_tabwidget" msgid="6935453013254857519">"Vrstica z zavihki"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"Spustni seznam"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"Potrditveno polje"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"Izbirni gumb"</string>
+    <string name="value_button" msgid="2459787142940409576">"Gumb"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"Drsnik"</string>
+    <string name="value_switch" msgid="6946709666466895221">"Stikalo"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"Polje za urejanje"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"Urejanje"</string>
+    <string name="value_image" msgid="5114229220871881124">"Slika"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"Brez oznake"</string>
+    <string name="value_pager" msgid="7708574424402835461">"Pogled več strani"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"Stran"</string>
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"Prikaz elementov <xliff:g id="FROM_INDEX">%1$d</xliff:g>−<xliff:g id="TO_INDEX">%2$d</xliff:g> od skupno <xliff:g id="TOTAL_COUNT">%3$d</xliff:g>."</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"Prikaz elementa <xliff:g id="FROM_INDEX">%1$d</xliff:g> od <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>."</string>
-    <string name="template_spinner" msgid="1240658876427369167">"Spustni seznam <xliff:g id="TITLE">%1$s</xliff:g>."</string>
-    <string name="template_password_selected" msgid="3751806880345903886">"Izbrani znaki od <xliff:g id="FROM_INDEX">%1$s</xliff:g> do <xliff:g id="TO_INDEX">%2$s</xliff:g>"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"Stran <xliff:g id="PAGE_INDEX">%1$d</xliff:g> od <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> od <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"Znaki od <xliff:g id="FROM_INDEX">%1$d</xliff:g> do <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"Znak <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"velika črka <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="template_checkbox" msgid="8582666147313623418">"Potrditveno polje za <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"Izbirni gumb za <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>, stikalo"</string>
     <string name="value_password" msgid="7285572231215250557">"geslo"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Drsni predal je odprt"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Podokno je odprto"</string>
@@ -73,69 +93,115 @@
     <string name="value_text_cleared" msgid="6558192295636412162">"Izbrisano besedilo"</string>
     <string name="value_text_max_length" msgid="4129865255646994586">"Dosežena je največja dolžina"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"izbrisano"</string>
+    <string name="value_selected" msgid="1307429702194660766">"izbrano"</string>
     <string name="value_checked" msgid="3006751014125833966">"potrjeno"</string>
     <string name="value_not_checked" msgid="37422559536361725">"ni označeno"</string>
+    <string name="value_on" msgid="39454338086317219">"vklopljeno"</string>
+    <string name="value_off" msgid="6700497510945744608">"izklopljeno"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"razširjeno"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"strnjeno"</string>
     <string name="value_disabled" msgid="5160977094078900656">"onemogočeno"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"Dvakratni dotik"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"Dotik"</string>
-    <string name="template_hint_clickable" msgid="1398769454100543369">"<xliff:g id="ACTION">%1$s</xliff:g> za izbiro."</string>
+    <string name="value_press_select" msgid="4270348255373188872">"Pritisnite »Select«"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g>, da aktivirate."</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za aktiviranje."</string>
     <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> in pridržanje za dolg pritisk."</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za dolg pritisk."</string>
     <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> za preklop."</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za preklop."</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> za vnos besedila."</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za vnos besedila."</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> za spremembo."</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"Dotaknite se zaslona, raziščite ga v krogu in ko najdete element, dvignite prst, da ga izberete."</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za spreminjanje."</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"Povlecite z dvema prstoma, če želite preklapljati med stranmi."</string>
+    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"Dodatne strani niso na voljo."</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g>, da spremenite."</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"Dotaknite se zaslona, raziščite ga v krogu in ko najdete element, dvignite prst, da ga aktivirate."</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Dotaknite se zaslona, krožno se pomikajte po vsebini na zaslonu in dvignite prst, da jo izberete."</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"Dejanja po meri:"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g>, da <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za izvedbo tega: <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> in pridržite, da <xliff:g id="HINT">%2$s</xliff:g>."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"Zvonjenje z vibriranjem."</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Zvonjenje je izklopljeno."</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Zaslon je vklopljen."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Zaslon je izklopljen."</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"Tipka Caps Lock je vklopljena."</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"Tipka Caps Lock je izklopljena."</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"Tipka Num Lock je vklopljena."</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"Tipka Num Lock je izklopljena."</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Tipka Scroll Lock je vklopljena."</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Tipka Scroll Lock je izklopljena."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"Naprava je odklenjena."</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Govor"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Glasnost govora"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"Govori, ko je zaslon izklopljen"</string>
     <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"Ko je zaslon izklopljen, se obvestila izgovarjajo"</string>
     <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"Brez govora, ko je zaslon izklopljen"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"Izgovori ID klicatelja"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"Uporabi tipalo bližine"</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Senzor bližine utiša govor"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Senzor bližine ne nadzira govora"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Izgovorjava fonetičnih črk"</string>
     <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Fonetične črke ne bodo izgovorjene."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"Fonetične črke bodo izgovorjene po dolgem pritisku na tipkovnici in premiku po znaku."</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"Fonetične črke bodo izgovorjene po dolgem pritisku na tipkovnici in premiku fokusa funkcij za ljudi s posebnimi potrebami za znak."</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Izgovorjava nasvetov za uporabo"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"Nasveti za uporabo med linearnim krmarjenjem ne bodo izgovorjeni."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"Nasveti za uporabo bodo izgovorjeni, ko bo linearno krmarjenje premaknilo fokus po kratkem premoru."</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"Nasveti za uporabo pri premiku fokusa funkcij za ljudi s posebnimi potrebami ne bodo izgovorjeni."</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"Nasveti za uporabo bodo izgovorjeni med krmarjenjem po kratkem premoru."</string>
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Raziskovanje z dotikom"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Samodejno pomikanje seznamov"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Raziskovanje z dotikom"</string>
-    <string name="title_pref_single_tap" msgid="3366282780861635094">"Izbira z enim dotikom"</string>
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"Aktiviranje z enim dotikom"</string>
     <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Prikaz kontekstnega menija kot seznama"</string>
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Zatemnitev zaslona, če je omogočena aplikacija TalkBack"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(Poskusno) Izbira trenutno označenega elementa z dotikom"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"(Poskusno) Aktiviranje trenutno označenega elementa z dotikom"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Stresite za neprekinjeno branje"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Upravljanje potez"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"Upravljanje oznak po meri"</string>
     <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Upravljanje bližnjičnih tipk"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"Izvoz oznak po meri"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"Odpri aplikacijo TalkBack v Trgovini Play"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"Trenutna različica aplikacije TalkBack: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"Pomoč in povratne informacije"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"Pomoč"</string>
     <string name="title_pref_show_tos" msgid="6167834013879233992">"Pogoji storitve"</string>
     <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Pravilnik o zasebnosti"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Poteze za bližnjice"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Vgrajene poteze"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(Poskusno) Dotaknite se na strani naprave"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"Porazdelitev tipk"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"Izbira razporeditve tipk"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"Ponastavitev razporeditve tipk"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"Izbira modifikatorske tipke"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"TalkBack bo ponastavil porazdelitev tipk"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"TalkBack bo ponastavil porazdelitev tipk in spremenil modifikatorsko tipko v <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"Modifikatorska tipka je spremenjena v <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>."</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"<xliff:g id="KEYMAP_NAME">%1$s</xliff:g> je zdaj aktivno."</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"Porazdelitev tipk je ponastavljena."</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"Bližnjica ni podprta"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"Klasična razporeditev tipk"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"Privzeta razporeditev tipk"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"Dejanja pri krmarjenju"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"Pomik na naslednji element"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"Pomik na prejšnji element"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"Pomik na zgornji element"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"Pomik na spodnji element"</string>
     <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"Pomik na prvi element"</string>
     <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"Pomik na zadnji element"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"Pomik na naslednje okno"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"Pomik na prejšnje okno"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"Pomik na naslednjo besedo"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"Pomik na prejšnjo besedo"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"Pomik na naslednji znak"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"Pomik na prejšnji znak"</string>
     <string name="keycombo_menu_perform_click" msgid="243666968746657931">"Izvedba klika"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"Izvedba dolgega klika"</string>
     <string name="keycombo_menu_category_global" msgid="7309875734492478067">"Globalna dejanja"</string>
     <string name="keycombo_menu_global_back" msgid="4567585750566224959">"Nazaj"</string>
     <string name="keycombo_menu_global_home" msgid="7189369064773623371">"Začetni zaslon"</string>
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Nedavne aplikacije"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Obvestila"</string>
-    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"Zaustavitev aplikacije TalkBack"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"Zaustavitev ali nadaljevanje aplikacije TalkBack"</string>
     <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Nastavitve krmarjenja"</string>
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Naslednja nastavitev krmarjenja"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Prejšnja nastavitev krmarjenja"</string>
@@ -145,10 +211,63 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Iskanje elementa na zaslonu"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Prikaz lokalnega kontekstnega menija"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Prikaz globalnega kontekstnega menija"</string>
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"Upravljanje bližnjičnih tipk"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"Odpiranje nastavitev TalkBacka"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"Dejanja pri spletnem krmarjenju"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"Pomik na naslednji gumb"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"Pomik na prejšnji gumb"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"Pomik na naslednji kontrolnik"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"Pomik na prejšnji kontrolnik"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"Pomik na naslednje potrdtiveno polje"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"Pomik na prejšnje potrditveno polje"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"Pomik na naslednji mejnik ARIA"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"Pomik na prejšnji mejnik ARIA"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"Pomik na naslednje polje za urejanje"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"Pomik na prejšnje polje za urejanje"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"Pomik na naslednji element za izbiro"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"Pomik na prejšnji element za izbiro"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"Pomik na naslednji grafični element"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"Pomik na prejšnji grafični element"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"Pomik na naslednji naslov"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"Pomik na prejšnji naslov"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"Pomik na naslednji naslov 1"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"Pomik na prejšnji naslov 1"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"Pomik na naslednji naslov 2"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"Pomik na prejšnji naslov 2"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"Pomik na naslednji naslov 3"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"Pomik na prejšnji naslov 3"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"Pomik na naslednji naslov 4"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"Pomik na prejšnji naslov 4"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"Pomik na naslednji naslov 5"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"Pomik na prejšnji naslov 5"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"Pomik na naslednji naslov 6"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"Pomik na prejšnji naslov 6"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"Pomik na naslednji element na seznamu"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"Pomik na prejšnji element na seznamu"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"Pomik na naslednjo povezavo"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"Pomik na prejšnjo povezavo"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"Pomik na naslednji seznam"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"Pomik na prejšnji seznam"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"Pomik na naslednjo tabelo"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"Pomik na prejšnjo tabelo"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"Pomik na naslednje kombinirano polje"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"Pomik na prejšnje kombinirano polje"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"Bližnjične tipke so"</string>
     <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Za nastavitev nove bližnjice pritisnite kombinacijo tipk. Vključevati mora vsaj tipko ALT ali Control."</string>
-    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"Gumb »Izbriši bližnjico«"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Pritisnite kombinacijo tipk z modifikatorsko tipko <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g>, če želite nastaviti novo bližnjico."</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"Pritisnite tipko Backspace, če želite počistiti bližnjico, pritisnite tipko Enter, če jo želite shraniti, ali pritisnite tipko Escape, če želite preklicati dejanje."</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"Izbriši bližnjico"</string>
     <string name="keycombo_unassigned" msgid="5817151372114230015">"Nedodeljeno"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Iskanje"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Puščica desno"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Puščica levo"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Puščica gor"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Puščica dol"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"Ali res želite bližnjične tipke za to razporeditev tipk ponastaviti na privzete vrednosti? Tega dejanja ni mogoče preklicati."</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"Ponastavi"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"Tipka je že uporabljena"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Ta kombinacija tipk je uporabljena za dejanje »<xliff:g id="ID_1">%1$s</xliff:g>«. Jo želite izbrisati in dodeliti kot bližnjico za »<xliff:g id="ID_2">%2$s</xliff:g>«?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Uporabi spremembe višine glasu"</string>
@@ -161,9 +280,12 @@
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"Poudarek na zvoku govorjenja"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Zmanjšanje glasnosti drugega zvoka med govorjenjem"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Glasnost zvoka"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Bližnjica za onemogočanje ali omogočanje funkcije TalkBack"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Bližnjica za onemogočanje ali omogočanje aplikacije TalkBack"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"Bližn. za zatemn. zaslona"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Razno"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Nastavitve za razvijalce"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"Izbira dogodkov za beleženje"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"Filtriranje beleženja dogodkov funkcij za ljudi s posebnimi potrebami"</string>
     <string name="title_pref_log_level" msgid="267415170405921603">"Raven beleženja"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Prikaz govornih sporočil"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"Omogočanje odpravljanja napak drevesa vozlišč"</string>
@@ -188,10 +310,11 @@
     <string name="granularity_line" msgid="727359260064093782">"Črte"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"Odstavki"</string>
     <string name="granularity_page" msgid="2739238666516816581">"Strani"</string>
-    <string name="granularity_web_section" msgid="496466197528091152">"Pomikanje po razdelkih"</string>
-    <string name="granularity_web_list" msgid="8598575022728013551">"Pomikanje po seznamu"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"Pomikanje po kontrolnikih"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"Pomikanje po posebni vsebini"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"Naslovi in orientacijske točke"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"Seznami"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"Povezave"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"Kontrolniki"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Posebna vsebina"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"Pokončno"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"Ležeče"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"Nedodeljeno"</string>
@@ -203,10 +326,12 @@
     <string name="shortcut_home" msgid="6670249804418900175">"Gumb za domačo stran"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"Gumb za pregled"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"Odpri obvestila"</string>
+    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"Prikaži dejanja po meri"</string>
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Odpri globalni kontekstni meni"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"Odpri lokalni kontekstni meni"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Ponovi zadnjo izjavo"</string>
     <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"Črkuj zadnjo izjavo"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"Kopiraj zadnji izgovorjeni izraz v odložišče"</string>
     <string name="shortcut_pause_feedback" msgid="1412613174540942399">"Zaustavi povratne informacije"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"Branje od vrha"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"Branje od naslednjega elementa"</string>
@@ -215,6 +340,8 @@
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Prejšnja nastavitev krmarjenja"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"Izbira prvega elementa na zaslonu"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Izbira zadnjega elementa na zaslonu"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"Zatemnitev zaslona"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"Osvetlitev zaslona"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"Lokalni kontekstni meni"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"Globalni kontekstni meni"</string>
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"Meni nima elementov."</string>
@@ -236,6 +363,13 @@
     <string name="title_summary" msgid="3037924006370977165">"Hitro pomikanje"</string>
     <string name="title_granularity" msgid="399801096771904747">"Nastavitve krmarjenja"</string>
     <string name="title_custom_action" msgid="7908169922901920318">"Dejanja po meri"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"Predlogi samodokončanja"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"Skok na predloge"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"Vrnitev v polje za urejanje"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"Drsnik"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"Urejanje stopnje drsnika"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"Vnesite številko od 0 do 100."</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
     <string name="value_direction_up" msgid="1646290331150992975">"navzgor"</string>
     <string name="value_direction_down" msgid="8072362433982733982">"navzdol"</string>
     <string name="value_direction_left" msgid="676932617445677488">"levo"</string>
@@ -296,6 +430,7 @@
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Dotaknite se za pregled sprememb potez za ljudi s posebnimi potrebami"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"Funkcija TalkBack je onemogočena"</string>
     <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Dotaknite se za nadaljevanje."</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"Samodejno napredovanje na 1. lekcijo."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"Ali želite onemogočiti funkcijo TalkBack?"</string>
     <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Ali ste prepričani? Vaša naprava ne bo dajala povratnih informacij, funkcija raziskovanja z dotikom pa bo izklopljena. TalkBack lahko spet omogočite v obvestilih, na zaklenjenem zaslonu ali z bližnjico tipke za glasnost."</string>
     <string name="message_resume_manual" msgid="6522293510722570646">"TalkBack lahko znova omogočite na zaslonu z obvestili."</string>
@@ -310,13 +445,32 @@
     <string name="label_remove_dialog_text" msgid="372916461303485723">"Ali ste prepričani, da želite odstraniti oznako »<xliff:g id="LABEL">%1$s</xliff:g>«?"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Ali ste prepričani, da želite odstraniti oznako »<xliff:g id="LABEL">%1$s</xliff:g>« v aplikaciji <xliff:g id="APP_NAME">%2$s</xliff:g>?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Besedilo oznake"</string>
+    <string name="label_import" msgid="1773817433300194935">"Uvoz oznak po meri"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"Uvoz oznak po meri v TalkBack"</string>
+    <string name="label_import_dialog_message" msgid="7975227530187709469">"Izberite, ali želite v primeru spora obstoječe oznake preglasiti ali preskočiti."</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"Preskok"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"Preglasitev"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"Ni česa izvoziti. Niste dodali nobene oznake."</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"Izvoz oznake ni uspel"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"Uvoz oznak ni uspel"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="one">%d oznaka je bila posodobljena</item>
+      <item quantity="two">%d oznaki sta bili posodobljeni</item>
+      <item quantity="few">%d oznake so bile posodobljene</item>
+      <item quantity="other">%d oznak je bilo posodobljenih</item>
+    </plurals>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"Izberite aplikacijo za izvoz oznak:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"Ta različica aplikacije TalkBack vključuje spremembe privzetih potez za ljudi s posebnimi potrebami. Dejanja, povezana s temi potezami, je mogoče prilagoditi v nastavitvah za TalkBack. Ko je omogočeno Raziskovanje z dotikom, lahko te poteze uporabite za izvajanje nekaterih dejanj.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Daljši pritisk tipk za povečanje in zmanjšanje glasnosti"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"Trikrat hitro pritisnite gumba za glasnost, če želite omogočiti ali onemogočiti zatemnitev zaslona"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"Zatemnitev zaslona?"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"Ali ste prepričani, da želite zatemniti zaslon?"</string>
     <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"Ta različica aplikacije TalkBack vsebuje spremembe privzetih potez za funkcije za ljudi s posebnimi potrebami.\n\nS potezo »navzgor in nato navzdol« se boste pomaknili na prvi element na zaslonu, s potezo »navzdol in nato navzgor« pa na zadnjega.\n\nBralno razdrobljenost lahko zdaj spremenite tako, da najprej izberete element in nato razdrobljenost v lokalnem kontekstnem meniju.\n\nDejanja, ki jih opravite s temi potezami, lahko spremenite v nastavitvah za TalkBack."</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"Ta različica aplikacije TalkBack vključuje spremembe privzetih potez za ljudi s posebnimi potrebami.\n\nPoteza gor zdaj izvede premik na prejšnjo nastavitev pomikanja, poteza dol pa na naslednjo nastavitev pomikanja."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Sprejem potez"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Prilagajanje potez"</string>
+    <string name="button_clear_all_events" msgid="2128349101908653825">"Počisti vse"</string>
+    <string name="button_check_all_events" msgid="301383322727007726">"Označi vse"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"Želite onemogočiti Raziskovanje z dotikom?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Ali ste prepričani, da želite izklopiti funkcijo Raziskovanje z dotikom?\n\nNaprava se ne bo več odzivala na poteze za bližnjice ali izgovarjala, ko se boste dotaknili zaslona."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Želite omogočiti odpravljanje napak drevesa vozlišč?"</string>
@@ -329,9 +483,87 @@
     <string name="permission_labeling_desc" msgid="8065967887484901473">"Dovoljenje za dostop do oznak po meri, ki jih izgovarja TalkBack, ter za njihovo spreminjanje in brisanje."</string>
     <string name="links" msgid="3448225474115458693">"Povezave"</string>
     <string name="end_of_text" msgid="3595733062526019550">"Konec"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"Ni prejšnjega elementa: <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"Ni naslednjega elementa <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"naslov"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"gumb"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"kombinirano polje"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"Mejnik ARIA"</string>
+    <string name="display_name_edit_field" msgid="5014778180731737501">"polje za urejanje"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"element, ki ga je mogoče izbrati"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"naslov 1"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"naslov 2"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"naslov 3"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"naslov 4"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"naslov 5"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"naslov 6"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"povezava"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"kontrolnik"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"grafika"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"element na seznamu"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"seznam"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"tabela"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"potrditveno polje"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"naslov ali mejnik"</string>
     <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
     <string name="row_index_template" msgid="4107789959609911947">"<xliff:g id="ROW">%1$d</xliff:g>. vrstica"</string>
     <string name="column_index_template" msgid="258393957626754806">"<xliff:g id="COL">%1$d</xliff:g>. stolpec"</string>
     <string name="heading_template" msgid="3585514481777782183">"Naslov"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"Naslov vrstice"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"Naslov stolpca"</string>
     <string name="item_index_template" msgid="71505978833721807">"<xliff:g id="ITEM">%1$d</xliff:g>. element"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"Razveljavitev uvoženih oznak"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"Uvožene oznake so bile razveljavljene"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g> na vrhu, <xliff:g id="ID_2">%2$s</xliff:g> na dnu"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g> na levi, <xliff:g id="ID_2">%2$s</xliff:g> na desni"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g> na desni, <xliff:g id="ID_2">%2$s</xliff:g> na levi"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="untitled_window" msgid="7017590766394623328">"brez naslova"</string>
+    <string name="status_bar" msgid="6000275621941971563">"vrstica stanja"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"vrstica za krmarjenje"</string>
+    <string name="template_collection_start" msgid="4362535543397747567">"V zbirki: <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_end" msgid="2167296836815021551">"Iz zbirke: <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"<xliff:g id="LEVEL">%1$s</xliff:g>. stopnja"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="one"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> element</item>
+      <item quantity="two"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> elementa</item>
+      <item quantity="few"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> elementi</item>
+      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> elementov</item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="one"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> vrstica</item>
+      <item quantity="two"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> vrstici</item>
+      <item quantity="few"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> vrstice</item>
+      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> vrstic</item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="one"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> stolpec</item>
+      <item quantity="two"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> stolpca</item>
+      <item quantity="few"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> stolpci</item>
+      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> stolpcev</item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="one"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znak</item>
+      <item quantity="two"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znaka</item>
+      <item quantity="few"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znaki</item>
+      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znakov</item>
+    </plurals>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="one">Izbran je <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> dogodek</item>
+      <item quantity="two">Izbrana sta <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> dogodka</item>
+      <item quantity="few">Izbrani so <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> dogodki</item>
+      <item quantity="other">Izbranih je <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> dogodkov</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"Način <xliff:g id="REMOTE_MODE">%1$s</xliff:g> se je začel"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"Način <xliff:g id="REMOTE_MODE">%1$s</xliff:g> se je končal"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"Način drsnika"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"Pritisnite puščične gumbe, če želite spremeniti vrednost, ali pritisnite »Select«, če želite dokončati."</string>
+    <string name="arc_android_window" msgid="697316167642517245">"Okno Androida"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"Pritisnite tipko za iskanje in puščične tipke, če se želite pomikati"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g>, če želite prikazati seznam bližnjičnih tipk"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g>, če želite odpreti nastavitve TalkBacka"</string>
+    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"Če želite najboljše rezultate z odzivom na dotik in glasovnim odzivom, maksimirajte okno aplikacije"</string>
 </resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"ការបង្រៀនពីលទ្ធភាពប្រើប្រាស់"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"ចាប់ផ្តើមការបង្រៀនអំពី TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"ការបង្រៀនអំពី TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"កម្មវិធី TalkBack គឺជាកម្មវិធីអានអេក្រង់ដែលត្រូវបានបង្កើតឡើងជាចម្បងសម្រាប់មនុស្សពិការភ្នែក និងខ្សោយភ្នែក។ វាអនុញ្ញាតឲ្យឧបករណ៍មានអន្តរកម្មជាមួយអ្នកប្រើដោយការផ្តល់មតិដោយការនិយាយ។"</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"បិទ TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"ស្វែងយល់"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"អនុវត្ដ"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"រៀនមេរៀន <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"អនុវត្តមេរៀន <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"មេរៀនទី 1៖ ការបញ្ជាជាមូលដ្ឋាន"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"ប៉ះដើម្បីរុករក អូសដើម្បីរុករក ប៉ះពីរដងដើម្បីធ្វើឲ្យសកម្ម"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"ផ្នែកទី 1៖ រកមើលដោយការប៉ះ"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"នៅពេលដែលអ្នកបើកដំណើរការ លក្ខណៈពិសេសរកមើលដោយការប៉ះអនុញ្ញាតឲ្យអ្នកស្តាប់ឮអ្វីដែលស្ថិតនៅក្រោមម្រាមដៃរបស់អ្នក។ រំកិលម្រាមដៃរបស់អ្នកនៅលើធាតុដែលស្ថិតនៅចំកណ្តាលអេក្រង់។ បន្ទាប់ពីអ្នកបានរកឃើញធាតុចំនួនប្រាំហើយ នោះមេរៀននឹងបន្ត។"</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"ផ្នែកទី 2៖ ប៉ះពីរដងដើម្បីធ្វើឲ្យសកម្ម"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"ដើម្បីធ្វើឲ្យធាតុចុងក្រោយដែលអ្នកបានឮសកម្ម សូមប៉ះពីរដងនៅកន្លែងណាក៏បាន។ ស្វែងរកធាតុទី 7 ហើយធ្វើឲ្យវាសកម្មឥឡូវនេះ។ បន្ទាប់មក ធ្វើឲ្យប៊ូតុង បន្ទាប់ សកម្មដើម្បីបន្ត។"</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"បានធ្វើឲ្យធាតុទី 7 សកម្ម។ ស្វែងរក និងធ្វើឲ្យប៊ូតុង បន្ទាប់ សកម្មដើម្បីបន្ត"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"ផ្នែកទី 3៖ មេរៀនអំពីការបញ្ជា"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"មេរៀនអំពីកម្មវិធី TalkBack ត្រូវបានរៀបចំដោយមានលក្ខណៈស្រដៀងគ្នា។ ផ្នែកខាងលើមានមេរៀនដែលអ្នកអាចស្វែងយល់ និងអានបានគ្រប់ពេល។ វាក៏មានប៊ូតុងដើមសម្រាប់ការបង្រៀននៅជ្រុងខាងឆ្វេងផ្នែកខាងលើផងដែរ។ នៅផ្នែកកណ្តាលមានកន្លែងអនុវត្ត។ នៅផ្នែកខាងក្រោមមានសូចនាករបង្ហាញពីការវិវត្ត និងប៊ូតុងរុករកមេរៀន។ ធ្វើឲ្យប៊ូតុង បន្ទាប់ សកម្មឥឡូវនេះដើម្បីបន្ត។"</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"ផ្នែកទី 4៖ អូសដើម្បីរកមើល"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"អ្នកក៏អាចធ្វើការរកមើលដោយការអូសអេក្រង់ដោយប្រើម្រាមដៃរបស់អ្នកបានផងដែរ។ ការអូសទៅឆ្វេងមានន័យថារុករកទៅលើ និងខាងឆ្វេង ចំណែកឯការអូសទៅស្តាំមានន័យថារកមើលចុះក្រោម និងទៅស្តាំ។ សូមសាកល្បងឥឡូវនេះ។"</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"ផ្នែកទី 5៖ អនុវត្ត"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"ដើម្បីស្តាប់ឮអ្វីដែលស្ថិតនៅក្រោមម្រាមដៃរបស់អ្នក សូមផ្លាស់ទីម្រាមដៃនោះកាត់អេក្រង់។ ប៉ះពីរដងកន្លែងណាក៏បាន ដើម្បីធ្វើឲ្យអ្វីដែលអ្នកស្តាប់ឮសកម្ម។ អូសទៅឆ្វេង ឬទៅស្តាំដើម្បីរុករក។"</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"មេរៀនទី 2៖ ការរមូរ"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"ការរមូរដោយប្រើម្រាមពីរ លោតទៅមុខ និងថយក្រោយ"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"ផ្នែកទី 1៖ ការរមូរដោយប្រើម្រាមពីរ"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"ដើម្បីរមូរក្នុងបញ្ជីឈរ សូមរកមើលធាតុបញ្ជីមួយ បន្ទាប់មកផ្លាស់ទីម្រាមដៃពីរឡើង ឬចុះ។ ដើម្បីរមូរក្នុងបញ្ជីផ្តេក សូមរកមើលធាតុបញ្ជីមួយ បន្ទាប់មកផ្លាស់ទីម្រាមដៃពីរទៅឆ្វេង ឬទៅស្តាំ។"</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"ផ្នែកទី 2៖ ផ្លូវកាត់ការរមូរ"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"អ្នកអាចលោតទៅមុខ ឬថយក្រោយនៅក្នុងបញ្ជីដោយប្រើផ្លូវកាត់។ ដើម្បីលោតទៅមុខ រំកិលម្រាមដៃមួយទៅស្តាំ រួចទៅឆ្វេងក្នុងចលនាតែមួយ។ ដើម្បីលោតត្រឡប់ក្រោយ សូមរំកិលម្រាមដៃមួយទៅឆ្វេង រួចទៅស្តាំ។ សូមសាកល្បងធ្វើវានៅទីនេះ។"</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"ផ្នែកទី 3៖ អនុវត្ត"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"រមូរដោយអូសម្រាមដៃពីរចុះ ឬឡើង។ លោតទៅមុខដោយរំកិលម្រាមដៃមួយទៅស្តាំ រួចទៅឆ្វេង។ លោតត្រឡប់មកវិញដោយរំកិលម្រាមដៃមួយទៅឆ្វេង រួចទៅស្តាំ។"</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"មេរៀនទី 3៖ ម៉ឺនុយ TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"ម៉ឺនុយ TalkBack សកល, ម៉ឺនុយ TalkBack មូលដ្ឋាន"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"ផ្នែកទី 1៖ ម៉ឺនុយ TalkBack សកល"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"កម្មវិធី TalkBack មានម៉ឺនុយពីរផ្សេងគ្នា។ ម៉ឺនុយទីមួយគឺម៉ឺនុយ TalkBack សកលដែលផ្ទុកពាក្យបញ្ជាដូចគ្នាជានិច្ច។ អ្នកអាចធ្វើឲ្យវាសកម្មដោយការរំកិលម្រាមដៃមួយចុះ រួចទៅស្តាំក្នុងចលនាតែមួយ បន្ទាប់មកលើកម្រាមដៃរបស់អ្នក។ ធ្វើឲ្យកំណែអនុវត្តសកម្មឥឡូវនេះ។"</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"ជម្រើសម៉ឺនុយត្រូវបានរាយបញ្ឈរនៅកណ្តាលអេក្រង់។ សូមសាកល្បងរុករក នៅពេលដែលអ្នកបញ្ចប់ សូមធ្វើឲ្យប៊ូតុង បោះបង់សកម្ម។"</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"ផ្នែកទី 2៖ ម៉ឺនុយ TalkBack មូលដ្ឋាន"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"ម៉ឹនុយទីពីរគឺម៉ឺនុយ TalkBack មូលដ្ឋាន។ ធាតុនៅក្នុងម៉ឺនុយនេះមានភាពផ្សេងគ្នាអាស្រ័យលើអ្វីដែលអ្នកបានឮលើកចុងក្រោយ។ អ្នកអាចធ្វើឲ្យម៉ឺនុយនេះសកម្មដោយការរំកិលម្រាមដៃមួយឡើងលើ រួចទៅស្តាំក្នុងចលនាតែមួយ បន្ទាប់មកលើកម្រាមដៃរបស់អ្នក។ ធ្វើឲ្យម៉ឺនុយអនុវត្តសកម្មឥឡូវនេះ។"</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"ផ្នែកទី 3៖ អនុវត្ត"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"រំកិលម្រាមដៃរបស់អ្នកចុះក្រោម រួចទៅស្តាំដើម្បីធ្វើឲ្យម៉ឺនុយ TalkBack សកល។ រំកិលម្រាមដៃរបស់អ្នកឡើងលើ រួចទៅស្តាំដើម្បីធ្វើឲ្យម៉ឺនុយ TalkBack មូលដ្ឋានសកម្ម។"</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"ចុះក្រោមរួចទៅស្ដាំ"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"ឡើងលើរួចទៅស្ដាំ"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"ម៉ឺនុយ TalkBack សកល៖ ចុះក្រោមរួចទៅស្តាំ។ ម៉ឺនុយ TalkBack មូលដ្ឋាន៖ ឡើងលើរួចទៅស្តាំ"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"មេរៀនទី 4៖ ការបញ្ជាអត្ថបទ"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"ការជ្រើសការកំណត់នៃការបញ្ជាអត្ថបទ"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"ផ្នែកទី 1៖ ការជ្រើសការកំណត់នៃការបញ្ជា"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"កម្មវិធី TalkBack អនុញ្ញាតឲ្យអ្នកគ្រប់គ្រងថាតើត្រូវអានអត្ថបទសម្រាប់អ្នកជាលក្ខណៈកថាខណ្ឌ ជួរ ពាក្យ ឬតួអក្សរឬយ៉ាងណា។ ការអានតាមតួអក្សរអាចជួយដល់អ្នកក្នុងការប្រកប។ កំណត់កម្រិតល្បឿនបញ្ជាអត្ថបទទៅកម្រិតតួអក្សរដោយប៉ះនៅលើអត្ថបទខាងក្រោម បន្ទាប់មកអូសចុះឡើង។"</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"ស្វែងយល់ពីជម្រើសកម្រិតល្បឿននៃការអានដែលបានរាយជាលក្ខណៈបញ្ឈរនៅទីនេះ។ រកមើល និងធ្វើឲ្យជម្រើស អានតាមតួអក្សរសកម្ម។"</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"ផ្នែកទី 2៖ ការបញ្ជាអត្ថបទ"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"ឥឡូវនេះអ្នកកំពុងអាចតាមតួអក្សរ។ សូមជ្រើសអត្ថបទគំរូ បន្ទាប់មកអូសទៅស្តាំដើម្បីអានតាមតួអក្សរ។"</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"ផ្នែកទី 3៖ អនុវត្ត"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"ប្តូរកម្រិតល្បឿនបញ្ជាអត្ថបទដោយអូសចុះ និងឡើង។ អានតួអក្សរបន្ទាប់នៅក្នុងអត្ថបទគំរូដោយអូសទៅស្តាំ។"</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"នេះជាអត្ថបទគំរូមួយចំនួនសម្រាប់អនុវត្ត TalkBack ។ បុរសនោះបានសួរដោយការភ្ញាក់ផ្អើរថា៖ \"តើ Kansas នៅឯណា?\" ។ Dorothy បានឆ្លើយដោយក្រៀមក្រំថា៖ \"ខ្ញុំមិនដឹងទេ\" \"ប៉ុន្តែនេះជាផ្ទះរបស់ខ្ញុំ ខ្ញុំប្រាកដថាវានៅកន្លែងណាមួយមិនខាន\"\n\n\"វាប្រាកដជាចឹង មេធ្មប់អាចធ្វើអ្វីបានគ្រប់យ៉ាង ដូច្នេះខ្ញុំគិតថាគាត់នឹងអាចរក Kansas ឲ្យអ្នកបាន។ ប៉ុន្តែអ្នកត្រូវទៅជួបគាត់ជាមុនសិន ហើយនេះជាកិច្ចការដ៏លំបាកសម្រាប់អ្នកពីព្រោះមេធ្មប់អស្ចារ្យមិនចូលចិត្តជួបនរណានោះទេ ហើយគាត់ចូលចិត្តធ្វើអ្វីតាមចិត្តរបស់គាត់។ គាត់បានបន្តដោយនិយាយទៅកាន់ Toto ថា៖ និយាយអញ្ចឹងតើអ្នកចង់បានអ្វី?\"។"</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"មេរៀនទី 5៖ ការកែសម្រួលអត្ថបទ"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"ការធ្វើឲ្យប្រអប់កែសម្រួលសកម្ម ការវាយបញ្ចូល ការផ្លាស់ទីទស្សន៍ទ្រនិច ការជ្រើស និងធ្វើសកម្មភាពលើអត្ថបទ"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"ផ្នែកទី 1៖ ការធ្វើឲ្យប្រអប់កែសម្រួលសកម្ម"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"ជាមួយកម្មវិធី TalkBack អ្នកអាចប្រើប្រអប់កែសម្រួលដើម្បីវាយបញ្ចូល ជ្រើស និងកែសម្រួលអត្ថបទ។ ដើម្បីធ្វើឲ្យប្រអប់កែសម្រួលសកម្ម សូមប៉ះវាពីរដង។ បន្ទាប់ពីអ្នកធ្វើឲ្យប្រអប់កែសម្រួលសកម្មហើយ ក្តារចុចនឹងបង្ហាញឡើងនៅផ្នែកខាងក្រោមនៃអេក្រង់។ អ្នកអាចបដិសេធក្តារចុចនោះដោយប៉ះប៊ូតុង ត្រឡប់។ សាកល្បងធ្វើឲ្យប្រអប់កែសម្រួលសកម្មឥឡូវនេះ។ នៅពេលដែលអ្នកបានបញ្ចប់ហើយ សូមធ្វើឲ្យប៊ូតុង បន្ទាប់សកម្ម ដែលឥឡូវនេះវាស្ថិតនៅផ្នែកខាងលើក្តារចុច។"</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"ផ្នែកទី 2៖ ការវាយបញ្ចូលក្នុងប្រអប់កែសម្រួល"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"ដើម្បីវាយបញ្ចូល សូមធ្វើឲ្យប្រអប់កែសម្រួលសកម្ម ហើយផ្លាស់ទីម្រាមដៃរបស់អ្នកកាត់ក្តារចុចនៅលើអេក្រង់។ នៅពេលដែលអ្នកឮសំឡេងតួអក្សរដែលអ្នកចង់បានហើយ សូមលើកម្រាមដៃរបស់អ្នកចេញដើម្បីធ្វើឲ្យវាសកម្ម។ សាកល្បងធ្វើឲ្យសកម្ម និងវាយបញ្ចូលនៅក្នុងប្រអប់កែសម្រួលខាងក្រោម។"</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"ផ្នែកទី 3៖ ការប្រើទស្សន៍ទ្រនិច"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"អ្នកអាចផ្លាស់ទីទស្សន៍ទ្រនិចដោយប្រើប៊ូតុងកម្រិតសំឡេងនៅលើឧបករណ៍របស់អ្នក ឬតាមរយៈម៉ឺនុយ TalkBack មូលដ្ឋាន។ អ្នកក៏អាចធ្វើការជ្រើសរើស កាត់ ចម្លង និងបិទភ្ជាប់អត្ថបទបានផងដែរជាមួយជម្រើសគ្រប់គ្រងទស្សន៍ទ្រនិចនៅក្នុងម៉ឺនុយនេះ។ សូមធ្វើឲ្យប្រអប់កែសម្រួលខាងក្រោមសកម្ម ហើយផ្លាស់ទីទស្សន៍ទ្រនិចនៅជុំវិញអត្ថបទគំរូ។"</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"អាសយដ្ឋានអ៊ីមែលរបស់ Dorothy Gale គឺ dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"ផ្នែកទី 4៖ អនុវត្ត"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"ធ្វើឲ្យប្រអប់កែសម្រួលសកម្មដោយប៉ះពីរដង។ វាយបញ្ចូលដោយផ្លាស់ទីម្រាមដៃរបស់អ្នកនៅលើតួអក្សរ បន្ទាប់មកលើកម្រាមដៃរបស់អ្នកចេញ។ ផ្លាស់ទីទស្សន៍ទ្រនិចជាមួយប៊ូតុងកម្រិតសំឡេង និងម៉ឺនុយ TalkBack មូលដ្ឋាន។ ជ្រើស និងធ្វើសកម្មភាពលើអត្ថបទដោយប្រើជម្រើសគ្រប់គ្រងទស្សន៍ទ្រនិចនៅក្នុងម៉ឺនុយ TalkBack មូលដ្ឋាន។"</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"កែអត្ថបទ"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"មុន"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"បន្ទាប់"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"មេរៀនមុន"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"មេរៀនបន្ទាប់"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"ទំព័រដើមនៃការបង្រៀន"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"មេរៀនទី %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"ផ្នែកទី %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"ផ្នែកទី %1$d នៃ %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"លំហាត់នេះត្រូវបានបញ្ចប់ ហើយវានឹងបន្តនៅពេលបន្តិចទៀតនេះ"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"តំបន់អនុវត្ត"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s បានធ្វើឲ្យសកម្មនៅក្នុងរបៀបអនុវត្ត។ ធ្វើឲ្យប៊ូតុង បោះបង់ សកម្មដើម្បីចាកចេញ។"</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"ប៊ូតុងទំព័រដើមនៃការបង្រៀន"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"ធាតុ <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"ចាកចេញ"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"តម្រូវឲ្យមានការរកមើលដោយប៉ះ"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"ការបង្រៀននេះតម្រូវឲ្យមានលក្ខណៈពិសេសរកមើលដោយប៉ះ។ សូមបើកដំណើរការលក្ខណៈពិសេសរកមើលដោយប៉ះ មុនពេលចាប់ផ្តើមការបង្រៀន។"</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"បានបិទដំណើរការ TalkBack"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"ការបង្រៀននេះតម្រូវឲ្យបើក TalkBack។ សូមបើក TalkBack មុនពេលចាប់ផ្តើមការបង្រៀន។"</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"បានផ្អាក TalkBack"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"ការរបង្រៀន TalkBack មិនមានផ្តល់ជូនទេ ខណៈពេលដែលមតិត្រឡប់ត្រូវបានផ្អាក។ សូមបន្តមតិត្រឡប់ TalkBack ហើយចាប់ផ្ដើមការបង្រៀនឡើងវិញ ដើម្បីបន្ត។"</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"ពិពណ៌នាម៉ឺនុយ"</string>
+</resources>

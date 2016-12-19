@@ -63,7 +63,7 @@ public class Label {
         mPackageSignature = packageSignature;
         mViewName = viewName;
         mText = text;
-        mLocale = locale;
+        setLocale(locale);
         mPackageVersion = packageVersion;
         mScreenshotPath = screenshotPath;
         mTimestampMillis = timestampMillis;
@@ -107,7 +107,7 @@ public class Label {
         mPackageSignature = labelWithoutId.mPackageSignature;
         mViewName = labelWithoutId.mViewName;
         mText = labelWithoutId.mText;
-        mLocale = labelWithoutId.mLocale;
+        setLocale(labelWithoutId.mLocale);
         mPackageVersion = labelWithoutId.mPackageVersion;
         mScreenshotPath = labelWithoutId.mScreenshotPath;
         mTimestampMillis = labelWithoutId.mTimestampMillis;
@@ -191,7 +191,7 @@ public class Label {
      * @param locale The locale of the label text.
      */
     public void setLocale(String locale) {
-        mLocale = locale;
+        mLocale = CustomLabelManager.getLanguageLocale(locale);
     }
 
     /**

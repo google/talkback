@@ -35,6 +35,8 @@ public interface CursorController {
 
     void addScrollListener(ScrollListener listener);
 
+    void addCursorListener(CursorListener listener);
+
     /**
      * Releases all resources held by this controller and save any persistent preferences.
      */
@@ -58,9 +60,11 @@ public interface CursorController {
      * @param useInputFocusAsPivotIfEmpty Whether navigation should start from node that has input
      *                                    focused editable node if there is no node with
      *                                    accessibility focus
+     * @param inputMode input mode used for this navigation. See InputModeManager.
      * @return {@code true} if successful.
      */
-    boolean next(boolean shouldWrap, boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty);
+    boolean next(boolean shouldWrap, boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty,
+            int inputMode);
 
     /**
      * Attempts to move to the previous item using the current navigation mode.
@@ -73,23 +77,95 @@ public interface CursorController {
      * @param useInputFocusAsPivotIfEmpty Whether navigation should start from node that has input
      *                                    focused editable node if there is no node with
      *                                    accessibility focus
+     * @param inputMode input mode used for this navigation. See InputModeManager.
      * @return {@code true} if successful.
      */
-    boolean previous(boolean shouldWrap, boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty);
+    boolean previous(boolean shouldWrap, boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty,
+            int inputMode);
+
+    /**
+     * Attempts to move to the item leftwards from the current item if the current SDK version
+     * supports it. Otherwise, does nothing and returns {@code false}.
+     *
+     * @param shouldWrap Whether navigating past the last item on the screen
+     *            should wrap around to the first item on the screen.
+     * @param shouldScroll Whether navigating past the last visible item in a
+     *            scrollable container should automatically scroll to the next
+     *            visible item.
+     * @param useInputFocusAsPivotIfEmpty Whether navigation should start from node that has input
+     *            focused editable node if there is no node with accessibility focus
+     * @param inputMode input mode used for this navigation. See InputModeManager.
+     * @return {@code true} if successful.
+     */
+    boolean left(boolean shouldWrap, boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty,
+            int inputMode);
+
+    /**
+     * Attempts to move to the item rightwards from the current item if the current SDK version
+     * supports it. Otherwise, does nothing and returns {@code false}.
+     *
+     * @param shouldWrap Whether navigating past the last item on the screen
+     *            should wrap around to the first item on the screen.
+     * @param shouldScroll Whether navigating past the last visible item in a
+     *            scrollable container should automatically scroll to the next
+     *            visible item.
+     * @param useInputFocusAsPivotIfEmpty Whether navigation should start from node that has input
+     *            focused editable node if there is no node with accessibility focus
+     * @param inputMode input mode used for this navigation. See InputModeManager.
+     * @return {@code true} if successful.
+     */
+    boolean right(boolean shouldWrap, boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty,
+            int inputMode);
+
+    /**
+     * Attempts to move to the item up from the current item if the current SDK version supports it.
+     * Otherwise, does nothing and returns {@code false}.
+     *
+     * @param shouldWrap Whether navigating past the last item on the screen
+     *            should wrap around to the first item on the screen.
+     * @param shouldScroll Whether navigating past the last visible item in a
+     *            scrollable container should automatically scroll to the next
+     *            visible item.
+     * @param useInputFocusAsPivotIfEmpty Whether navigation should start from node that has input
+     *            focused editable node if there is no node with accessibility focus
+     * @param inputMode input mode used for this navigation. See InputModeManager.
+     * @return {@code true} if successful.
+     */
+    boolean up(boolean shouldWrap, boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty,
+            int inputMode);
+
+    /**
+     * Attempts to move to the item down from the current item if the current SDK version supports
+     * it. Otherwise, does nothing and returns {@code false}.
+     *
+     * @param shouldWrap Whether navigating past the last item on the screen
+     *            should wrap around to the first item on the screen.
+     * @param shouldScroll Whether navigating past the last visible item in a
+     *            scrollable container should automatically scroll to the next
+     *            visible item.
+     * @param useInputFocusAsPivotIfEmpty Whether navigation should start from node that has input
+     *            focused editable node if there is no node with accessibility focus
+     * @param inputMode input mode used for this navigation. See InputModeManager.
+     * @return {@code true} if successful.
+     */
+    boolean down(boolean shouldWrap, boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty,
+            int inputMode);
 
     /**
      * Attempts to jump to the first item that appears on the screen.
      *
+     * @param inputMode input mode used for this navigation. See InputModeManager.
      * @return {@code true} if successful.
      */
-    boolean jumpToTop();
+    boolean jumpToTop(int inputMode);
 
     /**
      * Attempts to jump to the last item that appears on the screen.
      *
+     * @param inputMode input mode used for this navigation. See InputModeManager.
      * @return {@code true} if successful.
      */
-    boolean jumpToBottom();
+    boolean jumpToBottom(int inputMode);
 
     /**
      * Attempts to scroll forward within the current cursor.
@@ -106,11 +182,45 @@ public interface CursorController {
     boolean less();
 
     /**
+     * Attempts to navigate to next item with specified granularity.
+     */
+    boolean nextWithSpecifiedGranularity(CursorGranularity granularity, boolean shouldWrap,
+            boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty, int inputMode);
+
+    /**
+     * Attempts to navigate to previous item with specified granularity.
+     */
+    boolean previousWithSpecifiedGranularity(CursorGranularity granularity, boolean shouldWrap,
+            boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty, int inputMode);
+
+    /**
+     * Attempts to navigate to next html element.
+     */
+    boolean nextHtmlElement(String htmlElement, int inputMode);
+
+    /**
+     * Attempts to navigate to previous html element.
+     */
+    boolean previousHtmlElement(String htmlElement, int inputMode);
+
+    /**
      * Attempts to click on the center of the current cursor.
      *
      * @return {@code true} if successful.
      */
     boolean clickCurrent();
+
+    /**
+     * Attempts to click on the current cursor, or its first clickable ancestor.
+     * This is useful in approximating the same behavior you get when double-tapping in touch
+     * exploration.
+     */
+    boolean clickCurrentHierarchical();
+
+    /**
+     * Attempts to long click on the current cursor.
+     */
+    boolean longClickCurrent();
 
     /**
      * Attempts to move to the next reading level.
@@ -191,6 +301,19 @@ public interface CursorController {
     AccessibilityNodeInfoCompat getCursor();
 
     /**
+     * Returns a node satisfying one of the following criteria, in descending order:
+     * (1) the current accessibility-focused node in the active window, or
+     * (2) the current editable input-focused node in the active window if there is no
+     *     accessibility focus, or
+     * (3) {@code null} if no node meets any of the above criteria.
+     *
+     * The client is responsible for recycling the resulting node.
+     *
+     * @return An accessibility-focused or input-focused node in the active window.
+     */
+    AccessibilityNodeInfoCompat getCursorOrInputCursor();
+
+    /**
      * Return the current granularity at the specified node, or
      * {@link CursorGranularity#DEFAULT} if none is set. Always returns
      * {@link CursorGranularity#DEFAULT} if granular navigation is not locked to
@@ -209,8 +332,10 @@ public interface CursorController {
          * Informs of a scroll caused by the CursorControler.
          *
          * @param action Direction of the scroll.
+         * @param auto If {@code true}, then the scroll was initiated automatically. If
+         *     {@code false}, then the user initiated the scroll action.
          */
-        public void onScroll(AccessibilityNodeInfoCompat scrolledNode, int action);
+        public void onScroll(AccessibilityNodeInfoCompat scrolledNode, int action, boolean auto);
     }
 
 
@@ -224,5 +349,20 @@ public interface CursorController {
          * @param granularity The new granularity after the change occurred.
          */
         void onGranularityChanged(CursorGranularity granularity);
+    }
+
+    /**
+     * Listener for cursor change events.
+     */
+    public interface CursorListener {
+        /**
+         * Triggered right before a cursor change caused by the CursorController.
+         */
+        void beforeSetCursor(AccessibilityNodeInfoCompat newCursor, int action);
+
+        /**
+         * Triggered right after a cursor change caused by the CursorController.
+         */
+        void onSetCursor(AccessibilityNodeInfoCompat newCursor, int action);
     }
 }

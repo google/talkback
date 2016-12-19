@@ -51,7 +51,7 @@ public class IntegratedTapDetector implements SensorEventListener,
 
     /*
      * Quantitative tap quality metrics used to match qualitative.
-     * TODO(PW) refactor to have individual detectors report their own confidence along some
+     * TODO refactor to have individual detectors report their own confidence along some
      * absolute scale so we don't need to define the public quality guidance values based on
      * private constants.
      */
@@ -101,7 +101,7 @@ public class IntegratedTapDetector implements SensorEventListener,
 
     /*
      * Maximum latency of a low-level tap detector
-     * TODO(PW): Each low-level detector should expose its latency, and we
+     * TODO: Each low-level detector should expose its latency, and we
      * could query it rather than relying on a constant.
      */
     private static final long MAX_TAP_DETECTOR_LATENCY  = 100 * 1000 * 1000;
@@ -166,7 +166,7 @@ public class IntegratedTapDetector implements SensorEventListener,
     public IntegratedTapDetector(SensorManager sensorManager,
                                   ThreeDSensorTapDetector accelTapDetector, ThreeDSensorTapDetector gyroTapDetector) {
         mSensorManager = sensorManager;
-        // TODO(PW): Determine the correct priority of this thread
+        // TODO: Determine the correct priority of this thread
         HandlerThread thread = new HandlerThread("AccelGyroAudioTapDetector", -20);
         thread.start();
         mHandler = new Handler(thread.getLooper());

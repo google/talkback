@@ -20,7 +20,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Message;
-import android.preference.PreferenceManager;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
@@ -71,7 +70,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
 
     public ProcessorPhoneticLetters(TalkBackService service, SpeechController speechController) {
         if (speechController == null) throw new IllegalStateException();
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(service);
+        mPrefs = SharedPreferencesUtils.getSharedPreferences(service);
         mService = service;
         mSpeechController = speechController;
         mHandler = new PhoneticLetterHandler(this);
@@ -89,7 +88,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
         if (isKeyboardEvent(event))
             processKeyboardKeyEvent(event);
 
-        if (isCharacterTraversalEvent(event))
+        if (AccessibilityEventUtils.isCharacterTraversalEvent(event))
             processTraversalEvent(event);
     }
 
@@ -137,13 +136,17 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
             }
 
             int windowId = source.getWindowId();
-            WindowManager manager = new WindowManager();
+            WindowManager manager = new WindowManager(mService.isScreenLayoutRTL());
             manager.setWindows(mService.getWindows());
             return manager.getWindowType(windowId) == AccessibilityWindowInfo.TYPE_INPUT_METHOD;
         } else {
             // For old platforms, we can't check the window type directly, so just
             // manually check the classname.
-            return event.getClassName().equals("com.android.inputmethod.keyboard.Key");
+            if (event.getClassName() != null) {
+              return event.getClassName().equals("com.android.inputmethod.keyboard.Key");
+            } else {
+              return false;
+            }
         }
     }
 
@@ -171,13 +174,6 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
         if (phoneticLetter != null) {
             postPhoneticLetterRunnable(phoneticLetter);
         }
-    }
-
-    private boolean isCharacterTraversalEvent(AccessibilityEvent event) {
-        return (event.getEventType() ==
-                AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY &&
-                event.getMovementGranularity() ==
-                        AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_CHARACTER);
     }
 
     /**

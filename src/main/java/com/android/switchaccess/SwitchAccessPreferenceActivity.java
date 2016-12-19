@@ -21,17 +21,19 @@ import android.content.SharedPreferences;
 import android.preference.ListPreference;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
-import com.android.talkback.R;
-
-import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
+import android.support.v4.os.BuildCompat;
 import android.text.TextUtils;
 
+import com.android.talkback.R;
+import com.android.utils.SharedPreferencesUtils;
+
+import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Preference activity for switch access.
@@ -59,7 +61,7 @@ public class SwitchAccessPreferenceActivity extends PreferenceActivity implement
      */
     public static boolean isOptionScanningEnabled(Context context) {
         String optionScanKey = context.getString(R.string.option_scanning_key);
-        String scanPref = PreferenceManager.getDefaultSharedPreferences(context).getString(
+        String scanPref = SharedPreferencesUtils.getSharedPreferences(context).getString(
                 context.getString(R.string.pref_scanning_methods_key),
                 context.getString(R.string.pref_scanning_methods_default));
         return TextUtils.equals(scanPref, optionScanKey);
@@ -72,14 +74,52 @@ public class SwitchAccessPreferenceActivity extends PreferenceActivity implement
      * @return {@code true} if auto scan is enabled in the preferences, {@code false} otherwise
      */
     public static boolean isAutoScanEnabled(Context context) {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        final SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
         return prefs.getBoolean(context.getString(R.string.pref_key_auto_scan_enabled),
                 Boolean.parseBoolean(context.getString(R.string.pref_auto_scan_default_value)));
+    }
+
+    /**
+     * Check the global menu preference for auto-select
+     *
+     * @param context The current context
+     * @return {@code true} auto-selecting is controlled from the auto-scan menu,
+     * {@code false} otherwise
+     */
+    public static boolean isGlobalMenuAutoselectOn(Context context) {
+        SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
+        String autoselectGlobalMenuPrefValue = prefs.getString(
+                context.getString(R.string.switch_access_choose_action_global_menu_behavior_key),
+                context.getString(R.string.switch_access_pref_choose_action_behavior_default));
+        return TextUtils.equals(autoselectGlobalMenuPrefValue,
+                context.getString(R.string.switch_access_choose_action_auto_select_key));
+    }
+
+    /**
+     * Set the global menu preference for auto-select
+     *
+     * @param context The current context
+     * @param autoselectOn {@code true} to enable auto-select when the global menu controls
+     * the preference, {@code false} to disable it.
+     */
+    public static void setGlobalMenuAutoselectOn(Context context, boolean autoselectOn) {
+        SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
+        String newStringValue = (autoselectOn)
+                ? context.getString(R.string.switch_access_choose_action_auto_select_key)
+                : context.getString(R.string.switch_access_choose_action_show_menu_key);
+        prefs.edit().putString(
+                context.getString(R.string.switch_access_choose_action_global_menu_behavior_key),
+                newStringValue).apply();
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (BuildCompat.isAtLeastN()) {
+            getPreferenceManager().setStorageDeviceProtected();
+        }
+
         addPreferencesFromResource(R.xml.switch_access_preferences);
 
         /* Set the summary to be the current value of the preference */
@@ -87,7 +127,7 @@ public class SwitchAccessPreferenceActivity extends PreferenceActivity implement
                 findPreference(getString(R.string.pref_key_auto_scan_time_delay));
         double currentValue;
         try {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(this);
             currentValue = Double.parseDouble(prefs.getString(
                     getString(R.string.pref_key_auto_scan_time_delay),
                     getString(R.string.pref_auto_scan_time_delay_default_value)));
@@ -134,6 +174,18 @@ public class SwitchAccessPreferenceActivity extends PreferenceActivity implement
         adjustHighlightingPrefs();
         adjustKeysForScanning();
         adjustAutoscanPrefs();
+
+        // Add listener to "Help & feedback" preference.
+        Preference helpAndFeedbackPreference =
+                findPreference(getString(R.string.pref_help_feedback_key));
+        helpAndFeedbackPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    HelpUtils.launchHelp(SwitchAccessPreferenceActivity.this);
+                    return true;
+                }
+        });
+
     }
 
     @Override
@@ -143,27 +195,26 @@ public class SwitchAccessPreferenceActivity extends PreferenceActivity implement
     }
 
     /*
-     * If option scanning is disabled, remove all highlighting prefs except the primary
-     * string, which is set in xml.
+     * Adjust the highlighting preferences to show appropriate values for option scanning or
+     * row-column.
      */
     private void adjustHighlightingPrefs() {
-        int[] highlightPrefKeys = {R.string.pref_highlight_0_key, R.string.pref_highlight_1_key,
-                R.string.pref_highlight_2_key, R.string.pref_highlight_3_key,
-                R.string.pref_highlight_4_key};
-        if (!isOptionScanningEnabled(this)) {
-            PreferenceScreen highlightScreen =
-                    (PreferenceScreen) findPreference(getString(R.string.pref_highlights_key));
-            // Remove all highlight prefs except the first one
-            for (int i = 1; i < highlightPrefKeys.length; i++) {
-                Preference prefToRemove = findPreference(getString(highlightPrefKeys[i]));
-                highlightScreen.removePreference(prefToRemove);
-            }
-        } else {
-            // Rename all prefs to option scanning names. User-facing numbers start at 1
+        PreferenceScreen mainPrefScreen = (PreferenceScreen) findPreference(
+                getString(R.string.main_pref_screen_key));
+        if (isOptionScanningEnabled(this)) {
+            // Configure the switch names. User-facing numbers start at 1
+            int[] highlightPrefKeys = {R.string.pref_highlight_0_key, R.string.pref_highlight_1_key,
+                    R.string.pref_highlight_2_key, R.string.pref_highlight_3_key,
+                    R.string.pref_highlight_4_key};
             for (int i = 0; i < highlightPrefKeys.length; i++) {
                 findPreference(getString(highlightPrefKeys[i])).setTitle(
                         String.format(getString(R.string.option_scan_switch_format), i + 1));
             }
+            mainPrefScreen.removePreference(
+                    findPreference(getString(R.string.pref_standard_highlight_key)));
+        } else {
+            mainPrefScreen.removePreference(
+                    findPreference(getString(R.string.pref_highlights_key)));
         }
     }
 
@@ -216,7 +267,7 @@ public class SwitchAccessPreferenceActivity extends PreferenceActivity implement
             if (isOptionScanningEnabled(this)) {
                 /* If somehow both autoscan and option scan are enabled, turn off option scan */
                 scanMethodsPref.setValue(getString(R.string.row_col_scanning_key));
-                PreferenceManager.getDefaultSharedPreferences(this).edit()
+                SharedPreferencesUtils.getSharedPreferences(this).edit()
                         .putString(getString(R.string.pref_scanning_methods_key),
                                 getString(R.string.row_col_scanning_key))
                         .commit();

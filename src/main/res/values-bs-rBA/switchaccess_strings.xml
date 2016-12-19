@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Prekidač za pristup"</string>
+    <string name="switch_access_service_description" msgid="1958519878116811543">"Prekidač za pristup omogućava skeniranje i odabir stavki pomoću jednog ili više prekidača."</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Pomoć i povratne informacije"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Automatsko skeniranje"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Vrijeme automatskog skeniranja"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"Automatsko skeniranje unazad"</string>
+    <plurals name="auto_scan_time_delay_summary_format" formatted="false" msgid="5524438721359954583">
+      <item quantity="one">%.2f sekunda</item>
+      <item quantity="few">%.2f sekunde</item>
+      <item quantity="other">%.2f sekundi</item>
+    </plurals>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Metoda skeniranja"</string>
+    <string name="title_pref_category_key_mappings" msgid="463227090301036752">"Dodijeli tipke za radnje"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"Dodijeli tipke za skeniranje"</string>
+    <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"Tipka \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\" već je dodijeljena za radnju \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\'"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="8070929030388121623">
+      <item quantity="one">%d tipka dodijeljena</item>
+      <item quantity="few">%d tipke dodijeljene</item>
+      <item quantity="other">%d tipki dodijeljeno</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"Prekidač %1$d za skeniranje opcija"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Naprijed"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Prethodno"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Odaberi"</string>
+    <string name="action_name_long_click" msgid="5708679123666477849">"Dugi pritisak"</string>
+    <string name="action_name_scroll_forward" msgid="6969788891937406270">"Pomiči naprijed"</string>
+    <string name="action_name_scroll_backward" msgid="579045012327139100">"Pomiči nazad"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Odbaci"</string>
+    <string name="context_menu_layout_description" msgid="330592638837220675">"Kontekstni meni"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENI"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Nazad"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Početak"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Pregled"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Obavještenja"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Brze postavke"</string>
+    <string name="scrollable_forward" msgid="6312908487874132401">"Pomiči naprijed"</string>
+    <string name="scrollable_backward" msgid="5109861709058665917">"Pomiči nazad"</string>
+    <string name="switch_access_preferences_title" msgid="8339289604407443597">"Preference prekidača za pristup"</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"Pritisnite kombinaciju tipki da biste ih dodali ili uklonili s liste"</string>
+    <string name="key_combo_preference_reset_button" msgid="766369207787941384">"Obriši dodijeljene tipke"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"Ctrl + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"Shift "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"Alt + "</string>
+    <string name="no_key_assigned" msgid="2792530694141012295">"Nije dodijeljena tipka"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Razmak"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tabulator"</string>
+    <string name="save" msgid="5398278773451196019">"Sačuvaj"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Skeniranje stila obilježja"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Primarno skeniranje"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Boja obilježja"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Stil linije za obilježavanje"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="1781611399874689922">"Omogući automatski odabir"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="777214990214649732">"Onemogući automatski odabir"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Sljedeći znak"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Sljedeća riječ"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Sljedeći red"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Sljedeći pasus"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Slijedeća stranica"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Prethodni znak"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Prethodna riječ"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Prethodni red"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Prethodni pasus"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Prethodna stranica"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Automatski pokreni skeniranje"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Skeniranje počinje bez pritiska na prekidač"</string>
+</resources>

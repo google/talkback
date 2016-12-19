@@ -99,7 +99,7 @@ public class ScrollFormatter implements EventSpeechRule.AccessibilityEventFormat
         }
 
         // Finally, attempt to use (scrollY / itemCount).
-        // TODO(AV): Hack from previous versions -- is it still needed?
+        // TODO: Hack from previous versions -- is it still needed?
         if ((scrollY >= 0) && (itemCount > 0) && (scrollY <= itemCount)) {
             return (scrollY / (float) itemCount);
         }

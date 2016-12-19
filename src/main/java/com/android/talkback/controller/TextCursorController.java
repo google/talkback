@@ -28,4 +28,6 @@ public interface TextCursorController extends AccessibilityEventListener {
     public int getCurrentCursorPosition();
 
     public int getPreviousCursorPosition();
+
+    public void forceSetCursorPosition(int previousCursorPosition, int currentCursorPosition);
 }

@@ -215,7 +215,7 @@ public class PPMTrie {
         return nodeAtHighestDepth;
     }
 
-    /* TODO(rmorina) Figure out if there's a more efficient way of scaling without having to
+    /* TODO Figure out if there's a more efficient way of scaling without having to
      * scale the entire trie, but rather only certain branches of the trie */
     private void scaleCount(TrieNode rootNode) {
         LinkedList<TrieNode> children = rootNode.getChildren();
@@ -335,7 +335,7 @@ public class PPMTrie {
          * AccessibilityNodeInfoCompat is obtained. For other views a hashing function is probably
          * needed to enable this int representation. */
         private final int mContent;
-        /* TODO(rmorina) Consider using a sparse array */
+        /* TODO Consider using a sparse array */
         private final LinkedList<TrieNode> mChildren;
         /* The number of times we can seen the content */
         private int mCount;

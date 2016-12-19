@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/tutorial_footer_background">
+
+    <ImageButton
+        android:id="@+id/previous_page"
+        style="@style/MaterialTextSubHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingLeft="@dimen/tutorial_footer_horizontal_padding"
+        android:paddingRight="16dp"
+        android:src="@drawable/ic_chevron_left_black"
+        android:background="@null"/>
+
+    <TextView
+        android:id="@+id/current_page"
+        style="@style/MaterialTextBody1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="16dp"
+        android:textColor="@color/tutorial_semi_black"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/next"
+        style="@style/MaterialTextSubHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingRight="@dimen/tutorial_footer_horizontal_padding"
+        android:paddingLeft="16dp"
+        android:text="@string/tutorial_next"
+        android:textColor="@color/tutorial_footer_buttons"
+        android:background="@null"
+        android:drawableRight="@drawable/ic_chevron_right_black"
+        android:drawablePadding="5dp"/>
+</FrameLayout>
+

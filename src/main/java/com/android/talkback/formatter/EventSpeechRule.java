@@ -28,6 +28,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
+import com.android.talkback.FeedbackItem;
 import com.android.talkback.R;
 
 import com.google.android.marvin.talkback.TalkBackService;
@@ -40,6 +41,7 @@ import com.android.utils.LogUtils;
 import com.android.utils.NodeUtils;
 import com.android.utils.PackageManagerUtils;
 import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -99,6 +101,7 @@ public class EventSpeechRule {
     private static final String PROPERTY_VERSION_NAME = "versionName";
     private static final String PROPERTY_PLATFORM_RELEASE = "platformRelease";
     private static final String PROPERTY_PLATFORM_SDK = "platformSdk";
+    private static final String PROPERTY_SKIP_DUPLICATES = "skipDuplicates";
 
     // Property types.
     private static final int PROPERTY_TYPE_UNKNOWN = 0;
@@ -174,6 +177,11 @@ public class EventSpeechRule {
         sQueueModeNameToQueueModeMap.put("QUEUE", 1);
         sQueueModeNameToQueueModeMap.put("UNINTERRUPTIBLE", 2);
     }
+
+    /**
+     * Flags to add to the utterance.
+     */
+    private int mSpokenFlags = 0;
 
     /**
      * Meta-data of how the utterance should be spoken. It is a key value
@@ -350,6 +358,7 @@ public class EventSpeechRule {
         }
 
         utterance.getMetadata().putAll(mMetadata);
+        utterance.addSpokenFlag(mSpokenFlags);
         utterance.addAllAuditory(mCustomEarcons);
         utterance.addAllHaptic(mCustomVibrations);
 
@@ -398,6 +407,13 @@ public class EventSpeechRule {
                     case PROPERTY_CUSTOM_VIBRATION:
                         mCustomVibrations.add(getResourceIdentifierContent(mContext, textContent));
                         break;
+                    case PROPERTY_SKIP_DUPLICATES:
+                        final boolean skipDuplicates = unboxBoolean(
+                                (Boolean) parsePropertyValue(unqualifiedName, textContent), false);
+                        if (skipDuplicates) {
+                            mSpokenFlags |= FeedbackItem.FLAG_SKIP_DUPLICATE;
+                        }
+                        break;
                     default:
                         final String value = (String) parsePropertyValue(unqualifiedName, textContent);
                         mMetadata.putString(unqualifiedName, value);
@@ -444,6 +460,14 @@ public class EventSpeechRule {
             default:
                 throw new IllegalArgumentException("Unknown property: " + name);
         }
+    }
+
+    private static boolean unboxBoolean(Boolean b, boolean defaultValue) {
+        if (b != null) {
+            return b.booleanValue();
+        }
+
+        return defaultValue;
     }
 
     private static int getPropertyType(String propertyName) {
@@ -522,7 +546,8 @@ public class EventSpeechRule {
                 || PROPERTY_ENABLED.equals(propertyName)
                 || PROPERTY_FULL_SCREEN.equals(propertyName)
                 || PROPERTY_SCROLLABLE.equals(propertyName)
-                || PROPERTY_PASSWORD.equals(propertyName));
+                || PROPERTY_PASSWORD.equals(propertyName)
+                || PROPERTY_SKIP_DUPLICATES.equals(propertyName));
     }
 
     /**
@@ -739,6 +764,25 @@ public class EventSpeechRule {
         return nodeName;
     }
 
+    private static String getAttribute(NamedNodeMap attributes, String attributeName) {
+        if (attributes == null) {
+            return null;
+        }
+
+        // Iterating over the entire map since we need to convert the keys to unqualified form.
+        // Shouldn't be too bad since we'll only check attributes once per TalkBack initialization,
+        // and most nodes don't have attributes anyways.
+        int length = attributes.getLength();
+        for (int i = 0; i < length; ++i) {
+            Node attributeNode = attributes.item(i);
+            if (attributeName.equals(getUnqualifiedNodeName(attributeNode))) {
+                return attributeNode.getTextContent();
+            }
+        }
+
+        return null;
+    }
+
     /**
      * Represents a default filter determining if the rule applies to a given
      * {@link AccessibilityEvent}.
@@ -756,8 +800,8 @@ public class EventSpeechRule {
 
                 String unqualifiedName = getUnqualifiedNodeName(child);
                 String textContent = getTextContent(child);
-                PropertyMatcher propertyMatcher =
-                        new PropertyMatcher(context, unqualifiedName, textContent);
+                PropertyMatcher propertyMatcher = new PropertyMatcher(context, unqualifiedName,
+                        textContent, child.getAttributes());
                 mPropertyMatchers.put(unqualifiedName, propertyMatcher);
 
                 // If the speech rule specifies a target package, we use that
@@ -800,7 +844,7 @@ public class EventSpeechRule {
             throw new IllegalArgumentException("Unknown property : " + property);
         }
 
-        // TODO(AV): Don't do so many string comparisons here.
+        // TODO: Don't do so many string comparisons here.
         switch (property) {
             case PROPERTY_EVENT_TYPE:
                 return event.getEventType();
@@ -1008,7 +1052,9 @@ public class EventSpeechRule {
             if (!utterance.getSpoken().isEmpty() && !event.isEnabled() && speakState) {
                 utterance.addSpoken(mContext.getString(R.string.value_disabled));
             }
-
+            if (utterance.getSpoken().isEmpty()) {
+                utterance.addSpokenFlag(FeedbackItem.FLAG_NO_SPEECH);
+            }
             return true;
         }
 
@@ -1035,7 +1081,7 @@ public class EventSpeechRule {
                     // a defined resource. Use the template string provided for
                     // formatting as-is.
 
-                    // TODO(CB): Do we really want to support this
+                    // TODO: Do we really want to support this
                     // use case? Tests assume hard coded formatter templates are
                     // valid, but they're not used elsewhere.
                     templateString = getTextContent(mTemplateNode);
@@ -1130,6 +1176,16 @@ public class EventSpeechRule {
         private static final int TYPE_OR = 5;
 
         /**
+         * Match type if a property is non-empty and non-null.
+         */
+        private static final int TYPE_REQUIRE_NON_EMPTY = 6;
+
+        /**
+         * Match type if a property is empty or null.
+         */
+        private static final int TYPE_REQUIRE_EMPTY = 7;
+
+        /**
          * String for a regex pattern than matches float numbers.
          */
         private static final String PATTERN_STRING_FLOAT =
@@ -1189,6 +1245,25 @@ public class EventSpeechRule {
          */
         private static final String GREATER_THAN = ">";
 
+
+        /**
+         * Attribute specifying that a property can be any non-empty value or must be a null/empty
+         * value.
+         */
+        private static final String ATTRIBUTE_REQUIRE = "require";
+
+        /**
+         * Attribute value specifying that the property matcher should be of type
+         * {@link #TYPE_REQUIRE_NON_EMPTY}.
+         */
+        private static final String REQUIRE_NON_EMPTY = "nonEmpty";
+
+        /**
+         * Attribute value specifying that the property matcher should be of type
+         * {@link #TYPE_REQUIRE_EMPTY}.
+         */
+        private static final String REQUIRE_EMPTY = "empty";
+
         /**
          * The name of the property matched by this instance.
          */
@@ -1219,7 +1294,8 @@ public class EventSpeechRule {
          * @param propertyName The name of the matched property.
          * @param acceptedValue The not parsed accepted value.
          */
-        public PropertyMatcher(Context context, String propertyName, String acceptedValue) {
+        public PropertyMatcher(Context context, String propertyName, String acceptedValue,
+                NamedNodeMap attributes) {
             mContext = context;
             mPropertyName = propertyName;
             mPropertyType = getPropertyType(propertyName);
@@ -1265,6 +1341,12 @@ public class EventSpeechRule {
                 mAcceptedValues = new Object[] {
                         parsePropertyValue(propertyName, valueString)
                 };
+            } else if (REQUIRE_EMPTY.equals(getAttribute(attributes, ATTRIBUTE_REQUIRE))) {
+                mType = TYPE_REQUIRE_EMPTY;
+                mAcceptedValues = new Object[] {};
+            } else if (REQUIRE_NON_EMPTY.equals(getAttribute(attributes, ATTRIBUTE_REQUIRE))) {
+                mType = TYPE_REQUIRE_NON_EMPTY;
+                mAcceptedValues = new Object[] {};
             } else if (PATTERN_OR.matcher(acceptedValue).matches()) {
                 mType = TYPE_OR;
                 final String[] acceptedValues = PATTERN_SPLIT_OR.split(acceptedValue);
@@ -1355,6 +1437,18 @@ public class EventSpeechRule {
                 }
 
                 return false;
+            }
+
+            if (mType == TYPE_REQUIRE_NON_EMPTY) {
+                if (value instanceof String && !TextUtils.isEmpty((String) value)) {
+                    return true;
+                }
+            }
+
+            if (mType == TYPE_REQUIRE_EMPTY) {
+                if (value instanceof String && TextUtils.isEmpty((String) value)) {
+                    return true;
+                }
             }
 
             switch (mPropertyType) {

@@ -2,6 +2,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- None of the strings here should be translated -->
     <string name="main_pref_screen_key">main_pref_screen</string>
+    <string name="pref_help_feedback_key">pref_help_feedback</string>
+
     <string name="pref_category_key_auto_scan">pref_category_key_auto_scan</string>
     <string name="pref_key_auto_scan_enabled">pref_key_auto_scan_enabled</string>
     <string name="pref_key_auto_scan_time_delay">pref_key_auto_scan_time_delay</string>
@@ -33,6 +35,7 @@
     <string name="pref_rowcol_scan_default_value">false</string>
 
     <string name="pref_highlights_key">pref_highlights_key</string>
+    <string name="pref_standard_highlight_key">pref_standard_highlight_key</string>
     <string name="pref_highlight_weight_default">@string/thickness_8_dp</string>
     <string name="pref_highlight_0_key">pref_highlight_0_key</string>
     <string name="pref_highlight_0_color_key">pref_highlight_0_color_key</string>
@@ -75,4 +78,13 @@
     <string name="views_linear_ime_row_col_key">views_linear_ime_row_col_key</string>
     <string name="row_col_scanning_key">row_col_scanning_key</string>
     <string name="option_scanning_key">option_scanning_key</string>
+
+    <!-- Supporting multiple actions -->
+    <string name="switch_access_choose_action_global_menu_behavior_key">switch_access_choose_action_global_menu_behavior</string>
+    <string name="switch_access_choose_action_auto_select_key">choose_action_auto_select</string>
+    <string name="switch_access_choose_action_show_menu_key">choose_action_show_menu</string>
+    <string name="switch_access_pref_choose_action_behavior_default">@string/switch_access_choose_action_auto_select_key</string>
+
+    <!-- Control automatic scanning start -->
+    <string name="switch_access_auto_start_scan_key">switch_access_auto_start_scan_key</string>
 </resources>

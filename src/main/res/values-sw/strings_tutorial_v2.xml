@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Mafunzo kuhusu zana za walio na matatizo ya kuona au kusikia"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Anzisha mafunzo ya jinsi ya kutumia TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Mafunzo ya TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack ni kisoma skrini lilichoundwa hasa kwa ajili ya vipofu na watu wenye matatizo ya kuona. Inaruhusu mawasiliano na kifaa kwa kutumia maelezo yanayotamkwa."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Zima TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Pata maelezo"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Mazoezi"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"pata somo la <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"somo la mazoezi <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Somo la 1: Usogezaji wa msingi"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Gusa ili kukagua, telezesha kidole ili ukague, gonga mara mbili ili uwashe"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Sehemu ya 1: Chunguza kwa kugusa"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Ukiwasha kipengele cha Chunguza kwa Kugusa, utaweza kusikia jina la kipengee unachogusa. Sogeza kidole chako juu ya vipengee vilivyo katikati ya skrini ya simu yako. Somo litaendelea baada ya kuchunguza vipengee vitano."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Sehemu ya 2: Gonga mara mbili ili uwashe"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Ili kurudia kipengee cha mwisho ulichosikia, gonga mahali popote mara mbili. Tafuta kipengee cha 7 na ukiwashe sasa. Kisha, ubofye kitufe cha Inayofuata ili uendelee."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Kipengee cha 7 kimewashwa. Tafuta na ubofwe kitufe cha Inayofuata ili uendelee"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Sehemu ya 3: Mafunzo kuhusu kusogeza"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Masomo ya TalkBack yamepangwa kwa njia sawa. Sehemu ya juu ina somo ambalo unaweza kukagua na kusoma wakati wowote. Pia ina kitufe cha Mwanzo cha Mafunzo katika kona ya juu kushoto. Sehemu ya katikati ina eneo la mazoezi. Sehemu ya chini ina kiashirio cha maendeleo na vitufe vya usogezaji kwenye somo. Bofya kitufe cha Inayofuata ili uendelee."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Sehemu ya 4: Telezesha kidole ili uchunguze"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Unaweza pia kuchunguza kwa kutelezesha kidole chako kwenye skrini. Kutelezesha kidole upande wa kushoto, kwa kawaida huchunguza juu na kushoto. Kutelezesha kidole kulia huchunguza chini na kulia. Jaribu sasa."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Sehemu ya 5: Mazoezi"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Ili kusikia maelezo ya kipengee kilicho chini ya kidole, kisogeze kwenye skrini. Gonga mara mbili mahali popote ili usikie maelezo ya kipengee unachotaka. Telezesha kidole upande wa kushoto au kulia ili ukague."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Somo la 2: Usogezaji"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Kutelezesha kwa vidole viwili, kusogeza mbele na nyuma"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Sehemu ya 1: Kusogeza kwa vidole viwili"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Ili kusogeza kwenye orodha ya wima, tafuta kipengee cha orodha, kisha usogeze vidole viwili juu au chini. Ili kusogeza kwenye orodha ya mlalo, tafuta kipengee cha orodha, kisha usogeze vidole viwili upande wa kushoto au kulia."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Sehemu ya 2: Njia za mikato za kusogeza"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Unaweza kusogeza mbele au nyuma katika orodha kwa kutumia njia ya mkato. Ili kusogeza mbele, sogeza kidole kimoja kulia kisha kushoto kwa mfululizo. Ili kusogeza nyumba, sogeza kidole kimoja kushoto kisha kulia. Jaribu sasa hapa."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Sehemu ya 3: Mazoezi"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Sogeza kwa kutelezesha vidole viwili juu au chini. Sogeza mbele kwa kusogeza kidole kimoja kulia kisha kushoto. Rudi nyuma kwa kusogeza kidole kimoja kushoto kisha kulia."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Somo la 3: Menyu za TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menyu ya TalkBack ya Jumla, menyu ya TalkBack Iliyojanibishwa"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Sehemu ya 1: Menyu ya TalkBack ya Jumla"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack ina menyu mbili tofauti. Menyu ya kwanza ni menyu ya TalkBack ya Jumla. Menyu hii hujumuisha amri zinazofanana. Unaweza kuwasha menyu hii kwa kusogeza kidole kimoja chini kisha kulia kwa mfululizo, kisha uinue kidole chako. Washa toleo la majaribio hivi sasa."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Chaguo za menyu zimeorodheshwa wima katika sehemu ya kati ya skrini. Jaribu kukagua. Ukimaliza, bofya kitufe cha Ghairi."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Sehemu ya 2:  Menyu ya TalkBack ya Iliyojanibishwa"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Menyu ya pili ni menyu ya TalkBack Iliyojanibishwa. Vipengee vilivyo katika menyu hii huwa tofauti kulingana na neno la mwisho ulilosikia. Unaweza kufungua menyu hii kwa kusogeza kidole kimoja juu kisha kulia kwa mfululizo, kisha uinue kidole chako. Fungua menyu ya majaribio sasa."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Sehemu ya 3: Mazoezi"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Sogeza kidole chako chini kisha kulia ili uwashe menyu ya TalkBack ya Jumla. Sogeza kidole chako juu kisha kulia ili uwashe menyu ya TalkBack Iliyojanibishwa."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Chini kisha kulia"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Juu kisha kulia"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Menyu ya TalkBack ya Jumla: Chini kisha kulia. Menyu ya TalkBack Iliyojanibishwa: Juu kisha kulia"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Somo la 4: Usogezaji katika Maandishi"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Kuchagua mipangilio ya kusogeza katika maandishi"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Sehemu ya 1: Kuchagua mipangilio ya usogezaji"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack inakuwezesha kudhibiti maandishi unayosomewa kulingana na aya, sentensi, neno  au herufi kwa wakati fulani. Kusoma kulingana na herufi kunaweza kukusaidia katika tahajia. Weka katika hali ya usogezaji wa maandishi kulingana na herufi kwa kugonga maandishi yaliyo hapa chini, kisha utelezeshe kidole juu na chini."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Kagua chaguo za hali ya kusoma zilizoorodheshwa hapa. Tafuta na uwashe chaguo la Soma kulingana na herufi."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Sehemu ya 2: Kusogeza katika maandishi"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Sasa unasoma kulingana na herufi. Chagua sampuli ya maandishi kisha utelezeshe kidole upande wa kulia ili usome kulingana na herufi."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Sehemu ya 3: Mazoezi"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Badilisha hali ya kusogeza kwenye maandishi kwa kutelezesha kidole juu au chini. Soma herufi inayofuata kwenye sampuli kwa kutelezesha kidole kulia."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Hii hapa ni sampuli ya maandishi ya mazoezi ya TalkBack. \"Kansas iko wapi?\" aliuliza mwanaume huyo kwa mshangao. \"Mimi sijui,\" akajibu Dorothy kwa huzuni, \"lakini ninaishi huko na nina uhakika kuwa ipo mahali fulani.\"\n\n\"Kuna uwezekano mkubwa sana. Kwa kweli, Oz anaweza kufanya chochote; kwa hivyo nilidhani atakutafutia Kansas. Lakini kwanza, lazima uonane naye na itakuwa ni vigumu kufanya hivyo; kwa kuwa Mchawi Mkuu hapendi kumuona mtu yeyote na kwa kawaida, yeye hufaulu kufanya anachokitaka. Lakini, WEWE unataka nini?\" aliendelea kuzungumza na Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Somo la 5: Kubadilisha maandishi"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Kuwasha kisanduku cha kubadilisha, kuandika, kusogeza kishale na kuchukua hatua kwenye maandishi"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Sehemu ya 1: Kuwasha kisanduku cha kubadilisha"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Ukiwa na TalkBack, unaweza kutumia kisanduku cha kubadilisha ili kuandika, kuchagua na kubadilisha maandishi. Ili kuwasha kisanduku cha kubadilisha, kigonge mara mbili. Baada ya kuwasha kisanduku cha kubadilisha, utaona kibodi upande wa chini ya skrini. Unaweza kuondoa kibodi kwa kugonga kitufe cha Nyuma. Jaribu kuwasha kisanduku cha kubadilisha sasa. Ukimaliza, bofya kitufe cha Inayofuata, ambacho sasa kiko juu ya kibodi."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Sehemu ya 2: Kuandika katika kisanduku cha kubadilisha"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Ili kuandika, washa kisanduku cha kubadilisha kisha usogeze kidole chako kwenye kibodi iliyo juu ya skrini. Utakaposikia herufi unayotaka, inua kidole ili uitumie. Jaribu kuwasha na kuandika kwenye kisanduku cha kubadilisha kilicho hapa chini."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Sehemu ya 3: Kwa kutumia kiashiria"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Unaweza kusogeza kishale ukitumia vitufe vya sauti kwenye kifaa chako au ukitumia menyu ya Talkback ya lugha yako. Ukiwa na chaguo la kudhibiti kishale kwenye menyu hii, unaweza pia kuchagua, kukata, kunakili au kubandika maandishi. Washa kisanduku cha kubadilisha kilicho hapa chini na usogeze kishale kwenye sampuli ya maandishi."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Anwani ya barua pepe ya Dorothy Gale ni dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Sehemu ya 4: Mazoezi"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Washa kisanduku cha kubadilisha kwa kugonga mara mbili. Andika kwa kusogeza kidole chako juu ya herufi, kisha uinue kidole hicho. Sogeza kishale ukitumia vitufe vya sauti na menyu ya Talkback ya lugha yako. Chagua na uchukue hatua kwenye maandishi ukitumia chaguo la kudhibiti Kishale kwenye menyu ya TalkBack ya lugha yako."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Badilisha maandishi"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"LILILOTANGULIA"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"LINALOFUATA"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"SOMO LILILOTANGULIA"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"SOMO LINALOFUATA"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"UKURASA WA MWANZO WA MAFUNZO"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Somo la %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Sehemu ya %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Sehemu ya %1$d kati ya %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Somo hili limekamilika na itaanzisha lingine baada ya muda mfupi"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Sehemu ya Mazoezi"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s imewashwa katika hali ya mazoezi. Bofya kitufe cha GHAIRI ili uzime."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Kitufe cha Ukurasa wa Mwanzo wa Mafunzo"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Kipengee cha <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Funga"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Inahitaji Kipengele cha Kuchunguza kwa Kugusa"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Mafunzo haya yanahitaji mbinu ya Kuchunguza kwa kugusa. Tafadhali washa kipengele cha Kuchunguza kwa Kugusa kabla ya kuanzisha mafunzo haya."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack Imezimwa"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Unahitaji kuwasha programu ya TalkBack ili kupata mafunzo haya."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack Imesimamishwa"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Mafunzo ya TalkBack hayapatikani wakati majibu yamesitishwa. Tafadhali endelea na majibu ya TalkBack kisha uzianzishe tena mafunzo na ili kuendelea."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Toa maelezo kuhusu menyu"</string>
+</resources>

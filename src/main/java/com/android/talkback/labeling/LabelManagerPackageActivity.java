@@ -40,8 +40,8 @@ import android.widget.TextView;
 
 import com.android.talkback.R;
 import com.android.utils.LogUtils;
+import com.android.utils.labeling.CustomLabelManager;
 import com.android.utils.labeling.Label;
-import com.android.utils.labeling.LabelOperationUtils;
 import com.android.utils.labeling.LabelProviderClient;
 
 import java.text.DateFormat;
@@ -49,7 +49,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -147,7 +146,7 @@ public class LabelManagerPackageActivity extends Activity {
         @Override
         public View getView(int position, View view, ViewGroup parent) {
             if (view == null) {
-                view = mLayoutInflater.inflate(R.layout.label_manager_label_row, null);
+                view = mLayoutInflater.inflate(R.layout.label_manager_label_row, parent, false);
             }
 
             final Label label = getItem(position);
@@ -172,7 +171,7 @@ public class LabelManagerPackageActivity extends Activity {
                 @Override
                 public void onClick(View view) {
                     final Context context = LabelManagerPackageActivity.this;
-                    LabelOperationUtils.startActivityEditLabel(context, label);
+                    LabelDialogManager.editLabel(context, label, false /* overlay */);
 
                     // TODO: Also add intent for deleting the label.
                 }
@@ -191,7 +190,7 @@ public class LabelManagerPackageActivity extends Activity {
 
         @Override
         protected void onPreExecute() {
-            mLocale = Locale.getDefault().toString();
+            mLocale = CustomLabelManager.getDefaultLocale();
         }
 
         @Override

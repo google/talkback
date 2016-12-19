@@ -1,0 +1,140 @@
+{
+  "lessons":
+  [
+    {
+      "version" : 100,
+      "title": "@string/tutorial_lesson_1_title",
+      "short_description": "@string/tutorial_lesson_1_short_description",
+      "lesson_index" : 0,
+      "pages":
+      [
+        {
+          "subtitle" : "@string/tutorial_lesson_1_page1_subtitle",
+          "description" : "@string/tutorial_lesson_1_page1_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.Lesson1Part1Exercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_1_page2_subtitle",
+          "description" : "@string/tutorial_lesson_1_page2_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.Lesson1Part2Exercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_1_page3_subtitle",
+          "description" : "@string/tutorial_lesson_1_page3_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.Lesson1Part3Exercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_1_page4_subtitle",
+          "description" : "@string/tutorial_lesson_1_page4_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.GridItemExercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_1_practice_title",
+          "description" : "@string/tutorial_lesson_1_practice_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.GridItemExercise"
+        }
+      ]
+    },
+    {
+      "version" : 100,
+      "title": "@string/tutorial_lesson_2_title",
+      "short_description": "@string/tutorial_lesson_2_short_description",
+      "lesson_index" : 1,
+      "pages":
+      [
+        {
+          "subtitle" : "@string/tutorial_lesson_2_page1_subtitle",
+          "description" : "@string/tutorial_lesson_2_page1_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.Lesson2Part1Exercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_2_page2_subtitle",
+          "description" : "@string/tutorial_lesson_2_page2_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.ListItemExercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_2_practice_title",
+          "description" : "@string/tutorial_lesson_2_practice_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.ListItemExercise"
+        }
+      ]
+    },
+    {
+      "version" : 100,
+      "title": "@string/tutorial_lesson_3_title",
+      "short_description": "@string/tutorial_lesson_3_short_description",
+      "lesson_index" : 2,
+      "pages":
+      [
+        {
+          "subtitle" : "@string/tutorial_lesson_3_page1_subtitle",
+          "description" : "@string/tutorial_lesson_3_page1_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.Lesson3Part1Exercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_3_page2_subtitle",
+          "description" : "@string/tutorial_lesson_3_page2_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.Lesson3Part2Exercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_3_practice_title",
+          "description" : "@string/tutorial_lesson_3_practice_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.Lesson3PracticeExercise"
+        }
+      ]
+    },
+    {
+      "version" : 100,
+      "title": "@string/tutorial_lesson_4_title",
+      "short_description": "@string/tutorial_lesson_4_short_description",
+      "lesson_index" : 3,
+      "pages":
+      [
+        {
+          "subtitle" : "@string/tutorial_lesson_4_page1_subtitle",
+          "description" : "@string/tutorial_lesson_4_page1_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.Lesson4Part1Exercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_4_page2_subtitle",
+          "description" : "@string/tutorial_lesson_4_page2_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.Lesson4Part2Exercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_4_practice_title",
+          "description" : "@string/tutorial_lesson_4_practice_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.Lesson4Part2Exercise"
+        }
+      ]
+    },
+    {
+      "version" : 100,
+      "title": "@string/tutorial_lesson_5_title",
+      "short_description": "@string/tutorial_lesson_5_short_description",
+      "lesson_index" : 4,
+      "pages":
+      [
+        {
+          "subtitle" : "@string/tutorial_lesson_5_page1_subtitle",
+          "description" : "@string/tutorial_lesson_5_page1_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.EditTextExercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_5_page2_subtitle",
+          "description" : "@string/tutorial_lesson_5_page2_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.EditTextExercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_5_page3_subtitle",
+          "description" : "@string/tutorial_lesson_5_page3_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.Lesson5Part3Exercise"
+        },
+        {
+          "subtitle" : "@string/tutorial_lesson_5_practice_title",
+          "description" : "@string/tutorial_lesson_5_practice_description",
+          "exercise" : "com.android.talkback.tutorial.exercise.EditTextExercise"
+        }
+      ]
+    }
+  ]
+}

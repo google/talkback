@@ -71,7 +71,6 @@
       <ss:eventType>TYPE_VIEW_FOCUSED</ss:eventType>
       <ss:className>android.view.View</ss:className>
       <ss:packageName>com.google.android.calendar</ss:packageName>
-      <ss:platformSdk>&gt;=14</ss:platformSdk>
     </ss:filter>
     <ss:metadata>
       <ss:customVibration>@array/view_focused_or_selected_pattern</ss:customVibration>

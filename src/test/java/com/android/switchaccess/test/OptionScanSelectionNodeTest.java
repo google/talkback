@@ -16,6 +16,8 @@
 
 package com.android.switchaccess.test;
 
+import com.android.talkback.BuildConfig;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
@@ -52,9 +54,11 @@ import java.util.Set;
 /**
  * Tests for OptionScanSelectionNode.
  */
-@Config(emulateSdk = 18)
+@Config(
+        constants = BuildConfig.class,
+        sdk = 21)
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class OptionScanSelectionNodeTest {
     private static final Rect NODE_BOUNDS_1 = new Rect(10, 10, 90, 20);
     private static final Rect NODE_BOUNDS_2 = new Rect(110, 110, 190, 120);

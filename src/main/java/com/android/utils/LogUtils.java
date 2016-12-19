@@ -86,6 +86,32 @@ public class LogUtils {
     }
 
     /**
+     * Logs a formatted string to the console using the default tag (see
+     * {@link LogUtils#TAG}. If the index is greater than the limit, then the log entry is skipped.
+     *
+     * @param index The index of the log entry in the current log sequence.
+     * @param limit The maximum number of log entries allowed in the current sequence.
+     * @param priority The log entry priority, see
+     *            {@link Log#println(int, String, String)}.
+     * @param format A format string, see
+     *            {@link String#format(String, Object...)}.
+     * @param args String formatter arguments.
+     */
+    public static void logWithLimit(Object source, int priority, int index, int limit,
+            String format, Object... args) {
+        String formatWithIndex;
+        if (index > limit) {
+            return;
+        } else if (index == limit) {
+            formatWithIndex = String.format("%s (%d); further messages suppressed", format, index);
+        } else {
+            formatWithIndex = String.format("%s (%d)", format, index);
+        }
+
+        log(source, priority, formatWithIndex, args);
+    }
+
+    /**
      * Sets the log display level.
      *
      * @param logLevel The minimum log level that will be printed to the

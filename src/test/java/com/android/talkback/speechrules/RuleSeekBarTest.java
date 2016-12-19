@@ -21,12 +21,15 @@ import android.content.Context;
 import android.os.Build;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
+import android.widget.SeekBar;
+
 import com.android.switchaccess.test.ShadowAccessibilityNodeInfo;
-import com.android.switchaccess.test.ShadowAccessibilityNodeInfoCompat;
+import com.android.talkback.BuildConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
@@ -37,11 +40,12 @@ import static org.junit.Assert.assertTrue;
 /**
  * Tests for RuleSeekBar
  */
-@Config(emulateSdk = 18,
-        shadows = {ShadowAccessibilityNodeInfo.class,
-                ShadowAccessibilityNodeInfoCompat.class})
+@Config(
+        constants = BuildConfig.class,
+        sdk = 21,
+        shadows = {ShadowAccessibilityNodeInfo.class})
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class RuleSeekBarTest {
 
     private Context mContext = RuntimeEnvironment.application.getApplicationContext();
@@ -49,7 +53,7 @@ public class RuleSeekBarTest {
 
     @Before
     public void setUp() {
-        ShadowAccessibilityNodeInfoCompat.resetObtainedInstances();
+        ShadowAccessibilityNodeInfo.resetObtainedInstances();
         mNodeInfo = AccessibilityNodeInfoCompat.obtain();
     }
 
@@ -57,9 +61,9 @@ public class RuleSeekBarTest {
     public void tearDown() {
         try {
             mNodeInfo.recycle();
-            assertFalse(ShadowAccessibilityNodeInfoCompat.areThereUnrecycledNodes(true));
+            assertFalse(ShadowAccessibilityNodeInfo.areThereUnrecycledNodes(true));
         } finally {
-            ShadowAccessibilityNodeInfoCompat.resetObtainedInstances();
+            ShadowAccessibilityNodeInfo.resetObtainedInstances();
         }
     }
 
@@ -74,13 +78,14 @@ public class RuleSeekBarTest {
     @Test
     public void testFocusedNode_shouldReturnSeekBarPosition() {
         mNodeInfo.setAccessibilityFocused(true);
+        mNodeInfo.setClassName(SeekBar.class.getName());
         mNodeInfo.setText("Volume");
         RuleSeekBar rule = new RuleSeekBar();
         AccessibilityEvent event = AccessibilityEvent.obtain();
         event.setItemCount(100);
         event.setCurrentItemIndex(50);
         CharSequence text = rule.format(mContext, mNodeInfo, event);
-        assertTrue("Volume seek control. 50 percent.".equalsIgnoreCase(text.toString()));
+        assertTrue("Volume seek control, 50 percent.".equalsIgnoreCase(text.toString()));
     }
 }
 

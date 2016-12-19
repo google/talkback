@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +14,11 @@
 -->
 
 <resources>
-  <!-- This resource is true if running under at least 21 (L) API level.
-       The default value is false; an alternative value for L is true. -->
-  <bool name="atLeastL">false</bool>
+    <!-- This resource is true if running under at least 18 (Jelly Bean MR2) API level.
+         The default value is false; an alternative value for Jelly Bean MR2 is true. -->
+    <bool name="atLeastJellyBeanMR2">false</bool>
+    <!-- This resource is true if running under at least 21 (L) API level.
+         The default value is false; an alternative value for L is true. -->
+    <bool name="atLeastL">false</bool>
+    <bool name="is_tablet">false</bool>
 </resources>

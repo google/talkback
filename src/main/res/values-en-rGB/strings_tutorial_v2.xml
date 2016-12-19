@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Accessibility Tutorial"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Launch TalkBack tutorial"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack tutorial"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack is a screen reader primarily for people with blindness and low vision. It allows interaction with the device using spoken feedback."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Turn TalkBack Off"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Learn"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Practice"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"learn lesson <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"practise lesson <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lesson 1: Basic navigation"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Touch to explore, swipe to explore, double tap to activate"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Part 1: Explore by touch"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"When enabled, Explore by touch lets you hear what\'s under your finger. Move your finger over the items in the centre of your screen. After you have explored five items, the lesson will continue."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Part 2: Double-tap to activate"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"To activate the last item you heard, double-tap anywhere. Find Item 7 and activate it now. After that, activate Next to continue."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Item 7 activated. Find and activate Next button to continue"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Part 3: Navigating lessons"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack lessons are arranged similarly. The top area has the lesson, which you can explore and read at any time. It also has a Tutorial Home button in the top-left corner. The middle has a practice area. The bottom has a progress indicator and lesson navigation buttons. Activate Next now to continue."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Part 4: Swipe to explore"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"You can also explore by swiping the screen with your finger. Swiping left generally explores up and to the left, while swiping right explores down and to the right. Try it now."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Part 5: Practice"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"To hear what\'s under your finger, move it across the screen. Double-tap anywhere to activate what you hear. Swipe left or right to explore."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lesson 2: Scrolling"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Two-finger scrolling, jumping forward and backward"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Part 1: Two-finger scrolling"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"To scroll through a vertical list, find a list item, then move two fingers up or down. To scroll through a horizontal list, find a list item, then move two fingers left or right."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Part 2: Scrolling shortcuts"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"You can jump forward or backward in a list using a shortcut. To jump forward, move one finger right then left in a single motion. To jump back, move one finger left then right. Give it a try here."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Part 3: Practice"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Scroll by sliding two fingers up or down. Jump forward by moving one finger right then left. Jump back by moving one finger left then right."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lesson 3: TalkBack menus"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Global TalkBack menu, local TalkBack menu"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Part 1: Global TalkBack menu"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack has two different menus. The first, the Global TalkBack menu, always contains the same commands. You can activate it by moving a single finger down then right in a single motion, then raising your finger. Activate a practice version now."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Menu options are listed vertically in the middle of the screen. Try exploring. When you have finished, activate Cancel."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Part 2: Local TalkBack menu"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"The second menu is the Local TalkBack menu. The items in this menu are different depending on what you last heard. You can activate this menu by moving a single finger up then right in a single motion, then raising your finger. Activate a practice menu now."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Part 3: Practice"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Move your finger down then right to activate the Global TalkBack menu. Move your finger up then right to activate the Local TalkBack menu."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Down then right"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Up then right"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Global TalkBack Menu: Down then right. Local TalkBack Menu: Up then right"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Lesson 4: Text Navigation"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Choosing text navigation settings"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Part 1: Choosing navigation settings"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack lets you control whether text is read to you a paragraph, a line, a word or a character at a time. Reading by character can help with spelling. Set the text navigation rate to characters by tapping on the text below, then swiping up and down."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Explore the reading rate options listed vertically here. Find and activate the Read by character option."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Part 2: Navigating text"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"You are now reading by character. Select the sample text, then swipe right to read by character."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Part 3: Practice"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Change the text navigation rate by swiping up and down. Read the next character in the sample text by swiping right."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Here\'s some sample text for TalkBack practice. \"Where is Kansas?\" asked the man, with surprise. \"I don\'t know,\" replied Dorothy sorrowfully, \"but it is my home, and I\'m sure it’s somewhere.\"\n\n\"Very likely. Well, Oz can do anything; so I supposed he will find Kansas for you. But first you must get to see him and that will be a hard task; for the Great Wizard does not like to see anyone and he usually has his own way. But what do YOU want?\" he continued, speaking to Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Lesson 5: Text editing"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Activating an edit box, typing, moving a cursor, selecting and acting on text"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Part 1: Activating an edit box"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"With TalkBack, you can use an edit box to type, select and edit text. To activate an edit box, double-tap it. After you activate an edit box, a keyboard becomes available at the bottom of the screen. You can dismiss the keyboard by tapping the Back button. Try activating the edit box now. When you have finished, activate Next, which is now above the keyboard."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Part 2: Typing in an edit box"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"To type, activate the edit box and move your finger across the onscreen keyboard. When you hear the desired character, lift your finger to activate it. Try activating and typing in the edit box below."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Part 3: Using a cursor"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"You can move a cursor using the volume buttons on your device or through the Local TalkBack menu. With the Cursor control option in this menu, you can also select, cut, copy or paste text. Activate the edit box below, and move the cursor around the sample text."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Dorothy Gale\'s email address is dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Part 4: Practice"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Activate the edit box by double-tapping. Type by moving your finger over a character, then lifting your finger. Move the cursor with the volume buttons and Local TalkBack menu. Select and act on text using the Cursor control option in the Local TalkBack menu."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Edit text"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"PREVIOUS"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"NEXT"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"PREVIOUS LESSON"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"NEXT LESSON"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"TUTORIAL HOME"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Lesson %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Part %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Part %1$d of %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"The exercise is completed and will continue in a moment"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Practice Area"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s activated in practice mode. Activate the CANCEL button to exit."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Tutorial Home Button"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Item <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Exit"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Explore by Touch Required"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"This tutorial requires Explore by touch. Please enable Explore by touch before launching the tutorial."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack Disabled"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"This tutorial requires TalkBack to be enabled. Please turn TalkBack on before launching the tutorial."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack Suspended"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"The TalkBack tutorial is not available while feedback is paused. Please resume TalkBack feedback and relaunch the tutorial to continue."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Describe the menu"</string>
+</resources>

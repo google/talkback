@@ -30,13 +30,12 @@ import com.android.utils.AccessibilityEventUtils;
 
 /**
  * Provides formatting for {@link AccessibilityEvent#TYPE_VIEW_FOCUSED} and
- * {@link AccessibilityEventCompat#TYPE_VIEW_HOVER_ENTER} events on JellyBean.
+ * {@link AccessibilityEventCompat#TYPE_VIEW_HOVER_ENTER} events.
  * <p>
  * For events that don't have source nodes, reads the event text aloud;
  * otherwise, just provides the corresponding vibration and earcon feedback.
  * </p>
  */
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class FallbackFormatter implements EventSpeechRule.AccessibilityEventFormatter {
     @Override
     public boolean format(AccessibilityEvent event, TalkBackService context, Utterance utterance) {
@@ -47,6 +46,8 @@ public class FallbackFormatter implements EventSpeechRule.AccessibilityEventForm
             source.recycle();
             return false;
         }
+
+        boolean hasEarcons = true;
 
         // Add earcons and patterns since the event doesn't have a source node
         switch (event.getEventType()) {
@@ -62,6 +63,9 @@ public class FallbackFormatter implements EventSpeechRule.AccessibilityEventForm
                 utterance.addHaptic(R.array.view_hovered_pattern);
                 utterance.addAuditory(R.raw.focus);
                 break;
+            default:
+                hasEarcons = false;
+                break;
         }
 
         final CharSequence text = AccessibilityEventUtils.getEventTextOrDescription(event);
@@ -69,7 +73,7 @@ public class FallbackFormatter implements EventSpeechRule.AccessibilityEventForm
             utterance.addSpoken(text);
         }
 
-        return true;
+        return hasEarcons || !utterance.getSpoken().isEmpty();
     }
 
 }

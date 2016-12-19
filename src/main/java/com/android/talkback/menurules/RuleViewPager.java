@@ -16,15 +16,13 @@
 
 package com.android.talkback.menurules;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
-import android.support.v4.view.ViewPager;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.android.talkback.R;
+import com.android.utils.Role;
 import com.google.android.marvin.talkback.TalkBackService;
 import com.android.talkback.contextmenu.ContextMenuItem;
 import com.android.talkback.contextmenu.ContextMenuItemBuilder;
@@ -38,17 +36,16 @@ import java.util.List;
 /**
  * Rule for generating menu items related to ViewPager layouts.
  */
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 public class RuleViewPager implements NodeMenuRule {
     private static final NodeFilter FILTER_PAGED = new NodeFilter() {
         @Override
         public boolean accept(AccessibilityNodeInfoCompat node) {
-            return AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, ViewPager.class);
+            return Role.getRole(node) == Role.ROLE_PAGER;
         }
     };
 
     @Override
-    public boolean accept(Context context, AccessibilityNodeInfoCompat node) {
+    public boolean accept(TalkBackService service, AccessibilityNodeInfoCompat node) {
         AccessibilityNodeInfoCompat rootNode = null;
         AccessibilityNodeInfoCompat pagerNode = null;
 
@@ -72,16 +69,10 @@ public class RuleViewPager implements NodeMenuRule {
             AccessibilityNodeInfoCompat node) {
         final LinkedList<ContextMenuItem> items = new LinkedList<>();
 
-        AccessibilityNodeInfoCompat rootNode = null;
         AccessibilityNodeInfoCompat pagerNode = null;
 
         try {
-            rootNode = AccessibilityNodeInfoUtils.getRoot(node);
-            if (rootNode == null) {
-                return items;
-            }
-
-            pagerNode = AccessibilityNodeInfoUtils.searchFromBfs(rootNode, FILTER_PAGED);
+            pagerNode = AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(node, FILTER_PAGED);
             if (pagerNode == null) {
                 return items;
             }
@@ -116,7 +107,7 @@ public class RuleViewPager implements NodeMenuRule {
 
             return items;
         } finally {
-            AccessibilityNodeInfoUtils.recycleNodes(rootNode, pagerNode);
+            AccessibilityNodeInfoUtils.recycleNodes(pagerNode);
         }
     }
 

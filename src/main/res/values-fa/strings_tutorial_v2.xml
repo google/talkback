@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"آموزش گام به گام دسترس‌پذیری"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"‏راه‌اندازی آموزش گام‌به‌گام TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"‏آموزش گام‌به‌گام TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"‏TalkBack صفحه‌خوانی است که در وهله اول برای افراد نابینا و کم‌بینا در نظر گرفته شده است. این صفحه‌خوان تعامل با دستگاه را از طریق بازخورد گفتاری ممکن می‌سازد."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"‏خاموش کردن TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"بدانید"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"تمرین"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"یادگیری درس <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"تمرین درس <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"درس ۱: پیمایش پایه"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"لمس برای کاوش، تند کشیدن برای کاوش، دو بار ضربه زدن برای فعال کردن"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"قسمت ۱: کاوش با لمس"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"درصورتی‌که «کاوش با لمس» فعال باشد آنچه را که زیر انگشتتان است می‌توانید بشنوید. انگشتتان را روی موارد در وسط صفحه‌نمایش حرکت دهید. پس از کاوش پنج مورد، درس ادامه می‌یابد."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"قسمت دوم: دو بار ضربه برای فعال کردن"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"برای فعال کردن آخرین موردی که شنیدید، روی قسمتی از صفحه دو بار ضربه بزنید. مورد ۷ را پیدا کنید و هم‌اکنون آن را فعال کنید. بعد از آن، برای ادامه دادن، دکمه «بعدی» را فعال کنید."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"مورد ۷ فعال شد. برای ادامه دادن، دکمه بعدی را پیدا و فعال کنید."</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"قسمت ۳: درس‌های پیمایش"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"‏درس‌های TalkBack سازمان‌دهی مشابهی دارند. قسمت بالا حاوی درس است که می‌توانید در هر زمانی آن را کاوش کنید و بخوانید. همچنین در گوشه بالا راست، دکمه «صفحه اصلی آموزش» قرار دارد. وسط صفحه، منطقه تمرین است. نشانگر پیشرفت و دکمه‌های پیمایش درس پایین صفحه هستند. برای ادامه دادن، «بعدی» را فعال کنید."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"قسمت ۴: تند کشیدن انگشت برای کاوش"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"همچنین با تند کشیدن انگشتتان روی صفحه‌نمایش می‌توانید کاوش کنید. معمولاً با تند کشیدن انگشت به راست می‌توانید در بالا و راست کاوش کنید و با تند کشیدن انگشت به چپ می‌توانید در پایین و چپ کاوش کنید. اکنون امتحان کنید."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"قسمت ۵: تمرین"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"برای شنیدن موردی که زیر انگشتتان شماست، آن را در طول صفحه حرکت کنید. برای فعال کردن آنچه می‌شنوید، روی قسمتی از صفحه دو بار کلیک کنید. برای کاوش، تند به راست یا چپ بکشید."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"درس ۲: پیمایش"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"پیمایش دوانگشتی، رفتن به جلو و عقب"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"قسمت ۱: پیمایش دو انگشتی"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"برای پیمایش در طول فهرست عمودی، مورد فهرستی را پیدا کنید، سپس دو انگشتتان را به بالا یا پایین حرکت دهید. برای پیمایش در طول فهرست افقی، مورد فهرستی را پیدا کنید، سپس دو انگشتتان را به راست یا چپ حرکت دهید."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"قسمت ۲: میان‌برهای پیمایش"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"با استفاده از میان‌بر می‌توانید در فهرست به جلو و عقب بروید. برای جلو رفتن انگشتتان را به چپ و سپس با یک حرکت به راست ببرید. برای عقب رفتن یکی از انگشتانتان را به راست و سپس به چپ ببرید. اینجا تمرین کنید."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"قسمت ۳: تمرین"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"با کشیدن دو انگشت به سمت بالا یا پایین پیمایش کنید. با بردن یک انگشت به چپ و سپس راست به جلو بروید و با بردن یک انگشت به راست و سپس به چپ به عقب بروید."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"‏درس ۳: منوهای TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"‏منوی کلی TalkBack، منوی محلی TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"‏قسمت ۱: منوی کلی TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"‏TalkBack دو منوی مختلف دارد. منوی اول منوی کلی TalkBack است که همیشه شامل فرمان‌های یکسان است. می‌توانید با حرکت دادن یک انگشت به پایین و سپس به چپ با یک حرکت و برداشتن انگشت آن را فعال کنید. اکنون نسخه تمرینی را فعال کنید."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"گزینه‌های منو به‌صورت عمودی در میانه صفحه فهرست شده‌اند. کاوش را امتحان کنید. وقتی تمام شد، «لغو» را فعال کنید."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"‏قسمت ۲: منوی محلی TalkBack"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"‏منوی دوم منوی محلی TalkBack است. موارد موجود در این منو بسته به آنچه که می‌شنوید فرق می‌کند. می‌توانید با حرکت دادن یک انگشت به بالا و سپس به راست با یک حرکت و برداشتن انگشت آن را فعال کنید. اکنون منوی تمرینی را فعال کنید."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"قسمت ۳: تمرین"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"‏برای فعال کردن منوی کلی TalkBack، انگشتتان را به پایین و سپس راست ببرید. برای فعال کردن منوی محلی TalkBack، انگشتتان را به بالا و سپس به چپ ببرید."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"پایین سپس چپ"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"بالا سپس راست"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"‏منوی کلی TalkBack: پایین و سپس چپ. منوی محلی TalkBack: بالا و سپس راست"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"درس ۴: پیمایش نوشتار"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"انتخاب تنظیمات پیمایش نوشتار"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"قسمت ۱: انتخاب تنظیمات پیمایش"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"‏TalkBack به شما امکان می‌دهد کنترل کنید متن به‌صورت پاراگرافی، خطی، کلمه‌ای یا نویسه‌ای برای شما خوانده شود. خواندن بر اساس نویسه می‌تواند در مورد املای کلمات به شما کمک کند. با ضربه زدن روی متن زیر، سپس تند کشیدن به بالا و پایین، سرعت پیمایش متن را روی نویسه تنظیم کنید."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"گزینه‌های سرعت خواندن فهرست‌شده به‌صورت عمودی را در اینجا کاوش کنید. گزینه «خواندن بر اساس نویسه» را پیدا و فعال کنید."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"قسمت ۲: پیمایش نوشتار"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"اکنون بر اساس نویسه می‌خوانید. متن نمونه را انتخاب کنید، سپس برای خواندن بر اساس نویسه تند به چپ بکشید."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"قسمت ۳: تمرین"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"با تند کشیدن به بالا و پایین، سرعت پیمایش را تغییر دهید. با تند کشیدن به چپ، نویسه بعدی در متن نمونه را بخوانید."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"‏چند نوشتار نمونه برای تمرین TalkBack اینجا آمده است. مرد شگفت‌زده پرسید: «کانزاس کجاست؟». دوروتی با تأسف پاسخ داد: «نمی‌دونم». «اما اونجا خونه منه و مطمئنم یه جایی هست». \n\nاو به صحبت با توتو ادامه داد: «احتمالش زیاده، خُب، اُز می‌تونه هر کاری رو انجام بده؛ پس فکر کردم می‌تونه کانزاس رو برای تو پیدا کنه. اما اول باید بری او رو ببینی و این کار سختیه، چون جادوگر بزرگ دوست نداره کسی رو ببینه و معمولاً روش خودش رو داره. اما «تو» چی می‌خوای؟»"</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"درس ۵: ویرایش نوشتار"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"فعال کردن کادر ویرایش، تایپ کردن، حرکت دادن نشانگر، انتخاب و اقدام روی یک متن"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"قسمت اول: فعال کردن کادر ویرایش"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"‏با TalkBack می‌توانید از کادر تأیید برای تایپ، انتخاب و ویرایش متن استفاده کنید. برای فعال کردن کادر ویرایش، دو بار روی آن ضربه بزنید. بعد از فعال کردن کادر تأیید، صفحه‌کلید در پایین صفحه در دسترس قرار می‌گیرد. با ضربه زدن روی دکمه «برگشت» می‌توانید صفحه‌کلید را رد کنید. بعد از انجام کار، «بعدی» را که اکنون در بالای صفحه‌کلید قرار دارد، فعال کنید."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"قسمت ۲: تایپ کردن در کادر ویرایش"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"برای تایپ کردن، کادر ویرایش را فعال کنید و انگشتتان را روی صفحه‌کلید روی صفحه حرکت دهید. وقتی صدای نویسه موردنظرتان را شنیدید، انگشتتان را بردارید تا فعال شود. سعی کنید کادر ویرایش زیر را فعال و در آن تایپ کنید."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"قسمت ۳: استفاده از مکان‌نما"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"‏با استفاده از دکمه‌های صدا در دستگاهتان یا از طریق منوی محلی TalkBack می‌توانید نشانگر را حرکت دهید. همچنین می‌توانید با گزینه «کنترل نشانگر» در این منو، متن را انتخاب کنید، برش دهید، کپی یا جای‌گذاری کنید. کادر ویرایش را در زیر فعال کنید و نشانگر را اطراف متن نمونه حرکت دهید."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"‏نشانی رایانامه دورتی گیل، dorothy@ozmail.com است"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"قسمت ۴: تمرین"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"‏با دو بار ضربه زدن روی کادر ویرایش، آن را فعال کنید. با حرکت دادن انگشتتان روی یک نویسه، سپس بلند کردن انگشتتان، تایپ کنید. با دکمه‌های صدا و منوی محلی TalkBack نشانگر را جابه‌جا کنید. با استفاده از گزینه کنترل «نشانگر» در منوی محلی TalkBack متنی را انتخاب و روی آن کار کنید."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"ویرایش نوشتار"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"قبلی"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"بعدی"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"درس قبلی"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"درس بعدی"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"صفحه اصلی آموزش گام‌به‌گام"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"‏درس %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"‏قسمت %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"‏قسمت %1$d از %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"تمرین تمام شد و به‌زودی ادامه پیدا می‌کند"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"قسمت تمرین"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"‏%1$s در حالت آزمایشی فعال شده است. برای خارج شدن، دکمه «لغو» را فعال کنید."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"دکمه صفحه اصلی آموزش گام‌به‌گام"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"مورد <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"خروج"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"«کاوش با لمس» لازم است"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"این آموزش گام‌به‌گام به «کاوش با لمس» نیاز دارد. لطفاً قبل از راه‌اندازی آموزش گام‌به‌گام، «کاوش با لمس» را فعال کنید."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"‏TalkBack غیرفعال شد"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"‏برای این آموزش گام‌به‌گام، TalkBack باید فعال شود. لطفاً قبل از راه‌اندازی آموزش گام‌به‌گام، TalkBack را روشن کنید."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"‏‫TalkBack در حالت تعلیق است"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"‏‫هنگامی که بازخورد موقتاً متوقف، آموزش گام‌به‌گام TalkBack در دسترس نیست. لطفاً برای ادامه کار بازخورد TalkBack را از سربگیرید و آموزش گام‌به‌گام را دوباره راه‌اندازی کنید."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"توصیف منو"</string>
+</resources>

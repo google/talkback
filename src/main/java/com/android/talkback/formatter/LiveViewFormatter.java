@@ -16,7 +16,9 @@
 
 package com.android.talkback.formatter;
 
+import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import android.support.v4.view.accessibility.AccessibilityRecordCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
@@ -37,12 +39,15 @@ public final class LiveViewFormatter implements EventSpeechRule.AccessibilityEve
     public boolean accept(AccessibilityEvent event, TalkBackService context) {
         if (event.getEventType() != AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) return false;
 
-        AccessibilityNodeInfoCompat node = new AccessibilityNodeInfoCompat(event.getSource());
-        if (node.getInfo() == null) {
+        AccessibilityRecordCompat record = AccessibilityEventCompat.asRecord(event);
+        AccessibilityNodeInfoCompat node = record.getSource();
+        if (node == null) {
             return false;
         }
 
         int liveRegion = node.getLiveRegion();
+        node.recycle();
+
         switch (liveRegion) {
             case View.ACCESSIBILITY_LIVE_REGION_POLITE:
                 return true;
@@ -77,7 +82,7 @@ public final class LiveViewFormatter implements EventSpeechRule.AccessibilityEve
         }
 
         CharSequence text = NodeSpeechRuleProcessor.getInstance()
-                .getDescriptionForNode(node, event);
+                .getDescriptionForTree(node, event, node);
 
         if (TextUtils.isEmpty(text)) {
             return false;

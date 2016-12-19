@@ -22,18 +22,20 @@ import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
-import android.widget.Switch;
-import android.widget.ToggleButton;
 
 import com.android.talkback.R;
+import com.android.utils.Role;
 import com.google.android.marvin.talkback.TalkBackService;
 import com.android.talkback.Utterance;
 import com.android.utils.AccessibilityEventUtils;
-import com.android.utils.AccessibilityNodeInfoUtils;
 
 /**
  * Filters and formats click events from checkable items.
+ *
+ * @deprecated Only use this class for legacy support in KitKat or earlier. For new development
+ * targeting Lollipop or later, please use the {@link ClickFormatter} instead.
  */
+@Deprecated
 public class CheckableClickedFormatter implements EventSpeechRule.AccessibilityEventFilter,
         EventSpeechRule.AccessibilityEventFormatter {
 
@@ -76,6 +78,9 @@ public class CheckableClickedFormatter implements EventSpeechRule.AccessibilityE
     }
 
     private boolean findCheckableNode(AccessibilityNodeInfoCompat source) {
+        if (source == null) {
+            return false;
+        }
         if (source.isCheckable()) {
             sCachedCheckableNode = source;
             return true;
@@ -101,6 +106,8 @@ public class CheckableClickedFormatter implements EventSpeechRule.AccessibilityE
 
     @Override
     public boolean accept(AccessibilityEvent event, TalkBackService context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) return false;
+
         int type = event.getEventType();
 
         if (type == AccessibilityEvent.TYPE_VIEW_CLICKED) {
@@ -156,6 +163,9 @@ public class CheckableClickedFormatter implements EventSpeechRule.AccessibilityE
         if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) {
             if (sCachedCheckableNode == null) return false;
 
+            // Need to get latest state of cached node before accessing.
+            sCachedCheckableNode.refresh();
+
             utterance.addAuditory(R.raw.tick);
             utterance.addHaptic(R.array.view_clicked_pattern);
             utterance.addSpoken(context.getString(sCachedCheckableNode.isChecked() ?
@@ -178,8 +188,9 @@ public class CheckableClickedFormatter implements EventSpeechRule.AccessibilityE
 
         // Switch and ToggleButton state is sent along with the event, so only
         // append checked / not checked state for other types of controls.
-        if (AccessibilityNodeInfoUtils.nodeMatchesClassByType(source, ToggleButton.class)
-                || AccessibilityNodeInfoUtils.nodeMatchesClassByType(source, Switch.class)) {
+        // TODO: node.isTwoState()
+        if (Role.getRole(source) == Role.ROLE_TOGGLE_BUTTON ||
+                Role.getRole(source) == Role.ROLE_SWITCH) {
             return true;
         }
 
@@ -204,3 +215,4 @@ public class CheckableClickedFormatter implements EventSpeechRule.AccessibilityE
         return true;
     }
 }
+

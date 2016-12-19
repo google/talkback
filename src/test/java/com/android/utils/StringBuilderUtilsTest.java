@@ -19,16 +19,20 @@ package com.android.utils;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.text.SpannableStringBuilder;
+import com.android.talkback.BuildConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
 import static junit.framework.Assert.assertTrue;
 
-@Config(emulateSdk = 18)
+@Config(
+        constants = BuildConfig.class,
+        sdk = 21)
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class StringBuilderUtilsTest {
 
     @Test

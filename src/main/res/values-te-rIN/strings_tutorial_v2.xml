@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"ప్రాప్యతా ట్యుటోరియల్"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"TalkBack ట్యుటోరియల్‌ను ప్రారంభించు"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack ట్యుటోరియల్"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack అనేది ప్రధానంగా అంధులైన మరియు అస్పష్టమైన చూపు కలిగి ఉన్న వ్యక్తుల కోసం ఉద్దేశించిన స్క్రీన్ రీడర్. దీని సహాయంతో స్క్రీన్‌పై ఏవేవి ఉన్నాయో మరియు ఏమేమి జరుగుతోందో చదివి వినిపించే పద్ధతిలో పరికరంతో పరస్పర చర్యను చేయగలరు."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBackను ఆఫ్ చేయి"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"తెలుసుకోండి"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"సాధన చేయండి"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"పాఠం <xliff:g id="INDEX">%1$d</xliff:g> నేర్చుకోండి"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"పాఠం <xliff:g id="INDEX">%1$d</xliff:g>పై అభ్యాసం చేయండి"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"పాఠం 1: ప్రాథమిక నావిగేషన్"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"విశ్లేషించడానికి తాకండి, విశ్లేషించడానికి స్వైప్ చేయండి, సక్రియం చేయడానికి రెండుసార్లు నొక్కండి"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"భాగం 1: తాకడం ద్వారా విశ్లేషణ"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"ప్రారంభించినప్పుడు, తాకడం ద్వారా విశ్లషణ లక్షణం మీ వేలి క్రింది ఉన్న అంశం గురించి మీకు చదివి వినిపిస్తుంది. మీ వేలిని మీ స్క్రీన్ మధ్యభాగంలోని అంశాలను తాకిస్తూ జరపండి. మీరు ఐదు అంశాలను విశ్లేషించిన తర్వాత, పాఠం కొనసాగుతుంది."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"భాగం 2: సక్రియం చేయడానికి రెండుసార్లు నొక్కడం"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"మీరు విన్న ఆఖరి అంశాన్ని సక్రియం చేయడానికి, ఎక్కడైనా రెండుసార్లు నొక్కండి. ఆపై అంశం 7ని కనుగొని, ఇప్పుడు దాన్ని సక్రియం చేయండి. ఆ తర్వాత, కొనసాగడానికి తదుపరి బటన్‌ను సక్రియం చేయండి."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"అంశం 7 సక్రియం చేయబడింది. కొనసాగడానికి తదుపరి బటన్‌ను కనుగొని, సక్రియం చేయండి"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"భాగం 3: పాఠాలను నావిగేట్ చేయడం"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack పాఠాలు సారూప్య క్రమంలో అమర్చబడ్డాయి. పైభాగంలో పాఠం ఉంటుంది, దాన్ని మీరు ఎప్పుడైనా విశ్లేషించవచ్చు మరియు చదవవచ్చు. అలాగే ఎగువ ఎడమ మూలలో ట్యుటోరియల్ హోమ్ బటన్ ఉంటుంది. మధ్య భాగంలో అభ్యాస ప్రాంతం ఉంటుంది. దిగువ భాగంలో పురోగతి సూచిక మరియు పాఠం నావిగేషన్ బటన్‌లు ఉంటాయి. ఇప్పుడు కొనసాగడానికి తదుపరి బటన్‌ను సక్రియం చేయండి."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"భాగం 4: విశ్లేషించడానికి స్వైప్ చేయడం"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"మీరు మీ వేలితో స్క్రీన్‌పై స్వైప్ చేయడం ద్వారా కూడా విశ్లేషించవచ్చు. ఎడమవైపు స్వైప్ చేస్తే సాధారణంగా పైకి మరియు ఎడమవైపుకు విశ్లేషణ జరుపుతుంది, కుడివైపు స్వైప్ చేస్తే క్రిందికి మరియు కుడివైపుకు విశ్లేషణ జరుపుతుంది. ఇప్పుడే దీన్ని ప్రయత్నించండి."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"భాగం 5: సాధన"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"మీ వేలి క్రింద ఉన్న అంశాన్ని వినడానికి, దాన్ని స్క్రీన్‌పై జరపండి. మీరు విన్న దాన్ని సక్రియం చేయడానికి ఎక్కడైనా రెండుసార్లు నొక్కండి. విశ్లేషించడానికి ఎడమ లేదా కుడికి స్వైప్ చేయండి."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"పాఠం 2: స్క్రోల్ చేయడం"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"రెండు వేళ్లతో స్క్రోలింగ్, ముందుకు మరియు వెనుకకు వెళ్లడం"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"భాగం 1: రెండు వేళ్లతో స్క్రోల్ చేయడం"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"నిలువు జాబితాలో స్క్రోల్ చేయడానికి, జాబితా అంశాన్ని కనుగొని ఆపై రెండు వేళ్లను పైకి లేదా క్రిందికి జరపండి. సమతల జాబితాలో స్క్రోల్ చేయడానికి, జాబితా అంశాన్ని కనుగొని, ఆపై రెండు వేళ్లను ఎడమవైపుకు లేదా కుడివైపుకు జరపండి."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"భాగం 2: స్క్రోల్ చేయడానికి సత్వరమార్గాలు"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"మీరు సత్వరమార్గాన్ని ఉపయోగించి జాబితాలో ముందుకు లేదా వెనుకకు వెళ్లవచ్చు. ముందుకు వెళ్లడానికి, ఒక వేలిని కుడివైపుకు జరిపి, అలాగే వేలు పైకెత్తకుండా ఎడమవైపుకు తిప్పి జరపండి. వెనుకకు వెళ్లడానికి, ఒక వేలిని ఎడమవైపుకు జరిపి, అలాగే వేలు పైకెత్తకుండా కుడివైపుకు తిప్పి జరపండి. ఒకసారి ఇక్కడ ప్రయత్నించండి."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"భాగం 3: సాధన"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"రెండు వేళ్లను పైకి లేదా క్రిందికి స్లైడ్ చేయడం ద్వారా స్క్రోల్ చేయండి. ఒక వేలిని కుడివైపుకు జరిపి, అలాగే వేలు పైకెత్తకుండా ఎడమవైపుకు తిప్పి జరపడం ద్వారా ముందుకు వెళ్లండి. ఒక వేలిని ఎడమవైపుకు జరిపి, అలాగే వేలు పైకెత్తకుండా కుడివైపుకు తిప్పి జరపడం ద్వారా వెనుకకు వెళ్లండి."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"పాఠం 3: TalkBack మెనులు"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"సార్వజనీన TalkBack మెను, స్థానిక TalkBack మెను"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"భాగం 1: సార్వజనీన TalkBack మెను"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack రెండు విభిన్నమైన మెనులను కలిగి ఉంటుంది. మొదటిది, సార్వజనీన TalkBack మెను, ఎల్లప్పుడూ ఒకే ఆదాశాలను కలిగి ఉంటుంది. మీరు ఒక వేలిని క్రిందికి జరిపి, అలాగే వేలు పైకెత్తకుండా కుడివైపుకు తిప్పి జరిపి, తర్వాత వేలు పైకెత్తడం ద్వారా దీన్ని సక్రియం చేయవచ్చు. ఇప్పుడే సాధన సంస్కరణను సక్రియం చేయండి."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"మెను ఎంపికలు స్క్రీన్ మధ్యలో నిలువుగా జాబితా చేయబడి ఉంటాయి. విశ్లేషించడానికి ప్రయత్నించండి. మీ పని పూర్తయినప్పుడు, రద్దు చేయి ఎంపికను సక్రియం చేయండి."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"భాగం 2: స్థానిక TalkBack మెను"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"రెండవ మెను స్థానిక TalkBack మెను. ఈ మెనులోని అంశాలు మీరు చివరిసారి విన్నవి కాకుండా విభిన్నమైనవి ఉండవచ్చు. మీరు ఒక వేలిని పైకి జరిపి, అలాగే వేలు పైకెత్తకుండా కుడివైపుకు తిప్పి జరిపి, తర్వాత వేలు పైకెత్తడం ద్వారా దీన్ని సక్రియం చేయవచ్చు. ఇప్పుడే సాధన మెనుని సక్రియం చేయండి."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"భాగం 3: సాధన"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"సార్వజనీన TalkBack మెనుని సక్రియం చేయడానికి మీ వేలిని క్రిందికి జరిపి, అలాగే వేలు పైకెత్తకుండా కుడివైపుకు తిప్పి జరపండి. స్థానిక TalkBack మెనుని సక్రియం చేయడానికి మీ వేలిని పైకి జరిపి, అలాగే వేలు పైకెత్తకుండా కుడివైపుకు తిప్పి జరపండి."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"క్రిందికి ఆపై కుడివైపుకు"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"పైకి ఆపై కుడివైపుకు"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"సార్వజనీన TalkBack మెను: క్రిందికి ఆపై కుడివైపుకు. స్థానిక TalkBack మెను: పైకి ఆపై కుడివైపుకు"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"పాఠం 4: వచన నావిగేషన్"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"వచన నావిగేషన్ సెట్టింగ్‌లను ఎంచుకోవడం"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"భాగం 1: నావిగేషన్ సెట్టింగ్‌లను ఎంచుకోవడం"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack వచనాన్ని ఒక పేరా, ఒక పంక్తి, ఒక పదం లేదా ఒక అక్షరం పద్ధతుల్లో ఏ రీతిలో చదివి వినిపించాలో నియంత్రించగల సామర్థ్యాన్ని మీకు ఇస్తుంది. దిగువ వచనాన్ని నొక్కి, పైకి మరియు క్రిందికి స్వైప్ చేయడం ద్వారా వచన పఠన వేగాన్ని అక్షరాలకు సెట్ చేయండి."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"ఇక్కడ నిలువుగా జాబితా చేసిన పఠన వేగం ఎంపికలను విశ్లేషించండి. అక్షరం వారీగా చదివి వినిపించు ఎంపికను కనుగొని, దాన్ని సక్రియం చేయండి."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"భాగం 2: వచనాన్ని నావిగేట్ చేయడం"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"మీరు ఇప్పుడు అక్షరం వారీగా చదివి వినిపించే మోడ్‌లో ఉన్నారు. నమూనా వచనాన్ని ఎంచుకొని, ఆపై అక్షరం వారీగా చదివి వినిపించడానికి కుడివైపుకి స్వైప్ చేయండి."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"భాగం 3: సాధన"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"పైకి మరియు క్రిందికి స్వైప్ చేయడం ద్వారా వచన పఠన వేగాన్ని మార్చండి. కుడివైపుకి స్వైప్ చేయడం ద్వారా నమూనా వచనంలోని తదుపరి అక్షరం చదివి వినిపించబడుతుంది."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"మన శరీరంలో ఎక్కువగా ఉండే ఖనిజాల్లో మెగ్నీషియం కూడా ఒకటి. ఇది సుమారు 300 రకాల జీవ రసాయనిక చర్యల్లో పాలుపంచుకుంటుంది. మన శరీరంలోని మెగ్నీషియంలో సగం వరకు ఎముకల్లోనే ఉంటుంది. మిగతాది కణాల లోపల, కణజాలంలో, అవయవాల్లో ఉంటుంది. కండరాలు, నాడుల పనితీరు సక్రమంగా జరగడంలో ఈ మెగ్నీషియం ఎక్కువగా తోడ్పడుతుంది.\n\nఇది పక్షవాతం ముప్పునూ తగ్గిస్తున్నట్టు తాజా అధ్యయనంలో తేలింది. మెగ్నీషియం సమృద్ధిగా ఉండే ఆహారాన్ని ఎక్కువగా తీసుకునేవారిలో పక్షవాతం ముప్పు తక్కువగా ఉంటున్నట్టు పరిశోధకులు గుర్తించారు."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"పాఠం 5: వచన సవరణ"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"సవరణ పెట్టెను సక్రియం చేయడం, టైప్ చేయడం, కర్సర్‌ను జరపడం, వచనం ఎంచుకోవడం మరియు వచనంపై చర్య అమలు చేయడం"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"భాగం 1: సవరణ పెట్టెను సక్రియం చేయడం"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"TalkBackతో, మీరు టైప్ చేయడానికి, ఎంచుకోవడానికి మరియు వచనాన్ని సవరించడానికి సవరణ పెట్టెను ఉపయోగించవచ్చు. సవరణ పెట్టెను సక్రియం చేయడానికి, దాన్ని రెండుసార్లు నొక్కండి. మీరు సవరణ పెట్టెను సక్రియం చేసిన తర్వాత, స్క్రీన్ దిగువ భాగంలో కీబోర్డు అందించబడుతుంది. మీరు వెనుకకు బటన్‌ను నొక్కడం ద్వారా కీబోర్డును తీసివేయవచ్చు. ఇప్పుడే సవరణ పెట్టెను సక్రియం చేయడాన్ని ప్రయత్నించండి. మీరు సవరణ పూర్తి చేసాక, ఇప్పుడు కీబోర్డు పైభాగంలో ఉండే తదుపరి బటన్‌ను సక్రియం చేయండి."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"భాగం 2: సవరణ పెట్టెలో టైప్ చేయడం"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"టైప్ చేయడానికి, సవరణ పెట్టెను సక్రియం చేసి, మీ వేలిని ఆన్‌స్క్రీన్ కీబోర్డుపై జరపండి. మీకు కావలసిన అక్షరాన్ని చదివి వినిపించినప్పుడు దాన్ని సక్రియం చేయడానికి మీ వేలును ఎత్తండి. దిగువ సవరణ పెట్టెను సక్రియం చేసి, అందులో టైప్ చేయడానికి ప్రయత్నించండి."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"భాగం 3: కర్సర్‌ను ఉపయోగించడం"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"మీ పరికరంలోని వాల్యూమ్ బటన్‌లను లేదా స్థానిక TalkBack మెనుని ఉపయోగించి కర్సర్‌ను జరపవచ్చు. ఈ మెనులోని కర్సర్ నియంత్రణ ఎంపికతో, మీరు వచనాన్ని ఎంచుకోవడం, కత్తిరించడం, కాపీ చేయడం లేదా అతికించడం వంటివి కూడా చేయవచ్చు. దిగువ సవరణ పెట్టెను సక్రియం చేసి, అందులో నమూనా వచనం మీదుగా కర్సర్‌ను జరపండి."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"డోరొతి గేల్ ఇమెయిల్ చిరనామా dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"భాగం 4: సాధన"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"సవరణ పెట్టెను రెండుసార్లు నొక్కడం ద్వారా సక్రియం చేయండి. మీ వేలుని అక్షరం మీదుగా జరుపుతూ, కోరుకునే అక్షరం వద్ద మీ వేలును ఎత్తడం ద్వారా టైప్ చేయండి. వాల్యూమ్ బటన్‌లు మరియు స్థానిక TalkBack మెనుతో కర్సర్‌ను జరపండి. స్థానిక TalkBack మెనులోని కర్సర్ నియంత్రణ ఎంపికను ఉపయోగించి వచనాన్ని ఎంచుకోండి మరియు వచనంపై చర్యను అమలు చేయండి."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"వచన సవరణ"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"మునుపటి"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"తదుపరి"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"మునుపటి పాఠం"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"తదుపరి పాఠం"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"ట్యుటోరియల్ హోమ్"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"పాఠం %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"భాగం %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"%2$dలో %1$dవ భాగం"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"అభ్యాసం పూర్తయింది, తదుపరిది కొద్దిక్షణాల్లో కొనసాగుతుంది"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"సాధన ప్రాంతం"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s అభ్యాస మోడ్‌లో సక్రియం చేయబడింది. నిష్క్రమించడానికి రద్దు చేయి బటన్‌ను సక్రియం చేయండి."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"ట్యుటోరియల్ హోమ్ బటన్"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"అంశం <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"నిష్క్రమించు"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"తాకడం ద్వారా విశ్లేషణ అవసరం"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"ఈ ట్యుటోరియల్‌కి తాకడం ద్వారా విశ్లేషణను ప్రారంభించడం ఆవశ్యకం. దయచేసి ట్యుటోరియల్‌ను ప్రారంభించడానికి ముందు తాకడం ద్వారా విశ్లేషణను ప్రారంభించండి."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack నిలిపివేయబడింది"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"ఈ ట్యుటోరియల్‌కి TalkBackని ప్రారంభించడం అవసరం. దయచేసి ట్యుటోరియల్‌ని ప్రారంభించడానికి ముందు TalkBackని ఆన్ చేయండి."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack తాత్కాలికంగా నిలిపివేయబడింది"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"అభిప్రాయం పాజ్ చేయబడినప్పుడు TalkBack ట్యుటోరియల్ అందుబాటులో ఉండదు. దయచేసి TalkBack అభిప్రాయాన్ని మళ్లీ ప్రారంభించి, కొనసాగడానికి ట్యుటోరియల్‌ను పునఃప్రారంభించండి."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"మెను గురించి వివరించు"</string>
+</resources>

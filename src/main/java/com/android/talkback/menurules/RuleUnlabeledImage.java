@@ -29,13 +29,14 @@ import android.widget.ImageView;
 import com.android.talkback.FeedbackItem;
 import com.android.talkback.R;
 import com.android.talkback.SpeechController;
+import com.android.talkback.labeling.LabelDialogManager;
+import com.android.utils.Role;
 import com.google.android.marvin.talkback.TalkBackService;
 import com.android.talkback.contextmenu.ContextMenuItem;
 import com.android.talkback.contextmenu.ContextMenuItemBuilder;
 import com.android.utils.AccessibilityNodeInfoUtils;
 import com.android.utils.labeling.CustomLabelManager;
 import com.android.utils.labeling.Label;
-import com.android.utils.labeling.LabelOperationUtils;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -47,9 +48,10 @@ import java.util.List;
 class RuleUnlabeledImage implements NodeMenuRule {
 
     @Override
-    public boolean accept(Context context, AccessibilityNodeInfoCompat node) {
-        final boolean isImage = AccessibilityNodeInfoUtils.nodeMatchesClassByType(node,
-                ImageView.class);
+    public boolean accept(TalkBackService service, AccessibilityNodeInfoCompat node) {
+        final @Role.RoleName int role = Role.getRole(node);
+        // TODO: node.hasImage();
+        final boolean isImage = (role == Role.ROLE_IMAGE || role == Role.ROLE_IMAGE_BUTTON);
         final boolean hasDescription = !TextUtils.isEmpty(
                 AccessibilityNodeInfoUtils.getNodeText(node));
 
@@ -86,6 +88,9 @@ class RuleUnlabeledImage implements NodeMenuRule {
         for (ContextMenuItem item : items) {
             item.setOnMenuItemClickListener(
                     new UnlabeledImageMenuItemClickListener(service, nodeCopy, viewLabel));
+
+            // Prevent re-speaking the node description right before showing the dialog.
+            item.setSkipRefocusEvents(true);
         }
 
         return items;
@@ -133,11 +138,11 @@ class RuleUnlabeledImage implements NodeMenuRule {
                     return false;
                 }
 
-                return LabelOperationUtils.startActivityAddLabelForNode(mContext, mNode);
+                return LabelDialogManager.addLabel(mContext, mNode, true /* overlay */);
             } else if (itemId == R.id.labeling_breakout_edit_label) {
-                return LabelOperationUtils.startActivityEditLabel(mContext, mExistingLabel);
+                return LabelDialogManager.editLabel(mContext, mExistingLabel, true /* overlay */);
             } else if (itemId == R.id.labeling_breakout_remove_label) {
-                return LabelOperationUtils.startActivityRemoveLabel(mContext, mExistingLabel);
+                return LabelDialogManager.removeLabel(mContext, mExistingLabel, true /* overlay */);
             }
 
             mNode.recycle();
@@ -149,7 +154,7 @@ class RuleUnlabeledImage implements NodeMenuRule {
                     mNode.getViewIdResourceName());
             final boolean hasParseableId = (parsedId != null);
 
-            // TODO(CB): There are a number of views that have a
+            // TODO: There are a number of views that have a
             // different resource namespace than their parent application. It's
             // likely we'll need to refine the database structure to accommodate
             // these while also allowing the user to modify them through TalkBack

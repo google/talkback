@@ -40,29 +40,51 @@ import java.util.List;
  * Menu population rule for views with Spannable link contents.
  */
 public class RuleSpannables implements NodeMenuRule {
-
-    @Override
-    public boolean accept(Context context, AccessibilityNodeInfoCompat node) {
-        final CharSequence text = node.getText();
-        if (!TextUtils.isEmpty(text) && (text instanceof SpannableString)) {
-            final SpannableString spannable = (SpannableString) node.getText();
-            final URLSpan[] urlSpans = spannable.getSpans(0, spannable.length(), URLSpan.class);
-            if (urlSpans.length > 0) {
-                return true;
+    /**
+     * Retrieves SpannableString in the accessibility node. The content description and text of the
+     * node is checked in order.
+     * @param node
+     * @return SpannableString with at least 1 UrlSpan. null if no UrlSpan found in the node.
+     */
+    private static SpannableString getStringWithUrlSpan(AccessibilityNodeInfoCompat node) {
+        CharSequence text = node.getContentDescription();
+        if (!TextUtils.isEmpty(text)) {
+            if (!(text instanceof SpannableString)) {
+                return null;
+            }
+        } else {
+            text = node.getText();
+            if (TextUtils.isEmpty(text) || !(text instanceof SpannableString)) {
+                return null;
             }
         }
 
-        return false;
+        SpannableString spannable = (SpannableString) text;
+        final URLSpan[] urlSpans = spannable.getSpans(0, spannable.length(), URLSpan.class);
+        if (urlSpans == null || urlSpans.length == 0) {
+            return null;
+        }
+
+        return spannable;
+    }
+
+    @Override
+    public boolean accept(TalkBackService service, AccessibilityNodeInfoCompat node) {
+        return getStringWithUrlSpan(node) != null;
     }
 
     @Override
     public List<ContextMenuItem> getMenuItemsForNode(
             TalkBackService service, ContextMenuItemBuilder menuItemBuilder,
             AccessibilityNodeInfoCompat node) {
-        final SpannableString spannable = (SpannableString) node.getText();
-        final URLSpan[] urlSpans = spannable.getSpans(0, spannable.length(), URLSpan.class);
         final LinkedList<ContextMenuItem> result = new LinkedList<>();
 
+        final SpannableString spannable = getStringWithUrlSpan(node);
+        if (spannable == null) {
+            return result;
+        }
+
+        final URLSpan[] urlSpans = spannable.getSpans(0, spannable.length(), URLSpan.class);
         if ((urlSpans == null) || (urlSpans.length == 0)) {
             return result;
         }

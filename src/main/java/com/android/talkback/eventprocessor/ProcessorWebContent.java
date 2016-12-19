@@ -34,12 +34,7 @@ import com.android.utils.WebInterfaceUtils;
 /**
  * Processor for speaking web content (e.g. anything that support HTML element
  * navigation).
- *
- * <p>
- * Requires API 16+.
- * </p>
  */
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class ProcessorWebContent implements AccessibilityEventListener {
     private static final int MASK_ACCEPTED_EVENT_TYPES =
             AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUSED
@@ -78,8 +73,8 @@ public class ProcessorWebContent implements AccessibilityEventListener {
             mLastNode = source;
         }
 
-        // Only announce nodes that have web content.
-        if (!WebInterfaceUtils.supportsWebActions(source)) {
+        // Only announce nodes that have legacy web content.
+        if (!WebInterfaceUtils.hasLegacyWebContent(source)) {
             return;
         }
 

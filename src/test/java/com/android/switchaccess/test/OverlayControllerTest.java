@@ -26,6 +26,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.android.switchaccess.OverlayController;
+import com.android.talkback.BuildConfig;
 import com.android.utils.widget.SimpleOverlay;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,6 +35,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
@@ -53,8 +55,10 @@ import static org.mockito.Mockito.when;
 /**
  * Tests for ContextMenuController
  */
-@Config(emulateSdk = 18)
-@RunWith(RobolectricTestRunner.class)
+@Config(
+        constants = BuildConfig.class,
+        sdk = 21)
+@RunWith(RobolectricGradleTestRunner.class)
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class OverlayControllerTest {
     private static final Rect BOUNDS0 = new Rect(130, 140, 200, 250);  // 70x110

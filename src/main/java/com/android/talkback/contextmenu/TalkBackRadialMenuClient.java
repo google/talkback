@@ -28,6 +28,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.android.talkback.SpeechController;
 import com.google.android.marvin.talkback.TalkBackService;
+import com.android.talkback.InputModeManager;
 import com.android.talkback.controller.CursorController;
 import com.android.talkback.controller.FeedbackController;
 import com.android.talkback.menurules.NodeMenuRuleProcessor;
@@ -45,12 +46,16 @@ public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuCli
     /** Menu rule processor, used to generate local context menus. */
     private final NodeMenuRuleProcessor mMenuRuleProcessor;
 
+    /** Global menu processor, used to generate items depending on current TalkBack state. */
+    private final GlobalMenuProcessor mGlobalMenuProcessor;
+
     private ContextMenuItemClickProcessor mMenuClickProcessor;
 
     public TalkBackRadialMenuClient(TalkBackService service) {
         mService = service;
         mMenuInflater = new MenuInflater(mService);
         mMenuRuleProcessor = new NodeMenuRuleProcessor(mService);
+        mGlobalMenuProcessor = new GlobalMenuProcessor(mService);
         mMenuClickProcessor = new ContextMenuItemClickProcessor(mService);
     }
 
@@ -63,8 +68,15 @@ public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuCli
 
     @Override
     public boolean onPrepareRadialMenu(int menuId, RadialMenu menu) {
-        return menuId != R.menu.local_context_menu || onPrepareLocalContextMenu(menu);
-
+        if (menuId == R.menu.global_context_menu) {
+            return onPrepareGlobalContextMenu(menu);
+        } else if (menuId == R.menu.local_context_menu) {
+            return onPrepareLocalContextMenu(menu);
+        } else if (menuId == R.id.custom_action_menu) {
+            return onPrepareCustomActionMenu(menu);
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -95,25 +107,51 @@ public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuCli
         final RadialSubMenu quickNavigationSubMenu = quickNavigationItem.getSubMenu();
         final QuickNavigationJogDial quickNav = new QuickNavigationJogDial(mService);
 
-        // TODO(KM): This doesn't seem like a very clean OOP implementation.
+        // TODO: This doesn't seem like a very clean OOP implementation.
         quickNav.populateMenu(quickNavigationSubMenu);
 
         quickNavigationSubMenu.setDefaultSelectionListener(quickNav);
         quickNavigationSubMenu.setOnMenuVisibilityChangedListener(quickNav);
     }
 
+    private boolean onPrepareGlobalContextMenu(RadialMenu menu) {
+        return mGlobalMenuProcessor.prepareMenu(menu);
+    }
+
     private boolean onPrepareLocalContextMenu(RadialMenu menu) {
-        final AccessibilityNodeInfoCompat currentNode = mService.getCursorController().getCursor();
+        final AccessibilityNodeInfoCompat currentNode =
+                mService.getCursorController().getCursorOrInputCursor();
         if (mMenuRuleProcessor == null || currentNode == null) {
             return false;
         }
 
         final boolean result = mMenuRuleProcessor.prepareMenuForNode(menu, currentNode);
+        if (!result && menu.size() == 0) {
+            mService.getSpeechController().speak(
+                    mService.getString(R.string.title_local_breakout_no_items),
+                    SpeechController.QUEUE_MODE_FLUSH_ALL, FeedbackItem.FLAG_NO_HISTORY, null);
+        }
         currentNode.recycle();
         return result;
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private boolean onPrepareCustomActionMenu(RadialMenu menu) {
+        final AccessibilityNodeInfoCompat currentNode =
+                mService.getCursorController().getCursorOrInputCursor();
+        if (mMenuRuleProcessor == null || currentNode == null) {
+            return false;
+        }
+
+        final boolean result = mMenuRuleProcessor.prepareCustomActionMenuForNode(menu, currentNode);
+        if (!result && menu.size() == 0) {
+            mService.getSpeechController().speak(
+                    mService.getString(R.string.title_local_breakout_no_items),
+                    SpeechController.QUEUE_MODE_FLUSH_ALL, FeedbackItem.FLAG_NO_HISTORY, null);
+        }
+        currentNode.recycle();
+        return result;
+    }
+
     private static class QuickNavigationJogDial extends BreakoutMenuUtils.JogDial
             implements RadialMenuItem.OnMenuItemSelectionListener,
             RadialMenu.OnMenuVisibilityChangedListener {
@@ -140,14 +178,16 @@ public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuCli
         public void onFirstTouch() {
             if (!mCursorController.refocus()) {
                 mCursorController.next(false /* shouldWrap */, true /* shouldScroll */,
-                        false /*useInputFocusAsPivotIfEmpty*/);
+                        false /*useInputFocusAsPivotIfEmpty*/,
+                        InputModeManager.INPUT_MODE_TOUCH);
             }
         }
 
         @Override
         public void onPrevious() {
             if (!mCursorController.previous(false /* shouldWrap */, true /* shouldScroll */,
-                    false /*useInputFocusAsPivotIfEmpty*/)) {
+                    false /*useInputFocusAsPivotIfEmpty*/,
+                    InputModeManager.INPUT_MODE_TOUCH)) {
                 mFeedbackController.playAuditory(R.raw.complete);
             }
         }
@@ -155,7 +195,8 @@ public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuCli
         @Override
         public void onNext() {
             if (!mCursorController.next(false /* shouldWrap */, true /* shouldScroll */,
-                    false /*useInputFocusAsPivotIfEmpty*/)) {
+                    false /*useInputFocusAsPivotIfEmpty*/,
+                    InputModeManager.INPUT_MODE_TOUCH)) {
                 mFeedbackController.playAuditory(R.raw.complete);
             }
         }

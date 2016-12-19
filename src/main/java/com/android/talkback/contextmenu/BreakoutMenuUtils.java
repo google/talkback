@@ -19,10 +19,7 @@ package com.android.talkback.contextmenu;
 import android.annotation.TargetApi;
 import android.os.Build;
 
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 class BreakoutMenuUtils {
-    public static final int MIN_API_LEVEL = Build.VERSION_CODES.ICE_CREAM_SANDWICH;
-
     public abstract static class JogDial {
         /** The number of segments in a jog dial. */
         private final int mSegmentCount;

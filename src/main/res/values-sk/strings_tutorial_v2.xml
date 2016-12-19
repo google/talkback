@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Kurz používania funkcií dostupnosti"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Spustiť príručku aplikácie TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Príručka aplikácie TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack je čítačka obrazovky určená hlavne pre nevidiacich a slabozrakých ľudí. Umožňuje používať zariadenie pomocou hovorenej spätnej väzby."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Vypnúť funkciu TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Učiť sa"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Praktické ukážky"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"učebná lekcia <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"skúšobná lekcia <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lekcia 1: Základná navigácia"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Preskúmavajte klepnutím a prechádzaním prstom, aktivujte dvojitým klepnutím"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Časť 1: Preskúmanie dotykom"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Ak je povolené Preskúmanie dotykom, môžete si vypočuť obsah nachádzajúci sa pod prstom, ktorým sa dotknete obrazovky. Prejdite prstom na položky v strede obrazovky. Lekcia bude pokračovať po preskúmaní piatich položiek."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"2. časť: Aktivácia dvojitým klepnutím"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Ak chcete aktivovať poslednú vyslovenú položku, klepnite dvakrát na ľubovoľné miesto. Nájdite položku 7 a aktivujte ju. Potom pokračujte aktivovaním tlačidla Ďalej."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Položka 7 bola aktivovaná. Nájdite tlačidlo Ďalej a pokračujte jeho aktivovaním."</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Časť 3: Navigácia v lekciách"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Lekcie funkcie TalkBack sú usporiadané podobne. Vo vrchnej oblasti je lekcia, ktorú môžete kedykoľvek preskúmať a prečítať. V ľavom hornom rohu sa tiež nachádza tlačidlo Domovská stránka príručky. V strede je skúšobná oblasť. V dolnej časti je indikátor priebehu a navigačné tlačidlá lekcie. Pokračujte aktivovaním tlačidla Ďalej."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Časť 4: Preskúmavanie prejdením prstom"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Preskúmavať môžete tiež prejdením prstom po obrazovke. Ak prejdete prstom doľava, obvykle sa posuniete nahor a vľavo. Ak prejdete prstom doprava, posuniete sa nadol a vpravo. Vyskúšajte to."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Časť 5: Cvičenia"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Ak si chcete vypočuť obsah pod prstom, posúvajte ho po obrazovke. Dvojitým klepnutím na ľubovoľné miesto aktivujete položku, ktorú počujete. Preskúmavajte prejdením prstom doľava alebo doprava."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lekcia 2: Posúvanie"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Posúvanie dvoma prstami, prechod vpred a späť"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Časť 1: Posúvanie dvoma prstami"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Ak chcete posúvať zvislý zoznam, nájdite položku zoznamu a potom prechádzajte dvoma prstami nahor alebo nadol. Ak chcete posúvať vodorovný zoznam, nájdite položku zoznamu a potom prechádzajte dvoma prstami doľava alebo doprava."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Časť 2: Skratky posúvania"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"V zozname sa môžete posúvať vpred alebo vzad pomocou skratky. Ak sa chcete posunúť vpred, prejdite prstom doprava a následne doľava jedným ťahom. Ak sa chcete posunúť vzad, prejdite prstom doľava a následne doprava. Vyskúšajte si to tu."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Časť 3: Cvičenia"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Posúvanie je možné prejdením dvoma prstami nahor alebo nadol. Posuňte sa vpred prejdením jedným prstom vpravo a následne vľavo. Posuňte sa späť prejdením jedným prstom vľavo a následne vpravo."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lekcia 3: Ponuky aplikácie TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Všeobecná ponuka TalkBack, lokálna ponuka TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Časť 1: Všeobecná ponuka aplikácie TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"Aplikácia TalkBack má dve rôzne ponuky. Všeobecná ponuka vždy obsahuje rovnaké príkazy. Môžete ju aktivovať tak, že prejdete prstom nadol a následne doprava jedným ťahom. Napokon prst zdvihnite. Prejdite do časti s cvičeniami.."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Možnosti ponuky sú uvedené zvislo v strede obrazovky. Skúste ich preskúmať. Po dokončení aktivujte tlačidlo Zrušiť."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Časť 2: Lokálna ponuka aplikácie TalkBack"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Okrem všeobecnej existuje aj lokálna ponuka aplikácie TalkBack. Položky v tejto ponuke sa líšia podľa toho, čo ste naposledy počuli. Môžete ju aktivovať tak, že prejdete prstom nahor a následne doprava jedným ťahom. Napokon prst zdvihnite. Prejdite do ponuky s cvičeniami."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Časť 3: Cvičenia"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Ak chcete v aplikácii TalkBack aktivovať všeobecnú ponuku, posuňte prst nadol a následne vpravo. Ak chcete aktivovať lokálnu ponuku, posuňte prst nahor a následne vpravo."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Dole a doprava"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Hore a doprava"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Všeobecná ponuka TalkBack: dole a potom vpravo. Lokálna ponuka TalkBack: hore a potom vpravo."</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Lekcia 4: Navigácia v texte"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Voľba nastavení navigácie v texte"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Časť 1: Voľba nastavení navigácie"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"Funkcia TalkBack umožňuje ovládať, či sa text číta po odsekoch, riadkoch, slovách alebo znakoch. Čítanie po znakoch môže pomôcť s hláskovaním. Ak chcete nastaviť rýchlosť navigácie textom po znakoch, klepnite na text nižšie a potom prejdite prstom nahor alebo nadol."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Preskúmajte možnosti rýchlosti čítania, ktoré sú tu uvedené v zvislom poradí. Nájdite a aktivujte možnosť Čítať po znakoch."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Časť 2: Navigácia v texte"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Teraz čítate po znakoch. Vyberte vzorový text a potom prejdením prstom doprava začnite čítať po znakoch."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Časť 3: Cvičenia"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Rýchlosť navigácie textom zmeníte prejdením prstom nahor alebo nadol. Ďalší znak vo vzorovom texte prečítate prejdením prstom doprava."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Nasledujúca textová ukážka je určená na vyskúšanie aplikácie TalkBack. „Kde je Kansas?“, spýtal sa muž prekvapene. „Neviem,\" odvetila Dorothy zarmútene, „ale bývam tam a určite to niekde musí byť.“\n\n„Iste. Oz dokáže všetko, takže určite pre teba nájde aj Kansas. Ale najprv sa s ním musíš stretnúť a to je ťažká úloha. Veľký čarodejník totiž nechce vidieť nikoho a väčšinou robí všetko podľa seba. Čo však chceš TY?“, obrátil sa s otázkou na Tota."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Lekcia 5: Úprava textu"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Aktivácia poľa úprav, zadávanie textu, posúvanie kurzora, výber a používanie textu"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"1. časť: Aktivácia poľa úprav"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Funkcia TalkBack umožňuje používať pole úprav na zadávanie, výber a úpravu textu. Aktivujete ho dvojitým klepnutím. Po jeho aktivovaní sa v dolnej časti obrazovky zobrazí klávesnica. Ak ju chcete zrušiť, klepnite na tlačidlo Späť. Teraz skúste aktivovať pole úprav. Po dokončení aktivujte tlačidlo Ďalej, ktoré sa nachádza nad klávesnicou."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Časť 2: Písanie v poli úprav"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Ak chcete zadávať text, aktivujte pole úprav a prejdite prstom cez klávesnicu na obrazovke. Keď začujete požadovaný znak, zdvihnite prst a tak ho aktivujte. Skúste aktivovať a zadať text do poľa úprav nižšie."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Časť 3: Používanie kurzora"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Kurzorom môžete pohybovať pomocou tlačidiel hlasitosti na zariadení alebo prostredníctvom miestnej ponuky funkcie TalkBack. Pomocou možnosti ovládania kurzora v tejto ponuke tiež môžete vybrať, vystrihnúť, kopírovať alebo prilepiť text. Aktivujte pole úprav nižšie a posúvajte kurzor cez vzorový text."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"E-mailová adresa Dorothy Gale je dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Časť 4: Cvičenia"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Aktivujte pole úprav dvojitým klepnutím. Text zadáte tak, že prejdete prstom na určitý znak a potom prst zdvihnete. Kurzor posúvajte pomocou tlačidiel hlasitosti a miestnej ponuky funkcie TalkBack. Pomocou možnosti ovládania kurzora v miestnej ponuke funkcie TalkBack môžete text vybrať a použiť."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Upravte text"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"PREDCHÁDZAJÚCE"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"ĎALEJ"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"PREDCHÁDZAJÚCA LEKCIA"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"ĎALŠIA LEKCIA"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"HLAVNÁ STRÁNKA PRÍRUČKY"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Lekcia %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"%1$d. časť"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"%1$d. časť z %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Dokončili ste lekciu. Ďalšia sa spustí o chvíľu."</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Skúšobná oblasť"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"Funkcia %1$s bola aktivovaná v skúšobnom režime. Ukončíte ho aktivovaním tlačidla ZRUŠIŤ."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Tlačidlo hlavnej stránky príručky"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Položka <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Ukončiť"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Vyžaduje sa funkcia Preskúmanie dotykom"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Táto príručka vyžaduje funkciu Preskúmanie dotykom. Pred spustením príručky povoľte funkciu Preskúmanie dotykom."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"Aplikácia TalkBack je vypnutá"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Táto príručka vyžaduje funkciu TalkBack. Pred spustením príručky zapnite funkciu TalkBack."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"Aplikácia TalkBack je pozastavená"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Príručka aplikácie TalkBack nie je k dispozícii, keď je spätná väzba pozastavená. Ak chcete pokračovať, znova spusťte spätnú väzbu v aplikácii TalkBack a následne spusťte znova aj príručku."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Opísať ponuku"</string>
+</resources>

@@ -38,13 +38,12 @@ import java.util.List;
 /**
  * Adds custom actions to the local context menu.
  */
-// TODO(KM): Update this to Build.VERSION_CODES.L once it is available
-@TargetApi(Build.VERSION_CODES.KITKAT_WATCH)
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class RuleCustomAction implements NodeMenuRule {
-    public static final int MIN_API_LEVEL = Build.VERSION_CODES.KITKAT_WATCH;
+    public static final int MIN_API_LEVEL = Build.VERSION_CODES.LOLLIPOP;
 
     @Override
-    public boolean accept(Context context, AccessibilityNodeInfoCompat node) {
+    public boolean accept(TalkBackService service, AccessibilityNodeInfoCompat node) {
         List<AccessibilityActionCompat> actions = node.getActionList();
         return actions != null && !actions.isEmpty();
     }
@@ -53,6 +52,21 @@ public class RuleCustomAction implements NodeMenuRule {
     public List<ContextMenuItem> getMenuItemsForNode(TalkBackService service,
                      ContextMenuItemBuilder menuItemBuilder, AccessibilityNodeInfoCompat node) {
         List<ContextMenuItem> menu = new LinkedList<>();
+        recursivelyPopulateMenuItemsForNode(service, menuItemBuilder, node, menu);
+
+        return menu;
+    }
+
+    /**
+     * Populates a menu with the context menu items for a node, searching up its ancestor
+     * hierarchy if the current node has no custom actions.
+     */
+    private void recursivelyPopulateMenuItemsForNode(TalkBackService service,
+                     ContextMenuItemBuilder menuItemBuilder, AccessibilityNodeInfoCompat node,
+                     List<ContextMenuItem> menu) {
+        if (node == null) {
+            return;
+        }
 
         for (AccessibilityActionCompat action : AccessibilityNodeInfoUtils.getCustomActions(node)) {
             CharSequence label = action.getLabel();
@@ -69,7 +83,9 @@ public class RuleCustomAction implements NodeMenuRule {
             menu.add(item);
         }
 
-        return menu;
+        if (menu.isEmpty()) {
+          recursivelyPopulateMenuItemsForNode(service, menuItemBuilder, node.getParent(), menu);
+        }
     }
 
     @Override

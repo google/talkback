@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="7512754982950145749">"Когато услугата TalkBack е включена, устройството ви осигурява обратна връзка чрез говор за потребители с увредено и намалено зрение. Например то описва какво докосвате, избирате и активирате."</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"Когато услугата TalkBack е включена, устройството ви осигурява обратна връзка с говор в помощ на потребители с напълно или частично увредено зрение. Например то описва какво докосвате, избирате и активирате.\n\nАко включите TalkBack случайно, изключете услугата, като докоснете и задържите превключвателя, докато видите зелен контур около него, и след това го докоснете двукратно. Направете същото в диалоговия прозорец за потвърждение, който се показва след това."</string>
     <string name="talkback_on" msgid="315529674405160699">"Приложението TalkBack е включено"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"Услугата TalkBack е спряна"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"Услугата TalkBack е възобновена"</string>
+    <string name="talkback_disabled" msgid="2536155587482587238">"Услугата TalkBack е изключена."</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"Настройки на TalkBack"</string>
     <string name="tts_preferences_title" msgid="6233811187483633874">"Настройки за синтезиран говор"</string>
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Версия <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
@@ -19,6 +22,11 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"Текуща заявка: „<xliff:g id="SEARCH_QUERY">%1$s</xliff:g>“."</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"Няма избран елемент."</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"Текущ избор: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>."</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Начало на полето"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Край на полето"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Режимът за избиране е включен"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Режимът за избиране е изключен"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Изборът е изчистен"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"Пропуснато обаждане"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"Спиране"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"Чат"</string>
@@ -33,37 +41,49 @@
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"Спряно"</string>
     <string name="template_current_tts_engine" msgid="3963364867159704159">"Използва се <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"Меню „<xliff:g id="TITLE">%1$s</xliff:g>“"</string>
-    <string name="template_edit_box" msgid="5395366637528473616">"Поле за редактиране. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
-    <string name="template_edit_box_current" msgid="2778286668618391188">"Поле за редактиране, понастоящем се редактира. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"Сигнал: „<xliff:g id="MESSAGE">%1$s</xliff:g>“"</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"Меню „<xliff:g id="TITLE">%1$s</xliff:g>“"</string>
     <string name="template_text_replaced" msgid="837970148139617839">"Текстът „<xliff:g id="NEW_TEXT">%1$s</xliff:g>“ замени „<xliff:g id="OLD_TEXT">%2$s</xliff:g>“"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"Изтрихте текста „<xliff:g id="TEXT">%1$s</xliff:g>“"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"копирахте текста „<xliff:g id="TEXT">%1$s</xliff:g>“"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"изрязахте текста „<xliff:g id="TEXT">%1$s</xliff:g>“"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"поставихте текста „<xliff:g id="TEXT">%1$s</xliff:g>“"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"избрахте текста „<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>“"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"Избран текст: „<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>“"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"Няма избран текст"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"отменихте избора на текста „<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>“"</string>
     <string name="template_text_error" msgid="153775825635730287">"Въведеното е невалидно – <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> знака са заменени с/ъс <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> знака"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> за <xliff:g id="LABEL">%2$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"Натиснахте продължително „<xliff:g id="TITLE">%1$s</xliff:g>“"</string>
-    <string name="template_button" msgid="2640124317262628933">"Бутон „<xliff:g id="TITLE">%1$s</xliff:g>“"</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"Изображение „<xliff:g id="TITLE">%1$d</xliff:g>“. Без етикет"</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"Бутон „<xliff:g id="TITLE">%1$d</xliff:g>“. Без етикет"</string>
-    <string name="template_seek_bar" msgid="9010890122601609426">"Контрола плъзгач за „<xliff:g id="TITLE">%1$s</xliff:g>“."</string>
     <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> процента."</string>
     <string name="template_charging" msgid="2038200557537960378">"Зарежда се – <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>. Ниво на батерията <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> процента."</string>
-  <plurals name="template_containers">
-    <item quantity="one" msgid="5101805097109325482">"Показва се <xliff:g id="COUNT">%2$d</xliff:g> елемент от „<xliff:g id="TYPE">%1$s</xliff:g>“."</item>
-    <item quantity="other" msgid="6665234198539687446">"Показват се <xliff:g id="COUNT">%2$d</xliff:g> елемента от „<xliff:g id="TYPE">%1$s</xliff:g>“."</item>
-  </plurals>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="other">Показват се <xliff:g id="COUNT_3">%2$d</xliff:g> елемента от „<xliff:g id="TYPE_2">%1$s</xliff:g>“.</item>
+      <item quantity="one">Показва се <xliff:g id="COUNT_1">%2$d</xliff:g> елемент от „<xliff:g id="TYPE_0">%1$s</xliff:g>“.</item>
+    </plurals>
     <string name="value_gridview" msgid="1382219539169157957">"Таблица"</string>
     <string name="value_listview" msgid="7625152822709234439">"Списък"</string>
     <string name="value_tabwidget" msgid="6935453013254857519">"Лента с раздели"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"Падащ списък"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"Квадратче за отметка"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"Бутон за избор"</string>
+    <string name="value_button" msgid="2459787142940409576">"Бутон"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"Контрола плъзгач"</string>
+    <string name="value_switch" msgid="6946709666466895221">"Превключвател"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"Поле за редактиране"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"Редактира се"</string>
+    <string name="value_image" msgid="5114229220871881124">"Изображение"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"Без етикет"</string>
+    <string name="value_pager" msgid="7708574424402835461">"Изглед с няколко страници"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"Страница"</string>
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"Показани са елементи <xliff:g id="FROM_INDEX">%1$d</xliff:g> до <xliff:g id="TO_INDEX">%2$d</xliff:g> от <xliff:g id="TOTAL_COUNT">%3$d</xliff:g>."</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"Показан е елемент <xliff:g id="FROM_INDEX">%1$d</xliff:g> от <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>."</string>
-    <string name="template_spinner" msgid="1240658876427369167">"Падащ списък за „<xliff:g id="TITLE">%1$s</xliff:g>“."</string>
-    <string name="template_password_selected" msgid="3751806880345903886">"Избрани знаци – <xliff:g id="FROM_INDEX">%1$s</xliff:g> до <xliff:g id="TO_INDEX">%2$s</xliff:g>"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"Страница <xliff:g id="PAGE_INDEX">%1$d</xliff:g> от <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> от <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"Избрахте знаците от <xliff:g id="FROM_INDEX">%1$d</xliff:g> до <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"Знак <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"главна буква <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="template_checkbox" msgid="8582666147313623418">"Квадратче за отметка за „<xliff:g id="TITLE">%1$s</xliff:g>“"</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"Бутон за избор: „<xliff:g id="TITLE">%1$s</xliff:g>“"</string>
-    <string name="template_switch" msgid="6833289093292419645">"Превключвател „<xliff:g id="TITLE">%1$s</xliff:g>“"</string>
     <string name="value_password" msgid="7285572231215250557">"парола"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Издърпващият се слой е отворен"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Падащият панел е отворен"</string>
@@ -71,69 +91,115 @@
     <string name="value_text_cleared" msgid="6558192295636412162">"Текстът е изчистен"</string>
     <string name="value_text_max_length" msgid="4129865255646994586">"Достигната е максималната дължина"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"изтрито"</string>
+    <string name="value_selected" msgid="1307429702194660766">"избрано"</string>
     <string name="value_checked" msgid="3006751014125833966">"отметнато"</string>
     <string name="value_not_checked" msgid="37422559536361725">"не е отметнато"</string>
+    <string name="value_on" msgid="39454338086317219">"включено"</string>
+    <string name="value_off" msgid="6700497510945744608">"изключено"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"разгънато"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"свито"</string>
     <string name="value_disabled" msgid="5160977094078900656">"деактивирано"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"Двукратно докосване"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"Докоснете"</string>
-    <string name="template_hint_clickable" msgid="1398769454100543369">"<xliff:g id="ACTION">%1$s</xliff:g>, за да изберете."</string>
+    <string name="value_press_select" msgid="4270348255373188872">"Натиснете бутона за избор"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g>, за да активирате."</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Натиснете „<xliff:g id="KEYCOMBO">%1$s</xliff:g>“ за активиране."</string>
     <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> и задръжте за продължително натискане."</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Натиснете „<xliff:g id="KEYCOMBO">%1$s</xliff:g>“ за продължително натискане."</string>
     <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g>, за да превключите."</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Натиснете „<xliff:g id="KEYCOMBO">%1$s</xliff:g>“ за превключване."</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g>, за да въведете текст."</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Натиснете „<xliff:g id="KEYCOMBO">%1$s</xliff:g>“ за въвеждане на текст."</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g>, за да промените."</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"Докоснете екрана и изследвайте в кръг, за да намерите елемент, след което вдигнете пръста си, за да изберете."</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Натиснете „<xliff:g id="KEYCOMBO">%1$s</xliff:g>“ за промяна."</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"Прекарайте два пръста, за да превключите между страниците."</string>
+    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"Няма налични допълнителни страници."</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g>, за да промените."</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"Докоснете екрана и изследвайте в кръг, за да намерите елемент, след което вдигнете пръста си за активиране."</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Докоснете екрана и изследвайте в кръг, за да се придвижите в съдържанието на екрана, след което вдигнете пръста си за фокусиране."</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"Персонализирани действия:"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> за <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Натиснете „<xliff:g id="KEYCOMBO">%1$s</xliff:g>“ за <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> и задръжте за <xliff:g id="HINT">%2$s</xliff:g>."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"Вибрира при звънене."</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Звънене в тих режим."</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Екранът е включен."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Екранът е изключен."</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"Режимът „Caps Lock“ е включен."</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"Режимът „Caps Lock“ е изключен."</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"Режимът „Num Lock“ е включен."</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"Режимът „Num Lock“ е изключен."</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Режимът „Scroll Lock“ е включен."</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Режимът „Scroll Lock“ е изключен."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"Устройството е отключено."</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Говор"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Сила на звука на говора"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"Говор при изключен екран"</string>
     <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"Известията се изговарят, когато екранът е изключен"</string>
     <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"Не се изговаря нищо, когато екранът е изключен"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"Идентификация на обаждането: Изговаряне"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"Сензор за близост: Ползв."</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Сензорът за близост заглушава говора"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Сензорът за близост не контролира говора"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Произнасяне на фонетични букви"</string>
     <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Фонетичните букви няма да се произнасят."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"Фонетичните букви ще се произнасят при продължително натискане на клавишите и преместване по знак."</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"Фонетичните букви ще се произнасят при продължително натискане на клавишите и когато фокусът на функцията за достъпност се премества знак по знак."</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Произнасяне на подсказки за употребата"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"Подсказките за употребата няма да се произнасят при линейна навигация."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"Подсказките за употребата ще се произнасят след кратко забавяне при линейно преместване на фокуса."</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"Подсказките за употребата няма да се произнасят при преместване на фокуса на функцията за достъпност."</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"При придвижване подсказките за употребата ще се произнасят след кратко забавяне."</string>
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Изследване чрез докосване"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Авт. превъртане на списъците"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Изследване чрез докосване"</string>
-    <string name="title_pref_single_tap" msgid="3366282780861635094">"Избиране чрез едно докосване"</string>
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"Активиране с едно докосване"</string>
     <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Показване на контекстното меню като списък"</string>
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Затъмняване на екрана, когато услугата TalkBack е активирана"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(експериментално) За да изберете, докоснете елемента, върху който понастоящем е поставен фокусът"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"(Експериментално) Елементът, върху който е поставен фокусът, се активира с докосване"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Разтърсване за начало на четенето без прекъсване"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Управление на жестовете"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"Управление на персонализираните етикети"</string>
     <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Управление на клавишните комбинации"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"Експорт. на персонализираните етикети"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"TalkBack в Google Play Магазин"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"Текуща версия на TalkBack: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"Помощ и отзиви"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"Помощ"</string>
     <string name="title_pref_show_tos" msgid="6167834013879233992">"Общи условия"</string>
     <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Декларация за поверителност"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Жестове за преки пътища"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Вградени жестове"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(Експ.) Докоснете устройството отстрани"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"Клавишна карта"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"Избиране на клавишна карта"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"Нулиране на клавишната карта"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"Избиране на модифициращ клавиш"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"TalkBack ще нулира клавишната карта"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"TalkBack ще нулира клавишната карта и ще зададе „<xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>“ като модифициращ клавиш"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"Новият модифициращ клавиш е „<xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>“."</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"Клавишната карта „<xliff:g id="KEYMAP_NAME">%1$s</xliff:g>“ вече е активна."</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"Клавишната карта е нулирана."</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"Комбинацията не се поддържа"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"Традиционна клавишна карта"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"Стандартна клавишна карта"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"Действия за придвижване"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"Придвижване до следващия елемент"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"Придвижване до предишния елемент"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"Придвижване до елемента отгоре"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"Придвижване до елемента отдолу"</string>
     <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"Придвижване до първия елемент"</string>
     <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"Придвижване до последния елемент"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"Придвижване до следващия прозорец"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"Придвижване до предишния прозорец"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"Придвижване до следващата дума"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"Придвижване до предишната дума"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"Придвижване до следващия знак"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"Придвижване до предишния знак"</string>
     <string name="keycombo_menu_perform_click" msgid="243666968746657931">"Кликване"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"Продължително кликване"</string>
     <string name="keycombo_menu_category_global" msgid="7309875734492478067">"Глобални действия"</string>
     <string name="keycombo_menu_global_back" msgid="4567585750566224959">"Назад"</string>
     <string name="keycombo_menu_global_home" msgid="7189369064773623371">"Начало"</string>
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Скорошни приложения"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Известия"</string>
-    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"Поставяне на пауза на TalkBack"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"Пост. на пауза/възобновяване на TalkBack"</string>
     <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Настройки за навигиране"</string>
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Следваща настройка за навигиране"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Предишна настройка за навигиране"</string>
@@ -143,10 +209,63 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Търсене на елемент на екрана"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Показв. на локалн. контекстно меню"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Показв. на глобалн. контекстно меню"</string>
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"Управление на клавишните комбинации"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"Отваряне на настройките на TalkBack"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"Действия за придвижване в мрежата"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"Придвижване до следващия бутон"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"Придвижване до предишния бутон"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"Придвижване до следващата контрола"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"Придвижване до предишната контрола"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"Придвижв. до следв. квадратче за отметка"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"Придв. до предишн. квадратче за отметка"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"Придвижване до следващия участък на ARIA"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"Придвижване до предишния участък на ARIA"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"Придвижв. до следв. поле за редактиране"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"Придв. до предишното поле за редактиране"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"Към следв. елемент, в/у който може да се постави фокусът"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"Към предишн. елемент, в/у който може да се постави фокусът"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"Придвижване до следващата графика"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"Придвижване до предишната графика"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"Придвижване до следващото заглавие"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"Придвижване до предишното заглавие"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"Придвижване до следв. заглавие от ниво 1"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"Придв. до предишното заглавие от ниво 1"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"Придвижване до следв. заглавие от ниво 2"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"Придв. до предишното заглавие от ниво 2"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"Придвижване до следв. заглавие от ниво 3"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"Придв. до предишното заглавие от ниво 3"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"Придвижване до следв. заглавие от ниво 4"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"Придв. до предишното заглавие от ниво 4"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"Придвижване до следв. заглавие от ниво 5"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"Придв. до предишното заглавие от ниво 5"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"Придвижване до следв. заглавие от ниво 6"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"Придв. до предишното заглавие от ниво 6"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"Придвижване до следв. списъчен елемент"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"Придвижв. до предишния списъчен елемент"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"Придвижване до следващата връзка"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"Придвижване до предишната връзка"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"Придвижване до следващия списък"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"Придвижване до предишния списък"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"Придвижване до следващата таблица"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"Придвижване до предишната таблица"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"Придвижване до следв. разгъващ се списък"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"Придв. до предишния разгъващ се списък"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"Клавишната комбинация е"</string>
     <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Натиснете клавишната комбинация, за да зададете нов пряк път. Той трябва да съдържа поне клавишите „ALT“ или „Control“."</string>
-    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"Бутон за пряк път: Изчистване"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Натиснете клавишна комбинация с модифициращия клавиш „<xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g>“, за да зададете нова комбинация."</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"Натиснете „Backspace“ за изчистване на прекия път, „Enter“ за запазване или „Escape“ за анулиране."</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"Изчистване на клавишната комбинация"</string>
     <string name="keycombo_unassigned" msgid="5817151372114230015">"Невъзложено"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Търсене"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Стрелка за надясно"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Стрелка за наляво"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Стрелка за нагоре"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Стрелка за надолу"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"Наистина ли искате да възстановите стандартните стойности на клавишните комбинации за тази клавишна карта? Моля, обърнете внимание, че действието не може да бъде отменено."</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"Нулиране"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"Клавишът вече се използва"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Тази клавишна комбинация се използва за действието „<xliff:g id="ID_1">%1$s</xliff:g>“. Искате ли да я изчистите и да зададете прекия път за „<xliff:g id="ID_2">%2$s</xliff:g>“?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Да се използват промените във височината"</string>
@@ -159,9 +278,12 @@
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"С фокус върху звука на говора"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Намаляване на силата на звука на другите аудиоизточници при говорене"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Сила на звука"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Пряк път за спиране и възобновяване на TalkBack"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Пряк път за спиране и възобновяване на работата на TalkBack"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"Лесно затъмняване на екр."</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Други"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Настройки за програмисти"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"Избиране на събития за запис в регистрационни файлове"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"Филтриране на записването в регистрационни файлове на събития за достъпност"</string>
     <string name="title_pref_log_level" msgid="267415170405921603">"Ниво на регистрация"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Показване на синтез. на говор"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"Активиране на отстраняването на грешки за дървото с възли"</string>
@@ -186,10 +308,11 @@
     <string name="granularity_line" msgid="727359260064093782">"Редове"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"Абзаци"</string>
     <string name="granularity_page" msgid="2739238666516816581">"Страници"</string>
-    <string name="granularity_web_section" msgid="496466197528091152">"Навигация по секции"</string>
-    <string name="granularity_web_list" msgid="8598575022728013551">"Навигация по списъци"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"Навигация по контроли"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"Навигация в специализирано съдържание"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"Заглавия и ориентири"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"Списъци"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"Връзки"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"Контроли"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Специално съдържание"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"Вертикален режим"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"Хоризонтален режим"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"Невъзложено"</string>
@@ -201,10 +324,12 @@
     <string name="shortcut_home" msgid="6670249804418900175">"Бутон „Начало“"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"Бутон за общ преглед"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"Отваряне на известията"</string>
+    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"Показване на персонализираните действия"</string>
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Отваряне на глобалното контекстно меню"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"Отваряне на локалното контекстно меню"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Повтаряне на последната команда"</string>
     <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"Изговаряне буква по буква на последната команда"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"Копиране в буферната памет на последната команда"</string>
     <string name="shortcut_pause_feedback" msgid="1412613174540942399">"Поставяне на пауза на обратната връзка"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"Четене от горната част"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"Четене от следващия елемент"</string>
@@ -213,6 +338,8 @@
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Предишна настройка за навигиране"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"Фокусиране върху първия елемент на екрана"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Фокусиране върху последния елемент на екрана"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"Затъмняване на екрана"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"Осветяване на екрана"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"Локално контекстно меню"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"Глобално контекстно меню"</string>
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"Няма елементи в менюто."</string>
@@ -234,6 +361,13 @@
     <string name="title_summary" msgid="3037924006370977165">"Бързо навигиране"</string>
     <string name="title_granularity" msgid="399801096771904747">"Настройки за навигиране"</string>
     <string name="title_custom_action" msgid="7908169922901920318">"Персонализирани действия"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"Предложения за автоматично довършване"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"Преминаване към предложенията"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"Връщане към полето за редактиране"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"Контрола плъзгач"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"Редактиране на нивото на контролата плъзгач"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"Въведете число от 0 до 100."</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
     <string name="value_direction_up" msgid="1646290331150992975">"нагоре"</string>
     <string name="value_direction_down" msgid="8072362433982733982">"надолу"</string>
     <string name="value_direction_left" msgid="676932617445677488">"наляво"</string>
@@ -294,6 +428,7 @@
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Докоснете, за да прегледате промените на жестовете за достъпност"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"Услугата TalkBack е спряна"</string>
     <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Докоснете, за да възобновите."</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"Автоматично преминаване към урок 1."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"Да се спре ли TalkBack?"</string>
     <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Наистина ли искате да направите това? Устройството ви няма да предоставя обратна връзка и изследването чрез докосване ще бъде деактивирано. Можете да възобновите TalkBack от известията, чрез връщане към заключения екран или от бутона за силата на звука."</string>
     <string name="message_resume_manual" msgid="6522293510722570646">"Можете да възобновите TalkBack от падащия панел с известия."</string>
@@ -308,13 +443,30 @@
     <string name="label_remove_dialog_text" msgid="372916461303485723">"Наистина ли искате да премахнете етикета „<xliff:g id="LABEL">%1$s</xliff:g>“?"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Наистина ли искате да премахнете етикета „<xliff:g id="LABEL">%1$s</xliff:g>“ в/ъв <xliff:g id="APP_NAME">%2$s</xliff:g>?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Текст в етикета"</string>
+    <string name="label_import" msgid="1773817433300194935">"Импортиране на персонализираните етикети"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"Импортиране на персонализирани етикети в TalkBack"</string>
+    <string name="label_import_dialog_message" msgid="7975227530187709469">"Изберете дали при несъвместимост съществуващите етикети да се заменят, или пропускат."</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"Пропускане"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"Замяна"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"Няма нищо за експортиране. Не сте добавили етикети"</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"Експортирането на етикетите не бе успешно"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"Импортирането на етикетите не бе успешно"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="other">%d етикета са актуализирани</item>
+      <item quantity="one">1 етикет е актуализиран</item>
+    </plurals>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"Изберете приложение за експортиране на етикети:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"Тази версия на TalkBack включва промени на стандартните жестове за достъпност. Свързаните с тях действия могат да бъдат персонализирани в настройките на услугата. Когато функцията за изследване чрез докосване е активирана, можете да използвате следните жестове, за да изпълните определени действия.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Продължително натискане на бутоните за увеличаване и намаляване на силата на звука"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"Активирайте или деактивирайте затъмняването на екрана с три бързи натискания на двата бутона за силата на звука"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"Да се затъмни ли екранът?"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"Наистина ли искате да затъмните екрана?"</string>
     <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"Тази версия на TalkBack включва промени в жестовете за достъпност по подразбиране.\n\nЖестът „нагоре и след това надолу“ ще ви позволи да се преместите към първия елемент на екрана, а „надолу и след това нагоре“ – към последния.\n\nДетайлността при четене вече може да бъде променена, като поставите фокуса върху елемент, а след това изберете някоя от локалното контекстно меню.\n\nВ състояние сте да промените изпълняваните чрез тези жестове действия от настройките на TalkBack."</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"В тази версия на TalkBack са променени стандартните жестове за достъпност.\n\nОт сега нататък при прекарване на пръст нагоре ще се придвижвате до предишната настройка за навигиране, а при прекарване на пръст надолу – до следващата."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Приемане на жестовете"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Персонализиране на жестовете"</string>
+    <string name="button_clear_all_events" msgid="2128349101908653825">"Изчистване на всички"</string>
+    <string name="button_check_all_events" msgid="301383322727007726">"Отмятане на всички"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"Деактивиране на изследването чрез докосване?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Наистина ли искате да изключите изследването чрез докосване?\n\nУстройството ви вече няма да реагира на жестовете за пряк достъп или да изговаря елементите, когато докоснете екрана."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Да се активира ли отстраняването на грешки за дървото с възли?"</string>
@@ -327,9 +479,77 @@
     <string name="permission_labeling_desc" msgid="8065967887484901473">"Разрешение за достъп, промяна и изтриване на персонализираните етикети, изговаряни от TalkBack."</string>
     <string name="links" msgid="3448225474115458693">"Връзки"</string>
     <string name="end_of_text" msgid="3595733062526019550">"Край"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"Няма предишен елемент, който е <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"Няма следващ елемент, който е <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"заглавие"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"бутон"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"разгъващ се списък"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"Участък на ARIA"</string>
+    <string name="display_name_edit_field" msgid="5014778180731737501">"поле за редактиране"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"елемент, който може да се открои"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"заглавие 1"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"заглавие 2"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"заглавие 3"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"заглавие 4"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"заглавие 5"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"заглавие 6"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"връзка"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"контрола"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"графика"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"списъчен елемент"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"списък"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"таблица"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"квадратче за отметка"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"заглавие или участък"</string>
     <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
     <string name="row_index_template" msgid="4107789959609911947">"Ред <xliff:g id="ROW">%1$d</xliff:g>"</string>
     <string name="column_index_template" msgid="258393957626754806">"Колона <xliff:g id="COL">%1$d</xliff:g>"</string>
     <string name="heading_template" msgid="3585514481777782183">"Заглавие"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"Заглавие на ред"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"Заглавие на колона"</string>
     <string name="item_index_template" msgid="71505978833721807">"Елемент <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"Връщане на предишното състояние на импортираните етикети"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"Импортираните етикети са върнати в предишното състояние"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g> е отгоре, а <xliff:g id="ID_2">%2$s</xliff:g> е отдолу"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g> е отляво, а <xliff:g id="ID_2">%2$s</xliff:g> е отдясно"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g> е отдясно, а <xliff:g id="ID_2">%2$s</xliff:g> е отляво"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="untitled_window" msgid="7017590766394623328">"без заглавие"</string>
+    <string name="status_bar" msgid="6000275621941971563">"лента на състоянието"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"лента за навигация"</string>
+    <string name="template_collection_start" msgid="4362535543397747567">"Влязохте в/ъв <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_end" msgid="2167296836815021551">"Излязохте от <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"Ниво <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> елемента</item>
+      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> елемент</item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> реда</item>
+      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> ред</item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> колони</item>
+      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> колона</item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> знака</item>
+      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> знак</item>
+    </plurals>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="other">Избрани са <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> събития</item>
+      <item quantity="one">Избрано е 1 събитие</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"Стартирахте <xliff:g id="REMOTE_MODE">%1$s</xliff:g>"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"Излязохте от <xliff:g id="REMOTE_MODE">%1$s</xliff:g>"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"Режим за контрола плъзгач"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"Използвайте бутоните със стрелка, за да промените стойността, или натиснете този за избор, за да приключите."</string>
+    <string name="arc_android_window" msgid="697316167642517245">"Прозорец под Android"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"Натиснете клавиша за търсене и тези със стрелки, за да навигирате"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"Натиснете „<xliff:g id="KEYCOMBO">%1$s</xliff:g>“, за да видите списъка с клавишните комбинации"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"Натиснете „<xliff:g id="KEYCOMBO">%1$s</xliff:g>“, за да отворите настройките на TalkBack"</string>
+    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"Увеличете прозореца на приложението за най-добри резултати при докосване и обратна връзка с говор"</string>
 </resources>

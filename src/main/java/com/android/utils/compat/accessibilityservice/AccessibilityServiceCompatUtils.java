@@ -50,9 +50,12 @@ public class AccessibilityServiceCompatUtils {
         AccessibilityNodeInfo focusedRoot = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
             List<AccessibilityWindowInfo> windows = service.getWindows();
-            WindowManager manager = new WindowManager();
+            // Create window manager with fake value of isInRTL = false. This is okay here since
+            // isInRTL will not change the result of getCurrentWindow.
+            WindowManager manager = new WindowManager(false /* isInRTL */);
             manager.setWindows(windows);
-            AccessibilityWindowInfo accessibilityFocusedWindow = manager.getCurrentWindow();
+            AccessibilityWindowInfo accessibilityFocusedWindow =
+                    manager.getCurrentWindow(false /* useInputFocus */);
 
             if (accessibilityFocusedWindow != null) {
                 focusedRoot = accessibilityFocusedWindow.getRoot();

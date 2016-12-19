@@ -2,25 +2,23 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="switch_service_name" msgid="6043415138576713888">"Shintsha ukufinyelela"</string>
-    <string name="switch_access_service_description" msgid="7316829370005579941">"Ukushintsha Ukufinyelela kukuvumela ukuthi ulawule idivayisi yakho usebenzisa ukuhlanganiswa kokhiye wokulungiselela. Manje ungahambisa ukugxilisa kuzinto ezichofozekayo uphinde uzikhethe."</string>
-    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"Ukuskena okuzenzakalelayo"</string>
-    <string name="title_pref_auto_scan" msgid="6856662972215508038">"Nika amandla ukuskena ngokuzenzakalelayo"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"Ukulibaziseka kwesikhathi"</string>
+    <string name="switch_access_service_description" msgid="1958519878116811543">"Ukushintsha ukufinyelela kukuvumela ukuthi uskene uphinde ukhethe izinto usebenzisa ukushintsha okukodwa noma okuningi."</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Usizo nempendulo"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Skena ngokuzenzakalela"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Skena ngokuzenzakalela isikhathi"</string>
     <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"Ukuskena ngokuzenzakalelayo kwasemuva"</string>
-  <plurals name="auto_scan_time_delay_summary_format">
-    <item quantity="one" msgid="815853953952465870">"1 Isekhondi"</item>
-    <item quantity="other" msgid="1223387233862989964">"%.2f Amasekhondi"</item>
-  </plurals>
+    <plurals name="auto_scan_time_delay_summary_format" formatted="false" msgid="5524438721359954583">
+      <item quantity="one">%.2f amasekhondi</item>
+      <item quantity="other">%.2f amasekhondi</item>
+    </plurals>
     <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Indlela yokuskena"</string>
-    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"Ukuskena kwekhibhodi"</string>
-    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"Buka ukuskena"</string>
     <string name="title_pref_category_key_mappings" msgid="463227090301036752">"Nikeza okhiye kuzenzo"</string>
     <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"Nika okhiye ukuskeka"</string>
     <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"Ukhiye \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' usevele unikeziwe ku-\'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\'"</string>
-  <plurals name="label_num_keys_assigned_format">
-    <item quantity="one" msgid="8372086689828893172">"%d ukhiye unikeziwe"</item>
-    <item quantity="other" msgid="2361393301173230834">"%d okhiye banikweziwe"</item>
-  </plurals>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="8070929030388121623">
+      <item quantity="one">%d okhiye banikeziwe</item>
+      <item quantity="other">%d okhiye banikeziwe</item>
+    </plurals>
     <string name="option_scan_switch_format" msgid="2034348456907055979">"Iswishi yokuskena kwenketho %1$d"</string>
     <string name="action_name_next" msgid="4106603510441280028">"Okulandelayo"</string>
     <string name="action_name_previous" msgid="5382750123072539005">"Okwangaphambilini"</string>
@@ -28,6 +26,7 @@
     <string name="action_name_long_click" msgid="5708679123666477849">"Ukucindezela isikhathi eside"</string>
     <string name="action_name_scroll_forward" msgid="6969788891937406270">"Skrolela phambili"</string>
     <string name="action_name_scroll_backward" msgid="579045012327139100">"Skrolela emuva"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Cashisa"</string>
     <string name="context_menu_layout_description" msgid="330592638837220675">"Imenyu yokuqukethwe"</string>
     <string name="option_scanning_menu_button" msgid="4460266289722058928">"IMENYU"</string>
     <string name="global_action_back" msgid="8326879739948707767">"Emuva"</string>
@@ -48,8 +47,23 @@
     <string name="name_of_enter_key" msgid="6379785627490220649">"Faka"</string>
     <string name="name_of_tab_key" msgid="6744983965001375397">"Ithebhu"</string>
     <string name="save" msgid="5398278773451196019">"Londoloza"</string>
-    <string name="title_pref_highlight_0" msgid="3039542597362059267">"Ukugqamisa okusetshenziselwe ukuskena"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Iskena isitayela sokugqamisa"</string>
     <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Isitayela sokuskena esiyinhloko"</string>
-    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"Umbala wokugqamisa"</string>
-    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"Isisindo sokugqamisa"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Gqamisa umbala"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Gqamisa isitayela somugqa"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="1781611399874689922">"Nika amandla ukukhetha ngokuzenzakalela"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="777214990214649732">"Khubaza ukukhetha ngokuzenzakalela"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Uhlamvu olulandelayo"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Igama elilandelayo"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Umugqa olandelayo"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Ipharagrafu elandelayo"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Ikhasi elilandelayo"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Uhlamvu lwangaphambilini"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Igama langaphambilini"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Umugqa wangaphambilini"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Ipharagrafu yangaphambilini"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Ikhasi langaphambilini"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Qala ukuskena ngokuzenzakalela"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Ukuskena kuqala ngaphandle kokucindezela ukushintsha"</string>
 </resources>

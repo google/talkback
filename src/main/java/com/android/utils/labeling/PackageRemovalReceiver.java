@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
+import com.android.talkback.labeling.PackageLabelsFetchRequest;
 import com.android.utils.LogUtils;
 
 import java.util.Collection;

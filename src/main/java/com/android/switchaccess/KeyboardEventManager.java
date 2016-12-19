@@ -161,5 +161,4 @@ public class KeyboardEventManager {
             keyboardAction.refreshPreferences(context);
         }
     }
-
 }

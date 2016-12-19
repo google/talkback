@@ -35,7 +35,14 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 /**
- * Formatter for web content.
+ * Formatter for web content. This is used for the built-in, non-Chrome-based WebView in Jelly Bean.
+ * The non-Chrome-based WebView provides accessibility information that contains raw HTML
+ * code; this formatter extracts the inner text from the HTML elements and provides it as
+ * feedback to the user.
+ *
+ * Note: this class does nothing in current releases of Chrome, nor does it do anything in
+ * older Chrome-based WebViews that used ChromeVox. Therefore it is safe to ignore this formatter
+ * on KitKat or above.
  */
 @SuppressWarnings("unused")
 public final class WebContentFormatter implements EventSpeechRule.AccessibilityEventFormatter {
@@ -95,6 +102,8 @@ public final class WebContentFormatter implements EventSpeechRule.AccessibilityE
                 final String axisAnnouncement = getAxisAnnouncement(
                         context, action.mSecondArgument);
                 utterance.addSpoken(axisAnnouncement);
+                // axisAnnouncement is chosen from an array and always not empty,
+                // so always return true here.
                 return true;
             }
         }
@@ -128,7 +137,7 @@ public final class WebContentFormatter implements EventSpeechRule.AccessibilityE
             utterance.addSpoken(noTags);
         }
 
-        return true;
+        return !utterance.getSpoken().isEmpty();
     }
 
     /**

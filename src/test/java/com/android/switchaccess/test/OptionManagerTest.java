@@ -26,6 +26,7 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import com.android.switchaccess.*;
+import com.android.talkback.BuildConfig;
 import com.android.talkback.R;
 
 import android.annotation.TargetApi;
@@ -50,6 +51,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 
@@ -67,14 +69,13 @@ import java.util.List;
  * Tests for OptionManager
  */
 @Config(
-        emulateSdk = 18,
+        constants = BuildConfig.class,
+        sdk = 21,
         shadows = {
-            ShadowAccessibilityNodeInfoCompat.class,
             ShadowAccessibilityNodeInfo.class,
-            ShadowAccessibilityNodeInfoCompat.ShadowAccessibilityActionCompat.class,
             ShadowAccessibilityNodeInfo.ShadowAccessibilityAction.class})
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class OptionManagerTest {
     private static final Rect NODE_BOUNDS_1 = new Rect(10, 10, 90, 20);
     private static final Rect NODE_BOUNDS_2 = new Rect(110, 110, 190, 120);
@@ -85,8 +86,8 @@ public class OptionManagerTest {
 
     private final OverlayController mOverlayController = mock(OverlayController.class);
 
-    private final OptionManager.FocusClearedListener mMockListener =
-            mock(OptionManager.FocusClearedListener.class);
+    private final OptionManager.OptionManagerListener mMockListener =
+            mock(OptionManager.OptionManagerListener.class);
 
     private final Context mContext = RuntimeEnvironment.application.getApplicationContext();
     private final RoboSharedPreferences mSharedPreferences =
@@ -178,7 +179,7 @@ public class OptionManagerTest {
 
     @Test
     public void testClearFocusIfNewTree_shouldClearFocusOnNewTree() {
-        mOptionManager.addFocusClearedListener(mMockListener);
+        mOptionManager.addOptionManagerListener(mMockListener);
         mOptionManager.clearFocusIfNewTree(mSelectionNode);
         verify(mMockListener, times(1)).onOptionManagerClearedFocus();
     }
@@ -198,7 +199,7 @@ public class OptionManagerTest {
 
     @Test
     public void testOnlyOneActionNode_shouldClearFocusAndOverlayWhenActionPerformed() {
-        mOptionManager.addFocusClearedListener(mMockListener);
+        mOptionManager.addOptionManagerListener(mMockListener);
         mOptionManager.clearFocusIfNewTree(mActionNode1);
         mOptionManager.selectOption(0);
         verify(mMockListener, times(2)).onOptionManagerClearedFocus();
@@ -472,9 +473,9 @@ public class OptionManagerTest {
     @Test
     public void testScrollWithParent_shouldScrollAndClearFocus() {
         AccessibilityNodeInfoCompat parent = AccessibilityNodeInfoCompat.obtain();
-        ((ShadowAccessibilityNodeInfoCompat) ShadowExtractor.extract(parent)).addChild(mCompat1);
         ShadowAccessibilityNodeInfo shadowParent =
                 (ShadowAccessibilityNodeInfo) ShadowExtractor.extract(parent.getInfo());
+        shadowParent.addChild((AccessibilityNodeInfo)  mCompat1.getInfo());
         parent.setScrollable(true);
         mActionNode1.recycle();
         mActionNode1 = new AccessibilityNodeActionNode(mCompat1,
@@ -570,5 +571,26 @@ public class OptionManagerTest {
         verify(mockListener, times(1)).onScanFocusChanged();
         verify(mockListener, times(1)).onScanSelection();
         verifyNoMoreInteractions(mockListener);
+    }
+
+    @Test
+    public void testAutoStartScan_shouldAutomaticallySelectFirstItem() {
+        mSharedPreferences.edit()
+                .putBoolean(mContext.getString(R.string.switch_access_auto_start_scan_key), true)
+                .commit();
+        mOptionManager.onSharedPreferenceChanged(mSharedPreferences, null);
+        mOptionManager.clearFocusIfNewTree(mActionNode1);
+        assertEquals(1, mShadowInfo1.getPerformedActions().size());
+    }
+
+    @Test
+    public void testAutoStartScan_shouldCallListener() {
+        mOptionManager.addOptionManagerListener(mMockListener);
+        mSharedPreferences.edit()
+                .putBoolean(mContext.getString(R.string.switch_access_auto_start_scan_key), true)
+                .commit();
+        mOptionManager.onSharedPreferenceChanged(mSharedPreferences, null);
+        mOptionManager.clearFocusIfNewTree(mActionNode1);
+        verify(mMockListener, times(1)).onOptionManagerStartedAutoScan();
     }
 }

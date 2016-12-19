@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string-array name="switch_access_color_entries">
+    <item msgid="7934595828699536711">"Зялёны"</item>
+    <item msgid="7616478199824616148">"Аранжавы"</item>
+    <item msgid="528738291475141372">"Чырвоны"</item>
+    <item msgid="3613307072137891343">"Сiнi"</item>
+    <item msgid="1719741716015833575">"Белы"</item>
+  </string-array>
+  <string-array name="switch_access_weight_entries">
+    <item msgid="5215195704613305820">"Тонкая суцэльная лінія"</item>
+    <item msgid="7698398358042168523">"Суцэльная лінія сярэдней таўшчыні"</item>
+    <item msgid="4047443674448719927">"Тоўстая суцэльная лінія"</item>
+  </string-array>
+  <string-array name="switch_access_scanning_methods_entries">
+    <item msgid="3706133143777972955">"Радок-слупок (толькі для клавіятуры)"</item>
+    <item msgid="6882375457227534722">"Радок-слупок"</item>
+    <item msgid="4021832268378176260">"Сканіраванне параметраў"</item>
+  </string-array>
+</resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"የአጋዥ ስልጠና ተደራሽነት"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"የTalkBack አጋዥ ስልጠናን አስጀምር"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack አጋዥ ስልጠና"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack በዋነኝነት ማየት ለተሳናቸው እና የማየት ችሎታቸው ዝቅተኛ ለሆኑ ሰዎች የሆነ የማያ ገጽ አንባቢ ነው። የቃል ግብረመልስን በመጤቀም ከመሣሪያው ጋር መስተጋብር መፍጠርን ያስችላል።"</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBackን አጥፋ"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"ይወቁ"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"ይለማመዱ"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"ትምህርት <xliff:g id="INDEX">%1$d</xliff:g> ይማሩ"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"የልምምድ ትምህርት <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"ትምህርት 1፦ መሠረታዊ የዳሰሳ አደራረግ"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"ለማሰስ መታ ያድርጉ፣ ለማሰስ በጣት ያንሸራትቱ፣ ለማግበር ሁለቴ መታ ያድርጉ"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"ክፍል 1፦ በንክኪ ማሰስ"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"በሚነቃበት ጊዜ በንክኪ ማሰስ በጣትዎ ስር ምን እንዳለ እንዲሰሙ ያስችልዎታል። ጣትዎን በእርስዎ ማያ ገጽ መሃል ላይ ባሉ ንጥሎች ያንቀሳቅሱት። አምስት ንጥልን ካሰሱ በኋላ ትምህርቱ ይቀጥላል።"</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"ክፍል 2፦ ለማግበር ሁለቴ መታ ያድርጉ"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"ለመጨረሻ ጊዜ የሰሙትን ንጥል ለማግበር በማንኛውም ቦታ ላይ ሁለቴ መታ ያድርጉ። ንጥል 7ን ያግኙና አሁኑኑ ያግብሩት። ከዚያ በኋላ ለመቀጠል «ቀጣይ»ን ያግብሩ።"</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"ንጥል 7 ገቢር ሆኗል። ለመቀጠል «ቀጣይ»ን አዝራር ያግኙ እና ያግብሩት"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"ክፍል 3፦ የዳሰሳ አደራረግ ትምህርቶች"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"የTalkBack ትምህርቶች በተመሳሳይ መልኩ ነው የተደራጁት። ላይኛው አካባቢ እርስዎ ሊዳስሱት እና በማንኛውም ጊዜ ሊያነቡት የሚችሉት ትምህርት አለው። በተጨማሪም ከላይ ግራ ጥግ ላይ የተግባር ማሳያ ትምህርት መነሻ አዝራር አለው። መሃሉ የልምምድ አካባቢ አለው። ታችኛው ክፍል የግስጋሴ ጠቋሚ እና የትምህርት ማሰሻ አዝራሮች አሉት። ለመቀጠል «ቀጣይ»ን አሁን ያግብሩ።"</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"ክፍል 4፦ ለማሰስ በጣትዎ ያንሸራትቱ"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"እንዲሁም ጣትዎን በማያ ገጹ ላይ በማንሸራተት ማሰስ ይችላሉ። ወደ ግራ ማንሸራተት በአጠቃላይ ወደ ላይ እና ግራ የሚያስስ ሲሆን፣ ወደ ቀኝ ማንሸራተት ወደ ታች እና ቀኝ ያስሳል። አሁኑኑ ይሞክሩት።"</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"ክፍል 5፦ ልምምድ"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"ከጣትዎ ሥር ያለውን ነገር ለመስማት በማያ ገጹ ላይ ያንቀሳቅሱት። የሚሰሙትን ነገር ለማግበር በማንኛውም ቦታ ላይ ሁለቴ መታ ያድርጉ። አሰሳ ለማድረግ ወደ ግራ ወይም ቀኝ ያንሸራትቱ ያድርጉ።"</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"ትምህርት 2፦ ሽብለላ"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"በሁለት ጣት ሽብለላ፣ ወደ ፊት እና ወደ ኋላ መዝለል"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"ክፍል 1፦ የሁለት-ጣት ሽብለላ"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"በአቀባዊ ዝርዝር መሃል ለመሸብለል የዝርዝር ንጥሉን ያግኙ፣ ከዚያ ሁለት ጣቶችን ወደ ላይ ወይም ወደ ታች ይውሰዱ። በአግድም ዝርዝር መሃል ለመሸብለል የዝርዝር ንጥሉን ያግኙ፣ በመቀጠል ሁለት ጣቶችን ወደ ግራ ወይም ቀኝ ይውሰዱ።"</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"ክፍል 2፦ የሽብለላ አቋራጮች"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"አቋራጭ በመጠቀም በዝርዝር ውስጥ ወደፊት ወይም ወደኋላ መዝለል ይችላሉ። ወደፊት ለመዝለል በአንድ ነጠላ እንቅስቃሴ አንድን ጣት ወደ ቀኝ ከዚያም ወደ ግራ ያንቀሳቅሱት። ወደኋላ ለመዝለል አንድን ጣት ወደ ግራ ከዚያም ወደ ቀኝ ያንቀሳቅሱት። እዚህ ላይ ይሞክሩት።"</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"ክፍል 3፦ ልምምድ"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"ሁለት ጣቶችን ወደ ላይ ወይም ወደ ታች በማንሸራተት ይሸብልሉ። አንድን ጣት ወደ ቀኝ ከዚያ ወደ ግራ በማንቀሳቀስ ወደፊት ይዝለሉ። አንድ ጣትን ወደ ግራ ከዚያ ወደ ቀኝ በማንቀሳቀስ ወደኋላ ይዝለሉ።"</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"ትምህርት 3፦ የTalkBack ምናሌዎች"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"ሁለገብ የTalkBack ምናሌ፣ አከባቢያዊ የTalkBack ምናሌ"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"ክፍል 1፦ ሁለገብ የTalkBack ምናሌ"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack ሁለት የተለያዩ ምናሌዎች አሉት። የመጀመሪያው ሁለገብ የTalkBack ምናሌ ሁልጊዜ ተመሳሳይ ትዕዛዞችን የያዘ ነው። አንድን ጣት በአንድ ነጠላ እንቅስቃሴ ወደ ታች ከዚያ ወደ ቀኝ በማንቀሳቀስ፣ በመቀጠልም ጣትዎን በማንሳት ሊያገብሩት ይችላሉ። አሁን የልምምድ ስሪትን ያግብሩ።"</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"የምናሌ አማራጮች በማያ ገጹ መሃል ላይ በአቀባዊ ተዘርዝረዋል። ለማሰስ ይሞክሩ። ሲጨርሱ «ይቅር»ን  ያግብሩ።"</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"ክፍል 2፦ አከባቢያዊ የTalkBack ምናሌ"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"ሁለተኛው ምናሌ አከባቢያዊ የTalkBack ምናሌ ነው። በዚህ ምናሌ ውስጥ ያሉት ንጥሎች ለመጨረሻ ጊዜ እርስዎ በሰሙት ነገር ላይ የሚወሰኑ ናቸው። ይህን ምናሌ አንድን ነጠላ ጣት በነጠላ እንቅስቃሴ ወደ ላይ ከዚያ ወደ ቀኝ በማንቀሳቀስ፣ በመቀጠልም ጣትዎን በማንሳት ሊያገብሩት ይችላሉ። አሁን የልምምድ ስሪትን ያግብሩ።"</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"ክፍል 3፦ ልምምድ"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"ሁለገብ የTalkBack ምናሌውን ለማግበር ጣትዎን ወደ ታች ከዚያ ወደ ቀኝ ያንቀሳቅሱት። የአከባቢያዊ TalkBack ምናሌውን ለማግበር ጣትዎን ወደ ላይ ከዚያ ወደ ቀኝ ያንቀሳቅሱት።"</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"ወደ ታች ከዚያ ወደ ቀኝ"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"ወደ ላይ ከዚያ ወደ ቀኝ"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"ሁለገብ የTalkBack ምናሌ፦ ወደ ታች ከዚያ ወደ ቀኝ። አከባቢያዊ የTalkBack ምናሌ፦ ወደ ላይ ከዚያ ወደ ቀኝ።"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"ትምህርት 4፦ የጽሑፍ ዳሰሳ"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"የጽሑፍ ዳሰሳ ቅንብሮችን መምረጥ"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"ክፍል 1፦ የዳሰሳ ቅንብሮችን መምረጥ"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack ጽሑፍ ለእርስዎ በአንድ ጊዜ በአንቀጽ፣ በመስመር፣ በቃል ወይም በቁምፊ እንዲነበብልዎት እንዲቆጣጠሩ ያስችልዎታል። በቁምፊ ማንበብ የፊደል አጻጻፍ ላይ ሊያግዝ ይችላል። ከታች ያለውን ጽሑፍ መታ በማድረግ፣ ከዚያ ወደ ላይ እና ወደ ታች በጣት በማንሸራተት የጽሑፍ ዳሰሳ ፍጥነትን ያቀናብሩ።"</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"እዚህ በአቀባዊ የተዘረዘሩትን የንባብ ፍጥነት አማራጮችን ያስሱ። የ«በቁምፊ አንብብ» አማራጩን ያግኙ እና ያግብሩ።"</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"ክፍል 2፦ ጽሑፍን መዳሰስ"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"አሁን በቁምፊ እያነበቡ ነው። ናሙና ጽሑፍን ይምረጡ፣ ከዚያ በቁምፊ ለማንበብ ወደ ቀኝ በጣት ያንሸራትቱ።"</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"ክፍል 3፦ ልምምድ"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"ወደ ላይ እና ወደ ታች በጣት በማንሸራተት የጽሑፍ ዳሰሳ ፍጥነት ይለውጡ። ወደ ቀኝ በማንሸራተት በናሙና ጽሑፉ ውስጥ ያለውን ቀጣይ ቁምፊ ያንብቡ።"</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"ለTalkBack ልምምድ የሚሆን ናሙና እነሆ። \"Where is Kansas?\" asked the man, with surprise. \"I don\'t know,\" replied Dorothy sorrowfully, \"but it is my home, and I\'m sure it’s somewhere.\"\n\n\"Very likely. Well, Oz can do anything; so I supposed he will find Kansas for you. But first you must get to see him, and that will be a hard task; for the Great Wizard does not like to see anyone, and he usually has his own way. But what do YOU want?\" he continued, speaking to Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"ትምህርት 5፦ ጽሑፍን ማርትዕ"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"የአርትዖት ሳጥኑን ማግበር መተየብ፣ ጠቋሚን ማንቀሳቀስ፣ ጽሑፍን መምረጥ እና ድርጊት መፈጸም"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"ክፍል 1፦ የአርትዖት ሳጥንን ማግበር"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"ከTalkBack ጋር ጽሑፍ ለመተየብ፣ ለመምረጥ እና ለማርትዕ የአርትዖት ሳጥንን መጠቀም ይችላሉ። የአርትዖት ሳጥንን ለማግበር ሁለቴ መታ ያድርጉት። አንድ የአርትዖት ሳጥንን ካገበሩ በኋላ በማያ ገጹ ግርጌ ላይ የቁልፍ ሰሌዳ የሚገኝ ይሆናል። የተመለስ አዝራሩን መታ በማድረግ የቁልፍ ሰሌዳውን ማሰናበት ይችላሉ። የአርትዖት ሳጥኑን አሁን ለማግበር ይሞክሩ። ሲጨርሱ አሁን ከቁልፍ ሰሌዳው በላይ ያለውን «ቀጣይ»ን ያግብሩ።"</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"ክፍል 2፦ በአርትዖት ሳጥን ውስጥ መተየብ"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"ለመተየብ የአርትዖት ሳጥኑን ያግብሩ እና የእርስዎን ጣት በማያ ገጽ ላይ ያለው የቁልፍ ሰሌዳ ላይ ያንቀሳቅሱት። የሚፈለገውን ቁምፊ ሲሰሙ ለማግበር ጣትዎን ያንሱት። ለማግበር እና ከታች ባለው የአርትዖት ሳጥን ውስጥ ለመተየብ ይሞክሩ።"</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"ክፍል 3፦ ጠቋሚን መጠቀም"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"በመሣሪያዎ ላይ ወይም በአካባቢያዊ TalkBack ምናሌው ላይ ያሉትን የድምፅ አዝራሮች በመጠቀም ጠቋሚውን ማንቀሳቀስ ይችላሉ። በዚህ ምናሌ ውስጥ ካለው የ«ጠቋሚ» መቆጣጠሪያ አማራጭ ጋር እንዲሁም ጽሑፍ መምረጥ፣ መቁረጥ፣ መቅዳት ወይም መለጠፍ ይችላሉ። ከታች የአርትዖት ሳጥኑን ያግብሩ እና በናሙናው ጽሑፍ ላይ ጠቋሚውን ያንቀሳቅሱት።"</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"የዶሮቲ ጌይል ኢሜይል አድራሻ dorothy@ozmail.com ነው"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"ክፍል 4፦ ልምምድ"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"ሁለቴ መታ በማድረግ የአርትዖት ሳጥኑን ያግብሩ። ጣትዎን በቁምፊ ላይ በማንቀሳቀስና ከዚያ ጣትዎን በማንሳት ይተይቡ። ጠቋሚውን በድምፅ አዝራሮቹ እና በአካባቢያዊ TalkBack ምናሌው ያንቀሳቅሱ። በአካባቢያዊ TalkBack ምናሌ ውስጥ ያለውን የ«ጠቋሚ» መቆጣጠሪያ አማራጭ በመጠቀም ጽሑፍ ይምረጡ እና ድርጊት ይፈጽሙ።"</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"ጽሑፍ ያርትዑ"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"ቀዳሚ"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"ቀጣይ"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"ቀዳሚ ትምህርት"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"ቀጣይ ትምህርት"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"የአጋዥ ስልጠና መነሻ"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"ትምህርት %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"ክፍል %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"ክፍል %1$d ከ%2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"ልምምዱ ተጠናቅቋል፣ እና ከትንሽ ጊዜ በኋላ ይቀጥላል"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"የልምምድ አካባቢ"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s በልምምድ ሁነታ ገብሯል። ትቶ ለመውጣት የ«ይቅር» አዝራሩን ያግብሩ።"</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"የአጋዥ ስልጠና መነሻ አዝራር"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"ንጥል <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"ውጣ"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"በመንካት ያስሱ ያስፈልጋል"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"ይህ አጋዥ ስልጠና በመንካት ያስሱ ያስፈልገዋል። የአጋዥ ስልጠናውን ከማስጀመርዎ በፊት እባክዎ በመንካት ያስሱን ያንቁ።"</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack ተሰናክሏል"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"ይሄ አጋዥ ስልጠና የTalkBack መንቃት ያስፈልገዋል። እባክዎ አጋዥ ስልጠናውን ከማስጀመርዎ በፊት TalkBackን ያብሩ።"</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack ታግዷል"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"ግብረመልስ ለአፍታ ቆሞ ሳለ የTalkBack አጋዥ ስልጠናው አይገኝም። ለመቀጠል እባክዎ የTalkBack ግብረመልስን ካቆመበት ያስቀጥሉና አጋዥ ስልጠናውን ዳግም ያስጀምሩት።"</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"ምናሌውን አብራራ"</string>
+</resources>

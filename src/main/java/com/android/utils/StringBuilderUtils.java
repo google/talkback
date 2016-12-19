@@ -70,7 +70,7 @@ public class StringBuilderUtils {
     /**
      * Appends CharSequence representations of the specified arguments to a
      * {@link SpannableStringBuilder}, creating one if the supplied builder is
-     * {@code null}.
+     * {@code null}. A separator will be inserted between each of the arguments.
      *
      * @param builder An existing {@link SpannableStringBuilder}, or {@code null} to create one.
      * @param args    The objects to append to the builder.
@@ -100,6 +100,47 @@ public class StringBuilderUtils {
             }
 
             builder.append(arg);
+        }
+
+        return builder;
+    }
+
+    /**
+     * Appends CharSequence representations of the specified arguments to a
+     * {@link SpannableStringBuilder}, creating one if the supplied builder is
+     * {@code null}. A separator will be inserted before the first non-{@code null} argument,
+     * but additional separators will not be inserted between the following elements.
+     *
+     * @param builder An existing {@link SpannableStringBuilder}, or {@code null} to create one.
+     * @param args    The objects to append to the builder.
+     * @return A builder with the specified objects appended.
+     */
+    public static SpannableStringBuilder append(
+            SpannableStringBuilder builder, CharSequence... args) {
+        if (builder == null) {
+            builder = new SpannableStringBuilder();
+        }
+
+        boolean didAppend = false;
+        for (CharSequence arg : args) {
+            if (arg == null) {
+                continue;
+            }
+
+            if (arg.toString().length() == 0) {
+                continue;
+            }
+
+            if (builder.length() > 0) {
+                if (!didAppend && needsBreakingSeparator(builder)) {
+                    builder.append(DEFAULT_BREAKING_SEPARATOR);
+                } else {
+                    builder.append(DEFAULT_SEPARATOR);
+                }
+            }
+
+            builder.append(arg);
+            didAppend = true;
         }
 
         return builder;

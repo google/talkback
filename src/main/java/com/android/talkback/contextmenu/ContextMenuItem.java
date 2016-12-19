@@ -45,6 +45,13 @@ public abstract class ContextMenuItem implements MenuItem {
     private boolean mChecked = false;
     private OnMenuItemClickListener mListener;
     private ContextMenuInfo mMenuInfo;
+    // Used for EditText cursor control.
+    // When the user performs cursor control(Move cursor to end, etc, from Local Context Menu)
+    // in an EditText, the accessibility focus will be saved (when navigating in the context menu)
+    // and reset back(when the context menu dismisses). A TYPE_ACCESSIBILITY_VIEW_FOCUS and a
+    // TYPE_WINDOWS_CHANGED event will be fired. To avoid EditText description re-read after
+    // the cursor control, we need to skip these two events.
+    private boolean mSkipRefocusEvents = false;
 
     protected ContextMenuItem(Context context, int groupId, int itemId, int order,
                               CharSequence title) {
@@ -284,6 +291,14 @@ public abstract class ContextMenuItem implements MenuItem {
     // Check it after M release
     public MenuItem setIconTintMode(PorterDuff.Mode tintMode) {
         return this;
+    }
+
+    public void setSkipRefocusEvents(boolean skip) {
+        mSkipRefocusEvents = skip;
+    }
+
+    public boolean getSkipRefocusEvents() {
+        return mSkipRefocusEvents;
     }
 
     /**

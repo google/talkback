@@ -16,14 +16,9 @@
 
 package com.android.switchaccess;
 
-/*
- * Class that wraps A11yNodeInfoCompat, and supplies a new version of isVisibleToUser that takes
- * into account window overlap.
- *
- * This class does not extend A11yNodeInfoCompat because A11yNodeInfoCompat objects are obtained
- * by calling a static method.
- */
+import android.annotation.TargetApi;
 import android.graphics.Rect;
+import android.os.Build;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
@@ -48,10 +43,12 @@ import java.util.List;
  * We may eventually drop the extending and completely hide the Compat implementation if such
  * obtaining becomes an issue.
  */
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class SwitchAccessNodeCompat extends AccessibilityNodeInfoCompat {
     private final List<AccessibilityWindowInfo> mWindowsAbove;
     private boolean mVisibilityCalculated = false;
     private Rect mVisibleBoundsInScreen;
+    private Boolean mBoundsDuplicateAncestor;
 
     /**
      * Find the largest sub-rectangle that doesn't intersect a specified one.
@@ -95,7 +92,6 @@ public class SwitchAccessNodeCompat extends AccessibilityNodeInfoCompat {
             return;
         }
         rectToModify.set(cuts[indexOfLargestIntersection]);
-        return;
     }
 
     /**
@@ -154,6 +150,64 @@ public class SwitchAccessNodeCompat extends AccessibilityNodeInfoCompat {
     }
 
     /**
+     * Check if this node has been found to have bounds matching an ancestor, which means it gets
+     * special treatment during traversal.
+     *
+     * @return {@code true} if this node was found to have the same bounds as an ancestor.
+     */
+    public boolean getHasSameBoundsAsAncestor() {
+        // Only need to check parent
+        if (mBoundsDuplicateAncestor == null) {
+            SwitchAccessNodeCompat parent = getParent();
+            if (parent == null) {
+                mBoundsDuplicateAncestor = false;
+            } else {
+                Rect parentBounds = new Rect();
+                Rect myBounds = new Rect();
+                parent.getBoundsInScreen(parentBounds);
+                getBoundsInScreen(myBounds);
+                mBoundsDuplicateAncestor = myBounds.equals(parentBounds);
+                parent.recycle();
+            }
+        }
+        return mBoundsDuplicateAncestor;
+    }
+
+    /**
+     * Get a child with duplicate bounds in the screen, if one exists.
+     *
+     * @return A child with duplicate bounds or {@code null} if none exists.
+     */
+    public List<SwitchAccessNodeCompat> getDescendantsWithDuplicateBounds() {
+        Rect myBounds = new Rect();
+        getBoundsInScreen(myBounds);
+        List<SwitchAccessNodeCompat> descendantsWithDuplicateBounds = new ArrayList<>();
+        addDescendantsWithBoundsToList(descendantsWithDuplicateBounds, myBounds);
+        return descendantsWithDuplicateBounds;
+    }
+
+    private void addDescendantsWithBoundsToList(
+            List<SwitchAccessNodeCompat> listOfNodes, Rect bounds) {
+        Rect childBounds = new Rect();
+        for (int i = 0; i < getChildCount(); i++) {
+            SwitchAccessNodeCompat child = getChild(i);
+            if (child == null) {
+                continue;
+            }
+            child.getBoundsInScreen(childBounds);
+            if (bounds.equals(childBounds) && !listOfNodes.contains(child)) {
+                child.mBoundsDuplicateAncestor = true;
+                listOfNodes.add(child);
+                child.addDescendantsWithBoundsToList(listOfNodes, bounds);
+            } else {
+                // Children can't be bigger than parents, so once the bounds are different they
+                // must be smaller, and further descendants won't duplicate the bounds
+                child.recycle();
+            }
+        }
+    }
+
+    /**
      * Obtain a new copy of this object. The resulting node must be recycled for efficient use
      * of underlying resources.
      *
@@ -170,6 +224,7 @@ public class SwitchAccessNodeCompat extends AccessibilityNodeInfoCompat {
             obtainedInstance.mVisibleBoundsInScreen = new Rect(mVisibleBoundsInScreen);
         }
 
+        obtainedInstance.mBoundsDuplicateAncestor = mBoundsDuplicateAncestor;
         return obtainedInstance;
     }
 
@@ -177,7 +232,6 @@ public class SwitchAccessNodeCompat extends AccessibilityNodeInfoCompat {
         if (!mVisibilityCalculated) {
             mVisibleBoundsInScreen = new Rect();
             getBoundsInScreen(mVisibleBoundsInScreen);
-
             /* Deal with visibility implications for windows above */
             Rect windowBoundsInScreen = new Rect();
             for (int i = 0; i < mWindowsAbove.size(); ++i) {
@@ -188,7 +242,6 @@ public class SwitchAccessNodeCompat extends AccessibilityNodeInfoCompat {
                     adjustRectToAvoidIntersection(mVisibleBoundsInScreen, windowBoundsInScreen);
                 }
             }
-
             mVisibilityCalculated = true;
         }
     }

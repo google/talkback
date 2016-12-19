@@ -26,11 +26,13 @@ import android.view.KeyEvent;
 
 import com.android.switchaccess.KeyComboPreference;
 import com.android.switchaccess.SwitchAccessPreferenceActivity;
+import com.android.talkback.BuildConfig;
 import com.android.talkback.R;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
@@ -47,8 +49,10 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 @SuppressWarnings("deprecation")
-@Config(emulateSdk = 18)
-@RunWith(RobolectricTestRunner.class)
+@Config(
+        constants = BuildConfig.class,
+        sdk = 21)
+@RunWith(RobolectricGradleTestRunner.class)
 public class PreferenceActivityTest {
 
     private final Context mContext = RuntimeEnvironment.application.getApplicationContext();
@@ -215,6 +219,24 @@ public class PreferenceActivityTest {
     }
 
     @Test
+    public void whenOptionScanningEnabled_shouldShowOnlyOptionHighlightPref() {
+        setStringPreference(R.string.pref_scanning_methods_key,
+                mContext.getString(R.string.option_scanning_key));
+        SwitchAccessPreferenceActivity activity = getPrefActivity();
+        assertTrue(preferencePresent(activity, R.string.pref_highlights_key));
+        assertFalse(preferencePresent(activity, R.string.pref_standard_highlight_key));
+    }
+
+    @Test
+    public void whenOptionScanningDisabled_shouldShowOnlyStandardHighlightPref() {
+        setStringPreference(R.string.pref_scanning_methods_key,
+                mContext.getString(R.string.views_linear_ime_row_col_key));
+        SwitchAccessPreferenceActivity activity = getPrefActivity();
+        assertTrue(preferencePresent(activity, R.string.pref_standard_highlight_key));
+        assertFalse(preferencePresent(activity, R.string.pref_highlights_key));
+    }
+
+    @Test
     public void whenOptionScanningAndAutoScanEnabled_optionScanningShouldBeDisabled() {
         setStringPreference(R.string.pref_scanning_methods_key,
                 mContext.getString(R.string.option_scanning_key));
@@ -239,12 +261,10 @@ public class PreferenceActivityTest {
                 nextKeyAssignmentPref.getTitle());
         assertEquals(mContext.getString(R.string.action_name_click),
                 clickKeyAssignmentPref.getTitle());
-        assertEquals(mContext.getString(R.string.title_pref_primary_scan_style),
-                highlightColor0Pref.getTitle());
     }
 
     @Test
-    public void whenOptionScanningDisabled_stringsMentionOptionScanning() {
+    public void whenOptionScanningEnabled_stringsMentionOptionScanning() {
         setStringPreference(R.string.pref_scanning_methods_key,
                 mContext.getString(R.string.option_scanning_key));
         SwitchAccessPreferenceActivity activity = getPrefActivity();
@@ -364,6 +384,14 @@ public class PreferenceActivityTest {
             assertFalse(defaultColors.contains(defaultColor));
             defaultColors.add(defaultColor);
         }
+    }
+
+    @Test
+    public void testIsGlobalMenuAutoSelectOn_returnsCorrectValue() {
+        SwitchAccessPreferenceActivity.setGlobalMenuAutoselectOn(mContext, true);
+        assertTrue(SwitchAccessPreferenceActivity.isGlobalMenuAutoselectOn(mContext));
+        SwitchAccessPreferenceActivity.setGlobalMenuAutoselectOn(mContext, false);
+        assertFalse(SwitchAccessPreferenceActivity.isGlobalMenuAutoselectOn(mContext));
     }
 
     private void setStringPreference(int prefStringId, String value) {

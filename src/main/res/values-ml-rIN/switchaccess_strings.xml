@@ -2,25 +2,23 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="switch_service_name" msgid="6043415138576713888">"ആക്‌സസ്സ് മാറുക"</string>
-    <string name="switch_access_service_description" msgid="7316829370005579941">"കോൺഫിഗർ ചെയ്യാനാവുന്ന കീ സംയോജനങ്ങൾ ഉപയോഗിച്ച് നിങ്ങളുടെ ഉപകരണം നിയന്ത്രിക്കുന്നതിന് \'ആക്‌സസ്സ് മാറുക\' എന്നത് നിങ്ങളെ അനുവദിക്കുന്നു. ക്ലിക്കുചെയ്യാവുന്ന ഇനങ്ങളിലേക്ക് ഫോക്കസ് നീക്കിക്കൊണ്ട് അവയെ തിരഞ്ഞെടുക്കാനാവും."</string>
-    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"സ്വയമേവയുള്ള സ്‌കാൻ"</string>
-    <string name="title_pref_auto_scan" msgid="6856662972215508038">"ഓട്ടോസ്കാൻ സജീവമാക്കുക"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"കാലതാമസം"</string>
+    <string name="switch_access_service_description" msgid="1958519878116811543">"ഒന്നോ അതിലധികമോ സ്വിച്ചുകൾ ഉപയോഗിച്ചുകൊണ്ട് ഇനങ്ങൾ സ്കാൻ ചെയ്യാനും തിരഞ്ഞെടുക്കാനും സ്വിച്ച് ആക്‌സസ് നിങ്ങളെ അനുവദിക്കുന്നു."</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"സഹായവും ഫീഡ്‌ബാക്കും"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"സ്വയ-സ്‌കാൻ"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"സ്വയ-സ്‌കാൻ സമയം"</string>
     <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"വിപരീതദിശയിലുള്ള യാന്ത്രിക സ്‌കാൻ"</string>
-  <plurals name="auto_scan_time_delay_summary_format">
-    <item quantity="one" msgid="815853953952465870">"ഒരു സെക്കൻഡ്"</item>
-    <item quantity="other" msgid="1223387233862989964">"%.2f സെക്കൻഡ്"</item>
-  </plurals>
+    <plurals name="auto_scan_time_delay_summary_format" formatted="false" msgid="5524438721359954583">
+      <item quantity="other">%.2f സെക്കൻഡ്</item>
+      <item quantity="one">ഒരു സെക്കൻഡ്</item>
+    </plurals>
     <string name="title_pref_scanning_methods" msgid="2351427385843210311">"സ്കാൻ രീതി"</string>
-    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"കീബോർഡ് സ്കാനിംഗ്"</string>
-    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"കാഴ്‌ച സ്കാനിംഗ്"</string>
     <string name="title_pref_category_key_mappings" msgid="463227090301036752">"പ്രവർത്തനങ്ങൾക്ക് കീ നൽകുന്നു"</string>
     <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"സ്കാനിംഗിനായി കീകൾ നിയോഗിക്കുക"</string>
     <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' എന്ന കീ ഇതിനകം തന്നെ \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' എന്നതിലേക്ക് നിയോഗിച്ചിട്ടുണ്ട്"</string>
-  <plurals name="label_num_keys_assigned_format">
-    <item quantity="one" msgid="8372086689828893172">"%d കീ നിയോഗിച്ചു"</item>
-    <item quantity="other" msgid="2361393301173230834">"%d കീകൾ നിയോഗിച്ചു"</item>
-  </plurals>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="8070929030388121623">
+      <item quantity="other">%d കീകൾ നിയോഗിച്ചു</item>
+      <item quantity="one">%d കീ നിയോഗിച്ചു</item>
+    </plurals>
     <string name="option_scan_switch_format" msgid="2034348456907055979">"ഓപ്ഷൻ സ്കാൻ സ്വിച്ച് %1$d"</string>
     <string name="action_name_next" msgid="4106603510441280028">"അടുത്തത്"</string>
     <string name="action_name_previous" msgid="5382750123072539005">"മുമ്പത്തെ"</string>
@@ -28,6 +26,7 @@
     <string name="action_name_long_click" msgid="5708679123666477849">"ദീർഘനേരം അമർത്തുക"</string>
     <string name="action_name_scroll_forward" msgid="6969788891937406270">"മുമ്പിലേക്ക് സ്‌ക്രോൾ ചെയ്യുക"</string>
     <string name="action_name_scroll_backward" msgid="579045012327139100">"പുറകിലേക്ക് സ്‌ക്രോൾ ചെയ്യുക"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"ഡിസ്മിസ് ചെയ്യുക"</string>
     <string name="context_menu_layout_description" msgid="330592638837220675">"സന്ദർഭ മെനു"</string>
     <string name="option_scanning_menu_button" msgid="4460266289722058928">"മെനു"</string>
     <string name="global_action_back" msgid="8326879739948707767">"മടങ്ങുക"</string>
@@ -48,8 +47,23 @@
     <string name="name_of_enter_key" msgid="6379785627490220649">"നല്‍കുക"</string>
     <string name="name_of_tab_key" msgid="6744983965001375397">"ടാബ്"</string>
     <string name="save" msgid="5398278773451196019">"സംരക്ഷിക്കുക"</string>
-    <string name="title_pref_highlight_0" msgid="3039542597362059267">"സ്‌കാനിംഗിനുപയോഗിക്കുന്ന ഹൈലൈറ്റിംഗ്"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"സ്കാനിംഗ് ഹൈലൈറ്റ് ശൈലി"</string>
     <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"പ്രാഥമിക സ്കാൻ ശൈലി"</string>
-    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"ഹൈലൈറ്റിന്റെ വർണ്ണം"</string>
-    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"ഹൈലൈറ്റിന്റെ കനം"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"ഹൈലൈറ്റ് നിറം"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"ഹൈലൈറ്റ് ലൈൻ ശൈലി"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="1781611399874689922">"സ്വയം തിരഞ്ഞെടുക്കൽ പ്രവർത്തനക്ഷമമാക്കുക"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="777214990214649732">"സ്വയം തിരഞ്ഞെടുക്കൽ പ്രവർത്തനരഹിതമാക്കുക"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"അടുത്ത പ്രതീകം"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"അടുത്ത വാക്ക്"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"അടുത്ത വരി"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"അടുത്ത പാരഗ്രാഫ്"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"അടുത്ത പേജ്"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"മുമ്പത്തെ പ്രതീകം"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"മുമ്പത്തെ വാക്ക്"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"മുമ്പത്തെ വരി"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"മുമ്പത്തെ പാരഗ്രാഫ്"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"മുമ്പത്തെ പേജ്"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"സ്വയമേവ സ്കാനിംഗ് ആരംഭിക്കുക"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"സ്വിച്ച് അമർത്താതെ തന്നെ സ്കാൻ ആരംഭിക്കുന്നു"</string>
 </resources>

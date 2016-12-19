@@ -16,6 +16,7 @@
 
 package com.android.switchaccess;
 
+import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +28,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
+import android.os.Build;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +50,7 @@ import java.util.Set;
  * Controller for the Switch Access overlay. The controller handles two operations: it outlines
  * groups of Views, and it presents context menus (with Views that are outlined).
  */
+@TargetApi(Build.VERSION_CODES.LOLLIPOP_MR1)
 public class OverlayController {
 
     private final SimpleOverlay mOverlay;
@@ -64,7 +67,7 @@ public class OverlayController {
     };
 
     /*
-     * TODO(PW) replace ugly map with a better solution. The better solution will likely change
+     * TODO replace ugly map with a better solution. The better solution will likely change
      * the preferences, which this approach avoids touching.
      */
     private static final Map<Integer, Integer> MAIN_TO_OUTER_HIGHLIGHT_COLOR_MAP;
@@ -219,7 +222,11 @@ public class OverlayController {
     private void configureOverlayBeforeShow() {
         // The overlay shouldn't capture touch events
         final WindowManager.LayoutParams params = mOverlay.getParams();
-        params.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            params.type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
+        } else {
+            params.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
+        }
         params.flags |= WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
         params.flags |= WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
 
@@ -243,7 +250,7 @@ public class OverlayController {
      * result in a layout that starts above the screen. So we split initialization into two
      * pieces, and here we find out where the overlay ended up and move it to be at the top
      * of the screen.
-     * TODO(pweaver) Separating the menu and highlighting should be a cleaner way to solve this
+     * TODO Separating the menu and highlighting should be a cleaner way to solve this
      * issue
      */
     private void configureOverlayAfterShow() {

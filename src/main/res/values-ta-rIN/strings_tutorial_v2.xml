@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"அணுகல்தன்மை பயிற்சி"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"TalkBack பயிற்சியைத் தொடங்கு"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack பயிற்சி"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack என்பது முக்கியமாகப் பார்வையற்றோர், பார்வைக் குறைபாடு உள்ளவர்களுக்காக வடிவமைக்கப்பட்ட திரைப் படிப்பான் ஆகும். இதன் மூலம் பேச்சுவடிவக் கருத்தைப் பயன்படுத்திச் சாதனத்துடன் ஊடாடலாம்."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBackஐ முடக்கு"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"அறிக"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"பயிற்சி செய்"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"<xliff:g id="INDEX">%1$d</xliff:g> பாடத்தைத் தொடங்கும்"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"பயிற்சிப் பாடம் <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"பாடம் 1: அடிப்படை வழிசெலுத்தல்"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"உலாவ, தொடவும். உலாவ, ஸ்வைப் செய்யவும், செயல்படுத்த, இருமுறை தட்டவும்"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"பகுதி 1: தொடுவதன் மூலம் அறிக"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"இயக்கப்பட்டதும், தொடுவதன் மூலம் அறிக அம்சமானது நீங்கள் விரல்களால் தொடும் எல்லாவற்றையும் சத்தமாகப் படிக்கும். திரையின் மையத்தில் உள்ள உருப்படிகளின் மேல் விரலை நகர்த்தவும். ஐந்து உருப்படிகளில் விரலை வைத்து, அதற்கான ஆடியோ குரலைக் கேட்ட பின், பாடம் தொடரும்."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"பகுதி 2: செயல்படுத்த, இருமுறை தட்டுதல்"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"கடைசியாகக் கேட்டதைச் செயல்படுத்த, எந்த இடத்திலும் இருமுறை தட்டவும். 7 ஆவதைக் கண்டறிந்து, அதை இப்போதே செயல்படுத்தலாம், அதற்குப் பிறகு தொடர, அடுத்து என்பதைச் செயல்படுத்தவும்."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"7 ஆவது செயல்படுத்தப்பட்டது. தொடர, அடுத்து பொத்தானைக் கண்டறிந்து செயல்படுத்தவும்"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"பகுதி 3: வழிசெலுத்தல் பாடங்கள்"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack பாடங்கள் ஒரேமாதிரியாக வரிசைப்படுத்தப்பட்டுள்ளன. மேல் பகுதியில் எந்த நேரத்திலும் உலாவ, படிக்க வசதியாகப் பாடம் உள்ளது. இதன் மேல் இடது மூலையில் பயிற்சி முகப்புப் பொத்தானும் உள்ளது. நடுப்பகுதியில் பயற்சிக்கான பகுதி உள்ளது. கீழ்ப் பகுதியில் செயல்நிலைக் குறிப்பானும் பாட வழிகாட்டல் பொத்தான்களும் உள்ளன. தொடர, இப்போதே அடுத்து என்பதைச் செயல்படுத்தவும்."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"பகுதி 4: உலாவுவதற்கு ஸ்வைப் செய்க"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"விரலினால் திரையை ஸ்வைப் செய்வதன் மூலமாகவும் உலாவலாம். பொதுவாக இடது புறம் ஸ்வைப் செய்தால் மேலேயும் இடது புறமும் செல்லலாம், வலது புறம் ஸ்வைப் செய்தால் கீழேயும் வலது புறமும் செல்லலாம். இப்போதே முயலவும்."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"பகுதி 5: பயிற்சி செய்தல்"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"விரலின் கீழ் உள்ளதைக் கேட்க, திரை முழுவதும் விரலை நகர்த்தவும். கேட்டதைச் செயல்படுத்த, எந்த இடத்திலும் இருமுறை தட்டவும். உலாவ, இடது அல்லது வலதுபக்கம் ஸ்வைப் செய்யவும்."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"பாடம் 2: ஸ்க்ரோல் செய்தல்"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"இரண்டு விரலைப் பயன்படுத்தி ஸ்க்ரோல் செய்வதன் மூலம், முன்னும் பின்னும் செல்லலாம்"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"பகுதி 1: இரு விரல்களால் ஸ்க்ரோல் செய்தல்"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"செங்குத்துப் பட்டியலில் ஸ்க்ரோல் செய்து, பட்டியல் உருப்படியைக் கண்டறியலாம், இரு விரல்களைப் பயன்படுத்தி மேலே அல்லது கீழே நகர்த்தலாம். கிடைமட்டப் பட்டியலில் ஸ்க்ரோல் செய்து, பட்டியல் உருப்படியைக் கண்டறியலாம், இரு விரல்களைப் பயன்படுத்தி இடதுபுறம் அல்லது வலதுபுறம் நகர்த்தலாம்."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"பகுதி 2: ஸ்க்ரோல் செய்வதற்கான குறுக்குவழிகள்"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"குறுக்குவழியைப் பயன்படுத்தி, பட்டியலில் முன்னே அல்லது பின்னே உடனடியாகச் செல்லலாம். முன் செல்ல, ஒரே நகர்வில் விரலை வலது புறம் நகர்த்தி, பின் இடது புறம் நகர்த்தவும். பின் செல்ல, விரலை இடது புறம் நகர்த்தி, பின் வலது புறம் நகர்த்தவும். இங்கே முயன்று பார்க்கவும்."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"பகுதி 3: பயிற்சி செய்தல்"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"இரண்டு விரல்களை மேலே அல்லது கீழே நகர்த்துவதன் மூலம், ஸ்க்ரோல் செய்யலாம். முன் செல்ல, விரலை வலது புறம் நகர்த்தி, பின் இடது புறம் நகர்த்தவும். பின் செல்ல, விரலை இடது புறம் நகர்த்தி, பின் வலது புறம் நகர்த்தவும்."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"பாடம் 3: TalkBack மெனுக்கள்"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"குளோபல் TalkBack மெனு, லோக்கல் TalkBack மெனு"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"பகுதி 1: குளோபல் TalkBack மெனு"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack இல் இரண்டு வெவ்வேறு மெனுக்கள் உள்ளன. முதல் மெனு - குளோபல் TalkBack (எப்போதும் ஒரே கட்டளைகள் இருக்கும்). ஒரே நகர்வில், விரலைக் கீழே நகர்த்தி, பின் வலது புறம் நகர்த்தி, அதிலிருந்து விரலை எடுப்பதன் மூலம் அதை இயக்கலாம். இப்போதே பயிற்சிப் பதிப்பை இயக்கவும்."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"மெனு விருப்பங்கள் திரையின் நடுவில் செங்குத்தாகப் பட்டியலிடப்பட்டுள்ளன. உலாவ முயலவும். முடிந்ததும், ரத்துசெய் என்பதைச் செயல்படுத்தவும்."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"பகுதி 2: லோக்கல் TalkBack மெனு"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"இரண்டாவது மெனு - லோக்கல் TalkBack மெனு. நீங்கள் கடைசியாகக் கேட்டதைப் பொறுத்து இந்த மெனுவில் உள்ள உருப்படிகள் வேறுபடும். ஒரே நகர்வில் விரலை மேலே நகர்த்தி, பின் வலது புறம் நகர்த்தி, அதிலிருந்து விரலை எடுப்பதன் மூலம் இந்த மெனுவை இயக்கலாம். இப்போதே பயிற்சி மெனுவை இயக்கவும்."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"பகுதி 3: பயிற்சி செய்தல்"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"குளோபல் TalkBack மெனுவை இயக்க, விரலைக் கீழே நகர்த்தி, பின் வலது புறம் நகர்த்தவும். லோக்கல் TalkBack மெனுவை இயக்க, விரலை மேலே நகர்த்தி, பின் வலது புறம் நகர்த்தவும்."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"கீழே நகர்த்தி வலது புறம் நகர்த்தவும்."</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"மேலே நகர்த்தி வலது புறம் நகர்த்தவும்"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"குளோபல் TalkBack மெனு: கீழே நகர்த்தி வலது புறம் நகர்த்தவும். லோக்கல் TalkBack மெனு: மேலே நகர்த்தி வலது புறம் நகர்த்தவும்"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"பாடம் 4: உரையில் நகர்தல்"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"உரையில் நகர்ந்து செல்லும் அமைப்புகளைத் தேர்வுசெய்தல்"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"பகுதி 1: வழிசெலுத்தல் அமைப்புகளைத் தேர்வுசெய்தல்"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"உரையானது பத்தியாக, வரியாக, சொல்லாக, எழுத்தாக வாசிக்க வேண்டுமா என்பதைக் கட்டுப்படுத்த TalkBack அனுமதிக்கும். ஒவ்வொரு எழுத்தாக வாசிப்பதன் மூலம், உச்சரிப்பை அறிந்துகொள்ள உதவலாம். கீழேயுள்ள உரையைத் தட்டி, எழுத்துகளுக்கான உரை வழிகாட்டல் வீதத்தை அமைக்கவும், அதற்குப் பிறகு, மேலும் கீழும் ஸ்வைப் செய்யவும்."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"இங்கே செங்குத்தாகப் பட்டியலிடப்பட்டுள்ள வாசித்தல் வீத விருப்பங்களை உலாவவும். எழுத்தாக வாசி எனும் விருப்பத்தைக் கண்டறிந்து இயக்கவும்."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"பகுதி 2: உரையில் நகர்தல்"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"இப்போது எழுத்தாக வாசி என்பதில் இருக்கிறீர்கள். மாதிரி உரையைத் தேர்ந்தெடுத்து, எழுத்தாக வாசிக்க, வலதுபுறம் ஸ்வைப் செய்யவும்."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"பகுதி 3: பயிற்சி செய்தல்"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"மேலும் கீழும் ஸ்வைப் செய்து, உரை வழிகாட்டல் வீதத்தை மாற்றலாம். வலதுபுறம் ஸ்வைப் செய்து, மாதிரி உரையில் அடுத்த எழுத்தைக் கேட்கலாம்."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"TalkBack பயிற்சிக்கான சில மாதிரி உரை இதோ. தலைவன் ஒருவன் தலைவியைத் தன் வீட்டிற்கு அழைத்துப் போகிறான். அந்நேரத்தில், தலைவியின் தோழி தலைவனைப் பார்த்து, \'இவளை நன்றாகப் பாதுகாக்க வேண்டும்\' என வற்புறுத்துகிறாள்.\n\n\'பெற்று அருமையாக வளர்ந்த தாய் தந்தையரை விட்டு இவள் உன்னோடு வருகிறாள். நீ நல்லது செய்தாலும், கெட்டது செய்தாலும், உன்பால் வைத்த அன்பால் உன்னையே நம்பும் இவளைக் கைவிடாதே. இவளுக்குத் துயரம் நேரிட்டால் அதனை உன்னையன்றிப் போக்குவார் வேறு எவரும் இல்லை. ஆதலால், உன் வீட்டில் இவளை நன்றாகக் கவனித்துக் கொள்ள வேண்டும்\'."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"பாடம் 5: உரையைத் திருத்துதல்"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"திருத்துதல் பெட்டியைச் செயல்படுத்தலாம், உள்ளிடலாம், கர்சரை நகர்த்தலாம், உரையைத் தேர்ந்தெடுத்து செயல்படுத்தலாம்"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"பகுதி 1: திருத்துதல் பெட்டியைச் செயல்படுத்துதல்"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"TalkBack மூலம் உரையை உள்ளிட, தேர்ந்தெடுக்க, மாற்ற, திருத்துதல் பெட்டியைப் பயன்படுத்தலாம். திருத்துதல் பெட்டியைச் செயல்படுத்த, அதை இருமுறை தட்டவும். திருத்துதல் பெட்டியைச் செயல்படுத்திய பிறகு, திரையின் கீழே விசைப்பலகை காட்டப்படும். விசைப்பலகையை நிராகரிக்க விரும்பினால், முந்தையது பொத்தானைத் தட்டவும். இப்போதே திருத்துதல் பெட்டியைச் செயல்படுத்த முயலவும். முடிந்ததும், இப்போது விசைப்பலகையின் மேலே உள்ள அடுத்து என்பதைச் செயல்படுத்தவும்."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"பகுதி 2: திருத்துதல் பெட்டியில் உள்ளிடுதல்"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"உள்ளிட, திருத்துதல் பெட்டியைச் செயல்படுத்தி, திரையில் காட்டப்படும் விசைப்பலகையில் விரலை நகர்த்தலாம். தேவையான எழுத்தை வாசிக்கும் போது, விரலை எடுத்து, அதைச் செயல்படுத்தவும். கீழே உள்ள திருத்துதல் பெட்டியில் செயல்படுத்தி உள்ளிடுவதை முயன்றுப் பார்க்கவும்."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"பகுதி 3: கர்சரைப் பயன்படுத்துதல்"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"சாதனத்தின் ஒலியளவுப் பொத்தான்களைப் பயன்படுத்தி அல்லது அக TalkBack மெனுவின் மூலம் கர்சரை நகர்த்தலாம். மெனுவில் கர்சர் கட்டுப்பாட்டு விருப்பத்தின் மூலம், உரையைத் தேர்ந்தெடுக்கலாம், வெட்டலாம், நகலெடுக்கலாம் அல்லது ஒட்டலாம். கீழே திருத்துதல் பெட்டியைச் செயல்படுத்தலாம், மாதிரி உரையைச் சுற்றிலும் கர்சரை நகர்த்தலாம்."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"சூர்யாவின் மின்னஞ்சல் முகவரி: surya@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"பகுதி 4: பயிற்சி செய்தல்"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"திருத்துதல் பெட்டியைச் செயல்படுத்த, இருமுறை தட்டவும். உள்ளிட, எழுத்தின் மீது விரலை நகர்த்தி, விரலை எடுக்கவும். ஒலியளவுப் பொத்தான்கள், அக TalkBack மெனுவின் மூலம் கர்சரை நகர்த்தவும். அக TalkBack மெனுவில் கர்சர் கட்டுப்பாட்டு விருப்பத்தைப் பயன்படுத்தி உரையைத் தேர்ந்தெடுத்து செயல்படுத்தவும்."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"உரையைத் திருத்துக"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"முந்தையது"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"அடுத்து"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"முந்தைய பாடம்"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"அடுத்த பாடம்"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"பயிற்சி முகப்பு"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"பாடம் %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"பகுதி %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"பகுதி %1$d / %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"இந்தப் பாடம் முடிந்தது. இன்னும் சில நிமிடங்களில் அடுத்த பாடம் தொடங்கும்"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"பயிற்சிப் பகுதி"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"பயிற்சிப் பயன்முறையில் %1$s செயல்படுத்தப்பட்டது. வெளியேற, ரத்துசெய் பொத்தானைச் செயல்படுத்தவும்."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"பயிற்சிக்கான முகப்புப் பொத்தான்"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"உருப்படி <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"வெளியேறு"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"தொடுவதன் மூலம் அறிக எனும் அம்சத்தை இயக்க வேண்டும்"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"இந்தப் பயிற்சிக்கு, தொடுவதன் மூலம் அறிக எனும் அம்சத்தை இயக்க வேண்டும். பயிற்சியைத் தொடங்கும் முன், தொடுவதன் மூலம் அறிக அம்சத்தை இயக்கவும்."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack முடக்கப்பட்டுள்ளது"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"இந்தப் பயிற்சிக்கு, TalkBackஐ இயக்க வேண்டும். பயிற்சியைத் தொடங்கும் முன், TalkBackஐ இயக்கவும்."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack இடைநீக்கப்பட்டது"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"அறிவிப்பு இடைநிறுத்தப்பட்டிருக்கும் போது TalkBack பயிற்சி கிடைக்காது. TalkBack அறிவிப்பை மீண்டும் தொடங்கி, தொடர்வதற்கு பயிற்சியை மறுதொடக்கம் செய்யவும்."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"மெனுவை விவரி"</string>
+</resources>

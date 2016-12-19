@@ -22,7 +22,7 @@ import android.accessibilityservice.AccessibilityService;
 
 /**
  * Enum that associates preferences with global actions.
- * TODO (AM) rename to be less similar to keyboardaction class
+ * TODO rename to be less similar to keyboardaction class
  **/
 public enum KeyboardBasedGlobalAction {
     BACK(R.string.pref_key_mapped_to_back_key, AccessibilityService.GLOBAL_ACTION_BACK),

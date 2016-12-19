@@ -20,11 +20,10 @@ import android.content.Context;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.AbsListView;
-import android.widget.GridView;
 import android.widget.TabWidget;
 
 import com.android.talkback.R;
-import com.android.utils.AccessibilityNodeInfoUtils;
+import com.android.utils.Role;
 
 /**
  * Formats speech for {@link AbsListView} and {@link TabWidget} widgets.
@@ -32,8 +31,8 @@ import com.android.utils.AccessibilityNodeInfoUtils;
 public class RuleContainer implements NodeSpeechRule {
     @Override
     public boolean accept(AccessibilityNodeInfoCompat node, AccessibilityEvent ev) {
-        return AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, AbsListView.class)
-                || AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, TabWidget.class);
+        int role = Role.getRole(node);
+        return role == Role.ROLE_GRID || role == Role.ROLE_TAB_BAR || role == Role.ROLE_LIST;
     }
 
     @Override
@@ -45,17 +44,8 @@ public class RuleContainer implements NodeSpeechRule {
 
     private CharSequence formatWithChildren(
             Context context, AccessibilityNodeInfoCompat node, int childCount) {
-        final CharSequence type;
-
-        if (AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, GridView.class)) {
-            type = context.getString(R.string.value_gridview);
-        } else if (AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, TabWidget.class)) {
-            type = context.getString(R.string.value_tabwidget);
-        } else {
-            type = context.getString(R.string.value_listview);
-        }
-
+        final CharSequence roleText = Role.getRoleDescriptionOrDefault(context, node);
         return context.getResources().getQuantityString(R.plurals.template_containers, childCount,
-                type, childCount);
+                roleText, childCount);
     }
 }

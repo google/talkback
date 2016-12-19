@@ -22,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.android.talkback.R;
+import com.android.utils.SharedPreferencesUtils;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -98,7 +99,18 @@ public class KeyComboPreference extends DialogPreference implements DialogInterf
      * @return The {@code Set<Long>} of the keys assigned to the preference
      */
     public static Set<Long> getKeyCodesForPreference(Context context, String key) {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return getKeyCodesForPreference(SharedPreferencesUtils.getSharedPreferences(context),
+                key);
+    }
+
+    /**
+     * Returns the set of long codes of the keys assigned to a preference.
+     *
+     * @param prefs The shared preferences
+     * @param key The preference key
+     * @return The {@code Set<Long>} of the keys assigned to the preference
+     */
+    public static Set<Long> getKeyCodesForPreference(SharedPreferences prefs, String key) {
         Set<Long> result = new HashSet<>();
         try {
             Set<String> longPrefStringSet = prefs.getStringSet(key, Collections.EMPTY_SET);
@@ -344,7 +356,7 @@ public class KeyComboPreference extends DialogPreference implements DialogInterf
          * problematic situations can arise.
          */
         PreferenceManager preferenceManager = getPreferenceManager();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(getContext());
         Map<String, ?> prefMap = prefs.getAll();
         String myKey = getKey();
         for (String key : prefMap.keySet()) {

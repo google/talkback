@@ -2,25 +2,23 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="switch_service_name" msgid="6043415138576713888">"ප්‍රවේශය මාරු කරන්න"</string>
-    <string name="switch_access_service_description" msgid="7316829370005579941">"වින්‍යාස කළ හැකි යතුරු එකතුවක් භාවිතයෙන් ඔබට පාලනය කිරීමට පාලනය මාරු කරනයට ඉඩ දෙයි. ක්ලික් කළ හැකි අයිතමයකට ඔබගේ යොමු කිරීම ගෙන ගිය හැක සහ එය තෝරන්න."</string>
-    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"ස්වයංක්‍රිය පරිලෝකනය"</string>
-    <string name="title_pref_auto_scan" msgid="6856662972215508038">"ස්වයංක්‍රිය පරිලෝකනය සබල කරන්න"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"කාල ප්‍රමාදය"</string>
+    <string name="switch_access_service_description" msgid="1958519878116811543">"ප්‍රවේශය මාරු කිරීම ඔබට මාරු කිරීම් එකක් හෝ කිහිපයක් භාවිතයෙන් අයිතම ස්කෑන් කිරීමට සහ තේරීමට ඉඩ දෙයි."</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"උදවු සහ ප්‍රතිපෝෂණ"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"ස්වයංක්‍රිය ස්කෑන් කිරීම"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"ස්වයංක්‍රිය ස්කෑන් කිරීමේ වේලාව"</string>
     <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"ප්‍රතිලෝම ස්වයං ස්කෑන් කිරීම"</string>
-  <plurals name="auto_scan_time_delay_summary_format">
-    <item quantity="one" msgid="815853953952465870">"1 තත්පරයයි"</item>
-    <item quantity="other" msgid="1223387233862989964">"තත්පර %.2f"</item>
-  </plurals>
+    <plurals name="auto_scan_time_delay_summary_format" formatted="false" msgid="5524438721359954583">
+      <item quantity="one">තත්පර %.2f</item>
+      <item quantity="other">තත්පර %.2f</item>
+    </plurals>
     <string name="title_pref_scanning_methods" msgid="2351427385843210311">"පරිලෝකන ක්‍රමය"</string>
-    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"යතුරු පුවරුව පරිලෝකනය කිරීම"</string>
-    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"පරිලෝකනය කිරීම බලන්න"</string>
     <string name="title_pref_category_key_mappings" msgid="463227090301036752">"ක්‍රියාවට යතුරු පවරන්න"</string>
     <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"පරිලෝකනය කිරීම සඳහා යතුරු පවරන්න"</string>
     <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' යතුර දැනටමත් \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' වෙත පවරා ඇත"</string>
-  <plurals name="label_num_keys_assigned_format">
-    <item quantity="one" msgid="8372086689828893172">"යතුරු %dක් පවරන ලදී"</item>
-    <item quantity="other" msgid="2361393301173230834">"යතුරු %dක් පවරන ලදී"</item>
-  </plurals>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="8070929030388121623">
+      <item quantity="one">යතුරු %dක් පවරන ලදී</item>
+      <item quantity="other">යතුරු %dක් පවරන ලදී</item>
+    </plurals>
     <string name="option_scan_switch_format" msgid="2034348456907055979">"විකල්ප පරිලෝකනය කිරීම් මාරුව %1$d"</string>
     <string name="action_name_next" msgid="4106603510441280028">"ඊළඟ"</string>
     <string name="action_name_previous" msgid="5382750123072539005">"පෙර"</string>
@@ -28,6 +26,7 @@
     <string name="action_name_long_click" msgid="5708679123666477849">"දිගු එබීම"</string>
     <string name="action_name_scroll_forward" msgid="6969788891937406270">"ඉදිරියට අනුචලනය කරන්න"</string>
     <string name="action_name_scroll_backward" msgid="579045012327139100">"පසුපසට අනුචලනය කරන්න"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"අස් කරන්න"</string>
     <string name="context_menu_layout_description" msgid="330592638837220675">"ප්‍රකරණ මෙනුව"</string>
     <string name="option_scanning_menu_button" msgid="4460266289722058928">"මෙනුව"</string>
     <string name="global_action_back" msgid="8326879739948707767">"ආපසු"</string>
@@ -48,8 +47,23 @@
     <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
     <string name="name_of_tab_key" msgid="6744983965001375397">"පටිත්ත"</string>
     <string name="save" msgid="5398278773451196019">"සුරකින්න"</string>
-    <string name="title_pref_highlight_0" msgid="3039542597362059267">"පරිලෝකනය කිරීම සඳහා භාවිත කළ උද්දීපනය කිරීම"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"ස්කෑන් කිරීම් උද්දීපන විලාසය"</string>
     <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"ප්‍රාථමික පරිලෝකන විලාසය"</string>
-    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"උද්දීපන වර්ණය"</string>
-    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"උද්දීපන ඝනත්වය"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"උද්දීපන වර්ණය"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"උද්දීපන පේළි විලාසය"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="1781611399874689922">"ස්වයං-තේරීම සබල කරන්න"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="777214990214649732">"ස්වයං-තේරීම අබල කරන්න"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"ඊළඟ අනුලකුණ"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"ඊළඟ වචනය"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"ඊළඟ පේළිය"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"ඊළඟ ඡේදය"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"ඊළඟ පිටුව"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"පෙර අනුලකුණ"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"පෙර වචනය"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"පෙර පේළිය"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"පෙර ඡේදය"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"පෙර පිටුව"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"ස්කෑන් කිරීම ස්වයංක්‍රියව ආරම්භ වේ"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"මාරු කිරීම එබීමෙන් තොරව ස්කෑන් කිරීම ආරම්භ වේ"</string>
 </resources>

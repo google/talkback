@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"無障礙教學課程"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"啟動 TalkBack 教學課程"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack 教學課程"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack 是為視障人士而設的螢幕閱讀器，可與備有朗讀功能的裝置互動。"</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"關閉 TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"瞭解"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"實習"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"教學課程第 <xliff:g id="INDEX">%1$d</xliff:g> 部分"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"實習課程第 <xliff:g id="INDEX">%1$d</xliff:g> 部分"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"第 1 課：基本導覽"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"輕觸瀏覽、快速滑動瀏覽、輕按兩下啟動"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"第 1 部分：輕觸探索"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"啟用後，即可透過「輕觸探索」聽取手指下的字詞。在位於螢幕中心的項目上移動手指。探索五個項目後，課程便會繼續。"</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"第 2 部分：輕按兩下即可啟動"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"如要啟動您最後聽到的項目，請在任何地方輕按兩下。立即尋找並啟動項目 7。如要在完成後繼續，請啟動「繼續」。"</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"已啟動項目 7。如要繼續，請尋找並啟動「繼續」按鈕。"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"第 3 部分：導覽教學"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack 教學課程的顯示方式大致相同。您可以隨時在螢幕頂部尋找和閱讀教學課程。左上方設有「教學課程主頁」按鈕。實習區位於中央。底部設有進度指標及教學課程導覽按鈕。如要繼續，請啟動「繼續」。"</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"第 4 部分：滑動探索"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"您亦可以使用手指快速滑動螢幕，以探索項目。向左快速滑動即可向上及向左探索，向右快速滑動即可向下及向右探索。立即嘗試。"</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"第 5 部分：實習"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"如要聽取手指下的內容，請在螢幕上移動手指。在任何地方輕按兩下即可啟動您聽到的內容。向左或向右快速滑動即可探索內容。"</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"第 2 課：捲動"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"兩指捲動，向前及向後捲動"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"第 1 部分：雙指捲動"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"如要捲動垂直清單，請尋找清單項目，然後向上或向下移動手指。如要捲動橫向清單，請尋找清單項目，然後向左或向右移動手指。"</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"第 2 部分：捲動快速鍵"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"您可以使用快速鍵在清單上向前或向後移動。以單一動作向右再向左移動一隻手指，即可向前移動。向左再向右移動一隻手指，即可向後移動。在此嘗試操作。"</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"第 3 部分：實習"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"向上或向下滑動兩隻手指即可捲動。向右再向左移動一隻手指即可向前捲動。向左再向右移動一隻手指即可向後捲動。"</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"第 3 課：TalkBack 選單"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"通用 TalkBack 選單、本地 TalkBack 選單"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"第 1 部分：通用 TalkBack 選單"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack 備有兩個選單。第一個是指令不變的通用 TalkBack 選單。以單一動作向下再向右移動手指，然後提起手指，即可啟動此選單。立即啟動練習選單。"</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"選單選項垂直列於螢幕中央。立即尋找。完成後，請啟動「取消」。"</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"第 2 部分：本地 TalkBack 選單"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"第二個選單是本地 TalkBack 選單。此選單的項目視乎您上一次聽到的內容而定。以單一動作向上再向右移動一隻手指，然後提起手指，即可啟動此選單。立即啟動練習選單。"</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"第 3 部分：練習"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"向下再向右移動手指，即可啟動通用 TalkBack 選單。向上再向右移動手指，即可啟動本地 TalkBack 選單。"</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"先向下再向右"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"先向上再向右"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"通用 TalkBack 選單：先向下再向右；本地 TalkBack 選單：先向上再向右"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"第 4 課：文字導覽"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"選擇文字導覽設定"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"第 1 部分：選擇導覽設定"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack 讓您控制系統朗讀段落、字行、字詞，還是字元。「朗讀字元」可協助您串出字詞。輕按下方文字，然後向上及向下快速滑動，即可設定字元導覽速度。"</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"探索在此垂直列出的朗讀速度選項。尋找並啟動「朗讀字元」選項。"</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"第 2 部分：導覽文字"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"您正在按照字元閱讀。如要朗讀字元，請選取樣本文字，然後向右快速滑動。"</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"第 3 部分：實習"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"向上及向下快速滑動，即可變更文字導覽速度。向右快速滑動即可朗讀樣本文字的下一個字元。"</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"以下是一些 TalkBack 練習的範例。男士驚訝地問：「Kansas 喺邊？」Dorothy 傷心地回答：「我唔知，但呢度係我屋企，我肯定佢喺度。」\n\n男士繼續對 Toto 說：「好有可能。唔，Oz 無所不能，我相信佢可以幫您搵到 Kansas，但您首先要去見佢，但見佢一啲都唔容易，因為大巫師唔鍾意見任何人，佢有自己嘅一套，但您究竟想點？」"</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"第 5 課：文字編輯"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"啟動編輯框、輸入文字、移動游標、選取及操作文字"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"第 1 部分：啟動編輯框"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"TalkBack 讓您使用編輯框輸入、選取和編輯文字。輕按編輯框兩下即可啟動編輯框。啟動後，鍵盤會在螢幕底部出現。輕按「返回」按鈕即可關閉鍵盤。立即嘗試啟動編輯框。完成後，請啟動鍵盤上方的「繼續」。"</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"第 2 部分：在編輯框中輸入文字"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"啟動編輯框，然後將手指放在螢幕鍵盤上滑動，即可輸入文字。聽到要輸入的字元時，提起手指即可啟動該字元。嘗試啟動下方的編輯框並輸入文字。"</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"第 3 部分：使用游標"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"您可以使用裝置音量按鈕，或透過裝置 TalkBack 選單移動游標。此選單上的「游標」控制項讓您選取、剪貼或複製文字。啟動下方的編輯框，然後在樣本文字附近移動游標。"</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Dorothy Gale 的電郵地址是 dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"第 4 部分：實習"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"輕按兩下即可啟動編輯框。如要輸入文字，可在字元上移動手指，然後提起手指。使用音量按鈕及裝置 TalkBack 選單移動游標。使用裝置 TalkBack 選單上的「游標」控制項選取及操作文字。"</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"編輯文字"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"返回"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"繼續"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"上一部分教學課程"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"下一課"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"教學課程主頁"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"第 %1$d 課"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"第 %1$d 部分"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"第 %1$d 部分 (共 %2$d 個部分)"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"練習已完成，即將進入下一課"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"實習區"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"「%1$s」已經喺實習模式中啟動。如果想離開，請啟動「取消」按鈕。"</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"教學課程主按鈕"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"第 <xliff:g id="INDEX">%1$d</xliff:g> 項"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"結束"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"請啟用「輕觸探索」"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"這個教學課程需要使用「輕觸探索」功能。請啟用「輕觸探索」，然後再啟動教學課程。"</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack 已停用"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"這個教學課程需要啟用 TalkBack。請開啟 TalkBack，然後再啟動教學課程。"</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack 已停權"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"語音回應功能已暫停，因此無法使用 TalkBack 教學課程。如要繼續，請恢復 TalkBack 語音回應功能，並重新啟動教學課程。"</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"讀出選單"</string>
+</resources>

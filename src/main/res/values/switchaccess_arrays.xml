@@ -85,11 +85,11 @@
             This option uses row-column scanning for keyboards, but linear scanning the rest of
             the time.
          -->
-        <item>Row-column scan keyboards only</item>
+        <item>Row-column (keyboard only)</item>
         <!--
             See previous item for context. This choice uses row-column scanning everywhere
          -->
-        <item>Row-column scan everything</item>
+        <item>Row-column</item>
         <!--
             Option scanning is a method that the user chooses to indicate how the views in a
             window should be highlighted/traversed. In option scanning the views are highlighted

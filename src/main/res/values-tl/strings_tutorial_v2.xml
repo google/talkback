@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Tutorial sa Accessibility"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Ilunsad ang tutorial sa TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Tutorial sa TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"Ang TalkBack ay isang screen reader na pangunahing ginawa para sa mga taong hindi nakakakita at malabo ang mata. Nabibigyang-daan nito ang pakikipag-ugnayan sa device gamit ang pasalitang feedback."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"I-off ang TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Matuto"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Magsanay"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"aralin sa pag-aaral <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"aralin para sa pagsasanay <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Aralin 1: Basic na navigation"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Pindutin upang i-explore, mag-swipe upang i-explore, i-double tap upang i-activate"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Bahagi 1: Explore by Touch"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Kapag-naka-enable, magbibigay-daan sa iyo ang Explore by Touch na marinig kung ano ang pinindot mo. I-explore ang mga item na nasa gitna ng iyong screen gamit ang iyong daliri. Pagkatapos mong ma-explore ang limang item, magpapatuloy ang aralin."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Bahagi 2: I-double tap upang i-activate"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Upang ma-activate ang huling item na iyong narinig, mag-double tap kahit saan. Hanapin ang Item 7 at i-activate na ito. Pagkatapos ay i-activate ang Susunod upang magpatuloy."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Na-activate na ang Item 7. Hanapin at i-activate ang button na Susunod upang magpatuloy"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Bahagi 3: Pagna-navigate sa mga aralin"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Magkakatulad ang pagkakaayos ng mga aralin sa TalkBack. Makikita sa itaas na bahagi ang aralin, na maaari mong i-explore at basahin anumang oras. Mayroon din itong isang button ng Home ng Tutorial sa kaliwang sulok sa itaas. Ang gitnang bahagi ay may lugar para sa pagsasanay. Makikita sa ibaba ang isang indicator ng pag-usad at mga button para sa pag-navigate sa aralin. I-activate na ang Susunod upang magpatuloy."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Bahagi 4: Mag-swipe upang mag-explore"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Maaari ka ring mag-explore sa pamamagitan ng pagsa-swipe sa screen gamit ang iyong daliri. Karaniwan, makakapag-explore ka pataas at pakaliwa kapag nag-swipe pakaliwa, at makakapag-explore ka pababa at pakanan kapag nag-swipe pakanan. Subukan ito ngayon."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Bahagi 5: Pagsasanay"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Upang marinig kung ano ang nakatapat sa iyong daliri, galawin ito sa screen. Mag-double tap kahit saan upang ma-activate ang maririnig mo. Mag-swipe pakaliwa o pakanan upang mag-explore."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Aralin 2: Pag-ii-scroll"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Pag-ii-scroll, pagpunta sa susunod at pagbalik gamit ang dalawang daliri"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Bahagi 1: Pag-ii-scroll gamit ang dalawang daliri"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Upang mag-scroll sa isang patayong listahan, maghanap ng isang item sa listahan at pagkatapos ay galawin ang iyong dalawang daliri nang pataas o pababa. Upang mag-scroll sa isang pahalang na listahan, maghanap ng isang item sa listahan at pagkatapos ay galawin ang iyong dalawang daliri nang pakaliwa o pakanan."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Bahagi 2: Pag-ii-scroll sa mga shortcut"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Maaari kang pumunta sa susunod o bumalik sa isang listahan gamit ang isang shortcut. Upang pumunta sa susunod, mag-swipe pakanan pagkatapos ay pakaliwa gamit ang isang daliri. Upang bumalik, mag-swipe pakaliwa pagkatapos ay pakanan gamit ang isang daliri. Subukan ito rito."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Bahagi 3: Pagsasanay"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Mag-scroll sa pamamagitan ng pag-ii-slide ng dalawang daliri pataas o pababa. Pumunta sa susunod sa pamamagitan ng pag-swipe pakanan pagkatapos ay pakaliwa gamit ang isang daliri. Bumalik sa pamamagitan ng pag-swipe pakaliwa pagkatapos ay pakanan gamit ang isang daliri."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Aralin 3: Mga menu ng TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menu ng Global TalkBack, menu ng Local TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Bahagi 1: Menu ng Global TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"Ang TalkBack ay may dalawang magkaibang menu. Una, ang menu ng Global TalkBack, na palaging naglalaman ng magkakatulad na command. Maaari mo itong i-activate sa pamamagitan ng pag-swipe pababa pagkatapos ay pakanan nang isang beses gamit ang isang daliri, pagkatapos ay iangat ang iyong daliri. Mag-activate na ng bersyon sa pagsasanay."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Ang mga opsyon sa menu ay patayong nakalista sa gitna ng screen. Subukang mag-explore. Kapag tapos ka na, i-activate ang Kanselahin."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Bahagi 2: Menu ng Local TalkBack"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Ang pangalawang menu ay ang menu ng Local TalkBack. Magkakaiba ang mga item sa menu na ito depende sa kung ano ang huli mong narinig. Maaari mong i-activate ang menu na ito sa pamamagitan ng pag-swipe pataas pagkatapos ay pakanan nang isang beses gamit ang isang daliri, pagkatapos ay iangat ang iyong daliri. Mag-activate na ng menu sa pagsasanay."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Bahagi 3: Pagsasanay"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"I-swipe ang iyong daliri pababa pagkatapos ay pakanan upang i-activate ang menu ng Global TalkBack. I-swipe ang iyong daliri pataas pagkatapos ay pakanan upang i-activate ang menu ng Local TalkBack."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Pababa pagkatapos ay pakanan"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Pataas pagkatapos ay pakanan"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Menu ng Global TalkBack: Pababa pagkatapos ay pakanan. Menu ng Local TalkBack: Pataas pagkatapos ay pakanan"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Aralin 4: Navigation sa Text"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Pagpili ng mga setting ng navigation sa text"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Bahagi 1: Pagpili ng mga setting ng navigation"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"Ang TalkBack ay nagbibigay-daan sa iyong kontrolin kung babasahin sa iyo ang isang text nang paisa-isang parirala, linya, salita o character. Ang pagbabasa nang paisa-isang character ay makakatulong sa pagbabaybay. Itakda ang rate ng pag-navigate sa text sa mga character sa pamamagitan ng pagta-tap sa text sa ibaba, at pagsa-swipe pataas at pababa."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"I-explore ang mga opsyon sa rate ng pagbabasa na patayong nakalista rito. Hanapin at i-activate ang opsyon na Magbasa nang paisa-isang character."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Bahagi 2: Pagna-navigate sa text"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Nagbabasa ka na ngayon nang paisa-isang character. Piliin ang sample na text, pagkatapos ay mag-swipe pakanan upang magbasa nang paisa-isang character."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Bahagi 3: Pagsasanay"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Palitan ang rate ng pag-navigate sa text sa pamamagitan ng pagsa-swipe pataas at pababa. Basahin ang susunod na character sa sample na text sa pamamagitan ng pagsa-swipe pakanan."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Narito ang isang sample na text para sa pagsasanay sa TalkBack. \"Nasaan ang Kansas?\" ang gulat na gulat na tanong ng lalaki. \"Hindi ko alam,\" ang tugon ni Dorothy nang may halong lungkot, \"ngunit doon ako nakatira, at sigurado akong nariyan lang iyon.\"\n\n\"Malaki nga ang posibilidad noon. Kayang gawin ni Oz ang kahit ano; kaya siguro ay mahahanap niya ang Kansas para sa iyo. Ngunit kailangan mo muna siyang mapuntahan, at napakahirap noon; dahil ayaw ng Grand Wizard na makipagkita sa kahit sino, at kadalasan ay siya ang nasusunod. Ngunit ano ba ang gusto MO?\" ang sabi pa niya kay Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Aralin 5: Pag-e-edit ng text"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Pag-a-activate ng kahon sa pag-edit, pagta-type, paglilipat ng cursor, pagpili ng text at pagsasagawa ng pagkilos dito"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Bahagi 1: Pag-a-activate ng kahon sa pag-edit"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Sa TalkBack, magagamit mo ang isang kahon sa pag-edit upang mag-type, pumili at mag-edit ng text. Upang i-activate ang isang kahon sa pag-edit, i-double tap ito. Kapag na-activate mo na ang isang kahon sa pag-edit, magkakaroon ng isang keyboard sa ibaba ng screen. Madi-dismiss mo ang keyboard sa pamamagitan ng pagta-tap sa button na Bumalik. Subukan nang i-activate ang kahon sa pag-edit. Kapag tapos ka na, i-activate ang Susunod, na makikita na sa itaas ng keyboard."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Bahagi 2: Pagta-type sa isang kahon sa pag-edit"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Upang mag-type, i-activate ang kahon sa pag-edit at ilipat ang iyong daliri sa keyboard na nasa screen. Kapag narinig mo na ang gusto mong character, iangat ang iyong daliri upang i-activate ito. Subukang i-activate at mag-type sa kahon sa pag-edit sa ibaba."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Bahagi 3: Paggamit ng cursor"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Maaari mong ilipat ang isang cursor gamit ang mga volume button sa iyong device o sa pamamagitan ng menu ng Lokal na TalkBack. Sa pamamagitan ng opsyon sa pagkontrol ng Cursor sa menu na ito, makakapili, makakapag-cut, makakakopya o makakapag-paste ka rin ng text. I-activate ang kahon sa pag-edit sa ibaba at ilipat ang cursor sa sample na text."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Ang email address ni Dorothy Gale ay dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Bahagi 4: Pagsasanay"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"I-activate ang kahon sa pag-edit sa pamamagitan ng pagdo-double tap. Mag-type sa pamamagitan ng paglipat ng iyong daliri sa isang character at pag-angat sa iyong daliri. Ilipat ang cursor sa pamamagitan ng mga volume button at menu ng Lokal na TalkBack. Pumili ng text at magsagawa ng pagkilos dito gamit ang opsyon sa pagkontrol ng Cursor sa menu ng Lokal na TalkBack."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"I-edit ang text"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"NAKARAAN"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"SUSUNOD"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"NAKARAANG ARALIN"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"SUSUNOD NA ARALIN"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"HOME NG TUTORIAL"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Aralin %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Bahagi %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Bahagi %1$d ng %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Tapos na ang pagsasanay at magpapatuloy ito sa ilang sandali"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Lugar ng Pagsasanay"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"Na-activate na ang %1$s sa practice mode. I-activate ang button na Kanselahin upang lumabas."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Home Button ng Tutorial"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Item <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Lumabas"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Kinakailangan ang Explore by Touch"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Kailangan ng Explore by Touch para sa tutorial na ito. Paki-enable ang Explore by Touch bago ilunsad ang tutorial."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"Naka-disable ang TalkBack"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Kailangang i-enable ang TalkBack para sa tutorial na ito. Paki-on ang TalkBack bago ilunsad ang tutorial."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"Nasuspinde ang TalkBack"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Hindi available ang tutorial ng TalkBack habang naka-pause ang feedback. Mangyaring ipagpatuloy ang feedback sa TalkBack at muling ilunsad ang tutorial upang magpatuloy."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Ilarawan ang menu"</string>
+</resources>

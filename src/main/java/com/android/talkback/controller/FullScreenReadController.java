@@ -19,11 +19,10 @@ package com.android.talkback.controller;
 import android.annotation.TargetApi;
 import android.os.Build;
 
-// TODO(CB): Handle changing window content.  Look at hierarchy cache invalidation.
+// TODO: Handle changing window content.  Look at hierarchy cache invalidation.
 /**
  * Component used to control reading of the entire display.
  */
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public interface FullScreenReadController {
     /**
      * Releases all resources held by this controller and save any persistent

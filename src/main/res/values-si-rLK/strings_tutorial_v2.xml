@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"ප්‍රවේශ්‍යතා නිබන්ධනය"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"TalkBack නිබන්ධනය දියත් කරන්න"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack නිබන්ධනය"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack මූලික වශයෙන් අන්ධ සහ පෙනීම අඩු පුද්ගලයන් සඳහා තිර කියවනයකි. එය කථන ප්‍රතිපෝෂණ භාවිතයෙන් අන්තර්ක්‍රියාකාරිත්වයට ඉඩ දෙයි."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBack ක්‍රියාවිරහිත කරන්න"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"හදාරන්න"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"පුහුණුව"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"<xliff:g id="INDEX">%1$d</xliff:g> පාඩම හදාරන්න"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"පුහුණු වීම් පාඩම <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"1 පාඩම: මූලික සංචලනය"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"ගවේෂණය කිරීමට ස්පර්ශ කරන්න, ගවේෂණය කිරීමට ස්වයිප් කරන්න, සක්‍රිය කිරීමට දෙවරක් තට්ටු කරන්න"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"1 කොටස: ස්පර්ශයෙන් ගවේෂණය"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"සබල කළ විට, ස්පර්ශයෙන් ගවේෂණය ඔබට ඔබේ ඇඟිල්ලට යටින් ඇති දේ ඇසීමට සලස්වනු ඇත. ඔබේ තිරයේ මැද ඇති අයිතමවලට ඉහළින් ඔබේ ඇඟිල්ල ගෙන යන්න. ඔබ අයිතම පහක් ගවේෂණය කළ පසුව, පාඩම ඉදිරියට කරගෙන යනු ඇත."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"2 කොටස: සක්‍රිය කිරීමට දෙවරක් තට්ටු කරන්න"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"ඔබට ඇසුණ අවසන් අයිතමය සක්‍රිය කිරීමට, ඕනෑම තැනක දෙවරක් තට්ටු කරන්න. අයිතමය 7 සොයා එය දැන් සක්‍රිය කරන්න. එයින් පසු, දිගටම කරගෙන යාමට ඊළඟ සක්‍රිය කරන්න."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"අයිතමය 7 සක්‍රිය කරන ලදී. දිගටම කරගෙන යාමට ඊළඟ බොත්තම සොයා සක්‍රිය කරන්න"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"3 කොටස: පාඩම් සංචලනය"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack පාඩම් සමානව පිළිවෙළට සැකසේ. ඉහළම කොටසෙහි පාඩම ඇත, ඔබට එය ඕනෑම වේලාවක ගවේෂණය කිරීමට සහ කියවීමට හැකිය. එහි ඉහළ වම් කෙළවරේ නිබන්ධන මුල් පිටු බොත්තමක්ද ඇත. පහළින්ම ප්‍රගති දර්ශකයක්, සහ පාඩම් සංචලන බොත්තම් ඇත. දිගටම කරගෙන යාමට ඊළඟ සක්‍රිය කරන්න."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"4 කොටස: ගවේෂණය කිරීමට ස්වයිප් කරන්න"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"ඔබට ඔබගේ ඇඟිල්ලෙන් තිරය ස්වයිප් කිරීම මගින්ද ගවේෂණය කළ හැකිය. දකුණට ස්වයිප් කිරීම පහළට සහ දකුණට ගවේෂණය කරන අතරතුර, වමට ස්වයිප් කිරීම සාමාන්‍යයෙන් ඉහළට සහ වමට ස්වයිප් කරයි. එය දැන් උත්සාහ කරන්න."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"5 කොටස: පුහුණුව"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"ඔබේ ඇඟිල්ලට යටින් තිබෙන දේට සවන් දීමට, එය තිරය හරහා ගෙන යන්න. ඔබට ඇසෙන දේ සක්‍රිය කිරීමට ඕනෑම තැනක දෙවරක් තට්ටු කරන්න. ගවේෂණය කිරීමට වමට හෝ දකුණට ස්වයිප් කරන්න."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"2 පාඩම: අනුචලනය"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"ඇඟිලි දෙකේ අනුචලනය, ඉදිරියට සහ පසුපසට පැනීම"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"1 කොටස: ඇඟිලි දෙකේ අනුචලනය"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"සිරස් ලැයිස්තුවක් හරහා අනුචලනය කිරීමට, ලැයිස්තු අයිතමයක් සොයා ගෙන, අනතුරුව ඇඟිලි දෙක ඉහළට හෝ පහළට ගෙන යන්න. තිරස් ලැයිස්තුවක් හරහා අනුචලනය කිරීමට, ලැයිස්තු අයිතමයක් සොයා ගෙන, අනතුරුව ඇඟිලි දෙක වමට හෝ දකුණට ගෙන යන්න."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"2 කොටස: කෙටි මං අනුචලනය"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"ඔබට කෙටි මගක් භාවිතයෙන් ලැයිස්තුවක ඉදිරියට හෝ පසුපසට පැනීමට හැකිය. ඉදිරියට පැනීමට, තනි චලිතයකින් ඇඟිල්ල දකුණට ගෙන ගොස් අනතුරුව වමට ගෙන යන්න. පසුපසට පැනීමට, එක් ඇඟිල්ලක් වමට ගෙන ගොස් අනතුරුව දකුණට ගෙන යන්න. මෙහිදී එය උත්සාහ කර බලන්න."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"3 කොටස: පුහුණුව"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"ඇඟිලි දෙකකින් ඉහළට හෝ පහළට ලිස්සා යාමෙන් අනුචලනය කරන්න. එක් ඇඟිල්ලක් දකුණට ගෙන ගොස් අනතුරුව වමට ගෙන යාමෙන් ඉදිරියට පනින්න. එක් ඇඟිල්ලක් වමට ගෙන ගොස් අනතුරුව දකුණට ගෙන යාමෙන් පසුපසට පනින්න."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"3 පාඩම: TalkBack මෙනු"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"ගෝලීය TalkBack මෙනුව, ස්ථානීය TalkBack මෙනුව"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"1 කොටස: ගෝලීය TalkBack මෙනුව"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack හට එකිනෙකට වෙනස් මෙනු දෙකක් ඇත. පළමු TalkBack මෙනුවෙහි, සැම විටම එකම විධාන අඩංගුය. ඔබට එය එක් ඇඟිල්ලක් එක් චලිතයකින් පහළට ගෙන ගොස් අනතුරුව දකුණට ගෙන ගොස්, එයින් පසුව ඔබේ ඇඟිල්ල එසවීමෙන් සක්‍රිය කළ හැකිය. දැන් පුහුණු අනුවාදයක් සක්‍රිය කරන්න."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"මෙනු විකල්ප තිරය මැද සිරස්ව ලැයිස්තුගත කෙරේ. ගවේෂණය කිරීමට උත්සාහ කරන්න. ඔබ නිම කළ විට, අවලංගු කරන්න සක්‍රිය කරන්න."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"2 කොටස: ස්ථානීය TalkBack මෙනුව"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"දෙවන මෙනුව ස්ථානීය TalkBack මෙනුවයි. මෙම මෙනුවෙහි ඇති අයිතම ඔබ අවසන් වරට අැසූ දේ අනුව වෙනස් වේ. ඔබට මෙම මෙනුව එක් ඇඟිල්ලක් එක් චලිතයකින් ඉහළට ගෙන ගොස් අනතුරුව දකුණට ගෙන ගොස්, එයින් පසුව ඔබේ ඇඟිල්ල එසවීමෙන් සක්‍රිය කළ හැකිය. දැන් පුහුණු මෙනුවක් සක්‍රිය කරන්න."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"3 කොටස: පුහුණුව"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"ගෝලීය TalkBack මෙනුව සක්‍රිය කිරීමට ඔබේ ඇඟිල්ල පහළට ගෙන ගොස් අනතුරුව දකුණට ගෙන යන්න. ස්ථානීය TalkBack මෙනුව සක්‍රිය කිරීමට ඔබේ ඇඟිල්ල ඉහළට ගෙන ගොස් අනතුරුව දකුණට ගෙන යන්න."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"පහළට ගොස් දකුණට"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"ඉහළට ගොස් දකුණට"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"ගෝලීය TalkBack මෙනුව: පහළට ගෙන ගොස් අනතුරුව දකුණට. ස්ථානීය TalkBack මෙනුව: ඉහළට ගෙන ගොස් අනතුරුව දකුණට"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"4 පාඩම: පෙළ සංචලනය"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"පෙළ සංචලන සැකසීම් තේරීම"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"1 කොටස: සංචලන සැකසීම් තේරීම"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack ඔබට වරකට කියවන්නේ ඡේදයක්ද, පේළියක්ද, වචනයක්ද, හෝ අනුලකුණක්ද යන්න පාලනය කිරීමට ඔබට ඉඩ දෙයි. අනුලකුණු අනුව කියවීම අක්ෂර වින්‍යාසය සඳහා උදවු විය හැකිය. පහත පෙළ තට්ටු කර, අනතුරුව ඉහළට සහ පහළට ස්වයිප් කිරීමෙන් පෙළ සංචලන වේගය අනුලකුණුවලට සකසන්න."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"මෙහි සිරස්ව ලැයිස්තුගත කර ඇති කියවීම් වේග විකල්ප ගවේෂණය කරන්න. අනුලකුණු අනුව කියවීමේ විකල්පය සොයා සක්‍රිය කරන්න."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"2 කොටස: පෙළ සංචලනය"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"ඔබ දැන් අනුලකුණු අනුව කියවමින් සිටී. නියැදි පෙළ තෝරා, අනතුරුව අනුලකුණු අනුව කියවීමට දකුණට ස්වයිප් කරන්න."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"3 කොටස: පුහුණුව"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"ඉහළට සහ පහළට ස්වයිප් කිරීමෙන් පෙළ සංචලන වේගය වෙනස් කරන්න. දකුණට ස්වයිප් කිරීමෙන් නියැදි පෙළෙහි ඇති ඊළඟ අනුලකුණ කියවන්න."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"මේ තිබෙන්නේ TalkBack පරිචය සඳහා සමහර ආදර්ශ පෙළ වේ. \"කැන්සාස් තිබෙන්නේ කොහේද?\" විස්මයට පත් කරමින් මිනිසා ඇසුවේය. \"මම දන්නේ නැහැ,\" දුක්මුසුව ඩොරොති පිළිතුරු දුන්නාය, \"නමුත් එය මගේ නිවසයි, එමෙන්ම මට විශ්වාසයි එය කොහේ හරි තිබෙනවා කියා.\"\n\n\"බොහෝ විට වෙන්න පුළුවන්. හොඳයි, Ozට ඕනෑම දෙයක් කරන්න පුළුවන්; ඉතින් මම විශ්වාස කරනවා ඔහු ඔබ වෙනුවෙන් කැන්සාස් සොයා ගනීවි කියලා. නමුත් මුලින්ම ඔබ ඔහුව බැලීමට යා යුතුයි, එමෙන්ම එය දුෂ්කර කාර්යයක් වනු ඇත; මහා මායාකාරයා කිසිම කෙනෙකු බැලීමට කැමැති නැහැ, එමෙන්ම සාමාන්‍යයෙන් ඔහුට ඔහුගේම ක්‍රමයක් තිබෙනවා. නමුත් ඔබට අවශ්‍ය කුමක්ද?\" ඔහු කථාව දිගටම කරගෙන ගියා, ටොටෝට කථා කිරීමද."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"5 පාඩම: පෙළ සංස්කරණය කිරීම"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"සංස්කරණ කොටුව සක්‍රිය කිරීම, ටයිප් කිරීම, කර්සරයක් ගෙන යාම, පෙළ තේරීම සහ එය මත ක්‍රියා කිරීම"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"2 කොටස: සංස්කරණ කොටුවක් සක්‍රිය කිරීම"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"TalkBack සමගින්, ඔබට පෙළ ටයිප් කිරීමට, තේරීමට, සහ සංස්කරණය කිරීමට සංස්කරණ කොටුවක් භාවිත කළ හැකිය. සංස්කරණ කොටුවක් සක්‍රිය කිරීමට, එය දෙවරක් තට්ටු කරන්න. ඔබ සංස්කරණ කොටුවක් සක්‍රිය කිරීමෙන් පසුව, තිරයෙහි පහළින් යතුරු පුවරුවක් ලබා ගත හැකි වනු ඇත. ඔබට ආපසු බොත්තම ක්ලික් කිරීමෙන් යතුරු පුවරුව අස් කළ හැකිය. දැන් සංස්කරණ කොටුව සක්‍රිය කිරීමට උත්සාහ කරන්න. ඔබ නිම කළ විට, දැන් යතුරු පුවරුවට ඉහළින් ඇති, ඊළඟ සක්‍රිය කරන්න."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"2 කොටස: සංස්කරණ කොටුවක් තුළ ටයිප් කිරීම"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"ටයිප් කිරීමට, සංස්කරණ කොටුව සක්‍රිය කර ඔබේ ඇඟිල්ල තිරය මත යතුරු පුවරුව හරහා ගෙන යන්න. ඔබට අපේක්ෂිත අනුලකුණ ඇසුණ විට, එය සක්‍රිය කිරීමට ඔබේ ඇඟිල්ල ඔසවන්න. පහත සංස්කරණ කොටුව සක්‍රිය කිරීමට සහ එහි ටයිප් කිරීමට උත්සාහ කරන්න."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"3 කොටස: කර්සරයක් භාවිත කිරීම"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"ඔබට ඔබේ උපාංගයේ ඇති හඬ පරිමා බොත්තම් භාවිතයෙන්, හෝ ස්ථානීය TalkBack මෙනුව හරහා කර්සරයක් ගෙන යාමට හැකිය. මෙම මෙනුවෙහි ඇති කර්සර පාලන බොත්තම සමගින්, ඔබට පෙළ තේරීමට, කැපීමට, පිටපත් කිරීමට, හෝ ඇලවීමටද හැකිය. පහත සංස්කරණ කොටුව සක්‍රිය කර, කර්සරය නියැදි පෙළ වටා ගෙන යන්න."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"ඩොරති ගේල්ගේ ඊ-තැපැල් ලිපිනය dorothy@ozmail.com වේ"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"4 කොටස: පුහුණුව"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"දෙවරක් තට්ටු කිරීමෙන් සංස්කරණ කොටුව සක්‍රිය කරන්න. ඔබේ ඇඟිල්ල අනුලකුණක් හරහා ගෙන ගොස්, අනතුරුව ඔබේ ඇඟිල්ල එසවීමෙන් ටයිප් කරන්න. හඬ පරිමා බොත්තම් සහ ස්ථානීය TalkBack මෙනුව සමගින් කර්සරය ගෙන යන්න. ස්ථානීය TalkBack මෙනුව තුළ ඇති කර්සර පාලන විකල්පය භාවිතයෙන් පෙළ තෝරා එය මත ක්‍රියා කරන්න."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"පෙළ සංස්කරණය කරන්න"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"පෙර"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"ඊළඟ"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"පෙර පාඩම"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"ඊළඟ පාඩම"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"නිබන්ධන මුල් පිටුව"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"%1$d පාඩම"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"%1$d කොටස"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"%2$d හි %1$d කොටස"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"අභ්‍යාසය අවසන් වූ අතර මොහොතකින් ඉදිරියට කරගෙන යනු ඇත"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"පුහුණු ප්‍රදේශය"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s පුහුණු ප්‍රකාරය තුළ සක්‍රිය කර ඇත. පිටවීමට අවලංගු කරන්න බොත්තම සක්‍රිය කරන්න."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"නිබන්ධන මුල් පිටු බොත්තම"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"අයිතම <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"පිටවන්න"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"ස්පර්ශයෙන් ගවේෂණය අවශ්‍යයි"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"මෙම නිබන්ධනයට ස්පර්ශය මගින් ගවේෂණය අවශ්‍යයි. කරුණාකර නිබන්ධනය දියත් කිරීමට පෙර ස්පර්ශයෙන් ගවේෂණය සබල කරන්න."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack අබලයි"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"මෙම නිබන්ධනයට TalkBack සබල කිරීම අවශ්‍යයි. කරුණාකර නිබන්ධනය දියත් කිරීමට පෙර TalkBack ක්‍රියාත්මක කරන්න."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack අත්හිටුවන ලදි"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"ප්‍රතිපෝෂණ විරාම කර ඇති අතරතුර TalkBack නිබන්ධනය ලබා ගැනීමට නොහැකිය. කරුණාකර TalkBack ප්‍රතිපෝෂණ නැවත පටන් ගෙන දිගටම කරගෙන යාමට නිබන්ධනය නැවත දියත් කරන්න."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"මෙනුව විස්තර කරන්න"</string>
+</resources>

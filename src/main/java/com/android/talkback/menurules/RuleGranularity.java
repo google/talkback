@@ -39,11 +39,10 @@ import java.util.List;
  * Adds supported granularities to the local context menu. If the target node
  * contains web content, adds web-specific granularities.
  */
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class RuleGranularity implements NodeMenuRule {
     @Override
-    public boolean accept(Context context, AccessibilityNodeInfoCompat node) {
-        return !CursorGranularityManager.getSupportedGranularities(context, node).isEmpty();
+    public boolean accept(TalkBackService service, AccessibilityNodeInfoCompat node) {
+        return !CursorGranularityManager.getSupportedGranularities(service, node).isEmpty();
     }
 
     @Override

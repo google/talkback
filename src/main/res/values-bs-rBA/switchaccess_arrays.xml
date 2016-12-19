@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string-array name="switch_access_color_entries">
+    <item msgid="7934595828699536711">"Zelena"</item>
+    <item msgid="7616478199824616148">"Narandžasta"</item>
+    <item msgid="528738291475141372">"Crvena"</item>
+    <item msgid="3613307072137891343">"Plava"</item>
+    <item msgid="1719741716015833575">"Bijela"</item>
+  </string-array>
+  <string-array name="switch_access_weight_entries">
+    <item msgid="5215195704613305820">"Puna tanka linija"</item>
+    <item msgid="7698398358042168523">"Puna srednja linija"</item>
+    <item msgid="4047443674448719927">"Puna debela linija"</item>
+  </string-array>
+  <string-array name="switch_access_scanning_methods_entries">
+    <item msgid="3706133143777972955">"Red-kolona (samo tastatura)"</item>
+    <item msgid="6882375457227534722">"Red-kolona"</item>
+    <item msgid="4021832268378176260">"Skeniranje opcija"</item>
+  </string-array>
+</resources>

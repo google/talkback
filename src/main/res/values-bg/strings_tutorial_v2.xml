@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Урок за достъпността"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Стартиране на обучението за TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Обучение за TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack е екранен четец, предназначен предимно за хора с напълно или частично увредено зрение. Той дава възможност за взаимодействие с устройството посредством обратна връзка с говор."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Изключване на TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Обучение"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Практическо упражнение"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"научаване на урок <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"упражняване на урок <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Урок 1: Основни положения при придвижване"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Изследване чрез докосване, изследване чрез прекарване на пръст, активиране чрез двукратно докосване"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Част 1: Изследване чрез докосване"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Когато е активирана, функцията за изследване чрез докосване ви дава възможност да чуете какво има под пръста ви. Плъзнете пръст над елементите в центъра на екрана. След като изследвате пет елемента, урокът ще продължи."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Част 2: Активиране чрез двукратно докосване"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"За да активирате последния описан елемент, докоснете два пъти произволно място. Намерете елемент 7 и го активирайте сега. След това използвайте бутона „Напред“, за да продължите."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Активирахте елемент 7. Намерете и използвайте бутона „Напред“, за да продължите"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Част 3: Уроци за придвижване"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Уроците за TalkBack са подредени по сходен начин. В горната част е урокът, който можете да изследвате и четете по всяко време. В горния ляв ъгъл се намира и бутонът „Начало“ на функцията за уроци. В средата е областта за упражнения. В долната част има индикатор за напредъка и бутони за придвижване в урока. Сега активирайте „Напред“, за да продължите."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Част 4: Изследване с прекарване на пръст"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Можете да изследвате и чрез прекарване на пръст през екрана. С прекарване на пръст наляво обикновено изследвате нагоре и наляво, а с прекарване на пръст надясно – надолу и надясно. Опитайте сега."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Част 5: Практическо упражнение"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"За да чуете какво има под пръста ви, плъзнете го през екрана. Докоснете два пъти произволно място, за да активирате описания елемент. Прекарайте пръст наляво или надясно, за да изследвате."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Урок 2: Превъртане"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Превъртане с два пръста, преминаване напред и назад"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Част 1: Превъртане с два пръста"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"За да превъртите вертикален списък, намерете елемент в него и плъзнете два пръста нагоре или надолу. За да превъртите хоризонтален списък, намерете елемент в него и плъзнете два пръста наляво или надясно."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Част 2: Лесно превъртане"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Има лесен начин за придвижване напред или назад в списъци. За да преминете напред, плъзнете пръст надясно и след това наляво с едно движение. За да се върнете назад, плъзнете пръст наляво и после надясно. Изпробвайте това тук."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Част 3: Практическо упражнение"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Превъртете, като плъзнете два пръста нагоре или надолу. Преминете напред, като прекарате пръст надясно и след това наляво. Върнете се назад, като плъзнете пръст наляво и после надясно."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Урок 3: Менюта на TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Глобално и локално меню на TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Част 1: Глобално меню на TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack има две различни менюта. Първото е глобалното, което винаги съдържа едни и същи команди. Можете да го активирате, като плъзнете пръст надолу и после надясно с едно движение и след това вдигнете пръста си. Включете пробната версия на менюто сега."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Опциите в менюто са изброени вертикално в средата на екрана. Опитайте да ги изследвате. Когато приключите, активирайте „Отказ“."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Част 2: Локално меню на TalkBack"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Второто меню на TalkBack е локалното. Елементите в него са различни в зависимост от описанието, което сте чули последно. Можете да активирате това меню, като плъзнете пръст нагоре и после надясно с едно движение и след това вдигнете пръста си. Включете пробното меню сега."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Част 3: Практическо упражнение"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Плъзнете пръст надолу и след това надясно, за да активирате глобалното меню на TalkBack. Плъзнете пръст нагоре и след това надясно, за да активирате локалното меню на TalkBack."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Надолу и след това надясно"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Нагоре и след това надясно"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Глобално меню на TalkBack: надолу и след това надясно. Локално меню на TalkBack: нагоре и след това надясно"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Урок 4: Придвижване в текст"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Избиране на настройки за придвижване в текст"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Част 1: Избиране на настройки за придвижване"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack ви дава възможност да избирате как да се чете текстът – абзац по абзац, ред по ред, дума по дума или знак по знак. Четенето знак по знак може да ви помогне за правописа. Задайте тази детайлност на придвижване, като докоснете текста по-долу и прекарате пръст нагоре и след това надолу."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Изследвайте опциите за детайлността на четене, които са изброени вертикално тук. Намерете и активирайте опцията за четене знак по знак."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Част 2: Придвижване в текст"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Четенето вече се извършва знак по знак. За да го изпробвате, изберете примерния текст, след което прекарайте пръст надясно."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Част 3: Практическо упражнение"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Променете детайлността на придвижване в текста, като прекарате пръст нагоре и след това надолу. Задайте да се прочете следващият знак в примерния текст, като прекарате пръст надясно."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Ето примерен текст за упражнение за TalkBack: „Къде се намира Канзас?“ – попита учудено мъжът. „Не зная – отговори Дороти с тъга, – но там е моят дом и съм сигурна, че е някъде.“\n\n„Твърде вероятно е. Оз може да направи всичко и предполагам, че ще намери Канзас. Но първо, трябва да можете да се срещнете с него, а това ще бъде трудна задача. Великият вълшебник не обича срещите, а и обикновено прави каквото си поиска. А твоето желание какво е?“ – обърна се мъжът към Тото."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Урок 5: Редактиране на текст"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Активиране на поле за редактиране, въвеждане, преместване на курсора, избиране на текст и извършване на действия с него"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Част 1: Активиране на поле за редактиране"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"С TalkBack можете да въвеждате, избирате и редактирате текст в полета за редактиране. За да активирате такова поле, докоснете го двукратно. След това в долната част на екрана ще се покаже клавиатура. В състояние сте да я скриете, като докоснете бутона „Назад“. Сега опитайте да активирате полето за редактиране. Когато приключите, използвайте бутона „Напред“, който вече се намира над клавиатурата."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Част 2: Въвеждане на текст в поле за редактиране"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"За да въведете текст, активирайте полето за редактиране и започнете да плъзгате пръста си през екранната клавиатура. Когато чуете желания знак, активирайте го, като вдигнете пръста си. Опитайте да активирате полето за редактиране по-долу и да пишете в него."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Част 3: Използване на курсор"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Можете да местите курсора посредством бутоните за силата на звука на устройството си или чрез локалното меню на TalkBack. С помощта на опцията „Контрол върху курсора“, налична в това меню, можете също да избирате, изрязвате, копирате и поставяте текст. Активирайте полето за редактиране по-долу и започнете да местите курсора в примерния текст."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Имейл адресът на Дороти Гейл е dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Част 4: Практическо упражнение"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Активирайте полето за редактиране, като го докоснете двукратно. Въведете знак, като плъзнете пръста си над него и след това го вдигнете. Преместете курсора чрез бутоните за силата на звука и локалното меню на TalkBack. Изберете текст и извършете действие с него чрез опцията „Контрол върху курсора“ в това меню."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Редактирайте текст"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"НАЗАД"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"НАПРЕД"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"ПРЕДИШЕН УРОК"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"СЛЕДВАЩ УРОК"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"НАЧАЛНА СТРАНИЦА НА ОБУЧЕНИЕТО"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Урок %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Част %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Част %1$d от %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Завършихте упражнението. Обучението ще продължи след малко"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Място за практическо упражнение"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"Активирахте %1$s в пробен режим. За изход използвайте бутона „ОТКАЗ“."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Бутон за начална страница на обучението"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Елемент <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Изход"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Изисква се функцията за изследване чрез докосване"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"За това обучение се изисква функцията за изследване чрез докосване. Моля, активирайте я, преди да го стартирате."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"Услугата TalkBack е деактивирана"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"За да се проведе това обучение, услугата TalkBack трябва да е активирана. Моля, включете я, преди да го стартирате."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"Услугата TalkBack е спряна"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Обучението за TalkBack не може да се проведе, докато обратната връзка е поставена на пауза. Моля, възобновете я и стартирайте отново обучението, за да продължите."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Описание на менюто"</string>
+</resources>

@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="@string/pref_category_manage_gestures_key"
-    android:title="@string/title_pref_manage_keyboard_shortcuts" >
+    android:key="@string/pref_category_manage_gestures_key">
+    <PreferenceCategory
+        android:key="@string/pref_keymap_category_key"
+        android:title="@string/keycombo_menu_category_select_keymap">
+        <ListPreference
+            android:key="@string/pref_select_keymap_key"
+            android:title="@string/keycombo_menu_select_keymap"
+            android:summary="%s"
+            android:defaultValue="@string/classic_keymap_entry_value"
+            android:entries="@array/pref_select_keymap_entries"
+            android:entryValues="@array/pref_select_keymap_values" />
+        <PreferenceScreen
+            android:key="@string/pref_reset_keymap_key"
+            android:title="@string/keycombo_menu_reset_keymap" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:title="@string/keycombo_menu_category_navigation" >
         <com.android.talkback.KeyboardShortcutDialogPreference

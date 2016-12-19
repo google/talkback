@@ -19,9 +19,10 @@ package com.android.talkback.controller;
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.preference.PreferenceManager;
+import android.support.v4.os.BuildCompat;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import android.support.v4.view.accessibility.AccessibilityWindowInfoCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
@@ -33,10 +34,13 @@ import android.widget.NumberPicker;
 
 import com.android.talkback.CursorGranularity;
 import com.android.talkback.CursorGranularityManager;
+import com.android.talkback.FeedbackItem;
+import com.android.talkback.InputModeManager;
 import com.android.talkback.KeyComboManager;
 import com.android.talkback.R;
 import com.android.talkback.SpeechController;
 import com.android.talkback.eventprocessor.EventState;
+import com.android.utils.Role;
 import com.google.android.marvin.talkback.TalkBackService;
 import com.android.utils.AccessibilityEventListener;
 import com.android.utils.AccessibilityNodeInfoUtils;
@@ -47,11 +51,13 @@ import com.android.utils.SharedPreferencesUtils;
 import com.android.utils.WebInterfaceUtils;
 import com.android.utils.WindowManager;
 import com.android.utils.compat.accessibilityservice.AccessibilityServiceCompatUtils;
-import com.android.utils.traversal.NodeFocusFinder;
-import com.android.utils.traversal.OrderedTraversalStrategy;
 import com.android.utils.traversal.TraversalStrategy;
+import com.android.utils.traversal.TraversalStrategyUtils;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -59,13 +65,36 @@ import java.util.Set;
  */
 public class CursorControllerApp implements
         CursorController, AccessibilityEventListener, KeyComboManager.KeyComboListener {
-    /** Represents navigation to next element. */
-    private static final int NAVIGATION_DIRECTION_NEXT = 1;
 
     private static final String LOGTAG = "CursorControllerApp";
 
-    /** Represents navigation to previous element. */
-    private static final int NAVIGATION_DIRECTION_PREVIOUS = -1;
+    private static final String HTML_ELEMENT_HEADING = "HEADING";
+    private static final String HTML_ELEMENT_BUTTON = "BUTTON";
+    private static final String HTML_ELEMENT_CHECKBOX = "CHECKBOX";
+    private static final String HTML_ELEMENT_ARIA_LANDMARK = "LANDMARK";
+    private static final String HTML_ELEMENT_EDIT_FIELD = "TEXT_FIELD";
+    private static final String HTML_ELEMENT_FOCUSABLE_ITEM = "FOCUSABLE";
+    private static final String HTML_ELEMENT_HEADING_1 = "H1";
+    private static final String HTML_ELEMENT_HEADING_2 = "H2";
+    private static final String HTML_ELEMENT_HEADING_3 = "H3";
+    private static final String HTML_ELEMENT_HEADING_4 = "H4";
+    private static final String HTML_ELEMENT_HEADING_5 = "H5";
+    private static final String HTML_ELEMENT_HEADING_6 = "H6";
+    private static final String HTML_ELEMENT_LINK = "LINK";
+    private static final String HTML_ELEMENT_CONTROL = "CONTROL";
+    private static final String HTML_ELEMENT_GRAPHIC = "GRAPHIC";
+    private static final String HTML_ELEMENT_LIST_ITEM = "LIST_ITEM";
+    private static final String HTML_ELEMENT_LIST = "LIST";
+    private static final String HTML_ELEMENT_TABLE = "TABLE";
+    private static final String HTML_ELEMENT_COMBOBOX = "COMBOBOX";
+    private static final String HTML_ELEMENT_SECTION = "SECTION";
+
+    private static final int WINDOW_TYPE_SYSTEM = 1;
+    private static final int WINDOW_TYPE_APPLICATION = 1 << 1;
+    private static final int WINDOW_TYPE_SPLIT_SCREEN_DIVIDER = 1 << 2;
+
+    private static final int FOCUS_STRATEGY_WRAP_AROUND = 0;
+    private static final int FOCUS_STRATEGY_RESUME_FOCUS = 1;
 
     /** The host service. Used to access the root node. */
     private final TalkBackService mService;
@@ -73,13 +102,26 @@ public class CursorControllerApp implements
     /** Handles traversal using granularity. */
     private final CursorGranularityManager mGranularityManager;
 
+    /** Whether we should drive input focus instead of accessibility focus where possible. */
+    private final boolean mControlInputFocus;
+
+    /** Whether the current device supports navigating between multiple windows. */
+    private final boolean mIsWindowNavigationAvailable;
+
     /** Whether the user hit an edge with the last swipe. */
     private boolean mReachedEdge;
     private boolean mGranularityNavigationReachedEdge;
 
+    private final Map<Integer, AccessibilityNodeInfoCompat> mLastFocusedNodeMap = new HashMap<>();
+
     private final Set<GranularityChangeListener> mGranularityListeners = new HashSet<>();
 
     private final Set<ScrollListener> mScrollListeners = new HashSet<>();
+
+    private final Set<CursorListener> mCursorListeners = new HashSet<>();
+
+    /** The last input-focused editable node. */
+    private AccessibilityNodeInfoCompat mLastEditable;
 
     private int mSwitchNodeWithGranularityDirection = 0;
 
@@ -92,6 +134,10 @@ public class CursorControllerApp implements
     public CursorControllerApp(TalkBackService service) {
         mService = service;
         mGranularityManager = new CursorGranularityManager(service);
+
+        mControlInputFocus = service.isDeviceTelevision();
+        mIsWindowNavigationAvailable = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1
+                && !service.isDeviceTelevision();
     }
 
     @Override
@@ -122,6 +168,15 @@ public class CursorControllerApp implements
     }
 
     @Override
+    public void addCursorListener(CursorListener listener) {
+        if (listener == null) {
+            throw new IllegalArgumentException();
+        }
+
+        mCursorListeners.add(listener);
+    }
+
+    @Override
     public void shutdown() {
         mGranularityManager.shutdown();
     }
@@ -133,6 +188,7 @@ public class CursorControllerApp implements
             return false;
         }
 
+        EventState.getInstance().addEvent(EventState.EVENT_NODE_REFOCUSED);
         clearCursor(node);
         final boolean result = setCursor(node);
         node.recycle();
@@ -141,32 +197,60 @@ public class CursorControllerApp implements
 
     @Override
     public boolean next(boolean shouldWrap, boolean shouldScroll,
-                        boolean useInputFocusAsPivotIfEmpty) {
-        return navigateWithGranularity(NAVIGATION_DIRECTION_NEXT, shouldWrap,
-                shouldScroll, useInputFocusAsPivotIfEmpty);
+                        boolean useInputFocusAsPivotIfEmpty, int inputMode) {
+        return navigateWithGranularity(TraversalStrategy.SEARCH_FOCUS_FORWARD, shouldWrap,
+                shouldScroll, useInputFocusAsPivotIfEmpty, inputMode);
     }
 
     @Override
     public boolean previous(boolean shouldWrap, boolean shouldScroll,
-                            boolean useInputFocusAsPivotIfEmpty) {
-        return navigateWithGranularity(NAVIGATION_DIRECTION_PREVIOUS, shouldWrap,
-                shouldScroll, useInputFocusAsPivotIfEmpty);
+                            boolean useInputFocusAsPivotIfEmpty, int inputMode) {
+        return navigateWithGranularity(TraversalStrategy.SEARCH_FOCUS_BACKWARD, shouldWrap,
+                shouldScroll, useInputFocusAsPivotIfEmpty, inputMode);
     }
 
     @Override
-    public boolean jumpToTop() {
+    public boolean left(boolean shouldWrap, boolean shouldScroll,
+            boolean useInputFocusAsPivotIfEmpty, int inputMode) {
+        return navigateWithGranularity(TraversalStrategy.SEARCH_FOCUS_LEFT, shouldWrap,
+                shouldScroll, useInputFocusAsPivotIfEmpty, inputMode);
+    }
+
+    @Override
+    public boolean right(boolean shouldWrap, boolean shouldScroll,
+            boolean useInputFocusAsPivotIfEmpty, int inputMode) {
+        return navigateWithGranularity(TraversalStrategy.SEARCH_FOCUS_RIGHT, shouldWrap,
+                shouldScroll, useInputFocusAsPivotIfEmpty, inputMode);
+    }
+
+    @Override
+    public boolean up(boolean shouldWrap, boolean shouldScroll,
+            boolean useInputFocusAsPivotIfEmpty, int inputMode) {
+        return navigateWithGranularity(TraversalStrategy.SEARCH_FOCUS_UP, shouldWrap,
+                shouldScroll, useInputFocusAsPivotIfEmpty, inputMode);
+    }
+
+    @Override
+    public boolean down(boolean shouldWrap, boolean shouldScroll,
+            boolean useInputFocusAsPivotIfEmpty, int inputMode) {
+        return navigateWithGranularity(TraversalStrategy.SEARCH_FOCUS_DOWN, shouldWrap,
+                shouldScroll, useInputFocusAsPivotIfEmpty, inputMode);
+    }
+
+    @Override
+    public boolean jumpToTop(int inputMode) {
         clearCursor();
         mReachedEdge = true;
         return next(true /*shouldWrap*/, false /*shouldScroll*/,
-                false /*useInputFocusAsPivotIfEmpty*/);
+                false /*useInputFocusAsPivotIfEmpty*/, inputMode);
     }
 
     @Override
-    public boolean jumpToBottom() {
+    public boolean jumpToBottom(int inputMode) {
         clearCursor();
         mReachedEdge = true;
         return previous(true /*shouldWrap*/, false /*shouldScroll*/,
-                false /*useInputFocusAsPivotIfEmpty*/);
+                false /*useInputFocusAsPivotIfEmpty*/, inputMode);
     }
 
     @Override
@@ -179,6 +263,65 @@ public class CursorControllerApp implements
         return attemptScrollToDirection(AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD);
     }
 
+    @Override
+    public boolean nextWithSpecifiedGranularity(CursorGranularity granularity, boolean shouldWrap,
+            boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty, int inputMode) {
+        return navigateWithSpecifiedGranularity(TraversalStrategy.SEARCH_FOCUS_FORWARD,
+                granularity, shouldWrap, shouldScroll, useInputFocusAsPivotIfEmpty, inputMode);
+    }
+
+    @Override
+    public boolean previousWithSpecifiedGranularity(CursorGranularity granularity,
+            boolean shouldWrap, boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty,
+            int inputMode) {
+        return navigateWithSpecifiedGranularity(TraversalStrategy.SEARCH_FOCUS_BACKWARD,
+                granularity, shouldWrap, shouldScroll, useInputFocusAsPivotIfEmpty, inputMode);
+    }
+
+    @Override
+    public boolean nextHtmlElement(String htmlElement, int inputMode) {
+        return navigateToHTMLElement(htmlElement, true /* forward */, inputMode);
+    }
+
+    @Override
+    public boolean previousHtmlElement(String htmlElement, int inputMode) {
+        return navigateToHTMLElement(htmlElement, false /* backward */, inputMode);
+    }
+
+    private boolean isSupportedHtmlElement(String htmlElement) {
+        AccessibilityNodeInfoCompat node = getCursor();
+        if (node == null) {
+            return false;
+        }
+
+        String[] supportedHtmlElements = WebInterfaceUtils.getSupportedHtmlElements(node);
+        AccessibilityNodeInfoUtils.recycleNodes(node);
+        return supportedHtmlElements != null &&
+                Arrays.asList(supportedHtmlElements).contains(htmlElement);
+    }
+
+    private boolean navigateToHTMLElement(String htmlElement, boolean forward, int inputMode) {
+        AccessibilityNodeInfoCompat node = getCursor();
+        if (node == null) {
+            return false;
+        }
+
+        try {
+            int direction = forward ? WebInterfaceUtils.DIRECTION_FORWARD :
+                    WebInterfaceUtils.DIRECTION_BACKWARD;
+
+            if (WebInterfaceUtils.performNavigationToHtmlElementAction(
+                    node, direction, htmlElement)) {
+                mService.getInputModeManager().setInputMode(inputMode);
+                return true;
+            } else {
+                return false;
+            }
+        } finally {
+            AccessibilityNodeInfoUtils.recycleNodes(node);
+        }
+    }
+
     private boolean attemptScrollToDirection(int direction) {
         AccessibilityNodeInfoCompat cursor = null;
         AccessibilityNodeInfoCompat rootNode = null;
@@ -187,7 +330,7 @@ public class CursorControllerApp implements
         try {
             cursor = getCursor();
             if (cursor != null) {
-                result = attemptScrollAction(cursor, direction);
+                result = attemptScrollAction(cursor, direction, false);
             }
 
             if (!result) {
@@ -198,7 +341,7 @@ public class CursorControllerApp implements
                         rootNode, AccessibilityNodeInfoUtils.FILTER_SCROLLABLE);
 
                 if (bfsScrollableNode != null && isLogicalScrollableWidget(bfsScrollableNode)) {
-                    result = attemptScrollAction(bfsScrollableNode, direction);
+                    result = attemptScrollAction(bfsScrollableNode, direction, false);
                 }
             }
         } finally {
@@ -211,6 +354,32 @@ public class CursorControllerApp implements
     @Override
     public boolean clickCurrent() {
         return performAction(AccessibilityNodeInfoCompat.ACTION_CLICK);
+    }
+
+    @Override
+    public boolean clickCurrentHierarchical() {
+        NodeFilter clickFilter = new NodeFilter() {
+            @Override
+            public boolean accept(AccessibilityNodeInfoCompat node) {
+                return AccessibilityNodeInfoUtils.isClickable(node);
+            }
+        };
+
+        AccessibilityNodeInfoCompat cursor = null;
+        AccessibilityNodeInfoCompat match = null;
+        try {
+            cursor = getCursor();
+            match = AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(cursor, clickFilter);
+            return PerformActionUtils.performAction(match,
+                    AccessibilityNodeInfoCompat.ACTION_CLICK);
+        } finally {
+            AccessibilityNodeInfoUtils.recycleNodes(cursor, match);
+        }
+    }
+
+    @Override
+    public boolean longClickCurrent() {
+        return performAction(AccessibilityNodeInfoCompat.ACTION_LONG_CLICK);
     }
 
     @Override
@@ -228,7 +397,7 @@ public class CursorControllerApp implements
         AccessibilityNodeInfoCompat current = null;
 
         try {
-            current = getCursor();
+            current = getCursorOrInputCursor();
             return setGranularity(granularity, current, fromUser);
         } finally {
             AccessibilityNodeInfoUtils.recycleNodes(current);
@@ -252,8 +421,35 @@ public class CursorControllerApp implements
 
     @Override
     public boolean setCursor(AccessibilityNodeInfoCompat node) {
-        return PerformActionUtils.performAction(node,
-                AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS);
+        // Accessibility focus follows input focus; on TVs we want to set both simultaneously,
+        // so we change the input focus if possible and let the ProcessorFocusAndSingleTap
+        // handle changing the accessibility focus.
+        if (mControlInputFocus && node.isFocusable() && !node.isFocused()) {
+            if (setCursor(node, AccessibilityNodeInfoCompat.ACTION_FOCUS)) {
+                return true;
+            }
+        }
+
+        // Set accessibility focus otherwise (or as a fallback if setting input focus failed).
+        return setCursor(node, AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS);
+    }
+
+    private boolean setCursor(AccessibilityNodeInfoCompat node, int action) {
+        final Set<CursorListener> listeners = new HashSet<>(mCursorListeners);
+        for (CursorListener listener : listeners) {
+            listener.beforeSetCursor(node, action);
+        }
+
+        boolean performedAction = PerformActionUtils.performAction(node, action);
+        if (performedAction) {
+            rememberLastFocusedNode(node);
+
+            for (CursorListener listener : listeners) {
+                listener.onSetCursor(node, action);
+            }
+        }
+
+        return performedAction;
     }
 
     @Override
@@ -295,6 +491,11 @@ public class CursorControllerApp implements
         return getAccessibilityFocusedOrRootNode();
     }
 
+    @Override
+    public AccessibilityNodeInfoCompat getCursorOrInputCursor() {
+        return getAccessibilityFocusedOrInputFocusedEditableNode();
+    }
+
     private AccessibilityNodeInfoCompat getAccessibilityFocusedOrRootNode() {
         final AccessibilityNodeInfoCompat compatRoot = AccessibilityServiceCompatUtils
                 .getRootInAccessibilityFocusedWindow(mService);
@@ -305,7 +506,7 @@ public class CursorControllerApp implements
 
         AccessibilityNodeInfoCompat focusedNode = getAccessibilityFocusedNode(compatRoot);
 
-        // TODO(KM): If there's no focused node, we should either mimic following
+        // TODO: If there's no focused node, we should either mimic following
         // focus from new window or try to be smart for things like list views.
         if (focusedNode == null) {
             return compatRoot;
@@ -324,12 +525,25 @@ public class CursorControllerApp implements
 
         AccessibilityNodeInfoCompat focusedNode = getAccessibilityFocusedNode(compatRoot);
 
-        // TODO(KM): If there's no focused node, we should either mimic following
+        // TODO: If there's no focused node, we should either mimic following
         // focus from new window or try to be smart for things like list views.
         if (focusedNode == null) {
             AccessibilityNodeInfoCompat inputFocusedNode = getInputFocusedNode();
-            if (inputFocusedNode != null && inputFocusedNode.isEditable()) {
+            if (inputFocusedNode != null && inputFocusedNode.isFocused()
+                    && inputFocusedNode.isEditable() ) {
                 focusedNode = inputFocusedNode;
+            }
+        }
+
+        // If we can't find the focused node but the keyboard is showing, return the last editable.
+        // This will occur if the input-focused view is actually a virtual view (e.g. in WebViews).
+        // Note: need to refresh() in order to verify that the node is still available on-screen.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && focusedNode == null &&
+                mLastEditable != null && mLastEditable.refresh()) {
+            WindowManager windowManager = new WindowManager(false); // RTL state doesn't matter.
+            windowManager.setWindows(mService.getWindows());
+            if (windowManager.isInputWindowOnScreen()) {
+                focusedNode = AccessibilityNodeInfoCompat.obtain(mLastEditable);
             }
         }
 
@@ -388,9 +602,12 @@ public class CursorControllerApp implements
      * Attempts to scroll using the specified action.
      *
      * @param action The scroll action to perform.
+     * @param auto If {@code true}, then the scroll was initiated automatically. If
+     *     {@code false}, then the user initiated the scroll action.
      * @return Whether the action was performed.
      */
-    private boolean attemptScrollAction(AccessibilityNodeInfoCompat cursor, int action) {
+    private boolean attemptScrollAction(AccessibilityNodeInfoCompat cursor, int action,
+            boolean auto) {
         if (cursor == null) {
             return false;
         }
@@ -407,7 +624,7 @@ public class CursorControllerApp implements
             if (performedAction) {
                 final Set<ScrollListener> listeners = new HashSet<>(mScrollListeners);
                 for (ScrollListener listener : listeners) {
-                    listener.onScroll(scrollableNode, action);
+                    listener.onScroll(scrollableNode, action, auto);
                 }
             }
 
@@ -425,7 +642,7 @@ public class CursorControllerApp implements
                             @Override
                             public boolean accept(AccessibilityNodeInfoCompat node) {
                                 return node != null &&
-                                        AccessibilityNodeInfoUtils.supportsAnyAction(node, action);
+                                        AccessibilityNodeInfoUtils.supportsAction(node, action);
                             }
                         }));
 
@@ -461,7 +678,7 @@ public class CursorControllerApp implements
         AccessibilityNodeInfoCompat currentNode = null;
 
         try {
-            currentNode = getCursor();
+            currentNode = getCursorOrInputCursor();
             if (currentNode == null) {
                 return false;
             }
@@ -476,6 +693,30 @@ public class CursorControllerApp implements
         } finally {
             AccessibilityNodeInfoUtils.recycleNodes(currentNode);
         }
+    }
+
+    /**
+     * Try to navigate with specified granularity.
+     */
+    private boolean navigateWithSpecifiedGranularity(int direction, CursorGranularity granularity,
+            boolean shouldWrap, boolean shouldScroll, boolean useInputFocusAsPivotIfEmpty,
+            int inputMode) {
+        // Keep current granularity to set it back after this operation.
+        CursorGranularity currentGranularity = mGranularityManager.getCurrentGranularity();
+        boolean sameGranularity = currentGranularity == granularity;
+
+        // Navigate with specified granularity.
+        if (!sameGranularity) {
+            setGranularity(granularity, false /* not from user */);
+        }
+        boolean result = navigateWithGranularity(direction, false, true, true, inputMode);
+
+        // Set back to the granularity which is used before this operation.
+        if (!sameGranularity) {
+            setGranularity(currentGranularity, false /* not from user */);
+        }
+
+        return result;
     }
 
     /**
@@ -501,26 +742,31 @@ public class CursorControllerApp implements
      *                                    accessibility focus
      * @return true on success, false on failure.
      */
-    private boolean navigateWithGranularity(int direction,
+    private boolean navigateWithGranularity(@TraversalStrategy.SearchDirection int direction,
                                             boolean shouldWrap,
                                             boolean shouldScroll,
-                                            boolean useInputFocusAsPivotIfEmpty) {
-        final int navigationAction;
-        final int scrollDirection;
-        final int focusSearchDirection;
-        final int edgeDirection;
+                                            boolean useInputFocusAsPivotIfEmpty,
+                                            int inputMode) {
+        @TraversalStrategy.SearchDirection int logicalDirection =
+                TraversalStrategyUtils.getLogicalDirection(direction, mService.isScreenLayoutRTL());
 
-        // Map the navigation action to various directions.
-        if (direction == NAVIGATION_DIRECTION_NEXT) {
+        final int navigationAction;
+        if (logicalDirection == TraversalStrategy.SEARCH_FOCUS_FORWARD) {
             navigationAction = AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY;
-            scrollDirection = AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD;
-            focusSearchDirection = TraversalStrategy.SEARCH_FOCUS_FORWARD;
-            edgeDirection = 1;
-        } else {
+        } else if (logicalDirection == TraversalStrategy.SEARCH_FOCUS_BACKWARD) {
             navigationAction = AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY;
-            scrollDirection = AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD;
-            focusSearchDirection = TraversalStrategy.SEARCH_FOCUS_BACKWARD;
-            edgeDirection = -1;
+        } else {
+            throw new IllegalStateException("Unknown logical direction");
+        }
+
+        mService.getInputModeManager().setInputMode(inputMode);
+
+        final int scrollDirection =
+                TraversalStrategyUtils.convertSearchDirectionToScrollAction(direction);
+        if (scrollDirection == 0) {
+            // We won't be able to handle scrollable views very well on older SDK versions,
+            // so don't allow d-pad navigation,
+            return false;
         }
 
         AccessibilityNodeInfoCompat current = null;
@@ -536,6 +782,23 @@ public class CursorControllerApp implements
                 return processResult;
             }
 
+            if (!mIsWindowNavigationAvailable) {
+                // If we're in a background window, we need to return the cursor to the current
+                // window and prevent navigation within the background window.
+                AccessibilityWindowInfoCompat currentWindow = current.getWindow();
+                if (currentWindow != null) {
+                    if (!currentWindow.isActive()) {
+                        AccessibilityNodeInfoCompat activeRoot =
+                                AccessibilityServiceCompatUtils.getRootInActiveWindow(mService);
+                        if (activeRoot != null) {
+                            current.recycle();
+                            current = activeRoot;
+                        }
+                    }
+                    currentWindow.recycle();
+                }
+            }
+
             // If granularity is set to anything other than default, restrict
             // navigation to the current node.
             if (mGranularityManager.isLockedTo(current)) {
@@ -549,14 +812,40 @@ public class CursorControllerApp implements
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1 &&
                         result == CursorGranularityManager.HIT_EDGE && !current.isEditable()) {
                     if (!mGranularityNavigationReachedEdge) {
+                        // alert when we navigate to the edge with a web granularity.
+                        if (mGranularityManager.getCurrentGranularity().isWebGranularity()) {
+                            int resId = mGranularityManager.getCurrentGranularity().resourceId;
+                            String htmlElement = null;
+                            if (resId == CursorGranularity.WEB_CONTROL.resourceId) {
+                                htmlElement = HTML_ELEMENT_CONTROL;
+                            } else if (resId == CursorGranularity.WEB_LINK.resourceId) {
+                                htmlElement = HTML_ELEMENT_LINK;
+                            } else if (resId == CursorGranularity.WEB_LIST.resourceId) {
+                                htmlElement = HTML_ELEMENT_LIST;
+                            } else if (resId == CursorGranularity.WEB_SECTION.resourceId) {
+                                htmlElement = HTML_ELEMENT_SECTION;
+                            }
+                            alertWebNavigationHitEdge(htmlElement,
+                                    logicalDirection == TraversalStrategy.SEARCH_FOCUS_FORWARD);
+                        }
                         // skip one swipe when hit edge during granularity navigation
                         mGranularityNavigationReachedEdge = true;
                         processResult = false;
                         return processResult;
                     } else {
-                        mSwitchNodeWithGranularityDirection = focusSearchDirection;
+                        // We shouldn't navigate past the last "link", "heading", etc. when
+                        // navigating with a web granularity.
+                        // It makes sense to navigate to the next node with other kinds of
+                        // granularities(characters, words, etc.).
+                        if (mGranularityManager.getCurrentGranularity().isWebGranularity()) {
+                            processResult = false;
+                            return processResult;
+                        }
+                        mSwitchNodeWithGranularityDirection = navigationAction;
                         EventState.getInstance().addEvent(
                                 EventState.EVENT_SKIP_FOCUS_PROCESSING_AFTER_GRANULARITY_MOVE);
+                        EventState.getInstance().addEvent(
+                                EventState.EVENT_SKIP_HINT_AFTER_GRANULARITY_MOVE);
                     }
                 } else {
                     processResult = false;
@@ -565,15 +854,25 @@ public class CursorControllerApp implements
             }
 
             // If the current node has web content, attempt HTML navigation.
-            if (WebInterfaceUtils.supportsWebActions(current)
-                    && attemptHtmlNavigation(current, direction)) {
-                return true;
+            if (shouldAttemptHtmlNavigation(current, direction)) {
+                if (attemptHtmlNavigation(current, direction)) {
+                    // Succeeded finding destination inside WebView
+                    processResult = true;
+                    return true;
+                } else {
+                    // Ascend to WebView, preparing to navigate past WebView with normal navigation
+                    AccessibilityNodeInfoCompat webView = ascendToWebView(current);
+                    if (webView != null) {
+                        current.recycle();
+                        current = webView;
+                    }
+                }
             }
 
             // If the user has disabled automatic scrolling, don't attempt to scroll.
-            // TODO(CB): Remove once auto-scroll is settled.
+            // TODO: Remove once auto-scroll is settled.
             if (shouldScroll) {
-                final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
+                final SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(
                         mService);
                 shouldScroll = SharedPreferencesUtils.getBooleanPref(prefs,
                         mService.getResources(), R.string.pref_auto_scroll_key,
@@ -581,26 +880,27 @@ public class CursorControllerApp implements
             }
 
             rootNode = AccessibilityNodeInfoUtils.getRoot(current);
-            traversalStrategy = new OrderedTraversalStrategy(rootNode);
+            traversalStrategy = TraversalStrategyUtils.getTraversalStrategy(rootNode, direction);
 
             // If the current item is at the edge of a scrollable view, try to
             // automatically scroll the view in the direction of navigation.
             if (shouldScroll && AccessibilityNodeInfoUtils.isAutoScrollEdgeListItem(
-                    current, edgeDirection, traversalStrategy) &&
-                    attemptScrollAction(current, scrollDirection)) {
+                    current, direction, traversalStrategy) &&
+                    attemptScrollAction(current, scrollDirection, true)) {
                 processResult = true;
                 return processResult;
             }
 
             // Otherwise, move focus to next or previous focusable node.
-            target = navigateFrom(current, focusSearchDirection, traversalStrategy);
+            target = navigateFrom(current, direction, traversalStrategy);
             if ((target != null)) {
-                //TODO change to Build.VERSION_CODE_CONSTANT (b/23384092)
-                if (Build.VERSION.SDK_INT >= 23 && shouldScroll &&
-                        AccessibilityNodeInfoUtils.isAutoScrollEdgeListItem(
-                                target, edgeDirection, traversalStrategy)) {
-                    //comment for lint
-                    //noinspection Annotator
+                // The `spatial` condition provides a work-around for RecyclerViews.
+                // Currently RecyclerViews do not support ACTION_SCROLL_LEFT, UP, etc.
+                // TODO: Remove `spatial` check when RecyclerViews support new scroll actions.
+                final boolean spatial = TraversalStrategyUtils.isSpatialDirection(direction);
+                boolean autoScroll = AccessibilityNodeInfoUtils.isAutoScrollEdgeListItem(target,
+                        direction, traversalStrategy) || spatial;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && shouldScroll && autoScroll) {
                     PerformActionUtils.performAction(target,
                         AccessibilityNodeInfo.AccessibilityAction.ACTION_SHOW_ON_SCREEN.getId());
                 }
@@ -614,14 +914,16 @@ public class CursorControllerApp implements
 
             // skip one swipe if in the border of window and no other application window to
             // move focus to
-            if (!mReachedEdge && needPauseInTraversalAfterCurrentWindow(focusSearchDirection)) {
+            if (!mReachedEdge && needPauseInTraversalAfterCurrentWindow(direction)) {
                 mReachedEdge = true;
                 processResult = false;
                 return processResult;
             }
 
             // move focus from application to next application window
-            if (navigateToNextApplicationWindow(focusSearchDirection)) {
+            if (navigateToNextOrPreviousWindow(direction,
+                        WINDOW_TYPE_APPLICATION | WINDOW_TYPE_SPLIT_SCREEN_DIVIDER,
+                        FOCUS_STRATEGY_WRAP_AROUND, false /* useInputFocusAsPivot */, inputMode)) {
                 mReachedEdge = false;
                 processResult = true;
                 return processResult;
@@ -629,8 +931,8 @@ public class CursorControllerApp implements
 
             if (mReachedEdge && shouldWrap) {
                 mReachedEdge = false;
-                processResult =  navigateWrapAround(rootNode, focusSearchDirection,
-                        traversalStrategy);
+                processResult = navigateWrapAround(rootNode, direction, traversalStrategy,
+                        inputMode);
                 return processResult;
             }
 
@@ -646,8 +948,20 @@ public class CursorControllerApp implements
                 mSwitchNodeWithGranularityDirection = 0;
                 EventState.getInstance().clearEvent(
                         EventState.EVENT_SKIP_FOCUS_PROCESSING_AFTER_GRANULARITY_MOVE);
+                EventState.getInstance().clearEvent(
+                        EventState.EVENT_SKIP_HINT_AFTER_GRANULARITY_MOVE);
             }
         }
+    }
+
+    private AccessibilityNodeInfoCompat ascendToWebView(AccessibilityNodeInfoCompat current) {
+        return AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(current, null,
+                new NodeFilter() {
+                    @Override
+                    public boolean accept(AccessibilityNodeInfoCompat node) {
+                        return (node != null && Role.getRole(node) == Role.ROLE_WEB_VIEW);
+                    }
+                });
     }
 
     private AccessibilityNodeInfoCompat getCurrentCursor(boolean useInputFocusAsPivotIfEmpty) {
@@ -664,82 +978,122 @@ public class CursorControllerApp implements
     }
 
     @SuppressLint("InlinedApi")
-    private boolean needPauseInTraversalAfterCurrentWindow(int direction) {
+    private boolean needPauseInTraversalAfterCurrentWindow(
+            @TraversalStrategy.SearchDirection int direction) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP_MR1) {
             // always pause before loop in one-window conditions
             return true;
         }
 
-        WindowManager windowsManager = new WindowManager();
-        windowsManager.setWindows(mService.getWindows());
+        WindowManager windowManager = new WindowManager(mService.isScreenLayoutRTL());
+        windowManager.setWindows(mService.getWindows());
 
-        if (!windowsManager.isApplicationWindowFocused()) {
+        if (!windowManager.isApplicationWindowFocused() &&
+                !windowManager.isSplitScreenDividerFocused()) {
             // need pause before looping traversal in non-application window
             return true;
         }
 
-        if (direction == NodeFocusFinder.SEARCH_FORWARD) {
-            return windowsManager.isLastWindow(windowsManager.getCurrentWindow(),
+        @TraversalStrategy.SearchDirection int logicalDirection =
+                TraversalStrategyUtils.getLogicalDirection(direction, mService.isScreenLayoutRTL());
+        if (logicalDirection == TraversalStrategy.SEARCH_FOCUS_FORWARD) {
+            return windowManager.isLastWindow(
+                    windowManager.getCurrentWindow(false /* useInputFocus */),
+                    AccessibilityWindowInfo.TYPE_APPLICATION);
+        } else if (logicalDirection == TraversalStrategy.SEARCH_FOCUS_BACKWARD) {
+            return windowManager.isFirstWindow(
+                    windowManager.getCurrentWindow(false /* useInputFocus */),
                     AccessibilityWindowInfo.TYPE_APPLICATION);
         } else {
-            return windowsManager.isFirstWindow(windowsManager.getCurrentWindow(),
-                    AccessibilityWindowInfo.TYPE_APPLICATION);
+            throw new IllegalStateException("Unknown logical direction");
         }
     }
 
-    private boolean navigateToNextApplicationWindow(int direction) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
-            WindowManager windowsManager = new WindowManager();
-            windowsManager.setWindows(mService.getWindows());
-            if (!windowsManager.isApplicationWindowFocused()) {
+    private boolean navigateToNextOrPreviousWindow(
+            @TraversalStrategy.SearchDirection int direction,
+            int windowTypeFilter, int focusStrategy, boolean useInputFocusAsPivot,
+            int inputMode) {
+        if (!mIsWindowNavigationAvailable) {
+            return false;
+        }
+
+        WindowManager windowManager = new WindowManager(mService.isScreenLayoutRTL());
+        windowManager.setWindows(mService.getWindows());
+
+        AccessibilityWindowInfo pivotWindow = windowManager.getCurrentWindow(useInputFocusAsPivot);
+        if (pivotWindow == null || !matchWindowType(pivotWindow, windowTypeFilter)) {
+            return false;
+        }
+
+        AccessibilityWindowInfo targetWindow = pivotWindow;
+        while (true) {
+            @TraversalStrategy.SearchDirection int logicalDirection = TraversalStrategyUtils
+                    .getLogicalDirection(direction, mService.isScreenLayoutRTL());
+            if (logicalDirection == TraversalStrategy.SEARCH_FOCUS_FORWARD) {
+                targetWindow = windowManager.getNextWindow(targetWindow);
+            } else if (logicalDirection == TraversalStrategy.SEARCH_FOCUS_BACKWARD) {
+                targetWindow = windowManager.getPreviousWindow(targetWindow);
+            } else {
+                throw new IllegalStateException("Unknown logical direction");
+            }
+
+            if (targetWindow == null || pivotWindow.equals(targetWindow)) {
                 return false;
             }
 
-            AccessibilityWindowInfo currentWindow = windowsManager.getCurrentWindow();
-            if (currentWindow == null) {
-                return false;
+            if (!matchWindowType(targetWindow, windowTypeFilter)) {
+                continue;
             }
 
-            AccessibilityWindowInfo targetWindow = null;
-            AccessibilityWindowInfo pivotWindow = currentWindow;
-            while (!currentWindow.equals(targetWindow)) {
-                switch (direction) {
-                    case NodeFocusFinder.SEARCH_FORWARD:
-                        targetWindow = windowsManager.getNextWindow(pivotWindow);
-                        break;
-                    case NodeFocusFinder.SEARCH_BACKWARD:
-                        targetWindow = windowsManager.getPreviousWindow(pivotWindow);
-                        break;
+            AccessibilityNodeInfo windowRoot = targetWindow.getRoot();
+            if (windowRoot == null) {
+                continue;
+            }
+
+            AccessibilityNodeInfoCompat compatRoot = new AccessibilityNodeInfoCompat(windowRoot);
+
+            if (focusStrategy == FOCUS_STRATEGY_RESUME_FOCUS) {
+                if (resumeLastFocus(targetWindow.getId(), inputMode)) {
+                    return true;
                 }
 
-                pivotWindow = targetWindow;
-
-                if (targetWindow == null) {
-                    return false;
+                // If it cannot resume last focus, try to focus the first focusable element.
+                TraversalStrategy traversalStrategy =
+                        TraversalStrategyUtils.getTraversalStrategy(compatRoot,
+                                TraversalStrategy.SEARCH_FOCUS_FORWARD);
+                if (navigateWrapAround(compatRoot, TraversalStrategy.SEARCH_FOCUS_FORWARD,
+                            traversalStrategy, inputMode)) {
+                    return true;
                 }
-
-                if (targetWindow.getType() != AccessibilityWindowInfo.TYPE_APPLICATION) {
-                    continue;
-                }
-
-                AccessibilityNodeInfo windowRoot = targetWindow.getRoot();
-                if (windowRoot == null) {
-                    continue;
-                }
-
-                AccessibilityNodeInfoCompat compatRoot = new AccessibilityNodeInfoCompat(windowRoot);
-                TraversalStrategy traversalStrategy = new OrderedTraversalStrategy(compatRoot);
-                if (navigateWrapAround(compatRoot, direction, traversalStrategy)) {
+            } else {
+                TraversalStrategy traversalStrategy =
+                        TraversalStrategyUtils.getTraversalStrategy(compatRoot, direction);
+                if (navigateWrapAround(compatRoot, direction, traversalStrategy, inputMode)) {
                     return true;
                 }
             }
         }
-
-        return false;
     }
 
-    private boolean navigateWrapAround(AccessibilityNodeInfoCompat root, int direction,
-                                       TraversalStrategy traversalStrategy) {
+    private boolean matchWindowType(AccessibilityWindowInfo window, int windowTypeFilter) {
+        int windowType = window.getType();
+        if ((windowTypeFilter & WINDOW_TYPE_SYSTEM) != 0 &&
+                windowType == AccessibilityWindowInfo.TYPE_SYSTEM) {
+            return true;
+        } else if ((windowTypeFilter & WINDOW_TYPE_APPLICATION) != 0 &&
+                windowType == AccessibilityWindowInfo.TYPE_APPLICATION) {
+            return true;
+        } else if ((windowTypeFilter & WINDOW_TYPE_SPLIT_SCREEN_DIVIDER) != 0 &&
+                windowType == AccessibilityWindowInfo.TYPE_SPLIT_SCREEN_DIVIDER) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean navigateWrapAround(AccessibilityNodeInfoCompat root,
+                                       @TraversalStrategy.SearchDirection int direction,
+                                       TraversalStrategy traversalStrategy, int inputMode) {
         if (root == null) {
             return false;
         }
@@ -748,16 +1102,8 @@ public class CursorControllerApp implements
         AccessibilityNodeInfoCompat wrapNode = null;
 
         try {
-            switch (direction) {
-                case OrderedTraversalStrategy.SEARCH_FOCUS_FORWARD:
-                    tempNode = traversalStrategy.focusFirst(root);
-                    wrapNode = navigateSelfOrFrom(tempNode, direction, traversalStrategy);
-                    break;
-                case OrderedTraversalStrategy.SEARCH_FOCUS_BACKWARD:
-                    tempNode = traversalStrategy.focusLast(root);
-                    wrapNode = navigateSelfOrFrom(tempNode, direction, traversalStrategy);
-                    break;
-            }
+            tempNode = traversalStrategy.focusInitial(root, direction);
+            wrapNode = navigateSelfOrFrom(tempNode, direction, traversalStrategy);
 
             if (wrapNode == null) {
                 if (LogUtils.LOG_LEVEL <= Log.ERROR) {
@@ -766,14 +1112,34 @@ public class CursorControllerApp implements
                 return false;
             }
 
-            return setCursor(wrapNode);
+            if (setCursor(wrapNode)) {
+                mService.getInputModeManager().setInputMode(inputMode);
+                return true;
+            } else {
+                return false;
+            }
         } finally {
             AccessibilityNodeInfoUtils.recycleNodes(tempNode, wrapNode);
         }
     }
 
+    private boolean resumeLastFocus(int windowId, int inputMode) {
+        AccessibilityNodeInfoCompat lastFocusedNode = mLastFocusedNodeMap.get(windowId);
+        if (lastFocusedNode == null) {
+            return false;
+        }
+
+        if (setCursor(lastFocusedNode)) {
+            mService.getInputModeManager().setInputMode(inputMode);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private AccessibilityNodeInfoCompat navigateSelfOrFrom(AccessibilityNodeInfoCompat node,
-                                                           int direction, TraversalStrategy traversalStrategy) {
+            @TraversalStrategy.SearchDirection int direction,
+            TraversalStrategy traversalStrategy) {
         if (node == null) {
             return null;
         }
@@ -787,7 +1153,8 @@ public class CursorControllerApp implements
     }
 
     private AccessibilityNodeInfoCompat navigateFrom(
-            AccessibilityNodeInfoCompat node, int direction,
+            AccessibilityNodeInfoCompat node,
+            @TraversalStrategy.SearchDirection int direction,
             final TraversalStrategy traversalStrategy) {
         if (node == null) {
             return null;
@@ -840,28 +1207,279 @@ public class CursorControllerApp implements
     public boolean onComboPerformed(int id) {
         switch (id) {
             case KeyComboManager.ACTION_NAVIGATE_NEXT:
-                next(true, true, true);
+                nextWithSpecifiedGranularity(CursorGranularity.DEFAULT, true /* shouldWrap */,
+                        true /* shouldScroll */, true /* useInputFocusAsPivotIfEmpty */,
+                        InputModeManager.INPUT_MODE_KEYBOARD);
                 return true;
             case KeyComboManager.ACTION_NAVIGATE_PREVIOUS:
-                previous(true, true, true);
+                previousWithSpecifiedGranularity(CursorGranularity.DEFAULT, true /* shouldWrap */,
+                        true /* shouldScroll */, true /* useInputFocusAsPivotIfEmpty */,
+                        InputModeManager.INPUT_MODE_KEYBOARD);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_UP:
+                up(true, true, true, InputModeManager.INPUT_MODE_KEYBOARD);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_DOWN:
+                down(true, true, true, InputModeManager.INPUT_MODE_KEYBOARD);
                 return true;
             case KeyComboManager.ACTION_NAVIGATE_FIRST:
-                jumpToTop();
+                jumpToTop(InputModeManager.INPUT_MODE_KEYBOARD);
                 return true;
             case KeyComboManager.ACTION_NAVIGATE_LAST:
-                jumpToBottom();
+                jumpToBottom(InputModeManager.INPUT_MODE_KEYBOARD);
                 return true;
             case KeyComboManager.ACTION_PERFORM_CLICK:
                 clickCurrent();
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_WORD:
+                nextWithSpecifiedGranularity(CursorGranularity.WORD, false /* shouldWrap */,
+                        true /* shouldScroll */, true /* useInputFocusAsPivotIfEmpty */,
+                        InputModeManager.INPUT_MODE_KEYBOARD);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_WORD:
+                previousWithSpecifiedGranularity(CursorGranularity.WORD, false /* shouldWrap */,
+                        true /* shouldScroll */, true /* useInputFocusAsPivotIfEmpty */,
+                        InputModeManager.INPUT_MODE_KEYBOARD);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_CHARACTER:
+                nextWithSpecifiedGranularity(CursorGranularity.CHARACTER, false /* shouldWrap */,
+                        true /* shouldScroll */, true /* useInputFocusAsPivotIfEmpty */,
+                        InputModeManager.INPUT_MODE_KEYBOARD);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_CHARACTER:
+                previousWithSpecifiedGranularity(CursorGranularity.CHARACTER,
+                        false /* shouldWrap */, true /* shouldScroll */,
+                        true /* useInputFocusAsPivotIfEmpty */,
+                        InputModeManager.INPUT_MODE_KEYBOARD);
+                return true;
+            case KeyComboManager.ACTION_PERFORM_LONG_CLICK:
+                longClickCurrent();
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_HEADING:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_HEADING:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_BUTTON:
+                performWebNavigationKeyCombo(HTML_ELEMENT_BUTTON, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_BUTTON:
+                performWebNavigationKeyCombo(HTML_ELEMENT_BUTTON, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_CHECKBOX:
+                performWebNavigationKeyCombo(HTML_ELEMENT_CHECKBOX, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_CHECKBOX:
+                performWebNavigationKeyCombo(HTML_ELEMENT_CHECKBOX, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_ARIA_LANDMARK:
+                performWebNavigationKeyCombo(HTML_ELEMENT_ARIA_LANDMARK, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_ARIA_LANDMARK:
+                performWebNavigationKeyCombo(HTML_ELEMENT_ARIA_LANDMARK, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_EDIT_FIELD:
+                performWebNavigationKeyCombo(HTML_ELEMENT_EDIT_FIELD, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_EDIT_FIELD:
+                performWebNavigationKeyCombo(HTML_ELEMENT_EDIT_FIELD, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_FOCUSABLE_ITEM:
+                performWebNavigationKeyCombo(HTML_ELEMENT_FOCUSABLE_ITEM, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_FOCUSABLE_ITEM:
+                performWebNavigationKeyCombo(HTML_ELEMENT_FOCUSABLE_ITEM, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_HEADING_1:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_1, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_HEADING_1:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_1, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_HEADING_2:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_2, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_HEADING_2:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_2, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_HEADING_3:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_3, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_HEADING_3:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_3, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_HEADING_4:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_4, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_HEADING_4:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_4, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_HEADING_5:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_5, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_HEADING_5:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_5, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_HEADING_6:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_6, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_HEADING_6:
+                performWebNavigationKeyCombo(HTML_ELEMENT_HEADING_6, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_LINK:
+                performWebNavigationKeyCombo(HTML_ELEMENT_LINK, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_LINK:
+                performWebNavigationKeyCombo(HTML_ELEMENT_LINK, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_CONTROL:
+                performWebNavigationKeyCombo(HTML_ELEMENT_CONTROL, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_CONTROL:
+                performWebNavigationKeyCombo(HTML_ELEMENT_CONTROL, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_GRAPHIC:
+                performWebNavigationKeyCombo(HTML_ELEMENT_GRAPHIC, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_GRAPHIC:
+                performWebNavigationKeyCombo(HTML_ELEMENT_GRAPHIC, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_LIST_ITEM:
+                performWebNavigationKeyCombo(HTML_ELEMENT_LIST_ITEM, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_LIST_ITEM:
+                performWebNavigationKeyCombo(HTML_ELEMENT_LIST_ITEM, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_LIST:
+                performWebNavigationKeyCombo(HTML_ELEMENT_LIST, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_LIST:
+                performWebNavigationKeyCombo(HTML_ELEMENT_LIST, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_TABLE:
+                performWebNavigationKeyCombo(HTML_ELEMENT_TABLE, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_TABLE:
+                performWebNavigationKeyCombo(HTML_ELEMENT_TABLE, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_COMBOBOX:
+                performWebNavigationKeyCombo(HTML_ELEMENT_COMBOBOX, true /* forward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_COMBOBOX:
+                performWebNavigationKeyCombo(HTML_ELEMENT_COMBOBOX, false /* backward */);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_NEXT_WINDOW:
+                navigateToNextOrPreviousWindow(TraversalStrategy.SEARCH_FOCUS_FORWARD,
+                        WINDOW_TYPE_SYSTEM | WINDOW_TYPE_APPLICATION, FOCUS_STRATEGY_RESUME_FOCUS,
+                        true /* useInputFocusAsPivot */, InputModeManager.INPUT_MODE_KEYBOARD);
+                return true;
+            case KeyComboManager.ACTION_NAVIGATE_PREVIOUS_WINDOW:
+                navigateToNextOrPreviousWindow(TraversalStrategy.SEARCH_FOCUS_BACKWARD,
+                        WINDOW_TYPE_SYSTEM | WINDOW_TYPE_APPLICATION, FOCUS_STRATEGY_RESUME_FOCUS,
+                        true /* useInputFocusAsPivot */, InputModeManager.INPUT_MODE_KEYBOARD);
                 return true;
         }
 
         return false;
     }
 
+    private void alertWebNavigationHitEdge(String htmlElement, boolean forward) {
+        int resId = forward ? R.string.end_of_web : R.string.start_of_web;
+        String displayName = null;
+        switch (htmlElement) {
+            case HTML_ELEMENT_HEADING:
+                displayName = mService.getString(R.string.display_name_heading);
+                break;
+            case HTML_ELEMENT_BUTTON:
+                displayName = mService.getString(R.string.display_name_button);
+                break;
+            case HTML_ELEMENT_CHECKBOX:
+                displayName = mService.getString(R.string.display_name_checkbox);
+                break;
+            case HTML_ELEMENT_ARIA_LANDMARK:
+                displayName = mService.getString(R.string.display_name_aria_landmark);
+                break;
+            case HTML_ELEMENT_EDIT_FIELD:
+                displayName = mService.getString(R.string.display_name_edit_field);
+                break;
+            case HTML_ELEMENT_FOCUSABLE_ITEM:
+                displayName = mService.getString(R.string.display_name_focusable_item);
+                break;
+            case HTML_ELEMENT_HEADING_1:
+                displayName = mService.getString(R.string.display_name_heading_1);
+                break;
+            case HTML_ELEMENT_HEADING_2:
+                displayName = mService.getString(R.string.display_name_heading_2);
+                break;
+            case HTML_ELEMENT_HEADING_3:
+                displayName = mService.getString(R.string.display_name_heading_3);
+                break;
+            case HTML_ELEMENT_HEADING_4:
+                displayName = mService.getString(R.string.display_name_heading_4);
+                break;
+            case HTML_ELEMENT_HEADING_5:
+                displayName = mService.getString(R.string.display_name_heading_5);
+                break;
+            case HTML_ELEMENT_HEADING_6:
+                displayName = mService.getString(R.string.display_name_heading_6);
+                break;
+            case HTML_ELEMENT_LINK:
+                displayName = mService.getString(R.string.display_name_link);
+                break;
+            case HTML_ELEMENT_CONTROL:
+                displayName = mService.getString(R.string.display_name_control);
+                break;
+            case HTML_ELEMENT_GRAPHIC:
+                displayName = mService.getString(R.string.display_name_graphic);
+                break;
+            case HTML_ELEMENT_LIST_ITEM:
+                displayName = mService.getString(R.string.display_name_list_item);
+                break;
+            case HTML_ELEMENT_LIST:
+                displayName = mService.getString(R.string.display_name_list);
+                break;
+            case HTML_ELEMENT_TABLE:
+                displayName = mService.getString(R.string.display_name_table);
+                break;
+            case HTML_ELEMENT_COMBOBOX:
+                displayName = mService.getString(R.string.display_name_combobox);
+                break;
+            case HTML_ELEMENT_SECTION:
+                displayName = mService.getString(R.string.display_name_section);
+                break;
+        }
+        mService.getSpeechController().speak(
+                mService.getString(resId, displayName),
+                SpeechController.QUEUE_MODE_INTERRUPT,
+                0,
+                null);
+    }
+
+    private boolean performWebNavigationKeyCombo(String htmlElement, boolean forward) {
+        if (isSupportedHtmlElement(htmlElement)) {
+            boolean navigationSucceeded = forward ?
+                    nextHtmlElement(htmlElement, InputModeManager.INPUT_MODE_KEYBOARD) :
+                    previousHtmlElement(htmlElement, InputModeManager.INPUT_MODE_KEYBOARD);
+            if (!navigationSucceeded) {
+                alertWebNavigationHitEdge(htmlElement, forward);
+            }
+            return navigationSucceeded;
+        }
+
+        mService.getSpeechController().speak(
+                mService.getString(R.string.keycombo_announce_shortcut_not_supported),
+                SpeechController.QUEUE_MODE_INTERRUPT,
+                FeedbackItem.FLAG_NO_HISTORY,
+                null);
+
+        return false;
+    }
+
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
-        if (event.getEventType() == AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
+        int eventType = event.getEventType();
+        if (eventType == AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
             final AccessibilityNodeInfo node = event.getSource();
             if (node == null) {
                 if (LogUtils.LOG_LEVEL <= Log.WARN) {
@@ -875,10 +1493,12 @@ public class CursorControllerApp implements
             // node but from the same window.
             final AccessibilityNodeInfoCompat nodeCompat = new AccessibilityNodeInfoCompat(node);
             mGranularityManager.onNodeFocused(nodeCompat);
-            if (mSwitchNodeWithGranularityDirection == TraversalStrategy.SEARCH_FOCUS_FORWARD) {
+            if (mSwitchNodeWithGranularityDirection ==
+                    AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY) {
                 mGranularityManager.navigate(
                         AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY);
-            } else if (mSwitchNodeWithGranularityDirection == TraversalStrategy.SEARCH_FOCUS_BACKWARD) {
+            } else if (mSwitchNodeWithGranularityDirection ==
+                    AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY) {
                 mGranularityManager.startFromLastNode();
                 mGranularityManager.navigate(
                         AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY);
@@ -887,6 +1507,66 @@ public class CursorControllerApp implements
             nodeCompat.recycle();
             mReachedEdge = false;
             mGranularityNavigationReachedEdge = false;
+        } else if (eventType == AccessibilityEvent.TYPE_VIEW_FOCUSED) {
+            final AccessibilityNodeInfo node = event.getSource();
+            if (node != null) {
+                final AccessibilityNodeInfoCompat nodeCompat =
+                        new AccessibilityNodeInfoCompat(node);
+
+                // Note: we also need to check ROLE_EDIT_TEXT for JB MR1 and lower and for
+                // Chrome/WebView 51 and lower. We should check isEditable() first because it's
+                // more semantically appropriate for what we want.
+                if (nodeCompat.isEditable() || Role.getRole(nodeCompat) == Role.ROLE_EDIT_TEXT) {
+                    AccessibilityNodeInfoUtils.recycleNodes(mLastEditable);
+                    mLastEditable = nodeCompat;
+                } else {
+                    nodeCompat.recycle();
+                }
+            }
+        } else if (mIsWindowNavigationAvailable &&
+                eventType == AccessibilityEvent.TYPE_WINDOWS_CHANGED) {
+            // Remove last focused nodes of non-existing windows.
+            Set<Integer> windowIdsToBeRemoved = new HashSet(mLastFocusedNodeMap.keySet());
+            for (AccessibilityWindowInfo window : mService.getWindows()) {
+                windowIdsToBeRemoved.remove(window.getId());
+            }
+            for (Integer windowIdToBeRemoved : windowIdsToBeRemoved) {
+                AccessibilityNodeInfoCompat removedNode =
+                        mLastFocusedNodeMap.remove(windowIdToBeRemoved);
+                if (removedNode != null) {
+                    removedNode.recycle();
+                }
+            }
+        }
+    }
+
+    private void rememberLastFocusedNode(AccessibilityNodeInfoCompat lastFocusedNode) {
+        if (!mIsWindowNavigationAvailable) {
+            return;
+        }
+
+        AccessibilityNodeInfoCompat oldNode = mLastFocusedNodeMap.put(lastFocusedNode.getWindowId(),
+                AccessibilityNodeInfoCompat.obtain(lastFocusedNode));
+        if (oldNode != null) {
+            oldNode.recycle();
+        }
+    }
+
+    /**
+     * Determines if we should try web navigation on a node. Returns false if we should just do
+     * normal navigation instead.
+     *
+     * @param node to navigate on
+     * @param direction The direction to navigate, one of {@link TraversalStrategy.SearchDirection}.
+     * @return {@code true} to attempt web navigation.
+     */
+    private boolean shouldAttemptHtmlNavigation(AccessibilityNodeInfoCompat node,
+            @TraversalStrategy.SearchDirection int direction) {
+        if (direction == TraversalStrategy.SEARCH_FOCUS_FORWARD ||
+                direction == TraversalStrategy.SEARCH_FOCUS_BACKWARD) {
+            return WebInterfaceUtils.supportsWebActions(node);
+        } else {
+            return false;
         }
     }
 
@@ -894,17 +1574,19 @@ public class CursorControllerApp implements
      * Attempts to navigate the node using HTML navigation.
      *
      * @param node to navigate on
-     * @param direction The direction to navigate, one of:
-     *            <ul>
-     *            <li>{@link #NAVIGATION_DIRECTION_NEXT}</li>
-     *            <li>{@link #NAVIGATION_DIRECTION_PREVIOUS}</li>
-     *            </ul>
+     * @param direction The direction to navigate, one of {@link TraversalStrategy.SearchDirection}.
      * @return {@code true} if navigation succeeded.
      */
-    private static boolean attemptHtmlNavigation(AccessibilityNodeInfoCompat node, int direction) {
-        final int action = (direction == NAVIGATION_DIRECTION_NEXT)
-                ? AccessibilityNodeInfoCompat.ACTION_NEXT_HTML_ELEMENT
-                : AccessibilityNodeInfoCompat.ACTION_PREVIOUS_HTML_ELEMENT;
-        return PerformActionUtils.performAction(node, action);
+    private boolean attemptHtmlNavigation(AccessibilityNodeInfoCompat node,
+            @TraversalStrategy.SearchDirection int direction) {
+        if (direction == TraversalStrategy.SEARCH_FOCUS_FORWARD) {
+            return WebInterfaceUtils.performNavigationToHtmlElementAction(node,
+                    WebInterfaceUtils.DIRECTION_FORWARD, "");
+        } else if (direction == TraversalStrategy.SEARCH_FOCUS_BACKWARD) {
+            return WebInterfaceUtils.performNavigationToHtmlElementAction(node,
+                    WebInterfaceUtils.DIRECTION_BACKWARD, "");
+        } else {
+            return false;
+        }
     }
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/parent_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:contentDescription="Outer frame"
+        android:focusable="true" >
+
+        <Button
+            android:id="@+id/nested_button_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nested button 1" />
+
+        <LinearLayout
+            android:id="@+id/nested_frame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="Inner frame"
+            android:focusable="true" >
+
+            <Button
+                android:id="@+id/nested_button_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nested button 2" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

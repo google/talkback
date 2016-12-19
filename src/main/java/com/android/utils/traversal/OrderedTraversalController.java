@@ -22,11 +22,11 @@ import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.util.Log;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.android.utils.LogUtils;
+import com.android.utils.WebInterfaceUtils;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class OrderedTraversalController {
 
     private WorkingTree mTree;
@@ -49,15 +49,21 @@ public class OrderedTraversalController {
      *
      * @param compatRoot - accessibility node that serves as root node for tree hierarchy
      *                   the controller works with
+     * @param includeChildrenOfNodesWithWebActions whether to calculator order for nodes that
+     *        support web actions. Although TalkBack uses the naviagation order specified by the
+     *        nodes, Switch Access needs to know about all nodes at the time the tree is being
+     *        created.
      */
-    public void initOrder(AccessibilityNodeInfoCompat compatRoot) {
+    public void initOrder(AccessibilityNodeInfoCompat compatRoot,
+            boolean includeChildrenOfNodesWithWebActions) {
         if (compatRoot == null) {
             return;
         }
 
         NodeCachedBoundsCalculator boundsCalculator = new NodeCachedBoundsCalculator();
         boundsCalculator.setSpeakNodesCache(mSpeakNodesCache);
-        mTree = createWorkingTree(AccessibilityNodeInfoCompat.obtain(compatRoot), null, boundsCalculator);
+        mTree = createWorkingTree(AccessibilityNodeInfoCompat.obtain(compatRoot), null,
+                boundsCalculator, includeChildrenOfNodesWithWebActions);
         reorderTree();
     }
 
@@ -65,10 +71,15 @@ public class OrderedTraversalController {
      * Creates tree that reproduces AccessibilityNodeInfoCompat tree hierarchy
      * @param rootNode root node that is starting point for tree reproduction
      * @param parent parent WorkingTree node for subtree that would be returned in this method
+     * @param includeChildrenOfNodesWithWebActions whether to calculator order for nodes that
+     *        support web actions. Although TalkBack uses the naviagation order specified by the
+     *        nodes, Switch Access needs to know about all nodes at the time the tree is being
+     *        created.
      * @return subtree that reproduces accessibility node hierarchy
      */
     private WorkingTree createWorkingTree(AccessibilityNodeInfoCompat rootNode,
-                          WorkingTree parent, NodeCachedBoundsCalculator boundsCalculator) {
+                          WorkingTree parent, NodeCachedBoundsCalculator boundsCalculator,
+                          boolean includeChildrenOfNodesWithWebActions) {
         if (mNodeTreeMap.containsKey(rootNode)) {
             LogUtils.log(OrderedTraversalController.class,
                     Log.WARN, "creating node tree with looped nodes - break the loop edge");
@@ -77,11 +88,20 @@ public class OrderedTraversalController {
 
         WorkingTree tree = new WorkingTree(rootNode, parent);
         mNodeTreeMap.put(rootNode, tree);
+
+        // When we reach a node that supports web navigation, we traverse using the web navigation
+        // actions, so we should not try to determine the ordering of its descendants.
+        if (!includeChildrenOfNodesWithWebActions
+                && WebInterfaceUtils.supportsWebActions(rootNode)) {
+            return tree;
+        }
+
         ReorderedChildrenIterator iterator =
                 ReorderedChildrenIterator.createAscendingIterator(rootNode, boundsCalculator);
         while (iterator != null && iterator.hasNext()) {
             AccessibilityNodeInfoCompat child = iterator.next();
-            WorkingTree childSubTree = createWorkingTree(child, tree, boundsCalculator);
+            WorkingTree childSubTree = createWorkingTree(child, tree, boundsCalculator,
+                    includeChildrenOfNodesWithWebActions);
             if (childSubTree != null) {
                 tree.addChild(childSubTree);
             }
@@ -115,7 +135,7 @@ public class OrderedTraversalController {
     }
 
     private AccessibilityNodeInfoCompat getTraversalBefore(AccessibilityNodeInfoCompat node) {
-        //TODO (MB) remove the check after AccessibilityNodeInfoCompat.getTraversalBefore() would be committed
+        //TODO remove the check after AccessibilityNodeInfoCompat.getTraversalBefore() would be committed
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP_MR1) {
             return null;
         }
@@ -129,7 +149,7 @@ public class OrderedTraversalController {
     }
 
     private AccessibilityNodeInfoCompat getTraversalAfter(AccessibilityNodeInfoCompat node) {
-        //TODO (MB) remove the check after AccessibilityNodeInfoCompat.getTraversalAfter() would be committed
+        //TODO remove the check after AccessibilityNodeInfoCompat.getTraversalAfter() would be committed
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP_MR1) {
             return null;
         }

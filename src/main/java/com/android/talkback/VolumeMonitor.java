@@ -35,7 +35,6 @@ import com.google.android.marvin.talkback.TalkBackService;
 /**
  * Listens for and responds to volume changes.
  */
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class VolumeMonitor extends BroadcastReceiver {
     /** Pseudo stream type for master volume. */
     private static final int STREAM_MASTER = -100;
@@ -74,7 +73,7 @@ public class VolumeMonitor extends BroadcastReceiver {
         mContext = context;
         mSpeechController = speechController;
 
-        // TODO(KM): See if many objects use the same system services and get them once
+        // TODO: See if many objects use the same system services and get them once
         mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         mTelephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
     }

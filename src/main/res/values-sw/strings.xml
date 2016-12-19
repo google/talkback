@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="7512754982950145749">"TalkBack ikiwa imewashwa, kifaa chako hutoa majubu yanayotamkwa ili kuwasaidia vipofu na watumiaji wasioweza kuona vizuri. Kwa mfano, inaeleze unachogusa, kuchagua na kuanza kutumia."</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"Ukiwasha TalkBack, kifaa chako hutoa maelezo yanayotamkwa ili kuwasaidia vipofu na watumiaji wasioweza kuona vizuri. Kwa mfano, hutoa maelezo kuhusu kipengee unachogusa, unachochagua na unachoanza kutumia. \n\nIkiwa umewasha TalkBack bila kutarajia, izime kwa kugonga swichi hadi mstari wa kijani uizingire, kisha uigonge mara mbili. Fanya vivyo hivyo wakati kidirisha cha kuthibitisha kinapojitokeza."</string>
     <string name="talkback_on" msgid="315529674405160699">"TalkBack imewashwa"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack imesimamishwa"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack inaendelea"</string>
+    <string name="talkback_disabled" msgid="2536155587482587238">"TalkBack imezimwa."</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"Mipangilio ya TalkBack"</string>
     <string name="tts_preferences_title" msgid="6233811187483633874">"Mipangilio ya ubadilishaji wa maandishi kwenda usemi"</string>
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Toleo la <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
@@ -19,6 +22,11 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"Hoja ya sasa ya utafutaji: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>."</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"Hakuna kipengee kilichochaguliwa."</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"Uteuzi wa sasa: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>."</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Mwanzo wa sehemu"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Mwisho wa sehemu"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Hali ya kuchagua imewashwa"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Hali ya kuchagua imezimwa"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Uteuzi umefutwa"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"Simu ambayo haikujibiwa"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"Imepumzishwa"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"Gumzo"</string>
@@ -33,37 +41,49 @@
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"Imekomeshwa"</string>
     <string name="template_current_tts_engine" msgid="3963364867159704159">"Inatumia <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"Menyu ya <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_edit_box" msgid="5395366637528473616">"Kisanduku cha kubadilisha. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
-    <string name="template_edit_box_current" msgid="2778286668618391188">"Kisanduku cha kuhariri, sasa unahariri. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"Tahadhari <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"Menyu ya <xliff:g id="TITLE">%1$s</xliff:g>"</string>
     <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> yamechukua nafasi ya <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> yamefutwa"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"<xliff:g id="TEXT">%1$s</xliff:g>, yamenakiliwa"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"<xliff:g id="TEXT">%1$s</xliff:g>, yamekatwa"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"<xliff:g id="TEXT">%1$s</xliff:g>, yamebandikwa"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, yamechaguliwa"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"Maandishi yaliyochaguliwa: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"Hakuna maandishi yaliyochaguliwa"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, yameondolewa"</string>
     <string name="template_text_error" msgid="153775825635730287">"Ingizo lisilosahihi <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"Herufi <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> zilichukua nafasi ya herufi <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g>"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> cha <xliff:g id="LABEL">%2$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"<xliff:g id="TITLE">%1$s</xliff:g> imebonyezwa kwa muda mrefu"</string>
-    <string name="template_button" msgid="2640124317262628933">"Kitufe cha <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"Picha <xliff:g id="TITLE">%1$d</xliff:g>. Isiyo na lebo"</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"Kitufe <xliff:g id="TITLE">%1$d</xliff:g>. Kisicho na lebo"</string>
-    <string name="template_seek_bar" msgid="9010890122601609426">"<xliff:g id="TITLE">%1$s</xliff:g> tafuta kidhibiti."</string>
     <string name="template_percent" msgid="6118803183030408820">"Asilimia <xliff:g id="PERCENTAGE">%1$s</xliff:g>."</string>
     <string name="template_charging" msgid="2038200557537960378">"Inachaji <xliff:g id="CHANGING_STATUS">%1$s</xliff:g> Kiwango cha betri ni asilimia <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g>."</string>
-  <plurals name="template_containers">
-    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="TYPE">%1$s</xliff:g> inaonyesha vipengele <xliff:g id="COUNT">%2$d</xliff:g>."</item>
-    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="TYPE">%1$s</xliff:g> inaonyesha vipengee <xliff:g id="COUNT">%2$d</xliff:g>."</item>
-  </plurals>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> inaonyesha vipengee <xliff:g id="COUNT_3">%2$d</xliff:g>.</item>
+      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> inaonyesha kipengee <xliff:g id="COUNT_1">%2$d</xliff:g>.</item>
+    </plurals>
     <string name="value_gridview" msgid="1382219539169157957">"Gridi"</string>
     <string name="value_listview" msgid="7625152822709234439">"Orodha"</string>
     <string name="value_tabwidget" msgid="6935453013254857519">"Upao wa kichupo"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"Orodha kunjuzi"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"Kisanduku cha kuteua"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"Kitufe cha mviringo"</string>
+    <string name="value_button" msgid="2459787142940409576">"Kitufe"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"Kidhibiti cha kutafuta"</string>
+    <string name="value_switch" msgid="6946709666466895221">"Swichi"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"Kisanduku cha kubadilisha"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"Inabadilisha"</string>
+    <string name="value_image" msgid="5114229220871881124">"Picha"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"Kisicho na lebo"</string>
+    <string name="value_pager" msgid="7708574424402835461">"Mwonekano wa kurasa nyingi"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"Ukurasa"</string>
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"Inaonyesha vipengee <xliff:g id="FROM_INDEX">%1$d</xliff:g> hadi <xliff:g id="TO_INDEX">%2$d</xliff:g> kati ya <xliff:g id="TOTAL_COUNT">%3$d</xliff:g>."</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"Inaonyesha kipengee cha <xliff:g id="FROM_INDEX">%1$d</xliff:g> kati ya <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
-    <string name="template_spinner" msgid="1240658876427369167">"<xliff:g id="TITLE">%1$s</xliff:g> orodha kunjuzi."</string>
-    <string name="template_password_selected" msgid="3751806880345903886">"Herufi zimechaguliwa kuanzia <xliff:g id="FROM_INDEX">%1$s</xliff:g> hadi <xliff:g id="TO_INDEX">%2$s</xliff:g>"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"Ukurasa wa <xliff:g id="PAGE_INDEX">%1$d</xliff:g> kati ya <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> kati ya <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"Herufi <xliff:g id="FROM_INDEX">%1$d</xliff:g> hadi <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"Herufi <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"herufi kubwa <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="template_checkbox" msgid="8582666147313623418">"Kisanduku cha kuteua <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"Kitufe cha redio <xliff:g id="TITLE">%1$s</xliff:g>."</string>
-    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>, badili"</string>
     <string name="value_password" msgid="7285572231215250557">"nenosiri"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Droo ya kutelezesha imefunguliwa"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Kivuli kimefunguliwa"</string>
@@ -71,69 +91,115 @@
     <string name="value_text_cleared" msgid="6558192295636412162">"Maandishi yaliyofutwa"</string>
     <string name="value_text_max_length" msgid="4129865255646994586">"Urefu hauwezi kuzidi hapa"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"imefutwa"</string>
+    <string name="value_selected" msgid="1307429702194660766">"Iliyochaguliwa"</string>
     <string name="value_checked" msgid="3006751014125833966">"imeteuliwa"</string>
     <string name="value_not_checked" msgid="37422559536361725">"haijachaguliwa"</string>
+    <string name="value_on" msgid="39454338086317219">"imewashwa"</string>
+    <string name="value_off" msgid="6700497510945744608">"imezimwa"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"imepanuliwa"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"imekunjwa"</string>
     <string name="value_disabled" msgid="5160977094078900656">"imezimwa"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"Gonga mara mbili"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"Gonga"</string>
-    <string name="template_hint_clickable" msgid="1398769454100543369">"<xliff:g id="ACTION">%1$s</xliff:g> ili uchague."</string>
+    <string name="value_press_select" msgid="4270348255373188872">"Bonyeza kitufe cha chagua"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> ili uwashe."</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Bonyeza <xliff:g id="KEYCOMBO">%1$s</xliff:g> ili uwashe."</string>
     <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> na ushikile ili kubonyeza kwa muda mrefu."</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Bofya <xliff:g id="KEYCOMBO">%1$s</xliff:g> ili ubonyeze kwa muda mrefu."</string>
     <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> ili ugeuze."</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Bonyeza <xliff:g id="KEYCOMBO">%1$s</xliff:g> ili ugeuze."</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> ili uandike maandishi."</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Bonyeza <xliff:g id="KEYCOMBO">%1$s</xliff:g> ili uweke maandishi."</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> ili ubadilishe."</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"Gusa skrini na uchunguze katika duara ili upate kipengee, kisha inua ili uchague."</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Bonyeza <xliff:g id="KEYCOMBO">%1$s</xliff:g> ili ubadilishe."</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"Telezesha kwa vidole viwili ili ubadilishe kurasa."</string>
+    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"Hakuna kurasa za ziada zinazopatikana."</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g> ili ubadilishe."</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"Gusa skrini na ukague katika mduara ili kupata kipengee, kisha uinue ili ukiwashe."</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Gusa skrini na uchunguze katika duara ili kusogeza maudhui kwenye skrini, kisha inua ili kuchagua."</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"Vitendo maalum:"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> ili <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Bonyeza <xliff:g id="KEYCOMBO">%1$s</xliff:g> ili <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> na ushikile ili <xliff:g id="HINT">%2$s</xliff:g>."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"Mtetemo wa mlio."</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Mlio wa simu uko kimya."</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Skrini imewashwa."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Skrini imezima."</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock imewashwa."</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps lock imezimwa."</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock imewashwa."</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock imezimwa."</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock imewashwa."</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock imezimwa."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"Kifaa kimefunguliwa."</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Kutamka"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Sauti ya utamkaji"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"Zungumza wakati skrini imezimwa"</string>
     <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"Arifa hutamkwa hata skrini ikiwa imezimwa"</string>
     <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"Hakuna utamkaji utakaofanyika wakati skrini imezimwa"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"Tamka Kitambulisho cha mpigaji"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"Tumia kigundua vitu vya karibu"</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Kigundua vitu vya karibu hunyamazisha utamkaji"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Kigundua vitu vya karibu hakidhibiti utamkaji"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Tamka herufi za kifonetiki"</string>
     <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Herufi za kifonetiki hazitatamkwa."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"Herufi za kifonetiki zitatamkwa ukibonyeza kibodi kwa muda mrefu na kusogeza kulingana na herufi."</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"Herufi za kifonetiki zitatamkwa wakati wa kubonyeza kwa muda mrefu kwenye kibodi na kusogeza lengo la zana za walio na matatizo ya kuona na kusikia kulingana na herufi."</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Tamka vidokezo vya matumizi"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"Vidokezo vya matumizi havitatamkwa wakati wa usogezaji wa kimstari."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"Vidokezo vya matumizi vitatamkwa wakati fokasi inaposogezwa kimstari, baada ya kuchelewa kidogo."</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"Vidokezo vya matumizi havitatamkwa wakati wa kusogeza lengo la zana za walio na matatizo ya kuona na kusikia."</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"Vidokezo vya jinsi ya kutumia vitatamkwa wakati wa kusogeza, baada ya kukawia kwa muda mfupi."</string>
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Chunguza kwa kugusa"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Orodha za kusogeza kiotomatiki"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Uchunguzi kwa kugusa"</string>
-    <string name="title_pref_single_tap" msgid="3366282780861635094">"Uteuzi wa kugonga mara moja"</string>
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"Kuwasha kwa kugonga mara moja"</string>
     <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Onyesha Menyu kama orodha"</string>
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Punguza mwangaza wa skrini wakati TalkBack imewashwa"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(Jaribio) Gonga kipengee kilicholengwa sasa ili uchague"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"(Jaribio) Gonga kipengee kilicholengwa sasa ili ukiwashe"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Tikisa ili uanze kusoma bila kikomo"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Dhibiti ishara"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"Dhibiti lebo maalum"</string>
     <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Dhibiti mikato ya kibodi"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"Hamisha lebo maalum"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"Fungua TalkBack katika Duka la Google Play"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"Toleo la Sasa la TalkBack: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"Usaidizi na maoni"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"Usaidizi"</string>
     <string name="title_pref_show_tos" msgid="6167834013879233992">"Sheria na Masharti"</string>
     <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Sera ya Faragha"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Ishara za njia za mkato"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Ishara iliyoundiwa ndani"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(Majaribio) Gonga ubavu wa kifaa"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"Maana ya kundi la vitufe"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"Chagua maana ya kundi la vitufe"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"Weka upya maana ya kundi la vitufe"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"Chagua kitufe cha kurekebisha"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"TalkBack itaweka upya kundi la vitufe"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"TalkBack itaweka upya kundi la vitufe na ibadilishe kitufe cha kurekebisha kiwe <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"Kitufe cha kurekebisha kimebadilishwa kuwa <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>."</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"<xliff:g id="KEYMAP_NAME">%1$s</xliff:g> sasa imewashwa."</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"Imeweka upya maana ya kundi la vitufe."</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"Huwezi kutumia njia ya mkato"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"Maana ya kawaida ya kundi la vitufe"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"Maana chaguo-msingi ya kundi la vitufe"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"Vitendo vya usogezaji"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"Nenda kwenye kipengee kinachofuata"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"Nenda kwenye kipengee kilichotangulia"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"Sogeza kwenye kipengee cha juu"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"Sogeza kwenye kipengee cha chini"</string>
     <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"Nenda kwenye kipengee cha kwanza"</string>
     <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"Nenda kwenye kipengee cha mwisho"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"Nenda kwenye dirisha linalofuata"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"Nenda kwenye dirisha lililotangulia"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"Sogeza kwenye neno linalofuata"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"Sogeza kwenye neno lililotangulia"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"Sogeza kwenye herufi inayofuata"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"Sogeza kwenye herufi iliyotangulia"</string>
     <string name="keycombo_menu_perform_click" msgid="243666968746657931">"Bofya"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"Bofya na ushikilie kwa muda"</string>
     <string name="keycombo_menu_category_global" msgid="7309875734492478067">"Vitendo vinavyoathiri kote"</string>
     <string name="keycombo_menu_global_back" msgid="4567585750566224959">"Nyuma"</string>
     <string name="keycombo_menu_global_home" msgid="7189369064773623371">"Nyumbani"</string>
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Programu za hivi majuzi"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Arifa"</string>
-    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"Sitisha TalkBack"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"Sitisha au uendelee kutumia TalkBack"</string>
     <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Mipangilio ya maelekezo"</string>
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Mipangilio ya maelekezo inayofuata"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Mipangilio ya maelekezo iliyotangulia"</string>
@@ -143,10 +209,63 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Tafuta kipengee kwenye skrini"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Onyesha Menyu ya Kipengele Kinacholengwa"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Onyesha Menyu Inayofanya Kazi Kote"</string>
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"Dhibiti mikato ya kibodi"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"Fungua mipangilio ya TalkBack"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"Vitendo vya usogezaji kwenye wavuti"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"Sogeza kwenye kitufe kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"Sogeza kwenye kitufe kilichotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"Sogeza kwenye kidhibiti kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"Sogeza kwenye kidhibiti kilichotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"Sogeza kwenye kisanduku cha kuteua kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"Sogeza kwenye kisanduku cha kuteua kilichotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"Sogeza kwenye alama ya ARIA inayofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"Sogeza kwenye alama ya ARIA iliyotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"Sogeza kwenye sehemu ya kubadilisha inayofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"Sogeza kwenye sehemu ya kubadilisha iliyotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"Sogeza mbele kwenye kipengee kinachotarajiwa"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"Sogeza nyuma kwenye kipengee kinachotarajiwa"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"Sogeza kwenye mchoro unaofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"Sogeza kwenye mchoro uliotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"Sogeza kwenye kichwa kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"Sogeza kwenye kichwa kilichotangilia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"Sogeza kwenye kichwa cha 1 kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"Sogeza kwenye kichwa cha 1 kilichotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"Sogeza kwenye kichwa cha 2 kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"Sogeza kwenye kichwa cha 2 kilichotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"Sogeza kwenye kichwa cha 3 kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"Sogeza kwenye kichwa cha 3 kilichotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"Sogeza kwenye kichwa cha 4 kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"Sogeza kwenye kichwa cha 4 kilichotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"Sogeza kwenye kichwa cha 5 kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"Sogeza kwenye kichwa cha 5 kilichotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"Sogeza kwenye kichwa cha 6 kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"Sogeza kwenye kichwa cha 6 kilichotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"Sogeza kwenye kipengee cha orodha kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"Sogeza kwenye kipengee cha orodha kilichotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"Sogeza kwenye kiungo kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"Sogeza kwenye kiungo kilichotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"Sogeza kwenye orodha inayofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"Sogeza kwenye orodha iliyotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"Sogeza kwenye jedwali linalofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"Sogeza kwenye jedwali lililotangulia"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"Sogeza kwenye kisanduku mseto kinachofuata"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"Sogeza kwenye kisanduku mseto kilichotangulia"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"Mikato ya kibodi ni"</string>
     <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Bonyeza mchanganyiko wa vitufe ili uweke njia mpya ya mkato. Ni lazima iwe na angalau kitufe cha ALT au Control."</string>
-    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"Futa kitufe cha njia ya mkato"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Bonyeza mchanganyiko wa vitufe pamoja na kitufe cha kurekebisha cha <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> ili uweke njia mpya ya mkato."</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"Bonyeza kitufe cha \'Backspace\' ili ufute njia ya mkato, bonyeza \'Enter\' ili uhifadhi au ubonyeze \'Escape\' ili ughairi."</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"Futa njia ya mkato"</string>
     <string name="keycombo_unassigned" msgid="5817151372114230015">"Haijatolewa"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Tafuta"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Kishale cha Kulia"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Kishale cha Kushoto"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Kishale cha Juu"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Kishale cha Chini"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"Una uhakika kuwa ungependa kuweka upya vitufe vya njia ya mkato vya maana ya kundi hili la vitufe kuwa katika thamani chaguo-msingi? Kumbuka kuwa kitendo hiki hakiwezi kutenduliwa."</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"Weka upya"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"Kitufe kinatumika tayari"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Mchanganyiko wa vitufe unatumika kwa kitendo cha \'<xliff:g id="ID_1">%1$s</xliff:g>\'. Je, unataka kuufuta na kukabidhi njia hii ya mkato kwa \'<xliff:g id="ID_2">%2$s</xliff:g>\'?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Tumia mabadiliko ya sauti"</string>
@@ -159,9 +278,12 @@
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"Lenga sauti ya utamkaji"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Punguza sauti nyingine unapozungumza"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Kiwango cha Sauti"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Njia ya mkato ya kusimamisha na kuendelea kutumia Talkback"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Imesimamisha Talkback na kuendelea kutumia njia ya mkato"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"Njia ya mkato ya kufifiza skrini"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Anuwai"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Mipangilio ya msanidi programu"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"Chagua matukio ya kuhifadhi kwenye kumbukumbu"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"Chuja kumbukumbu ya matukio ya zana za walio na matatizo ya kuona au kusikia"</string>
     <string name="title_pref_log_level" msgid="267415170405921603">"Kiwango kumbukumbu ya utoaji"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Onyesha utoaji kwa kutamka"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"Washa Utatuzi wa Mpangilio wa nguzo"</string>
@@ -186,10 +308,11 @@
     <string name="granularity_line" msgid="727359260064093782">"Mistari"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"Aya"</string>
     <string name="granularity_page" msgid="2739238666516816581">"Kurasa"</string>
-    <string name="granularity_web_section" msgid="496466197528091152">"Usogezaji katika sehemu"</string>
-    <string name="granularity_web_list" msgid="8598575022728013551">"Usogezaji katika orodha"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"Udhibiti wa usogezaji"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"Usogezaji wa maudhui maalum"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"Vichwa na Alama Muhimu"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"Orodha"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"Viungo"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"Vidhibiti"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Maudhui maalum"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"Wima"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"Mlalo"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"Haijatolewa"</string>
@@ -201,10 +324,12 @@
     <string name="shortcut_home" msgid="6670249804418900175">"Kitufe cha mwanzo"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"Kitufe cha muhtasari"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"Fungua arifa"</string>
+    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"Onyesha vitendo maalum"</string>
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Fungua menyu ya muktadha wote"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"Fungua menyu ya muktadha ya karibu nawe"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Rudia utamkaji uliotangulia"</string>
     <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"Taja tahajia ya utamkaji uliotangulia"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"Nakili tamko la mwisho kwenye ubao wa kunakili"</string>
     <string name="shortcut_pause_feedback" msgid="1412613174540942399">"Sitisha maoni"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"Soma kutoka juu"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"Soma kutoka kwenye kipengee kinachofuata"</string>
@@ -213,6 +338,8 @@
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Mipangilio ya maelekezo iliyotangulia"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"Angazia kipengee cha kwanza kwenye skrini"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Angazia kipengee cha mwisho kwenye skrini"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"Fifiza skrini"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"Ongeza mwanga kwenye skrini"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"Menyu ya Mahususi"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"Menyu ya Jumla"</string>
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"Hakuna vipengee vya menyu."</string>
@@ -234,6 +361,13 @@
     <string name="title_summary" msgid="3037924006370977165">"Ufikiaji wa haraka"</string>
     <string name="title_granularity" msgid="399801096771904747">"Mipangilio ya maelekezo"</string>
     <string name="title_custom_action" msgid="7908169922901920318">"Vitendo maalum"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"Mapendekezo ya kukamilisha kiotomatiki"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"Nenda kwenye mapendekezo"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"Rudi kwenye sehemu ya kubadilisha"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"Kidhibiti cha kutafuta"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"Badilisha kiwango cha kidhibiti cha kutafuta"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"Andika nambari kati ya 0 na100."</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
     <string name="value_direction_up" msgid="1646290331150992975">"juu"</string>
     <string name="value_direction_down" msgid="8072362433982733982">"chini"</string>
     <string name="value_direction_left" msgid="676932617445677488">"kushoto"</string>
@@ -294,6 +428,7 @@
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Gonga ili ukague mabadiliko katika ishara za ufikiaji"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack imesimamishwa"</string>
     <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Gonga ili uendelee."</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"Inaendelea kiotomatiki kwenye somo la 1."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"Ungependa kusimamisha TalkBack?"</string>
     <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Je, una uhakika? Kifaa chako hakitatoa majibu na Kuchunguza kwa Kugusa kutazimwa. Unaweza kuendelea kutumia Talkback kutoka arifa, kwa kurejea kwenye skrini ya kufunga, au kupitia kitufe cha sauti cha njia ya mkato."</string>
     <string name="message_resume_manual" msgid="6522293510722570646">"Unaweza kuendelea kutumia TalkBack kutoka sehemu ya arifa."</string>
@@ -308,13 +443,30 @@
     <string name="label_remove_dialog_text" msgid="372916461303485723">"Je, una uhakika unataka kuondoa lebo ya \"<xliff:g id="LABEL">%1$s</xliff:g>\"?"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Je, una uhakika unataka kuondoa lebo ya \"<xliff:g id="LABEL">%1$s</xliff:g>\" iliyo ndani ya <xliff:g id="APP_NAME">%2$s</xliff:g>?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Weka lebo ya maandishi"</string>
+    <string name="label_import" msgid="1773817433300194935">"Ingiza lebo maalum"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"Ingiza lebo maalum kwenye TalkBack"</string>
+    <string name="label_import_dialog_message" msgid="7975227530187709469">"Chagua ikiwa unataka kubatilisha au kuacha kutumia lebo zilizopo ikiwa zinakinzana."</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"Ruka"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"Batilisha"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"Hakuna lebo za kuhamisha. Hujaongeza lebo zozote"</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"Imeshindwa kuhamisha lebo"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"Imeshindwa kuingiza lebo"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="other">Lebo %d zimesasishwa</item>
+      <item quantity="one">Lebo 1 imesasishwa</item>
+    </plurals>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"Chagua programu itakayohamisha lebo:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"Toleo hili la TalkBack linajumuisha mabadiliko katika ishara chaguo-msingi za ufikiaji. Vitendo vinavyohusiana na ishara hizi vinaweza kugeuzwa kukufaa katika mipangilio ya TalkBack. Wakati Kuchunguza kwa mguso kumewezeshwa, unaweza kutumia ishara zifuatazo kufanya vitendo vingine.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Bonyeza na ushikilie kwa muda vitufe vya kuongeza sauti na kupunguza sauti kwa pamoja."</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"Bonyeza vitufe vyote viwili vya sauti mara tatu kwa haraka ili uwashe au uzime kipengele cha kufifiza mwanga kwenye skrini"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"Ungependa kupunguza mwangaza wa skrini?"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"Je, una uhakika unataka kufifiza mwangaza wa skrini?"</string>
     <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"Toleo hili la TalkBack linajumuisha mabadiliko kwa ishara chaguo-msingi ya ufikiaji.\n\nIshara ya juu kisha chini itakuruhusu kusogeza kipengee cha kwanza kwenye skrini, na ishara ya chini kisha juu itasogeza hadi kwenye kipengee cha mwisho.\n\nUmadhubuti wa kusoma sasa unaweza kubadilishwa kwa kulenga kipengee, kisha kuchagua umadhubuti kutoka kwenye menyu ya muktadha.\n\nUnaweza kubadilisha hatua zilizotekelezwa kwa ishara hizi katika Mipangilio ya TalkBack."</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"Toleo hili la TalkBack linajumuisha mabadiliko katika ishara chaguo-msingi za zana za walio na matatizo ya kuona au kusikia. \n\nIshara ya juu sasa imehamishiwa kwenye mipangilio ya awali ya usogezaji na ishara ya chini sasa imehamishiwa kwenye mipangilio inayofuta ya usogezaji."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Kubali ishara"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Badilisha ishara iwe utakavyo"</string>
+    <string name="button_clear_all_events" msgid="2128349101908653825">"Ondoa zote"</string>
+    <string name="button_check_all_events" msgid="301383322727007726">"Chagua zote"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"Ungependa kuzima kipengee cha Chunguza kwa Kugusa?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Je, una uhakika unataka kuzima kipengee cha Chunguza kwa Kugusa?\n\nKifaa chako hakitaitikia tena ishara za njia mkato au vipengee vya kutamka unapogusa skrini."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Ungependa kuwasha Utatuzi wa Mpangilio wa nguzo?"</string>
@@ -327,9 +479,77 @@
     <string name="permission_labeling_desc" msgid="8065967887484901473">"Ruhusa ya kufikia, kurekebisha, na kufuta lebo maalum zinazotamkwa na TalkBack."</string>
     <string name="links" msgid="3448225474115458693">"Viungo"</string>
     <string name="end_of_text" msgid="3595733062526019550">"Mwisho"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"Hakuna <xliff:g id="ID_1">%1$s</xliff:g> iliyotangulia"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"hakuna kipengee cha <xliff:g id="ID_1">%1$s</xliff:g> kinachofuata"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"kichwa"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"kitufe"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"kisanduku mseto"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"Alama maarufu ya ARIA"</string>
+    <string name="display_name_edit_field" msgid="5014778180731737501">"badilisha sehemu"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"kipengee kinachoweza kuangaziwa"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"kichwa cha 1"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"kichwa cha 2"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"kichwa cha 3"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"kichwa cha 4"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"kichwa cha 5"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"kichwa cha 6"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"kiungo"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"kithibiti"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"mchoro"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"kipengee cha orodha"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"orodha"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"jedwali"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"kisanduku cha kuteua"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"kichwa au alama maarufu"</string>
     <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
     <string name="row_index_template" msgid="4107789959609911947">"Safu mlalo <xliff:g id="ROW">%1$d</xliff:g>"</string>
     <string name="column_index_template" msgid="258393957626754806">"Safu wima <xliff:g id="COL">%1$d</xliff:g>"</string>
     <string name="heading_template" msgid="3585514481777782183">"Kichwa"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"Kichwa cha safu mlalo"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"Kichwa cha safu wima"</string>
     <string name="item_index_template" msgid="71505978833721807">"Kipengee <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"Rejesha lebo zilizoingizwa"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"Lebo zilizoingizwa zimerejeshwa"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g> sehemu ya juu, <xliff:g id="ID_2">%2$s</xliff:g> sehemu ya chini"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g> upande wa kushoto, <xliff:g id="ID_2">%2$s</xliff:g> upande wa kulia"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g> upande wa kulia, <xliff:g id="ID_2">%2$s</xliff:g> upande wa kushoto"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="untitled_window" msgid="7017590766394623328">"Jina halijawekwa"</string>
+    <string name="status_bar" msgid="6000275621941971563">"sehemu ya kuonyesha hali"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"sehemu ya viungo muhimu"</string>
+    <string name="template_collection_start" msgid="4362535543397747567">"Katika <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_end" msgid="2167296836815021551">"Nje ya <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"Kiwango cha <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="other">Vipengee <xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Kipengee <xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g></item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="other">Safu mlalo <xliff:g id="ROW_COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Safu mlalo <xliff:g id="ROW_COUNT_0">%1$d</xliff:g></item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="other">Safu wima <xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Safu wima <xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g></item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="other">Herufi <xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g></item>
+      <item quantity="one">Herufi <xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g></item>
+    </plurals>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="other">Imechagua matukio <xliff:g id="TOTAL_COUNT">%1$d</xliff:g></item>
+      <item quantity="one">Imechagua tukio 1</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> imeanza"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> imemalizika"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"Hali ya kidhibiti cha kutafuta"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"Bonyeza vitufe vya kishale ili ubadilishe kiwango au ubonyeze kitufe cha chagua ili umalize."</string>
+    <string name="arc_android_window" msgid="697316167642517245">"Dirisha la Android"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"Bonyeza tafuta ukitumia vishale ili usogeze"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"Bonyeza <xliff:g id="KEYCOMBO">%1$s</xliff:g> ili uone orodha ya njia za mkato"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"Bonyeza <xliff:g id="KEYCOMBO">%1$s</xliff:g> ili ufungue mipangilio ya TalkBack"</string>
+    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"Ili upate matokeo bora ya maelezo yanayotamkwa na kugusa, panua kidirisha cha programu"</string>
 </resources>

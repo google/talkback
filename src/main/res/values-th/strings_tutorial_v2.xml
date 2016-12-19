@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"บทแนะนำสำหรับการเข้าถึง"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"เปิดบทแนะนำ TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"บทแนะนำ TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack คือโปรแกรมอ่านหน้าจอที่ใช้สำหรับผู้ใช้ที่พิการทางสายตาและผู้บกพร่องทางการมองเห็น โปรแกรมนี้ช่วยให้ผู้ใช้โต้ตอบกับอุปกรณ์ด้วยการอธิบายและอ่านออกเสียง"</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"ปิด TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"เรียนรู้"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"ฝึกปฏิบัติ"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"เรียนรู้บทเรียนที่ <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"ฝึกฝนบทเรียนที่ <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"บทที่ 1: การนำทางพื้นฐาน"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"แตะเพื่อสำรวจ เลื่อนเพื่อสำรวจ แตะ 2 ครั้งเพื่อเปิดใช้งาน"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"ส่วนที่ 1: แตะเพื่อสำรวจ"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"เมื่อเปิดใช้ \"แตะเพื่อสำรวจ\" คุณจะได้ยินสิ่งที่อยู่ใต้นิ้ว เลื่อนนิ้วไปตามรายการต่างๆ ที่อยู่กลางหน้าจอ เมื่อคุณสำรวจครบ 5 รายการ บทเรียนจะดำเนินต่อไป"</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"ส่วนที่ 2: แตะ 2 ครั้งเพื่อเปิดใช้งาน"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"หากต้องการเปิดใช้งานรายการล่าสุดที่คุณได้ยิน ให้แตะ 2 ครั้งที่ใดก็ได้ ค้นหารายการที่ 7 และเปิดใช้งานเลย หลังจากนั้น ให้เปิดใช้งานปุ่มถัดไปเพื่อดำเนินการต่อ"</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"เปิดใช้งานรายการที่ 7 แล้ว ค้นหาและเปิดใช้งานปุ่มถัดไปเพื่อดำเนินการต่อ"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"ส่วนที่ 3: การไปยังส่วนต่างๆ ของบทเรียน"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"บทเรียนสำหรับ TalkBack ได้จัดเตรียมไว้คล้ายคลึงกันดังนี้คือ พื้นที่ด้านบนมีบทเรียน ซึ่งคุณสามารถสำรวจและอ่านได้ทุกเมื่อที่ต้องการ ทั้งยังมีปุ่มหน้าแรกของบทแนะนำที่มุมซ้ายบนด้วย พื้นที่ตรงกลางมีพื้นที่สำหรับฝึกฝน พื้นที่ด้านล่างมีสัญญาณบอกสถานะความคืบหน้า และปุ่มนำทางไปยังบทเรียนต่างๆ เปิดใช้งานปุ่มถัดไปเลยเพื่อดำเนินการต่อ"</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"ส่วนที่ 4: เลื่อนเพื่อสำรวจ"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"นอกจากนี้คุณยังสามารถสำรวจโดยการใช้นิ้วเลื่อนหน้าจอ การเลื่อนไปทางซ้ายจะเป็นการสำรวจขึ้นไปด้านบนและทางซ้าย ในขณะที่การเลื่อนไปทางขวาจะเป็นการสำรวจลงไปด้านล่างและทางขวา ลองดูเลย"</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"ส่วนที่ 5: การฝึกปฏิบัติ"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"หากต้องการได้ยินว่าสิ่งที่คุณแตะอยู่คืออะไร ให้เลื่อนนิ้วไปรอบๆ หน้าจอ และแตะ 2 ครั้งที่ใดก็ได้เพื่อเปิดใช้งานคุณลักษณะที่คุณได้ยิน เลื่อนไปด้านซ้ายหรือขวาเพื่อสำรวจ"</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"บทที่ 2: การเลื่อน"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"การเลื่อนด้วย 2 นิ้ว ข้ามไปข้างหน้าและย้อนกลับ"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"ส่วนที่ 1: การเลื่อนด้วย 2 นิ้ว"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"หากต้องการเลื่อนผ่านรายการในแนวตั้ง ให้เลื่อน 2 นิ้วขึ้นหรือลง หากต้องการเลื่อนผ่านรายการในแนวนอน ค้นหารายการที่ต้องการ จากนั้นเลื่อน 2 นิ้วไปด้านซ้ายหรือขวา"</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"ส่วนที่ 2: ทางลัดการเลื่อน"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"คุณสามารถข้ามไปข้างหน้าหรือย้อนกลับในรายการโดยใช้ทางลัด หากต้องการข้ามไปข้างหน้าให้เลื่อน 1 นิ้วไปทางขวาแล้ววกกลับมาทางซ้ายในคราวเดียว หากต้องการย้อนกลับ ให้เลื่อน 1 นิ้วไปทางซ้ายแล้ววกกลับมาทางขวา ลองทำดูที่นี่"</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"ส่วนที่ 3: การฝึกปฏิบัติ"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"เลื่อนโดยการใช้ 2 นิ้วเลื่อนขึ้นหรือลง ข้ามไปข้างหน้าโดยการเลื่อน 1 นิ้วไปทางขวาแล้ววกกลับมาทางซ้าย ย้อนกลับโดยการเลื่อน 1 นิ้วไปทางซ้ายแล้ววกกลับมาทางขวา"</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"บทที่ 3: เมนู TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"เมนู TalkBack ส่วนกลาง, เมนู TalkBack ในเครื่อง"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"ส่วนที่ 1: เมนู TalkBack ส่วนกลาง"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack มี 2 เมนูที่แตกต่างกัน แบบแรกคือเมนู TalkBack ส่วนกลาง มักจะมีคำสั่งเดียวกันเสมอ คุณสามารถเปิดใช้งานได้โดยการเลื่อน 1 นิ้วลงแล้วไปทางขวาในคราวเดียว จากนั้นยกนิ้วขึ้น เปิดใช้งานเวอร์ชันสำหรับฝึกปฏิบัติเลย"</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"ตัวเลือกเมนูแสดงในแนวตั้งตรงกึ่งกลางของหน้าจอ ลองสำรวจดูเลย เมื่อเสร็จแล้ว ให้เปิดใช้งานปุ่มยกเลิก"</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"ส่วนที่ 2: เมนู TalkBack ในเครื่อง"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"เมนูที่ 2 คือ TalkBack ในเครื่อง รายการในเมนูนี้จะแตกต่างกันไปตามสิ่งที่คุณได้ยินล่าสุด คุณสามารถเปิดใช้งานเมนูนี้โดยการเลื่อน 1 นิ้วขึ้นแล้วไปทางขวาในคราวเดียว เปิดใช้งานเมนูสำหรับฝึกปฏิบัติเลย"</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"ส่วนที่ 3: การฝึกปฏิบัติ"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"เลื่อนนิ้วลงแล้วไปทางขวาเพื่อเปิดใช้งานเมนู TalkBack ส่วนกลาง เลื่อนนิ้วขึ้นแล้วไปทางขวาเพื่อเปิดใช้งานเมนู TalkBack ในเครื่อง"</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"เลื่อนนิ้วลงแล้วไปทางขวา"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"กวาดนิ้วขึ้นแล้วไปทางขวา"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"เมนู TalkBack ส่วนกลาง: เลื่อนนิ้วลงแล้วไปทางขวา เมนู TalkBack ในเครื่อง: กวาดนิ้วขึ้นแล้วไปทางขวา"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"บทที่ 4: การนำทางในข้อความ"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"การเลือกการตั้งค่าการไปยังส่วนต่างๆ ของข้อความ"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"ส่วนที่ 1: เลือกการตั้งค่าการนำทาง"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack ช่วยให้คุณควบคุมได้ว่าจะให้ระบบอ่านข้อความทีละย่อหน้า ทีละบรรทัด ทีละคำ หรือทัละอักขระ การอ่านทีละอักขระจะช่วยในเรื่องการสะกดคำ คุณสามารถตั้งค่าอัตราการนำทางข้อความไปจนเป็นระดับอักขระด้วยการแตะข้อความด้านล่าง จากนั้นเลื่อนขึ้นและลง"</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"สำรวจตัวเลือกอัตราการอ่านที่แสดงในแนวตั้งที่นี่ ค้นหาและเปิดใช้งานตัวเลือกอ่านทีละอักขระ"</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"ส่วนที่ 2: การไปยังส่วนต่างๆ ของข้อความ"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"ขณะนี้คุณใช้การอ่านทีละอักขระอยู่ เลือกข้อความตัวอย่าง แล้วเลื่อนไปด้านขวาเพื่ออ่านทีละอักขระ"</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"ส่วนที่ 3: การฝึกปฏิบัติ"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"เปลี่ยนอัตราการนำทางข้อความด้วยการเลื่อนขึ้นและลง อ่านอักขระถัดไปในข้อความตัวอย่างด้วยการเลื่อนไปด้านขวา"</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"ต่อไปนี้เป็นข้อความตัวอย่างบางส่วนสำหรับการฝึกใช้งาน TalkBack ชายคนหนึ่งถามด้วยความแปลกใจว่า \"แคนซัสอยู่ที่ไหน\" โดโรธีตอบเศร้าๆ ว่า \"ฉันไม่ทราบ\" \"แต่ที่นั่นคือบ้านของฉัน และฉันแน่ใจว่ามันต้องอยู่ที่ไหนสักแห่ง\"\n\n\"น่าจะใช่ เอาเถิด ในเมื่อออซสามารถทำได้ทุกอย่าง ฉันคิดว่าเขาจะค้นหาแคนซัสให้คุณได้ แต่คุณต้องไปพบเขาก่อน และการไปหาเขานั่นแหละที่เป็นงานที่ยากลำบาก เพราะพ่อมดผู้ยิ่งใหญ่ไม่ค่อยชอบพบปะใคร และเขามักทำสิ่งต่างๆ ตามอำเภอใจ ว่าแต่คุณต้องการอะไร\" เขาพูดกับโตโต้ต่อ"</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"บทที่ 5: การแก้ไขข้อความ"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"การเปิดใช้งานช่องแก้ไข การพิมพ์ การย้ายเคอร์เซอร์ การเลือก และการดำเนินการกับข้อความ"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"ส่วนที่ 1: การเปิดใช้งานช่องแก้ไข"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"TalkBack ช่วยให้คุณใช้ช่องแก้ไขเพื่อพิมพ์ เลือก และแก้ไขข้อความ หากต้องการเปิดใช้งานช่องแก้ไข ให้แตะ 2 ครั้ง หลังจากเปิดใช้งานช่องแก้ไขแล้ว แป้นพิมพ์จะปรากฏขึ้นที่ด้านล่างของหน้าจอ คุณสามารถปิดแป้นพิมพ์ด้วยการแตะปุ่มกลับ จากนั้นลองเปิดใช้งานช่องแก้ไข เมื่อเสร็จแล้ว ให้เปิดใช้งานปุ่มถัดไป ซึ่งตอนนี้ปรากฏอยู่เหนือแป้นพิมพ์"</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"ส่วนที่ 2: การพิมพ์ในช่องแก้ไข"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"หากต้องการพิมพ์ ให้เปิดใช้งานช่องแก้ไขและเลื่อนนิ้วไปรอบๆ แป้นพิมพ์บนหน้าจอ เมื่อคุณได้ยินอักขระที่ต้องการใช้ ให้ยกนิ้วขึ้นเพื่อเปิดใช้งาน ลองเปิดใช้งานและพิมพ์ในช่องแก้ไขด้านล่าง"</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"ส่วนที่ 3: การใช้เคอร์เซอร์"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"คุณสามารถย้ายเคอร์เซอร์ด้วยปุ่มปรับระดับเสียงบนอุปกรณ์ หรือผ่านเมนู TalkBack ของอุปกรณ์ ตัวเลือกตัวควบคุมเคอร์เซอร์ ยังช่วยให้คุณสามารถเลือก ตัด คัดลอก หรือวางข้อความได้ เปิดใช้งานช่องแก้ไขด้านล่าง และย้ายเคอร์เซอร์ไปรอบๆ ข้อความตัวอย่าง"</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"ที่อยู่อีเมลของโดโรธี เกล คือ dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"ส่วนที่ 4: การฝึกปฏิบัติ"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"เปิดใช้งานช่องแก้ไขด้วยการแตะ 2 ครั้ง พิมพ์ด้วยการย้ายนิ้วเหนืออักขระ จากนั้นยกนิ้วขึ้น ย้ายเคอร์เซอร์ด้วยปุ่มปรับระดับเสียงและเมนู TalkBack ของอุปกรณ์ เลือกและดำเนินการกับข้อความด้วยการใช้ตัวเลือกตัวควบคุมเคอร์เซอร์ในเมนู TalkBack ของอุปกรณ์"</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"แก้ไขข้อความ"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"ก่อนหน้า"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"ถัดไป"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"บทเรียนก่อนหน้า"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"บทเรียนถัดไป"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"หน้าแรกของบทแนะนำ"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"บทที่ %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"ส่วนที่ %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"ส่วนที่ %1$d จาก %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"สิ้นสุดแบบฝึกหัดนี้แล้วและแบบฝึกหัดต่อไปจะเริ่มในอีกสักครู่"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"พื้นที่ฝึกปฏิบัติ"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"เปิดใช้งาน %1$s ในโหมดฝึกฝนแล้ว เปิดใช้งานปุ่มยกเลิกเพื่อออก"</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"ปุ่มหน้าแรกของบทแนะนำ"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"รายการ <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"ออก"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"ต้องใช้ \"แตะเพื่อสำรวจ\""</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"บทแนะนำนี้ต้องใช้ \"แตะเพื่อสำรวจ\" โปรดเปิดใช้งาน \"แตะเพื่อสำรวจ\" ก่อนที่จะเปิดบทแนะนำ"</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack ปิดอยู่"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"บทแนะนำนี้ต้องเปิดใช้ TalkBack โปรดเปิด TalkBack ก่อนเปิดบทแนะนำ"</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack ถูกระงับ"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"บทแนะนำ TalkBack ไม่พร้อมใช้งานในขณะที่การอธิบายและอ่านออกเสียงถูกหยุดชั่วคราว โปรดกลับไปใช้งานการอธิบายและอ่านออกเสียงของ TalkBack แล้วเปิดบทแนะนำใหม่อีกครั้งเพื่อดำเนินการต่อ"</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"อธิบายเมนู"</string>
+</resources>

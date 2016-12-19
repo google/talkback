@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Tutorial sobre accessibilitat"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Inicia el tutorial de TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Tutorial de TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack és un lector de pantalla destinat principalment a persones invidents o amb problemes de visió. Permet interaccionar amb el dispositiu mitjançant la veu."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Desactiva TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Aprèn"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Practica"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"aprèn la lliçó <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"practica la lliçó <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lliçó 1: navegació bàsica"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Toca o fes lliscar el dit per explorar, fes doble toc per activar"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Part 1: funció Exploració tàctil"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Amb la funció Exploració tàctil activada, podràs sentir el que premis amb el dit. Desplaça\'l per sobre dels elements que hi ha al centre de la pantalla. La lliçó continuarà quan hagis explorat cinc elements."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Part 2: fer doble toc per activar"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Per activar l\'últim element que has sentit, fes doble toc on vulguis. Cerca l\'element 7 i activa\'l. A continuació, activa el botó Següent per continuar."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"L\'element 7 està activat. Cerca i activa el botó Següent per continuar."</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Part 3: navegar per les lliçons"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Les lliçons de TalkBack s\'organitzen de manera semblant. A la part superior, hi ha la lliçó, que pots consultar i llegir sempre que vulguis. També hi ha un botó de pàgina d\'inici del tutorial a l\'extrem superior esquerre. Al mig, hi ha la zona de pràctica. A la part inferior, hi ha un indicador de progrés i botons per desplaçar-se per la lliçó. Activa el botó Següent per continuar."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Part 4: lliscar per explorar"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"També pots explorar lliscant el dit per la pantalla. En general, si llisques cap a l\'esquerra, exploraràs cap amunt i cap a l\'esquerra. En canvi, si llisques cap a la dreta, ho faràs cap avall i cap a la dreta. Prova-ho ara."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Part 5: practicar"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Per sentir què tens sota el dit, desplaça\'l per la pantalla. Fes doble toc on vulguis per activar allò que sentis. Fes lliscar el dit cap a l\'esquerra o cap a la dreta per explorar."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lliçó 2: desplaçar-se"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Desplaçar-se amb dos dits, saltar endavant i enrere"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Part 1: desplaçar-se amb dos dits"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Per desplaçar-te per una llista vertical, cerca un element de llista i, a continuació, mou dos dits cap amunt o cap avall. Per desplaçar-te per una llista horitzontal, fes el mateix, però movent els dos dits cap a l\'esquerra o cap a la dreta."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Part 2: dreceres per desplaçar-se"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Pots saltar endavant o enrere en una llista mitjançant una drecera. Per saltar endavant, mou un dit cap a la dreta i després cap a l\'esquerra en un únic moviment. Per saltar enrere, fes el contrari. Prova-ho aquí."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Part 3: practicar"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Per desplaçar-te, fes lliscar dos dits cap amunt o cap avall. Pots saltar endavant movent un dit cap a la dreta i després cap a l\'esquerra, i saltar enrere fent el contrari."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lliçó 3: menús de TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menú global de TalkBack, menú local de TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Part 1: menú global de TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack té dos menús diferents. El primer, el menú global de TalkBack, sempre conté les mateixes ordres. Per activar-lo, mou un sol dit cap avall i després cap a la dreta en un únic moviment i, a continuació, aixeca el dit. Activa una versió de pràctica ara."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Les opcions del menú es mostren en una llista vertical al mig de la pantalla. Prova d\'explorar-la. Quan hagis acabat, activa el botó Cancel·la."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Part 2: menú local de TalkBack"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"El segon menú és el menú local de TalkBack. Els elements d\'aquest menú varien en funció de l\'últim que hagis sentit. Per activar-lo, mou un sol dit cap amunt i després cap a la dreta en un únic moviment i, a continuació, aixeca el dit. Activa un menú de pràctica ara."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Part 3: practicar"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Per activar el menú global de TalkBack, mou el dit cap avall i després cap a la dreta. Per activar el menú local de TalkBack, mou el dit cap amunt i després cap a la dreta."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Avall i després a la dreta"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Amunt i després a la dreta"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Menú global de TalkBack: avall i després a la dreta; menú local de TalkBack: amunt i després a la dreta"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Lliçó 4: navegar pel text"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Triar la configuració de navegació pel text"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Part 1: triar la configuració de navegació"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack et permet controlar com vols que se\'t llegeixi el text: de paràgraf en paràgraf, de línia en línia, de paraula en paraula o de caràcter en caràcter. Llegir per caràcters ajuda amb l\'ortografia. Per definir el ritme de lectura a caràcters, toca el text següent i llisca cap amunt i cap avall."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Explora les opcions de ritme de lectura en aquesta llista vertical. Cerca i activa l\'opció Llegeix per caràcters."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Part 2: navegar pel text"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Ara es llegeix per caràcters. Selecciona el text de mostra i llisca cap a la dreta per llegir per caràcters."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Part 3: practicar"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Pots canviar el ritme de lectura del text lliscant cap amunt i cap avall. Per llegir el caràcter següent del text de mostra, llisca cap a la dreta."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Aquí tens un text de mostra per practicar amb TalkBack: \"On és Kansas?\", va demanar el senyor, sorprès. \"No ho sé…\", va respondre la Dorothy, trista, \"però és casa meva, i de ben segur que és en algun lloc\".\n\n\"Segurament. Bé, el mag d\'Oz pot fer qualsevol cosa, així que suposo que pot dir-te on és Kansas. Ara bé, primer has d\'aconseguir que et rebi, i això serà complicat, perquè al gran Mag no li agrada veure ningú, i sempre se surt amb la seva. I tu, què vols?\" va continuar, dirigint-se a Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Lliçó 5: editar text"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Activar un quadre d\'edició, escriure-hi, moure el cursor, seleccionar i editar text"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Part 1: activar un quadre d\'edició"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Amb TalkBack, pots fer servir un quadre d\'edició per escriure, seleccionar i editar text. Per activar un quadre d\'edició, fes-hi doble toc. Un cop l\'hagis activat es mostrarà un teclat a la part inferior de la pantalla. Per fer desaparèixer el teclat, toca el botó Enrere. Prova d\'activar el quadre d\'edició. Quan hagis acabat, activa el botó Següent, que ara és a sobre del teclat."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Part 2: escriure en un quadre d\'edició"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Per escriure, activa el quadre d\'edició i mou el dit pel teclat de la pantalla. Quan sentis el caràcter que cercaves, aixeca el dit per activar-lo. Prova d\'activar el quadre d\'edició següent i d\'escriure-hi."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Part 3: fer servir un cursor"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Pots moure un cursor mitjançant els botons de volum del dispositiu o el menú local de TalkBack. L\'opció Control del cursor d\'aquest menú també et permet seleccionar, tallar, copiar o enganxar text. Activa el quadre d\'edició següent i mou el cursor pel text de mostra."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"L\'adreça electrònica de Dorothy Gale és dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Part 4: practicar"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Activa el quadre d\'edició fent-hi doble toc. Per escriure, mou el dit per sobre d\'un caràcter i aixeca\'l. Mou el cursor amb els botons de volum i el menú local de TalkBack. Per seleccionar i editar text, fes servir l\'opció Control del cursor del menú local de TalkBack."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Edita el text"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"ANTERIOR"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"SEGÜENT"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"LLIÇÓ ANTERIOR"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"LLIÇÓ SEGÜENT"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"PÀGINA D\'INICI DEL TUTORIAL"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Lliçó %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Part %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Part %1$d de %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"L\'exercici ha finalitzat i la lliçó continuarà de seguida"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Zona de pràctica"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s està en mode de pràctiques. Activa el botó CANCEL·LA per sortir-ne."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Botó de pàgina d\'inici del tutorial"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Element <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Surt"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"La funció Exploració tàctil ha d\'estar activada"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Aquest tutorial requereix la funció Exploració tàctil. Activa-la abans d\'iniciar-lo."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack està desactivat"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Aquest tutorial requereix que l\'opció TalkBack estigui activada. Activa-la abans d\'iniciar-lo."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack està suspès"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"El tutorial de TalkBack no està disponible si els comentaris de veu estan en pausa. Per continuar, reprèn els comentaris de veu de TalkBack i torna a iniciar el tutorial."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Descriu el menú"</string>
+</resources>

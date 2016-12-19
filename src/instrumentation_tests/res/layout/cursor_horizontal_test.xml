@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <TextView
+    android:id="@+id/text_first_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Beginning of page"/>
+
+  <HorizontalScrollView
+    android:id="@+id/horiz_scroller"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent">
+      <TextView
+        android:id="@+id/horiz_1"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Label 1"/>
+      <TextView
+        android:id="@+id/horiz_2"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Label 2"/>
+      <TextView
+        android:id="@+id/horiz_3"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Label 3"/>
+      <TextView
+        android:id="@+id/horiz_4"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Label 4"/>
+      <TextView
+        android:id="@+id/horiz_5"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Label 5"/>
+      <TextView
+        android:id="@+id/horiz_6"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Label 6"/>
+      <TextView
+        android:id="@+id/horiz_7"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Label 7"/>
+    </LinearLayout>
+  </HorizontalScrollView>
+
+  <TextView
+    android:id="@+id/text_last_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="End of page"/>
+
+</LinearLayout>

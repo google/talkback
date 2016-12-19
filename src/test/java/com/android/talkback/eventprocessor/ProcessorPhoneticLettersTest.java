@@ -19,8 +19,11 @@ package com.android.talkback.eventprocessor;
 import android.annotation.TargetApi;
 import android.os.Build;
 import java.util.Locale;
+
+import com.android.talkback.BuildConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
@@ -29,9 +32,11 @@ import static org.junit.Assert.assertEquals;
 /**
  * Tests for ProcessorPhoneticLetters
  */
-@Config(emulateSdk = 18)
+@Config(
+        constants = BuildConfig.class,
+        sdk = 21)
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class ProcessorPhoneticLettersTest {
 
     @Test

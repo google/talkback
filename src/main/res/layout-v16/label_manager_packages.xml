@@ -17,7 +17,30 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/import_labels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/label_import"/>
+    <!--@string/pref_category_export_custom_labels_key-->
+
+    <Button
+        android:id="@+id/export_labels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/title_pref_export_custom_labels" />
+
+    <Button
+        android:id="@+id/revert_import"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/revert_imported_labels"/>
 
     <ListView
         android:id="@+id/package_list"

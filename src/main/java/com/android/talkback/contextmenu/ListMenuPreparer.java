@@ -32,18 +32,21 @@ public class ListMenuPreparer {
     }
 
     public void prepareMenu(ListMenu menu, int menuId) {
+        TalkBackService service = TalkBackService.getInstance();
+        if (service == null) {
+            return;
+        }
+
         if (menuId == R.menu.global_context_menu) {
             new MenuInflater(mContext).inflate(R.menu.global_context_menu, menu);
             menu.removeItem(R.id.quick_navigation);
+
+            GlobalMenuProcessor globalMenuProcessor = new GlobalMenuProcessor(service);
+            globalMenuProcessor.prepareMenu(menu);
             menu.setTitle(mContext.getString(R.string.global_context_menu_title));
         } else if (menuId == R.menu.local_context_menu) {
-            TalkBackService service = TalkBackService.getInstance();
-            if (service == null) {
-                return;
-            }
-
             final AccessibilityNodeInfoCompat currentNode = service.getCursorController()
-                    .getCursor();
+                    .getCursorOrInputCursor();
             if (currentNode == null) {
                 return;
             }
@@ -52,6 +55,17 @@ public class ListMenuPreparer {
             menuRuleProcessor.prepareMenuForNode(menu, currentNode);
             currentNode.recycle();
             menu.setTitle(mContext.getString(R.string.local_context_menu_title));
+        } else if (menuId == R.id.custom_action_menu) {
+            final AccessibilityNodeInfoCompat currentNode = service.getCursorController()
+                    .getCursorOrInputCursor();
+            if (currentNode == null) {
+                return;
+            }
+
+            NodeMenuRuleProcessor menuRuleProcessor = new NodeMenuRuleProcessor(service);
+            menuRuleProcessor.prepareCustomActionMenuForNode(menu, currentNode);
+            currentNode.recycle();
+            menu.setTitle(mContext.getString(R.string.title_custom_action));
         }
     }
 }

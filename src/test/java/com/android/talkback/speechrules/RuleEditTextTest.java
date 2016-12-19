@@ -24,12 +24,13 @@ import android.view.View;
 import android.view.accessibility.AccessibilityWindowInfo;
 import android.widget.EditText;
 import com.android.switchaccess.test.ShadowAccessibilityNodeInfo;
-import com.android.switchaccess.test.ShadowAccessibilityNodeInfoCompat;
 import com.android.switchaccess.test.ShadowAccessibilityWindowInfo;
+import com.android.talkback.BuildConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
@@ -46,12 +47,14 @@ import static org.junit.Assert.assertTrue;
 /**
  * Tests for RuleEditText
  */
-@Config(emulateSdk = 18,
+@Config(
+        constants = BuildConfig.class,
+        sdk = 21,
         shadows = {ShadowAccessibilityNodeInfo.class,
-                ShadowAccessibilityNodeInfoCompat.class,
-                ShadowAccessibilityWindowInfo.class})
+                ShadowAccessibilityWindowInfo.class,
+                ShadowAccessibilityNodeInfo.ShadowAccessibilityAction.class})
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class RuleEditTextTest {
 
     private Context mContext = RuntimeEnvironment.application.getApplicationContext();
@@ -59,7 +62,7 @@ public class RuleEditTextTest {
 
     @Before
     public void setUp() {
-        ShadowAccessibilityNodeInfoCompat.resetObtainedInstances();
+        ShadowAccessibilityNodeInfo.resetObtainedInstances();
         mNodeInfo = AccessibilityNodeInfoCompat.obtain();
     }
 
@@ -67,9 +70,9 @@ public class RuleEditTextTest {
     public void tearDown() {
         try {
             mNodeInfo.recycle();
-            assertFalse(ShadowAccessibilityNodeInfoCompat.areThereUnrecycledNodes(true));
+            assertFalse(ShadowAccessibilityNodeInfo.areThereUnrecycledNodes(true));
         } finally {
-            ShadowAccessibilityNodeInfoCompat.resetObtainedInstances();
+            ShadowAccessibilityNodeInfo.resetObtainedInstances();
         }
     }
 
@@ -96,7 +99,7 @@ public class RuleEditTextTest {
         mNodeInfo.setText("aaa");
         RuleEditText rule = new RuleEditTextWithInputWindow();
         CharSequence text = rule.format(mContext, mNodeInfo, null);
-        assertTrue("Edit box. aaa".equalsIgnoreCase(text.toString()));
+        assertTrue("Edit box, aaa".equalsIgnoreCase(text.toString()));
     }
 
     @Test
@@ -106,7 +109,7 @@ public class RuleEditTextTest {
         mNodeInfo.setText("aaa");
         RuleEditText rule = new RuleEditTextNoInputWindow();
         CharSequence text = rule.format(mContext, mNodeInfo, null);
-        assertTrue("Edit box. aaa".equalsIgnoreCase(text.toString()));
+        assertTrue("Edit box, aaa".equalsIgnoreCase(text.toString()));
     }
 
     @Test
@@ -122,7 +125,58 @@ public class RuleEditTextTest {
         shadowWindow.setType(AccessibilityWindowInfo.TYPE_INPUT_METHOD);
         RuleEditText rule = new RuleEditTextWithInputWindow();
         CharSequence text = rule.format(mContext, mNodeInfo, null);
-        assertTrue("Edit box, currently editing. aaa".equalsIgnoreCase(text.toString()));
+        assertTrue("Edit box, editing, aaa".equalsIgnoreCase(text.toString()));
+    }
+
+    @Test
+    public void testEditTextNodes_shouldNotHaveDuplicateHintText() {
+        mNodeInfo.setFocused(false);
+        mNodeInfo.setEnabled(true);
+        mNodeInfo.setClickable(true);
+        mNodeInfo.setLongClickable(false);
+        mNodeInfo.setClassName(EditText.class.getName());
+
+        RuleEditText rule = new RuleEditTextWithInputWindow();
+        CharSequence hint = rule.getHintText(mContext, mNodeInfo);
+        assertTrue("Double-tap to enter text.".equalsIgnoreCase(hint.toString()));
+    }
+
+
+    @Test
+    public void testLongClickableEditTextNodes_shouldNotHaveDuplicateHintText() {
+        mNodeInfo.setFocused(false);
+        mNodeInfo.setEnabled(true);
+        mNodeInfo.setClickable(true);
+        mNodeInfo.setLongClickable(true);
+        mNodeInfo.setClassName(EditText.class.getName());
+
+        RuleEditText rule = new RuleEditTextWithInputWindow();
+        CharSequence hint = rule.getHintText(mContext, mNodeInfo);
+        assertTrue("Double-tap to enter text. Double-tap and hold to long press.".equalsIgnoreCase(
+                hint.toString()));
+    }
+
+    @Test
+    public void testFocusedPasswordEditTextWithoutContentDescription() {
+        mNodeInfo.setFocused(true);
+        mNodeInfo.setClassName(EditText.class.getName());
+        mNodeInfo.setPassword(true);
+        mNodeInfo.setText("aaa");
+        RuleEditText rule = new RuleEditTextNoInputWindow();
+        CharSequence text = rule.format(mContext, mNodeInfo, null);
+        assertTrue("Edit box, password, 3 characters".equalsIgnoreCase(text.toString()));
+    }
+
+    @Test
+    public void testFocusedPasswordEditTextWithContentDescription() {
+        mNodeInfo.setFocused(true);
+        mNodeInfo.setClassName(EditText.class.getName());
+        mNodeInfo.setPassword(true);
+        mNodeInfo.setText("aaa");
+        mNodeInfo.setContentDescription("PassCode");
+        RuleEditText rule = new RuleEditTextNoInputWindow();
+        CharSequence text = rule.format(mContext, mNodeInfo, null);
+        assertTrue("Edit box, PassCode, 3 characters".equalsIgnoreCase(text.toString()));
     }
 
     private static class RuleEditTextWithInputWindow extends RuleEditText {

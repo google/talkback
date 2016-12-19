@@ -49,7 +49,6 @@ import java.util.List;
  * Facilitates search of the nodes on the screen. Nodes are matched by description, and the
  * accessibility focus is moved to the matched node.
  */
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class NodeSearch {
     /**
      * A formatter that determines the text to display given the search query, and the size at

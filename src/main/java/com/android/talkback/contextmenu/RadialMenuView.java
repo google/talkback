@@ -554,7 +554,7 @@ public class RadialMenuView extends SurfaceView {
 
     private void drawCorner(Canvas canvas, int width, int height, float center, int i) {
         final RadialMenuItem wedge = mRootMenu.getCorner(i);
-        if (wedge == null) {
+        if (wedge == null || !wedge.isVisible()) {
             return;
         }
 
@@ -910,7 +910,7 @@ public class RadialMenuView extends SurfaceView {
         final int length = paint.breakText(title, true, (maxWidth - ellipsisWidth), null);
 
         // Try to land on a word break.
-        // TODO(AV): Use breaking iterator for better i18n support.
+        // TODO: Use breaking iterator for better i18n support.
         final int space = title.lastIndexOf(' ', length);
         if (space > 0) {
             return title.substring(0, space) + ELLIPSIS;

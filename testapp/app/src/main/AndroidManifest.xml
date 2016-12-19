@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.talkbacktests">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:configChanges="orientation|keyboard|keyboardHidden"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:resizeableActivity="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".testsession.PreferenceFragmentTest$PrefsActivity"
+            android:label="Settings"
+            android:parentActivityName=".MainActivity"
+            android:resizeableActivity="true" />
+
+        <activity
+            android:name=".testsession.PreferenceFragmentTest$PrefsCompatActivity"
+            android:label="Settings"
+            android:parentActivityName=".MainActivity"
+            android:resizeableActivity="true" />
+    </application>
+
+</manifest>

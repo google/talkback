@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"အများသုံးစွဲနိုင်မှု သင်ခန်းစာ"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"TalkBack လေ့ကျင့်ခန်းကို ဖွင့်ပါ"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack သင်ခန်းစာ"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack သည်မျက်မမြင်များနှင့် အမြင်အာရုံအားနည်းသူများအတွက် အဓိကထုတ်လုပ်ထားသည့် ဖန်သားပြင်ဖတ်စနစ် ဖြစ်ပါသည်။ ၎င်းသည် စက်ပစ္စည်းကိုအသုံးပြုရာတွင် စကားပြောတုံ့ပြန်မှုများဖြင့် ဆက်သွယ်စေနိုင်ပါသည်။"</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBack ကိုပိတ်ပါ"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"လေ့လာပါ"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"လေ့ကျင့်ပါ"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"<xliff:g id="INDEX">%1$d</xliff:g> သင်ခန်းစာ လေ့လာပါ"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"လေ့ကျင့်ရန် သင်ခန်းစာ <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"သင်ခန်းစာ ၁ − အခြေခံရွေ့လျားခြင်း"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"လေ့လာရန် ထိပါ၊ ပွတ်ဆွဲပါ၊ စဖွင့်ရန် နှစ်ကြိမ်ဆက်တိုက်တို့ပါ"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"အပိုင်း ၁ − Explore by touch"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Explore by Touch ကို ဖွင့်ထားလျှင် သင့်လက်ချောင်းအောက်ရှိ အကြောင်းအရာကို နားထောင်နိုင်ပါသည်။ ဖန်သားပြင်၏ အလယ်ရှိ အကြောင်းအရာပေါ်သို့ သင့်လက်ချောင်းကို ရွှေ့လိုက်ပါ။ အကြောင်းအရာ ၅ ခုကို စူးစမ်းပြီးနောက် သင်ခန်းစာ ရှေ့ဆက်ပါမည်။"</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"အပိုင်း ၂ − နှစ်ချက်တို့ပြီး စတင်ပါ"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"သင်နောက်ဆုံးကြားလိုက်သည့် အကြောင်းအရာများကို စတင်ရန်၊ ကြိုက်ရာနေရာတွင် နှစ်ချက် တို့လိုက်ပါ။ အကြောင်းအရာ ၇ ကိုရှာပြီး ၎င်းကိုယခုစဖွင့်ပါ။ ထို့နောက် ဆက်လုပ်ရန် \"ရှေ့သို့\" ကိုနှိပ်ပါ။"</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"အကြောင်းအရာ ၇ ကိုစဖွင့်ထားသည်။ ဆက်လုပ်ရန် \"ရှေ့သို့\" ခလုတ်ကို ရှာပြီး နှိပ်ပါ"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"အပိုင်း ၃ − ရွေ့လျားမှု သင်ခန်းစာများ"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack သင်ခန်းစာများကို တူညီစွာ စီစဉ်ထားပါသည်။ သင်နှစ်သက်ရာအချိန်တွင် လေ့လာ၍ ဖတ်နိုင်ရန် ထိပ်ဆုံးနေရာတွင် သင်ခန်းစာရှိပါသည်။ ဘယ်ဘက်အပေါ်ထောင့်တွင်လည်း သင်ခန်းစာ ပင်မခလုတ်ရှိပါသည်။ အလယ်တွင် လေ့ကျင့်ရန်နေရာရှိပါသည်။ အောက်ဘက်တွင် တိုးတက်မှုပြစနစ်နှင့် သင်ခန်းစာကို လမ်းညွှန်ပြသည့် ခလုတ်များရှိသည်။ ဆက်လုပ်ရန် \"ရှေ့သို့\" ကို ယခုစတင်ပါ။"</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"အပိုင်း ၄ − စူးစမ်းရန် ပွတ်ဆွဲပါ"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"သင့်လက်ချောင်းဖြင့် ဖန်သားပြင်ကို ပွတ်ဆွဲခြင်းဖြင့်လည်း စူးစမ်းလေ့လာနိုင်ပါသည်။ ဘယ်ဘက်သို့ ပွတ်ဆွဲခြင်းသည် အပေါ်နှင့် ဘယ်သို့ ယေဘုယျအားဖြင့် လေ့လာနိုင်ပြီး ညာဘက်သို့ ပွတ်ဆွဲခြင်းသည် အောက်နှင့် ညာသို့ လေ့လာနိုင်ပါသည်။ ယခုစမ်းကြည့်ပါ။"</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"အပိုင်း ၅ − လေ့ကျင့်ပါ"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"သင့်လက်ချောင်းအောက်ရှိ အရာများကို နားထောင်ရန်၊ ဖန်သားပြင်တလျှောက်ရွှေ့ပါ။ သင်က ကြားရသည့်အရာကို ဖွင့်ရန် မည်သည့်နေရာတွင်ဖြစ်စေ နှစ်ကြိမ်ဆက်တိုက် တို့ပါ။ လေ့လာရန် ဘယ် သို့မဟုတ် ညာသို့ ပွတ်ဆွဲပါ။"</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"သင်ခန်းစာ ၂ − အပေါ်အောက်ရွှေ့ခြင်း"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"လက်နှစ်ချောင်းဖြင့် အပေါ်အောက်ရွှေ့ခြင်း၊ အရှေ့နှင့် အနောက်သို့ ကျော်ခြင်း"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"အပိုင်း ၁ − လက်နှစ်ချောင်းဖြင့် အပေါ်အောက် ရွှေ့ခြင်း"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"ဒေါင်လိုက်ဇယားကို အပေါ်အောက်ရွှေ့ကြည့်ရန်၊ စာရင်းအကြောင်းအရာကို ရှာဖွေပြီး လက်ချောင်းနှစ်ချောင်းဖြင့် အပေါ်အောက် ရွှေ့ပါ။ ရေပြင်ညီဇယားကို ဘယ်ညာရွှေ့ကြည့်ရန်၊ စာရင်းအကြောင်းအရာကို ရှာဖွေပြီး လက်ချောင်းနှစ်ချောင်းဖြင့် ဘေးဘယ်ညာ ရွှေ့ပါ။"</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"အပိုင်း ၂ − အပေါ်အောက်ရွှေ့ခြင်း ဖြတ်လမ်း"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"ဖြတ်လမ်းကိုအသုံးပြုပြီး အရှေ့နှင့် အနောက်သို့ ကျော်နိုင်ပါသည်။ ရှေ့ကိုကျော်ရန်၊ လက်တစ်ချောင်းဖြင့် ညာဘက်သို့ရွှေ့ပြီး ဘယ်ဘက်သို့ တစ်ခါတည်းရွှေ့ပါ။ နောက်သို့ပြန်ရစ်ရန် လက်တစ်ချောင်းဖြင့် ဘယ်ဘက်သို့ရွှေ့ပြီး ညာဘက်သို့ရွှေ့ပါ။ ဤနေရာတွင် စမ်းကြည့်ပါ။"</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"အပိုင်း ၃ − လေ့ကျင့်ပါ"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"လက်နှစ်ချောင်းကိုအသုံးပြု၍ အပေါ်အောက်ရွှေ့ပါ။ ရှေ့သို့ကျော်ရန် လက်တစ်ချောင်းဖြင့် ညာဘက်သို့ရွှေ့ပြီး ဘယ်ဘက်သို့ရွှေ့ပါ။ နောက်သို့ရစ်ရန် လက်တစ်ချောင်းဖြင့် ဘယ်ဘက်သို့ရွှေ့ပြီး ညာဘက်သို့ရွှေ့ပါ။"</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"သင်ခန်းစာ ၃ − TalkBack မီနူးများ"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Global TalkBack မီနူး၊ Local TalkBack မီနူး"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"အပိုင်း ၁ − Global TalkBack မီနူး"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack တွင်မီနူးနှစ်ခု ရှိပါသည်။ ပထမတစ်ခုမှာ Global TalkBack မီနူးဖြစ်သည်။ ၎င်းတွင် တူညီသည့် အမိန့်များအမြဲတမ်း ပါဝင်ပါသည်။ ၎င်းကိုစဖွင့်ရန် လက်ချောင်းတစ်ချောင်းတည်းဖြင့် အောက်သို့ရွှေ့ပြီး ညာဘက်သို့ တစ်ခါတည်းရွှေ့ပါ။ ပြီးလျှင် သင့်လက်ကို မ လိုက်ပါ။ လေ့ကျင့်မှုဗားရှင်းကို ယခုစဖွင့်ပါ။"</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"ဖန်သားပြင်အလယ်တွင် မီနူးရွှေးချယ်စရာများကို ဒေါင်လိုက်စီထားပါသည်။ လေ့လာကြည့်ပါ။ ပြီးသွားလျှင်၊ \"မလုပ်တော့\" ကိုနှိပ်ပါ။"</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"အပိုင်း ၂ − Local TalkBack မီနူး"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"ဒုတိယမီနူးမှာ Local TalkBack မီနူးဖြစ်သည်။ ဤမီနူးရှိ အကြောင်းအရာများသည် သင်ပြီးခဲ့သည့် အကြိမ်က ကြားခဲ့သည်များပေါ်မူတည်၍ ပြောင်းလဲမှုရှိပါသည်။ ၎င်းကိုစဖွင့်ရန် လက်ချောင်းတစ်ချောင်းတည်းဖြင့် အပေါ်သို့ရွှေ့ပြီး ညာဘက်သို့ တစ်ခါတည်းရွှေ့ပါ။ ပြီးလျှင် သင့်လက်ကို မ လိုက်ပါ။ လေ့ကျင့်မှုဗားရှင်းကို ယခုစဖွင့်လိုက်ပါ။"</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"အပိုင်း ၃ − လေ့ကျင့်ပါ"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Global TalkBack မီနူးကိုစဖွင့်ရန် သင့်လက်ချောင်းကို အောက်သို့ရွှေ့ပြီး ညာဘက်သို့ရွှေ့ပါ။ Local TalkBack မီနူးကိုစဖွင့်ရန် သင့်လက်ချောင်းကို အပေါ်သို့ရွှေ့ပြီး ညာဘက်သို့ရွှေ့ပါ။"</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"အောက်ပြီးလျှင် ညာ"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"အပေါ်နှင့် ညာ"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Global TalkBack မီနူး − အောက်ပြီးလျှင် ညာ။ ဒေသတွင်းသုံး TalkBack မီနူး − အပေါ်ပြီးလျှင် ညာ"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"သင်ခန်းစာ ၄ − စာသားကူးပြောင်းခြင်း"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"စာသားကူးပြောင်းခြင်း ဆက်တင်များကို ရွေးချယ်ခြင်း"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"အပိုင်း ၁ − ရွေ့လျားခြင်း ဆက်တင်များကို ရွေးချယ်ခြင်း"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"တစ်ကြိမ်လျှင် စာပိုဒ်တစ်ပိုဒ်၊ စာကြောင်းတစ်ကြောင်း၊ စကားလုံးတစ်လုံး သို့မဟုတ် စာလုံးတစ်လုံးစီဖတ်ရန် TalkBack က သင့်အား ထိန်းချုပ်ခွင့် ပေးထားပါသည်။ စာလုံးတစ်လုံးစီဖတ်ခြင်းသည် စာလုံးပေါင်းရာတွင် အထောက်အကူဖြစ်စေပါသည်။ အောက်ပါစာသားကို တို့ကာ စာသားရွှေ့လျားခြင်းနှုန်းကို စာလုံးအဖြစ်သတ်မှတ်ပြီး၊ အပေါ်အောက် ပွတ်ဆွဲပါ။"</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"ဤနေရာတွင် ဒေါင်လိုက်စီထားသည့် စာဖတ်ခြင်းနှုန်းထား ရွှေးချယ်စရာများကို လေ့လာပါ။ စာလုံးဖြင့်ဖတ်ရန် ရွေးချယ်စရာကို ရှာဖွေပြီး သတ်မှတ်ပါ။"</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"အပိုင်း ၂ − စာသားကူးပြောင်းခြင်း"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"သင်သည်ယခု စာလုံးတစ်လုံးစီ ဖတ်နေပါသည်။ နမူနာစာသားကိုရွေးပြီး စာလုံးဖြင့်ဖတ်ရန် ညာဘက်သို့ ပွတ်ဆွဲပါ။"</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"အပိုင်း ၃ − လေ့ကျင့်ပါ"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"အပေါ်အောက်ပွတ်ဆွဲခြင်းဖြင့် စာသားရွှေ့လျားခြင်းနှုန်းကို ပြောင်းလဲပါ။ နမူနာစာသားရှိ နောက်ထပ်စာလုံးကိုဖတ်ရန် ညာဘက်သို့ပွတ်ဆွဲပါ။"</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"ဤအရာများသည် TalkBack လေ့ကျင့်ခန်း နမူနာစာသားအချို့ဖြစ်သည်။ \"ကန်းစပ်ပြည်နယ် ဘယ်မှာလဲ။\" ဟုလူကြီးက ရုတ်တရက်မေးလိုက်သောအခါ၊ ဒေါ်ရသီမှ စိတ်မကောင်းစွာဖြင့် \"မသိဘူး\" ဟုပြန်ဖြေပါသည်၊ \"\'ဒါပေမယ့် အဲဒါကကျွန်မရဲ့အိမ်ပဲ၊ ပြီးတော့ တစ်နေရာရာမှာတော့ ဖြစ်မယ်လို့ ထင်ပါတယ်။\"\n\n\"ဟုတ်မှာပါ။ ကောင်းပြီလေ၊ အောက်ဇ်ကအကုန်လုံး လုပ်နိုင်တယ်။ ကန်းစပ်ပြည်နယ် ဘယ်မှာလဲဆိုတာ သူရှာပေးမှာပါ။ ဒါပေမယ့် သူ့ကိုတော့အရင် ခက်ခက်ခဲခဲ တွေ့ရဦးမယ်။ ဘာကြောင့်လဲဆိုတော့ အဲဒီလိုအရမ်းတော်တဲ့ဝိဇ္ဇာတွေက ဘယ်သူ့ကိုမှ တွေ့ချင်မှာမဟုတ်ဘူး။ ပြီးတော့ သူ့အလုပ်နဲ့သူ ရှုပ်နေတာ။ ဒါပေမယ့် ညီမကဘာလိုချင်လို့လဲ။\" ဟုသူက တိုတိုကိုဆက်ပြောပါသည်။"</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"သင်ခန်းစာ ၅ − စာသားတည်းဖြတ်ခြင်း"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"တည်းဖြတ်ရန်အကွက်ကိုဖွင့်၍ စာရိုက်ခြင်း၊ မြှားရွှေ့ခြင်း၊ စာသားကိုရွှေးချယ်ခြင်းများ လုပ်ဆောင်ပါ"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"အပိုင်း ၁ − တည်းဖြတ်ရန်အကွက်တစ်ခုကို စဖွင့်ပါ"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"စာရိုက်ရန်၊ ရွေးချယ်ရန်နှင့် စာသားတည်းဖြတ်ရန် TalkBack ၏ တည်းဖြတ်ရန်အကွက်တစ်ခုကို အသုံးပြုနိုင်သည်။ တည်းဖြတ်ရန်အကွက်ကိုဖွင့်ရန် နှစ်ချက်တို့ပါ။ တည်းဖြတ်ရန်အကွက်ကို သင်ဖွင့်ပြီးနောက်၊ ဖန်သားပြင်အောက်ဆုံးတွင် ကီးဘုတ်ကိုတွေ့ရပါလိမ့်မည်။ \"နောက်သို့\" ခလုတ်ကို နှိပ်ခြင်းအားဖြင့် ကီးဘုတ်ကိုဖျောက်ထားနိုင်သည်။ တည်းဖြတ်ရန်အကွက်ကို ယခုဖွင့်ကြည့်ပါ။ ပြီးလျှင် ကီးဘုတ်အပေါ်ရှိ \"ရှေ့သို့\" ကို နှိပ်ပါ။"</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"အပိုင်း ၂ − တည်းဖြတ်မှုအကွက်ထဲတွင် စာရိုက်ခြင်း"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"စာရိုက်ရန် တည်းဖြတ်ရန်အကွက်ကိုဖွင့်ပြီး ဖန်သားပြင်ပေါ်ရှိ ကီးဘုတ်ပေါ်သို့ သင့်လက်ချောင်းများကို ရွှေ့ပါ။ သင်လိုချင်သည့် စကားလုံးကိုကြားလျှင်၊ ၎င်းကိုရွေးချယ်ရန် သင့်လက်ချောင်းကိုမ လိုက်ပါ။ အောက်ပါတည်းဖြတ်ရန်အကွက်တွင် စာရိုက်ကြည့်ပါ။"</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"အပိုင်း ၃ − မြှားကိုအသုံးပြုခြင်း"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"သင့်စက်ပစ္စည်းပေါ်ရှိ အသံခလုတ်များ သို့မဟုတ် စက်တွင်းရှိ TalkBack မီနူးမှတစ်ဆင့် မြှားကိုရွှေ့လျားနိုင်သည်။ မီနူးရှိ မြှားထိန်းချုပ်မှုဖြင့် စာသားကိုလည်း ရွေးချယ်နိုင်၊ ဖြတ်-ညှပ်-ကပ် လုပ်နိုင်သည်။ အောက်ပါတည်းဖြတ်ရန် အကွက်ကိုဖွင့်ပြီး နမူနာစာသားပေါ်သို့ မြှားကိုရွှေ့ပါ။"</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"ဒေါ်ရသီဂေးလ်၏ အီးမေးလ်လိပ်စာသည် dorothy@ozmail.com ဖြစ်သည်"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"အပိုင်း ၄ − လေ့ကျင့်ပါ"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"နှစ်ချက်တို့ခြင်းဖြင့် တည်းဖြတ်ရန်အကွက်ကို ဖွင့်ပါ။ စာလုံးတစ်ခုပေါ်သို့ သင့်လက်ချောင်းများကို ရွှေ့ပြီး စာရိုက်ပါ၊ ထို့နောက် သင့်လက်ချောင်းကိုမ လိုက်ပါ။ မြှားကို အသံခလုတ်နှင့် စက်တွင်း TalkBack မီနူးဖြင့် ရွှေ့ပါ။ စက်တွင်း TalkBack မီနူးတွင် မြှားထိန်းချုပ်ခြင်း လုပ်ဆောင်ချက်ကို အသုံးပြုပြီး စာသားကိုရွေးချယ်ပါ။"</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"စာသားကိုတည်းဖြတ်ပါ"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"ယခင်"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"ရှေ့သို့"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"ယခင် သင်ခန်းစာ"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"နောက်လေ့ကျင့်ခန်း"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"လေ့ကျင့်ခန်း ပင်မစာမျက်နှာ"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"%1$d ကိုလေ့လာပါ"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"အပိုင်း %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"အပိုင်း %2$d ၏ %1$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"လေ့ကျင့်ခန်းပြီးဆုံးပြီဖြစ်ရာ များမကြာမီတွင် ရှေ့ဆက်ပါမည်"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"လေ့ကျင့်မှုနေရာ"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s ကိုလေ့ကျင့်ရန် မုဒ်တွင်ဖွင့်ထားသည်။ ပြန်ထွက်ရန် \"မလုပ်တော့\" ခလုတ်ကိုနှိပ်ပါ။"</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"လေ့ကျင့်ခန်း ပင်မစာမျက်နှာ ခလုတ်"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"အကြောင်းအရာ <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"ထွက်ပါ"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Explore by touch လိုအပ်သည်"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"ဤသင်ခန်းစာသည် Explore by touch လိုအပ်ပါသည်။ သင်ခန်းစာမစမီ Explore by touch ကို ဖွင့်ပါ။"</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack ကိုပိတ်ထားသည်"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"ဤသင်ခန်းစာသည် TalkBack ကိုဖွင့်ထားရန် လိုအပ်သည်။ သင်ခန်းစာကို မဖွင့်မီ TalkBack ကိုဖွင့်ပါ။"</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack ဆိုင်းငံ့ခံထားပါသည်"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"TalkBack လေ့ကျင့်ခန်းသည် တုံ့ပြန်မှုကိုရပ်ဆိုင်းထားချိန်တွင် မရရှိနိုင်ပါ။ TalkBack တုံ့ပြန်မှုကို ဆက်ဖွင့်ပြီး ဆက်လုပ်ရန် သင်ခန်းစာကို ပြန်ဖွင့်ပါ။"</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"မီနူးကိုဖော်ပြပါ"</string>
+</resources>

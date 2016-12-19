@@ -25,13 +25,13 @@ public class SimpleTraversalStrategy implements TraversalStrategy {
 
     @Override
     public AccessibilityNodeInfoCompat findFocus(AccessibilityNodeInfoCompat startNode,
-                                                 int direction) {
+                                                 @SearchDirection int direction) {
         if (startNode == null) {
             return null;
         }
 
         AccessibilityNodeInfoRef ref = AccessibilityNodeInfoRef.obtain(startNode);
-        boolean focusFound = direction == SEARCH_FOCUS_FORWARD ?
+        boolean focusFound = direction == TraversalStrategy.SEARCH_FOCUS_FORWARD ?
                 ref.nextInOrder() : ref.previousInOrder();
         if (focusFound) {
             return ref.get();
@@ -42,26 +42,24 @@ public class SimpleTraversalStrategy implements TraversalStrategy {
     }
 
     @Override
-    public AccessibilityNodeInfoCompat focusFirst(AccessibilityNodeInfoCompat root) {
+    public AccessibilityNodeInfoCompat focusInitial(AccessibilityNodeInfoCompat root,
+            @SearchDirection int direction) {
         if (root == null) {
             return null;
         }
 
-        return AccessibilityNodeInfoCompat.obtain(root);
-    }
-
-    @Override
-    public AccessibilityNodeInfoCompat focusLast(AccessibilityNodeInfoCompat root) {
-        if (root == null) {
-            return null;
+        if (direction == SEARCH_FOCUS_FORWARD) {
+            return AccessibilityNodeInfoCompat.obtain(root);
+        } else if (direction == SEARCH_FOCUS_BACKWARD) {
+            AccessibilityNodeInfoRef ref = AccessibilityNodeInfoRef.obtain(root);
+            if (ref.lastDescendant()) {
+                return ref.get();
+            } else {
+                ref.recycle();
+                return null;
+            }
         }
 
-        AccessibilityNodeInfoRef ref = AccessibilityNodeInfoRef.obtain(root);
-        if (ref.lastDescendant()) {
-            return ref.get();
-        }
-
-        ref.recycle();
         return null;
     }
 

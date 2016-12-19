@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="7512754982950145749">"Keď je zapnutá funkcia TalkBack, vaše zariadenie poskytuje hlasovú spätnú väzbu na pomoc nevidomým a slabozrakým používateľom. Funkcia napríklad popíše, čoho sa dotýkate, čo vyberáte a čo aktivujete."</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"Keď je zapnutá funkcia TalkBack, vaše zariadenie poskytuje hlasovú spätnú väzbu na pomoc nevidomým a slabozrakým používateľom. Funkcia napríklad opíše, čoho sa dotýkate, čo vyberáte a čo aktivujete.\n\nAk ste funkciu TalkBack zapli omylom, vypnite ju klepaním na prepínač, dokým sa okolo neho nezobrazí zelený rámček. Potom naň dvakrát klepnite. Rovnako postupujte v prípade výsledného dialógového okna s potvrdením."</string>
     <string name="talkback_on" msgid="315529674405160699">"Aplikácia TalkBack je zapnutá"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"Aplikácia TalkBack bola pozastavená"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"Aplikácia TalkBack bola obnovená"</string>
+    <string name="talkback_disabled" msgid="2536155587482587238">"Aplikácia TalkBack bola vypnutá."</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"Nastavenia funkcie TalkBack"</string>
     <string name="tts_preferences_title" msgid="6233811187483633874">"Nastavenia prevodu textu na reč"</string>
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Verzia <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
@@ -19,6 +22,11 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"Aktuálny dopyt: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>"</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"Nebola vybratá žiadna položka"</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"Aktuálny výber: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>"</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Začiatok poľa"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Koniec poľa"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Režim výberu je zapnutý"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Režim výberu je vypnutý"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Výber bol vymazaný"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"Zmeškaný hovor"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"Ignorovať"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"Četovať"</string>
@@ -33,41 +41,51 @@
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"Zastavené"</string>
     <string name="template_current_tts_engine" msgid="3963364867159704159">"Používa sa <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"Ponuka <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_edit_box" msgid="5395366637528473616">"Pole pre úpravy. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
-    <string name="template_edit_box_current" msgid="2778286668618391188">"Pole pre úpravy, momentálne prebiehajú úpravy. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"Upozornenie <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"Ponuka <xliff:g id="TITLE">%1$s</xliff:g>"</string>
     <string name="template_text_replaced" msgid="837970148139617839">"Text <xliff:g id="NEW_TEXT">%1$s</xliff:g> bol nahradený textom <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"Text <xliff:g id="TEXT">%1$s</xliff:g> bol odstránený"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"skopírované, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"vystrihnuté, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"prilepené, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, vybraté"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"Vybratý text: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"Nie je vybratý žiadny text"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, nevybraté"</string>
     <string name="template_text_error" msgid="153775825635730287">"Neplatný vstup: <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"Niekoľko znakov (počet: <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g>) bolo nahradených inými znakmi (počet: <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g>)"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> pre <xliff:g id="LABEL">%2$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"Dlhé stlačenie <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_button" msgid="2640124317262628933">"Tlačidlo <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"Obrázok <xliff:g id="TITLE">%1$d</xliff:g>. Neoznačený"</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"Tlačidlo <xliff:g id="TITLE">%1$d</xliff:g>. Neoznačené"</string>
-    <string name="template_seek_bar" msgid="9010890122601609426">"Posúvač <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <!-- String.format failed for translation -->
-    <!-- no translation found for template_percent (6118803183030408820) -->
-    <skip />
-    <!-- String.format failed for translation -->
-    <!-- no translation found for template_charging (2038200557537960378) -->
-    <skip />
-  <plurals name="template_containers">
-    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="TYPE">%1$s</xliff:g> zobrazuje <xliff:g id="COUNT">%2$d</xliff:g> položku"</item>
-    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="TYPE">%1$s</xliff:g> zobrazuje položky (počet: <xliff:g id="COUNT">%2$d</xliff:g>)"</item>
-  </plurals>
+    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> percent."</string>
+    <string name="template_charging" msgid="2038200557537960378">"Stav nabíjania: <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>. Nabitie batérie: <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> percent."</string>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="few"><xliff:g id="TYPE_2">%1$s</xliff:g> zobrazuje <xliff:g id="COUNT_3">%2$d</xliff:g> položky.</item>
+      <item quantity="many"><xliff:g id="TYPE_2">%1$s</xliff:g> zobrazuje <xliff:g id="COUNT_3">%2$d</xliff:g> položky.</item>
+      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> zobrazuje <xliff:g id="COUNT_3">%2$d</xliff:g> položiek.</item>
+      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> zobrazuje <xliff:g id="COUNT_1">%2$d</xliff:g> položku.</item>
+    </plurals>
     <string name="value_gridview" msgid="1382219539169157957">"Mriežka"</string>
     <string name="value_listview" msgid="7625152822709234439">"Zoznam"</string>
     <string name="value_tabwidget" msgid="6935453013254857519">"Panel kariet"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"Rozbaľovací zoznam"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"Začiarkavacie políčko"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"Prepínač"</string>
+    <string name="value_button" msgid="2459787142940409576">"Tlačidlo"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"Posúvač"</string>
+    <string name="value_switch" msgid="6946709666466895221">"Prepínač"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"Pole úprav"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"Úpravy"</string>
+    <string name="value_image" msgid="5114229220871881124">"Obrázok"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"Neoznačené"</string>
+    <string name="value_pager" msgid="7708574424402835461">"Zobrazenie viacerých stránok"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"Stránka"</string>
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"Zobrazujú sa položky <xliff:g id="FROM_INDEX">%1$d</xliff:g> až <xliff:g id="TO_INDEX">%2$d</xliff:g> z <xliff:g id="TOTAL_COUNT">%3$d</xliff:g>"</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"Zobrazuje sa položka <xliff:g id="FROM_INDEX">%1$d</xliff:g> z <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
-    <string name="template_spinner" msgid="1240658876427369167">"Rozbaľovacia ponuka <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_password_selected" msgid="3751806880345903886">"Sú vybraté znaky <xliff:g id="FROM_INDEX">%1$s</xliff:g> až <xliff:g id="TO_INDEX">%2$s</xliff:g>"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"Stránka <xliff:g id="PAGE_INDEX">%1$d</xliff:g> z <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> z <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"Znaky <xliff:g id="FROM_INDEX">%1$d</xliff:g> až <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"Znak <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"veľké <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="template_checkbox" msgid="8582666147313623418">"Začiarkavacie políčko <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"Prepínač <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>, prepnúť"</string>
     <string name="value_password" msgid="7285572231215250557">"heslo"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Výsuvné okno otvorené"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Otvoril sa panel"</string>
@@ -75,69 +93,115 @@
     <string name="value_text_cleared" msgid="6558192295636412162">"Text bol vymazaný"</string>
     <string name="value_text_max_length" msgid="4129865255646994586">"Bola dosiahnutá maximálna povolená dĺžka"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"odstránené"</string>
+    <string name="value_selected" msgid="1307429702194660766">"vybraté"</string>
     <string name="value_checked" msgid="3006751014125833966">"začiarknuté"</string>
     <string name="value_not_checked" msgid="37422559536361725">"nezačiarknuté"</string>
+    <string name="value_on" msgid="39454338086317219">"zapnuté"</string>
+    <string name="value_off" msgid="6700497510945744608">"vypnuté"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"rozbalené"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"zbalené"</string>
     <string name="value_disabled" msgid="5160977094078900656">"zakázané"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"Dvakrát klepnite"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"Klepnite"</string>
-    <string name="template_hint_clickable" msgid="1398769454100543369">"Ak chcete vybrať, <xliff:g id="ACTION">%1$s</xliff:g>"</string>
+    <string name="value_press_select" msgid="4270348255373188872">"Stlačte výber"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"Ak chcete aktivovať, <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> aktivujete."</string>
     <string name="template_hint_long_clickable" msgid="4546854599035099034">"Dlhé stlačenie: <xliff:g id="ACTION">%1$s</xliff:g> a podržte"</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> vykonáte dlhé stlačenie."</string>
     <string name="template_hint_checkable" msgid="504233139047201761">"Ak chcete prepnúť, <xliff:g id="ACTION">%1$s</xliff:g>"</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> prepnete voľbu."</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"Ak chcete zadať text, <xliff:g id="ACTION">%1$s</xliff:g>"</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> zadáte text."</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"Akciou <xliff:g id="ACTION">%1$s</xliff:g> vykonáte zmenu"</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"Dotknite sa obrazovky, nájdite položku a zodvihnutím prsta ju vyberte."</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> vykonáte zmenu."</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"Ak chcete prepnúť stránky, prejdite dvoma prstami."</string>
+    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"Žiadne ďalšie stránky nie sú k dispozícii."</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"Akciou <xliff:g id="ACTION">%1$s</xliff:g> vykonáte zmenu."</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"Klepnite na obrazovku, nájdite v kruhu položku a zodvihnutím prsta ju aktivujte."</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Dotknite sa obrazovky, nájdite obsah na obrazovke a zodvihnutím prsta ho označte."</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"Vlastné akcie:"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> vykoná akciu <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> vykonáte akciu <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> a podržanie vykoná akciu <xliff:g id="HINT">%2$s</xliff:g>."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"Vibračné zvonenie"</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Tiché zvonenie"</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Obrazovka je zapnutá."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Obrazovka je vypnutá"</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"Funkcia Caps Lock je zapnutá."</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"Funkcia Caps Lock je vypnutá."</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"Funkcia Num Lock je zapnutá."</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"Funkcia Num Lock je vypnutá."</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Funkcia Scroll Lock je zapnutá."</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Funkcia Scroll Lock je vypnutá."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"Zariadenie bolo odomknuté"</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Reč"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Hlasitosť reči"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"Reč pri vypnutej obrazovke"</string>
     <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"Hovorené upozornenia sú zapnuté aj pri vypnutej obrazovke"</string>
     <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"Keď je vypnutá obrazovka, je vypnutá aj reč"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"Oznámiť identifikáciu volajúceho"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"Používať senzor blízkosti"</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Senzor blízkosti stíši reč"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Senzor blízkosti neovláda reč"</string>
-    <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Vyslovovať fonetické písmená"</string>
-    <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Fonetické písmená sa nebudú vyslovovať."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"Fonetické písmená sa budú vyslovovať pri dlhom stlačení klávesa na klávesnici a posúvaní po znakoch."</string>
+    <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Fonetické hláskovanie"</string>
+    <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Fonetické hláskovanie nebude aktívne."</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"Fonetické písmená sa budú vyslovovať pri dlhom stlačení klávesa na klávesnici a posúvaní zamerania dostupnosti po znakoch."</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Vyslovovať tipy na používanie"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"Počas lineárnej navigácie sa nebudú vyslovovať tipy na používanie."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"Keď lineárna navigácia presunie zameranie, tipy na používanie sa budú vyslovovať s krátkym oneskorením."</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"Počas posúvania zamerania dostupnosti sa nebudú vyslovovať tipy na používanie."</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"Počas navigácie sa budú s krátkym oneskorením vyslovovať tipy na používanie."</string>
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Preskúmanie dotykom"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Automaticky posúvať zoznamy"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Preskúmavanie dotykom"</string>
-    <string name="title_pref_single_tap" msgid="3366282780861635094">"Výber jedným klepnutím"</string>
-    <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Kontextovú ponuka ako zoznam"</string>
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"Aktivácia jedným klepnutím"</string>
+    <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Kontextová ponuka ako zoznam"</string>
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Stmaviť obrazovku, keď je povolená aplikácia TalkBack"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(Experimentálne) Položku, ktorá je práve aktívna, je možné vybrať klepnutím"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"(Experiment) Klepnutím na aktuálne zameranú položku ju aktivujete"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Zatrasením spustiť súvislé čítanie"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Správa gest"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"Spravovať vlastné štítky"</string>
     <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Spravovať klávesové skratky"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"Exportovať vlastné štítky"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"Otvoriť TalkBack v Obchode Play"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"Aktuálna verzia aplikácie TalkBack <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"Pomocník a spätná väzba"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"Pomocník"</string>
     <string name="title_pref_show_tos" msgid="6167834013879233992">"Zmluvné podmienky"</string>
-    <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Pravidlá ochrany osobných údajov"</string>
+    <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Pravidlá ochrany súkromia"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Gestá pre skratky"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Vstavané gestá"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(Experiment) Klepnutie na bok zariadenia"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"Mapa klávesov"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"Vybrať mapu klávesov"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"Obnoviť mapu klávesov"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"Zvoľte kláves modifikátora"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"TalkBack obnoví mapu klávesov"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"TalkBack obnoví mapu klávesov a zmení kláves modifikátora na kláves <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"Kláves modifikátora bol zmenený na kláves <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>."</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"Mapa klávesov <xliff:g id="KEYMAP_NAME">%1$s</xliff:g> je teraz aktívna."</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"Mapa klávesov bola obnovená."</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"Skratka nie je podporovaná"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"Klasická mapa klávesov"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"Predvolená mapa klávesov"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"Akcie navigácie"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"Prejsť na nasledujúcu položku"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"Prejsť na predchádzajúcu položku"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"Prejsť na položku vyššie"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"Prejsť na položku nižšie"</string>
     <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"Prejsť na prvú položku"</string>
     <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"Prejsť na poslednú položku"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"Prejsť na ďalšie okno"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"Prejsť na predchádzajúce okno"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"Prejsť na ďalšie slovo"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"Prejsť na predchádzajúce slovo"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"Prejsť na ďalší znak"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"Prejsť na predchádzajúci znak"</string>
     <string name="keycombo_menu_perform_click" msgid="243666968746657931">"Kliknúť"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"Vykonať dlhé kliknutie"</string>
     <string name="keycombo_menu_category_global" msgid="7309875734492478067">"Globálne akcie"</string>
     <string name="keycombo_menu_global_back" msgid="4567585750566224959">"Späť"</string>
     <string name="keycombo_menu_global_home" msgid="7189369064773623371">"Domov"</string>
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Nedávne aplikácie"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Upozornenia"</string>
-    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"Pozastaviť TalkBack"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"Pozastaviť/spustiť aplikáciu TalkBack"</string>
     <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Nastavenia navigácie"</string>
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Ďalšie nastavenie navigácie"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Predchádzajúce nastavenie navigácie"</string>
@@ -147,10 +211,63 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Vyhľadať položku na obrazovke"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Zobraziť miestnu kontextovú ponuku"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Zobraziť globálnu kontextovú ponuku"</string>
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"Spravovať klávesové skratky"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"Otvoriť nastavenia aplikácie TalkBack"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"Akcie navigácie webu"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"Prejsť na ďalšie tlačidlo"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"Prejsť na predchádzajúce tlačidlo"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"Prejsť na ďalší ovládací prvok"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"Prejsť na predchádzajúci ovládací prvok"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"Prejsť na ďalšie začiarkavacie políčko"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"Prejsť na predch. začiarkavacie políčko"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"Prejsť na ďalší orientačný bod ARIA"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"Prejsť na predch. orientačný bod ARIA"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"Prejsť na ďalšie pole úprav"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"Prejsť na predchádzajúce pole úprav"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"Prejsť na ďalšiu zamerateľnú položku"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"Prejsť na predch. zamerateľnú položku"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"Prejsť na ďalšiu grafiku"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"Prejsť na predchádzajúcu grafiku"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"Prejsť na ďalší nadpis"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"Prejsť na predchádzajúci nadpis"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"Prejsť na ďalší nadpis 1"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"Prejsť na predchádzajúci nadpis 1"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"Prejsť na ďalší nadpis 2"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"Prejsť na predchádzajúci nadpis 2"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"Prejsť na ďalší nadpis 3"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"Prejsť na predchádzajúci nadpis 3"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"Prejsť na ďalší nadpis 4"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"Prejsť na predchádzajúci nadpis 4"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"Prejsť na ďalší nadpis 5"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"Prejsť na predchádzajúci nadpis 5"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"Prejsť na ďalší nadpis 6"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"Prejsť na predchádzajúci nadpis 6"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"Prejsť na ďalšiu položku zoznamu"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"Prejsť na predchádzajúcu položku zoznamu"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"Prejsť na ďalší odkaz"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"Prejsť na predchádzajúci odkaz"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"Prejsť na ďalší zoznam"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"Prejsť na predchádzajúci zoznam"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"Prejsť na ďalšiu tabuľku"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"Prejsť na predchádzajúcu tabuľku"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"Prejsť na ďalšie kombinované pole"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"Prejsť na predch. kombinované pole"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"Klávesová skratka:"</string>
     <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Stlačením kombinácie klávesov nastavíte novú skratku. Musí obsahovať kláves ALT alebo CTRL."</string>
-    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"Skratka vymazania"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Ak chcete nastaviť novú skratku, stlačte kombináciu klávesov s klávesom modifikátora <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g>."</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"Skratku vymažete pomocou klávesa Backspace, uložíte ju pomocou klávesa Enter, okno zrušíte stlačením klávesa Escape."</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"Skratka vymazania"</string>
     <string name="keycombo_unassigned" msgid="5817151372114230015">"Nepriradené"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Hľadať"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Šípka doprava"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Šípka doľava"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Šípka nahor"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Šípka nadol"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"Naozaj chcete obnoviť predvolené hodnoty svojich klávesov skratiek pre túto mapu klávesov? Upozorňujeme, že túto akciu nie je možné vrátiť späť."</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"Obnoviť"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"Kláves sa už používa"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Táto kombinácia klávesov sa používa pre akciu <xliff:g id="ID_1">%1$s</xliff:g>. Chcete ju vymazať a túto skratku priradiť k akcii <xliff:g id="ID_2">%2$s</xliff:g>?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Meniť výšku hlasu"</string>
@@ -161,11 +278,14 @@
     <string name="title_pref_vibration" msgid="4156396276749836864">"Vibračná spätná väzba"</string>
     <string name="title_pref_soundback" msgid="3131811048184077738">"Zvuková spätná väzba"</string>
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"Zvýrazniť zvuk reči"</string>
-    <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Zníži hlasitosť ostatných zvukov počas hovoru"</string>
+    <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Zníži hlasitosť ostatných zvukov počas rozprávania"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Hlasitosť zvuku"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Pozastavenie aplikácie Talkback a skratka na jej opätovné spustenie"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Pozastavenie aplikácie Talkback a skratka na jej opätovné spustenie"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"Skratka stmav. obrazovky"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Rôzne"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Nastavenia pre vývojárov"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"Vybrať udalosti na zaznamenávanie do denníka"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"Filtrovať záznamy udalostí dostupnosti v denníku"</string>
     <string name="title_pref_log_level" msgid="267415170405921603">"Zaznamenať úroveň výstupu"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Zobraziť hlasový výstup"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"Zapnúť ladenie stromu uzlov"</string>
@@ -180,7 +300,7 @@
     <string name="axis_character" msgid="8528412412593489695">"Navigovať podľa znakov"</string>
     <string name="axis_word" msgid="8823389407337076750">"Navigovať podľa slov"</string>
     <string name="axis_sentence" msgid="4398740201672273541">"Navigovať podľa viet"</string>
-    <string name="axis_heading" msgid="8829265824683632088">"Navigovať podľa hlavičiek"</string>
+    <string name="axis_heading" msgid="8829265824683632088">"Navigovať po nadpisoch"</string>
     <string name="axis_sibling" msgid="3267377527761217139">"Navigovať podľa stránok na rovnocennej úrovni"</string>
     <string name="axis_document" msgid="8037283796488966887">"Navigovať podľa dokumentov"</string>
     <string name="axis_default_web_view_behavior" msgid="816142869754118685">"Navigovať podľa predvoleného správania zobrazenia webu"</string>
@@ -190,10 +310,11 @@
     <string name="granularity_line" msgid="727359260064093782">"Riadky"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"Odseky"</string>
     <string name="granularity_page" msgid="2739238666516816581">"Strany"</string>
-    <string name="granularity_web_section" msgid="496466197528091152">"Navigácia v sekcii"</string>
-    <string name="granularity_web_list" msgid="8598575022728013551">"Navigácia v zozname"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"Ovládanie navigácie"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"Navigácia v špeciálnom obsahu"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"Nadpisy a orientačné body"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"Zoznamy"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"Odkazy"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"Ovládanie"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Špeciálny obsah"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"Na výšku"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"Na šírku"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"Nepriradené"</string>
@@ -202,13 +323,15 @@
     <string name="shortcut_scroll_forward" msgid="7299589176359902775">"Posunúť vpred"</string>
     <string name="shortcut_scroll_back" msgid="1025337926618449476">"Posunúť vzad"</string>
     <string name="shortcut_back" msgid="2558372839282319745">"Tlačidlo Späť"</string>
-    <string name="shortcut_home" msgid="6670249804418900175">"Tlačidlo Domovská stránka"</string>
+    <string name="shortcut_home" msgid="6670249804418900175">"Tlačidlo plochy"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"Tlačidlo Prehľad"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"Otvoriť upozornenia"</string>
+    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"Zobraziť vlastné akcie"</string>
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Otvoriť globálnu kontextovú ponuku"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"Otvoriť miestnu kontextovú ponuku"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Zopakovať posledný výrok"</string>
     <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"Hláskovať posledný výrok"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"Skopírovať posledný výraz do schránky"</string>
     <string name="shortcut_pause_feedback" msgid="1412613174540942399">"Pozastaviť spätnú väzbu"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"Prečítať zhora"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"Prečítať od ďalšej položky"</string>
@@ -217,6 +340,8 @@
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Predchádzajúce nastavenie navigácie"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"Zamerať sa na prvú položku na obrazovke"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Zamerať sa na poslednú položku na obrazovke"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"Stmaviť obrazovku"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"Zrušiť stmavenie obrazovky"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"Miestna kontextová ponuka"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"Globálna kontextová ponuka"</string>
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"Žiadne položky ponuky"</string>
@@ -238,6 +363,13 @@
     <string name="title_summary" msgid="3037924006370977165">"Rýchla navigácia"</string>
     <string name="title_granularity" msgid="399801096771904747">"Nastavenia navigácie"</string>
     <string name="title_custom_action" msgid="7908169922901920318">"Vlastné akcie"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"Návrhy automatického dopĺňania"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"Preskočiť na návrhy"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"Prejsť späť na pole úpravy"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"Posúvač"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"Úprava úrovne posúvača"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"Zadajte číslo od 0 do 100."</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
     <string name="value_direction_up" msgid="1646290331150992975">"nahor"</string>
     <string name="value_direction_down" msgid="8072362433982733982">"nadol"</string>
     <string name="value_direction_left" msgid="676932617445677488">"doľava"</string>
@@ -298,6 +430,7 @@
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Klepnutím skontrolujete zmeny gest dostupnosti"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"Aplikácia TalkBack je pozastavená"</string>
     <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Pokračujte klepnutím"</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"Automatický prechod na lekciu 1."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"Pozastaviť aplikáciu TalkBack?"</string>
     <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Naozaj to chcete urobiť? Vaše zariadenie nebude poskytovať spätnú väzbu a funkcia Preskúmanie dotykom bude deaktivovaná. Aplikáciu TalkBack môžete znova spustiť v upozorneniach, prostredníctvom skratky tlačidiel na ovládanie hlasitosti alebo tak, že sa vrátite na uzamknutú obrazovku."</string>
     <string name="message_resume_manual" msgid="6522293510722570646">"Aplikáciu TalkBack môžete znova spustiť v upozorneniach."</string>
@@ -312,13 +445,32 @@
     <string name="label_remove_dialog_text" msgid="372916461303485723">"Naozaj chcete odstrániť štítok <xliff:g id="LABEL">%1$s</xliff:g>?"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Naozaj chcete v aplikácii <xliff:g id="LABEL">%1$s</xliff:g> odstrániť štítok <xliff:g id="APP_NAME">%2$s</xliff:g>?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Text štítku"</string>
+    <string name="label_import" msgid="1773817433300194935">"Importovať vlastné štítky"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"Importovať vlastné štítky do aplikácie TalkBack"</string>
+    <string name="label_import_dialog_message" msgid="7975227530187709469">"Vyberte, či chcete existujúce štítky v prípade ich konfliktu prepísať alebo preskočiť."</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"Preskočiť"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"Prepísať"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"Nie je čo exportovať. Nepridali ste žiadne štítky."</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"Štítok sa nepodarilo exportovať"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"Štítok sa nepodarilo importovať"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="few">Boli aktualizované %d štítky</item>
+      <item quantity="many">Bolo aktualizovaného %d štítka</item>
+      <item quantity="other">Bolo aktualizovaných %d štítkov</item>
+      <item quantity="one">Bol aktualizovaný 1 štítok</item>
+    </plurals>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"Vyberte aplikáciu, do ktorej budú exportované štítky:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"Táto verzia funkcie TalkBack zahrnuje zmeny predvolených gest dostupnosti. Akcie združené s týmito gestami je možné prispôsobiť v nastaveniach funkcie TalkBack. Keď je funkcia Preskúmanie dotykom zapnutá, určité akcie môžete vykonať pomocou nasledovných gest.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Dlhé stlačenie klávesa na zvýšenie a klávesa na zníženie hlasitosti"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"Stmavenie obrazovky zapnete alebo vypnete stlačením oboch tlačidiel na ovládanie hlasitosti"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"Stmaviť obrazovku?"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"Naozaj chcete stmaviť obrazovku?"</string>
     <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"Táto verzia aplikácie TalkBack obsahuje zmenené predvolené gestá dostupnosti.\n\nGesto pohybu hore a dole vám umožní prejsť na prvú položku na obrazovke. Gesto pohybu dole a hore vám umožní prejsť na poslednú položku.\n\nNastavenie podrobnosti čítania je možné zmeniť zameraním na položku a výberom stupňa podrobnosti z miestnej kontextovej ponuky.\n\nAkcie vykonávané na základe týchto gest môžete zmeniť v nastaveniach aplikácie TalkBack."</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"V tejto verzii aplikácie TalkBack sa zmenili predvolené gestá dostupnosti.\n\nGestom nahor sa teraz prejde na predchádzajúce nastavenie navigácie a gestom nadol sa teraz prejde na ďalšie nastavenie navigácie."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Prijať gestá"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Prispôsobiť gestá"</string>
+    <string name="button_clear_all_events" msgid="2128349101908653825">"Vymazať všetko"</string>
+    <string name="button_check_all_events" msgid="301383322727007726">"Začiarknuť všetko"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"Chcete vypnúť Preskúmanie dotykom?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Naozaj chcete Preskúmanie dotykom vypnúť?\n\nZariadenie už nebude reagovať na gestá ani nebude poskytovať hlasovú odozvu, keď sa dotknete obrazovky."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Zapnúť ladenie stromu uzlov?"</string>
@@ -331,9 +483,87 @@
     <string name="permission_labeling_desc" msgid="8065967887484901473">"Povolenie pristupovať, upravovať a odstraňovať vlastné štítky vyslovované aplikáciou TalkBack."</string>
     <string name="links" msgid="3448225474115458693">"Odkazy"</string>
     <string name="end_of_text" msgid="3595733062526019550">"Koniec"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"Žiadna predchádzajúca položka: <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"Žiadna ďalšia položka: <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"nadpis"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"tlačidlo"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"kombinované pole"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"Orientačný bod ARIA"</string>
+    <string name="display_name_edit_field" msgid="5014778180731737501">"pole_úpravy"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"zamerateľná položka"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"nadpis 1"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"nadpis 2"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"nadpis 3"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"nadpis 4"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"nadpis 5"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"nadpis 6"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"odkaz"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"ovládanie"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"obrázok"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"položka zoznamu"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"zoznam"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"tabuľka"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"začiarkavacie políčko"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"nadpis alebo orientačný bod"</string>
     <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
     <string name="row_index_template" msgid="4107789959609911947">"Riadok <xliff:g id="ROW">%1$d</xliff:g>"</string>
     <string name="column_index_template" msgid="258393957626754806">"Stĺpec <xliff:g id="COL">%1$d</xliff:g>"</string>
     <string name="heading_template" msgid="3585514481777782183">"Nadpis"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"Nadpis riadka"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"Nadpis stĺpca"</string>
     <string name="item_index_template" msgid="71505978833721807">"Položka <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"Vrátiť importované štítky"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"Importované štítky boli vrátené"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g> hore, <xliff:g id="ID_2">%2$s</xliff:g> dole"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g> vľavo, <xliff:g id="ID_2">%2$s</xliff:g> vpravo"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g> vpravo, <xliff:g id="ID_2">%2$s</xliff:g> vľavo"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="untitled_window" msgid="7017590766394623328">"bez názvu"</string>
+    <string name="status_bar" msgid="6000275621941971563">"stavový riadok"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"navigačný panel"</string>
+    <string name="template_collection_start" msgid="4362535543397747567">"V zbierke <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_end" msgid="2167296836815021551">"Zo zbierky <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"<xliff:g id="LEVEL">%1$s</xliff:g>. úroveň"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="few"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> položky</item>
+      <item quantity="many"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> položky</item>
+      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> položiek</item>
+      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> položka</item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="few"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> riadky</item>
+      <item quantity="many"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> riadka</item>
+      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> riadkov</item>
+      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> riadok</item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="few"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> stĺpce</item>
+      <item quantity="many"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> stĺpca</item>
+      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> stĺpcov</item>
+      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> stĺpec</item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="few"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znaky</item>
+      <item quantity="many"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znaku</item>
+      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znakov</item>
+      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> znak</item>
+    </plurals>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="few"><xliff:g id="TOTAL_COUNT">%1$d</xliff:g> vybraté udalosti</item>
+      <item quantity="many"><xliff:g id="TOTAL_COUNT">%1$d</xliff:g> vybratej udalosti</item>
+      <item quantity="other"><xliff:g id="TOTAL_COUNT">%1$d</xliff:g> vybratých udalostí</item>
+      <item quantity="one">1 vybratá udalosť</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"Režim <xliff:g id="REMOTE_MODE">%1$s</xliff:g> bol spustený"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"Režim <xliff:g id="REMOTE_MODE">%1$s</xliff:g> bol ukončený"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"Režim posúvača"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"Stlačením šípok zmeníte hodnotu. Stlačením výberu režim ukončíte."</string>
+    <string name="arc_android_window" msgid="697316167642517245">"Okno systému Android"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"Prechádzajte obsah pomocou klávesa vyhľadávania a šípok"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"Zoznam skratiek zobrazíte stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g>"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"Stlačením klávesa <xliff:g id="KEYCOMBO">%1$s</xliff:g> otvoríte nastavenia aplikácie TalkBack"</string>
+    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"Najlepšie výsledky s dotykovou a hovorenou spätnou väzbou dosiahnete maximalizovaním okna aplikácie"</string>
 </resources>

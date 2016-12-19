@@ -20,9 +20,11 @@ import android.annotation.TargetApi;
 import android.os.Build;
 
 import com.android.switchaccess.ActionProcessor;
+import com.android.talkback.BuildConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowLooper;
@@ -33,10 +35,11 @@ import static org.junit.Assert.assertEquals;
  * Robolectric tests for ActionProcessor
  */
 @Config(
-        emulateSdk = 18
+        constants = BuildConfig.class,
+        sdk = 21
 )
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class ActionProcessorTest implements ActionProcessor.UiChangedListener {
     private static final long TOO_SOON_TIME_MILLIS = 100;
     private static final long LONG_ENOUGH_TIME_MILLIS = 600;

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"एक्सेस-योग्यता ट्यूटोरि‍यल"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"TalkBack ट्यूटोरियल लॉन्च करें"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack ट्यूटोरियल"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack प्राथमिक रूप से दृष्टिहीन और कमज़ोर दृष्टि वाले लोगों के लिए एक स्क्रीन रीडर है. यह बोले गए फ़ीडबैक का उपयोग करके डिवाइस के साथ इंटरैक्शन करने देता है."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBack बंद करें"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"जानें"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"अभ्यास करें"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"अध्याय <xliff:g id="INDEX">%1$d</xliff:g> सीखें"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"अभ्यास अध्याय <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"अध्याय 1: मूलभूत मार्गदर्शक"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"एक्सप्लोर करने के लिए स्पर्श करें, एक्सप्लोर करने के लिए स्वाइप करें, सक्रिय करने के लिए डबल टैप करें"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"भाग 1: स्पर्श द्वारा एक्सप्लोर करें"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"सक्षम होने पर, स्पर्श द्वारा एक्सप्लोर करें आपको यह सुनने देता है कि आपकी अंगुली के नीचे क्या है. अपनी स्क्रीन के केंद्र में मौजूद आइटम पर अपनी अंगुली ले जाएं. आपके द्वारा पांच आइटम एक्सप्लोर करने के बाद, अध्याय जारी रहेगा."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"भाग 2: सक्रिय करने के लिए डबल-टैप करें"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"आपके द्वारा सुना गया पिछला आइटम सक्रिय करने के लिए, कहीं भी डबल-टैप करें. आइटम 7 ढूंढ़ें और उसे अभी सक्रिय करें. इसके बाद, जारी रखने के लिए अगला सक्रिय करें."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"आइटम 7 सक्रिय किया गया. जारी रखने के लिए अगला बटन ढूंढ़ें और सक्रिय करें"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"भाग 3: अध्याय नेविगेट करना"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack अध्यायों को इसी तरह व्यवस्थित किया गया है. शीर्ष क्षेत्र में अध्याय है, जिसे आप एक्सप्लोर कर सकते हैं और किसी भी समय पढ़ सकते हैं. इसके शीर्ष बाएं कोने में ट्यूटोरियल होम बटन भी है. मध्य भाग अभ्यास का क्षेत्र है. नीचे प्रगति संकेतक और अध्याय मार्गदर्शक बटन हैं. अब जारी रखने के लिए अगला सक्रिय करें."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"भाग 4: एक्सप्लोर करने के लिए स्वाइप करें"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"आप अपनी अंगुली को स्क्रीन पर स्वाइप करके भी एक्सप्लोर कर सकते हैं. बाएं स्वाइप करने से आमतौर पर ऊपर और बाईं ओर की चीज़ें एक्सप्लोर होती है, जबकि दाएं स्वाइप करने से नीचे और दाईं ओर की चीज़ें एक्सप्लोर होती हैं. इसे अभी आज़माएं."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"भाग 5: अभ्यास करें"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"आपकी अंगुली के नीचे क्या है, यह सुनने के लिए उसे स्क्रीन पर हिलाएं. एक्सप्लोर करने के लिए बाएं या दाएं स्वाइप करें."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"अध्याय 2: स्क्रॉल करना"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"दो अंगुलियों से स्क्रॉल करना, आगे और पीछे जाना"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"भाग 1: दो अंगुली से स्क्रॉल करना"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"किसी लम्बवत सूची के माध्यम से स्क्रॉल करने के लिए, सूची आइटम ढूंढ़ें, फिर दो अंगुलियों को ऊपर या नीचे ले जाएं. किसी क्षैतिज सूची के माध्यम से स्क्रॉल करने के लिए, सूची आइटम ढूंढ़ें, फिर दो अंगुलियों को बाएं या दाएं ले जाएं."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"भाग 2: स्क्रॉल करने के शॉर्टकट"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"आप किसी शॉर्टकर्ट का उपयोग करके सूची में आगे या पीछे की ओर जा सकते हैं. आगे जाने के लिए, अंगुली को दाएं फिर बाएं एक ही गति में ले जाएं. पीछे जाने के लिए, एक अंगुली को बाएं फिर दाएं ले जाएं. इसे यहां आज़माकर देखें."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"भाग 3: अभ्यास करें"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"दो अंगुलियों को ऊपर या नीचे स्लाइड करते हुए स्क्रॉल करें. एक अंगुली को दाएं फिर बाएं ले जाते हुए आगे जाएं. एक अंगुली को बाएं फिर दाएं ले जाते हुए पीछे जाएं."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"अध्याय 3: TalkBack मेनू"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"वैश्विक TalkBack मेनू, स्थानीय TalkBack मेनू"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"भाग 1: वैश्विक TalkBack मेनू"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack में दो अलग-अलग मेनू हैं. पहला, वैश्विक TalkBack मेनू, जिसमें हमेशा समान आदेश होते हैं. आप एक अंगुली को एक ही दिशा में नीचे फिर दाएं ले जाते हुए, फिर अपनी अंगुली को उठाकर उसे सक्रिय कर सकते हैं. अभ्यास वर्शन अभी सक्रिय करें."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"मेनू विकल्पों को स्क्रीन के मध्य में सूचीबद्ध किया गया है. एक्सप्लोर करते रहें. जब पूरा कर लें, तब रद्द करें सक्रिय करें."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"भाग 2: स्थानीय TalkBack मेनू"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"दूसरा मेनू है स्थानीय TalkBack मेनू. इस मेनू के आइटम इस आधार पर भिन्न होते हैं कि आपने अभी-अभी क्या सुना है. आप एक अंगुली को एक दिशा में ऊपर फिर दाएं ले जाते हुए, फिर अपनी अंगुली को उठाकर इसे सक्रिय कर सकते हैं. अभ्यास मेनू अभी सक्रिय करें."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"भाग 3: अभ्यास करें"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"वैश्विक TalkBack मेनू सक्रिय करने के लिए अपनी अंगुली नीचे फिर दाएं ले जाएं. स्थानीय TalkBack मेनू सक्रिय करने के लिए अपनी अंगुली ऊपर फिर दाएं ले जाएं."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"नीचे फिर दाएं"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"ऊपर फिर दाएं"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"वैश्विक TalkBack मेनू: नीचे फिर दाएं. स्थानीय TalkBack मेनू: ऊपर फिर दाएं"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"अध्याय 4: लेख मार्गदर्शक"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"लेख मार्गदर्शक सेटिंग चुनना"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"भाग 1: मार्गदर्शक सेटिंग चुनना"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack आपको यह नियंत्रित करने देता है कि लेख को आपके लिए एक बार में एक पैराग्राफ़ या एक पंक्ति या एक शब्द या एक वर्ण के रूप में पढ़ा जाए. वर्णों के अनुसार पढ़ने से वर्तनी में सहायता मिल सकती है. नीचे दिए गए लेख पर टैप करके, फिर ऊपर और नीचे स्वाइप करके लेख मार्गदर्शक दर को वर्णों के लिए सेट करें."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"यहां लम्बवत रूप से सूचीबद्ध किए गए पढ़ने की दर के विकल्पों को एक्सप्लोर करें. वर्णों के द्वारा पढ़ें विकल्प ढूंढ़ें और सक्रिय करें."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"भाग 2: लेख नेविगेट करना"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"आप अब वर्ण के द्वारा पढ़ रहे हैं. नमूना लेख चुनें, फिर वर्ण के द्वारा पढ़ने के लिए दाएं स्वाइप करें."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"भाग 3: अभ्यास करें"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"ऊपर और नीचे स्वाइप करके लेख मार्गदर्शक दर को बदलें. दाएं स्वाइप करके नमूना लेख में अगला वर्ण पढ़ें."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"TalkBack अभ्यास के लिए नमूना लेख यहां दिया गया है. आदमी ने आश्चर्य से पूछा, \"कंसास कहां है?\". डाॅरथी ने दुःखी होकर कहा, \"मुझे नहीं पता, लेकिन यह मेरा घर है और मुझे यकीन है कि यह कहीं तो है.\"\n\n\"संभवतः. ख़ैर, ऑज़ी कुछ भी कर सकता है; इसलिए मुझे लगता है कि वह आपके लिए कंसास खोज लेगा. लेकिन उसके लिए आपको उसे ढूंढ़ना होगा, जो कि एक मुश्किल काम होगा; क्योंकि वह जादूगर किसी से मिलना पसंद नहीं करता और आमतौर पर उसका अपना तरीका है. लेकिन आप चाहते क्या हैं?\", उसने टोटो से बात करना जारी रखा."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"अध्याय 5: लेख संपादन"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"संपादन बॉक्स को सक्रिय करना, लिखना, कर्सर को ले जाना, लेख को चुनना और उस पर कार्रवाई करना"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"भाग 1: संपादन बॉक्स को सक्रिय करना"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"TalkBack के साथ, आप लेख लिखने, चुनने और संपादित करने के लिए संपादन बॉक्स का उपयोग कर सकते हैं. संपादन बॉक्स को सक्रिय करने के लिए, उस पर डबल-टैप करें. जब आप संपादन बॉक्स को सक्रिय करते हैं, तो स्क्रीन के नीचे कीबोर्ड उपलब्ध हो जाता है. आप वापस जाएं बटन टैप करके कीबोर्ड को ख़ारिज कर सकते हैं. संपादन बॉक्स को अभी सक्रिय करने का प्रयास करें. पूरा हो जाने पर, अगला सक्रिय करें जो अब कीबोर्ड के ऊपर है."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"भाग 2: संपादन बॉक्स में लिखना"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"लिखने के लिए, संपादन बॉक्स को सक्रिय करें और अपनी अंगुली को ऑनस्क्रीन कीबोर्ड पर ले जाएं. जब आपको इच्छित वर्ण सुनाई दे, तब उसे सक्रिय करने के लिए अपनी अंगुली उठा लें. सक्रिय करने और नीचे संपादन बॉक्स में लिखने का प्रयास करें."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"भाग 3: कर्सर का उपयोग करना"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"अब आप अपने डिवाइस पर, वॉल्यूम बटन का उपयोग करके या स्थानीय TalkBack मेनू के माध्यम से कर्सर को हिला सकते हैं. इस मेनू में मौजूद कर्सर नियंत्रण विकल्प के साथ, आप लेख चुन सकते हैं, काट सकते हैं, कॉपी कर सकते हैं या चिपका सकते हैं. नीचे संपादन बॉक्स को सक्रिय करें और कर्सर को नमूना लेख के आस-पास ले जाएं."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"डॉरथी गेल का ईमेल पता dorothy@ozmail.com है"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"भाग 4: अभ्यास करें"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"डबल टैप करके संपादन बॉक्स को सक्रिय करें. अपनी अंगुली को किसी वर्ण पर घुमाकर और फिर अंगुली उठाकर लिखें. वॉल्यूम बटन और स्थानीय TalkBack मेनू से कर्सर को ले जाएं, स्थानीय TalkBack मेनू में कर्सर नियंत्रण विकल्प का उपयोग करके लेख चुनें और उस पर कार्रवाई करें."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"लेख संपादित करें"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"पिछला"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"अगला"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"पिछला अध्याय"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"अगला अध्याय"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"ट्यूटोरियल होम"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"अध्याय %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"भाग %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"%2$d में से %1$d भाग"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"अभ्यास पूर्ण हो गया है और कुछ ही क्षण में आगे बढ़ जाएगा"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"अभ्यास क्षेत्र"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s को अभ्यास मोड में सक्रिय किया गया है. बाहर निकलने के लिए रद्द करें बटन सक्रिय करें."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"ट्यूटोरियल होम बटन"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"आइटम <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"बाहर निकलें"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"स्पर्श द्वारा एक्सप्लोर करें आवश्यक है"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"इस ट्यूटोरियल के लिए स्पर्श द्वारा एक्सप्लोर करें की आवश्यकता है. कृपया ट्यूटोरियल लाॅन्च करने से पहले स्पर्श द्वारा एक्सप्लोर करें को सक्षम करें."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack अक्षम है"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"इस ट्यूटोरियल के लिए TalkBack का सक्षम होना आवश्यक है. कृपया ट्यूटोरियल लॉन्च करने से पहले TalkBack चालू करें."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack निलंबित है"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"फ़ीडबैक रोका हुआ होने पर TalkBack ट्यूटोरियल उपलब्ध नहीं होता. कृपया TalkBack फ़ीडबैक फिर से शुरू करें और जारी रखने के लिए ट्यूटोरियल फिर से लॉन्च करें."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"मेनू का वर्णन करें"</string>
+</resources>

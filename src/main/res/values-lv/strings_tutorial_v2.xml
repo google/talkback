@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Pieejamības pamācība"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Atvērt TalkBack pamācību"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack apmācība"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack ir ekrāna lasītājs, kas galvenokārt paredzēts neredzīgiem un vājredzīgiem lietotājiem. Tas ļauj mijiedarboties ar ierīci, atskaņojot balss komentārus."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Izslēgt TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Uzzināt vairāk"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Vingrināties"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"Apgūt <xliff:g id="INDEX">%1$d</xliff:g>. nodarbību"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"Mācību <xliff:g id="INDEX">%1$d</xliff:g>. nodarbība"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"1. nodarbība: navigācijas pamatiespējas"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Pieskaršanās, lai izpētītu, vilkšana, lai izpētītu, un dubultskāriens, lai aktivizētu"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"1. daļa: funkcija “Pārlūkot pieskaroties”"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Iespējojot funkciju “Pārlūkot pieskaroties”, varat dzirdēt aprakstu vienumam, virs kura ir jūsu pirksts. Velciet pirkstu pa vienumiem ekrāna centrā. Kad būsiet pārlūkojis piecus vienumus, nodarbība turpināsies."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"2. daļa: dubultskāriens, lai aktivizētu vienumu"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Lai aktivizētu pēdējo nosaukto vienumu, veiciet dubultskārienu jebkur ekrānā. Tagad atrodiet 7. vienumu un aktivizējiet to. Pēc tam aktivizējiet vienumu Tālāk, lai turpinātu."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"7. vienums ir aktivizēts. Lai turpinātu, atrodiet un aktivizējiet pogu Tālāk."</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"3. daļa: nodarbības par navigācijas iespējām"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Visas TalkBack nodarbības ir izveidotas līdzīgā veidā. Augšdaļā ir parādīta nodarbība, kuru jebkurā laikā varat izpētīt un izlasīt. Ekrāna augšējā kreisajā stūrī ir pieejama arī poga Apmācības sākums. Vidusdaļā ir vingrināšanās apgabals. Apakšdaļā ir parādīts norises indikators un nodarbību navigācijas pogas. Tagad aktivizējiet vienumu Tālāk, lai turpinātu."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"4. daļa: pārlūkošana velkot"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Pārlūkošanu varat arī veikt, velkot pirkstu pa ekrānu. Velkot pa kreisi, parasti notiek pārlūkošana augšup un pa kreisi, bet, velkot pa labi, — lejup un pa labi. Izmēģiniet to tūlīt!"</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"5. daļa: vingrināšanās"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Lai dzirdētu, uz kāda vienuma ir novietots pirksts, velciet ar to pār ekrānu. Veiciet dubultskārienu jebkur ekrānā, lai aktivizētu nosaukto vienumu. Lai izpētītu vienumu, ekrānā velciet pa kreisi vai pa labi."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"2. nodarbība: ritināšana"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Ritināšana ar diviem pirkstiem, pāriešana uz priekšu un atpakaļ"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"1. daļa: ritināšana ar diviem pirkstiem"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Lai ritinātu vertikālu sarakstu, atrodiet saraksta vienumu un pēc tam ar diviem pirkstiem velciet augšup vai lejup. Lai ritinātu horizontālu sarakstu, atrodiet saraksta vienumu un pēc tam ar diviem pirkstiem velciet pa kreisi vai pa labi."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"2. daļa: ritināšanas saīsnes"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Varat pāriet uz priekšu un atpakaļ sarakstā, izmantojot saīsni. Lai pārietu uz priekšu, velciet pirkstu pa labi un pēc tam pa kreisi ar nepārtrauktu kustību. Lai pārietu atpakaļ, velciet pirkstu pa kreisi un pēc tam pa labi. Izmēģiniet to!"</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"3. daļa: vingrināšanās"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Ritiniet, velkot divus pirkstus augšup vai lejup. Pārejiet uz priekšu, velkot pirkstu pa labi un pēc tam pa kreisi. Pārejiet atpakaļ, velkot pirkstu pa kreisi un pēc tam pa labi."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"3. nodarbība: TalkBack izvēlnes"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Galvenā TalkBack izvēlne, lokālā TalkBack izvēlne"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"1. daļa: galvenā TalkBack izvēlne"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"Pakalpojumam TalkBack ir divas atšķirīgas izvēlnes. Galvenajā TalkBack izvēlnē vienmēr ir pieejamas vienas un tās pašas komandas. Lai to aktivizētu, ar vienu kustību velciet pirkstu lejup un pēc tam pa labi, pēc tam atlaidiet pirkstu. Aktivizējiet vingrināšanās versiju tūlīt."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Izvēlnes opcijas tiek rādītas vertikālā sarakstā ekrāna vidū. Izpētiet tās. Kad esat pabeidzis izpēti, aktivizējiet vienumu Atcelt."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"2. daļa: lokālā TalkBack izvēlne"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Vēl ir pieejama arī lokālā TalkBack izvēlne. Šajā izvēlnē ietvertie vienumi ir atkarīgi no tā, kādus vienumus pēdējoreiz klausījāties. Lai to aktivizētu, ar vienu kustību velciet pirkstu augšup un pēc tam pa labi, pēc tam atlaidiet pirkstu. Aktivizējiet vingrināšanās versiju tūlīt."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"3. daļa: vingrināšanās"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Lai aktivizētu galveno TalkBack izvēlni, velciet pirkstu lejup un pēc tam pa labi. Lai aktivizētu lokālo TalkBack izvēlni, velciet pirkstu augšup un pēc tam pa labi."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Lejup un pēc tam pa labi"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Augšup un pēc tam pa labi"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Galvenā TalkBack izvēlne: lejup un pēc tam pa labi. Lokālā TalkBack izvēlne: augšup un pēc tam pa labi."</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"4. nodarbība: pārvietošanās pa tekstu"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Navigācijas iestatījumu atlase"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"1. daļa: navigācijas iestatījumu atlase"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack ļauj kontrolēt to, vai ar vienu navigācijas soli tiek nolasīta teksta rindkopa, rindiņa, vārds vai rakstzīme. Teksta nolasīšana pa rakstzīmēm var palīdzēt pareizrakstības jautājumos. Lai iestatītu teksta navigācijas soli uz rakstzīmēm, pieskarieties tālāk parādītajam tekstam un pēc tam ekrānā velciet augšup un lejup."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Izpētiet šeit vertikālajā sarakstā parādītās lasīšanas ātruma iespējas. Atrodiet un aktivizējiet iespēju “Lasīt pa rakstzīmei”."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"2. daļa: pārvietošanās pa tekstu"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Tagad teksts tiek lasīts pa rakstzīmei. Atlasiet teksta paraugu un pēc tam ekrānā velciet pa labi, lai tas tiktu nolasīts pa rakstzīmei."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"3. daļa: vingrināšanās"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Mainiet teksta navigācijas soli, ekrānā velkot augšup un lejup. Velciet pa labi, lai noklausītos nākamo teksta parauga vienumu."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Tālāk ir sniegts teksta paraugs TalkBack vingrinājumiem. “Kur atrodas Kanzasa?” izbrīnīts vaicāja vīrs. “Es nezinu,” noskumusi atbildēja Dorotija, “taču tās ir manas mājas, un es zinu, ka tās kaut kur ir.”\n\n“Droši vien. Ozs var paveikt jebko, un domāju, ka viņš varēs atrast Kanzasu. Taču vispirms tev viņš jāsatiek. Tas būs grūts uzdevums, jo varenais burvis nevēlas nevienu satikt un parasti rīkojas, kā grib. Bet ko gribi TU?” viņš turpināja, vēršoties pie Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"5. nodarbība: teksta rediģēšana"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Rediģēšanas lodziņa aktivizēšana, rakstīšana, kursora virzīšana, teksta atlase un darbības ar to"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"1. daļa: rediģēšanas lodziņa aktivizēšana"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Izmantojot lietotni TalkBack, varat lietot rediģēšanas lodziņu, lai rakstītu, atlasītu un rediģētu tekstu. Lai aktivizētu rediģēšanas lodziņu, veiciet dubultskārienu uz tā. Pēc rediģēšanas lodziņa aktivizēšanas ekrāna apakšdaļā tiks parādīta tastatūra. Tastatūru var aizvērt, pieskaroties pogai Atpakaļ. Tagad aktivizējiet rediģēšanas lodziņu. Kad būsiet pabeidzis darbu, aktivizējiet vienumu Tālāk, kas tagad tiek rādīts virs tastatūras."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"2. daļa: rakstīšana rediģēšanas lodziņā"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Lai rakstītu tekstu, aktivizējiet rediģēšanas lodziņu un velciet ar pirkstu pār ekrāna tastatūru. Kad tiek nosaukta vēlamā rakstzīme, atlaidiet pirkstu no ekrāna, lai aktivizētu rakstzīmi. Aktivizējiet rediģēšanas lodziņu un ierakstiet tajā tekstu."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"3. daļa: kursora izmantošana"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Varat virzīt kursoru, izmantojot ierīces skaļuma regulēšanas pogas vai lokālo TalkBack izvēlni. Izmantojot izvēlnē pieejamo opciju “Kursora vadīkla”, varat arī izvēlēties, izgriezt, kopēt un ielīmēt tekstu. Aktivizējiet tālāk parādīto rediģēšanas lodziņu un virziet kursoru pa teksta paraugu."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Dorotijas Geilas e-pasta adrese ir dorotija@ozazemespasts.lv"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"4. daļa: vingrināšanās"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Aktivizējiet rediģēšanas lodziņu, veicot dubultskārienu. Rakstiet tekstu, virzot pirkstu virs vēlamās rakstzīmes un pēc tam to atlaižot. Virziet kursoru, izmantojot ierīces skaļuma regulēšanas pogas un lokālo TalkBack izvēlni. Atlasiet tekstu un veiciet ar to darbības, izmantojot lokālajā TalkBack izvēlnē pieejamo opciju “Kursora vadīkla”."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Teksta rediģēšana"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"IEPRIEKŠĒJĀ"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"TĀLĀK"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"IEPRIEKŠĒJĀ NODARBĪBA"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"NĀKAMĀ NODARBĪBA"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"APMĀCĪBAS SĀKUMS"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"%1$d. nodarbība"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"%1$d. daļa"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"%1$d. daļa no %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Uzdevums ir izpildīts, un pēc brīža tiks atvērts nākamais"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Vingrināšanās apgabals"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"Vienums %1$s ir aktivizēts vingrināšanās režīmā. Lai izietu, aktivizējiet pogu ATCELT."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Poga Apmācības sākums"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"<xliff:g id="INDEX">%1$d</xliff:g>. vienums"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Iziet"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Nepieciešama funkcija “Pārlūkot pieskaroties”"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Lai skatītu šo apmācību, ir nepieciešama funkcija “Pārlūkot pieskaroties”. Pirms atverat apmācību, iespējojiet funkciju “Pārlūkot pieskaroties”."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack ir atspējots"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Lai skatītu šo apmācību, ir nepieciešams TalkBack. Pirms atverat apmācību, ieslēdziet TalkBack."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack darbība apturēta"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"TalkBack apmācība nav pieejama, kamēr ir apturēta balss komentāru darbība. Lai turpinātu, lūdzu, atsāciet TalkBack balss komentāru darbību un atkārtoti palaidiet apmācību."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Aprakstīt izvēlni"</string>
+</resources>

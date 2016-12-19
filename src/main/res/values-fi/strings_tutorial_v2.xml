@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Esteettömyyden opastus"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Käynnistä TalkBack-opastus"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack-opastus"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack on näytönlukuohjelma ensisijaisesti sokeille ja näkörajoitteisille käyttäjille. Se mahdollistaa laitteen käyttämisen äänipalautteen avulla."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Poista TalkBack käytöstä"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Aloita oppitunti"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Harjoittele"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"tee harjoitus <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"harjoitus <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Oppitunti 1: Perussiirtyminen"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Tutki koskettamalla, tutki pyyhkäisemällä, aktivoi kaksoisnapauttamalla"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Osa 1: Kosketuksella tutkiminen"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Kun kosketuksella tutkiminen on käytössä, kuulet mitä sormesi koskettaa. Siirrä sormeasi näytön keskellä olevien kohteiden päälle. Kun olet tutkinut viittä kohdetta, oppitunti jatkuu."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Osa 2: aktivoi kaksoisnapautuksella"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Aktivoi viimeksi mainittu kohde kaksoisnapauttamalla näyttöä. Etsi kohde 7 ja aktivoi se nyt. Jatka sitten aktivoimalla Seuraava."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Kohde 7 aktivoitiin. Jatka etsimällä ja aktivoimalla Seuraava-painike."</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Osa 3: Siirtymisoppitunnit"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBackin harjoitukset on aseteltu samaan tapaan. Näytön yläosassa on harjoitustehtävä, jota voit tutkia ja lukea milloin tahansa. Lisäksi vasemmassa yläkulmassa on Aloitusohjeen etusivu ‑painike. Keskellä näyttöä on harjoittelualue. Näytön alaosassa ovat etenemisen tilaosoitin ja harjoituksen siirtymispainikkeet. Jatka nyt aktivoimalla Seuraava."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Osa 4: Pyyhkäisemällä tutkiminen"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Voit myös tutkia näyttöä pyyhkäisemällä sitä sormella. Vasemmalle pyyhkäiseminen tutkii yleensä näyttöä ylhäältä ja vasemmalta, kun taas oikealle pyyhkäiseminen tutkii näyttöä alhaalta ja oikealta. Kokeile sitä nyt."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Osa 5: Harjoitus"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Liikuta sormeasi näytön poikki, jos haluat kuulla tietoja koskettamastasi kohteesta. Aktivoi kohde kaksoisnapauttamalla näyttöä. Tutki pyyhkäisemällä vasemmalle tai oikealle."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Oppitunti 2: Vierittäminen"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Kahdella sormella vierittäminen, eteen- ja taaksepäin siirtyminen"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Osa 1: Kahdella sormella vierittäminen"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Voit selata pystysuuntaista luetteloa etsimällä luettelokohteen ja liikuttamalla sitten kahta sormea näytöllä ylös tai alas. Voit selata vaakasuuntaista luetteloa etsimällä luettelokohteen ja liikuttamalla kahta sormea vasemmalle tai oikealle."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Osa 2: Vierittämisen pikaeleet"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Voit siirtyä eteen- tai taaksepäin luettelossa pikaeleellä. Voit siirtyä eteenpäin liikuttamalla yhtä sormea oikealle ja sitten vasemmalle yhdellä liikkeellä. Taaksepäin siirtyminen onnistuu liikuttamalla yhtä sormea vasemmalle ja sitten oikealle. Kokeile sitä täällä."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Osa 3: Harjoitus"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Vieritä näyttöä liu\'uttamalla kahta sormea ylös tai alas. Siirry eteenpäin liikuttamalla yhtä sormea oikealle ja sitten vasemmalle. Siirry taaksepäin liikuttamalla yhtä sormea vasemmalle ja sitten oikealle."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Oppitunti 3: TalkBack-valikot"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Yleinen TalkBack-valikko, paikallinen TalkBack-valikko"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Osa 1: Yleinen TalkBack-valikko"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBackissa on kaksi erilaista valikkoa. Ensimmäinen, yleinen TalkBack-valikko, sisältää aina samat komennot. Voit aktivoida sen liikuttamalla yhtä sormea alas ja sitten oikealle ja nostamalla sitten sormen näytöltä. Aktivoi harjoitusversio nyt."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Valikkokohteet ovat pystysuuntaisessa luettelossa keskellä näyttöä. Yritä tutkia sitä. Kun olet valmis, aktivoi Peruuta."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Osa 2: Paikallinen TalkBack-valikko"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Toinen valikko on paikallinen TalkBack-valikko. Tämän valikon kohteet vaihtelevat sen mukaan, mitä kuulit viimeksi. Voit aktivoida tämän valikon liikuttamalla yhtä sormea ylös ja sitten oikealle yhdellä liikkeellä ja nostamalla sitten sormen näytöltä. Aktivoi harjoitusvalikko nyt."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Osa 3: Harjoitus"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Aktivoi yleinen TalkBack-valikko liikuttamalla sormea alas. Aktivoi paikallinen TalkBack-valikko liikuttamalla sormea ylös ja sitten oikealle."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Alas ja oikealle"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Ylös ja oikealle"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Yleinen TalkBack-valikko: Alas ja oikealle. Paikallinen TalkBack-valikko: Ylös ja oikealle."</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Oppitunti 4: Tekstissä siirtyminen"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Tekstissä siirtymisen asetukset"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Osa 1: Siirtymisasetusten valinta"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack antaa sinun valita, luetaanko tekstiä sinulle kappale, rivi, sana vai merkki kerrallaan. Merkki kerrallaan lukeminen voi helpottaa oikeinkirjoitusta. Valitse merkki kerrallaan lukeminen koskettamalla alla olevaa tekstiä ja pyyhkäisemällä sitten ylös tai alas."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Tutustu lukunopeusasetuksiin, jotka ovat tässä pystysuuntaisessa luettelossa. Etsi ja aktivoi Lue merkki kerrallaan ‑asetus."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Osa 2: Tekstissä siirtyminen"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Tekstiä luetaan nyt merkki kerrallaan. Valitse malliteksti ja aloita tekstin lukeminen merkki kerrallaan pyyhkäisemällä oikealle."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Osa 3: Harjoitus"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Muokkaa tekstin siirtymisnopeutta pyyhkäisemällä ylös ja alas. Lue mallitekstin seuraava merkki pyyhkäisemällä oikealle."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Tässä on tekstinäyte TalkBack-harjoittelua varten. ”Missä tämä Kansas muka on?” kysyi mies hämmästyneenä. ”En tiedä”, vastasi murheellinen Dorothy. ”Siellä minä kuitenkin asun, joten jossain sen on oltava.”\n\n”Aivan. No, Oz pystyy mihin vain, joten hän voi varmaankin myös löytää Kansasin. Mutta ensin sinun täytyy päästä hänen puheilleen, eikä se ole helppoa. Suuri ja mahtava velho ei nimittäin halua ottaa ketään vastaan, ja yleensä hän tekee niin kuin haluaa. Entäs sinä, mitä sinä haluat?” jatkoi mies, osoittaen sanansa Totolle."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Oppitunti 5: Tekstin muokkaaminen"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Muokkauskentän aktivoiminen, kirjoittaminen, kohdistimen siirtäminen, tekstin valitseminen ja käsittely"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Osa 1: muokkauskentän aktivoiminen"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Voit käyttää TalkBackissa muokkauskenttää tekstin kirjoittamiseen, valitsemiseen ja muokkaamiseen. Aktivoi muokkauskenttä kaksoisnapauttamalla sitä. Kun aktivoit muokkauskentän, näytön alalaitaan avautuu näppäimistö. Voit hylätä näppäimistön koskettamalla Takaisin-painiketta. Aktivoi muokkauskenttä nyt. Kun olet valmis, aktivoi Seuraava, joka sijaitsee tällä hetkellä näppäimistön yläpuolella."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Osa 2: Muokkauskenttään kirjoittaminen"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Kirjoita tekstiä aktivoimalla muokkauskenttä ja liikuttamalla sormeasi näytöllä olevalla näppäimistöllä. Kun kuulet haluamasi merkin nimen, aktivoi merkki nostamalla sormesi. Yritä aktivoida alla oleva muokkauskenttä ja kirjoittaa siihen tekstiä."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Osa 3: Kohdistimen käyttö"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Voit siirtää kohdistinta laitteen äänenvoimakkuuspainikkeilla tai Paikallinen TalkBack ‑valikon kautta. Kyseissä valikossa olevalla Kohdistimen ohjaus ‑toiminnolla voit myös leikata, kopioida ja liittää tekstiä. Aktivoi alla oleva muokkauskenttä ja siirrä kohdistinta mallitekstin eri kohtiin."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Dorothy Galen sähköpostiosoite on dorothy@ozmail.com."</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Osa 4: Harjoitus"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Aktivoi muokkauskenttä kaksoisnapauttamalla. Kirjoita tekstiä liikuttamalla sormesi merkin päälle ja nostamalla sitten sormesi näytöltä. Siirrä kohdistinta äänenvoimakkuuspainikkeilla ja Paikallinen TalkBack ‑valikon kautta. Valitse ja käsittele tekstiä Paikallinen TalkBack ‑valikon Kohdistimen ohjaus ‑toiminnolla."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Muokkaa tekstiä"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"EDELLINEN"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"SEURAAVA"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"EDELLINEN HARJOITUS"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"SEURAAVA OPPITUNTI"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"OPASTUKSEN ALOITUSNÄYTTÖ"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Oppitunti %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Osa %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Osa %1$d/%2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Harjoitus on valmis ja jatkuu hetken kuluttua."</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Harjoitusalue"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s aktivoitiin harjoitustilassa. Poistu aktivoimalla PERUUTA-painike."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Opastuksen aloitusnäyttö ‑painike"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Kohde <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Poistu"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Ota kosketuksella tutkiminen käyttöön"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Tämä opastus tarvitsee käyttöönsä kosketuksella tutkiminen ‑toiminnon. Ota kosketuksella tutkiminen ‑toiminto käyttöön ennen opastuksen aloittamista."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack pois käytöstä"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Tämä opastus edellyttää Talkbackin käyttöä. Ota Talkback käyttöön ennen opastuksen aloittamista."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBackin käyttö keskeytetty"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"TalkBack-opastus ei ole käytettävissä, kun palautetoiminto on keskeytetty. Ota TalkBack-palaute takaisin käyttöön ja jatka käynnistämällä opastus uudelleen."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Kuvaile valikkoa"</string>
+</resources>

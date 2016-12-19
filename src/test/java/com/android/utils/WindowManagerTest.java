@@ -22,9 +22,11 @@ import android.view.accessibility.AccessibilityWindowInfo;
 
 import com.android.switchaccess.test.ShadowAccessibilityWindowInfo;
 
+import com.android.talkback.BuildConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.internal.ShadowExtractor;
@@ -35,49 +37,51 @@ import java.util.List;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNull;
 
-@Config(emulateSdk = 18,
+@Config(
+        constants = BuildConfig.class,
+        sdk = 21,
         shadows = {ShadowAccessibilityWindowInfo.class})
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class WindowManagerTest {
 
     @Test
     public void testNullWindowsGetCurrent_returnNull() {
-        WindowManager manager = new WindowManager();
-        assertNull(manager.getCurrentWindow());
+        WindowManager manager = new WindowManager(false /* isInRTL */);
+        assertNull(manager.getCurrentWindow(false /* useInputFocus */));
     }
 
     @Test
     public void testNullWindowsGetPrevious_returnNull() {
-        WindowManager manager = new WindowManager();
-        assertNull(manager.getPreviousWindow(manager.getCurrentWindow()));
+        WindowManager manager = new WindowManager(false /* isInRTL */);
+        assertNull(manager.getPreviousWindow(manager.getCurrentWindow(false /* useInputFocus */)));
     }
 
     @Test
     public void testNullWindowsGetNext_returnNull() {
-        WindowManager manager = new WindowManager();
-        assertNull(manager.getNextWindow(manager.getCurrentWindow()));
+        WindowManager manager = new WindowManager(false /* isInRTL */);
+        assertNull(manager.getNextWindow(manager.getCurrentWindow(false /* useInputFocus */)));
     }
 
     @Test
     public void testEmptyWindowsGetCurrent_returnNull() {
-        WindowManager manager = new WindowManager();
+        WindowManager manager = new WindowManager(false /* isInRTL */);
         manager.setWindows(new ArrayList<AccessibilityWindowInfo>());
-        assertNull(manager.getCurrentWindow());
+        assertNull(manager.getCurrentWindow(false /* useInputFocus */));
     }
 
     @Test
     public void testEmptyWindowsGetPrevious_returnNull() {
-        WindowManager manager = new WindowManager();
+        WindowManager manager = new WindowManager(false /* isInRTL */);
         manager.setWindows(new ArrayList<AccessibilityWindowInfo>());
-        assertNull(manager.getPreviousWindow(manager.getCurrentWindow()));
+        assertNull(manager.getPreviousWindow(manager.getCurrentWindow(false /* useInputFocus */)));
     }
 
     @Test
     public void testEmptyWindowsGetNext_returnNull() {
-        WindowManager manager = new WindowManager();
+        WindowManager manager = new WindowManager(false /* isInRTL */);
         manager.setWindows(new ArrayList<AccessibilityWindowInfo>());
-        assertNull(manager.getNextWindow(manager.getCurrentWindow()));
+        assertNull(manager.getNextWindow(manager.getCurrentWindow(false /* useInputFocus */)));
     }
 
     @Test
@@ -91,53 +95,54 @@ public class WindowManagerTest {
             shadowWindow.setType(AccessibilityWindowInfo.TYPE_APPLICATION);
         }
 
-        WindowManager manager = new WindowManager();
+        WindowManager manager = new WindowManager(false /* isInRTL */);
         manager.setWindows(windows);
-        assertNull(manager.getCurrentWindow());
+        assertNull(manager.getCurrentWindow(false /* useInputFocus */));
     }
 
     @Test
     public void testFocusedWindowLastGetNext_returnFirstWindow() {
         List<AccessibilityWindowInfo> windows = initList(3, 2);
-        WindowManager manager = new WindowManager();
+        WindowManager manager = new WindowManager(false /* isInRTL */);
         manager.setWindows(windows);
-        AccessibilityWindowInfo currentWindow = manager.getCurrentWindow();
+        AccessibilityWindowInfo currentWindow = manager.getCurrentWindow(false /* useInputFocus */);
         assertEquals(windows.get(0).getId(), manager.getNextWindow(currentWindow).getId());
     }
 
     @Test
     public void testFocusedWindowNotLastGetNext_returnsNextWindow() {
         List<AccessibilityWindowInfo> windows = initList(3, 1);
-        WindowManager manager = new WindowManager();
+        WindowManager manager = new WindowManager(false /* isInRTL */);
         manager.setWindows(windows);
-        AccessibilityWindowInfo currentWindow = manager.getCurrentWindow();
+        AccessibilityWindowInfo currentWindow = manager.getCurrentWindow(false /* useInputFocus */);
         assertEquals(windows.get(2).getId(), manager.getNextWindow(currentWindow).getId());
     }
 
     @Test
     public void testFocusedWindowFirstGetPrevious_returnsLastWindow() {
         List<AccessibilityWindowInfo> windows = initList(3, 0);
-        WindowManager manager = new WindowManager();
+        WindowManager manager = new WindowManager(false /* isInRTL */);
         manager.setWindows(windows);
-        AccessibilityWindowInfo currentWindow = manager.getCurrentWindow();
+        AccessibilityWindowInfo currentWindow = manager.getCurrentWindow(false /* useInputFocus */);
         assertEquals(windows.get(2).getId(), manager.getPreviousWindow(currentWindow).getId());
     }
 
     @Test
     public void testFocusedWindowNotFirstGetPrevious_returnsPrevious() {
         List<AccessibilityWindowInfo> windows = initList(3, 1);
-        WindowManager manager = new WindowManager();
+        WindowManager manager = new WindowManager(false /* isInRTL */);
         manager.setWindows(windows);
-        AccessibilityWindowInfo currentWindow = manager.getCurrentWindow();
+        AccessibilityWindowInfo currentWindow = manager.getCurrentWindow(false /* useInputFocus */);
         assertEquals(windows.get(0).getId(), manager.getPreviousWindow(currentWindow).getId());
     }
 
     @Test
     public void testGetCurrentWindow_returnsFocusedWindow() {
         List<AccessibilityWindowInfo> windows = initList(3, 1);
-        WindowManager manager = new WindowManager();
+        WindowManager manager = new WindowManager(false /* isInRTL */);
         manager.setWindows(windows);
-        assertEquals(windows.get(1).getId(), manager.getCurrentWindow().getId());
+        assertEquals(windows.get(1).getId(),
+                manager.getCurrentWindow(false /* useInputFocus */).getId());
     }
 
     private List<AccessibilityWindowInfo> initList(int listSize,

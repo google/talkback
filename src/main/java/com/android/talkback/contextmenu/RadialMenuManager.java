@@ -19,10 +19,8 @@ package com.android.talkback.contextmenu;
 import com.android.talkback.FeedbackItem;
 import com.android.talkback.R;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,8 +29,6 @@ import android.view.WindowManager;
 import com.android.talkback.SpeechController;
 import com.google.android.marvin.talkback.TalkBackService;
 import com.android.talkback.controller.FeedbackController;
-import com.android.talkback.tutorial.AccessibilityTutorialActivity;
-import com.android.talkback.tutorial.ContextMenuMonitor;
 import com.android.utils.widget.SimpleOverlay;
 
 public class RadialMenuManager implements MenuManager {
@@ -62,28 +58,16 @@ public class RadialMenuManager implements MenuManager {
 
     private final boolean mIsTouchScreen;
 
-    public RadialMenuManager(boolean isTouchScreen,
-                             TalkBackService context,
-                             SpeechController speechController,
-                             FeedbackController feedbackController) {
-        if (speechController == null) throw new IllegalStateException();
-        if (feedbackController == null) throw new IllegalStateException();
+    private MenuTransformer mMenuTransformer;
+    private MenuActionInterceptor mMenuActionInterceptor;
 
+    public RadialMenuManager(boolean isTouchScreen,
+                             TalkBackService context) {
         mIsTouchScreen = isTouchScreen;
         mService = context;
-        mSpeechController = speechController;
-        mFeedbackController = feedbackController;
-    }
-
-    /**
-     * Sets the radial menu client, which is responsible for populating menus,
-     * responding to click actions, and can optionally handle feedback from
-     * selection.
-     *
-     * @param client The client to set.
-     */
-    public void setClient(RadialMenuClient client) {
-        mClient = client;
+        mSpeechController = context.getSpeechController();
+        mFeedbackController = context.getFeedbackController();
+        mClient = new TalkBackRadialMenuClient(mService);
     }
 
     /**
@@ -94,12 +78,6 @@ public class RadialMenuManager implements MenuManager {
      */
     @Override
     public boolean showMenu(int menuId) {
-        // Some TalkBack tutorial modules don't allow context menus.
-        if (AccessibilityTutorialActivity.isTutorialActive()
-                && !AccessibilityTutorialActivity.shouldAllowContextMenus()) {
-            return false;
-        }
-
         if (!mIsTouchScreen) return false;
 
         RadialMenuOverlay overlay = mCachedRadialMenus.get(menuId);
@@ -136,6 +114,10 @@ public class RadialMenuManager implements MenuManager {
             return false;
         }
 
+        if (mMenuTransformer != null) {
+            mMenuTransformer.transformMenu(overlay.getMenu(), menuId);
+        }
+
         overlay.showWithDot();
         return true;
     }
@@ -148,6 +130,16 @@ public class RadialMenuManager implements MenuManager {
     @Override
     public void onGesture(int gestureId) {
         dismissAll();
+    }
+
+    @Override
+    public void setMenuTransformer(MenuTransformer transformer) {
+        mMenuTransformer = transformer;
+    }
+
+    @Override
+    public void setMenuActionInterceptor(MenuActionInterceptor actionInterceptor) {
+        mMenuActionInterceptor = actionInterceptor;
     }
 
     @Override
@@ -223,7 +215,12 @@ public class RadialMenuManager implements MenuManager {
             mFeedbackController.playHaptic(R.array.view_clicked_pattern);
             mFeedbackController.playAuditory(R.raw.tick);
 
-            final boolean handled = (mClient != null) && mClient.onMenuItemClicked(menuItem);
+            boolean handled = mMenuActionInterceptor != null &&
+                    mMenuActionInterceptor.onInterceptMenuClick(menuItem);
+
+            if (!handled) {
+                handled = mClient != null && mClient.onMenuItemClicked(menuItem);
+            }
 
             if (!handled && (menuItem == null)) {
                 mService.interruptAllFeedback();
@@ -248,16 +245,11 @@ public class RadialMenuManager implements MenuManager {
 
             mHandler.postDelayed(mRadialMenuHint, DELAY_RADIAL_MENU_HINT);
 
-            // TODO(CB): Find an alternative or just speak the number of items.
+            // TODO: Find an alternative or just speak the number of items.
             // Play a note in a C major scale for each item in the menu.
             playScaleForMenu(menu);
 
             mIsRadialMenuShowing++;
-
-            // Broadcast a notification that the menu was shown.
-            Intent intent = new Intent(ContextMenuMonitor.ACTION_CONTEXT_MENU_SHOWN);
-            intent.putExtra(ContextMenuMonitor.EXTRA_MENU_ID, overlay.getId());
-            LocalBroadcastManager.getInstance(mService).sendBroadcast(intent);
         }
 
         @Override
@@ -269,11 +261,6 @@ public class RadialMenuManager implements MenuManager {
             }
 
             mIsRadialMenuShowing--;
-
-            // Broadcast a notification that the menu was hidden.
-            Intent intent = new Intent(ContextMenuMonitor.ACTION_CONTEXT_MENU_HIDDEN);
-            intent.putExtra(ContextMenuMonitor.EXTRA_MENU_ID, overlay.getId());
-            LocalBroadcastManager.getInstance(mService).sendBroadcast(intent);
         }
     };
 

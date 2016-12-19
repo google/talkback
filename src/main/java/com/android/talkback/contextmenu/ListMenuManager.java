@@ -21,17 +21,19 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Handler;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import com.android.talkback.FeedbackItem;
 import com.android.talkback.R;
+import com.android.talkback.SpeechController;
+import com.android.talkback.eventprocessor.EventState;
 import com.google.android.marvin.talkback.TalkBackService;
-import com.android.talkback.speechrules.NodeSpeechRuleProcessor;
-import com.android.talkback.tutorial.AccessibilityTutorialActivity;
 import com.android.utils.AccessibilityEventListener;
 
 import java.util.ArrayList;
@@ -39,30 +41,31 @@ import java.util.List;
 
 public class ListMenuManager implements MenuManager, AccessibilityEventListener {
 
-    private static final long RESET_FOCUS_DELAY = 1000;
+    /** Minimum reset-focus delay to prevent flakiness. Should be hardly perceptible. */
+    private static final long RESET_FOCUS_DELAY_SHORT = 50;
+    /** Longer reset-focus delay for actions that explicitly request a delay. */
+    private static final long RESET_FOCUS_DELAY_LONG = 1000;
 
     private TalkBackService mService;
+    private SpeechController mSpeechController;
     private int mMenuShown;
     private ContextMenuItemClickProcessor mMenuClickProcessor;
     private DeferredAction mDeferredAction;
     private Dialog mCurrentDialog;
     private FeedbackItem mLastUtterance;
+    private MenuTransformer mMenuTransformer;
+    private MenuActionInterceptor mMenuActionInterceptor;
 
     public ListMenuManager(TalkBackService service) {
         mService = service;
+        mSpeechController = service.getSpeechController();
         mMenuClickProcessor = new ContextMenuItemClickProcessor(service);
     }
 
     @Override
     public boolean showMenu(int menuId) {
-        mLastUtterance = mService.getSpeechController().getLastUtterance();
+        mLastUtterance = mSpeechController.getLastUtterance();
         dismissAll();
-
-        // Some TalkBack tutorial modules don't allow context menus.
-        if (AccessibilityTutorialActivity.isTutorialActive()
-                && !AccessibilityTutorialActivity.shouldAllowContextMenus()) {
-            return false;
-        }
 
         mService.saveFocusedNode();
         final ListMenu menu = new ListMenu(mService);
@@ -74,18 +77,15 @@ public class ListMenuManager implements MenuManager, AccessibilityEventListener 
                     ListMenu menu = (ListMenu) item.getSubMenu();
                     showDialogMenu(menu.getTitle(), items, menu);
                 } else if (item.getItemId() == R.id.spell_last_utterance) {
-                    AccessibilityNodeInfo node = mService.findFocus(
-                            AccessibilityNodeInfo.FOCUS_ACCESSIBILITY);
-                    if (node != null) {
-                        AccessibilityNodeInfoCompat compat = new AccessibilityNodeInfoCompat(node);
-                        CharSequence text = NodeSpeechRuleProcessor.getInstance()
-                                .getDescriptionForNode(compat, null);
-                        compat.recycle();
-                        mService.getSpeechController().spellUtterance(text);
-                    }
-                } else if(item.getItemId() == R.id.repeat_last_utterance) {
+                    mService.getSpeechController().interrupt();
+                    mService.getSpeechController().spellUtterance(
+                            mLastUtterance.getAggregateText());
+                } else if (item.getItemId() == R.id.repeat_last_utterance) {
                     mService.getSpeechController().interrupt();
                     mService.getSpeechController().repeatUtterance(mLastUtterance);
+                } else if (item.getItemId() == R.id.copy_last_utterance_to_clipboard) {
+                    mService.getSpeechController().interrupt();
+                    mService.getSpeechController().copyLastUtteranceToClipboard(mLastUtterance);
                 } else {
                     mMenuClickProcessor.onMenuItemClicked(item);
                 }
@@ -96,8 +96,17 @@ public class ListMenuManager implements MenuManager, AccessibilityEventListener 
 
         ListMenuPreparer menuPreparer = new ListMenuPreparer(mService);
         menuPreparer.prepareMenu(menu, menuId);
+        if (mMenuTransformer != null) {
+            mMenuTransformer.transformMenu(menu, menuId);
+        }
+
+        if (menu.size() == 0) {
+            mSpeechController.speak(mService.getString(R.string.title_local_breakout_no_items),
+                    SpeechController.QUEUE_MODE_FLUSH_ALL, FeedbackItem.FLAG_NO_HISTORY, null);
+            return false;
+        }
         showDialogMenu(menu.getTitle(), getItemsFromMenu(menu), menu);
-        return false;
+        return true;
     }
 
     private void showDialogMenu(String title, CharSequence[] items, final ContextMenu menu) {
@@ -105,23 +114,55 @@ public class ListMenuManager implements MenuManager, AccessibilityEventListener 
             return;
         }
 
-        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int item) {
-                final ContextMenuItem menuItem = menu.getItem(item);
-                if (menuItem.hasSubMenu()) {
-                    menuItem.onClickPerformed();
-                } else {
-                    mDeferredAction = getDeferredAction(menuItem);
-                }
-            }
-        };
-
         AlertDialog.Builder builder = new AlertDialog.Builder(mService);
         builder.setTitle(title);
-        builder.setItems(items, listener);
+        View view = prepareCustomView(items, new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Dialog currentDialog = mCurrentDialog;
+                final ContextMenuItem menuItem = menu.getItem(position);
+                if (mMenuActionInterceptor != null) {
+                    if (mMenuActionInterceptor.onInterceptMenuClick(menuItem)) {
+                        // If the click was intercepted, stop processing the
+                        // event.
+                        return;
+                    }
+                }
+
+                if (menuItem.isEnabled()) {
+                    // Defer the action only if we are about to close the menu and there's a saved
+                    // node. In that case, we have to wait for it to regain accessibility focus
+                    // before acting.
+                    if (menuItem.hasSubMenu() || !mService.hasSavedNode()) {
+                        menuItem.onClickPerformed();
+                    } else {
+                        mDeferredAction = getDeferredAction(menuItem);
+                    }
+                }
+
+                if (currentDialog != null && currentDialog.isShowing() && menuItem.isEnabled()) {
+                    if (menuItem.getSkipRefocusEvents()) {
+                        EventState.getInstance().addEvent(EventState
+                                .EVENT_SKIP_FOCUS_PROCESSING_AFTER_CURSOR_CONTROL);
+                        EventState.getInstance().addEvent(EventState
+                                .EVENT_SKIP_WINDOWS_CHANGED_PROCESSING_AFTER_CURSOR_CONTROL);
+                        EventState.getInstance().addEvent(EventState
+                                .EVENT_SKIP_WINDOW_STATE_CHANGED_PROCESSING_AFTER_CURSOR_CONTROL);
+                        EventState.getInstance().addEvent(EventState
+                                .EVENT_SKIP_HINT_AFTER_CURSOR_CONTROL);
+                    }
+                    currentDialog.dismiss();
+                }
+            }
+        });
+        builder.setView(view);
         builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                if (mMenuActionInterceptor != null) {
+                    mMenuActionInterceptor.onCancelButtonClicked();
+                }
+
                 dialog.dismiss();
             }
         });
@@ -131,12 +172,17 @@ public class ListMenuManager implements MenuManager, AccessibilityEventListener 
             public void onDismiss(DialogInterface dialog) {
                 mMenuShown--;
                 if (mMenuShown == 0) {
-                    long delay = 0;
+                    // Sometimes, the node we want to refocus erroneously reports that it is
+                    // already accessibility focused right after windows change; to mitigate this,
+                    // we should wait a very short delay.
+                    long delay = RESET_FOCUS_DELAY_SHORT;
                     if (mDeferredAction != null) {
                         mService.addEventListener(ListMenuManager.this);
 
+                        // Actions that explicitly need a focus delay should get a much longer
+                        // focus delay.
                         if (needFocusDelay(mDeferredAction.actionId)) {
-                            delay = RESET_FOCUS_DELAY;
+                            delay = RESET_FOCUS_DELAY_LONG;
                         }
                     }
 
@@ -156,6 +202,17 @@ public class ListMenuManager implements MenuManager, AccessibilityEventListener 
         mMenuShown++;
     }
 
+    private View prepareCustomView(CharSequence[] items, AdapterView.OnItemClickListener listener) {
+        ListView view = new ListView(mService);
+        view.setBackground(null);
+        view.setDivider(null);
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(mService,
+                android.R.layout.simple_list_item_1, android.R.id.text1, items);
+        view.setAdapter(adapter);
+        view.setOnItemClickListener(listener);
+        return view;
+    }
+
     // on pre L_MR1 version focus events could be swallowed on platform after window state change
     // so for actions that are rely on accessibility focus we need to delay focus request
     private boolean needFocusDelay(int actionId) {
@@ -166,6 +223,8 @@ public class ListMenuManager implements MenuManager, AccessibilityEventListener 
         switch (actionId) {
             case R.id.pause_feedback:
             case R.id.talkback_settings:
+            case R.id.enable_dimming:
+            case R.id.disable_dimming:
             case R.id.tts_settings:
                 return false;
         }
@@ -190,7 +249,7 @@ public class ListMenuManager implements MenuManager, AccessibilityEventListener 
         List<CharSequence> items = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             MenuItem item = menu.getItem(i);
-            if (item != null && item.isEnabled() && item.isVisible()) {
+            if (item != null && item.isVisible()) {
                 items.add(item.getTitle());
             }
         }
@@ -236,6 +295,16 @@ public class ListMenuManager implements MenuManager, AccessibilityEventListener 
 
     @Override
     public void onGesture(int gesture) {}
+
+    @Override
+    public void setMenuTransformer(MenuTransformer transformer) {
+        mMenuTransformer = transformer;
+    }
+
+    @Override
+    public void setMenuActionInterceptor(MenuActionInterceptor actionInterceptor) {
+        mMenuActionInterceptor = actionInterceptor;
+    }
 
     private static abstract class DeferredAction implements Runnable {
         public int actionId;

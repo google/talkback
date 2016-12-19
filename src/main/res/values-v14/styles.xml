@@ -17,5 +17,7 @@
 
 <resources>
     <style name="TalkBackSettings" parent="@android:style/Theme.DeviceDefault" />
-    <style name="DialogStyle" parent="@android:style/Theme.DeviceDefault.Dialog" />
+    <style name="DialogStyle" parent="@android:style/Theme.DeviceDefault.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-             android:key="@string/main_pref_screen_key">
+        android:key="@string/main_pref_screen_key">
+    <Preference
+            android:key="@string/pref_help_feedback_key"
+            android:title="@string/title_pref_help_feedback">
+    </Preference>
+
     <ListPreference
             android:key="@string/pref_scanning_methods_key"
             android:title="@string/title_pref_scanning_methods"
@@ -8,6 +13,28 @@
             android:entries="@array/switch_access_scanning_methods_entries"
             android:entryValues="@array/switch_access_scanning_methods_values"
             android:defaultValue="@string/pref_scanning_methods_default" />
+
+    <PreferenceScreen
+            android:key="@string/pref_standard_highlight_key"
+            android:title="@string/title_pref_highlight_0"
+            android:persistent="false">
+
+        <ListPreference
+                android:key="@string/pref_highlight_0_color_key"
+                android:title="@string/title_pref_highlight_0_color"
+                android:summary="%s"
+                android:entries="@array/switch_access_color_entries"
+                android:entryValues="@array/switch_access_color_values"
+                android:defaultValue="@string/pref_highlight_0_color_default" />
+
+        <ListPreference
+                android:key="@string/pref_highlight_0_weight_key"
+                android:title="@string/title_pref_highlight_0_weight"
+                android:summary="%s"
+                android:entries="@array/switch_access_weight_entries"
+                android:entryValues="@array/switch_access_weight_values"
+                android:defaultValue="@string/pref_highlight_weight_default" />
+    </PreferenceScreen>
 
     <PreferenceScreen
             android:key="@string/pref_highlights_key"
@@ -122,9 +149,9 @@
 
     </PreferenceScreen>
 
-    <CheckBoxPreference
+    <SwitchPreference
             android:key="@string/pref_key_auto_scan_enabled"
-            android:title="@string/title_pref_auto_scan"
+            android:title="@string/title_pref_category_auto_scan"
             android:defaultValue="@string/pref_auto_scan_default_value" />
 
     <EditTextPreference
@@ -173,37 +200,43 @@
             android:title="@string/title_pref_category_key_mappings" >
 
         <com.android.switchaccess.KeyComboPreference
-            android:key="@string/pref_key_mapped_to_long_click_key"
-            android:title="@string/action_name_long_click" />
+                android:key="@string/pref_key_mapped_to_long_click_key"
+                android:title="@string/action_name_long_click" />
 
         <com.android.switchaccess.KeyComboPreference
-            android:key="@string/pref_key_mapped_to_scroll_forward_key"
-            android:title="@string/action_name_scroll_forward" />
+                android:key="@string/pref_key_mapped_to_scroll_forward_key"
+                android:title="@string/action_name_scroll_forward" />
 
         <com.android.switchaccess.KeyComboPreference
-            android:key="@string/pref_key_mapped_to_scroll_backward_key"
-            android:title="@string/action_name_scroll_backward" />
+                android:key="@string/pref_key_mapped_to_scroll_backward_key"
+                android:title="@string/action_name_scroll_backward" />
 
         <com.android.switchaccess.KeyComboPreference
-            android:key="@string/pref_key_mapped_to_back_key"
-            android:title="@string/global_action_back" />
+                android:key="@string/pref_key_mapped_to_back_key"
+                android:title="@string/global_action_back" />
 
         <com.android.switchaccess.KeyComboPreference
-            android:key="@string/pref_key_mapped_to_home_key"
-            android:title="@string/global_action_home" />
+                android:key="@string/pref_key_mapped_to_home_key"
+                android:title="@string/global_action_home" />
 
         <com.android.switchaccess.KeyComboPreference
-            android:key="@string/pref_key_mapped_to_notifications_key"
-            android:title="@string/global_action_notifications" />
+                android:key="@string/pref_key_mapped_to_notifications_key"
+                android:title="@string/global_action_notifications" />
 
         <com.android.switchaccess.KeyComboPreference
-            android:key="@string/pref_key_mapped_to_quick_settings_key"
-            android:title="@string/global_action_quick_settings" />
+                android:key="@string/pref_key_mapped_to_quick_settings_key"
+                android:title="@string/global_action_quick_settings" />
 
         <com.android.switchaccess.KeyComboPreference
-            android:key="@string/pref_key_mapped_to_overview_key"
-            android:title="@string/global_action_overview" />
+                android:key="@string/pref_key_mapped_to_overview_key"
+                android:title="@string/global_action_overview" />
 
         </PreferenceScreen>
+
+    <SwitchPreference
+            android:key="@string/switch_access_auto_start_scan_key"
+            android:title="@string/switch_access_auto_start_scan_title"
+            android:summary="@string/switch_access_auto_start_scan_summary"
+            android:defaultValue="false"/>
 
 </PreferenceScreen>

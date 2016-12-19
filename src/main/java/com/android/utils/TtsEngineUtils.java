@@ -47,7 +47,6 @@ import java.util.Locale;
  * <p>
  * Based on hidden framework class {@code android.speech.tts.TtsEngines}.
  */
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1)
 public class TtsEngineUtils {
     /** The default delimiter for {@link Locale} strings. */
     private static final String LOCALE_DELIMITER = "-";

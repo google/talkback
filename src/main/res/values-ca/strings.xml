@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="7512754982950145749">"Quan TalkBack està activat, el dispositiu proporciona comentaris en veu alta per a usuaris amb discapacitat visual. Per exemple, descriu tot el que se selecciona i s\'activa."</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"Quan TalkBack està activat, el dispositiu proporciona comentaris de veu per a usuaris amb discapacitat visual. Per exemple, descriu tot el que toques, selecciones i actives.\n\nSi has activat TalkBack sense voler i el vols desactivar, toca el commutador fins que l\'envolti un perfil verd i, tot seguit, fes-hi un doble toc. Fes el mateix amb el diàleg de confirmació que es mostra."</string>
     <string name="talkback_on" msgid="315529674405160699">"TalkBack activat"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"S\'ha suspès TalkBack"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"S\'ha reprès TalkBack"</string>
+    <string name="talkback_disabled" msgid="2536155587482587238">"S\'ha desactivat TalkBack."</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"Configuració de TalkBack"</string>
     <string name="tts_preferences_title" msgid="6233811187483633874">"Configuració de síntesi de veu"</string>
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Versió <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
@@ -19,6 +22,11 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"Consulta actual: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>"</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"No s\'ha seleccionat cap element."</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"Selecció actual: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>"</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Inici del camp"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Fi del camp"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"S\'ha activat el mode de selecció"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"S\'ha desactivat el mode de selecció"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"S\'ha esborrat la selecció"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"Trucada perduda"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"Silenciat"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"Xat"</string>
@@ -33,37 +41,49 @@
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"S\'ha aturat."</string>
     <string name="template_current_tts_engine" msgid="3963364867159704159">"S\'està utilitzant <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"Menú <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_edit_box" msgid="5395366637528473616">"Quadre d\'edició. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
-    <string name="template_edit_box_current" msgid="2778286668618391188">"Quadre d\'edició, s\'està editant. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"Alerta <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"Menú <xliff:g id="TITLE">%1$s</xliff:g>"</string>
     <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> substituït per <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"S\'ha suprimit: <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"s\'ha copiat <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"s\'ha retallat <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"s\'ha enganxat <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"S\'ha seleccionat <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"Text seleccionat: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"No s\'ha seleccionat cap text"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"S\'ha anul·lat la selecció de <xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>"</string>
     <string name="template_text_error" msgid="153775825635730287">"Entrada no vàlida: <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> caràcters substituïts per <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> caràcters"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> per a <xliff:g id="LABEL">%2$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"Mantén premut <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_button" msgid="2640124317262628933">"Botó <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"Imatge <xliff:g id="TITLE">%1$d</xliff:g>. Sense etiquetar"</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"Botó <xliff:g id="TITLE">%1$d</xliff:g>. Sense etiquetar"</string>
-    <string name="template_seek_bar" msgid="9010890122601609426">"Control amb botó lliscant de <xliff:g id="TITLE">%1$s</xliff:g>"</string>
     <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> per cent"</string>
-    <string name="template_charging" msgid="2038200557537960378">"S\'està carregant: <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>. Nivell de bateria: <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> per cent."</string>
-  <plurals name="template_containers">
-    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="TYPE">%1$s</xliff:g> mostra <xliff:g id="COUNT">%2$d</xliff:g> element."</item>
-    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="TYPE">%1$s</xliff:g> mostra <xliff:g id="COUNT">%2$d</xliff:g> elements."</item>
-  </plurals>
+    <string name="template_charging" msgid="2038200557537960378">"S\'està carregant <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>. Nivell de bateria al <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> per cent."</string>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> mostra <xliff:g id="COUNT_3">%2$d</xliff:g> elements.</item>
+      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> mostra <xliff:g id="COUNT_1">%2$d</xliff:g> element.</item>
+    </plurals>
     <string name="value_gridview" msgid="1382219539169157957">"Graella"</string>
     <string name="value_listview" msgid="7625152822709234439">"Llista"</string>
     <string name="value_tabwidget" msgid="6935453013254857519">"Barra de pestanyes"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"Llista desplegable"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"Casella de selecció"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"Botó d\'opció"</string>
+    <string name="value_button" msgid="2459787142940409576">"Botó"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"Control amb botó lliscant"</string>
+    <string name="value_switch" msgid="6946709666466895221">"Canvia"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"Quadre d\'edició"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"Edició"</string>
+    <string name="value_image" msgid="5114229220871881124">"Imatge"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"Sense etiquetar"</string>
+    <string name="value_pager" msgid="7708574424402835461">"Visualització de diverses pàgines"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"Pàgina"</string>
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"S\'estan mostrant els elements de <xliff:g id="FROM_INDEX">%1$d</xliff:g> a <xliff:g id="TO_INDEX">%2$d</xliff:g> de <xliff:g id="TOTAL_COUNT">%3$d</xliff:g>."</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"S\'està mostrant l\'element <xliff:g id="FROM_INDEX">%1$d</xliff:g> de <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>."</string>
-    <string name="template_spinner" msgid="1240658876427369167">"Llista desplegable de <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_password_selected" msgid="3751806880345903886">"Caràcters seleccionats: de <xliff:g id="FROM_INDEX">%1$s</xliff:g> a <xliff:g id="TO_INDEX">%2$s</xliff:g>"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"Pàgina <xliff:g id="PAGE_INDEX">%1$d</xliff:g> de <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> de <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"Caràcters de <xliff:g id="FROM_INDEX">%1$d</xliff:g> a <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"Caràcter <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"<xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g> majúscula"</string>
-    <string name="template_checkbox" msgid="8582666147313623418">"Casella de selecció de <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"Botó d\'opció <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>, canvi"</string>
     <string name="value_password" msgid="7285572231215250557">"contrasenya"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Calaix lliscant obert"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Ombra oberta"</string>
@@ -71,69 +91,115 @@
     <string name="value_text_cleared" msgid="6558192295636412162">"Text esborrat"</string>
     <string name="value_text_max_length" msgid="4129865255646994586">"S\'ha arribat a la longitud màxima."</string>
     <string name="value_text_removed" msgid="9064311081864073839">"suprimit"</string>
+    <string name="value_selected" msgid="1307429702194660766">"seleccionat"</string>
     <string name="value_checked" msgid="3006751014125833966">"marcat"</string>
     <string name="value_not_checked" msgid="37422559536361725">"no marcat"</string>
+    <string name="value_on" msgid="39454338086317219">"activat"</string>
+    <string name="value_off" msgid="6700497510945744608">"desactivat"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"està desplegat"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"està replegat"</string>
     <string name="value_disabled" msgid="5160977094078900656">"desactivat"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"Doble toc"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"Toca"</string>
-    <string name="template_hint_clickable" msgid="1398769454100543369">"<xliff:g id="ACTION">%1$s</xliff:g> per seleccionar."</string>
+    <string name="value_press_select" msgid="4270348255373188872">"Prem el botó de selecció"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> per activar."</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Prem <xliff:g id="KEYCOMBO">%1$s</xliff:g> per activar."</string>
     <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> i mantén premut per fer un toc llarg."</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Prem <xliff:g id="KEYCOMBO">%1$s</xliff:g> per mantenir premut."</string>
     <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> per canviar."</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Prem <xliff:g id="KEYCOMBO">%1$s</xliff:g> per alternar."</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> per introduir text."</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Prem <xliff:g id="KEYCOMBO">%1$s</xliff:g> per introduir text."</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> per canviar."</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"Toca la pantalla i explora un cercle per cercar un element. A continuació, aixeca el dit per seleccionar-lo."</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Prem <xliff:g id="KEYCOMBO">%1$s</xliff:g> per canviar."</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"Llisca dos dits per canviar de pàgina."</string>
+    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"No hi ha cap pàgina addicional disponible."</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g> per canviar-ho."</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"Toca la pantalla i cerca en un cercle per trobar un element. A continuació, aixeca el dit per activar-lo."</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Toca la pantalla i explora un cercle per navegar pel contingut de la pantalla; a continuació, aixeca\'l per centrar-lo."</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"Accions personalitzades:"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> per <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Prem <xliff:g id="KEYCOMBO">%1$s</xliff:g> per <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> i mantén premut per <xliff:g id="HINT">%2$s</xliff:g>."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"Mode vibració"</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Mode silenci"</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Pantalla activada."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Pantalla desactivada"</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"Bloqueig de majúscules activat."</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"Bloqueig de majúscules desactivat."</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"Bloqueig de teclat numèric activat."</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"Bloqueig de teclat numèric desactivat."</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Bloqueig de desplaçament activat."</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Bloqueig de desplaçament desactivat."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"Dispositiu desbloquejat"</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Veu"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Volum de la veu"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"Amb pantalla apagada"</string>
     <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"Es reben notificacions de veu quan la pantalla està apagada"</string>
     <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"Veu desactivada amb pantalla apagada"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"Digues l\'ID de l\'emissor"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"Sensor de proximitat"</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"El sensor de proximitat silencia la veu"</string>
-    <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"El sensor de proximitat no controla la veu."</string>
+    <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"El sensor de proximitat no controla la veu"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Llegeix les lletres fonètiques"</string>
     <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Les lletres fonètiques no es llegiran."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"Les lletres fonètiques es llegiran en mantenir premut el teclat i moure\'s per caràcter."</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"Les lletres fonètiques es llegiran en mantenir premut el teclat i en moure la selecció d\'accessibilitat per caràcters."</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Llegeix els consells d\'ús"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"Els consells d\'ús no es llegiran durant la navegació lineal."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"Els consells d\'ús es llegiran quan utilitzis la navegació lineal, després d\'un petit retard."</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"Els consells d\'ús no es llegiran en moure la selecció d\'accessibilitat."</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"Es llegiran els consells d\'ús durant la navegació (amb un breu retard)."</string>
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Exploració tàctil"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Desplaça llistes automàticament"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Exploració tàctil"</string>
-    <string name="title_pref_single_tap" msgid="3366282780861635094">"Selecciona amb un sol toc"</string>
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"Activa amb un sol toc"</string>
     <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Menú contextual com a llista"</string>
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Atenua pantalla quan TalkBack estigui activat"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(Experimental) Toca l\'element amb el focus per seleccionar-lo"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"(Experimental) Toca l\'element ressaltat per activar-lo"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Sacseja per iniciar la lectura contínua"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Gestiona els gestos"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"Gestiona etiquetes personalitzades"</string>
     <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Gestiona les tecles de drecera"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"Exporta les etiquetes personalitzades"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"Obre TalkBack a Play Store"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"Versió actual de TalkBack: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"Ajuda i suggeriments"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"Ajuda"</string>
     <string name="title_pref_show_tos" msgid="6167834013879233992">"Condicions del servei"</string>
     <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Política de privadesa"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Gestos de les dreceres"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Gestos incorporats"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(Experimental) Toca el lateral del dispositiu"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"Mapa de teclat"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"Tria un mapa de teclat"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"Restableix el mapa de teclat"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"Tria la tecla modificadora"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"TalkBack restablirà el mapa de teclat"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"TalkBack restablirà el mapa de teclat i canviarà la tecla modificadora per <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"S\'ha canviat la tecla modificadora per <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>."</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"S\'ha activat <xliff:g id="KEYMAP_NAME">%1$s</xliff:g>."</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"S\'ha restablert el mapa de teclat."</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"La drecera no és compatible"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"Mapa de teclat clàssic"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"Mapa de teclat predeterminat"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"Accions de navegació"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"Navega a l\'element següent"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"Navega a l\'element anterior"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"Vés a l\'element de sobre"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"Vés a l\'element de sota"</string>
     <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"Navega al primer element"</string>
     <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"Navega al darrer element"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"Desplaça\'t a la finestra següent"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"Desplaça\'t a la finestra anterior"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"Vés a la paraula següent"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"Vés a la paraula anterior"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"Vés al caràcter següent"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"Vés al caràcter anterior"</string>
     <string name="keycombo_menu_perform_click" msgid="243666968746657931">"Fes clic"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"Fes un clic llarg"</string>
     <string name="keycombo_menu_category_global" msgid="7309875734492478067">"Accions globals"</string>
     <string name="keycombo_menu_global_back" msgid="4567585750566224959">"Enrere"</string>
     <string name="keycombo_menu_global_home" msgid="7189369064773623371">"Inici"</string>
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Aplicacions recents"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Notificacions"</string>
-    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"Atura TalkBack"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"Posa en pausa o reprèn Talkback"</string>
     <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Configuració de la navegació"</string>
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Opció de navegació següent"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Opció de navegació anterior"</string>
@@ -143,25 +209,81 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Cerca un element a la pantalla"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Mostra el menú contextual local"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Mostra el menú contextual global"</string>
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"Gestiona les tecles de drecera"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"Obre la configuració de TalkBack"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"Accions de desplaçament pel web"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"Vés al botó següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"Vés al botó anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"Vés al control següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"Vés al control anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"Vés a la casella de selecció següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"Vés a la casella de selecció anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"Vés al següent punt de referència ARIA"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"Vés al punt de referència ARIA anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"Vés al camp d\'edició següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"Vés al camp d\'edició anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"Vés al següent element enfocable"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"Vés a l\'anterior element enfocable"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"Vés al gràfic següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"Vés al gràfic anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"Vés al títol següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"Vés al títol anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"Vés al títol 1 següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"Vés al títol 1 anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"Vés al títol 2 següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"Vés al títol 2 anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"Vés al títol 3 següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"Vés al títol 3 anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"Vés al títol 4 següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"Vés al títol 4 anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"Vés al títol 5 següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"Vés al títol 5 anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"Vés al títol 6 següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"Vés al títol 6 anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"Vés a l\'element de llista següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"Vés a l\'element de llista anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"Vés a l\'enllaç següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"Vés a l\'enllaç anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"Vés a la llista següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"Vés a la llista anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"Vés a la taula següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"Vés a la taula anterior"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"Vés al quadre combinat següent"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"Vés al quadre combinat anterior"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"La drecera de teclat és"</string>
     <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Prem una combinació de tecles per definir una drecera nova. S\'ha de fer servir, com a mínim, la tecla ALT o Control."</string>
-    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"Esborra botó drecera"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Prem la combinació de tecles amb la tecla modificadora <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> per definir una drecera nova."</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"Prem Retrocés per esborrar la drecera, prem Retorn per desar o bé prem la tecla d\'escapada per cancel·lar."</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"Esborra la drecera"</string>
     <string name="keycombo_unassigned" msgid="5817151372114230015">"Sense assignar"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Maj"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Cerca"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Fletxa dreta"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Fletxa esquerra"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Fletxa amunt"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Fletxa avall"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"Confirmes que vols restablir la configuració predeterminada de les tecles de drecera d\'aquest mapa de teclat? Tingues present que aquesta acció no es pot desfer."</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"Restableix"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"Ja s\'utilitza aquesta tecla"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Aquesta combinació de tecles es fa servir per l\'acció \"<xliff:g id="ID_1">%1$s</xliff:g>\". Vols esborrar-la i assignar la drecera a \"<xliff:g id="ID_2">%2$s</xliff:g>\"?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Utilitza canvis de to"</string>
     <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"Eco del teclat"</string>
     <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"Pronuncia la tecla premuda en un to més baix"</string>
     <string name="summaryOff_pref_intonation" msgid="5187278527518557715">"No canviïs el to de la veu en parlar"</string>
-    <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"Altres suggeriments"</string>
+    <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"Altres avisos"</string>
     <string name="title_pref_vibration" msgid="4156396276749836864">"Vibració"</string>
     <string name="title_pref_soundback" msgid="3131811048184077738">"So"</string>
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"Dóna prioritat a l\'àudio de la veu"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Redueix el volum de la resta d\'àudio mentre es parla."</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Volum del so"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Drecera per suspendre i reprendre TalkBack"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Drecera per suspendre i reprendre TalkBack"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"Drecera atenua pantalla"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Altres"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Configuració del desenvolupador"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"Selecciona esdeveniments per registrar-los"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"Filtra el registre d\'esdeveniments d\'accessibilitat"</string>
     <string name="title_pref_log_level" msgid="267415170405921603">"Nivell de registre de sortida"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Mostra la sortida de veu"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"Depuració de l\'arbre de nodes"</string>
@@ -186,10 +308,11 @@
     <string name="granularity_line" msgid="727359260064093782">"Línies"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"Paràgrafs"</string>
     <string name="granularity_page" msgid="2739238666516816581">"Pàgines"</string>
-    <string name="granularity_web_section" msgid="496466197528091152">"Navegació de secció"</string>
-    <string name="granularity_web_list" msgid="8598575022728013551">"Navegació de llista"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"Navegació de control"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"Navegació per contingut especial"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"Títols i punts de referència"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"Llistes"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"Enllaços"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"Controls"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Contingut especial"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"Vertical"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"Horitzontal"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"Sense assignar"</string>
@@ -201,11 +324,13 @@
     <string name="shortcut_home" msgid="6670249804418900175">"Botó Inici"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"Botó Visió general"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"Obre les notificacions"</string>
+    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"Mostra les accions personalitzades"</string>
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Obre el menú contextual global"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"Obre el menú contextual local"</string>
-    <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Repeteix els darrers sons"</string>
-    <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"Lletreja els darrers sons"</string>
-    <string name="shortcut_pause_feedback" msgid="1412613174540942399">"Atura l\'enviament de comentaris"</string>
+    <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Repeteix l\'última frase"</string>
+    <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"Lletreja l\'última frase"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"Copia l\'última frase al porta-retalls"</string>
+    <string name="shortcut_pause_feedback" msgid="1412613174540942399">"Atura els comentaris"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"Llegeix des del començament"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"Llegeix a partir de l\'element següent"</string>
     <string name="shortcut_print_node_tree" msgid="7570974794642091616">"Imprimeix l\'arbre de nodes"</string>
@@ -213,6 +338,8 @@
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Opció de navegació anterior"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"Selecciona el primer element de la pantalla"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Selecciona el darrer element de la pantalla"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"Atenua la pantalla"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"No atenuïs la pantalla"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"Menú contextual local"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"Menú contextual global"</string>
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"No hi ha cap element de menú."</string>
@@ -234,6 +361,13 @@
     <string name="title_summary" msgid="3037924006370977165">"Navegació ràpida"</string>
     <string name="title_granularity" msgid="399801096771904747">"Configuració de la navegació"</string>
     <string name="title_custom_action" msgid="7908169922901920318">"Accions personalitzades"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"Completa els suggeriments automàticament"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"Vés als suggeriments"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"Torna al camp d\'edició"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"Control amb botó lliscant"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"Edita el nivell del control amb botó lliscant"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"Escriu un número del 0 al 100."</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
     <string name="value_direction_up" msgid="1646290331150992975">"amunt"</string>
     <string name="value_direction_down" msgid="8072362433982733982">"avall"</string>
     <string name="value_direction_left" msgid="676932617445677488">"a l\'esquerra"</string>
@@ -294,6 +428,7 @@
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Toca per revisar els canvis dels gestos d\'accessibilitat."</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack està suspès."</string>
     <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Toca per reprendre."</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"S\'està passant automàticament a la lliçó 1."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"Vols suspendre TalkBack?"</string>
     <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Confirmes que el vols suspendre? El dispositiu no proporcionarà suggeriments i es desactivarà Exploració tàctil. Pots reprendre TalkBack des de les notificacions, si tornes a la pantalla de bloqueig o bé mitjançant la drecera de la tecla de volum."</string>
     <string name="message_resume_manual" msgid="6522293510722570646">"Pots reprendre TalkBack des de l\'àrea de notificacions."</string>
@@ -308,13 +443,30 @@
     <string name="label_remove_dialog_text" msgid="372916461303485723">"Confirmes que vols suprimir l\'etiqueta <xliff:g id="LABEL">%1$s</xliff:g>?"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Confirmes que vols suprimir l\'etiqueta <xliff:g id="LABEL">%1$s</xliff:g> de l\'aplicació <xliff:g id="APP_NAME">%2$s</xliff:g>?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Text de l\'etiqueta"</string>
+    <string name="label_import" msgid="1773817433300194935">"Importa les etiquetes personalitzades"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"Importa les etiquetes personalitzades a TalkBack"</string>
+    <string name="label_import_dialog_message" msgid="7975227530187709469">"Tria si vols substituir o ometre les etiquetes en cas de discrepància."</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"Omet"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"Substitueix"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"No hi ha res per exportar; no has afegit etiquetes"</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"Error en exportar l\'etiqueta"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"Error en importar l\'etiqueta"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="other">%d etiquetes actualitzades</item>
+      <item quantity="one">1 etiqueta actualitzada</item>
+    </plurals>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"Tria l\'aplicació per exportar les etiquetes:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"Aquesta versió de TalkBack inclou canvis als gestos d\'accessibilitat predeterminats. Les accions associades amb aquests gestos es poden personalitzar dins de la configuració de TalkBack. Si Explora amb el tacte està activat, pots utilitzar els gestos següents per dur a terme determinades accions.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Mantén premudes les tecles d\'apujar el volum i d\'abaixar-lo"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"Prem totes dues tecles de volum tres vegades ràpidament per activar o desactivar l\'atenuació de la pantalla"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"Vols atenuar la pantalla?"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"Confirmes que vols atenuar la pantalla?"</string>
     <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"Aquesta versió de TalkBack inclou canvis als gestos d\'accessibilitat predeterminats.\n\nEl gest amunt i avall et permetrà moure\'t al primer element de la pantalla, i el gest avall i amunt et desplaçarà al darrer element.\n\nAra pots canviar la granularitat de lectura si et centres en un element i després selecciones una granularitat al menú contextual local.\n\nPots canviar les accions que duen a terme aquests gestos a la configuració de TalkBack."</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"Aquesta versió de TalkBack inclou canvis en els gestos d\'accessibilitat predeterminats.\n\nAra el gest per anar cap amunt porta a l\'opció de navegació anterior, i el gest per anar cap avall, a la següent."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Accepta els gestos"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Personalitza els gestos"</string>
+    <string name="button_clear_all_events" msgid="2128349101908653825">"Esborra-ho tot"</string>
+    <string name="button_check_all_events" msgid="301383322727007726">"Marca-ho tot"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"Vols desactivar l\'exploració tàctil?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Confirmes que vols desactivar l\'exploració tàctil?\n\nEl dispositiu deixarà de respondre a les dreceres gestuals i no pronunciarà els elements en tocar la pantalla."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Activar la depuració de l\'arbre de nodes?"</string>
@@ -327,9 +479,77 @@
     <string name="permission_labeling_desc" msgid="8065967887484901473">"Permís per accedir a les etiquetes personalitzades que TalkBack diu en veu alta, per modificar-les i per suprimir-les."</string>
     <string name="links" msgid="3448225474115458693">"Enllaços"</string>
     <string name="end_of_text" msgid="3595733062526019550">"Fi"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"No hi ha cap element del tipus <xliff:g id="ID_1">%1$s</xliff:g> anterior"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"No hi ha més elements del tipus <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"títol"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"botó"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"quadre combinat"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"Punt de referència ARIA"</string>
+    <string name="display_name_edit_field" msgid="5014778180731737501">"camp d\'edició"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"element que es pot seleccionar"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"títol 1"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"títol 2"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"títol 3"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"títol 4"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"títol 5"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"títol 6"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"enllaç"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"control"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"gràfic"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"element de llista"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"llista"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"taula"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"casella de selecció"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"títol o punt de referència"</string>
     <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
     <string name="row_index_template" msgid="4107789959609911947">"Fila <xliff:g id="ROW">%1$d</xliff:g>"</string>
     <string name="column_index_template" msgid="258393957626754806">"Columna <xliff:g id="COL">%1$d</xliff:g>"</string>
     <string name="heading_template" msgid="3585514481777782183">"Encapçalament"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"Títol de la fila"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"Títol de la columna"</string>
     <string name="item_index_template" msgid="71505978833721807">"Element <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"Reverteix les etiquetes importades"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"S\'han revertit les etiquetes importades"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g> a la part superior; <xliff:g id="ID_2">%2$s</xliff:g> a la part inferior"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g> a l\'esquerra; <xliff:g id="ID_2">%2$s</xliff:g> a la dreta"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g> a la dreta; <xliff:g id="ID_2">%2$s</xliff:g> a l\'esquerra"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="untitled_window" msgid="7017590766394623328">"sense títol"</string>
+    <string name="status_bar" msgid="6000275621941971563">"barra d\'estat"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"barra de navegació"</string>
+    <string name="template_collection_start" msgid="4362535543397747567">"Has entrat a <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_end" msgid="2167296836815021551">"Has sortit de <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"Nivell <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> elements</item>
+      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> element</item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> files</item>
+      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> fila</item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> columnes</item>
+      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> columna</item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> caràcters</item>
+      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> caràcter</item>
+    </plurals>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT">%1$d</xliff:g> esdeveniments seleccionats</item>
+      <item quantity="one">1 esdeveniment seleccionat</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"Ha començat el <xliff:g id="REMOTE_MODE">%1$s</xliff:g>"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"Ha finalitzat el <xliff:g id="REMOTE_MODE">%1$s</xliff:g>"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"Mode de control amb botó lliscant"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"Prem els botons de fletxa per canviar el valor o el botó de selecció per finalitzar."</string>
+    <string name="arc_android_window" msgid="697316167642517245">"Finestra d\'Android"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"Prem la tecla de cerca i les fletxes per navegar"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"Prem <xliff:g id="KEYCOMBO">%1$s</xliff:g> per veure la llista de tecles de drecera"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"Prem <xliff:g id="KEYCOMBO">%1$s</xliff:g> per obrir la configuració de TalkBack"</string>
+    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"Maximitza la finestra de l\'aplicació per obtenir els millors resultats amb l\'exploració tàctil i els comentaris de veu"</string>
 </resources>

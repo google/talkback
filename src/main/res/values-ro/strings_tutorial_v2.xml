@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Tutorial de accesibilitate"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Lansați tutorialul TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Tutorial TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack este un cititor de ecran destinat în principal utilizatorilor nevăzători și cu deficiențe de vedere. Cu acest serviciu, puteți interacționa cu dispozitivul folosind feedbackul rostit."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Dezactivați TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Învățați"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Antrenament"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"lecția de instruire <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"lecția de exersare <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lecția 1: Navigarea de bază"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Atingeți și glisați pentru a explora, atingeți de două ori pentru a activa"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Partea 1: Explorarea prin atingere"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Când funcția Explorați prin atingere este activată, se rostește numele elementului de sub degetul dvs. Mutați degetul deasupra elementelor din centrul ecranului. După ce explorați cinci elemente, lecția va continua."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Partea a 2-a: atingeți de două ori pentru a activa"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Pentru a activa ultimul element auzit, atingeți de două ori oriunde. Găsiți Elementul 7 și activați-l acum. După aceea, activați butonul Înainte pentru a continua."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Elementul 7 este activat. Găsiți și activați butonul Înainte pentru a continua"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Partea a 3-a: Lecții de navigare"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Lecțiile TalkBack sunt afișate similar. Partea de sus include lecția, pe care o puteți explora și citi oricând. De asemenea, include și un buton Pagina de pornire a tutorialului în colțul din stânga sus. În mijloc se află o zonă pentru exersare. Partea de jos include un indicator al progresului și butoanele de navigare în lecție. Activați acum butonul Înainte pentru a continua."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Partea a 4-a: Explorarea prin glisare"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Puteți să explorați glisând cu degetul pe ecran. În general, glisând spre stânga explorați în sus și spre stânga, în timp ce glisând spre dreapta explorați în jos și spre dreapta. Încercați acum."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Partea a 5-a: Antrenament"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Pentru a auzi ce se află sub degetul dvs., mutați-l pe ecran. Atingeți de două ori oriunde pentru a activa ceea ce ați auzit. Glisați spre stânga sau spre dreapta pentru a explora."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lecția 2: Derularea"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Derularea cu două degete, salturile înainte și înapoi"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Partea 1: Derularea cu două degete"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Pentru a derula într-o listă verticală, găsiți un element din listă, apoi mutați cu două degete în sus sau în jos. Pentru a derula într-o listă orizontală, găsiți un element din listă, apoi mutați cu două degete spre dreapta sau spre stânga."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Partea a 2-a: Comenzi rapide pentru derulare"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Puteți sări înainte sau înapoi într-o listă folosind o comandă rapidă. Pentru a sări înainte, mișcați continuu un deget pe ecran spre dreapta, apoi spre stânga. Pentru a sări înapoi, mișcați un deget pe ecran spre stânga, apoi spre dreapta. Încercați aici."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Partea a 3-a: Antrenament"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Derulați glisând cu două degete în sus sau în jos. Săriți înainte mișcând un deget pe ecran spre dreapta, apoi spre stânga. Săriți înapoi mișcând un deget pe ecran spre stânga, apoi spre dreapta."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lecția 3: Meniurile TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Meniul TalkBack global, meniul TalkBack local"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Partea 1: Meniul TalkBack global"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack are două meniuri diferite. Primul este meniul TalkBack global, care conține întotdeauna aceleași comenzi. Îl puteți activa mișcând continuu un deget pe ecran în jos, apoi spre dreapta și ridicându-l la final. Activați acum o versiune pentru antrenament."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Opțiunile din meniu sunt afișate vertical în mijlocul ecranului. Explorați. Când finalizați, activați butonul Anulați."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Partea a 2-a: Meniul TalkBack local"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Al doilea este meniul TalkBack local. Elementele din acest meniu sunt diferite, în funcție de ce ați auzit ultima oară. Puteți să activați acest meniu mișcând continuu un deget pe ecran în sus, apoi spre dreapta și ridicând-ul la final. Activați acum un meniu pentru antrenament."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Partea a 3-a: Antrenament"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Mișcați degetul pe ecran în jos, apoi spre dreapta pentru a activa meniul TalkBack global. Mișcați degetul pe ecran în sus, apoi spre dreapta pentru a activa meniul TalkBack local."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"În jos, apoi la dreapta"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"În sus, apoi la dreapta"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Meniul TalkBack global: în jos, apoi spre dreapta. Meniul TalkBack local: în sus, apoi spre dreapta"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Lecția 4: Navigarea în text"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Alegerea setărilor pentru navigarea în text"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Partea 1: Alegerea setărilor de navigare"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"Folosind TalkBack, puteți controla dacă textul este citit câte un paragraf, un rând, un cuvânt sau un caracter odată. Dacă este citit în funcție de caracter, poate ajuta la ortografie. Setați ritmul navigării în text la caractere atingând textul de mai jos, apoi glisând în sus și în jos."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Explorați opțiunile privind ritmul citirii, afișate vertical aici. Găsiți și activați opțiunea Citește în funcție de caracter."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Partea a 2-a: Navigarea în text"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Acum se citește în funcție de caracter. Selectați exemplul de text, apoi glisați spre dreapta pentru a se citi în funcție de caracter."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Partea a 3-a: Antrenament"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Modificați ritmul de navigare în text glisând în sus și în jos. Citiți următorul caracter în exemplul de text glisând spre dreapta."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Iată un exemplu de text pentru a exersa cu TalkBack. „Unde este Kansasul?” a întrebat surprins bărbatul. „Nu știu”, a răspuns Dorothy cu tristețe, „dar acolo locuiesc eu și sigur trebuie să fie undeva”.\n\n„Probabil că așa este. Ei bine, Oz poate să facă orice, deci presupun că va găsi Kansasul pentru tine. Însă mai întâi trebuie să ajungi la el și nu va fi ușor deloc. Marelui vrăjitor nu îi place să vadă pe nimeni și de obicei face lucrurile numai cum vrea el. Dar TU ce îți dorești?” continuă el, adresându-se lui Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Lecția 5: Editarea textului"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Activați o casetă de editare, introduceți text, mutați un cursor, selectați și acționați pe text"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Partea 1: activați o casetă de editare"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Cu TalkBack, puteți folosi o casetă de editare ca să introduceți, să selectați și să editați text. Pentru a activa caseta de editare, atingeți-o de două ori. După ce activați caseta de editare, în partea de jos a ecranului va fi disponibilă o tastatură. Puteți închide tastatura atingând butonul Înapoi. Activați caseta de editare acum. Când ați finalizat, activați butonul Înainte, care este acum deasupra tastaturii."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Partea a 2-a: Introducerea textului într-o casetă de editare"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Pentru a introduce text, activați caseta de editare și mutați degetul pe tastatura de pe ecran. Când auziți caracterul dorit, ridicați degetul pentru a-l activa. Încercați să activați și să introduceți text în caseta de editare de mai jos."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Partea a 3-a: Folosirea cursorului"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Puteți să mutați cursorul folosind butoanele de volum de pe dispozitiv sau meniul local TalkBack. Folosind opțiunea Controlul cursorului din acest meniu, puteți selecta, decupa, copia sau insera text. Activați caseta de editare de mai jos și mutați cursorul pe exemplul de text."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Adresa de e-mail a lui Păcală este păcală@snoave.ro"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Partea a 4-a: Antrenament"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Activați caseta de editare atingând de două ori. Introduceți text mișcând degetul pe un caracter, apoi ridicând degetul. Mutați cursorul folosind butoanele pentru volum și meniul local TalkBack. Selectați și acționați pe text folosind opțiunea Controlul cursorului din meniul local TalkBack."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Editați textul"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"ÎNAPOI"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"ÎNAINTE"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"LECȚIA ANTERIOARĂ"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"LECȚIA URMĂTOARE"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"PAGINA DE PORNIRE A TUTORIALULUI"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Lecția %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Partea %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Partea %1$d din %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Exercițiul s-a încheiat și se va trece la următoarea lecție imediat"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Spațiu pentru antrenament"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"Elementul %1$s este activat în modul de exersare. Activați butonul ANULAȚI pentru a ieși."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Buton pentru pagina de pornire a tutorialului"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Elementul <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Ieșiți"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Este necesară funcția Explorați prin atingere"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Pentru acest tutorial este necesară funcția Explorați prin atingere. Înainte de a lansa tutorialul, activați funcția Explorați prin atingere."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"Funcția TalkBack este dezactivată"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Pentru acest tutorial este necesar ca funcția TalkBack să fie activată. Activați TalkBack înainte să lansați tutorialul."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"Funcția TalkBack este suspendată"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Tutorialul TalkBack nu este disponibil dacă feedbackul este întrerupt. Reporniți feedbackul TalkBack și lansați din nou tutorialul pentru a continua."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Descrie meniul"</string>
+</resources>

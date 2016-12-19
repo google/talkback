@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Hướng dẫn về trợ năng"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Khởi chạy hướng dẫn về TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Hướng dẫn về TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack là trình đọc màn hình chủ yếu dành cho người khiếm thị và thị lực kém. Tính năng này cho phép tương tác với thiết bị bằng cách sử dụng phản hồi bằng giọng nói."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Tắt TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Tìm hiểu"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Thực hành"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"bài học <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"bài học thực hành <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Bài học 1: Điều hướng cơ bản"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Chạm để khám phá, vuốt để khám phá, nhấn đúp để kích hoạt"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Phần 1: Khám phá bằng cách chạm"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Khi được bật, tính năng Khám phá bằng cách chạm cho phép bạn nghe nội dung dưới ngón tay bạn. Di chuyển ngón tay qua các mục ở giữa màn hình của bạn. Sau khi bạn khám phá được năm mục, bài học sẽ tiếp tục."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Phần 2: Nhấn đúp để kích hoạt"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Để kích hoạt mục cuối cùng mà bạn đã nghe thấy, hãy nhấn đúp bất kỳ nơi nào. Tìm Mục 7 và kích hoạt mục đó ngay. Sau đó, kích hoạt Tiếp theo để tiếp tục."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Đã kích hoạt mục 7. Tìm và kích hoạt nút Tiếp theo để tiếp tục"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Phần 3: Bài học về điều hướng"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Các bài học TalkBack được sắp xếp tương tự. Khu vực trên cùng có bài học, nơi bạn có thể khám phá và đọc bất kỳ lúc nào. Khu vực này cũng có nút Trang chủ hướng dẫn ở góc trên cùng bên trái. Khu vực ở giữa có khu vực thực hành. Khu vực dưới cùng có chỉ báo tiến trình và các nút điều hướng bài học. Kích hoạt Tiếp theo ngay để tiếp tục."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Phần 4: Vuốt để khám phá"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Bạn cũng có thể khám phá bằng cách dùng ngón tay vuốt màn hình. Vuốt sang trái thường khám phá phần ở trên và bên trái, trong khi vuốt sang phải sẽ khám phá phần ở dưới và bên phải. Hãy thử ngay bây giờ."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Phần 5: Thực hành"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Để nghe nội dung dưới ngón tay bạn, hãy di chuyển ngón tay qua màn hình. Nhấn đúp bất kỳ đâu để kích hoạt nội dung mà bạn nghe thấy. Vuốt sang trái hoặc phải để khám phá."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Bài học 2: Cuộn"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Lùi, tiến và cuộn bằng hai ngón tay"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Phần 1: Cuộn bằng hai ngón tay"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Để cuộn qua danh sách theo hàng dọc, hãy tìm mục danh sách, sau đó di chuyển hai ngón tay lên hoặc xuống. Để cuộn qua danh sách theo chiều ngang, hãy tìm mục danh sách, sau đó di chuyển hai ngón tay sang trái hoặc phải."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Phần 2: Phím tắt cuộn"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Bạn có thể tiến hoặc lùi trong danh sách bằng cách sử dụng phím tắt. Để tiến, hãy di chuyển một ngón tay sang phải rồi sang trái theo một chuyển động. Để lùi, hãy di chuyển một ngón tay sang trái rồi sang phải. Hãy làm thử tại đây."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Phần 3: Thực hành"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Cuộn bằng cách trượt hai ngón tay lên hoặc xuống. Tiến bằng cách di chuyển một ngón tay sang phải rồi sang trái. Lùi bằng cách di chuyển một ngón tay sang trái rồi sang phải."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Bài học 3: Các menu TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menu TalkBack chung, menu TalkBack cục bộ"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Phần 1: Menu TalkBack chung"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack có hai menu khác nhau. Menu đầu tiên, menu TalkBack chung, luôn chứa các lệnh giống nhau. Bạn có thể kích hoạt menu này bằng cách di chuyển một ngón tay xuống rồi sang phải theo một chuyển động, rồi nhấc ngón tay lên. Kích hoạt phiên bản thực hành ngay bây giờ."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Tùy chọn menu được liệt kê theo chiều dọc ở giữa màn hình. Hãy thử khám phá. Khi bạn hoàn tất, hãy kích hoạt Hủy."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Phần 2: Menu TalkBack cục bộ"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Menu thứ hai là menu TalkBack cục bộ. Các mục trong menu này khác nhau, tùy thuộc vào thông tin bạn nghe được cuối cùng. Bạn có thể kích hoạt menu này bằng cách di chuyển một ngón tay lên rồi sang phải theo một chuyển động, rồi nhấc ngón tay lên. Kích hoạt menu thực hành ngay bây giờ."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Phần 3: Thực hành"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Di chuyển ngón tay của bạn xuống rồi sang phải để kích hoạt Menu TalkBack chung. Di chuyển ngón tay của bạn lên rồi sang phải để kích hoạt Menu TalkBack cục bộ."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Xuống rồi sang phải"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Lên rồi sang phải"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Menu TalkBack chung: Xuống rồi sang phải. Menu TalkBack cục bộ: Lên rồi sang phải"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Bài học 4: Điều hướng văn bản"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Chọn cài đặt điều hướng văn bản"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Phần 1: Chọn cài đặt điều hướng"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack cho phép bạn kiểm soát xem văn bản được đọc cho bạn là một đoạn, dòng, từ hay ký tự tại một thời điểm. Đọc theo ký tự có thể giúp sửa lỗi chính tả. Đặt tốc độ chuyển hướng văn bản cho các ký tự bằng cách nhấn vào văn bản bên dưới, sau đó vuốt lên và xuống."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Khám phá các tùy chọn tốc độ đọc được liệt kê theo chiều dọc ở đây. Tìm và kích hoạt tùy chọn Đọc theo ký tự."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Phần 2: Điều hướng văn bản"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Bạn hiện đang đọc theo ký tự. Chọn văn bản mẫu, sau đó vuốt sang phải để đọc theo ký tự."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Phần 3: Thực hành"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Thay đổi tốc độ chuyển hướng văn bản bằng cách vuốt lên và xuống. Đọc ký tự tiếp theo trong văn bản mẫu bằng cách vuốt sang phải."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Sau đây là một đoạn văn bản mẫu để thực hành TalkBack. Người đàn ông hỏi với vẻ ngạc nhiên: \"Kansas ở đâu?\". Dorothy buồn rầu trả lời: \"Cháu không biết, nhưng đó là nhà cháu và cháu biết chắc là nó ở đâu đó\".\n\n\"Rất có thể. Ừ, Oz có thể làm bất cứ thứ gì; do đó, ông cho là ông ta sẽ tìm thấy Kansas cho cháu. Nhưng trước hết cháu phải gặp được ông ta đã, và đó sẽ là một nhiệm vụ khó khăn; vì gặp một Phù thủy vĩ đại không giống như gặp bất kỳ người nào khác, và ông ta luôn có cách riêng của mình.\" Ông ấy tiếp tục, nói với Toto: \"Còn MÀY muốn gì?\"."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Bài học 5: Chỉnh sửa văn bản"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Kích hoạt hộp chỉnh sửa, nhập, di chuyển con trỏ, chọn và thao tác trên văn bản"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Phần 1: Kích hoạt hộp chỉnh sửa"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Với TalkBack, bạn có thể sử dụng hộp chỉnh sửa để nhập, chọn và chỉnh sửa văn bản. Để kích hoạt hộp chỉnh sửa, hãy nhấn đúp vào hộp. Sau khi bạn kích hoạt hộp chỉnh sửa, bàn phím sẽ xuất hiện ở cuối của màn hình. Bạn có thể bỏ qua bàn phím bằng cách nhấn vào nút Quay lại. Hãy thử kích hoạt hộp chỉnh sửa ngay bây giờ. Khi bạn hoàn tất, hãy kích hoạt nút Tiếp theo hiện nằm phía trên bàn phím."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Phần 2: Nhập vào hộp chỉnh sửa"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Để nhập, hãy kích hoạt hộp chỉnh sửa và di chuyển ngón tay của bạn qua bàn phím ảo. Khi bạn nghe thấy ký tự mong muốn, hãy nhấc ngón tay của bạn để kích hoạt ký tự đó. Hãy thử kích hoạt và nhập vào hộp chỉnh sửa bên dưới."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Phần 3: Sử dụng con trỏ"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Bạn có thể di chuyển con trỏ bằng cách sử dụng các nút âm lượng trên thiết bị của mình hoặc thông qua menu TalkBack cục bộ. Với tùy chọn Điều khiển con trỏ trong menu này, bạn cũng có thể chọn, cắt, sao chép hoặc dán văn bản. Kích hoạt hộp chỉnh sửa dưới đây và di chuyển con trỏ xung quanh văn bản mẫu."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Địa chỉ email của Dorothy Gale là dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Phần 4: Thực hành"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Kích hoạt hộp chỉnh sửa bằng cách nhấn đúp. Nhập bằng cách di chuyển ngón tay trên một ký tự, sau đó nhấc ngón tay của bạn. Di chuyển con trỏ bằng các nút âm lượng và menu TalkBack cục bộ. Chọn và thao tác trên văn bản bằng cách sử dụng tùy chọn Kiểm soát con trỏ trong menu TalkBack cục bộ."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Chỉnh sửa văn bản"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"TRƯỚC"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"TIẾP THEO"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"BÀI HỌC TRƯỚC"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"BÀI HỌC TIẾP THEO"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"TRANG CHỦ HƯỚNG DẪN"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Bài học %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Phần %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Phần %1$d/%2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Bài tập được hoàn thành và sẽ tiếp tục sau giây lát"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Khu vực thực hành"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"Đã kích hoạt %1$s ở chế độ thực hành. Kích hoạt nút HỦY để thoát."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Nút Trang chủ hướng dẫn"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Mục <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Thoát"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Yêu cầu Khám phá bằng cách chạm"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Hướng dẫn này yêu cầu tính năng Khám phá bằng cách chạm. Hãy bật tính năng Khám phá bằng cách chạm trước khi khởi chạy hướng dẫn."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack bị vô hiệu hóa"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Hướng dẫn này yêu cầu bật TalkBack. Vui lòng bật TalkBack trước khi khởi chạy hướng dẫn."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack bị tạm ngưng"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Hướng dẫn TalkBack không có sẵn khi phản hồi bị tạm dừng. Vui lòng tiếp tục phản hồi TalkBack và khởi chạy lại hướng dẫn để tiếp tục."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Mô tả menu"</string>
+</resources>

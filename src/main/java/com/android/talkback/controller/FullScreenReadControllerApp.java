@@ -26,9 +26,12 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
 import com.android.talkback.CursorGranularity;
+import com.android.talkback.InputModeManager;
 import com.android.talkback.R;
 import com.android.talkback.SpeechController;
 import com.google.android.marvin.talkback.TalkBackService;
+
+import com.android.talkback.eventprocessor.EventState;
 import com.android.utils.AccessibilityEventListener;
 import com.android.utils.AccessibilityEventUtils;
 import com.android.utils.AccessibilityNodeInfoUtils;
@@ -38,7 +41,6 @@ import com.android.utils.compat.accessibilityservice.AccessibilityServiceCompatU
 import com.android.utils.traversal.OrderedTraversalStrategy;
 import com.android.utils.traversal.TraversalStrategy;
 
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class FullScreenReadControllerApp implements
         FullScreenReadController, AccessibilityEventListener {
     /** Tag used for log output and wake lock */
@@ -155,7 +157,7 @@ public class FullScreenReadControllerApp implements
             TraversalStrategy traversal = new OrderedTraversalStrategy(rootNode);
             try {
                 currentNode = AccessibilityNodeInfoUtils.searchFocus(traversal, rootNode,
-                        OrderedTraversalStrategy.SEARCH_FOCUS_FORWARD,
+                        TraversalStrategy.SEARCH_FOCUS_FORWARD,
                         AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS);
             } finally {
                 traversal.recycle();
@@ -173,6 +175,8 @@ public class FullScreenReadControllerApp implements
                 mWakeLock.acquire();
             }
 
+            // This is potentially a refocus, so we should set the refocus flag just in case.
+            EventState.getInstance().addEvent(EventState.EVENT_NODE_REFOCUSED);
             mCursorController.clearCursor();
             mCursorController.setCursor(currentNode); // Will automatically move forward.
 
@@ -197,7 +201,7 @@ public class FullScreenReadControllerApp implements
 
     private void moveForward() {
         if (!mCursorController.next(false /* shouldWrap */, false /* shouldScroll */,
-                false /*useInputFocusAsPivotIfEmpty*/)) {
+                false /*useInputFocusAsPivotIfEmpty*/, InputModeManager.INPUT_MODE_UNKNOWN)) {
             mFeedbackController.playAuditory(R.raw.complete, 1.3f, 1);
             interrupt();
         }

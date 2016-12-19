@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="7512754982950145749">"Amikor a Talkback funkció be van kapcsolva, a készülék hangos visszajelzést ad, hogy segítsen a vakoknak és gyengénlátóknak. Például elmondja, hogy a felhasználó mit érintett meg, választott ki vagy aktivált."</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"Ha a TalkBack be van kapcsolva, az eszköz hangos visszajelzést ad a vakok és gyengénlátók számára. Elmondja például, hogy mit érint meg, mit választ ki és mit aktivál.\n\nHa véletlenül kapcsolta be a TalkBack funkciót, úgy kapcsolhatja ki, hogy rákoppint a kapcsolóra, amíg zöld körvonal nem jelenik meg körülötte, majd újra rákoppint duplán. Ugyanezt kell megtennie a megjelenő párbeszédpanelen is."</string>
     <string name="talkback_on" msgid="315529674405160699">"TalkBack bekapcsolva"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack felfüggesztve"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack folytatása"</string>
+    <string name="talkback_disabled" msgid="2536155587482587238">"TalkBack kikapcsolva."</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"A Talkback beállításai"</string>
     <string name="tts_preferences_title" msgid="6233811187483633874">"A szövegfelolvasó beállításai"</string>
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Verzió: <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
@@ -19,6 +22,11 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"Jelenlegi lekérdezés: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>."</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"Nincs kiválasztva elem."</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"Jelenlegi kijelölés: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>."</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Mező eleje"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Mező vége"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Kiválasztás mód bekapcsolva"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Kiválasztás mód kikapcsolva"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Kiválasztás törölve"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"Nem fogadott hívás"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"Némítás"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"Csevegés"</string>
@@ -33,37 +41,49 @@
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"Leállítva"</string>
     <string name="template_current_tts_engine" msgid="3963364867159704159">"A következőt használja: <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"<xliff:g id="TITLE">%1$s</xliff:g> menü"</string>
-    <string name="template_edit_box" msgid="5395366637528473616">"Szerkesztőmező. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
-    <string name="template_edit_box_current" msgid="2778286668618391188">"Szerkesztőmező, szerkesztés folyamatban. <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"<xliff:g id="MESSAGE">%1$s</xliff:g> értesítés"</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g> menü"</string>
     <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> a következő helyett: <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> törölve"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"másolva, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"kivágva, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"beillesztve, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, kijelölve"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"Kijelölt szöveg: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"Nincs kijelölt szöveg"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, nincs kijelölve"</string>
     <string name="template_text_error" msgid="153775825635730287">"Érvénytelen bevitel: <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> karakter le lett cserélve <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> karakterre"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> a következőhöz: <xliff:g id="LABEL">%2$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"<xliff:g id="TITLE">%1$s</xliff:g> hosszan lenyomva"</string>
-    <string name="template_button" msgid="2640124317262628933">"<xliff:g id="TITLE">%1$s</xliff:g> gomb"</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"<xliff:g id="TITLE">%1$d</xliff:g> kép, címke nélküli."</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"<xliff:g id="TITLE">%1$d</xliff:g> gomb, címke nélküli."</string>
-    <string name="template_seek_bar" msgid="9010890122601609426">"<xliff:g id="TITLE">%1$s</xliff:g> keresősávja."</string>
     <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> százalék."</string>
     <string name="template_charging" msgid="2038200557537960378">"Töltés <xliff:g id="CHANGING_STATUS">%1$s</xliff:g> Akkumulátor <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> százalékon."</string>
-  <plurals name="template_containers">
-    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="COUNT">%2$d</xliff:g> elem látható itt: <xliff:g id="TYPE">%1$s</xliff:g>."</item>
-    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="COUNT">%2$d</xliff:g> elem látható itt: <xliff:g id="TYPE">%1$s</xliff:g>."</item>
-  </plurals>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="other"><xliff:g id="COUNT_3">%2$d</xliff:g> elem látható itt: <xliff:g id="TYPE_2">%1$s</xliff:g>.</item>
+      <item quantity="one"><xliff:g id="COUNT_1">%2$d</xliff:g> elem látható itt: <xliff:g id="TYPE_0">%1$s</xliff:g>.</item>
+    </plurals>
     <string name="value_gridview" msgid="1382219539169157957">"Rács"</string>
     <string name="value_listview" msgid="7625152822709234439">"Lista"</string>
     <string name="value_tabwidget" msgid="6935453013254857519">"Fülsáv"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"Legördülő lista"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"Jelölőnégyzet"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"Választógomb"</string>
+    <string name="value_button" msgid="2459787142940409576">"Gomb"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"Keresősáv"</string>
+    <string name="value_switch" msgid="6946709666466895221">"Váltás"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"Szerkesztőmező"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"Szerkesztés"</string>
+    <string name="value_image" msgid="5114229220871881124">"Kép"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"Jelöletlen"</string>
+    <string name="value_pager" msgid="7708574424402835461">"Többoldalas nézet"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"Oldal"</string>
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"<xliff:g id="FROM_INDEX">%1$d</xliff:g>-<xliff:g id="TO_INDEX">%2$d</xliff:g>/<xliff:g id="TOTAL_COUNT">%3$d</xliff:g>. elem látható."</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"<xliff:g id="FROM_INDEX">%1$d</xliff:g>/<xliff:g id="TOTAL_COUNT">%2$d</xliff:g>. elem látható"</string>
-    <string name="template_spinner" msgid="1240658876427369167">"<xliff:g id="TITLE">%1$s</xliff:g> legördülő lista."</string>
-    <string name="template_password_selected" msgid="3751806880345903886">"Kiválasztott karakterek <xliff:g id="FROM_INDEX">%1$s</xliff:g> és <xliff:g id="TO_INDEX">%2$s</xliff:g> között"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"<xliff:g id="TOTAL_COUNT">%2$d</xliff:g>/<xliff:g id="PAGE_INDEX">%1$d</xliff:g>. oldal"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="TOTAL_COUNT">%2$d</xliff:g>/<xliff:g id="PAGE_INDEX">%1$d</xliff:g>"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"Karakterek <xliff:g id="FROM_INDEX">%1$d</xliff:g> és <xliff:g id="TO_INDEX">%2$d</xliff:g> között"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"Karakter: <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"nagy <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="template_checkbox" msgid="8582666147313623418">"<xliff:g id="TITLE">%1$s</xliff:g> jelölőnégyzet"</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"<xliff:g id="TITLE">%1$s</xliff:g> választógomb"</string>
-    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g> kapcsoló"</string>
     <string name="value_password" msgid="7285572231215250557">"jelszó"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"A csúszka nyitva van"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Árnyék megnyitva"</string>
@@ -71,69 +91,115 @@
     <string name="value_text_cleared" msgid="6558192295636412162">"Szöveg törölve"</string>
     <string name="value_text_max_length" msgid="4129865255646994586">"Elérte a maximális hosszúságot"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"törölt"</string>
+    <string name="value_selected" msgid="1307429702194660766">"bejelölve"</string>
     <string name="value_checked" msgid="3006751014125833966">"bejelölve"</string>
     <string name="value_not_checked" msgid="37422559536361725">"nincs bejelölve"</string>
+    <string name="value_on" msgid="39454338086317219">"be"</string>
+    <string name="value_off" msgid="6700497510945744608">"ki"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"kibontva"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"összecsukva"</string>
     <string name="value_disabled" msgid="5160977094078900656">"kikapcsolva"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"Dupla koppintás"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"Érintse meg"</string>
-    <string name="template_hint_clickable" msgid="1398769454100543369">"A kiválasztáshoz tegye a következőt: <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="value_press_select" msgid="4270348255373188872">"Nyomja meg a kiválasztás gombot"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> az aktiváláshoz."</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Nyomja meg a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket az aktiváláshoz."</string>
     <string name="template_hint_long_clickable" msgid="4546854599035099034">"Hosszú kattintáshoz tegye a következőt: <xliff:g id="ACTION">%1$s</xliff:g>, és tartsa lenyomva."</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Nyomja meg a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket a hosszú kattintáshoz."</string>
     <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> a váltáshoz."</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Nyomja le a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket a váltáshoz."</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> szöveg beírásához."</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Nyomja meg a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket szöveg beírásához."</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"A módosításhoz tegye a következőt: <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"Érintse meg a képernyőt, majd körkörös mozdulatokkal keressen meg egy elemet, és emelje fel ujját a kiválasztáshoz."</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Nyomja meg a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket a módosításhoz."</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"Csúsztassa két ujját az oldalak közötti váltáshoz."</string>
+    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"Nincsenek további oldalak."</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"A módosításhoz tegye a következőt: <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"Érintse meg a képernyőt, majd körkörös mozdulatokkal keressen meg egy elemet, és emelje fel ujját az aktiváláshoz."</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Érintse meg a képernyőt, majd körkörös mozdulatokkal a navigáljon a képernyőn lévő tartalmak között, és emelje fel ujját a nagyításhoz."</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"Egyéni műveletek:"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> a következőhöz: <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Nyomja meg a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket a következőhöz: <xliff:g id="HINT">%2$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> és tartsa lenyomva a következőhöz: <xliff:g id="HINT">%2$s</xliff:g>."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"Csengő rezeg."</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Csengő néma."</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Képernyő bekapcsolva."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Képernyő kikapcsolva."</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock bekapcsolva."</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock kikapcsolva."</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock bekapcsolva."</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock kikapcsolva."</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock bekapcsolva."</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock kikapcsolva."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"Eszköz feloldva."</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Beszéd"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Beszéd hangereje"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"Beszéd zárolt képernyőnél"</string>
     <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"Az értesítéseket olvassa fel a rendszer zárolt képernyőnél"</string>
     <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"Nincs beszéd zárolt képernyőnél"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"Hívóazonosító kimondása"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"Közelségérzékelő haszn."</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"A közelségérzékelő elnémítja a beszédet"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"A közelségérzékelő nem befolyásolja a beszédet."</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Fonetikus betűk kimondása"</string>
     <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"A fonetikus betűk nem lesznek kimondva."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"A fonetikus betűk akkor lesznek kimondva, ha hosszan lenyomva tartja a billentyűzetet, és karakterenként halad."</string>
-    <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Használata tippek kimondása"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"A használati tippek nem lesznek hangosan kimondva lineáris navigáció során."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"A használati tippek akkor lesznek kimondva – egy kis késéssel –, miután fókuszt vált lineáris navigáció esetén."</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"A fonetikus betűk akkor lesznek kimondva, ha hosszan lenyomva tartja a billentyűzetet, és a kisegítő lehetőségeknél beállított fókusz karakterenként halad."</string>
+    <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Használati tippek kimondása"</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"A használati tippek nem lesznek hangosan kimondva fókuszváltáskor a kisegítő lehetőségeknél."</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"A használati tippek kis késleltetéssel navigálás közben hallhatók."</string>
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Felfedezés érintéssel"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Listák automatikus görgetése"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Felfedezés érintéssel"</string>
-    <string name="title_pref_single_tap" msgid="3366282780861635094">"Egykoppintásos kiválasztás"</string>
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"Egykoppintásos aktiválás"</string>
     <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Helyi menü megjelenítése listaként"</string>
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Képernyő sötétítése a TalkBack engedélyezésekor"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"Koppintson az aktuálisan kijelölt elemre a kiválasztáshoz (kísérleti funkció)"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"Koppintson az éppen kijelölt elemre az aktiváláshoz (kísérleti funkció)"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Folyamatos olvasás indítása rázással"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Kézmozdulatok kezelése"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"Egyedi címkék kezelése"</string>
     <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Billentyűkódok kezelése"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"Egyéni címkék exportálása"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"TalkBack megnyitása a Play Áruházban"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"A TalkBack jelenlegi verziószáma: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"Súgó és visszajelzés"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"Súgó"</string>
     <string name="title_pref_show_tos" msgid="6167834013879233992">"Általános Szerződési Feltételek"</string>
     <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Adatvédelmi irányelvek"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Gyorsparancs-kézmozdulatok"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Beépített kézmozdulatok"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(Kísérleti) Koppintás az eszköz szélén"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"Billentyűzetkiosztás"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"Válasszon billentyűzetkiosztást"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"Billentyűzetkiosztás visszaállítása"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"Módosító billentyű választása"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"A TalkBack visszaállítja a kiosztást"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"A TalkBack visszaállítja a billentyűzetkiosztást, és a módosító billentyűt erre változtatja: <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"A módosító billentyű a következőre változott: <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>."</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"<xliff:g id="KEYMAP_NAME">%1$s</xliff:g> mostantól aktív."</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"Billentyűzetkiosztás visszaállítva."</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"A billentyűkód nem támogatott"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"Hagyományos billentyűzetkiosztás"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"Alapértelmezett billentyűzetkiosztás"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"Navigációs műveletek"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"Ugrás a következő elemre"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"Ugrás az előző elemre"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"Navigálás az elem fölé"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"Navigálás az elem alá"</string>
     <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"Ugrás az első elemre"</string>
     <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"Ugrás az utolsó elemre"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"Navigálás a következő ablakra"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"Navigálás az előző ablakra"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"Navigálás a következő szóra"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"Navigálás az előző szóra"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"Navigálás a következő karakterre"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"Navigálás az előző karakterre"</string>
     <string name="keycombo_menu_perform_click" msgid="243666968746657931">"Kattintás végrehajtása"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"Hosszú kattintás végrehajtása"</string>
     <string name="keycombo_menu_category_global" msgid="7309875734492478067">"Globális műveletek"</string>
     <string name="keycombo_menu_global_back" msgid="4567585750566224959">"Vissza"</string>
     <string name="keycombo_menu_global_home" msgid="7189369064773623371">"Kezdőképernyő"</string>
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Legutóbbi alkalmazások"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Értesítések"</string>
-    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"A TalkBack szüneteltetése"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"A TalkBack szüneteltetése/folytatása"</string>
     <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Navigációs beállítások"</string>
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Következő navigációs beállítás"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Előző navigációs beállítás"</string>
@@ -143,10 +209,63 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Elem keresése a képernyőn"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Lokális helyi menü megjelenítése"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Globális helyi menü megjelenítése"</string>
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"Billentyűparancsok kezelése"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"A TalkBack beállításainak megnyitása"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"Internetes navigációs műveletek"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"Navigálás a következő gombra"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"Navigálás az előző gombra"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"Navigálás a következő vezérlőelemre"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"Navigálás az előző vezérlőelemre"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"Navigálás a következő jelölőnégyzetre"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"Navigálás az előző jelölőnégyzetre"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"Navigálás a következő ARIA pontra"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"Navigálás az előző ARIA pontra"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"Navigálás a következő szerkesztőmezőre"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"Navigálás az előző szerkesztőmezőre"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"Ugrás a következő fókuszálható elemre"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"Ugrás az előző fókuszálható elemre"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"Navigálás a következő képre"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"Navigálás az előző képre"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"Navigálás a következő címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"Navigálás az előző címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"Navigálás a következő 1. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"Navigálás az előző 1. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"Navigálás a következő 2. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"Navigálás az előző 2. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"Navigálás a következő 3. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"Navigálás az előző 3. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"Navigálás a következő 4. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"Navigálás az előző 4. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"Navigálás a következő 5. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"Navigálás az előző 5. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"Navigálás a következő 6. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"Navigálás az előző 6. címsorra"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"Navigálás a következő listaelemre"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"Navigálás az előző listaelemre"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"Navigálás a következő linkre"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"Navigálás az előző linkre"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"Navigálás a következő listára"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"Navigálás az előző listára"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"Navigálás a következő táblázatra"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"Navigálás az előző táblázatra"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"Navigálás a következő kombinált listára"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"Navigálás az előző kombinált listára"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"A billentyűzet gyorsparancsa:"</string>
     <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Nyomja meg a kombinációt az új gyorsparancs beállításához. Az ALT vagy a Control billentyűnek mindenképpen szerepelnie kell a kombinációban."</string>
-    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"Törlés gyorsparancs"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Gyorsparancs törlése a <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> módosító billentyűvel új gyorsparancs beállításához."</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"A gyorsparancs törléséhez nyomja meg a Backspace, mentéséhez az Enter, visszavonáshoz pedig az Escape billentyűt."</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"Gyorsparancs törlése"</string>
     <string name="keycombo_unassigned" msgid="5817151372114230015">"Nincs társítva"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Keresés"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Jobbra nyíl"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Balra nyíl"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Felfelé nyíl"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Lefelé nyíl"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"Biztosan visszaállítja a billentyűzetkiosztás billentyűkódjait az alapértelmezett értékekre? Felhívjuk figyelmét, hogy ezt a műveletet nem lehet visszavonni."</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"Visszaállítás"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"A kombináció már használatban van"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Ez a kombináció a(z) „<xliff:g id="ID_1">%1$s</xliff:g>” művelethez van hozzárendelve. Szeretné törölni a hozzárendelést, és a kombinációt társítani a következő művelethez: „<xliff:g id="ID_2">%2$s</xliff:g>”?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Hangmagasságváltoztatások használata"</string>
@@ -159,9 +278,12 @@
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"Beszédre koncentráló hangbeállítás"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"A hangerő csökkentése beszéd közben"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Hangerő"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"A Talkback felfüggesztésének és folytatásának gyorsparancsa"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Talkback felfüggesztésének és folytatásának billentyűkódja"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"„Képernyő halványítása” parancsikon"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Egyéb"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Fejlesztői beállítások"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"Válassza ki a naplózni kívánt eseményeket"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"Kisegítő lehetőségekkel kapcsolatos naplózás szűrése"</string>
     <string name="title_pref_log_level" msgid="267415170405921603">"Naplózás szintje"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Kimondott beszéd megjelenítése"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"Csomópont-hierarchia hibakeresés engedélyezése"</string>
@@ -186,10 +308,11 @@
     <string name="granularity_line" msgid="727359260064093782">"Sorok"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"Bekezdések"</string>
     <string name="granularity_page" msgid="2739238666516816581">"Oldalak"</string>
-    <string name="granularity_web_section" msgid="496466197528091152">"Szakaszalapú navigálás"</string>
-    <string name="granularity_web_list" msgid="8598575022728013551">"Listaalapú navigálás"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"Vezérlőalapú navigálás"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"Navigálás speciális tartalomban"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"Címsorok és tájékozódási pontok"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"Listák"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"Linkek"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"Vezérlők"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Speciális tartalom"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"Álló"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"Fekvő"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"Nincs társítva"</string>
@@ -201,10 +324,12 @@
     <string name="shortcut_home" msgid="6670249804418900175">"Főoldal gomb"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"Áttekintés gomb"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"Értesítések megnyitása"</string>
+    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"Egyéni műveletek megjelenítése"</string>
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Globális helyi menü megnyitása"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"Helyi menü megnyitása"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Utolsó megnyilatkozás ismétlése"</string>
     <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"Utolsó megnyilatkozás betűzése"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"A legutóbb kimondottak másolása a vágólapra"</string>
     <string name="shortcut_pause_feedback" msgid="1412613174540942399">"Visszajelzés szüneteltetése"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"Olvasás a tetejétől"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"Olvasás a következő elemtől"</string>
@@ -213,6 +338,8 @@
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Előző navigációs beállítás"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"Fókuszálás a képernyőn lévő első elemre"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Fókuszálás a képernyőn lévő utolsó elemre"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"Képernyő halványítása"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"Képernyő világosítása"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"Lokális helyi menü"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"Globális helyi menü"</string>
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"Nincsenek menüelemek."</string>
@@ -234,6 +361,13 @@
     <string name="title_summary" msgid="3037924006370977165">"Gyors navigáció"</string>
     <string name="title_granularity" msgid="399801096771904747">"Navigációs beállítások"</string>
     <string name="title_custom_action" msgid="7908169922901920318">"Egyéni műveletek"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"Az automatikus kiegészítés javaslatai"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"Ugrás a javaslatokhoz"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"Vissza a szerkesztőmezőbe"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"Keresősáv"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"Keresősáv szintjének szerkesztése"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"Adjon meg egy számot 0 és 100 között."</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
     <string name="value_direction_up" msgid="1646290331150992975">"fel"</string>
     <string name="value_direction_down" msgid="8072362433982733982">"le"</string>
     <string name="value_direction_left" msgid="676932617445677488">"balra"</string>
@@ -294,6 +428,7 @@
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Érintse meg a kisegítő kézmozdulatok módosításainak áttekintéséhez"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"A TalkBack fel van függesztve."</string>
     <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Érintse meg a folytatáshoz."</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"Automatikus továbblépés az 1. leckére."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"Felfüggeszti a TalkBack funkciót?"</string>
     <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Biztos benne? Eszköze nem ad visszajelzést, a Felfedezés érintéssel funkció pedig ki lesz kapcsolva. A TalkBack funkciót az értesítési területen, a lezárási képernyőre visszalépve, illetve a hangerő gomb gyorsparancsával kapcsolhatja be újra."</string>
     <string name="message_resume_manual" msgid="6522293510722570646">"A TalkBack funkciót az értesítési területen kapcsolhatja be újra."</string>
@@ -308,13 +443,30 @@
     <string name="label_remove_dialog_text" msgid="372916461303485723">"Biztosan eltávolítja a(z) „<xliff:g id="LABEL">%1$s</xliff:g>” címkét?"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Biztosan eltávolítja a(z) „<xliff:g id="LABEL">%1$s</xliff:g>” címkét a(z) <xliff:g id="APP_NAME">%2$s</xliff:g> alkalmazásból?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Címkeszöveg"</string>
+    <string name="label_import" msgid="1773817433300194935">"Egyéni címkék importálása"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"Egyéni címkék importálása a TalkBack szolgáltatásba"</string>
+    <string name="label_import_dialog_message" msgid="7975227530187709469">"Válassza ki, hogy ütközés esetén a rendszer felülírja vagy kihagyja a meglévő címkéket."</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"Kihagyás"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"Felülírás"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"Nincs exportálható tartalom. Még nem adott meg egy címkét sem"</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"A címkeexportálás nem sikerült"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"A címkeimportálás nem sikerült"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="other">%d címke frissítve</item>
+      <item quantity="one">1 címke frissítve</item>
+    </plurals>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"Válasszon alkalmazást a címkék exportálásához:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"A TalkBack ezen verziója tartalmazza az alapértelmezett kisegítő kézmozdulatok módosításait. A kézmozdulatokhoz társított műveletek a TalkBack beállításai között személyre szabhatók. Amikor a Felfedezés érintéssel funkció engedélyezve van, akkor a következő kézmozdulatokkal végezhet el bizonyos műveleteket.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"A hangerő növelése és csökkentése gombok egyidejű, hosszan tartó lenyomása"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"A képernyő-halványítás engedélyezéséhez/letiltásához nyomja meg háromszor gyorsan mindkét hangerő-szabályozó gombot."</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"Elsötétíti a képernyőt?"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"Biztosan el akarja sötétíteni a képernyőt?"</string>
     <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"A TalkBack ezen verziójában módosultak a kisegítő lehetőségek alapértelmezett kézmozdulatai.\n\nA fel-le kézmozdulat segítségével a képernyő első eleméhez kerülhet, míg a le-fel kézmozdulattal a legutolsó elemhez juthat.\n\nAz olvasási részletességet mostantól úgy is módosíthatja, hogy a fókuszt egy adott elemre állítja, majd a helyi menüből kiválasztja a részletességet.\n\nA TalkBack-beállításokban módosíthatja az ezen kézmozdulatok által végrehajtható műveleteket."</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"A TalkBack e verziójában módosultak az alapértelmezett kisegítő kézmozdulatok.\n\nA „fel” kézmozdulat mostantól az előző navigációs elemre ugrik, a „le” kézmozdulat pedig a következőre."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Kézmozdulatok elfogadása"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Kézmozdulatok testre szabása"</string>
+    <string name="button_clear_all_events" msgid="2128349101908653825">"Kijelölés törlése"</string>
+    <string name="button_check_all_events" msgid="301383322727007726">"Az összes kijelölése"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"Letiltja a Felfedezés érintéssel funkciót?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Biztosan kikapcsolja a Felfedezés érintéssel funkciót?\n\nEszköze a továbbiakban nem reagál a kézmozdulatokra és a hangvezérlés parancsaira, amikor megérinti a képernyőt."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Engedélyezi a csomópont-hierarchia hibakeresést?"</string>
@@ -327,9 +479,77 @@
     <string name="permission_labeling_desc" msgid="8065967887484901473">"Engedély a TalkBack által kimondott egyedi címkék eléréséhez, módosításához és törléséhez."</string>
     <string name="links" msgid="3448225474115458693">"Linkek"</string>
     <string name="end_of_text" msgid="3595733062526019550">"Vége"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"Nincs előző <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"Nincs következő <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"címsor"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"gomb"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"kombinált lista"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"ARIA-pont"</string>
+    <string name="display_name_edit_field" msgid="5014778180731737501">"szerkesztőmező"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"kijelölhető elem"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"címsor 1"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"címsor 2"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"címsor 3"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"címsor 4"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"címsor 5"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"címsor 6"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"link"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"vezérlőelem"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"ábra"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"listaelem"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"lista"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"táblázat"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"jelölőnégyzet"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"irány vagy tájékozódási pont"</string>
     <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
     <string name="row_index_template" msgid="4107789959609911947">"<xliff:g id="ROW">%1$d</xliff:g>. sor"</string>
     <string name="column_index_template" msgid="258393957626754806">"<xliff:g id="COL">%1$d</xliff:g>. oszlop"</string>
     <string name="heading_template" msgid="3585514481777782183">"Címsor"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"Sor címsora"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"Oszlop címsora"</string>
     <string name="item_index_template" msgid="71505978833721807">"<xliff:g id="ITEM">%1$d</xliff:g>. elem"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"Import címkék visszaállítása"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"Importált címkék visszaállítva"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g> felül, <xliff:g id="ID_2">%2$s</xliff:g> alul"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g> balra, <xliff:g id="ID_2">%2$s</xliff:g> jobbra"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g> jobbra, <xliff:g id="ID_2">%2$s</xliff:g> balra"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="untitled_window" msgid="7017590766394623328">"névtelen"</string>
+    <string name="status_bar" msgid="6000275621941971563">"állapotsor"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"navigációs sáv"</string>
+    <string name="template_collection_start" msgid="4362535543397747567">"Belépett ide: <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_end" msgid="2167296836815021551">"Kilépett innen: <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"<xliff:g id="LEVEL">%1$s</xliff:g>. szint"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> elem</item>
+      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> elem</item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> sor</item>
+      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> sor</item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> oszlop</item>
+      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> oszlop</item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> karakter</item>
+      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> karakter</item>
+    </plurals>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT">%1$d</xliff:g> esemény kiválasztva</item>
+      <item quantity="one">1 esemény kiválasztva</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> elindítva"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> befejezve"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"Keresősáv mód"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"Nyomja meg a nyíl gombokat az érték módosításához, vagy a kiválasztást a befejezéshez."</string>
+    <string name="arc_android_window" msgid="697316167642517245">"Android-ablak"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"A navigáláshoz nyomja meg a keresés és valamelyik nyíl billentyűt"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"A billentyűparancsok megtekintéséhez nyomja meg a következő kombinációt: <xliff:g id="KEYCOMBO">%1$s</xliff:g>"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"A TalkBack beállításainak megnyitásához nyomja meg a következőt: <xliff:g id="KEYCOMBO">%1$s</xliff:g>"</string>
+    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"A legjobb érintés- és hangalapú visszajelzés érdekében maximalizálja az alkalmazás ablakát"</string>
 </resources>

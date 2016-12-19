@@ -43,15 +43,25 @@ import java.util.Map;
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class LabelProviderClient {
     private static final String EQUALS_ARG = " = ?";
+    private static final String NOT_EQUALS_ARG = " != ? ";
     private static final String LEQ_ARG = " <= ?";
+    private static final String STARTS_WITH_ARG = " LIKE ?";
     private static final String AND = " AND ";
     private static final String GET_LABELS_FOR_APPLICATION_QUERY_WHERE =
-            LabelsTable.KEY_PACKAGE_NAME + EQUALS_ARG + AND + LabelsTable.KEY_LOCALE + EQUALS_ARG +
-            AND + LabelsTable.KEY_PACKAGE_VERSION + LEQ_ARG;
-    private static final String GET_LABEL_QUERY_WHERE = LabelsTable.KEY_PACKAGE_NAME + EQUALS_ARG +
-            AND + LabelsTable.KEY_VIEW_NAME + EQUALS_ARG + AND + LabelsTable.KEY_LOCALE +
-            EQUALS_ARG + AND + LabelsTable.KEY_PACKAGE_VERSION + LEQ_ARG;
-    private static final String PACKAGE_SUMMARY_QUERY_WHERE = LabelsTable.KEY_LOCALE + EQUALS_ARG;
+            LabelsTable.KEY_PACKAGE_NAME + EQUALS_ARG + AND +
+                    LabelsTable.KEY_LOCALE + STARTS_WITH_ARG + AND +
+                    LabelsTable.KEY_PACKAGE_VERSION + LEQ_ARG + AND +
+                    LabelsTable.KEY_SOURCE_TYPE + NOT_EQUALS_ARG;
+    private static final String PACKAGE_SUMMARY_QUERY_WHERE =
+            LabelsTable.KEY_LOCALE + STARTS_WITH_ARG + AND +
+            LabelsTable.KEY_SOURCE_TYPE + NOT_EQUALS_ARG;
+
+    private static final String DELETE_LABEL_SELECTION =
+            LabelsTable.KEY_PACKAGE_NAME + EQUALS_ARG + AND +
+                    LabelsTable.KEY_VIEW_NAME + EQUALS_ARG + AND +
+                    LabelsTable.KEY_LOCALE + STARTS_WITH_ARG + AND +
+                    LabelsTable.KEY_PACKAGE_VERSION + LEQ_ARG + AND +
+                    LabelsTable.KEY_SOURCE_TYPE + EQUALS_ARG;
 
     private static final String LABELS_PATH = "labels";
     private static final String PACKAGE_SUMMARY_PATH = "packageSummary";
@@ -96,7 +106,7 @@ public class LabelProviderClient {
      * @return A new label object with the assigned label ID from the database,
      *         or {@code null} if the insert operation failed.
      */
-    public Label insertLabel(Label label) {
+    public Label insertLabel(Label label, int sourceType) {
         LogUtils.log(this, Log.DEBUG, "Inserting label: %s.", label);
 
         if (label == null) {
@@ -114,6 +124,7 @@ public class LabelProviderClient {
         }
 
         final ContentValues values = buildContentValuesForLabel(label);
+        values.put(LabelsTable.KEY_SOURCE_TYPE, sourceType);
 
         final Uri resultUri;
         try {
@@ -141,7 +152,7 @@ public class LabelProviderClient {
      *         or an empty list if the query returns no results,
      *         or {@code null} if the query fails.
      */
-    public List<Label> getAllLabels() {
+    public List<Label> getCurrentLabels() {
         LogUtils.log(this, Log.DEBUG, "Querying all labels.");
 
         if (!checkClient()) {
@@ -150,13 +161,40 @@ public class LabelProviderClient {
 
         Cursor cursor = null;
         try {
+            String selection = LabelsTable.KEY_SOURCE_TYPE + " != " +
+                    CustomLabelManager.SOURCE_TYPE_BACKUP;
             cursor = mClient.query(mLabelsContentUri, LabelsTable.ALL_COLUMNS /* projection */,
-                    null /* where */, null /* whereArgs */, null /* sortOrder */);
+                    selection, null /* whereArgs */, null /* sortOrder */);
 
             return getLabelListFromCursor(cursor);
         } catch (RemoteException e) {
             LogUtils.log(this, Log.ERROR, e.toString());
             return null;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    public boolean hasImportedLabels() {
+        LogUtils.log(this, Log.DEBUG, "Has imported label request");
+
+        if (!checkClient()) {
+            return false;
+        }
+
+        Cursor cursor = null;
+        try {
+            String selection = LabelsTable.KEY_SOURCE_TYPE + " = " +
+                    CustomLabelManager.SOURCE_TYPE_IMPORT;
+            cursor = mClient.query(mLabelsContentUri, LabelsTable.ALL_COLUMNS /* projection */,
+                    selection, null /* whereArgs */, null /* sortOrder */);
+
+            return cursor != null && cursor.getCount() > 0;
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return false;
         } finally {
             if (cursor != null) {
                 cursor.close();
@@ -180,7 +218,8 @@ public class LabelProviderClient {
             return null;
         }
 
-        final String[] whereArgs = { locale };
+        final String[] whereArgs = { locale + "%",
+                String.valueOf(CustomLabelManager.SOURCE_TYPE_BACKUP) };
 
         Cursor cursor = null;
         try {
@@ -221,7 +260,8 @@ public class LabelProviderClient {
         }
 
         final String[] whereArgs = new String[] {
-                packageName, locale, Integer.toString(maxPackageVersion) };
+                packageName, locale + "%", String.valueOf(maxPackageVersion),
+                String.valueOf(CustomLabelManager.SOURCE_TYPE_BACKUP) };
 
         Cursor cursor = null;
         try {
@@ -254,46 +294,6 @@ public class LabelProviderClient {
      */
     public Map<String, Label> getLabelsForPackage(String packageName, String locale) {
         return getLabelsForPackage(packageName, locale, Integer.MAX_VALUE);
-    }
-
-    /**
-     * Queries for a single label matching a particular view and locale.
-     * <p>
-     * Don't run this method on the UI thread. Use {@link android.os.AsyncTask}.
-     *
-     * @param packageName The package name for the view's application.
-     * @param viewName The identifier of the view for which to find a label.
-     * @param locale The desired locale for the label.
-     * @param maxPackageVersion The maximum package version for result labels.
-     * @return A single label matching the criteria,
-     *         or {@code null} if no matching label was found.
-     */
-    public Label getLabel(String packageName, String viewName, String locale,
-            int maxPackageVersion) {
-        LogUtils.log(this, Log.DEBUG, "Querying single label: " +
-                "packageName=%s, viewName=%s, locale=%s, maxPackageVersion=%s.",
-                packageName, viewName, locale, maxPackageVersion);
-
-        if (!checkClient()) {
-            return null;
-        }
-
-        final String[] whereArgs = new String[] {
-                packageName, viewName, locale, Integer.toString(maxPackageVersion) };
-        Cursor cursor = null;
-        try {
-            cursor = mClient.query(mLabelsContentUri, LabelsTable.ALL_COLUMNS,
-                    GET_LABEL_QUERY_WHERE, whereArgs, null /* sortOrder */);
-
-            return getLabelFromCursor(cursor);
-        } catch (RemoteException e) {
-            LogUtils.log(this, Log.ERROR, e.toString());
-            return null;
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
     }
 
     /**
@@ -337,7 +337,7 @@ public class LabelProviderClient {
      * @param label The label with updated values to store.
      * @return {@code true} if the update succeeded, or {@code false} otherwise.
      */
-    public boolean updateLabel(Label label) {
+    public boolean updateLabel(Label label, int newSourceType) {
         LogUtils.log(this, Log.DEBUG, "Updating label: %s.", label);
 
         if (label == null) {
@@ -357,10 +357,58 @@ public class LabelProviderClient {
 
         final Uri uri = ContentUris.withAppendedId(mLabelsContentUri, labelId);
         final ContentValues values = buildContentValuesForLabel(label);
+        values.put(LabelsTable.KEY_SOURCE_TYPE, newSourceType);
 
         try {
             final int rowsAffected = mClient.update(
                     uri, values, null /* selection */, null /* selectionArgs */);
+            return rowsAffected > 0;
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return false;
+        }
+    }
+
+    public boolean updateLabelSourceType(long labelId, int newSourceType) {
+        LogUtils.log(this, Log.DEBUG, "Updating label source type");
+
+        if (!checkClient()) {
+            return false;
+        }
+
+        if (labelId == Label.NO_ID) {
+            LogUtils.log(this, Log.WARN, "Cannot update label with no ID.");
+            return false;
+        }
+
+        final Uri uri = ContentUris.withAppendedId(mLabelsContentUri, labelId);
+        ContentValues values = new ContentValues();
+        values.put(LabelsTable.KEY_SOURCE_TYPE, newSourceType);
+
+        try {
+            final int rowsAffected = mClient.update(uri, values,
+                    null, null);
+            return rowsAffected > 0;
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return false;
+        }
+    }
+
+    public boolean updateSourceType(int currentSourceType, int newSourceType) {
+        LogUtils.log(this, Log.DEBUG, "Updating source type");
+
+        if (!checkClient()) {
+            return false;
+        }
+
+        ContentValues values = new ContentValues();
+        values.put(LabelsTable.KEY_SOURCE_TYPE, newSourceType);
+
+        try {
+            String selection = LabelsTable.KEY_SOURCE_TYPE + "=" + currentSourceType;
+            final int rowsAffected = mClient.update(mLabelsContentUri, values,
+                    selection, null);
             return rowsAffected > 0;
         } catch (RemoteException e) {
             LogUtils.log(this, Log.ERROR, e.toString());
@@ -373,21 +421,15 @@ public class LabelProviderClient {
      * <p>
      * Don't run this method on the UI thread. Use {@link android.os.AsyncTask}.
      *
-     * @param label The label to delete.
+     * @param labelId The label_id to delete.
      * @return {@code true} if the delete succeeded, or {@code false} otherwise.
      */
-    public boolean deleteLabel(Label label) {
-        LogUtils.log(this, Log.DEBUG, "Deleting label: %s.", label);
-
-        if (label == null) {
-            return false;
-        }
+    public boolean deleteLabel(long labelId) {
+        LogUtils.log(this, Log.DEBUG, "Deleting label: %s.", labelId);
 
         if (!checkClient()) {
             return false;
         }
-
-        final long labelId = label.getId();
 
         if (labelId == Label.NO_ID) {
             LogUtils.log(this, Log.WARN, "Cannot delete label with no ID.");
@@ -399,6 +441,47 @@ public class LabelProviderClient {
         try {
             final int rowsAffected = mClient.delete(
                     uri, null /* selection */, null /* selectionArgs */);
+            return rowsAffected > 0;
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return false;
+        }
+    }
+
+    public boolean deleteLabel(String packageName, String viewName, String locale,
+                               int packageVersion, int sourceType) {
+        LogUtils.log(this, Log.DEBUG, "Deleting label: package name: %s, view name: %s," +
+                " locale: %s, package version: %d, source type: %d",
+                packageName, viewName, locale, packageVersion, sourceType);
+
+        if (!checkClient()) {
+            return false;
+        }
+
+        try {
+            final String[] whereArgs = new String[] {
+                    packageName, viewName, locale + "%", Integer.toString(packageVersion),
+                    Integer.toString(sourceType)
+            };
+            final int rowsAffected = mClient.delete(mLabelsContentUri, DELETE_LABEL_SELECTION,
+                    whereArgs);
+            return rowsAffected > 0;
+        } catch (RemoteException e) {
+            LogUtils.log(this, Log.ERROR, e.toString());
+            return false;
+        }
+    }
+
+    public boolean deleteLabels(int sourceType) {
+        LogUtils.log(this, Log.DEBUG, "Deleting backup labels");
+
+        if (!checkClient()) {
+            return false;
+        }
+
+        try {
+            String selection = LabelsTable.KEY_SOURCE_TYPE + " = " + sourceType;
+            int rowsAffected = mClient.delete(mLabelsContentUri, selection, null);
             return rowsAffected > 0;
         } catch (RemoteException e) {
             LogUtils.log(this, Log.ERROR, e.toString());

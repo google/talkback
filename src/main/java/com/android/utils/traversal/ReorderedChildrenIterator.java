@@ -31,7 +31,7 @@ import java.util.List;
  * hierarchy. But for nodes that are not considered to be focused according to
  * AccessibilityNodeInfoUtils.shouldFocusNode() rules we calculate new bounds that is minimum
  * rectangle that contains all focusable children nodes. If that rectangle differs from
- * real node bounds that node is reordered according needSwipeNodes() logic and could be
+ * real node bounds that node is reordered according needSwapNodeOrder() logic and could be
  * traversed later.
  *
  * This class obtains new instances of AccessibilityNodeCompat. Call recycle to recycle those
@@ -72,6 +72,10 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
     private List<AccessibilityNodeInfoCompat> mNodes;
     private boolean mIsAscending;
     private NodeCachedBoundsCalculator mBoundsCalculator;
+
+    // Avoid constantly creating and discarding Rects.
+    private Rect mTempLeftBounds = new Rect();
+    private Rect mTempRightBounds = new Rect();
 
     private ReorderedChildrenIterator(AccessibilityNodeInfoCompat parent, boolean isAscending,
                                       NodeCachedBoundsCalculator boundsCalculator) {
@@ -135,14 +139,14 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
         int size = nodeArray.length;
         int nextIndex = index + 1;
         AccessibilityNodeInfoCompat currentNode = nodeArray[index];
-        while (nextIndex < size && needSwipeNodes(currentNode, nodeArray[nextIndex])) {
+        while (nextIndex < size && needSwapNodeOrder(currentNode, nodeArray[nextIndex])) {
             nodeArray[nextIndex - 1] = nodeArray[nextIndex];
             nodeArray[nextIndex] = currentNode;
             nextIndex++;
         }
     }
 
-    private boolean needSwipeNodes(AccessibilityNodeInfoCompat leftNode,
+    private boolean needSwapNodeOrder(AccessibilityNodeInfoCompat leftNode,
                                    AccessibilityNodeInfoCompat rightNode) {
         if (leftNode == null || rightNode == null) {
             return false;
@@ -150,6 +154,40 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
 
         Rect leftBounds = mBoundsCalculator.getBounds(leftNode);
         Rect rightBounds = mBoundsCalculator.getBounds(rightNode);
+
+        // Sometimes the bounds compare() is overzealous, so swap the items only if the adjusted
+        // (mBoundsCalculator) leftBounds > rightBounds but the original leftBounds < rightBounds,
+        // i.e. the compare() method returns the existing ordering for the original bounds but
+        // wants a swap for the adjusted bounds.
+        // Simply, if compare() says that the original system ordering is wrong, then we cannot
+        // trust its judgment in the adjusted bounds case.
+        //
+        // Example:
+        // (1) Page scrolled to top  (2) Page scrolled to bottom.
+        // +----------+              +----------+
+        // | App bar  |              | App bar  |
+        // +----------+              +----------+
+        // | Item 1   |              | Item 2   |
+        // | Item 2   |              | Item 3   |
+        // | Item 3   |              | (spacer) |
+        // +----------+              +----------+
+        // Note: App bar overlays the top part of the list; the top, left, and right edges of the
+        // list line up with the app bar. Assume that the spacer is not important for accessibility.
+        // In this example, the traversal order for (1) is Item 1 -> Item 2 -> Item 3 -> App bar
+        // but the traversal order for (2) gets reordered to App bar -> Item 2 -> Item 3.
+        // So during auto-scrolling the app bar is actually excluded from the traversal order until
+        // after the wrap-around.
+        if (compare(leftBounds, rightBounds)) {
+            leftNode.getBoundsInScreen(mTempLeftBounds);
+            rightNode.getBoundsInScreen(mTempRightBounds);
+            return !compare(mTempLeftBounds, mTempRightBounds);
+        }
+
+        return false;
+    }
+
+    // Returns true if leftBounds > rightBounds in the traversal order and false otherwise.
+    private boolean compare(Rect leftBounds, Rect rightBounds) {
         if (leftBounds == null || rightBounds == null) {
             return true;
         }
@@ -159,7 +197,7 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
         }
 
         if (leftBounds.left != rightBounds.left) {
-            return leftBounds.left > rightBounds.top;
+            return leftBounds.left > rightBounds.left;
         }
 
         if (leftBounds.right != rightBounds.right) {

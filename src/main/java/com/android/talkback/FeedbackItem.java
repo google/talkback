@@ -85,6 +85,9 @@ public class FeedbackItem {
     /** Flags defining the treatment of this FeedbackItem. */
     private int mFlags;
 
+    /** The time (in system uptime ms) that the FeedbackItem was created. */
+    private final long mCreationTime;
+
     private int mUtteranceGroup = SpeechController.UTTERANCE_GROUP_DEFAULT;
 
     /**
@@ -92,6 +95,10 @@ public class FeedbackItem {
      * item is complete.
      */
     private SpeechController.UtteranceCompleteRunnable mCompletedAction;
+
+    public FeedbackItem() {
+        mCreationTime = System.currentTimeMillis();
+    }
 
     /**
      * @return The utterance ID for this item
@@ -231,9 +238,14 @@ public class FeedbackItem {
         return mUtteranceGroup;
     }
 
+    public long getCreationTime() {
+        return mCreationTime;
+    }
+
     @Override
     public String toString() {
         return "{utteranceId:\"" + mUtteranceId + "\", fragments:" + mFragments
-                + ", uninterruptible:" + mIsUninterruptible + ", flags:" + mFlags + "}";
+                + ", uninterruptible:" + mIsUninterruptible + ", flags:" + mFlags
+                + ", creationTime:" + mCreationTime + "}";
     }
 }

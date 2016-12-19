@@ -1,0 +1,128 @@
+<!--
+     Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example web Page to Test with TalkBack</title>
+    </head>
+<body>
+
+<h1>Web View Example Page</h1>
+<p>This is an example web page for Web View</p>
+<p>This page is used for TalkBack feature tests.</p>
+<p>This is another paragraph.</p>
+
+<h2>Section 1</h2>
+<p>This section contains a table with a link and a edit field in it.</p>
+<table border="1">
+    <caption>NATO phonetic alphabet</caption>
+    <tbody>
+    <tr>
+        <th id="t1">character</th>
+        <th id="t2">Telephony</th>
+        <th id="t3">Note</th>
+    </tr>
+    <tr>
+        <td headers="t1">A</td>
+        <td headers="t2">Alpha</td>
+        <td headers="t3"><a href="http://www.google.com">This is a link.</a></td>
+    </tr>
+    <tr>
+        <td headers="t1">B</td>
+        <td headers="t2">Beta</td>
+        <td headers="t3"><input type="text" placeholder="Enter notes here."/></td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Section 2</h2>
+<p>This section contains a form to fill in a few details about yourself, as well as a link. The first edit field is labeled with aria-labelledby, second with nothing, third, with the "label for" attribute.</p>
+<form action="" method="post">
+    <fieldset>
+        <legend>Personal information</legend>
+        <div>
+            <label id="fullNameLabel">Full name </label>
+            <input aria-required="true" aria-labelledby="fullNameLabel" type="text"/>
+        </div>
+        <div>
+            <label id="blankFieldLabel">Comment </label>
+            <input type="text"/>
+        </div>
+        <div>
+            <label for="passwordText">Password </label>
+            <input id="passwordText" type="password"/>
+        </div>
+        <div>
+            <p>Favorite colors?<br>    
+              <input aria-label="red" type="radio" name="colors" value="red">Red&nbsp;
+              <input aria-label="green" type="radio" name="colors" value="green">Green&nbsp;
+              <input aria-label="teal" type="radio" name="colors" value="teal">Teal
+            </p>
+        </div>
+        <div>
+            <label for="navigationType">Prefered navigation?</label>&nbsp;
+            <select id="navigationType">
+                <option value="" selected>Select your choice</option>
+                <option value="walking">Walking</option>
+                <option value="ByCar">By car</option>
+                <option value="byTrain">By train</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Submit Form" disabled>
+            <a href="http://www.google.com">This is the 2nd link.</a>
+        </div>
+    </fieldset>
+</form>
+
+<h2>Section 3</h2>
+<p>This section contains a list.</p>
+<ul>
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+    <li>Water</li>
+</ul>
+
+<h2>Section 4</h2>
+<p>This section contains a div with "role" attribute set to "region".</p>
+<div style="background-color:blue; color:white; padding:10px;" role="region">
+    <h2>Google</h2>
+    <p>Google was founded in 1998.</p>
+</div>
+
+<h2>Section 5</h2>
+<p>This section contains images with different configurations.</p>
+<div>
+    <p>Image with no special attributes.</p>
+    <img src="example_image.png"/>
+</div>
+<div>
+    <p>An "alt" attribute for the image set to "Android".</p>
+    <img src="example_image.png" alt="Android"/>
+</div>
+<div>
+    <p>Image with link.</p>
+    <a href="http://www.google.com"><img src="example_image.png"/></a>
+</div>
+<div>
+    <p>Image with link and alt.</p>
+    <a href="http://www.google.com"><img src="example_image.png" alt="Android"/></a>
+</div>
+
+</body>
+</html>

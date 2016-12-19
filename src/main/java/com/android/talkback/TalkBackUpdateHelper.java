@@ -28,13 +28,13 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 import com.android.utils.AccessibilityEventListener;
 import com.android.utils.AutomationUtils;
@@ -54,7 +54,7 @@ public class TalkBackUpdateHelper {
     /** The minimum version required for SoundBack to disable itself. */
     public static final int SOUNDBACK_REQUIRED_VERSION = 7;
 
-    private static final String PREF_APP_VERSION = "app_version";
+    protected static final String PREF_APP_VERSION = "app_version";
 
     /**
      * Time in milliseconds after initialization to delay the posting of
@@ -81,7 +81,7 @@ public class TalkBackUpdateHelper {
         mService = service;
         mNotificationManager = (NotificationManager) mService.getSystemService(
                 Context.NOTIFICATION_SERVICE);
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mService);
+        mSharedPreferences = SharedPreferencesUtils.getSharedPreferences(mService);
     }
 
     public void showPendingNotifications() {
@@ -157,6 +157,17 @@ public class TalkBackUpdateHelper {
             notifyUserOfBuiltInGestureChanges();
         }
 
+        // TalkBack 4.5 changes the default up and down gestures to prev/next navigation setting.
+        if ((previousVersion != -1) && previousVersion < 40500000) {
+            notifyUserOfBuiltInGestureChanges45();
+        }
+
+        // Update key combo model.
+        KeyComboManager keyComboManager = mService.getKeyComboManager();
+        if (keyComboManager != null) {
+            keyComboManager.getKeyComboModel().updateVersion(previousVersion);
+        }
+
         editor.apply();
     }
 
@@ -173,7 +184,7 @@ public class TalkBackUpdateHelper {
      * </ol>
      */
     private boolean needsExploreByTouchHelper(int previousVersion) {
-        return (Build.VERSION.SDK_INT == 16) && (previousVersion == 68)
+        return (Build.VERSION.SDK_INT == Build.VERSION_CODES.JELLY_BEAN) && (previousVersion == 68)
                 && !mSharedPreferences.getBoolean(TalkBackService.PREF_FIRST_TIME_USER, true);
     }
 
@@ -228,6 +239,55 @@ public class TalkBackUpdateHelper {
                 buildGestureChangeNotification(notificationIntent),
                 BUILT_IN_GESTURE_CHANGE_NOTIFICATION_ID);
         mHandler.postDelayed(runnable, NOTIFICATION_DELAY);
+    }
+
+    private void notifyUserOfBuiltInGestureChanges45() {
+        // Expected behavior:
+        // 1. If user has changed neither up nor down: clear both prefs (reset to default).
+        //    User will see a change only in this case, so present a notification.
+        // 2. If user has changed either setting, make sure that the gesture behavior stays the
+        //    same (even if the user has changed one gesture and not the other).
+
+        // Set the up and down gestures to the old defaults if the user hasn't modified them yet.
+        final Editor editor = mSharedPreferences.edit();
+        deprecateStringPreference(editor, R.string.pref_shortcut_up_key,
+                R.string.pref_deprecated_shortcut_up);
+        deprecateStringPreference(editor, R.string.pref_shortcut_down_key,
+                R.string.pref_deprecated_shortcut_down);
+        editor.apply();
+
+        // Are the preferences both equal to the old default?
+        String upPrefKey = mService.getString(R.string.pref_shortcut_up_key);
+        String downPrefKey = mService.getString(R.string.pref_shortcut_down_key);
+        String upPrefDeprecated = mService.getString(R.string.pref_deprecated_shortcut_up);
+        String downPrefDeprecated = mService.getString(R.string.pref_deprecated_shortcut_down);
+
+        // Only reset prefs if the user has changed at least one of them to a non-default value.
+        boolean prefsMatchDeprecated =
+                upPrefDeprecated.equals(mSharedPreferences.getString(upPrefKey, null))
+                && downPrefDeprecated.equals(mSharedPreferences.getString(downPrefKey, null));
+        if (prefsMatchDeprecated) {
+            editor.remove(upPrefKey);
+            editor.remove(downPrefKey);
+            editor.apply();
+
+            // Build the intent for when the notification is clicked.
+            final Intent notificationIntent = new Intent(
+                    mService, NotificationActivity.class);
+            notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+            notificationIntent.putExtra(NotificationActivity.EXTRA_INT_DIALOG_TITLE,
+                    R.string.notification_title_talkback_gestures_changed);
+            notificationIntent.putExtra(NotificationActivity.EXTRA_INT_DIALOG_MESSAGE,
+                    R.string.talkback_built_in_gesture_change_details_45);
+            notificationIntent.putExtra(NotificationActivity.EXTRA_INT_NOTIFICATION_ID,
+                    BUILT_IN_GESTURE_CHANGE_NOTIFICATION_ID);
+
+            NotificationPosterRunnable runnable = new NotificationPosterRunnable(
+                    buildGestureChangeNotification(notificationIntent),
+                    BUILT_IN_GESTURE_CHANGE_NOTIFICATION_ID);
+            mHandler.postDelayed(runnable, NOTIFICATION_DELAY);
+        }
     }
 
     private Notification buildGestureChangeNotification(Intent clickIntent) {

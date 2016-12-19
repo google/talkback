@@ -21,9 +21,11 @@ import android.os.Build;
 import android.view.accessibility.AccessibilityEvent;
 
 import com.android.switchaccess.UiChangeDetector;
+import com.android.talkback.BuildConfig;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
@@ -37,10 +39,11 @@ import static org.mockito.Mockito.verify;
  * Robolectric tests for AccessibilityEventProcessor
  */
 @Config(
-        emulateSdk = 21
+        constants = BuildConfig.class,
+        sdk = 21
 )
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class UiChangeDetectorTest {
     UiChangeDetector mUiChangeDetector;
     UiChangeDetector.PossibleUiChangeListener mListener =

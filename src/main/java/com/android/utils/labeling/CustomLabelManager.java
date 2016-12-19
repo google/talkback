@@ -25,23 +25,34 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.Signature;
-import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.android.talkback.BuildConfig;
+import com.android.talkback.labeling.HasImportedLabelsRequest;
+import com.android.talkback.labeling.LabelsFetchRequest;
+import com.android.talkback.labeling.CustomLabelMigrationManager;
+import com.android.talkback.labeling.DataConsistencyCheckRequest;
+import com.android.talkback.labeling.DirectLabelFetchRequest;
+import com.android.talkback.labeling.ImportLabelRequest;
+import com.android.talkback.labeling.LabelAddRequest;
+import com.android.talkback.labeling.LabelClientRequest;
+import com.android.talkback.labeling.LabelRemoveRequest;
+import com.android.talkback.labeling.LabelTask;
+import com.android.talkback.labeling.LabelUpdateRequest;
+import com.android.talkback.labeling.PackageLabelsFetchRequest;
+import com.android.talkback.labeling.RevertImportedLabelsRequest;
 import com.android.utils.AccessibilityEventListener;
 import com.android.utils.LogUtils;
 import com.android.utils.StringBuilderUtils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.NavigableSet;
@@ -66,6 +77,14 @@ import java.util.regex.Pattern;
 public class CustomLabelManager {
     /** The minimum API level supported by the manager. */
     public static final int MIN_API_LEVEL = Build.VERSION_CODES.JELLY_BEAN_MR2;
+    public static final int SOURCE_TYPE_USER = 0; // labels that were inserted by user
+    public static final int SOURCE_TYPE_IMPORT = 1; // labels that were imported
+    public static final int SOURCE_TYPE_BACKUP = 2; // labels that were overridden by import
+
+    // Intent values for broadcasts to CustomLabelManager.
+    public static final String ACTION_REFRESH_LABEL_CACHE =
+            "com.google.android.marvin.talkback.labeling.REFRESH_LABEL_CACHE";
+    public static final String EXTRA_STRING_ARRAY_PACKAGES = "EXTRA_STRING_ARRAY_PACKAGES";
 
     private static final String
             AUTHORITY = BuildConfig.APPLICATION_ID + ".providers.LabelProvider";
@@ -76,8 +95,24 @@ public class CustomLabelManager {
      */
     private static final Pattern RESOURCE_NAME_SPLIT_PATTERN = Pattern.compile(":id/");
 
-    private static final IntentFilter REFRESH_INTENT_FILTER = new IntentFilter(
-            LabelOperationUtils.ACTION_REFRESH_LABEL_CACHE);
+    private static final IntentFilter REFRESH_INTENT_FILTER =
+            new IntentFilter(ACTION_REFRESH_LABEL_CACHE);
+
+    public static String getDefaultLocale() {
+        String locale = Locale.getDefault().toString();
+        return getLanguageLocale(locale);
+    }
+
+    public static String getLanguageLocale(String locale) {
+        if (locale != null) {
+            int localeDivider = locale.indexOf('_');
+            if (localeDivider > 0) {
+                return locale.substring(0, localeDivider);
+            }
+        }
+
+        return locale;
+    }
 
     private final NavigableSet<Label> mLabelCache = new TreeSet<>(new Comparator<Label>() {
         // Note this comparator is not consistent with equals in Label, we should just implement
@@ -109,21 +144,63 @@ public class CustomLabelManager {
     private final LabelProviderClient mClient;
 
     // Used to manage release of resources based on task completion
-    private final Object mLock;
     private boolean mShouldShutdownClient;
     private int mRunningTasks;
+
+    private LabelTask.TrackedTaskCallback mTaskCallback =
+            new LabelTask.TrackedTaskCallback() {
+        @Override
+        public void onTaskPreExecute(LabelClientRequest request) {
+            checkUiThread();
+            taskStarting(request);
+        }
+
+        @Override
+        public void onTaskPostExecute(LabelClientRequest request) {
+            checkUiThread();
+            taskEnding(request);
+        }
+    };
+
+    private DataConsistencyCheckRequest.OnDataConsistencyCheckCallback
+            mDataConsistencyCheckCallback =
+            new DataConsistencyCheckRequest.OnDataConsistencyCheckCallback() {
+        @Override
+        public void onConsistencyCheckCompleted(List<Label> labelsToRemove) {
+            if (labelsToRemove == null || labelsToRemove.isEmpty()) {
+                return;
+            }
+
+            LogUtils.log(this, Log.VERBOSE, "Found %d labels to remove during consistency check",
+                    labelsToRemove.size());
+            for (Label l : labelsToRemove) {
+                removeLabel(l);
+            }
+        }
+    };
+
+    private OnLabelsInPackageChangeListener mLabelsInPackageChangeListener =
+            new OnLabelsInPackageChangeListener() {
+        @Override
+        public void onLabelsInPackageChanged(String packageName) {
+            sendCacheRefreshIntent(packageName);
+        }
+    };
 
     public CustomLabelManager(Context context) {
         mContext = context;
         mPackageManager = context.getPackageManager();
-        mLock = new Object();
-        mShouldShutdownClient = false;
-        mRunningTasks = 0;
         mClient = new LabelProviderClient(context, AUTHORITY);
         mContext.registerReceiver(mRefreshReceiver, REFRESH_INTENT_FILTER);
         mContext.registerReceiver(mLocaleChangedReceiver,
                 new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
         refreshCache();
+    }
+
+    private void checkUiThread() {
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            throw new IllegalStateException("run not on UI thread");
+        }
     }
 
     /**
@@ -143,7 +220,10 @@ public class CustomLabelManager {
             return;
         }
 
-        new DataConsistencyCheckTask().execute();
+        DataConsistencyCheckRequest request = new DataConsistencyCheckRequest(mClient, mContext,
+                mDataConsistencyCheckCallback);
+        LabelTask<List<Label>> task = new LabelTask<>(request, mTaskCallback);
+        task.execute();
     }
 
     /**
@@ -191,15 +271,15 @@ public class CustomLabelManager {
      * @param callback The {@link DirectLabelFetchRequest.OnLabelFetchedListener} to return the
      *                 label though
      */
-    public void getLabelForLabelIdFromDatabase(Long labelId,
+    public void getLabelForLabelIdFromDatabase(long labelId,
                                        DirectLabelFetchRequest.OnLabelFetchedListener callback) {
         if (!isInitialized()) {
             return;
         }
 
-        final DirectLabelFetchRequest request = new DirectLabelFetchRequest(labelId, callback);
-        final DirectLabelFetchTask task = new DirectLabelFetchTask();
-        task.execute(request);
+        DirectLabelFetchRequest request = new DirectLabelFetchRequest(mClient, labelId, callback);
+        LabelTask<Label> task = new LabelTask<>(request, mTaskCallback);
+        task.execute();
     }
 
     /**
@@ -217,21 +297,21 @@ public class CustomLabelManager {
             return;
         }
 
-        final PackageLabelsFetchRequest request = new PackageLabelsFetchRequest(
+        final PackageLabelsFetchRequest request = new PackageLabelsFetchRequest(mClient, mContext,
                 packageName, callback);
-        final PackageLabelsFetchTask task = new PackageLabelsFetchTask();
-        task.execute(request);
+        LabelTask<Map<String, Label>> task = new LabelTask<>(request, mTaskCallback);
+        task.execute();
     }
 
-    public void getAllLabelsFromDatabase(
-            AllLabelsFetchRequest.OnAllLabelsFetchedListener callback) {
+    public void getLabelsFromDatabase(
+            LabelsFetchRequest.OnLabelsFetchedListener callback) {
         if (!isInitialized()) {
             return;
         }
 
-        final AllLabelsFetchRequest request = new AllLabelsFetchRequest(callback);
-        final AllLabelsFetchTask task = new AllLabelsFetchTask();
-        task.execute(request);
+        final LabelsFetchRequest request = new LabelsFetchRequest(mClient, callback);
+        LabelTask<List<Label>> task = new LabelTask<>(request, mTaskCallback);
+        task.execute();
     }
 
     /**
@@ -276,7 +356,7 @@ public class CustomLabelManager {
             return;
         }
 
-        final String locale = Locale.getDefault().toString();
+        String locale = getDefaultLocale();
         final int version = packageInfo.versionCode;
         final long timestamp = System.currentTimeMillis();
         String signatureHash = "";
@@ -294,13 +374,12 @@ public class CustomLabelManager {
         }
 
         // For the current implementation, screenshots are disabled
-        final String screenshotPath = "";
-
-        final Label label = new Label(parsedId.first, signatureHash, parsedId.second, finalLabel,
-                locale, version, screenshotPath, timestamp);
-        final LabelAddRequest request = new LabelAddRequest(label, null);
-        final LabelAddTask task = new LabelAddTask();
-        task.execute(request);
+        Label label = new Label(parsedId.first, signatureHash, parsedId.second, finalLabel,
+                locale, version, "", timestamp);
+        LabelAddRequest request = new LabelAddRequest(mClient, label, SOURCE_TYPE_USER,
+                mLabelsInPackageChangeListener);
+        LabelTask<Label> task = new LabelTask<>(request, mTaskCallback);
+        task.execute();
     }
 
     /**
@@ -310,7 +389,6 @@ public class CustomLabelManager {
      * NOTE: This method relies on the id field of the {@link Label}s being
      * populated, so callers must obtain fully populated objects from
      * {@link #getLabelForViewIdFromCache(String)} or
-     * {@link #getLabelForLabelIdFromDatabase(Long, DirectLabelFetchRequest.OnLabelFetchedListener)}
      * in order to update them.
      *
      * @param labels The {@link Label}s to remove
@@ -335,9 +413,10 @@ public class CustomLabelManager {
                         "Attempted to update a label with an empty text value");
             }
 
-            final LabelUpdateRequest request = new LabelUpdateRequest(l, null);
-            final LabelUpdateTask task = new LabelUpdateTask();
-            task.execute(request);
+            LabelUpdateRequest request = new LabelUpdateRequest(mClient, l,
+                    mLabelsInPackageChangeListener);
+            LabelTask<Boolean> task = new LabelTask<>(request, mTaskCallback);
+            task.execute();
         }
     }
 
@@ -348,7 +427,6 @@ public class CustomLabelManager {
      * NOTE: This method relies on the id field of the {@link Label}s being
      * populated, so callers must obtain fully populated objects from
      * {@link #getLabelForViewIdFromCache(String)} or
-     * {@link #getLabelForLabelIdFromDatabase(Long, DirectLabelFetchRequest.OnLabelFetchedListener)}
      * in order to remove them.
      *
      * @param labels The {@link Label}s to remove
@@ -364,29 +442,79 @@ public class CustomLabelManager {
         }
 
         for (Label l : labels) {
-            final LabelRemoveRequest request = new LabelRemoveRequest(l, null);
-            final LabelRemoveTask task = new LabelRemoveTask();
-            task.execute(request);
+            LabelRemoveRequest request = new LabelRemoveRequest(mClient, l,
+                    mLabelsInPackageChangeListener);
+            LabelTask<Boolean> task = new LabelTask<>(request, mTaskCallback);
+            task.execute();
         }
+    }
+
+    public void importLabels(List<Label> labels, boolean overrideExistentLabels,
+                             final CustomLabelMigrationManager.OnLabelMigrationCallback callback) {
+        ImportLabelRequest request = new ImportLabelRequest(mClient, labels, overrideExistentLabels,
+                new ImportLabelRequest.OnImportLabelCallback() {
+                    @Override
+                    public void onLabelImported(int changedLabelsCount) {
+                        sendCacheRefreshIntent();
+                        if (callback != null) {
+                            callback.onLabelImported(changedLabelsCount);
+                        }
+                    }
+                });
+        LabelTask<Integer> task = new LabelTask<>(request, mTaskCallback);
+        task.execute();
+    }
+
+    public void hasImportedLabels(HasImportedLabelsRequest.OnHasImportedLabelsCompleteListener
+                                          listener) {
+        HasImportedLabelsRequest request = new HasImportedLabelsRequest(mClient, listener);
+        LabelTask<Boolean> task = new LabelTask<>(request, mTaskCallback);
+        task.execute();
+    }
+
+    public void revertImportedLabels(
+            final RevertImportedLabelsRequest.OnImportLabelsRevertedListener listener) {
+        RevertImportedLabelsRequest request = new RevertImportedLabelsRequest(mClient,
+                new RevertImportedLabelsRequest.OnImportLabelsRevertedListener() {
+            @Override
+            public void onImportLabelsReverted() {
+                sendCacheRefreshIntent();
+                if (listener != null) {
+                    listener.onImportLabelsReverted();
+                }
+            }
+        });
+        LabelTask<Boolean> task = new LabelTask<>(request, mTaskCallback);
+        task.execute();
     }
 
     /**
      * Invalidates and rebuilds the cache of labels managed by this class.
      */
     private void refreshCache() {
-        getAllLabelsFromDatabase(new AllLabelsFetchRequest.OnAllLabelsFetchedListener() {
+        getLabelsFromDatabase(new LabelsFetchRequest.OnLabelsFetchedListener() {
             @Override
-            public void onAllLabelsFetched(List<Label> results) {
+            public void onLabelsFetched(List<Label> results) {
                 mLabelCache.clear();
-                String currentLocale = Locale.getDefault().toString();
+                String currentLocale = getDefaultLocale();
                 for (Label newLabel : results) {
                     String locale = newLabel.getLocale();
-                    if (locale != null && locale.equals(currentLocale)) {
+                    if (locale != null && locale.startsWith(currentLocale)) {
                         mLabelCache.add(newLabel);
                     }
                 }
             }
         });
+    }
+
+    /**
+     * If there are no cached labels (possibly because CE storage was not yet available when the
+     * CustomLabelManager instance was constructed), refreshes the labels from the label provider.
+     */
+    public void ensureLabelsLoaded() {
+        if (mLabelCache.isEmpty()) {
+            refreshCache();
+        }
     }
 
     /**
@@ -438,6 +566,7 @@ public class CustomLabelManager {
      * @return {@code true} if client is ready, or {@code false} otherwise.
      */
     public boolean isInitialized() {
+        checkUiThread();
         return mClient.isInitialized();
     }
 
@@ -450,12 +579,11 @@ public class CustomLabelManager {
      * asynchronous operation completes.
      */
     private void maybeShutdownClient() {
-        synchronized (mLock) {
-            if ((mRunningTasks == 0) && mShouldShutdownClient) {
-                LogUtils.log(this, Log.VERBOSE,
-                        "All tasks completed and shutdown requested.  Releasing database.");
-                mClient.shutdown();
-            }
+        checkUiThread();
+        if ((mRunningTasks == 0) && mShouldShutdownClient) {
+            LogUtils.log(this, Log.VERBOSE,
+                    "All tasks completed and shutdown requested.  Releasing database.");
+            mClient.shutdown();
         }
     }
 
@@ -463,13 +591,11 @@ public class CustomLabelManager {
      * Updates the internals of the manager to track this task, keeping database
      * resources from being shutdown until all tasks complete.
      *
-     * @param task The task that's starting
+     * @param request The task that's starting
      */
-    private void taskStarting(TrackedAsyncTask<?, ?, ?> task) {
-        synchronized (mLock) {
-            LogUtils.log(this, Log.VERBOSE, "Task %s starting.", task);
-            mRunningTasks++;
-        }
+    private void taskStarting(LabelClientRequest request) {
+        LogUtils.log(this, Log.VERBOSE, "Task %s starting.", request);
+        mRunningTasks++;
     }
 
     /**
@@ -477,40 +603,17 @@ public class CustomLabelManager {
      * dispose of database resources if a shutdown requested by this classes's
      * client was requested prior to {@code task}'s completion.
      *
-     * @param task The task that is ending
+     * @param request The request that is ending
      */
-    private void taskEnding(TrackedAsyncTask<?, ?, ?> task) {
-        synchronized (mLock) {
-            LogUtils.log(this, Log.VERBOSE, "Task %s ending.", task);
-            mRunningTasks--;
-        }
-
+    private void taskEnding(LabelClientRequest request) {
+        LogUtils.log(this, Log.VERBOSE, "Task %s ending.", request);
+        mRunningTasks--;
         maybeShutdownClient();
     }
 
-    private static String computePackageSignatureHash(PackageInfo packageInfo) {
-        String signatureHash = "";
-
-        final Signature[] sigs = packageInfo.signatures;
-        try {
-            final MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-            for (Signature s : sigs) {
-                messageDigest.update(s.toByteArray());
-            }
-
-            signatureHash = StringBuilderUtils.bytesToHexString(messageDigest.digest());
-        } catch (NoSuchAlgorithmException e) {
-            LogUtils.log(
-                    CustomLabelManager.class, Log.WARN, "Unable to create SHA-1 MessageDigest");
-        }
-
-        return signatureHash;
-    }
-
     private void sendCacheRefreshIntent(String... packageNames) {
-        final Intent refreshIntent = new Intent(
-                LabelOperationUtils.ACTION_REFRESH_LABEL_CACHE);
-        refreshIntent.putExtra(LabelOperationUtils.EXTRA_STRING_ARRAY_PACKAGES, packageNames);
+        final Intent refreshIntent = new Intent(ACTION_REFRESH_LABEL_CACHE);
+        refreshIntent.putExtra(EXTRA_STRING_ARRAY_PACKAGES, packageNames);
         mContext.sendBroadcast(refreshIntent);
     }
 
@@ -529,308 +632,7 @@ public class CustomLabelManager {
         }
     }
 
-    /**
-     * An AsyncTask intermediate that tracks task completion for purposes of
-     * releasing resources within this manager.
-     */
-    private abstract class TrackedAsyncTask<Params, Progress, Result>
-            extends AsyncTask<Params, Progress, Result> {
-
-        @Override
-        protected void onPreExecute() {
-            taskStarting(this);
-            super.onPreExecute();
-        }
-
-        /**
-         * See {@link AsyncTask#onPostExecute}.
-         * <p>
-         * If overridden in a child class, this method should be invoked after
-         * any processing by the child is complete. Failing to do so, or doing
-         * so out of order may result in failure to release or premature release
-         * of resources.
-         */
-        @Override
-        protected void onPostExecute(Result result) {
-            taskEnding(this);
-            super.onPostExecute(result);
-        }
-
-        @Override
-        @SuppressWarnings("unchecked")
-        protected abstract Result doInBackground(Params... params);
-
-    }
-
-
-    private class DirectLabelFetchTask
-            extends TrackedAsyncTask<DirectLabelFetchRequest, Void, Label> {
-
-        private DirectLabelFetchRequest mRequest;
-
-        @Override
-        protected Label doInBackground(DirectLabelFetchRequest... requests) {
-            if (requests == null || requests.length != 1) {
-                throw new IllegalArgumentException(
-                        "Direct label fetch task supports only single requests.");
-            }
-
-            mRequest = requests[0];
-            LogUtils.log(this, Log.VERBOSE, "Spawning new DirectLabelFetchTask(%d)", hashCode());
-
-            final long labelId = mRequest.getLabelId();
-            return mClient.getLabelById(labelId);
-        }
-
-        @Override
-        protected void onPostExecute(Label result) {
-            LogUtils.log(this, Log.VERBOSE, "DirectLabelFetchTask(%d) complete.  Obtained label %s",
-                    hashCode(), result);
-
-            mRequest.invokeCallback(result);
-            super.onPostExecute(result);
-        }
-    }
-
-    private class AllLabelsFetchTask
-            extends TrackedAsyncTask<AllLabelsFetchRequest, Void, List<Label>> {
-
-        private AllLabelsFetchRequest mRequest;
-
-        @Override
-        protected List<Label> doInBackground(AllLabelsFetchRequest... requests) {
-            if (requests == null || requests.length != 1) {
-                throw new IllegalArgumentException(
-                        "Fetch all labels task supports only single requests.");
-            }
-
-            mRequest = requests[0];
-
-            LogUtils.log(this, Log.VERBOSE, "Spawning new AllLabelsFetchTask(%d) for %s",
-                    hashCode(), mRequest);
-
-            return mClient.getAllLabels();
-        }
-
-        @Override
-        protected void onPostExecute(List<Label> result) {
-            LogUtils.log(this, Log.VERBOSE, "AllLabelsFetchTask(%d) complete", hashCode());
-            mRequest.invokeCallback(result);
-            super.onPostExecute(result);
-        }
-    }
-
-    private class PackageLabelsFetchTask
-            extends TrackedAsyncTask<PackageLabelsFetchRequest, Void, Map<String, Label>> {
-
-        private PackageLabelsFetchRequest mRequest;
-
-        @Override
-        protected Map<String, Label> doInBackground(PackageLabelsFetchRequest... requests) {
-            if (requests == null || requests.length != 1) {
-                throw new IllegalArgumentException(
-                        "Fetch labels for package task supports only single package lookups.");
-            }
-
-            mRequest = requests[0];
-
-            LogUtils.log(this, Log.VERBOSE, "Spawning new PackageLabelsFetchTask(%d) for %s",
-                    hashCode(), mRequest);
-
-            int versionCode = Integer.MAX_VALUE;
-            try {
-                final PackageInfo packageInfo = mPackageManager.getPackageInfo(
-                        mRequest.getPackageName(), 0);
-                versionCode = packageInfo.versionCode;
-            } catch (NameNotFoundException e) {
-                LogUtils.log(this, Log.WARN,
-                        "Unable to resolve package info during prefetch for %s",
-                        mRequest.getPackageName());
-            }
-
-            return mClient.getLabelsForPackage(
-                    mRequest.getPackageName(), Locale.getDefault().toString(), versionCode);
-        }
-
-        @Override
-        protected void onPostExecute(Map<String, Label> result) {
-            LogUtils.log(this, Log.VERBOSE, "LabelPrefetchTask(%d) complete", hashCode());
-            mRequest.invokeCallback(result);
-            super.onPostExecute(result);
-        }
-    }
-
-    private class LabelAddTask extends TrackedAsyncTask<LabelAddRequest, Void, Label> {
-
-        private LabelAddRequest mRequest;
-
-        @Override
-        protected Label doInBackground(LabelAddRequest... requests) {
-            if (requests == null || requests.length != 1) {
-                throw new IllegalArgumentException(
-                        "Add task supports only single Label additions.");
-            }
-
-            mRequest = requests[0];
-            LogUtils.log(this, Log.VERBOSE, "Spawning new LabelAddTask(%d) for %s", hashCode(),
-                    mRequest.getLabel());
-
-            return mClient.insertLabel(mRequest.getLabel());
-        }
-
-        @Override
-        protected void onPostExecute(Label result) {
-            LogUtils.log(this, Log.VERBOSE, "LabelAddTask(%d) complete, stored as %s", hashCode(),
-                    result);
-            mRequest.invokeCallback(result);
-
-            if (result != null) {
-                sendCacheRefreshIntent(result.getPackageName());
-            }
-
-            super.onPostExecute(result);
-        }
-    }
-
-    private class LabelUpdateTask extends TrackedAsyncTask<LabelUpdateRequest, Void, Boolean> {
-
-        private LabelUpdateRequest mRequest;
-
-        @Override
-        protected Boolean doInBackground(LabelUpdateRequest... requests) {
-            if (requests == null || requests.length != 1) {
-                throw new IllegalArgumentException(
-                        "Update task supports only single Label updates.");
-            }
-
-            mRequest = requests[0];
-
-            LogUtils.log(this, Log.VERBOSE, "Spawning new LabelUpdateTask(%d) for label: %s",
-                    hashCode(), mRequest.getLabel());
-
-            Label label = mRequest.getLabel();
-            return label != null && label.getId() != Label.NO_ID && mClient.updateLabel(label);
-
-        }
-
-        @Override
-        protected void onPostExecute(Boolean result) {
-            LogUtils.log(this, Log.VERBOSE, "LabelUpdateTask(%d) complete. Result: %s",
-                    hashCode(), result);
-
-            if (result) {
-                sendCacheRefreshIntent(mRequest.getLabel().getPackageName());
-            }
-
-            super.onPostExecute(result);
-        }
-    }
-
-    private class LabelRemoveTask extends TrackedAsyncTask<LabelRemoveRequest, Void, Boolean> {
-
-        private LabelRemoveRequest mRequest;
-
-        @Override
-        protected Boolean doInBackground(LabelRemoveRequest... requests) {
-            if (requests == null || requests.length != 1) {
-                throw new IllegalArgumentException(
-                        "Remove task supports only single Label removals.");
-            }
-
-            mRequest = requests[0];
-
-            LogUtils.log(this, Log.VERBOSE, "Spawning new LabelRemoveTask(%d) for label: %s",
-                    hashCode(), mRequest.getLabel());
-
-            final Label label = mRequest.getLabel();
-            return label != null && label.getId() != Label.NO_ID && mClient.deleteLabel(label);
-
-        }
-
-        @Override
-        protected void onPostExecute(Boolean result) {
-            LogUtils.log(this, Log.VERBOSE, "LabelRemoveTask(%d) complete.  Removed: %s.",
-                    hashCode(), result);
-
-            if (result) {
-                sendCacheRefreshIntent(mRequest.getLabel().getPackageName());
-            }
-
-            super.onPostExecute(result);
-        }
-    }
-
-    private class DataConsistencyCheckTask extends TrackedAsyncTask<Void, Void, List<Label>> {
-
-        @Override
-        protected List<Label> doInBackground(Void... params) {
-            final List<Label> allLabels = mClient.getAllLabels();
-
-            if ((allLabels == null) || allLabels.isEmpty()) {
-                return null;
-            }
-
-            final PackageManager pm = mContext.getPackageManager();
-
-            final List<Label> candidates = new ArrayList<>(allLabels);
-            ListIterator<Label> i = candidates.listIterator();
-
-            // Iterate through the labels database, and prune labels that belong
-            // to valid packages.
-            while (i.hasNext()) {
-                final Label l = i.next();
-
-                // Ensure the label has a matching installed package.
-                final String packageName = l.getPackageName();
-                PackageInfo packageInfo;
-                try {
-                    packageInfo = pm.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
-                } catch (NameNotFoundException e) {
-                    // If there's no installed package, leave the label in the
-                    // list for removal.
-                    LogUtils.log(CustomLabelManager.class, Log.VERBOSE,
-                            "Consistency check removing label for unknown package %s.",
-                            packageName);
-                    continue;
-                }
-
-                // Ensure the signature hash of the application matches
-                // the hash of the package when the label was stored.
-                final String expectedHash = l.getPackageSignature();
-                final String actualHash = computePackageSignatureHash(packageInfo);
-                if (TextUtils.isEmpty(expectedHash) || TextUtils.isEmpty(actualHash)
-                        || !expectedHash.equals(actualHash)) {
-                    // If the expected or actual signature hashes aren't
-                    // valid, or they don't match, leave the label in the list
-                    // for removal.
-                    LogUtils.log(CustomLabelManager.class, Log.WARN,
-                            "Consistency check removing label due to signature mismatch " +
-                                    "for package %s.",
-                            packageName);
-                    continue;
-                }
-
-                // If the label has passed all consistency checks, prune the
-                // label from the list of potentials for removal.
-                i.remove();
-            }
-
-            return candidates; // now containing only labels for removal
-        }
-
-        @Override
-        protected void onPostExecute(List<Label> labelsToRemove) {
-            if (labelsToRemove == null || labelsToRemove.isEmpty()) {
-                return;
-            }
-
-            LogUtils.log(this, Log.VERBOSE, "Found %d labels to remove during consistency check",
-                    labelsToRemove.size());
-            for (Label l : labelsToRemove) {
-                removeLabel(l);
-            }
-
-            super.onPostExecute(labelsToRemove);
-        }
+    public interface OnLabelsInPackageChangeListener {
+        public void onLabelsInPackageChanged(String packageName);
     }
 }

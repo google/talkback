@@ -25,7 +25,7 @@ import java.util.HashMap;
  * This class manages efficient loading of classes.
  */
 public class ClassLoadingCache {
-    // TODO(KM): Use a LRU map instead?
+    // TODO: Use a LRU map instead?
     private static final HashMap<String, Class<?>> mCachedClasses = new HashMap<>();
 
     /**

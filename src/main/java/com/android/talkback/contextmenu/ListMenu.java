@@ -51,7 +51,9 @@ public class ListMenu extends ContextMenu {
             @Override
             public ContextMenuItem createMenuItem(Context context, int groupId, int itemId,
                                                   int order, CharSequence title) {
-                return new ListMenuItem(context, groupId, itemId, order, title);
+                ListMenuItem item = new ListMenuItem(context, groupId, itemId, order, title);
+                item.setEnabled(true);
+                return item;
             }
         };
     }

@@ -17,17 +17,12 @@
 package com.android.talkback.menurules;
 
 import android.view.Menu;
-import com.android.talkback.FeedbackItem;
-import com.android.talkback.R;
-
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import com.android.talkback.SpeechController;
-import com.google.android.marvin.talkback.TalkBackService;
+
 import com.android.talkback.contextmenu.ContextMenu;
 import com.android.talkback.contextmenu.ContextMenuItem;
 import com.android.talkback.contextmenu.ContextSubMenu;
+import com.google.android.marvin.talkback.TalkBackService;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -36,9 +31,9 @@ import java.util.List;
 /**
  * Rule-based processor for adding items to the local breakout menu.
  */
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class NodeMenuRuleProcessor {
     private static final LinkedList<NodeMenuRule> mRules = new LinkedList<>();
+    private static final NodeMenuRule mRuleCustomAction;
 
     static {
         // Rules are matched in the order they are added, but any rule that
@@ -48,15 +43,16 @@ public class NodeMenuRuleProcessor {
         mRules.add(new RuleViewPager());
         mRules.add(new RuleGranularity());
         mRules.add(new RuleUnlabeledImage());
-        mRules.add(new RuleCustomAction());
+        mRules.add(new RuleSuggestions());
+        mRules.add(new RuleSeekBar());
+        mRuleCustomAction = new RuleCustomAction();
+        mRules.add(mRuleCustomAction);
     }
 
     private final TalkBackService mService;
-    private final SpeechController mSpeechController;
 
     public NodeMenuRuleProcessor(TalkBackService service) {
         mService = service;
-        mSpeechController = service.getSpeechController();
     }
 
     /**
@@ -107,18 +103,38 @@ public class NodeMenuRuleProcessor {
                 List<ContextMenuItem> items = menuItems.get(i);
                 CharSequence subMenuName = subMenuTitles.get(i);
                 ContextSubMenu subMenu = menu.addSubMenu(0, 0, 0, subMenuName);
+                subMenu.getItem().setEnabled(true);
                 for (ContextMenuItem menuItem : items) {
                     subMenu.add(menuItem);
                 }
             }
         }
 
-        if (menu.size() == 0) {
-            mSpeechController.speak(mService.getString(R.string.title_local_breakout_no_items),
-                    SpeechController.QUEUE_MODE_FLUSH_ALL, FeedbackItem.FLAG_NO_HISTORY, null);
+        return menu.size() != 0;
+    }
+
+    public boolean prepareCustomActionMenuForNode(ContextMenu menu, AccessibilityNodeInfoCompat node) {
+        if (node == null) {
             return false;
         }
 
-        return true;
+        // Always reset the menu since it is based on the current cursor.
+        menu.clear();
+
+        if (!mRuleCustomAction.accept(mService, node)) {
+            return false;
+        }
+
+        List<ContextMenuItem> menuItems = mRuleCustomAction.getMenuItemsForNode(mService,
+                menu.getMenuItemBuilder(), node);
+        if (menuItems == null || menuItems.size() == 0) {
+            return false;
+        }
+
+        for (ContextMenuItem menuItem : menuItems) {
+            menu.add(menuItem);
+        }
+
+        return menu.size() != 0;
     }
 }

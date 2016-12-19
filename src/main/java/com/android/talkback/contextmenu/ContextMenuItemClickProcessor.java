@@ -17,12 +17,14 @@
 package com.android.talkback.contextmenu;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.MenuItem;
 import com.android.talkback.R;
 import com.android.talkback.TalkBackPreferencesActivity;
+import com.android.utils.SharedPreferencesUtils;
 import com.google.android.marvin.talkback.TalkBackService;
-import com.android.talkback.tutorial.ContextMenuMonitor;
 
 public class ContextMenuItemClickProcessor {
 
@@ -47,6 +49,9 @@ public class ContextMenuItemClickProcessor {
             mService.getSpeechController().repeatLastUtterance();
         } else if (itemId == R.id.spell_last_utterance) {
             mService.getSpeechController().spellLastUtterance();
+        } else if (itemId == R.id.copy_last_utterance_to_clipboard) {
+            mService.getSpeechController().copyLastUtteranceToClipboard(
+                    mService.getSpeechController().getLastUtterance());
         } else if (itemId == R.id.pause_feedback) {
             mService.requestSuspendTalkBack();
         } else if (itemId == R.id.talkback_settings) {
@@ -56,18 +61,17 @@ public class ContextMenuItemClickProcessor {
             mService.startActivity(settingsIntent);
         } else if (itemId == R.id.tts_settings) {
             Intent intent = new Intent();
-            intent.setAction("com.android.settings.TTS_SETTINGS");
+            intent.setAction(TalkBackService.INTENT_TTS_SETTINGS);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mService.startActivity(intent);
+        } else if (itemId == R.id.enable_dimming) {
+            mService.getDimScreenController().showDimScreenDialog();
+        } else if (itemId == R.id.disable_dimming) {
+            mService.getDimScreenController().disableDimming();
         } else {
             // The menu item was not recognized.
             return false;
         }
-
-        // Broadcast a notification that a menu item was clicked.
-        Intent intent = new Intent(ContextMenuMonitor.ACTION_CONTEXT_MENU_ITEM_CLICKED);
-        intent.putExtra(ContextMenuMonitor.EXTRA_ITEM_ID, itemId);
-        LocalBroadcastManager.getInstance(mService).sendBroadcast(intent);
 
         return true;
     }

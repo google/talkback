@@ -22,7 +22,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.support.annotation.IntDef;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
@@ -31,8 +31,9 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
 import android.view.accessibility.AccessibilityNodeInfo;
+
+import com.android.talkback.EditTextActionHistory;
 import com.android.talkback.FeedbackItem;
-import com.android.talkback.PasteHistory;
 import com.android.talkback.R;
 import com.android.talkback.SpeechCleanupUtils;
 import com.android.talkback.SpeechController;
@@ -44,6 +45,8 @@ import com.android.utils.LogUtils;
 import com.android.utils.SharedPreferencesUtils;
 import com.android.utils.compat.provider.SettingsCompatUtils;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 
 /**
@@ -206,7 +209,7 @@ public final class TextFormatters {
                                  TalkBackService context, Utterance utterance) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 final AccessibilityNodeInfo source = event.getSource();
-                if(source != null && !TextUtils.isEmpty(source.getError())) {
+                if (source != null && !TextUtils.isEmpty(source.getError())) {
                     utterance.addSpoken(
                             context.getString(R.string.template_text_error,
                                     source.getError().toString()));
@@ -220,7 +223,7 @@ public final class TextFormatters {
                 return true;
             }
 
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            final SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
             final Resources res = context.getResources();
             final int keyboardPref = SharedPreferencesUtils.getIntFromStringPref(prefs, res,
                     R.string.pref_keyboard_echo_key, R.string.pref_keyboard_echo_default);
@@ -252,11 +255,24 @@ public final class TextFormatters {
                 return REJECTED;
             }
 
-            // If multi-character text was cleared, stop now.
+            final boolean isCutAction = EditTextActionHistory.getInstance()
+                    .hasCutActionAtTime(event.getEventTime());
+            final boolean isPasteAction = EditTextActionHistory.getInstance()
+                    .hasPasteActionAtTime(event.getEventTime());
+
+            // If no text was added but all the previous text was removed,
+            // we should notify the user that the text was cleared.
+            // Besides, if this event is triggered by a cut action, we should notify the user about
+            // the cut action.
             final boolean wasCleared = event.getRemovedCount() > 1
                     && event.getAddedCount() == 0
                     && event.getBeforeText().length() == event.getRemovedCount();
             if (wasCleared) {
+                if (isCutAction) {
+                    utterance.addSpoken(context.getString(
+                            R.string.template_text_cut,
+                            SpeechCleanupUtils.cleanUp(context, event.getBeforeText())));
+                }
                 utterance.addSpoken(context.getString(R.string.value_text_cleared));
                 return REMOVED;
             }
@@ -304,7 +320,13 @@ public final class TextFormatters {
                     // Do nothing.
                 } else if (TextUtils.isEmpty(cleanRemovedText)
                         || TextUtils.equals(cleanAddedText, cleanRemovedText)) {
-                    utterance.addSpoken(cleanAddedText);
+                    if (isPasteAction) {
+                        utterance.addSpoken(context.getString(
+                                R.string.template_text_pasted,
+                                cleanAddedText));
+                    } else {
+                        utterance.addSpoken(cleanAddedText);
+                    }
                 } else if (!(context.getResources().getBoolean(R.bool.supports_text_replacement))) {
                     // The method of character substitution in some languages is
                     // identical to text replacement events. As such, we only
@@ -312,13 +334,15 @@ public final class TextFormatters {
                     // these languages.
                     utterance.addSpoken(cleanAddedText);
                 } else {
-                    String replacedText = context.getString(
-                            R.string.template_text_replaced, cleanAddedText, cleanRemovedText);
+                    // The addedText and the removedText are both not empty. Then we should
+                    // announce it as a text replacement.
+                    String replacedText = context.getString(R.string.template_text_replaced,
+                            cleanAddedText, cleanRemovedText);
                     utterance.addSpoken(replacedText);
 
                     // If this text change event probably wasn't the result of a
                     // paste action, spell the added text aloud.
-                    if (!PasteHistory.getInstance().hasActionAtTime(event.getEventTime())) {
+                    if (!isPasteAction) {
                         appendSpellingToUtterance(context, utterance, addedText);
                     }
 
@@ -328,8 +352,10 @@ public final class TextFormatters {
             }
 
             if (!TextUtils.isEmpty(cleanRemovedText)) {
+                int resId = isCutAction ? R.string.template_text_cut
+                        : R.string.template_text_removed;
                 // Text was only removed.
-                utterance.addSpoken(context.getString(R.string.template_text_removed,
+                utterance.addSpoken(context.getString(resId,
                         cleanRemovedText));
                 return REMOVED;
             }
@@ -514,8 +540,31 @@ public final class TextFormatters {
      */
     public static final class SelectedTextFormatter
             implements EventSpeechRule.AccessibilityEventFormatter {
+        @IntDef({UNPARSED_ACTION, FOCUS_EDIT_TEXT, MOVE_CURSOR_TO_BEGINNING, MOVE_CURSOR_TO_END,
+                MOVE_CURSOR_WITHOUT_SELECTION_MODE, MOVE_CURSOR_WITHIN_SELECTION_MODE, CUT, PASTE,
+                SELECT_ALL, MOVE_CURSOR_AND_SELECTION_CLEARED, TEXT_TRAVERSAL})
+        @Retention(RetentionPolicy.SOURCE)
+        public @interface TextAction {
+        }
+
+        private static final int UNPARSED_ACTION = -1;
+        private static final int FOCUS_EDIT_TEXT = 0;
+        private static final int MOVE_CURSOR_TO_BEGINNING = 1;
+        private static final int MOVE_CURSOR_TO_END = 2;
+        private static final int MOVE_CURSOR_WITHOUT_SELECTION_MODE = 3;
+        private static final int MOVE_CURSOR_WITHIN_SELECTION_MODE = 4;
+        private static final int CUT = 5;
+        private static final int PASTE = 6;
+        private static final int SELECT_ALL = 7;
+        private static final int MOVE_CURSOR_AND_SELECTION_CLEARED = 8;
+        private static final int TEXT_TRAVERSAL = 9;
+
+        private static final int NO_INDEX = -1;
 
         private AccessibilityEvent mLastProcessedEvent;
+        private int mLastFromIndex = NO_INDEX;
+        private int mLastToIndex = NO_INDEX;
+        private AccessibilityNodeInfo mLastNode = null;
 
         @Override
         public boolean format(AccessibilityEvent event, TalkBackService context,
@@ -537,7 +586,7 @@ public final class TextFormatters {
 
         private boolean formatInternal(AccessibilityEvent event, TalkBackService context,
                                        Utterance utterance) {
-            if (isProcessedEvent(event) || shouldDropEvent(event)) {
+            if (shouldSkipCursorMovementEvent(event) || shouldDropEvent(event)) {
                 return false;
             }
 
@@ -553,52 +602,194 @@ public final class TextFormatters {
                 text = getEventText(event);
             }
 
-            final int count = event.getItemCount();
-            if (event.isPassword() && !shouldSpeakPasswords(context)) {
-                return formatPassword(event, context, utterance);
-            }
-
             // Don't provide selection feedback when there's no text. We have to
             // check the item count separately to avoid speaking hint text,
             // which always has an item count of zero even though the event text
-            // is not empty.
-            if (TextUtils.isEmpty(text) || (count == 0)) {
+            // is not empty. Note that, on <= M, password text is empty but the count is nonzero.
+            final int count = event.getItemCount();
+            if ((TextUtils.isEmpty(text) && !event.isPassword()) || (count == 0)) {
                 return false;
             }
 
-            int endIndex = event.getToIndex();
-            int begIndex = event.getFromIndex();
+            TextCursorController textCursorController = context.getTextCursorController();
 
-            // if it is TYPE_VIEW_TEXT_SELECTION_CHANGED event that represent cursor movement
-            // without selection get begining and end indexes from TextCursorController
-            if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED &&
-                    endIndex == begIndex) {
-                TalkBackService service = TalkBackService.getInstance();
-                if (service == null) {
+            int toIndex = event.getToIndex();
+            int fromIndex = event.getFromIndex();
+            int previousCursorPos = textCursorController.getPreviousCursorPosition();
+            int currentCursorPos = textCursorController.getCurrentCursorPosition();
+            int textLength = text.length();
+            boolean isSelectionModeActive = context.getCursorController().isSelectionModeActive();
+
+            final @TextAction int action = parseAction(event.getSource(), event.getEventType(),
+                    event.getEventTime(),
+                    fromIndex, toIndex,
+                    mLastFromIndex, mLastToIndex,
+                    previousCursorPos, currentCursorPos,
+                    textLength, isSelectionModeActive);
+
+            switch (action) {
+                case FOCUS_EDIT_TEXT:
+                    mLastFromIndex = NO_INDEX;
+                    mLastToIndex = NO_INDEX;
+                    if (mLastNode != null) {
+                        mLastNode.recycle();
+                    }
+                    mLastNode = event.getSource();
+                    break;
+                case MOVE_CURSOR_TO_BEGINNING:
+                case MOVE_CURSOR_TO_END:
+                    // The hints of these two actions are announced in menurules.RuleEditText.
+                    break;
+                case MOVE_CURSOR_WITHOUT_SELECTION_MODE:
+                    processEvent(event, utterance, SpeechCleanupUtils.cleanUp(context,
+                            getSubsequence(context, event, text,
+                                    Math.min(mLastToIndex, toIndex),
+                                    Math.max(mLastToIndex, toIndex))));
+                    if (toIndex == 0) {
+                        utterance.addSpoken(context.getString(
+                                R.string.notification_type_beginning_of_field));
+                    } else if (toIndex == event.getItemCount()) {
+                        utterance.addSpoken(context.getString(
+                                R.string.notification_type_end_of_field));
+                    }
+                    break;
+                case MOVE_CURSOR_WITHIN_SELECTION_MODE:
+                    processEvent(event, utterance, null);
+                    CharSequence unselectedText = getUnselectedText(context, event, text, fromIndex,
+                            toIndex, mLastToIndex);
+                    if (!TextUtils.isEmpty(unselectedText)) {
+                        utterance.addSpoken(context.getString(
+                                R.string.template_text_unselected,
+                                SpeechCleanupUtils.cleanUp(context, unselectedText)));
+                    }
+                    CharSequence selectedText = getSelectedText(context, event, text, fromIndex,
+                            toIndex, mLastToIndex);
+                    if (!TextUtils.isEmpty(selectedText)) {
+                        utterance.addSpoken(context.getString(
+                                R.string.template_text_selected,
+                                SpeechCleanupUtils.cleanUp(context, selectedText)));
+                    }
+                    break;
+                case MOVE_CURSOR_AND_SELECTION_CLEARED:
+                    utterance.addSpoken(context.getString(
+                            R.string.notification_type_selection_cleared));
+                    if (toIndex == 0) {
+                        utterance.addSpoken(context.getString(
+                                R.string.notification_type_beginning_of_field));
+                    } else if (toIndex == event.getItemCount()) {
+                        utterance.addSpoken(context.getString(
+                                R.string.notification_type_end_of_field));
+                    }
+                    break;
+                case TEXT_TRAVERSAL:
+                    if (event.getMovementGranularity() == AccessibilityNodeInfoCompat
+                            .MOVEMENT_GRANULARITY_CHARACTER) {
+                        utterance.addSpoken(String.valueOf(text.charAt(
+                                Math.min(fromIndex, toIndex))));
+                    } else {
+                        utterance.addSpoken(text.subSequence(
+                                Math.min(fromIndex, toIndex),
+                                Math.max(fromIndex, toIndex)
+                        ));
+                    }
+                    break;
+                case SELECT_ALL:
+                    // Select all result is announced in menurules.RuleEditText
+                    // In some cases if all the text has already been selected, the "Select All"
+                    // action will not trigger SelectionChangedEvent. So we should not handle the
+                    // announcement here.
+                case CUT:
+                case PASTE:
+                    // Cut and Paste results are announced in ChangedTextFormatter
+                    break;
+                default:
+                    // The default action type is UNPARSED_ACTION. This kind of events cannot be
+                    // handled, so we will stop the its propagation and return false.
                     return false;
-                }
-
-                TextCursorController controller = service.getTextCursorController();
-                begIndex = controller.getPreviousCursorPosition();
-                endIndex = controller.getCurrentCursorPosition();
+            }
+            if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED) {
+                mLastFromIndex = fromIndex;
+                mLastToIndex = toIndex;
             }
 
-            if (begIndex > endIndex) {
-                int temp = begIndex;
-                begIndex = endIndex;
-                endIndex = temp;
-            }
-
-            if (areInvalidIndices(text, begIndex, endIndex)) {
-                return false;
-            }
-
-            processEvent(event, utterance, SpeechCleanupUtils.cleanUp(context,
-                    text.subSequence(begIndex, endIndex)));
             return true;
         }
 
-        private boolean isProcessedEvent(AccessibilityEvent event) {
+        private CharSequence getUnselectedText(TalkBackService context, AccessibilityEvent event,
+                                               CharSequence text, int fromIndex, int toIndex,
+                                               int lastToIndex) {
+            if (fromIndex < lastToIndex && toIndex < lastToIndex) {
+                return getSubsequence(context, event, text, Math.max(fromIndex, toIndex),
+                        lastToIndex);
+            } else if (fromIndex > lastToIndex && toIndex > lastToIndex) {
+                return getSubsequence(context, event, text, lastToIndex,
+                        Math.min(fromIndex, toIndex));
+            } else {
+                return null;
+            }
+        }
+
+        private CharSequence getSelectedText(TalkBackService context, AccessibilityEvent event,
+                                             CharSequence text, int fromIndex, int toIndex,
+                                             int lastToIndex) {
+            if (fromIndex < toIndex && lastToIndex < toIndex) {
+                return getSubsequence(context, event, text, Math.max(fromIndex, lastToIndex),
+                        toIndex);
+            } else if (fromIndex > toIndex && lastToIndex > toIndex) {
+                return getSubsequence(context, event, text, toIndex,
+                        Math.min(fromIndex, lastToIndex));
+            } else {
+                return null;
+            }
+        }
+
+        private @TextAction int parseAction(AccessibilityNodeInfo node, int eventType,
+                                            long eventTime,
+                                            int fromIndex, int toIndex,
+                                            int lastFromIndex, int lastToIndex,
+                                            int previousCursorPos, int currentCursorPos,
+                                            int textLength, boolean isSelectionModeActive) {
+            if (eventType == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED) {
+                if (!node.equals(mLastNode)) {
+                    return FOCUS_EDIT_TEXT;
+                } else if (EditTextActionHistory.getInstance().hasCutActionAtTime(eventTime)
+                        && fromIndex == toIndex) {
+                    return CUT;
+                } else if (EditTextActionHistory.getInstance().hasPasteActionAtTime(eventTime)) {
+                    return PASTE;
+                } else if (fromIndex == 0 && toIndex == 0
+                        && previousCursorPos == 0 && currentCursorPos == 0) {
+                    return MOVE_CURSOR_TO_BEGINNING;
+                } else if (fromIndex == textLength && toIndex == textLength
+                        && previousCursorPos == textLength && currentCursorPos == textLength) {
+                    return MOVE_CURSOR_TO_END;
+                } else if (fromIndex == 0
+                        && toIndex == textLength
+                        && EditTextActionHistory.getInstance()
+                        .hasSelectAllActionAtTime(eventTime)) {
+                    return SELECT_ALL;
+                } else if (fromIndex == toIndex && lastFromIndex == lastToIndex
+                        && toIndex == currentCursorPos && lastToIndex == previousCursorPos) {
+                    return MOVE_CURSOR_WITHOUT_SELECTION_MODE;
+                } else if (isSelectionModeActive
+                        && lastFromIndex == fromIndex && lastToIndex == previousCursorPos
+                        && toIndex == currentCursorPos) {
+                    return MOVE_CURSOR_WITHIN_SELECTION_MODE;
+                } else if (lastFromIndex != lastToIndex && fromIndex == toIndex) {
+                    return MOVE_CURSOR_AND_SELECTION_CLEARED;
+                }
+            } else if (eventType == AccessibilityEvent
+                    .TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY) {
+                if (fromIndex >= 0 && fromIndex <= textLength
+                        && toIndex >= 0 && toIndex <= textLength) {
+                    return TEXT_TRAVERSAL;
+                }
+            }
+
+            return UNPARSED_ACTION;
+        }
+
+        private boolean shouldSkipCursorMovementEvent(AccessibilityEvent event) {
             if (mLastProcessedEvent == null) {
                 return false;
             }
@@ -616,45 +807,26 @@ public final class TextFormatters {
                 return false;
             }
 
-            return (event.getToIndex() == mLastProcessedEvent.getToIndex()) ||
-                    (event.getFromIndex() == mLastProcessedEvent.getFromIndex());
+            if (mLastProcessedEvent.getEventType()
+                    == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED
+                    && event.getEventType()
+                    == AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY) {
+                return true;
+            }
+
+            return false;
         }
 
         private void processEvent(AccessibilityEvent event, Utterance utterance,
                                   CharSequence text) {
-            utterance.addSpoken(text);
+            if (text != null) {
+                utterance.addSpoken(text);
+            }
             if (mLastProcessedEvent != null) {
                 mLastProcessedEvent.recycle();
             }
 
             mLastProcessedEvent = AccessibilityEvent.obtain(event);
-        }
-
-        private boolean isCharacterTraversal(AccessibilityEvent event) {
-            if (event.getEventType() ==
-                    AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY &&
-                    event.getMovementGranularity()
-                            == AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_CHARACTER) {
-                return true;
-            }
-
-            TalkBackService service = TalkBackService.getInstance();
-            if (service == null) {
-                return false;
-            }
-
-            TextCursorController textCursorController = service.getTextCursorController();
-            int currentIndex = textCursorController.getCurrentCursorPosition();
-            int previousIndex = textCursorController.getPreviousCursorPosition();
-            //noinspection SimplifiableIfStatement,RedundantIfStatement
-            if (currentIndex != TextCursorController.NO_POSITION &&
-                    previousIndex != TextCursorController.NO_POSITION &&
-                    currentIndex == event.getToIndex() &&
-                    Math.abs(previousIndex - currentIndex) == 1) {
-                return true;
-            }
-
-            return false;
         }
 
         /**
@@ -683,6 +855,12 @@ public final class TextFormatters {
                 // the event.
                 if (!hasDelayElapsed && !hasPackageChanged) {
                     sAwaitingSelectionCount--;
+                    mLastFromIndex = event.getFromIndex();
+                    mLastToIndex = event.getToIndex();
+                    if (mLastNode != null) {
+                        mLastNode.recycle();
+                    }
+                    mLastNode = event.getSource();
                     return true;
                 }
 
@@ -702,27 +880,31 @@ public final class TextFormatters {
         }
 
         /**
-         * Formats "secure" password feedback from event text.
-         *
-         * @param event     The source event.
-         * @param context   The application context.
-         * @param utterance The utterance to populate.
-         * @return {@code false} on error.
+         * Gets the subsequence {@code [from, to)} of the given text. If the text is a password
+         * and the password cannot be read aloud, then returns a suitable substitute description,
+         * such as "Character 3" or "Characters 3 to 4".
+         * @param context the current TalkBack service
+         * @param event the selection change/granularity event for which we are providing feedback
+         * @param text the text from which we need to extract a subsequence (or for which the
+         *             password substitution needs to be provided)
+         * @param from the beginning index (inclusive)
+         * @param to the ending index (exclusive)
+         * @return the requested subsequence or an alternate description for passwords
          */
-        private boolean formatPassword(AccessibilityEvent event, Context context,
-                                       Utterance utterance) {
-            final AccessibilityRecordCompat record = AccessibilityEventCompat.asRecord(event);
-            final int fromIndex = event.getFromIndex();
-            final int toIndex = record.getToIndex();
-
-            if (toIndex <= fromIndex) {
-                return false;
+        private CharSequence getSubsequence(TalkBackService context,
+                AccessibilityEvent event,
+                CharSequence text,
+                int from,
+                int to) {
+            if (event.isPassword() && !shouldSpeakPasswords(context)) {
+                if (to - from == 1) {
+                    return context.getString(R.string.template_password_traversed, from + 1);
+                } else {
+                    return context.getString(R.string.template_password_selected, from + 1, to + 1);
+                }
+            } else {
+                return text.subSequence(from, to);
             }
-
-            final CharSequence formattedText = context.getString(
-                    R.string.template_password_selected, fromIndex, toIndex);
-            utterance.addSpoken(formattedText);
-            return true;
         }
     }
 

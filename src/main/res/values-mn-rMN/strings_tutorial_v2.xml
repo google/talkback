@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Хандалтын заавар"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"TalkBack-н зааврыг эхлүүлэх"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack-н заавар"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack нь хараагүй болон харааны бэрхшээлтэй хүмүүст зориулсан дэлгэцийн уншигч юм. Энэ нь ярианы тусламжтайгаар төхөөрөмжөө удирдах боломжийг олгодог."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBack-г унтраах"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Сурах"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Дадлага"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"хичээл сурах <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"дадлага хичээл <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"1-р хичээл: Үндсэн шилжүүлэлт"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Хайхын тулд хүрэх, хайхын тулд шудрах, идэвхжүүлэхийн тулд 2 удаа дарах"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"1-р хэсэг: Хүрэлтээр таних"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Хүрэлтээр танихыг идэвхжүүлсэн үед та хурууныхаа доор юу байгааг сонсох боломжтой. Дэлгэцийн төвд байгаа зүйлсийн дээгүүр хуруугаа хөдөлгөөрэй. Таныг 5 зүйл олсны дараа хичээл үргэлжлэх болно."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"2-р хэсэг: Идэвхжүүлэхийн тулд 2 удаа дарна уу"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Та хамгийн сүүлд сонссон зүйлээ идэвхжүүлэхийн тулд хүссэн газраа 2 удаа дарна уу. Зүйл 7-г олж, идэвхжүүлнэ үү. Үүний дараа үргэжлүүлэхийн тулд Дараах товчлуурыг дарна уу."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Зүйл 7-г идэвхжүүлсэн. Үргэлжлүүлэхийн тулд Дараах товчлуурыг олж, идэвхжүүлнэ үү"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"3-р хэсэг: Шилжүүлэх хичээл"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack-н хичээлийг хялбархан аргаар оруулсан. Дээд хэсэг нь хичээлийн хэсэг бөгөөд та энд хүссэн үедээ хайлт хийх, унших боломжтой. Мөн зүүн дээд хэсэгт Дадлагын нүүр хуудасны товчлуур байдаг. Дунд хэсэг нь дадлага хийх хэсэг. Харин доод хэсэгт таны явцыг гаргах бөгөөд хичээлийг удирдах товчлуур байдаг. Үргэлжлүүлэхийн тулд Дараагийн товчлуурыг идэвхжүүлнэ үү."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"4-р хэсэг: Судлахын тулд шудрах"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Мөн та дэлгэцийг хуруугаа шударч судлах боломжтой. Зүүн тийш шударснаар дээш болон зүүн талын хэсгийг судалдаг бөгөөд баруун тийш шударснаар доош болон баруун талын хэсгийг судална. Оролдоод үзээрэй."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"5-р хэсэг: Дадлага"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Таны хурууны доор юу байгааг сонсохын тулд хуруугаа дэлгэц дээр нааш цааш гүйлгээрэй. Сонссон зүйлээ идэвхжүүлэхийн тулд 2 удаа дарна уу. Хайхын тулд баруун, эсвэл зүүн тийш шударна уу."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"2-р хичээл: Гүйлгэх"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"2 хуруугаар гүйлгэх, урагшлуулах болон хойшлуулах"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"1-р хэсэг: 2 хуруугаар гүйлгэх"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Босоо жагсаалтын дундуур гүйлгэхийн тулд жагсаалтын зүйлийг олж, 2 хуруугаа дээш доош гүйлгэнэ үү. Хэвтээ жагсаалтын дундуур гүйлгэхийн тулд жагсаалтын зүйлийг олж, 2 хуруугаа баруун, зүүн тийш хөдөлгөнө үү."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"2-р хэсэг: Товчлолыг гүйлгэх"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Та товчлолыг ашиглаж жагсаалтын урагш, хойш очих боломжтой. Урагш очихын тулд нэг хуруугаа эхлээд баруун тийш, дараа нь зүүн тийш нэг хөдөлгөөнөөр хөдөлгөнө үү. Арагшлуулахын тулд нэг хуруугаа эхлээд зүүн тийш, дараа нь баруун тийш хөдөлгөнө үү. Энд оролдож үзнэ үү."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"3-р хэсэг: Дадлага"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Хоёр хуруугаа дээш доош гулсуулж гүйлгэнэ үү. Урагшлуулахын тулд нэг хуруугаа эхлээд баруун, дараа нь зүүн тийш хөдөлгөнө үү. Арагшлуулахын тулд нэг хуруугаа эхлээд зүүн, дараа нь баруун тийш хөдөлгөнө үү."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"3-р хичээл: TalkBack цэс"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Олон улсын TalkBack цэс, Орон нутгийн TalkBack цэс"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"1-р хэсэг: Олон улсын TalkBack цэс"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack-д 2 өөр цэс байдаг. Эхнийх нь Олон улсын TalkBack цэс бөгөөд энэ нь үргэлж ижил тушаалтай байдаг. Та нэг хуруугаа доошлуулаад, баруун тийш нэг хөдөлгөөнөөр зөөж, хуруугаа авснаар үүнийг идэвхжүүлэх болно. Дадлагын хувилбарыг одоо идэвхжүүлнэ үү."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Цэсний сонголт нь дэлгэцийн дунд босоо хэлбэрээр жагсаалттай байдаг. Та сонирхож үзээрэй. Дууссан үедээ Цуцлах товчлуурыг дарна уу."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"2-р хэсэг: Орон нутгийн TalkBack цэс"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Хоёр дахь нь Орон нутгийн TalkBack цэс юм. Энэ цэсэд байгаа зүйлс нь таныг хамгийн сүүлд юу сонссоноос шалтгаалан өөр өөр байна. Та нэг хуруугаа дээшлүүлээд, баруун тийш нэг хөдөлгөөнөөр зөөж, хуруугаа авснаар үүнийг идэвхжүүлэх болно. Дадлагын цэсийг одоо идэвхжүүлнэ үү."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"3-р хэсэг: Дадлага"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Олон улсын TalkBack цэсийг идэвхжүүлэхийн тулд хуруугаа доошлуулаад, баруун тийш зөөнө үү. Орон нутгийн TalkBack цэсийг идэвхжүүлэхийн тулд хуруугаа дээшлүүлээд, баруун тийш зөөнө үү."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Доошлуулаад, баруун тийш"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Дээшлүүлээд, баруун тийш"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Олон улсын TalkBack Цэс: Доошлуулаад, баруун тийш. Орон нутгийн TalkBack Цэс: Дээшлүүлээд, баруун тийш"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"4-р хичээл: Текст шилжүүлэх"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Текст шилжүүлэх тохиргоо сонгох"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"1-р хэсэг: Шилжүүлэх тохиргоо сонгох"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack нь танд текстийг хэсэгчлэн унших, мөрөөр унших, үгчлэн унших эсвэл тэмдэгтээр нь унших зэргээс сонгох боломжийг олгодог. Тэмдэгтээр уншсанаар танд зөв бичиж сурахад тусална. Текстийн удирдлагын түвшинг тэмдэгт болгохын тулд доорх текстийг дарж, дараа нь дээш болон доош шударна уу."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Энд унших хурдыг босоогоор жагсаасан сонголтууд байдаг. Тэмдэгтээр унших сонголтыг олж, идэвхжүүлээрэй."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"2-р хэсэг: Текст шилжүүлэх"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Та одоо тэмдэгтээр уншиж байна. Жишээ текстийг сонгож, тэмдэгтээр уншихын тулд баруун тийш шударна уу."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"3-р хэсэг: Дадлага"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Дээш, доош шудран текстийн байршлыг өөрчлөөрэй. Баруун тийш шударснаар жишээ текстийн дараагийн тэмдэгтийг унших боломжтой."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Энд TalkBack-г ашиглахад дадлага болох хэдэн жишээ текст байна. \"Канзас хаана байгаа вэ?\" гэж залуу гайхширсан аястай асуулаа. Үүний хариуд \"Би мэдэхгүй байна, гэхдээ энэ чинь миний гэр орон шүү дээ, хаа нэгтээ байж л таараа\" гэж Дороти гунигтайгаар хэлэв.\n\n\"Тэр ч ойлгомжтой. Оз юм болгоныг чаддаг болохоор чамд Канзасыг олж өгнө гэж би найдаж байна. Гэхдээ чи эхлээд түүнтэй уулзах ёстой. Аугаа шидтэн маань хүмүүстэй тэр бүрчлэн уулзаад байхыг хүсдэггүй, уулзах хүнээ өөрөө сонгодог болохоор түүнийг олж уулзах амаргүй байх. Залуу яриагаа үргэлжлүүлэн, \"Харин ЧИ юу хүсэж байна?\" гэж Тотогоос асуув."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"5-р хичээл: Текст засах"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Засах хайрцгийг идэвхжүүлэх, шивэх, курсорыг хөдөлгөх, текст сонгох, текст дээр ажиллах"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"1-р хэсэг: Засах хайрцгийг идэвхжүүлэх"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Talkback-н тусламжтайгаар та текст бичих, сонгох, текст засварлахын тулд засах хайрцгийг 2 удаа дарж идэвхжүүлэх боломжтой. Засах хайрцгийг идэвхжүүлсний дараа дэлгэцийн доод хэсэгт компьютерийн гар харагдах болно. Та Буцах товчлуурыг дарснаар гарыг идэвхгүй болгож болно. Засах хайрцгийг одоо идэвхжүүлэхээр оролдоорой. Идэвхжүүлж дууссаныхаа дараа та гарын дээр харагдах Дараагийн гэсэн товчлуурыг дарна уу."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"2-р хэсэг: Засах хайрцагт шивэх"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Бичихийн тулд засах хэсгийг идэвхжүүлж, дэлгэцийн гар дээр хуруугаа нааш, цааш гүйлгээрэй. Та өөрийн бичихийг хүссэн тэмдэгтийг сонсвол хуруугаа өргөж, идэвхжүүлнэ үү. Доорх засах хэсэгт бичиж, идэвхжүүлэхийг туршиж үзнэ үү."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"3-р хэсэг: Курсор ашиглах"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Та төхөөрөмжийнхөө дууны түвшний товчлуурыг, эсвэл Talkback цэсийг ашиглан курсорыг зөөх боломжтой. Энэ цэсний курсор удирдах сонголтын тусламжтайгаар та текстийг сонгох, арилгах, хуулж тавих зэрэг үйлдлийг хийх боломжтой. Доорх засах хэсгийг идэвхжүүлж, жишээ текстэн дээр курсороо зөөж үзнэ үү."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Дороти Гейлийн имэйл хаяг нь dorothy@ozmail.com юм"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"4-р хэсэг: Дадлага"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Засах хайрцгийг 2 удаа дарж идэвхжүүлнэ үү. Тэмдэгт хооронд хуруугаа гүйлгэж шивээд, хуруугаа аваарай. Курсорыг дууны түвшний болон дотоодын Talkback цэсийн тусламжтайгаар зөөгөөрэй. Local TalkBack цэсний курсор удирдах сонголтын дагуу текстийг сонгож, ажиллаарай."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Текст засах"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"ӨМНӨХ"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"ДАРААХ"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"ӨМНӨХ ХИЧЭЭЛ"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"ДАРААГИЙН ХИЧЭЭЛ"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"ЗААВРЫН НҮҮР ХУУДАС"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"%1$d-р хичээл"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"%1$d-р хэсэг"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"%2$d-н %1$d-р хэсэг"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Дасгал дууссан бөгөөд хэсэг хугацааны дараа үргэлжлэх болно"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Дадлагажих хэсэг"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s нь дадлагын горимд идэвхжсэн байна. Гарахын тулд ЦУЦЛАХ товчлуурыг идэвхжүүлнэ үү."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Зааврын нүүр хуудасны товчлуур"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Зүйл <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Гарах"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Хүрэлтээр таних онцлог шаардлагатай"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Энэ зааварт Хүрэлтээр таних онцлог шаардлагатай. Зааврыг эхлүүлэхийн тулд Хүрэлтээр хайх онцлогийг идэвхжүүлнэ үү."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack-г идэвхгүй болгосон"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Энэ зааварт TalkBack идэвхжсэн байх шаардлагатай. Зааврыг эхлүүлэхийн өмнө TalkBack-г асаана уу."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack-г түр хаасан"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Санал хүсэлт илгээхийг түр зогсоосон үед TalkBack зааврыг ашиглах боломжгүй. TalkBack санал хүсэлтийг үргэлжлүүлсний дараа зааврыг дахин эхлүүлэн үргэлжлүүлнэ үү."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Цэсийг тайлбарлах"</string>
+</resources>

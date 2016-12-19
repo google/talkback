@@ -23,12 +23,14 @@ package com.android.utils;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.android.switchaccess.test.ShadowAccessibilityNodeInfo;
-import com.android.switchaccess.test.ShadowAccessibilityNodeInfoCompat;
+import com.android.talkback.BuildConfig;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.internal.ShadowExtractor;
@@ -36,11 +38,11 @@ import org.robolectric.internal.ShadowExtractor;
 import static org.junit.Assert.*;
 
 @Config(
-        emulateSdk = 18,
+        constants = BuildConfig.class,
+        sdk = 21,
         shadows = {
-                ShadowAccessibilityNodeInfoCompat.class,
                 ShadowAccessibilityNodeInfo.class})
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class AccessibilityNodeInfoUtilsTest {
     private NodeFilter focusableFilter = new NodeFilter() {
         @Override
@@ -56,7 +58,7 @@ public class AccessibilityNodeInfoUtilsTest {
 
     @After
     public void tearDown() {
-        assertFalse(ShadowAccessibilityNodeInfoCompat.areThereUnrecycledNodes(true));
+        assertFalse(ShadowAccessibilityNodeInfo.areThereUnrecycledNodes(true));
         ShadowAccessibilityNodeInfo.resetObtainedInstances();
     }
 
@@ -192,11 +194,11 @@ public class AccessibilityNodeInfoUtilsTest {
 
     @Test
     public void hasAncestorWithSameAncestor_shouldReturnTrue() {
-        AccessibilityNodeInfoCompat targetAncestor = AccessibilityNodeInfoCompat.obtain();
-        AccessibilityNodeInfoCompat childNode = AccessibilityNodeInfoCompat.obtain();
-
-        ((ShadowAccessibilityNodeInfoCompat) ShadowExtractor.extract(targetAncestor))
-                .addChild(childNode);
+        AccessibilityNodeInfo targetInfo = AccessibilityNodeInfo.obtain();
+        AccessibilityNodeInfo childInfo = AccessibilityNodeInfo.obtain();
+        ((ShadowAccessibilityNodeInfo) ShadowExtractor.extract(targetInfo)).addChild(childInfo);
+        AccessibilityNodeInfoCompat targetAncestor = new AccessibilityNodeInfoCompat(targetInfo);
+        AccessibilityNodeInfoCompat childNode = new AccessibilityNodeInfoCompat(childInfo);
 
         assertTrue(AccessibilityNodeInfoUtils.hasAncestor(childNode, targetAncestor));
 
@@ -214,4 +216,134 @@ public class AccessibilityNodeInfoUtilsTest {
         targetAncestor.recycle();
         childNode.recycle();
     }
+
+    private void addChild(AccessibilityNodeInfoCompat parent, AccessibilityNodeInfoCompat child) {
+        AccessibilityNodeInfo parentInfo = (AccessibilityNodeInfo) parent.getInfo();
+        AccessibilityNodeInfo childInfo = (AccessibilityNodeInfo) child.getInfo();
+        ((ShadowAccessibilityNodeInfo) ShadowExtractor.extract(parentInfo)).addChild(childInfo);
+    }
+
+    private AccessibilityNodeInfoCompat obtainTestNode(String contentDescription,
+            boolean focusable) {
+        AccessibilityNodeInfo node = AccessibilityNodeInfo.obtain();
+        node.setContentDescription(contentDescription);
+        node.setFocusable(focusable);
+        return new AccessibilityNodeInfoCompat(node);
+    }
+
+    @Test(timeout=100)
+    public void hasMatchingDescendant_withLoop_shouldNotHang() {
+        // (a)---->(b)----->(c)---->(d)---->(e)---->(f*)
+        //  |       ^        ^       |
+        //  +-----  |  ------+       |
+        //          +----------------+
+
+        AccessibilityNodeInfoCompat a = obtainTestNode("a", false);
+        AccessibilityNodeInfoCompat b = obtainTestNode("b", false);
+        AccessibilityNodeInfoCompat c = obtainTestNode("c", false);
+        AccessibilityNodeInfoCompat d = obtainTestNode("d", false);
+        AccessibilityNodeInfoCompat e = obtainTestNode("e", false);
+        AccessibilityNodeInfoCompat f = obtainTestNode("f", true);
+
+        addChild(a, b);
+        addChild(a, c);
+        addChild(b, c);
+        addChild(c, d);
+        addChild(d, a);
+        addChild(d, e);
+        addChild(e, f);
+
+        assertTrue(AccessibilityNodeInfoUtils.hasMatchingDescendant(a, focusableFilter));
+
+        a.recycle();
+        b.recycle();
+        c.recycle();
+        d.recycle();
+        e.recycle();
+        f.recycle();
+    }
+
+    @Test(timeout=100)
+    public void hasMatchingDescendant_withSelfLoop_shouldNotHang() {
+        // (a)---->(b)---->(c)---->(d*)
+        //         ^ \              ^ \
+        //         \_/              \_/
+
+        AccessibilityNodeInfoCompat a = obtainTestNode("a", false);
+        AccessibilityNodeInfoCompat b = obtainTestNode("b", false);
+        AccessibilityNodeInfoCompat c = obtainTestNode("c", false);
+        AccessibilityNodeInfoCompat d = obtainTestNode("d", true);
+
+        addChild(a, b);
+        addChild(b, b);
+        addChild(b, c);
+        addChild(c, d);
+        addChild(d, d);
+
+        assertTrue(AccessibilityNodeInfoUtils.hasMatchingDescendant(a, focusableFilter));
+
+        a.recycle();
+        b.recycle();
+        c.recycle();
+        d.recycle();
+    }
+
+    @Test
+    public void countMatchingAncestors() {
+        // (a)---->(b)----->(c*)---->(d)---->(e*)---->(f*)
+
+        AccessibilityNodeInfoCompat a = obtainTestNode("a", false);
+        AccessibilityNodeInfoCompat b = obtainTestNode("b", false);
+        AccessibilityNodeInfoCompat c = obtainTestNode("c", true);
+        AccessibilityNodeInfoCompat d = obtainTestNode("d", false);
+        AccessibilityNodeInfoCompat e = obtainTestNode("e", true);
+        AccessibilityNodeInfoCompat f = obtainTestNode("f", true);
+
+        addChild(a, b);
+        addChild(b, c);
+        addChild(c, d);
+        addChild(d, e);
+        addChild(e, f);
+
+        assertEquals(2, AccessibilityNodeInfoUtils.countMatchingAncestors(f, focusableFilter));
+
+        a.recycle();
+        b.recycle();
+        c.recycle();
+        d.recycle();
+        e.recycle();
+        f.recycle();
+    }
+
+    @Test(timeout=100)
+    public void countMatchingAncestors_withLoop_shouldNotHang() {
+        // (a)---->(b)----->(c*)---->(d)---->(e*)---->(f*)
+        //  ^                         |
+        //  |                         |
+        //  +<------------------------+
+
+        AccessibilityNodeInfoCompat a = obtainTestNode("a", false);
+        AccessibilityNodeInfoCompat b = obtainTestNode("b", false);
+        AccessibilityNodeInfoCompat c = obtainTestNode("c", true);
+        AccessibilityNodeInfoCompat d = obtainTestNode("d", false);
+        AccessibilityNodeInfoCompat e = obtainTestNode("e", true);
+        AccessibilityNodeInfoCompat f = obtainTestNode("f", true);
+
+        addChild(a, b);
+        addChild(b, c);
+        addChild(c, d);
+        addChild(d, a);
+        addChild(d, e);
+        addChild(e, f);
+
+        assertEquals(0, AccessibilityNodeInfoUtils.countMatchingAncestors(f, focusableFilter));
+
+        a.recycle();
+        b.recycle();
+        c.recycle();
+        d.recycle();
+        e.recycle();
+        f.recycle();
+    }
+
 }

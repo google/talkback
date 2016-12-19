@@ -17,9 +17,12 @@
 package com.android.talkback.eventprocessor;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
@@ -27,10 +30,13 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityRecord;
 import com.android.talkback.R;
 import com.android.talkback.SpeechController;
+import com.android.talkback.controller.CursorController;
+import com.android.utils.AccessibilityNodeInfoUtils;
+import com.android.utils.Role;
+import com.android.utils.StringBuilderUtils;
 import com.google.android.marvin.talkback.TalkBackService;
 import com.android.talkback.controller.FullScreenReadController;
 import com.android.utils.AccessibilityEventListener;
-import com.android.utils.AccessibilityEventUtils;
 import com.android.utils.WeakReferenceHandler;
 
 import java.lang.reflect.InvocationTargetException;
@@ -42,7 +48,8 @@ import java.util.HashMap;
  * this processor and no further events are received for a specified duration, a
  * "scroll position" message is spoken.
  */
-public class ProcessorScrollPosition implements AccessibilityEventListener {
+public class ProcessorScrollPosition
+        implements AccessibilityEventListener, CursorController.ScrollListener {
     /** Default pitch adjustment for text event feedback. */
     private static final float DEFAULT_PITCH = 1.2f;
 
@@ -58,16 +65,22 @@ public class ProcessorScrollPosition implements AccessibilityEventListener {
     private final SpeechController mSpeechController;
     private final FullScreenReadController mFullScreenReadController;
 
+    /** The last node that was auto-scrolled by the CursorController. */
+    private AccessibilityNodeInfoCompat mAutoScrollNode;
+
     public ProcessorScrollPosition(FullScreenReadController fullScreenReadController,
                                    SpeechController speechController,
+                                   CursorController cursorController,
                                    TalkBackService context) {
         if (speechController == null) throw new IllegalStateException();
         if (fullScreenReadController == null) throw new IllegalStateException();
+        if (cursorController == null) throw new IllegalStateException();
         mContext = context;
         mSpeechController = speechController;
         mFullScreenReadController = fullScreenReadController;
         mSpeechParams.putFloat(SpeechController.SpeechParam.PITCH, DEFAULT_PITCH);
         mSpeechParams.putFloat(SpeechController.SpeechParam.RATE, DEFAULT_RATE);
+        cursorController.addScrollListener(this);
     }
 
     @Override
@@ -87,6 +100,16 @@ public class ProcessorScrollPosition implements AccessibilityEventListener {
             case AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED:
                 mHandler.postScrollFeedback(event);
                 break;
+        }
+    }
+
+    @Override
+    public void onScroll(AccessibilityNodeInfoCompat scrolledNode, int action, boolean auto) {
+        AccessibilityNodeInfoUtils.recycleNodes(mAutoScrollNode);
+        if (auto) {
+            mAutoScrollNode = AccessibilityNodeInfoCompat.obtain(scrolledNode);
+        } else {
+            mAutoScrollNode = null;
         }
     }
 
@@ -136,6 +159,23 @@ public class ProcessorScrollPosition implements AccessibilityEventListener {
         // recycle the old or new key nodes.
         mCachedFromValues.put(eventId, fromIndex);
         mCachedItemCounts.put(eventId, itemCount);
+
+        // Allow the list indices to be cached, but don't actually speak after auto-scroll.
+        if (mAutoScrollNode != null) {
+            AccessibilityNodeInfo source = event.getSource();
+            if (source != null) {
+                try {
+                    if (source.equals(mAutoScrollNode.getInfo())) {
+                        mAutoScrollNode.recycle();
+                        mAutoScrollNode = null;
+                        return true;
+                    }
+                } finally {
+                    source.recycle();
+                }
+            }
+        }
+
         return false;
     }
 
@@ -145,7 +185,17 @@ public class ProcessorScrollPosition implements AccessibilityEventListener {
      * @param event The source event.
      */
     private void handleScrollFeedback(AccessibilityEvent event) {
-        final CharSequence text = getDescriptionForScrollEvent(event);
+        final CharSequence text;
+        AccessibilityNodeInfo source = event.getSource();
+        if (Role.getRole(source) == Role.ROLE_PAGER) {
+            text = getDescriptionForPageEvent(event, source);
+        } else {
+            text = getDescriptionForScrollEvent(event);
+        }
+        if (source != null) {
+            source.recycle();
+        }
+
         if (TextUtils.isEmpty(text)) {
             return;
         }
@@ -161,12 +211,6 @@ public class ProcessorScrollPosition implements AccessibilityEventListener {
     }
 
     private CharSequence getDescriptionForScrollEvent(AccessibilityEvent event) {
-        // If the event has text, use that by default.
-        final CharSequence text = AccessibilityEventUtils.getEventTextOrDescription(event);
-        if (!TextUtils.isEmpty(text)) {
-            return text;
-        }
-
         // If the from index or item count are invalid, don't announce anything.
         final int fromIndex = (event.getFromIndex() + 1);
         final int itemCount = event.getItemCount();
@@ -186,6 +230,66 @@ public class ProcessorScrollPosition implements AccessibilityEventListener {
                 R.string.template_scroll_from_to_count, fromIndex, toIndex, itemCount);
     }
 
+    private CharSequence getDescriptionForPageEvent(AccessibilityEvent event,
+            AccessibilityNodeInfo source) {
+        final int fromIndex = (event.getFromIndex() + 1);
+        final int itemCount = event.getItemCount();
+        if ((fromIndex <= 0) || (itemCount <= 0)) {
+            return null;
+        }
+
+        CharSequence pageTitle = getSelectedPageTitle(source);
+        if (!TextUtils.isEmpty(pageTitle)) {
+            CharSequence count = mContext.getString(R.string.template_viewpager_index_count_short,
+                    fromIndex, itemCount);
+
+            SpannableStringBuilder output = new SpannableStringBuilder();
+            StringBuilderUtils.appendWithSeparator(output, pageTitle, count);
+            return output;
+        }
+
+        return mContext.getString(R.string.template_viewpager_index_count, fromIndex, itemCount);
+    }
+
+    private static CharSequence getSelectedPageTitle(AccessibilityNodeInfo node) {
+        // We need to refresh() after the scroll to get an accurate page title but we can only
+        // do that on API 18+.
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            return null;
+        }
+
+        if (node == null) {
+            return null;
+        }
+
+        AccessibilityNodeInfoCompat nodeCompat = new AccessibilityNodeInfoCompat(node);
+        nodeCompat.refresh();
+
+        int numChildren = nodeCompat.getChildCount(); // Not the number of pages!
+        CharSequence title = null;
+        for (int i = 0; i < numChildren; ++i) {
+            AccessibilityNodeInfoCompat child = nodeCompat.getChild(i);
+            if (child != null) {
+                try {
+                    if (child.isVisibleToUser()) {
+                        if (title == null) {
+                            // Try to roughly match RulePagerPage, which uses getNodeText
+                            // (but completely matching all the time is not critical).
+                            title = AccessibilityNodeInfoUtils.getNodeText(child);
+                        } else {
+                            // Multiple visible children, abort.
+                            return null;
+                        }
+                    }
+                } finally {
+                    child.recycle();
+                }
+            }
+        }
+
+        return title;
+    }
+
     private static class ScrollPositionHandler
             extends WeakReferenceHandler<ProcessorScrollPosition> {
         /** Message identifier for a scroll position notification. */
@@ -193,6 +297,9 @@ public class ProcessorScrollPosition implements AccessibilityEventListener {
 
         /** Delay before reading a scroll position notification. */
         private static final long DELAY_SCROLL_FEEDBACK = 1000;
+
+        /** Delay before reading a page position notification. */
+        private static final long DELAY_PAGE_FEEDBACK = 500;
 
         public ScrollPositionHandler(ProcessorScrollPosition parent) {
             super(parent);
@@ -219,7 +326,15 @@ public class ProcessorScrollPosition implements AccessibilityEventListener {
             final AccessibilityEvent eventClone = AccessibilityEvent.obtain(event);
             final Message msg = obtainMessage(SCROLL_FEEDBACK, eventClone);
 
-            sendMessageDelayed(msg, DELAY_SCROLL_FEEDBACK);
+            AccessibilityNodeInfo source = event.getSource();
+            if (Role.getRole(source) == Role.ROLE_PAGER) {
+                sendMessageDelayed(msg, DELAY_PAGE_FEEDBACK);
+            } else {
+                sendMessageDelayed(msg, DELAY_SCROLL_FEEDBACK);
+            }
+            if (source != null) {
+                source.recycle();
+            }
         }
 
         /**

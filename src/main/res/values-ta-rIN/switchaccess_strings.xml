@@ -2,25 +2,23 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="switch_service_name" msgid="6043415138576713888">"அணுகல் மாற்றுதல்"</string>
-    <string name="switch_access_service_description" msgid="7316829370005579941">"உள்ளமைக்கக்கூடிய விசைச் சேர்க்கைகளைப் பயன்படுத்தி, சாதனத்தைக் கட்டுப்படுத்த அணுகல் மாற்றுதல் அனுமதிக்கிறது. கிளிக் செய்யக்கூடியவற்றிற்கு கவனத்தை நகர்த்தி, அவற்றைத் தேர்ந்தெடுக்கலாம்."</string>
-    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"தானியங்கு ஸ்கேன்"</string>
-    <string name="title_pref_auto_scan" msgid="6856662972215508038">"தானியங்கு ஸ்கேனை இயக்கு"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"நேர தாமதம்"</string>
+    <string name="switch_access_service_description" msgid="1958519878116811543">"சுவிட்ச் அணுகல் மூலம் ஒன்று அல்லது அதற்கும் அதிகமான சுவிட்ச்களைப் பயன்படுத்தி ஸ்கேன் செய்யலாம், உருப்படிகளைத் தேர்ந்தெடுக்கலாம்."</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"உதவி &amp; கருத்து"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"தானியங்கு ஸ்கேன்"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"தானியங்கு ஸ்கேனிற்கான நேரம்"</string>
     <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"தானியங்கு ஸ்கேன் வரிசையை பின்னோக்கி மாற்று"</string>
-  <plurals name="auto_scan_time_delay_summary_format">
-    <item quantity="one" msgid="815853953952465870">"1 வினாடி"</item>
-    <item quantity="other" msgid="1223387233862989964">"%.2f வினாடிகள்"</item>
-  </plurals>
+    <plurals name="auto_scan_time_delay_summary_format" formatted="false" msgid="5524438721359954583">
+      <item quantity="other">%.2f வினாடிகள்</item>
+      <item quantity="one">1 வினாடி</item>
+    </plurals>
     <string name="title_pref_scanning_methods" msgid="2351427385843210311">"ஸ்கேனிங் முறை"</string>
-    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"விசைப்பலகை ஸ்கேனிங்"</string>
-    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"ஸ்கேனிங் முறைகளைக் காட்டு"</string>
     <string name="title_pref_category_key_mappings" msgid="463227090301036752">"செயல்களுக்கு, விசைகளை ஒதுக்கவும்"</string>
     <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"ஸ்கேன் செய்வதற்காக, விசைகளை ஒதுக்கவும்"</string>
     <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' விசையானது \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\'க்கு ஏற்கனவே அமைக்கப்பட்டது"</string>
-  <plurals name="label_num_keys_assigned_format">
-    <item quantity="one" msgid="8372086689828893172">"%d விசை அமைக்கப்பட்டது"</item>
-    <item quantity="other" msgid="2361393301173230834">"%d விசைகள் அமைக்கப்பட்டன"</item>
-  </plurals>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="8070929030388121623">
+      <item quantity="other">%d விசைகள் அமைக்கப்பட்டன</item>
+      <item quantity="one">%d விசை அமைக்கப்பட்டது</item>
+    </plurals>
     <string name="option_scan_switch_format" msgid="2034348456907055979">"ஸ்கேன் விருப்ப ஸ்விட்ச் %1$d"</string>
     <string name="action_name_next" msgid="4106603510441280028">"அடுத்து"</string>
     <string name="action_name_previous" msgid="5382750123072539005">"முந்தையது"</string>
@@ -28,6 +26,7 @@
     <string name="action_name_long_click" msgid="5708679123666477849">"நெடுநேரம் அழுத்து"</string>
     <string name="action_name_scroll_forward" msgid="6969788891937406270">"முன்னோக்கி உருட்டு"</string>
     <string name="action_name_scroll_backward" msgid="579045012327139100">"பின்னோக்கி உருட்டு"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"நிராகரி"</string>
     <string name="context_menu_layout_description" msgid="330592638837220675">"சூழல் மெனு"</string>
     <string name="option_scanning_menu_button" msgid="4460266289722058928">"மெனு"</string>
     <string name="global_action_back" msgid="8326879739948707767">"முந்தையது"</string>
@@ -48,8 +47,23 @@
     <string name="name_of_enter_key" msgid="6379785627490220649">"எண்டர்"</string>
     <string name="name_of_tab_key" msgid="6744983965001375397">"டேப்"</string>
     <string name="save" msgid="5398278773451196019">"சேமி"</string>
-    <string name="title_pref_highlight_0" msgid="3039542597362059267">"ஸ்கேன் செய்வதற்காக, தனிப்படுத்தப்படுகிறது"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"ஹைலைட் செய்யும் நடையை ஸ்கேன் செய்"</string>
     <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"முதன்மை ஸ்கேன் நடை"</string>
-    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"தனிப்படுத்தல் வண்ணம்"</string>
-    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"தனிப்படுத்தலின் அடர்த்தி"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"ஹைலைட் செய்யும் வண்ணம்"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"ஹைலைட் செய்யும் கோட்டின் நடை"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="1781611399874689922">"தானியங்கு தேர்வை இயக்கு"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="777214990214649732">"தானியங்கு தேர்வை முடக்கு"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"அடுத்த எழுத்துக்குறி"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"அடுத்த சொல்"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"அடுத்த வரி"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"அடுத்த பத்தி"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"அடுத்த பக்கம்"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"முந்தைய எழுத்துக்குறி"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"முந்தைய சொல்"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"முந்தைய வரி"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"முந்தைய பத்தி"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"முந்தைய பக்கம்"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"தானாக ஸ்கேன் செய்யத் தொடங்கு"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"சுவிட்சை அழுத்தாமல் ஸ்கேன் செய்யத் தொடங்கு"</string>
 </resources>

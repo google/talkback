@@ -20,19 +20,18 @@ import android.content.Context;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
-import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
-import android.widget.SeekBar;
 
 import com.android.talkback.FeedbackItem;
 import com.android.talkback.R;
 import com.android.talkback.SpeechController;
+import com.android.utils.AccessibilityNodeInfoUtils;
+import com.android.utils.Role;
 import com.google.android.marvin.talkback.TalkBackService;
 import com.android.talkback.Utterance;
 import com.android.talkback.formatter.EventSpeechRule;
-import com.android.utils.AccessibilityNodeInfoUtils;
 import com.android.utils.StringBuilderUtils;
 
 /**
@@ -42,7 +41,7 @@ public class RuleSeekBar extends RuleDefault
         implements EventSpeechRule.AccessibilityEventFormatter {
     @Override
     public boolean accept(AccessibilityNodeInfoCompat node, AccessibilityEvent event) {
-        return AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, SeekBar.class);
+        return Role.getRole(node) == Role.ROLE_SEEK_CONTROL;
     }
 
     @Override
@@ -53,12 +52,11 @@ public class RuleSeekBar extends RuleDefault
         }
 
         final SpannableStringBuilder output = new SpannableStringBuilder();
-        final CharSequence text = super.format(context, node, event);
-        final String formattedText = context.getString(R.string.template_seek_bar, text);
-        final Spannable spannableFormattedText =
-                StringBuilderUtils.createSpannableFromTextWithTemplate(formattedText, text);
 
-        StringBuilderUtils.appendWithSeparator(output, spannableFormattedText);
+        final CharSequence text = AccessibilityNodeInfoUtils.getNodeText(node);
+        final CharSequence roleText = Role.getRoleDescriptionOrDefault(context, node);
+
+        StringBuilderUtils.append(output, text, roleText);
 
         // TODO: We need to be getting this information from the node.
         if ((event != null) && (event.getItemCount() > 0)) {
@@ -89,5 +87,17 @@ public class RuleSeekBar extends RuleDefault
         utterance.getMetadata().putInt(Utterance.KEY_METADATA_QUEUING,
                 SpeechController.QUEUE_MODE_UNINTERRUPTIBLE);
         return true;
+    }
+
+    @Override
+    public CharSequence getHintText(Context context, AccessibilityNodeInfoCompat node) {
+        TalkBackService talkBack = TalkBackService.getInstance();
+        if (talkBack != null && talkBack.isDeviceTelevision()) {
+            // We want to compose the string so that we ensure the wording is consistent.
+            return context.getString(R.string.template_hint_seek_control_tv,
+                    context.getString(R.string.value_press_select));
+        } else {
+            return super.getHintText(context, node);
+        }
     }
 }

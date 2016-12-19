@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="7512754982950145749">"启用“话语提示”服务后，您的设备可为盲人和视力不好的用户提供语音反馈。例如，设备会读出您所触摸、选择和激活的内容。"</string>
-    <string name="talkback_on" msgid="315529674405160699">"话语提示已开启"</string>
-    <string name="talkback_preferences_title" msgid="4249486159144445549">"“话语提示”服务设置"</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"启用 TalkBack 服务后，您的设备可为盲人和视力不好的用户提供语音反馈。例如，设备会读出您所触摸、选择和激活的内容。\n\n如果您不小心启用了 TalkBack，并想要关闭这项功能，只需点按开关，直到该开关外围显示为绿色，然后再点按两次开关即可。请针对系统随即显示的确认对话框执行相同的操作。"</string>
+    <string name="talkback_on" msgid="315529674405160699">"TalkBack 已开启"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack 服务已暂停"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack 服务已恢复"</string>
+    <string name="talkback_disabled" msgid="2536155587482587238">"TalkBack 已关闭。"</string>
+    <string name="talkback_preferences_title" msgid="4249486159144445549">"TalkBack 服务设置"</string>
     <string name="tts_preferences_title" msgid="6233811187483633874">"文字转语音设置"</string>
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"<xliff:g id="VERSION_NAME">%1$s</xliff:g> 版"</string>
     <string name="label_manager_summary_title" msgid="6786694853113585661">"管理自定义标签"</string>
@@ -19,6 +22,11 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"当前的搜索查询：<xliff:g id="SEARCH_QUERY">%1$s</xliff:g>。"</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"未选中任何项目。"</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"当前选择的内容：<xliff:g id="SELECTED_NODE">%1$s</xliff:g>。"</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"字段开头"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"字段结尾"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"已开启选择模式"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"已关闭选择模式"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"已清除选择"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"未接电话"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"静音"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"聊天消息"</string>
@@ -33,37 +41,49 @@
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"已停止"</string>
     <string name="template_current_tts_engine" msgid="3963364867159704159">"使用的是<xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"<xliff:g id="TITLE">%1$s</xliff:g>菜单"</string>
-    <string name="template_edit_box" msgid="5395366637528473616">"编辑框。<xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
-    <string name="template_edit_box_current" msgid="2778286668618391188">"修改框，目前正在进行修改。<xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"提醒<xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g>菜单"</string>
     <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g>替换了<xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g>已删除"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"已复制，<xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"已剪切，<xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"已粘贴，<xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>，已选中"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"所选文字：<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"尚未选中任何文字"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>，未选中"</string>
     <string name="template_text_error" msgid="153775825635730287">"输入内容无效：<xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"已将 <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> 个字符替换为 <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> 个字符"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="LABEL">%2$s</xliff:g>对应的<xliff:g id="ITEM">%1$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"长按了<xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_button" msgid="2640124317262628933">"<xliff:g id="TITLE">%1$s</xliff:g>按钮"</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"图片<xliff:g id="TITLE">%1$d</xliff:g>。未加标签"</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"按钮<xliff:g id="TITLE">%1$d</xliff:g>。未加标签"</string>
-    <string name="template_seek_bar" msgid="9010890122601609426">"<xliff:g id="TITLE">%1$s</xliff:g>进度滑块控件。"</string>
     <string name="template_percent" msgid="6118803183030408820">"百分之 <xliff:g id="PERCENTAGE">%1$s</xliff:g>。"</string>
     <string name="template_charging" msgid="2038200557537960378">"充电<xliff:g id="CHANGING_STATUS">%1$s</xliff:g>，电池电量为百分之 <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g>。"</string>
-  <plurals name="template_containers">
-    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="TYPE">%1$s</xliff:g>，包含 <xliff:g id="COUNT">%2$d</xliff:g> 项内容。"</item>
-    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="TYPE">%1$s</xliff:g>，包含 <xliff:g id="COUNT">%2$d</xliff:g> 项内容。"</item>
-  </plurals>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g>，包含 <xliff:g id="COUNT_3">%2$d</xliff:g> 项内容。</item>
+      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g>，包含 <xliff:g id="COUNT_1">%2$d</xliff:g> 项内容。</item>
+    </plurals>
     <string name="value_gridview" msgid="1382219539169157957">"网格"</string>
     <string name="value_listview" msgid="7625152822709234439">"列表"</string>
     <string name="value_tabwidget" msgid="6935453013254857519">"标签栏"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"下拉列表"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"复选框"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"单选按钮"</string>
+    <string name="value_button" msgid="2459787142940409576">"按钮"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"进度滑块控件"</string>
+    <string name="value_switch" msgid="6946709666466895221">"开关"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"编辑框"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"正在编辑"</string>
+    <string name="value_image" msgid="5114229220871881124">"图片"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"未加标签"</string>
+    <string name="value_pager" msgid="7708574424402835461">"多页面视图"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"页面"</string>
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"当前显示的是第 <xliff:g id="FROM_INDEX">%1$d</xliff:g> 项到第 <xliff:g id="TO_INDEX">%2$d</xliff:g> 项，共 <xliff:g id="TOTAL_COUNT">%3$d</xliff:g> 项。"</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"当前显示的是第 <xliff:g id="FROM_INDEX">%1$d</xliff:g> 项，共 <xliff:g id="TOTAL_COUNT">%2$d</xliff:g> 项。"</string>
-    <string name="template_spinner" msgid="1240658876427369167">"<xliff:g id="TITLE">%1$s</xliff:g>下拉列表。"</string>
-    <string name="template_password_selected" msgid="3751806880345903886">"已选择第 <xliff:g id="FROM_INDEX">%1$s</xliff:g> 个到第 <xliff:g id="TO_INDEX">%2$s</xliff:g> 个字符"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"第 <xliff:g id="PAGE_INDEX">%1$d</xliff:g> 页，共 <xliff:g id="TOTAL_COUNT">%2$d</xliff:g> 页"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"第 <xliff:g id="PAGE_INDEX">%1$d</xliff:g> 页，共 <xliff:g id="TOTAL_COUNT">%2$d</xliff:g> 页"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"第 <xliff:g id="FROM_INDEX">%1$d</xliff:g> 到 <xliff:g id="TO_INDEX">%2$d</xliff:g> 个字符"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"字符 <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"大写的 <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="template_checkbox" msgid="8582666147313623418">"<xliff:g id="TITLE">%1$s</xliff:g>复选框"</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"<xliff:g id="TITLE">%1$s</xliff:g>单选按钮"</string>
-    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>，开关"</string>
     <string name="value_password" msgid="7285572231215250557">"密码"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"滑动抽屉式导航栏已打开"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"系统栏已打开"</string>
@@ -71,69 +91,115 @@
     <string name="value_text_cleared" msgid="6558192295636412162">"文字已清除"</string>
     <string name="value_text_max_length" msgid="4129865255646994586">"已达到长度上限"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"已删除"</string>
+    <string name="value_selected" msgid="1307429702194660766">"已选中"</string>
     <string name="value_checked" msgid="3006751014125833966">"已选中"</string>
     <string name="value_not_checked" msgid="37422559536361725">"未选中"</string>
+    <string name="value_on" msgid="39454338086317219">"开启"</string>
+    <string name="value_off" msgid="6700497510945744608">"关闭"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"已展开"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"已收起"</string>
     <string name="value_disabled" msgid="5160977094078900656">"已停用"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"点按两次"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"点按"</string>
-    <string name="template_hint_clickable" msgid="1398769454100543369">"<xliff:g id="ACTION">%1$s</xliff:g>可选中。"</string>
+    <string name="value_press_select" msgid="4270348255373188872">"按选择按钮"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g>即可激活。"</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"按 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可激活。"</string>
     <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g>并按住可长按。"</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"按 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可长按。"</string>
     <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g>可切换。"</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"按 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可切换。"</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g>可输入文字。"</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"按 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可输入文字。"</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g>可进行更改。"</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"请触摸屏幕，并以环绕方式查找所需的内容。找到后，放开手指即可将其选中。"</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"按 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可更改。"</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"用双指滑动即可切换页面。"</string>
+    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"没有其他可用页面。"</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g>即可进行更改。"</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"请触摸屏幕，并以环绕方式查找所需内容。找到后，放开手指即可将其激活。"</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"请触摸屏幕，并以环绕方式浏览屏幕上的内容。放开手指即可聚焦于相应内容。"</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"自定义操作"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g>即可<xliff:g id="HINT">%2$s</xliff:g>。"</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"按 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可<xliff:g id="HINT">%2$s</xliff:g>。"</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g>并按住即可<xliff:g id="HINT">%2$s</xliff:g>。"</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"振铃器振动。"</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"振铃器静音。"</string>
     <string name="value_screen_on" msgid="4051568127659724519">"屏幕已开启。"</string>
     <string name="value_screen_off" msgid="4442166505764238236">"屏幕已关闭。"</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"大写锁定模式已开启。"</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"大写锁定模式已关闭。"</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"数字锁定模式已开启。"</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"数字锁定模式已关闭。"</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"滚动锁定模式已开启。"</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"滚动锁定模式已关闭。"</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"设备已解锁。"</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"语音提示"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"语音提示音量"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"屏幕处于关闭状态时使用语音提示"</string>
     <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"屏幕处于关闭状态时仍读出通知"</string>
     <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"屏幕处于关闭状态时不使用语音提示"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"读出来电显示"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"使用近程传感器"</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"近程传感器会关闭语音提示功能"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"近程传感器不对语音提示进行控制"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"读出拼音字母"</string>
     <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"不读出拼音字母。"</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"当长按键盘按键并逐个字符移动时，系统会读出拼音字母。"</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"当您长按键盘按键并逐个字符移动辅助功能焦点时，系统会读出拼音字母。"</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"读出使用提示"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"在线性浏览模式中，不会读出使用提示。"</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"当焦点按线性浏览模式移动时，将在短暂延迟后读出使用提示。"</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"当您移动辅助功能焦点时，系统不会读出使用提示。"</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"在导航期间，系统会在短暂延迟后读出使用提示。"</string>
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"触摸浏览"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"自动滚动列表"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"触摸浏览"</string>
-    <string name="title_pref_single_tap" msgid="3366282780861635094">"点按一次即选中"</string>
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"点按一次即激活"</string>
     <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"以列表形式显示上下文菜单"</string>
-    <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"启用“话语提示”时调暗屏幕"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"（实验性功能）点按焦点所在的项可将其选中"</string>
+    <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"启用 TalkBack 时调暗屏幕"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"（实验性功能）点按焦点所在的项即可将其激活"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"摇动手机可开始连续朗读"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"管理手势"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"管理自定义标签"</string>
     <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"管理键盘快捷键"</string>
-    <string name="title_pref_play_store" msgid="5158596411034985043">"在 Play 商店中打开“话语提示”服务的页面"</string>
-    <string name="summary_pref_play_store" msgid="3575108337945375864">"“话语提示”服务的最新版本：<xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"导出自定义标签"</string>
+    <string name="title_pref_play_store" msgid="5158596411034985043">"在 Play 商店中打开 TalkBack 服务的页面"</string>
+    <string name="summary_pref_play_store" msgid="3575108337945375864">"TalkBack 服务的最新版本：<xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"帮助和反馈"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"帮助"</string>
     <string name="title_pref_show_tos" msgid="6167834013879233992">"服务条款"</string>
     <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"隐私权政策"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"快捷手势"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"内置手势"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"（实验性功能）敲击设备侧面"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"按键映射"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"选择按键映射"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"重置按键映射"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"选择辅助键"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"TalkBack 将重置按键映射"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"TalkBack 将重置按键映射，并将辅助键更改为 <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"辅助键已更改为 <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g>。"</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"<xliff:g id="KEYMAP_NAME">%1$s</xliff:g>现已启用。"</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"已重置按键映射。"</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"不支持该快捷键"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"传统按键映射"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"默认按键映射"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"导航操作"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"转到下一项"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"转到上一项"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"转到上方的项"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"转到下方的项"</string>
     <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"转到第一项"</string>
     <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"转到最后一项"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"转到下一个窗口"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"转到上一个窗口"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"转到下一个字词"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"转到上一个字词"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"转到下一个字符"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"转到上一个字符"</string>
     <string name="keycombo_menu_perform_click" msgid="243666968746657931">"执行点击操作"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"执行长按操作"</string>
     <string name="keycombo_menu_category_global" msgid="7309875734492478067">"全局操作"</string>
     <string name="keycombo_menu_global_back" msgid="4567585750566224959">"返回"</string>
     <string name="keycombo_menu_global_home" msgid="7189369064773623371">"主屏幕"</string>
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"最近用过的应用"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"通知"</string>
-    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"暂停“话语提示”"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"暂停或恢复使用 TalkBack"</string>
     <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"导航设置"</string>
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"下一个导航设置"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"上一个导航设置"</string>
@@ -143,10 +209,63 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"搜索屏幕上的某一项"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"显示本地上下文菜单"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"显示全局上下文菜单"</string>
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"管理键盘快捷键"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"开启 TalkBack 设置"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"网页导航操作"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"转到下一个按钮"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"转到上一个按钮"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"转到下一个控件"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"转到上一个控件"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"转到下一个复选框"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"转到上一个复选框"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"转到下一个 ARIA 地标"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"转到上一个 ARIA 地标"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"转到下一个编辑字段"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"转到上一个编辑字段"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"转到下一个可设置为焦点的项"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"转到上一个可设置为焦点的项"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"转到下一个图形"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"转到上一个图形"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"转到下一个标题"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"转到上一个标题"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"转到下一个标题 1"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"转到上一个标题 1"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"转到下一个标题 2"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"转到上一个标题 2"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"转到下一个标题 3"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"转到上一个标题 3"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"转到下一个标题 4"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"转到上一个标题 4"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"转到下一个标题 5"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"转到上一个标题 5"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"转到下一个标题 6"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"转到上一个标题 6"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"转到下一个列表项"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"转到上一个列表项"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"转到下一个链接"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"转到上一个链接"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"转到下一个列表"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"转到上一个列表"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"转到下一个表格"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"转到上一个表格"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"转到下一个组合框"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"转到上一个组合框"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"键盘快捷键是"</string>
     <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"按组合键可设置新的快捷方式。快捷方式必须包含 ALT 或 Ctrl 键。"</string>
-    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"清除快捷方式按钮"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"按下包含 <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> 辅助键的组合键即可设置新的快捷键。"</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"按退格键可清除快捷方式，按 Enter 键可保存，按 Esc 键可取消。"</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"清除快捷键"</string>
     <string name="keycombo_unassigned" msgid="5817151372114230015">"未指定"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift 键"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt 键"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl 键"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"搜索键"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"向右箭头"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"向左箭头"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"向上箭头"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"向下箭头"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"确定要将此按键映射对应的快捷键重置为默认值吗？请注意，此操作无法撤消。"</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"重置"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"该组合键已被使用"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"该组合键已用于执行“<xliff:g id="ID_1">%1$s</xliff:g>”操作。您想要清除此设置并将该快捷方式用于“<xliff:g id="ID_2">%2$s</xliff:g>”吗？"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"使用音调变化"</string>
@@ -159,20 +278,23 @@
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"聚焦语音音频"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"用语音提示时降低其他音频音量"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"音量"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"“话语提示”暂停和恢复操作对应的快捷方式"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"TalkBack 暂停和恢复操作对应的快捷键"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"调暗屏幕的快捷方式"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"其他"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"开发者设置"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"选择要记录的事件"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"过滤无障碍事件记录"</string>
     <string name="title_pref_log_level" msgid="267415170405921603">"日志输出级别"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"显示语音输出"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"启用“节点树调试”功能"</string>
-    <string name="title_pref_web_scripts" msgid="3016793641076890473">"增强网页无障碍功能"</string>
+    <string name="title_pref_web_scripts" msgid="3016793641076890473">"增强网页辅助功能"</string>
     <string name="summary_pref_web_scripts" msgid="3996491708050765411">"下载适用于网页内容的无障碍脚本"</string>
     <string name="title_pref_resume_talkback" msgid="4098949311311089235">"从暂停状态恢复启用"</string>
     <string name="screen_dimmed" msgid="8072279323762069231">"已调暗屏幕"</string>
     <string name="screen_brightness_restored" msgid="378010604065368658">"已恢复屏幕亮度"</string>
-    <string name="screen_dimming_exit_instruction_line1" msgid="176693707001658416">"“话语提示”无障碍服务已将屏幕调暗。"</string>
+    <string name="screen_dimming_exit_instruction_line1" msgid="176693707001658416">"TalkBack 无障碍服务已将屏幕调暗。"</string>
     <string name="screen_dimming_exit_instruction_line2" msgid="2111548310775079127">"同时快速按三下音量调高和音量调低键即可撤消。"</string>
-    <string name="screen_dimming_exit_instruction_line3" msgid="7006494712728198438">"您可以通过“话语提示”设置调节屏幕明暗。"</string>
+    <string name="screen_dimming_exit_instruction_line3" msgid="7006494712728198438">"您可以通过 TalkBack 设置调节屏幕明暗。"</string>
     <string name="axis_character" msgid="8528412412593489695">"逐个字符朗读。"</string>
     <string name="axis_word" msgid="8823389407337076750">"逐个字词朗读。"</string>
     <string name="axis_sentence" msgid="4398740201672273541">"逐句朗读。"</string>
@@ -186,10 +308,11 @@
     <string name="granularity_line" msgid="727359260064093782">"行"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"段落"</string>
     <string name="granularity_page" msgid="2739238666516816581">"页"</string>
-    <string name="granularity_web_section" msgid="496466197528091152">"逐个章节朗读"</string>
-    <string name="granularity_web_list" msgid="8598575022728013551">"逐个列表朗读"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"逐个控件朗读"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"按特殊内容朗读"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"标题和地标"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"列表"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"链接"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"控件"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"特殊内容"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"纵向"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"横向"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"未指定"</string>
@@ -201,10 +324,12 @@
     <string name="shortcut_home" msgid="6670249804418900175">"“主屏幕”按钮"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"概览按钮"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"打开通知栏"</string>
+    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"显示自定义操作"</string>
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"打开全局上下文菜单"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"打开本地上下文菜单"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"重复上一条语音提示"</string>
     <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"拼出上一条语音提示"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"将最后一条语音内容复制到剪贴板"</string>
     <string name="shortcut_pause_feedback" msgid="1412613174540942399">"暂停语音反馈功能"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"从顶部开始朗读"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"从下一项开始朗读"</string>
@@ -213,6 +338,8 @@
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"上一个导航设置"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"将焦点移至屏幕上的第一项内容"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"将焦点移至屏幕上的最后一项内容"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"调暗屏幕"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"取消调暗屏幕"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"本地上下文菜单"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"全局上下文菜单"</string>
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"没有菜单项。"</string>
@@ -234,6 +361,13 @@
     <string name="title_summary" msgid="3037924006370977165">"快速导航"</string>
     <string name="title_granularity" msgid="399801096771904747">"导航设置"</string>
     <string name="title_custom_action" msgid="7908169922901920318">"自定义操作"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"自动填充建议"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"跳转到建议"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"返回编辑字段"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"进度滑块控件"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"编辑进度滑块控件等级"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"请输入介于 0 到 100 之间的数字。"</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
     <string name="value_direction_up" msgid="1646290331150992975">"向上"</string>
     <string name="value_direction_down" msgid="8072362433982733982">"向下"</string>
     <string name="value_direction_left" msgid="676932617445677488">"向左"</string>
@@ -290,15 +424,16 @@
     <string name="value_keyboard_echo_always" msgid="6889426165608387394">"始终读出所敲击的键"</string>
     <string name="value_keyboard_echo_softkeys" msgid="1595001302535254665">"仅限于屏幕键盘"</string>
     <string name="value_keyboard_echo_never" msgid="7181327459690946870">"不读出所敲击的键"</string>
-    <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"“话语提示”服务的手势已更改"</string>
+    <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"TalkBack 服务的手势已更改"</string>
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"点按可查看无障碍手势方面的变化"</string>
-    <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"“话语提示”服务已暂停"</string>
+    <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack 服务已暂停"</string>
     <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"点按可恢复启用。"</string>
-    <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"要暂停“话语提示”服务吗？"</string>
-    <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"您确定要暂停吗？暂停该服务后，设备将不再提供语音反馈，并且“触摸浏览”功能也将一并停用。如要恢复启用“话语提示”，您可以通过通知栏或通过返回锁定屏幕来操作，或者使用音量按键快捷方式。"</string>
-    <string name="message_resume_manual" msgid="6522293510722570646">"您可以通过通知栏来恢复启用“话语提示”服务。"</string>
-    <string name="message_resume_screen_on" msgid="9016720947126938212">"您可以通过通知栏或通过打开屏幕来恢复启用“话语提示”服务。"</string>
-    <string name="message_resume_keyguard" msgid="6721228114050709276">"您可以通过通知栏或通过返回锁定屏幕来恢复启用“话语提示”服务。"</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"自动转到第 1 课。"</string>
+    <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"要暂停 TalkBack 服务吗？"</string>
+    <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"您确定要暂停吗？暂停该服务后，设备将不再提供语音反馈，并且“触摸浏览”功能也将一并停用。如要恢复启用 TalkBack，您可以通过通知栏或通过返回锁定屏幕来操作，或者使用音量按键快捷方式。"</string>
+    <string name="message_resume_manual" msgid="6522293510722570646">"您可以通过通知栏来恢复启用 TalkBack 服务。"</string>
+    <string name="message_resume_screen_on" msgid="9016720947126938212">"您可以通过通知栏或通过打开屏幕来恢复启用 TalkBack 服务。"</string>
+    <string name="message_resume_keyguard" msgid="6721228114050709276">"您可以通过通知栏或通过返回锁定屏幕来恢复启用 TalkBack 服务。"</string>
     <string name="show_suspend_warning_label" msgid="3193206799395252518">"一律显示此警告"</string>
     <string name="cannot_add_label" msgid="2754406023113433479">"无法为此项目添加标签。"</string>
     <string name="label_dialog_title_add" msgid="1255044087558866043">"添加标签"</string>
@@ -308,28 +443,113 @@
     <string name="label_remove_dialog_text" msgid="372916461303485723">"确定要移除“<xliff:g id="LABEL">%1$s</xliff:g>”标签吗？"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"确定要移除 <xliff:g id="APP_NAME">%2$s</xliff:g> 中的“<xliff:g id="LABEL">%1$s</xliff:g>”标签吗？"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"标签文字"</string>
-    <string name="talkback_gesture_change_details" msgid="1242896734553682887">"此版本的“话语提示”服务对默认的无障碍手势进行了一些更改。您可以在“话语提示”服务设置中自定义与这些手势关联的操作。启用“触摸浏览”功能后，您可以使用以下手势执行某些操作。\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
+    <string name="label_import" msgid="1773817433300194935">"导入自定义标签"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"将自定义标签导入 TalkBack"</string>
+    <string name="label_import_dialog_message" msgid="7975227530187709469">"选择在发生冲突的情况下是覆盖还是跳过现有标签。"</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"跳过"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"覆盖"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"没有可导出的标签。您尚未添加任何标签"</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"无法导出标签"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"无法导入标签"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="other">已更新 %d 个标签</item>
+      <item quantity="one">已更新 1 个标签</item>
+    </plurals>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"选择应用以导出标签："</string>
+    <string name="talkback_gesture_change_details" msgid="1242896734553682887">"此版本的 TalkBack 服务对默认的无障碍手势进行了一些更改。您可以在 TalkBack 服务设置中自定义与这些手势关联的操作。启用“触摸浏览”功能后，您可以使用以下手势执行某些操作。\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"长按音量调高和音量调低键"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"同时快速按下两个音量键三次即可启用或停用屏幕调暗功能"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"要将屏幕调暗吗？"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"确定要调暗屏幕吗？"</string>
-    <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"此版本的“话语提示”服务对默认的无障碍手势进行了一些更改。\n\n先向上再向下的手势现在可让您直接跳到屏幕上显示的第一项内容，而先向下再向上的手势则可让您跳到屏幕上显示的最后一项内容。\n\n现在，如果要更改朗读单位，您可以先聚焦于某项内容，然后从本地上下文菜单中选择朗读单位。\n\n您可以在“话语提示”服务设置中更改这些手势对应的操作。"</string>
+    <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"此版本的 TalkBack 服务对默认的无障碍手势进行了一些更改。\n\n先向上再向下的手势现在可让您直接跳到屏幕上显示的第一项内容，而先向下再向上的手势则可让您跳到屏幕上显示的最后一项内容。\n\n现在，如果要更改朗读单位，您可以先聚焦于某项内容，然后从本地上下文菜单中选择朗读单位。\n\n您可以在 TalkBack 服务设置中更改这些手势对应的操作。"</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"此版本的 TalkBack 对默认的无障碍功能手势进行了一些更改。\n\n现在，使用向上手势可移至上一项导航设置，使用向下手势则会移至下一项导航设置。"</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"接受手势"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"自定义手势"</string>
+    <string name="button_clear_all_events" msgid="2128349101908653825">"全不选"</string>
+    <string name="button_check_all_events" msgid="301383322727007726">"全部选中"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"要停用“触摸浏览”功能吗？"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"确定要停用“触摸浏览”功能吗？\n\n停用该功能后，当您触摸屏幕时，设备将不再对快捷手势做出回应并朗读所触摸的内容。"</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"要启用“节点树调试”功能吗？"</string>
     <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"确定要启用“节点树调试”功能吗？\n\n启用该功能后，系统会将屏幕上的内容记录在您设备的日志中，而其他应用可能能够读取这些日志。"</string>
     <string name="hint_script_injection" msgid="6139951755594105602">"“触摸浏览”功能不适用于网页内容。要浏览网页内容，请在“无障碍”设置中开启“<xliff:g id="PREFERENCE_NAME">%1$s</xliff:g>”。"</string>
-    <string name="label_talkback_context_menu" msgid="6758073806811666684">"“话语提示”服务的全局上下文菜单"</string>
-    <string name="permission_talkback_label" msgid="2235244838320678938">"控制“话语提示”服务"</string>
-    <string name="permission_talkback_desc" msgid="8320433482567759963">"可向“话语提示”服务发送手势并恢复启用语音反馈功能。"</string>
-    <string name="permission_labeling_label" msgid="2956001661481169498">"管理“话语提示”服务的自定义标签"</string>
-    <string name="permission_labeling_desc" msgid="8065967887484901473">"可查看、修改和删除由“话语提示”服务读出的自定义标签。"</string>
+    <string name="label_talkback_context_menu" msgid="6758073806811666684">"TalkBack 服务的全局上下文菜单"</string>
+    <string name="permission_talkback_label" msgid="2235244838320678938">"控制 TalkBack 服务"</string>
+    <string name="permission_talkback_desc" msgid="8320433482567759963">"可向 TalkBack 服务发送手势并恢复启用语音反馈功能。"</string>
+    <string name="permission_labeling_label" msgid="2956001661481169498">"管理 TalkBack 服务的自定义标签"</string>
+    <string name="permission_labeling_desc" msgid="8065967887484901473">"可查看、修改和删除由 TalkBack 服务读出的自定义标签。"</string>
     <string name="links" msgid="3448225474115458693">"链接"</string>
     <string name="end_of_text" msgid="3595733062526019550">"结尾"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"没有上一个<xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"没有下一个<xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"标题"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"按钮"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"组合框"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"ARIA 地标"</string>
+    <string name="display_name_edit_field" msgid="5014778180731737501">"编辑字段"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"可设置为焦点的项"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"标题 1"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"标题 2"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"标题 3"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"标题 4"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"标题 5"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"标题 6"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"链接"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"控件"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"图片"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"列表项"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"列表"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"表格"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"复选框"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"标题或地标"</string>
     <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> 个<xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
     <string name="row_index_template" msgid="4107789959609911947">"第 <xliff:g id="ROW">%1$d</xliff:g> 行"</string>
     <string name="column_index_template" msgid="258393957626754806">"第 <xliff:g id="COL">%1$d</xliff:g> 列"</string>
     <string name="heading_template" msgid="3585514481777782183">"标题"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"行标题"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"列标题"</string>
     <string name="item_index_template" msgid="71505978833721807">"第 <xliff:g id="ITEM">%1$d</xliff:g> 项"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"还原导入的标签"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"已还原导入的标签"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g>在顶部，<xliff:g id="ID_2">%2$s</xliff:g>在底部"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g>在左侧，<xliff:g id="ID_2">%2$s</xliff:g>在右侧"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g>在右侧，<xliff:g id="ID_2">%2$s</xliff:g>在左侧"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="untitled_window" msgid="7017590766394623328">"无标题"</string>
+    <string name="status_bar" msgid="6000275621941971563">"状态栏"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"导航栏"</string>
+    <string name="template_collection_start" msgid="4362535543397747567">"已进入<xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_end" msgid="2167296836815021551">"已退出<xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"第 <xliff:g id="LEVEL">%1$s</xliff:g> 级"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> 项</item>
+      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> 项</item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> 行</item>
+      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> 行</item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> 列</item>
+      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> 列</item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> 个字符</item>
+      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> 个字符</item>
+    </plurals>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="other">已选择 <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> 个事件</item>
+      <item quantity="one">已选择 1 个事件</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"已启动<xliff:g id="REMOTE_MODE">%1$s</xliff:g>"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"已退出<xliff:g id="REMOTE_MODE">%1$s</xliff:g>"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"进度滑块控件模式"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"按箭头按钮即可更改值，按选择按钮即可完成操作。"</string>
+    <string name="arc_android_window" msgid="697316167642517245">"Android 窗口"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"按搜索键和箭头键即可导航"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"按 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可查看快捷键列表"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"按 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可开启 TalkBack 设置"</string>
+    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"为了获得最佳触摸和语音反馈效果，请将应用窗口最大化"</string>
 </resources>

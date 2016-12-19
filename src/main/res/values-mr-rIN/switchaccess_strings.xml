@@ -2,25 +2,23 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="switch_service_name" msgid="6043415138576713888">"प्रवेश स्विच करा"</string>
-    <string name="switch_access_service_description" msgid="7316829370005579941">"प्रवेश स्विच केल्याने आपल्‍याला कॉन्‍फिगर करण्‍यायोग्य की संयोग वापरून आपल्‍या डिव्‍हाइसचे नियंत्रण करण्‍याची अनुमती मिळते. आपण क्लिक करण्‍यायोग्य आयटमवर फोकस हलवू शकता आणि त्यांना निवडू शकता."</string>
-    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"स्वयं स्कॅन"</string>
-    <string name="title_pref_auto_scan" msgid="6856662972215508038">"स्वयं स्कॅन सक्षम करा"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"वेळ विलंब"</string>
+    <string name="switch_access_service_description" msgid="1958519878116811543">"स्विच प्रवेश आपल्याला एक किंवा अधिक स्विचचा वापर करून स्कॅन करू देतो आणि आयटम निवडू देतो"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"मदत आणि अभिप्राय"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"स्वयं-स्कॅन"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"स्वयं-स्कॅन वेळ"</string>
     <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"स्वयं स्कॅन उलट करा"</string>
-  <plurals name="auto_scan_time_delay_summary_format">
-    <item quantity="one" msgid="815853953952465870">"1 सेकंद"</item>
-    <item quantity="other" msgid="1223387233862989964">"%.2f सेकंद"</item>
-  </plurals>
+    <plurals name="auto_scan_time_delay_summary_format" formatted="false" msgid="5524438721359954583">
+      <item quantity="one">%.2f सेकंद</item>
+      <item quantity="other">%.2f सेकंद</item>
+    </plurals>
     <string name="title_pref_scanning_methods" msgid="2351427385843210311">"स्कॅनिंग पद्धत"</string>
-    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"कीबोर्ड स्कॅनिंग"</string>
-    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"स्कॅनिंग पहा"</string>
     <string name="title_pref_category_key_mappings" msgid="463227090301036752">"क्रियांवर की नियुक्त करा"</string>
     <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"स्कॅन करण्यासाठी की नियुक्त करत आहे"</string>
     <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' की आधीपासून \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' साठी नियुक्त केली आहे"</string>
-  <plurals name="label_num_keys_assigned_format">
-    <item quantity="one" msgid="8372086689828893172">"%d की नियुक्त केली"</item>
-    <item quantity="other" msgid="2361393301173230834">"%d की नियुक्त केल्या"</item>
-  </plurals>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="8070929030388121623">
+      <item quantity="one">%d की नियुक्त केली</item>
+      <item quantity="other">%d की नियुक्त केल्या</item>
+    </plurals>
     <string name="option_scan_switch_format" msgid="2034348456907055979">"पर्याय स्कॅन स्विच %1$d"</string>
     <string name="action_name_next" msgid="4106603510441280028">"पुढील"</string>
     <string name="action_name_previous" msgid="5382750123072539005">"मागील"</string>
@@ -28,13 +26,14 @@
     <string name="action_name_long_click" msgid="5708679123666477849">"दीर्घकाळ दाबा"</string>
     <string name="action_name_scroll_forward" msgid="6969788891937406270">"पुढे स्क्रोल करा"</string>
     <string name="action_name_scroll_backward" msgid="579045012327139100">"मागे स्क्रोल करा"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"डिसमिस करा"</string>
     <string name="context_menu_layout_description" msgid="330592638837220675">"संदर्भ मेनू"</string>
     <string name="option_scanning_menu_button" msgid="4460266289722058928">"मेनू"</string>
     <string name="global_action_back" msgid="8326879739948707767">"परत"</string>
     <string name="global_action_home" msgid="2498984784930393183">"मुख्यपृष्ठ"</string>
     <string name="global_action_overview" msgid="51725242460849609">"विहंगावलोकन"</string>
     <string name="global_action_notifications" msgid="7052190988699716765">"सूचना"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"दृत सेटिंग्ज"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"द्रुत सेटिंग्ज"</string>
     <string name="scrollable_forward" msgid="6312908487874132401">"पुढे स्क्रोल करा"</string>
     <string name="scrollable_backward" msgid="5109861709058665917">"मागे स्क्रोल करा"</string>
     <string name="switch_access_preferences_title" msgid="8339289604407443597">"प्रवेश स्विच प्राधान्ये"</string>
@@ -48,8 +47,23 @@
     <string name="name_of_enter_key" msgid="6379785627490220649">"प्रविष्ट करा"</string>
     <string name="name_of_tab_key" msgid="6744983965001375397">"टॅब"</string>
     <string name="save" msgid="5398278773451196019">"जतन करा"</string>
-    <string name="title_pref_highlight_0" msgid="3039542597362059267">"स्कॅनिंगसाठी वापरलेले हायलाइट"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"हायलाइट शैली स्कॅन करीत आहे"</string>
     <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"प्राथमिक स्कॅन शैली"</string>
-    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"हायलाइटचा रंग"</string>
-    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"हायलाइटचे वजन"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"रंग हायलाइट करा"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"ओळ शैली हायलाइट करा"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="1781611399874689922">"स्वयं-निवडा सक्षम करा"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="777214990214649732">"स्वयं-निवडा अक्षम करा"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"पुढील वर्ण"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"पुढील शब्द"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"पुढील ओळ"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"पुढील परिच्छेद"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"पुढील पृष्ठ"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"मागील वर्ण"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"मागील शब्द"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"मागील ओळ"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"मागील परिच्छेद"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"मागील पृष्ठ"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"स्वयंचलितपणे स्कॅन करणे प्रारंभ करा"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"स्विच न दाबता स्कॅन करण्यास प्रारंभ होतो"</string>
 </resources>

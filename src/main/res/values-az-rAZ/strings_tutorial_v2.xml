@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Əlçatımlıq Dərsliyi"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"TalkBack dərsliyini başladın"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"TalkBack dərsliyi"</string>
+    <string name="main_description" msgid="4795202818108740382">"Talkback korluq və aşağı görmə qabiliyyəti olan insanlar üçün ekran oxucusudur. O, şifahi rəydən istifadə edərək cihazla qarşılıqlı əlaqəyə imkan verir."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBack\'i söndürün"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Öyrənin"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Məşq edin"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"öyrədici dərs <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"təcrübə dərsi <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Dərs 1: Əsas naviqasiya"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Kəşf etmək üçün toxunun, sürüşdürün, aktiv etmək üçün iki dəfə tıklayın"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"1-ci hissə: Toxunaraq kəşf edin"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Aktiv edildikdə, Toxunuşla Kəşf funksiyası barmağınızın altındakını hiss etməyə icazə verir. Barmağınızı ekranın mərkəzində elementlərin üzərində hərəkət etdirin. Beş elementi kəşf etdikdən sonra dərs davam edəcək."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"2-ci hissə: Aktivləşdirmək üçün iki dəfə tıklayın"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Eşitdiyiniz son elementi aktiv etmək üçün, istənilən yerdə iki dəfə tıklayın. Element 7-ni tapın və indi aktiv edin. Sonra, davam etmək üçün Növbəti düyməsini aktiv edin."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Element 7 aktiv edildi. Davam etmək üçün Növbəti düyməsini tapın və aktiv edin"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"3-cü hissə: Naviqasiya dərsləri"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack dərsləri eyni təşkil edilir. Yuxarı hissədə istənilən vaxt kəşf etmək və oxumaq istədiyiniz dərs var. Yuxarı sol küncdə Öyrədici Əsas Səhifə düyməsi var. Ortada təcrübə hissəsidir. Aşağıda gedişat göstəricisi və dərs naviqasiya düymələri var. Davam etmək üçün Növbəti seçimini aktivləşdirin."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"4-cü hissə: Kəşf etmək üçün vurun"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Siz həmçinin barmağınızla ekrana vurmaqla kəşf edə bilərsiniz. Sola vurmaq əsasən yuxarı və solu kəşf edir, hemçinin sağa vurmaq aşağı və sağı kəşf edir. İndi cəhd edin."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"5-ci hissə: Təcrübə"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Barmağınızın altında nə olduğunu eşitmək üçün ekran üzərində hərəkət edirin. Eşitdiyinizi aktiv etmək üçün istənilən yerdə iki dəfə tıklayın. Kəşf etmək üçün sağa və ya sola sürüşdürün."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Dərs 2: Sürüşdürmə"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"İki barmaqla sürüşdürmə, irəli və geri tullanma"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"1-ci hissə: İki barmaqla sürüşdürmə"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Şaquli siyahıda keçid etmək üçün, siyahı elementini tapın, sonra iki barmağınızı yuxarı və aşağı hərəkət etdirin. Üfuqi siyahıda keçid etmək üçün siyahı elementini tapın, sonra iki barmağınızı yuxarı və aşağı hərəkət etdirin."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"2-ci hissə: Qisayolların sürüşdürülməsi"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Qısayolu istifadə edərək irəli və ya geri tullana bilərsiniz. İrəli tullanmaq üçün, bir barmağınızı sağa sonra sola hərəkət etdirin. Geri tullanmaq üçün, bir barmağınızı sola sonra sağa hərəkət etdirin. Buradan yoxlayın."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"3-cü hissə: Təcrübə"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"İki barmağınızı yuxarı və ya aşağı sürüşdürün. Bir barmağınızla sağa sonra sola hərəkət etdirərək irəli tullanın. Bir barmağınızla sola sonra sağa hərəkət etdirərək geri tullanın."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Dərs 3: TalkBack menyuları"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Global TalkBack menyusu, yerli TalkBack menyusu"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"1-ci hissə: Qlobal TalkBack menyusu"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack\'in iki fərqli menyusu var. İlk olaraq, Qlobal TalkBack menyusunda, eyni əmrlər olur. bir barmağınızı aşağı sonra sağa hərəkət etdirib barmağınızı qaldırmaqla bunu aktiv edə bilərsiniz. Məşq versiyasını indi aktiv edin."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Menyu seçimləri ekranın mərkəzində vertikal göstərilir. Kəşf etməyi sınayın."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"2-ci hissə: Yerli TalkBack menyusu"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Yerli TalkBack menyudakı ikinci menyu. Bu menyudakı elementlər axırıncı eşitdiyinizdən aslı olaraq fərqlənir. tək hərkətlə bir barmağınızı yuxarı sonra sağa hərəkət etdirib barmağınızı qaldıraraq bu menyunu aktiv edə bilərsiniz. Məşq menyusunu indi aktiv edin."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"3-cü hissə: Təcrübə"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Global TalkBack menusunu aktiv etmək üçün barmağınızı aşağı sonra sağa hərəkət etdirin. Yerli TalkBack menusunu aktiv etmək üçün barmağınızı yuxarı sonra sağa hərəkət etdirin."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Aşağıya, sonra sağa"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Yuxarıya, sonra sağa"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Global TalkBack Menusu: Aşağıya, sonra sağa Yerli TalkBack Menusu: Yuxariya, sonra sağa"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Dərs 4: Mətn Naviqasiyası"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Mətn naviqasiyası ayarlarını seçmək"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"1-ci hissə: Naviqasiya ayarlarını seçmək"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"Talkback bir dəfəyə Sizə abzas, sətir, söz və ya simvol oxunulmasına nəzarət etməyə imkan verir. Simvol ilə oxumaq orforqrafiyaya kömək edir. Aşağıdakı mətnə tıklayaraq, sonra yuxarı və aşağı sürüşdürərək mətnin naviqasiya dərəcəsini simvollara ayarlayın."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Burada şaquli siyahılanmış oxuma dərəcəsi seçənəklərini kəşf edin. Simvollar ilə Oxu seçimini tapın və aktiv edin."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Part 2: Mətndə keçid edin"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"indi simvol ilə oxuyursunuz. Nümunə mətni seçin və simvol ilə oxumaq üçün sağa sürüşdürün."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"3-cü hissə: Təcrübə"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Mətnin naviqasiya dərəcəsini yuxarı və aşağı sürüşdürərək dəyişin. Nümunə mətndə sağa sürüşdürərək növbəti simvolu oxuyun."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"TalkBack təcrübəsi üçün burada bir neçə mətn nümunəsi var. \"Kansas haradadır?\" deyə kişidən təəccüblə soruşdu. \"Mən bilmirəm,\" Tural kədərli cavab verdi, \"ama bu mənim evimdir və buralarda bir yerdə olduğuna əminəm.\"\n\n\"Böyük ehtimal. Yaxşı, Oz sənə kömək edə bilər; çox güman ki o Sizin üçün Kansası tapa biləcək. Lakin, ilk olaraq onunla görüşməlisiniz və bu çox çətin məsələdir; Böyük Usta heç kəsi görməyi xoşlamır və adətən onun öz yolu olur. Bəs SİZƏ nə lazim idi?\" deyərək Toto ilə danışmağa davam etdi."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Dərs 5: Mətn redaktəsi"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Redaktə pəncərəsi aktiv edilir, yazı yazılır, kursor hərəkət etdirilir, mətn seçilir və üzərində iş görülür"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Hissə 1: Redaktə qutusu aktiv edilir"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"TalkBack ilə, redaktə qutusunu mətn daxil etmək, seçmək və redaktə etmək üçün istifadə edə bilərsiniz. Redaktə qutusunu aktiv etmək üçün, iki dəfə tıklayın. Redaktə qutusunu aktiv etdikdən sonra, klaviatura ekranın aşağısında əlçatan olacaq. Geri düyməsinə basaraq klaviaturanı rədd edə bilərsiniz. Redaktə qutusunu indi aktivləşdirməyə çalışın. Bitirdikdən sonra, klaviaturanın yuxarısında olan Növbəti seçimini aktivləşdirin."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"2-ci hissə: Redaktə xanasına yazmaq"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Yazı yazmaq üçün redaktə pəncərəsini aktiv edin və barmağınızı ekran üzərindəki klaviaturada hərkət etdirin. İstədiyiniz simvolu eşitdikdə barmağınızı çəkərək aktiv edin. Aşağıda redaktə pəncərəsində aktiv etməyə və yazı yazmağa cəhd edin."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Dərs 3: Kursordan istifadə"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Səs düymələri və ya Lokal Talkback menyusundan istifadə edərək kursoru hərəkət etdirə bilərsiniz. Bu menyudakı Kursor nəzarət seçimi ilə mətni seçə, kəsə, kopyalayıb yerləşdirə bilərsiniz. Redaktə qutusunu aktiv edin və kursoru nümunə mətn üzərində hərəkət etdirin."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"dorothy@ozmail.com Dorothy Gale\'in e-poçt ünvanıdır"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Dərs 4: Məşq"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Redaktə pəncərəsini iki dəfə basaraq aktiv edin. Simvolun üzərində barmağınızı hərəkət etdirərək, sonra isə barmağınızı çəkərək yazı yazın.Kursoru səs düyməsi və Lokal Talkback ilə hərəkət etdirin. Lokal Talkback menyusunda Kursoru idar etmə seçimindən istifadə edərən mətni seçin və üzərində işləyin."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Mətni redaktə edin"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"ƏVVƏLKİ"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"NÖVBƏTİ"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"ƏVVƏLKİ DƏRS"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"NÖVBƏTİ DƏRS"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"DƏRSLİYİN ƏSAS SƏHİFƏSİ"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Dərs %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Hissə %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"%2$d hissədən %1$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Tapşırıq tamamlandı və bir qədər sonra davam edəcək"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Məşq Sahəsi"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s təcrübə rejimində aktiv edildi. Çıxış etmək üçün CANCEL düyməsini aktiv edin."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Dərslik Əsas Düyməsi"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Element <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Çıxış"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Toxunaraq Kəşf Et tələb olunur"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Bu dərslik Toxunuşla Kəşf funksiyasını tələb edir. Bu dərsliyə başlamadan öncə, Toxunuşla Kəşf funksiyasını aktiv etmək xahiş olunur."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack Deaktiv edildi"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Bu derslik TalkBack\'in aktiv edilməsini tələb edir. Bu dərsliyi başlatmazdan əvvəl, TalkBack\'i aktiv edin."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack Dayandırıldı"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Cavab rəyi durdurulduğu zaman TalkBack dərsliyi əlçatımlı olmur. Lütfən, TalkBack Cavab Rəyi\'ni yenidən başladın və davam etmək üçün dərsliyi yenidən açın."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Menyunu təsvir edin"</string>
+</resources>

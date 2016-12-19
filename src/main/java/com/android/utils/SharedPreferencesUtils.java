@@ -16,8 +16,12 @@
 
 package com.android.utils;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.os.BuildCompat;
 
 /**
  * Utility methods for interacting with {@link SharedPreferences} objects.
@@ -114,5 +118,34 @@ public class SharedPreferencesUtils {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(key, value);
         editor.apply();
+    }
+
+    /**
+     * Gets the appropriate SharedPreferences depending on the device capabilities.
+     * On systems that support device-protected storage (Android N or later with compatible device),
+     * returns SharedPreferences backed by device-protected storage.
+     * Otherwise, returns SharedPreferences backed by a standard credential-protected storage
+     * context.
+     */
+    public static SharedPreferences getSharedPreferences(Context context) {
+        Context deContext = ContextCompat.createDeviceProtectedStorageContext(context);
+        if (deContext != null) {
+            return PreferenceManager.getDefaultSharedPreferences(deContext);
+        } else {
+            return PreferenceManager.getDefaultSharedPreferences(context);
+        }
+    }
+
+    /**
+     * Move existing preferences file from credential protected storage to device protected storage.
+     * This is used to migrate data between storage locations after an Android upgrade from
+     * Build.VERSION < N to Build.VERSION >= N.
+     */
+    public static void migrateSharedPreferences(Context context) {
+        if (BuildCompat.isAtLeastN()) {
+            Context deContext = ContextCompat.createDeviceProtectedStorageContext(context);
+            deContext.moveSharedPreferencesFrom(context,
+                    PreferenceManager.getDefaultSharedPreferencesName(context));
+        }
     }
 }

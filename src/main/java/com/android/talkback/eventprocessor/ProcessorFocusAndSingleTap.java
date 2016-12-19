@@ -16,6 +16,7 @@
 
 package com.android.talkback.eventprocessor;
 
+import android.os.SystemClock;
 import android.util.Pair;
 
 import android.annotation.TargetApi;
@@ -30,10 +31,10 @@ import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
-import android.webkit.WebView;
-import android.widget.EditText;
+import com.android.talkback.InputModeManager;
 import com.android.talkback.R;
 import com.android.talkback.SpeechController;
+import com.android.utils.Role;
 import com.google.android.marvin.talkback.TalkBackService;
 import com.android.talkback.controller.CursorController;
 import com.android.talkback.controller.FeedbackController;
@@ -46,8 +47,8 @@ import com.android.utils.PerformActionUtils;
 import com.android.utils.WeakReferenceHandler;
 import com.android.utils.WebInterfaceUtils;
 import com.android.utils.compat.accessibilityservice.AccessibilityServiceCompatUtils;
-import com.android.utils.traversal.OrderedTraversalStrategy;
 import com.android.utils.traversal.TraversalStrategy;
+import com.android.utils.traversal.TraversalStrategyUtils;
 
 import java.util.ArrayDeque;
 import java.util.Iterator;
@@ -57,7 +58,6 @@ import java.util.Iterator;
  * including hover events, list scrolling, and placing input focus. Also handles
  * single-tap activation in response to touch interaction events.
  */
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
         CursorController.ScrollListener {
     /** Single-tap requires JellyBean (API 17). */
@@ -72,10 +72,6 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
 
     private static final int MAX_CACHED_FOCUSED_RECORD_QUEUE = 10;
 
-    private static final int MOVING_UNDEFINED_DIRECTION = 0;
-    private static final int MOVING_FORWARDS = 1;
-    private static final int MOVING_BACKWARDS = -1;
-
     private final TalkBackService mService;
     private final SpeechController mSpeechController;
     private final CursorController mCursorController;
@@ -86,7 +82,7 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
     private final ArrayDeque<Pair<AccessibilityRecordCompat, Integer>>
         mCachedPotentiallyFocusableRecordQueue = new ArrayDeque<>(MAX_CACHED_FOCUSED_RECORD_QUEUE);
 
-    private int mLastScrollAction = 0;
+    private @TraversalStrategy.SearchDirectionOrUnknown int mLastScrollDirection;
     private int mLastScrollFromIndex = -1;
     private int mLastScrollToIndex = -1;
     private int mLastScrollX = -1;
@@ -113,6 +109,10 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
     /** Whether the current interaction may result in a single tap. */
     private boolean mMaybeSingleTap;
 
+    private long mLastRefocusStartTime = 0;
+    private long mLastRefocusEndTime = 0;
+    private AccessibilityNodeInfoCompat mLastRefocusedNode = null;
+
     private FirstWindowFocusManager mFirstWindowFocusManager;
 
     public ProcessorFocusAndSingleTap(CursorController cursorController,
@@ -130,7 +130,7 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
         mHandler = new FollowFocusHandler(this, feedbackController);
         mAccessibilityManager = (AccessibilityManager) service.getSystemService(
                 Context.ACCESSIBILITY_SERVICE);
-        mFirstWindowFocusManager = new FirstWindowFocusManager();
+        mFirstWindowFocusManager = new FirstWindowFocusManager(service);
     }
 
     @Override
@@ -271,23 +271,25 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
     private void handleViewScrolled(AccessibilityEvent event, AccessibilityRecordCompat record) {
         AccessibilityNodeInfoCompat source = null;
 
-        int movingDirection;
-        boolean wasScrollAction = false;
+        @TraversalStrategy.SearchDirectionOrUnknown int direction;
+        boolean wasScrollAction;
         if (mActionScrolledNode != null) {
             source = record.getSource();
             if (source == null) return;
             if (source.equals(mActionScrolledNode)) {
-                movingDirection = getScrollActionDirection(mLastScrollAction);
-                wasScrollAction = mLastScrollAction != 0;
+                direction = mLastScrollDirection;
+                wasScrollAction = true;
                 clearScrollAction();
             } else {
-                movingDirection = getScrollDirection(event);
+                direction = getScrollDirection(event);
+                wasScrollAction = false;
             }
         } else {
-            movingDirection = getScrollDirection(event);
+            direction = getScrollDirection(event);
+            wasScrollAction = false;
         }
 
-        followScrollEvent(source, record, movingDirection, wasScrollAction);
+        followScrollEvent(source, record, direction, wasScrollAction);
 
         mLastScrollFromIndex = record.getFromIndex();
         mLastScrollToIndex = record.getToIndex();
@@ -297,40 +299,29 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
         tryFocusCachedRecord();
     }
 
-    private int getScrollDirection(AccessibilityEvent event) {
+    private @TraversalStrategy.SearchDirectionOrUnknown int getScrollDirection(
+            AccessibilityEvent event) {
         //check scroll of AdapterViews
         if (event.getFromIndex() > mLastScrollFromIndex ||
                 event.getToIndex() > mLastScrollToIndex) {
-            return MOVING_FORWARDS;
+            return TraversalStrategy.SEARCH_FOCUS_FORWARD;
         } else if(event.getFromIndex() < mLastScrollFromIndex ||
                 event.getToIndex() < mLastScrollToIndex) {
-            return MOVING_BACKWARDS;
+            return TraversalStrategy.SEARCH_FOCUS_BACKWARD;
         }
 
         //check scroll of ScrollViews
         if (event.getScrollX() > mLastScrollX || event.getScrollY() > mLastScrollY) {
-            return MOVING_FORWARDS;
+            return TraversalStrategy.SEARCH_FOCUS_FORWARD;
         } else if (event.getScrollX() < mLastScrollX || event.getScrollY() < mLastScrollY) {
-            return MOVING_BACKWARDS;
+            return TraversalStrategy.SEARCH_FOCUS_BACKWARD;
         }
 
-        return MOVING_UNDEFINED_DIRECTION;
-    }
-
-    private int getScrollActionDirection(int scrollAction) {
-        if (scrollAction == AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
-            return MOVING_FORWARDS;
-        }
-
-        if (scrollAction == AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
-            return MOVING_BACKWARDS;
-        }
-
-        return MOVING_UNDEFINED_DIRECTION;
+        return TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
     }
 
     private void clearScrollAction() {
-        mLastScrollAction = 0;
+        mLastScrollDirection = TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
         if (mActionScrolledNode != null) {
             mActionScrolledNode.recycle();
         }
@@ -360,8 +351,14 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
 
     private void followScrollEvent(AccessibilityNodeInfoCompat source,
                                    AccessibilityRecordCompat record,
-                                   int movingDirection,
+                                   @TraversalStrategy.SearchDirectionOrUnknown int direction,
                                    boolean wasScrollAction) {
+        // SEARCH_FOCUS_UNKNOWN can be passed, so need to guarantee that direction is a
+        // @TraversalStrategy.SearchDirection before continuing.
+        if (direction == TraversalStrategy.SEARCH_FOCUS_UNKNOWN) {
+            return;
+        }
+
         AccessibilityNodeInfoCompat root = null;
         AccessibilityNodeInfoCompat accessibilityFocused = null;
 
@@ -396,9 +393,10 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
                 if (!AccessibilityNodeInfoUtils.hasAncestor(accessibilityFocused, source)) {
                     return;
                 }
-                TraversalStrategy traversal = new OrderedTraversalStrategy(root);
+                TraversalStrategy traversal = TraversalStrategyUtils.getTraversalStrategy(root,
+                        direction);
                 try {
-                    focusNextFocusedNode(traversal, accessibilityFocused, movingDirection);
+                    focusNextFocusedNode(traversal, accessibilityFocused, direction);
                 } finally {
                     traversal.recycle();
                 }
@@ -417,7 +415,7 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
 
                     // There is no focus now, but it was on source node's child before
                     // Try focusing the appropriate child node.
-                    if (tryFocusingChild(source, movingDirection)) {
+                    if (tryFocusingChild(source, direction)) {
                         return;
                     }
 
@@ -432,7 +430,7 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
 
     private boolean focusNextFocusedNode(TraversalStrategy traversal,
                                          AccessibilityNodeInfoCompat node,
-                                         int direction) {
+                                         @TraversalStrategy.SearchDirection int direction) {
         if (node == null) {
             return false;
         }
@@ -559,8 +557,7 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
             // the IME is unintentionally dismissed by WebView's
             // performAction implementation.
             if (!AccessibilityTutorialActivity.isTutorialActive()
-                    && !AccessibilityNodeInfoUtils.nodeMatchesClassByType(currentNode,
-                            WebView.class)) {
+                    && Role.getRole(currentNode) != Role.ROLE_WEB_VIEW) {
                 mService.interruptAllFeedback();
             }
             AccessibilityNodeInfoUtils.recycleNodes(currentNode);
@@ -619,6 +616,8 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
                 return false;
             }
 
+            mService.getInputModeManager().setInputMode(InputModeManager.INPUT_MODE_TOUCH);
+
             // If something received focus, single tap cannot occur.
             if (mSingleTapEnabled) {
                 cancelSingleTap();
@@ -646,12 +645,42 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
             return false;
         }
 
-        // Never refocus web content, it will just read the title again.
-        return !WebInterfaceUtils.supportsWebActions(node)
-                && PerformActionUtils.performAction(node,
-                    AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS)
-                && tryFocusing(node);
+        // Never refocus legacy web content, it will just read the title again.
+        if (WebInterfaceUtils.hasLegacyWebContent(node)) {
+            return false;
+        }
 
+        mLastRefocusStartTime = SystemClock.uptimeMillis();
+        if (mLastRefocusedNode != null) {
+            mLastRefocusedNode.recycle();
+        }
+        mLastRefocusedNode = AccessibilityNodeInfoCompat.obtain(node);
+        boolean result = PerformActionUtils.performAction(node,
+                AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS)
+                && tryFocusing(node, true /* force */);
+        mLastRefocusEndTime = SystemClock.uptimeMillis();
+        return result;
+    }
+
+    public boolean isFromRefocusAction(AccessibilityEvent event) {
+        long eventTime = event.getEventTime();
+        int eventType = event.getEventType();
+        if (eventType != AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED &&
+                eventType != AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED) {
+            return false;
+        }
+        AccessibilityNodeInfo source = event.getSource();
+        try {
+            return mLastRefocusStartTime < eventTime &&
+                    (mLastRefocusEndTime > eventTime ||
+                            mLastRefocusEndTime < mLastRefocusStartTime) &&
+                    mLastRefocusedNode != null &&
+                    mLastRefocusedNode.getInfo().equals(source);
+        } finally {
+            if (source != null) {
+                source.recycle();
+            }
+        }
     }
 
     private void followContentChangedEvent() {
@@ -662,11 +691,12 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
      * If {@code wasMovingForward} is true, moves to the first focusable child.
      * Otherwise, moves to the last focusable child.
      */
-    private boolean tryFocusingChild(AccessibilityNodeInfoCompat parent, int movingDirection) {
+    private boolean tryFocusingChild(AccessibilityNodeInfoCompat parent,
+            @TraversalStrategy.SearchDirection int direction) {
         AccessibilityNodeInfoCompat child = null;
 
         try {
-            child = findChildFromNode(parent, movingDirection);
+            child = findChildFromNode(parent, direction);
             return child != null && tryFocusing(child);
 
         } finally {
@@ -679,27 +709,20 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
      * specified node in a specific direction. Only traverses direct children.
      *
      * @param root The node to search within.
-     * @param direction The direction to search, one of
-     *            {@link ProcessorFocusAndSingleTap#MOVING_BACKWARDS} or
-     *            {@link ProcessorFocusAndSingleTap#MOVING_FORWARDS}.
+     * @param direction The direction to search, one of the
+     *            {@link TraversalStrategy.SearchDirection} constants.
      * @return The first focusable child encountered in the specified direction.
      */
     private AccessibilityNodeInfoCompat findChildFromNode(AccessibilityNodeInfoCompat root,
-                                                          int direction) {
+            @TraversalStrategy.SearchDirection int direction) {
         if (root == null || root.getChildCount() == 0) {
             return null;
         }
 
-        final TraversalStrategy traversalStrategy = new OrderedTraversalStrategy(root);
-        int traversalDirection = direction == MOVING_BACKWARDS ?
-                TraversalStrategy.SEARCH_FOCUS_BACKWARD : TraversalStrategy.SEARCH_FOCUS_FORWARD;
+        final TraversalStrategy traversalStrategy =
+                TraversalStrategyUtils.getTraversalStrategy(root, direction);
 
-        AccessibilityNodeInfoCompat pivotNode;
-        if (traversalDirection == TraversalStrategy.SEARCH_FOCUS_BACKWARD) {
-            pivotNode = traversalStrategy.focusLast(root);
-        } else {
-            pivotNode = AccessibilityNodeInfoCompat.obtain(root);
-        }
+        AccessibilityNodeInfoCompat pivotNode = traversalStrategy.focusInitial(root, direction);
 
         NodeFilter filter = new NodeFilter() {
             @Override
@@ -710,8 +733,12 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
         };
 
         try {
-            return AccessibilityNodeInfoUtils.searchFocus(traversalStrategy, pivotNode, direction,
-                    filter);
+            if (filter.accept(pivotNode)) {
+                return AccessibilityNodeInfoCompat.obtain(pivotNode);
+            }
+
+            return AccessibilityNodeInfoUtils.searchFocus(traversalStrategy, pivotNode,
+                    direction, filter);
         } finally {
             if (pivotNode != null) {
                 pivotNode.recycle();
@@ -719,7 +746,22 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
         }
     }
 
+    /**
+     * If the source node does not have accessibility focus, attempts to focus the source node.
+     * Returns {@code true} if the node was successfully focused or already had accessibility focus.
+     * Note that nothing is done for source nodes that already have accessibility focus, but
+     * {@code true} is returned anyways.
+     */
     private boolean tryFocusing(AccessibilityNodeInfoCompat source) {
+        return tryFocusing(source, false);
+    }
+
+    /**
+     * If the source node does not have accessibility focus or {@code force} is {@code true},
+     * attempts to focus the source node. Returns {@code true} if the node was successfully focused
+     * or already had accessibility focus.
+     */
+    private boolean tryFocusing(AccessibilityNodeInfoCompat source, boolean force) {
         if (source == null) {
             return false;
         }
@@ -728,8 +770,9 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
             return false;
         }
 
-        if (!PerformActionUtils.performAction(source,
-                AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS)) {
+        boolean shouldPerformAction = force || !source.isAccessibilityFocused();
+        if (shouldPerformAction && !PerformActionUtils.performAction(
+                source, AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS)) {
             return false;
         }
 
@@ -741,7 +784,7 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
         // Performing a click on an EditText does not show the IME, so we need
         // to place input focus on it. If the IME was already connected and is
         // hidden, there is nothing we can do.
-        if (AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, EditText.class)) {
+        if (Role.getRole(node) == Role.ROLE_EDIT_TEXT) {
             PerformActionUtils.performAction(node, AccessibilityNodeInfoCompat.ACTION_FOCUS);
             return;
         }
@@ -760,25 +803,26 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
      * Listens for scroll events.
      *
      * @param action The type of scroll event received.
+     * @param auto If {@code true}, then the scroll was initiated automatically. If
+     *     {@code false}, then the user initiated the scroll action.
      */
     @Override
-    public void onScroll(AccessibilityNodeInfoCompat scrolledNode, int action) {
+    public void onScroll(AccessibilityNodeInfoCompat scrolledNode, int action, boolean auto) {
         if (scrolledNode == null) {
             clearScrollAction();
         }
 
-        switch (action) {
-            case AccessibilityNodeInfo.ACTION_SCROLL_FORWARD:
-            case AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD:
-                mLastScrollAction = action;
-                if (mActionScrolledNode != null) {
-                    mActionScrolledNode.recycle();
-                }
+        @TraversalStrategy.SearchDirectionOrUnknown int direction =
+                TraversalStrategyUtils.convertScrollActionToSearchDirection(action);
+        if (direction != TraversalStrategy.SEARCH_FOCUS_UNKNOWN) {
+            mLastScrollDirection = direction;
+            if (mActionScrolledNode != null) {
+                mActionScrolledNode.recycle();
+            }
 
-                if (scrolledNode != null) {
-                    mActionScrolledNode = AccessibilityNodeInfoCompat.obtain(scrolledNode);
-                }
-                break;
+            if (scrolledNode != null) {
+                mActionScrolledNode = AccessibilityNodeInfoCompat.obtain(scrolledNode);
+            }
         }
     }
 
@@ -920,11 +964,20 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
         }
     }
 
-    private static class FirstWindowFocusManager {
-        private static final int MISS_FOCUS_DELAY = 300;
+    private static class FirstWindowFocusManager implements CursorController.CursorListener {
+        private static final int MISS_FOCUS_DELAY_NORMAL = 300;
+        // TODO: Revisit the delay due to TV transitions if BUG changes.
+        private static final int MISS_FOCUS_DELAY_TV = 1200; // Longer transitions on TV.
+
         private long mLastWindowStateChangeEventTime;
         private long mLastWindowId;
         private boolean mIsFirstFocusInWindow;
+        private final TalkBackService mService;
+
+        public FirstWindowFocusManager(TalkBackService service) {
+            mService = service;
+            mService.getCursorController().addCursorListener(this);
+        }
 
         public void registerWindowChange(AccessibilityEvent event) {
             mLastWindowStateChangeEventTime = event.getEventTime();
@@ -933,6 +986,17 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
                 mIsFirstFocusInWindow = true;
             }
         }
+
+        @Override
+        public void beforeSetCursor(AccessibilityNodeInfoCompat newCursor, int action) {
+            // Manual focus actions should go through, even if mLastWindowId doesn't match.
+            if (action == AccessibilityNodeInfoCompat.ACTION_FOCUS) {
+                mLastWindowId = newCursor.getWindowId();
+            }
+        }
+
+        @Override
+        public void onSetCursor(AccessibilityNodeInfoCompat newCursor, int action) {}
 
         public boolean shouldProcessFocusEvent(AccessibilityEvent event) {
             boolean isFirstFocus = mIsFirstFocusInWindow;
@@ -943,8 +1007,11 @@ public class ProcessorFocusAndSingleTap implements AccessibilityEventListener,
                 return false;
             }
 
+            int focusDelay = mService.isDeviceTelevision() ?
+                    MISS_FOCUS_DELAY_TV : MISS_FOCUS_DELAY_NORMAL;
+
             return !isFirstFocus ||
-                    event.getEventTime() - mLastWindowStateChangeEventTime > MISS_FOCUS_DELAY;
+                    event.getEventTime() - mLastWindowStateChangeEventTime > focusDelay;
         }
     }
 }

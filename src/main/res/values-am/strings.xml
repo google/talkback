@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="7512754982950145749">"Talkback ሲበራ መሳሪያዎ አይነ ስውራን እና የማየት ችግር ያላቸው ተጠቃሚዎችን ለመርዳት የንግግር ግብረመልስ ይሰጣል። ለምሳሌ፣ ምን እንደሚነኩ፣ እንደሚመርጡ እና ገቢር እንደሚያደርጉ ይገልጻል።"</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"TalkBack በሚበራበት ጊዜ የእርስዎ መሣሪያ ማየት ለተሳናቸው እና ዝቅተኛ ዕይታ ችሎታ ያላቸውን ተጠቃሚዎች ለማገዝ የሚነገር ግብረመልስ ይሰጣል። ለምሳሌ፣ እርስዎ ምን እንደ ነኩ፣ እንደ መረጡ እና ገቢር እንዳደረጉ ያብራራል።\n\nTalkBackን በድንገት ከሆነ ያበሩት በዙሪያው ያለው አረንጓዴው ቢጋር እስከሚሆን ድረስ ማብሪያና ማጥፊያውን መታ በማድረግ፣ ሁለቴ መታ በማድረግ ያጥፉት። ለሚከተለው የማረጋገጫ መገናኛም ተመሳሳይ መስተጋብር ይፈጽሙ።"</string>
     <string name="talkback_on" msgid="315529674405160699">"TalkBack በርቷል"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack ታግዷል"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack ከቆመበት ቀጥሏል"</string>
+    <string name="talkback_disabled" msgid="2536155587482587238">"TalkBack ጠፍቷል።"</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"የTalkBack ቅንብሮች"</string>
     <string name="tts_preferences_title" msgid="6233811187483633874">"የጽሑፍ ወደ ንግግር ቅንጅቶች"</string>
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"የ<xliff:g id="VERSION_NAME">%1$s</xliff:g> ስሪት"</string>
@@ -19,6 +22,11 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"የአሁኑ መጠይቅ፦ <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>።"</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"ምንም ንጥል አልተመረጠም።"</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"የአሁኑ ምርጫ፦ <xliff:g id="SELECTED_NODE">%1$s</xliff:g>።"</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"የመስክ መጀመሪያ"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"የመስክ መጨረሻ"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"የምርጫ ሁነታ በርቷል"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"የምርጫ ሁነታ ጠፍቷል"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"ምርጫ ጸድቷል"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"ያመለጠ ጥሪ"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"ድምጸ-ከል አድርግ"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"ውይይት"</string>
@@ -33,37 +41,49 @@
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"ቆሟል"</string>
     <string name="template_current_tts_engine" msgid="3963364867159704159">"<xliff:g id="ENGINE_NAME">%1$s</xliff:g>ን መጠቀም"</string>
     <string name="template_menu" msgid="2592357933256217001">"የ<xliff:g id="TITLE">%1$s</xliff:g> ምናሌ"</string>
-    <string name="template_edit_box" msgid="5395366637528473616">"ሳጥን ያርትዑ። <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
-    <string name="template_edit_box_current" msgid="2778286668618391188">"የአርትዕ ሳጥን፣ በአሁኑ ጊዜ በማርትዕ ላይ። <xliff:g id="TEXT_CONTENT">%1$s</xliff:g>"</string>
     <string name="template_alert_dialog_template" msgid="5493715708649314332">"ማንቂያ <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
     <string name="template_drawer_opened" msgid="384588741799097665">"የ<xliff:g id="TITLE">%1$s</xliff:g> ምናሌ"</string>
     <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g><xliff:g id="OLD_TEXT">%2$s</xliff:g>ን ተክቷል"</string>
     <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> ተሰርዟል"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"ተቀድቷል፣ <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"ተቆርጧል፣ <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"ተለጥፏል፣ <xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>፣ ተመርጧል"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"የተመረጠው ጽሑፍ፦ <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"ምንም ጽሑፍ አልተመረጠም"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>፣ አልተመረጠም"</string>
     <string name="template_text_error" msgid="153775825635730287">"ልክ ያልሆነ ግቤት <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
     <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> ቁምፊዎች በ<xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> ቁምፊዎች ተተክተዋል።"</string>
     <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> ለ<xliff:g id="LABEL">%2$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"<xliff:g id="TITLE">%1$s</xliff:g>ን ለረጅም ጊዜ ተጭኖ ተይዟል"</string>
-    <string name="template_button" msgid="2640124317262628933">"የ<xliff:g id="TITLE">%1$s</xliff:g> አዝራር"</string>
-    <string name="template_unlabeled_image_view" msgid="7358716152395139095">"ምስል <xliff:g id="TITLE">%1$d</xliff:g>። አልተሰየመም"</string>
-    <string name="template_unlabeled_button" msgid="8907013770433741191">"የ<xliff:g id="TITLE">%1$d</xliff:g> አዝራር። አልተሰየመም"</string>
-    <string name="template_seek_bar" msgid="9010890122601609426">"የ<xliff:g id="TITLE">%1$s</xliff:g> መፈለጊያ መቆጣጠሪያ።"</string>
     <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> በመቶ።"</string>
     <string name="template_charging" msgid="2038200557537960378">"ባትሪ መሙላት <xliff:g id="CHANGING_STATUS">%1$s</xliff:g> የባትሪ ደረጃ <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> በመቶ።"</string>
-  <plurals name="template_containers">
-    <item quantity="one" msgid="5101805097109325482">"<xliff:g id="TYPE">%1$s</xliff:g><xliff:g id="COUNT">%2$d</xliff:g> ንጥል በማሳየት ላይ።"</item>
-    <item quantity="other" msgid="6665234198539687446">"<xliff:g id="TYPE">%1$s</xliff:g><xliff:g id="COUNT">%2$d</xliff:g> ንጥሎችን በማሳየት ላይ።"</item>
-  </plurals>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="one"><xliff:g id="TYPE_2">%1$s</xliff:g> <xliff:g id="COUNT_3">%2$d</xliff:g> ንጥሎች በማሳየት ላይ።</item>
+      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> <xliff:g id="COUNT_3">%2$d</xliff:g> ንጥሎች በማሳየት ላይ።</item>
+    </plurals>
     <string name="value_gridview" msgid="1382219539169157957">"ፍርግርግ"</string>
     <string name="value_listview" msgid="7625152822709234439">"ዝርዝር"</string>
     <string name="value_tabwidget" msgid="6935453013254857519">"የትር አሞሌ"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"የተቆልቋይ ዝርዝር"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"አመልካች ሳጥን"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"የሬዲዮ አዝራር"</string>
+    <string name="value_button" msgid="2459787142940409576">"አዝራር"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"መቆጣጠሪያን ይፈልጉ"</string>
+    <string name="value_switch" msgid="6946709666466895221">"ቀይር"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"ሳጥኑን ያርትዑ"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"ማርትዕ"</string>
+    <string name="value_image" msgid="5114229220871881124">"ምስል"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"ስያሜ ያልተሰጠው"</string>
+    <string name="value_pager" msgid="7708574424402835461">"ባለብዙ ገጽ እይታ"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"ገጽ"</string>
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"ከ<xliff:g id="TOTAL_COUNT">%3$d</xliff:g> ንጥሎች ውስጥ ከ<xliff:g id="FROM_INDEX">%1$d</xliff:g> እስከ <xliff:g id="TO_INDEX">%2$d</xliff:g> ያሉትን በማሳየት ላይ።"</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"<xliff:g id="FROM_INDEX">%1$d</xliff:g> ከ<xliff:g id="TOTAL_COUNT">%2$d</xliff:g> ንጥል በማሳየት ላይ።"</string>
-    <string name="template_spinner" msgid="1240658876427369167">"የ<xliff:g id="TITLE">%1$s</xliff:g> ተቆልቋይ ዝርዝር።"</string>
-    <string name="template_password_selected" msgid="3751806880345903886">"ከ<xliff:g id="FROM_INDEX">%1$s</xliff:g> እስከ <xliff:g id="TO_INDEX">%2$s</xliff:g> ያሉ ቁምፊዎች ተመርጠዋል"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"ገጽ <xliff:g id="PAGE_INDEX">%1$d</xliff:g> ከ<xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> ከ<xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"ከ<xliff:g id="FROM_INDEX">%1$d</xliff:g> እስከ <xliff:g id="TO_INDEX">%2$d</xliff:g> ያሉ ቁምፊዎች"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"ቁምፊ <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="template_capital_letter" msgid="4920626008395727629">"አቢይ ሆሄ <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="template_checkbox" msgid="8582666147313623418">"የ<xliff:g id="TITLE">%1$s</xliff:g> አመልካች ሳጥን"</string>
-    <string name="template_radio_button" msgid="5796532059726219957">"የ<xliff:g id="TITLE">%1$s</xliff:g> ሬዲዮ አዝራር"</string>
-    <string name="template_switch" msgid="6833289093292419645">"<xliff:g id="TITLE">%1$s</xliff:g>፣ መቀየሪያ"</string>
     <string name="value_password" msgid="7285572231215250557">"የይለፍ ቃል"</string>
     <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"የተንሸራታች መሳቢያ ተከፍቷል"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"ጥላ ተከፍቷል"</string>
@@ -71,69 +91,115 @@
     <string name="value_text_cleared" msgid="6558192295636412162">"ጽሑፍ ጸድቷል"</string>
     <string name="value_text_max_length" msgid="4129865255646994586">"ከፍተኛ ርዝመት ላይ ተደርሷል"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"ተሰርዟል"</string>
+    <string name="value_selected" msgid="1307429702194660766">"ተመርጧል"</string>
     <string name="value_checked" msgid="3006751014125833966">"ምልክት ተደርጎበታል"</string>
     <string name="value_not_checked" msgid="37422559536361725">"ምልክት አልተደረገበትም"</string>
+    <string name="value_on" msgid="39454338086317219">"በርቷል"</string>
+    <string name="value_off" msgid="6700497510945744608">"ጠፍቷል"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"ተዘርግቷል"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"ተሰብስቧል"</string>
     <string name="value_disabled" msgid="5160977094078900656">"ተሰናክሏል"</string>
     <string name="value_double_tap" msgid="6104708724544509699">"ሁለቴ መታ ማድረግ"</string>
     <string name="value_single_tap" msgid="5044168772549910285">"መታ ማድረግ"</string>
-    <string name="template_hint_clickable" msgid="1398769454100543369">"ለመምረጥ <xliff:g id="ACTION">%1$s</xliff:g>።"</string>
+    <string name="value_press_select" msgid="4270348255373188872">"ምረጥን ይጫኑ"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"ለማግበር <xliff:g id="ACTION">%1$s</xliff:g>።"</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"ለማግበር <xliff:g id="KEYCOMBO">%1$s</xliff:g>ን ይጫኑ።"</string>
     <string name="template_hint_long_clickable" msgid="4546854599035099034">"በረጅሙ ለመጫን <xliff:g id="ACTION">%1$s</xliff:g> እና ይያዙ።"</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"ተጭነው ለመያዝ <xliff:g id="KEYCOMBO">%1$s</xliff:g>ን ይጫኑ።"</string>
     <string name="template_hint_checkable" msgid="504233139047201761">"ለመቀያየር <xliff:g id="ACTION">%1$s</xliff:g>።"</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"ለመቀያየር <xliff:g id="KEYCOMBO">%1$s</xliff:g>ን ይጫኑ።"</string>
     <string name="template_hint_edit_text" msgid="2298057410435081106">"ጽሑፍ ለማስገባት <xliff:g id="ACTION">%1$s</xliff:g>።"</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"ጽሑፍ ለማስገባት <xliff:g id="KEYCOMBO">%1$s</xliff:g>ን ይጫኑ።"</string>
     <string name="template_hint_spinner" msgid="7251008361827086735">"ለመለወጥ <xliff:g id="ACTION">%1$s</xliff:g>።"</string>
-    <string name="hint_radial_menu" msgid="5110846707339818828">"አንድ ንጥል ለማግኘት ማያ ገጹን ይንኩትና እየዞሩ ያስሱ፣ ከዚያ ለመምረጥ ያንሱት።"</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"ለመቀየር <xliff:g id="KEYCOMBO">%1$s</xliff:g>ን ይጫኑ።"</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"ገጾችን ለመቀየር በሁለት ጣቶች ያንሸራትቱ።"</string>
+    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"ምንም ተጨማሪ ገጾች አይገኙም።"</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"ለመቀየር <xliff:g id="ACTION">%1$s</xliff:g> ያድርጉ።"</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"አንድ ንጥል ለማግኘት ማያ ገጹን ይንኩትና እየዞሩ ያስሱ፣ ከዚያ ለማግበር ያንሱት።"</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"የማያ ገጽ ላይ ይዘትን ለማሰስ ማያ ገጹን ይንኩትና ያስሱት፣ ከዚያ ለማተኮር ያንሱት።"</string>
     <string name="template_hint_custom_actions" msgid="543401796694872575">"ብጁ እርምጃዎች፦"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="HINT">%2$s</xliff:g> ለማድረግ <xliff:g id="ACTION">%1$s</xliff:g>።"</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"<xliff:g id="HINT">%2$s</xliff:g> ለማድረግ <xliff:g id="KEYCOMBO">%1$s</xliff:g>ን ይጫኑ።"</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="HINT">%2$s</xliff:g> ለማድረግ <xliff:g id="ACTION">%1$s</xliff:g>ን ይያዙ።"</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"መጥሪያ ንዝረት ላይ።"</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"መጥሪያ ፀጥ ብሏል።"</string>
     <string name="value_screen_on" msgid="4051568127659724519">"ማያ ገጽ በርቷል።"</string>
     <string name="value_screen_off" msgid="4442166505764238236">"ማያ ገጽ ጠፍቷል።"</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock በርቷል።"</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock ጠፍቷል።"</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock በርቷል።"</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock ጠፍቷል።"</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock በርቷል።"</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock ጠፍቷል።"</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"መሳሪያው ተከፍቷል።"</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"ንግግር"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"የንግግር ድምጽ መጠን"</string>
     <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"ማያ ገጽ ሲጠፋ ተናገር"</string>
     <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"ማያ ገጹ ሲጠፋ ማሳወቂያዎች ይነገራሉ"</string>
     <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"ማያ ገጹ ሲጠፋ ምንም ንግግር አይከሰትም"</string>
-    <string name="title_pref_caller_id" msgid="3583991410676669265">"የደዋይ መታወቂያ ተናገር"</string>
     <string name="title_pref_proximity" msgid="4533552749993575929">"የቀረቤታ መለኪያ ተጠቀም"</string>
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"የቀረቤታ መለኪያ የንግግርን ድምፅ ፀጥ ያደርጋል"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"የቀረቤታ መለኪያ ንግግርን አይቆጣጠርም"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"ባለድምፅ ፊደላትን ተናገር"</string>
     <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"ባለ ድምፅ ፊደላት አይነገሩም።"</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="5160990473747883750">"በቁልፍ ሰሌዳው ላይ ተጭኖ ሲያዝ እና በቁምፊ በሚወሰድበት ጊዜ ባለድምፅ ፊደላት ንግግር ያደርጋሉ።"</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"በቁልፍ ሰሌዳው ላይ ተጭኖ ሲያዝ እና የተደራሽነት ትኩረት በቁምፊ በሚንቀሳቀስ ጊዜ የድምፀ ልሳን ፊደላት ይነገራሉ።"</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"የአጠቃቀም ፍንጮችን ተናገር"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="6029151926582783201">"በመስመራዊ አሰሳ ጊዜ የአጠቃቀም ፍንጮች አይነገሩም።"</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="8643053313815297483">"ትኩረቱ በመስመራዊ አሰሳ በሚወሰድበት ጊዜ ከጥቂት ጊዜ ቆይታ በኋላ የአጠቃቀም ፍንጮች ይነገራሉ።"</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"የተደራሽነት ትኩረት በሚንቀሳቀስ ጊዜ የአጠቃቀም ምክሮች አይነገሩም።"</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"ከአጭር መዘግየት በኋላ የአጠቃቀም ፍንጮች በአሰሳ ጊዜው ይነገራሉ።"</string>
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"በመንካት አስስ"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"ዝርዝሮችን በራስ-ሰር አሸብልል"</string>
     <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"የንክኪ አሰሳ"</string>
-    <string name="title_pref_single_tap" msgid="3366282780861635094">"በአንዲት-መታ ምርጫ"</string>
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"ነጠላ መታ በማድረግ ማግበር"</string>
     <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"የአውድ ምናሌን እንደ ዝርዝር አሳይ"</string>
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"TalkBack በሚነቃበት ጊዜ ማያ ገጽን አጨልም"</string>
-    <string name="summary_pref_single_tap" msgid="7244030788179833364">"(የሙከራ) ለመምረጥ አሁን በተተኮረበት ንጥል ላይ መታ ያድርጉ።"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"(የሙከራ) ለማግበር አሁን በተተኮረበት ንጥል ላይ መታ ያድርጉ"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"ቀጣይነት ያለው ንባብን ለመጀመር ይነቅንቁት"</string>
     <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"የእጅ ምልክቶችን ያቀናብሩ"</string>
     <string name="title_pref_manage_labels" msgid="8796338627297226539">"ብጁ መለያዎችን አቀናብር"</string>
     <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"የቁልፍ ሰሌዳ አቋራጮችን አቀናብር"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"ብጁ መሰየሚያዎችን ወደ ውጭ ላክ"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"TalkBackን በPlay መደብሩ ላይ ይክፈቱት"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"የአሁኑ የTalkBack ስሪት፦ <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"እገዛ እና ግብረመልስ"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"እገዛ"</string>
     <string name="title_pref_show_tos" msgid="6167834013879233992">"የአገልግሎት ውል"</string>
     <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"የግላዊነት መመሪያ"</string>
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"የአቋራጭ እጅ ምልክቶች"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"አብረው የተሰሩ የእጅ ምልክቶች"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(የሙከራ) በመሣሪያው ጎን ላይ መታ ያድርጉ"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"የቁልፍ ካርታ"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"የቁልፍ ካርታን ይምረጡ"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"የቁልፍ ካርታን ዳግም ያስጀምሩት"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"ቀያሪ ቁልፍ ይምረጡ"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"TalkBack የቁልፍ ካርታውን ዳግም ያስጀምረዋል"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"TalkBack የቁልፍ ካርታውን ዳግም ያስጀምርና የመቀየሪያ ቁልፉን ወደ <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g> ይቀይረዋል"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"ቀያሪ ቁልፉ ወደ <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g> ተቀይሯል።"</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"<xliff:g id="KEYMAP_NAME">%1$s</xliff:g> አሁን ገቢር ነው።"</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"የቁልፍ ካርታው ዳግም ተጀምሯል።"</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"አቋራጭ አይደገፍም"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"የታወቀ የቁልፍ ካርታ"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"ነባሪ የቁልፍ ካርታ"</string>
     <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"የአሰሳ እርምጃዎች"</string>
     <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"ወደ ቀጣዩ ንጥል አስስ"</string>
     <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"ወደ ቀዳሚው ንጥል አስስ"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"ወደ ላይኛው ንጥል ሂድ"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"ወደ ታችኛው ንጥል ሂድ"</string>
     <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"ወደ የመጀመሪያው ንጥል አስስ"</string>
     <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"ወደ የመጨረሻው ንጥል አስስ"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"ወደ ቀጣዩ መስኮት ሂድ"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"ወደ ቀዳሚው መስኮት ሂድ"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"ወደ ቀጣዩ ቃል ሂድ"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"ወደ ቀዳሚው ቃል ሂድ"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"ወደ ቀጣዩ ቁምፊ ሂድ"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"ወደ ቀዳሚው ንጥል ሂድ"</string>
     <string name="keycombo_menu_perform_click" msgid="243666968746657931">"ጠቅታን ያከናውኑ"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"ረዥም ጠቅታን ያከናውኑ"</string>
     <string name="keycombo_menu_category_global" msgid="7309875734492478067">"አለምአቀፍ እርምጃዎች"</string>
     <string name="keycombo_menu_global_back" msgid="4567585750566224959">"ተመለስ"</string>
     <string name="keycombo_menu_global_home" msgid="7189369064773623371">"መነሻ"</string>
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"የቅርብ ጊዜ መተግበሪያዎች"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"ማሳወቂያዎች"</string>
-    <string name="keycombo_menu_global_suspend" msgid="7018282755432635786">"TalkBackን ለአፍታ አቁም"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"TalkBackን ለአፍታ ያቁሙ ወይም ከቆመበት ያስቀጥሉት"</string>
     <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"የዳሰሳ ቅንብሮች"</string>
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"ቀጣይ የዳሰሳ ቅንብር"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"ቀዳሚው የዳሰሳ ቅንብር"</string>
@@ -143,10 +209,63 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"ማያ ገጹ ላይ አንድ ንጥል ይፈልጉ"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"የአካባቢያዊ አውድ ምናሌን አሳይ"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"አለምአቀፍ የአውድ ምናሌን አሳይ"</string>
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"የቁልፍ ሰሌዳ አቋራጮችን ያስተዳድሩ"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"የTalkBack ቅንብሮችን ይክፈቱ"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"የድር አሰሳ እርምጃዎች"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"ወደ ቀጣዩ አዝራር ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"ቀደ ቀዳሚው አዝራር ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"ወደ ቀጣዩ ቁጥጥር ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"ወደ ቀዳሚው ቁጥጥር ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"ወደ ቀጣዩ አመልካች ሳጥን ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"ወደ ቀጣዩ አመልካች ሳጥን ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"ወደ ቀጣዩ ARIA የመሬት ላይ ምልክት ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"ወደ ቀዳሚው የARIA የመሬት ላይ ምልክት ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"ወደ ቀጣዩ የአርትዖት መስክ ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"ወደ ቀዳሚው የአርትዖት መስክ ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"ትኩረት ሊደረግበት ወደሚችለው ቀጣዩ ንጥል ያስሱ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"ትኩረት ሊደረግበት ወደ የሚችለው ቀዳሚው ንጥል ያስሱ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"ወደ ቀጣዩ ግራፊክ ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"ወደ ቀዳሚው ግራፊክ ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"ወደ ቀጣዩ ርእስ ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"ወደ ቀዳሚው ርእስ ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"ወደ ቀጣዩ ርእስ 1 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"ወደ ቀዳሚው ርእስ 1 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"ወደ ቀጣዩ ርእስ 2 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"ወደ ቀዳሚው ርእስ 2 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"ወደ ቀጣዩ ርእስ 3 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"ወደ ቀዳሚው ርእስ 3 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"ወደ ቀጣዩ ርእስ 4 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"ወደ ቀዳሚው ርእስ 4 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"ወደ ቀጣዩ ርእስ 5 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"ወደ ቀዳሚው ርእስ 5 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"ወደ ቀጣዩ ርእስ 6 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"ወደ ቀዳሚው ርእስ 6 ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"ወደ ቀጣዩ ዝርዝር ንጥል ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"ወደ ቀዳሚው ዝርዝር ንጥል ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"ወደ ቀጣዩ አገናኝ ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"ወደ ቀዳሚው አገናኝ ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"ወደ ቀጣዩ ዝርዝር ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"ወደ ቀዳሚው ዝርዝር ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"ወደ ቀጣዩ ሰንጠረዥ ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"ወደ ቀዳሚው ሰንጠረዥ ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"ወደ ቀጣዩ ጥምር ሳጥን ሂድ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"ወደ ቀዳሚው ጥምር ሳጥን ሂድ"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"የቁልፍ ሰሌዳ አቋራጭ ይህ ነው"</string>
     <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"አዲስ አቋራጭ ለማዘጋጀት የቁልፍ ጥምረትን ይጫኑ። ቢያንስ ALT ወይም Control keyን የያዘ መሆን ይኖርበታል።"</string>
-    <string name="keycombo_assign_dialog_clear" msgid="7502131430872150725">"አቋራጭ አዝራርን አጽዳ"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"አዲስ አቋራጭ ለማዘጋጀት የቁልፍ ጥምር ከ<xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> ቀያሪ ቁልፍ ጋር ይጫኑ።"</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"አቋራጩን ለማጽዳት Backspaceን ይጫኑ፣ ለማስቀመጥ Enterን ይጫኑ፣ ወይም ለመተው Escapeን ይጫኑ።"</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"አቋራጭን አጽዳ"</string>
     <string name="keycombo_unassigned" msgid="5817151372114230015">"አልተመደበም"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"ፈልግ"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"ቀኝ ቀስት"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"ግራ ቀስት"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"ላይ ቀስት"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"ታች ቀስት"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"እርግጠኛ ነዎት የዚህ የቁልፍ ካርታ አቋራጭ ቁልፎችዎን ወደ ነባሪ እሴቶቻቸው ዳግም ማስጀመር ይፈልጋሉ?ይህ እርምጃ ሊቀለበስ የማይችል መሆኑን እባክዎ ልብ ይበሉ።"</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"ዳግም አስጀምር"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"ቁልፍ አስቀድሞ ጥቅም ላይ ውሏል"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"ይህ የቁልፍ ጥምረት ለ«<xliff:g id="ID_1">%1$s</xliff:g>»  እርምጃ ጥቅም ላይ ውሏል። ሊያጸዱት እና ለ«<xliff:g id="ID_2">%2$s</xliff:g>» ይህን አቋራጭ ሊመድቡለት ይፈልጋሉ?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"የድምጽ ቅጥነት ለውጦች ተጠቀም"</string>
@@ -159,9 +278,12 @@
     <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"የንግግድ ድምጽ ላይ አተኩር"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"እየተናገረ ሳለ የሌላው ድምጽ ቀንስ"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"የድምጽ መጠን"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="7862634164410787395">"Talkback ማገጃ እና ካቆመበት ማስቀጠያ አቋራጭ"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"የTalkback ማሸለቢያ እና ከቆመበት ማስቀጠያ አቋራጭ"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"የማያ ገጽን አቋራጭ እንዲጨልም አድርግ"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"የተለያዩ"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"የገንቢ ቅንብሮች"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"የምዝግብ ማስታወሻ የሚያዝላቸውን ክስተቶች ይምረጡ"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"የተደራሽነት ክስተት ምዝግብ ማስታወሻን ያጣሩ"</string>
     <string name="title_pref_log_level" msgid="267415170405921603">"የውጽአት ደረጃን መዝግብ"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"የንግግር ውፅዓት አሳይ"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"የአንጓ ዛፍ ማረምን አንቃ"</string>
@@ -186,10 +308,11 @@
     <string name="granularity_line" msgid="727359260064093782">"መስመሮች"</string>
     <string name="granularity_paragraph" msgid="3760401274833105422">"አንቀጾች"</string>
     <string name="granularity_page" msgid="2739238666516816581">"ገጾች"</string>
-    <string name="granularity_web_section" msgid="496466197528091152">"የተመረጠ አሰሳ"</string>
-    <string name="granularity_web_list" msgid="8598575022728013551">"የዝርዝር አሰሳ"</string>
-    <string name="granularity_web_control" msgid="5346924945146680639">"የቁጥጥር አሰሳ"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="2611287033485980963">"ልዩ የይዘት አሰሳ"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"ርእሶች እና የመሬት ላይ ምልክቶች"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"ዝርዝሮች"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"አገናኞች"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"መቆጣጠሪያዎች"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"ልዩ ይዘት"</string>
     <string name="orientation_portrait" msgid="7714435567541027105">"በቁመት"</string>
     <string name="orientation_landscape" msgid="2204457920803882766">"በወርድ"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"አልተመደበም"</string>
@@ -201,10 +324,12 @@
     <string name="shortcut_home" msgid="6670249804418900175">"የመነሻ አዝራር"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"የአጠቃላይ እይታ አዝራር"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"ማሳወቂያዎችን ክፈት"</string>
+    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"ብጁ እርምጃዎችን አሳይ"</string>
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"ሁለንተናዊ አውድ ምናሌን ክፈት"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"የአካባቢያዊ አውድ ምናሌ ክፈት"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"የመጨረሻውን ንግግር ድገም"</string>
     <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"የመጨረሻውን ንግግር በፊደል ፃፍ"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"መጨረሻ የተነገረውን ወደ ቅንጥብ ሰሌዳውን ቅዳ"</string>
     <string name="shortcut_pause_feedback" msgid="1412613174540942399">"ግብረመልስ ለአፍታ አቁም"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"ከላይ ጀምሮ አንብብ"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"ከቀጣዩ ንጥል ጀምሮ አንብብ"</string>
@@ -213,6 +338,8 @@
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"ቀጣይ የዳሰሳ ቅንብር"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"ማያ ገጽ ላይ ባለው የመጀመሪያ ንጥል ላይ አተኩር"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"ማያ ገጽ ላይ ባለው የመጨረሻው ንጥል ላይ አተኩር"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"ማያ ገጽን አጨልም"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"ማያ ገጽ እንዳይጨልም አድርግ"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"የአካባቢያዊ አውድ ምናሌ"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"የሁለገብ አውድ ምናሌ"</string>
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"ምንም የምናሌ ንጥሎች የሉም።"</string>
@@ -234,6 +361,13 @@
     <string name="title_summary" msgid="3037924006370977165">"ፈጣን አሰሳ"</string>
     <string name="title_granularity" msgid="399801096771904747">"የዳሰሳ ቅንብሮች"</string>
     <string name="title_custom_action" msgid="7908169922901920318">"ብጁ እርምጃዎች"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"የአስተያየት ጥቆማዎችን በራስ-አጠናቅቅ"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"ወደ የአስተያየት ጥቆማዎች ዝለል"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"ወደ የአርትዖት መስክ ተመለስ"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"መቆጣጠሪያን ይፈልጉ"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"የፍለጋ ቁጥጥር ደረጃን ያርትዑ"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"ከ0 እስከ 100 ያለ ቁጥር ያስገቡ።"</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
     <string name="value_direction_up" msgid="1646290331150992975">"ላይ"</string>
     <string name="value_direction_down" msgid="8072362433982733982">"ታች"</string>
     <string name="value_direction_left" msgid="676932617445677488">"ግራ"</string>
@@ -294,6 +428,7 @@
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"የተደራሽነት ምልክቶች ላይ ያሉ ለውጦችን ለመገምገም መታ ያድርጉ"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack ታግዷል"</string>
     <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"ከቆመበት ለመቀጠል መታ ያድርጉ።"</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"በራስ-ሰር ወደ ትምህርት 1 በመቀጠል ላይ።"</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"TalkBack ይታገድ?"</string>
     <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"እርግጠና ነዎት? የእርስዎ መሣሪያ ግብረመልስ አይሰጥም እንዲሁም በንኪ አሰሳ ይሰናከላል። ወደ ተቆላፊ ማያ ገጹ በመመለስ ወይም በድምጽ አቋራጭ ቁልፍ በኩል በመመለስ TalkBackን ከማሳወቂያዎች ላይ ካቆመበት ሊያስቀጥሉት ይችላሉ።"</string>
     <string name="message_resume_manual" msgid="6522293510722570646">"TalkBackን ከማሳወቂያዎች ጥላ ሆነው ከቆመበት ማስቀጠል ይችላሉ።"</string>
@@ -308,13 +443,30 @@
     <string name="label_remove_dialog_text" msgid="372916461303485723">"እርግጠኛ ነዎት የ«<xliff:g id="LABEL">%1$s</xliff:g>» መለያውን ማስወገድ ይፈልጋሉ?"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"እርግጠኛ ነዎት በ<xliff:g id="APP_NAME">%2$s</xliff:g> ውስጥ ያለውን የ«<xliff:g id="LABEL">%1$s</xliff:g>» መለያውን ማስወገድ ይፈልጋሉ?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"የመሰየሚያ ጽሑፍ"</string>
+    <string name="label_import" msgid="1773817433300194935">"ብጁ መሰየሚያዎችን ያስመጡ"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"ብጁ መሰየሚያዎችን ወደ TalkBack አስመጣ"</string>
+    <string name="label_import_dialog_message" msgid="7975227530187709469">"ግጭት በሚፈጠርበት ጊዜ አሁን ያሉ መሰየሚያዎችን መሻር ወይም መዝለል እንደሚፈልጉ ይምረጡ።"</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"ዝለል"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"ሻር"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"ምንም ወደ ውጭ የሚላክ የለም። ምንም መሰየሚያዎችን አላከሉም"</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"መሰየሚያ ወደ ውጭ መላክ ተሰናክሏል"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"የመሰየሚያ ማስመጣት አልተሳካም"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="one">%d መሰያሚያዎች ተዘምነዋል</item>
+      <item quantity="other">%d መሰያሚያዎች ተዘምነዋል</item>
+    </plurals>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"መሰየሚያዎችን ወደ ውጭ የሚልኩበት መተግበሪያ ይምረጡ፦"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"ይህ የTalkBack ስሪት ወደ ነባሪው የተደራሽነት ጣት ምልክቶች ላይ የተደረጉ ለውጦችን ያካትታል። ከእነዚህ ምልክቶች ጋር የተጎዳኙ ምልክቶች በTalkBack ቅንብሮች ውስጥ ሊበጁ ይችላሉ። በንክኪ አስስ ሲነቃ የተወሰኑ እርምጃዎችን ለመፈጸም የሚከተሉትን ምልክቶች መጠቀም ይችላሉ።\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"የድምጽ መጨመሪያ እና መቀነሻ ቁልፎችን ረዥም መጫን"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"የማያ ገጽ ማጨለሚያን ለማንቃት ወይም ለማሰናከል ሁለቱንም የድምጽ መቆጣጠሪያ ቁልፎች በፍጥነት ይጫኑ"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"ማያ ገጹ ይፍዘዝ?"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"እርግጠኛ ነዎት ማያ ገጹን ማፍዘዝ ይፈልጋሉ?"</string>
     <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"ይህ የTalkBack ስሪት በነባሪው የተደራሽነት የእጅ ምልክቶች ላይ የተደረጉ ለውጦችን ያካትታል።\n\nየላይ-ወደ-ታች እጅ ምልክት በማያ ገጹ ላይ ወዳለው የመጀመሪያ ንጥል እንዲሄዱ ያስችልዎታል፣ ከዚያ የታች-ወደ-ላይ እጅ ምልክት ወደ መጨረሻው ንጥል ይወስዳል።\n\nየተነባቢነት ጥራቱ አሁን በአንድ ንጥል ላይ በማተኮርና ከዚያ ከአካባቢያዊ የአውድ ምናሌ ውስጥ አንድ የጥራት ደረጃ በመምረጥ ሊቀየር ይችላል።\n\nበእነዚህ የእጅ ምልክቶች የሚሰሩ እርምጃዎች ላይ በTalkBack ቅንብሮች ውስጥ መቀየር ይችላሉ።"</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"ይህ የTalkBack ስሪት በነባሪው የተደራሽነት የእጅ ምልክቶች ላይ የተደረጉ ለውጦችን ያካትታል።\n\nየጣት ወደላይ ምልክት አሁን ወደ ቀዳሚው የአሰሳ ቅንብር ይሄዳል፣ እና የጣት ወደታች ምልክት ደግሞ አሁን ወደ ቀጣዩ የአሰሳ ቅንብር ይሄዳል።"</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"ምልክቶችን ተቀበል"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"ምልክቶችን አብጅ"</string>
+    <string name="button_clear_all_events" msgid="2128349101908653825">"ሁሉንም አጽዳ"</string>
+    <string name="button_check_all_events" msgid="301383322727007726">"ሁሉንም ተመልከት"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"በንኪኪ ማስስ ይሰናከል?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"እርግጠኛ ነዎት በንኪኪ ማስስን ማጥፋት ይፈልጋሉ?\n\nመሣሪያዎ ከአሁን በኋላ ለአቋራጭ ምልክቶች ምላሽ አይሰጡም ወይም ማያ ገጹን ሲነኩ ንጥሎችን አይናገሩም።"</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"የአንጓ ዛፍ ማረም ይንቃ?"</string>
@@ -327,9 +479,77 @@
     <string name="permission_labeling_desc" msgid="8065967887484901473">"በTalkBack የሚነገሩ ብጁ መሰየሚያዎችን የመድረስ፣ የመቀየር እና የመሰረዝ ፍቃድ።"</string>
     <string name="links" msgid="3448225474115458693">"አገናኞች"</string>
     <string name="end_of_text" msgid="3595733062526019550">"መጨረሻ"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"ቀዳሚ <xliff:g id="ID_1">%1$s</xliff:g> የለም"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"ምንም ጽሑፍ የለም <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"ርዕስ"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"አዝራር"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"ጥምድ ሳጥን"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"የአሪያ መሬት ምልክት"</string>
+    <string name="display_name_edit_field" msgid="5014778180731737501">"የአርትዖት_መስክ"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"ሊተኮርበት የሚችል ንጥል"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"ርዕስ 1"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"ርዕስ 2"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"ርዕስ 3"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"ርዕስ 4"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"ርዕስ 5"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"ርዕስ 6"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"አገናኝ"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"ተቆጣጠር"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"ግራፊክ"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"የዝርዝር ንጥል"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"ዝርዝር"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"ሠንጠረዥ"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"አመልካች ሳጥን"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"ርዕስ ወይም የመሬት ምልክት"</string>
     <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g><xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
     <string name="row_index_template" msgid="4107789959609911947">"ረድፍ <xliff:g id="ROW">%1$d</xliff:g>"</string>
     <string name="column_index_template" msgid="258393957626754806">"አምድ <xliff:g id="COL">%1$d</xliff:g>"</string>
     <string name="heading_template" msgid="3585514481777782183">"ርዕስ"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"የረድፍ ርእስ"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"የአምድ ርእስ"</string>
     <string name="item_index_template" msgid="71505978833721807">"ንጥል <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"የመጡ መሰየሚያዎችን አድህር"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"የመጡ መሰየሚያዎች እንዲያድህሩ ተደርገዋል"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g> ከላይ፣ <xliff:g id="ID_2">%2$s</xliff:g> ከታች"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g> በስተግራ ላይ፣ <xliff:g id="ID_2">%2$s</xliff:g> በስተቀኝ ላይ፣"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g> በስተቀኝ ላይ፣ <xliff:g id="ID_2">%2$s</xliff:g> በስተግራ ላይ፣"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="untitled_window" msgid="7017590766394623328">"ርዕስ አልባ"</string>
+    <string name="status_bar" msgid="6000275621941971563">"የሁነታ አሞሌ"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"የአሰሳ አሞሌ"</string>
+    <string name="template_collection_start" msgid="4362535543397747567">"በ<xliff:g id="COLLECTION_NAME">%1$s</xliff:g> ውስጥ"</string>
+    <string name="template_collection_end" msgid="2167296836815021551">"ከ<xliff:g id="COLLECTION_NAME">%1$s</xliff:g> ውጭ"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"ደረጃ <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="one"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> ንጥሎች</item>
+      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> ንጥሎች</item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="one"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> ረድፎች</item>
+      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> ረድፎች</item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="one"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> አምዶች</item>
+      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> አምዶች</item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="one"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> ቁምፊዎች</item>
+      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> ቁምፊዎች</item>
+    </plurals>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="one"><xliff:g id="TOTAL_COUNT">%1$d</xliff:g> ክስተቶች ተመርጠዋል</item>
+      <item quantity="other"><xliff:g id="TOTAL_COUNT">%1$d</xliff:g> ክስተቶች ተመርጠዋል</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> ተጀምሯል"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> ተጠናቅቋል"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"የፍለጋ ቁጥጥር ሁነታ"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"እሴትን ለመቀየር የቀስት አዝራሮቹን ይጫኑ፣ ወይም ለመጨረስ ምረጥን ይጫኑ።"</string>
+    <string name="arc_android_window" msgid="697316167642517245">"የAndroid መስኮት"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"ለመዳሰስ በቀስቶች ፍለጋ ይጫኑ"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"የአቋራጮች ዝርዝርን ለማየት <xliff:g id="KEYCOMBO">%1$s</xliff:g> ይጫኑ"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"የTalkBack ቅንብሮችን ለመክፈት <xliff:g id="KEYCOMBO">%1$s</xliff:g>ን ይጫኑት"</string>
+    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"ከንኪ እና ከሚነገር ግብረመልስ ምርጥ ውጤቶችን ለማግኘት፣ የመተግበሪያውን መስኮት ክፍ ያድርጉት"</string>
 </resources>

@@ -23,6 +23,7 @@ import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import com.android.talkback.InputModeManager;
 import com.android.utils.AccessibilityEventListener;
 import com.android.utils.AccessibilityNodeInfoRef;
 import com.android.utils.AccessibilityNodeInfoUtils;
@@ -269,11 +270,11 @@ public class KeyboardSearchManager
         } else if (direction == NodeFocusFinder.SEARCH_BACKWARD) {
             result = mContext.getCursorController().previous(
                     false /* shouldWrap */, true /* shouldScroll */,
-                    false /*useInputFocusAsPivotIfEmpty*/);
+                    false /*useInputFocusAsPivotIfEmpty*/, InputModeManager.INPUT_MODE_KEYBOARD);
         } else {
             result = mContext.getCursorController().next(
                     false /* shouldWrap */, true /* shouldScroll */,
-                    false /*useInputFocusAsPivotIfEmpty*/);
+                    false /*useInputFocusAsPivotIfEmpty*/, InputModeManager.INPUT_MODE_KEYBOARD);
         }
 
         mHasNavigated = true;
@@ -295,9 +296,10 @@ public class KeyboardSearchManager
             result = mNodeSearch.nextResult(direction);
             while (mNodeSearch.nextResult(direction)) {}
         } else if (direction == NodeFocusFinder.SEARCH_BACKWARD) {
-            result = mContext.getCursorController().jumpToTop();
+            result = mContext.getCursorController().jumpToTop(InputModeManager.INPUT_MODE_KEYBOARD);
         } else {
-            result = mContext.getCursorController().jumpToBottom();
+            result = mContext.getCursorController().jumpToBottom(
+                    InputModeManager.INPUT_MODE_KEYBOARD);
         }
 
         mHasNavigated = true;

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text"
+    style="@style/MaterialTextBody1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingLeft="@dimen/tutorial_content_horizontal_offset"
+    android:paddingRight="@dimen/tutorial_content_horizontal_offset"
+    android:textColor="@color/tutorial_semi_black"
+    />

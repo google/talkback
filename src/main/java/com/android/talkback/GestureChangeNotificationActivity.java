@@ -24,8 +24,9 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.text.SpannableStringBuilder;
+
+import com.android.utils.SharedPreferencesUtils;
 
 public class GestureChangeNotificationActivity extends Activity {
 
@@ -60,7 +61,7 @@ public class GestureChangeNotificationActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mPrefs = SharedPreferencesUtils.getSharedPreferences(this);
 
         final CharSequence dialogTitle = getString(
                 R.string.notification_title_talkback_gestures_changed);

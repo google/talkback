@@ -16,8 +16,11 @@
 
 package com.android.utils.traversal;
 
+import android.support.annotation.IntDef;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.Map;
 
 /**
@@ -26,8 +29,24 @@ import java.util.Map;
  */
 public interface TraversalStrategy {
 
+    public static final int SEARCH_FOCUS_UNKNOWN = 0;
     public static final int SEARCH_FOCUS_FORWARD = 1;
-    public static final int SEARCH_FOCUS_BACKWARD = -1;
+    public static final int SEARCH_FOCUS_BACKWARD = 2;
+    public static final int SEARCH_FOCUS_LEFT = 3;
+    public static final int SEARCH_FOCUS_RIGHT = 4;
+    public static final int SEARCH_FOCUS_UP = 5;
+    public static final int SEARCH_FOCUS_DOWN = 6;
+
+    @IntDef({SEARCH_FOCUS_FORWARD, SEARCH_FOCUS_BACKWARD,
+            SEARCH_FOCUS_LEFT, SEARCH_FOCUS_RIGHT, SEARCH_FOCUS_UP, SEARCH_FOCUS_DOWN})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface SearchDirection {}
+
+    @IntDef({SEARCH_FOCUS_UNKNOWN,
+            SEARCH_FOCUS_FORWARD, SEARCH_FOCUS_BACKWARD,
+            SEARCH_FOCUS_LEFT, SEARCH_FOCUS_RIGHT, SEARCH_FOCUS_UP, SEARCH_FOCUS_DOWN})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface SearchDirectionOrUnknown {}
 
     /**
      * The method searches next node to be focused
@@ -37,21 +56,23 @@ public interface TraversalStrategy {
      * that has next focus
      */
     public AccessibilityNodeInfoCompat findFocus(AccessibilityNodeInfoCompat startNode,
-                                                 int direction);
+                                                 @SearchDirection int direction);
 
     /**
-     * Finds the first focusable accessibility node in hierarchy started from root node
+     * Finds the initial focusable accessibility node in hierarchy started from root node when
+     * searching in the given direction.
+     *
+     * For example, if {@code direction} is {@link #SEARCH_FOCUS_FORWARD}, then the
+     * method should return the first node in the traversal order. If {@code direction} is
+     * {@link #SEARCH_FOCUS_BACKWARD} then the method should return the last node
+     * in the traversal order.
+     *
      * @param root - root node
+     * @param direction - the direction to search from
      * @return returns the first node that could be focused
      */
-    public AccessibilityNodeInfoCompat focusFirst(AccessibilityNodeInfoCompat root);
-
-    /**
-     * Finds the last focusable accessibility node in hierarchy started from root node
-     * @param root - root node
-     * @return returns the last node that could be focused
-     */
-    public AccessibilityNodeInfoCompat focusLast(AccessibilityNodeInfoCompat root);
+    public AccessibilityNodeInfoCompat focusInitial(AccessibilityNodeInfoCompat root,
+            @SearchDirection int direction);
 
     /**
      * Calculating if node is speaking node according to AccessibilityNodeInfoUtils.isSpeakingNode()

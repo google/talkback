@@ -19,7 +19,8 @@ package com.android.talkback.controller;
 public interface DimScreenController {
 
     /**
-     * @return whether dim setting is enabled
+     * @return Whether the dim-screen setting is enabled in shared preferences. This corresponds to
+     * the actual dimming state except when TalkBack is suspended or off.
      */
     public boolean isDimmingEnabled();
 
@@ -29,19 +30,18 @@ public interface DimScreenController {
     public boolean isInstructionDisplayed();
 
     /**
-     * make screen dim if it is bright and vice versa
+     * Turns dimming off and sets the shared preference off as well.
      */
-    public void switchState();
+    public void disableDimming();
 
     /**
-     * dim the screen
+     * By default, shows a dialog warning the user before dimming the screen.
+     * If the user has elected to not show the dialog, or the user selects "OK" from the warning
+     * dialog, this method will turn dimming on and set the shared preference on as well.
      */
-    public void makeScreenDim();
+    public void showDimScreenDialog();
 
-    /**
-     * turn dimming off
-     */
-    public void makeScreenBright();
-
+    public void resume();
+    public void suspend();
     public void shutdown();
 }

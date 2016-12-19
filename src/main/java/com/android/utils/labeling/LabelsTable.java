@@ -20,6 +20,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.android.utils.LogUtils;
 
+import java.util.Locale;
+
 /**
  * A table for storing custom TalkBack labels.
  */
@@ -35,6 +37,7 @@ public class LabelsTable {
     public static final String KEY_PACKAGE_VERSION = "packageVersion";
     public static final String KEY_SCREENSHOT_PATH = "screenshotPath";
     public static final String KEY_TIMESTAMP = "timestamp";
+    public static final String KEY_SOURCE_TYPE = "sourceType";
 
     public static final int INDEX_ID = 0;
     public static final int INDEX_PACKAGE_NAME = 1;
@@ -45,10 +48,11 @@ public class LabelsTable {
     public static final int INDEX_PACKAGE_VERSION = 6;
     public static final int INDEX_SCREENSHOT_PATH = 7;
     public static final int INDEX_TIMESTAMP = 8;
+    public static final int INDEX_SOURCE_TYPE = 9;
 
     public static final String[] ALL_COLUMNS = new String[] {
         KEY_ID, KEY_PACKAGE_NAME, KEY_PACKAGE_SIGNATURE, KEY_VIEW_NAME, KEY_TEXT, KEY_LOCALE,
-        KEY_PACKAGE_VERSION, KEY_SCREENSHOT_PATH, KEY_TIMESTAMP };
+        KEY_PACKAGE_VERSION, KEY_SCREENSHOT_PATH, KEY_TIMESTAMP, KEY_SOURCE_TYPE };
 
     public static void onCreate(SQLiteDatabase database) {
         LogUtils.log(LabelsTable.class, Log.INFO, "Creating table: %s.", TABLE_NAME);
@@ -63,6 +67,7 @@ public class LabelsTable {
             .addColumn(KEY_PACKAGE_VERSION, SQLiteTableBuilder.TYPE_INTEGER)
             .addColumn(KEY_SCREENSHOT_PATH, SQLiteTableBuilder.TYPE_TEXT)
             .addColumn(KEY_TIMESTAMP, SQLiteTableBuilder.TYPE_INTEGER)
+            .addColumn(KEY_SOURCE_TYPE, SQLiteTableBuilder.TYPE_INTEGER)
             .createTable();
     }
 
@@ -73,13 +78,23 @@ public class LabelsTable {
             LogUtils.log(LabelsTable.class, Log.INFO,
                     "Dropping table %s to upgrade from version %d to version %d.", TABLE_NAME,
                     oldVersion, newVersion);
-            database.execSQL(String.format("DROP TABLE IF EXISTS %s", TABLE_NAME));
+            database.execSQL(String.format(Locale.ROOT,
+                    "DROP TABLE IF EXISTS %s", TABLE_NAME));
 
             // Recreate table.
             onCreate(database);
-        } else {
-            throw new UnsupportedOperationException(
-                    "Attempted database upgrade from unsupported database version.");
+            return;
         }
+
+        // if update from 2 to higher - keep labels and add source type column
+        if (oldVersion < 3) {
+            addSourceTypeColumn(database);
+        }
+    }
+
+    private static void addSourceTypeColumn(SQLiteDatabase database) {
+        database.execSQL(String.format(Locale.ROOT,
+                "ALTER TABLE %s ADD COLUMN %s INTEGER DEFAULT %d",
+                TABLE_NAME, KEY_SOURCE_TYPE, CustomLabelManager.SOURCE_TYPE_USER));
     }
 }

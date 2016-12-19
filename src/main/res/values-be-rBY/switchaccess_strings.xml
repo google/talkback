@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Доступ з дапамогай пераключальнікаў"</string>
+    <string name="switch_access_service_description" msgid="1958519878116811543">"Доступ з дапамогай пераключальніка дазваляе вам сканіраваць і выбіраць элементы, выкарыстоўваючы адзін або некалькі пераключальнікаў."</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Даведка і водгукі"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Аўтаматычнае сканіраванне"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Час аўтаматычнага сканіравання"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"Аўта-сканіраванне з канца"</string>
+    <plurals name="auto_scan_time_delay_summary_format" formatted="false" msgid="5524438721359954583">
+      <item quantity="one">%.2f секунда</item>
+      <item quantity="few">%.2f секунды</item>
+      <item quantity="many">%.2f секунд</item>
+      <item quantity="other">%.2f секунды</item>
+    </plurals>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Метад сканіравання"</string>
+    <string name="title_pref_category_key_mappings" msgid="463227090301036752">"Прызначэнне клавіш для дзеянняў"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"Прызначэнне клавіш для сканіравання"</string>
+    <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"Клавіша «<xliff:g id="KEY_NAME">%1$s</xliff:g>» ужо прызначана для дзеяння «<xliff:g id="ACTION_NAME">%2$s</xliff:g>»"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="8070929030388121623">
+      <item quantity="one">%d клавіша прызначана</item>
+      <item quantity="few">%d клавішы прызначаны</item>
+      <item quantity="many">%d клавіш прызначана</item>
+      <item quantity="other">%d клавішы прызначана</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"Пераключальнік сканіравання параметраў %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Наступны"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Папярэдні"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Выбраць"</string>
+    <string name="action_name_long_click" msgid="5708679123666477849">"Доўгае націсканне"</string>
+    <string name="action_name_scroll_forward" msgid="6969788891937406270">"Пракрутка наперад"</string>
+    <string name="action_name_scroll_backward" msgid="579045012327139100">"Пракрутка назад"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Адхіліць"</string>
+    <string name="context_menu_layout_description" msgid="330592638837220675">"Кантэкстнае меню"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"МЕНЮ"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Назад"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Галоўная старонка"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Агляд"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Апавяшчэнні"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Хуткія налады"</string>
+    <string name="scrollable_forward" msgid="6312908487874132401">"Пракрутка наперад"</string>
+    <string name="scrollable_backward" msgid="5109861709058665917">"Пракрутка назад"</string>
+    <string name="switch_access_preferences_title" msgid="8339289604407443597">"Налады доступу з дапамогай пераключальнікаў"</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"Націсніце спалучэнне клавіш, каб дадаць яго ў спіс або выдаліць яго адтуль"</string>
+    <string name="key_combo_preference_reset_button" msgid="766369207787941384">"Выдаліць прызначэнне для клавішы"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="2792530694141012295">"Няма прызначанай клавішы"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Прабел"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
+    <string name="save" msgid="5398278773451196019">"Захаваць"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Стыль вылучэння падчас сканіравання"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Першасны стыль сканіравання"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Колер вылучэння"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Таўшчыня мяжы вылучэння"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="1781611399874689922">"Уключыць аўтаматычны выбар"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="777214990214649732">"Адключыць аўтаматычны выбар"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Наступны сімвал"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Наступнае слова"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Наступны радок"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Наступны абзац"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Наступная старонка"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Папярэдні сімвал"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Папярэдняе слова"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Папярэдні радок"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Папярэдні абзац"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Папярэдняя старонка"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Аўтаматычны запуск сканіравання"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Сканіраванне пачынаецца без націскання пераключальніка"</string>
+</resources>

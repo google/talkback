@@ -19,10 +19,11 @@ package com.android.talkback.speechrules;
 import android.content.Context;
 import android.os.Build;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
-import android.widget.ImageView;
 import com.android.talkback.R;
+import com.android.utils.Role;
 import com.google.android.marvin.talkback.TalkBackService;
 import com.android.utils.AccessibilityNodeInfoUtils;
 import com.android.utils.StringBuilderUtils;
@@ -43,49 +44,51 @@ public class RuleNonTextViews extends RuleDefault {
     @Override
     public boolean accept(AccessibilityNodeInfoCompat node, AccessibilityEvent event) {
         initLabelManagerIfNeeded();
-        return AccessibilityNodeInfoUtils.nodeMatchesClassByType(node, ImageView.class);
+        int role = Role.getRole(node);
+        return role == Role.ROLE_IMAGE || role == Role.ROLE_IMAGE_BUTTON;
     }
 
     @Override
     public CharSequence format(Context context, AccessibilityNodeInfoCompat node,
                                AccessibilityEvent event) {
-        final CharSequence text = super.format(context, node, event);
-        final boolean isClickable = AccessibilityNodeInfoUtils.isClickable(node);
-        final boolean hasLabel = !TextUtils.isEmpty(text);
-
-        if (hasLabel) {
-            // We speak labeled images as buttons if acitonable, or simply speak
-            // their text if non-actionable.
-            if (isClickable) {
-                String resultText = context.getString(R.string.template_button, text);
-                return StringBuilderUtils.createSpannableFromTextWithTemplate(resultText, text);
-            } else {
-                return text;
-            }
+        final CharSequence text = AccessibilityNodeInfoUtils.getNodeText(node);
+        CharSequence labelText = null;
+        if (!TextUtils.isEmpty(text)) {
+            labelText = text;
         } else {
             if (mLabelManager != null) {
                 // Check to see if a custom label exists for the unlabeled control.
                 Label label = mLabelManager.getLabelForViewIdFromCache(
                         node.getViewIdResourceName());
                 if (label != null) {
-                    final CharSequence labelText = label.getText();
-                    if (isClickable) {
-                        return context.getString(R.string.template_button, labelText);
-                    } else {
-                        return labelText;
-                    }
+                    labelText = label.getText();
                 }
             }
-
-            // We provide as much information about the control as possible in
-            // the case it is unlabeled.
-            final int nodeInt = Math.abs(node.hashCode() % 100);
-            if (isClickable) {
-                return context.getString(R.string.template_unlabeled_button, nodeInt);
-            } else {
-                return context.getString(R.string.template_unlabeled_image_view, nodeInt);
-            }
         }
+
+        // If the node's role is ROLE_IMAGE and the node is selectable, there's a non-trivial chance
+        // that the node acts like a button (but we can't be sure). In this case, it is safest to
+        // not append any role text to avoid confusing the user.
+        CharSequence roleText;
+        if (Role.getRole(node) == Role.ROLE_IMAGE && AccessibilityNodeInfoUtils.supportsAction(
+                node, AccessibilityNodeInfoCompat.ACTION_SELECT)) {
+            roleText = node.getRoleDescription(); // But don't fall back to default text.
+        } else {
+            roleText = Role.getRoleDescriptionOrDefault(context, node);
+        }
+
+        CharSequence unlabelledState;
+        if (labelText == null) {
+            unlabelledState = context.getString(R.string.value_unlabelled);
+        } else {
+            unlabelledState = null;
+        }
+
+        SpannableStringBuilder output = new SpannableStringBuilder();
+        StringBuilderUtils.append(output, labelText, roleText);
+        StringBuilderUtils.append(output, unlabelledState);
+
+        return output;
     }
 
     /**

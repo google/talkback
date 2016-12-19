@@ -18,11 +18,13 @@ package com.android.talkback.speechrules;
 
 import android.content.Context;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.text.TextUtils;
+import android.text.SpannableStringBuilder;
 import android.view.accessibility.AccessibilityEvent;
 
 import com.android.talkback.R;
 import com.android.utils.AccessibilityNodeInfoUtils;
+import com.android.utils.Role;
+import com.android.utils.StringBuilderUtils;
 
 /**
  * Default node processing rule. Returns a content description if available,
@@ -36,22 +38,18 @@ class RuleDefault implements NodeSpeechRule, NodeHintRule {
 
     @Override
     public CharSequence format(Context context, AccessibilityNodeInfoCompat node, AccessibilityEvent event) {
+        SpannableStringBuilder output = new SpannableStringBuilder();
+
         final CharSequence nodeText = AccessibilityNodeInfoUtils.getNodeText(node);
+        final CharSequence roleText = Role.getRoleDescriptionOrDefault(context, node);
 
-        if (!TextUtils.isEmpty(nodeText)) {
-            return nodeText;
-        }
+        StringBuilderUtils.append(output, nodeText, roleText);
 
-        return "";
+        return output;
     }
 
     @Override
     public CharSequence getHintText(Context context, AccessibilityNodeInfoCompat node) {
-        // Disabled actionable items don't have any hint text.
-        if (AccessibilityNodeInfoUtils.isActionableForAccessibility(node) && !node.isEnabled()) {
-            return context.getString(R.string.value_disabled);
-        }
-
         return NodeHintHelper.getDefaultHintString(context, node);
     }
 }

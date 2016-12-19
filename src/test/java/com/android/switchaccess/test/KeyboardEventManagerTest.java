@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.view.KeyEvent;
+import com.android.talkback.BuildConfig;
 import com.android.talkback.R;
 import com.android.switchaccess.*;
 import org.junit.After;
@@ -34,6 +35,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
@@ -46,10 +48,11 @@ import java.util.List;
  * Tests for KeyboardEventManager.
  */
 @Config(
-        emulateSdk = 18,
+        constants = BuildConfig.class,
+        sdk = 21,
         shadows = {ShadowAccessibilityService.class})
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class KeyboardEventManagerTest {
     private final Context mContext = RuntimeEnvironment.application.getApplicationContext();
     private final SharedPreferences mSharedPreferences =

@@ -22,6 +22,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.view.KeyEvent;
 
+import com.android.talkback.BuildConfig;
 import com.android.talkback.R;
 import com.android.switchaccess.ActionProcessor;
 import com.android.switchaccess.KeyComboPreference;
@@ -31,6 +32,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
@@ -48,10 +50,11 @@ import static org.mockito.Mockito.verify;
  * Tests for KeyboardAction
  */
 @Config(
-        emulateSdk = 18,
+        constants = BuildConfig.class,
+        sdk = 21,
         shadows = {ShadowAccessibilityService.class})
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class KeyboardActionTest {
     private Runnable mAction = new Runnable() {
         @Override

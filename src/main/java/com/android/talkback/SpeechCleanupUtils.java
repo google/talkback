@@ -154,11 +154,18 @@ public class SpeechCleanupUtils {
      * @return Cleaned up text.
      */
     public static CharSequence cleanUp(Context context, CharSequence text) {
-        if ((text == null) || (text.length() != 1)) {
-            return text;
+        if (text != null) {
+            int trimmedLength = TextUtils.getTrimmedLength(text);
+
+            if (trimmedLength == 1) {
+                return getCleanValueFor(context, text.toString().trim().charAt(0));
+            } else if (trimmedLength == 0 && text.length() > 0) {
+                // For example, just spaces.
+                return getCleanValueFor(context, text.toString().charAt(0));
+            }
         }
 
-        return getCleanValueFor(context, text.charAt(0));
+        return text;
     }
 
     /**
@@ -174,7 +181,7 @@ public class SpeechCleanupUtils {
             return null;
         }
 
-        // TODO(CB): Add tests
+        // TODO: Add tests
         Matcher matcher = CONSECUTIVE_CHARACTER_PATTERN.matcher(text);
         while (matcher.find()) {
             final String replacement = context.getString(R.string.character_collapse_template,
@@ -187,6 +194,17 @@ public class SpeechCleanupUtils {
         }
 
         return text;
+    }
+
+    /**
+     * Convenience method that feeds the given text through {@link #collapseRepeatedCharacters}
+     * and then {@link #cleanUp}.
+     */
+    public static CharSequence collapseRepeatedCharactersAndCleanUp(Context context,
+            CharSequence text) {
+        CharSequence collapsed = collapseRepeatedCharacters(context, text);
+        CharSequence cleanedUp = cleanUp(context, collapsed);
+        return cleanedUp;
     }
 
     /**

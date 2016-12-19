@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="@string/pref_category_manage_gestures_key"
-    android:title="@string/title_pref_category_manage_gestures" >
+    android:key="@string/pref_category_manage_gestures_key">
     <PreferenceCategory
         android:key="@string/pref_category_touch_shortcuts_key"
         android:title="@string/title_pref_category_touch_shortcuts" >

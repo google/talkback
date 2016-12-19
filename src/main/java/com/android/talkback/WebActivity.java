@@ -20,7 +20,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class WebActivity extends Activity {
 
@@ -43,6 +46,25 @@ public class WebActivity extends Activity {
         setContentView(R.layout.web_activity);
 
         WebView webView = (WebView) findViewById(R.id.web);
+        webView.setWebViewClient(new WhitelistWebViewClient());
         webView.loadUrl(uri.toString());
+    }
+
+    private class WhitelistWebViewClient extends WebViewClient {
+        @Override
+        public WebResourceResponse shouldInterceptRequest(WebView view,
+                                                          WebResourceRequest request) {
+            final String host = request.getUrl().getHost();
+            // Allow URLs from Google for the TOS and Privacy Policy.
+            if (host.matches("[a-z]*.google.com") ||
+                    host.matches("[a-z]*.google.[a-z][a-z]") ||
+                    host.matches("[a-z]*.google.co.[a-z][a-z]") ||
+                    host.matches("[a-z]*.google.com.[a-z][a-z]") ||
+                    host.matches("[a-z]*.gstatic.com") ||
+                    host.equals("fonts.googleapis.com")) {
+                return super.shouldInterceptRequest(view, request);
+            }
+            return new WebResourceResponse("", "", 403, "Denied", null, null);
+        }
     }
 }

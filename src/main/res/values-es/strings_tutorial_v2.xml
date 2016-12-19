@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Tutorial de accesibilidad"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Iniciar tutorial de TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Tutorial de TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack es un lector de pantalla destinado principalmente a personas invidentes y con problemas de visión. Permite la interacción con el dispositivo a través de mensajes de voz."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Desactivar TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Aprender"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Practicar"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"aprende la lección <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"práctica de la lección <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lección 1: Navegación básica"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Tocar o deslizar el dedo para explorar y tocar dos veces para activar"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Parte 1: Exploración táctil"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Cuando se habilita esta opción, la exploración táctil te permite oír información relacionada con el contenido seleccionado. Desplaza el dedo sobre los elementos del centro de la pantalla. Cuando hayas explorado cinco elementos, la lección continuará."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Parte 2: Toca dos veces para activar"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Para activar el último elemento que has escuchado, toca dos veces en cualquier parte de la pantalla. Busca el elemento 7, actívalo y, a continuación, activa el botón Siguiente para continuar."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"El elemento 7 está activado. Activa el botón Siguiente para continuar"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Parte 3: Lecciones de navegación"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Las lecciones de TalkBack se organizan de forma similar. La lección, que puedes explorar y leer en cualquier momento, aparece en la parte superior. También se incluye un botón de inicio del tutorial en la esquina superior izquierda. En la parte central hay una zona de práctica. En la parte inferior aparece un indicador de progreso y los botones de navegación de la lección. Activa el botón Siguiente para continuar."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Parte 4: Desliza el dedo para explorar"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"También puedes explorar contenido deslizando el dedo por la pantalla. Al deslizar el dedo hacia la izquierda, normalmente se explora el contenido situado arriba y a la izquierda, mientras que al deslizar el dedo hacia la derecha, se explora el contenido situado abajo y a la derecha. Ahora inténtalo tú."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Parte 5: Práctica"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Desplaza el dedo por la pantalla para escuchar información relacionada con el contenido seleccionado. Toca dos veces en cualquier parte de la pantalla para activar la opción que escuchas. Para explorar el contenido, desliza el dedo hacia la izquierda o hacia la derecha."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lección 2: Desplazamiento"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Desplazamiento con dos dedos, desplazamiento hacia delante y hacia atrás"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Parte 1: Desplazamiento con dos dedos"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Para desplazarte por una lista vertical, busca un elemento de la lista y, a continuación, mueve dos dedos hacia arriba o hacia abajo. Para desplazarte por una lista horizontal, busca un elemento de la lista y, a continuación, mueve dos dedos hacia la izquierda o hacia la derecha."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Parte 2: Accesos directos de desplazamientos"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Puedes desplazarte hacia delante o hacia atrás en una lista con un acceso directo. Mueve un dedo hacia la derecha y hacia a la izquierda en un solo movimiento para desplazarte hacia delante. Mueve un dedo hacia la izquierda y hacia la derecha para desplazarte hacia atrás. Haz la prueba aquí."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Parte 3: Práctica"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Desplázate deslizando dos dedos hacia arriba o hacia abajo. Desplázate hacia delante moviendo un dedo hacia la derecha y, a continuación, hacia la izquierda. Desplázate hacia atrás moviendo un dedo hacia la izquierda y, a continuación, hacia la derecha."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lección 3: Menús de TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menú global de TalkBack, menú local de TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Parte 1: Menú global de TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack tiene dos menús diferentes. El primero es el menú global de TalkBack, que siempre incluye los mismos comandos. Para activarlo, mueve un dedo hacia abajo y luego hacia la derecha en un solo movimiento y, a continuación, levántalo. Ahora activa una versión de práctica."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Las opciones del menú aparecen ordenadas verticalmente en la parte central de la pantalla. Explora estas opciones y, a continuación, activa la opción Cancelar."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Parte 2: Menú local de TalkBack"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"El segundo es el menú local de TalkBack. Los elementos de este menú varían en función de lo último que has oído. Para activar este menú, mueve un dedo hacia arriba y luego hacia la derecha en un solo movimiento y, a continuación, levántalo. Ahora activa un menú de práctica."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Parte 3: Práctica"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Mueve el dedo hacia abajo y luego hacia la derecha para activar el menú global de TalkBack. Mueve el dedo hacia arriba y luego hacia la derecha para activar el menú local de TalkBack."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Hacia abajo y, luego, hacia la derecha"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Hacia arriba y luego hacia la derecha"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Menú global de TalkBack: hacia abajo y luego hacia la derecha. Menú local de TalkBack: hacia arriba y luego hacia la derecha"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Lección 4: Navegación por el texto"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Selección de los ajustes de navegación del texto"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Parte 1: Selección de los ajustes de navegación"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"TalkBack te permite controlar si los mensajes de texto se leen por párrafos, por líneas, por palabras o por caracteres. La lectura por caracteres es útil para deletrear. Para establecer la velocidad de navegación del texto por caracteres, toca el texto que aparece a continuación y desliza el dedo hacia arriba y hacia abajo."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Explora las opciones de velocidad de lectura que se muestran aquí en orden vertical. Activa la opción de lectura por caracteres."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Parte 2: Navegación por el texto"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Ya estás leyendo por caracteres. Selecciona el texto de muestra y, a continuación, desliza el dedo hacia la derecha para leer carácter por carácter."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Parte 3: Práctica"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Para cambiar la velocidad de navegación del texto, desliza el dedo hacia arriba y hacia abajo. Desliza el dedo hacia la derecha para leer el siguiente carácter en el texto de muestra."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"A continuación se indica un texto de muestra para probar TalkBack. \"¿Dónde está Kansas?\", preguntó el hombre sorprendido. \"No lo sé\", replicó Dorothy con pesar, \"pero es mi hogar y estoy segura de que estará en alguna parte\".\n\n\"Seguro que sí. Oz puede conseguir cualquier cosa, así que supongo que te podrá decir dónde está Kansas. Pero primero debes encontrarlo y no será fácil. Al Gran Mago de Oz no le gusta ver a nadie y tiene sus propios métodos. Pero, ¿qué quieres?\", siguió diciendo dirigiéndose a Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Lección 5: Edición de texto"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Activar un cuadro de edición, escribir, mover el cursor, seleccionar texto y realizar cualquier acción en él"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Parte 1: Activa un cuadro de edición"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Puedes usar un cuadro de edición para escribir, seleccionar y editar texto en TalkBack. Para activar un cuadro de edición, tócalo dos veces. Después de activarlo, aparece un teclado en la parte inferior de la pantalla. Para ocultar el teclado, toca el botón Volver. Prueba ahora a activar el cuadro de edición. Cuando hayas finalizado, activa el botón Siguiente que ahora aparece encima del teclado."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Parte 2: Escritura en un cuadro de edición"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Para escribir texto, activa el cuadro de edición y desplaza el dedo por el teclado en pantalla. Cuando hayas escuchado el carácter que estás buscando, levanta el dedo para activarlo. Prueba a activar el cuadro de edición que aparece a continuación y a escribir."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Parte 3: Utilización de un cursor"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Para mover el cursor, utiliza los botones de volumen del dispositivo o el menú local de TalkBack. Con la opción Control del cursor de este menú, también puedes seleccionar, cortar, copiar y pegar texto. Activa el cuadro de edición que aparece a continuación y mueve el cursor por el texto de muestra."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"La dirección de correo electrónico de Dorothy Gale es dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Parte 4: Práctica"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Para activar el cuadro de edición, tócalo dos veces. Para escribir, desplaza el dedo por un carácter y, a continuación, levántalo. Mueve el cursor con los botones de volumen y el menú local de TalkBack. Puedes seleccionar texto y realizar cualquier acción en él con la opción Control del cursor de este menú."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Editar texto"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"ANTERIOR"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"SIGUIENTE"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"LECCIÓN ANTERIOR"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"SIGUIENTE LECCIÓN"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"INICIO DEL TUTORIAL"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Lección %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Parte %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Parte %1$d de %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"El ejercicio se ha completado y podrás continuar en un momento"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Zona de práctica"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s está activado en modo de práctica. Activa el botón CANCELAR para salir."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Botón de inicio del tutorial"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Elemento <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Salir"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Exploración táctil necesaria"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Debes habilitar la exploración táctil para seguir el tutorial. Habilita esta función antes de iniciarlo."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"TalkBack inhabilitado"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Debes habilitar TalkBack para realizar el tutorial. Habilita esta función antes de iniciarlo."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"TalkBack suspendido"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"El tutorial de TalkBack no está disponible cuando las sugerencias están en pausa. Para continuar, reanuda las sugerencias de TalkBack y vuelve a iniciar el tutorial."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Describir el menú"</string>
+</resources>

@@ -33,6 +33,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
 
+import com.android.talkback.BuildConfig;
 import com.android.talkback.R;
 
 import com.android.switchaccess.AutoScanController;
@@ -44,6 +45,7 @@ import org.junit.runner.RunWith;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
@@ -56,14 +58,14 @@ import org.robolectric.util.Scheduler;
  * Tests for AutoScanController
  */
 @Config(
-        emulateSdk = 18,
+        constants = BuildConfig.class,
+        sdk = 21,
         shadows = {
                 ShadowAccessibilityNodeInfo.class,
-                ShadowAccessibilityNodeInfoCompat.class,
                 ShadowHandler.class
         })
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class AutoScanControllerTest {
     private final Context mContext = RuntimeEnvironment.application.getApplicationContext();
     private final Handler mHandler = new Handler();
@@ -83,7 +85,7 @@ public class AutoScanControllerTest {
 
     @After
     public void tearDown() {
-        assertFalse(ShadowAccessibilityNodeInfoCompat.areThereUnrecycledNodes(true));
+        assertFalse(ShadowAccessibilityNodeInfo.areThereUnrecycledNodes(true));
         ShadowAccessibilityNodeInfo.resetObtainedInstances();
     }
 
@@ -92,7 +94,17 @@ public class AutoScanControllerTest {
         mAutoScanControllerForOptionScanning.autoScanActivated(false);
         verify(mOptionManager, times(1)).selectOption(1);
         verify(mOptionManager, times(1))
-                .addFocusClearedListener((OptionManager.FocusClearedListener) anyObject());
+                .addOptionManagerListener((OptionManager.OptionManagerListener) anyObject());
+        verifyNoMoreInteractions(mOptionManager);
+    }
+
+    @Test
+    public void testAutoStartScanning_scanningContinues() {
+        mAutoScanControllerForOptionScanning.onOptionManagerStartedAutoScan();
+        assertEquals(1, mRobolectricScheduler.size());
+        // Make sure we don't scan a second time, since the option manager just set focus
+        verify(mOptionManager, times(1))
+                .addOptionManagerListener((OptionManager.OptionManagerListener) anyObject());
         verifyNoMoreInteractions(mOptionManager);
     }
 
@@ -103,7 +115,7 @@ public class AutoScanControllerTest {
         verify(mOptionManager, times(1)).selectOption(1);
         verify(mOptionManager, times(1)).selectOption(0);
         verify(mOptionManager, times(1))
-                .addFocusClearedListener((OptionManager.FocusClearedListener) anyObject());
+                .addOptionManagerListener((OptionManager.OptionManagerListener) anyObject());
         verifyNoMoreInteractions(mOptionManager);
     }
 
@@ -139,7 +151,7 @@ public class AutoScanControllerTest {
         ShadowHandler.runMainLooperOneTask();
         verify(mOptionManager, times(1)).selectOption(1);
         verify(mOptionManager, times(1))
-                .addFocusClearedListener((OptionManager.FocusClearedListener) anyObject());
+                .addOptionManagerListener((OptionManager.OptionManagerListener) anyObject());
         verifyNoMoreInteractions(mOptionManager);
     }
 
@@ -157,7 +169,7 @@ public class AutoScanControllerTest {
         verify(mOptionManager, times(2)).selectOption(1);
         verify(mOptionManager, times(1)).moveToParent(true);
         verify(mOptionManager, times(1))
-                .addFocusClearedListener((OptionManager.FocusClearedListener) anyObject());
+                .addOptionManagerListener((OptionManager.OptionManagerListener) anyObject());
     }
     @Test
     public void testReverseAutoAuto_switchesDirectionAndSelects() {
@@ -173,7 +185,7 @@ public class AutoScanControllerTest {
         verify(mOptionManager, times(2)).moveToParent(true);
         verify(mOptionManager, times(1)).selectOption(1);
         verify(mOptionManager, times(1))
-                .addFocusClearedListener((OptionManager.FocusClearedListener) anyObject());
+                .addOptionManagerListener((OptionManager.OptionManagerListener) anyObject());
     }
 
     private void enableAutoScanPreference() {

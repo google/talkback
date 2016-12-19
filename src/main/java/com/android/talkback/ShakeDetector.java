@@ -23,7 +23,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.PowerManager;
-import android.preference.PreferenceManager;
 import com.android.talkback.controller.FullScreenReadController;
 import com.android.utils.SharedPreferencesUtils;
 import com.google.android.marvin.talkback.TalkBackService;
@@ -48,7 +47,7 @@ public class ShakeDetector implements SensorEventListener {
         if (fullScreenReadController == null) throw new IllegalStateException();
 
         mContext = context;
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        mPrefs = SharedPreferencesUtils.getSharedPreferences(context);
         mFullScreenReadController = fullScreenReadController;
         mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);

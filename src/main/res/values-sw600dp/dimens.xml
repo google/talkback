@@ -24,4 +24,11 @@
     <dimen name="title_height">48dip</dimen>
     <dimen name="content_margin_left">16dip</dimen>
 
+    <!-- tutorial -->
+    <dimen name="tutorial_header_min_height">112dp</dimen>
+    <dimen name="tutorial_content_horizontal_offset">80dp</dimen>
+    <dimen name="tutorial_grid_horizontal_offset">70dp</dimen>
+    <dimen name="tutorial_list_horizontal_offset">80dp</dimen>
+    <dimen name="tutorial_footer_horizontal_padding">40dp</dimen>
+
 </resources>

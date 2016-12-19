@@ -27,6 +27,7 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
 import com.android.talkback.R;
+import com.android.utils.SharedPreferencesUtils;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -43,9 +44,9 @@ public class OptionManager implements SharedPreferences.OnSharedPreferenceChange
 
     private final OverlayController mOverlayController;
 
-    private final List<FocusClearedListener> mFocusClearedListeners = new ArrayList<>();
+    private final List<OptionManagerListener> mOptionManagerListeners = new ArrayList<>();
 
-    /* TODO(pweaver) Clean up managing the styling information */
+    /* TODO Clean up managing the styling information */
     private final Paint[] mOptionPaintArray;
     private final String[] mHighlightColorPrefKeys;
     private final String[] mHighlightColorDefaults;
@@ -57,6 +58,7 @@ public class OptionManager implements SharedPreferences.OnSharedPreferenceChange
 
     private boolean mOptionScanningEnabled = false;
     private ScanListener mScanListener;
+    private boolean mStartScanAutomatically = false;
 
     /**
      * @param overlayController The controller for the overlay on which to present options
@@ -64,7 +66,7 @@ public class OptionManager implements SharedPreferences.OnSharedPreferenceChange
     public OptionManager(OverlayController overlayController) {
         mOverlayController = overlayController;
         Context context = mOverlayController.getContext();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
         mHighlightColorPrefKeys = context.getResources()
                 .getStringArray(R.array.switch_access_highlight_color_pref_keys);
         mHighlightColorDefaults = context.getResources()
@@ -84,8 +86,8 @@ public class OptionManager implements SharedPreferences.OnSharedPreferenceChange
      * Clean up when this object is no longer needed
      */
     public void shutdown() {
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences(mOverlayController.getContext());
+        SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(
+                mOverlayController.getContext());
         prefs.unregisterOnSharedPreferenceChangeListener(this);
         if (mRootNode != null) {
             mRootNode.recycle();
@@ -111,7 +113,14 @@ public class OptionManager implements SharedPreferences.OnSharedPreferenceChange
             mRootNode.recycle();
         }
         mRootNode = newTreeRoot;
-      }
+        if (mStartScanAutomatically) {
+            selectOption(0);
+            for (int i = 0; i < mOptionManagerListeners.size(); i++) {
+                OptionManagerListener listener = mOptionManagerListeners.get(i);
+                listener.onOptionManagerStartedAutoScan();
+            }
+        }
+    }
 
     /**
      * Traverse to the child node of the current node that has the specified index and take
@@ -185,10 +194,10 @@ public class OptionManager implements SharedPreferences.OnSharedPreferenceChange
 
     /**
      * Register a listener to be notified when focus is cleared
-     * @param focusClearedListener A listener that should be called when focus is cleared
+     * @param optionManagerListener A listener that should be called when focus is cleared
      */
-    public void addFocusClearedListener(FocusClearedListener focusClearedListener) {
-        mFocusClearedListeners.add(focusClearedListener);
+    public void addOptionManagerListener(OptionManagerListener optionManagerListener) {
+        mOptionManagerListeners.add(optionManagerListener);
     }
 
     /**
@@ -259,6 +268,8 @@ public class OptionManager implements SharedPreferences.OnSharedPreferenceChange
                 mOptionPaintArray[i].setColor(Color.TRANSPARENT);
             }
         }
+        mStartScanAutomatically = prefs.getBoolean(
+                context.getString(R.string.switch_access_auto_start_scan_key), false);
     }
 
     /**
@@ -272,7 +283,7 @@ public class OptionManager implements SharedPreferences.OnSharedPreferenceChange
     private void clearFocus() {
         mCurrentNode = null;
         mOverlayController.clearOverlay();
-        for (FocusClearedListener listener : mFocusClearedListeners) {
+        for (OptionManagerListener listener : mOptionManagerListeners) {
             listener.onOptionManagerClearedFocus();
         }
     }
@@ -289,7 +300,7 @@ public class OptionManager implements SharedPreferences.OnSharedPreferenceChange
         }
         mCurrentNode.performAction();
 
-        /* TODO(rmorina) Any items that we want drawn on the screen could be directly grouped
+        /* TODO Any items that we want drawn on the screen could be directly grouped
          * into option groups when the tree is being constructed. That way the drawing of the
          * button or any other items would be data driven. */
         if (mCurrentNode instanceof OptionScanSelectionNode) {
@@ -380,7 +391,10 @@ public class OptionManager implements SharedPreferences.OnSharedPreferenceChange
     /**
      * Interface to monitor when focus is cleared
      */
-    public interface FocusClearedListener {
+    public interface OptionManagerListener {
+        /** Called when scanning is automatically started */
+        void onOptionManagerStartedAutoScan();
+
         /** Called when focus clears */
         void onOptionManagerClearedFocus();
     }

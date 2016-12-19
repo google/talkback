@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">TalkBack Tests</string>
+    <string name="start_test_case">Start TestCase</string>
+
+    <string name="main_menu_item_sort">Sort</string>
+
+    <string name="sort_order_default">Default Order</string>
+    <string name="sort_order_a_to_z">A to Z</string>
+    <string name="sort_order_most_recently_used">Most Recently Used</string>
+    <string name="sort_order_most_frequently_used">Most Frequently Used</string>
+
+    <string name="test_session_title_template"><xliff:g id="index">%1$d</xliff:g>. <xliff:g id="title">%2$s</xliff:g></string>
+
+    <string name="button_next_category">Next Category</string>
+    <string name="button_previous_category">Previous Category</string>
+    <string name="button_next_page">Next Page</string>
+    <string name="button_previous_page">Previous Page</string>
+    <string name="button_home">Home</string>
+
+    <string name="min_api_level_warning">*This case requires API level >=<xliff:g id="min_api_level">%1$d</xliff:g>, current API level is <xliff:g id="current_api_level">%2$d</xliff:g>.</string>
+
+    <!-- AlertDialogTest -->
+    <string name="alert_trigger_button">Alert</string>
+    <string name="alert_title_example">Example</string>
+    <string name="alert_message_example">Press OK button to dismiss.</string>
+    <string name="alert_ok_button">OK</string>
+
+    <!-- AudioPlayerTest -->
+    <string name="play_music_button">Play Music</string>
+    <string name="pause_music_button">Pause Music</string>
+
+    <!-- AutoScrollTest -->
+    <string name="list_item_template1">Item #<xliff:g id="index">%1$d</xliff:g></string>
+
+    <!-- AnnounceForAccessibilityTest -->
+    <string name="announce_time_hint">Click the button to announce current time.</string>
+    <string name="announce_time_button">Announce Time</string>
+    <string name="announce_time_template">Current time is <xliff:g id="time">%1$s</xliff:g>.</string>
+
+    <!-- ClickableSpanTest -->
+    <string name="example_clickable_span_text">Make your app more accessible with Android Accessibility developer resources.</string>
+    <string name="clickable_span_action_template">You clicked on \"<xliff:g id="text">%1$s</xliff:g>\".</string>
+
+    <!-- CollapsibleExpandableViewTest -->
+    <string name="list_header_template">Section <xliff:g id="header_index">%1$d</xliff:g></string>
+    <string name="list_item_template2">Item <xliff:g id="header_index">%1$d</xliff:g> - <xliff:g id="item_index">%2$d</xliff:g></string>
+
+    <!-- ContentDescriptionTest -->
+    <string name="example_text">Example Text</string>
+    <string name="example_content_description">Example Content Description</string>
+
+    <!-- CustomActionTest -->
+    <string name="edit_text_hint_enter_message_here">Enter Message Here...</string>
+    <string name="custom_action_default_message">Here is the message.</string>
+    <string name="action_clear_message">Clear Message</string>
+    <string name="action_restore_message">Restore Default Message</string>
+
+    <!-- DismissibleViewTest -->
+    <string name="dismiss_image_button">Dismiss Image</string>
+    <string name="restore_image_button">Reset</string>
+    <string name="dismissible_image_text">Dismissible Image</string>
+
+    <!-- EditFieldTest -->
+    <string name="edit_field_introduction">Text: <xliff:g id="text">%1$s</xliff:g>\ncontentDescription: <xliff:g id="contentDescription">%2$s</xliff:g>\nhint: <xliff:g id="hint">%3$s</xliff:g></string>
+    <string name="edit_field_default_text">Text</string>
+    <string name="edit_field_default_content_description">Content Description</string>
+    <string name="edit_field_default_hint">Hint</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- FocusSynchronizationTest -->
+    <string name="alert_signin_button">Sign in</string>
+    <string name="alert_cancel_button">Cancel</string>
+    <string name="alert_title_welcome">Welcome</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="alert_title_feedback">Feedback</string>
+    <string name="hint_comments">Comments</string>
+    <string name="hint_enter_message">Leave your message here.</string>
+    <string name="show_first_dialog_button">Show First Dialog</string>
+    <string name="show_second_dialog_button">Show Second Dialog</string>
+
+    <!-- FocusTest -->
+    <string name="ordered_text_view">TextView <xliff:g>%1$d</xliff:g></string>
+
+    <!-- ImportantForAccessibilityTest -->
+    <string name="important_for_a11y_line_1">1. importantForAccessibility=auto</string>
+    <string name="important_for_a11y_line_2">2. importantForAccessibility=yes</string>
+    <string name="important_for_a11y_line_3">3. importantForAccessibility=no</string>
+    <string name="important_for_a11y_line_4">3-a. descendant of (3), importantForAccessibility=yes</string>
+    <string name="important_for_a11y_line_5">3-b. descendant of (3), importantForAccessibility=no</string>
+    <string name="important_for_a11y_line_6">4. importantForAccessibility=noHideDescendants</string>
+    <string name="important_for_a11y_line_7">4-a. descendant of (4)</string>
+    <string name="important_for_a11y_line_8">4-b. descendant of (4), importantForAccessibility=no</string>
+
+    <!-- LabelTest -->
+    <string name="label_first_name">First Name</string>
+    <string name="label_last_name">Last Name</string>
+    <string name="label_age">Age</string>
+
+    <!-- LiveRegionTest -->
+    <string name="live_region_announcement_template">This is the new content No. <xliff:g id="index">%1$d</xliff:g></string>
+    <string name="live_region_button">Change content</string>
+    <string name="live_region_value_polite">Live Region: Polite</string>
+    <string name="live_region_value_assertive">Live Region: Assertive</string>
+    <string name="live_region_value_none">Live Region: None</string>
+    <string name="live_region_initial_text">Example Content.\nHello World!</string>
+
+    <!-- NotificationTest -->
+    <string name="normal_notification_button">Normal Notification</string>
+    <string name="custom_notification_button">Custom Notification</string>
+    <string name="ticker_notification_button">Ticker Notification</string>
+    <string name="cancel_notification_button">Cancel Notification</string>
+    <string name="normal_notification_title">My Notification</string>
+    <string name="normal_notification_text">Click to navigate to main menu.</string>
+    <string name="ticker_notification_title">Notification content title</string>
+    <string name="ticker_notification_text">Notification content text</string>
+    <string name="ticker_notification_ticker">Notification ticker</string>
+    <string name="custom_notification_title">Custom Notification</string>
+    <string name="custom_notification_text">Click to return to the last view.</string>
+
+    <!-- PasswordFieldTest -->
+    <string name="input_text_password">TextPassword</string>
+    <string name="input_text_web_password">TextWebPassword</string>
+    <string name="input_number_password">NumberPassword</string>
+    <string name="input_text_visible_password">TextVisiblePassword</string>
+    <string name="input_date">Date</string>
+    <string name="input_phone">Phone Number</string>
+    <string name="input_email_address">Email Address</string>
+    <string name="input_type_description_template">Input type: <xliff:g id="type">%1$s</xliff:g></string>
+
+    <!-- PopupViewTest -->
+    <string name="label_window_type">Window Type:</string>
+    <string name="label_window_height">Window Height:</string>
+    <string name="label_list_size">List Size:</string>
+    <string name="label_modal">Modal:</string>
+    <string name="label_default_inflater">Default Inflater:</string>
+    <string name="show_window_button">Show Window</string>
+
+    <string-array name="window_type_array">
+        <item>PopupWindow</item>
+        <item>ListPopupWindow</item>
+    </string-array>
+
+    <!-- PreferenceFragmentTest -->
+    <string name="launch_button">Launch</string>
+    <string name="label_preferenceFragment">PreferenceFragment</string>
+    <string name="label_preferenceFragmentCompat">PreferenceFragmentCompat</string>
+
+    <!-- RadioGroupTest -->
+    <string name="radio_button_male">Male</string>
+    <string name="radio_button_female">Female</string>
+
+    <!-- RoleDescriptionTest -->
+    <string name="role_entry_point">Entry Point</string>
+    <string name="role_send_email">Send Email</string>
+    <string name="role_play_music">Play Music</string>
+    <string name="role_lock_screen">Lock Screen</string>
+
+    <!-- SecurityOverlayTest -->
+    <string name="request_permission_template">Request <xliff:g id="permission_name">%1$s</xliff:g> Permission</string>
+    <string name="permission_name_camera">Camera</string>
+    <string name="permission_name_write_calendar">Write Calendar</string>
+    <string name="permission_already_granted_template"><xliff:g id="permission_name">%1$s</xliff:g> permission already granted.</string>
+
+    <!-- StandardTabWidgetTest-->
+    <string name="tab_title_template">Tab <xliff:g id="tab_index">%1$d</xliff:g></string>
+    <string name="simple_tab_content_template">Tab <xliff:g id="tab_index">%1$d</xliff:g> content.</string>
+
+    <!-- StandardAndroidWidgetTest -->
+    <string name="sample_button">Sample</string>
+    <string name="change_description_button">Change Description</string>
+    <string name="toast_content_changed_template">Content Description <xliff:g id="count">%1$d</xliff:g></string>
+    <string name="expand_button">Expand</string>
+    <string name="expand_button_action_label">Expand</string>
+    <string name="toast_expand_button_clicked">Button Clicked.</string>
+    <string name="progress_bar_content_desc">Progress Bar</string>
+    <string name="reset_progress_bar">Reset ProgressBar</string>
+
+    <!-- ToastTest -->
+    <string name="default_toast">Hello World!</string>
+    <string name="custom_toast">This is a custom toast.</string>
+
+    <!-- TTSSpanTest -->
+    <string name="header_spanned_text">Spanned Text</string>
+    <string name="label_unspanned_text">Unspanned Text</string>
+
+    <!-- URLSpanTest -->
+    <string name="sample_spanned_text_1">Android Developer Homepage</string>
+    <string name="sample_spanned_text_2">Learn how to make your app more accessible with Android Accessibility developer resources.</string>
+    <string name="sample_spanned_text_3">TalkBack makes Android more accessible.</string>
+
+    <!-- ValuePickerTest -->
+    <string name="date_picker_button">Date</string>
+    <string name="time_picker_button">Time</string>
+    <string name="number_picker_button">Number</string>
+    <string name="number_picker_title">Number Picker</string>
+
+    <!-- ViewGroupingTest -->
+    <string name="view_group_title">Example Title</string>
+    <string name="view_group_content">Example Content.\nHello World!</string>
+    <string name="view_group_button">Detail</string>
+
+    <string-array name="city_array">
+        <item>San Francisco</item>
+        <item>San Jose</item>
+        <item>Sunnyvale</item>
+        <item>Fremont</item>
+        <item>Palo Alto</item>
+        <item>Mountain View</item>
+        <item>South San Francisco</item>
+        <item>Santa Clara</item>
+        <item>Santa Cruz</item>
+        <item>San Rafael</item>
+    </string-array>
+
+    <!-- SectionHeaderTest -->
+    <string-array name="test_section_header_string_array">
+        <item>Section 1</item>
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+        <item>Section 2</item>
+        <item>Item 5</item>
+        <item>Item 6</item>
+        <item>Item 7</item>
+        <item>Item 8</item>
+        <item>Item 9</item>
+        <item>Section 3</item>
+        <item>Item 10</item>
+        <item>Item 11</item>
+        <item>Item 12</item>
+        <item>Item 13</item>
+        <item>Item 14</item>
+        <item>Item 15</item>
+    </string-array>
+
+    <string-array name="test_tts_span_type_array">
+        <item>TYPE CARDINAL</item>
+        <item>TYPE DATE</item>
+        <item>TYPE DECIMAL</item>
+        <item>TYPE DIGITS</item>
+        <item>TYPE MONEY</item>
+        <item>TYPE ORDINAL</item>
+        <item>TYPE TEXT</item>
+    </string-array>
+
+    <string-array name="test_tts_span_text_array">
+        <item>1234</item>
+        <item>19980904</item>
+        <!--TODO add more examples-->
+        <item>3.141592653</item>
+        <item>2048</item>
+        <item>$3,057,000</item>
+        <item>21st</item>
+        <item>Displayed Text</item>
+    </string-array>
+
+    <string-array name="content_37_list1_name_array">
+        <item>Item 0</item>
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <item>Item 4</item>
+    </string-array>
+
+    <string-array name="content_37_list1_value_array">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="content_37_list2_name_array">
+        <item>Item A</item>
+        <item>Item B</item>
+        <item>Item C</item>
+        <item>Item D</item>
+        <item>Item E</item>
+    </string-array>
+
+    <string-array name="content_37_list2_value_array">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+    </string-array>
+
+    <string-array name="content_37_empty_array" />
+
+</resources>

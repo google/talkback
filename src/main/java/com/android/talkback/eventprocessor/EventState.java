@@ -27,7 +27,21 @@ public class EventState {
     // When moving with granularity focus could be moved to next node automatically. In that case
     // TalkBack will also move with granularity inside newly focused node and pronounce part of
     // the content. There is no need to pronounce the whole content of the node in that case
-    public static int EVENT_SKIP_FOCUS_PROCESSING_AFTER_GRANULARITY_MOVE = 1;
+    public static final int EVENT_SKIP_FOCUS_PROCESSING_AFTER_GRANULARITY_MOVE = 1;
+    public static final int EVENT_SKIP_HINT_AFTER_GRANULARITY_MOVE = 2;
+
+    public static final int EVENT_SKIP_FOCUS_PROCESSING_AFTER_CURSOR_CONTROL = 3;
+    public static final int EVENT_SKIP_WINDOWS_CHANGED_PROCESSING_AFTER_CURSOR_CONTROL = 4;
+    public static final int EVENT_SKIP_WINDOW_STATE_CHANGED_PROCESSING_AFTER_CURSOR_CONTROL = 5;
+    public static final int EVENT_SKIP_HINT_AFTER_CURSOR_CONTROL = 6;
+
+    /** Indicates that we want to switch TTS silently, i.e. don't say "Using XYZ engine". */
+    public static final int EVENT_SKIP_FEEDBACK_AFTER_QUIET_TTS_CHANGE = 7;
+
+    /** Indicates that TalkBack recently forced a refocus of a node. */
+    public static final int EVENT_NODE_REFOCUSED = 8;
+
+    private static final int EVENT_TIMEOUT = 1000;
 
     private static EventState sInstance = new EventState();
 
@@ -35,7 +49,7 @@ public class EventState {
         return sInstance;
     }
 
-    private SparseArray mEvents = new SparseArray();
+    private SparseArray<Long> mEvents = new SparseArray<>();
 
     public void addEvent(int event) {
         mEvents.put(event, SystemClock.uptimeMillis());
@@ -45,8 +59,17 @@ public class EventState {
         mEvents.remove(event);
     }
 
-    public boolean hasEvent(int event, long timeout) {
-        Long lastEventTime = (Long) mEvents.get(event);
+    public boolean checkAndClearRecentEvent(int event) {
+        if (hasEvent(event, EVENT_TIMEOUT)) {
+            mEvents.remove(event);
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean hasEvent(int event, long timeout) {
+        Long lastEventTime = mEvents.get(event);
         if (lastEventTime != null) {
             return SystemClock.uptimeMillis() - lastEventTime < timeout;
         }

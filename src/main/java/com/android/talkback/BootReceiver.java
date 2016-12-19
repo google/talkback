@@ -19,6 +19,9 @@ package com.android.talkback;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.os.BuildCompat;
+import android.support.v4.os.UserManagerCompat;
+
 import com.google.android.marvin.talkback.TalkBackService;
 
 public class BootReceiver extends BroadcastReceiver {
@@ -26,8 +29,25 @@ public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         TalkBackService service = TalkBackService.getInstance();
-        if (service != null) {
-            service.onBootCompleted();
+        if (service == null) {
+            return;
+        }
+
+        // We need to ensure that onLockedBootCompleted() and onUnlockedBootCompleted() are called
+        // *in that order* to properly set up TalkBack.
+        switch (intent.getAction()) {
+            case Intent.ACTION_LOCKED_BOOT_COMPLETED:
+                // Only N+ devices will get this intent (even if they don't have FBE enabled).
+                service.onLockedBootCompleted();
+                break;
+            case Intent.ACTION_BOOT_COMPLETED:
+                if (!BuildCompat.isAtLeastN()) {
+                    // Pre-N devices will never get LOCKED_BOOT, so we need to do the locked-boot
+                    // initialization here right before we do the unlocked-boot initialization.
+                    service.onLockedBootCompleted();
+                }
+                service.onUnlockedBootCompleted();
+                break;
         }
     }
 }

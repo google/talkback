@@ -2,32 +2,31 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="switch_service_name" msgid="6043415138576713888">"Schalterzugriff"</string>
-    <string name="switch_access_service_description" msgid="7316829370005579941">"Über den Schalterzugriff können Sie Ihr Gerät mithilfe konfigurierbarer Tastenkombinationen steuern. Sie können den Fokus auf anklickbare Elemente setzen und diese auswählen."</string>
-    <string name="title_pref_category_auto_scan" msgid="204553159096050222">"Automatische Prüfung"</string>
-    <string name="title_pref_auto_scan" msgid="6856662972215508038">"Autom. Prüfung aktivieren"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="56513200274417190">"Zeitverzögerung"</string>
-    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"Automatische Prüfung in umgekehrter Reihenfolge"</string>
-  <plurals name="auto_scan_time_delay_summary_format">
-    <item quantity="one" msgid="815853953952465870">"1 Sekunde"</item>
-    <item quantity="other" msgid="1223387233862989964">"%.2f Sekunden"</item>
-  </plurals>
+    <string name="switch_access_service_description" msgid="1958519878116811543">"Mit dem Schalterzugriff kannst du Elemente über einen oder mehrere Schalter scannen und auswählen."</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Hilfe &amp; Feedback"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Automatischer Scan"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Dauer des automatischen Scans"</string>
+    <string name="action_name_reverse_auto_scan" msgid="4257814255726312722">"Automatischer Scan in umgekehrter Reihenfolge"</string>
+    <plurals name="auto_scan_time_delay_summary_format" formatted="false" msgid="5524438721359954583">
+      <item quantity="other">%.2f Sekunden</item>
+      <item quantity="one">1 Sekunde</item>
+    </plurals>
     <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Auswahlmethode"</string>
-    <string name="title_pref_scanning_methods_keyboard" msgid="5018408554836048742">"Tastaturauswahl"</string>
-    <string name="title_pref_scanning_methods_views" msgid="4362382903873881408">"Auswahl anzeigen"</string>
     <string name="title_pref_category_key_mappings" msgid="463227090301036752">"Aktionen Tasten zuweisen"</string>
     <string name="title_pref_category_scan_key_mappings" msgid="3352934615940599431">"Tasten für das Scannen zuweisen"</string>
     <string name="toast_msg_key_already_assigned" msgid="6873568861550304420">"Die Taste \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" wurde bereits der Aktion \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\" zugewiesen."</string>
-  <plurals name="label_num_keys_assigned_format">
-    <item quantity="one" msgid="8372086689828893172">"%d Schlüssel zugewiesen"</item>
-    <item quantity="other" msgid="2361393301173230834">"%d Schlüssel zugewiesen"</item>
-  </plurals>
-    <string name="option_scan_switch_format" msgid="2034348456907055979">"Schaltflächen für das Scannen nach Optionen (%1$d)"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="8070929030388121623">
+      <item quantity="other">%d Schlüssel zugewiesen</item>
+      <item quantity="one">%d Schlüssel zugewiesen</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="2034348456907055979">"Scannen nach Optionen Schalter (%1$d)"</string>
     <string name="action_name_next" msgid="4106603510441280028">"Weiter"</string>
     <string name="action_name_previous" msgid="5382750123072539005">"Zurück"</string>
     <string name="action_name_click" msgid="8073233516135659087">"Auswählen"</string>
     <string name="action_name_long_click" msgid="5708679123666477849">"Lange drücken"</string>
     <string name="action_name_scroll_forward" msgid="6969788891937406270">"Nach vorne scrollen"</string>
     <string name="action_name_scroll_backward" msgid="579045012327139100">"Nach hinten scrollen"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Beenden"</string>
     <string name="context_menu_layout_description" msgid="330592638837220675">"Kontextmenü"</string>
     <string name="option_scanning_menu_button" msgid="4460266289722058928">"Menü"</string>
     <string name="global_action_back" msgid="8326879739948707767">"Zurück"</string>
@@ -38,7 +37,7 @@
     <string name="scrollable_forward" msgid="6312908487874132401">"Nach vorne scrollen"</string>
     <string name="scrollable_backward" msgid="5109861709058665917">"Nach hinten scrollen"</string>
     <string name="switch_access_preferences_title" msgid="8339289604407443597">"Einstellungen für den Schalterzugriff"</string>
-    <string name="key_combo_preference_instructions" msgid="729970729293779243">"Drücken Sie eine Tastenkombination, um das Element der Liste hinzuzufügen bzw. es daraus zu entfernen."</string>
+    <string name="key_combo_preference_instructions" msgid="729970729293779243">"Drücke eine Tastenkombination, um das Element der Liste hinzuzufügen oder es daraus zu entfernen."</string>
     <string name="key_combo_preference_reset_button" msgid="766369207787941384">"Tastenbelegung löschen"</string>
     <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"STRG + "</string>
     <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
@@ -48,8 +47,23 @@
     <string name="name_of_enter_key" msgid="6379785627490220649">"Eingabe"</string>
     <string name="name_of_tab_key" msgid="6744983965001375397">"Tabulatortaste"</string>
     <string name="save" msgid="5398278773451196019">"Speichern"</string>
-    <string name="title_pref_highlight_0" msgid="3039542597362059267">"Für die Prüfung verwendete Markierung"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Hervorhebungsstil beim Scannen"</string>
     <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Primärer Scanstil"</string>
-    <string name="title_pref_highlight_0_color" msgid="5924025322529829212">"Markierungsfarbe"</string>
-    <string name="title_pref_highlight_0_weight" msgid="199717508666067989">"Markierungsbreite"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Farbe für Hervorhebung"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Linienart für Hervorhebung"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="1781611399874689922">"Automatische Auswahl aktivieren"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="777214990214649732">"Automatische Auswahl deaktivieren"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Nächstes Zeichen"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Nächstes Wort"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Nächste Zeile"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Nächster Absatz"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Nächste Seite"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Vorheriges Zeichen"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Vorheriges Wort"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Vorherige Zeile"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Vorheriger Absatz"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Vorherige Seite"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Scan automatisch starten"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Scan startet, ohne dass der Schalter gedrückt werden muss"</string>
 </resources>

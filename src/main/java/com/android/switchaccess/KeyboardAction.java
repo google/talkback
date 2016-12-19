@@ -18,8 +18,9 @@ package com.android.switchaccess;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.view.KeyEvent;
+
+import com.android.utils.SharedPreferencesUtils;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -92,7 +93,7 @@ public class KeyboardAction {
      */
     public void refreshPreferences(Context context) {
         if (mEnabledResId != 0) {
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            final SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
             if (!prefs.getBoolean(context.getString(mEnabledResId), mEnabledDefault)) {
                 setTriggerKeys(Collections.<Long>emptySet());
                 return;

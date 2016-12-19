@@ -16,20 +16,22 @@
 
 package com.android.switchaccess;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
-import android.annotation.TargetApi;
-import android.os.Build;
-
 import android.accessibilityservice.AccessibilityService;
+import android.annotation.TargetApi;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.support.v4.os.BuildCompat;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
+
+import com.android.switchaccess.treebuilding.MainTreeBuilder;
 import com.android.utils.LogUtils;
+import com.android.utils.SharedPreferencesUtils;
 import com.android.utils.widget.SimpleOverlay;
 import com.google.android.marvin.talkback.TalkBackService;
 
@@ -55,35 +57,26 @@ public class SwitchAccessService extends AccessibilityService
 
     private OverlayController mOverlayController;
     private OptionManager mOptionManager;
+    private AutoScanController mAutoScanController;
     private KeyboardEventManager mKeyboardEventManager;
-    private MultiWindowTreeBuilder mMultiWindowTreeBuilder;
-    private TalkBackOrderNDegreeTreeBuilder mTalkBackOrderNDegreeTreeBuilder;
+    private MainTreeBuilder mMainTreeBuilder;
 
     @Override
-    public void onCreate() {
-        super.onCreate();
-        sInstance = this;
-        mOverlayController = new OverlayController(new SimpleOverlay(this));
-        mOverlayController.configureOverlay();
-        mOptionManager = new OptionManager(mOverlayController);
-        mTalkBackOrderNDegreeTreeBuilder = new TalkBackOrderNDegreeTreeBuilder(this);
-        mMultiWindowTreeBuilder = new MultiWindowTreeBuilder(this, new LinearScanTreeBuilder(),
-                new RowColumnTreeBuilder(), mTalkBackOrderNDegreeTreeBuilder);
-        AutoScanController autoScanController =
-                new AutoScanController(mOptionManager, new Handler(), this);
-        mKeyboardEventManager = new KeyboardEventManager(this, mOptionManager, autoScanController);
-        mAnalytics = new Analytics();
-        mAnalytics.start();
+    public boolean onUnbind(Intent intent) {
+        if (mAutoScanController != null) {
+            mAutoScanController.stopScan();
+        }
+        return super.onUnbind(intent);
     }
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         mAnalytics.stop();
         mOptionManager.shutdown();
         mOverlayController.shutdown();
-        mMultiWindowTreeBuilder.shutdown();
+        mMainTreeBuilder.shutdown();
         sInstance = null;
+        super.onDestroy();
     }
 
     @Override
@@ -93,7 +86,7 @@ public class SwitchAccessService extends AccessibilityService
 
     @Override
     public void onInterrupt() {
-        /* TODO(PW) Will this ever be called? */
+        /* TODO Will this ever be called? */
     }
 
     /**
@@ -126,12 +119,20 @@ public class SwitchAccessService extends AccessibilityService
     @SuppressWarnings("deprecation")
     @Override
     protected void onServiceConnected() {
+        sInstance = this;
+        mOverlayController = new OverlayController(new SimpleOverlay(this));
+        mOverlayController.configureOverlay();
+        mOptionManager = new OptionManager(mOverlayController);
+        mMainTreeBuilder = new MainTreeBuilder(this);
+        mAutoScanController = new AutoScanController(mOptionManager, new Handler(), this);
+        mKeyboardEventManager = new KeyboardEventManager(this, mOptionManager, mAutoScanController);
+        mAnalytics = new Analytics();
+        mAnalytics.start();
         PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
         mWakeLock = powerManager.newWakeLock(
                 PowerManager.FULL_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "SwitchAccess");
-        PreferenceManager.getDefaultSharedPreferences(this)
+        SharedPreferencesUtils.getSharedPreferences(this)
                 .registerOnSharedPreferenceChangeListener(this);
-        mKeyboardEventManager.reloadPreferences(this);
         mActionProcessor = new ActionProcessor(this);
         mEventProcessor = new UiChangeDetector(mActionProcessor);
     }
@@ -144,14 +145,15 @@ public class SwitchAccessService extends AccessibilityService
              * This is inefficient but is needed when we pull down the notification shade.
              * It also only works because the key event handling is delayed to see if the
              * UI needs to stabilize.
-             * TODO(pweaver) Refactor so we only re-index immediately after events if we're scanning
+             * TODO Refactor so we only re-index immediately after events if we're scanning
              */
-            mOptionManager.clearFocusIfNewTree(
-                    mMultiWindowTreeBuilder.buildTreeFromWindowList(getWindows(), this));
+            rebuildOptionScanTree();
         }
-        TalkBackService talkBackService = TalkBackService.getInstance();
-        if (talkBackService != null) {
-            keyHandled = talkBackService.onKeyEventShared(keyEvent) || keyHandled;
+        if (!BuildCompat.isAtLeastN()) {
+            TalkBackService talkBackService = TalkBackService.getInstance();
+            if (talkBackService != null) {
+                keyHandled = talkBackService.onKeyEventShared(keyEvent) || keyHandled;
+            }
         }
         return keyHandled;
     }
@@ -160,16 +162,22 @@ public class SwitchAccessService extends AccessibilityService
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         LogUtils.log(this, Log.DEBUG, "A shared preference changed: %s", key);
         mKeyboardEventManager.reloadPreferences(this);
-        mTalkBackOrderNDegreeTreeBuilder.reloadPreferences(this);
     }
 
     @Override
     public void onUiChangedAndIsNowStable() {
-        mOptionManager.clearFocusIfNewTree(
-                mMultiWindowTreeBuilder.buildTreeFromWindowList(getWindows(), this));
+        rebuildOptionScanTree();
     }
 
     public OptionManager getOptionManager() {
         return mOptionManager;
+    }
+
+    private void rebuildOptionScanTree() {
+        OptionScanNode globalContextMenuTree =
+                mMainTreeBuilder.buildContextMenu(GlobalActionNode.getGlobalActionList(this));
+        mOptionManager.clearFocusIfNewTree(mMainTreeBuilder.addWindowListToTree(
+                SwitchAccessWindowInfo.convertZOrderWindowList(getWindows()),
+                globalContextMenuTree));
     }
 }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Pritaikymo neįgaliesiems mokymo programa"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Paleisti „TalkBack“ mokymo programą"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"„TalkBack“ mokymo programa"</string>
+    <string name="main_description" msgid="4795202818108740382">"„TalkBack“ yra ekrano skaitytuvas, skirtas akliems ir sutrikusio regėjimo žmonėms. Ši paslauga suteikia sąveikos su įrenginiu galimybę naudojant ekrano skaitymo balsu funkciją."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Išjungti „TalkBack“"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Mokytis"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Praktinės užduotys"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"pradėti <xliff:g id="INDEX">%1$d</xliff:g> pamoką"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"pradėti <xliff:g id="INDEX">%1$d</xliff:g> pamokos praktiką"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"1 dalis: paprastas naršymas"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Naršykite paliesdami ir perbraukdami, tada dukart palieskite, kad suaktyvintumėte"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"1 dalis: naršymas paliečiant"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Kai įgalinta funkcija „Naršyti paliečiant“, galite girdėti, ką esate palietę pirštu. Pirštu judėkite liesdami elementus ekrano centre. Kai paliesite ir išklausysite penkis elementus, pamoka bus tęsiama."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"2 dalis: dukart palieskite, kad suaktyvintumėte"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Kad suaktyvintumėte paskutinį elementą, kurį girdėjote, dukart palieskite bet kurioje vietoje. Raskite 7 elementą ir suaktyvinkite jį dabar. Tada suaktyvinkite „Kitas“, kad tęstumėte."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Suaktyvintas 7 elementas. Raskite ir suaktyvinkite mygtuką „Kitas“, kad tęstumėte"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"3 dalis: pamokų naršymas"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"„TalkBack“ pamokos išdėstytos panašiai. Viršutinėje srityje yra pamoka, kurią galite naršyti ir perskaityti bet kuriuo metu. Viršutiniame kairiajame kampe taip pat yra mokymo programos pagrindinis mygtukas. Viduryje yra praktikos sritis. Apačioje yra eigos indikatorius ir pamokų naršymo mygtukai. Dabar suaktyvinkite „Kitas“, kad tęstumėte."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"4 dalis: naršymas perbraukiant"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Naršyti galite ir perbraukdami ekraną pirštu. Perbraukę į kairę naršysite viršuje ir kairėje esančius elementus, o perbraukę į dešinę – apačioje ir dešinėje esančius elementus. Išbandykite tai dabar."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"5 dalis: praktinės užduotys"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Kad išgirstumėte, ką esate palietę pirštu, pajudinkite pirštą ekranu. Dukart palieskite bet kurioje vietoje, kad suaktyvintumėte tai, ką girdite. Naršykite perbraukdami į kairę arba dešinę."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"2 pamoka: slinkimas"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Slinkimas dviem pirštais, perėjimas į priekį ir atgal"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"1 dalis: slinkimas dviem pirštais"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Kad slinktumėte vertikaliu sąrašu, raskite sąrašo elementą, tada du pirštus pajudinkite aukštyn arba žemyn. Kad slinktumėte horizontaliu sąrašu, raskite sąrašo elementą, tada du pirštus pajudinkite kairėn arba dešinėn."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"2 dalis: spartieji slinkimo klavišai"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Naudodami spartųjį klavišą galite pereiti sąrašu į priekį ar atgal. Jei norite pereiti į priekį, vienu judesiu pirštu judėkite į dešinę, tada į kairę. Jei norite pereiti atgal, pirštu judėkite į kairę, tada į dešinę. Išbandykite tai čia."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"3 dalis: praktinės užduotys"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Slinkite slysdami dviem pirštais į viršų ar į apačią. Pereikite į priekį perkeldami vieną pirštą į dešinę, tada į kairę. Pereikite atgal perkeldami vieną pirštą į kairę, tada į dešinę."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"3 pamoka: „TalkBack“ meniu"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Visuotinis „TalkBack“ meniu, vietinis „TalkBack“ meniu"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"1 dalis: visuotinis „TalkBack“ meniu"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"„TalkBack“ yra du skirtingi meniu. Visuotiniame „TalkBack“ meniu visada pateikiamos tos pačios komandos. Jį suaktyvinti galite pirštu judėdami žemyn, tada į dešinę vienu judesiu ir atkeldami pirštą. Suaktyvinkite praktinių užduočių versiją dabar."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Meniu parinktys pateiktos vertikaliame sąraše ekrano viduryje. Pabandykite naršyti. Atlikę reikiamus veiksmus, suaktyvinkite „Atšaukti“."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"2: vietinis „TalkBack“ meniu"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Antrasis meniu yra vietinis „TalkBack“ meniu. Šio meniu elementai skiriasi atsižvelgiant į tai, ką girdėjote paskutinį kartą. Šį meniu galite suaktyvinti pirštu judėdami aukštyn, tada į dešinę ir atkeldami pirštą. Suaktyvinkite praktinių užduočių meniu dabar."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"3 dalis: praktinės užduotys"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Jei norite suaktyvinti visuotinį „TalkBack“ meniu, pirštu judėkite žemyn, tada į dešinę. Jei norite suaktyvinti vietinį „TalkBack“ meniu, pirštu judėkite aukštyn, tada į dešinę."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Žemyn, tada dešinėn"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Aukštyn, tada dešinėn"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Visuotinis „TalkBack“ meniu: žemyn, tada į dešinę. Vietinis „TalkBack“ meniu: aukštyn, tada į dešinę"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"4 pamoka: teksto naršymas"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Teksto naršymo nustatymų pasirinkimas"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"1 dalis: naršymo nustatymų pasirinkimas"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"Naudodami „TalkBack“ galite valdyti, ar tekstas skaitomas po vieną pastraipą, eilutę, žodį arba simbolį. Skaitant po vieną simbolį lengviau suprasti žodžių rašybą. Nustatykite teksto naršymo spartą į simbolius palietę toliau pateiktą tekstą ir perbraukdami aukštyn ir žemyn."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Naršykite čia vertikaliai pateiktas skaitymo spartos parinktis. Raskite ir suaktyvinkite parinktį „Skaityti po vieną simbolį“."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"2 dalis: teksto naršymas"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Dabar tekstą skaitote po vieną simbolį. Pasirinkite teksto pavyzdį, tada perbraukite į dešinę, kad skaitytumėte po vieną simbolį."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"3 dalis: praktinės užduotys"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Pakeiskite teksto naršymo spartą perbraukdami aukštyn arba žemyn. Skaitykite kitą teksto pavyzdžio simbolį perbraukdami į dešinę."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Čia pateikiamas teksto pavyzdys, kurį naudojant galima išbandyti „TalkBack“. „Kur yra Kanzasas?“ – nustebęs paklausė vyras. „Nežinau, – susisielojusi atsakė Dorotė, – tačiau tai yra mano namai ir aš esu tikra, kad jis kažkur yra.“\n\n„Labai tikėtina. Na, Ozas gali padaryti bet ką; manau, kad jis suras Kanzasą. Tačiau pirmiausia tau reikia su juo susitikti ir tai bus labai sunku; Nuostabusis Burtininkas nemėgsta rodytis žmonėms ir paprastai jis tai daro savaip. O ko TU nori?“ – tęsė jis kreipdamasis į Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"5 pamoka: teksto redagavimas"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Redagavimo laukelio suaktyvinimas, teksto įvedimas, žymeklio perkėlimas, teksto pasirinkimas ir veiksmų su tekstu atlikimas"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"1 dalis: redagavimo laukelio suaktyvinimas"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Su „TalkBack“ galite naudoti redagavimo laukelį tekstui įvesti, pasirinkti ir redaguoti. Kad suaktyvintumėte redagavimo laukelį, palieskite jį dukart. Suaktyvinus redagavimo laukelį klaviatūra tampa pasiekiama ekrano apačioje. Galite atsisakyti klaviatūros palietę mygtuką „Atgal“. Pabandykite suaktyvinti redagavimo laukelį dabar. Baigę suaktyvinkite parinktį „Kitas“, kuri dabar pateikta virš klaviatūros."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"2 dalis: teksto įvedimas redagavimo laukelyje"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Kad galėtumėte įvesti tekstą, suaktyvinkite redagavimo laukelį ir pajudinkite pirštą ekrano klaviatūra. Kai išgirsite pageidaujamą simbolį, pakelkite pirštą, kad jį suaktyvintumėte. Pabandykite suaktyvinti toliau pateiktą redagavimo laukelį ir įvesti tekstą."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"3 dalis: žymeklio naudojimas"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Žymeklį galite perkelti naudodami įrenginio garsumo mygtukus arba vietinį „TalkBack“ meniu. Naudodami šio meniu žymeklio valdiklio parinktį, taip pat galite pasirinkti, iškirpti, kopijuoti ir įklijuoti tekstą. Suaktyvinkite toliau esantį redagavimo laukelį ir perkelkite žymeklį pateiktame tekste."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Dorotės Geil el. pašto adresas yra dorotė@ozopaštas.lt"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"4 dalis: praktinės užduotys"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Suaktyvinkite redagavimo laukelį dukart jį palietę. Įveskite tekstą užvedę pirštą virš simbolio ir pakėlę pirštą. Perkelkite žymeklį naudodami garsumo mygtukus ir vietinį „TalkBack“ meniu. Pasirinkite tekstą ir atlikite veiksmus su tekstu naudodami žymeklio valdymo parinktį vietiniame „TalkBack“ meniu."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Redaguokite tekstą"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"ANKSTESNĖ"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"KITAS"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"ANKSTESNĖ PAMOKA"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"KITA PAMOKA"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"PAGRINDINIS MOKYMO PROGRAMOS PUSLAPIS"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"%1$d pamoka"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"%1$d dalis"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"%1$d dalis iš %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"Praktinė užduotis baigta ir pamoka netrukus bus tęsiama"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Praktinių užduočių sritis"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"Parinktis „%1$s“ suaktyvinta praktikos režimu. Suaktyvinkite mygtuką ATŠAUKTI, kad išeitumėte."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Pagrindinio mokymo programos puslapio mygtukas"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"<xliff:g id="INDEX">%1$d</xliff:g> elementas"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Išeiti"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Būtina funkcija „Naršyti paliečiant“"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Norint naudoti šią mokymo programą, reikalinga funkcija „Naršyti paliečiant“. Prieš paleisdami mokymo programą, įgalinkite funkciją „Naršyti paliečiant“."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"„TalkBack“ išjungta"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Norint naudoti šią mokymo programą, turi būti įgalinta „TalkBack“. Prieš paleisdami mokymo programą, įjunkite „TalkBack“."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"„TalkBack“ laikinai sustabdyta"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"„TalkBack“ mokymo programa nepasiekiama pristabdžius atsakus. Įjunkite „TalkBack“ atsakus ir iš naujo paleiskite mokymo programą, kad galėtumėte tęsti."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Apibūdinti meniu"</string>
+</resources>

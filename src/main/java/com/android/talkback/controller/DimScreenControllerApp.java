@@ -17,7 +17,11 @@
 
 package com.android.talkback.controller;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
@@ -25,12 +29,14 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.view.LayoutInflater;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
+import android.widget.CheckBox;
+import android.widget.ScrollView;
 import com.android.talkback.DimmingOverlayView;
 import com.android.talkback.OrientationMonitor;
 import com.android.talkback.R;
@@ -41,6 +47,10 @@ import java.util.concurrent.TimeUnit;
 
 public class DimScreenControllerApp implements DimScreenController,
         OrientationMonitor.OnOrientationChangedListener {
+
+    public static final int MIN_API_LEVEL = Build.VERSION_CODES.JELLY_BEAN_MR2;
+    public static final boolean IS_SUPPORTED_PLATFORM = Build.VERSION.SDK_INT >= MIN_API_LEVEL &&
+            !TalkBackService.isInArc();
 
     private static final float MAX_DIM_AMOUNT = 0.9f;
     private static final float MIN_BRIGHTNESS = 0.1f;
@@ -57,6 +67,7 @@ public class DimScreenControllerApp implements DimScreenController,
     private WindowManager mWindowManager;
     private LayoutParams mViewParams;
     private DimmingOverlayView mView;
+    private Dialog mDimDialog;
     private int mCurrentInstructionVisibleTime;
     private boolean mIsInstructionDisplayed;
     private Handler mDimmingHandler = new Handler(Looper.getMainLooper()) {
@@ -81,25 +92,9 @@ public class DimScreenControllerApp implements DimScreenController,
         }
     };
 
-    @SuppressWarnings("FieldCanBeLocal")
-    private SharedPreferences.OnSharedPreferenceChangeListener mPrefListener =
-            new SharedPreferences.OnSharedPreferenceChangeListener() {
-        @Override
-        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            if (key.equals(mContext.getString(R.string.pref_dim_when_talkback_enabled_key))) {
-                if (TalkBackService.isServiceActive() && isDimmingEnabled()) {
-                    makeScreenDim();
-                } else {
-                    makeScreenBright();
-                }
-            }
-        }
-    };
-
     public DimScreenControllerApp(Context context) {
         mContext = context;
-        mPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        mPrefs.registerOnSharedPreferenceChangeListener(mPrefListener);
+        mPrefs = SharedPreferencesUtils.getSharedPreferences(context);
     }
 
     @Override
@@ -110,17 +105,10 @@ public class DimScreenControllerApp implements DimScreenController,
                 R.bool.pref_dim_when_talkback_enabled_default);
     }
 
-    @Override
-    public void switchState() {
-        if (!mIsDimmed && TalkBackService.isServiceActive()) {
-            makeScreenDim();
-        } else {
-            makeScreenBright();
-        }
-    }
-
-    @Override
-    public void makeScreenDim() {
+    /**
+     * Turn on screen dimming without setting the shared preference.
+     */
+    private void makeScreenDim() {
         if (mIsDimmed) {
             return;
         }
@@ -220,14 +208,31 @@ public class DimScreenControllerApp implements DimScreenController,
     }
 
     @Override
-    public void shutdown() {
+    public void resume() {
+        if (isDimmingEnabled()) {
+            makeScreenDim();
+        }
+    }
+
+    @Override
+    public void suspend() {
         makeScreenBright();
+        if (mDimDialog != null && mDimDialog.isShowing()) {
+            mDimDialog.cancel();
+        }
+    }
+
+    @Override
+    public void shutdown() {
+        suspend();
         mViewParams = null;
         mView = null;
     }
 
-    @Override
-    public void makeScreenBright() {
+    /**
+     * Turns off screen dimming without setting the shared preference.
+     */
+    private void makeScreenBright() {
         if (!mIsDimmed) {
             return;
         }
@@ -239,6 +244,70 @@ public class DimScreenControllerApp implements DimScreenController,
         announceScreenDimChanged(R.string.screen_brightness_restored);
         mDimmingHandler.removeMessages(START_DIMMING_MESSAGE);
         mDimmingHandler.removeMessages(UPDATE_TIMER_MESSAGE);
+    }
+
+    @Override
+    public void disableDimming() {
+        makeScreenBright();
+        SharedPreferencesUtils.putBooleanPref(mPrefs, mContext.getResources(),
+                R.string.pref_dim_when_talkback_enabled_key, false);
+    }
+
+    @Override
+    public void showDimScreenDialog() {
+        // Only show one dim screen dialog at a time.
+        if (mDimDialog != null && mDimDialog.isShowing()) {
+            return;
+        }
+
+        boolean showConfirmDialog = mPrefs.getBoolean(
+                mContext.getString(R.string.pref_show_dim_screen_confirmation_dialog), true);
+        if (!showConfirmDialog) {
+            makeScreenDim();
+            SharedPreferencesUtils.putBooleanPref(mPrefs, mContext.getResources(),
+                    R.string.pref_dim_when_talkback_enabled_key, true);
+            return;
+        }
+
+        LayoutInflater inflater = LayoutInflater.from(mContext);
+        @SuppressLint("InflateParams") final ScrollView root = (ScrollView) inflater.inflate(
+                R.layout.dim_screen_confirmation_dialog, null);
+        final CheckBox confirmCheckBox = (CheckBox) root.findViewById(R.id.show_warning_checkbox);
+
+        final DialogInterface.OnClickListener okayClick = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == DialogInterface.BUTTON_POSITIVE) {
+                    if (!confirmCheckBox.isChecked()) {
+                        SharedPreferencesUtils.putBooleanPref(mPrefs, mContext.getResources(),
+                                R.string.pref_show_dim_screen_confirmation_dialog, false);
+                    }
+
+                    // TalkBack should be active here, but let's check just in case.
+                    if (TalkBackService.isServiceActive()) {
+                        makeScreenDim();
+                        SharedPreferencesUtils.putBooleanPref(mPrefs, mContext.getResources(),
+                                R.string.pref_dim_when_talkback_enabled_key, true);
+                    }
+                    mDimDialog = null;
+                }
+            }
+        };
+
+        mDimDialog = new AlertDialog.Builder(TalkBackService.getInstance())
+                .setTitle(R.string.dialog_title_dim_screen)
+                .setView(root)
+                .setNegativeButton(android.R.string.cancel, null)
+                .setPositiveButton(android.R.string.ok, okayClick)
+                .create();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1) {
+            mDimDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY);
+        } else {
+            mDimDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ERROR);
+        }
+
+        mDimDialog.show();
     }
 
     private void announceScreenDimChanged(int announcementTextResId) {

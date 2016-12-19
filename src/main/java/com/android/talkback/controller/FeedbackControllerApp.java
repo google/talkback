@@ -31,7 +31,6 @@ import android.media.SoundPool;
 import android.media.SoundPool.OnLoadCompleteListener;
 import android.os.Build;
 import android.os.Vibrator;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.SparseIntArray;
 import com.android.talkback.TalkBackUpdateHelper;
@@ -104,7 +103,7 @@ public class FeedbackControllerApp implements FeedbackController {
             }
         };
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        final SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
         prefs.registerOnSharedPreferenceChangeListener(prefListener);
         updatePreferences(prefs, null);
     }

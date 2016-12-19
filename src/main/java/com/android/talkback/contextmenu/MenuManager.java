@@ -16,17 +16,13 @@
 
 package com.android.talkback.contextmenu;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-
 public interface MenuManager {
 
     boolean showMenu(int menuId);
     boolean isMenuShowing();
     void dismissAll();
     void clearCache();
-
     void onGesture(int gestureId);
+    void setMenuTransformer(MenuTransformer transformer);
+    void setMenuActionInterceptor(MenuActionInterceptor actionInterceptor);
 }

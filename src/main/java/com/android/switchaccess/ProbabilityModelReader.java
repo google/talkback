@@ -34,7 +34,7 @@ public class ProbabilityModelReader {
 
     Map<Integer, Double> mModel;
     PPMTrie mPPMTrie;
-    /* TODO(rmorina) This should be a file descriptor of the training file, but is temporarily 0 */
+    /* TODO This should be a file descriptor of the training file, but is temporarily 0 */
     int probabilityModelResource = 0;
     private final Context mContext;
 
@@ -53,7 +53,7 @@ public class ProbabilityModelReader {
      * @return Returns a map that associates each of the SwitchAccessNodeCompats in the set
      *         {@code nodeInfoCompats} to an int representation.
      */
-    /* TODO(rmorina) This should probably be in a separate class. Ultimately we want to be able to
+    /* TODO This should probably be in a separate class. Ultimately we want to be able to
      *  represent any of the SwitchAcccessNodeCompat as an Integer. It will be a more involved
      *  process than simply getting the content description for the node.
      */
@@ -63,10 +63,10 @@ public class ProbabilityModelReader {
         for (SwitchAccessNodeCompat compatNode : nodeInfoCompats) {
             if (!TextUtils.isEmpty(AccessibilityNodeInfoUtils.getNodeText(compatNode))) {
                 String nodeContent = AccessibilityNodeInfoUtils.getNodeText(compatNode).toString();
-                // TODO(rmorina) The assumption that nodeContent is a char!
+                // TODO The assumption that nodeContent is a char!
                 nodeRepresentation.put(compatNode, (int) nodeContent.charAt(0));
             }
-            /* TODO(rmorina) Currently if the node's content is null, we just don't have a
+            /* TODO Currently if the node's content is null, we just don't have a
              * representation. This is a very temporary implementation and should change once a
              * more robust implementation is developed to represent a
              * SwitchAccessNodeCompat. This implementation works for the keyboard though. */
@@ -98,7 +98,7 @@ public class ProbabilityModelReader {
                 compatNodesProbabilities.put(compatNode,
                         nodeRepresentationProbabilities.get(nodeRepresentation));
             } else {
-                /* TODO(rmorina) This should not happen once we have a robust way to represent
+                /* TODO This should not happen once we have a robust way to represent
                  * each AccessibilityNodeInfoCompat */
                 Double defaultProbability = 1.0 / nodeInfoCompats.size();
                 compatNodesProbabilities.put(compatNode, defaultProbability);

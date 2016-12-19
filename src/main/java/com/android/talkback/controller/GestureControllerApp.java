@@ -16,13 +16,15 @@
 
 package com.android.talkback.controller;
 
+import com.android.utils.SharedPreferencesUtils;
+import com.google.android.marvin.talkback.TalkBackService;
+
 import android.accessibilityservice.AccessibilityService;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 
+import com.android.talkback.InputModeManager;
 import com.android.talkback.R;
 import com.android.talkback.contextmenu.MenuManager;
 import com.android.utils.TreeDebug;
@@ -30,19 +32,19 @@ import com.android.utils.compat.accessibilityservice.AccessibilityServiceCompatU
 
 /**
  * Class to handle incoming gestures to TalkBack.
- * TODO(KM): Remove Shortcut gesture action
- * TODO(KM): Make sure tutorial still works
- * TODO(KM): Map action to string description of gesture
- * TODO(KM): Map actions to ints, and store in a map that changes with prefs
+ * TODO: Remove Shortcut gesture action
+ * TODO: Make sure tutorial still works
+ * TODO: Map action to string description of gesture
+ * TODO: Map actions to ints, and store in a map that changes with prefs
  */
 public class GestureControllerApp implements GestureController {
-    private final AccessibilityService mService;
+    private final TalkBackService mService;
     private final CursorController mCursorController;
     private final FeedbackController mFeedbackController;
     private final FullScreenReadController mFullScreenReadController;
     private final MenuManager mMenuManager;
 
-    public GestureControllerApp(AccessibilityService service,
+    public GestureControllerApp(TalkBackService service,
                                 CursorController cursorController,
                                 FeedbackController feedbackController,
                                 FullScreenReadController fullScreenReadController,
@@ -158,17 +160,8 @@ public class GestureControllerApp implements GestureController {
         return null;
     }
 
-    private boolean isScreenLayoutRTL() {
-        Configuration config = mService.getResources().getConfiguration();
-        if (config == null) {
-            return false;
-        }
-        return (config.screenLayout & Configuration.SCREENLAYOUT_LAYOUTDIR_MASK) ==
-            Configuration.SCREENLAYOUT_LAYOUTDIR_RTL;
-    }
-
     private String actionFromGesture(int gesture) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mService);
+        SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(mService);
         switch (gesture) {
             case AccessibilityService.GESTURE_SWIPE_UP:
                 return prefs.getString(
@@ -179,7 +172,7 @@ public class GestureControllerApp implements GestureController {
                         mService.getString(R.string.pref_shortcut_down_key),
                         mService.getString(R.string.pref_shortcut_down_default));
             case AccessibilityService.GESTURE_SWIPE_LEFT:
-                if (isScreenLayoutRTL()) {
+                if (mService.isScreenLayoutRTL()) {
                     return prefs.getString(
                             mService.getString(R.string.pref_shortcut_right_key),
                             mService.getString(R.string.pref_shortcut_right_default));
@@ -190,7 +183,7 @@ public class GestureControllerApp implements GestureController {
                 }
 
             case AccessibilityService.GESTURE_SWIPE_RIGHT:
-                if (isScreenLayoutRTL()) {
+                if (mService.isScreenLayoutRTL()) {
                     return prefs.getString(
                             mService.getString(R.string.pref_shortcut_left_key),
                             mService.getString(R.string.pref_shortcut_left_default));
@@ -299,12 +292,14 @@ public class GestureControllerApp implements GestureController {
         } else if (action.equals(mService.getString(R.string.shortcut_value_previous))) {
             boolean result = mCursorController.previous(true /* shouldWrap */,
                     true /* shouldScroll */,
-                    true /*useInputFocusAsPivotIfEmpty*/);
+                    true /*useInputFocusAsPivotIfEmpty*/,
+                    InputModeManager.INPUT_MODE_TOUCH);
             if (!result) mFeedbackController.playAuditory(R.raw.complete);
         } else if (action.equals(mService.getString(R.string.shortcut_value_next))) {
             boolean result = mCursorController.next(true /* shouldWrap */,
                     true /* shouldScroll */,
-                    true /*useInputFocusAsPivotIfEmpty*/);
+                    true /*useInputFocusAsPivotIfEmpty*/,
+                    InputModeManager.INPUT_MODE_TOUCH);
             if (!result) mFeedbackController.playAuditory(R.raw.complete);
         } else if (action.equals(mService.getString(R.string.shortcut_value_scroll_back))) {
             boolean result = mCursorController.less();
@@ -313,10 +308,10 @@ public class GestureControllerApp implements GestureController {
             boolean result = mCursorController.more();
             if (!result) mFeedbackController.playAuditory(R.raw.complete);
         } else if (action.equals(mService.getString(R.string.shortcut_value_first_in_screen))) {
-            boolean result = mCursorController.jumpToTop();
+            boolean result = mCursorController.jumpToTop(InputModeManager.INPUT_MODE_TOUCH);
             if (!result) mFeedbackController.playAuditory(R.raw.complete);
         } else if (action.equals(mService.getString(R.string.shortcut_value_last_in_screen))) {
-            boolean result = mCursorController.jumpToBottom();
+            boolean result = mCursorController.jumpToBottom(InputModeManager.INPUT_MODE_TOUCH);
             if (!result) mFeedbackController.playAuditory(R.raw.complete);
         } else if (action.equals(mService.getString(R.string.shortcut_value_back))) {
             mService.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK);
@@ -330,6 +325,8 @@ public class GestureControllerApp implements GestureController {
             mMenuManager.showMenu(R.menu.global_context_menu);
         } else if (action.equals(mService.getString(R.string.shortcut_value_local_breakout))) {
             mMenuManager.showMenu(R.menu.local_context_menu);
+        } else if (action.equals(mService.getString(R.string.shortcut_value_show_custom_actions))) {
+            mMenuManager.showMenu(R.id.custom_action_menu);
         } else if (action.equals(mService.getString(R.string.shortcut_value_previous_granularity))) {
             boolean result = mCursorController.previousGranularity();
             if (!result) mFeedbackController.playAuditory(R.raw.complete);

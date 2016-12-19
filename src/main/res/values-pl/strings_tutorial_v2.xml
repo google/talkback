@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Samouczek ułatwień dostępu"</string>
+    <string name="title_pref_tutorial" msgid="2810986068277138359">"Uruchom samouczek TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Samouczek TalkBack"</string>
+    <string name="main_description" msgid="4795202818108740382">"TalkBack to czytnik ekranu przeznaczony głównie dla osób niewidomych i słabowidzących. Umożliwia on interakcję z urządzeniem przy użyciu komunikatów głosowych."</string>
+    <string name="turn_off_talkback" msgid="6480388345726953149">"Wyłącz funkcję TalkBack"</string>
+    <string name="tutorial_start_lesson" msgid="8656234062338441589">"Rozpocznij lekcję"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Ćwiczenia"</string>
+    <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"otwórz lekcję <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_practice_content" msgid="7310221766775514110">"lekcja z ćwiczeniami <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lekcja 1. Podstawowa nawigacja"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Kliknij lub przesuń palcem, by przeglądać; kliknij dwukrotnie, by aktywować"</string>
+    <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Część 1. Czytanie dotykiem"</string>
+    <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Gdy funkcja Czytanie dotykiem jest włączona, usłyszysz opisy elementów, które znajdują się pod Twoim palcem. Przesuń palcem po elementach na środku ekranu. Wybierz kolejno pięć elementów, by kontynuować lekcję."</string>
+    <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Część 2. Kliknij dwukrotnie, by aktywować"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Aby aktywować ostatni usłyszany element, kliknij dwukrotnie w dowolnym miejscu. Znajdź element 7 i aktywuj go. Następnie aktywuj przycisk Dalej, by kontynuować."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Aktywowano element 7. Aby kontynuować, znajdź i aktywuj przycisk Dalej"</string>
+    <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Część 3. Nawigowanie"</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Lekcje obsługi funkcji TalkBack mają podobny układ. W górnym obszarze znajduje się lekcja, którą w każdej chwili możesz otworzyć i przeczytać. Jest tam też przycisk ekranu głównego samouczka w lewym górnym rogu. Środkowa część ekranu to obszar ćwiczeń. Na dole znajduje się pasek postępu oraz przyciski nawigacyjne lekcji. Aby kontynuować, aktywuj przycisk Dalej."</string>
+    <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Część 4. Przeglądanie zawartości przez przesuwanie palcem"</string>
+    <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Możesz też poruszać się po zawartości ekranu, przesuwając po nim palcem. Przesunięcie w lewo powoduje przejście do lewej strony i w górę, a w prawo – do prawej strony i w dół. Spróbuj."</string>
+    <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Część 5. Ćwiczenia"</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Aby usłyszeć opis elementu, który jest pod Twoim palcem, przesuń palcem po ekranie. Aby aktywować ten element, kliknij dwukrotnie w dowolnym miejscu. Przesuń palcem w lewo lub w prawo, by przeglądać treść."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lekcja 2. Przewijanie"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Przewijanie dwoma palcami, przechodzenie do przodu i do tyłu"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Cześć 1. Przewijanie przy użyciu dwóch palców"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Aby przewinąć listę pionową, znajdź element listy, a następnie przesuń dwoma palcami w górę lub w dół. Aby przewinąć listę poziomą, znajdź element listy, a następnie przesuń dwoma palcami w lewo lub w prawo."</string>
+    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Część 2. Gesty przewijania"</string>
+    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Przeglądając listę, możesz przechodzić do przodu lub do tyłu, używając gestów. Aby przejść do przodu, przesuń palcem w prawo, a potem w lewo, wykonując pojedynczy ruch. Aby przejść do tyłu, przesuń palcem w lewo, a potem w prawo. Spróbuj."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Część 3. Ćwiczenia"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Przewiń zawartość, przesuwając dwoma palcami w górę lub w dół. Przejdź do przodu, przesuwając palcem w prawo, a potem w lewo. Przejdź do tyłu, przesuwając palcem w lewo, a potem w prawo."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lekcja 3. Menu TalkBack"</string>
+    <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Globalne menu TalkBack, lokalne menu TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Część 1. Globalne menu TalkBack"</string>
+    <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"TalkBack ma dwa różne menu. Pierwsze to globalne menu TalkBack, które zawsze zawiera te same polecenia. Aby je aktywować, przesuń palcem w dół, a potem w prawo, wykonując pojedynczy ruch, a następnie unieś palec. Aktywuj teraz wersję szkoleniową."</string>
+    <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Opcje menu są ułożone pionowo na środku ekranu. Spróbuj wybrać którąś z nich. Gdy skończysz, aktywuj przycisk Anuluj."</string>
+    <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Część 2. Lokalne menu TalkBack"</string>
+    <string name="tutorial_lesson_3_page2_description" msgid="236959207452065871">"Drugie menu to lokalne menu TalkBack. Jego zawartość zależy od tego, czego ostatnio słuchałeś. Aby je aktywować, przesuń palcem w górę, a potem w prawo, wykonując pojedynczy ruch, a potem unieś palec. Aktywuj wersję szkoleniową menu."</string>
+    <string name="tutorial_lesson_3_practice_title" msgid="7992894865660442281">"Część 3. Ćwiczenia"</string>
+    <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Przesuń palcem w dół, a potem w prawo, by aktywować globalne menu TalkBack. Przesuń palcem w górę, a potem w prawo, by aktywować lokalne menu TalkBack."</string>
+    <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"W dół, a potem w prawo"</string>
+    <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"W górę, a potem w prawo"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Globalne menu TalkBack: w dół, a potem w prawo. Lokalne menu TalkBack: w górę, a potem w prawo"</string>
+    <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Lekcja 4. Nawigacja po tekście"</string>
+    <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Wybieranie ustawień nawigacji po tekście"</string>
+    <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Część 1. Wybieranie ustawień nawigacji"</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"Funkcja TalkBack pozwala wybrać sposób czytania tekstu: po jednym akapicie, wierszu, słowie lub znaku. Czytanie pojedynczych znaków ułatwia zrozumienie pisowni. Aby włączyć ten tryb, kliknij tekst poniżej, a następnie przesuń palcem w górę i w dół."</string>
+    <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Odkryj opcje czytania dostępne tutaj na pionowej liście. Znajdź i aktywuj opcję Czytaj po znaku."</string>
+    <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Część 2. Nawigacja po tekście"</string>
+    <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Wybrałeś czytanie po znaku. Aby je włączyć, zaznacz przykładowy tekst i przesuń palcem w prawo."</string>
+    <string name="tutorial_lesson_4_practice_title" msgid="4917843401985911727">"Część 3. Ćwiczenia"</string>
+    <string name="tutorial_lesson_4_practice_description" msgid="2135338093046263335">"Zmień zakres nawigacji po tekście, przesuwając palcem w górę i w dół. Przesuń palcem w prawo, by przeczytać następny znak w przykładowym tekście."</string>
+    <string name="tutorial_lesson_4_sample_text" msgid="8795532729146357613">"Oto przykładowy tekst do przetestowania funkcji TalkBack:\n – Gdzie jest Kansas? – zapytał mężczyzna ze zdziwieniem. – Nie wiem – odpowiedziała ze smutkiem Dorotka. – Ale to mój dom i na pewno gdzieś jest.\n– Bardzo możliwe. Cóż, Oz może wszystko, więc na pewno pomoże Ci znaleźć Kansas. Ale najpierw musisz się z nim zobaczyć, a to wcale nie będzie łatwe. Wielki Czarnoksiężnik nie lubi gości i bywa uparty. A TY czego chcesz? – zwrócił się do Toto."</string>
+    <string name="tutorial_lesson_5_title" msgid="6951330400155565474">"Lekcja 5. Edytowanie tekstu"</string>
+    <string name="tutorial_lesson_5_short_description" msgid="5739314401061989157">"Aktywowanie pola edycji, wpisywanie, przesuwanie kursora, zaznaczanie tekstu i wykonywanie na nim czynności"</string>
+    <string name="tutorial_lesson_5_page1_subtitle" msgid="1509462164197325310">"Część 1. Aktywowanie pola edycji"</string>
+    <string name="tutorial_lesson_5_page1_description" msgid="2284207114288159699">"Dzięki funkcji TalkBack możesz użyć pola edycji, by wpisać, zaznaczyć lub edytować tekst. Aby aktywować pole edycji, kliknij je dwukrotnie. Gdy to zrobisz, u dołu ekranu pojawi się klawiatura. Możesz ją zamknąć, klikając przycisk Wstecz. Spróbuj teraz aktywować pole edycji. Gdy skończysz, aktywuj przycisk Dalej, który znajduje się teraz nad klawiaturą."</string>
+    <string name="tutorial_lesson_5_page2_subtitle" msgid="8696015537398598026">"Część 2. Pisanie w polu edycji"</string>
+    <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Aby wpisać tekst, aktywuj pole edycji i przesuwaj palcem po klawiaturze ekranowej. Gdy usłyszysz znak, który chcesz wpisać, unieś palec, by go wstawić. Spróbuj aktywować pole edycji poniżej i wpisać w nim tekst."</string>
+    <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Część 3. Używanie kursora"</string>
+    <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Możesz przesuwać kursor, używać przycisków głośności na urządzeniu lub lokalnego menu TalkBack. Dzięki dostępnej w nim opcji sterowania kursorem możesz też zaznaczać, wycinać, kopiować i wklejać tekst. Aktywuj pole edycji poniżej, a następnie przesuń kursor po przykładowym tekście."</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Adres e-mail Dorotki Gale to dorotka@pocztaoz.com"</string>
+    <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Część 4. Ćwiczenia"</string>
+    <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Aktywuj pole edycji, klikając je dwukrotnie. Wpisuj tekst, przesuwając palec na znak, a następnie unosząc go. Przesuwaj kursor, używając przycisków głośności oraz lokalnego menu TalkBack. Aby zaznaczyć tekst i wykonać na nim czynność, użyj opcji sterowania kursorem dostępnej w lokalnym menu TalkBack."</string>
+    <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Edytowanie tekstu"</string>
+    <string name="tutorial_previous" msgid="3270312755677041276">"WSTECZ"</string>
+    <string name="tutorial_next" msgid="2301417040370437180">"DALEJ"</string>
+    <string name="tutorial_previous_lesson" msgid="2975374258662807931">"POPRZEDNIA LEKCJA"</string>
+    <string name="tutorial_next_lesson" msgid="1856740039454216256">"NASTĘPNA LEKCJA"</string>
+    <string name="tutorial_home" msgid="5711951853376611538">"STRONA GŁÓWNA SAMOUCZKA"</string>
+    <string name="tutorial_lesson_number" msgid="5584403341719984367">"Lekcja %1$d"</string>
+    <string name="tutorial_page_number" msgid="2663970515299904800">"Część %1$d"</string>
+    <string name="tutorial_page_number_of" msgid="7024184577193466936">"Część %1$d z %2$d"</string>
+    <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"To ćwiczenie zostało zakończone i za chwilę przejdziesz dalej"</string>
+    <string name="tutorial_practice_area" msgid="2176846563813803041">"Obszar ćwiczenia"</string>
+    <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"Element %1$s aktywowano w trybie treningowym. Aktywuj przycisk ANULUJ, by wyjść."</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Przycisk ekranu głównego samouczka"</string>
+    <string name="tutorial_template_item" msgid="491797656581740453">"Element <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Wyjdź"</string>
+    <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"Wymagane jest Czytanie dotykiem"</string>
+    <string name="tutorial_no_touch_explore_message" msgid="5664505784839483070">"Ten samouczek wymaga Czytania dotykiem. Zanim go uruchomisz, włącz tę funkcję."</string>
+    <string name="tutorial_service_inactive_title" msgid="14143423693392009">"Aplikacja TalkBack jest wyłączona"</string>
+    <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"Ten samouczek wymaga włączenia TalkBack. Zanim go uruchomisz, włącz tę aplikację."</string>
+    <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"Aplikacja TalkBack jest zawieszona"</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"Samouczek TalkBack jest niedostępny, gdy wstrzymane jest potwierdzanie głosowe. Aby kontynuować, wznów je i uruchom samouczek ponownie."</string>
+    <string name="shortcut_hear_lesson" msgid="5711865496104188848">"Opisz menu"</string>
+</resources>

@@ -25,12 +25,13 @@ import android.os.Build;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.android.switchaccess.test.ShadowAccessibilityNodeInfo;
-import com.android.switchaccess.test.ShadowAccessibilityNodeInfoCompat;
+import com.android.talkback.BuildConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.util.ReflectionHelpers;
@@ -41,24 +42,22 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
 
 @Config(
+        constants = BuildConfig.class,
         manifest = Config.NONE,
-        emulateSdk = 18,
+        sdk = 21,
         shadows = {
-                ShadowAccessibilityNodeInfoCompat.class,
                 ShadowAccessibilityNodeInfo.class})
-@RunWith(RobolectricTestRunner.class)
+@RunWith(RobolectricGradleTestRunner.class)
 public class AccessibilityNodeInfoRefTest {
 
     @Before
     public void setUp() {
-        /* Make sure isVisibleOrLegacy doesn't return false due to legacy */
-        ReflectionHelpers.setStaticField(Build.VERSION.class, "SDK_INT", 18);
         ShadowAccessibilityNodeInfo.resetObtainedInstances();
     }
 
     @After
     public void tearDown() {
-        assertFalse(ShadowAccessibilityNodeInfoCompat.areThereUnrecycledNodes(true));
+        assertFalse(ShadowAccessibilityNodeInfo.areThereUnrecycledNodes(true));
         ShadowAccessibilityNodeInfo.resetObtainedInstances();
     }
 

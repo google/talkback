@@ -21,19 +21,24 @@ import android.support.annotation.NonNull;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.ClipboardManager;
+import android.content.ClipData;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Resources;
 import android.media.AudioManager;
+import android.media.AudioRecordingConfiguration;
 import android.media.MediaRecorder.AudioSource;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.speech.tts.TextToSpeech.Engine;
+import android.support.v4.os.BuildCompat;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import com.android.talkback.controller.FeedbackController;
+import com.android.talkback.eventprocessor.EventState;
 import com.android.utils.FailoverTextToSpeech;
 import com.android.utils.LogUtils;
 import com.android.utils.ProximitySensor;
@@ -53,7 +58,7 @@ import java.util.Set;
 /**
  * Handles text-to-speech.
  */
-public class SpeechController {
+public class SpeechController implements TalkBackService.KeyEventListener {
     /** Prefix for utterance IDs. */
     private static final String UTTERANCE_ID_PREFIX = "talkback_";
 
@@ -80,6 +85,19 @@ public class SpeechController {
     public static final int UTTERANCE_GROUP_DEFAULT = 0;
     public static final int UTTERANCE_GROUP_TEXT_SELECTION = 1;
     public static final int UTTERANCE_GROUP_SEEK_PROGRESS = 2;
+
+    /**
+     * The number of recently-spoken items to keep in history.
+     */
+    private static final int MAX_HISTORY_ITEMS = 10;
+
+    /**
+     * The delay, in ms, after which a recently-spoken item will be considered for duplicate removal
+     * in the event that a new feedback item has the flag {@link FeedbackItem#FLAG_SKIP_DUPLICATE}.
+     * (The delay does not apply to queued items that haven't been spoken yet or to the currently
+     * speaking item; these items will always be considered.)
+     */
+    private static final int SKIP_DUPLICATES_DELAY = 1000;
 
     /**
      * Class defining constants used for describing speech parameters.
@@ -110,6 +128,9 @@ public class SpeechController {
     /** The list of items to be spoken. */
     private final LinkedList<FeedbackItem> mFeedbackQueue = new LinkedList<>();
 
+    /** The list of recently-spoken items. */
+    private final LinkedList<FeedbackItem> mFeedbackHistory = new LinkedList<>();
+
     /** The parent service. */
     private final TalkBackService mService;
 
@@ -133,9 +154,6 @@ public class SpeechController {
 
     /** The item current being spoken, or {@code null} if the TTS is idle. */
     private FeedbackItem mCurrentFeedbackItem;
-
-    /** The last processed feedback item. */
-    private FeedbackItem mLastFeedbackItem = null;
 
     /** Whether to use the proximity sensor to silence speech. */
     private boolean mSilenceOnProximity;
@@ -186,6 +204,11 @@ public class SpeechController {
 
     private VoiceRecognitionChecker mVoiceRecognitionChecker;
 
+    /**
+     * Used to keep track of whether the interrupt TTS key (Ctrl key) is currently pressed.
+     */
+    private boolean mInterruptKeyDown = false;
+
     @SuppressWarnings("FieldCanBeLocal")
     private final OnSharedPreferenceChangeListener prefListener;
 
@@ -234,7 +257,7 @@ public class SpeechController {
                 reloadPreferences(prefs);
             }
         };
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        final SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
         // Handles preference changes that affect speech.
         prefs.registerOnSharedPreferenceChangeListener(prefListener);
         reloadPreferences(prefs);
@@ -248,6 +271,17 @@ public class SpeechController {
      */
     public boolean isSpeaking() {
         return mIsSpeaking;
+    }
+
+    /**
+     * @return {@code true} if the speech controller has feedback queued up to speak
+     */
+    private boolean isSpeechQueued() {
+        return !mFeedbackQueue.isEmpty();
+    }
+
+    /* package */ boolean isSpeakingOrSpeechQueued() {
+        return isSpeaking() || isSpeechQueued();
     }
 
     public void setSpeechListener(SpeechControllerListener speechListener) {
@@ -296,6 +330,19 @@ public class SpeechController {
     }
 
     /**
+     * Forces a reload of the user's preferred TTS engine, if it is available and the current TTS
+     * engine is not the preferred engine.
+     * @param quiet suppresses the "Using XYZ engine" message if the TTS engine changes
+     */
+    public void updateTtsEngine(boolean quiet) {
+        if (quiet) {
+            EventState.getInstance().addEvent(
+                    EventState.EVENT_SKIP_FEEDBACK_AFTER_QUIET_TTS_CHANGE);
+        }
+        mFailoverTts.updateDefaultEngine();
+    }
+
+    /**
      * Gets the {@link FailoverTextToSpeech} instance that is serving as a text-to-speech service.
      *
      * @return The text-to-speech service.
@@ -308,11 +355,41 @@ public class SpeechController {
      * Repeats the last spoken utterance.
      */
     public boolean repeatLastUtterance() {
-        return repeatUtterance(mLastFeedbackItem);
+        return repeatUtterance(getLastUtterance());
+    }
+
+    /**
+     * Copies the last phrase spoken by TalkBack to clipboard
+     */
+    public boolean copyLastUtteranceToClipboard(FeedbackItem item) {
+        if (item == null) {
+            return false;
+        }
+
+        final ClipboardManager clipboard = (ClipboardManager) mService.getSystemService(
+                Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText(null, item.getAggregateText());
+        clipboard.setPrimaryClip(clip);
+
+        // Verify that we actually have the utterance on the clipboard
+        clip = clipboard.getPrimaryClip();
+        if (clip != null && clip.getItemCount() > 0 && clip.getItemAt(0).getText() != null) {
+            speak(mService.getString(R.string.template_text_copied,
+                    clip.getItemAt(0).getText().toString()) /* text */,
+                    QUEUE_MODE_INTERRUPT /* queue mode */,
+                    0 /* flags */,
+                    null /* speech params */);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public FeedbackItem getLastUtterance() {
-        return mLastFeedbackItem;
+        if (mFeedbackHistory.isEmpty()) {
+            return null;
+        }
+        return mFeedbackHistory.getLast();
     }
 
     public boolean repeatUtterance(FeedbackItem item) {
@@ -329,11 +406,11 @@ public class SpeechController {
      * Spells the last spoken utterance.
      */
     public boolean spellLastUtterance() {
-        if (mLastFeedbackItem == null) {
+        if (getLastUtterance() == null) {
             return false;
         }
 
-        CharSequence aggregateText = mLastFeedbackItem.getAggregateText();
+        CharSequence aggregateText = getLastUtterance().getAggregateText();
         return spellUtterance(aggregateText);
     }
 
@@ -446,7 +523,7 @@ public class SpeechController {
         // If this FeedbackItem is flagged as NO_SPEECH, ignore speech and
         // immediately process earcons and haptics without disrupting the speech
         // queue.
-        // TODO(CB): Consider refactoring non-speech feedback out of
+        // TODO: Consider refactoring non-speech feedback out of
         // this class entirely.
         if (item.hasFlag(FeedbackItem.FLAG_NO_SPEECH)) {
             for (FeedbackFragment fragment : item.getFragments()) {
@@ -484,6 +561,9 @@ public class SpeechController {
         }
 
         mFeedbackQueue.add(item);
+        if (mSpeechListener != null) {
+            mSpeechListener.onUtteranceQueued(item);
+        }
 
         // If TTS isn't ready, this should be the only item in the queue.
         if (!mFailoverTts.isReady()) {
@@ -571,25 +651,34 @@ public class SpeechController {
             return false;
         }
 
-        if (isSameFeedbackFragments(item, mCurrentFeedbackItem)) {
+        if (feedbackTextEquals(item, mCurrentFeedbackItem)) {
             return true;
         }
 
         for (FeedbackItem queuedItem : mFeedbackQueue) {
-            if(isSameFeedbackFragments(item, queuedItem)) {
+            if (feedbackTextEquals(item, queuedItem)) {
                 return true;
+            }
+        }
+
+        long currentTime = item.getCreationTime();
+        for (FeedbackItem recentItem : mFeedbackHistory) {
+            if (currentTime - recentItem.getCreationTime() < SKIP_DUPLICATES_DELAY) {
+                if (feedbackTextEquals(item, recentItem)) {
+                    return true;
+                }
             }
         }
 
         return false;
     }
 
-    private boolean isSameFeedbackFragments(FeedbackItem item1, FeedbackItem item2) {
+    /**
+     * Compares feedback fragments based on their text only. Ignores other parameters such as
+     * earcons and interruptibility.
+     */
+    private boolean feedbackTextEquals(FeedbackItem item1, FeedbackItem item2) {
         if (item1 == null || item2 == null) {
-            return false;
-        }
-
-        if (item1.isInterruptible() != item2.isInterruptible()) {
             return false;
         }
 
@@ -604,7 +693,9 @@ public class SpeechController {
         for (int i = 0; i < size; i++) {
             FeedbackFragment fragment1 = fragments1.get(i);
             FeedbackFragment fragment2 = fragments2.get(i);
-            if (fragment1 != null && fragment2 != null && !fragment1.equals(fragment2)) {
+
+            if (fragment1 != null && fragment2 != null
+                    && !TextUtils.equals(fragment1.getText(), fragment2.getText())) {
                 return false;
             }
 
@@ -774,11 +865,14 @@ public class SpeechController {
         }
 
         if ((item != null) && !item.hasFlag(FeedbackItem.FLAG_NO_HISTORY)) {
-            mLastFeedbackItem = item;
+            while (mFeedbackHistory.size() >= MAX_HISTORY_ITEMS) {
+                mFeedbackHistory.removeFirst();
+            }
+            mFeedbackHistory.addLast(item);
         }
 
         if (mSpeechListener != null) {
-            mSpeechListener.onUtteranceStarted(utteranceIndex);
+            mSpeechListener.onUtteranceStarted(item);
         }
 
         processNextFragmentInternal();
@@ -892,7 +986,15 @@ public class SpeechController {
         // Always enable the proximity sensor when speaking.
         setProximitySensorState(true);
 
-        if (mUseAudioFocus) {
+        boolean useAudioFocus = mUseAudioFocus;
+        if (BuildCompat.isAtLeastN()) {
+            List<AudioRecordingConfiguration> recordConfigurations =
+                    mAudioManager.getActiveRecordingConfigurations();
+            if (recordConfigurations.size() != 0)
+                useAudioFocus = false;
+        }
+
+        if (useAudioFocus) {
             mAudioManager.requestAudioFocus(mAudioFocusListener, AudioManager.STREAM_MUSIC,
                     AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK);
         }
@@ -1041,7 +1143,8 @@ public class SpeechController {
             mCurrentFeedbackItem = null;
         }
 
-        if (wasSwitchingEngines) {
+        if (wasSwitchingEngines && !EventState.getInstance().checkAndClearRecentEvent(
+                EventState.EVENT_SKIP_FEEDBACK_AFTER_QUIET_TTS_CHANGE)) {
             speakCurrentEngine();
         } else if (!mFeedbackQueue.isEmpty()) {
             speakNextItem();
@@ -1110,7 +1213,7 @@ public class SpeechController {
      * @param enabled {@code true} if the proximity sensor should be enabled,
      *            {@code false} otherwise.
      */
-    // TODO(CB): Rewrite for readability.
+    // TODO: Rewrite for readability.
     private void setProximitySensorState(boolean enabled) {
         if (mProximitySensor != null) {
             // Should we be using the proximity sensor at all?
@@ -1143,6 +1246,32 @@ public class SpeechController {
     }
 
     /**
+     * Stops the TTS engine when the Ctrl key is tapped without any other keys.
+     */
+    @Override
+    public boolean onKeyEvent(KeyEvent event) {
+        int keyCode = event.getKeyCode();
+
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            mInterruptKeyDown = (keyCode == KeyEvent.KEYCODE_CTRL_LEFT ||
+                    keyCode == KeyEvent.KEYCODE_CTRL_RIGHT);
+        } else if (event.getAction() == KeyEvent.ACTION_UP) {
+            if (mInterruptKeyDown && (keyCode == KeyEvent.KEYCODE_CTRL_LEFT ||
+                    keyCode == KeyEvent.KEYCODE_CTRL_RIGHT)) {
+                mInterruptKeyDown = false;
+                mService.interruptAllFeedback();
+            }
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean processWhenServiceSuspended() {
+        return false;
+    }
+
+    /**
      * Stops the TTS engine when the proximity sensor is close.
      */
     private final ProximitySensor.ProximityChangeListener mProximityChangeListener =
@@ -1171,7 +1300,8 @@ public class SpeechController {
      * Listener for speech started and completed.
      */
     public interface SpeechControllerListener {
-        public void onUtteranceStarted(int utteranceIndex);
+        public void onUtteranceQueued(FeedbackItem utterance);
+        public void onUtteranceStarted(FeedbackItem utterance);
         public void onUtteranceCompleted(int utteranceIndex, int status);
     }
 
@@ -1246,7 +1376,7 @@ public class SpeechController {
         @Override
         public void handleMessage(Message msg) {
             if (mCurrentFeedbackItem == null || shouldSilenceSpeech(mCurrentFeedbackItem)) {
-                mFailoverTts.stopAll();
+                mFailoverTts.stopFromTalkBack();
                 removeMessages(MESSAGE_ID);
             } else {
                 sendEmptyMessageDelayed(MESSAGE_ID, NEXT_CHECK_DELAY);

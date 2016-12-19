@@ -29,11 +29,11 @@ interface NodeMenuRule {
     /**
      * Determines whether this rule should process the specified node.
      *
-     * @param context The parent context.
+     * @param service The parent service.
      * @param node The node to filter.
      * @return {@code true} if this rule should process the node.
      */
-    public boolean accept(Context context, AccessibilityNodeInfoCompat node);
+    public boolean accept(TalkBackService service, AccessibilityNodeInfoCompat node);
 
     /**
      * Processes the specified node and returns a {@link List} of relevant local
