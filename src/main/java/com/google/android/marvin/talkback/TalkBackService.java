@@ -64,6 +64,7 @@ import android.widget.TextView;
 import com.android.switchaccess.SwitchAccessService;
 import com.android.talkback.Analytics;
 import com.android.talkback.BatteryMonitor;
+import com.android.talkback.BuildConfig;
 import com.android.talkback.CallStateMonitor;
 import com.android.talkback.controller.TelevisionNavigationController;
 import com.android.talkback.InputModeManager;
@@ -137,7 +138,7 @@ public class TalkBackService extends AccessibilityService
 
     /** Permission required to perform gestures. */
     public static final String PERMISSION_TALKBACK =
-            "com.google.android.marvin.feedback.permission.TALKBACK";
+            BuildConfig.APPLICATION_ID + ".feedback.permission.TALKBACK";
 
     /** The intent action used to perform a custom gesture action. */
     public static final String ACTION_PERFORM_GESTURE_ACTION = "performCustomGestureAction";

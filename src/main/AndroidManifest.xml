@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.android.talkback"
     android:installLocation="internalOnly"
-    android:sharedUserId="com.google.android.marvin.feedback"
+    android:sharedUserId="${applicationId}.feedback"
     android:versionCode="50007000">
 
     <!-- Permission used to restrict sending gestures and resuming feedback. -->
     <permission
-        android:name="com.google.android.marvin.feedback.permission.TALKBACK"
+        android:name="${applicationId}.feedback.permission.TALKBACK"
         android:description="@string/permission_talkback_desc"
         android:icon="@drawable/icon"
         android:label="@string/permission_talkback_label"
@@ -16,7 +16,7 @@
 
     <!-- Permission used to restrict storing and retrieving custom view labels. -->
     <permission
-        android:name="com.google.android.marvin.talkback.permission.LABELING"
+        android:name="${applicationId}.talkback.permission.LABELING"
         android:description="@string/permission_labeling_desc"
         android:icon="@drawable/icon"
         android:label="@string/permission_labeling_label"
@@ -35,10 +35,10 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <!-- Required for shortcuts and widgets. -->
-    <uses-permission android:name="com.google.android.marvin.feedback.permission.TALKBACK" />
+    <uses-permission android:name="${applicationId}.feedback.permission.TALKBACK" />
 
     <!-- Required for labeling. -->
-    <uses-permission android:name="com.google.android.marvin.talkback.permission.LABELING" />
+    <uses-permission android:name="${applicationId}.talkback.permission.LABELING" />
 
     <!-- Required for managing audio levels on GB. -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
@@ -242,8 +242,8 @@
             android:name=".labeling.LabelProvider"
             android:authorities="${applicationId}.providers.LabelProvider"
             android:exported="true"
-            android:readPermission="com.google.android.marvin.talkback.permission.LABELING"
-            android:writePermission="com.google.android.marvin.talkback.permission.LABELING"
+            android:readPermission="${applicationId}.talkback.permission.LABELING"
+            android:writePermission="${applicationId}.talkback.permission.LABELING"
             android:directBootAware="true" />
 
         <provider
