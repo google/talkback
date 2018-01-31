@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Tutorial sobre accessibilitat"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Inicia el tutorial de TalkBack"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"Tutorial de TalkBack"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"Tutorial de TalkBack"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack és un lector de pantalla destinat principalment a persones invidents o amb problemes de visió. Permet interaccionar amb el dispositiu mitjançant la veu."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Desactiva TalkBack"</string>
@@ -11,26 +11,24 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"aprèn la lliçó <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"practica la lliçó <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lliçó 1: navegació bàsica"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Toca o fes lliscar el dit per explorar, fes doble toc per activar"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Lliscar, explorar i activar"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Part 1: funció Exploració tàctil"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Amb la funció Exploració tàctil activada, podràs sentir el que premis amb el dit. Desplaça\'l per sobre dels elements que hi ha al centre de la pantalla. La lliçó continuarà quan hagis explorat cinc elements."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Part 2: fer doble toc per activar"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Per activar l\'últim element que has sentit, fes doble toc on vulguis. Cerca l\'element 7 i activa\'l. A continuació, activa el botó Següent per continuar."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"L\'element 7 està activat. Cerca i activa el botó Següent per continuar."</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Per activar l\'últim element que has sentit, fes doble toc on vulguis. Cerca l\'element 4 i activa\'l. A continuació, activa el botó Següent per continuar."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"L\'element 4 està activat. Cerca i activa el botó Següent per continuar."</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Part 3: navegar per les lliçons"</string>
-    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Les lliçons de TalkBack s\'organitzen de manera semblant. A la part superior, hi ha la lliçó, que pots consultar i llegir sempre que vulguis. També hi ha un botó de pàgina d\'inici del tutorial a l\'extrem superior esquerre. Al mig, hi ha la zona de pràctica. A la part inferior, hi ha un indicador de progrés i botons per desplaçar-se per la lliçó. Activa el botó Següent per continuar."</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Les lliçons de TalkBack s\'organitzen de manera semblant. A la part superior, hi ha la lliçó, que pots consultar i llegir sempre que vulguis. També hi ha un botó d\'inici del tutorial a l\'extrem superior esquerre. Al mig, hi ha la zona de pràctica. A la part inferior, hi ha un indicador de progrés i botons per desplaçar-se per la lliçó. Activa el botó Següent per continuar."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Part 4: lliscar per explorar"</string>
     <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"També pots explorar lliscant el dit per la pantalla. En general, si llisques cap a l\'esquerra, exploraràs cap amunt i cap a l\'esquerra. En canvi, si llisques cap a la dreta, ho faràs cap avall i cap a la dreta. Prova-ho ara."</string>
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Part 5: practicar"</string>
-    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Per sentir què tens sota el dit, desplaça\'l per la pantalla. Fes doble toc on vulguis per activar allò que sentis. Fes lliscar el dit cap a l\'esquerra o cap a la dreta per explorar."</string>
-    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lliçó 2: desplaçar-se"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Desplaçar-se amb dos dits, saltar endavant i enrere"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Part 1: desplaçar-se amb dos dits"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Per desplaçar-te per una llista vertical, cerca un element de llista i, a continuació, mou dos dits cap amunt o cap avall. Per desplaçar-te per una llista horitzontal, fes el mateix, però movent els dos dits cap a l\'esquerra o cap a la dreta."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Part 2: dreceres per desplaçar-se"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Pots saltar endavant o enrere en una llista mitjançant una drecera. Per saltar endavant, mou un dit cap a la dreta i després cap a l\'esquerra en un únic moviment. Per saltar enrere, fes el contrari. Prova-ho aquí."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Part 3: practicar"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Per desplaçar-te, fes lliscar dos dits cap amunt o cap avall. Pots saltar endavant movent un dit cap a la dreta i després cap a l\'esquerra, i saltar enrere fent el contrari."</string>
+    <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Per sentir què tens sota el dit, desplaça\'l per la pantalla. Fes doble toc on vulguis per activar allò que sentis. Llisca cap a l\'esquerra o cap a la dreta per explorar."</string>
+    <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lliçó 2: desplaçament"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Desplaçament cap endavant i cap enrere"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Part 1: dreceres per desplaçar-se"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Pots desplaçar-te cap endavant o cap enrere en una llista mitjançant una drecera. Per desplaçar-te cap endavant, mou un dit cap a la dreta i després cap a l\'esquerra en un únic moviment. Per desplaçar-te cap enrere, mou un dit cap a l\'esquerra i després cap a la dreta. Prova-ho aquí."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Part 2: practicar"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Per desplaçar-te cap endavant, mou un dit cap a la dreta i després cap a l\'esquerra. Per desplaçar-te cap enrere, mou un dit cap a l\'esquerra i després cap a la dreta."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lliçó 3: menús de TalkBack"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menú global de TalkBack, menú local de TalkBack"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Part 1: menú global de TalkBack"</string>

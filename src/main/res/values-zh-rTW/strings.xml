@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="5081383053733275450">"TalkBack 開啟時，裝置會提供互動朗讀功能來協助視障和低視能使用者。比方說，這項功能會描述您輕觸、選取及啟用的項目。\n\n假使您不小心開啟了 TalkBack，而想關閉這項功能，只要輕觸開關直到出現綠色外框，然後再輕觸兩下開關即可。系統隨即會顯示確認對話方塊，請在當中執行相同操作。"</string>
-    <string name="talkback_on" msgid="315529674405160699">"TalkBack 已開啟"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack 已暫停"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack 已恢復"</string>
-    <string name="talkback_disabled" msgid="2536155587482587238">"已停用 TalkBack。"</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"TalkBack 開啟時，裝置會提供互動朗讀功能來協助視障和低視能使用者。比方說，這項功能會描述你輕觸、選取及啟用的項目。\n\n假使你不小心開啟了 TalkBack，而想關閉這項功能，只要輕觸開關直到出現綠色外框，然後再輕觸兩下開關即可。請按照確認對話框中的指引執行操作。"</string>
+    <string name="talkback_service_summary" msgid="6365572257324337595">"說出畫面上的項目"</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"TalkBack 設定"</string>
-    <string name="tts_preferences_title" msgid="6233811187483633874">"文字轉語音設定"</string>
+    <!-- no translation found for tts_preferences_title (8167186112347512303) -->
+    <skip />
+    <!-- no translation found for language_options (8577758471261539974) -->
+    <skip />
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"版本：<xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
     <string name="label_manager_summary_title" msgid="6786694853113585661">"管理自訂標籤"</string>
     <string name="label_manager_package_title" msgid="6984665343963494151">"管理 <xliff:g id="APPLICATIONLABEL">%1$s</xliff:g> 的標籤"</string>
@@ -22,11 +22,6 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"目前查詢：<xliff:g id="SEARCH_QUERY">%1$s</xliff:g>。"</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"未選取任何項目。"</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"目前選取：<xliff:g id="SELECTED_NODE">%1$s</xliff:g>。"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"欄位開頭"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"欄位結尾"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"已啟用選取模式"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"已停用選取模式"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"已清除所選文字"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"未接來電"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"靜音"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"即時通訊"</string>
@@ -39,98 +34,26 @@
     <string name="notification_type_status_voicemail" msgid="1611063561670902017">"語音信箱"</string>
     <string name="notification_type_status_started" msgid="1071939833188591219">"開始時間"</string>
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"已停止"</string>
-    <string name="template_current_tts_engine" msgid="3963364867159704159">"目前使用 <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"<xliff:g id="TITLE">%1$s</xliff:g>選單"</string>
-    <string name="template_alert_dialog_template" msgid="5493715708649314332">"警示：<xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g>選單"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g>已取代<xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g>已刪除"</string>
-    <string name="template_text_copied" msgid="1059175355898959427">"已複製，<xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"已剪下，<xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"已貼上，<xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>，已選取"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"所選文字：<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
     <string name="template_no_text_selected" msgid="5665980541549462608">"尚未選取任何文字"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>，已取消選取"</string>
-    <string name="template_text_error" msgid="153775825635730287">"輸入內容無效：<xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"以 <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> 個字元取代原有的 <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> 個字元"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="LABEL">%2$s</xliff:g> <xliff:g id="ITEM">%1$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"長按<xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"百分之 <xliff:g id="PERCENTAGE">%1$s</xliff:g>。"</string>
     <string name="template_charging" msgid="2038200557537960378">"正在充電<xliff:g id="CHANGING_STATUS">%1$s</xliff:g>，電量為百分之 <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g>。"</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g>，顯示 <xliff:g id="COUNT_3">%2$d</xliff:g> 個項目。</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g>，顯示 <xliff:g id="COUNT_1">%2$d</xliff:g> 個項目。</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"格狀"</string>
-    <string name="value_listview" msgid="7625152822709234439">"清單"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"標籤列"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"下拉式清單"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"核取方塊"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"圓形按鈕"</string>
-    <string name="value_button" msgid="2459787142940409576">"按鈕"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"搜尋控制介面"</string>
-    <string name="value_switch" msgid="6946709666466895221">"開關"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"編輯方塊"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"編輯中"</string>
-    <string name="value_image" msgid="5114229220871881124">"圖片"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"沒有名稱"</string>
-    <string name="value_pager" msgid="7708574424402835461">"多頁面檢視"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"頁面"</string>
+    <string name="template_charging_lite" msgid="7759886088558576716">"充電：<xliff:g id="CHANGING_STATUS">%1$s</xliff:g>"</string>
+    <!-- no translation found for template_language_options_menu_item (8697997506008405892) -->
+    <skip />
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"顯示項目 <xliff:g id="FROM_INDEX">%1$d</xliff:g> 到 <xliff:g id="TO_INDEX">%2$d</xliff:g>，總共 <xliff:g id="TOTAL_COUNT">%3$d</xliff:g> 項。"</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"顯示項目 <xliff:g id="FROM_INDEX">%1$d</xliff:g>，總共 <xliff:g id="TOTAL_COUNT">%2$d</xliff:g> 項。"</string>
     <string name="template_viewpager_index_count" msgid="4811442521690748167">"第 <xliff:g id="PAGE_INDEX">%1$d</xliff:g> 頁，共 <xliff:g id="TOTAL_COUNT">%2$d</xliff:g> 頁"</string>
     <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"第 <xliff:g id="PAGE_INDEX">%1$d</xliff:g> 頁，共 <xliff:g id="TOTAL_COUNT">%2$d</xliff:g> 頁"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"第 <xliff:g id="FROM_INDEX">%1$d</xliff:g> 到 <xliff:g id="TO_INDEX">%2$d</xliff:g> 個字元"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"字元 <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="template_capital_letter" msgid="4920626008395727629">"大寫 <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"密碼"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"已開啟滑動導覽匣"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"系統幕已開啟"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"選項。"</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"已清除文字"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"已達長度上限"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"已刪除"</string>
-    <string name="value_selected" msgid="1307429702194660766">"已選取"</string>
-    <string name="value_checked" msgid="3006751014125833966">"已勾選"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"尚未勾選"</string>
-    <string name="value_on" msgid="39454338086317219">"開啟"</string>
-    <string name="value_off" msgid="6700497510945744608">"關閉"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"已展開"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"已收合"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"已停用"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"輕觸兩下"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"輕觸"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"按下選取按鈕"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g>即可啟用。"</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"按下 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可啟用。"</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g>並按住即可執行長按動作。"</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"按下 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可長按。"</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g>即可切換。"</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"按下 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可切換。"</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g>即可輸入文字。"</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"按下 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可輸入文字。"</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g>即可變更。"</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"按下 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可變更。"</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"用雙指滑動即可切換頁面。"</string>
-    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"沒有其他頁面。"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g>即可進行變更。"</string>
+    <string name="value_dismissible" msgid="1363491313197032055">"可關閉"</string>
     <string name="hint_radial_menu" msgid="2042130200569709650">"輕觸螢幕，並依環狀順序探索及搜尋項目。找到項目後，放開手指即可啟用。"</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"輕觸螢幕，並依環狀順序探索及瀏覽畫面上的內容。找到目標後，放開手指即可將焦點移至該項目。"</string>
-    <string name="template_hint_custom_actions" msgid="543401796694872575">"自訂動作："</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g>即可<xliff:g id="HINT">%2$s</xliff:g>。"</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"按下 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可<xliff:g id="HINT">%2$s</xliff:g>。"</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g>並按住即可<xliff:g id="HINT">%2$s</xliff:g>。"</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"鈴聲震動。"</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"鈴聲靜音。"</string>
     <string name="value_screen_on" msgid="4051568127659724519">"螢幕開啟。"</string>
     <string name="value_screen_off" msgid="4442166505764238236">"螢幕已關閉。"</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"大寫鎖定模式已開啟。"</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"大寫鎖定模式已關閉。"</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"數字鎖定模式已開啟。"</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"數字鎖定模式已關閉。"</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"捲動鎖定模式已開啟。"</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"捲動鎖定模式已關閉。"</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"裝置已解除鎖定。"</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"語音"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"語音音量"</string>
@@ -141,32 +64,59 @@
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"鄰近感應器會關閉語音服務"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"鄰近感應器不會影響語音服務"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"讀出拼音字母"</string>
-    <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"系統不會讀出拼音字母。"</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"當您長按鍵盤按鍵以及逐字元移動協助工具焦點時，系統會說出拼音字母。"</string>
+    <string name="summaryOff_pref_phonetic_letters" msgid="9103268945330003219">"不讀出拼音字母"</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="4376866668529919518">"長按鍵盤按鍵並以字元為單位瀏覽時，自動讀出拼音字母"</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"讀出使用提示"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"當您移動協助工具焦點時，系統不會說出使用提示。"</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"當您瀏覽時，系統會在短暫延遲後說出使用提示。"</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="798877049305553182">"移動協助工具焦點時，系統不會說出使用提示"</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="3161412108419178134">"移動瀏覽時，系統會在短暫延遲後說出使用提示"</string>
+    <string name="pref_speak_container_element_positions_title" msgid="2835508578760045808">"說出清單和網格資訊"</string>
+    <string name="pref_speak_container_element_positions_summaryOn" msgid="5023625248365109203">"說出清單和網格資訊"</string>
+    <string name="pref_speak_container_element_positions_summaryOff" msgid="4112715962530209920">"不說出清單和網格資訊"</string>
+    <string name="pref_speak_roles_title" msgid="8119822404299836273">"說出元素類型"</string>
+    <string name="pref_speak_roles_summary_on" msgid="1601846507096793058">"說出焦點項目的元素類型"</string>
+    <string name="pref_speak_roles_summary_off" msgid="5420176413415285653">"不說出焦點項目的元素類型"</string>
+    <!-- no translation found for title_pref_speak_element_ids (391655908629950456) -->
+    <skip />
+    <!-- no translation found for summaryOff_pref_speak_element_ids (4960956994540579272) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_element_ids (44367075933871550) -->
+    <skip />
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"輕觸探索"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"自動捲動清單"</string>
-    <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"輕觸探索"</string>
+    <!-- no translation found for title_pref_category_touch_exploration (5874968966650551610) -->
+    <skip />
     <string name="title_pref_single_tap" msgid="5333869781230265376">"輕觸一下的啟用方式"</string>
-    <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"以清單形式顯示內容選單"</string>
+    <!-- no translation found for title_pref_show_context_menu_as_list (1317122602474219414) -->
+    <skip />
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"啟用 TalkBack 後將螢幕調暗"</string>
     <string name="summary_pref_single_tap" msgid="1868206223500105704">"(實驗性) 輕觸目前聚焦的項目即可啟用"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"搖動裝置即可開始持續閱讀"</string>
-    <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"管理手勢"</string>
-    <string name="title_pref_manage_labels" msgid="8796338627297226539">"管理自訂標籤"</string>
-    <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"管理鍵盤快速鍵"</string>
+    <string name="pref_verbosity_title" msgid="3719351581071950262">"詳細程度"</string>
+    <string name="title_pref_category_manage_gestures" msgid="2614141620073133854">"手勢"</string>
+    <string name="title_pref_manage_labels" msgid="4466030803655661973">"自訂標籤"</string>
+    <string name="title_pref_manage_keyboard_shortcuts" msgid="8091201905891748923">"鍵盤快速鍵"</string>
     <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"匯出自訂標籤"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"在 Play 商店開啟 Talkback"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"目前 TalkBack 版本：<xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
     <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"說明與意見回饋"</string>
+    <string name="pref_item_licenses" msgid="3546535377387155282">"開放原始碼授權"</string>
     <string name="title_pref_help" msgid="2022820131100451763">"說明"</string>
-    <string name="title_pref_show_tos" msgid="6167834013879233992">"服務條款"</string>
-    <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"隱私權政策"</string>
+    <!-- no translation found for title_pref_show_tos (2813500691748037529) -->
+    <skip />
+    <!-- no translation found for title_pref_show_privacy_policy (8945789024630561518) -->
+    <skip />
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"捷徑手勢"</string>
+    <string name="title_pref_category_fingerprint_touch_shortcuts" msgid="4338314761170964858">"指紋手勢"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"內建手勢"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(實驗性)輕觸裝置側邊"</string>
+    <string name="pref_verbosity_preset_title" msgid="6299916234007004610">"選擇預設值"</string>
+    <string name="pref_verbosity_preset_entry_high" msgid="791984796274765142">"高"</string>
+    <string name="pref_verbosity_preset_entry_custom" msgid="8261147354044310508">"自訂"</string>
+    <string name="pref_verbosity_preset_entry_low" msgid="1333334045447549264">"低"</string>
+    <string name="pref_verbosity_category_preset_settings_title" msgid="620716446067964188">"詳細程度預設值"</string>
+    <!-- no translation found for pref_verbosity_category_misc_settings_title (6121977747903981087) -->
+    <skip />
+    <string name="pref_verbosity_preset_change" msgid="7250611496087013782">"已將詳細程度設為<xliff:g id="PRESET_NAME">%1$s</xliff:g>。"</string>
     <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"按鍵對應配置"</string>
     <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"選擇按鍵對應配置"</string>
     <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"重設按鍵對應配置"</string>
@@ -200,7 +150,8 @@
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"最近使用的應用程式"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"通知"</string>
     <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"暫停或恢復使用 TalkBack"</string>
-    <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"導覽設定"</string>
+    <!-- no translation found for keycombo_menu_category_granularity (8575000248950511679) -->
+    <skip />
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"下一頁導覽設定"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"上一頁導覽設定"</string>
     <string name="keycombo_menu_category_other" msgid="440132295339458288">"其他動作"</string>
@@ -209,6 +160,9 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"在畫面上搜尋項目"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"顯示關聯內容選單"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"顯示通用內容選單"</string>
+    <string name="keycombo_menu_other_custom_actions" msgid="4769044790570667515">"顯示動作"</string>
+    <!-- no translation found for keycombo_menu_other_language_options (6071616089592138709) -->
+    <skip />
     <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"管理鍵盤快速鍵"</string>
     <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"開啟 TalkBack 設定"</string>
     <string name="keycombo_menu_category_web" msgid="197426246774034347">"網頁導覽動作"</string>
@@ -251,31 +205,21 @@
     <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"前往下一個下拉式方塊"</string>
     <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"前往上一個下拉式方塊"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"鍵盤快速鍵為"</string>
-    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"按下組合鍵來設定新的快速鍵。快速鍵必須至少包含 ALT 或 Ctrl 鍵。"</string>
-    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"同時按下組合鍵和「<xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g>」輔助鍵，即可設定新快速鍵。"</string>
     <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"按 Backspace 鍵可清除捷徑；按 Enter 鍵可儲存；按 Esc 鍵可取消。"</string>
     <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"清除快速鍵"</string>
-    <string name="keycombo_unassigned" msgid="5817151372114230015">"未指派"</string>
-    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift 鍵"</string>
-    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt 鍵"</string>
-    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl 鍵"</string>
-    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"搜尋鍵"</string>
-    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"向右鍵"</string>
-    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"向左鍵"</string>
-    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"向上鍵"</string>
-    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"向下鍵"</string>
     <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"確定要將這個鍵盤對應配置的快速鍵重設為預設值嗎？請注意，這項操作無法復原。"</string>
     <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"重設"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"組合鍵已在使用中"</string>
-    <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"此一組合鍵已用於「<xliff:g id="ID_1">%1$s</xliff:g>」這個動作。您想清除設定，將這個快速鍵指派給「<xliff:g id="ID_2">%2$s</xliff:g>」動作嗎？"</string>
+    <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"此一組合鍵已用於「<xliff:g id="ID_1">%1$s</xliff:g>」這個動作。你想清除設定，將這個快速鍵指派給「<xliff:g id="ID_2">%2$s</xliff:g>」動作嗎？"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"使用音調變化"</string>
     <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"鍵盤回音"</string>
+    <string name="pref_node_desc_order_title" msgid="4632210763611067450">"元素說明順序"</string>
     <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"以較低的音調說出鍵盤語音回應"</string>
     <string name="summaryOff_pref_intonation" msgid="5187278527518557715">"說出語音時不要改變音調"</string>
     <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"其他回應"</string>
     <string name="title_pref_vibration" msgid="4156396276749836864">"震動回應"</string>
     <string name="title_pref_soundback" msgid="3131811048184077738">"聲音回應"</string>
-    <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"聚焦語音音訊"</string>
+    <string name="title_pref_use_audio_focus" msgid="5227372335896747459">"降低其他應用程式音量"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"說話時降低其他音訊的音量"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"音量"</string>
     <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"TalkBack 暫停和恢復使用快速鍵"</string>
@@ -287,34 +231,14 @@
     <string name="title_pref_log_level" msgid="267415170405921603">"紀錄輸出詳細程度"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"顯示語音輸出"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"啟用節點樹狀結構偵錯功能"</string>
-    <string name="title_pref_web_scripts" msgid="3016793641076890473">"增強網頁協助工具"</string>
-    <string name="summary_pref_web_scripts" msgid="3996491708050765411">"下載網頁內容的協助工具指令碼"</string>
+    <string name="summary_pref_tree_debug_tv" msgid="2155606249933775098">"使用語音搜尋鍵列印節點樹狀結構 (而不是搜尋)"</string>
+    <string name="title_pref_performance_stats" msgid="3701419705373126127">"啟用效能統計資料"</string>
     <string name="title_pref_resume_talkback" msgid="4098949311311089235">"從停用狀態恢復使用"</string>
     <string name="screen_dimmed" msgid="8072279323762069231">"已將螢幕調暗"</string>
     <string name="screen_brightness_restored" msgid="378010604065368658">"已還原螢幕亮度"</string>
-    <string name="screen_dimming_exit_instruction_line1" msgid="176693707001658416">"TalkBack 協助工具服務已將螢幕調暗。"</string>
-    <string name="screen_dimming_exit_instruction_line2" msgid="2111548310775079127">"快速按三次提高音量鍵及降低音量鍵即可復原。"</string>
-    <string name="screen_dimming_exit_instruction_line3" msgid="7006494712728198438">"您可以透過 TalkBack 設定調整螢幕明暗。"</string>
-    <string name="axis_character" msgid="8528412412593489695">"依字元進行導覽。"</string>
-    <string name="axis_word" msgid="8823389407337076750">"依字詞進行導覽。"</string>
-    <string name="axis_sentence" msgid="4398740201672273541">"依句子進行導覽。"</string>
-    <string name="axis_heading" msgid="8829265824683632088">"依標題進行導覽。"</string>
-    <string name="axis_sibling" msgid="3267377527761217139">"依同層級的項目進行導覽。"</string>
-    <string name="axis_document" msgid="8037283796488966887">"依文件進行導覽。"</string>
-    <string name="axis_default_web_view_behavior" msgid="816142869754118685">"依預設的網路瀏覽行為進行導覽。"</string>
-    <string name="granularity_default" msgid="4948042687369948597">"預設"</string>
-    <string name="granularity_character" msgid="2036726841460203840">"字元"</string>
-    <string name="granularity_word" msgid="2653776823920279013">"字詞"</string>
-    <string name="granularity_line" msgid="727359260064093782">"單行"</string>
-    <string name="granularity_paragraph" msgid="3760401274833105422">"段落"</string>
-    <string name="granularity_page" msgid="2739238666516816581">"頁面"</string>
-    <string name="granularity_web_section" msgid="8219174463230029732">"標題和界標"</string>
-    <string name="granularity_web_list" msgid="4386991044245560102">"清單"</string>
-    <string name="granularity_web_link" msgid="7817726975417542626">"連結"</string>
-    <string name="granularity_web_control" msgid="1885138772895126953">"控制項"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"特殊內容"</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"直向"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"橫向"</string>
+    <string name="screen_dimming_exit_instruction_line1" msgid="5487433770461700107">"TalkBack 協助工具服務已將螢幕調暗"</string>
+    <string name="screen_dimming_exit_instruction_line2" msgid="6697363666089792199">"同時連按三次提高音量鍵和降低音量鍵即可復原"</string>
+    <string name="screen_dimming_exit_instruction_line3" msgid="5253511790182167247">"在 TalkBack 設定中可以管理螢幕調暗功能"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"未指派"</string>
     <string name="shortcut_next" msgid="6887743145853506373">"下一個項目"</string>
     <string name="shortcut_previous" msgid="3679790113454394245">"上一個項目"</string>
@@ -324,7 +248,10 @@
     <string name="shortcut_home" msgid="6670249804418900175">"[首頁] 按鈕"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"總覽按鈕"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"開啟通知"</string>
-    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"顯示自訂動作"</string>
+    <string name="shortcut_quick_settings" msgid="3692505224100396743">"開啟快速設定"</string>
+    <string name="shortcut_show_custom_actions" msgid="444056949141930750">"顯示動作"</string>
+    <!-- no translation found for shortcut_editing (5285767060395122020) -->
+    <skip />
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"開啟通用內容選單"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"開啟關聯內容選單"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"重複上一句話"</string>
@@ -334,14 +261,28 @@
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"從頂端開始閱讀"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"從下一個項目開始閱讀"</string>
     <string name="shortcut_print_node_tree" msgid="7570974794642091616">"列印節點樹狀結構"</string>
+    <string name="shortcut_print_performance_stats" msgid="2111671611434588299">"列印效能統計資料"</string>
     <string name="shortcut_next_granularity" msgid="5058063575500265017">"下一頁導覽設定"</string>
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"上一頁導覽設定"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"焦點移至螢幕上第一個項目"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"焦點移至螢幕上最後一個項目"</string>
     <string name="shortcut_enable_dimming" msgid="751310793206738883">"調暗螢幕"</string>
     <string name="shortcut_disable_dimming" msgid="8041762180167320322">"取消調暗螢幕"</string>
+    <string name="shortcut_perform_click_action" msgid="9152719059133712820">"執行點擊"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"關聯內容選單"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"通用內容選單"</string>
+    <!-- no translation found for language_menu_title (8648132144725156863) -->
+    <skip />
+    <!-- no translation found for shortcut_show_language_options (3291602397759958945) -->
+    <skip />
+    <!-- no translation found for shortcut_select_next_setting (3708409029026167823) -->
+    <skip />
+    <!-- no translation found for shortcut_select_previous_setting (7335686444537217336) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_next_action (4744337882487301323) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_previous_action (7723485687036313114) -->
+    <skip />
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"無選單項目。"</string>
     <string name="title_web_breakout_next_section" msgid="7355139595269361571">"下一個部分"</string>
     <string name="title_web_breakout_next_list" msgid="801337905459445939">"下一個清單"</string>
@@ -349,7 +290,8 @@
     <string name="title_web_breakout_prev_section" msgid="1738336598629616234">"上一個部分"</string>
     <string name="title_web_breakout_prev_list" msgid="744039532529277819">"上一個清單"</string>
     <string name="title_web_breakout_prev_control" msgid="2637721101068457234">"上一個控制項"</string>
-    <string name="title_edittext_controls" msgid="2102286116390895883">"游標控制項"</string>
+    <!-- no translation found for title_edittext_controls (4835723497829630825) -->
+    <skip />
     <string name="title_edittext_breakout_move_to_beginning" msgid="4021304144865258223">"將游標移至開頭"</string>
     <string name="title_edittext_breakout_move_to_end" msgid="3197737555808584828">"將游標移至結尾"</string>
     <string name="title_edittext_breakout_start_selection_mode" msgid="4183196270306568761">"開啟選取範圍模式"</string>
@@ -359,8 +301,9 @@
     <string name="title_viewpager_breakout_prev_page" msgid="1352284456691236167">"上一頁"</string>
     <string name="title_labeling_controls" msgid="5005702316138877183">"標籤"</string>
     <string name="title_summary" msgid="3037924006370977165">"快速導覽"</string>
-    <string name="title_granularity" msgid="399801096771904747">"導覽設定"</string>
-    <string name="title_custom_action" msgid="7908169922901920318">"自訂動作"</string>
+    <!-- no translation found for title_granularity (7464159711994643031) -->
+    <skip />
+    <string name="title_custom_action" msgid="6533095862085546341">"動作"</string>
     <string name="title_suggestions_controls" msgid="5486233362252604824">"自動完成建議"</string>
     <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"跳到建議"</string>
     <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"返回編輯欄位"</string>
@@ -400,6 +343,10 @@
     <string name="title_pref_shortcut_right_and_up" msgid="6848971895903777166">"先往右再往上滑動"</string>
     <string name="title_pref_shortcut_left_and_down" msgid="2899217574677150730">"先往左再往下滑動"</string>
     <string name="title_pref_shortcut_left_and_up" msgid="369887751217245542">"先往左再往上滑動"</string>
+    <string name="title_pref_shortcut_fingerprint_up" msgid="4567914579733101315">"在指紋感應器上向上滑動"</string>
+    <string name="title_pref_shortcut_fingerprint_down" msgid="7266292981315522410">"在指紋感應器上向下滑動"</string>
+    <string name="title_pref_shortcut_fingerprint_left" msgid="5372808080030991944">"在指紋感應器上向左滑動"</string>
+    <string name="title_pref_shortcut_fingerprint_right" msgid="694175245288621969">"在指紋感應器上向右滑動"</string>
     <string name="title_pref_shortcut_single_tap" msgid="7220195169492947031">"輕觸側邊一下"</string>
     <string name="title_pref_shortcut_double_tap" msgid="4454853121476703529">"輕觸側邊兩下"</string>
     <string name="title_pref_tap_sensitivity" msgid="3737945934603267137">"輕觸偵測器敏感度"</string>
@@ -424,54 +371,61 @@
     <string name="value_keyboard_echo_always" msgid="6889426165608387394">"一律讀出輸入的鍵"</string>
     <string name="value_keyboard_echo_softkeys" msgid="1595001302535254665">"僅限螢幕小鍵盤"</string>
     <string name="value_keyboard_echo_never" msgid="7181327459690946870">"一律不讀出輸入的鍵"</string>
+    <string name="pref_node_desc_order_entry_state_name_role_pos" msgid="6239074777084483039">"狀態、名稱、類型"</string>
+    <string name="pref_node_desc_order_entry_role_name_state_pos" msgid="1747697478748531592">"類型、名稱、狀態"</string>
+    <string name="pref_node_desc_order_entry_name_role_state_pos" msgid="3293391334262415544">"名稱、類型、狀態"</string>
     <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"TalkBack 手勢已變更"</string>
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"輕觸即可查看協助工具手勢變更"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack 已暫停使用"</string>
-    <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"輕觸即可恢復。"</string>
+    <string name="notification_message_talkback_suspended" msgid="5900724128049181599">"輕觸即可繼續"</string>
     <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"自動前往第 1 課。"</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"停用 TalkBack？"</string>
-    <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"您確定嗎？裝置將停止提供回應，「輕觸探索」功能也會遭到停用。如要恢復使用 TalkBack，您可以返回鎖定畫面按照通知中的指示操作，或是使用音量快速鍵。"</string>
-    <string name="message_resume_manual" msgid="6522293510722570646">"您可以透過通知欄恢復使用 TalkBack。"</string>
-    <string name="message_resume_screen_on" msgid="9016720947126938212">"您可以透過通知欄或開啟螢幕恢復使用 TalkBack。"</string>
-    <string name="message_resume_keyguard" msgid="6721228114050709276">"您可以透過通知欄或返回鎖定畫面恢復使用 TalkBack。"</string>
+    <string name="dialog_message_suspend_talkback" msgid="272851623978432035">"確定要停用 TalkBack 功能嗎？\n\n停用之後，你的裝置就不會再發出語音回應，「輕觸探索」功能也將遭到停用。"</string>
+    <string name="message_resume_manual" msgid="7356544353534913249">"你可以透過通知欄繼續使用 TalkBack"</string>
+    <string name="message_resume_screen_on" msgid="5200338421759961545">"你可以透過通知欄或開啟螢幕繼續使用 TalkBack"</string>
+    <string name="message_resume_keyguard" msgid="2142813660069991041">"你可以透過通知欄或返回鎖定畫面繼續使用 TalkBack"</string>
     <string name="show_suspend_warning_label" msgid="3193206799395252518">"一律顯示這項警告"</string>
     <string name="cannot_add_label" msgid="2754406023113433479">"無法為這個項目加上標籤。"</string>
     <string name="label_dialog_title_add" msgid="1255044087558866043">"新增標籤"</string>
     <string name="label_dialog_title_edit" msgid="7914376979667771585">"編輯標籤"</string>
     <string name="label_dialog_title_remove" msgid="1791163736307626930">"移除標籤"</string>
-    <string name="label_dialog_text" msgid="5879506218245648848">"在下方的欄位中輸入要用於這張圖片的文字。"</string>
-    <string name="label_remove_dialog_text" msgid="372916461303485723">"您確定要移除 [<xliff:g id="LABEL">%1$s</xliff:g>] 標籤嗎？"</string>
-    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"您確定要移除 <xliff:g id="APP_NAME">%2$s</xliff:g> 中的 [<xliff:g id="LABEL">%1$s</xliff:g>] 標籤嗎？"</string>
+    <string name="label_dialog_text" msgid="3836616655480004748">"請輸入這個元素的標籤文字\n內部視圖名稱：<xliff:g id="VIEW_RESOURCE_NAME">%1$s</xliff:g>"</string>
+    <string name="label_remove_dialog_text" msgid="372916461303485723">"你確定要移除 [<xliff:g id="LABEL">%1$s</xliff:g>] 標籤嗎？"</string>
+    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"你確定要移除 <xliff:g id="APP_NAME">%2$s</xliff:g> 中的 [<xliff:g id="LABEL">%1$s</xliff:g>] 標籤嗎？"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"標籤文字"</string>
     <string name="label_import" msgid="1773817433300194935">"匯入自訂標籤"</string>
     <string name="label_import_dialog_title" msgid="5305411653917870790">"將自訂標籤匯入 TalkBack"</string>
-    <string name="label_import_dialog_message" msgid="7975227530187709469">"選擇在發生衝突的情況下，您要覆寫或略過現有標籤。"</string>
+    <string name="label_import_dialog_message" msgid="5770997008069363097">"請選擇在發生衝突的情況下，要覆寫還是略過現有標籤"</string>
     <string name="label_import_dialog_skip" msgid="2078597180132028657">"略過"</string>
     <string name="label_import_dialog_override" msgid="4387408051194229513">"覆寫"</string>
-    <string name="label_export_empty" msgid="7663052451851715440">"沒有可匯出的項目。您尚未新增任何標籤"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"沒有可匯出的項目。你尚未新增任何標籤"</string>
     <string name="label_export_failed" msgid="4500274103149146929">"無法匯出標籤"</string>
     <string name="label_import_failed" msgid="1321882372299892757">"無法匯入標籤"</string>
     <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
       <item quantity="other">已更新 %d 個標籤</item>
       <item quantity="one">已更新 1 個標籤</item>
     </plurals>
+    <string name="no_apps_to_import_labels" msgid="8158403357422110115">"找不到可用於匯入標籤的應用程式"</string>
+    <string name="no_apps_to_export_labels" msgid="7671924783169788614">"找不到可用於匯出標籤的應用程式。"</string>
+    <string name="label_choose_app_to_import" msgid="3992931531372131216">"選擇用於匯入標籤的應用程式："</string>
     <string name="label_choose_app_to_export" msgid="3288834802071890267">"選擇應用程式以匯出標籤："</string>
-    <string name="talkback_gesture_change_details" msgid="1242896734553682887">"這個 TalkBack 版本變更了部分預設協助工具手勢。您可以在 TalkBack 設定中自訂與這些手勢相關聯的動作。啟用「輕觸探索」時，您可以使用下列手勢執行特定動作。\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
+    <string name="talkback_gesture_change_details" msgid="1242896734553682887">"這個 TalkBack 版本變更了部分預設協助工具手勢。你可以在 TalkBack 設定中自訂與這些手勢相關聯的動作。啟用「輕觸探索」時，你可以使用下列手勢執行特定動作。\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"長按調高和調低音量鍵"</string>
     <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"快速按下兩個音量鍵三次即可啟用或停用螢幕調暗功能"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"將螢幕調暗？"</string>
     <string name="dialog_message_dim_screen" msgid="7595558180210850775">"確定要調暗螢幕嗎？"</string>
-    <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"這個 TalkBack 版本包含更新的預設協助工具操作手勢。\n\n「先往上再往下」手勢可移至畫面上顯示的第一個項目，「先往下再往上」則可移至最後一個項目。\n\n現在如要變更讀取切分設定，可先將焦點移至特定項目，然後再從關聯內容選單中選取切分設定。\n\n您可在 [TalkBack 設定] 中變更這些手勢所執行的動作。"</string>
+    <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"這個 TalkBack 版本包含更新的預設協助工具操作手勢。\n\n「先往上再往下」手勢可移至畫面上顯示的第一個項目，「先往下再往上」則可移至最後一個項目。\n\n現在如要變更讀取切分設定，可先將焦點移至特定項目，然後再從關聯內容選單中選取切分設定。\n\n你可在 [TalkBack 設定] 中變更這些手勢所執行的動作。"</string>
     <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"這個 TalkBack 版本對預設協助工具手勢做了一些變動。\n\n現在，使用向上滑動手勢可移至上一項導覽設定，使用向下滑動手勢則會移至下一項導覽設定。"</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"接受手勢"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"自訂手勢"</string>
-    <string name="button_clear_all_events" msgid="2128349101908653825">"全部清除"</string>
-    <string name="button_check_all_events" msgid="301383322727007726">"全部勾選"</string>
+    <string name="button_disable_all_events" msgid="4917625658777138398">"全部停用"</string>
+    <string name="button_enable_all_events" msgid="6164815656232769872">"全部啟用"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"停用輕觸探索？"</string>
-    <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"您確定要停用「輕觸探索」功能嗎？\n\n當您輕觸螢幕時，裝置將不會再回應捷徑手勢或說出項目。"</string>
+    <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"你確定要停用「輕觸探索」功能嗎？\n\n當你輕觸螢幕時，裝置將不會再回應捷徑手勢或說出項目。"</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"啟用節點樹狀結構偵錯功能？"</string>
-    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"您確定要開啟節點樹狀結構偵錯功能嗎？\n\n節點樹狀結構偵錯功能會在裝置紀錄中顯示您的螢幕內容，以便其他應用程式讀取。"</string>
-    <string name="hint_script_injection" msgid="6139951755594105602">"「輕觸探索」目前未支援網頁內容。如要瀏覽網頁內容，請在協助工具設定中開啟<xliff:g id="PREFERENCE_NAME">%1$s</xliff:g>。"</string>
+    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"你確定要開啟節點樹狀結構偵錯功能嗎？\n\n節點樹狀結構偵錯功能會在裝置紀錄中顯示你的螢幕內容，以便其他應用程式讀取。"</string>
+    <string name="dialog_title_enable_performance_stats" msgid="3016681156366751028">"要啟用效能統計資料嗎？"</string>
+    <string name="dialog_message_enable_performance_stats" msgid="8917304199448928340">"確定要啟用效能統計資料嗎？\n\n這項功能可能會耗用較多記憶體和電力。"</string>
     <string name="label_talkback_context_menu" msgid="6758073806811666684">"TalkBack 通用內容選單"</string>
     <string name="permission_talkback_label" msgid="2235244838320678938">"控制 TalkBack"</string>
     <string name="permission_talkback_desc" msgid="8320433482567759963">"允許對 TalkBack 發送手勢並重新啟動語音回應。"</string>
@@ -485,7 +439,7 @@
     <string name="display_name_button" msgid="6801468093111637502">"按鈕"</string>
     <string name="display_name_combobox" msgid="3627879841881471141">"下拉式方塊"</string>
     <string name="display_name_aria_landmark" msgid="6117331350509062908">"ARIA 地標"</string>
-    <string name="display_name_edit_field" msgid="5014778180731737501">"編輯欄位"</string>
+    <string name="display_name_edit_field" msgid="8239971688356887918">"編輯欄位"</string>
     <string name="display_name_focusable_item" msgid="1687969602866460765">"可選擇的項目"</string>
     <string name="display_name_heading_1" msgid="30730842343032834">"標題 1"</string>
     <string name="display_name_heading_2" msgid="754950733934619571">"標題 2"</string>
@@ -501,12 +455,6 @@
     <string name="display_name_table" msgid="1369599790038567007">"表格"</string>
     <string name="display_name_checkbox" msgid="2060147158898197667">"核取方塊"</string>
     <string name="display_name_section" msgid="4568845228422422699">"標題或地標"</string>
-    <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> 個<xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"第 <xliff:g id="ROW">%1$d</xliff:g> 列"</string>
-    <string name="column_index_template" msgid="258393957626754806">"第 <xliff:g id="COL">%1$d</xliff:g> 欄"</string>
-    <string name="heading_template" msgid="3585514481777782183">"標題"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"列標題"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"欄標題"</string>
     <string name="item_index_template" msgid="71505978833721807">"項目 <xliff:g id="ITEM">%1$d</xliff:g>"</string>
     <string name="revert_imported_labels" msgid="5508730389432571776">"還原已匯入的標籤"</string>
     <string name="imported_labels_reverted" msgid="6117098234531459917">"已還原匯入的標籤"</string>
@@ -517,28 +465,8 @@
     <skip />
     <!-- no translation found for template_window_switch_system (1902661569833377496) -->
     <skip />
-    <string name="untitled_window" msgid="7017590766394623328">"無標題"</string>
     <string name="status_bar" msgid="6000275621941971563">"狀態列"</string>
     <string name="navigation_bar" msgid="4602958479941673535">"導覽列"</string>
-    <string name="template_collection_start" msgid="4362535543397747567">"已進入<xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
-    <string name="template_collection_end" msgid="2167296836815021551">"已退出<xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"第 <xliff:g id="LEVEL">%1$s</xliff:g> 級"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> 個項目</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> 個項目</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> 個列</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> 個列</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> 個欄</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> 個欄</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> 個字元</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> 個字元</item>
-    </plurals>
     <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
       <item quantity="other">已選取 <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> 項活動</item>
       <item quantity="one">已選取 1 項活動</item>
@@ -547,9 +475,30 @@
     <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"已退出<xliff:g id="REMOTE_MODE">%1$s</xliff:g>"</string>
     <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"搜尋控制介面模式"</string>
     <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"按下箭頭按鈕即可變更值，按下選取按鈕則可完成設定。"</string>
-    <string name="arc_android_window" msgid="697316167642517245">"Android 視窗"</string>
+    <string name="arc_android_window" msgid="602492367666363458">"應用程式視窗"</string>
     <string name="arc_navigation_hint" msgid="3272314052097101117">"按下搜尋鍵和方向鍵即可瀏覽"</string>
     <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"按下 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可查看快速鍵清單"</string>
     <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"按下 <xliff:g id="KEYCOMBO">%1$s</xliff:g> 即可開啟 TalkBack 設定"</string>
-    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"為獲得最佳觸控與互動朗讀效果，請將應用程式視窗放到最大"</string>
+    <!-- no translation found for reset_user_language_preference (6441167843388110740) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_settings (3013680598130553128) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_activation (6275710235429570402) -->
+    <skip />
+    <!-- no translation found for title_pref_category_selector_settings_configuration (3095665157222126906) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_speech_rate (731846618625670003) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_verbosity (4608661647007146269) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_granularity (5926698009571092268) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_audio_focus (6180475638252714782) -->
+    <skip />
+    <!-- no translation found for pref_selector_activation_summary (688877660863231861) -->
+    <skip />
+    <!-- no translation found for title_pref_speak_passwords_without_headphones (2032390508469400633) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_passwords_without_headphones (1854966750096734009) -->
+    <skip />
 </resources>

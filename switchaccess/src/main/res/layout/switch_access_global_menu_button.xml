@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.accessibility.switchaccess.ButtonSwitchAccessIgnores
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@android:style/Widget.Material.Button"
+    tools:targetApi="21"
+    android:id="@+id/global_menu_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text ="@string/option_scanning_menu_button"
+    android:textColor="@color/switch_access_global_menu_button_text"
+    android:backgroundTint="@color/switch_access_global_menu_button_background"
+    android:textSize="14sp"
+    android:gravity="center_horizontal|top"
+    android:minHeight="0dp"
+    android:minWidth="0dp" />

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Setup wizard -->
+    <dimen name="setup_wizard_text_size">18sp</dimen>
+    <dimen name="setup_wizard_subtext_size">16sp</dimen>
+    <dimen name="setup_wizard_padding_heading_top">20dp</dimen>
+    <dimen name="setup_wizard_padding_heading_bottom">16dp</dimen>
+    <dimen name="setup_wizard_padding_subheading_bottom">20dp</dimen>
+    <dimen name="setup_wizard_padding_start_end">16dp</dimen>
+    <dimen name="setup_wizard_padding_radio_buttons_start">8dp</dimen>
+    <dimen name="setup_wizard_text_padding_start">30dp</dimen>
+    <dimen name="setup_wizard_radio_button_description_padding">16dp</dimen>
+    <dimen name="setup_wizard_radio_button_padding">8dp</dimen>
+    <dimen name="setup_wizard_activity_margin">16dp</dimen>
+    <dimen name="setup_wizard_key_assignment_padding">24dp</dimen>
+    <dimen name="setup_wizard_completion_text_padding_top">30dp</dimen>
+    <dimen name="setup_wizard_completion_text_separation_padding">15dp</dimen>
+
+    <dimen name="setup_wizard_game_piece_size">90dp</dimen>
+    <dimen name="setup_wizard_game_button_text_size">70dp</dimen>
+
+    <!-- Menu dimensions -->
+    <dimen name="switch_access_min_button_size">48dp</dimen>
+
+    <dimen name="switch_access_menu_button_width">150dp</dimen>
+    <dimen name="switch_access_menu_button_height">120dp</dimen>
+    <dimen name="switch_access_menu_margin_between_buttons">10dp</dimen>
+
+    <dimen name="switch_access_menu_icon_size">40dp</dimen>
+    <dimen name="switch_access_small_menu_icon_size">24dp</dimen>
+
+    <dimen name="switch_access_menu_text_size">17sp</dimen>
+    <dimen name="switch_access_menu_text_padding">4dp</dimen>
+
+    <!-- Nomon Clock dimensions -->
+    <dimen name="nomon_clock_diameter">75dp</dimen>
+    <dimen name="nomon_clock_hand_width">37dp</dimen>
+    <dimen name="nomon_clock_hand_height">7dp</dimen>
+    <dimen name="nomon_clock_hand_radius">7dp</dimen>
+    <dimen name="nomon_clock_hand_padding_left">37dp</dimen>
+    <dimen name="nomon_clock_hand_padding_right">7dp</dimen>
+    <dimen name="nomon_clock_outline_width">5dp</dimen>
+
+    <!-- Arrow scroll indicator dimensions -->
+    <dimen name="scroll_indicator_icon_size">32dp</dimen>
+    <dimen name="scroll_indicator_size_wide">40dp</dimen>
+    <dimen name="scroll_indicator_size_narrow">32dp</dimen>
+    <dimen name="scroll_indicator_corner_radius">4dp</dimen>
+
+</resources>

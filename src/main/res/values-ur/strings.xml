@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="talkback_service_description" msgid="5081383053733275450">"‏جب TalkBack آن ہوتا ہے تو آپ کا آلہ نابینا اور کم بصارت والے صارفین کی مدد کیلئے صوتی تاثرات فراہم کرتا ہے۔ مثال کے طور پر، آپ جو ٹچ، منتخب یا فعال کرتے ہیں یہ اسے بیان کرتا ہے۔\n\nاگر آپ نے TalkBack غلطی سے آن کر دیا ہے تو اسے آف کرنے کیلئے اس کا سوئچ اس کے گرد سبز آؤٹ لائن ظاہر ہونے تک تھپتھپائیں اور پھر دو بار تھپتھپائیں۔ نتیجتاً آنے والے تصدیقی ڈائیلاگ کیلئے بھی یہی تعامل کریں۔"</string>
+    <string name="talkback_service_summary" msgid="6365572257324337595">"اسکرین پر موجود آئٹمز کو بولیں"</string>
+    <string name="talkback_preferences_title" msgid="4249486159144445549">"‏TalkBack کی ترتیبات"</string>
+    <!-- no translation found for tts_preferences_title (8167186112347512303) -->
+    <skip />
+    <!-- no translation found for language_options (8577758471261539974) -->
+    <skip />
+    <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"ورژن <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
+    <string name="label_manager_summary_title" msgid="6786694853113585661">"حسب ضرورت لیبلز کا نظم کریں"</string>
+    <string name="label_manager_package_title" msgid="6984665343963494151">"<xliff:g id="APPLICATIONLABEL">%1$s</xliff:g> کیلئے لیبلز کا نظم کریں"</string>
+    <string name="label_manager_no_packages_message" msgid="4478523067360108574">"فی الحال کوئی حسب ضرورت لیبلز موجود نہیں ہیں۔ آپ بغیر لیبل والی ایک تصویر پر نیویگیٹ کرکے ایک لیبل بنا سکتے ہیں اور پھر مقامی سیاق و سباق کے مینو سے ایک لیبل شامل کر سکتے ہیں۔"</string>
+    <string name="label_manager_timestamp_text" msgid="2632240906498521602">"آخری بار ترمیم کیا گیا <xliff:g id="TIMESTAMP">%1$s</xliff:g>"</string>
+    <string name="search_dialog_label" msgid="7273037326593054813">"تلاش کریں: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>"</string>
+    <string name="search_mode_open" msgid="910823044260738937">"تلاش وض‏ع کھولی گئی۔"</string>
+    <string name="search_mode_cancel" msgid="4938867934958343710">"تلاش منسوخ ہو گئی۔"</string>
+    <string name="search_mode_finish" msgid="7166574479757238944">"تلاش مکمل ہو گئی۔"</string>
+    <string name="search_mode_hint_start" msgid="4597528088567439979">"تلاش وضع۔"</string>
+    <string name="search_mode_hint_no_query" msgid="3919282680896571220">"کوئی استفسار درج نہیں کیا گیا۔"</string>
+    <string name="search_mode_hint_query" msgid="5896493032072187997">"موجودہ استفسار: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>۔"</string>
+    <string name="search_mode_hint_no_selection" msgid="882227441829755961">"کوئی منتخب کردہ آئٹم نہیں ہے۔"</string>
+    <string name="search_mode_hint_selection" msgid="8541673936818652399">"موجودہ انتخاب: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>۔"</string>
+    <string name="notification_type_missed_call" msgid="6585664098525214473">"چھوٹی ہوئی کال"</string>
+    <string name="notification_type_status_mute" msgid="2024742614005804613">"خاموش کریں"</string>
+    <string name="notification_type_status_chat" msgid="3593906461181368010">"چیٹ"</string>
+    <string name="notification_type_status_error" msgid="8762616334364573004">"خرابی"</string>
+    <string name="notification_type_status_more" msgid="4889548393564513820">"مزید"</string>
+    <string name="notification_type_status_sdcard" msgid="6675459139116184337">"‏SD کارڈ"</string>
+    <string name="notification_type_status_sdcard_usb" msgid="6882955062811560802">"‏SD کارڈ کی USB"</string>
+    <string name="notification_status_sync" msgid="7913123792593843784">"مطابقت پذیری کریں"</string>
+    <string name="notification_type_status_sync_noanim" msgid="3708903607797168409">"مطابقت پذیری کریں"</string>
+    <string name="notification_type_status_voicemail" msgid="1611063561670902017">"صوتی میل"</string>
+    <string name="notification_type_status_started" msgid="1071939833188591219">"شروع ہوا"</string>
+    <string name="notification_type_status_stopped" msgid="6004666820256747725">"رک گیا"</string>
+    <string name="template_menu" msgid="2592357933256217001">"<xliff:g id="TITLE">%1$s</xliff:g> مینو"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"کوئی متن منتخب نہیں"</string>
+    <string name="template_long_clicked" msgid="1962442828386303832">"دیر تک دبایا گیا <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_charging" msgid="2038200557537960378">"چارج ہو رہی ہے <xliff:g id="CHANGING_STATUS">%1$s</xliff:g> بیٹری کی سطح <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> فیصد۔"</string>
+    <string name="template_charging_lite" msgid="7759886088558576716">"چارجنگ <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>"</string>
+    <!-- no translation found for template_language_options_menu_item (8697997506008405892) -->
+    <skip />
+    <string name="template_scroll_from_to_count" msgid="2060702043504844709">"<xliff:g id="TOTAL_COUNT">%3$d</xliff:g> میں سے <xliff:g id="FROM_INDEX">%1$d</xliff:g> سے <xliff:g id="TO_INDEX">%2$d</xliff:g> تک آئٹمز دکھا رہا ہے۔"</string>
+    <string name="template_scroll_from_count" msgid="4696666433263950881">"<xliff:g id="TOTAL_COUNT">%2$d</xliff:g> میں سے <xliff:g id="FROM_INDEX">%1$d</xliff:g> آئٹم دکھا رہا ہے۔"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"صفحہ <xliff:g id="PAGE_INDEX">%1$d</xliff:g> از <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> از <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
+    <string name="value_notification_shade_opened" msgid="5404406119689977269">"شیڈ کھول دیا گیا"</string>
+    <string name="value_text_removed" msgid="9064311081864073839">"حذف کر دیا گیا"</string>
+    <string name="value_dismissible" msgid="1363491313197032055">"قابل برطرفی"</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"ایک آئٹم تلاش کرنے کیلئے اسکرین ٹچ کرکے ایک حلقہ میں دریافت کریں، پھر فعال کرنے کیلئے اوپر اٹھائیں۔"</string>
+    <string name="hint_summary_jog_dial" msgid="2050246931229863299">"اسکرین پر موجود مواد کو نیویگیٹ کرنے کیلئے اسکرین ٹچ کرکے ایک حلقہ میں دریافت کریں، پھر فوکس کرنے کیلئے اوپر اٹھائیں۔"</string>
+    <string name="value_ringer_vibrate" msgid="2453075127843329125">"رنگر وائبریٹ۔"</string>
+    <string name="value_ringer_silent" msgid="3881352685288650823">"رنگر خاموش۔"</string>
+    <string name="value_screen_on" msgid="4051568127659724519">"اسکرین آن ہے۔"</string>
+    <string name="value_screen_off" msgid="4442166505764238236">"سکرین آف۔"</string>
+    <string name="value_device_unlocked" msgid="5503481137448624626">"آلہ غیر مقفل کر دیا گیا۔"</string>
+    <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"اسپیچ"</string>
+    <string name="title_pref_speech_volume" msgid="17846978416951489">"اسپیچ کا والیوم"</string>
+    <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"اسکرین آف ہونے پر بولیں"</string>
+    <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"اسکرین آف ہونے پر اطلاعات بولی جاتی ہیں"</string>
+    <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"اسکرین آف ہونے پر کوئی اسپیچ پیش نہیں کی جاتی ہے"</string>
+    <string name="title_pref_proximity" msgid="4533552749993575929">"قربت سنسر کا استعمال کریں"</string>
+    <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"قربت سنسر اسپیچ کو خاموش کرتا ہے"</string>
+    <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"قربت سنسر اسپیچ کو کنٹرول نہیں کرتا ہے"</string>
+    <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"فونیٹک حروف بولیں"</string>
+    <string name="summaryOff_pref_phonetic_letters" msgid="9103268945330003219">"فونیٹک حروف بولے نہیں جاتے ہیں"</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="4376866668529919518">"کی بورڈ پر لمبے عرصے کیلئے دبا کر رکھنے اور بلحاظ کریکٹر نیویگیٹ کرنے پر فونیٹک حروف بولے جاتے ہیں"</string>
+    <string name="title_pref_a11y_hints" msgid="3770770318417664565">"استعمال کے اشارے بولیں"</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="798877049305553182">"ایکسیسبیلٹی فوکس کو منتقل کرتے ہوئے استعمال کے اشارے بولے نہیں جاتے ہیں"</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="3161412108419178134">"نیویگییشن کے دوران استعمال کے اشارے تھوڑی تاخیر کے بعد بولے جاتے ہیں"</string>
+    <string name="pref_speak_container_element_positions_title" msgid="2835508578760045808">"‏فہرست اور گرڈ کی معلومات ‎بولیں"</string>
+    <string name="pref_speak_container_element_positions_summaryOn" msgid="5023625248365109203">"‏فہرست اور گرڈ کی معلومات ‎بولی جاتی ہیں"</string>
+    <string name="pref_speak_container_element_positions_summaryOff" msgid="4112715962530209920">"فہرست اور گرڈ کی معلومات نہیں بولی جاتی ہیں"</string>
+    <string name="pref_speak_roles_title" msgid="8119822404299836273">"عنصر کی قسم بولیں"</string>
+    <string name="pref_speak_roles_summary_on" msgid="1601846507096793058">"عنصر کی قسم فوکس کیے گئے آئٹمز کے لئے بولی جاتی ہے"</string>
+    <string name="pref_speak_roles_summary_off" msgid="5420176413415285653">"عنصر کی قسم فوکس کیے گئے آئٹمز کے لئے نہیں بولی جاتی ہے"</string>
+    <!-- no translation found for title_pref_speak_element_ids (391655908629950456) -->
+    <skip />
+    <!-- no translation found for summaryOff_pref_speak_element_ids (4960956994540579272) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_element_ids (44367075933871550) -->
+    <skip />
+    <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"ٹچ کرکے دریافت کریں"</string>
+    <string name="title_pref_auto_scroll" msgid="306503376875826605">"خود کار طریقے سے فہرستیں سکرول کریں"</string>
+    <!-- no translation found for title_pref_category_touch_exploration (5874968966650551610) -->
+    <skip />
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"ایک بار تھپتھپا کر فعالیت"</string>
+    <!-- no translation found for title_pref_show_context_menu_as_list (1317122602474219414) -->
+    <skip />
+    <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"‏TalkBack فعال ہونے پر اسکرین مدھم کریں"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"(تجرباتی) فعال کرنے کیلئے فی الحال فوکس کیے گئے آئٹم پر تھپتھپائیں"</string>
+    <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"مسلسل پڑھنا شروع کرنے کیلئے ہلائیں"</string>
+    <string name="pref_verbosity_title" msgid="3719351581071950262">"طوالت بیانی"</string>
+    <string name="title_pref_category_manage_gestures" msgid="2614141620073133854">"اشارے"</string>
+    <string name="title_pref_manage_labels" msgid="4466030803655661973">"حسب ضرورت لیبلز"</string>
+    <string name="title_pref_manage_keyboard_shortcuts" msgid="8091201905891748923">"کی بورڈ شارٹ کٹس"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"حسب ضرورت لیبلز برآمد کریں"</string>
+    <string name="title_pref_play_store" msgid="5158596411034985043">"‏Play اسٹور میں TalkBack کھولیں"</string>
+    <string name="summary_pref_play_store" msgid="3575108337945375864">"‏موجودہ TalkBack ورژن: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"مدد اور تاثرات"</string>
+    <string name="pref_item_licenses" msgid="3546535377387155282">"اوپن سورس لائسنسز"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"مدد"</string>
+    <!-- no translation found for title_pref_show_tos (2813500691748037529) -->
+    <skip />
+    <!-- no translation found for title_pref_show_privacy_policy (8945789024630561518) -->
+    <skip />
+    <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"شارٹ کٹ اشارے"</string>
+    <string name="title_pref_category_fingerprint_touch_shortcuts" msgid="4338314761170964858">"فنگرپرنٹ کے اشارے"</string>
+    <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"پہلے سے شامل اشارے"</string>
+    <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(تجرباتی) آلہ کے کنارے پر تھپتھپائیں"</string>
+    <string name="pref_verbosity_preset_title" msgid="6299916234007004610">"پہلے سے ترتیب شدہ کا انتخاب کریں"</string>
+    <string name="pref_verbosity_preset_entry_high" msgid="791984796274765142">"اعلی"</string>
+    <string name="pref_verbosity_preset_entry_custom" msgid="8261147354044310508">"حسب ضرورت"</string>
+    <string name="pref_verbosity_preset_entry_low" msgid="1333334045447549264">"کم"</string>
+    <string name="pref_verbosity_category_preset_settings_title" msgid="620716446067964188">"طوالت بیانی کی تفصیلات"</string>
+    <!-- no translation found for pref_verbosity_category_misc_settings_title (6121977747903981087) -->
+    <skip />
+    <string name="pref_verbosity_preset_change" msgid="7250611496087013782">"<xliff:g id="PRESET_NAME">%1$s</xliff:g> طوالت بیانی اب فعال ہے۔"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"کلیدی نقشہ"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"ایک کلیدی نقشہ منتخب کریں"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"کلیدی نقشہ دوبارہ ترتیب دیں"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"موڈیفائر کلید منتخب کریں"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"‏TalkBack کلیدی نقشہ کو تبدیل کر دے گا"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"‏TalkBack کلیدی نقشہ کو ری سیٹ کر دے گا اور موڈیفائر کلید کو <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g> میں تبدیل کر دے گا۔"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"موڈیفائر کلید <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g> میں تبدیل ہو گئی ہے۔"</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"<xliff:g id="KEYMAP_NAME">%1$s</xliff:g> اب فعال ہے۔"</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"کلیدی نقشہ دوبارہ ترتیب دے دیا گیا ہے۔"</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"شارٹ کٹ تعاون یافتہ نہیں ہے"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"کلاسک کلیدی نقشہ"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"ڈیفالٹ کلیدی نقشہ"</string>
+    <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"نیویگیشن کارروائیاں"</string>
+    <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"اگلے آئٹم پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"پچھلے آئٹم پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"اوپر موجود آئٹم پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"ذیل میں موجود آئٹم پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"پہلے آئٹم پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"آخری آئٹم پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"اگلی ونڈو پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"پچھلی ونڈو پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"اگلے لفظ پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"پچھلے لفظ پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"اگلے کیریکٹر پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"پچھلے کیریکٹر پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_perform_click" msgid="243666968746657931">"کلک کریں"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"طویل کلک کریں"</string>
+    <string name="keycombo_menu_category_global" msgid="7309875734492478067">"عالمی کارروائیاں"</string>
+    <string name="keycombo_menu_global_back" msgid="4567585750566224959">"پیچھے"</string>
+    <string name="keycombo_menu_global_home" msgid="7189369064773623371">"ہوم"</string>
+    <string name="keycombo_menu_global_recent" msgid="927586811460340459">"حالیہ ایپس"</string>
+    <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"اطلاعات"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"‏TalkBack موقوف کریں یا دوبارہ شروع کریں"</string>
+    <!-- no translation found for keycombo_menu_category_granularity (8575000248950511679) -->
+    <skip />
+    <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"اگلی نیویگیشن ترتیب"</string>
+    <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"سابقہ نیویگیشن ترتیب"</string>
+    <string name="keycombo_menu_category_other" msgid="440132295339458288">"دیگر کارروائیاں"</string>
+    <string name="keycombo_menu_other_read_from_top" msgid="5903852171117275622">"سب سے اوپر سے پڑھیں"</string>
+    <string name="keycombo_menu_other_read_from_next_item" msgid="1511843443312220392">"اگلے آئٹم سے پڑھیں"</string>
+    <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"اسکرین پر آئٹم تلاش کریں"</string>
+    <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"مقامی سیاق و سباق کا مینو دکھائیں"</string>
+    <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"عالمی سیاق و سباق کا مینو دکھائیں"</string>
+    <string name="keycombo_menu_other_custom_actions" msgid="4769044790570667515">"کارروائیاں دکھائیں"</string>
+    <!-- no translation found for keycombo_menu_other_language_options (6071616089592138709) -->
+    <skip />
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"کی بورڈ شارٹ کٹس کا نظم کریں"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"‏TalkBack کی ترتیبات کھولیں"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"ویب نیویگیشن کارروائیاں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"اگلے بٹن پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"پچھلے بٹن پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"اگلے کنٹرول پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"پچھلے کنٹرول پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"اگلے چیک باکس پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"پچھلے چیک باکس پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"‏اگلے ARIA نمایاں مقام پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"‏پچھلے ARIA نمایاں مقام پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"اگلی ترمیم کی فیلڈ پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"پچھلی ترمیمی فیلڈ پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"اگلی قابل توجہ آئٹم پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"پچھلی قابل توجہ آئٹم پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"اگلے گرافک پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"پچھلے گرافک پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"اگلی سرخی پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"پچھلی سرخی پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"اگلی سرخی 1 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"پچھلی سرخی 1 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"اگلی سرخی 2 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"پچھلی سرخی 2 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"اگلی سرخی 3 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"پچھلی سرخی 3 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"اگلی سرخی 4 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"پچھلی سرخی 4 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"اگلی سرخی 5 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"پچھلی سرخی 5 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"اگلی سرخی 6 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"پچھلی سرخی 6 پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"فہرست کے اگلے آئٹم پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"پچھلی فہرست کے آئٹم پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"اگلے لنک پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"پچھلے لنک پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"اگلی فہرست پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"پچھلی فہرست پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"اگلے ٹیبل پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"پچھلے ٹیبل پر جائیں"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"اگلے کومبو باکس پر نیویگیٹ کریں"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"پچھلے کومبو باکس پر نیویگیٹ کریں"</string>
+    <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"کی بورڈ شارٹ کٹ یہ ہے"</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"‏شارٹ کٹ صاف کرنے کیلئے Backspace دبائیں، محفوظ کرنے کیلئے Enter دبائیں یا منسوخ کرنے کیلئے Escape دبائیں۔"</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"شارٹ کٹ صاف کریں"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"کیا آپ واقعی اس کلیدی نقشہ کیلئے اپنی شارٹ کٹ کلیدوں کو ان کی ڈیفالٹ اقدار پر دوبارہ ترتیب دینا چاہتے ہیں؟ براہ کرم نوٹ کریں، یہ کارروائی کالعدم نہیں ہو سکتی۔"</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"دوبارہ ترتیب دیں"</string>
+    <string name="override_keycombo" msgid="9043246837899844909">"کلید پہلے سے استعمال میں ہے"</string>
+    <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"کلید کا یہ جوڑا \'<xliff:g id="ID_1">%1$s</xliff:g>\' کارروائی کیلئے استعمال کیا جاتا ہے۔ کیا آپ اسے صاف کرنا اور اس شارٹ کٹ کو \'<xliff:g id="ID_2">%2$s</xliff:g>\' کو تفویض کرنا چاہتے ہیں؟"</string>
+    <string name="title_pref_intonation" msgid="7375380428425494034">"پچ کی تبدیلیوں کا استعمال کریں"</string>
+    <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"کی بورڈ کی بازگشت"</string>
+    <string name="pref_node_desc_order_title" msgid="4632210763611067450">"عنصر کی وضاحت کا آرڈر"</string>
+    <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"مدھم آواز میں کی بورڈ کے تاثرات بولیں"</string>
+    <string name="summaryOff_pref_intonation" msgid="5187278527518557715">"بولتے وقت وائس پچ تبدیل نہ کریں"</string>
+    <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"دیگر تاثرات"</string>
+    <string name="title_pref_vibration" msgid="4156396276749836864">"وائبریشن تاثرات"</string>
+    <string name="title_pref_soundback" msgid="3131811048184077738">"صوتی تاثرات"</string>
+    <string name="title_pref_use_audio_focus" msgid="5227372335896747459">"آڈیو ڈکنگ"</string>
+    <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"بولتے ہوئے دیگر آڈیو والیوم کو کم کریں"</string>
+    <string name="title_pref_soundback_volume" msgid="8633886470832131926">"آواز کا والیوم"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"‏Talkback معطل اور دوبارہ شروع کرنے کا شارٹ کٹ"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"اسکرین مدھم کرنے کا شارٹ کٹ"</string>
+    <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"متفرقات"</string>
+    <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"ڈیولپر کی ترتیبات"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"لاگ کرنے کیلئے ایونٹس منتخـب کریں"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"ایکسیسبیلٹی ایونٹ لاگنگ کو فلٹر کریں"</string>
+    <string name="title_pref_log_level" msgid="267415170405921603">"لاگ آؤٹ پٹ کی سطح"</string>
+    <string name="title_pref_tts_overlay" msgid="4448445593132620627">"اسپیچ آؤٹ پٹ ڈسپلے کریں"</string>
+    <string name="title_pref_tree_debug" msgid="1525763448981997023">"نوڈ ٹری ڈیبگ کرنے کو فعال کریں"</string>
+    <string name="summary_pref_tree_debug_tv" msgid="2155606249933775098">"نوڈ ٹری کو پرنٹ کرنے کیلئے تلاش کرنے کے بجائے صوتی تلاش استعمال کریں"</string>
+    <string name="title_pref_performance_stats" msgid="3701419705373126127">"کارکردگی کی شماریات فعال کریں"</string>
+    <string name="title_pref_resume_talkback" msgid="4098949311311089235">"معطل سے دوبارہ شروع کریں"</string>
+    <string name="screen_dimmed" msgid="8072279323762069231">"اسکرین مدھم کر دی گئی"</string>
+    <string name="screen_brightness_restored" msgid="378010604065368658">"اسکرین کی چمک بحال کر دی گئی"</string>
+    <string name="screen_dimming_exit_instruction_line1" msgid="5487433770461700107">"‏TalkBack کی ایکسیسبیلٹی سروس نے اسکرین کو مدھم کر دیا ہے"</string>
+    <string name="screen_dimming_exit_instruction_line2" msgid="6697363666089792199">"والیوم بڑھانے اور والیوم کم کرنے کی کلیدوں کو ایک ساتھ تیزی سے تین بار دبا کر کالعدم کریں"</string>
+    <string name="screen_dimming_exit_instruction_line3" msgid="5253511790182167247">"‏اسکرین مدھم کرنے کو TalkBack کی ترتیبات سے کنٹرول کیا جا سکتا ہے"</string>
+    <string name="shortcut_unassigned" msgid="1803159459924262469">"غیر مختص"</string>
+    <string name="shortcut_next" msgid="6887743145853506373">"اگلا آئٹم"</string>
+    <string name="shortcut_previous" msgid="3679790113454394245">"پچھلا آئٹم"</string>
+    <string name="shortcut_scroll_forward" msgid="7299589176359902775">"آگے سکرول کریں"</string>
+    <string name="shortcut_scroll_back" msgid="1025337926618449476">"پیچھے سکرول کریں"</string>
+    <string name="shortcut_back" msgid="2558372839282319745">"واپس جائیں بٹن"</string>
+    <string name="shortcut_home" msgid="6670249804418900175">"ہوم بٹن"</string>
+    <string name="shortcut_overview" msgid="3649651004283936027">"عمومی جائزہ کا بٹن"</string>
+    <string name="shortcut_notifications" msgid="5291839248233515759">"اطلاعات کھولیں"</string>
+    <string name="shortcut_quick_settings" msgid="3692505224100396743">"فوری ترتیبات کھولیں"</string>
+    <string name="shortcut_show_custom_actions" msgid="444056949141930750">"کارروائیاں دکھائیں"</string>
+    <!-- no translation found for shortcut_editing (5285767060395122020) -->
+    <skip />
+    <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"عالمی سیاق و سباق کا مینو کھولیں"</string>
+    <string name="shortcut_local_breakout" msgid="8164203174881196072">"مقامی سیاق و سباق کا مینو کھولیں"</string>
+    <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"آخری الفاظ دہرائیں"</string>
+    <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"آخری الفاظ ہجے کریں"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"آخری بول کلپ بورڈ پر کاپی کریں"</string>
+    <string name="shortcut_pause_feedback" msgid="1412613174540942399">"تاثرات موقوف کریں"</string>
+    <string name="shortcut_read_from_top" msgid="6031418895933550221">"سب سے اوپر سے پڑھیں"</string>
+    <string name="shortcut_read_from_current" msgid="5769337869539736463">"اگلے آئٹم سے پڑھیں"</string>
+    <string name="shortcut_print_node_tree" msgid="7570974794642091616">"نوڈ ٹری پرنٹ کریں"</string>
+    <string name="shortcut_print_performance_stats" msgid="2111671611434588299">"کارکردگی کی شماریات پرنٹ کریں"</string>
+    <string name="shortcut_next_granularity" msgid="5058063575500265017">"اگلی نیویگیشن ترتیب"</string>
+    <string name="shortcut_previous_granularity" msgid="5483850878839529117">"سابقہ نیویگیشن ترتیب"</string>
+    <string name="shortcut_first_in_screen" msgid="4549343120881649603">"اسکرین کے پہلے آئٹم پر فوکس کریں"</string>
+    <string name="shortcut_last_in_screen" msgid="1584183195221110323">"اسکرین کے آخری آئٹم پر فوکس کریں"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"اسکرین مدھم کریں"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"اسکرین روشن کریں"</string>
+    <string name="shortcut_perform_click_action" msgid="9152719059133712820">"کلک کریں"</string>
+    <string name="local_context_menu_title" msgid="6672321005470828526">"مقامی سیاق و سباق کا مینو"</string>
+    <string name="global_context_menu_title" msgid="2580664964591545065">"عالمی سیاق و سباق کا مینو"</string>
+    <!-- no translation found for language_menu_title (8648132144725156863) -->
+    <skip />
+    <!-- no translation found for shortcut_show_language_options (3291602397759958945) -->
+    <skip />
+    <!-- no translation found for shortcut_select_next_setting (3708409029026167823) -->
+    <skip />
+    <!-- no translation found for shortcut_select_previous_setting (7335686444537217336) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_next_action (4744337882487301323) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_previous_action (7723485687036313114) -->
+    <skip />
+    <string name="title_local_breakout_no_items" msgid="5016265453627241456">"کوئی مینو آئٹمز نہیں ہیں۔"</string>
+    <string name="title_web_breakout_next_section" msgid="7355139595269361571">"اگلا سیکشن"</string>
+    <string name="title_web_breakout_next_list" msgid="801337905459445939">"اگلی فہرست"</string>
+    <string name="title_web_breakout_next_control" msgid="7663977538463352430">"اگلا کنٹرول"</string>
+    <string name="title_web_breakout_prev_section" msgid="1738336598629616234">"پچھلا سیکشن"</string>
+    <string name="title_web_breakout_prev_list" msgid="744039532529277819">"پچھلی فہرست"</string>
+    <string name="title_web_breakout_prev_control" msgid="2637721101068457234">"پچھلا کنٹرول"</string>
+    <!-- no translation found for title_edittext_controls (4835723497829630825) -->
+    <skip />
+    <string name="title_edittext_breakout_move_to_beginning" msgid="4021304144865258223">"کرسر کو شروع میں منتقل کریں"</string>
+    <string name="title_edittext_breakout_move_to_end" msgid="3197737555808584828">"کرسر کو اختتام پر منتقل کریں"</string>
+    <string name="title_edittext_breakout_start_selection_mode" msgid="4183196270306568761">"انتخاب کی وضع شروع کریں"</string>
+    <string name="title_edittext_breakout_end_selection_mode" msgid="55211944889868460">"انتخاب کی وضع کو ختم کریں"</string>
+    <string name="title_viewpager_controls" msgid="3775818290312516095">"نیویگیشن صفحہ"</string>
+    <string name="title_viewpager_breakout_next_page" msgid="6936782185806198910">"اگلا صفحہ"</string>
+    <string name="title_viewpager_breakout_prev_page" msgid="1352284456691236167">"پچھلا صفحہ"</string>
+    <string name="title_labeling_controls" msgid="5005702316138877183">"لیبلز"</string>
+    <string name="title_summary" msgid="3037924006370977165">"فوری نیویگیشن"</string>
+    <!-- no translation found for title_granularity (7464159711994643031) -->
+    <skip />
+    <string name="title_custom_action" msgid="6533095862085546341">"کارروائیاں"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"تجاویز کی خودکار تکمیل کریں"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"تجاویز پر جائیں"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"ترمیمی فیلڈ پر واپس جائیں"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"تلاش کنٹرول"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"تلاش کنٹرل کی سطح میں ترمیم کریں"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"0 سے 100 تک کا کوئی نمبر داخل کریں۔"</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
+    <string name="value_direction_up" msgid="1646290331150992975">"اوپر"</string>
+    <string name="value_direction_down" msgid="8072362433982733982">"نیچے"</string>
+    <string name="value_direction_left" msgid="676932617445677488">"بائیں"</string>
+    <string name="value_direction_right" msgid="3555261520059818184">"دائیں"</string>
+    <string name="value_direction_up_and_down" msgid="3964398023350956969">"اوپر پھر نیچے"</string>
+    <string name="value_direction_down_and_up" msgid="8751291630548709587">"نیچے پھر اوپر"</string>
+    <string name="value_direction_right_and_left" msgid="8982138891493120929">"دائیں پھر بائیں"</string>
+    <string name="value_direction_left_and_right" msgid="5700946272615649006">"بائیں پھر دائیں"</string>
+    <string name="value_direction_down_and_left" msgid="8554316039693996323">"نیچے پھر بائیں"</string>
+    <string name="value_direction_down_and_right" msgid="7001881662779097616">"نیچے پھر دائیں"</string>
+    <string name="value_direction_up_and_left" msgid="2880257670663743521">"اوپر پھر بائیں"</string>
+    <string name="value_direction_up_and_right" msgid="1769623264993139598">"اوپر پھر دائیں"</string>
+    <string name="value_direction_right_and_down" msgid="3939890273004054796">"دائیں پھر نیچے"</string>
+    <string name="value_direction_right_and_up" msgid="9165127187203257982">"دائیں پھر اوپر"</string>
+    <string name="value_direction_left_and_down" msgid="7803183066938070433">"بائیں پھر نیچے"</string>
+    <string name="value_direction_left_and_up" msgid="1953824696291100833">"بائیں پھر اوپر"</string>
+    <string name="title_pref_shortcut_up" msgid="464026441232788284">"اوپر سوائپ کریں"</string>
+    <string name="title_pref_shortcut_down" msgid="7510938211617979299">"نیچے سوائپ کریں"</string>
+    <string name="title_pref_shortcut_left" msgid="1294673470106169765">"بائیں سوائپ کریں"</string>
+    <string name="title_pref_shortcut_right" msgid="2563651710870983074">"دائیں سوائپ کریں"</string>
+    <string name="title_pref_shortcut_up_and_down" msgid="7970635117146596582">"اوپر پھر نیچے سوائپ کریں"</string>
+    <string name="title_pref_shortcut_down_and_up" msgid="862181907993343425">"نیچے پھر اوپر سوائپ کریں"</string>
+    <string name="title_pref_shortcut_left_and_right" msgid="320138621029568357">"بائیں پھر دائیں سوائپ کریں"</string>
+    <string name="title_pref_shortcut_right_and_left" msgid="1184543975336584677">"دائیں پھر بائیں سوائپ کریں"</string>
+    <string name="title_pref_shortcut_down_and_left" msgid="6249716604721789627">"نیچے پھر بائیں سوائپ کریں"</string>
+    <string name="title_pref_shortcut_down_and_right" msgid="7683422992972248031">"نیچے پھر دائیں سوائپ کریں"</string>
+    <string name="title_pref_shortcut_up_and_left" msgid="6548364994546979158">"اوپر پھر بائیں سوائپ کریں"</string>
+    <string name="title_pref_shortcut_up_and_right" msgid="8856595421274730440">"اوپر پھر دائیں سوائپ کریں"</string>
+    <string name="title_pref_shortcut_right_and_down" msgid="4893018634563250104">"دائیں پھر نیچے سوائپ کریں"</string>
+    <string name="title_pref_shortcut_right_and_up" msgid="6848971895903777166">"دائیں پھر اوپر سوائپ کریں"</string>
+    <string name="title_pref_shortcut_left_and_down" msgid="2899217574677150730">"بائیں پھر نیچے سوائپ کریں"</string>
+    <string name="title_pref_shortcut_left_and_up" msgid="369887751217245542">"بائیں پھر اوپر سوائپ کریں"</string>
+    <string name="title_pref_shortcut_fingerprint_up" msgid="4567914579733101315">"فنگر پرنٹ سینسر پر اوپر سوائپ کریں"</string>
+    <string name="title_pref_shortcut_fingerprint_down" msgid="7266292981315522410">"فنگر پرنٹ سینسر پر نیچے سوائپ کریں"</string>
+    <string name="title_pref_shortcut_fingerprint_left" msgid="5372808080030991944">"فنگر پرنٹ سینسر پر بائیں جانب سوائپ کریں"</string>
+    <string name="title_pref_shortcut_fingerprint_right" msgid="694175245288621969">"فنگر پرنٹ سینسر پر دائیں جانب سوائپ کریں"</string>
+    <string name="title_pref_shortcut_single_tap" msgid="7220195169492947031">"کنارے پر ایک بار تھپتھپانا"</string>
+    <string name="title_pref_shortcut_double_tap" msgid="4454853121476703529">"کنارے پر دو بار تھپتھپانا"</string>
+    <string name="title_pref_tap_sensitivity" msgid="3737945934603267137">"تھپتھپاہٹ ڈیٹیکٹر کی حساسیت"</string>
+    <string name="tap_sensitivity_high" msgid="7563462166661082029">"زیادہ"</string>
+    <string name="tap_sensitivity_medium" msgid="5512827926666078515">"متوسط"</string>
+    <string name="tap_sensitivity_low" msgid="6514475998218787336">"کم"</string>
+    <string name="tap_sensitivity_lowest" msgid="1137618443590383650">"سب سے کم"</string>
+    <string name="title_pref_two_part_vertical_gestures" msgid="2306010395434853106">"دو حصہ والے عمودی اشارے"</string>
+    <string name="value_volume_100_percent" formatted="false" msgid="1925212291067338164">"میڈیا والیوم جتنا ہی"</string>
+    <string name="value_volume_75_percent" formatted="false" msgid="4112643575612833142">"میڈیا والیوم کا %75"</string>
+    <string name="value_volume_50_percent" formatted="false" msgid="571313670701581653">"میڈیا والیوم کا %50"</string>
+    <string name="value_volume_25_percent" formatted="false" msgid="7765340636472447035">"میڈیا والیوم کا %25"</string>
+    <string name="value_resume_screen_on" msgid="2104101584116309597">"جب اسکرین آن ہوتی ہے"</string>
+    <string name="value_resume_keyguard" msgid="2780570849205482994">"جب لاک سکرین دکھائی جاتی ہے"</string>
+    <string name="value_resume_manual" msgid="615523100721295547">"صرف اطلاع سے"</string>
+    <string name="value_shake_to_read_disabled" msgid="33115748930768552">"غیر فعال"</string>
+    <string name="value_shake_to_read_threshold_very_light" msgid="2767872234193772050">"بہت کم"</string>
+    <string name="value_shake_to_read_threshold_light" msgid="6122029921067500618">"کم"</string>
+    <string name="value_shake_to_read_threshold_medium" msgid="8892692566516131981">"متوسط"</string>
+    <string name="value_shake_to_read_threshold_hard" msgid="7661843662865960874">"زیادہ"</string>
+    <string name="value_shake_to_read_threshold_very_hard" msgid="3423392173494851854">"بہت زیادہ"</string>
+    <string name="value_keyboard_echo_always" msgid="6889426165608387394">"ہمیشہ ٹائپ کی گئی کلیدیں بولیں"</string>
+    <string name="value_keyboard_echo_softkeys" msgid="1595001302535254665">"صرف اسکرین پر موجود کی بورڈ کیلئے"</string>
+    <string name="value_keyboard_echo_never" msgid="7181327459690946870">"کبھی بھی ٹائپ کی گئی کلیدیں نہ بولیں"</string>
+    <string name="pref_node_desc_order_entry_state_name_role_pos" msgid="6239074777084483039">"ریاست، نام، قسم"</string>
+    <string name="pref_node_desc_order_entry_role_name_state_pos" msgid="1747697478748531592">"قسم، نام، ریاست"</string>
+    <string name="pref_node_desc_order_entry_name_role_state_pos" msgid="3293391334262415544">"نام، قسم، ریاست"</string>
+    <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"‏TalkBack کے اشارے تبدیل ہو گئے"</string>
+    <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"ایکسیسبیلٹی کے اشاروں کی تبدیلیوں کا جائزہ لینے کیلئے تھپتھپائیں"</string>
+    <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"‏TalkBack معطل ہے"</string>
+    <string name="notification_message_talkback_suspended" msgid="5900724128049181599">"دوبارہ شروع کرنے کیلئے تھپتھپائیں"</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"خودکار طور پر سبق 1 کی طرف بڑھ رہا ہے۔"</string>
+    <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"‏TalkBack معطل کریں؟"</string>
+    <string name="dialog_message_suspend_talkback" msgid="272851623978432035">"‏کیا آپ واقعی TalkBack کو معطل کرنا چاہتے ہیں؟\n\nTalkBack کے معطل ہونے پر، آپ کا آلہ تاثرات فراہم نہیں کرے گا اور ٹچ کرکے دریافت کریں خصوصیت غیر فعال ہو جائے گی۔"</string>
+    <string name="message_resume_manual" msgid="7356544353534913249">"‏آپ اطلاعات شیڈ سے TalkBack کو دوبارہ شروع کر سکتے ہیں"</string>
+    <string name="message_resume_screen_on" msgid="5200338421759961545">"‏آپ اطلاعات شیڈ سے یا اسکرین آن کر کے TalkBack کو دوبارہ شروع کر سکتے ہیں"</string>
+    <string name="message_resume_keyguard" msgid="2142813660069991041">"‏آپ اطلاعات شیڈ سے یا لاک اسکرین پر واپس جا کر TalkBack کو دوبارہ شروع کر سکتے ہیں"</string>
+    <string name="show_suspend_warning_label" msgid="3193206799395252518">"ہمیشہ یہ وارننگ دکھائیں"</string>
+    <string name="cannot_add_label" msgid="2754406023113433479">"اس آئٹم پر لیبل نہیں لگایا جا سکتا ہے۔"</string>
+    <string name="label_dialog_title_add" msgid="1255044087558866043">"لیبل شامل کریں"</string>
+    <string name="label_dialog_title_edit" msgid="7914376979667771585">"لیبل میں ترمیم کریں"</string>
+    <string name="label_dialog_title_remove" msgid="1791163736307626930">"لیبل ہٹائیں"</string>
+    <string name="label_dialog_text" msgid="3836616655480004748">"اس عنصر کے لئے بطور لیبل استعمال کیا جانے والا متن درج کریں\nداخلی منظر کا نام: <xliff:g id="VIEW_RESOURCE_NAME">%1$s</xliff:g>"</string>
+    <string name="label_remove_dialog_text" msgid="372916461303485723">"کیا آپ واقعی \"<xliff:g id="LABEL">%1$s</xliff:g>\" لیبل ہٹانا چاہتے ہیں؟"</string>
+    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"کیا آپ واقعی <xliff:g id="APP_NAME">%2$s</xliff:g> میں سے \"<xliff:g id="LABEL">%1$s</xliff:g>\" لیبل ہٹانا چاہتے ہیں؟"</string>
+    <string name="label_dialog_edit_hint" msgid="4342585248215824717">"لیبل کا متن"</string>
+    <string name="label_import" msgid="1773817433300194935">"حسب ضرورت لیبلز درآمد کریں"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"‏حسب ضرورت لیبلز کو TalkBack میں درآمد کریں"</string>
+    <string name="label_import_dialog_message" msgid="5770997008069363097">"چنیں کہ کسی تضاد کی صورت میں کیا آپ موجودہ لیبلز کو اوور رائیڈ یا نظر انداز کرنا چاہتے ہیں"</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"نظر انداز کریں"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"اوور رائیڈ کریں"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"برآمد کرنے کیلئے کچھ نہیں ہے۔ آپ نے کوئی لیبلز شامل نہیں کئے"</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"لیبل برآمد کرنا ناکام ہو گیا"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"لیبل کو درآمد کرنا ناکام ہو گیا"</string>
+    <!-- String.format failed for translation -->
+    <!-- no translation found for label_import_succeeded (3709295987864614176) -->
+    <string name="no_apps_to_import_labels" msgid="8158403357422110115">"لیبلز درآمد کرنے کے لیے کوئی ایپلیکیشن نہیں پائی گئی"</string>
+    <string name="no_apps_to_export_labels" msgid="7671924783169788614">"لیبلز برآمد کرنے کے لیے کوئی ایپلیکیشن نہیں پایا گيا۔"</string>
+    <string name="label_choose_app_to_import" msgid="3992931531372131216">"لیبلز درآمد کرنے کیلئے ایپلیکیشن منتخب کریں:"</string>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"لیبلز برآمد کرنے کیلئے ایپلیکیشن منتخب کریں:"</string>
+    <string name="talkback_gesture_change_details" msgid="1242896734553682887">"‏TalkBack کے اس ورژن میں ڈیفالٹ ایکسیسبیلٹی اشاروں کی تبدیلیاں شامل ہیں۔ ان اشاروں سے وابستہ کارروائیوں کو TalkBack ترتیبات میں حسب ضرورت بنایا جا سکتا ہے۔ ٹچ کرکے دریافت کریں فعال ہونے پر، آپ مخصوص کارروائیاں انجام دینے کیلئے مندرجہ ذیل اشاروں کا استعمال کر سکتے ہیں۔\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
+    <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"والیوم بڑھانے اور کم کرنے کی کلیدیں دیر تک دبائیں"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"اسکرین مدھم فعال کرنے یا غیر فعال کرنے کیلئے دونوں والیم کلیدیں تین بار دبائیں"</string>
+    <string name="dialog_title_dim_screen" msgid="603850602120147151">"اسکرین مدھم کریں؟"</string>
+    <string name="dialog_message_dim_screen" msgid="7595558180210850775">"کیا آپ واقعی اسکرین مدھم کرنا چاہتے ہیں؟"</string>
+    <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"‏TalkBack کے اس ورژن میں ڈیفالٹ ایکسیسبیلٹی اشاروں کی تبدیلیاں شامل ہیں۔\n\nاوپر پھر نیچے اشارہ آپ کو اسکرین پر موجود پہلے آئٹم پر منتقل کرنے کی اجازت دے گا اور نیچے پھر اوپر اشارہ آخری آئٹم پر منتقل کرے گا۔\n\nپڑھنے والی گرینولیریٹی اب ایک آئٹم پر فوکس کرکے، پھر مقامی سیاق و سباق کے مینو سے ایک گرینولیریٹی منتخب کرکے تبدیل کی جا سکتی ہے۔\n\n آپ TalkBack ترتیبات میں ان اشاروں کے ذریعے انجام دی گئی کارروائیوں کو تبدیل کر سکتے ہیں۔"</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"‏TalkBack کے اس ورژن میں ایکسیسبیلٹی کے ڈیفالٹ اشاروں میں تبدیلیاں شامل ہیں۔\n\nاوپر کو اشارہ اب پچھلی نیویگیشن ترتیب پر منتقل ہوتا ہے اور نیچے کو اشارہ اگلی نیویگیشن ترتیب پر۔"</string>
+    <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"اشاروں کو قبول کریں"</string>
+    <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"اشاروں کو حسب ضرورت بنائیں"</string>
+    <string name="button_disable_all_events" msgid="4917625658777138398">"تمام کو غیر فعال کریں"</string>
+    <string name="button_enable_all_events" msgid="6164815656232769872">"تمام کو فعال کریں"</string>
+    <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"ٹچ کرکے دریافت کریں کو غیر فعال کریں؟"</string>
+    <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"کیا آپ واقعی ٹچ کر کے دریافت کریں کو آف کرنا چاہتے ہیں؟\n\nآپ کے ذریعے ٹچ کیے جانے پر آپ کا آلہ شارٹ کٹ اشاروں یا اسپیک آئٹمز پر مزید ردعمل کا اظہار نہیں کرے گا۔"</string>
+    <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"نوڈ ٹری ڈیبگ کرنے کو فعال کریں؟"</string>
+    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"کیا آپ واقعی نوڈ ٹری ڈیبگ کرنے کو آن کرنا چاہتے ہیں؟\n\nنوڈ ٹری ڈیبگ کرنا آپ کے آلہ کے لاگز میں آپ کی اسکرین کا مواد دکھاتا ہے، جسے دیگر ایپلیکیشنز کے ذریعے پڑھا جا سکتا ہے۔"</string>
+    <string name="dialog_title_enable_performance_stats" msgid="3016681156366751028">"کارکردگی کی شماریات فعال کریں؟"</string>
+    <string name="dialog_message_enable_performance_stats" msgid="8917304199448928340">"کیا آپ کو یقین ہے کہ آپ کارکردگی کی شماریات کو آن کرنا چاہتے ہیں؟\n\nکارکردگی کی شماریات زیادہ میموری اور پاور استعمال کرتی ہے۔"</string>
+    <string name="label_talkback_context_menu" msgid="6758073806811666684">"‏TalkBack کے عالمی سیاق و سباق کا مینو"</string>
+    <string name="permission_talkback_label" msgid="2235244838320678938">"‏TalkBack کو کنٹرول کریں"</string>
+    <string name="permission_talkback_desc" msgid="8320433482567759963">"‏TalkBack کو اشارے بھیجنے اور بولے گئے تاثرات کو دوبارہ شروع کرنے کی اجازت۔"</string>
+    <string name="permission_labeling_label" msgid="2956001661481169498">"‏TalkBack کے حسب ضرورت لیبلز کا نظم کریں"</string>
+    <string name="permission_labeling_desc" msgid="8065967887484901473">"‏TalkBack کے ذریعے بولے گئے حسب ضرورت لیبلز تک رسائی، ان میں ترمیم اور انہیں حذف کرنے کی اجازت۔"</string>
+    <string name="links" msgid="3448225474115458693">"لنکس"</string>
+    <string name="end_of_text" msgid="3595733062526019550">"اختتام"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"کوئی گزشتہ <xliff:g id="ID_1">%1$s</xliff:g> نہیں"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"کوئی اگلی <xliff:g id="ID_1">%1$s</xliff:g> نہیں"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"سرخی"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"بٹن"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"کومبو باکس"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"‏ARIA نمایاں مقام"</string>
+    <string name="display_name_edit_field" msgid="8239971688356887918">"فیلڈ میں ترمیم کریں"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"قابل فوکس آئٹم"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"سرخی 1"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"سرخی 2"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"سرخی 3"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"سرخی 4"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"سرخی 5"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"سرخی 6"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"لنک"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"کنٹرول"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"گرافک"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"فہرست کا آئٹم"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"فہرست"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"ٹیبل"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"چیک باکس"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"سرخی یا نمایاں مقام"</string>
+    <string name="item_index_template" msgid="71505978833721807">"آئٹم <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"درآمد کردہ لیبلز کو لوٹائیں"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"درآمد کردہ لیبلز لوٹا دیے گئے"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g> اوپر، <xliff:g id="ID_2">%2$s</xliff:g> نیچے"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g> بائیں طرف، <xliff:g id="ID_2">%2$s</xliff:g> دائیں طرف"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g> دائیں طرف، <xliff:g id="ID_2">%2$s</xliff:g> بائیں طرف"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="status_bar" msgid="6000275621941971563">"اسٹیٹس بار"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"نیویگیشن بار"</string>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT">%1$d</xliff:g> ایونٹس منتخب ہو گئے</item>
+      <item quantity="one">1 ایونٹ منتخب ہو گیا</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> شروع ہو گیا"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> ختم ہو گیا"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"تلاش کنٹرول موڈ"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"قدر تبدیل کرنے کیلئے تیر کے بٹنز دبائیں یا ختم کرنے کیلئے \'منتخب کریں\' دبائیں۔"</string>
+    <string name="arc_android_window" msgid="602492367666363458">"ایپلیکیشن ونڈو"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"تیروں کے ساتھ نیویگیٹ کرنے کیلئے تلاش دبائیں"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"شارٹ کٹس کی فہرست دیکھنے کیلئے <xliff:g id="KEYCOMBO">%1$s</xliff:g> دبائیں"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"‏TalkBack کی ترتیبات کھولنے کیلئے <xliff:g id="KEYCOMBO">%1$s</xliff:g> دبائیں"</string>
+    <!-- no translation found for reset_user_language_preference (6441167843388110740) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_settings (3013680598130553128) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_activation (6275710235429570402) -->
+    <skip />
+    <!-- no translation found for title_pref_category_selector_settings_configuration (3095665157222126906) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_speech_rate (731846618625670003) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_verbosity (4608661647007146269) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_granularity (5926698009571092268) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_audio_focus (6180475638252714782) -->
+    <skip />
+    <!-- no translation found for pref_selector_activation_summary (688877660863231861) -->
+    <skip />
+    <!-- no translation found for title_pref_speak_passwords_without_headphones (2032390508469400633) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_passwords_without_headphones (1854966750096734009) -->
+    <skip />
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+  <!-- Defines whether support for speaking text replacements is enabled.  Overridden in some locales -->
+  <bool name="supports_text_replacement">true</bool>
+
+</resources>

@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Accessibility Tutorial"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Launch TalkBack tutorial"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"TalkBack tutorial"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"TalkBack tutorial"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack is a screen reader primarily for people with blindness and low vision. It allows interaction with the device using spoken feedback."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Turn TalkBack Off"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"learn lesson <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"practise lesson <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lesson 1: Basic navigation"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Touch to explore, swipe to explore, double tap to activate"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Swiping, exploring, activating"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Part 1: Explore by touch"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"When enabled, Explore by touch lets you hear what\'s under your finger. Move your finger over the items in the centre of your screen. After you have explored five items, the lesson will continue."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Part 2: Double-tap to activate"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"To activate the last item you heard, double-tap anywhere. Find Item 7 and activate it now. After that, activate Next to continue."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Item 7 activated. Find and activate Next button to continue"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"To activate the last item that you heard, double-tap anywhere. Find Item 4 and activate it now. After that, activate Next to continue."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Item 4 activated. Find and activate Next button to continue"</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Part 3: Navigating lessons"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack lessons are arranged similarly. The top area has the lesson, which you can explore and read at any time. It also has a Tutorial Home button in the top-left corner. The middle has a practice area. The bottom has a progress indicator and lesson navigation buttons. Activate Next now to continue."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Part 4: Swipe to explore"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Part 5: Practice"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"To hear what\'s under your finger, move it across the screen. Double-tap anywhere to activate what you hear. Swipe left or right to explore."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lesson 2: Scrolling"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Two-finger scrolling, jumping forward and backward"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Part 1: Two-finger scrolling"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"To scroll through a vertical list, find a list item, then move two fingers up or down. To scroll through a horizontal list, find a list item, then move two fingers left or right."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Part 2: Scrolling shortcuts"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"You can jump forward or backward in a list using a shortcut. To jump forward, move one finger right then left in a single motion. To jump back, move one finger left then right. Give it a try here."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Part 3: Practice"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Scroll by sliding two fingers up or down. Jump forward by moving one finger right then left. Jump back by moving one finger left then right."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Scrolling forward and backward"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Part 1: Scrolling shortcuts"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"You can scroll forwards or backwards in a list using a shortcut. To scroll forwards, move one finger right then left in a single motion. To scroll back, move one finger left then right. Give it a try here."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Part 2: Practice"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Scroll forward by moving one finger right then left. Scroll back by moving one finger left then right."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lesson 3: TalkBack menus"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Global TalkBack menu, local TalkBack menu"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Part 1: Global TalkBack menu"</string>

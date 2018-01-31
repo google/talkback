@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2006 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <style name="TalkBackSettings" parent="@android:style/Theme.DeviceDefault.Settings" />
+
+  <!-- the theme applied to the dialog for keyboard shortcuts -->
+  <style name="KeyboardShortcutTextDescription" parent="android:style/Theme.DeviceDefault.Dialog"/>
+
+    <style name="DialogStyle" parent="@android:style/Theme.DeviceDefault.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="DimmingInstructionText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">left</item>
+        <item name="android:layout_marginLeft">48dp</item>
+        <item name="android:layout_marginRight">48dp</item>
+    </style>
+
+    <style name="TutorialDescription" parent="MaterialTextBody1">
+        <item name="android:background">@color/tutorial_header_background</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingLeft">@dimen/tutorial_content_horizontal_offset</item>
+        <item name="android:paddingRight">@dimen/tutorial_content_horizontal_offset</item>
+        <item name="android:minHeight">@dimen/tutorial_header_min_height</item>
+    </style>
+
+    <!-- the theme applied to the application or activity -->
+    <style name="TutorialActivityTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:actionBarStyle">@style/TutorialActionBar</item>
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="TutorialActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:background">@color/tutorial_action_bar_background</item>
+        <item name="background">@color/tutorial_action_bar_background</item>
+        <!-- action bar title text -->
+        <item name="android:textColorPrimary">@color/tutorial_action_bar_text</item>
+        <!-- action bar up arrow -->
+        <item name="colorControlNormal">@color/tutorial_action_bar_text</item>
+    </style>
+    <style name="TutorialActionBarText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="MaterialTextTitle">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="MaterialTextSubHeading">
+        <item name="android:textAppearance">?android:attr/textAppearance</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="MaterialTextBody1">
+        <item name="android:textAppearance">?android:attr/textAppearance</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="MaterialTextButton">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+</resources>

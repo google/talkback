@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"آموزش گام به گام دسترس‌پذیری"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"‏راه‌اندازی آموزش گام‌به‌گام TalkBack"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"‏آموزش گام‌به‌گام TalkBack"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"‏آموزش گام‌به‌گام TalkBack"</string>
     <string name="main_description" msgid="4795202818108740382">"‏TalkBack صفحه‌خوانی است که در وهله اول برای افراد نابینا و کم‌بینا در نظر گرفته شده است. این صفحه‌خوان تعامل با دستگاه را از طریق بازخورد گفتاری ممکن می‌سازد."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"‏خاموش کردن TalkBack"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"یادگیری درس <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"تمرین درس <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"درس ۱: پیمایش پایه"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"لمس برای کاوش، تند کشیدن برای کاوش، دو بار ضربه زدن برای فعال کردن"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"تند کشیدن، کاوش، فعال کردن"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"قسمت ۱: کاوش با لمس"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"درصورتی‌که «کاوش با لمس» فعال باشد آنچه را که زیر انگشتتان است می‌توانید بشنوید. انگشتتان را روی موارد در وسط صفحه‌نمایش حرکت دهید. پس از کاوش پنج مورد، درس ادامه می‌یابد."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"قسمت دوم: دو بار ضربه برای فعال کردن"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"برای فعال کردن آخرین موردی که شنیدید، روی قسمتی از صفحه دو بار ضربه بزنید. مورد ۷ را پیدا کنید و هم‌اکنون آن را فعال کنید. بعد از آن، برای ادامه دادن، دکمه «بعدی» را فعال کنید."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"مورد ۷ فعال شد. برای ادامه دادن، دکمه بعدی را پیدا و فعال کنید."</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"برای فعال کردن آخرین موردی که شنیدید، روی قسمتی از صفحه دو بار ضربه بزنید. مورد ۴ را پیدا کنید و هم‌اکنون آن را فعال کنید. بعد از آن، برای ادامه دادن، دکمه «بعدی» را فعال کنید."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"مورد ۴ فعال شد. برای ادامه دادن، دکمه «بعدی» را پیدا و فعال کنید."</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"قسمت ۳: درس‌های پیمایش"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"‏درس‌های TalkBack سازمان‌دهی مشابهی دارند. قسمت بالا حاوی درس است که می‌توانید در هر زمانی آن را کاوش کنید و بخوانید. همچنین در گوشه بالا راست، دکمه «صفحه اصلی آموزش» قرار دارد. وسط صفحه، منطقه تمرین است. نشانگر پیشرفت و دکمه‌های پیمایش درس پایین صفحه هستند. برای ادامه دادن، «بعدی» را فعال کنید."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"قسمت ۴: تند کشیدن انگشت برای کاوش"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"قسمت ۵: تمرین"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"برای شنیدن موردی که زیر انگشتتان شماست، آن را در طول صفحه حرکت کنید. برای فعال کردن آنچه می‌شنوید، روی قسمتی از صفحه دو بار کلیک کنید. برای کاوش، تند به راست یا چپ بکشید."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"درس ۲: پیمایش"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"پیمایش دوانگشتی، رفتن به جلو و عقب"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"قسمت ۱: پیمایش دو انگشتی"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"برای پیمایش در طول فهرست عمودی، مورد فهرستی را پیدا کنید، سپس دو انگشتتان را به بالا یا پایین حرکت دهید. برای پیمایش در طول فهرست افقی، مورد فهرستی را پیدا کنید، سپس دو انگشتتان را به راست یا چپ حرکت دهید."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"قسمت ۲: میان‌برهای پیمایش"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"با استفاده از میان‌بر می‌توانید در فهرست به جلو و عقب بروید. برای جلو رفتن انگشتتان را به چپ و سپس با یک حرکت به راست ببرید. برای عقب رفتن یکی از انگشتانتان را به راست و سپس به چپ ببرید. اینجا تمرین کنید."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"قسمت ۳: تمرین"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"با کشیدن دو انگشت به سمت بالا یا پایین پیمایش کنید. با بردن یک انگشت به چپ و سپس راست به جلو بروید و با بردن یک انگشت به راست و سپس به چپ به عقب بروید."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"پیمایش به جلو و عقب"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"قسمت ۱: میان‌برهای پیمایش"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"با استفاده از میان‌بر می‌توانید در فهرست به جلو و عقب پیمایش کنید. برای پیمایش به جلو، یکی از انگشتانتان را به چپ و سپس با یک حرکت به راست ببرید. برای پیمایش به عقب، انگشتتان را به راست و سپس به چپ ببرید. اینجا تمرین کنید."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"قسمت ۲: تمرین"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"با حرکت دادن یک انگشت به چپ و سپس راست به جلو پیمایش کنید. با حرکت دادن یک انگشت به راست و سپس چپ به عقب حرکت کنید."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"‏درس ۳: منوهای TalkBack"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"‏منوی کلی TalkBack، منوی محلی TalkBack"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"‏قسمت ۱: منوی کلی TalkBack"</string>
