@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"ユーザー補助のチュートリアル"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"TalkBack チュートリアルを起動"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"TalkBack チュートリアル"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"TalkBack チュートリアル"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack は主に視覚障害者を対象としたスクリーンリーダー ツールです。音声フィードバックを使って端末を操作することができます。"</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBack を OFF にする"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"レッスン <xliff:g id="INDEX">%1$d</xliff:g> を開始"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"練習 <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"レッスン 1: 基本的なナビゲーション"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"タップまたはスワイプしてアイテムを探し、ダブルタップして有効にします"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"スワイプし、探し出して、有効にする"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"パート 1: タッチガイド"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"有効にすると、指で触れた項目をタッチガイドの音声で聞くことができます。画面の中央にある複数の項目を指で触れてみてください。5 つの項目の確認が終わると、次のレッスンに進みます。"</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"パート 2: ダブルタップして有効にする"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"最後に聞こえたアイテムを有効にするには、どこでもダブルタップします。今から、アイテム 7 を探して有効にしてください。その後を続けるには、[次へ] を有効にします。"</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"アイテム 7 が有効になりました。続けるには [次へ] ボタンを探して有効にします。"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"最後に聞いた項目を有効にするには、画面をダブルタップしてください。では、項目 4 を探して有効にしてください。有効にしたら、[次へ] を有効にして次に進みましょう。"</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"項目 4 が有効になりました。[次へ] ボタンを探して有効にし、次に進みましょう"</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"パート 3: ナビゲーションのレッスン"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack レッスンは同じように配置されています。上部にレッスンの領域があり、そこを探していつでも読み上げることができます。左上にはチュートリアルの [ホーム] ボタンもあります。中央は練習する領域です。下部には達成状況インジケーターとレッスンのナビゲーション ボタンがあります。続けるには今から [次へ] を有効にしてください。"</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"パート 4: スワイプによる確認"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"パート 5: 練習"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"指で何をさわっているかを聞くには、画面の中で指を動かします。聞こえたものを有効にするには、どこでもダブルタップします。左右にスワイプして探します。"</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"レッスン 2: スクロール"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"2 本の指のスクロールと前または次の項目への移動"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"パート 1: 2 本の指でのスクロール"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"縦に並んだリストをスクロールするには、リストのアイテムを探してから、2 本の指を上下に動かします。横に並んだリストをスクロールするには、リストのアイテムを探してから、2 本の指を左右に動かします。"</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"パート 2: スクロールのショートカット"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"ショートカットを使って、リスト内の前の項目または次の項目に移動できます。次の項目に移動するには、1 本の指で右にスワイプしてから左にスワイプします。前の項目に移動するには、1 本の指で左にスワイプしてから右にスワイプします。試してみましょう。"</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"パート 3: 練習"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"スクロールするには、2 本の指を上下にスライドします。次の項目に進むには、1 本の指で右にスワイプしてから左にスワイプします。前の項目に移動するには、1 本の指で左にスワイプしてから右にスワイプします。"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"前後にスクロール"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"パート 1: スクロールのショートカット"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"ショートカットを使って、リスト内を前後にスクロールできます。前方にスクロールするには、1 本の指で右にスワイプしてから左にスワイプします。後方にスクロールするには、1 本の指で左にスワイプしてから右にスワイプします。試してみましょう。"</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"パート 2: 練習"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"前方にスクロールするには、1 本の指で右にスワイプしてから左にスワイプします。後方にスクロールするには、1 本の指で左にスワイプしてから右にスワイプします。"</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"レッスン 3: TalkBack のメニュー"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"TalkBack グローバル メニューと TalkBack ローカル メニュー"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"パート 1: TalkBack グローバル メニュー"</string>

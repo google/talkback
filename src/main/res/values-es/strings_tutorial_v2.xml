@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Tutorial de accesibilidad"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Iniciar tutorial de TalkBack"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"Tutorial de TalkBack"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"Tutorial de TalkBack"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack es un lector de pantalla destinado principalmente a personas invidentes y con problemas de visión. Permite la interacción con el dispositivo a través de mensajes de voz."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Desactivar TalkBack"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"aprende la lección <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"práctica de la lección <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lección 1: Navegación básica"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Tocar o deslizar el dedo para explorar y tocar dos veces para activar"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Deslizar el dedo, explorar la pantalla y activar elementos"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Parte 1: Exploración táctil"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Cuando se habilita esta opción, la exploración táctil te permite oír información relacionada con el contenido seleccionado. Desplaza el dedo sobre los elementos del centro de la pantalla. Cuando hayas explorado cinco elementos, la lección continuará."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Parte 2: Toca dos veces para activar"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Para activar el último elemento que has escuchado, toca dos veces en cualquier parte de la pantalla. Busca el elemento 7, actívalo y, a continuación, activa el botón Siguiente para continuar."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"El elemento 7 está activado. Activa el botón Siguiente para continuar"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Para activar el último elemento que has escuchado, toca dos veces cualquier parte de la pantalla. Busca el elemento 4 y actívalo. Para continuar, activa el botón Siguiente."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"El elemento 4 está activado. Para continuar, busca el botón Siguiente y actívalo"</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Parte 3: Lecciones de navegación"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Las lecciones de TalkBack se organizan de forma similar. La lección, que puedes explorar y leer en cualquier momento, aparece en la parte superior. También se incluye un botón de inicio del tutorial en la esquina superior izquierda. En la parte central hay una zona de práctica. En la parte inferior aparece un indicador de progreso y los botones de navegación de la lección. Activa el botón Siguiente para continuar."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Parte 4: Desliza el dedo para explorar"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Parte 5: Práctica"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Desplaza el dedo por la pantalla para escuchar información relacionada con el contenido seleccionado. Toca dos veces en cualquier parte de la pantalla para activar la opción que escuchas. Para explorar el contenido, desliza el dedo hacia la izquierda o hacia la derecha."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lección 2: Desplazamiento"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Desplazamiento con dos dedos, desplazamiento hacia delante y hacia atrás"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Parte 1: Desplazamiento con dos dedos"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Para desplazarte por una lista vertical, busca un elemento de la lista y, a continuación, mueve dos dedos hacia arriba o hacia abajo. Para desplazarte por una lista horizontal, busca un elemento de la lista y, a continuación, mueve dos dedos hacia la izquierda o hacia la derecha."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Parte 2: Accesos directos de desplazamientos"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Puedes desplazarte hacia delante o hacia atrás en una lista con un acceso directo. Mueve un dedo hacia la derecha y hacia a la izquierda en un solo movimiento para desplazarte hacia delante. Mueve un dedo hacia la izquierda y hacia la derecha para desplazarte hacia atrás. Haz la prueba aquí."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Parte 3: Práctica"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Desplázate deslizando dos dedos hacia arriba o hacia abajo. Desplázate hacia delante moviendo un dedo hacia la derecha y, a continuación, hacia la izquierda. Desplázate hacia atrás moviendo un dedo hacia la izquierda y, a continuación, hacia la derecha."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Desplazarse hacia delante y hacia atrás"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Parte 1: Movimientos para desplazarse"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Puedes desplazarte hacia delante o hacia atrás en una lista con un gesto o movimiento. Para desplazarte hacia delante, mueve un dedo hacia la derecha y luego hacia la izquierda en un solo movimiento. Para desplazarte hacia atrás, mueve un dedo hacia la izquierda y luego hacia la derecha. Haz la prueba aquí."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Parte 2: Práctica"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Mueve un dedo hacia la derecha y luego hacia la izquierda para desplazarte hacia delante. Mueve un dedo hacia la izquierda y luego hacia la derecha para desplazarte hacia atrás."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lección 3: Menús de TalkBack"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menú global de TalkBack, menú local de TalkBack"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Parte 1: Menú global de TalkBack"</string>

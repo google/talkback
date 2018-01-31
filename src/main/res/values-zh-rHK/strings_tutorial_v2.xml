@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"無障礙教學課程"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"啟動 TalkBack 教學課程"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"TalkBack 教學課程"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"TalkBack 教學課程"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack 是為視障人士而設的螢幕閱讀器，可與備有朗讀功能的裝置互動。"</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"關閉 TalkBack"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"教學課程第 <xliff:g id="INDEX">%1$d</xliff:g> 部分"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"實習課程第 <xliff:g id="INDEX">%1$d</xliff:g> 部分"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"第 1 課：基本導覽"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"輕觸瀏覽、快速滑動瀏覽、輕按兩下啟動"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"快速滑動、探索、啟動"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"第 1 部分：輕觸探索"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"啟用後，即可透過「輕觸探索」聽取手指下的字詞。在位於螢幕中心的項目上移動手指。探索五個項目後，課程便會繼續。"</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"第 2 部分：輕按兩下即可啟動"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"如要啟動您最後聽到的項目，請在任何地方輕按兩下。立即尋找並啟動項目 7。如要在完成後繼續，請啟動「繼續」。"</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"已啟動項目 7。如要繼續，請尋找並啟動「繼續」按鈕。"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"如要啟動您最後聽到的項目，請在任何地方輕按兩下。立即尋找並啟動項目 4。如要在完成後繼續，請啟動「繼續」。"</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"已啟動項目 4。如要繼續，請尋找並啟動「繼續」按鈕"</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"第 3 部分：導覽教學"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack 教學課程的顯示方式大致相同。您可以隨時在螢幕頂部尋找和閱讀教學課程。左上方設有「教學課程主頁」按鈕。實習區位於中央。底部設有進度指標及教學課程導覽按鈕。如要繼續，請啟動「繼續」。"</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"第 4 部分：滑動探索"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"第 5 部分：實習"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"如要聽取手指下的內容，請在螢幕上移動手指。在任何地方輕按兩下即可啟動您聽到的內容。向左或向右快速滑動即可探索內容。"</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"第 2 課：捲動"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"兩指捲動，向前及向後捲動"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"第 1 部分：雙指捲動"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"如要捲動垂直清單，請尋找清單項目，然後向上或向下移動手指。如要捲動橫向清單，請尋找清單項目，然後向左或向右移動手指。"</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"第 2 部分：捲動快速鍵"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"您可以使用快速鍵在清單上向前或向後移動。以單一動作向右再向左移動一隻手指，即可向前移動。向左再向右移動一隻手指，即可向後移動。在此嘗試操作。"</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"第 3 部分：實習"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"向上或向下滑動兩隻手指即可捲動。向右再向左移動一隻手指即可向前捲動。向左再向右移動一隻手指即可向後捲動。"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"向前和向後捲動"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"第 1 部分：捲動快速鍵"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"您可以使用快速鍵在清單上向前或向後捲動。如要向前捲動，請一次過向右再向左移動一隻手指。如要向後捲動，只需向左再向右移動一隻手指便可。在這裡嘗試操作吧。"</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"第 2 部分：練習"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"向右再向左移動一隻手指即可向前捲動，而向左再向右移動一隻手指即可向後捲動。"</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"第 3 課：TalkBack 選單"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"通用 TalkBack 選單、本地 TalkBack 選單"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"第 1 部分：通用 TalkBack 選單"</string>

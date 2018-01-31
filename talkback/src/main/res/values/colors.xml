@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <color name="divider_color">#20ffffff</color>
+    <color name="title_color">#ff33b5e5</color>
+    <color name="accessibility_touch_guard">#66000000</color>
+
+    <!-- For radial menu -->
+    <color name="center_fill">#D333</color>
+    <color name="center_text_fill">#FEEE</color>
+
+    <color name="outer_fill">#D333</color>
+    <color name="text_fill">#FEEE</color>
+
+    <color name="corner_fill">#D333</color>
+    <color name="corner_text_fill">#FEEE</color>
+
+    <color name="gradient_inner">#0000</color>
+    <color name="gradient_outer">#C000</color>
+
+    <color name="selection_fill">#FF40A5DA</color>
+    <color name="selection_text_fill">#FFFF</color>
+    <color name="selection_shadow">#9FFF</color>
+
+    <color name="submenu_overlay">#30F0</color>
+
+    <color name="dot_fill">#8333</color>
+    <color name="dot_stroke">#8FFF</color>
+
+    <color name="text_shadow">#A000</color>
+
+    <color name="light_gray">#DDDDDD</color>
+    <!-- end radial menu -->
+
+    <color name="tutorial_action_bar_background">#263238</color>
+    <color name="tutorial_action_bar_text">#ffffff</color>
+    <color name="tutorial_header_text">#B3FFFFFF</color>
+    <color name="tutorial_header_background">#37474F</color>
+    <color name="tutorial_header_button_background">#FF4DB6AC</color>
+    <color name="tutorial_footer_background">#EEEEEE</color>
+    <color name="tutorial_footer_buttons">#444444</color>
+    <color name="tutorial_main_item_title">@android:color/black</color>
+    <color name="tutorial_main_item_buttons">#FF009688</color>
+    <color name="tutorial_semi_black">#8A000000</color>
+</resources>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/pref_category_manage_gestures_key">
+
+  <!-- Select preset -->
+  <ListPreference
+      android:key="@string/pref_verbosity_preset_key"
+      android:title="@string/pref_verbosity_preset_title"
+      android:summary="%s"
+      android:defaultValue="@string/pref_verbosity_preset_value_default"
+      android:entries="@array/pref_verbosity_preset_entries"
+      android:entryValues="@array/pref_verbosity_preset_values" />
+
+  <!-- Preset settings -->
+  <PreferenceCategory
+      android:key="@string/pref_verbosity_category_preset_settings_key"
+      android:title="@string/pref_verbosity_category_preset_settings_title">
+
+    <!-- Keyboard echo -->
+    <ListPreference
+        android:defaultValue="@string/pref_keyboard_echo_default"
+        android:dialogTitle="@string/title_pref_keyboard_echo"
+        android:entries="@array/pref_keyboard_echo_entries"
+        android:entryValues="@array/pref_keyboard_echo_values"
+        android:key="@string/pref_keyboard_echo_key"
+        android:summary="%s"
+        android:title="@string/title_pref_keyboard_echo" />
+
+    <!-- Hints -->
+    <SwitchPreference
+        android:defaultValue="@bool/pref_a11y_hints_default"
+        android:key="@string/pref_a11y_hints_key"
+        android:summaryOff="@string/summaryOff_pref_a11y_hints"
+        android:summaryOn="@string/summaryOn_pref_a11y_hints"
+        android:title="@string/title_pref_a11y_hints" />
+
+    <!-- Container positions -->
+    <SwitchPreference
+        android:defaultValue="@bool/pref_speak_container_element_positions_default"
+        android:key="@string/pref_speak_container_element_positions_key"
+        android:summaryOff="@string/pref_speak_container_element_positions_summaryOff"
+        android:summaryOn="@string/pref_speak_container_element_positions_summaryOn"
+        android:title="@string/pref_speak_container_element_positions_title" />
+
+    <!-- Role -->
+    <SwitchPreference
+        android:defaultValue="@bool/pref_speak_roles_default"
+        android:key="@string/pref_speak_roles_key"
+        android:summaryOff="@string/pref_speak_roles_summary_off"
+        android:summaryOn="@string/pref_speak_roles_summary_on"
+        android:title="@string/pref_speak_roles_title" />
+
+    <!-- Phonetic spelling -->
+    <SwitchPreference
+        android:defaultValue="@bool/pref_phonetic_letters_default"
+        android:key="@string/pref_phonetic_letters_key"
+        android:summaryOff="@string/summaryOff_pref_phonetic_letters"
+        android:summaryOn="@string/summaryOn_pref_phonetic_letters"
+        android:title="@string/title_pref_phonetic_letters" />
+
+    <!-- Pitch changes -->
+    <SwitchPreference
+        android:defaultValue="@bool/pref_intonation_default"
+        android:key="@string/pref_intonation_key"
+        android:summaryOff="@string/summaryOff_pref_intonation"
+        android:summaryOn="@string/summaryOn_pref_intonation"
+        android:title="@string/title_pref_intonation" />
+
+    <!-- Notifications when screen is off -->
+    <SwitchPreference
+        android:defaultValue="@bool/pref_screenoff_default"
+        android:key="@string/pref_screenoff_key"
+        android:summaryOff="@string/summaryOff_pref_speak_screenoff"
+        android:summaryOn="@string/summaryOn_pref_speak_screenoff"
+        android:title="@string/title_pref_speak_screenoff" />
+
+  </PreferenceCategory>
+
+  <!-- Non-preset detailed settings -->
+  <PreferenceCategory android:title="@string/pref_verbosity_category_misc_settings_title">
+
+    <!-- Description order -->
+    <ListPreference
+        android:defaultValue="@string/pref_node_desc_order_default"
+        android:dialogTitle="@string/pref_node_desc_order_title"
+        android:entries="@array/pref_node_desc_order_entries"
+        android:entryValues="@array/pref_node_desc_order_values"
+        android:key="@string/pref_node_desc_order_key"
+        android:summary="%s"
+        android:title="@string/pref_node_desc_order_title" />
+
+    <SwitchPreference
+        android:defaultValue="@bool/pref_speak_element_ids_default"
+        android:key="@string/pref_speak_element_ids_key"
+        android:summaryOff="@string/summaryOff_pref_speak_element_ids"
+        android:summaryOn="@string/summaryOn_pref_speak_element_ids"
+        android:title="@string/title_pref_speak_element_ids" />
+
+  </PreferenceCategory>
+
+</PreferenceScreen>

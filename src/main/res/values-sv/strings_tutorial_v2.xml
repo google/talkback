@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Tillgänglighetsguide"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Starta guiden för TalkBack"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"TalkBack-guiden"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"TalkBack-guiden"</string>
     <string name="main_description" msgid="4795202818108740382">"Talkback är en skärmläsare som främst är avsedd för personer med helt eller delvis nedsatt syn. Den gör att de kan använda enheten med hjälp av talad feedback."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Stäng av TalkBack"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"lär dig lektion <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"öva på lektion <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lektion 1: Grundläggande navigering"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Utforska genom att trycka, utforska med svep, aktivera genom att trycka snabbt två gånger"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Svepa, utforska, aktivera"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Del 1: Explore by touch"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"När du har aktiverat Explore by touch kan du höra vad som finns under ditt finger. Flytta fingret över objekten på mitten av skärmen. När du har utforskat fem objekt fortsätter lektionen."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Del 2: Aktivera genom att trycka snabbt två gånger"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Om du vill aktivera det sista objektet du hörde trycker du snabbt två gånger var som helst. Hitta objekt 7 och aktivera det nu. Aktivera sedan Nästa för att fortsätta."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Objekt 7 har aktiverats. Hitta och aktivera knappen Nästa när du vill fortsätta"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Om du vill aktivera det sista objektet du hörde trycker du snabbt två gånger någonstans. Aktivera objekt 4 nu och sedan Nästa om du vill fortsätta."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Objekt 4 har aktiverats. Aktivera knappen Nästa om du vill fortsätta."</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Del 3: Navigera mellan lektioner"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Lektionerna om TalkBack är ordnade på liknande sätt. Lektionen finns i den övre delen och därifrån kan du utforska och läsa den när som helst. Dessutom finns en knapp för självstudiens startsida i övre vänstra hörnet. I mitten finns ett övningsområde. Nedtill finns en förloppsindikator och knappar för lektionsnavigering. Aktivera Nästa nu för att fortsätta."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Del 4: Utforska genom att svepa"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Del 5: Övning"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Flytta fingret på skärmen så får du höra vad som finns under det. Aktivera det du hör genom att trycka snabbt två gånger var som helst på skärmen. Utforska genom att svepa åt vänster eller höger."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lektion 2: Rulla"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Rulla med två fingrar, hoppa framåt och bakåt"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Del 1: Rulla med två fingrar"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Bläddra i en lodrät lista genom att utgå från ett objekt i listan och föra två fingrar uppåt eller nedåt. Bläddra i en vågrät lista genom att utgå från ett objekt i listan och föra två fingrar åt vänster eller höger."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Del 2: Kortkommandon för att rulla"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Du kan hoppa bakåt och framåt i en lista med hjälp av ett kortkommando. Om du vill hoppa framåt flyttar du ett finger åt höger och sedan vänster i en enda rörelse. Om du vill hoppa bakåt flyttar du ett finger åt vänster och sedan höger. Testa här."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Del 3: Övning"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Rulla genom att dra med två fingrar uppåt eller nedåt. Hoppa framåt genom att dra ett finger åt höger och sedan åt vänster. Hoppa bakåt genom att dra ett finger åt vänster och sedan åt höger."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Rulla framåt och bakåt"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Del 1: Kortkommandon för att rulla"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Du kan rulla framåt och bakåt i en lista med hjälp av ett kortkommando. Om du vill rulla framåt drar du ett finger åt höger och sedan åt vänster i en enda rörelse. Bakåt rullar du genom att dra ett finger åt vänster och sedan åt höger. Testa här."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Del 2: Övning"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Rulla framåt genom att dra ett finger åt höger och sedan åt vänster. Rulla bakåt genom att dra ett finger åt vänster och sedan åt höger."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lektion 3: TalkBack-menyerna"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Global TalkBack-meny, lokal TalkBack-meny"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Del 1: Global TalkBack-meny"</string>

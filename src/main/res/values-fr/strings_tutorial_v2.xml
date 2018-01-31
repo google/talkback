@@ -2,21 +2,21 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Didacticiel sur l\'accessibilité"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Lancer le didacticiel TalkBack"</string>
-    <string name="tutorial_title" msgid="1602036284900841687">"Didacticiel sur TalkBack"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"Didacticiel TalkBack"</string>
+    <string name="tutorial_title" msgid="1602036284900841687">"Didacticiel TalkBack"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack est un lecteur d\'écran principalement destiné aux utilisateurs non voyants ou malvoyants. Il permet d\'interagir avec l\'appareil à l\'aide de commentaires audio."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Désactiver TalkBack"</string>
     <string name="tutorial_start_lesson" msgid="8656234062338441589">"Premiers pas"</string>
-    <string name="tutorial_practice" msgid="8329925887106371812">"Pratiquer"</string>
+    <string name="tutorial_practice" msgid="8329925887106371812">"Mise en pratique"</string>
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"Apprendre la leçon <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"Exercices de la leçon <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Leçon 1 : navigation de base"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Appuyer pour explorer, balayer l\'écran pour explorer, appuyer deux fois pour activer"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Balayer, se déplacer, activer"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Partie 1 : fonctionnalité \"Explorer au toucher\""</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Lorsque la fonctionnalité \"Explorer au toucher\" est activée, le texte qui se trouve sous votre doigt est énoncé à l\'oral pour que vous puissiez l\'entendre. Déplacez votre doigt sur les éléments situés au centre de votre écran. Explorez cinq éléments pour poursuivre la leçon."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Partie 2 : Appuyer deux fois pour activer"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Pour activer le dernier élément que vous avez entendu, appuyez deux fois sur l\'écran (n\'importe où). À présent, localisez l\'élément 7 et activez-le. Ensuite, activez l\'élément \"Suivant\" pour continuer."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Élément 7 activé. Localisez et activez le bouton \"Suivant\" pour continuer."</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Pour activer le dernier élément que vous avez entendu, appuyez deux fois n\'importe où sur l\'écran. À présent, localisez l\'élément 4 et activez-le. Ensuite, activez l\'élément \"Suivant\" pour continuer."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Élément 4 activé. Localisez et activez le bouton \"Suivant\" pour continuer."</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Partie 3 : leçons de navigation"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Les leçons TalkBack sont organisées de manière similaire. Dans la partie du haut, vous avez la leçon, que vous pouvez explorer et lire à tout moment. Il y a également un bouton \"Accueil du didacticiel\" dans l\'angle supérieur gauche. Au milieu, vous avez la zone dédiée aux exercices. En bas, vous avez un indicateur de progression et les boutons permettant de naviguer dans la leçon. À présent, activez l\'élément \"Suivant\" pour continuer."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Partie 4 : balayer l\'écran pour explorer"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Partie 5 : entraînement"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Pour entendre ce que vous avez sous le doigt, déplacez celui-ci sur l\'écran. Appuyez deux fois sur l\'écran, à n\'importe quel endroit, pour activer l\'élément qui vient d\'être lu. Balayez l\'écran vers la gauche ou vers la droite pour explorer le contenu."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Leçon 2 : défilement"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Défilement à deux doigts : avancer et reculer"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Partie 1 : faire défiler avec deux doigts"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Pour faire défiler une liste verticale, localisez un élément de liste, puis déplacez deux doigts vers le haut ou vers le bas. Pour faire défiler une liste horizontale, procédez de même en déplaçant deux doigts vers la gauche ou vers la droite."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Partie 2 : raccourcis de défilement"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Vous pouvez faire avancer ou reculer une liste à l\'aide d\'un raccourci. Pour la faire avancer, déplacez votre doigt vers la droite, puis vers la gauche dans un même mouvement. Pour la faire reculer, déplacez-le vers la gauche, puis vers la droite. Faites un essai ici."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Partie 3 : entraînement"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Faites défiler en faisant glisser deux doigts vers le haut ou vers le bas. Avancez en déplaçant un doigt vers la droite, puis vers la gauche. Reculez en déplaçant un doigt vers la gauche, puis vers la droite."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Faire défiler vers l\'avant ou vers l\'arrière"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Partie 1 : raccourcis de défilement"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Vous pouvez faire défiler une liste vers l\'avant ou vers l\'arrière à l\'aide d\'un raccourci. Pour faire défiler l\'écran vers l\'avant, déplacez votre doigt vers la droite, puis vers la gauche dans un même mouvement. Pour faire défiler l\'écran vers l\'arrière, déplacez-le vers la gauche, puis vers la droite. Faites un essai ici."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Partie 2 : entraînement"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Faites défiler l\'écran vers l\'avant en déplaçant votre doigt vers la droite, puis vers la gauche. Revenez en arrière en le déplaçant vers la gauche, puis vers la droite."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Leçon 3 : les menus de TalkBack"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menu général de TalkBack, menu local de TalkBack"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Partie 1 : menu général de TalkBack"</string>

@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Посібник із доступності"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Відкрити посібник TalkBack"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"Посібник TalkBack"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"Посібник TalkBack"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack – це програма зчитування з екрана для людей, які не бачать або мають слабкий зір. Вона дає змогу взаємодіяти з пристроєм за допомогою голосових підказок."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Вимкнути TalkBack"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"відкрити урок <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"виконати завдання уроку <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Урок 1. Основна навігація"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Торкайтеся та проводьте пальцем, щоб знаходити елементи, і двічі торкайтеся, щоб активувати їх"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Гортання, пошук, активація"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Частина 1. Дослідження дотиком"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Якщо ввімкнути функцію \"Дослідження дотиком\", ви чутимете назви елементів під пальцем. Водіть пальцем по елементах, розміщених у центрі екрана. Коли знайдете п’ять елементів, урок продовжиться."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Частина 2. Активація подвійним дотиком"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Щоб активувати останній почутий елемент, двічі торкніться будь-де на екрані. Спробуйте зараз знайти елемент 7 і активувати його. Після цього активуйте кнопку \"Далі\", щоб продовжити."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Активовано елемент 7. Щоб продовжити, знайдіть і активуйте кнопку \"Далі\""</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Щоб активувати голосову підказку про останній елемент, двічі торкніться будь-де на екрані. Знайдіть четвертий елемент і активуйте його. Щоб продовжити, активуйте кнопку \"Далі\"."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Четвертий елемент активовано. Щоб продовжити, знайдіть і активуйте кнопку \"Далі\""</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Частина 3. Уроки навігації"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Уроки TalkBack мають однакову структуру. У верхній частині знаходиться урок, який можна будь-коли переглянути. У верхньому лівому куті також розташована кнопка \"Домашня сторінка посібника\". Посередині – область навчання, а внизу – індикатор перебігу та навігаційні кнопки уроку. Щоб продовжити, активуйте кнопку \"Далі\"."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Частина 4. Пошук елементів пальцем"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Частина 5. Практика"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Щоб прослухати назву елемента під пальцем, проведіть ним по екрану. Двічі торкніться будь-де на екрані, щоб активувати почутий елемент. Проводьте пальцем ліворуч або праворуч, щоб знайти інші елементи."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Урок 2. Прокручування"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Прокручування двома пальцями, перехід уперед і назад"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Частина 1. Прокручування двома пальцями"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Щоб прокрутити вертикальний список, знайдіть елемент списку, а потім потягніть двома пальцями вгору або вниз. Щоб прокрутити горизонтальний список, знайдіть елемент списку, а потім потягніть двома пальцями вліво або вправо."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Частина 2. Жести прокручування"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Переходити вперед або назад у списку можна за допомогою спеціальних жестів. Щоб перейти вперед, проведіть пальцем управо, а потім уліво одним рухом. Щоб перейти назад, проведіть пальцем уліво, а потім управо. Спробуйте."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Частина 3. Практика"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Щоб прокрутити сторінку, проведіть двома пальцями вгору або вниз. Щоб перейти вперед, проведіть одним пальцем управо, а потім уліво. Щоб перейти назад, проведіть одним пальцем уліво, а потім управо."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Прокручування вперед і назад"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Частина 1. Жести прокручування"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Ви можете прокручувати список уперед і назад жестами. Щоб прокрутити вперед, проведіть пальцем управо, а потім уліво одним рухом. Щоб прокрутити назад, проведіть пальцем уліво, а потім управо. Спробуйте."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Частина 2. Вправи"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Прокрутіть уперед, провівши пальцем управо, а потім уліво. Прокрутіть назад, провівши пальцем уліво, а потім управо."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Урок 3. Меню TalkBack"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Глобальне меню TalkBack, локальне меню TalkBack"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Частина 1. Глобальне меню TalkBack"</string>

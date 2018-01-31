@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24.0"
+        android:viewportHeight="24.0">
+
+    <path
+        android:pathData="M0 0h24v24H0z" />
+    <path
+        android:pathData="M 6 16 C 7.10456949966 16 8 16.8954305003 8 18 C 8 19.1045694997 7.10456949966 20 6 20 C 4.89543050034 20 4 19.1045694997 4 18 C 4 16.8954305003 4.89543050034 16 6 16 Z" />
+    <path
+        android:pathData="M 12 11.5 C 12.2761423749 11.5 12.5 11.7238576251 12.5 12 C 12.5 12.2761423749 12.2761423749 12.5 12 12.5 C 11.7238576251 12.5 11.5 12.2761423749 11.5 12 C 11.5 11.7238576251 11.7238576251 11.5 12 11.5 Z" />
+    <path
+        android:pathData="M 6 4 C 7.10456949966 4 8 4.89543050034 8 6 C 8 7.10456949966 7.10456949966 8 6 8 C 4.89543050034 8 4 7.10456949966 4 6 C 4 4.89543050034 4.89543050034 4 6 4 Z" />
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M9.64 7.64c.23-.5 .36 -1.05 .36 -1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4
+4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4
+1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64
+7.64zM6 8c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm0 12c-1.1
+0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm6-7.5c-.28 0-.5-.22-.5-.5s.22-.5 .5 -.5
+.5 .22 .5 .5-.22 .5 -.5 .5 zM19 3l-6 6 2 2 7-7V3z" />
+</vector>

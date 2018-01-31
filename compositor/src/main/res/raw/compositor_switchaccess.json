@@ -1,0 +1,148 @@
+{
+  "events": {
+    // Changes to SwitchAccess state.
+    "SpokenFeedbackOn": {
+      "ttsOutput": "@string/spokenfeedback_on",
+      "ttsQueueMode": "uninterruptible",
+      "ttsForceFeedback": true
+    },
+    "SpokenFeedbackSuspended": {
+      "ttsOutput": "@string/spokenfeedback_suspended",
+      "ttsQueueMode": "uninterruptible",
+      "ttsForceFeedback": true
+    },
+    "SpokenFeedbackResumed": {
+      "ttsOutput": "@string/spokenfeedback_resumed",
+      "ttsQueueMode": "uninterruptible",
+      "ttsForceFeedback": true
+    },
+    "SpokenFeedbackDisabled": {
+      "ttsOutput": "@string/spokenfeedback_disabled",
+      "ttsQueueMode": "uninterruptible",
+      "ttsForceFeedback": true
+    }
+  },
+
+  "named_nodes": {
+    "get_hint_from_node": {
+      "if": "$node.isEnabled",
+      "then": {
+        "if": "$node.role == 'pager'",
+        "then": "%hint_rule_pager",
+        "else": "%hint_rule_default"
+      }
+    },
+
+    "hint_rule_pager": {
+      "if": "$node.supportsActionScrollForward || $node.supportsActionScrollBackward",
+      "then": "@string/template_custom_hint_scrollable(@string/value_switch_press)",
+      "else": "@string/template_hint_pager_single_page"
+    },
+
+    "hint_rule_default": {
+      "join": [
+        "%get_hint_for_custom_actions",
+        "%get_hint_for_actions",
+        "%get_hint_for_click",
+        "%get_hint_for_long_click"
+      ]
+    },
+
+    // Utils.
+    "get_hint_for_custom_actions": "conditionalPrependWithSpaceSeparator(@string/template_hint_custom_actions, %get_custom_action_labels)",
+
+    "get_hint_for_actions": {
+      "join": [
+        {
+          "for_each_child": "$node.actions",
+          "evaluate": {
+            "if": "!$action.isClick && !$action.isLongClick && !$action.label && !$action.isCustomAction",
+            "then": "$action.label"
+          }
+        }
+      ]
+    },
+
+    "get_hint_for_long_click": {
+      "fallback": [
+        {
+          "for_reference": "$node.actionLongClick",
+          "evaluate": {
+            "if": "$action.label",
+            "then": {
+              "if": "!$node.isClickable && !$node.isCheckable",
+              "then": "@string/template_custom_hint_for_long_clickable_actions(@string/value_switch_press, $action.label)"
+            }
+          }
+        },
+        {
+          "if": "$node.isLongClickable",
+          "then": {
+            "if": "!$node.isClickable && !$node.isCheckable",
+            "then": "@string/template_hint_long_clickable(@string/value_switch_press)"
+          }
+        }
+      ]
+    },
+
+    "get_hint_for_click": {
+      "fallback": [
+        {
+          "for_reference": "$node.actionClick",
+          "evaluate": {
+            "if": "$action.label",
+            "then": {
+              "if": "$node.isLongClickable && !$global.useAutoSelect",
+              "then": "@string/template_custom_hint_for_multiple_actions(@string/value_switch_press)",
+              "else": "@string/template_custom_hint_for_actions(@string/value_switch_press, $action.label)"
+            }
+          }
+        },
+        {
+          "if": "$node.isScrollable",
+          "then": {
+            "if": "$node.isLongClickable && !$global.useAutoSelect",
+            "then": "@string/template_custom_hint_for_multiple_actions(@string/value_switch_press)",
+            "else": "@string/template_custom_hint_scrollable(@string/value_switch_press)"
+          }
+        },
+        {
+          "if": "$node.isCheckable",
+          "then": {
+            "if": "$node.isLongClickable && !$global.useAutoSelect",
+            "then": "@string/template_custom_hint_for_multiple_actions(@string/value_switch_press)",
+            "else": "@string/template_hint_checkable(@string/value_switch_press)"
+          }
+        },
+        {
+          "if": "$node.isClickable",
+          "then": {
+            "if": "$node.isLongClickable && !$global.useAutoSelect",
+            "then": "@string/template_custom_hint_for_multiple_actions(@string/value_switch_press)",
+            "else": "@string/template_hint_clickable(@string/value_switch_press)"
+          }
+        }
+      ]
+    },
+
+    "get_custom_action_labels": {
+      "join": [
+        {
+          "for_each_child": "$node.actions",
+          "evaluate": {
+            "if": "$action.isCustomAction",
+            "then": "$action.label",
+            "else": {
+              "switch": "$action.id",
+              "cases": {
+                "dismiss": "@string/title_action_dismiss",
+                "expand": "@string/title_action_expand",
+                "collapse": "@string/title_action_collapse"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

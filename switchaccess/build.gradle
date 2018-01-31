@@ -1,0 +1,9 @@
+/* For building open-source release of accessibility services.  */
+
+apply plugin: 'com.android.library'
+apply from: "../shared.gradle"
+
+dependencies {
+    compile project(':compositor')
+    compile project(':accessibility_utils')
+}

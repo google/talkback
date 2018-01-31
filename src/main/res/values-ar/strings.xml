@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="5081383053733275450">"‏عند تشغيل TalkBack، سيوفر جهازك تعليقات منطوقة لمساعدة المستخدمين الذين يعانون من فقد البصر أو ضعفه. على سبيل المثال، يصف لك الجهاز ما تلمسه أو تختاره أو تنشِّطه.\n\nعندما يتم تشغيل TalkBack بدون قصد، يمكنك إيقافه من خلال النقر على المفتاح حتى يحيط به المخطط الأخضر، ثم انقر عليه نقرًا مزدوجًا. ويمكنك تنفيذ الإجراء نفسه مع مربع حوار التأكيد الذي يظهر لك بعد ذلك."</string>
-    <string name="talkback_on" msgid="315529674405160699">"‏تشغيل TalkBack"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"‏تم تعليق TalkBack"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"‏تم استئناف TalkBack"</string>
-    <string name="talkback_disabled" msgid="2536155587482587238">"‏تم إيقاف TalkBack."</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"‏عند تشغيل TalkBack، سيوفر جهازك تعليقات منطوقة لمساعدة المستخدمين الذين يعانون من فقدان البصر أو ضعفه. على سبيل المثال، يصف لك الجهاز ما تلمسه أو تختاره أو تنشِّطه.\n\nعندما يتم تشغيل TalkBack بدون قصد، يمكنك إيقافه من خلال النقر على المفتاح حتى يحيط به المخطط الأخضر، ثم انقر عليه نقرًا مزدوجًا. ويمكنك تنفيذ الإجراء نفسه مع مربع حوار التأكيد الذي يظهر لك بعد ذلك."</string>
+    <string name="talkback_service_summary" msgid="6365572257324337595">"نطق اسم العناصر على الشاشة"</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"‏إعدادات TalkBack"</string>
-    <string name="tts_preferences_title" msgid="6233811187483633874">"إعدادات تحويل النص إلى كلام"</string>
+    <!-- no translation found for tts_preferences_title (8167186112347512303) -->
+    <skip />
+    <!-- no translation found for language_options (8577758471261539974) -->
+    <skip />
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"الإصدار <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
     <string name="label_manager_summary_title" msgid="6786694853113585661">"إدارة التصنيفات المخصصة"</string>
     <string name="label_manager_package_title" msgid="6984665343963494151">"إدارة تصنيفات تطبيق <xliff:g id="APPLICATIONLABEL">%1$s</xliff:g>"</string>
@@ -22,11 +22,6 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"طلب البحث الحالي: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>."</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"لم يتم تحديد أي عنصر."</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"التحديد الحالي: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>."</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"بداية الحقل"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"نهاية الحقل"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"تشغيل وضع التحديد"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"إيقاف وضع التحديد"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"تم محو التحديد"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"مكالمة فائتة"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"تم كتم الصوت"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"دردشة"</string>
@@ -39,102 +34,26 @@
     <string name="notification_type_status_voicemail" msgid="1611063561670902017">"رسالة بريد صوتي"</string>
     <string name="notification_type_status_started" msgid="1071939833188591219">"تم البدء"</string>
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"تم الإيقاف"</string>
-    <string name="template_current_tts_engine" msgid="3963364867159704159">"استخدام <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"قائمة <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_alert_dialog_template" msgid="5493715708649314332">"تنبيه <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"قائمة <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"تم استبدال <xliff:g id="NEW_TEXT">%1$s</xliff:g> بـ <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"تم حذف <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_copied" msgid="1059175355898959427">"تم نسخ <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"تم قطع <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"تم لصق <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"تم تحديد <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"النص المحدد: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
     <string name="template_no_text_selected" msgid="5665980541549462608">"لم يتم تحديد نص"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"تم إلغاء تحديد <xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_error" msgid="153775825635730287">"إدخال غير صالح <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"تم استبدال <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> من الأحرف بعدد <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> من الأحرف"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> للتصنيف <xliff:g id="LABEL">%2$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"تم الضغط طويلاً على <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> في المئة."</string>
     <string name="template_charging" msgid="2038200557537960378">"الشحن <xliff:g id="CHANGING_STATUS">%1$s</xliff:g> مستوى البطارية <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> في المئة."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="zero"><xliff:g id="TYPE_2">%1$s</xliff:g> يعرض <xliff:g id="COUNT_3">%2$d</xliff:g> عنصر.</item>
-      <item quantity="two"><xliff:g id="TYPE_2">%1$s</xliff:g> يعرض عنصرين (<xliff:g id="COUNT_3">%2$d</xliff:g>).</item>
-      <item quantity="few"><xliff:g id="TYPE_2">%1$s</xliff:g> يعرض <xliff:g id="COUNT_3">%2$d</xliff:g> عناصر.</item>
-      <item quantity="many"><xliff:g id="TYPE_2">%1$s</xliff:g> يعرض <xliff:g id="COUNT_3">%2$d</xliff:g> عنصرًا.</item>
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> يعرض <xliff:g id="COUNT_3">%2$d</xliff:g> عنصر.</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> يعرض <xliff:g id="COUNT_1">%2$d</xliff:g> عنصر.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"شبكة"</string>
-    <string name="value_listview" msgid="7625152822709234439">"قائمة"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"شريط علامات التبويب"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"قائمة منسدلة"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"مربّع اختيار"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"زر اختيار"</string>
-    <string name="value_button" msgid="2459787142940409576">"زر"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"شريط تمرير"</string>
-    <string name="value_switch" msgid="6946709666466895221">"مفتاح تحويل"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"مربع تعديل"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"جارٍ التعديل"</string>
-    <string name="value_image" msgid="5114229220871881124">"صورة"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"بدون تصنيف"</string>
-    <string name="value_pager" msgid="7708574424402835461">"عرض متعدد الصفحات"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"صفحة"</string>
+    <string name="template_charging_lite" msgid="7759886088558576716">"الشحن <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>"</string>
+    <!-- no translation found for template_language_options_menu_item (8697997506008405892) -->
+    <skip />
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"عرض العناصر من <xliff:g id="FROM_INDEX">%1$d</xliff:g> إلى <xliff:g id="TO_INDEX">%2$d</xliff:g> من إجمالي <xliff:g id="TOTAL_COUNT">%3$d</xliff:g>."</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"عرض العنصر <xliff:g id="FROM_INDEX">%1$d</xliff:g> من إجمالي <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>."</string>
     <string name="template_viewpager_index_count" msgid="4811442521690748167">"صفحة <xliff:g id="PAGE_INDEX">%1$d</xliff:g> من <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
     <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> من <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"الأحرف <xliff:g id="FROM_INDEX">%1$d</xliff:g> إلى <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"الرمز <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="template_capital_letter" msgid="4920626008395727629">"حرف <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g> كبير"</string>
-    <string name="value_password" msgid="7285572231215250557">"كلمة المرور"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"تم فتح درج التمرير"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"تم فتح مركز الإشعارات"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"الخيارات."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"تم محو النص"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"تم بلوغ الحد الأقصى للطول"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"تم الحذف"</string>
-    <string name="value_selected" msgid="1307429702194660766">"محدد"</string>
-    <string name="value_checked" msgid="3006751014125833966">"تم التحديد"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"لم يتم التحديد"</string>
-    <string name="value_on" msgid="39454338086317219">"تم التشغيل"</string>
-    <string name="value_off" msgid="6700497510945744608">"تم الإيقاف"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"تم التوسيع"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"تم التصغير"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"معطّل"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"النقر المزدوج"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"النقر"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"اضغط على تحديد"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> للتنشيط."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> للتنشيط."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> مع الاستمرار لإجراء ضغط مطول."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> للضغط مع الاستمرار."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> للتبديل."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> للتبديل."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> لإدخال النص."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> لإدخال نص."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> للتغيير."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> للتغيير."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"مرر سريعًا بإصبعين لتبديل الصفحات."</string>
-    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"لا تتوفر صفحات إضافية."</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g> للتغيير."</string>
+    <string name="value_dismissible" msgid="1363491313197032055">"يمكن التجاهل"</string>
     <string name="hint_radial_menu" msgid="2042130200569709650">"المس الشاشة واستكشف إحدى الدوائر للعثور على أحد العناصر، ثم ارفعه لتنشيطه."</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"المس الشاشة واستكشف إحدى الدوائر للتنقل عبر المحتوى المعروض على الشاشة، ثم ارفعه للتركيز عليه."</string>
-    <string name="template_hint_custom_actions" msgid="543401796694872575">"الإجراءات المخصصة:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> لـ <xliff:g id="HINT">%2$s</xliff:g> ."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> من أجل <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> مع الاستمرار لـ <xliff:g id="HINT">%2$s</xliff:g>."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"رنين مع الاهتزاز."</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"رنين صامت."</string>
     <string name="value_screen_on" msgid="4051568127659724519">"الشاشة قيد التشغيل."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"الشاشة متوقفة."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"‏تم تشغيل Caps Lock."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"‏تم تعطيل Caps Lock."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"‏تم تشغيل Num."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"‏تم تعطيل Num."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"‏تم تشغيل Scroll Lock."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"‏تم تعطيل Scroll Lock."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"تم إلغاء قفل الجهاز."</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"الكلام"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"مستوى صوت الكلام"</string>
@@ -145,32 +64,59 @@
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"تؤدي أداة استشعار التقارب إلى كتم صوت الكلام"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"لا تتحكم أداة استشعار التقارب في الكلام"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"نطق الأحرف الصوتية"</string>
-    <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"لن يتم نطق الأحرف الصوتية."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"سيتم نطق الأحرف الصوتية عند الضغط مع الاستمرار على لوحة المفاتيح مع نقل تركيز إمكانية الوصول حرفًا بحرف."</string>
+    <string name="summaryOff_pref_phonetic_letters" msgid="9103268945330003219">"لن يتم نطق الأحرف الصوتية"</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="4376866668529919518">"يتم نطق الأحرف الصوتية عند الضغط مع الاستمرار على المفاتيح في لوحة المفاتيح والتنقل حرفًا بحرف"</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"التحدث بتلميحات الاستخدام"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"لن يتم النطق بتلميحات الاستخدام عند نقل تركيز إمكانية الوصول."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"سيتم نطق تلميحات الاستخدام أثناء التنقل، بعد تأخر بسيط."</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="798877049305553182">"لن يتم نطق تلميحات الاستخدام عند نقل تركيز إمكانية الوصول"</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="3161412108419178134">"يتم نطق تلميحات الاستخدام أثناء التنقل، بعد مهلة قصيرة"</string>
+    <string name="pref_speak_container_element_positions_title" msgid="2835508578760045808">"التحدث بمعلومات القائمة والشبكة"</string>
+    <string name="pref_speak_container_element_positions_summaryOn" msgid="5023625248365109203">"يتم نطق معلومات القائمة والشبكة"</string>
+    <string name="pref_speak_container_element_positions_summaryOff" msgid="4112715962530209920">"لن يتم نطق معلومات القائمة والشبكة"</string>
+    <string name="pref_speak_roles_title" msgid="8119822404299836273">"نطق نوع العنصر"</string>
+    <string name="pref_speak_roles_summary_on" msgid="1601846507096793058">"يتم نطق نوع العنصر عند التركيز عليه"</string>
+    <string name="pref_speak_roles_summary_off" msgid="5420176413415285653">"لا يتم نطق نوع العنصر عند التركيز عليه"</string>
+    <!-- no translation found for title_pref_speak_element_ids (391655908629950456) -->
+    <skip />
+    <!-- no translation found for summaryOff_pref_speak_element_ids (4960956994540579272) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_element_ids (44367075933871550) -->
+    <skip />
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"الاستكشاف باللمس"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"تمرير القوائم تلقائيًا"</string>
-    <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"الاستكشاف باللمس"</string>
+    <!-- no translation found for title_pref_category_touch_exploration (5874968966650551610) -->
+    <skip />
     <string name="title_pref_single_tap" msgid="5333869781230265376">"التنشيط بنقرة واحدة"</string>
-    <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"عرض قائمة السياقات على شكل قائمة"</string>
+    <!-- no translation found for title_pref_show_context_menu_as_list (1317122602474219414) -->
+    <skip />
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"‏تعتيم الشاشة عند تمكين TalkBack"</string>
     <string name="summary_pref_single_tap" msgid="1868206223500105704">"(تجريبي) انقر على العنصر المركّز عليه حاليًا لتنشيطه"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"إحداث اهتزاز لبدء القراءة المستمرة"</string>
-    <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"إدارة الإيماءات"</string>
-    <string name="title_pref_manage_labels" msgid="8796338627297226539">"إدارة التصنيفات المخصصة"</string>
-    <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"إدارة اختصارات لوحة المفاتيح"</string>
+    <string name="pref_verbosity_title" msgid="3719351581071950262">"الإسهاب"</string>
+    <string name="title_pref_category_manage_gestures" msgid="2614141620073133854">"الإيماءات"</string>
+    <string name="title_pref_manage_labels" msgid="4466030803655661973">"التصنيفات المخصصة"</string>
+    <string name="title_pref_manage_keyboard_shortcuts" msgid="8091201905891748923">"اختصارات لوحة المفاتيح"</string>
     <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"تصدير فئات مخصصة"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"‏فتح TalkBack في متجر Play"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"‏إصدار TalkBack الحالي: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
     <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"المساعدة والتعليقات"</string>
+    <string name="pref_item_licenses" msgid="3546535377387155282">"تراخيص البرامج مفتوحة المصدر"</string>
     <string name="title_pref_help" msgid="2022820131100451763">"مساعدة"</string>
-    <string name="title_pref_show_tos" msgid="6167834013879233992">"بنود الخدمة"</string>
-    <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"سياسة الخصوصية"</string>
+    <!-- no translation found for title_pref_show_tos (2813500691748037529) -->
+    <skip />
+    <!-- no translation found for title_pref_show_privacy_policy (8945789024630561518) -->
+    <skip />
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"إيماءات الاختصارات"</string>
+    <string name="title_pref_category_fingerprint_touch_shortcuts" msgid="4338314761170964858">"إيماءات بصمات الإصبع"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"الإيماءات المدمجة"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(تجريبية) النقر على جانب الجهاز"</string>
+    <string name="pref_verbosity_preset_title" msgid="6299916234007004610">"اختيار إعداد مسبق"</string>
+    <string name="pref_verbosity_preset_entry_high" msgid="791984796274765142">"مرتفع"</string>
+    <string name="pref_verbosity_preset_entry_custom" msgid="8261147354044310508">"مخصص"</string>
+    <string name="pref_verbosity_preset_entry_low" msgid="1333334045447549264">"منخفض"</string>
+    <string name="pref_verbosity_category_preset_settings_title" msgid="620716446067964188">"تفاصيل الإسهاب"</string>
+    <!-- no translation found for pref_verbosity_category_misc_settings_title (6121977747903981087) -->
+    <skip />
+    <string name="pref_verbosity_preset_change" msgid="7250611496087013782">"إسهاب <xliff:g id="PRESET_NAME">%1$s</xliff:g> نشط الآن."</string>
     <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"خريطة المفاتيح"</string>
     <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"اختيار خريطة مفاتيح"</string>
     <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"إعادة تعيين خريطة المفاتيح"</string>
@@ -204,7 +150,8 @@
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"التطبيقات الأخيرة"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"الإشعارات"</string>
     <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"‏إيقاف TalkBack مؤقتًا أو استئنافه"</string>
-    <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"إعدادات التنقل"</string>
+    <!-- no translation found for keycombo_menu_category_granularity (8575000248950511679) -->
+    <skip />
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"إعداد التنقل التالي"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"إعداد التنقل السابق"</string>
     <string name="keycombo_menu_category_other" msgid="440132295339458288">"إجراءات أخرى"</string>
@@ -213,6 +160,9 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"البحث في الشاشة عن أحد العناصر"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"عرض قائمة السياقات المحلية"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"عرض قائمة السياقات العامة"</string>
+    <string name="keycombo_menu_other_custom_actions" msgid="4769044790570667515">"إظهار إجراءات"</string>
+    <!-- no translation found for keycombo_menu_other_language_options (6071616089592138709) -->
+    <skip />
     <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"إدارة اختصارات لوحة المفاتيح"</string>
     <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"‏فتح إعدادات TalkBack"</string>
     <string name="keycombo_menu_category_web" msgid="197426246774034347">"إجراءات التنقل في الويب"</string>
@@ -255,31 +205,21 @@
     <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"الانتقال إلى مربع التحرير والسرد التالي"</string>
     <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"الانتقال إلى مربع التحرير والسرد السابق"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"اختصار لوحة المفاتيح هو"</string>
-    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"‏اضغط على مجموعة المفاتيح لتعيين اختصار جديد والتي يجب أن تحتوي على مفتاح ALT أو Control على الأقل."</string>
-    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"اضغط على مجموعة مفاتيح مع مفتاح تعديل <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> لتعيين اختصار جديد."</string>
     <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"‏اضغط على Backspace لمحو الاختصار، أو اضغط على Enter للحفظ أو اضغط على Escape للإلغاء."</string>
     <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"اختصار المسح"</string>
-    <string name="keycombo_unassigned" msgid="5817151372114230015">"غير محدد"</string>
-    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
-    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
-    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
-    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"بحث"</string>
-    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"سهم لليمين"</string>
-    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"سهم لليسار"</string>
-    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"سهم لأعلى"</string>
-    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"سهم لأسفل"</string>
-    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"هل تريد بالتأكيد إعادة تعيين مفاتيح الاختصار لخريطة المفاتيح هذه على قيمها الافتراضية؟ تجدر الإشارة إلى أنه لا يمكن التراجع عن هذا الإجراء."</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"هل تريد فعلًا إعادة تعيين مفاتيح الاختصار لخريطة المفاتيح هذه على قيمها الافتراضية؟ تجدر الإشارة إلى أنه لا يمكن التراجع عن هذا الإجراء."</string>
     <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"إعادة التعيين"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"المفتاح قيد الاستخدام"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"تستخدم مجموعة المفاتيح هذه لإجراء \'<xliff:g id="ID_1">%1$s</xliff:g>\'، فهل تريد مسحه وتعيين هذا الاختصار إلى \'<xliff:g id="ID_2">%2$s</xliff:g>\'؟"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"استخدام تغييرات درجة الصوت"</string>
     <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"صدى لوحة المفاتيح"</string>
+    <string name="pref_node_desc_order_title" msgid="4632210763611067450">"ترتيب وصف العناصر"</string>
     <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"نطق تعليقات لوحة المفاتيح بدرجة صوت منخفضة"</string>
     <string name="summaryOff_pref_intonation" msgid="5187278527518557715">"عدم تغيير درجة الصوت أثناء التحدث"</string>
     <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"تعليقات أخرى"</string>
     <string name="title_pref_vibration" msgid="4156396276749836864">"تعليقات مع الاهتزاز"</string>
     <string name="title_pref_soundback" msgid="3131811048184077738">"تعليقات صوتية"</string>
-    <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"التركيز على صوت الكلام"</string>
+    <string name="title_pref_use_audio_focus" msgid="5227372335896747459">"تجنب التداخل مع أصوات أخرى"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"خفض مستوى الصوت الآخر أثناء التحدث"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"مستوى الصوت"</string>
     <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"‏اختصار تعليق Talkback واستئنافه"</string>
@@ -291,34 +231,14 @@
     <string name="title_pref_log_level" msgid="267415170405921603">"مستوى مخرجات السجل"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"عرض الكلام المنطوق"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"تمكين تصحيح أخطاء شجرة العقد"</string>
-    <string name="title_pref_web_scripts" msgid="3016793641076890473">"تحسين إمكانية الوصول إلى الويب"</string>
-    <string name="summary_pref_web_scripts" msgid="3996491708050765411">"تنزيل النصوص البرمجية لإمكانية الوصول لمحتوى الويب"</string>
+    <string name="summary_pref_tree_debug_tv" msgid="2155606249933775098">"استخدام مفتاح البحث الصوتي لطباعة شجرة العقد بدلاً من البحث"</string>
+    <string name="title_pref_performance_stats" msgid="3701419705373126127">"تمكين إحصائيات الأداء"</string>
     <string name="title_pref_resume_talkback" msgid="4098949311311089235">"استئناف من التعليق"</string>
     <string name="screen_dimmed" msgid="8072279323762069231">"تم تعتيم الشاشة"</string>
     <string name="screen_brightness_restored" msgid="378010604065368658">"تمت استعادة درجة سطوع الشاشة"</string>
-    <string name="screen_dimming_exit_instruction_line1" msgid="176693707001658416">"‏أدت خدمة إمكانية الوصول في TalkBack إلى تعتيم الشاشة."</string>
-    <string name="screen_dimming_exit_instruction_line2" msgid="2111548310775079127">"يمكنك التراجع من خلال الضغط على مفتاحي رفع الصوت وخفض الصوت في آن واحد سريعًا."</string>
-    <string name="screen_dimming_exit_instruction_line3" msgid="7006494712728198438">"‏يمكن التحكم في تعتيم الشاشة من خلال إعدادات TalkBack."</string>
-    <string name="axis_character" msgid="8528412412593489695">"التنقل بحسب الحرف."</string>
-    <string name="axis_word" msgid="8823389407337076750">"التنقل بحسب الكلمة."</string>
-    <string name="axis_sentence" msgid="4398740201672273541">"التنقل بحسب الجملة."</string>
-    <string name="axis_heading" msgid="8829265824683632088">"التنقل بحسب العنوان."</string>
-    <string name="axis_sibling" msgid="3267377527761217139">"التنقل بحسب الصفحة التابعة."</string>
-    <string name="axis_document" msgid="8037283796488966887">"التنقل بحسب المستند."</string>
-    <string name="axis_default_web_view_behavior" msgid="816142869754118685">"التنقل بحسب الإجراء الافتراضي لطريقة عرض الويب."</string>
-    <string name="granularity_default" msgid="4948042687369948597">"افتراضي"</string>
-    <string name="granularity_character" msgid="2036726841460203840">"الأحرف"</string>
-    <string name="granularity_word" msgid="2653776823920279013">"الكلمات"</string>
-    <string name="granularity_line" msgid="727359260064093782">"الأسطر"</string>
-    <string name="granularity_paragraph" msgid="3760401274833105422">"الفقرات"</string>
-    <string name="granularity_page" msgid="2739238666516816581">"الصفحات"</string>
-    <string name="granularity_web_section" msgid="8219174463230029732">"العناوين والمعالم"</string>
-    <string name="granularity_web_list" msgid="4386991044245560102">"القوائم"</string>
-    <string name="granularity_web_link" msgid="7817726975417542626">"الروابط"</string>
-    <string name="granularity_web_control" msgid="1885138772895126953">"عناصر التحكم"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"محتوى خاص"</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"عمودي"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"أفقي"</string>
+    <string name="screen_dimming_exit_instruction_line1" msgid="5487433770461700107">"‏أدت خدمة إمكانية الوصول في TalkBack إلى تعتيم الشاشة"</string>
+    <string name="screen_dimming_exit_instruction_line2" msgid="6697363666089792199">"يمكنك التراجع من خلال الضغط على مفتاحي رفع مستوى الصوت وخفض مستوى الصوت في آنٍ واحد ثلاث مرات سريعًا"</string>
+    <string name="screen_dimming_exit_instruction_line3" msgid="5253511790182167247">"‏يمكن التحكم في تعتيم الشاشة من خلال إعدادات TalkBack"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"غير محدد"</string>
     <string name="shortcut_next" msgid="6887743145853506373">"العنصر التالي"</string>
     <string name="shortcut_previous" msgid="3679790113454394245">"العنصر السابق"</string>
@@ -328,7 +248,10 @@
     <string name="shortcut_home" msgid="6670249804418900175">"زر الشاشة الرئيسية"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"زر نظرة عامة"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"فتح الإشعارات"</string>
-    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"عرض الإجراءات المخصصة"</string>
+    <string name="shortcut_quick_settings" msgid="3692505224100396743">"فتح الإعدادات السريعة"</string>
+    <string name="shortcut_show_custom_actions" msgid="444056949141930750">"إظهار الإجراءات"</string>
+    <!-- no translation found for shortcut_editing (5285767060395122020) -->
+    <skip />
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"فتح قائمة السياق العامة"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"فتح قائمة السياق المحلية"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"تكرار آخر ما نطق به"</string>
@@ -338,14 +261,28 @@
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"القراءة من الجزء العلوي"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"القراءة بدءًا من العنصر التالي"</string>
     <string name="shortcut_print_node_tree" msgid="7570974794642091616">"طباعة شجرة العقد"</string>
+    <string name="shortcut_print_performance_stats" msgid="2111671611434588299">"طباعة إحصائيات الأداء"</string>
     <string name="shortcut_next_granularity" msgid="5058063575500265017">"إعداد التنقل التالي"</string>
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"إعداد التنقل السابق"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"التركيز على العنصر الأول على الشاشة"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"التركيز على العنصر الأخير على الشاشة"</string>
     <string name="shortcut_enable_dimming" msgid="751310793206738883">"تعتيم الشاشة"</string>
     <string name="shortcut_disable_dimming" msgid="8041762180167320322">"إلغاء تعتيم الشاشة"</string>
+    <string name="shortcut_perform_click_action" msgid="9152719059133712820">"إجراء النقر"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"قائمة السياقات المحلية"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"قائمة السياقات العامة"</string>
+    <!-- no translation found for language_menu_title (8648132144725156863) -->
+    <skip />
+    <!-- no translation found for shortcut_show_language_options (3291602397759958945) -->
+    <skip />
+    <!-- no translation found for shortcut_select_next_setting (3708409029026167823) -->
+    <skip />
+    <!-- no translation found for shortcut_select_previous_setting (7335686444537217336) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_next_action (4744337882487301323) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_previous_action (7723485687036313114) -->
+    <skip />
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"ليست هناك عناصر في القائمة."</string>
     <string name="title_web_breakout_next_section" msgid="7355139595269361571">"القسم التالي"</string>
     <string name="title_web_breakout_next_list" msgid="801337905459445939">"القائمة التالية"</string>
@@ -353,7 +290,8 @@
     <string name="title_web_breakout_prev_section" msgid="1738336598629616234">"القسم السابق"</string>
     <string name="title_web_breakout_prev_list" msgid="744039532529277819">"القائمة السابقة"</string>
     <string name="title_web_breakout_prev_control" msgid="2637721101068457234">"عنصر التحكم السابق"</string>
-    <string name="title_edittext_controls" msgid="2102286116390895883">"التحكم في المؤشر"</string>
+    <!-- no translation found for title_edittext_controls (4835723497829630825) -->
+    <skip />
     <string name="title_edittext_breakout_move_to_beginning" msgid="4021304144865258223">"نقل المؤشر إلى البداية"</string>
     <string name="title_edittext_breakout_move_to_end" msgid="3197737555808584828">"نقل المؤشر إلى النهاية"</string>
     <string name="title_edittext_breakout_start_selection_mode" msgid="4183196270306568761">"بدء وضع التحديد"</string>
@@ -363,8 +301,9 @@
     <string name="title_viewpager_breakout_prev_page" msgid="1352284456691236167">"الصفحة السابقة"</string>
     <string name="title_labeling_controls" msgid="5005702316138877183">"التصنيفات"</string>
     <string name="title_summary" msgid="3037924006370977165">"التنقل السريع"</string>
-    <string name="title_granularity" msgid="399801096771904747">"إعدادات التنقل"</string>
-    <string name="title_custom_action" msgid="7908169922901920318">"الإجراءات المخصصة"</string>
+    <!-- no translation found for title_granularity (7464159711994643031) -->
+    <skip />
+    <string name="title_custom_action" msgid="6533095862085546341">"الإجراءات"</string>
     <string name="title_suggestions_controls" msgid="5486233362252604824">"اقتراحات الإكمال التلقائي"</string>
     <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"الانتقال إلى الاقتراحات"</string>
     <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"العودة إلى حقل التعديل"</string>
@@ -404,6 +343,10 @@
     <string name="title_pref_shortcut_right_and_up" msgid="6848971895903777166">"التمرير سريعًا لليسار ثم لأعلى"</string>
     <string name="title_pref_shortcut_left_and_down" msgid="2899217574677150730">"التمرير سريعًا لليمين ثم لأسفل"</string>
     <string name="title_pref_shortcut_left_and_up" msgid="369887751217245542">"التمرير سريعًا لليمين ثم لأعلى"</string>
+    <string name="title_pref_shortcut_fingerprint_up" msgid="4567914579733101315">"مرّر سريعًا لأعلى على مستشعر البصمات"</string>
+    <string name="title_pref_shortcut_fingerprint_down" msgid="7266292981315522410">"مرّر سريعًا لأسفل على مستشعر البصمات"</string>
+    <string name="title_pref_shortcut_fingerprint_left" msgid="5372808080030991944">"مرّر سريعًا لليسار على مستشعر البصمات"</string>
+    <string name="title_pref_shortcut_fingerprint_right" msgid="694175245288621969">"مرّر سريعًا لليمين على مستشعر البصمات"</string>
     <string name="title_pref_shortcut_single_tap" msgid="7220195169492947031">"نقر مرة واحدة على الجانب"</string>
     <string name="title_pref_shortcut_double_tap" msgid="4454853121476703529">"نقر مزدوج على الجانب"</string>
     <string name="title_pref_tap_sensitivity" msgid="3737945934603267137">"حساسية اكتشاف النقر"</string>
@@ -413,9 +356,9 @@
     <string name="tap_sensitivity_lowest" msgid="1137618443590383650">"أدنى قيمة"</string>
     <string name="title_pref_two_part_vertical_gestures" msgid="2306010395434853106">"إيماءات رأسية من جزأين"</string>
     <string name="value_volume_100_percent" formatted="false" msgid="1925212291067338164">"مطابقة مستوى صوت الوسائط"</string>
-    <string name="value_volume_75_percent" formatted="false" msgid="4112643575612833142">"٪۷۵ من مستوى صوت الوسائط"</string>
+    <string name="value_volume_75_percent" formatted="false" msgid="4112643575612833142">"٧٥٪ من مستوى صوت الوسائط"</string>
     <string name="value_volume_50_percent" formatted="false" msgid="571313670701581653">"۵٠٪ من مستوى صوت الوسائط"</string>
-    <string name="value_volume_25_percent" formatted="false" msgid="7765340636472447035">"٪۲۵ من مستوى صوت الوسائط"</string>
+    <string name="value_volume_25_percent" formatted="false" msgid="7765340636472447035">"٢٥٪ من مستوى صوت الوسائط"</string>
     <string name="value_resume_screen_on" msgid="2104101584116309597">"عند تشغيل الشاشة"</string>
     <string name="value_resume_keyguard" msgid="2780570849205482994">"عند عرض شاشة التأمين"</string>
     <string name="value_resume_manual" msgid="615523100721295547">"من الإشعار فقط"</string>
@@ -428,33 +371,36 @@
     <string name="value_keyboard_echo_always" msgid="6889426165608387394">"نطق المفاتيح التي يُضغط عليها دائمًا"</string>
     <string name="value_keyboard_echo_softkeys" msgid="1595001302535254665">"فقط للوحة المفاتيح على الشاشة"</string>
     <string name="value_keyboard_echo_never" msgid="7181327459690946870">"عدم نطق المفاتيح التي يُضغط عليها مطلقًا"</string>
+    <string name="pref_node_desc_order_entry_state_name_role_pos" msgid="6239074777084483039">"الحالة، الاسم، النوع"</string>
+    <string name="pref_node_desc_order_entry_role_name_state_pos" msgid="1747697478748531592">"النوع، الاسم، الحالة"</string>
+    <string name="pref_node_desc_order_entry_name_role_state_pos" msgid="3293391334262415544">"الاسم، النوع، الحالة"</string>
     <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"‏تم تغيير إيماءات TalkBack"</string>
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"انقر لمراجعة التغييرات التي تم إدخالها على إيماءات إمكانية الوصول"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"‏تم تعليق TalkBack"</string>
-    <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"انقر للاستئناف."</string>
+    <string name="notification_message_talkback_suspended" msgid="5900724128049181599">"انقر للاستئناف"</string>
     <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"التقدم تلقائيًا إلى الدرس 1."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"‏هل تريد تعليق TalkBack؟"</string>
-    <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"‏هل أنت متأكد؟ لن يقدم جهازك تعليقات وسيتم تعطيل ميزة \"الاستكشاف باللمس\". ويمكنك استئناف TalkBack من الإشعارات، أو عن طريق الرجوع إلى شاشة التأمين أو من خلال اختصار مفتاح مستوى الصوت."</string>
-    <string name="message_resume_manual" msgid="6522293510722570646">"‏يمكنك استئناف عمل TalkBack من مركز الإشعارات."</string>
-    <string name="message_resume_screen_on" msgid="9016720947126938212">"‏يمكنك استئناف عمل TalkBack من مركز الإشعارات أو عبر تشغيل الشاشة."</string>
-    <string name="message_resume_keyguard" msgid="6721228114050709276">"‏يمكنك استئناف عمل TalkBack من مركز الإشعارات أو عبر العودة إلى شاشة التأمين."</string>
+    <string name="dialog_message_suspend_talkback" msgid="272851623978432035">"‏هل تريد فعلًا تعليق TalkBack؟\n\nأثناء تعليق TalkBack، لن يقدم جهازك تعليقات وسيتم تعطيل ميزة الاستكشاف باللمس."</string>
+    <string name="message_resume_manual" msgid="7356544353534913249">"‏يمكنك استئناف عمل TalkBack من مركز الإشعارات"</string>
+    <string name="message_resume_screen_on" msgid="5200338421759961545">"‏يمكنك استئناف عمل TalkBack من مركز الإشعارات أو عبر تشغيل الشاشة"</string>
+    <string name="message_resume_keyguard" msgid="2142813660069991041">"‏يمكنك استئناف عمل TalkBack من مركز الإشعارات أو عبر العودة إلى شاشة التأمين"</string>
     <string name="show_suspend_warning_label" msgid="3193206799395252518">"عرض هذا التحذير دائمًا"</string>
     <string name="cannot_add_label" msgid="2754406023113433479">"لا يمكن تصنيف هذا العنصر."</string>
     <string name="label_dialog_title_add" msgid="1255044087558866043">"إضافة تصنيف"</string>
     <string name="label_dialog_title_edit" msgid="7914376979667771585">"تعديل التصنيف"</string>
     <string name="label_dialog_title_remove" msgid="1791163736307626930">"إزالة التصنيف"</string>
-    <string name="label_dialog_text" msgid="5879506218245648848">"أدخل النص الذي سيتم استخدامه لهذه الصورة في الحقل أدناه."</string>
-    <string name="label_remove_dialog_text" msgid="372916461303485723">"هل تريد بالتأكيد إزالة التصنيف \"<xliff:g id="LABEL">%1$s</xliff:g>\"؟"</string>
-    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"هل تريد بالتأكيد إزالة التصنيف \"<xliff:g id="LABEL">%1$s</xliff:g>\" ضمن <xliff:g id="APP_NAME">%2$s</xliff:g>؟"</string>
+    <string name="label_dialog_text" msgid="3836616655480004748">"يُرجى إدخال نص تسمية هذا العنصر\nالاسم الداخلي للعنصر المعروض: <xliff:g id="VIEW_RESOURCE_NAME">%1$s</xliff:g>"</string>
+    <string name="label_remove_dialog_text" msgid="372916461303485723">"هل تريد فعلًا إزالة التصنيف \"<xliff:g id="LABEL">%1$s</xliff:g>\"؟"</string>
+    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"هل تريد فعلًا إزالة التصنيف \"<xliff:g id="LABEL">%1$s</xliff:g>\" ضمن <xliff:g id="APP_NAME">%2$s</xliff:g>؟"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"نص التصنيف"</string>
     <string name="label_import" msgid="1773817433300194935">"استيراد الفئات المخصصة"</string>
     <string name="label_import_dialog_title" msgid="5305411653917870790">"‏استيراد فئات مخصصة إلى TalkBack"</string>
-    <string name="label_import_dialog_message" msgid="7975227530187709469">"اختر ما إذا كنت تريد الإلغاء أو تخطي الفئات الحالية في حال وجود تعارض."</string>
-    <string name="label_import_dialog_skip" msgid="2078597180132028657">"تخطٍ"</string>
+    <string name="label_import_dialog_message" msgid="5770997008069363097">"اختر ما إذا كنت تريد الإلغاء أو تخطي التسميات الحالية في حال وجود تعارض"</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"تخطي"</string>
     <string name="label_import_dialog_override" msgid="4387408051194229513">"إلغاء"</string>
     <string name="label_export_empty" msgid="7663052451851715440">"لا يتوفر شيء للتصدير. لم تتم إضافة أي فئة"</string>
-    <string name="label_export_failed" msgid="4500274103149146929">"أخفق تصدير الفئات"</string>
-    <string name="label_import_failed" msgid="1321882372299892757">"أخفق استيراد الفئة"</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"تعذّر تصدير الفئات"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"تعذّر استيراد الفئة"</string>
     <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
       <item quantity="zero">ليست هناك تصنيفات جديدة</item>
       <item quantity="two">‏تم تحديث تصنيفين (%d)</item>
@@ -463,23 +409,27 @@
       <item quantity="other">‏تم تحديث %d تصنيف</item>
       <item quantity="one">تم تحديث تصنيف واحد</item>
     </plurals>
+    <string name="no_apps_to_import_labels" msgid="8158403357422110115">"لم يتم العثور على أي تطبيقات لاستيراد التسميات"</string>
+    <string name="no_apps_to_export_labels" msgid="7671924783169788614">"لم يتم العثور على أي تطبيقات لتصدير التصنيفات."</string>
+    <string name="label_choose_app_to_import" msgid="3992931531372131216">"اختر تطبيقًا لاستيراد التصنيفات:"</string>
     <string name="label_choose_app_to_export" msgid="3288834802071890267">"اختيار تطبيق لتصدير التصنيفات:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"‏يتضمن هذا الإصدار من TalkBack تغييرات في الإيماءات الافتراضية لإمكانية الوصول. يمكن تخصيص الإجراءات المقترنة بهذه الإيماءات ضمن إعدادات TalkBack. عندما يتم تمكين \"الاستكشاف باللمس\"، يمكنك استخدام الإيماءات التالية لتنفيذ إجراءات معينة.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"الضغط طويلاً على مفتاحي رفع وخفض الصوت"</string>
     <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"يمكنك الضغط على مفتاحي مستوى الصوت ثلاث مرات سريعًا لتمكين تعتيم الشاشة أو تعطيله"</string>
     <string name="dialog_title_dim_screen" msgid="603850602120147151">"هل تريد تعتيم الشاشة؟"</string>
-    <string name="dialog_message_dim_screen" msgid="7595558180210850775">"هل تريد بالتأكيد تعتيم الشاشة؟"</string>
+    <string name="dialog_message_dim_screen" msgid="7595558180210850775">"هل تريد فعلًا تعتيم الشاشة؟"</string>
     <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"‏هذا الإصدار من TalkBack يتضمن تغييرات في الإيماءات الافتراضية لإمكانية الوصول.\n\nالإيماءة إلى أعلى ثم إلى أسفل تتيح لك الانتقال إلى العنصر الأول على الشاشة، أما الإيماءة إلى أسفل ثم إلى أعلى فتتيح الانتقال إلى العنصر الأخير.\n\nيمكن الآن تغيير دقة القراءة عبر التركيز على العنصر، ثم تحديد الدقة من قائمة السياق المحلية.\n\nيمكنك تغيير الإجراءات التي يتم تنفيذها من خلال هذه الإيماءات في إعدادات TalkBack."</string>
     <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"‏يتضمن هذا الإصدار من TalkBack تغييرات في الإيماءات الافتراضية لإمكانية الوصول.\n\nالآن يمكن الإيماء لأعلى للانتقال إلى إعداد التنقل السابق، والإيماء لأسفل للانتقال إلى إعداد التنقل التالي."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"قبول الإيماءات"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"تخصيص الإيماءات"</string>
-    <string name="button_clear_all_events" msgid="2128349101908653825">"محو الكل"</string>
-    <string name="button_check_all_events" msgid="301383322727007726">"تحديد الكل"</string>
+    <string name="button_disable_all_events" msgid="4917625658777138398">"تعطيل الكل"</string>
+    <string name="button_enable_all_events" msgid="6164815656232769872">"تمكين الكل"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"هل تريد تعطيل ميزة الاستكشاف باللمس؟"</string>
-    <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"هل تريد بالتأكيد إيقاف ميزة الاستكشاف باللمس؟\n\nلن يستجيب الجهاز لإيماءات الاختصارات أو لن ينطق أسماء العناصر عند لمس الشاشة بعد الآن."</string>
+    <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"هل تريد فعلًا إيقاف ميزة الاستكشاف باللمس؟\n\nلن يستجيب الجهاز لإيماءات الاختصارات أو لن ينطق أسماء العناصر عند لمس الشاشة بعد الآن."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"هل تريد تمكين تصحيح أخطاء شجرة العقد؟"</string>
-    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"هل تريد بالتأكيد تشغيل تصحيح أخطاء شجرة العقد؟\n\nيؤدي تصحيح أخطاء شجرة العقد إلى كشف محتوى شاشتك لسجلات الجهاز، التي يمكن أن تقرأها التطبيقات الأخرى."</string>
-    <string name="hint_script_injection" msgid="6139951755594105602">"ميزة الاستكشاف باللمس ليس متوفرة في محتوى الويب. شغّل <xliff:g id="PREFERENCE_NAME">%1$s</xliff:g> في إعدادات \"إمكانية الوصول\" لاستكشاف محتوى الويب."</string>
+    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"هل تريد فعلًا تشغيل تصحيح أخطاء شجرة العقد؟\n\nيؤدي تصحيح أخطاء شجرة العقد إلى كشف محتوى شاشتك لسجلات الجهاز، التي يمكن أن تقرأها التطبيقات الأخرى."</string>
+    <string name="dialog_title_enable_performance_stats" msgid="3016681156366751028">"هل تريد تمكين إحصائيات الأداء؟"</string>
+    <string name="dialog_message_enable_performance_stats" msgid="8917304199448928340">"هل تريد فعلًا تشغيل إحصائيات الأداء؟\n\nقد تستهلك هذه الإحصائيات مزيدًا من سعة الذاكرة والطاقة."</string>
     <string name="label_talkback_context_menu" msgid="6758073806811666684">"‏قائمة سياق TalkBack العامة"</string>
     <string name="permission_talkback_label" msgid="2235244838320678938">"‏التحكم في TalkBack"</string>
     <string name="permission_talkback_desc" msgid="8320433482567759963">"‏إذن لإرسال إيماءات إلى TalkBack واستئناف التعليقات المنطوقة."</string>
@@ -493,7 +443,7 @@
     <string name="display_name_button" msgid="6801468093111637502">"زر"</string>
     <string name="display_name_combobox" msgid="3627879841881471141">"مربع تحرير وسرد"</string>
     <string name="display_name_aria_landmark" msgid="6117331350509062908">"‏مَعلم ARIA"</string>
-    <string name="display_name_edit_field" msgid="5014778180731737501">"حقل تعديل"</string>
+    <string name="display_name_edit_field" msgid="8239971688356887918">"حقل التعديل"</string>
     <string name="display_name_focusable_item" msgid="1687969602866460765">"عنصر قابل للتركيز"</string>
     <string name="display_name_heading_1" msgid="30730842343032834">"عنوان 1"</string>
     <string name="display_name_heading_2" msgid="754950733934619571">"عنوان 2"</string>
@@ -509,12 +459,6 @@
     <string name="display_name_table" msgid="1369599790038567007">"جدول"</string>
     <string name="display_name_checkbox" msgid="2060147158898197667">"مربع اختيار"</string>
     <string name="display_name_section" msgid="4568845228422422699">"عنوان أو مَعلم"</string>
-    <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"الصف <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"العمود <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"عنوان"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"عنوان الصف"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"عنوان العمود"</string>
     <string name="item_index_template" msgid="71505978833721807">"العنصر <xliff:g id="ITEM">%1$d</xliff:g>"</string>
     <string name="revert_imported_labels" msgid="5508730389432571776">"الرجوع في الفئات المستوردة"</string>
     <string name="imported_labels_reverted" msgid="6117098234531459917">"تم الرجوع في الفئات المستوردة"</string>
@@ -525,44 +469,8 @@
     <skip />
     <!-- no translation found for template_window_switch_system (1902661569833377496) -->
     <skip />
-    <string name="untitled_window" msgid="7017590766394623328">"بلا عنوان"</string>
     <string name="status_bar" msgid="6000275621941971563">"شريط الحالة"</string>
     <string name="navigation_bar" msgid="4602958479941673535">"شريط التنقل"</string>
-    <string name="template_collection_start" msgid="4362535543397747567">"في <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
-    <string name="template_collection_end" msgid="2167296836815021551">"من <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"المستوى <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="zero"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> عنصر</item>
-      <item quantity="two">عنصران (<xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g>)</item>
-      <item quantity="few"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> عناصر</item>
-      <item quantity="many"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> عنصرًا</item>
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> عنصر</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> عنصر</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="zero"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> صف</item>
-      <item quantity="two">صفان (<xliff:g id="ROW_COUNT_1">%1$d</xliff:g>)</item>
-      <item quantity="few"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> صفوف</item>
-      <item quantity="many"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> صفًا</item>
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> صف</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> صف</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="zero"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> عمود</item>
-      <item quantity="two">عمودان (<xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g>)</item>
-      <item quantity="few"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> أعمدة</item>
-      <item quantity="many"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> عمودًا</item>
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> عمود</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> عمود</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="zero"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> characters</item>
-      <item quantity="two">حرفان (<xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g>)</item>
-      <item quantity="few"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> أحرف</item>
-      <item quantity="many"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> حرفًا</item>
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> حرف</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> حرف واحد</item>
-    </plurals>
     <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
       <item quantity="zero">تم تحديد <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> حدث</item>
       <item quantity="two">تم تحديد حدثين (<xliff:g id="TOTAL_COUNT">%1$d</xliff:g>)</item>
@@ -575,9 +483,30 @@
     <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"تم انتهاء <xliff:g id="REMOTE_MODE">%1$s</xliff:g>"</string>
     <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"وضع شريط التحكم"</string>
     <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"اضغط أزار الأسهم لتغيير القيمة أو اضغط على تحديد للإنهاء."</string>
-    <string name="arc_android_window" msgid="697316167642517245">"‏نافذة Android"</string>
+    <string name="arc_android_window" msgid="602492367666363458">"نافذة التطبيق"</string>
     <string name="arc_navigation_hint" msgid="3272314052097101117">"اضغط على البحث باستخدام الأسهم للتنقل"</string>
     <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> للاطلاع على قائمة بالاختصارات"</string>
     <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"‏اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> لفتح إعدادات TalkBack"</string>
-    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"للحصول على أفضل النتائج عند استخدام التعليقات التي تصدر باللمس وكذلك استخدام التعليقات والملاحظات المنطوقة، عليك تكبير نافذة التطبيق"</string>
+    <!-- no translation found for reset_user_language_preference (6441167843388110740) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_settings (3013680598130553128) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_activation (6275710235429570402) -->
+    <skip />
+    <!-- no translation found for title_pref_category_selector_settings_configuration (3095665157222126906) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_speech_rate (731846618625670003) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_verbosity (4608661647007146269) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_granularity (5926698009571092268) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_audio_focus (6180475638252714782) -->
+    <skip />
+    <!-- no translation found for pref_selector_activation_summary (688877660863231861) -->
+    <skip />
+    <!-- no translation found for title_pref_speak_passwords_without_headphones (2032390508469400633) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_passwords_without_headphones (1854966750096734009) -->
+    <skip />
 </resources>
