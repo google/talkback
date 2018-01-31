@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Esteettömyyden opastus"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Käynnistä TalkBack-opastus"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"TalkBack-ohje"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"TalkBack-opastus"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack on näytönlukuohjelma ensisijaisesti sokeille ja näkörajoitteisille käyttäjille. Se mahdollistaa laitteen käyttämisen äänipalautteen avulla."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Poista TalkBack käytöstä"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"tee harjoitus <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"harjoitus <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Oppitunti 1: Perussiirtyminen"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Tutki koskettamalla, tutki pyyhkäisemällä, aktivoi kaksoisnapauttamalla"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Pyyhkäiseminen, tutkiminen ja aktivoiminen"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Osa 1: Kosketuksella tutkiminen"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Kun kosketuksella tutkiminen on käytössä, kuulet mitä sormesi koskettaa. Siirrä sormeasi näytön keskellä olevien kohteiden päälle. Kun olet tutkinut viittä kohdetta, oppitunti jatkuu."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Osa 2: aktivoi kaksoisnapautuksella"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Aktivoi viimeksi mainittu kohde kaksoisnapauttamalla näyttöä. Etsi kohde 7 ja aktivoi se nyt. Jatka sitten aktivoimalla Seuraava."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Kohde 7 aktivoitiin. Jatka etsimällä ja aktivoimalla Seuraava-painike."</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Aktivoi viimeksi mainittu kohde kaksoisnapauttamalla näyttöä. Etsi kohde 4 ja aktivoi se nyt. Jatka sitten aktivoimalla Seuraava."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Kohde 4 aktivoitiin. Jatka etsimällä ja aktivoimalla Seuraava-painike."</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Osa 3: Siirtymisoppitunnit"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBackin harjoitukset on aseteltu samaan tapaan. Näytön yläosassa on harjoitustehtävä, jota voit tutkia ja lukea milloin tahansa. Lisäksi vasemmassa yläkulmassa on Aloitusohjeen etusivu ‑painike. Keskellä näyttöä on harjoittelualue. Näytön alaosassa ovat etenemisen tilaosoitin ja harjoituksen siirtymispainikkeet. Jatka nyt aktivoimalla Seuraava."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Osa 4: Pyyhkäisemällä tutkiminen"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Osa 5: Harjoitus"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Liikuta sormeasi näytön poikki, jos haluat kuulla tietoja koskettamastasi kohteesta. Aktivoi kohde kaksoisnapauttamalla näyttöä. Tutki pyyhkäisemällä vasemmalle tai oikealle."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Oppitunti 2: Vierittäminen"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Kahdella sormella vierittäminen, eteen- ja taaksepäin siirtyminen"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Osa 1: Kahdella sormella vierittäminen"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Voit selata pystysuuntaista luetteloa etsimällä luettelokohteen ja liikuttamalla sitten kahta sormea näytöllä ylös tai alas. Voit selata vaakasuuntaista luetteloa etsimällä luettelokohteen ja liikuttamalla kahta sormea vasemmalle tai oikealle."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Osa 2: Vierittämisen pikaeleet"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Voit siirtyä eteen- tai taaksepäin luettelossa pikaeleellä. Voit siirtyä eteenpäin liikuttamalla yhtä sormea oikealle ja sitten vasemmalle yhdellä liikkeellä. Taaksepäin siirtyminen onnistuu liikuttamalla yhtä sormea vasemmalle ja sitten oikealle. Kokeile sitä täällä."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Osa 3: Harjoitus"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Vieritä näyttöä liu\'uttamalla kahta sormea ylös tai alas. Siirry eteenpäin liikuttamalla yhtä sormea oikealle ja sitten vasemmalle. Siirry taaksepäin liikuttamalla yhtä sormea vasemmalle ja sitten oikealle."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Vierittäminen eteen- ja taaksepäin"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Osa 1: Vierittämisen pikaeleet"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Voit vierittää eteen- tai taaksepäin luettelossa pikaeleellä. Vieritä eteenpäin liikuttamalla yhtä sormea oikealle ja sitten vasemmalle samalla liikkeellä. Taaksepäin vierittäminen tapahtuu liikuttamalla yhtä sormea vasemmalle ja sitten oikealle. Kokeile sitä tässä."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Osa 2: Harjoitus"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Vieritä eteenpäin liikuttamalla yhtä sormea oikealle ja sitten vasemmalle. Vieritä taaksepäin liikuttamalla yhtä sormea vasemmalle ja sitten oikealle."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Oppitunti 3: TalkBack-valikot"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Yleinen TalkBack-valikko, paikallinen TalkBack-valikko"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Osa 1: Yleinen TalkBack-valikko"</string>

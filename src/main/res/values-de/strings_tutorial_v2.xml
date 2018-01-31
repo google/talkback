@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Anleitung zu Bedienungshilfen"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Talkback-Anleitung starten"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"TalkBack-Anleitung"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"Talkback-Anleitung"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack ist ein Screenreader, der in erster Linie für Blinde und Menschen mit eingeschränktem Sehvermögen bestimmt ist. Die Interaktion mit dem Gerät erfolgt über gesprochenes Feedback."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBack deaktivieren"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"Übungsbeschreibung <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"praktische Übung <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lektion 1: Grundlagen der Steuerung"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Zum Erkunden berühren und wischen, zum Auswählen doppeltippen"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Wischen, erkunden, aktivieren"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Teil 1: Tippen &amp; Entdecken"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Wenn die Funktion \"Tippen &amp; Entdecken\" aktiviert ist, kannst du hören, was sich unter deinem Finger befindet. Bewege den Finger über die Elemente in der Mitte des Bildschirms. Sobald du fünf Elemente erkundet hast, wird die Lektion fortgesetzt."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Teil 2: Zum Auswählen doppeltippen"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Doppeltippe an einer beliebigen Stelle, um das letzte gehörte Element auszuwählen. Gehe zu Element 7 und wähle es aus. Wähle danach zum Fortfahren \"Weiter\" aus."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Element 7 ausgewählt. Gehe zum Fortfahren zur Schaltfläche \"Weiter\" und wähle sie aus."</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Du kannst an einer beliebigen Stelle doppeltippen, um das letzte gehörte Element auszuwählen. Gehe zu Element 4 und wähle es aus. Wähle danach zum Fortfahren \"Weiter\"."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Element 4 ist aktiviert. Wähle die Schaltfläche \"Weiter\", um fortzufahren"</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Teil 3: Lektionen durchgehen"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack-Übungen sind alle gleich strukturiert. Oben steht die Übungsbeschreibung, die du jederzeit lesen kannst. Oben links in der Ecke befindet sich eine Schaltfläche zur Startseite der Anleitung. In der Mitte findest du den praktischen Übungsbereich. Unten befinden sich eine Fortschrittsanzeige und die Navigationsschaltflächen für die Übung. Wähle jetzt \"Weiter\" aus, um fortzufahren."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Teil 4: Zum Erkunden wischen"</string>
@@ -24,16 +24,14 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Teil 5: Übung"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Bewege deinen Finger über den Bildschirm, um zu hören, was sich darunter befindet. Doppeltippe an einer beliebigen Stelle, um das zuletzt gehörte Element auszuwählen. Wische zum Erkunden nach links oder rechts."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lektion 2: Scrollen"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Scrollen mit zwei Fingern, Vorwärtsspringen und Rückwärtsspringen"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Teil 1: Scrollen mit zwei Fingern"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Um durch eine vertikale Liste zu scrollen, gehe zu einem Listeneintrag und bewege dann zwei Finger nach oben bzw. unten. Um durch eine horizontale Liste zu scrollen, gehe zu einem Listeneintrag und bewege dann zwei Finger nach links bzw. rechts."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Teil 2: Bewegungen zum Scrollen"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Du kannst in Listen mithilfe von Bewegungen vor- oder zurückspringen. Um vorwärts zu springen, mach mit dem Finger eine durchgehende Bewegung nach rechts und dann nach links. Um zurückzuspringen, bewege den Finger nach links und dann nach rechts. Probier es gleich hier aus."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Part 3: Üben"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Bewege zum Scrollen zwei Finger nach oben oder unten. Um vorwärts zu springen, bewege einen Finger nach rechts und dann nach links. Um zurückzuspringen, bewege einen Finger nach links und dann nach rechts."</string>
-    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lektion 3: Talkback-Menüs"</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Vorwärts und rückwärts scrollen"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Teil 1: Bewegungen zum Scrollen"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Du kannst in Listen mithilfe von Bewegungen vor- oder zurückscrollen. Um vorwärts zu scrollen, mach mit dem Finger eine durchgehende Bewegung nach rechts und dann nach links. Um zurückzuscrollen, bewege den Finger nach links und dann nach rechts. Probier es gleich hier aus."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Teil 2: Üben"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Scrolle vorwärts, indem du einen Finger nach rechts und dann nach links bewegst. Um zurückzuscrollen, bewege einen Finger nach links und dann nach rechts."</string>
+    <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lektion 3: TalkBack-Menüs"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Globales Talkback-Menü, lokales Talkback-Menü"</string>
-    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Teil 1: Globales Talkback-Menü"</string>
+    <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Teil 1: Globales TalkBack-Menü"</string>
     <string name="tutorial_lesson_3_page1_description" msgid="6970763850543511675">"In TalkBack gibt es zwei verschiedene Menüs. Das erste, das globale TalkBack-Menü, enthält immer dieselben Befehle. Du kannst es aktivieren, indem du mit einem Finger eine durchgehende Bewegung nach unten und dann nach rechts machst und danach den Finger anhebst. Aktiviere jetzt eine Übungsversion."</string>
     <string name="tutorial_lesson_3_message" msgid="7029517714331489043">"Die Menüoptionen sind vertikal in der Mitte des Bildschirms aufgelistet. Probier es aus. Wenn du fertig bist, wähle \"Abbrechen\" aus."</string>
     <string name="tutorial_lesson_3_page2_subtitle" msgid="3248006863733497778">"Teil 2: Lokales Talkback-Menü"</string>
@@ -42,7 +40,7 @@
     <string name="tutorial_lesson_3_practice_description" msgid="9053899021556392823">"Bewege den Finger nach unten und dann nach rechts, um das globale TalkBack-Menü zu aktivieren. Bewege zum Aktivieren des lokalen TalkBack-Menüs den Finger nach oben und dann nach rechts."</string>
     <string name="tutorial_lesson_3_down_right" msgid="2871203321195090324">"Nach unten und dann nach rechts"</string>
     <string name="tutorial_lesson_3_up_right" msgid="1257290751747215466">"Nach oben und dann nach rechts"</string>
-    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Globales Talkback-Menü: Nach unten und dann rechts. Lokales Talkback-Menü: Nach oben und dann nach rechts"</string>
+    <string name="tutorial_lesson_3_practice_content_description" msgid="4687022774852406126">"Globales TalkBack-Menü: Nach unten und dann rechts. Lokales TalkBack-Menü: Nach oben und dann nach rechts"</string>
     <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Lektion 4: Textnavigation"</string>
     <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Einstellungen für Textnavigation auswählen"</string>
     <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Teil 1: Navigationseinstellungen auswählen"</string>

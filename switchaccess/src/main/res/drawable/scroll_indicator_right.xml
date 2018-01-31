@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/background"
+        android:height="@dimen/scroll_indicator_size_wide"
+        android:width="@dimen/scroll_indicator_size_narrow"
+        android:gravity="right|center_vertical" >
+        <shape android:shape="rectangle" >
+            <corners
+                android:bottomLeftRadius="@dimen/scroll_indicator_corner_radius"
+                android:topLeftRadius="@dimen/scroll_indicator_corner_radius"/>
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/quantum_ic_keyboard_arrow_right_white_24"
+        android:gravity="right|center_vertical"
+        android:width="@dimen/scroll_indicator_icon_size"
+        android:height="@dimen/scroll_indicator_icon_size" />
+</layer-list>

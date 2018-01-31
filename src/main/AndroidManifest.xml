@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.android.talkback"
+    package="com.google.android.accessibility.talkback"
     android:installLocation="internalOnly"
     android:sharedUserId="com.google.android.marvin.feedback"
-    android:versionCode="50007000">
+    android:versionCode="50200001">
 
     <!-- Permission used to restrict sending gestures and resuming feedback. -->
     <permission
@@ -72,13 +72,6 @@
             </intent-filter>
         </receiver>
 
-        <activity
-                android:name="com.android.utils.TestActivity"
-                android:exported="false"
-                android:label="TestActivity"
-                android:launchMode="singleTop" >
-        </activity>
-
         <!-- TalkBack -->
         <service
             android:name="com.google.android.marvin.talkback.TalkBackService"
@@ -101,11 +94,11 @@
 
         <!-- TalkBack Preferences -->
         <activity
-            android:name=".TalkBackPreferencesActivity"
+            android:name="com.android.talkback.TalkBackPreferencesActivity"
             android:exported="true"
             android:label="@string/talkback_preferences_title"
             android:launchMode="singleTop"
-            android:taskAffinity="com.android.talkback.SettingsAffinity"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
             android:theme="@style/TalkBackSettings"
             tools:ignore="ExportedActivity" >
             <intent-filter>
@@ -121,7 +114,7 @@
             android:exported="true"
             android:label="@string/talkback_preferences_title"
             android:launchMode="singleTop"
-            android:taskAffinity="com.android.talkback.SettingsAffinity"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
             android:theme="@style/TalkBackSettings"
             tools:ignore="ExportedActivity" >
             <intent-filter>
@@ -135,7 +128,7 @@
             android:exported="true"
             android:label="@string/talkback_preferences_title"
             android:launchMode="singleTop"
-            android:taskAffinity="com.android.talkback.SettingsAffinity"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
             android:theme="@style/TalkBackSettings"
             tools:ignore="ExportedActivity" >
             <intent-filter>
@@ -149,7 +142,7 @@
             android:exported="false"
             android:label="@string/talkback_preferences_title"
             android:launchMode="singleTop"
-            android:taskAffinity="com.android.talkback.SettingsAffinity"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
             android:theme="@style/TalkBackSettings">
         </activity>
 
@@ -169,8 +162,7 @@
             android:excludeFromRecents="true"
             android:theme="@style/DialogStyle"
             android:launchMode="singleInstance"
-            android:exported="true"
-            android:enabled="@bool/atLeastJellyBeanMR2">
+            android:exported="true">
         </activity>
 
         <!-- Custom Label Manager - Summary Activity -->
@@ -180,7 +172,7 @@
             android:label="@string/label_manager_summary_title"
             android:launchMode="singleTop"
             android:theme="@style/TalkBackSettings"
-            android:taskAffinity="com.android.talkback.SettingsAffinity" />
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity" />
 
         <!-- Custom Label Manager - Package Activity -->
         <activity
@@ -188,7 +180,7 @@
             android:exported="false"
             android:label="@string/label_manager_package_title"
             android:launchMode="singleTop"
-            android:taskAffinity="com.android.talkback.SettingsAffinity" />
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity" />
 
         <!-- Gesture Change Notification Activity -->
         <activity
@@ -214,26 +206,8 @@
             </intent-filter>
         </activity>
 
-        <!-- Proxy for search button long-press -->
         <activity
-            android:name=".ShortcutProxyActivity"
-            android:enabled="false"
-            android:excludeFromRecents="true"
-            android:exported="true"
-            android:label="@string/label_talkback_context_menu"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.NoDisplay"
-            android:directBootAware="true"
-            tools:ignore="ExportedActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH_LONG_PRESS" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".WebActivity"
+            android:name="com.google.android.accessibility.utils.WebActivity"
             android:exported="false">
         </activity>
 
@@ -241,6 +215,7 @@
         <provider
             android:name=".labeling.LabelProvider"
             android:authorities="${applicationId}.providers.LabelProvider"
+            tools:replace="android:authorities"
             android:exported="true"
             android:readPermission="com.google.android.marvin.talkback.permission.LABELING"
             android:writePermission="com.google.android.marvin.talkback.permission.LABELING"
@@ -249,6 +224,7 @@
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.providers.FileProvider"
+            tools:replace="android:authorities"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -259,7 +235,6 @@
         <service
             android:label="@string/switch_service_name"
             android:name="com.android.switchaccess.SwitchAccessService"
-            android:enabled="@bool/atLeastL"
             android:exported="true"
             android:directBootAware="true"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
@@ -275,17 +250,19 @@
         </service>
 
         <activity
-            android:name="com.android.switchaccess.SwitchAccessPreferenceActivity"
+            android:name="com.google.android.accessibility.switchaccess.SwitchAccessPreferenceActivity"
             android:exported="false"
             android:label="@string/switch_access_preferences_title"
             android:theme="@style/TalkBackSettings"
-            android:directBootAware="true"
-            android:enabled="@bool/atLeastL" >
+            tools:replace="android:theme"
+            android:directBootAware="true" >
         </activity>
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+        <activity
+            android:name="com.google.android.accessibility.switchaccess.setupwizard.SetupWizardActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+        </activity>
+
     </application>
 
 </manifest>

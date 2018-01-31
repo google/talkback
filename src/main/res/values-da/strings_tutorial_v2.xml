@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Selvstudie i hjælpefunktioner"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Start TalkBack-selvstudiet"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"TalkBack-selvstudie"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"TalkBack-selvstudie"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack er en skærmlæser, der primært er beregnet til blinde og svagtseende personer. Med TalkBack kan disse personer interagere med enheden via oplæsning."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Slå TalkBack fra"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"lær lektion <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"øv lektion <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lektion 1: Grundlæggende navigation"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Tryk for at udforske, stryg for at udforske, dobbelttryk for at aktivere"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Stryg, udforsk og aktivér"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Del 1: Udforsk ved berøring"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Når Udforsk ved berøring er aktiveret, kan du høre, hvad der foregår under din finger. Bevæg fingeren hen over elementerne midt på skærmen. Når du har udforsket fem elementer, fortsætter lektionen."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Del 2: Dobbelttryk for at aktivere"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Dobbelttryk et vilkårligt sted for at aktivere det sidste punkt, du hørte. Find punkt 7, og aktivér det nu. Aktivér derefter Næste for at fortsætte."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Punkt 7 er aktiveret. Find og aktivér knappen Næste for at fortsætte"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Tryk to gange et vilkårligt sted for at aktivere det sidste element, du hørte. Find element 4, og aktivér det nu. Aktivér derefter Næste for at fortsætte."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Element 4 er aktiveret. Find og aktivér knappen Næste for at fortsætte"</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Del 3: Lektioner i navigation"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack-lektioner er opbygget på samme måde. Øverst finder du lektionen, som du til enhver tid kan udforske og læse. Her er også en knap til Selvstudiets startside øverst til venstre, og i midten er der et øveområde. Nederst vises dit fremskridt samt navigationsknapper. Aktiver Næste for at fortsætte."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Del 4: Stryg for at udforske"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Del 5: Øv dig"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Hvis du vil høre det, der er under din finger, skal du bevæge den tværs over skærmen. Dobbeltryk et vilkårligt sted for at aktivere det, du hører. Stryg til venstre eller til højre for at udforske."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lektion 2: Rulning"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Rul, spring frem og spring tilbage med to fingre"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Del 1: Rul med to fingre"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Hvis du vil rulle opad eller nedad på en lodret liste, skal du finde et punkt på listen og derefter flytte to fingre op eller ned. Hvis du vil rulle frem eller tilbage på en vandret liste, skal du finde et punkt på listen og flytte to fingre til venstre eller til højre."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Del 2: Genveje for rulning"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Du kan springe frem eller tilbage på en liste ved hjælp af en genvej. Du springer frem ved at stryge én finger til højre og derefter til venstre i en enkelt bevægelse. Du springer tilbage ved at stryge én finger til venstre og derefter til højre. Prøv det her."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Del 3: Øv dig"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Rul ved at stryge to fingre op eller ned. Spring frem ved at stryge én finger til højre og derefter til venstre. Spring tilbage ved at stryge én finger til venstre og derefter til højre."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Rul frem og tilbage"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Del 1: Genveje for rulning"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Du kan rulle frem eller tilbage på en liste ved hjælp af en genvej. Du ruller frem ved at stryge én finger til højre og derefter til venstre i en enkelt bevægelse. Du ruller tilbage ved at stryge én finger til venstre og derefter til højre. Prøv det her."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Del 2: Øv dig"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Rul frem ved at stryge én finger til højre og derefter til venstre. Rul tilbage ved at stryge én finger til venstre og derefter til højre."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lektion 3: TalkBack-menuer"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Global TalkBack-menu og lokal TalkBack-menu"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Del 1: Global TalkBack-menu"</string>
@@ -46,7 +44,7 @@
     <string name="tutorial_lesson_4_title" msgid="4147432329454145413">"Lektion 4: Tekstnavigation"</string>
     <string name="tutorial_lesson_4_short_description" msgid="7418527496120482465">"Valg af navigationsindstillinger for teksten"</string>
     <string name="tutorial_lesson_4_page1_subtitle" msgid="6722398610043882883">"Del 1: Valg af indstillinger for navigation"</string>
-    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"Med TalkBack kan du kontrollere, om en tekst skal læses for dig som ét afsnit, én sætning, ét ord eller ét tegn ad gangen. Det kan være nemmere at stave, når der læses én karakter ad gangen. Sæt enheden for tekstnavigation til tegn ved at trykke på teksten nedenfor og derefter stryge op og ned."</string>
+    <string name="tutorial_lesson_4_page1_description" msgid="825751290656500339">"Med TalkBack kan du administrere, om en tekst skal læses for dig som ét afsnit, én sætning, ét ord eller ét tegn ad gangen. Det kan være nemmere at stave, når der læses én karakter ad gangen. Sæt enheden for tekstnavigation til tegn ved at trykke på teksten nedenfor og derefter stryge op og ned."</string>
     <string name="tutorial_lesson_4_page1_message" msgid="4100459258679365726">"Udforsk de læsningsmuligheder, der er opstillet lodret her. Find og aktivér Læs ét tegn ad gangen."</string>
     <string name="tutorial_lesson_4_page2_subtitle" msgid="1749198627288834931">"Del 2: Naviger rundt i teksten"</string>
     <string name="tutorial_lesson_4_page2_description" msgid="665951393520581926">"Du læser nu ét tegn ad gangen. Vælg eksempelteksten, og stryg derefter til højre for at læse ét tegn ad gangen."</string>
@@ -61,7 +59,7 @@
     <string name="tutorial_lesson_5_page2_description" msgid="8728726969848635963">"Hvis du vil skrive, skal du aktivere redigeringsfeltet og bevæge din finger hen over skærmtastaturet. Når du hører det ønskede tegn, skal du løfte din finger for at aktivere det. Prøv at aktivere og skrive i redigeringsfeltet nedenfor."</string>
     <string name="tutorial_lesson_5_page3_subtitle" msgid="6803668615502110439">"Del 3: Brug en markør"</string>
     <string name="tutorial_lesson_5_page3_description" msgid="325778749713576462">"Du kan bevæge en markør ved at bruge lydstyrkeknapperne på din enhed eller via den lokale TalkBack-menu. Med valgmuligheden Markørstyring i denne menu kan du også markere, klippe, kopiere eller indsætte tekst. Aktivér redigeringsfeltet nedenfor, og bevæg markøren rundt i eksempelteksten."</string>
-    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Dorothy Gales e-mailadresse er dorothy@ozmail.com"</string>
+    <string name="tutorial_lesson_5_page3_sample_text" msgid="7553394100000534557">"Dorothy Gales mailadresse er dorothy@ozmail.com"</string>
     <string name="tutorial_lesson_5_practice_title" msgid="4502932434891583878">"Del 4: Øv dig"</string>
     <string name="tutorial_lesson_5_practice_description" msgid="4966124103376747840">"Aktivér redigeringsfeltet ved at dobbelttrykke på det. Skriv ved at bevæge fingeren hen over et tegn og derefter løfte den. Flyt markøren ved hjælp af lydstyrkeknapperne og den lokale TalkBack-menu. Vælg og udfør en handling for en tekst ved hjælp af valgmuligheden Markørstyring i den lokale TalkBack-menu."</string>
     <string name="tutorial_lesson_5_hint" msgid="5518047261885161170">"Rediger tekst"</string>

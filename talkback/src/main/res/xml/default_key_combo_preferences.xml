@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:key="@string/pref_keymap_category_key"
+        android:title="@string/keycombo_menu_category_select_keymap">
+        <ListPreference
+            android:key="@string/pref_select_keymap_key"
+            android:title="@string/keycombo_menu_select_keymap"
+            android:summary="%s"
+            android:defaultValue="@string/classic_keymap_entry_value"
+            android:entries="@array/pref_select_keymap_entries"
+            android:entryValues="@array/pref_select_keymap_values" />
+        <ListPreference
+            android:key="@string/pref_default_keymap_trigger_modifier_key"
+            android:title="@string/keycombo_menu_choose_trigger_modifier"
+            android:summary="%s"
+            android:defaultValue="@string/trigger_modifier_alt_entry_value"
+            android:entries="@array/pref_choose_trigger_modifier_entries"
+            android:entryValues="@array/pref_choose_trigger_modifier_values" />
+        <PreferenceScreen
+            android:key="@string/pref_reset_keymap_key"
+            android:title="@string/keycombo_menu_reset_keymap" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/keycombo_menu_category_navigation">
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_default"
+            android:title="@string/keycombo_menu_navigate_next" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_default"
+            android:title="@string/keycombo_menu_navigate_previous" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_up"
+            android:title="@string/keycombo_menu_navigate_up" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_down"
+            android:title="@string/keycombo_menu_navigate_down" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_first"
+            android:title="@string/keycombo_menu_navigate_first" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_last"
+            android:title="@string/keycombo_menu_navigate_last" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_window"
+            android:title="@string/keycombo_menu_navigate_next_window" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_window"
+            android:title="@string/keycombo_menu_navigate_previous_window" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_word"
+            android:title="@string/keycombo_menu_navigate_next_word" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_word"
+            android:title="@string/keycombo_menu_navigate_previous_word" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_character"
+            android:title="@string/keycombo_menu_navigate_next_character" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_character"
+            android:title="@string/keycombo_menu_navigate_previous_character" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_perform_click"
+            android:title="@string/keycombo_menu_perform_click" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_perform_long_click"
+            android:title="@string/keycombo_menu_perform_long_click" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/keycombo_menu_category_global">
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_back"
+            android:title="@string/keycombo_menu_global_back" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_home"
+            android:title="@string/keycombo_menu_global_home" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_recents"
+            android:title="@string/keycombo_menu_global_recent" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_notifications"
+            android:title="@string/keycombo_menu_global_notifications" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_suspend"
+            android:title="@string/keycombo_menu_global_suspend" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/keycombo_menu_category_other">
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_read_from_top"
+            android:title="@string/keycombo_menu_other_read_from_top" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_read_from_next_item"
+            android:title="@string/keycombo_menu_other_read_from_next_item" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_global_context_menu"
+            android:title="@string/keycombo_menu_other_global_context_menu" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_local_context_menu"
+            android:title="@string/keycombo_menu_other_local_context_menu" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_custom_actions"
+            android:title="@string/keycombo_menu_other_custom_actions" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_language_options"
+            android:title="@string/keycombo_menu_other_language_options" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_other_toggle_search"
+            android:title="@string/keycombo_menu_other_toggle_search" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_open_manage_keyboard_shortcuts"
+            android:title="@string/keycombo_menu_other_open_manage_keyboard_shortcuts" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_open_talkback_settings"
+            android:title="@string/keycombo_menu_other_open_talkback_settings" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/keycombo_menu_category_web">
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_button"
+            android:title="@string/keycombo_menu_web_navigate_to_next_button" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_button"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_button" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_control"
+            android:title="@string/keycombo_menu_web_navigate_to_next_control" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_control"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_control" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_aria_landmark"
+            android:title="@string/keycombo_menu_web_navigate_to_next_aria_landmark" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_aria_landmark"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_aria_landmark" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_edit_field"
+            android:title="@string/keycombo_menu_web_navigate_to_next_edit_field" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_edit_field"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_edit_field" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_focusable_item"
+            android:title="@string/keycombo_menu_web_navigate_to_next_focusable_item" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_focusable_item"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_focusable_item" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_graphic"
+            android:title="@string/keycombo_menu_web_navigate_to_next_graphic" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_graphic"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_graphic" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_heading"
+            android:title="@string/keycombo_menu_web_navigate_to_next_heading" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_heading"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_heading" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_heading_1"
+            android:title="@string/keycombo_menu_web_navigate_to_next_heading_1" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_heading_1"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_heading_1" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_heading_2"
+            android:title="@string/keycombo_menu_web_navigate_to_next_heading_2" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_heading_2"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_heading_2" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_heading_3"
+            android:title="@string/keycombo_menu_web_navigate_to_next_heading_3" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_heading_3"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_heading_3" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_heading_4"
+            android:title="@string/keycombo_menu_web_navigate_to_next_heading_4" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_heading_4"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_heading_4" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_heading_5"
+            android:title="@string/keycombo_menu_web_navigate_to_next_heading_5" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_heading_5"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_heading_5" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_heading_6"
+            android:title="@string/keycombo_menu_web_navigate_to_next_heading_6" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_heading_6"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_heading_6" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_list_item"
+            android:title="@string/keycombo_menu_web_navigate_to_next_list_item" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_list_item"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_list_item" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_link"
+            android:title="@string/keycombo_menu_web_navigate_to_next_link" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_link"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_link" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_list"
+            android:title="@string/keycombo_menu_web_navigate_to_next_list" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_list"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_list" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_table"
+            android:title="@string/keycombo_menu_web_navigate_to_next_table" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_table"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_table" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_combobox"
+            android:title="@string/keycombo_menu_web_navigate_to_next_combobox" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_combobox"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_combobox" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_next_checkbox"
+            android:title="@string/keycombo_menu_web_navigate_to_next_checkbox" />
+        <com.google.android.accessibility.talkback.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_navigate_previous_checkbox"
+            android:title="@string/keycombo_menu_web_navigate_to_previous_checkbox" />
+    </PreferenceCategory>
+</PreferenceScreen>

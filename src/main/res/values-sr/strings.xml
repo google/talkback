@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_service_description" msgid="5081383053733275450">"Када је Talkback укључен, уређај пружа говорне повратне информације како би помогао слепим и слабовидим корисницима. На пример, описује шта додирујете, бирате и активирате.\n\nАко сте случајно укључили TalkBack, искључите га тако што ћете додиривати прекидач док се око њега не прикаже зелени оквир, па га додирнути двапут. Обавите исту комбинацију покрета у дијалогу за потврду који се приказује после тога."</string>
-    <string name="talkback_on" msgid="315529674405160699">"TalkBack је укључен"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack је суспендован"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"Коришћење TalkBack-а је настављено"</string>
-    <string name="talkback_disabled" msgid="2536155587482587238">"TalkBack је искључен."</string>
+    <string name="talkback_service_description" msgid="5081383053733275450">"Када је Talkback укључен, уређај пружа говорне повратне информације како би помогао слепим и слабовидим корисницима. На пример, описује шта додирујете, бирате и активирате.\n\nАко сте случајно укључили TalkBack, искључите га тако што ћете додиривати прекидач док се око њега не прикаже зелени оквир, па га додирнути двапут. Направите исту комбинацију покрета у дијалогу за потврду који се приказује после тога."</string>
+    <string name="talkback_service_summary" msgid="6365572257324337595">"Изговара ставке на екрану"</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"Подешавања TalkBack-а"</string>
-    <string name="tts_preferences_title" msgid="6233811187483633874">"Подешавања претварања текста у говор"</string>
+    <!-- no translation found for tts_preferences_title (8167186112347512303) -->
+    <skip />
+    <!-- no translation found for language_options (8577758471261539974) -->
+    <skip />
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Верзија <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
     <string name="label_manager_summary_title" msgid="6786694853113585661">"Управљање прилагођеним ознакама"</string>
     <string name="label_manager_package_title" msgid="6984665343963494151">"Управљање ознакама за <xliff:g id="APPLICATIONLABEL">%1$s</xliff:g>"</string>
@@ -22,11 +22,6 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"Актуелни упит: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>."</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"Није изабрана ниједна ставка."</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"Актуелни избор: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>."</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Почетак поља"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Крај поља"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Режим избора је укључен"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Режим избора је искључен"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Избор је обрисан"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"Пропуштен позив"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"Звук је искључен"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"Ћаскање"</string>
@@ -39,99 +34,26 @@
     <string name="notification_type_status_voicemail" msgid="1611063561670902017">"Говорна пошта"</string>
     <string name="notification_type_status_started" msgid="1071939833188591219">"Започето"</string>
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"Заустављено"</string>
-    <string name="template_current_tts_engine" msgid="3963364867159704159">"Користи се <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"Мени <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_alert_dialog_template" msgid="5493715708649314332">"Обавештење <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"Мени <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"Текст <xliff:g id="NEW_TEXT">%1$s</xliff:g> је заменио текст <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"Текст <xliff:g id="TEXT">%1$s</xliff:g> је избрисан"</string>
-    <string name="template_text_copied" msgid="1059175355898959427">"копирано, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"исечено, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"налепљено, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, изабрано"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"Изабрани текст: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
     <string name="template_no_text_selected" msgid="5665980541549462608">"Никакав текст није изабран"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, избор је опозван"</string>
-    <string name="template_text_error" msgid="153775825635730287">"Неважећи унос <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"Стари број знакова (<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g>) замењен је новим бројем знакова (<xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g>)"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> за <xliff:g id="LABEL">%2$s</xliff:g>"</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"Притиснули сте и задржали <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> посто."</string>
     <string name="template_charging" msgid="2038200557537960378">"Пуни се <xliff:g id="CHANGING_STATUS">%1$s</xliff:g> Ниво батерије <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> одсто."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="one"><xliff:g id="TYPE_2">%1$s</xliff:g> приказује <xliff:g id="COUNT_3">%2$d</xliff:g> ставку.</item>
-      <item quantity="few"><xliff:g id="TYPE_2">%1$s</xliff:g> приказује <xliff:g id="COUNT_3">%2$d</xliff:g> ставке.</item>
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> приказује <xliff:g id="COUNT_3">%2$d</xliff:g> ставки.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"Мрежа"</string>
-    <string name="value_listview" msgid="7625152822709234439">"Листа"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"Трака са картицама"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"Падајућа листа"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"Поље за потврду"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"Дугме за избор"</string>
-    <string name="value_button" msgid="2459787142940409576">"Дугме"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"Контрола за тражење"</string>
-    <string name="value_switch" msgid="6946709666466895221">"Прекидач"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"Оквир за измене"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"Измена је у току"</string>
-    <string name="value_image" msgid="5114229220871881124">"Слика"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"Нема ознаку"</string>
-    <string name="value_pager" msgid="7708574424402835461">"Приказ са више страница"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"Страница"</string>
+    <string name="template_charging_lite" msgid="7759886088558576716">"Пуњење <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>"</string>
+    <!-- no translation found for template_language_options_menu_item (8697997506008405892) -->
+    <skip />
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"Приказују се ставке <xliff:g id="FROM_INDEX">%1$d</xliff:g> до <xliff:g id="TO_INDEX">%2$d</xliff:g> од <xliff:g id="TOTAL_COUNT">%3$d</xliff:g>."</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"Приказује се ставка <xliff:g id="FROM_INDEX">%1$d</xliff:g> од <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>."</string>
     <string name="template_viewpager_index_count" msgid="4811442521690748167">"Страница <xliff:g id="PAGE_INDEX">%1$d</xliff:g> од <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
     <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> од <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"Знакови <xliff:g id="FROM_INDEX">%1$d</xliff:g> до <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"<xliff:g id="INDEX">%1$d</xliff:g>. знак"</string>
-    <string name="template_capital_letter" msgid="4920626008395727629">"велико <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"лозинка"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Клизна фиока је отворена"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Прозор је отворен"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"Опције."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"Текст је обрисан"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Достигнута је максимална дужина"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"избрисано је"</string>
-    <string name="value_selected" msgid="1307429702194660766">"изабрано је"</string>
-    <string name="value_checked" msgid="3006751014125833966">"обележено је"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"није означено"</string>
-    <string name="value_on" msgid="39454338086317219">"укључено"</string>
-    <string name="value_off" msgid="6700497510945744608">"искључено"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"проширено"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"скупљено"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"онемогућено је"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"Додирните двапут"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"Додирните"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"Притисните Изабери"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> да бисте активирали."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Притисните <xliff:g id="KEYCOMBO">%1$s</xliff:g> да бисте активирали."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> и задржите за дуги притисак."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Притисните <xliff:g id="KEYCOMBO">%1$s</xliff:g> за дуги притисак."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> да бисте пребацивали."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Притисните <xliff:g id="KEYCOMBO">%1$s</xliff:g> да бисте укључили/искључили."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> да бисте унели текст."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Притисните <xliff:g id="KEYCOMBO">%1$s</xliff:g> да бисте унели текст."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> да бисте променили."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Притисните <xliff:g id="KEYCOMBO">%1$s</xliff:g> да бисте променили."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"Превуците са два прста да бисте променили страницу."</string>
-    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"Ниједна додатна страница није доступна."</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g> да бисте променили."</string>
+    <string name="value_dismissible" msgid="1363491313197032055">"може да се одбаци"</string>
     <string name="hint_radial_menu" msgid="2042130200569709650">"Додирните екран и истражите у кругу да бисте пронашли ставку, па подигните прст да бисте је активирали."</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Додирните екран и истражите у кругу да бисте се кретали кроз садржај на екрану, па подигните прст да бисте фокусирали."</string>
-    <string name="template_hint_custom_actions" msgid="543401796694872575">"Прилагођене радње:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> за радњу <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Притисните <xliff:g id="KEYCOMBO">%1$s</xliff:g> да бисте <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> и задржите за радњу <xliff:g id="HINT">%2$s</xliff:g>."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"Вибрација звона."</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Нечујно звоно."</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Екран је укључен."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Екран је искључен."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock је укључен."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock је искључен."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock је укључен."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock је искључен."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock је укључен."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock је искључен."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"Уређај је откључан."</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Говор"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Јачина звука говора"</string>
@@ -142,32 +64,59 @@
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Сензор за близину утишава говор"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Сензор за близину не контролише говор"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Изговарај фонетска слова"</string>
-    <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Фонетска слова се неће изговарати."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"Фонетска слова ће се изговарати када притиснете и задржите неки тастер на тастатури и премештате фокус функције приступачности са једног знака на други."</string>
+    <string name="summaryOff_pref_phonetic_letters" msgid="9103268945330003219">"Фонетска слова се не изговарају"</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="4376866668529919518">"Фонетска слова се изговарају када притиснете и задржите тастере на тастатури и крећете се по знаковима"</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Изговарај савете о коришћењу"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"Савети о коришћењу се неће изговарати током премештања фокуса функције приступачности."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"Савети о коришћењу ће се изговарати током навигације после кратке паузе."</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="798877049305553182">"Савети о коришћењу се не изговарају током премештања фокуса функције приступачности"</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="3161412108419178134">"Савети о коришћењу се изговарају током навигације после кратке паузе"</string>
+    <string name="pref_speak_container_element_positions_title" msgid="2835508578760045808">"Информације о листама и мрежама за говор"</string>
+    <string name="pref_speak_container_element_positions_summaryOn" msgid="5023625248365109203">"Информације о листама и мрежама се изговарају"</string>
+    <string name="pref_speak_container_element_positions_summaryOff" msgid="4112715962530209920">"Информације о листама и мрежама се не изговарају"</string>
+    <string name="pref_speak_roles_title" msgid="8119822404299836273">"Изговори тип елемента"</string>
+    <string name="pref_speak_roles_summary_on" msgid="1601846507096793058">"Тип елемента се изговора за ставке у фокусу"</string>
+    <string name="pref_speak_roles_summary_off" msgid="5420176413415285653">"Тип елемента се не изговара за ставке у фокусу."</string>
+    <!-- no translation found for title_pref_speak_element_ids (391655908629950456) -->
+    <skip />
+    <!-- no translation found for summaryOff_pref_speak_element_ids (4960956994540579272) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_element_ids (44367075933871550) -->
+    <skip />
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Истраживање додиром"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Аутоматски померај листе"</string>
-    <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Истраживање додиром"</string>
+    <!-- no translation found for title_pref_category_touch_exploration (5874968966650551610) -->
+    <skip />
     <string name="title_pref_single_tap" msgid="5333869781230265376">"Активација једним додиром"</string>
-    <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Прикажи контекстуални мени у виду листе"</string>
+    <!-- no translation found for title_pref_show_context_menu_as_list (1317122602474219414) -->
+    <skip />
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Затамни екран када је TalkBack омогућен"</string>
     <string name="summary_pref_single_tap" msgid="1868206223500105704">"(Експериментално) Додирните ставку која је тренутно у фокусу да бисте је активирали"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Продрмајте за почетак непрекидног читања"</string>
-    <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Управљај покретима"</string>
-    <string name="title_pref_manage_labels" msgid="8796338627297226539">"Управљај прилагођеним ознакама"</string>
-    <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Управљај тастерским пречицама"</string>
+    <string name="pref_verbosity_title" msgid="3719351581071950262">"Обим говора"</string>
+    <string name="title_pref_category_manage_gestures" msgid="2614141620073133854">"Покрети"</string>
+    <string name="title_pref_manage_labels" msgid="4466030803655661973">"Прилагођене ознаке"</string>
+    <string name="title_pref_manage_keyboard_shortcuts" msgid="8091201905891748923">"Тастерске пречице"</string>
     <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"Извези прилагођене ознаке"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"Отвори TalkBack у Play продавници"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"Актуелна верзија TalkBack-а: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
     <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"Помоћ и повратне информације"</string>
+    <string name="pref_item_licenses" msgid="3546535377387155282">"Лиценце отвореног кода"</string>
     <string name="title_pref_help" msgid="2022820131100451763">"Помоћ"</string>
-    <string name="title_pref_show_tos" msgid="6167834013879233992">"Услови коришћења услуге"</string>
-    <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Политика приватности"</string>
+    <!-- no translation found for title_pref_show_tos (2813500691748037529) -->
+    <skip />
+    <!-- no translation found for title_pref_show_privacy_policy (8945789024630561518) -->
+    <skip />
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Покрети за пречице"</string>
+    <string name="title_pref_category_fingerprint_touch_shortcuts" msgid="4338314761170964858">"Покрети за отисак прста"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Уграђени покрети"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(Експеримен.) Додирните уређај са стране"</string>
+    <string name="pref_verbosity_preset_title" msgid="6299916234007004610">"Изаберите унапред одређено подешавање"</string>
+    <string name="pref_verbosity_preset_entry_high" msgid="791984796274765142">"Велики"</string>
+    <string name="pref_verbosity_preset_entry_custom" msgid="8261147354044310508">"Прилагођени"</string>
+    <string name="pref_verbosity_preset_entry_low" msgid="1333334045447549264">"Мали"</string>
+    <string name="pref_verbosity_category_preset_settings_title" msgid="620716446067964188">"Детаљи обима говора"</string>
+    <!-- no translation found for pref_verbosity_category_misc_settings_title (6121977747903981087) -->
+    <skip />
+    <string name="pref_verbosity_preset_change" msgid="7250611496087013782">"Сада је активан <xliff:g id="PRESET_NAME">%1$s</xliff:g> обим говора."</string>
     <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"Распоред тастера"</string>
     <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"Изабери распоред тастера"</string>
     <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"Ресетуј распоред тастера"</string>
@@ -201,7 +150,8 @@
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Недавне апликације"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Обавештења"</string>
     <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"Паузира или наставља TalkBack"</string>
-    <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Подешавања навигације"</string>
+    <!-- no translation found for keycombo_menu_category_granularity (8575000248950511679) -->
+    <skip />
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Следеће подешавање навигације"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Претходно подешавање навигације"</string>
     <string name="keycombo_menu_category_other" msgid="440132295339458288">"Друге радње"</string>
@@ -210,6 +160,9 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Потражи ставку на екрану"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Прикажи локални контекстуални мени"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Прикажи глобални контекстуални мени"</string>
+    <string name="keycombo_menu_other_custom_actions" msgid="4769044790570667515">"Приказивање радњи"</string>
+    <!-- no translation found for keycombo_menu_other_language_options (6071616089592138709) -->
+    <skip />
     <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"Управљајте тастерским пречицама"</string>
     <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"Отварање подешавања TalkBack-а"</string>
     <string name="keycombo_menu_category_web" msgid="197426246774034347">"Радње за кретање по вебу"</string>
@@ -252,34 +205,24 @@
     <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"Иди до следећег комбинованог оквира"</string>
     <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"Иди до претходног комбинованог оквира"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"Тастерска пречица је"</string>
-    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Притисните комбинацију тастера да бисте подесили нову пречицу. Она мора да садржи бар тастере Alt или Ctrl."</string>
-    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Притисните комбинацију тастера са модификујућим тастером <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> да бисте подесили нову пречицу."</string>
     <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"Притисните тастер за брисање да бисте обрисали пречицу, Enter да бисте је сачували или Escape за отказивање."</string>
     <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"Обриши пречицу"</string>
-    <string name="keycombo_unassigned" msgid="5817151372114230015">"Недодељено"</string>
-    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
-    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
-    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
-    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Претрага"</string>
-    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Стрелица удесно"</string>
-    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Стрелица улево"</string>
-    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Стрелица нагоре"</string>
-    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Стрелица надоле"</string>
     <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"Желите ли стварно да ресетујете тастерске пречице за овај распоред тастера на подразумеване вредности? Имајте на уму да ова радња не може да се опозове."</string>
     <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"Ресетуј"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"Тастер се већ користи"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Комбинација тастера се већ користи за радњу „<xliff:g id="ID_1">%1$s</xliff:g>“. Желите ли да је обришете и доделите ту пречицу радњи „<xliff:g id="ID_2">%2$s</xliff:g>“?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Користи промене фреквенције"</string>
     <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"Ехо тастатуре"</string>
+    <string name="pref_node_desc_order_title" msgid="4632210763611067450">"Распоред описа елемената"</string>
     <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"Изговарај повратне информације тастатуре нижим гласом"</string>
     <string name="summaryOff_pref_intonation" msgid="5187278527518557715">"Не мењај фреквенцију гласа при говору"</string>
     <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"Друге повратне информације"</string>
     <string name="title_pref_vibration" msgid="4156396276749836864">"Обавештење вибрацијом"</string>
     <string name="title_pref_soundback" msgid="3131811048184077738">"Обавештење звуком"</string>
-    <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"Фокусирај звук говора"</string>
+    <string name="title_pref_use_audio_focus" msgid="5227372335896747459">"Утишавање звука у позадини"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Смањите јачину другог звука током говора"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Јачина звука"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Пречица за обустављање или настављање коришћења Talkback-а"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Пречица за паузирање/наставак Talkback-а"</string>
     <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"Пречица Затамни екран"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Разно"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Програмерска подешавања"</string>
@@ -288,34 +231,14 @@
     <string name="title_pref_log_level" msgid="267415170405921603">"Ниво ставки евиденције"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Прикажи снимак говора"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"Омогући отклањање грешака у стаблу са чворовима"</string>
-    <string name="title_pref_web_scripts" msgid="3016793641076890473">"Побољшај приступачност веба"</string>
-    <string name="summary_pref_web_scripts" msgid="3996491708050765411">"Преузми скрипте за приступачност за веб-садржај"</string>
+    <string name="summary_pref_tree_debug_tv" msgid="2155606249933775098">"Користи тастер за гласовну претрагу за штампање стабла са чворовима уместо за претрагу"</string>
+    <string name="title_pref_performance_stats" msgid="3701419705373126127">"Омогући статистику учинка"</string>
     <string name="title_pref_resume_talkback" msgid="4098949311311089235">"Настави после суспендовања"</string>
     <string name="screen_dimmed" msgid="8072279323762069231">"Екран је затамњен"</string>
     <string name="screen_brightness_restored" msgid="378010604065368658">"Екран је поново осветљен"</string>
-    <string name="screen_dimming_exit_instruction_line1" msgid="176693707001658416">"Услуга приступачности TalkBack је затамнила екран."</string>
-    <string name="screen_dimming_exit_instruction_line2" msgid="2111548310775079127">"Опозовите тако што ћете трипут брзо да притиснете дугмад за појачавање и стишавање звука истовремено."</string>
-    <string name="screen_dimming_exit_instruction_line3" msgid="7006494712728198438">"Помоћу подешавања TalkBack-а можете да контролишете затамњивање екрана."</string>
-    <string name="axis_character" msgid="8528412412593489695">"Крећете се према знаковима."</string>
-    <string name="axis_word" msgid="8823389407337076750">"Крећете се према речима."</string>
-    <string name="axis_sentence" msgid="4398740201672273541">"Крећете се према реченицама."</string>
-    <string name="axis_heading" msgid="8829265824683632088">"Крећете се према насловима."</string>
-    <string name="axis_sibling" msgid="3267377527761217139">"Крећите се према елементима истог нивоа."</string>
-    <string name="axis_document" msgid="8037283796488966887">"Крећете се према документима."</string>
-    <string name="axis_default_web_view_behavior" msgid="816142869754118685">"Крећете се према подразумеваном понашању веб-приказа."</string>
-    <string name="granularity_default" msgid="4948042687369948597">"Подразумевано"</string>
-    <string name="granularity_character" msgid="2036726841460203840">"Знакови"</string>
-    <string name="granularity_word" msgid="2653776823920279013">"Речи"</string>
-    <string name="granularity_line" msgid="727359260064093782">"Редови"</string>
-    <string name="granularity_paragraph" msgid="3760401274833105422">"Пасуси"</string>
-    <string name="granularity_page" msgid="2739238666516816581">"Странице"</string>
-    <string name="granularity_web_section" msgid="8219174463230029732">"Наслови и обележја"</string>
-    <string name="granularity_web_list" msgid="4386991044245560102">"Листе"</string>
-    <string name="granularity_web_link" msgid="7817726975417542626">"Линкови"</string>
-    <string name="granularity_web_control" msgid="1885138772895126953">"Контроле"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Специјалан садржај"</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"Усправно"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"Водоравно"</string>
+    <string name="screen_dimming_exit_instruction_line1" msgid="5487433770461700107">"Услуга приступачности TalkBack је затамнила екран"</string>
+    <string name="screen_dimming_exit_instruction_line2" msgid="6697363666089792199">"Опозовите тако што ћете трипут брзо да притиснете дугмад за појачавање и стишавање звука истовремено"</string>
+    <string name="screen_dimming_exit_instruction_line3" msgid="5253511790182167247">"Помоћу подешавања TalkBack-а можете да контролишете затамњивање екрана"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"Недодељено"</string>
     <string name="shortcut_next" msgid="6887743145853506373">"Следећа ставка"</string>
     <string name="shortcut_previous" msgid="3679790113454394245">"Претходна ставка"</string>
@@ -325,7 +248,10 @@
     <string name="shortcut_home" msgid="6670249804418900175">"Дугме Почетна"</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"Дугме за преглед"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"Отварање обавештења"</string>
-    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"Приказивање прилагођених радњи"</string>
+    <string name="shortcut_quick_settings" msgid="3692505224100396743">"Отвори брза подешавања"</string>
+    <string name="shortcut_show_custom_actions" msgid="444056949141930750">"Приказивање радњи"</string>
+    <!-- no translation found for shortcut_editing (5285767060395122020) -->
+    <skip />
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Отварање глобалног контекстуалног менија"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"Отварање локалног контекстуалног менија"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Понављање последњег исказа"</string>
@@ -335,14 +261,28 @@
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"Прочитај од врха"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"Прочитај од следеће ставке"</string>
     <string name="shortcut_print_node_tree" msgid="7570974794642091616">"Штампање стабла са чворовима"</string>
+    <string name="shortcut_print_performance_stats" msgid="2111671611434588299">"Статистика учинка штампања"</string>
     <string name="shortcut_next_granularity" msgid="5058063575500265017">"Следеће подешавање навигације"</string>
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Претходно подешавање навигације"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"Фокусирање прве ставке на екрану"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Фокусирање последње ставке на екрану"</string>
     <string name="shortcut_enable_dimming" msgid="751310793206738883">"Затамни екран"</string>
     <string name="shortcut_disable_dimming" msgid="8041762180167320322">"Осветли екран"</string>
+    <string name="shortcut_perform_click_action" msgid="9152719059133712820">"Клик"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"Локални контекстуални мени"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"Глобални контекстуални мени"</string>
+    <!-- no translation found for language_menu_title (8648132144725156863) -->
+    <skip />
+    <!-- no translation found for shortcut_show_language_options (3291602397759958945) -->
+    <skip />
+    <!-- no translation found for shortcut_select_next_setting (3708409029026167823) -->
+    <skip />
+    <!-- no translation found for shortcut_select_previous_setting (7335686444537217336) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_next_action (4744337882487301323) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_previous_action (7723485687036313114) -->
+    <skip />
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"Нема ставки менија."</string>
     <string name="title_web_breakout_next_section" msgid="7355139595269361571">"Следећи одељак"</string>
     <string name="title_web_breakout_next_list" msgid="801337905459445939">"Следећа листа"</string>
@@ -350,7 +290,8 @@
     <string name="title_web_breakout_prev_section" msgid="1738336598629616234">"Претходни одељак"</string>
     <string name="title_web_breakout_prev_list" msgid="744039532529277819">"Претходна листа"</string>
     <string name="title_web_breakout_prev_control" msgid="2637721101068457234">"Претходна контрола"</string>
-    <string name="title_edittext_controls" msgid="2102286116390895883">"Контрола курсора"</string>
+    <!-- no translation found for title_edittext_controls (4835723497829630825) -->
+    <skip />
     <string name="title_edittext_breakout_move_to_beginning" msgid="4021304144865258223">"Премести курсор на почетак"</string>
     <string name="title_edittext_breakout_move_to_end" msgid="3197737555808584828">"Премести курсор на крај"</string>
     <string name="title_edittext_breakout_start_selection_mode" msgid="4183196270306568761">"Покрени режим избора"</string>
@@ -360,8 +301,9 @@
     <string name="title_viewpager_breakout_prev_page" msgid="1352284456691236167">"Претходна страница"</string>
     <string name="title_labeling_controls" msgid="5005702316138877183">"Ознаке"</string>
     <string name="title_summary" msgid="3037924006370977165">"Брза навигација"</string>
-    <string name="title_granularity" msgid="399801096771904747">"Подешавања навигације"</string>
-    <string name="title_custom_action" msgid="7908169922901920318">"Прилагођене радње"</string>
+    <!-- no translation found for title_granularity (7464159711994643031) -->
+    <skip />
+    <string name="title_custom_action" msgid="6533095862085546341">"Радње"</string>
     <string name="title_suggestions_controls" msgid="5486233362252604824">"Предлози за аутоматско довршавање"</string>
     <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"Пређи на предлоге"</string>
     <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"Врати се у поље за измену"</string>
@@ -401,6 +343,10 @@
     <string name="title_pref_shortcut_right_and_up" msgid="6848971895903777166">"Листање удесно, па нагоре"</string>
     <string name="title_pref_shortcut_left_and_down" msgid="2899217574677150730">"Листање улево, па надоле"</string>
     <string name="title_pref_shortcut_left_and_up" msgid="369887751217245542">"Листање улево, па нагоре"</string>
+    <string name="title_pref_shortcut_fingerprint_up" msgid="4567914579733101315">"Превлачење нагоре на сензору за отисак прста"</string>
+    <string name="title_pref_shortcut_fingerprint_down" msgid="7266292981315522410">"Превлачење надоле на сензору за отисак прста"</string>
+    <string name="title_pref_shortcut_fingerprint_left" msgid="5372808080030991944">"Превлачење улево на сензору за отисак прста"</string>
+    <string name="title_pref_shortcut_fingerprint_right" msgid="694175245288621969">"Превлачење удесно на сензору за отисак прста"</string>
     <string name="title_pref_shortcut_single_tap" msgid="7220195169492947031">"Једноструки додир са стране"</string>
     <string name="title_pref_shortcut_double_tap" msgid="4454853121476703529">"Двоструки додир са стране"</string>
     <string name="title_pref_tap_sensitivity" msgid="3737945934603267137">"Осетљивост детектора додира"</string>
@@ -425,28 +371,31 @@
     <string name="value_keyboard_echo_always" msgid="6889426165608387394">"Увек изговарај притиснуте тастере"</string>
     <string name="value_keyboard_echo_softkeys" msgid="1595001302535254665">"Само за тастатуру на екрану"</string>
     <string name="value_keyboard_echo_never" msgid="7181327459690946870">"Никад не изговарај притиснуте тастере"</string>
+    <string name="pref_node_desc_order_entry_state_name_role_pos" msgid="6239074777084483039">"Статус, назив, тип"</string>
+    <string name="pref_node_desc_order_entry_role_name_state_pos" msgid="1747697478748531592">"Тип, назив, статус"</string>
+    <string name="pref_node_desc_order_entry_name_role_state_pos" msgid="3293391334262415544">"Назив, тип, статус"</string>
     <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"TalkBack покрети су промењени"</string>
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Додирните да бисте прегледали промене покрета приступачности"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack је суспендован"</string>
-    <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Додирните за наставак."</string>
+    <string name="notification_message_talkback_suspended" msgid="5900724128049181599">"Додирните да бисте наставили"</string>
     <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"Аутоматски прелазак на 1. лекцију."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"Желите ли да суспендујете TalkBack?"</string>
-    <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Да ли сте сигурни? Уређај неће слати повратне информације и биће онемогућено Истраживање додиром. Можете поново да активирате TalkBack у прозору са обавештењима, тако што ћете се вратити на закључани екран или помоћу пречице на тастеру за јачину звука."</string>
-    <string name="message_resume_manual" msgid="6522293510722570646">"Можете да наставите да користите TalkBack из траке са обавештењима."</string>
-    <string name="message_resume_screen_on" msgid="9016720947126938212">"Можете да наставите да користите TalkBack из траке са обавештењима или укључивањем екрана."</string>
-    <string name="message_resume_keyguard" msgid="6721228114050709276">"Можете да наставите да користите TalkBack из траке са обавештењима или враћањем на закључани екран."</string>
+    <string name="dialog_message_suspend_talkback" msgid="272851623978432035">"Желите ли стварно да суспендујете TalkBack?\n\nДок је TalkBack суспендован, нећете добијати повратне информације од уређаја и Истраживање додиром ће бити онемогућено."</string>
+    <string name="message_resume_manual" msgid="7356544353534913249">"Можете да наставите да користите TalkBack на траци са обавештењима"</string>
+    <string name="message_resume_screen_on" msgid="5200338421759961545">"Можете да наставите да користите TalkBack на траци са обавештењима или укључивањем екрана"</string>
+    <string name="message_resume_keyguard" msgid="2142813660069991041">"Можете да наставите да користите TalkBack на траци са обавештењима или ако се вратите на закључани екран"</string>
     <string name="show_suspend_warning_label" msgid="3193206799395252518">"Увек приказуј ово упозорење"</string>
     <string name="cannot_add_label" msgid="2754406023113433479">"Није могуће означити ову ставку."</string>
     <string name="label_dialog_title_add" msgid="1255044087558866043">"Додавање ознаке"</string>
     <string name="label_dialog_title_edit" msgid="7914376979667771585">"Измена ознаке"</string>
     <string name="label_dialog_title_remove" msgid="1791163736307626930">"Уклањање ознаке"</string>
-    <string name="label_dialog_text" msgid="5879506218245648848">"Унесите текст који ће се користити за ову слику у поље у наставку."</string>
+    <string name="label_dialog_text" msgid="3836616655480004748">"Унесите текст који ће се користити као ознака за овај елемент\nНазив интерног приказа: <xliff:g id="VIEW_RESOURCE_NAME">%1$s</xliff:g>"</string>
     <string name="label_remove_dialog_text" msgid="372916461303485723">"Желите ли стварно да уклоните ознаку „<xliff:g id="LABEL">%1$s</xliff:g>“?"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Желите ли стварно да уклоните ознаку „<xliff:g id="LABEL">%1$s</xliff:g>“ коју садржи <xliff:g id="APP_NAME">%2$s</xliff:g>?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Текст ознаке"</string>
     <string name="label_import" msgid="1773817433300194935">"Увези прилагођене ознаке"</string>
     <string name="label_import_dialog_title" msgid="5305411653917870790">"Увезите прилагођене ознаке у TalkBack"</string>
-    <string name="label_import_dialog_message" msgid="7975227530187709469">"Одаберите да ли желите да замените или прескочите постојеће ознаке у случају сукобљавања."</string>
+    <string name="label_import_dialog_message" msgid="5770997008069363097">"Одаберите да ли желите да замените или прескочите постојеће ознаке у случају неусклађености"</string>
     <string name="label_import_dialog_skip" msgid="2078597180132028657">"Прескочи"</string>
     <string name="label_import_dialog_override" msgid="4387408051194229513">"Замени"</string>
     <string name="label_export_empty" msgid="7663052451851715440">"Нема ничега за извоз. Нисте додали ниједну ознаку"</string>
@@ -457,6 +406,9 @@
       <item quantity="few">%d ознаке су ажуриране</item>
       <item quantity="other">%d ознака је ажурирано</item>
     </plurals>
+    <string name="no_apps_to_import_labels" msgid="8158403357422110115">"Није пронађена ниједна апликација за увоз ознака"</string>
+    <string name="no_apps_to_export_labels" msgid="7671924783169788614">"Није пронађена ниједна апликација за извоз ознака."</string>
+    <string name="label_choose_app_to_import" msgid="3992931531372131216">"Изаберите апликацију за увоз ознака:"</string>
     <string name="label_choose_app_to_export" msgid="3288834802071890267">"Изаберите апликацију да бисте извели ознаке:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"Ова верзија TalkBack-а обухвата промене подразумеваних покрета приступачности. Можете да прилагодите радње повезане са овим покретима у оквиру подешавања TalkBack-а. Када је Истраживање додиром омогућено, можете да користите следеће покрете за обављање одређених радњи.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Притисните и задржите тастере за појачавање и стишавање звука"</string>
@@ -467,13 +419,14 @@
     <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"Ова верзија TalkBack-а обухвата промене подразумеваних покрета приступачности.\n\nПокрет нагоре сада прелази на претходно подешавање кретања, а покрет надоле сада прелази на следеће подешавање кретања."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Прихвати покрете"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Прилагоди покрете"</string>
-    <string name="button_clear_all_events" msgid="2128349101908653825">"Обриши све"</string>
-    <string name="button_check_all_events" msgid="301383322727007726">"Изабери све"</string>
+    <string name="button_disable_all_events" msgid="4917625658777138398">"Онемогући све"</string>
+    <string name="button_enable_all_events" msgid="6164815656232769872">"Омогући све"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"Желите ли да онемогућите Истраживање додиром?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Желите ли стварно да искључите Истраживање додиром?\n\nУређај више неће реаговати на покрете за пречице нити изговарати ставке када додирнете екран."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Желите ли да омогућите отклањање грешака у стаблу са чворовима?"</string>
     <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"Желите ли стварно да укључите отклањање грешака у стаблу са чворовима?\n\nОтклањање грешака у стаблу са чворовима открива садржај екрана евиденцијама на уређају, које могу да читају друге апликације."</string>
-    <string name="hint_script_injection" msgid="6139951755594105602">"Истраживање додиром није доступно у веб-садржају. Укључите опцију <xliff:g id="PREFERENCE_NAME">%1$s</xliff:g> у Подешавањима приступачности да бисте истражили веб-садржај."</string>
+    <string name="dialog_title_enable_performance_stats" msgid="3016681156366751028">"Желите ли да омогућите статистику учинка?"</string>
+    <string name="dialog_message_enable_performance_stats" msgid="8917304199448928340">"Желите ли стварно да укључите статистику учинка?\n\nСтатистика учинка троши више меморије и батерије."</string>
     <string name="label_talkback_context_menu" msgid="6758073806811666684">"Глобални контекстуални мени TalkBack-а"</string>
     <string name="permission_talkback_label" msgid="2235244838320678938">"Контрола TalkBack-а"</string>
     <string name="permission_talkback_desc" msgid="8320433482567759963">"Дозвола за слање покрета TalkBack-у и поновно активирање говорних повратних информација."</string>
@@ -487,7 +440,7 @@
     <string name="display_name_button" msgid="6801468093111637502">"дугме"</string>
     <string name="display_name_combobox" msgid="3627879841881471141">"комбиновани оквир"</string>
     <string name="display_name_aria_landmark" msgid="6117331350509062908">"ARIA обележје"</string>
-    <string name="display_name_edit_field" msgid="5014778180731737501">"edit_field"</string>
+    <string name="display_name_edit_field" msgid="8239971688356887918">"поље за измену"</string>
     <string name="display_name_focusable_item" msgid="1687969602866460765">"ставка која може да се фокусира"</string>
     <string name="display_name_heading_1" msgid="30730842343032834">"наслов 1"</string>
     <string name="display_name_heading_2" msgid="754950733934619571">"наслов 2"</string>
@@ -503,12 +456,6 @@
     <string name="display_name_table" msgid="1369599790038567007">"табела"</string>
     <string name="display_name_checkbox" msgid="2060147158898197667">"поље за потврду"</string>
     <string name="display_name_section" msgid="4568845228422422699">"наслов или обележје"</string>
-    <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"Ред <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"Колона <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"Наслов"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"Наслов реда"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"Наслов колоне"</string>
     <string name="item_index_template" msgid="71505978833721807">"Ставка <xliff:g id="ITEM">%1$d</xliff:g>"</string>
     <string name="revert_imported_labels" msgid="5508730389432571776">"Врати увезене ознаке"</string>
     <string name="imported_labels_reverted" msgid="6117098234531459917">"Увезене ознаке су враћене"</string>
@@ -519,32 +466,8 @@
     <skip />
     <!-- no translation found for template_window_switch_system (1902661569833377496) -->
     <skip />
-    <string name="untitled_window" msgid="7017590766394623328">"ненасловљено"</string>
     <string name="status_bar" msgid="6000275621941971563">"статусна трака"</string>
     <string name="navigation_bar" msgid="4602958479941673535">"трака за навигацију"</string>
-    <string name="template_collection_start" msgid="4362535543397747567">"Ушли сте у колекцију <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
-    <string name="template_collection_end" msgid="2167296836815021551">"Изашли сте из колекције <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"<xliff:g id="LEVEL">%1$s</xliff:g>. ниво"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> ставка</item>
-      <item quantity="few"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> ставке</item>
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> ставки</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="one"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> ред</item>
-      <item quantity="few"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> реда</item>
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> редова</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> колона</item>
-      <item quantity="few"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> колоне</item>
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> колона</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> знак</item>
-      <item quantity="few"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> знака</item>
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> знакова</item>
-    </plurals>
     <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
       <item quantity="one">Изабран је <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> догађај</item>
       <item quantity="few">Изабрана су <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> догађаја</item>
@@ -554,9 +477,30 @@
     <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> је завршен"</string>
     <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"Режим контроле за тражење"</string>
     <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"Притискајте дугмад са стрелицама да бисте променили вредност или притисните Изабери да бисте завршили."</string>
-    <string name="arc_android_window" msgid="697316167642517245">"Android прозор"</string>
+    <string name="arc_android_window" msgid="602492367666363458">"Прозор апликације"</string>
     <string name="arc_navigation_hint" msgid="3272314052097101117">"Притисните тастер за претрагу и тастере са стрелицама да бисте се кретали"</string>
     <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"Притисните <xliff:g id="KEYCOMBO">%1$s</xliff:g> да бисте видели листу пречица"</string>
     <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"Притисните <xliff:g id="KEYCOMBO">%1$s</xliff:g> да бисте отворили подешавања TalkBack-а"</string>
-    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"Ако желите најбоље резултате за додирне и говорне повратне информације, увећајте прозор апликације"</string>
+    <!-- no translation found for reset_user_language_preference (6441167843388110740) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_settings (3013680598130553128) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_activation (6275710235429570402) -->
+    <skip />
+    <!-- no translation found for title_pref_category_selector_settings_configuration (3095665157222126906) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_speech_rate (731846618625670003) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_verbosity (4608661647007146269) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_granularity (5926698009571092268) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_audio_focus (6180475638252714782) -->
+    <skip />
+    <!-- no translation found for pref_selector_activation_summary (688877660863231861) -->
+    <skip />
+    <!-- no translation found for title_pref_speak_passwords_without_headphones (2032390508469400633) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_passwords_without_headphones (1854966750096734009) -->
+    <skip />
 </resources>

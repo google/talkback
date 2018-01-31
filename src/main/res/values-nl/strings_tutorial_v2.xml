@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Toegankelijkheidstraining"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"TalkBack-training starten"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"TalkBack-training"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"TalkBack-training"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack is een schermlezer die voornamelijk is bedoeld voor slechtziende en blinde gebruikers. TalkBack maakt interactie met het apparaat mogelijk via gesproken feedback."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"TalkBack uitschakelen"</string>
@@ -11,26 +11,24 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"les <xliff:g id="INDEX">%1$d</xliff:g> leren"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"oefenles <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Les 1: Basisnavigatie"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Verkennen door aanraken en vegen, activeren door dubbeltikken"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Vegen, verkennen, activeren"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Deel 1: Verkennen via aanraking"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Wanneer \'Verkennen via aanraking\' is ingeschakeld, kun je beluisteren welke items je met je vinger aanraakt. Beweeg je vinger over de items in het midden van het scherm. Nadat je vijf items hebt verkend, gaat de les verder."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Deel 2: activeren door middel van dubbeltikken"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Als je het laatste item wilt activeren dat je hoorde, dubbeltik je ergens op het scherm. Zoek item 7 en activeer dit. Vervolgens activeer je de knop Volgende om door te gaan."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Item 7 is geactiveerd. Zoek en activeer de knop Volgende om door te gaan"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Als je het laatste item wilt activeren dat je hoorde, dubbeltik je ergens op het scherm. Zoek item 4 en activeer dit. Vervolgens activeer je de knop Volgende om door te gaan."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Item 4 is geactiveerd. Zoek en activeer de knop Volgende om door te gaan."</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Deel 3: Les in navigeren"</string>
-    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"De TalkBack-lessen zijn allemaal op dezelfde manier ingedeeld. Het bovenste gedeelte bevat de les, die je op elk gewenst moment kunt verkennen en lezen. Ook vind je hier links bovenin de knop \'Startpagina voor training\'. In het middelste gedeelte kun je oefenen. In het onderste gedeelte vind je een voortgangsindicator en knoppen waarmee je door de les kunt navigeren. Activeer nu de knop Volgende om door te gaan."</string>
+    <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"De TalkBack-lessen zijn allemaal op dezelfde manier ingedeeld. Het bovenste gedeelte bevat de les, die je op elk gewenst moment kunt verkennen en lezen. Ook vind je hier links bovenin de knop \'Homepage voor training\'. In het middelste gedeelte kun je oefenen. In het onderste gedeelte vind je een voortgangsindicator en knoppen waarmee je door de les kunt navigeren. Activeer nu de knop Volgende om door te gaan."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Deel 4: Vegen om te verkennen"</string>
     <string name="tutorial_lesson_1_page4_description" msgid="8864367516443934956">"Je kunt het scherm ook verkennen door er met je vinger over te vegen. Als je naar links veegt, verken je meestal omhoog en naar links. Als je naar rechts veegt, verken je omlaag en naar rechts. Probeer het maar eens."</string>
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Deel 5: Oefenen"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Als je wilt horen wat zich onder je vinger bevindt, moet je je vinger over het scherm bewegen. Dubbeltik ergens op het scherm om het item te activeren dat je hoort. Je kunt verkennen door naar links of rechts te vegen."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Les 2: Scrollen"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Scrollen met twee vingers, vooruit en terug springen"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Deel 1: Scrollen met twee vingers"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Als je door een verticale lijst wilt scrollen, zoek je een lijstitem en beweeg je vervolgens twee vingers omhoog of omlaag over het scherm. Als je door een horizontale lijst wilt scrollen, zoek je een lijstitem en beweeg je twee vingers naar links of rechts over het scherm."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Deel 2: Snelgebaren voor scrollen"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Je kunt met een snelgebaar naar voren en terug springen door een lijst. Als je naar voren wilt springen, beweeg je één vinger in een vloeiende beweging naar rechts en vervolgens naar links. Als je terug wilt springen, beweeg je één vinger naar links en vervolgens naar rechts. Probeer het hier eens."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Deel 3: Oefenen"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Scrol door met twee vingers omhoog of omlaag te vegen. Spring naar voren door met één vinger naar rechts en vervolgens naar links te bewegen. Spring terug door met één vinger naar links en vervolgens naar rechts te bewegen."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Naar voren en terug scrollen"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Deel 1: Snelgebaren voor scrollen"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Je kunt met een snelgebaar naar voren en terug scrollen door een lijst. Als je naar voren wilt scrollen, beweeg je één vinger in een vloeiende beweging naar rechts en vervolgens naar links. Als je terug wilt scrollen, beweeg je één vinger naar links en vervolgens naar rechts. Probeer het hier eens."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Deel 2: Oefenen"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Scrol naar voren door met één vinger naar rechts en vervolgens naar links te bewegen. Scrol terug door met één vinger naar links en vervolgens naar rechts te bewegen."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Les 3: TalkBack-menu\'s"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Algemeen TalkBack-menu, lokaal TalkBack-menu"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Deel 1: Het algemene TalkBack-menu"</string>
@@ -76,7 +74,7 @@
     <string name="tutorial_exercise_completed_auto" msgid="9109552709434930176">"De oefening is voltooid. Je gaat zo meteen door naar de volgende oefening."</string>
     <string name="tutorial_practice_area" msgid="2176846563813803041">"Oefengedeelte"</string>
     <string name="tutorial_disabled_item_clicked" msgid="153385821637979511">"%1$s wordt in de oefenmodus geactiveerd. Activeer de knop ANNULEREN om de modus te sluiten."</string>
-    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Knop voor startpagina van training"</string>
+    <string name="tutorial_up_button_description" msgid="3902654026290995891">"Knop voor homepage van training"</string>
     <string name="tutorial_template_item" msgid="491797656581740453">"Item <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_alert_dialog_exit" msgid="5426041850804920228">"Sluiten"</string>
     <string name="tutorial_no_touch_explore_title" msgid="1958343592980548652">"\'Verkennen via aanraking\' vereist"</string>

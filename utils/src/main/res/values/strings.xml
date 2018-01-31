@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Window title used for announcing untitled window. -->
+    <string name="untitled_window">untitled</string>
+    <!--
+      Source: An utterance template for announcing an alert/pop-up message.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="template_alert_dialog_template">Alert <xliff:g id="message">%1$s</xliff:g></string>
+
+    <!--
+          Source: An utterance template for announcing copy of text (during edit).
+          Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+        -->
+    <string name="template_text_copied">copied, <xliff:g id="text">%1$s</xliff:g></string>
+    <!--
+      Source: An utterance template for announcing a single upper-case (capital) letter.
+      Description: This is spoken to the user. May not be translatable for some languages. [CHAR LIMIT="NONE"]
+    -->
+    <string name="template_capital_letter">capital <xliff:g id="uppercase_character">%1$s</xliff:g></string>
+    <!-- Replacement string used when collapsing multiple repeated characters which is spoken to the user.  For example, in the case where we're about to speak 10 equal signs, we use this string to format the phrase "10 equal sign" rather than speaking "equal sign equal sign equal sign..." -->
+    <string name="character_collapse_template">\u0020<xliff:g id="number" example="7">%1$d</xliff:g> <xliff:g id="character" example="equal sign">%2$s</xliff:g>      </string>
+    <!--
+      Source: An utterance template for announcing the current text-to-speech engine.
+      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <string name="template_current_tts_engine">Using <xliff:g id="engine_name">%1$s</xliff:g></string>
+
+    <!-- Dialog message that describes how to assign other keyboard shortcut for current action -->
+    <string name="keycombo_assign_dialog_instruction">Press key combination to set new shortcut. It must contain at least ALT or Control key.</string>
+    <!-- Dialog message that describes how to assign other keyboard shortcut for current action in default keymap -->
+    <string name="keycombo_assign_dialog_default_keymap_instruction">Press key combination with <xliff:g id="trigger_modifier_name" example="alt">%1$s</xliff:g> modifier key to set new shortcut.</string>
+    <!-- Message that key combination is not assigned to the action [CHAR LIMIT=40] -->
+    <string name="keycombo_unassigned">Unassigned</string>
+
+    <!-- String representation of modifier key shift. e.g. Shift + A. -->
+    <string name="keycombo_key_modifier_shift">Shift</string>
+    <!-- String representation of modifier key alt. e.g. Alt + A. -->
+    <string name="keycombo_key_modifier_alt">Alt</string>
+    <!-- String representation of modifier key ctrl. e.g. Ctrl + A. -->
+    <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+    <!-- String representation of modifier key meta. This is the key which has a magnifier icon on Android keyboard. e.g. Search + A. -->
+    <string name="keycombo_key_modifier_meta">Search</string>
+    <!-- String representation of arrow right key. e.g. Search + Arrow Right. -->
+    <string name="keycombo_key_arrow_right">Arrow Right</string>
+    <!-- String representation of arrow left key. e.g. Search + Arrow Left. -->
+    <string name="keycombo_key_arrow_left">Arrow Left</string>
+    <!-- String representation of arrow up key. e.g. Search + Arrow Up. -->
+    <string name="keycombo_key_arrow_up">Arrow Up</string>
+    <!-- String representation of arrow down key. e.g. Search + Arrow Down. -->
+    <string name="keycombo_key_arrow_down">Arrow Down</string>
+
+    <!-- Announced when the user changes reading mode to read an entire object at a time. -->
+    <string name="granularity_default">Default</string>
+    <!-- Announced when the user changes reading mode to read a single character at a time. -->
+    <string name="granularity_character">Characters</string>
+    <!-- Announced when the user changes reading mode to read a single word at a time. -->
+    <string name="granularity_word">Words</string>
+    <!-- Announced when the user changes reading mode to read a single line at a time. -->
+    <string name="granularity_line">Lines</string>
+    <!-- Announced when the user changes reading mode to read a single paragraph at a time. -->
+    <string name="granularity_paragraph">Paragraphs</string>
+    <!-- Announced when the user changes reading mode to read a single page at a time. -->
+    <string name="granularity_page">Pages</string>
+    <!-- Announced when the user changes reading mode in web content to read a single section at a time. -->
+    <string name="granularity_web_section">Headings and Landmarks</string>
+    <!-- Announced when the user changes reading mode in web content to read a single list at a time. -->
+    <string name="granularity_web_list">Lists</string>
+    <!-- Announced when the user changes reading mode in web content to read a single link at a time. -->
+    <string name="granularity_web_link">Links</string>
+    <!-- Announced when the user changes reading mode in web content to read a single control at a time.
+      A control is an element on a web page which is either a form field (buttons, text fields, combo boxes, etc) or a link.
+    -->
+    <string name="granularity_web_control">Controls</string>
+    <!-- Announced when the user enters into navigating specialized web content such as tables or math. -->
+    <string name="granularity_pseudo_web_special_content">Special content</string>
+    <!-- Announced when the user changes navigation mode in native views to navigating a single section header at a time -->
+    <string name="granularity_native_heading">Headings</string>
+    <!-- Announced when the user changes navigation mode in native views to navigating a single control at a time.
+      A control is an element on the screen which is a form field (buttons, text fields, combo boxes, etc).
+      Currently only buttons and edit fields are considered.
+    -->
+    <string name="granularity_native_control">Controls</string>
+    <!-- Announced when the user changes navigation mode in native views to navigating a single link at a time. -->
+    <string name="granularity_native_link">Links</string>
+</resources>
