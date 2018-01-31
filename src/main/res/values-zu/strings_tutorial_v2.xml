@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Okokufundisa kokufinyelela"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Qalisa isifundo se-TalkBack"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"Okokufundisa kwe-TalkBack"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"Isifundo se-TalkBack"</string>
     <string name="main_description" msgid="4795202818108740382">"I-TalkBack isifundi sesikrini kakhulukazi sabantu abanokungaboni kanye nokubona okuncane. Ivumela ukuhlanganyela nedivayisi kusetshenziswa impendulo ekhulunywayo."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Vala i-TalkBack"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"funda isifundo esingu-<xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"zifundise isifundo esingu-<xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Isifundo 1: Ukuzula okuvamile"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Thinta ukuze uhlole, uswayiphe ukuze uhlole, uthephe kabili ukuze wenze kusebenze"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Ukuswayipha, ukuhlola, nokusebenzisa"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Ingxenye 1: Explore by touch"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Uma kunikwe amandla, i-Explore by touch ikuvumela ukuthi uzwe okungaphansi komunwe wakho. Hambisa umunwe wakho ezintweni maphakathi nesikrini sakho. Ngemuva kokuthi uhlole izinto ezinhlanu, isifundo sizoqhubeka."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Ingxenye engu-2: Thepha kabili ukuze wenze kusebenze"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Ukuze wenze kusebenze into yokugcina oyizwile, thepha kabili noma kukuphi. Thola into engu-7 uphinde uyenze isebenze manje. Ngemuva kwalokho, yenza kusebenze okulandelayo ukuze uqhubeke."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Into engu-7 yenziwe yasebenza. Thola uphinde wenze kusebenze inkinobho yokulandelayo ukuze uqhubeke"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Ukuze wenze kusebenze into yokugcina oyizwile, thepha kabili noma kukuphi. Thola into engu-4 uphinde uyenze isebenze manje. Ngemuva kwalokho, yenza kusebenze Okulandelayo ukuze uqhubeke."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Into engu-4 yenziwe yasebenza. Thola uphinde wenze kusebenze inkinobho Okulandelayo ukuze uqhubeke"</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Ingxenye 3: Izifundo zokuzula"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Izifundo ze-TalkBack zihlelwe ngokufanayo. Indawo engaphezulu inesifundo, ongasihlola uphinde usifunde noma kunini. Futhi inenkinobho yekhaya lokokufundisa kukhona eliphezulu ngakwesokunxele. Okumaphakathi kunendawo yokuzilolonga. Inkinobho inesibonisi sokuqhubeka kanye nezinkinobho zokuzulazula kwesifundo. yenza kusebenze okulandelayo manje ukuze uqhubeke."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Ingxenye 4: Swayipha ukuze uhlole"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Ingxenye 5: Ukuzilolonga"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Ukuze uzwe ukuthi yini engaphansi komunwe wakho, wuhambise kusikrini. Thepha kabili noma yikuphi ukuze wenze kusebenze ekutheni yini oyizwayo. Swayiphela ngakwesokunxele noma kwesokudla ukuze uhlole."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Isifundo 2: Ukuskrola"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Ukuskrola ngeminwe emibili, ukweqela phambili nasemuva"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Ingxenye 1: Ukuskrola ngemunwe emibili"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Ukuze uskrole kuhlu olwehlayo, thola into yohlu, bese uhambisa iminwe emibili phezulu noma phansi. Ukuze uskrole kuhlu olumile, thola into yohlu, bese uhambisa iminwe emibili ngakwesokunxele noma kwesokudla."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Ingxenye 2: Izinqamuleli xokuskrola"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Ungeqela phambili noma emuva kuhlu usebenzisa isinqamuleli. Ukuze weqele phambili, hambisa umunwe wakho owodwa ngakwesokudla bese ngakwesokunxele ngokunyakaza okukodwa. Ukuze weqele emuva, hambisa umunwe wakho owodwa ngakwesokunxele. Kuzame manje."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Ingxenye 3: Ukuzilolonga"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Skrola ngokuslayida iminwe emibili phezulu noma phansi. Yeqela phambili ngokuhambisa umunwe owodwa ngakwesokudla bese ngakwesokundele. Yeqela emuva ngokuhambisa umunwe wakho owodwa ngakwesokunxele bese phambili."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Ukuskrolela phambili nasemuva"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Ingxenye 1: Izinqamuleli zokuskrola"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Ungaskrolela phambili noma emuva kuhlu usebenzisa isinqamuleli. Ukuze uskrolele phambili, hambisa umunwe wakho owodwa ngakwesokudla bese ngakwesokunxele ngokunyakaza okukodwa. Ukuze uskrolele emuva, hambisa umunwe wakho owodwa ngakwesokunxele. Kuzame manje."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Ingxenye 2: Ukuzilolonga"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Skrolela phambili ngokuhambisa umunwe owodwa ngakwesokunxele. Skrolela emuva ngokuhambisa umunwe owodwa kusuka ngakwesokudla kuya kwesokunxele. Skrolela emuva ngokuhambisa umunwe owodwa kusuka kwesokunxele kuya kwesokudla."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Isifundo 3: Amamenyu e-TalkBack"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Imenyu ye-Global TalkBack, imenyu ye-TalkBack yendawo"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Ingxenye 1: Imenyu ye-Global TalkBack"</string>

@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Pieejamības pamācība"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Atvērt TalkBack pamācību"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"TalkBack apmācība"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"TalkBack apmācība"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack ir ekrāna lasītājs, kas galvenokārt paredzēts neredzīgiem un vājredzīgiem lietotājiem. Tas ļauj mijiedarboties ar ierīci, atskaņojot balss komentārus."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Izslēgt TalkBack"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"Apgūt <xliff:g id="INDEX">%1$d</xliff:g>. nodarbību"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"Mācību <xliff:g id="INDEX">%1$d</xliff:g>. nodarbība"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"1. nodarbība: navigācijas pamatiespējas"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Pieskaršanās, lai izpētītu, vilkšana, lai izpētītu, un dubultskāriens, lai aktivizētu"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Vilkšana, izpēte, aktivizēšana"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"1. daļa: funkcija “Pārlūkot pieskaroties”"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Iespējojot funkciju “Pārlūkot pieskaroties”, varat dzirdēt aprakstu vienumam, virs kura ir jūsu pirksts. Velciet pirkstu pa vienumiem ekrāna centrā. Kad būsiet pārlūkojis piecus vienumus, nodarbība turpināsies."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"2. daļa: dubultskāriens, lai aktivizētu vienumu"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Lai aktivizētu pēdējo nosaukto vienumu, veiciet dubultskārienu jebkur ekrānā. Tagad atrodiet 7. vienumu un aktivizējiet to. Pēc tam aktivizējiet vienumu Tālāk, lai turpinātu."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"7. vienums ir aktivizēts. Lai turpinātu, atrodiet un aktivizējiet pogu Tālāk."</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Lai aktivizētu pēdējo nosaukto vienumu, veiciet dubultskārienu jebkur ekrānā. Pēc tam atrodiet 4. vienumu un aktivizējiet to. Lai turpinātu, aktivizējiet vienumu “Tālāk”."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"4. vienums ir aktivizēts. Lai turpinātu, atrodiet un aktivizējiet pogu “Tālāk”."</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"3. daļa: nodarbības par navigācijas iespējām"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Visas TalkBack nodarbības ir izveidotas līdzīgā veidā. Augšdaļā ir parādīta nodarbība, kuru jebkurā laikā varat izpētīt un izlasīt. Ekrāna augšējā kreisajā stūrī ir pieejama arī poga Apmācības sākums. Vidusdaļā ir vingrināšanās apgabals. Apakšdaļā ir parādīts norises indikators un nodarbību navigācijas pogas. Tagad aktivizējiet vienumu Tālāk, lai turpinātu."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"4. daļa: pārlūkošana velkot"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"5. daļa: vingrināšanās"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Lai dzirdētu, uz kāda vienuma ir novietots pirksts, velciet ar to pār ekrānu. Veiciet dubultskārienu jebkur ekrānā, lai aktivizētu nosaukto vienumu. Lai izpētītu vienumu, ekrānā velciet pa kreisi vai pa labi."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"2. nodarbība: ritināšana"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Ritināšana ar diviem pirkstiem, pāriešana uz priekšu un atpakaļ"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"1. daļa: ritināšana ar diviem pirkstiem"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Lai ritinātu vertikālu sarakstu, atrodiet saraksta vienumu un pēc tam ar diviem pirkstiem velciet augšup vai lejup. Lai ritinātu horizontālu sarakstu, atrodiet saraksta vienumu un pēc tam ar diviem pirkstiem velciet pa kreisi vai pa labi."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"2. daļa: ritināšanas saīsnes"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Varat pāriet uz priekšu un atpakaļ sarakstā, izmantojot saīsni. Lai pārietu uz priekšu, velciet pirkstu pa labi un pēc tam pa kreisi ar nepārtrauktu kustību. Lai pārietu atpakaļ, velciet pirkstu pa kreisi un pēc tam pa labi. Izmēģiniet to!"</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"3. daļa: vingrināšanās"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Ritiniet, velkot divus pirkstus augšup vai lejup. Pārejiet uz priekšu, velkot pirkstu pa labi un pēc tam pa kreisi. Pārejiet atpakaļ, velkot pirkstu pa kreisi un pēc tam pa labi."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Ritināšana uz priekšu un atpakaļ"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"1. daļa: ritināšanas žesti"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Varat sarakstā ritināt uz priekšu un atpakaļ, izmantojot saīsni. Lai ritinātu uz priekšu, velciet pirkstu pa labi un pēc tam — pa kreisi ar nepārtrauktu kustību. Lai ritinātu atpakaļ, velciet pirkstu pa kreisi un pēc tam — pa labi. Izmēģiniet to!"</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"2. daļa: vingrināšanās"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Ritiniet uz priekšu, velkot pirkstu pa labi un pēc tam — pa kreisi. Ritiniet atpakaļ, velkot pirkstu pa kreisi un pēc tam — pa labi."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"3. nodarbība: TalkBack izvēlnes"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Galvenā TalkBack izvēlne, lokālā TalkBack izvēlne"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"1. daļa: galvenā TalkBack izvēlne"</string>

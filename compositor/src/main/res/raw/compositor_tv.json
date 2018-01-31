@@ -1,0 +1,94 @@
+{
+  "named_nodes": {
+    "hint_rule_drop_down_list": {
+      // get_custom_hint_for_click
+      "if": "$global.inputMode == 'keyboard' && $keyCombo.hasKeyForClick",
+      "then": "@string/template_hint_spinner_keyboard($keyCombo.stringRepresentationForClick)",
+      "else":  "@string/template_hint_spinner(@string/value_press_select)"
+    },
+
+    "hint_rule_edit_text": {
+      "join": [
+        "%get_hint_for_custom_actions",
+        "%get_hint_for_actions",
+        {
+          "if": "!$node.isFocused",
+          "then": {
+            // get_custom_hint_for_click
+            "if": "$global.inputMode == 'keyboard' && $keyCombo.hasKeyForClick",
+            "then": "@string/template_hint_edit_text_keyboard($keyCombo.stringRepresentationForClick)",
+            "else": "@string/template_hint_edit_text(@string/value_press_select)"
+          }
+        },
+        "%get_hint_for_long_click"
+      ],
+      "separator": ", "
+    },
+
+    "hint_rule_seek_bar": "@string/template_hint_seek_control_tv(@string/value_press_select)",
+
+    "hint_rule_pager": {
+      "if": "$node.supportsActionScrollForward || $node.supportsActionScrollBackward",
+      "then":  "%get_hint_for_click",
+      "else": "@string/template_hint_pager_single_page"
+    },
+
+    "hint_rule_default":  "%get_hint_for_click",
+
+    "get_hint_for_long_click": {
+      "fallback": [
+        {
+          "for_reference": "$node.actionLongClick",
+          "evaluate": {
+            "if": "$action.label",
+            "then": {
+              "if": "$global.inputMode == 'keyboard' && $keyCombo.hasKeyForLongClick",
+              "then": "@string/template_custom_hint_for_actions_keyboard($keyCombo.stringRepresentationForLongClick, $action.label)",
+              "else": "@string/template_custom_hint_for_long_clickable_actions(@string/value_press_select, $action.label)"
+            }
+          }
+        },
+        {
+          "if": "$node.isLongClickable",
+          "then": {
+            "if": "$global.inputMode == 'keyboard' && $keyCombo.hasKeyForLongClick",
+            "then": "@string/template_hint_long_clickable_keyboard($keyCombo.stringRepresentationForLongClick)",
+            "else": "@string/template_hint_long_clickable(@string/value_press_select)"
+          }
+        }
+      ]
+    },
+
+    "get_hint_for_click": {
+      "fallback": [
+        {
+          "for_reference": "$node.actionClick",
+          "evaluate": {
+            "if": "$action.label",
+            "then": {
+              "if": "$global.inputMode == 'keyboard' && $keyCombo.hasKeyForClick",
+              "then": "@string/template_custom_hint_for_actions_keyboard($keyCombo.stringRepresentationForClick, $action.label)",
+              "else": "@string/template_custom_hint_for_actions(@string/value_press_select, $action.label)"
+            }
+          }
+        },
+        {
+          "if": "$node.isCheckable",
+          "then": {
+            "if": "$global.inputMode == 'keyboard' && $keyCombo.hasKeyForClick",
+            "then": "@string/template_hint_checkable_keyboard($keyCombo.stringRepresentationForClick)",
+            "else": "@string/template_hint_checkable(@string/value_press_select)"
+          }
+        },
+        {
+          "if": "$node.isClickable",
+          "then": {
+            "if": "$global.inputMode == 'keyboard' && $keyCombo.hasKeyForClick",
+            "then": "@string/template_hint_clickable_keyboard($keyCombo.stringRepresentationForClick)",
+            "else": "@string/template_hint_clickable(@string/value_press_select)"
+          }
+        }
+      ]
+    }
+  }
+}

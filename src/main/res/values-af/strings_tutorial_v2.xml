@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Toeganklikheidhandleiding"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Begin TalkBack-handleiding"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"TalkBack-tutoriaal"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"TalkBack-handleiding"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack is \'n skermleser hoofsaaklik vir mense wat blind of swaksiende is. Dit laat interaksie met die toestel deur die gebruik van gesproke terugvoer toe."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Skakel TalkBack af"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"leer les <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"oefenles <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Les 1: Basiese navigasie"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Raak om te verken, swiep om te verken, dubbeltik om te aktiveer"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Swiep, verken, aktiveer"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Deel 1: Verken-met-aanraking"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Wanneer Verken-met-aanraking geaktiveer is, laat dit jou hoor wat onder jou vinger is. Skuif jou vinger oor die items in die middel van jou skerm. Die les sal voortgaan nadat jy vyf items verken het."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Deel 2: Dubbeltik om te aktiveer"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Dubbeltik enige plek om die laaste item wat jy gehoor het te aktiveer. Vind Item 7 en aktiveer dit nou. Aktiveer dan Volgende om voort te gaan."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Item 7 is geaktiveer. Vind en aktiveer Volgende-knoppie om voort te gaan"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Dubbeltik enige plek om die laaste item wat jy gehoor het, te aktiveer. Vind Item 4 en aktiveer dit nou. Aktiveer dan Volgende om voort te gaan."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Item 4 is geaktiveer. Vind en aktiveer Volgende-knoppie om voort te gaan"</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Deel 3: Navigeerlesse"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"TalkBack-lesse word op dieselfde manier opgestel. Die boonste deel het die les wat jy enige tyd kan verken en lees. Dit het ook \'n Tutoriaal-tuisknoppie in die hoek links bo. In die middel is \'n oefenarea. Aan die onderkant is \'n vorderingaanwyser, en lesnavigasie-knoppies. Aktiveer Volgende om voort te gaan."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Deel 4: Swiep om te verken"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Deel 5: Oefen"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Beweeg jou vinger oor die skerm om te hoor wat onder dit is. Dubbeltik enige plek om te aktiveer wat jy hoor. Swiep links of regs om te verken."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Les 2: Rollees"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Rollees met twee vingers, spring vorentoe en agtertoe"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Deel 1: Rollees met twee vingers"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Om deur \'n vertikale lys te rollees, vind \'n lysitem en beweeg dan twee vingers op of af. Om deur \'n horisontale lys te rollees, vind \'n lysitem en beweeg dan twee vingers links of regs."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Deel 2: Rolleeskortpaaie"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Jy kan met \'n kortpad vorentoe of agtertoe op \'n lys spring. Om vorentoe te spring, skuif een vinger in een beweging regs en dan links. Om terug te spring, skuif een vinger links en dan regs. Probeer dit hier."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Deel 3: Oefen"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Rollees deur twee vingers op of af te laat gly. Spring vorentoe deur een vinger regs en dan links te skuif. Spring terug deur een vinger links en dan regs te skuif."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Rollees vorentoe en agtertoe"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Deel 1: Rolleeskortpaaie"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Jy kan met \'n kortpad vorentoe of agtertoe op \'n lys rollees. Om vorentoe te rollees, beweeg een vinger in een beweging regs en dan links. Om agtertoe te rollees, beweeg een vinger links en dan regs. Probeer dit hier."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Deel 2: Oefen"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Rollees vorentoe deur een vinger regs en dan links te beweeg. Rollees agtertoe deur een vinger links en dan regs te beweeg."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Les 3: TalkBack-kieslyste"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Globale TalkBack-kieslys, plaaslike TalkBack-kieslys"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Deel 1: Globale TalkBack-kieslys"</string>

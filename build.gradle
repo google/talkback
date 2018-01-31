@@ -1,50 +1,46 @@
-apply from: 'base.gradle'
+/* For building open-source release of accessibility services.  */
+
+apply plugin: 'com.android.application'
+
+apply from: 'shared.gradle'
 
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
+        google()
     }
     dependencies {
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.android.tools.build:gradle:3.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
     }
 }
 
 android {
-    sourceSets {
-        aosp {
-            java.srcDirs = ["$projectDir/src/aosp/java"]
-            res.srcDirs = ["$projectDir/src/aosp/res"]
-        }
+    buildToolsVersion '27.0.0'
+    defaultConfig {
+        minSdkVersion 26
+        targetSdkVersion 27
+        testInstrumentationRunner 'android.test.InstrumentationTestRunner'
+        multiDexEnabled true
     }
-    productFlavors {
-        aosp {
-            applicationId "com.android.talkback"
-            testApplicationId "com.android.talkback.test"
-            versionName "5.0.7_aosp"
-        }
+    packagingOptions {
+        exclude 'LICENSE'
+        exclude 'README'
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
     }
 }
 
 dependencies {
-    compile 'com.google.android.gms:play-services:8.4.0'
-    compile 'com.android.support:support-v4:24.0.0'
-}
-
-task grantPermission(type: Exec) {
-    commandLine 'adb', 'shell', 'pm', 'grant', 'com.android.talkback.test',
-            'android.permission.WRITE_SECURE_SETTINGS'
-}
-
-task instrumentationTest(type: Exec, dependsOn: ['installAospDebug',
-                                                 'installAospDebugAndroidTest',
-                                                 'grantPermission']) {
-    commandLine 'adb', 'shell', 'am', 'instrument', '-w',
-            'com.android.talkback.test/android.test.InstrumentationTestRunner'
-}
-
-afterEvaluate {
-    tasks.withType (org.gradle.api.tasks.compile.AbstractCompile) {
-        compileTask -> compileTask.dependsOn(copyPreferencesXmlForV21)
-    }
+    compile project(':switchaccess')
+    compile project(':talkback')
 }

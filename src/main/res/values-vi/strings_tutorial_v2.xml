@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Hướng dẫn về trợ năng"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Khởi chạy hướng dẫn về TalkBack"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"Hướng dẫn về TalkBack"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"Hướng dẫn về TalkBack"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack là trình đọc màn hình chủ yếu dành cho người khiếm thị và thị lực kém. Tính năng này cho phép tương tác với thiết bị bằng cách sử dụng phản hồi bằng giọng nói."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Tắt TalkBack"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"bài học <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"bài học thực hành <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Bài học 1: Điều hướng cơ bản"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Chạm để khám phá, vuốt để khám phá, nhấn đúp để kích hoạt"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Vuốt, khám phá, kích hoạt"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Phần 1: Khám phá bằng cách chạm"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Khi được bật, tính năng Khám phá bằng cách chạm cho phép bạn nghe nội dung dưới ngón tay bạn. Di chuyển ngón tay qua các mục ở giữa màn hình của bạn. Sau khi bạn khám phá được năm mục, bài học sẽ tiếp tục."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Phần 2: Nhấn đúp để kích hoạt"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Để kích hoạt mục cuối cùng mà bạn đã nghe thấy, hãy nhấn đúp bất kỳ nơi nào. Tìm Mục 7 và kích hoạt mục đó ngay. Sau đó, kích hoạt Tiếp theo để tiếp tục."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Đã kích hoạt mục 7. Tìm và kích hoạt nút Tiếp theo để tiếp tục"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Để kích hoạt mục cuối cùng mà bạn đã nghe thấy, hãy nhấn đúp vào bất cứ đâu. Tìm Mục 4 và kích hoạt mục đó ngay. Sau đó, kích hoạt Tiếp theo để tiếp tục."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Đã kích hoạt mục 4. Tìm và kích hoạt nút Tiếp theo để tiếp tục"</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Phần 3: Bài học về điều hướng"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Các bài học TalkBack được sắp xếp tương tự. Khu vực trên cùng có bài học, nơi bạn có thể khám phá và đọc bất kỳ lúc nào. Khu vực này cũng có nút Trang chủ hướng dẫn ở góc trên cùng bên trái. Khu vực ở giữa có khu vực thực hành. Khu vực dưới cùng có chỉ báo tiến trình và các nút điều hướng bài học. Kích hoạt Tiếp theo ngay để tiếp tục."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Phần 4: Vuốt để khám phá"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Phần 5: Thực hành"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Để nghe nội dung dưới ngón tay bạn, hãy di chuyển ngón tay qua màn hình. Nhấn đúp bất kỳ đâu để kích hoạt nội dung mà bạn nghe thấy. Vuốt sang trái hoặc phải để khám phá."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Bài học 2: Cuộn"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Lùi, tiến và cuộn bằng hai ngón tay"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Phần 1: Cuộn bằng hai ngón tay"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Để cuộn qua danh sách theo hàng dọc, hãy tìm mục danh sách, sau đó di chuyển hai ngón tay lên hoặc xuống. Để cuộn qua danh sách theo chiều ngang, hãy tìm mục danh sách, sau đó di chuyển hai ngón tay sang trái hoặc phải."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Phần 2: Phím tắt cuộn"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Bạn có thể tiến hoặc lùi trong danh sách bằng cách sử dụng phím tắt. Để tiến, hãy di chuyển một ngón tay sang phải rồi sang trái theo một chuyển động. Để lùi, hãy di chuyển một ngón tay sang trái rồi sang phải. Hãy làm thử tại đây."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Phần 3: Thực hành"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Cuộn bằng cách trượt hai ngón tay lên hoặc xuống. Tiến bằng cách di chuyển một ngón tay sang phải rồi sang trái. Lùi bằng cách di chuyển một ngón tay sang trái rồi sang phải."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Cuộn tiến và lùi"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Phần 1: Phím tắt cuộn"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Bạn có thể cuộn tiến hoặc lùi trong danh sách bằng phím tắt. Để cuộn tiến, hãy di chuyển một ngón tay sang phải rồi sang trái theo một chuyển động. Để cuộn lùi, hãy di chuyển một ngón tay sang trái rồi sang phải. Hãy làm thử tại đây."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Phần 2: Thực hành"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Cuộn tiến bằng cách di chuyển một ngón tay sang phải rồi sang trái. Cuộn lùi bằng cách di chuyển một ngón tay sang trái rồi sang phải."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Bài học 3: Các menu TalkBack"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menu TalkBack chung, menu TalkBack cục bộ"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Phần 1: Menu TalkBack chung"</string>

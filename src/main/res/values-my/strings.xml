@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="talkback_service_description" msgid="5081383053733275450">"TalkBack ကိုဖွင့်ထားလျှင်၊ သင့်စက်ပစ္စည်းသည် မျက်မမြင်နှင့် အမြင်အာရုံအားနည်းသည့် အသုံးပြုသူများကို စကားပြောတုံ့ပြန်မှုများဖြင့် ကူညီပေးပါသည်။ ဥပမာ၊ ၎င်းသည် သင်ထိသည့်၊ ရွေးသည့်၊ စဖွင့်သည့်အရာများကို ပြောပြပေးပါသည်။\n\nTalkBack ကိုမတော်တဆ ဖွင့်မိလျှင်၊ အစိမ်းရောင်ဘောင်အကွက် လင်းလာသည်အထိ တို့ထားပြီး ၎င်းကိုနှစ်ချက်ဆက်တိုက်နှိပ်ခြင်းဖြင့် ပိတ်နိုင်သည်။ ပေါ်လာသည့် အတည်ပြုချက်အကွက်အတွက်လည်း ထိုနည်းတူလုပ်ဆောင်ပါ။"</string>
+    <string name="talkback_service_summary" msgid="6365572257324337595">"ဖန်သားပြင်ပေါ်ရှိအရာများကို ဖတ်ရန်"</string>
+    <string name="talkback_preferences_title" msgid="4249486159144445549">"TalkBack ဆက်တင်များ"</string>
+    <!-- no translation found for tts_preferences_title (8167186112347512303) -->
+    <skip />
+    <!-- no translation found for language_options (8577758471261539974) -->
+    <skip />
+    <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"ဗားရှင်း <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
+    <string name="label_manager_summary_title" msgid="6786694853113585661">"စိတ်ကြိုက် တံဆိပ်များကို စီမံကွပ်ကဲပါ"</string>
+    <string name="label_manager_package_title" msgid="6984665343963494151">"<xliff:g id="APPLICATIONLABEL">%1$s</xliff:g> အတွက် တံဆိပ်များကို စီမံကွပ်ကဲပါ"</string>
+    <string name="label_manager_no_packages_message" msgid="4478523067360108574">"လောလောဆယ်တွင် စိတ်ကြိုက် တံဆိပ်များ မရှိပါ။ သင်သည် တံဆိပ် မပါသည့် ပုံတစ်ပုံဆီ သွားကာ ဒေန္တရ ဆက်စပ် မီနူး အထဲမှ တံဆိပ် တစ်ခုကို တပ်ပေးလျက် တစ်ကို ဖန်တီးနိုင်သည်။"</string>
+    <string name="label_manager_timestamp_text" msgid="2632240906498521602">"နောက်ဆုံး မွမ်းမံခဲ့သည်မှာ <xliff:g id="TIMESTAMP">%1$s</xliff:g>"</string>
+    <string name="search_dialog_label" msgid="7273037326593054813">"ရှာဖွေရန်- <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>"</string>
+    <string name="search_mode_open" msgid="910823044260738937">"ရှာဖွေရေးမုဒ် ဖွင့်ပြီး။"</string>
+    <string name="search_mode_cancel" msgid="4938867934958343710">"ရှာဖွေရေး ပယ်ဖျက်ရန်။"</string>
+    <string name="search_mode_finish" msgid="7166574479757238944">"ရှာဖွေခြင်း ပြီးဆုံးရ။"</string>
+    <string name="search_mode_hint_start" msgid="4597528088567439979">"ရှာဖွေရေးမုဒ်။"</string>
+    <string name="search_mode_hint_no_query" msgid="3919282680896571220">"မေးခွန်း ရိုက်မထည့်ရသေးပါ။"</string>
+    <string name="search_mode_hint_query" msgid="5896493032072187997">"လတ်တလော မေးခွန်း- <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>"</string>
+    <string name="search_mode_hint_no_selection" msgid="882227441829755961">"အချက်အလက် မရွေးထားပါ။"</string>
+    <string name="search_mode_hint_selection" msgid="8541673936818652399">"လတ်တလော ရွေးချယ်မှု- <xliff:g id="SELECTED_NODE">%1$s</xliff:g>"</string>
+    <string name="notification_type_missed_call" msgid="6585664098525214473">"လွတ်သွားခဲ့သည့် ခေါ်ဆိုမှု"</string>
+    <string name="notification_type_status_mute" msgid="2024742614005804613">"အသံတိတ်ရန်"</string>
+    <string name="notification_type_status_chat" msgid="3593906461181368010">"ချတ်"</string>
+    <string name="notification_type_status_error" msgid="8762616334364573004">"အမှား"</string>
+    <string name="notification_type_status_more" msgid="4889548393564513820">"နောက်ထပ်"</string>
+    <string name="notification_type_status_sdcard" msgid="6675459139116184337">"SD ကဒ်"</string>
+    <string name="notification_type_status_sdcard_usb" msgid="6882955062811560802">"SD ကဒ် USB"</string>
+    <string name="notification_status_sync" msgid="7913123792593843784">"စင့်က်"</string>
+    <string name="notification_type_status_sync_noanim" msgid="3708903607797168409">"စင့်က်"</string>
+    <string name="notification_type_status_voicemail" msgid="1611063561670902017">"အသံမေးလ်"</string>
+    <string name="notification_type_status_started" msgid="1071939833188591219">"စတင်ခဲ့ပြီ"</string>
+    <string name="notification_type_status_stopped" msgid="6004666820256747725">"ရပ်သွားခဲ့"</string>
+    <string name="template_menu" msgid="2592357933256217001">"<xliff:g id="TITLE">%1$s</xliff:g> မီနူး"</string>
+    <string name="template_no_text_selected" msgid="5665980541549462608">"စာသားရွေးမထားပါဘူး။"</string>
+    <string name="template_long_clicked" msgid="1962442828386303832">"ကြာစွာ နှိပ်ထား <xliff:g id="TITLE">%1$s</xliff:g>"</string>
+    <string name="template_charging" msgid="2038200557537960378">"အားသွင်းမှု<xliff:g id="CHANGING_STATUS">%1$s</xliff:g> ဘက္ထရီ အဆင့်<xliff:g id="BATTERY_LEVEL">%2$s</xliff:g> ရာနှုန်း။"</string>
+    <string name="template_charging_lite" msgid="7759886088558576716">"ဘက်ထရီအား သွင်းနေသည် <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>"</string>
+    <!-- no translation found for template_language_options_menu_item (8697997506008405892) -->
+    <skip />
+    <string name="template_scroll_from_to_count" msgid="2060702043504844709">"ပြထားသည့် <xliff:g id="FROM_INDEX">%1$d</xliff:g> နှင့် <xliff:g id="TO_INDEX">%2$d</xliff:g> မှာ <xliff:g id="TOTAL_COUNT">%3$d</xliff:g> ထဲမှဖြစ်၏။"</string>
+    <string name="template_scroll_from_count" msgid="4696666433263950881">"ပြထားသည့် <xliff:g id="FROM_INDEX">%1$d</xliff:g> မှာ <xliff:g id="TOTAL_COUNT">%2$d</xliff:g> ထဲမှ ဖြစ်၏။"</string>
+    <string name="template_viewpager_index_count" msgid="4811442521690748167">"စာမျက်နှာ <xliff:g id="TOTAL_COUNT">%2$d</xliff:g> ထဲက <xliff:g id="PAGE_INDEX">%1$d</xliff:g>"</string>
+    <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="TOTAL_COUNT">%2$d</xliff:g> ထဲက <xliff:g id="PAGE_INDEX">%1$d</xliff:g>"</string>
+    <string name="value_notification_shade_opened" msgid="5404406119689977269">"အရိပ်ထိုးမှု ဖွင့်ထား"</string>
+    <string name="value_text_removed" msgid="9064311081864073839">"ဖျက်ပြီး"</string>
+    <string name="value_dismissible" msgid="1363491313197032055">"ပယ်နိုင်သည်"</string>
+    <string name="hint_radial_menu" msgid="2042130200569709650">"ဖန်သားပြင်ကိုထိပြီး စက်ဝိုင်းပုံသဏ္ဍန်ဝိုက်၍ လိုလားသောအရာတစ်ခုကို ရှာဖွေပါ၊ တွေ့ရှိလျှင် ၎င်းကို စတင်ရန်အတွက် လက်ကို ပြန်မ လိုက်ပါ။"</string>
+    <string name="hint_summary_jog_dial" msgid="2050246931229863299">"မျက်နှာပြင်ကို ထိလိုက်ကာ စက်ဝိုင်း တစ်ခုထဲတွင် မျက်နှာပြင် အကြောင်းအရာဆီ သွားလာမှုကို စူးစမ်းပါ၊ ၎င်းနောက်မှာ ဆုံချက်ညှိရန် မယူလိုက်ပါ။"</string>
+    <string name="value_ringer_vibrate" msgid="2453075127843329125">"တုန်ခါမှုဖြင့် အချက်ပေး။"</string>
+    <string name="value_ringer_silent" msgid="3881352685288650823">"ဖုန်းသံ ပိတ်ထား။"</string>
+    <string name="value_screen_on" msgid="4051568127659724519">"မျက်နှာပြင် ဖွင့်ထား၏။"</string>
+    <string name="value_screen_off" msgid="4442166505764238236">"မျက်နှာပြင် ပိတ်ထား။"</string>
+    <string name="value_device_unlocked" msgid="5503481137448624626">"ကိရိယာ သော့ဖွင့်ထား။"</string>
+    <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"နှုတ်စကား"</string>
+    <string name="title_pref_speech_volume" msgid="17846978416951489">"အသံအတိုးအကျယ်"</string>
+    <string name="title_pref_speak_screenoff" msgid="7056106236376536133">"မျက်နှာပြင် ပိတ်ထားလျှင် ပြောပါ"</string>
+    <string name="summaryOn_pref_speak_screenoff" msgid="3200696691374942097">"မျက်နှာပြင် ပိတ်ထားလျှင် အကြောင်းကြားစာများကို ပြောပေးသည်"</string>
+    <string name="summaryOff_pref_speak_screenoff" msgid="1820564330334595916">"မျက်နှာပြင် ပိတ်ထားလျှင် ဘယ်လို နှုတ်ပြောမှုမှ မဖြစ်နိုင်ပါ"</string>
+    <string name="title_pref_proximity" msgid="4533552749993575929">"အနီးနား အာရုံခံကိရိယာကိုသုံးရန်"</string>
+    <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"အနီးနား အာရုံခံကိရိယာဖွင့်ထားလျှင် စကားပြောသံကို ပိတ်လိုက်ပါလိမ့်မည်"</string>
+    <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"အနီးအနား ခံယူရေး ကိရိယာသည် စကားပြောမှုကို မထိန်းချုပ်ပါ"</string>
+    <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"အသံထွက် စာလုံးများကို ပြောပေးရန်"</string>
+    <string name="summaryOff_pref_phonetic_letters" msgid="9103268945330003219">"အသံထွက်ကိုပြသည့် စာလုံးများကို ပြောပေးမည်မဟုတ်ပါ"</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="4376866668529919518">"ကီးဘုတ်ကို ကြာရှည်စွာနှိပ်ပြီး စာလုံးတစ်ခုစီပေါ်တွင် ရွှေ့လိုက်လျှင် အသံထွက်စာလုံးများကို ပြောပေးပါမည်"</string>
+    <string name="title_pref_a11y_hints" msgid="3770770318417664565">"အသုံးပြုရေး အကြံပေးချက်များကို ပြောပေးရန်"</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="798877049305553182">"အသုံးပြုမှု ရွေးချယ်ခြင်းကို ရွှေ့သည့်အခါ သုံးစွဲရန်အကြံပေးချက်များကို ပြောပေးမည်မဟုတ်ပါ"</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="3161412108419178134">"လမ်းညွှန်နေချိန်တွင် အသုံးပြုမှုအကြံပေးချက်များကို အချိန်အနည်းငယ် နှောင့်နှေးပြီး ပြောပေးပါမည်"</string>
+    <string name="pref_speak_container_element_positions_title" msgid="2835508578760045808">"စာရင်းနှင့်ဇယားကွက် အချက်အလက်များပြောရန်"</string>
+    <string name="pref_speak_container_element_positions_summaryOn" msgid="5023625248365109203">"စာရင်းနှင့် ဇယားကွက် အချက်အလက်များကို ပြောပေးပါမည်"</string>
+    <string name="pref_speak_container_element_positions_summaryOff" msgid="4112715962530209920">"စာရင်းနှင့် ဇယားကွက် အချက်အလက်များကို ပြောပေးမည်မဟုတ်ပါ"</string>
+    <string name="pref_speak_roles_title" msgid="8119822404299836273">"အကြောင်းအရာ အမျိုးအစားကို ပြောရန်"</string>
+    <string name="pref_speak_roles_summary_on" msgid="1601846507096793058">"ချိန်ထားသည့် အရာများအတွက် ပစ္စည်းအမျိုးအစားကို ပြောပေးပါသည်"</string>
+    <string name="pref_speak_roles_summary_off" msgid="5420176413415285653">"ချိန်ထားသည့် အရာများအတွက် ပစ္စည်းအမျိုးအစားကို မပြောပေးပါ"</string>
+    <!-- no translation found for title_pref_speak_element_ids (391655908629950456) -->
+    <skip />
+    <!-- no translation found for summaryOff_pref_speak_element_ids (4960956994540579272) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_element_ids (44367075933871550) -->
+    <skip />
+    <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"တို့ထိလျက် စူးစမ်းပါ"</string>
+    <string name="title_pref_auto_scroll" msgid="306503376875826605">"စာရင်းများကို အလိုအလျောက် လှိမ့်ဆင်းရန်"</string>
+    <!-- no translation found for title_pref_category_touch_exploration (5874968966650551610) -->
+    <skip />
+    <string name="title_pref_single_tap" msgid="5333869781230265376">"တစ်ကြိမ်နှိပ်၍ ဖွင့်ခြင်း"</string>
+    <!-- no translation found for title_pref_show_context_menu_as_list (1317122602474219414) -->
+    <skip />
+    <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"TalkBack ဖွင့်ထားစဉ်တွင် မျက်နှာပြင် မိန်မည်"</string>
+    <string name="summary_pref_single_tap" msgid="1868206223500105704">"(စမ်းသပ်မှု) စဖွင့်ရန် လက်ရှိအာရုံစိုက်ထားသည့် အကြောင်းအရာကို တို့ပါ"</string>
+    <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"ဆက်တိုက် ဖတ်ကြားမှုကို စတင်ရန် လှုပ်ခါပါ"</string>
+    <string name="pref_verbosity_title" msgid="3719351581071950262">"အကျယ်ချဲ့ရှင်းပြရန်"</string>
+    <string name="title_pref_category_manage_gestures" msgid="2614141620073133854">"လက်ဟန်များ"</string>
+    <string name="title_pref_manage_labels" msgid="4466030803655661973">"စိတ်ကြိုက် အမည်များ"</string>
+    <string name="title_pref_manage_keyboard_shortcuts" msgid="8091201905891748923">"ကီးဘုတ် ဖြတ်လမ်းလင့်ခ်များ"</string>
+    <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"စိတ်ကြိုက် တံဆိပ်များကို တင်ပို့ပါ"</string>
+    <string name="title_pref_play_store" msgid="5158596411034985043">"Play Store တွင် TalkBack အား ဖွင့်ပါ"</string>
+    <string name="summary_pref_play_store" msgid="3575108337945375864">"လတ်တလော TalkBack ဗားရှင်း- <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
+    <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"အကူအညီနှင့် အကြံပြုချက်"</string>
+    <string name="pref_item_licenses" msgid="3546535377387155282">"အခမဲ့ အများသုံးလိုင်စင်များ"</string>
+    <string name="title_pref_help" msgid="2022820131100451763">"အကူအညီ"</string>
+    <!-- no translation found for title_pref_show_tos (2813500691748037529) -->
+    <skip />
+    <!-- no translation found for title_pref_show_privacy_policy (8945789024630561518) -->
+    <skip />
+    <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"လက်ဟန် ဖြတ်လမ်းများ"</string>
+    <string name="title_pref_category_fingerprint_touch_shortcuts" msgid="4338314761170964858">"လက်ဗွေ ဟန်များ"</string>
+    <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"ထည်သွင်းထားသည့် လက်ဟန်များ"</string>
+    <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"(စမ်းသပ်နေဆဲ) ကိရိယာ၏ ဘေးမှာ ပုတ်ပါ"</string>
+    <string name="pref_verbosity_preset_title" msgid="6299916234007004610">"ကြိုတင်သတ်မှတ်ချက်တစ်ခုကို ရွေးပါ"</string>
+    <string name="pref_verbosity_preset_entry_high" msgid="791984796274765142">"မြင့်"</string>
+    <string name="pref_verbosity_preset_entry_custom" msgid="8261147354044310508">"စိတ်ကြိုက်"</string>
+    <string name="pref_verbosity_preset_entry_low" msgid="1333334045447549264">"နိမ့်"</string>
+    <string name="pref_verbosity_category_preset_settings_title" msgid="620716446067964188">"အကျယ်ချဲ့ရှင်းပြခြင်း အသေးစိတ်များ"</string>
+    <!-- no translation found for pref_verbosity_category_misc_settings_title (6121977747903981087) -->
+    <skip />
+    <string name="pref_verbosity_preset_change" msgid="7250611496087013782">"<xliff:g id="PRESET_NAME">%1$s</xliff:g> အကျယ်ချဲ့ရှင်းပြခြင်းကို ယခု ဖွင့်ထားပါသည်။"</string>
+    <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"ခလုတ်မြေပုံ"</string>
+    <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"ခလုတ်ပြမြေပုံတစ်ခုကို ရွေးပါ"</string>
+    <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"ခလုတ်ပြမြေပုံကို ပြန်လည်သတ်မှတ်ပါ"</string>
+    <string name="keycombo_menu_choose_trigger_modifier" msgid="1134261938982195470">"ပြင်ဆင်ရန်ခလုတ်ကို ရွေးပါ"</string>
+    <string name="keycombo_menu_alert_title_trigger_modifier" msgid="2294464165508562696">"TalkBack သည် လက်ကွက်ကို ပြန်သတ်မှတ်မည်"</string>
+    <string name="keycombo_menu_alert_message_trigger_modifier" msgid="1828508564583672416">"TalkBack သည် လက်ကွက်နေရာများကို ပြန်လည်သတ်မှတ်ပြီး <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g> ကို ပြင်ဆင်ရန်ခလုတ်အဖြစ် ပြောင်းလဲအသုံးပြုပါမည်"</string>
+    <string name="keycombo_menu_announce_new_trigger_modifier" msgid="7217139940963945885">"ပြင်ဆင်ရန်ခလုတ်ကို <xliff:g id="NEW_TRIGGER_MODIFIER">%1$s</xliff:g> သို့ပြောင်းထားသည်။"</string>
+    <string name="keycombo_menu_announce_active_keymap" msgid="6826451509012716500">"<xliff:g id="KEYMAP_NAME">%1$s</xliff:g> ယခုပွင့်နေပါပြီ။"</string>
+    <string name="keycombo_menu_announce_reset_keymap" msgid="6125748767740120870">"ခလုတ်မြေပုံကို ပြန်လည်သတ်မှတ်ပြီးပါပြီ။"</string>
+    <string name="keycombo_announce_shortcut_not_supported" msgid="2481495794999250718">"ဖြတ်လမ်းကို ပံ့ပိုးမထားပါ"</string>
+    <string name="value_classic_keymap" msgid="5183845393779526573">"ရိုးရှင်းသည့် ခလုတ်ပြမြေပုံ"</string>
+    <string name="value_default_keymap" msgid="2991108554131770843">"မူလ ခလုတ်ပြမြေပုံ"</string>
+    <string name="keycombo_menu_category_navigation" msgid="4152949225907039706">"သွားရောက်စူးစမ်း လုပ်ဆောင်ချက်"</string>
+    <string name="keycombo_menu_navigate_next" msgid="759996660496701149">"နောက်လာမည့်အရာအား သွားရောက်စူးစမ်းရန်"</string>
+    <string name="keycombo_menu_navigate_previous" msgid="6854364806063486016">"ယခင် အရာအား သွားရောက်စူးစမ်းရန်"</string>
+    <string name="keycombo_menu_navigate_up" msgid="8246000047771671403">"အပေါ်ရှိ အကြောင်းအရာသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_navigate_down" msgid="8107187053010960249">"အောက်ဖက်ရှိ အကြောင်းအရာသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_navigate_first" msgid="3158152161988911032">"ပထမဆုံးအရာအား သွားရောက်စူးစမ်းရန်"</string>
+    <string name="keycombo_menu_navigate_last" msgid="1263547978659004801">"နောက်ဆုံးအရာအား သွားရောက်စူးစမ်းရန်"</string>
+    <string name="keycombo_menu_navigate_next_window" msgid="25126714988891178">"နောက်ဝင်းဒိုးသို့ သွားပါ"</string>
+    <string name="keycombo_menu_navigate_previous_window" msgid="4564537307456535973">"ယခင်ဝင်းဒိုးသို့ သွားပါ"</string>
+    <string name="keycombo_menu_navigate_next_word" msgid="1395811611039468067">"နောက်စကားလုံးသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_navigate_previous_word" msgid="4068599657564535841">"ယခင်စကားလုံးသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_navigate_next_character" msgid="2366740353671146191">"နောက်စာလုံးသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_navigate_previous_character" msgid="2721742949377224859">"ယခင်စာလုံးသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_perform_click" msgid="243666968746657931">"ကလစ်နှိပ်ပါ"</string>
+    <string name="keycombo_menu_perform_long_click" msgid="5580717252946630027">"ကြာရှည်စွာနှိပ်ပါ"</string>
+    <string name="keycombo_menu_category_global" msgid="7309875734492478067">"ကမ္ဘာလုံးဆိုင်ရာ လုပ်ဆောင်ချက်"</string>
+    <string name="keycombo_menu_global_back" msgid="4567585750566224959">"နောက်သို့"</string>
+    <string name="keycombo_menu_global_home" msgid="7189369064773623371">"ပင်မ"</string>
+    <string name="keycombo_menu_global_recent" msgid="927586811460340459">"လတ်တလော သုံးခဲ့ အက်ပ်"</string>
+    <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"အကြောင်းကြားချက်များ"</string>
+    <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"TalkBack ခေတ္တရပ်တန့်ပါ သို့မဟုတ် ဆက်လက်လုပ်ဆောင်ပါ"</string>
+    <!-- no translation found for keycombo_menu_category_granularity (8575000248950511679) -->
+    <skip />
+    <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"နောက်ထပ် ရွှေ့လျားရန် ကြိုတင်ပြင်ဆင်ချက်"</string>
+    <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"ပြီးခဲ့သည့် ရွှေ့လျားရန် ကြိုတင်ပြင်ဆင်ချက်"</string>
+    <string name="keycombo_menu_category_other" msgid="440132295339458288">"အခြား လုပ်ဆောင်ချက်များ"</string>
+    <string name="keycombo_menu_other_read_from_top" msgid="5903852171117275622">"ထိပ်မှ ဖတ်ရန်"</string>
+    <string name="keycombo_menu_other_read_from_next_item" msgid="1511843443312220392">"နောက်  တစ်ခုမှ ဖတ်ရန်"</string>
+    <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"အရာတစ်ခုအတွက် ဖန်မျက်နှာပြင်အား ရှာရန်"</string>
+    <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"ဒေသခံ ဆက်စပ် မီနူး ပြရန်"</string>
+    <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"ကမ္ဘာလုံးဆိုင်ရာ ဆက်စပ် မီနူး ပြရန်"</string>
+    <string name="keycombo_menu_other_custom_actions" msgid="4769044790570667515">"လုပ်ဆောင်ချက်များကို ပြရန်"</string>
+    <!-- no translation found for keycombo_menu_other_language_options (6071616089592138709) -->
+    <skip />
+    <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"ကီးဘုတ်ဖြတ်လမ်းများကို စီမံပါ"</string>
+    <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"TalkBack ဆက်တင်များကို ဖွင့်ပါ"</string>
+    <string name="keycombo_menu_category_web" msgid="197426246774034347">"ဝဘ်လမ်းညွှန်မှုဆိုင်ရာ လုပ်ဆောင်ချက်များ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_button" msgid="5786404186459162862">"ခလုတ်နောက်တစ်ခုသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_button" msgid="7341520853947364002">"ယခင်ခလုတ်သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_control" msgid="5118493330693292266">"ထိန်းချုပ်မှုနောက်တစ်ခုသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_control" msgid="6218169838978520955">"ယခင်ထိန်းချုပ်မှုသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_checkbox" msgid="3722561185964557699">"ရွေးချယ်ရန်အကွက် နောက်တစ်ကွက်သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_checkbox" msgid="6560080364424986498">"ယခင်ရွှေးချယ်ရန်အကွက်သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_aria_landmark" msgid="6234830691861291732">"ARIA အထင်ကရနေရာ နောက်တစ်ခုသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_aria_landmark" msgid="1779439621789951193">"ယခင် ARIA အထင်ကရနေရာသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_edit_field" msgid="212436471355413352">"တည်းဖြတ်ရန်အကွက် နောက်တစ်ကွက်သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_edit_field" msgid="5495489017658262310">"ယခင်တည်းဖြတ်ရန်အကွက်သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_focusable_item" msgid="6577338510655384932">"အာရုံစိုက်၍ရသည့် နောက်အကြောင်းအရာတစ်ခုသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_focusable_item" msgid="4960141150651374820">"အာရုံစိုက်၍ရသည့် ယခင်အကြောင်းအရာသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_graphic" msgid="3860950617153731037">"နောက်ပုံတစ်ခုသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_graphic" msgid="4496215226346619518">"ယခင်ပုံသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading" msgid="6529174070300116949">"နောက်ခေါင်းစဉ်သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading" msgid="3501846285908107279">"ယခင်ခေါင်းစဉ်သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_1" msgid="3244117772760471353">"နောက်ခေါင်းစဉ် ၁ သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_1" msgid="3317845146689095006">"ယခင်ခေါင်းစဉ် ၁ သို့ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_2" msgid="75822840123780036">"နောက်ခေါင်းစဉ် ၂ သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_2" msgid="2130159635618042033">"ယခင်ခေါင်းစဉ် ၂ သို့ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_3" msgid="6068489868699550150">"နောက်ခေါင်းစဉ် ၃ သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_3" msgid="3261881889523320310">"ယခင်ခေါင်းစဉ် ၃ သို့ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_4" msgid="3960229240959901354">"နောက်ခေါင်းစဉ် ၄ သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_4" msgid="4665169714217637276">"ယခင်ခေါင်းစဉ် ၄ သို့ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_5" msgid="9101669601111190142">"နောက်ခေါင်းစဉ် ၅ သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_5" msgid="1057554300668048210">"ယခင်ခေါင်းစဉ် ၅ သို့ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_heading_6" msgid="6918176243153506542">"နောက်ခေါင်းစဉ် ၆ သို့ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_heading_6" msgid="2400489461796001671">"ယခင်ခေါင်းစဉ် ၆ သို့ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list_item" msgid="5640113968924738728">"နောက်စာရင်း အကြောင်းအရာသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list_item" msgid="3557085444094910366">"ယခင်စာရင်းအကြောင်းအရာသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_link" msgid="3567614429970148323">"နောက်လင့်ခ်တစ်ခုသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_link" msgid="1510672359574680127">"ယခင်လင့်ခ်သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_list" msgid="8731606795102810314">"နောက်စာရင်းသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_list" msgid="8999329379609937777">"ယခင်စာရင်းသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_table" msgid="6540415308854724223">"နောက်ဇယားသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_table" msgid="8234050317398672680">"ယခင်ဇယားသို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"ပေါင်းစပ်အကွက် နောက်တစ်ကွက်သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"ယခင်ပေါင်းစပ်အကွက်သို့ ရွှေ့ပါ"</string>
+    <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"ကီးဘုတ်အတိုကောက်သည်"</string>
+    <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"ဖြတ်လမ်းကို ရှင်းရန် Backspace ကို နှိပ်ပါ၊ သိမ်းရန် Enter ကို နှိပ်ပါ၊ သို့မဟုတ် မလုပ်တော့ရန် Escape ကို နှိပ်ပါ။"</string>
+    <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"ဖြတ်လမ်းခလုတ်များကို ဖယ်ရှားပါ"</string>
+    <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"ဤခလုတ်ပြမြေပုံအတွက် ဖြတ်လမ်းခလုတ်များကို ၎င်းတို့၏မူရင်းသို့ ပြန်လည်သတ်မှတ်လိုသည်မှာ သေချာပါသလား။ မှတ်ချက်၊ ဤလုပ်ဆောင်ချက်ကို ပြန်ပြောင်း၍မရပါ။"</string>
+    <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"ပြန်လည်သတ်မှတ်ပါ"</string>
+    <string name="override_keycombo" msgid="9043246837899844909">"ကီးသုံးပြီးနေပါပြီ"</string>
+    <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"ကီးပေါင်းစပ်ခြင်းသည်  \'<xliff:g id="ID_1">%1$s</xliff:g>\' လုပ်ဆောင်ချက်အတွက် အသုံးပြုထားပါသည်။ ၎င်းကိုရှင်းလင် \'<xliff:g id="ID_2">%2$s</xliff:g>\'?"</string>
+    <string name="title_pref_intonation" msgid="7375380428425494034">"အသံစဉ် ပြောင်းလဲမှုများကို အသုံးပြုရန်"</string>
+    <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"ကီးဘုတ် ပဲ့တင်သံ"</string>
+    <string name="pref_node_desc_order_title" msgid="4632210763611067450">"အကြောင်းအရာဖော်ပြချက် အစီအစဉ်"</string>
+    <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"ကီးဘုတ် တုံ့ပြန်ချက်ကို နိမ့်သည့် အသံဖြင့် ပြောပါ"</string>
+    <string name="summaryOff_pref_intonation" msgid="5187278527518557715">"စကား ပြောနေစဉ် အသံအနိမ့်အမြင့်ကို မပြောင်းပါနှင့်"</string>
+    <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"အခြား အကြံပြုချက်"</string>
+    <string name="title_pref_vibration" msgid="4156396276749836864">"တုန်ခါမှု အကြံပြုချက်"</string>
+    <string name="title_pref_soundback" msgid="3131811048184077738">"အသံဖြင့် အကြံပြုချက်"</string>
+    <string name="title_pref_use_audio_focus" msgid="5227372335896747459">"နောက်ခံသံလျှော့ချခြင်း"</string>
+    <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"စကားပြောနေလျှင် အခြား အသံကို လျှော့လိုက်ပါ"</string>
+    <string name="title_pref_soundback_volume" msgid="8633886470832131926">"အသံ ပမာဏ"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"TalkBack သည် ဖြတ်လမ်းကို ဆိုင်းငံ့ခြင်းနှင့် ဆက်လက်အသုံးပြုခြင်းများ ပြုလုပ်ပေးပါသည်"</string>
+    <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"မျက်နှာပြင် မှိန်ရန် ဖြတ်လမ်း"</string>
+    <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"အထွေထွေများ"</string>
+    <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"ပြုစုပေးသူ ဆက်တင်များ"</string>
+    <string name="title_activity_dump_a11y_event" msgid="2517638358851774040">"မှတ်တမ်းတင်ရန် ဖြစ်ရပ်ကို ရွေးချယ်ပါ"</string>
+    <string name="title_pref_dump_a11y_event" msgid="3999046718706391324">"အများသုံးစွဲနိုင်မှုဖြစ်ရပ် မှတ်တမ်းတင်ခြင်းကို စိစစ်ပါ"</string>
+    <string name="title_pref_log_level" msgid="267415170405921603">"လော့ဂ် ထုတ်ပေးမှု အဆင့်"</string>
+    <string name="title_pref_tts_overlay" msgid="4448445593132620627">"နှုတ်ပြော ထုတ်ပေးမှုကို ပြရန်"</string>
+    <string name="title_pref_tree_debug" msgid="1525763448981997023">"node tree အမှားရှာပြင်ရန် ဖွင့်ပါ"</string>
+    <string name="summary_pref_tree_debug_tv" msgid="2155606249933775098">"ရှာဖွေမည့်အစား အဆင့်လိုက်ပြဇယားချပ်ကို ပုံနှိပ်ထုတ်ယူရန် စာမရိုက်ဘဲ အသံဖြင့် ရှာဖွေစေခြင်းကီးကို အသုံးပြုပါ"</string>
+    <string name="title_pref_performance_stats" msgid="3701419705373126127">"စွမ်းဆောင်ရည်ပြ စာရင်းဇယားကို ဖွင့်ပါ"</string>
+    <string name="title_pref_resume_talkback" msgid="4098949311311089235">"ဆိုင်းငံ့မှ ဆက်လုပ်ရန်"</string>
+    <string name="screen_dimmed" msgid="8072279323762069231">"မျက်နှာပြင်ကို မိန်လိုက်ပါပြီ"</string>
+    <string name="screen_brightness_restored" msgid="378010604065368658">"မျက်နှာပြင် တောက်ပမှု ပြန်လည်သိုလှောင်ခဲ့ပါသည်"</string>
+    <string name="screen_dimming_exit_instruction_line1" msgid="5487433770461700107">"TalkBack အများသုံးစွဲနိုင်ခြင်း ဝန်ဆောင်မှုက ဖန်သားပြင်ကို မှိန်ထားပါသည်"</string>
+    <string name="screen_dimming_exit_instruction_line2" msgid="6697363666089792199">"အသံအတိုးအကျယ် ခလုတ်များကို သုံးကြိမ်မြန်မြန် အတူတကွနှိပ်ခြင်းဖြင့် တစ်ဆင့်နောက်ပြန်နိုင်သည်"</string>
+    <string name="screen_dimming_exit_instruction_line3" msgid="5253511790182167247">"ဖန်သားပြင်မှိန်ခြင်းအား TalkBack ဆက်တင်များမှ ထိန်းချုပ်နိုင်သည်"</string>
+    <string name="shortcut_unassigned" msgid="1803159459924262469">"တာဝန် ပေးမထား"</string>
+    <string name="shortcut_next" msgid="6887743145853506373">"ရှေ့သို့"</string>
+    <string name="shortcut_previous" msgid="3679790113454394245">"ယခင်တစ်ခု"</string>
+    <string name="shortcut_scroll_forward" msgid="7299589176359902775">"ရှေ့သို့ လှိမ့်ရန်"</string>
+    <string name="shortcut_scroll_back" msgid="1025337926618449476">"နောက်သို့ လှိမ့်ရန်"</string>
+    <string name="shortcut_back" msgid="2558372839282319745">"နောက်ပြန် ခလုတ်"</string>
+    <string name="shortcut_home" msgid="6670249804418900175">"ပင်မ ခလုတ်"</string>
+    <string name="shortcut_overview" msgid="3649651004283936027">"ခြုံငုံသုံးသပ်ရန် ခလုတ်"</string>
+    <string name="shortcut_notifications" msgid="5291839248233515759">"အကြောင်းကြားစာများ ဖွင့်ရန်"</string>
+    <string name="shortcut_quick_settings" msgid="3692505224100396743">"အမြန်ဆက်တင်များကို ဖွင့်ရန်"</string>
+    <string name="shortcut_show_custom_actions" msgid="444056949141930750">"လုပ်ဆောင်ချက်များကို ပြရန်"</string>
+    <!-- no translation found for shortcut_editing (5285767060395122020) -->
+    <skip />
+    <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"ကမ္ဘာလုံးဆိုင်ရာ ဆက်စပ် မီနူး ဖွင့်ရန်"</string>
+    <string name="shortcut_local_breakout" msgid="8164203174881196072">"ဒေသန္တရ ဆက်စပ် မီနူး ဖွင့်ရန်"</string>
+    <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"နောက်ဆုံး ပြောစကား ထပ်ဖွင့်ပေးရန်"</string>
+    <string name="shortcut_spell_last_utterance" msgid="642984322649148879">"နောက်ဆုံး ပြောစကား အသံထွက်ပြောပေးရန်"</string>
+    <string name="shortcut_copy_last_utterance_to_clipboard" msgid="9018001118250050381">"နောက်ဆုံးပြောခဲ့သည့်အရာကို ကလစ်ဘုတ်သို့ ကူးရန်"</string>
+    <string name="shortcut_pause_feedback" msgid="1412613174540942399">"တုံ့ပြန်မှု ဆိုင်းငံ့ရန်"</string>
+    <string name="shortcut_read_from_top" msgid="6031418895933550221">"ထိပ်မှ ဖတ်ရန်"</string>
+    <string name="shortcut_read_from_current" msgid="5769337869539736463">"နောက်  တစ်ခုမှ ဖတ်ရန်"</string>
+    <string name="shortcut_print_node_tree" msgid="7570974794642091616">"node tree ပရင့်ထုတ်ရန်"</string>
+    <string name="shortcut_print_performance_stats" msgid="2111671611434588299">"စွမ်းဆောင်ရည်ပြ စာရင်းဇယားကို ပုံနှိပ်ထုတ်ယူရန်"</string>
+    <string name="shortcut_next_granularity" msgid="5058063575500265017">"နောက်ထပ် ရွှေ့လျားရန် ကြိုတင်ပြင်ဆင်ချက်"</string>
+    <string name="shortcut_previous_granularity" msgid="5483850878839529117">"ပြီးခဲ့သည့် ရွှေ့လျားရန် ကြိုတင်ပြင်ဆင်ချက်"</string>
+    <string name="shortcut_first_in_screen" msgid="4549343120881649603">"ဖန်မျက်နှာပြင်ပေါ်ရှိ ဦးဆုံးအရာအား အာရုံစိုက်ရန်"</string>
+    <string name="shortcut_last_in_screen" msgid="1584183195221110323">"ဖန်မျက်နှာပြင်ပေါ်ရှိ နောက်ဆုံးအရာအား အာရုံစိုက်ရန်"</string>
+    <string name="shortcut_enable_dimming" msgid="751310793206738883">"မျက်နှာပြင် မှိန်ရန်"</string>
+    <string name="shortcut_disable_dimming" msgid="8041762180167320322">"မျက်နှာပြင် ပြန်လင်းပေးရန်"</string>
+    <string name="shortcut_perform_click_action" msgid="9152719059133712820">"နှိပ်ပါ"</string>
+    <string name="local_context_menu_title" msgid="6672321005470828526">"ဒေသခံ ဆက်စပ် မီနူး"</string>
+    <string name="global_context_menu_title" msgid="2580664964591545065">"ကမ္ဘာလုံးဆိုင်ရာ ဆက်စပ် မီနူး"</string>
+    <!-- no translation found for language_menu_title (8648132144725156863) -->
+    <skip />
+    <!-- no translation found for shortcut_show_language_options (3291602397759958945) -->
+    <skip />
+    <!-- no translation found for shortcut_select_next_setting (3708409029026167823) -->
+    <skip />
+    <!-- no translation found for shortcut_select_previous_setting (7335686444537217336) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_next_action (4744337882487301323) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_previous_action (7723485687036313114) -->
+    <skip />
+    <string name="title_local_breakout_no_items" msgid="5016265453627241456">"မီနူး အရာများ မရှိ။"</string>
+    <string name="title_web_breakout_next_section" msgid="7355139595269361571">"နောက် ကဏ္ဍ"</string>
+    <string name="title_web_breakout_next_list" msgid="801337905459445939">"နောက် စာရင်း"</string>
+    <string name="title_web_breakout_next_control" msgid="7663977538463352430">"နောက် ထိန်းချုပ်မှု"</string>
+    <string name="title_web_breakout_prev_section" msgid="1738336598629616234">"အရင် ကဏ္ဍ"</string>
+    <string name="title_web_breakout_prev_list" msgid="744039532529277819">"အရင် စာရင်း"</string>
+    <string name="title_web_breakout_prev_control" msgid="2637721101068457234">"အရင် ထိန်းချုပ်မှု"</string>
+    <!-- no translation found for title_edittext_controls (4835723497829630825) -->
+    <skip />
+    <string name="title_edittext_breakout_move_to_beginning" msgid="4021304144865258223">"ညွှန်းမြားကို အစဆီသို့ ရွှေ့ရန်"</string>
+    <string name="title_edittext_breakout_move_to_end" msgid="3197737555808584828">"ညွှန်းမြားကို အဆုံးဆီသို့ ရွှေ့ရန်"</string>
+    <string name="title_edittext_breakout_start_selection_mode" msgid="4183196270306568761">"ရွေးချယ်မှု မုဒ် စတင်ရန်"</string>
+    <string name="title_edittext_breakout_end_selection_mode" msgid="55211944889868460">"ရွေးချယ်မှု မုဒ်ကို အဆုံးသတ်ရန်"</string>
+    <string name="title_viewpager_controls" msgid="3775818290312516095">"စာမျက်နှာ လေ့လာခြင်း"</string>
+    <string name="title_viewpager_breakout_next_page" msgid="6936782185806198910">"နောက် စာမျက်နှာ"</string>
+    <string name="title_viewpager_breakout_prev_page" msgid="1352284456691236167">"အရင် စာမျက်နှာ"</string>
+    <string name="title_labeling_controls" msgid="5005702316138877183">"အညွှန်းများ"</string>
+    <string name="title_summary" msgid="3037924006370977165">"အမြန် သွားလာမှု"</string>
+    <!-- no translation found for title_granularity (7464159711994643031) -->
+    <skip />
+    <string name="title_custom_action" msgid="6533095862085546341">"လုပ်ဆောင်ချက်များ"</string>
+    <string name="title_suggestions_controls" msgid="5486233362252604824">"အကြံပြုချက်များကိုအလိုအလျောက်ဖြည့်စွက်ပါ"</string>
+    <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"အကြံပြုချက်များသို့ သွားပါ"</string>
+    <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"တည်းဖြတ်ရန်အကွက်သို့ ပြန်သွားပါ"</string>
+    <string name="title_seek_bar_controls" msgid="8335248824829650066">"ထိန်းချုပ်မှု ရှာဖွေခြင်း"</string>
+    <string name="title_seek_bar_edit" msgid="4197424047192764616">"ရှာဖွေခြင်း ထိန်းချုပ်မှုအဆင့်ကို တည်းဖြတ်ပါ"</string>
+    <string name="value_seek_bar_dialog_instructions" msgid="4688216864497436971">"၀ မှ ၁၀၀ အထိ ဂဏန်းတစ်ခု ထည့်ပါ။"</string>
+    <string name="value_seek_bar_dialog_percent" msgid="1999088520209822207">"%"</string>
+    <string name="value_direction_up" msgid="1646290331150992975">"အပေါ်မြား"</string>
+    <string name="value_direction_down" msgid="8072362433982733982">"အောက်မြား"</string>
+    <string name="value_direction_left" msgid="676932617445677488">"ဘယ်မြား"</string>
+    <string name="value_direction_right" msgid="3555261520059818184">"ညာမြား"</string>
+    <string name="value_direction_up_and_down" msgid="3964398023350956969">"တက်ပြီးဆင်း"</string>
+    <string name="value_direction_down_and_up" msgid="8751291630548709587">"ဆင်းပြီးတက်"</string>
+    <string name="value_direction_right_and_left" msgid="8982138891493120929">"ညာပြီးဘယ်"</string>
+    <string name="value_direction_left_and_right" msgid="5700946272615649006">"ဘယ်ပြီးညာ"</string>
+    <string name="value_direction_down_and_left" msgid="8554316039693996323">"အောက်နှင့် ဘယ်သို့"</string>
+    <string name="value_direction_down_and_right" msgid="7001881662779097616">"အောက်နှင့် ညာသို့"</string>
+    <string name="value_direction_up_and_left" msgid="2880257670663743521">"အပေါ်နှင့် ဘယ်သို့"</string>
+    <string name="value_direction_up_and_right" msgid="1769623264993139598">"အပေါ်နှင့် ညာသို့"</string>
+    <string name="value_direction_right_and_down" msgid="3939890273004054796">"ညာနှင့် အောက်သို့"</string>
+    <string name="value_direction_right_and_up" msgid="9165127187203257982">"ညာနှင့် အပေါ်သို့"</string>
+    <string name="value_direction_left_and_down" msgid="7803183066938070433">"ညာနှင့် အောက်သို့"</string>
+    <string name="value_direction_left_and_up" msgid="1953824696291100833">"ညာနှင့် အပေါ်သို့"</string>
+    <string name="title_pref_shortcut_up" msgid="464026441232788284">"အပေါ်သို့ ပွတ်ဆွဲရန်"</string>
+    <string name="title_pref_shortcut_down" msgid="7510938211617979299">"ပွတ်ဆွဲချရန်"</string>
+    <string name="title_pref_shortcut_left" msgid="1294673470106169765">"ဘယ်ဘက်သို့ ပွတ်ဆွဲရန်"</string>
+    <string name="title_pref_shortcut_right" msgid="2563651710870983074">"ညာဘက်သို့ ပွတ်ဆွဲရန်"</string>
+    <string name="title_pref_shortcut_up_and_down" msgid="7970635117146596582">"အပေါ် ပွတ်ဆွဲပြီး ပြန်ဆွဲချရန်"</string>
+    <string name="title_pref_shortcut_down_and_up" msgid="862181907993343425">"ပွတ်ဆွဲချပြီးနောက် ဆွဲတင်ရန်"</string>
+    <string name="title_pref_shortcut_left_and_right" msgid="320138621029568357">"ဘယ်သို့ ပွတ်ဆွဲပြီး ညာဘက်သို့ ပွတ်ဆွဲရန်"</string>
+    <string name="title_pref_shortcut_right_and_left" msgid="1184543975336584677">"ညာသို့ပွတ်ဆွဲပြီးနောက် ဘယ်သို့ပွတ်ဆွဲရန်"</string>
+    <string name="title_pref_shortcut_down_and_left" msgid="6249716604721789627">"အောက်ကို ပွတ်ဆွဲပြီးနောက် ဘယ်သို့"</string>
+    <string name="title_pref_shortcut_down_and_right" msgid="7683422992972248031">"အောက်ကို ပွတ်ဆွဲပြီးနောက် ညာသို့"</string>
+    <string name="title_pref_shortcut_up_and_left" msgid="6548364994546979158">"အပေါ်သို့ ပွတ်ဆွဲပြီးနောက် ဘယ်သို့"</string>
+    <string name="title_pref_shortcut_up_and_right" msgid="8856595421274730440">"အပေါ်သို့ ပွတ်ဆွဲပြီးနောက် ညာသို့"</string>
+    <string name="title_pref_shortcut_right_and_down" msgid="4893018634563250104">"ညာကို ပွတ်ဆွဲပြီးနောက် အောက်သို့"</string>
+    <string name="title_pref_shortcut_right_and_up" msgid="6848971895903777166">"ညာကို ပွတ်ဆွဲပြီးနောက် အပေါ်သို့"</string>
+    <string name="title_pref_shortcut_left_and_down" msgid="2899217574677150730">"ဘယ်ကို ပွတ်ဆွဲပြီးနောက်အောက်သို့"</string>
+    <string name="title_pref_shortcut_left_and_up" msgid="369887751217245542">"ဘယ်ကို ပွတ်ဆွဲပြီးနောက် အပေါ်သို့"</string>
+    <string name="title_pref_shortcut_fingerprint_up" msgid="4567914579733101315">"လက်ဗွေဖတ်စနစ်ပေါ်၌ အပေါ်သို့ပွတ်ဆွဲရန်"</string>
+    <string name="title_pref_shortcut_fingerprint_down" msgid="7266292981315522410">"လက်ဗွေဖတ်စနစ်ပေါ်၌ အောက်သို့ပွတ်ဆွဲရန်"</string>
+    <string name="title_pref_shortcut_fingerprint_left" msgid="5372808080030991944">"လက်ဗွေဖတ်စနစ်ပေါ်၌ဘယ်ဘက်သို့ပွတ်ဆွဲရန်"</string>
+    <string name="title_pref_shortcut_fingerprint_right" msgid="694175245288621969">"လက်ဗွေဖတ်စနစ်ပေါ်၌ ညာဘက်သို့ပွတ်ဆွဲရန်"</string>
+    <string name="title_pref_shortcut_single_tap" msgid="7220195169492947031">"ဘေးမှာ တစ်ကြိမ် ပုတ်ရန်"</string>
+    <string name="title_pref_shortcut_double_tap" msgid="4454853121476703529">"ဘေးကို နှစ်ကြိမ် ပုတ်ရန်"</string>
+    <string name="title_pref_tap_sensitivity" msgid="3737945934603267137">"ရှာဖွေမှုစက်အာရုံခံနိုင်စွမ်းကို ပုတ်ရန်"</string>
+    <string name="tap_sensitivity_high" msgid="7563462166661082029">"မြင့်"</string>
+    <string name="tap_sensitivity_medium" msgid="5512827926666078515">"အတော်အသင့်"</string>
+    <string name="tap_sensitivity_low" msgid="6514475998218787336">"နိမ့်"</string>
+    <string name="tap_sensitivity_lowest" msgid="1137618443590383650">"အနိမ့်ဆုံး"</string>
+    <string name="title_pref_two_part_vertical_gestures" msgid="2306010395434853106">"နှစ်ပိုင်း ထောင်လိုက် လက်ဟန်များ"</string>
+    <string name="value_volume_100_percent" formatted="false" msgid="1925212291067338164">"မီဒီယာသံနှင့် အတူထားရန်"</string>
+    <string name="value_volume_75_percent" formatted="false" msgid="4112643575612833142">"မီဒီယာ ပမာဏ၏ 75% of media volume"</string>
+    <string name="value_volume_50_percent" formatted="false" msgid="571313670701581653">"မီဒီယာ ပမာဏ၏50%"</string>
+    <string name="value_volume_25_percent" formatted="false" msgid="7765340636472447035">"မီဒီယာ ပမာဏ၏ 25%"</string>
+    <string name="value_resume_screen_on" msgid="2104101584116309597">"မျက်နှာပြင် ပွင့်လာချိန်မှာ"</string>
+    <string name="value_resume_keyguard" msgid="2780570849205482994">"သော့ခတ် မျက်နှာပြင် မြင်ရလျှင်"</string>
+    <string name="value_resume_manual" msgid="615523100721295547">"အကြောင်းကြားစာ ထံမှသာ"</string>
+    <string name="value_shake_to_read_disabled" msgid="33115748930768552">"ပိတ်ထားစဉ်"</string>
+    <string name="value_shake_to_read_threshold_very_light" msgid="2767872234193772050">"အထူး နည်း"</string>
+    <string name="value_shake_to_read_threshold_light" msgid="6122029921067500618">"မီး"</string>
+    <string name="value_shake_to_read_threshold_medium" msgid="8892692566516131981">"အတော်အသင့်"</string>
+    <string name="value_shake_to_read_threshold_hard" msgid="7661843662865960874">"ပြင်းထန်စွာ"</string>
+    <string name="value_shake_to_read_threshold_very_hard" msgid="3423392173494851854">"အထူး ပြင်းထန်"</string>
+    <string name="value_keyboard_echo_always" msgid="6889426165608387394">"ရိုက်ထည့် ခလုတ်များကို အမြဲတမ်း ပြောပါ"</string>
+    <string name="value_keyboard_echo_softkeys" msgid="1595001302535254665">"မျက်နှာပြင် ပေါ်က ကီးဘုတ် အတွက်သာ"</string>
+    <string name="value_keyboard_echo_never" msgid="7181327459690946870">"ရိုက်ထည့် ခလုတ်များကို ဘယ်တော့မှ မပြောပါနှင့်"</string>
+    <string name="pref_node_desc_order_entry_state_name_role_pos" msgid="6239074777084483039">"အခြေအနေ၊ အမည်၊ အမျိုးအစား"</string>
+    <string name="pref_node_desc_order_entry_role_name_state_pos" msgid="1747697478748531592">"အမျိုးအစား၊ အမည်၊ အခြေအနေ"</string>
+    <string name="pref_node_desc_order_entry_name_role_state_pos" msgid="3293391334262415544">"အမည်၊ အမျိုးအစား၊ အခြေအနေ"</string>
+    <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"TalkBack လက်ဟန်များပြောင်းပြီး"</string>
+    <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"ရယူအသုံးချမှု လက်ဟန်များ ဆိုင်ရာ အပြောင်းအလဲများကို ဆန်းစစ်ရန် ပုတ်ပါ"</string>
+    <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack ရွှေ့ဆိုင်းထား"</string>
+    <string name="notification_message_talkback_suspended" msgid="5900724128049181599">"ဆက်လုပ်ရန် တို့ပါ"</string>
+    <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"သင်ခန်းစာ ၁ ကို အလိုအလျောက် သွားနေပါပြီ။"</string>
+    <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"TalkBack ကို ရွှေ့ဆိုင်းမလား?"</string>
+    <string name="dialog_message_suspend_talkback" msgid="272851623978432035">"TalkBack ကို ရပ်ဆိုင်းလိုသည်မှာ သေချာပါသလား။\n\nTalkBack ကို ရပ်ဆိုင်းလိုက်သည့်အခါ သင်၏ စက်ပစ္စည်းသည် စကားပြော အကြံပြုချက်များ ပေးတော့မည် မဟုတ်ဘဲ \'ထိပြီး ရှာဖွေစူးစမ်းမှု\' ကိုလည်း ပိတ်လိုက်ပါမည်။"</string>
+    <string name="message_resume_manual" msgid="7356544353534913249">"အကြောင်းကြားချက် အကွက်နေရာမှ TalkBack ကို ဆက်သုံးနိုင်သည်"</string>
+    <string name="message_resume_screen_on" msgid="5200338421759961545">"အကြောင်းကြားချက် အကွက်နေရာမှ သို့မဟုတ် ဖန်သားပြင်ကို ဖွင့်ပြီး TalkBack ကို ဆက်သုံးနိုင်သည်"</string>
+    <string name="message_resume_keyguard" msgid="2142813660069991041">"အကြောင်းကြားချက် အကွက်နေရာမှ သို့မဟုတ် လော့ခ်ဖန်သားပြင်သို့ ပြန်လာပြီး TalkBack ကို ဆက်သုံးနိုင်သည်"</string>
+    <string name="show_suspend_warning_label" msgid="3193206799395252518">"ဒီသတိပေးချက်ကို အမြဲတမ်း ပြရန်"</string>
+    <string name="cannot_add_label" msgid="2754406023113433479">"ဤအရာကို လေဘယ်တပ်မရပါ။"</string>
+    <string name="label_dialog_title_add" msgid="1255044087558866043">"တံဆိပ် ထည့်ရန်"</string>
+    <string name="label_dialog_title_edit" msgid="7914376979667771585">"တံဆိပ် တည်းဖြတ်ရန်"</string>
+    <string name="label_dialog_title_remove" msgid="1791163736307626930">"တံဆပ် ဖယ်ရှားရန်"</string>
+    <string name="label_dialog_text" msgid="3836616655480004748">"ဤအရာအတွက် အမည်တပ်မည့် စာသားကိုထည့်ပါ\nစက်ပစ္စည်းအတွင်း မြင်ရသောအမည်− <xliff:g id="VIEW_RESOURCE_NAME">%1$s</xliff:g>"</string>
+    <string name="label_remove_dialog_text" msgid="372916461303485723">"သင်သည် \"<xliff:g id="LABEL">%1$s</xliff:g>\" တံဆိပ်ကို ဖယ်ရှား ချင်တာ သေချာလား?"</string>
+    <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"သင်သည် \"<xliff:g id="LABEL">%1$s</xliff:g>\"အထဲက \"<xliff:g id="APP_NAME">%2$s</xliff:g>\" တံဆိပ်ကို ဖယ်ရှား ချင်တာ သေချာလား?"</string>
+    <string name="label_dialog_edit_hint" msgid="4342585248215824717">"တံဆိပ် စာသား"</string>
+    <string name="label_import" msgid="1773817433300194935">"ကိုယ်ပိုင်တံဆိပ်များ ထည့်သွင်းရန်"</string>
+    <string name="label_import_dialog_title" msgid="5305411653917870790">"TalkBack သို့ စိတ်ကြိုက် တံဆိပ်များကို တင်သွင်းပါ"</string>
+    <string name="label_import_dialog_message" msgid="5770997008069363097">"နှစ်ခုထပ်လာပါက လက်ရှိအမည်များကို အသစ်ပြောင်းရန် သို့မဟုတ် ယခင်အတိုင်းထားရန်တို့ကို ဆုံးဖြတ်ပါ"</string>
+    <string name="label_import_dialog_skip" msgid="2078597180132028657">"ကျော်ရန်"</string>
+    <string name="label_import_dialog_override" msgid="4387408051194229513">"အပေါ်မှထပ်ရေးမည်"</string>
+    <string name="label_export_empty" msgid="7663052451851715440">"တင်ပို့ရန် ဘာမှမရှိပါ။ သင်သည် တံဆိပ် တစ်ခုကိုမှ မထည့်ခဲ့ပါ"</string>
+    <string name="label_export_failed" msgid="4500274103149146929">"တံဆိပ် တင်ပို့မှု မအောင်မြင်ခဲ့ပါ"</string>
+    <string name="label_import_failed" msgid="1321882372299892757">"တံဆိပ် တင်သွင်း မရခဲ့ပါ"</string>
+    <plurals name="label_import_succeeded" formatted="false" msgid="3709295987864614176">
+      <item quantity="other">တံဆိပ် %d ခု အပ်ဒိတ် လုပ်ပြီးပါပြီ</item>
+      <item quantity="one">တံဆိပ် ၁ ခု အပ်ဒိတ် လုပ်ပြီးပါပြီ</item>
+    </plurals>
+    <string name="no_apps_to_import_labels" msgid="8158403357422110115">"အမည်များကို တင်သွင်းနိုင်မည့် အပလီကေးရှင်းတစ်ခုမျှ မတွေ့ပါ"</string>
+    <string name="no_apps_to_export_labels" msgid="7671924783169788614">"အမည်များကို ထုတ်ရန် မည်သည့် အပလီကေးရှင်းမျှ မတွေ့ပါ။"</string>
+    <string name="label_choose_app_to_import" msgid="3992931531372131216">"အမည်များကို တင်သွင်းရန် အပလီကေးရှင်းရွေးပါ−"</string>
+    <string name="label_choose_app_to_export" msgid="3288834802071890267">"တံဆိပ်များကို တင်ပို့ရန် အပလီကေးရှင်းကို ရွေးပါ-"</string>
+    <string name="talkback_gesture_change_details" msgid="1242896734553682887">"TalkBack ၏ လက်ရှိ ဗားရှင်းထဲမှာ အသုံးပြုရေး ပုံသေ လက်ဟန်များ ထဲက အပြောင်းအလဲများ ပါရှိပါသည်။ ယင်း လက်ဟန်များဖြင့် ဆက်စပ်ကြသည့် လုပ်ဆောင်ချက်များကို TalkBack ဆက်တင်များထဲမှာ စိတ်ကြိုက် ပြုလုပ်နိုင်ပါသည်။ တို့ထိ စူးစမ်းမှုကို ဖွင့်ထားလျှင်၊ သင်သည် အချို့သော လုပ်ဆောင်ချက်များ အတွက် အောက်ပါ လက်ဟန်များကို အသုံးပြုနိုင်သည်။\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
+    <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"အသံအတိုးချဲ့ခလုတ်များကို ကြာရှည်စွာနှိပ်ခြင်း"</string>
+    <string name="value_dim_volume_three_clicks" formatted="false" msgid="3589346610879193419">"မျက်နှာပြင် မှိန်မှုကို ဖွင့်ထားရန် သို့မဟုတ် ပိတ်ထားရန် အသံတိုးကျယ် ခလုတ်နှစ်ခုစလုံးကို မြန်မြန် သုံးကြိမ် နှိပ်ပါ"</string>
+    <string name="dialog_title_dim_screen" msgid="603850602120147151">"မျက်နှာပြင်မှိန်မည်လား?"</string>
+    <string name="dialog_message_dim_screen" msgid="7595558180210850775">"သင့် ဖန်မျက်နှာပြင်အား မီးမှိန်လိုသည်မှာ သေချာပါသလား?"</string>
+    <string name="talkback_built_in_gesture_change_details" msgid="6065419331469295927">"TalkBack ၏ လက်ရှိ ဗားရှင်းထဲမှာ အသုံးပြုရေး ပုံသေ လက်ဟန်များ ထဲက အပြောင်းအလဲများ ပါရှိပါသည်။\n\nအပေါ်မှအောက်သို့ လက်ဟန်က သင့်ကို မျက်နှာပြင် ပေါ်က ပထမ အရာဆီသို့ ပို့ပေးမည်၊ ၎င်း နောက်မှာ အောက်မှအပေါ်သို့ လက်ဟန်က နောက်ဆုံး အရာဆီသို့ ပို့ပေးမည်။\n\nယခုတော့ ဖတ်ကြားမှု အသေးစိတ်မှုကို ထိုအရာဆီ ဆုံချက်ကို ညှိပေးကာ ဒေသန္တရ ဆက်စပ် မီနူးထဲမှ အသေးစိတ်မှုကို ရွေးနိုင်ပါသည်။ \n\nသင်သည် ယင်း လက်ဟန်များဖြင့် လုပ်ကိုင် ရနိုင်သည့် လုပ်ဆောင်ချက်များကို TalkBack ဆက်တင်များထဲမှာ ပြောင်းလဲနိုင်ပါသည်။"</string>
+    <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"ဤ TalkBack ဗားရှင်းတွင် မူရင်းသုံးစွဲမှုဆိုင်ရာ လှုပ်ရှားမှုဟန် ပြင်ဆင်ချက်များ ပါဝင်သည်။\n\nအပေါ်သို့ညွှန်သည့် လှုပ်ရှားမှုဟန်သည် ယခင်လမ်းညွှန်ချက်ဆက်တင်သို့ ရွှေ့သွားပြီး၊ အောက်သို့ညွှန်သည့် လှုပ်ရှားမှုဟန်သည် နောက်လမ်းညွှန်ချက်ဆက်တင်သို့ ရွှေ့ပါသည်။"</string>
+    <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"လက်ဟန်များကို လက်ခံရန်"</string>
+    <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"လက်ဟန်များကို စိတ်ကြိုက် ပြုလုပ်ရန်"</string>
+    <string name="button_disable_all_events" msgid="4917625658777138398">"အားလုံးကို ပိတ်ရန်"</string>
+    <string name="button_enable_all_events" msgid="6164815656232769872">"အားလုံးကို ဖွင့်ရန်"</string>
+    <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"တို့ထိလျက် စူးစမ်းမှုကို ပိတ်ရမလား?"</string>
+    <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"တို့ထိလျက် စူးစမ်းမှုကို သင် ပိတ်လိုတာ သေချာသလား?\n\nသင်၏ ကိရိယာသည် ဖြတ်လမ်း လက်ဟန်များကို၎င်း၊ မျက်နှာပြင်ကို ထိရာတွင် ပြောဆိုမှု အရာများကို တုံ့ပြန်တော့မည် မဟုတ်ပါ။"</string>
+    <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Node Tree အမှားရှာပြင်ရန် ဖွင့်မည်လား?"</string>
+    <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"node tree အမှားရှာဖွင့်ရန် ဖွင့်လိုသည်မှာ သေချာပါသလား?\n\nNode tree အမှားရှာခြင်းသည် တစ်ခြား အက်ပ်များဖြင့် ဖတ်နိုင်သည့် သင့်စက်ကိရိယာ၏ မှတ်တမ်းများကို ထုတ်ဖော်ပြသလိုဖြစ်မည်။"</string>
+    <string name="dialog_title_enable_performance_stats" msgid="3016681156366751028">"စွမ်းဆောင်ရည်ပြ စာရင်းဇယားကို ဖွင့်မလား။"</string>
+    <string name="dialog_message_enable_performance_stats" msgid="8917304199448928340">"စွမ်းဆောင်ရည်ပြ စာရင်းဇယားကို ဖွင့်လိုသည်မှာ သေချာပြီလား။\n\nစွမ်းဆောင်ရည်ပြ စာရင်းဇယားသည် မှတ်ဉာဏ်နှင့် ဓာတ်အားကို ပိုမိုသုံးစွဲနိုင်ပါသည်။"</string>
+    <string name="label_talkback_context_menu" msgid="6758073806811666684">"TalkBack ကမ္ဘာလုံးဆိုင်ရာ ဆက်စပ် မီနူး"</string>
+    <string name="permission_talkback_label" msgid="2235244838320678938">"TalkBack ထိန်းချုပ်ရန်"</string>
+    <string name="permission_talkback_desc" msgid="8320433482567759963">"TalkBack ထံသို့ လက်ဟန်များ ပို့ရန် နှင့် ထုတ်ပြောခဲ့သည့် တုံ့ပြန်ချက်များကို ဆက်လုပ်ရန် ခွင့်ပြုချက်။"</string>
+    <string name="permission_labeling_label" msgid="2956001661481169498">"TalkBack စိတ်ကြိုက် တံဆိပ်များ စီမံကွပ်ကဲရန်"</string>
+    <string name="permission_labeling_desc" msgid="8065967887484901473">"TalkBack ထဲက စိတ်ကြိုက် တံဆိပ်များ ရယူအသုံးပြုရေး၊ မွမ်းမံရေး၊ နှင့် ဖျက်ရေး ခွင့်ပြုချက်။"</string>
+    <string name="links" msgid="3448225474115458693">"လင့်များ"</string>
+    <string name="end_of_text" msgid="3595733062526019550">"ပြီးပြီ"</string>
+    <string name="start_of_web" msgid="9028725565467565133">"အရင်<xliff:g id="ID_1">%1$s</xliff:g> မရှိတော့ပါဘူး"</string>
+    <string name="end_of_web" msgid="2634106379315171501">"နောက်ထပ် <xliff:g id="ID_1">%1$s</xliff:g> မရှိတော့ပါဘူး"</string>
+    <string name="display_name_heading" msgid="7554771761850653608">"ခေါင်းစီး"</string>
+    <string name="display_name_button" msgid="6801468093111637502">"ခလုတ်"</string>
+    <string name="display_name_combobox" msgid="3627879841881471141">"စာရင်းပြအကွက်"</string>
+    <string name="display_name_aria_landmark" msgid="6117331350509062908">"ARIA အထင်ကရနေရာ"</string>
+    <string name="display_name_edit_field" msgid="8239971688356887918">"တည်းဖြတ်ရန်အကွက်"</string>
+    <string name="display_name_focusable_item" msgid="1687969602866460765">"ဒါကိုအသေးစိတ်ကြည့်နိုင်ပါတယ်"</string>
+    <string name="display_name_heading_1" msgid="30730842343032834">"ခေါင်းစီး ၁"</string>
+    <string name="display_name_heading_2" msgid="754950733934619571">"ခေါင်းစီး ၂"</string>
+    <string name="display_name_heading_3" msgid="5499505893988231066">"ခေါင်းစီး ၃"</string>
+    <string name="display_name_heading_4" msgid="8795813919278024796">"ခေါင်းစီး ၄"</string>
+    <string name="display_name_heading_5" msgid="6033290790336260109">"ခေါင်းစီး ၅"</string>
+    <string name="display_name_heading_6" msgid="6401554046489668344">"ခေါင်းစီး ၆"</string>
+    <string name="display_name_link" msgid="1766513019820473329">"လင့်ခ်"</string>
+    <string name="display_name_control" msgid="7621147750572129887">"အထိန်းအချုပ်"</string>
+    <string name="display_name_graphic" msgid="5292831903337779423">"ရုပ်ပုံ"</string>
+    <string name="display_name_list_item" msgid="5955953898740497356">"စာရင်းပါပစ္စည်း"</string>
+    <string name="display_name_list" msgid="6043055138670390963">"စာရင်း"</string>
+    <string name="display_name_table" msgid="1369599790038567007">"ဇယား"</string>
+    <string name="display_name_checkbox" msgid="2060147158898197667">"အမှန်ခြစ်အကွက်"</string>
+    <string name="display_name_section" msgid="4568845228422422699">"ခေါင်းစီး ဒါမှမဟုတ် အထင်ကရနေရာ"</string>
+    <string name="item_index_template" msgid="71505978833721807">"အရာ <xliff:g id="ITEM">%1$d</xliff:g>"</string>
+    <string name="revert_imported_labels" msgid="5508730389432571776">"တင်သွင်းခဲ့သည့် တံဆိပ်များကို ပြန်လှန်ပါ"</string>
+    <string name="imported_labels_reverted" msgid="6117098234531459917">"တင်သွင်းခဲ့သည့် တံဆိပ်များကို ပြန်လှန်ခဲ့သည်"</string>
+    <string name="template_split_screen_mode_portrait" msgid="7565682598301271955">"<xliff:g id="ID_1">%1$s</xliff:g> က အပေါ်၊ <xliff:g id="ID_2">%2$s</xliff:g> က အောက်"</string>
+    <string name="template_split_screen_mode_landscape_ltr" msgid="1256791763596391124">"<xliff:g id="ID_1">%1$s</xliff:g> က ဘယ်ဘက်၊ <xliff:g id="ID_2">%2$s</xliff:g> က ညာဘက်"</string>
+    <string name="template_split_screen_mode_landscape_rtl" msgid="7868698948612319665">"<xliff:g id="ID_1">%1$s</xliff:g> က ညာဘက်၊ <xliff:g id="ID_2">%2$s</xliff:g> က ဘယ်ဘက်"</string>
+    <!-- no translation found for template_window_switch_application (1050050542030524265) -->
+    <skip />
+    <!-- no translation found for template_window_switch_system (1902661569833377496) -->
+    <skip />
+    <string name="status_bar" msgid="6000275621941971563">"အခြေအနေဘား"</string>
+    <string name="navigation_bar" msgid="4602958479941673535">"လမ်းညွှန်ဘား"</string>
+    <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
+      <item quantity="other">ဖြစ်ရပ် <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> ခုရွေးထားသည်</item>
+      <item quantity="one">ဖြစ်ရပ် ၁ ခုရွေးထားသည်</item>
+    </plurals>
+    <string name="template_tv_remote_mode_started" msgid="5968574403263650425">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> စတင်လိုက်ပါပြီ"</string>
+    <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> ပြီးပါပြီ"</string>
+    <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"ထိန်းချုပ်မုဒ်ကို ရှာလိုက်ပါ"</string>
+    <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"ကိန်းဂဏန်းပြင်ဖို့ မြှားခလုတ်တွေကို နှိပ်ပါ ဒါမှမဟုတ် အဆုံးသတ်ရန် ဆိုတာကို ရွေးလိုက်ပါ။"</string>
+    <string name="arc_android_window" msgid="602492367666363458">"အပလီကေးရှင်းဝင်းဒိုး"</string>
+    <string name="arc_navigation_hint" msgid="3272314052097101117">"လမ်းညွှန်ရန် search နှင့် မြှားခလုတ်များကို တွဲနှိပ်ပါ"</string>
+    <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"ဖြတ်လမ်းစာရင်းကိုကြည့်ရန် <xliff:g id="KEYCOMBO">%1$s</xliff:g> ကို နှိပ်ပါ"</string>
+    <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"TalkBack ဆက်တင်များကို ဖွင့်ရန် <xliff:g id="KEYCOMBO">%1$s</xliff:g> ကို နှိပ်ပါ"</string>
+    <!-- no translation found for reset_user_language_preference (6441167843388110740) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_settings (3013680598130553128) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_activation (6275710235429570402) -->
+    <skip />
+    <!-- no translation found for title_pref_category_selector_settings_configuration (3095665157222126906) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_speech_rate (731846618625670003) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_verbosity (4608661647007146269) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_granularity (5926698009571092268) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_audio_focus (6180475638252714782) -->
+    <skip />
+    <!-- no translation found for pref_selector_activation_summary (688877660863231861) -->
+    <skip />
+    <!-- no translation found for title_pref_speak_passwords_without_headphones (2032390508469400633) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_passwords_without_headphones (1854966750096734009) -->
+    <skip />
+</resources>

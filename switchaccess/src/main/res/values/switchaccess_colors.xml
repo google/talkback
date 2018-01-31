@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Setup Wizard colors -->
+
+    <color name="quantum_teal_700">#00796B</color>
+    <color name="setup_wizard_footer_background">#ECEFF1</color>
+    <color name="setup_wizard_heading_background">#37474F</color>
+    <color name="setup_wizard_heading_text">#80CBC4</color>
+    <color name="setup_wizard_subheading_text">#B3FFFFFF</color>
+    <color name="setup_wizard_background">#FFFFFF</color>
+
+    <!-- Menu colors -->
+
+    <color name="switch_access_global_menu_button_background">#ECECEC</color>
+    <color name="switch_access_global_menu_button_text">#212121</color>
+
+    <color name="switch_access_menu_scrim">#E0000000</color>
+    <color name="switch_access_menu_button_background">#00000000</color>
+    <color name="switch_access_menu_button_text">#F0F0F0</color>
+
+    <!-- Nomon Clock colors -->
+    <color name="nomon_clocks_clockface">#FABBBBBB</color>
+    <color name="nomon_clocks_outline">#33000000</color>
+
+</resources>
