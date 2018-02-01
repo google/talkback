@@ -1,0 +1,19 @@
+/* For building open-source release of accessibility services. */
+
+include ':talkback'
+project(':talkback').projectDir = new File(rootDir, 'talkback')
+
+include ':switchaccess'
+project(':switchaccess').projectDir = new File(rootDir, 'switchaccess')
+
+include ':compositor'
+project(':compositor').projectDir = new File(rootDir, 'compositor')
+
+include ':utils'
+project(':utils').projectDir = new File(rootDir, 'utils')
+
+include ':accessibility_utils'
+project(':accessibility_utils').projectDir = new File(rootDir, 'accessibility_utils')
+
+include ':proguard'
+project(':proguard').projectDir = new File(rootDir, 'proguard')

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/setup_wizard_padding_start_end"
+        android:paddingEnd="@dimen/setup_wizard_padding_start_end"
+        android:background="@color/setup_wizard_heading_background"
+        android:focusable="false" >
+
+        <TextView
+            android:id="@+id/setup_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/setup_wizard_padding_heading_top"
+            android:paddingBottom="@dimen/setup_wizard_padding_heading_bottom"
+            android:textSize="@dimen/setup_wizard_text_size"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/setup_wizard_heading_text"
+            android:textAlignment="viewStart"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/setup_subheading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/setup_wizard_padding_subheading_bottom"
+            android:textSize="@dimen/setup_wizard_subtext_size"
+            android:textColor="@color/setup_wizard_subheading_text"
+            android:textAlignment="viewStart"
+            android:focusable="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ViewStub
+            android:id="@+id/switch_access_setup_number_of_switches_import"
+            android:inflatedId="@+id/switch_access_setup_number_of_switches_inflated_import"
+            android:layout="@layout/switch_access_setup_number_of_switches"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ViewStub
+            android:id="@+id/switch_access_setup_scanning_method_import"
+            android:inflatedId="@+id/switch_access_setup_scanning_method_inflated_import"
+            android:layout="@layout/switch_access_setup_scanning_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ViewStub
+            android:id="@+id/switch_access_setup_configure_switch_import"
+            android:inflatedId="@+id/switch_access_setup_configure_switch_inflated_import"
+            android:layout="@layout/switch_access_setup_configure_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ViewStub
+            android:id="@+id/switch_access_setup_step_speed_import"
+            android:inflatedId="@+id/switch_access_setup_step_speed_inflated_import"
+            android:layout="@layout/switch_access_setup_step_speed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ViewStub
+            android:id="@+id/switch_access_setup_switch_game_import"
+            android:inflatedId="@+id/switch_access_setup_switch_game_inflated_import"
+            android:layout="@layout/switch_access_setup_switch_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ViewStub
+            android:id="@+id/switch_access_setup_completion_import"
+            android:inflatedId="@+id/switch_access_setup_completion_inflated_import"
+            android:layout="@layout/switch_access_setup_completion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:paddingStart="@dimen/setup_wizard_activity_margin"
+        android:paddingEnd="@dimen/setup_wizard_activity_margin"
+        android:background="@color/setup_wizard_footer_background" >
+
+        <Button
+            android:id="@+id/previous_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:focusable="true"
+            android:textAllCaps="true"
+            android:gravity="center"
+            style="@style/SwitchAccessButtonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:focusable="true"
+            android:textAllCaps="true"
+            android:gravity="center"
+            style="@style/SwitchAccessButtonBarButtonStyle" />
+    </LinearLayout>
+</LinearLayout>

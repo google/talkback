@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Samouczek ułatwień dostępu"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Uruchom samouczek TalkBack"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"Samouczek TalkBack"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"Samouczek TalkBack"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack to czytnik ekranu przeznaczony głównie dla osób niewidomych i słabowidzących. Umożliwia on interakcję z urządzeniem przy użyciu komunikatów głosowych."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Wyłącz funkcję TalkBack"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"otwórz lekcję <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"lekcja z ćwiczeniami <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lekcja 1. Podstawowa nawigacja"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Kliknij lub przesuń palcem, by przeglądać; kliknij dwukrotnie, by aktywować"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Przesuwanie, badanie, aktywowanie"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Część 1. Czytanie dotykiem"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Gdy funkcja Czytanie dotykiem jest włączona, usłyszysz opisy elementów, które znajdują się pod Twoim palcem. Przesuń palcem po elementach na środku ekranu. Wybierz kolejno pięć elementów, by kontynuować lekcję."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Część 2. Kliknij dwukrotnie, by aktywować"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Aby aktywować ostatni usłyszany element, kliknij dwukrotnie w dowolnym miejscu. Znajdź element 7 i aktywuj go. Następnie aktywuj przycisk Dalej, by kontynuować."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Aktywowano element 7. Aby kontynuować, znajdź i aktywuj przycisk Dalej"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Aby aktywować ostatni usłyszany element, kliknij dwukrotnie w dowolnym miejscu. Znajdź element 4 i aktywuj go. Następnie aktywuj przycisk Dalej, by kontynuować."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Aktywowano element 4. Aby kontynuować, znajdź i aktywuj przycisk Dalej"</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Część 3. Nawigowanie"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Lekcje obsługi funkcji TalkBack mają podobny układ. W górnym obszarze znajduje się lekcja, którą w każdej chwili możesz otworzyć i przeczytać. Jest tam też przycisk ekranu głównego samouczka w lewym górnym rogu. Środkowa część ekranu to obszar ćwiczeń. Na dole znajduje się pasek postępu oraz przyciski nawigacyjne lekcji. Aby kontynuować, aktywuj przycisk Dalej."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Część 4. Przeglądanie zawartości przez przesuwanie palcem"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Część 5. Ćwiczenia"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Aby usłyszeć opis elementu, który jest pod Twoim palcem, przesuń palcem po ekranie. Aby aktywować ten element, kliknij dwukrotnie w dowolnym miejscu. Przesuń palcem w lewo lub w prawo, by przeglądać treść."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lekcja 2. Przewijanie"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Przewijanie dwoma palcami, przechodzenie do przodu i do tyłu"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Cześć 1. Przewijanie przy użyciu dwóch palców"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Aby przewinąć listę pionową, znajdź element listy, a następnie przesuń dwoma palcami w górę lub w dół. Aby przewinąć listę poziomą, znajdź element listy, a następnie przesuń dwoma palcami w lewo lub w prawo."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Część 2. Gesty przewijania"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Przeglądając listę, możesz przechodzić do przodu lub do tyłu, używając gestów. Aby przejść do przodu, przesuń palcem w prawo, a potem w lewo, wykonując pojedynczy ruch. Aby przejść do tyłu, przesuń palcem w lewo, a potem w prawo. Spróbuj."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Część 3. Ćwiczenia"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Przewiń zawartość, przesuwając dwoma palcami w górę lub w dół. Przejdź do przodu, przesuwając palcem w prawo, a potem w lewo. Przejdź do tyłu, przesuwając palcem w lewo, a potem w prawo."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Przewijanie do przodu i do tyłu"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Część 1. Gesty przewijania"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Przeglądając listę, możesz przewijać do przodu lub do tyłu, używając gestów. Aby przewinąć do przodu, przesuń palcem w prawo, a potem w lewo, wykonując pojedynczy ruch. Aby przewinąć do tyłu, przesuń palcem w lewo, a potem w prawo. Spróbuj."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Część 2. Ćwiczenia"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Przewiń do przodu, przesuwając palcem w prawo, a potem w lewo. Przewiń wstecz, przesuwając palcem w lewo, a potem w prawo."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lekcja 3. Menu TalkBack"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Globalne menu TalkBack, lokalne menu TalkBack"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Część 1. Globalne menu TalkBack"</string>

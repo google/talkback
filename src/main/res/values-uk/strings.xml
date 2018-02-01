@@ -2,12 +2,12 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="talkback_service_description" msgid="5081383053733275450">"Якщо ввімкнути TalkBack, пристрій надаватиме голосові підказки для користувачів із вадами зору. Наприклад, він може описувати елементи, які ви натискаєте, вибираєте й активуєте.\n\nЯкщо ви ввімкнули TalkBack випадково, утримуйте перемикач, доки контур не стане зеленим, а потім двічі торкніться його, щоб вимкнути. Повторіть цю дію в діалоговому вікні, що з’явиться."</string>
-    <string name="talkback_on" msgid="315529674405160699">"TalkBack увімкнено"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack призупинено"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack відновлено"</string>
-    <string name="talkback_disabled" msgid="2536155587482587238">"TalkBack вимкнено."</string>
+    <string name="talkback_service_summary" msgid="6365572257324337595">"Озвучувати елементи на екрані"</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"Налаштування TalkBack"</string>
-    <string name="tts_preferences_title" msgid="6233811187483633874">"Налаштування синтезу мовлення"</string>
+    <!-- no translation found for tts_preferences_title (8167186112347512303) -->
+    <skip />
+    <!-- no translation found for language_options (8577758471261539974) -->
+    <skip />
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Версія <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
     <string name="label_manager_summary_title" msgid="6786694853113585661">"Спеціальні мітки"</string>
     <string name="label_manager_package_title" msgid="6984665343963494151">"Керування мітками додатка <xliff:g id="APPLICATIONLABEL">%1$s</xliff:g>"</string>
@@ -22,11 +22,6 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"Поточний пошуковий запит: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>."</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"Не вибрано елемент."</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"Поточний вибір: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>."</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Початок поля"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Кінець поля"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Режим виділення ввімкнено"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Режим виділення вимкнено"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Виділення скасовано"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"Пропущений дзвінок"</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"Без звуку"</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"Чат"</string>
@@ -39,100 +34,26 @@
     <string name="notification_type_status_voicemail" msgid="1611063561670902017">"Голосова пошта"</string>
     <string name="notification_type_status_started" msgid="1071939833188591219">"Почато"</string>
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"Зупинено"</string>
-    <string name="template_current_tts_engine" msgid="3963364867159704159">"Використовується <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
     <string name="template_menu" msgid="2592357933256217001">"Меню \"<xliff:g id="TITLE">%1$s</xliff:g>\""</string>
-    <string name="template_alert_dialog_template" msgid="5493715708649314332">"Сповіщення <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"Меню \"<xliff:g id="TITLE">%1$s</xliff:g>\""</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"\"<xliff:g id="NEW_TEXT">%1$s</xliff:g>\" замінено на текст \"<xliff:g id="OLD_TEXT">%2$s</xliff:g>\""</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"Текст \"<xliff:g id="TEXT">%1$s</xliff:g>\" видалено"</string>
-    <string name="template_text_copied" msgid="1059175355898959427">"скопійовано: <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"вирізано: <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"вставлено: <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"виділено: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"Виділений текст: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
     <string name="template_no_text_selected" msgid="5665980541549462608">"Немає вибраного тексту"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"виділення скасовано: <xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_error" msgid="153775825635730287">"Недійсні дані: <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"Символи <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> замінено на символи <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g>"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> для мітки \"<xliff:g id="LABEL">%2$s</xliff:g>\""</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"Утримується <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"Відсотків: <xliff:g id="PERCENTAGE">%1$s</xliff:g>."</string>
     <string name="template_charging" msgid="2038200557537960378">"Стан акумулятора: <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>; рівень заряду у відсотках: <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g>."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="one"><xliff:g id="TYPE_2">%1$s</xliff:g> містить <xliff:g id="COUNT_3">%2$d</xliff:g> видимий елемент.</item>
-      <item quantity="few"><xliff:g id="TYPE_2">%1$s</xliff:g> містить <xliff:g id="COUNT_3">%2$d</xliff:g> видимі елементи.</item>
-      <item quantity="many"><xliff:g id="TYPE_2">%1$s</xliff:g> містить <xliff:g id="COUNT_3">%2$d</xliff:g> видимих елементів.</item>
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> містить <xliff:g id="COUNT_3">%2$d</xliff:g> видимого елемента.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"Сітка"</string>
-    <string name="value_listview" msgid="7625152822709234439">"Список"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"Панель вкладок"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"Спадний список"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"Прапорець"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"Перемикач"</string>
-    <string name="value_button" msgid="2459787142940409576">"Кнопка"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"Повзунок переходу"</string>
-    <string name="value_switch" msgid="6946709666466895221">"Перемикач"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"Вікно редагування"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"Редагування"</string>
-    <string name="value_image" msgid="5114229220871881124">"Зображення"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"Без мітки"</string>
-    <string name="value_pager" msgid="7708574424402835461">"Перегляд кількох сторінок"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"Сторінка"</string>
+    <string name="template_charging_lite" msgid="7759886088558576716">"Заряджання <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>"</string>
+    <!-- no translation found for template_language_options_menu_item (8697997506008405892) -->
+    <skip />
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"Показано елементи <xliff:g id="FROM_INDEX">%1$d</xliff:g> – <xliff:g id="TO_INDEX">%2$d</xliff:g> з <xliff:g id="TOTAL_COUNT">%3$d</xliff:g>."</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"Показано елемент <xliff:g id="FROM_INDEX">%1$d</xliff:g> з <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>."</string>
     <string name="template_viewpager_index_count" msgid="4811442521690748167">"Сторінка <xliff:g id="PAGE_INDEX">%1$d</xliff:g> з <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
     <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> з <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"Символи від <xliff:g id="FROM_INDEX">%1$d</xliff:g> до <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"Символ <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="template_capital_letter" msgid="4920626008395727629">"велика літера <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"пароль"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Висувна панель відкрита"</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Панель відкрито"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"Параметри."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"Текст стерто"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Введено максимальну кількість символів"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"видалено"</string>
-    <string name="value_selected" msgid="1307429702194660766">"вибрано"</string>
-    <string name="value_checked" msgid="3006751014125833966">"перевірено"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"не вибрано"</string>
-    <string name="value_on" msgid="39454338086317219">"увімкнено"</string>
-    <string name="value_off" msgid="6700497510945744608">"вимкнено"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"розгорнуто"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"згорнуто"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"вимкнено"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"Двічі торкніться"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"Торкніться"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"Натисніть \"Вибрати ключ\""</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g>, щоб активувати."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Натисніть комбінацію клавіш <xliff:g id="KEYCOMBO">%1$s</xliff:g>, щоб активувати."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> й утримуйте."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Натисніть комбінацію клавіш <xliff:g id="KEYCOMBO">%1$s</xliff:g>, щоб утримувати."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g>, щоб поставити чи зняти прапорець."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Натисніть комбінацію клавіш <xliff:g id="KEYCOMBO">%1$s</xliff:g>, щоб увімкнути/вимкнути."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g>, щоб ввести текст."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Натисніть комбінацію клавіш <xliff:g id="KEYCOMBO">%1$s</xliff:g>, щоб ввести текст."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g>, щоб змінити."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Натисніть комбінацію клавіш <xliff:g id="KEYCOMBO">%1$s</xliff:g>, щоб змінити."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"Гортайте сторінки двома пальцями."</string>
-    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"Немає додаткових сторінок."</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g>, щоб змінити."</string>
+    <string name="value_dismissible" msgid="1363491313197032055">"можна відхилити"</string>
     <string name="hint_radial_menu" msgid="2042130200569709650">"Торкніться екрана та проведіть пальцем по колу, щоб знайти елемент, а потім підніміть палець, щоб активувати його."</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Торкніться екрана та проведіть пальцем по колу, щоб пересуватися вмістом на екрані, а потім підніміть палець, щоб відкрити вибране."</string>
-    <string name="template_hint_custom_actions" msgid="543401796694872575">"Спеціальні дії:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g>, щоб <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Натисніть комбінацію клавіш <xliff:g id="KEYCOMBO">%1$s</xliff:g>, щоб <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> і втримуйте, щоб <xliff:g id="HINT">%2$s</xliff:g>."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"Вібросигнал."</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Дзвінок беззвучний."</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Екран увімкнено."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Екран вимкнено."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock увімкнено."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock вимкнено."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock увімкнено."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock вимкнено."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock увімкнено."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock вимкнено."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"Пристрій розблоковано."</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Мовлення"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Гучність мовлення"</string>
@@ -143,32 +64,59 @@
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Датчик наближення вимикає мовлення"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Датчик наближення не керує мовленням"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Увімкнути вимову літер"</string>
-    <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Вимова літер не озвучуватиметься."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"Вимова літер озвучується, якщо втримувати клавішу або переходити за символами."</string>
+    <string name="summaryOff_pref_phonetic_letters" msgid="9103268945330003219">"Вимова літер не озвучується"</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="4376866668529919518">"Вимова літер озвучується, якщо втримувати клавіші та переходити між символами"</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Увімкнути голосові підказки"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"Підказки не озвучуються, якщо перейти до іншого елемента."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"Під час навігації підказки озвучуються з невеликою затримкою."</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="798877049305553182">"Підказки не озвучуються, якщо переходити між елементами"</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="3161412108419178134">"Підказки озвучуються під час навігації з невеликою затримкою"</string>
+    <string name="pref_speak_container_element_positions_title" msgid="2835508578760045808">"Озвучувати інформацію списку й таблиці"</string>
+    <string name="pref_speak_container_element_positions_summaryOn" msgid="5023625248365109203">"Озвучується інформація зі списків і таблиць"</string>
+    <string name="pref_speak_container_element_positions_summaryOff" msgid="4112715962530209920">"Інформація зі списків і таблиць не озвучується"</string>
+    <string name="pref_speak_roles_title" msgid="8119822404299836273">"Озвучувати тип елемента"</string>
+    <string name="pref_speak_roles_summary_on" msgid="1601846507096793058">"Озвучується тип вибраних елементів"</string>
+    <string name="pref_speak_roles_summary_off" msgid="5420176413415285653">"Тип вибраних елементів не озвучується"</string>
+    <!-- no translation found for title_pref_speak_element_ids (391655908629950456) -->
+    <skip />
+    <!-- no translation found for summaryOff_pref_speak_element_ids (4960956994540579272) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_element_ids (44367075933871550) -->
+    <skip />
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Дослідження дотиком"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Автопрокрутка списків"</string>
-    <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Вивчення дотиком"</string>
+    <!-- no translation found for title_pref_category_touch_exploration (5874968966650551610) -->
+    <skip />
     <string name="title_pref_single_tap" msgid="5333869781230265376">"Активація одним дотиком"</string>
-    <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Показувати контекстне меню як список"</string>
+    <!-- no translation found for title_pref_show_context_menu_as_list (1317122602474219414) -->
+    <skip />
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Зменшити яскравість екрана, коли ввімкнено TalkBack"</string>
     <string name="summary_pref_single_tap" msgid="1868206223500105704">"Торкніться виділеного елемента, щоб активувати його (експериментальна функція)"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Струсити, щоб читати"</string>
-    <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Керувати жестами"</string>
-    <string name="title_pref_manage_labels" msgid="8796338627297226539">"Керувати спеціальними мітками"</string>
-    <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Керувати комбінаціями клавіш"</string>
+    <string name="pref_verbosity_title" msgid="3719351581071950262">"Деталізація"</string>
+    <string name="title_pref_category_manage_gestures" msgid="2614141620073133854">"Жести"</string>
+    <string name="title_pref_manage_labels" msgid="4466030803655661973">"Спеціальні мітки"</string>
+    <string name="title_pref_manage_keyboard_shortcuts" msgid="8091201905891748923">"Комбінації клавіш"</string>
     <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"Експортувати спеціальні мітки"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"Відкрити TalkBack у Google Play"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"Поточна версія TalkBack: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
     <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"Довідка й відгуки"</string>
+    <string name="pref_item_licenses" msgid="3546535377387155282">"Ліцензії відкритого коду"</string>
     <string name="title_pref_help" msgid="2022820131100451763">"Довідка"</string>
-    <string name="title_pref_show_tos" msgid="6167834013879233992">"Умови використання"</string>
-    <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Політика конфіденційності"</string>
+    <!-- no translation found for title_pref_show_tos (2813500691748037529) -->
+    <skip />
+    <!-- no translation found for title_pref_show_privacy_policy (8945789024630561518) -->
+    <skip />
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Жести швидкого доступу"</string>
+    <string name="title_pref_category_fingerprint_touch_shortcuts" msgid="4338314761170964858">"Жести на сканері відбитків пальців"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Вбудовані жести"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"Торкніться краю пристрою (експериментальна функція)"</string>
+    <string name="pref_verbosity_preset_title" msgid="6299916234007004610">"Виберіть набір налаштувань"</string>
+    <string name="pref_verbosity_preset_entry_high" msgid="791984796274765142">"Висока"</string>
+    <string name="pref_verbosity_preset_entry_custom" msgid="8261147354044310508">"Спеціальна"</string>
+    <string name="pref_verbosity_preset_entry_low" msgid="1333334045447549264">"Низька"</string>
+    <string name="pref_verbosity_category_preset_settings_title" msgid="620716446067964188">"Відомості про деталізацію"</string>
+    <!-- no translation found for pref_verbosity_category_misc_settings_title (6121977747903981087) -->
+    <skip />
+    <string name="pref_verbosity_preset_change" msgid="7250611496087013782">"<xliff:g id="PRESET_NAME">%1$s</xliff:g> деталізація ввімкнена."</string>
     <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"Розкладка"</string>
     <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"Вибрати розкладку"</string>
     <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"Скинути налаштування розкладки"</string>
@@ -202,7 +150,8 @@
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Останні додатки"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Сповіщення"</string>
     <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"Призупинити або відновити TalkBack"</string>
-    <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Налаштування навігації"</string>
+    <!-- no translation found for keycombo_menu_category_granularity (8575000248950511679) -->
+    <skip />
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Наступне налаштування навігації"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Попереднє налаштування навігації"</string>
     <string name="keycombo_menu_category_other" msgid="440132295339458288">"Інші дії"</string>
@@ -211,6 +160,9 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Шукати пункт на екрані"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Показати локальне контекстне меню"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Показати загальне контекстне меню"</string>
+    <string name="keycombo_menu_other_custom_actions" msgid="4769044790570667515">"Показати дії"</string>
+    <!-- no translation found for keycombo_menu_other_language_options (6071616089592138709) -->
+    <skip />
     <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"Керувати комбінаціями клавіш"</string>
     <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"Відкрити налаштування TalkBack"</string>
     <string name="keycombo_menu_category_web" msgid="197426246774034347">"Навігаційні дії в Інтернеті"</string>
@@ -253,31 +205,21 @@
     <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"Перейти до наступного комбінованого вікна"</string>
     <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"Перейти до попереднього комбінованого вікна"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"Комбінація клавіш:"</string>
-    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Натисніть клавіші, щоб установити нову комбінацію. Вона має містити принаймні клавішу Alt або Ctrl."</string>
-    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Щоб налаштувати нову комбінацію клавіш, натисніть її, утримуючи клавішу-модифікатор <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g>."</string>
     <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"Натисніть клавішу Backspace, щоб стерти ярлик, Enter – щоб зберегти елемент, або Escape – щоб скасувати дію."</string>
     <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"Видалити ярлик"</string>
-    <string name="keycombo_unassigned" msgid="5817151372114230015">"Не призначено"</string>
-    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
-    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
-    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
-    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Пошук"</string>
-    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Стрілка вправо"</string>
-    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Стрілка вліво"</string>
-    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Стрілка вгору"</string>
-    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Стрілка вниз"</string>
     <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"Відновити значення клавіш швидкого доступу за умовчанням для цієї розкладки? Цю дію не можна відмінити."</string>
     <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"Скинути"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"Комбінація вже використовується"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Ви вибрали цю комбінацію клавіш для дії \"<xliff:g id="ID_1">%1$s</xliff:g>\". Скасувати та призначити цю комбінацію для дії \"<xliff:g id="ID_2">%2$s</xliff:g>\"?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Змінювати тон під час озвучування"</string>
     <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"Озвучення натиснених клавіш"</string>
+    <string name="pref_node_desc_order_title" msgid="4632210763611067450">"Порядок описів елементів"</string>
     <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"Відтворювати введений за допомогою клавіатури текст із меншою висотою звуку"</string>
     <string name="summaryOff_pref_intonation" msgid="5187278527518557715">"Не змінювати висоту звуку під час мовлення"</string>
     <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"Інший відгук"</string>
     <string name="title_pref_vibration" msgid="4156396276749836864">"Вібровідгук"</string>
     <string name="title_pref_soundback" msgid="3131811048184077738">"Звуковий відгук"</string>
-    <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"TalkBack голосніше"</string>
+    <string name="title_pref_use_audio_focus" msgid="5227372335896747459">"Зменшення гучності аудіо"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Зменшувати гучність інших додатків під час роботи TalkBack"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Гучність звуку"</string>
     <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Призупиняти та відновлювати Talkback комбінацією клавіш"</string>
@@ -289,34 +231,14 @@
     <string name="title_pref_log_level" msgid="267415170405921603">"Рівень виводу журналу"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Показувати результат мовлення"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"Увімкнути налагодження дерева вузлів"</string>
-    <string name="title_pref_web_scripts" msgid="3016793641076890473">"Покращити веб-доступність"</string>
-    <string name="summary_pref_web_scripts" msgid="3996491708050765411">"Завантажити сценарії доступності для веб-вмісту"</string>
+    <string name="summary_pref_tree_debug_tv" msgid="2155606249933775098">"Використовувати клавішу голосового пошуку, щоб друкувати дерево вузлів"</string>
+    <string name="title_pref_performance_stats" msgid="3701419705373126127">"Увімкнути статистику продуктивності"</string>
     <string name="title_pref_resume_talkback" msgid="4098949311311089235">"Відновити після призупинення"</string>
     <string name="screen_dimmed" msgid="8072279323762069231">"Яскравість екрана зменшено"</string>
     <string name="screen_brightness_restored" msgid="378010604065368658">"Яскравість екрана відновлено"</string>
-    <string name="screen_dimming_exit_instruction_line1" msgid="176693707001658416">"Сервіс спеціальних можливостей TalkBack зменшив яскравість екрана."</string>
-    <string name="screen_dimming_exit_instruction_line2" msgid="2111548310775079127">"Щоб відмінити, тричі швидко натисніть кнопки збільшення та зменшення гучності одночасно."</string>
-    <string name="screen_dimming_exit_instruction_line3" msgid="7006494712728198438">"Яскравість екрана можна змінювати в налаштуваннях TalkBack."</string>
-    <string name="axis_character" msgid="8528412412593489695">"Переміщатися за символами."</string>
-    <string name="axis_word" msgid="8823389407337076750">"Переміщатися за словами."</string>
-    <string name="axis_sentence" msgid="4398740201672273541">"Переміщатися за реченнями."</string>
-    <string name="axis_heading" msgid="8829265824683632088">"Переміщатися за заголовками."</string>
-    <string name="axis_sibling" msgid="3267377527761217139">"Переміщатися за елементами того ж рівня."</string>
-    <string name="axis_document" msgid="8037283796488966887">"Переміщатися за документами."</string>
-    <string name="axis_default_web_view_behavior" msgid="816142869754118685">"Переміщатися в режимі перегляду веб-сторінок за умовчанням."</string>
-    <string name="granularity_default" msgid="4948042687369948597">"За умовчанням"</string>
-    <string name="granularity_character" msgid="2036726841460203840">"Символи"</string>
-    <string name="granularity_word" msgid="2653776823920279013">"Слова"</string>
-    <string name="granularity_line" msgid="727359260064093782">"Рядки"</string>
-    <string name="granularity_paragraph" msgid="3760401274833105422">"Абзаци"</string>
-    <string name="granularity_page" msgid="2739238666516816581">"Сторінки"</string>
-    <string name="granularity_web_section" msgid="8219174463230029732">"Заголовки й орієнтири"</string>
-    <string name="granularity_web_list" msgid="4386991044245560102">"Списки"</string>
-    <string name="granularity_web_link" msgid="7817726975417542626">"Посилання"</string>
-    <string name="granularity_web_control" msgid="1885138772895126953">"Елементи керування"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Спеціальний вміст"</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"Книжкова орієнтація"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"Альбомна орієнтація"</string>
+    <string name="screen_dimming_exit_instruction_line1" msgid="5487433770461700107">"Сервіс спеціальних можливостей TalkBack зменшує яскравість екрана"</string>
+    <string name="screen_dimming_exit_instruction_line2" msgid="6697363666089792199">"Щоб відмінити дію, одночасно тричі натисніть кнопки збільшення та зменшення гучності"</string>
+    <string name="screen_dimming_exit_instruction_line3" msgid="5253511790182167247">"Яскравість екрана можна змінювати в налаштуваннях TalkBack"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"Не призначено"</string>
     <string name="shortcut_next" msgid="6887743145853506373">"Далі"</string>
     <string name="shortcut_previous" msgid="3679790113454394245">"Назад"</string>
@@ -326,7 +248,10 @@
     <string name="shortcut_home" msgid="6670249804418900175">"Кнопка \"Головний екран\""</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"Кнопка огляду"</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"Відкрити сповіщення"</string>
-    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"Показати користувацькі дії"</string>
+    <string name="shortcut_quick_settings" msgid="3692505224100396743">"Відкрити вікно швидких налаштувань"</string>
+    <string name="shortcut_show_custom_actions" msgid="444056949141930750">"Показати дії"</string>
+    <!-- no translation found for shortcut_editing (5285767060395122020) -->
+    <skip />
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Відкрити глобальне контекстне меню"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"Відкрити локальне контекстне меню"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Повторити останнє висловлювання"</string>
@@ -336,14 +261,28 @@
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"Читати від початку"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"Читати від наступного елемента"</string>
     <string name="shortcut_print_node_tree" msgid="7570974794642091616">"Друкувати дерево вузлів"</string>
+    <string name="shortcut_print_performance_stats" msgid="2111671611434588299">"Друкувати статистику продуктивності"</string>
     <string name="shortcut_next_granularity" msgid="5058063575500265017">"Наступне налаштування навігації"</string>
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Попереднє налаштування навігації"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"Перейти до першого елемента на екрані"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Перейти до останнього елемента на екрані"</string>
     <string name="shortcut_enable_dimming" msgid="751310793206738883">"Затемнювати дисплей"</string>
     <string name="shortcut_disable_dimming" msgid="8041762180167320322">"Не затемнювати дисплей"</string>
+    <string name="shortcut_perform_click_action" msgid="9152719059133712820">"Натиснути"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"Локальне контекстне меню"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"Глобальне контекстне меню"</string>
+    <!-- no translation found for language_menu_title (8648132144725156863) -->
+    <skip />
+    <!-- no translation found for shortcut_show_language_options (3291602397759958945) -->
+    <skip />
+    <!-- no translation found for shortcut_select_next_setting (3708409029026167823) -->
+    <skip />
+    <!-- no translation found for shortcut_select_previous_setting (7335686444537217336) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_next_action (4744337882487301323) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_previous_action (7723485687036313114) -->
+    <skip />
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"Немає пунктів меню."</string>
     <string name="title_web_breakout_next_section" msgid="7355139595269361571">"Наступний розділ"</string>
     <string name="title_web_breakout_next_list" msgid="801337905459445939">"Наступний список"</string>
@@ -351,7 +290,8 @@
     <string name="title_web_breakout_prev_section" msgid="1738336598629616234">"Попередній розділ"</string>
     <string name="title_web_breakout_prev_list" msgid="744039532529277819">"Попередній список"</string>
     <string name="title_web_breakout_prev_control" msgid="2637721101068457234">"Попередній елемент керування"</string>
-    <string name="title_edittext_controls" msgid="2102286116390895883">"Елементи керування курсором"</string>
+    <!-- no translation found for title_edittext_controls (4835723497829630825) -->
+    <skip />
     <string name="title_edittext_breakout_move_to_beginning" msgid="4021304144865258223">"Перемістити курсор на початок"</string>
     <string name="title_edittext_breakout_move_to_end" msgid="3197737555808584828">"Перемістити курсор у кінець"</string>
     <string name="title_edittext_breakout_start_selection_mode" msgid="4183196270306568761">"Початок режиму вибору"</string>
@@ -361,8 +301,9 @@
     <string name="title_viewpager_breakout_prev_page" msgid="1352284456691236167">"Попередня сторінка"</string>
     <string name="title_labeling_controls" msgid="5005702316138877183">"Мітки"</string>
     <string name="title_summary" msgid="3037924006370977165">"Швидка навігація"</string>
-    <string name="title_granularity" msgid="399801096771904747">"Налаштування навігації"</string>
-    <string name="title_custom_action" msgid="7908169922901920318">"Спеціальні дії"</string>
+    <!-- no translation found for title_granularity (7464159711994643031) -->
+    <skip />
+    <string name="title_custom_action" msgid="6533095862085546341">"Дії"</string>
     <string name="title_suggestions_controls" msgid="5486233362252604824">"Пропозиції автозавершення"</string>
     <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"Перейти до пропозицій"</string>
     <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"Назад у поле редагування"</string>
@@ -402,6 +343,10 @@
     <string name="title_pref_shortcut_right_and_up" msgid="6848971895903777166">"Проведіть пальцем праворуч, потім угору"</string>
     <string name="title_pref_shortcut_left_and_down" msgid="2899217574677150730">"Проведіть пальцем ліворуч, потім униз"</string>
     <string name="title_pref_shortcut_left_and_up" msgid="369887751217245542">"Проведіть пальцем ліворуч, потім угору"</string>
+    <string name="title_pref_shortcut_fingerprint_up" msgid="4567914579733101315">"Провести вгору на сканері відбитків пальців"</string>
+    <string name="title_pref_shortcut_fingerprint_down" msgid="7266292981315522410">"Провести вниз на сканері відбитків пальців"</string>
+    <string name="title_pref_shortcut_fingerprint_left" msgid="5372808080030991944">"Провести вліво на сканері відбитків пальців"</string>
+    <string name="title_pref_shortcut_fingerprint_right" msgid="694175245288621969">"Провести вправо на сканері відбитків пальців"</string>
     <string name="title_pref_shortcut_single_tap" msgid="7220195169492947031">"Торкніться краю"</string>
     <string name="title_pref_shortcut_double_tap" msgid="4454853121476703529">"Двічі торкніться краю"</string>
     <string name="title_pref_tap_sensitivity" msgid="3737945934603267137">"Чутливість детектора дотику"</string>
@@ -426,28 +371,31 @@
     <string name="value_keyboard_echo_always" msgid="6889426165608387394">"Завжди озвучувати натиснені клавіші"</string>
     <string name="value_keyboard_echo_softkeys" msgid="1595001302535254665">"Лише для екранної клавіатури"</string>
     <string name="value_keyboard_echo_never" msgid="7181327459690946870">"Ніколи не озвучувати натиснені клавіші"</string>
+    <string name="pref_node_desc_order_entry_state_name_role_pos" msgid="6239074777084483039">"Стан, назва, тип"</string>
+    <string name="pref_node_desc_order_entry_role_name_state_pos" msgid="1747697478748531592">"Тип, назва, стан"</string>
+    <string name="pref_node_desc_order_entry_name_role_state_pos" msgid="3293391334262415544">"Назва, тип, стан"</string>
     <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"Жести TalkBack змінено"</string>
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Торкніться, щоб переглянути зміни в жестах доступності"</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"TalkBack призупинено"</string>
-    <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Торкніться, щоб відновити."</string>
+    <string name="notification_message_talkback_suspended" msgid="5900724128049181599">"Торкніться, щоб відновити"</string>
     <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"Автоматичний перехід до 1 уроку."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"Призупинити TalkBack?"</string>
-    <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Ви впевнені? На пристрої буде вимкнено голосові підказки та функцію дослідження дотиком. Відновити TalkBack можна на панелі сповіщень, на екрані блокування або за допомогою ярлика клавіші гучності."</string>
-    <string name="message_resume_manual" msgid="6522293510722570646">"Відновити TalkBack можна на панелі сповіщень."</string>
-    <string name="message_resume_screen_on" msgid="9016720947126938212">"Відновити TalkBack можна на панелі сповіщень або ввімкнувши екран."</string>
-    <string name="message_resume_keyguard" msgid="6721228114050709276">"Відновити TalkBack можна на панелі сповіщень або повернувшись на екран блокування."</string>
+    <string name="dialog_message_suspend_talkback" msgid="272851623978432035">"Призупинити TalkBack?\n\nВаш пристрій не надаватиме голосові підказки, а функцію дослідження дотиком буде вимкнено."</string>
+    <string name="message_resume_manual" msgid="7356544353534913249">"Відновити TalkBack можна на панелі сповіщень"</string>
+    <string name="message_resume_screen_on" msgid="5200338421759961545">"Відновити TalkBack можна на панелі сповіщень або ввімкнувши екран"</string>
+    <string name="message_resume_keyguard" msgid="2142813660069991041">"Відновити TalkBack можна на панелі сповіщень або повернувшись на заблокований екран"</string>
     <string name="show_suspend_warning_label" msgid="3193206799395252518">"Завжди показувати це застереження"</string>
     <string name="cannot_add_label" msgid="2754406023113433479">"Неможливо позначити цей елемент."</string>
     <string name="label_dialog_title_add" msgid="1255044087558866043">"Додавання мітки"</string>
     <string name="label_dialog_title_edit" msgid="7914376979667771585">"Редагування мітки"</string>
     <string name="label_dialog_title_remove" msgid="1791163736307626930">"Видалення мітки"</string>
-    <string name="label_dialog_text" msgid="5879506218245648848">"У полі нижче введіть текст для цього зображення."</string>
+    <string name="label_dialog_text" msgid="3836616655480004748">"Введіть текст, який буде міткою \nвнутрішньої назви елемента: <xliff:g id="VIEW_RESOURCE_NAME">%1$s</xliff:g>"</string>
     <string name="label_remove_dialog_text" msgid="372916461303485723">"Видалити мітку \"<xliff:g id="LABEL">%1$s</xliff:g>\"?"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Видалити мітку \"<xliff:g id="LABEL">%1$s</xliff:g>\" з додатка <xliff:g id="APP_NAME">%2$s</xliff:g>?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Текст мітки"</string>
     <string name="label_import" msgid="1773817433300194935">"Імпортувати спеціальні мітки"</string>
     <string name="label_import_dialog_title" msgid="5305411653917870790">"Імпортувати спеціальні мітки в TalkBack"</string>
-    <string name="label_import_dialog_message" msgid="7975227530187709469">"Виберіть, що робити у випадку конфлікту: замінити чи залишити наявні мітки."</string>
+    <string name="label_import_dialog_message" msgid="5770997008069363097">"Виберіть, що робити у випадку конфлікту: замінити чи залишити наявні мітки"</string>
     <string name="label_import_dialog_skip" msgid="2078597180132028657">"Залишити"</string>
     <string name="label_import_dialog_override" msgid="4387408051194229513">"Замінити"</string>
     <string name="label_export_empty" msgid="7663052451851715440">"Немає що експортувати. Ви не додали міток"</string>
@@ -459,6 +407,9 @@
       <item quantity="many">Оновлено %d міток</item>
       <item quantity="other">Оновлено %d мітки</item>
     </plurals>
+    <string name="no_apps_to_import_labels" msgid="8158403357422110115">"Немає додатків для імпорту міток"</string>
+    <string name="no_apps_to_export_labels" msgid="7671924783169788614">"Немає додатків для експорту міток."</string>
+    <string name="label_choose_app_to_import" msgid="3992931531372131216">"Виберіть додаток для імпорту міток."</string>
     <string name="label_choose_app_to_export" msgid="3288834802071890267">"Виберіть, у який додаток експортувати мітки:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"У цій версії TalkBack змінено жести доступності за умовчанням. Дії, пов’язані з цими жестами, можна вказати в налаштуваннях TalkBack. Якщо функцію дослідження дотиком увімкнено, можна виконувати певні дії за допомогою вказаних нижче жестів.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Натисніть і утримуйте кнопки збільшення та зменшення гучності"</string>
@@ -469,13 +420,14 @@
     <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"У цій версії TalkBack змінено стандартні жести спеціальних можливостей.\n\nТепер за допомогою жесту вгору можна перейти до попереднього налаштування навігації, а за допомогою жесту вниз – до наступного."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Прийняти жести"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Налаштувати жести"</string>
-    <string name="button_clear_all_events" msgid="2128349101908653825">"Очистити все"</string>
-    <string name="button_check_all_events" msgid="301383322727007726">"Вибрати все"</string>
+    <string name="button_disable_all_events" msgid="4917625658777138398">"Вимкнути всі"</string>
+    <string name="button_enable_all_events" msgid="6164815656232769872">"Увімкнути всі"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"Вимкнути функцію дослідження дотиком?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Вимкнути функцію дослідження дотиком?\n\nВаш пристрій більше не реагуватиме на жести чи диктування, коли ви торкатиметесь екрана."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Увімкнути налагодження дерева вузлів?"</string>
     <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"Увімкнути налагодження дерева вузлів?\n\nНалагодження дерева вузлів відкриває вміст вашого екрана для журналів пристрою, які можуть бути зчитані іншими додатками."</string>
-    <string name="hint_script_injection" msgid="6139951755594105602">"Функція дослідження дотиком недоступна для веб-вмісту. Увімкніть опцію <xliff:g id="PREFERENCE_NAME">%1$s</xliff:g> у налаштуваннях доступності, щоб досліджувати веб-вміст дотиком."</string>
+    <string name="dialog_title_enable_performance_stats" msgid="3016681156366751028">"Увімкнути статистику продуктивності?"</string>
+    <string name="dialog_message_enable_performance_stats" msgid="8917304199448928340">"Увімкнути статистику продуктивності? \n\n Вона може споживати більше пам’яті та заряду акумулятора."</string>
     <string name="label_talkback_context_menu" msgid="6758073806811666684">"Глобальне контекстне меню TalkBack"</string>
     <string name="permission_talkback_label" msgid="2235244838320678938">"Керування TalkBack"</string>
     <string name="permission_talkback_desc" msgid="8320433482567759963">"Дозвіл на надсилання жестів у TalkBack і відновлення голосових підказок."</string>
@@ -489,7 +441,7 @@
     <string name="display_name_button" msgid="6801468093111637502">"кнопка"</string>
     <string name="display_name_combobox" msgid="3627879841881471141">"комбіноване вікно"</string>
     <string name="display_name_aria_landmark" msgid="6117331350509062908">"Орієнтир ARIA"</string>
-    <string name="display_name_edit_field" msgid="5014778180731737501">"поле редагування"</string>
+    <string name="display_name_edit_field" msgid="8239971688356887918">"поле редагування"</string>
     <string name="display_name_focusable_item" msgid="1687969602866460765">"інтерактивний елемент"</string>
     <string name="display_name_heading_1" msgid="30730842343032834">"заголовок 1"</string>
     <string name="display_name_heading_2" msgid="754950733934619571">"заголовок 2"</string>
@@ -505,12 +457,6 @@
     <string name="display_name_table" msgid="1369599790038567007">"таблиця"</string>
     <string name="display_name_checkbox" msgid="2060147158898197667">"прапорець"</string>
     <string name="display_name_section" msgid="4568845228422422699">"заголовок або орієнтир"</string>
-    <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="CHARACTER">%2$s</xliff:g>: <xliff:g id="NUMBER">%1$d</xliff:g>"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"Рядок <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"Стовпець <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"Заголовок"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"Заголовок рядка"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"Заголовок стовпця"</string>
     <string name="item_index_template" msgid="71505978833721807">"Пункт <xliff:g id="ITEM">%1$d</xliff:g>"</string>
     <string name="revert_imported_labels" msgid="5508730389432571776">"Замінити імпортовані мітки на попередні"</string>
     <string name="imported_labels_reverted" msgid="6117098234531459917">"Імпортовані мітки замінено на попередні"</string>
@@ -521,36 +467,8 @@
     <skip />
     <!-- no translation found for template_window_switch_system (1902661569833377496) -->
     <skip />
-    <string name="untitled_window" msgid="7017590766394623328">"без назви"</string>
     <string name="status_bar" msgid="6000275621941971563">"рядок стану"</string>
     <string name="navigation_bar" msgid="4602958479941673535">"панель навігації"</string>
-    <string name="template_collection_start" msgid="4362535543397747567">"Ви ввійшли в колекцію \"<xliff:g id="COLLECTION_NAME">%1$s</xliff:g>\""</string>
-    <string name="template_collection_end" msgid="2167296836815021551">"Ви вийшли з колекції \"<xliff:g id="COLLECTION_NAME">%1$s</xliff:g>\""</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"Рівень <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> елемент</item>
-      <item quantity="few"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> елементи</item>
-      <item quantity="many"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> елементів</item>
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> елемента</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="one"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> рядок</item>
-      <item quantity="few"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> рядки</item>
-      <item quantity="many"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> рядків</item>
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> рядка</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> стовпець</item>
-      <item quantity="few"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> стовпці</item>
-      <item quantity="many"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> стовпців</item>
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> стовпця</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> символ</item>
-      <item quantity="few"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> символи</item>
-      <item quantity="many"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> символів</item>
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> символу</item>
-    </plurals>
     <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
       <item quantity="one">Вибрано <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> подію</item>
       <item quantity="few">Вибрано <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> події</item>
@@ -561,9 +479,30 @@
     <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> вимкнено"</string>
     <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"Режим керування пошуком"</string>
     <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"Натискайте кнопки зі стрілками, щоб змінити значення, або \"Вибрати\", щоб завершити."</string>
-    <string name="arc_android_window" msgid="697316167642517245">"Вікно Android"</string>
+    <string name="arc_android_window" msgid="602492367666363458">"Вікно додатка"</string>
     <string name="arc_navigation_hint" msgid="3272314052097101117">"Для навігації натисніть клавішу Search і клавіші зі стрілками"</string>
     <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"Натисніть <xliff:g id="KEYCOMBO">%1$s</xliff:g>, щоб побачити список комбінацій клавіш"</string>
     <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"Щоб відкрити налаштування TalkBack, натисніть <xliff:g id="KEYCOMBO">%1$s</xliff:g>"</string>
-    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"Щоб отримувати найкращі голосові підказки та реакції на торкання, розгорніть вікно додатка"</string>
+    <!-- no translation found for reset_user_language_preference (6441167843388110740) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_settings (3013680598130553128) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_activation (6275710235429570402) -->
+    <skip />
+    <!-- no translation found for title_pref_category_selector_settings_configuration (3095665157222126906) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_speech_rate (731846618625670003) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_verbosity (4608661647007146269) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_granularity (5926698009571092268) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_audio_focus (6180475638252714782) -->
+    <skip />
+    <!-- no translation found for pref_selector_activation_summary (688877660863231861) -->
+    <skip />
+    <!-- no translation found for title_pref_speak_passwords_without_headphones (2032390508469400633) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_passwords_without_headphones (1854966750096734009) -->
+    <skip />
 </resources>

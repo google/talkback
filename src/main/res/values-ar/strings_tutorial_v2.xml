@@ -2,21 +2,21 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"برنامج تعليمي لإمكانية الوصول"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"‏تشغيل برنامج TalkBack التعليمي"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"‏برنامج TalkBack التعليمي"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"‏برنامج TalkBack التعليمي"</string>
-    <string name="main_description" msgid="4795202818108740382">"‏TalkBack هو قارئ شاشة تم تصميمه في الأساس للأشخاص الذين يعانون من فقد البصر أو ضعفه. ويسمح لهم بالتفاعل مع الجهاز باستخدام تعليقات وملاحظات منطوقة."</string>
+    <string name="main_description" msgid="4795202818108740382">"‏TalkBack هو قارئ شاشة تم تصميمه في الأساس للأشخاص الذين يعانون من فقدان البصر أو ضعفه. ويسمح لهم بالتفاعل مع الجهاز باستخدام تعليقات وملاحظات منطوقة."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"‏تعطيل TalkBack"</string>
     <string name="tutorial_start_lesson" msgid="8656234062338441589">"تعلم"</string>
     <string name="tutorial_practice" msgid="8329925887106371812">"ممارسة"</string>
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"تعلُّم الدرس <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"التمرين على الدرس <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"الدرس الأول: التنقل الأساسي"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"يمكنك اللمس للاستكشاف والتمرير سريعًا للاستكشاف والنقر نقرًا مزدوجًا للتنشيط"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"التمرير السريع والاستكشاف والتنشيط"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"الجزء الأول: الاستكشاف باللمس"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"عند التمكين، تتيح لك ميزة الاستكشاف باللمس سماع اسم العنصر الذي تحت إصبعك. ويمكنك تحريك إصبعك فوق العناصر الموجودة في وسط الشاشة. وبعد استكشاف خمسة عناصر، ستتم متابعة الدرس."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"الجزء الثاني: انقر نقرًا مزدوجًا للتنشيط"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"لتنشيط آخر عنصر سمعته، انقر نقرًا مزدوجًا في أي مكان. ابحث عن العنصر ۷ ونشِّطه الآن. بعد ذلك، يمكنك تنشيط \"التالي\" للمتابعة."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"تم تنشيط العنصر۷. ابحث عن زر \"التالي\" ونشِّطه للمتابعة"</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"لتنشيط آخر عنصر سمعته، انقر نقرًا مزدوجًا في أي مكان. ابحث عن العنصر ٤ ونشِّطه الآن. بعد ذلك، يمكنك تنشيط \"التالي\" للمتابعة."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"تم تنشيط العنصر ٤. ابحث عن زر \"التالي\" ونشِّطه للمتابعة"</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"الجزء الثالث: التنقل في الدروس"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"‏يتم ترتيب دروس TalkBack على نحو مشابه. تتضمن المنطقة العليا الدرس الذي يمكنك استكشافه وقراءته متى شئت. كما تتضمن زر الصفحة الرئيسية للبرنامج التعليمي أعلى اليمين. وفي الوسط توجد منطقة للتمرين. أما الأسفل فيوجد به مؤشر مستوى التقدم وأزرار التنقل داخل الدرس. يمكنك تنشيط \"التالي\" الآن للمتابعة."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"الجزء الرابع: التمرير السريع للاستكشاف"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"الجزء الخامس: الممارسة"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"لسماع ما تحت إصبعك، يمكنك تحريكه على الشاشة. انقر نقرًا مزدوجًا في أي مكان لتنشيط ما تسمعه. يمكنك التمرير سريعًا جهة اليمين أو اليسار للاستكشاف."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"الدرس الثاني: التمرير"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"التمرير بإصبعين، التنقل للأمام وللخلف"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"الجزء الأول: التمرير بإصبعين"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"للتمرير داخل قائمة رأسية، يمكنك البحث عن عنصر قائمة، وتحريك إصبعين لأعلى أو أسفل. وللتمرير داخل قائمة أفقية، يمكنك البحث عن عنصر قائمة، وتحريك إصبعين جهة اليمين أو اليسار."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"الجزء الثاني: اختصارات التمرير"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"يمكنك التنقل للأمام أو للخلف في قائمة باستخدام اختصار. للتنقل للأمام، يجب تحريك إصبع واحد لليسار ثم لليمين في حركة واحدة. للتنقل للخلف، يجب تحريك إصبع واحد لليمين ثم لليسار. يمكنك تجربة ذلك هنا."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"الجزء الثالث: الممارسة"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"يمكنك التمرير عن طريق تحريك إصبعين لأعلى أو لأسفل. كما يمكنك التنقل للأمام عن طريق تحريك إصبع واحد لليسار ثم لليمين. ويمكنك التنقل للخلف عن طريق تحريك إصبع واحد لليمين ثم لليسار."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"التمرير للأمام والخلف"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"الجزء الأول: اختصارات التمرير"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"يمكنك التمرير للأمام أو للخلف في قائمة باستخدام اختصار. للتمرير للأمام، يجب تحريك إصبع واحد لليمين ثم لليسار في حركة واحدة. للتمرير للخلف، يجب تحريك إصبع واحد لليسار ثم لليمين. يمكنك تجربة ذلك هنا."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"الجزء الثاني: الممارسة"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"يمكنك التمرير للأمام عن طريق تحريك إصبع واحد لليمين ثم لليسار. كما يمكنك التمرير للخلف عن طريق تحريك إصبع واحد لليسار ثم لليمين."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"‏الدرس الثالث: قوائم TalkBack"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"‏قائمة TalkBack الشاملة، قائمة TalkBack المحلية"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"‏الجزء الأول: قائمة TalkBack الشاملة"</string>
@@ -84,6 +82,6 @@
     <string name="tutorial_service_inactive_title" msgid="14143423693392009">"‏تم تعطيل TalkBack"</string>
     <string name="tutorial_service_inactive_message" msgid="4109204744674617699">"‏يتطلب هذا البرنامج التعليمي تمكين TalkBack. يرجى تشغيل TalkBack قبل تشغيل البرنامج التعليمي."</string>
     <string name="tutorial_service_suspended_title" msgid="7825932862221387070">"‏تم تعليق TalkBack"</string>
-    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"‏لا يتوفر برنامج TalkBack التعليمي أثناء إيقاف التعليقات مؤقتًا. الرجاء استئناف عمل تعليقات TalkBack وإعادة تشغيل البرنامج التعليمي للمتابعة."</string>
+    <string name="tutorial_service_suspended_message" msgid="126663814939225670">"‏لا يتوفر برنامج TalkBack التعليمي أثناء إيقاف التعليقات مؤقتًا. يُرجى استئناف عمل تعليقات TalkBack وإعادة تشغيل البرنامج التعليمي للمتابعة."</string>
     <string name="shortcut_hear_lesson" msgid="5711865496104188848">"وصف القائمة"</string>
 </resources>

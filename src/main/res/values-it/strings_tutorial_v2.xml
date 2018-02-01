@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="accessibility_tutorial_title" msgid="3283027285894267908">"Tutorial sull\'accessibilità"</string>
-    <string name="title_pref_tutorial" msgid="2810986068277138359">"Avvia tutorial su TalkBack"</string>
+    <string name="title_pref_tutorial" msgid="1662684171807715909">"Tutorial su TalkBack"</string>
     <string name="tutorial_title" msgid="1602036284900841687">"Tutorial su TalkBack"</string>
     <string name="main_description" msgid="4795202818108740382">"TalkBack è uno screen reader rivolto principalmente a utenti non vedenti o con problemi di vista. Consente di interagire con il dispositivo utilizzando la funzione di lettura vocale."</string>
     <string name="turn_off_talkback" msgid="6480388345726953149">"Disattiva TalkBack"</string>
@@ -11,12 +11,12 @@
     <string name="tutorial_start_lesson_content" msgid="6993792008827898101">"Impara la lezione <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_practice_content" msgid="7310221766775514110">"Fai pratica con la lezione <xliff:g id="INDEX">%1$d</xliff:g>"</string>
     <string name="tutorial_lesson_1_title" msgid="5236404350916286434">"Lezione 1: navigazione di base"</string>
-    <string name="tutorial_lesson_1_short_description" msgid="711726460367061721">"Tocca e scorri per esplorare, tocca due volte per attivare"</string>
+    <string name="tutorial_lesson_1_short_description" msgid="1325255309679998019">"Scorrimento, esplorazione, attivazione"</string>
     <string name="tutorial_lesson_1_page1_subtitle" msgid="8696897836045271462">"Parte 1: esplorazione al tocco"</string>
     <string name="tutorial_lesson_1_page1_description" msgid="2912330081549004678">"Quando è attiva, la funzione Esplora al tocco pronuncia gli elementi che tocchi con il dito. Sposta il dito sopra gli elementi al centro dello schermo. La lezione continuerà dopo che avrai esaminato cinque elementi."</string>
     <string name="tutorial_lesson_1_page2_subtitle" msgid="395358029332125189">"Parte 2: doppio tocco per attivare"</string>
-    <string name="tutorial_lesson_1_page2_description" msgid="3437424287122738630">"Per attivare l\'ultimo elemento che hai sentito, tocca due volte un punto qualsiasi dello schermo. Cerca l\'elemento 7 e attivalo. Dopodiché, attiva Avanti per continuare."</string>
-    <string name="tutorial_lesson_1_page2_complete_message" msgid="4328249029315743419">"Elemento 7 attivato. Cerca e attiva il pulsante Avanti per continuare."</string>
+    <string name="tutorial_lesson_1_page2_description" msgid="457609887977321156">"Per attivare l\'ultimo elemento che hai sentito, tocca due volte un punto qualsiasi dello schermo. Cerca l\'elemento 4 e attivalo. Dopodiché, attiva Avanti per continuare."</string>
+    <string name="tutorial_lesson_1_page2_complete_message" msgid="2868770372915381020">"Elemento 4 attivato. Cerca e attiva il pulsante Avanti per continuare."</string>
     <string name="tutorial_lesson_1_page3_subtitle" msgid="5644143038265902856">"Parte 3: lezioni sulla navigazione"</string>
     <string name="tutorial_lesson_1_page3_description" msgid="6782138079048102236">"Le lezioni relative a TalkBack sono strutturate in modo simile. Nella parte in alto puoi trovare la lezione, che puoi leggere in qualsiasi momento. Nell\'angolo in alto a sinistra è presente un pulsante Home Tutorial. Nella parte centrale è presente uno spazio per fare pratica. In fondo sono presenti un indicatore di avanzamento e i pulsanti per spostarti nella lezione. Attiva Avanti per continuare."</string>
     <string name="tutorial_lesson_1_page4_subtitle" msgid="8686179604479736061">"Parte 4: scorrimento per esplorare"</string>
@@ -24,13 +24,11 @@
     <string name="tutorial_lesson_1_practice_title" msgid="8409951305889305897">"Parte 5: esercitazione"</string>
     <string name="tutorial_lesson_1_practice_description" msgid="6465486659264068934">"Per farti leggere l\'elemento che stai toccando, spostalo sullo schermo. Tocca due volte un punto qualsiasi dello schermo per attivare l\'elemento che ti viene letto. Scorri verso sinistra o verso destra per esplorare."</string>
     <string name="tutorial_lesson_2_title" msgid="8944439067496916569">"Lezione 2: scorrimento"</string>
-    <string name="tutorial_lesson_2_short_description" msgid="1266674748996686981">"Scorrimento con due dita, spostamento avanti e indietro"</string>
-    <string name="tutorial_lesson_2_page1_subtitle" msgid="3831360802282402385">"Parte 1: scorrimento con due dita"</string>
-    <string name="tutorial_lesson_2_page1_description" msgid="580551557422353615">"Per scorrere un elenco verticale, cerca una voce, quindi sposta due dita verso l\'alto o verso il basso. Per scorrere un elenco orizzontale, cerca una voce, quindi sposta due dita verso sinistra o verso destra."</string>
-    <string name="tutorial_lesson_2_page2_subtitle" msgid="4984192682960806856">"Parte 2: scorciatoie per lo scorrimento"</string>
-    <string name="tutorial_lesson_2_page2_description" msgid="6803623252361709120">"Puoi andare avanti e indietro in un elenco utilizzando una scorciatoia. Per andare avanti, sposta un dito verso destra e poi verso sinistra in un unico movimento. Per andare indietro, sposta un dito verso sinistra e poi verso destra. Prova qui."</string>
-    <string name="tutorial_lesson_2_practice_title" msgid="2743676222265424015">"Parte 3: esercitazione"</string>
-    <string name="tutorial_lesson_2_practice_description" msgid="408119978126134776">"Fai scorrere due dita verso l\'alto o verso il basso. Vai avanti spostando un dito verso destra e poi verso sinistra. Vai indietro spostando un dito verso sinistra e poi verso destra."</string>
+    <string name="tutorial_lesson_2_short_description" msgid="8783430182740299032">"Scorrere in avanti e indietro"</string>
+    <string name="tutorial_lesson_2_page1_subtitle" msgid="9075405937338432827">"Parte 1: scorciatoie per lo scorrimento"</string>
+    <string name="tutorial_lesson_2_page1_description" msgid="2863927522093873184">"Puoi scorrere in avanti e indietro in un elenco utilizzando una scorciatoia. Per scorrere in avanti, sposta un dito verso destra e poi verso sinistra in un unico movimento. Per scorrere indietro, sposta un dito verso sinistra e poi verso destra. Prova qui."</string>
+    <string name="tutorial_lesson_2_practice_title" msgid="3233712472319757859">"Parte 2: esercitazione"</string>
+    <string name="tutorial_lesson_2_practice_description" msgid="5950817114599074266">"Scorri in avanti spostando un dito verso destra e poi verso sinistra. Scorri indietro spostando un dito verso sinistra e poi verso destra."</string>
     <string name="tutorial_lesson_3_title" msgid="1534037844912254504">"Lezione 3: menu TalkBack"</string>
     <string name="tutorial_lesson_3_short_description" msgid="4897481164693437589">"Menu TalkBack globale e locale"</string>
     <string name="tutorial_lesson_3_page1_subtitle" msgid="769564591288469622">"Parte 1: menu TalkBack globale"</string>

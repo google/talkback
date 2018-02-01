@@ -2,12 +2,12 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="talkback_service_description" msgid="5081383053733275450">"Функция TalkBack создана для пользователей с нарушениями зрения. Она озвучивает элементы, которые вы выбираете или активируете.\n\nЕсли вы включили TalkBack случайно, отключите функцию, нажимая на переключатель до тех пор, пока вокруг него не появится зеленый контур, а затем коснитесь его дважды. То же самое сделайте в открывшемся диалоговом окне."</string>
-    <string name="talkback_on" msgid="315529674405160699">"Функция TalkBack включена"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"Функция TalkBack приостановлена"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"Функция TalkBack работает"</string>
-    <string name="talkback_disabled" msgid="2536155587482587238">"Сервис Talkback отключен."</string>
+    <string name="talkback_service_summary" msgid="6365572257324337595">"Озвучивать элементы на экране"</string>
     <string name="talkback_preferences_title" msgid="4249486159144445549">"Настройки TalkBack"</string>
-    <string name="tts_preferences_title" msgid="6233811187483633874">"Настройки синтеза речи"</string>
+    <!-- no translation found for tts_preferences_title (8167186112347512303) -->
+    <skip />
+    <!-- no translation found for language_options (8577758471261539974) -->
+    <skip />
     <string name="talkback_preferences_subtitle" msgid="1318051290124952165">"Версия <xliff:g id="VERSION_NAME">%1$s</xliff:g>"</string>
     <string name="label_manager_summary_title" msgid="6786694853113585661">"Управление персональными ярлыками"</string>
     <string name="label_manager_package_title" msgid="6984665343963494151">"Управление ярлыками приложения \"<xliff:g id="APPLICATIONLABEL">%1$s</xliff:g>\""</string>
@@ -22,11 +22,6 @@
     <string name="search_mode_hint_query" msgid="5896493032072187997">"Текущий поисковый запрос: <xliff:g id="SEARCH_QUERY">%1$s</xliff:g>."</string>
     <string name="search_mode_hint_no_selection" msgid="882227441829755961">"Элемент не выбран."</string>
     <string name="search_mode_hint_selection" msgid="8541673936818652399">"Выбранный элемент: <xliff:g id="SELECTED_NODE">%1$s</xliff:g>."</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Начало поля"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Конец поля"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Режим выделения включен"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Режим выделения выключен"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Выделение отменено"</string>
     <string name="notification_type_missed_call" msgid="6585664098525214473">"Пропущенный вызов."</string>
     <string name="notification_type_status_mute" msgid="2024742614005804613">"Выключить звук."</string>
     <string name="notification_type_status_chat" msgid="3593906461181368010">"Чат."</string>
@@ -39,100 +34,26 @@
     <string name="notification_type_status_voicemail" msgid="1611063561670902017">"Голосовая почта."</string>
     <string name="notification_type_status_started" msgid="1071939833188591219">"Начато"</string>
     <string name="notification_type_status_stopped" msgid="6004666820256747725">"Остановлено"</string>
-    <string name="template_current_tts_engine" msgid="3963364867159704159">"Используется <xliff:g id="ENGINE_NAME">%1$s</xliff:g>."</string>
     <string name="template_menu" msgid="2592357933256217001">"Меню <xliff:g id="TITLE">%1$s</xliff:g>."</string>
-    <string name="template_alert_dialog_template" msgid="5493715708649314332">"Оповещение: <xliff:g id="MESSAGE">%1$s</xliff:g>."</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"Меню <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"Текст <xliff:g id="OLD_TEXT">%2$s</xliff:g> заменен на новый текст <xliff:g id="NEW_TEXT">%1$s</xliff:g>."</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"Текст <xliff:g id="TEXT">%1$s</xliff:g> удален."</string>
-    <string name="template_text_copied" msgid="1059175355898959427">"Скопирован текст \"<xliff:g id="TEXT">%1$s</xliff:g>\""</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"Вырезан текст \"<xliff:g id="TEXT">%1$s</xliff:g>\""</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"Вставлен текст \"<xliff:g id="TEXT">%1$s</xliff:g>\""</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"Выделен текст \"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>\""</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"Выделенный текст: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
     <string name="template_no_text_selected" msgid="5665980541549462608">"Текст не выделен"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"Отменено выделение текста \"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>\""</string>
-    <string name="template_text_error" msgid="153775825635730287">"Эти данные введены неверно. \"<xliff:g id="ERROR_MSG">%1$s</xliff:g>\""</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"Символы <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> заменены символами <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g>."</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> параметра \"<xliff:g id="LABEL">%2$s</xliff:g>\""</string>
     <string name="template_long_clicked" msgid="1962442828386303832">"Нажатие и удерживание элемента <xliff:g id="TITLE">%1$s</xliff:g>."</string>
-    <string name="template_percent" msgid="6118803183030408820">"Процентов: <xliff:g id="PERCENTAGE">%1$s</xliff:g>."</string>
     <string name="template_charging" msgid="2038200557537960378">"Зарядка: <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>. Заряд батареи в процентах: <xliff:g id="BATTERY_LEVEL">%2$s</xliff:g>."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="one"><xliff:g id="TYPE_2">%1$s</xliff:g> содержит <xliff:g id="COUNT_3">%2$d</xliff:g> элемент.</item>
-      <item quantity="few"><xliff:g id="TYPE_2">%1$s</xliff:g> содержит <xliff:g id="COUNT_3">%2$d</xliff:g> элемента.</item>
-      <item quantity="many"><xliff:g id="TYPE_2">%1$s</xliff:g> содержит <xliff:g id="COUNT_3">%2$d</xliff:g> элементов.</item>
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> содержит <xliff:g id="COUNT_3">%2$d</xliff:g> элемента.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"Сетка."</string>
-    <string name="value_listview" msgid="7625152822709234439">"Список."</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"Панель вкладок."</string>
-    <string name="value_spinner" msgid="9204474944714379541">"Раскрывающееся меню"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"Флажок"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"Переключатель"</string>
-    <string name="value_button" msgid="2459787142940409576">"Кнопка"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"Ползунок"</string>
-    <string name="value_switch" msgid="6946709666466895221">"Переключатель"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"Окно редактирования"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"Режим редактирования"</string>
-    <string name="value_image" msgid="5114229220871881124">"Изображение"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"Без ярлыка"</string>
-    <string name="value_pager" msgid="7708574424402835461">"Многостраничный режим"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"Страница"</string>
+    <string name="template_charging_lite" msgid="7759886088558576716">"Статус зарядки: <xliff:g id="CHANGING_STATUS">%1$s</xliff:g>"</string>
+    <!-- no translation found for template_language_options_menu_item (8697997506008405892) -->
+    <skip />
     <string name="template_scroll_from_to_count" msgid="2060702043504844709">"Показаны элементы с <xliff:g id="FROM_INDEX">%1$d</xliff:g> по <xliff:g id="TO_INDEX">%2$d</xliff:g>, всего элементов: <xliff:g id="TOTAL_COUNT">%3$d</xliff:g>."</string>
     <string name="template_scroll_from_count" msgid="4696666433263950881">"Показан элемент <xliff:g id="FROM_INDEX">%1$d</xliff:g>, всего элементов: <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>."</string>
     <string name="template_viewpager_index_count" msgid="4811442521690748167">"Страница <xliff:g id="PAGE_INDEX">%1$d</xliff:g> из <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
     <string name="template_viewpager_index_count_short" msgid="5093912546331180510">"<xliff:g id="PAGE_INDEX">%1$d</xliff:g> из <xliff:g id="TOTAL_COUNT">%2$d</xliff:g>"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"Символы <xliff:g id="FROM_INDEX">%1$d</xliff:g>‒<xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"Символ \"<xliff:g id="INDEX">%1$d</xliff:g>\""</string>
-    <string name="template_capital_letter" msgid="4920626008395727629">"прописная буква <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>."</string>
-    <string name="value_password" msgid="7285572231215250557">"пароль."</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Выдвигающаяся панель открыта."</string>
     <string name="value_notification_shade_opened" msgid="5404406119689977269">"Системная область открыта."</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"Параметры."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"Текст удален."</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Это максимальная длина текста"</string>
     <string name="value_text_removed" msgid="9064311081864073839">"удалено."</string>
-    <string name="value_selected" msgid="1307429702194660766">"выбрано."</string>
-    <string name="value_checked" msgid="3006751014125833966">"отмечено."</string>
-    <string name="value_not_checked" msgid="37422559536361725">"не отмечено."</string>
-    <string name="value_on" msgid="39454338086317219">"включено"</string>
-    <string name="value_off" msgid="6700497510945744608">"отключено"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"развернуто"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"свернуто"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"отключено."</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"Коснитесь дважды"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"Коснитесь"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"Нажмите \"Выбрать\""</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g>, чтобы активировать."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Чтобы активировать элемент, нажмите <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> и удерживайте."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Для долгого нажатия используйте сочетание <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g>, чтобы включить или выключить."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Чтобы нажать на переключатель, используйте сочетание <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g>, чтобы ввести текст."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Чтобы ввести текст, нажмите <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g>, чтобы изменить."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Чтобы изменить, нажмите <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"Чтобы листать страницы, проводите двумя пальцами по экрану."</string>
-    <string name="template_hint_pager_single_page" msgid="3607132801071926505">"Дополнительных страниц нет."</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g>, чтобы изменить."</string>
+    <string name="value_dismissible" msgid="1363491313197032055">"можно закрыть"</string>
     <string name="hint_radial_menu" msgid="2042130200569709650">"Коснитесь экрана и проведите пальцем по кругу, чтобы найти нужный пункт. Затем активируйте его, перетащив вверх."</string>
     <string name="hint_summary_jog_dial" msgid="2050246931229863299">"Коснитесь экрана и проведите пальцем по кругу, чтобы найти нужный пункт. Затем перетащите его вверх, чтобы выбрать."</string>
-    <string name="template_hint_custom_actions" msgid="543401796694872575">"Пользовательские действия:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g>, чтобы <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Чтобы <xliff:g id="HINT">%2$s</xliff:g>, нажмите <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> и удерживайте, чтобы <xliff:g id="HINT">%2$s</xliff:g>."</string>
     <string name="value_ringer_vibrate" msgid="2453075127843329125">"Вибровызов."</string>
     <string name="value_ringer_silent" msgid="3881352685288650823">"Беззвучный режим."</string>
     <string name="value_screen_on" msgid="4051568127659724519">"Экран включен."</string>
     <string name="value_screen_off" msgid="4442166505764238236">"Экран выключен."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Режим Caps Lock включен."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Режим Caps Lock отключен."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Режим Num Lock включен."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Режим Num Lock отключен."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Режим Scroll Lock включен."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Режим Scroll Lock отключен."</string>
     <string name="value_device_unlocked" msgid="5503481137448624626">"Устройство разблокировано."</string>
     <string name="title_pref_category_when_to_speak" msgid="463133232649258739">"Речь"</string>
     <string name="title_pref_speech_volume" msgid="17846978416951489">"Громкость речи"</string>
@@ -143,32 +64,59 @@
     <string name="summaryOn_pref_proximity" msgid="8552562564045883839">"Датчик расстояния регулирует громкость речи"</string>
     <string name="summaryOff_pref_proximity" msgid="2976964867820234940">"Датчик расстояния не управляет речью"</string>
     <string name="title_pref_phonetic_letters" msgid="4315025096187253577">"Озвучивать фонетические символы"</string>
-    <string name="summaryOff_pref_phonetic_letters" msgid="2801720386630515717">"Фонетические символы озвучиваться не будут."</string>
-    <string name="summaryOn_pref_phonetic_letters" msgid="6864480534029061476">"Буквы будут произноситься при долгом нажатии на клавиатуру и перемещении по ним курсора."</string>
+    <string name="summaryOff_pref_phonetic_letters" msgid="9103268945330003219">"Фонетические символы не озвучиваются"</string>
+    <string name="summaryOn_pref_phonetic_letters" msgid="4376866668529919518">"Фонетические символы озвучиваются при долгом нажатии клавиши и перемещении курсора по символам"</string>
     <string name="title_pref_a11y_hints" msgid="3770770318417664565">"Озвучивать текст"</string>
-    <string name="summaryOff_pref_a11y_hints" msgid="1601902797531350013">"Во время движения курсора подсказки не будут произноситься."</string>
-    <string name="summaryOn_pref_a11y_hints" msgid="7312945354572119026">"Во время навигации подсказки будут произноситься после небольшой паузы."</string>
+    <string name="summaryOff_pref_a11y_hints" msgid="798877049305553182">"Подсказки не озвучиваются при смене выбранного элемента"</string>
+    <string name="summaryOn_pref_a11y_hints" msgid="3161412108419178134">"Подсказки озвучиваются при навигации после небольшой задержки"</string>
+    <string name="pref_speak_container_element_positions_title" msgid="2835508578760045808">"Озвучивать информацию о списках и сетках"</string>
+    <string name="pref_speak_container_element_positions_summaryOn" msgid="5023625248365109203">"Информация о положении курсора озвучивается"</string>
+    <string name="pref_speak_container_element_positions_summaryOff" msgid="4112715962530209920">"Информация о положении курсора не озвучивается"</string>
+    <string name="pref_speak_roles_title" msgid="8119822404299836273">"Озвучивать тип элемента"</string>
+    <string name="pref_speak_roles_summary_on" msgid="1601846507096793058">"Тип выбранных элементов озвучивается"</string>
+    <string name="pref_speak_roles_summary_off" msgid="5420176413415285653">"Тип выбранных элементов не озвучивается"</string>
+    <!-- no translation found for title_pref_speak_element_ids (391655908629950456) -->
+    <skip />
+    <!-- no translation found for summaryOff_pref_speak_element_ids (4960956994540579272) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_element_ids (44367075933871550) -->
+    <skip />
     <string name="title_pref_explore_by_touch" msgid="1836003265647871107">"Изучение касанием"</string>
     <string name="title_pref_auto_scroll" msgid="306503376875826605">"Автопрокрутка списков"</string>
-    <string name="title_pref_category_touch_exploration" msgid="802401622203667328">"Изучение касанием"</string>
+    <!-- no translation found for title_pref_category_touch_exploration (5874968966650551610) -->
+    <skip />
     <string name="title_pref_single_tap" msgid="5333869781230265376">"Активация одним нажатием"</string>
-    <string name="title_pref_show_context_menu_as_list" msgid="8048703987011256280">"Показать контекстное меню в виде списка"</string>
+    <!-- no translation found for title_pref_show_context_menu_as_list (1317122602474219414) -->
+    <skip />
     <string name="title_dim_screen_when_talkback_enabled" msgid="4738051430500766039">"Уменьшать яркость экрана, когда включена функция TalkBack"</string>
     <string name="summary_pref_single_tap" msgid="1868206223500105704">"Активировать выбранные элементы одним нажатием (экспериментальная функция)"</string>
     <string name="title_pref_shake_to_read_threshold" msgid="1335607796304866893">"Встряхнуть, чтобы начать чтение"</string>
-    <string name="title_pref_category_manage_gestures" msgid="6578504997140953627">"Управление жестами"</string>
-    <string name="title_pref_manage_labels" msgid="8796338627297226539">"Управление персональными ярлыками"</string>
-    <string name="title_pref_manage_keyboard_shortcuts" msgid="1365850439559496078">"Управление сочетаниями клавиш"</string>
+    <string name="pref_verbosity_title" msgid="3719351581071950262">"Детализация"</string>
+    <string name="title_pref_category_manage_gestures" msgid="2614141620073133854">"Жесты"</string>
+    <string name="title_pref_manage_labels" msgid="4466030803655661973">"Персональные ярлыки"</string>
+    <string name="title_pref_manage_keyboard_shortcuts" msgid="8091201905891748923">"Быстрые клавиши"</string>
     <string name="title_pref_export_custom_labels" msgid="8576056446194448505">"Экспортировать персональные ярлыки"</string>
     <string name="title_pref_play_store" msgid="5158596411034985043">"Страница TalkBack в Play Маркете"</string>
     <string name="summary_pref_play_store" msgid="3575108337945375864">"Текущая версия TalkBack: <xliff:g id="VERSION_NUMBER">%1$s</xliff:g>"</string>
     <string name="title_pref_help_and_feedback" msgid="5718610056539542854">"Справка/отзыв"</string>
+    <string name="pref_item_licenses" msgid="3546535377387155282">"Лицензии открытого ПО"</string>
     <string name="title_pref_help" msgid="2022820131100451763">"Справка"</string>
-    <string name="title_pref_show_tos" msgid="6167834013879233992">"Условия использования"</string>
-    <string name="title_pref_show_privacy_policy" msgid="4420464510142864819">"Политика конфиденциальности"</string>
+    <!-- no translation found for title_pref_show_tos (2813500691748037529) -->
+    <skip />
+    <!-- no translation found for title_pref_show_privacy_policy (8945789024630561518) -->
+    <skip />
     <string name="title_pref_category_touch_shortcuts" msgid="4974406968544300731">"Быстрые жесты"</string>
+    <string name="title_pref_category_fingerprint_touch_shortcuts" msgid="4338314761170964858">"Жесты для сканера отпечатков пальцев"</string>
     <string name="title_pref_category_built_in_gestures" msgid="4277057711356252674">"Жесты по умолчанию"</string>
     <string name="title_pref_category_side_tap_shortcuts" msgid="8846405149013321460">"Постукивание по краю (эксперимент)"</string>
+    <string name="pref_verbosity_preset_title" msgid="6299916234007004610">"Выберите набор настроек"</string>
+    <string name="pref_verbosity_preset_entry_high" msgid="791984796274765142">"высокий"</string>
+    <string name="pref_verbosity_preset_entry_custom" msgid="8261147354044310508">"пользовательский"</string>
+    <string name="pref_verbosity_preset_entry_low" msgid="1333334045447549264">"низкий"</string>
+    <string name="pref_verbosity_category_preset_settings_title" msgid="620716446067964188">"Управление детализацией"</string>
+    <!-- no translation found for pref_verbosity_category_misc_settings_title (6121977747903981087) -->
+    <skip />
+    <string name="pref_verbosity_preset_change" msgid="7250611496087013782">"Установлен <xliff:g id="PRESET_NAME">%1$s</xliff:g> уровень детализации."</string>
     <string name="keycombo_menu_category_select_keymap" msgid="51409040763676563">"Раскладка"</string>
     <string name="keycombo_menu_select_keymap" msgid="373592569630998413">"Выбрать раскладку"</string>
     <string name="keycombo_menu_reset_keymap" msgid="2023072719324737919">"Сбросить раскладку"</string>
@@ -202,7 +150,8 @@
     <string name="keycombo_menu_global_recent" msgid="927586811460340459">"Недавние приложения"</string>
     <string name="keycombo_menu_global_notifications" msgid="7376426148339964566">"Уведомления"</string>
     <string name="keycombo_menu_global_suspend" msgid="6155357392695951243">"Остановить/возобновить работу TalkBack"</string>
-    <string name="keycombo_menu_category_granularity" msgid="1510641633727773395">"Настройки навигации"</string>
+    <!-- no translation found for keycombo_menu_category_granularity (8575000248950511679) -->
+    <skip />
     <string name="keycombo_menu_granularity_increase" msgid="4418197063118287013">"Следующая настройка навигации"</string>
     <string name="keycombo_menu_granularity_decrease" msgid="4124885036136489177">"Предыдущая настройка навигации"</string>
     <string name="keycombo_menu_category_other" msgid="440132295339458288">"Другие действия"</string>
@@ -211,6 +160,9 @@
     <string name="keycombo_menu_other_toggle_search" msgid="5587057667593041194">"Найти объект на экране"</string>
     <string name="keycombo_menu_other_local_context_menu" msgid="4021429520088110904">"Показать локальное контекстное меню"</string>
     <string name="keycombo_menu_other_global_context_menu" msgid="2225006890613375860">"Показать общее контекстное меню"</string>
+    <string name="keycombo_menu_other_custom_actions" msgid="4769044790570667515">"Показать список действий"</string>
+    <!-- no translation found for keycombo_menu_other_language_options (6071616089592138709) -->
+    <skip />
     <string name="keycombo_menu_other_open_manage_keyboard_shortcuts" msgid="1317406596143818756">"Управление быстрыми клавишами"</string>
     <string name="keycombo_menu_other_open_talkback_settings" msgid="7172351544340904928">"Открыть настройки TalkBack"</string>
     <string name="keycombo_menu_category_web" msgid="197426246774034347">"Действия для веб-навигации"</string>
@@ -253,34 +205,24 @@
     <string name="keycombo_menu_web_navigate_to_next_combobox" msgid="8664957205621246821">"Перейти к следующему полю со списком"</string>
     <string name="keycombo_menu_web_navigate_to_previous_combobox" msgid="5252314449233286869">"Перейти к предыдущему полю со списком"</string>
     <string name="keycombo_assign_dialog_message" msgid="2212047143066468004">"Сочетание клавиш:"</string>
-    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Чтобы установить сочетание клавиш для команды, нажмите его. В нем должна быть клавиша ALT или CONTROL."</string>
-    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Чтобы задать сочетание клавиш, нажмите его вместе с клавишей-модификатором <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g>."</string>
     <string name="keycombo_assign_dialog_navigation_reminder" msgid="7481082388500840525">"Нажмите BACKSPACE, чтобы удалить сочетание клавиш, ВВОД – для его сохранения или ESC – для отмены."</string>
     <string name="keycombo_assign_dialog_clear" msgid="3473075449729957326">"Удалить сочетание клавиш"</string>
-    <string name="keycombo_unassigned" msgid="5817151372114230015">"Не назначено"</string>
-    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
-    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
-    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
-    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Поиск"</string>
-    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Стрелка вправо"</string>
-    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Стрелка влево"</string>
-    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Стрелка вверх"</string>
-    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Стрелка вниз"</string>
     <string name="message_in_reset_keymap_confirm_dialog" msgid="13771282771329188">"Вернуть исходные быстрые клавиши для данной раскладки? Это действие нельзя отменить."</string>
     <string name="reset_button_in_reset_keymap_confirm_dialog" msgid="8323015765774812284">"Сбросить"</string>
     <string name="override_keycombo" msgid="9043246837899844909">"Сочетание клавиш уже используется"</string>
     <string name="override_keycombo_message_two_params" msgid="3764483710022091999">"Это сочетание клавиш используется для команды \"<xliff:g id="ID_1">%1$s</xliff:g>\". Переопределить его для действия \"<xliff:g id="ID_2">%2$s</xliff:g>\"?"</string>
     <string name="title_pref_intonation" msgid="7375380428425494034">"Изменять тон при озвучивании"</string>
     <string name="title_pref_keyboard_echo" msgid="8300291129646957414">"Озвучивать нажимаемые клавиши"</string>
+    <string name="pref_node_desc_order_title" msgid="4632210763611067450">"Порядок описания элементов"</string>
     <string name="summaryOn_pref_intonation" msgid="2753815930477168225">"Понижать тон при озвучивании ввода с клавиатуры"</string>
     <string name="summaryOff_pref_intonation" msgid="5187278527518557715">"Не изменять тон голоса"</string>
     <string name="title_pref_category_feedback_settings" msgid="3417629010416895022">"Другие сигналы"</string>
     <string name="title_pref_vibration" msgid="4156396276749836864">"Виброотклик"</string>
     <string name="title_pref_soundback" msgid="3131811048184077738">"Звуковой отклик"</string>
-    <string name="title_pref_use_audio_focus" msgid="3150034317307025609">"TalkBack громче"</string>
+    <string name="title_pref_use_audio_focus" msgid="5227372335896747459">"Приглушение звука приложений"</string>
     <string name="summary_pref_use_audio_focus" msgid="4049484318410744029">"Уменьшать громкость звука других приложений во время работы TalkBack"</string>
     <string name="title_pref_soundback_volume" msgid="8633886470832131926">"Громкость"</string>
-    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Включать и отключать TalkBack одной клавишей"</string>
+    <string name="title_pref_two_volume_button_long_click" msgid="4867534784887155899">"Вкл. и откл. TalkBack одной клавишей"</string>
     <string name="title_pref_dim_volume_three_clicks" msgid="7170662881035255012">"Настройка подсветки"</string>
     <string name="title_pref_category_miscellaneous_settings" msgid="611512059219131263">"Другое"</string>
     <string name="title_pref_category_developer_settings" msgid="3576441094143356231">"Для разработчиков"</string>
@@ -289,34 +231,14 @@
     <string name="title_pref_log_level" msgid="267415170405921603">"Уровень вывода журнала"</string>
     <string name="title_pref_tts_overlay" msgid="4448445593132620627">"Преобразовывать речь в текст"</string>
     <string name="title_pref_tree_debug" msgid="1525763448981997023">"Включить отладку дерева узлов"</string>
-    <string name="title_pref_web_scripts" msgid="3016793641076890473">"Специальные веб-скрипты"</string>
-    <string name="summary_pref_web_scripts" msgid="3996491708050765411">"Скачивать специальные скрипты для веб-контента"</string>
+    <string name="summary_pref_tree_debug_tv" msgid="2155606249933775098">"Использовать клавишу поиска для вывода дерева узлов"</string>
+    <string name="title_pref_performance_stats" msgid="3701419705373126127">"Передавать статистику производительности в LogCat"</string>
     <string name="title_pref_resume_talkback" msgid="4098949311311089235">"Возобновить работу"</string>
     <string name="screen_dimmed" msgid="8072279323762069231">"Яркость экрана уменьшена"</string>
     <string name="screen_brightness_restored" msgid="378010604065368658">"Яркость экрана восстановлена"</string>
-    <string name="screen_dimming_exit_instruction_line1" msgid="176693707001658416">"При включении TalkBack яркость экрана уменьшена."</string>
-    <string name="screen_dimming_exit_instruction_line2" msgid="2111548310775079127">"Чтобы отменить действие, три раза быстро нажмите обе кнопки регулировки громкости."</string>
-    <string name="screen_dimming_exit_instruction_line3" msgid="7006494712728198438">"Управляйте уменьшением яркости в настройках TalkBack."</string>
-    <string name="axis_character" msgid="8528412412593489695">"Перемещаться по символам."</string>
-    <string name="axis_word" msgid="8823389407337076750">"Перемещаться по словам."</string>
-    <string name="axis_sentence" msgid="4398740201672273541">"Перемещаться по предложениям."</string>
-    <string name="axis_heading" msgid="8829265824683632088">"Перемещаться по заголовкам."</string>
-    <string name="axis_sibling" msgid="3267377527761217139">"Перемещаться по элементам того же уровня."</string>
-    <string name="axis_document" msgid="8037283796488966887">"Перемещаться по документам."</string>
-    <string name="axis_default_web_view_behavior" msgid="816142869754118685">"Перемещаться в режиме просмотра веб-страниц по умолчанию."</string>
-    <string name="granularity_default" msgid="4948042687369948597">"По умолчанию"</string>
-    <string name="granularity_character" msgid="2036726841460203840">"Символы"</string>
-    <string name="granularity_word" msgid="2653776823920279013">"Слова"</string>
-    <string name="granularity_line" msgid="727359260064093782">"Строки"</string>
-    <string name="granularity_paragraph" msgid="3760401274833105422">"Абзацы"</string>
-    <string name="granularity_page" msgid="2739238666516816581">"Страницы"</string>
-    <string name="granularity_web_section" msgid="8219174463230029732">"Заголовки и отметки"</string>
-    <string name="granularity_web_list" msgid="4386991044245560102">"Списки"</string>
-    <string name="granularity_web_link" msgid="7817726975417542626">"Ссылки"</string>
-    <string name="granularity_web_control" msgid="1885138772895126953">"Элементы управления"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Специализированный контент"</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"Вертикальная ориентация."</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"Горизонтальная ориентация."</string>
+    <string name="screen_dimming_exit_instruction_line1" msgid="5487433770461700107">"TalkBack включен. Яркость экрана уменьшена."</string>
+    <string name="screen_dimming_exit_instruction_line2" msgid="6697363666089792199">"Чтобы отменить действие, три раза быстро нажмите обе кнопки регулировки громкости."</string>
+    <string name="screen_dimming_exit_instruction_line3" msgid="5253511790182167247">"Управлять уменьшением яркости можно в настройках TalkBack"</string>
     <string name="shortcut_unassigned" msgid="1803159459924262469">"Не назначено"</string>
     <string name="shortcut_next" msgid="6887743145853506373">"Следующий объект"</string>
     <string name="shortcut_previous" msgid="3679790113454394245">"Предыдущий объект"</string>
@@ -326,7 +248,10 @@
     <string name="shortcut_home" msgid="6670249804418900175">"Кнопка \"Главная страница\""</string>
     <string name="shortcut_overview" msgid="3649651004283936027">"Кнопка \"Обзор\""</string>
     <string name="shortcut_notifications" msgid="5291839248233515759">"Открыть панель уведомлений"</string>
-    <string name="shortcut_show_custom_actions" msgid="1996746992705940253">"Показать пользовательские действия"</string>
+    <string name="shortcut_quick_settings" msgid="3692505224100396743">"Открыть быстрые настройки"</string>
+    <string name="shortcut_show_custom_actions" msgid="444056949141930750">"Показать список действий"</string>
+    <!-- no translation found for shortcut_editing (5285767060395122020) -->
+    <skip />
     <string name="shortcut_talkback_breakout" msgid="2673085935736432213">"Открыть общее контекстное меню"</string>
     <string name="shortcut_local_breakout" msgid="8164203174881196072">"Локальное контекстное меню"</string>
     <string name="shortcut_repeat_last_utterance" msgid="9059705754075010951">"Повторить последнюю фразу"</string>
@@ -335,15 +260,29 @@
     <string name="shortcut_pause_feedback" msgid="1412613174540942399">"Приостановить озвучивание"</string>
     <string name="shortcut_read_from_top" msgid="6031418895933550221">"Читать с начала"</string>
     <string name="shortcut_read_from_current" msgid="5769337869539736463">"Читать со следующего элемента"</string>
-    <string name="shortcut_print_node_tree" msgid="7570974794642091616">"Распечатать дерево узлов"</string>
+    <string name="shortcut_print_node_tree" msgid="7570974794642091616">"Записать дерево узлов"</string>
+    <string name="shortcut_print_performance_stats" msgid="2111671611434588299">"Передать статистику производительности в журнал"</string>
     <string name="shortcut_next_granularity" msgid="5058063575500265017">"Следующая настройка навигации"</string>
     <string name="shortcut_previous_granularity" msgid="5483850878839529117">"Предыдущая настройка навигации"</string>
     <string name="shortcut_first_in_screen" msgid="4549343120881649603">"Выбрать первый объект на экране"</string>
     <string name="shortcut_last_in_screen" msgid="1584183195221110323">"Выбрать последний объект на экране"</string>
     <string name="shortcut_enable_dimming" msgid="751310793206738883">"Отключить подсветку экрана"</string>
     <string name="shortcut_disable_dimming" msgid="8041762180167320322">"Включить подсветку экрана"</string>
+    <string name="shortcut_perform_click_action" msgid="9152719059133712820">"Нажатие на объект"</string>
     <string name="local_context_menu_title" msgid="6672321005470828526">"Локальное контекстное меню"</string>
     <string name="global_context_menu_title" msgid="2580664964591545065">"Общее контекстное меню"</string>
+    <!-- no translation found for language_menu_title (8648132144725156863) -->
+    <skip />
+    <!-- no translation found for shortcut_show_language_options (3291602397759958945) -->
+    <skip />
+    <!-- no translation found for shortcut_select_next_setting (3708409029026167823) -->
+    <skip />
+    <!-- no translation found for shortcut_select_previous_setting (7335686444537217336) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_next_action (4744337882487301323) -->
+    <skip />
+    <!-- no translation found for shortcut_selected_setting_previous_action (7723485687036313114) -->
+    <skip />
     <string name="title_local_breakout_no_items" msgid="5016265453627241456">"Пусто"</string>
     <string name="title_web_breakout_next_section" msgid="7355139595269361571">"Следующий раздел"</string>
     <string name="title_web_breakout_next_list" msgid="801337905459445939">"Следующий список"</string>
@@ -351,7 +290,8 @@
     <string name="title_web_breakout_prev_section" msgid="1738336598629616234">"Предыдущий раздел"</string>
     <string name="title_web_breakout_prev_list" msgid="744039532529277819">"Предыдущий список"</string>
     <string name="title_web_breakout_prev_control" msgid="2637721101068457234">"Предыдущий элемент управления"</string>
-    <string name="title_edittext_controls" msgid="2102286116390895883">"Управление курсором"</string>
+    <!-- no translation found for title_edittext_controls (4835723497829630825) -->
+    <skip />
     <string name="title_edittext_breakout_move_to_beginning" msgid="4021304144865258223">"Переместить курсор в начало"</string>
     <string name="title_edittext_breakout_move_to_end" msgid="3197737555808584828">"Переместить курсор в конец"</string>
     <string name="title_edittext_breakout_start_selection_mode" msgid="4183196270306568761">"Включить режим выбора текста"</string>
@@ -361,8 +301,9 @@
     <string name="title_viewpager_breakout_prev_page" msgid="1352284456691236167">"Предыдущая страница"</string>
     <string name="title_labeling_controls" msgid="5005702316138877183">"Ярлыки"</string>
     <string name="title_summary" msgid="3037924006370977165">"Быстрая навигация"</string>
-    <string name="title_granularity" msgid="399801096771904747">"Настройки навигации"</string>
-    <string name="title_custom_action" msgid="7908169922901920318">"Пользовательские действия"</string>
+    <!-- no translation found for title_granularity (7464159711994643031) -->
+    <skip />
+    <string name="title_custom_action" msgid="6533095862085546341">"Действия"</string>
     <string name="title_suggestions_controls" msgid="5486233362252604824">"Автозаполнение"</string>
     <string name="title_suggestions_breakout_suggestions" msgid="8722323161157337123">"Перейти к подсказкам"</string>
     <string name="title_suggestions_breakout_anchor" msgid="3596164166456847306">"Вернуться к полю"</string>
@@ -402,6 +343,10 @@
     <string name="title_pref_shortcut_right_and_up" msgid="6848971895903777166">"Вправо и вверх"</string>
     <string name="title_pref_shortcut_left_and_down" msgid="2899217574677150730">"Влево и вниз"</string>
     <string name="title_pref_shortcut_left_and_up" msgid="369887751217245542">"Влево и вверх"</string>
+    <string name="title_pref_shortcut_fingerprint_up" msgid="4567914579733101315">"Вверх по сканеру отпечатков пальцев"</string>
+    <string name="title_pref_shortcut_fingerprint_down" msgid="7266292981315522410">"Вниз по сканеру отпечатков пальцев"</string>
+    <string name="title_pref_shortcut_fingerprint_left" msgid="5372808080030991944">"Влево по сканеру отпечатков пальцев"</string>
+    <string name="title_pref_shortcut_fingerprint_right" msgid="694175245288621969">"Вправо по сканеру отпечатков пальцев"</string>
     <string name="title_pref_shortcut_single_tap" msgid="7220195169492947031">"Одинарное"</string>
     <string name="title_pref_shortcut_double_tap" msgid="4454853121476703529">"Двойное"</string>
     <string name="title_pref_tap_sensitivity" msgid="3737945934603267137">"Чувствительность датчика"</string>
@@ -426,28 +371,31 @@
     <string name="value_keyboard_echo_always" msgid="6889426165608387394">"Всегда"</string>
     <string name="value_keyboard_echo_softkeys" msgid="1595001302535254665">"Только для экранной клавиатуры"</string>
     <string name="value_keyboard_echo_never" msgid="7181327459690946870">"Никогда"</string>
+    <string name="pref_node_desc_order_entry_state_name_role_pos" msgid="6239074777084483039">"Состояние, название, тип"</string>
+    <string name="pref_node_desc_order_entry_role_name_state_pos" msgid="1747697478748531592">"Тип, название, состояние"</string>
+    <string name="pref_node_desc_order_entry_name_role_state_pos" msgid="3293391334262415544">"Название, тип, состояние"</string>
     <string name="notification_title_talkback_gestures_changed" msgid="8680063755043078528">"Настройки TalkBack изменены"</string>
     <string name="notification_message_talkback_gestures_changed" msgid="7419188718124788690">"Нажмите, чтобы проверить изменения."</string>
     <string name="notification_title_talkback_suspended" msgid="4350835042954222637">"Работа TalkBack приостановлена"</string>
-    <string name="notification_message_talkback_suspended" msgid="1542127125162503034">"Нажмите, чтобы продолжить."</string>
+    <string name="notification_message_talkback_suspended" msgid="5900724128049181599">"Нажмите, чтобы возобновить."</string>
     <string name="notification_tutorial_navigate_to_lession_1" msgid="6810236215373132892">"Автоматический переход к уроку 1."</string>
     <string name="dialog_title_suspend_talkback" msgid="5117432568615750164">"Приостановить TalkBack?"</string>
-    <string name="dialog_message_suspend_talkback" msgid="5767155087369798907">"Приостановить работу TalkBack? Устройство перестанет озвучивать ваши действия, и Изучение касанием будут отключено. Возобновить работу TalkBack можно на панели уведомлений, экране блокировки или с помощью клавиши регулировки громкости."</string>
-    <string name="message_resume_manual" msgid="6522293510722570646">"Вы можете возобновить работу TalkBack из панели уведомлений."</string>
-    <string name="message_resume_screen_on" msgid="9016720947126938212">"Вы можете возобновить работу TalkBack, раскрыв панель уведомлений или включив экран."</string>
-    <string name="message_resume_keyguard" msgid="6721228114050709276">"Вы можете возобновить работу TalkBack из панели уведомлений или с заблокированного экрана."</string>
+    <string name="dialog_message_suspend_talkback" msgid="272851623978432035">"Приостановить работу TalkBack?\n\nУстройство перестанет озвучивать ваши действия, и изучение касанием будет отключено."</string>
+    <string name="message_resume_manual" msgid="7356544353534913249">"Вы можете возобновить работу TalkBack из панели уведомлений."</string>
+    <string name="message_resume_screen_on" msgid="5200338421759961545">"Вы можете возобновить работу TalkBack, открыв панель уведомлений или включив экран."</string>
+    <string name="message_resume_keyguard" msgid="2142813660069991041">"Вы можете возобновить работу TalkBack из панели уведомлений или с заблокированного экрана."</string>
     <string name="show_suspend_warning_label" msgid="3193206799395252518">"Всегда предупреждать"</string>
     <string name="cannot_add_label" msgid="2754406023113433479">"Нельзя присвоить ярлык этому элементу."</string>
     <string name="label_dialog_title_add" msgid="1255044087558866043">"Добавление ярлыка"</string>
     <string name="label_dialog_title_edit" msgid="7914376979667771585">"Изменение ярлыка"</string>
     <string name="label_dialog_title_remove" msgid="1791163736307626930">"Удаление ярлыка"</string>
-    <string name="label_dialog_text" msgid="5879506218245648848">"Введите текст для этого изображения в поле ниже."</string>
+    <string name="label_dialog_text" msgid="3836616655480004748">"Введите текст ярлыка для выбранного элемента\nВнутреннее имя: <xliff:g id="VIEW_RESOURCE_NAME">%1$s</xliff:g>"</string>
     <string name="label_remove_dialog_text" msgid="372916461303485723">"Удалить ярлык \"<xliff:g id="LABEL">%1$s</xliff:g>\"?"</string>
     <string name="label_remove_dialog_text_app_name" msgid="8329270316487665017">"Удалить ярлык \"<xliff:g id="LABEL">%1$s</xliff:g>\" из приложения \"<xliff:g id="APP_NAME">%2$s</xliff:g>\"?"</string>
     <string name="label_dialog_edit_hint" msgid="4342585248215824717">"Текст ярлыка"</string>
     <string name="label_import" msgid="1773817433300194935">"Импорт персональных ярлыков"</string>
     <string name="label_import_dialog_title" msgid="5305411653917870790">"Импорт персональных ярлыков в TalkBack"</string>
-    <string name="label_import_dialog_message" msgid="7975227530187709469">"Укажите, нужно ли заменять существующие ярлыки в случае конфликтов."</string>
+    <string name="label_import_dialog_message" msgid="5770997008069363097">"Укажите, нужно ли заменять существующие ярлыки в случае конфликтов."</string>
     <string name="label_import_dialog_skip" msgid="2078597180132028657">"Не заменять"</string>
     <string name="label_import_dialog_override" msgid="4387408051194229513">"Заменять"</string>
     <string name="label_export_empty" msgid="7663052451851715440">"Ярлыков нет."</string>
@@ -459,6 +407,9 @@
       <item quantity="many">Обновлено %d ярлыков</item>
       <item quantity="other">Обновлено %d ярлыка</item>
     </plurals>
+    <string name="no_apps_to_import_labels" msgid="8158403357422110115">"Приложение для импорта ярлыков не найдено."</string>
+    <string name="no_apps_to_export_labels" msgid="7671924783169788614">"Приложение для экспорта ярлыков отсутствует."</string>
+    <string name="label_choose_app_to_import" msgid="3992931531372131216">"Выберите приложение для импорта ярлыков:"</string>
     <string name="label_choose_app_to_export" msgid="3288834802071890267">"Выберите приложение для экспорта ярлыков:"</string>
     <string name="talkback_gesture_change_details" msgid="1242896734553682887">"В этой версии TalkBack изменены жесты по умолчанию. Назначить действия для них можно в настройках. Ниже перечислены жесты, которые вы можете использовать, если включено Изучение касанием.\n\n<xliff:g id="MAPPINGS">%1$s</xliff:g>"</string>
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false" msgid="541929774635348126">"Нажмите и не отпускайте обе кнопки регулировки громкости"</string>
@@ -469,13 +420,14 @@
     <string name="talkback_built_in_gesture_change_details_45" msgid="7727588774719330051">"В этой версии TalkBack изменены жесты по умолчанию.\n\nТеперь, чтобы перейти к предыдущей настройке навигации, нужно провести по экрану вверх, а чтобы выбрать следующую – вниз."</string>
     <string name="button_accept_changed_gesture_mappings" msgid="7776830309528651093">"Принять жесты"</string>
     <string name="button_customize_gesture_mappings" msgid="5895884645531139464">"Настроить жесты"</string>
-    <string name="button_clear_all_events" msgid="2128349101908653825">"Удалить все"</string>
-    <string name="button_check_all_events" msgid="301383322727007726">"Выбрать все"</string>
+    <string name="button_disable_all_events" msgid="4917625658777138398">"Отключить все"</string>
+    <string name="button_enable_all_events" msgid="6164815656232769872">"Включить все"</string>
     <string name="dialog_title_disable_exploration" msgid="2662971136340460644">"Отключить Изучение касанием?"</string>
     <string name="dialog_message_disable_exploration" msgid="3526530041207600349">"Вы действительно хотите отключить Изучение касанием?\n\nУстройство больше не будет реагировать на жесты и называть элементы при касании экрана."</string>
     <string name="dialog_title_enable_tree_debug" msgid="2107489862179537135">"Включить отладку дерева узлов?"</string>
     <string name="dialog_message_enable_tree_debug" msgid="1939098607233562642">"Включить отладку дерева узлов?\n\nВ этом случае содержимое экрана может сохраняться в журналах устройства, доступных другим приложениям."</string>
-    <string name="hint_script_injection" msgid="6139951755594105602">"Изучение касанием недоступно для веб-страниц. Включите параметр <xliff:g id="PREFERENCE_NAME">%1$s</xliff:g> в настройках специальных возможностей."</string>
+    <string name="dialog_title_enable_performance_stats" msgid="3016681156366751028">"Передавать статистику производительности в LogCat?"</string>
+    <string name="dialog_message_enable_performance_stats" msgid="8917304199448928340">"Эта функция может расходовать\n\nпамять устройства и заряд батареи."</string>
     <string name="label_talkback_context_menu" msgid="6758073806811666684">"Общее контекстное меню TalkBack"</string>
     <string name="permission_talkback_label" msgid="2235244838320678938">"Управление TalkBack"</string>
     <string name="permission_talkback_desc" msgid="8320433482567759963">"Передача жестов в TalkBack и возобновление озвучивания действий"</string>
@@ -489,7 +441,7 @@
     <string name="display_name_button" msgid="6801468093111637502">"кнопка"</string>
     <string name="display_name_combobox" msgid="3627879841881471141">"поле со списком"</string>
     <string name="display_name_aria_landmark" msgid="6117331350509062908">"ориентир ARIA"</string>
-    <string name="display_name_edit_field" msgid="5014778180731737501">"поле"</string>
+    <string name="display_name_edit_field" msgid="8239971688356887918">"изменить значение поля"</string>
     <string name="display_name_focusable_item" msgid="1687969602866460765">"элемент, который можно выбрать"</string>
     <string name="display_name_heading_1" msgid="30730842343032834">"заголовок 1"</string>
     <string name="display_name_heading_2" msgid="754950733934619571">"заголовок 2"</string>
@@ -505,12 +457,6 @@
     <string name="display_name_table" msgid="1369599790038567007">"таблица"</string>
     <string name="display_name_checkbox" msgid="2060147158898197667">"флажок"</string>
     <string name="display_name_section" msgid="4568845228422422699">"заголовок или ориентир"</string>
-    <string name="character_collapse_template" msgid="3556846822411648601">" Символов <xliff:g id="CHARACTER">%2$s</xliff:g>: <xliff:g id="NUMBER">%1$d</xliff:g>."</string>
-    <string name="row_index_template" msgid="4107789959609911947">"Строка <xliff:g id="ROW">%1$d</xliff:g>."</string>
-    <string name="column_index_template" msgid="258393957626754806">"Столбец <xliff:g id="COL">%1$d</xliff:g>."</string>
-    <string name="heading_template" msgid="3585514481777782183">"Заголовок."</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"Заголовок строки"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"Заголовок столбца"</string>
     <string name="item_index_template" msgid="71505978833721807">"Элемент <xliff:g id="ITEM">%1$d</xliff:g>."</string>
     <string name="revert_imported_labels" msgid="5508730389432571776">"Восстановить импортированные ярлыки"</string>
     <string name="imported_labels_reverted" msgid="6117098234531459917">"Импортированные ярлыки восстановлены"</string>
@@ -521,36 +467,8 @@
     <skip />
     <!-- no translation found for template_window_switch_system (1902661569833377496) -->
     <skip />
-    <string name="untitled_window" msgid="7017590766394623328">"без названия"</string>
     <string name="status_bar" msgid="6000275621941971563">"строка состояния"</string>
     <string name="navigation_bar" msgid="4602958479941673535">"панель навигации"</string>
-    <string name="template_collection_start" msgid="4362535543397747567">"вход – <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
-    <string name="template_collection_end" msgid="2167296836815021551">"выход – <xliff:g id="COLLECTION_NAME">%1$s</xliff:g>"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"Уровень <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> пункт</item>
-      <item quantity="few"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> пункта</item>
-      <item quantity="many"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> пунктов</item>
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> пункта</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="one"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> строка</item>
-      <item quantity="few"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> строки</item>
-      <item quantity="many"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> строк</item>
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> строки</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> столбец</item>
-      <item quantity="few"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> столбца</item>
-      <item quantity="many"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> столбцов</item>
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> столбца</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> символ</item>
-      <item quantity="few"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> символа</item>
-      <item quantity="many"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> символов</item>
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> символа</item>
-    </plurals>
     <plurals name="template_dump_event_count" formatted="false" msgid="4038822501642812499">
       <item quantity="one">Выбрано <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> событие</item>
       <item quantity="few">Выбрано <xliff:g id="TOTAL_COUNT">%1$d</xliff:g> события</item>
@@ -561,9 +479,30 @@
     <string name="template_tv_remote_mode_ended" msgid="4410160163389481887">"<xliff:g id="REMOTE_MODE">%1$s</xliff:g> отключен"</string>
     <string name="value_tv_remote_mode_seek_control" msgid="2003438824962970029">"Режим ползунка"</string>
     <string name="value_hint_tv_remote_mode_seek_control" msgid="6443720093459914584">"Чтобы изменить значение, нажимайте клавиши со стрелками. Чтобы выйти из режима ползунка, нажмите \"Выбрать\"."</string>
-    <string name="arc_android_window" msgid="697316167642517245">"Окно Android"</string>
+    <string name="arc_android_window" msgid="602492367666363458">"Окно приложения"</string>
     <string name="arc_navigation_hint" msgid="3272314052097101117">"Для навигации нажмите клавишу поиска и нужную стрелку"</string>
     <string name="arc_open_manage_keyboard_shortcuts_hint" msgid="293518233104520901">"Чтобы открыть список быстрых клавиш, нажмите <xliff:g id="KEYCOMBO">%1$s</xliff:g>"</string>
     <string name="arc_open_talkback_settings_hint" msgid="9026011084239235722">"Чтобы открыть настройки TalkBack, нажмите <xliff:g id="KEYCOMBO">%1$s</xliff:g>"</string>
-    <string name="arc_maximize_window_for_touch_hint" msgid="6957148997380624671">"Чтобы аудиоподсказки работали ещё точнее, полностью разверните окно приложения."</string>
+    <!-- no translation found for reset_user_language_preference (6441167843388110740) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_settings (3013680598130553128) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_activation (6275710235429570402) -->
+    <skip />
+    <!-- no translation found for title_pref_category_selector_settings_configuration (3095665157222126906) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_speech_rate (731846618625670003) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_verbosity (4608661647007146269) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_granularity (5926698009571092268) -->
+    <skip />
+    <!-- no translation found for title_pref_selector_audio_focus (6180475638252714782) -->
+    <skip />
+    <!-- no translation found for pref_selector_activation_summary (688877660863231861) -->
+    <skip />
+    <!-- no translation found for title_pref_speak_passwords_without_headphones (2032390508469400633) -->
+    <skip />
+    <!-- no translation found for summaryOn_pref_speak_passwords_without_headphones (1854966750096734009) -->
+    <skip />
 </resources>
