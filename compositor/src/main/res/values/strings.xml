@@ -92,7 +92,7 @@
   <!--
     Source: A notification for progress of a long-running background operation.
     Description: This is spoken to the user. [CHAR LIMIT="NONE"]
-    e.g. // TODO(ibobra): Write an example
+    e.g. // TODO: Write an example
   -->
   <string name="notification_category_progress">Progress</string>
   <!--
@@ -110,7 +110,7 @@
   <!--
     Source: A notification for media transport control for playback.
     Description: This is spoken to the user. [CHAR LIMIT="NONE"]
-    e.g. // TODO(ibobra): Write an example
+    e.g. // TODO: Write an example
   -->
   <string name="notification_category_transport">Media control</string>
   <!--
@@ -122,7 +122,7 @@
   <!--
     Source: A notification for indication of running a background service
     Description: This is spoken to the user. [CHAR LIMIT="NONE"]
-    e.g. // TODO(ibobra): Write an example
+    e.g. // TODO: Write an example
   -->
   <string name="notification_category_service">Service</string>
 

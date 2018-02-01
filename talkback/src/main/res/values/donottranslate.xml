@@ -394,7 +394,7 @@
     <string name="shortcut_value_show_language_options">SHOW_LANGUAGE_OPTIONS</string>
     <string name="shortcut_value_select_next_setting">SELECT_NEXT_SETTING</string>
     <string name="shortcut_value_select_previous_setting">SELECT_PREVIOUS_SETTING</string>
-    <!-- TODO(sallyyuen): add selector shortcuts to perform next and previous actions specific to the selected setting. add shortcuts to string-array pref_shortcut_values-->
+    <!-- TODO: add selector shortcuts to perform next and previous actions specific to the selected setting. add shortcuts to string-array pref_shortcut_values-->
     <string name="shortcut_value_selected_setting_next_action">SELECTED_SETTING_NEXT_ACTION</string>
     <string name="shortcut_value_selected_setting_previous_action">SELECTED_SETTING_PREVIOUS_ACTION</string>
 

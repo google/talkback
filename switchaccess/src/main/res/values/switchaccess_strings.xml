@@ -48,7 +48,7 @@
 
     <!--
         Dialog message for Nomon clock groups. Explains what the 'Number of Nomon clock groups' setting is.
-        TODO(saigem): use this string as explanatory text to the user
+        TODO: use this string as explanatory text to the user
     -->
     <string name="dialog_message_pref_nomon_clock_group_count" translatable="false">Choose the maximum number of groups for your specified delay time. Shorter time delays are easier to use with fewer groups (but they will usually require more narrowing-down for selected items).</string>
 
