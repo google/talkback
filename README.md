@@ -1,5 +1,5 @@
 # Introduction
-This repository contains sources for two Android accessibility services:
+This repository contains sources for two Android accessibility services from Google:
 
 * TalkBack -- a screen reader for blind and visually impaired users. For usage instructions, see [TalkBack User Guide](https://support.google.com/accessibility/android/answer/6283677?hl=en).
 * Switch Access -- screen navigation tool for users with mobility limitations. For usage instructions, see [Switch Access User Guide](https://support.google.com/accessibility/android/answer/6122836?hl=en).
@@ -13,8 +13,8 @@ To build TalkBack sources you will need:
 1. Download android sdk from <https://developer.android.com/sdk/installing/index.html?pkg=tools>
 2. Set ANDROID_HOME to the path of Android sdk folder
 3. Open Android SDK manager and install
-  - Tools/Android SDK Build-tools 22.0.1
-  - Android 7.0 (API 24)
+  - Tools/Android SDK Build-tools 27.0.0
+  - Android 8.0 (API level 25)
   - Extras/Android Support Repository
   - Extras/Google Repository
 
