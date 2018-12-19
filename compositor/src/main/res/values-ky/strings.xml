@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="talkback_on" msgid="315529674405160699">"TalkBack күйүк"</string>
+    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack убактылуу токтотулду"</string>
+    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack кайра иштетилди"</string>
+    <string name="talkback_disabled" msgid="435490161122421779">"TalkBack өчүк"</string>
+    <string name="spokenfeedback_on" msgid="7937037602859617664">"Экрандагы текстти окуп берүү функциясы күйгүзүлгөн"</string>
+    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"Экрандагы текстти окуп берүү функциясы убактылуу токтотулган"</string>
+    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"Экрандагы текстти окуп берүү функциясы кайра иштетилди"</string>
+    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"Экрандагы текстти окуп берүү функциясы өчүрүлгөн"</string>
+    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Талаанын башы"</string>
+    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Талаанын аягы"</string>
+    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Тандоо режими күйүк"</string>
+    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Тандоо режими өчүк"</string>
+    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Тандалган текст тазаланды"</string>
+    <string name="notification_category_call" msgid="8759044960133656744">"Чалуу"</string>
+    <string name="notification_category_msg" msgid="3423614482258766344">"Билдирүү"</string>
+    <string name="notification_category_email" msgid="1798163563317451971">"Электрондук почта"</string>
+    <string name="notification_category_event" msgid="2820922443627103794">"Иш-чара"</string>
+    <string name="notification_category_promo" msgid="1838458497432571566">"Жарнама"</string>
+    <string name="notification_category_alarm" msgid="8273049393546720273">"Ойготкуч"</string>
+    <string name="notification_category_progress" msgid="7076389021580809543">"Илгерилөө"</string>
+    <string name="notification_category_social" msgid="5270520067519719769">"Коомдук желелер"</string>
+    <string name="notification_category_err" msgid="7382285710328994504">"Ката"</string>
+    <string name="notification_category_transport" msgid="8495871555047142269">"Медиа файлды көзөмөлдөө"</string>
+    <string name="notification_category_sys" msgid="5027585499925530547">"Тутумдун абалы"</string>
+    <string name="notification_category_service" msgid="1236226325270344175">"Кызмат"</string>
+    <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g> меню"</string>
+    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="OLD_TEXT">%2$s</xliff:g> ордуна <xliff:g id="NEW_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> жок кылынды"</string>
+    <string name="template_text_cut" msgid="7952067813030057908">"<xliff:g id="TEXT">%1$s</xliff:g> кесилди"</string>
+    <string name="template_text_pasted" msgid="8439319384947093963">"<xliff:g id="TEXT">%1$s</xliff:g> чапталды"</string>
+    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g> тандалды"</string>
+    <string name="template_announce_selected_text" msgid="8500638272120951960">"Тандалган текст: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
+    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g> тандоодон чыгарылды"</string>
+    <string name="template_text_error" msgid="153775825635730287">"Жараксыз киргизүү <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
+    <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> белгилеринин ордуна <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> белгилери коюлду"</string>
+    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="LABEL">%2$s</xliff:g> үчүн <xliff:g id="ITEM">%1$s</xliff:g>"</string>
+    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> пайыз."</string>
+    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
+      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> <xliff:g id="COUNT_3">%2$d</xliff:g> нерсе бар.</item>
+      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> <xliff:g id="COUNT_1">%2$d</xliff:g> нерсе бар.</item>
+    </plurals>
+    <string name="value_gridview" msgid="1382219539169157957">"Торчо"</string>
+    <string name="value_listview" msgid="7625152822709234439">"Тизме"</string>
+    <string name="value_tabwidget" msgid="6935453013254857519">"Өтмөк тилкеси"</string>
+    <string name="value_spinner" msgid="9204474944714379541">"Ылдый түшүүчү тизме"</string>
+    <string name="value_checkbox" msgid="668616875637472508">"Белгилеме кутуча"</string>
+    <string name="value_radio_button" msgid="254185377743644004">"Радио баскычы"</string>
+    <string name="value_button" msgid="2459787142940409576">"Баскыч"</string>
+    <string name="value_seek_bar" msgid="4084950138979192413">"Слайдер"</string>
+    <string name="value_switch" msgid="6946709666466895221">"Которуштуруу"</string>
+    <string name="value_edit_box" msgid="3400838694172416741">"Түзөтүү кутучасы"</string>
+    <string name="value_edit_box_editing" msgid="761496650256809196">"Түзөтүүдө"</string>
+    <string name="value_image" msgid="5114229220871881124">"Сүрөт"</string>
+    <string name="value_unlabelled" msgid="6226815555228981094">"Белгиленбеген"</string>
+    <string name="value_pager" msgid="7708574424402835461">"Көп барактуу көрүнүш"</string>
+    <string name="value_pager_page" msgid="7671668766555622125">"Барак"</string>
+    <string name="value_progress_bar" msgid="543686904500727882">"Аткаруу көрсөткүчү"</string>
+    <string name="value_webview" msgid="291321285400233958">"Веб көрүнүшү"</string>
+    <string name="template_password_selected" msgid="962942796289068525">"<xliff:g id="FROM_INDEX">%1$d</xliff:g> – <xliff:g id="TO_INDEX">%2$d</xliff:g> белги"</string>
+    <string name="template_password_traversed" msgid="937695852582849077">"Белги <xliff:g id="INDEX">%1$d</xliff:g>"</string>
+    <string name="value_password" msgid="7285572231215250557">"сырсөз"</string>
+    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Жылмышма суурма ачылды"</string>
+    <string name="value_options_menu_open" msgid="4936310094261315665">"Параметрлер."</string>
+    <string name="value_text_cleared" msgid="6558192295636412162">"Тазаланган текст"</string>
+    <string name="value_text_max_length" msgid="4129865255646994586">"Максималдык узундукка жетти"</string>
+    <string name="value_selected" msgid="1307429702194660766">"тандалган"</string>
+    <string name="value_checked" msgid="3006751014125833966">"белгиленген"</string>
+    <string name="value_not_checked" msgid="37422559536361725">"белгилене элек"</string>
+    <string name="value_on" msgid="39454338086317219">"күйүк"</string>
+    <string name="value_off" msgid="6700497510945744608">"өчүк"</string>
+    <string name="value_disabled" msgid="5160977094078900656">"өчүрүлгөн"</string>
+    <string name="value_expanded" msgid="3777451536288368857">"жайылып көрсөтүлдү"</string>
+    <string name="value_collapsed" msgid="3341356513608380759">"жыйыштырылды"</string>
+    <string name="value_double_tap" msgid="6104708724544509699">"Эки жолу таптоо"</string>
+    <string name="value_single_tap" msgid="5044168772549910285">"Таптап коюңуз"</string>
+    <string name="value_press_select" msgid="4270348255373188872">"\"Тандоо\" баскычын басыңыз"</string>
+    <string name="template_hint_clickable" msgid="3443819371543556149">"Жандыруу үчүн <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Жандыруу үчүн <xliff:g id="KEYCOMBO">%1$s</xliff:g> баскычтарын басыңыз."</string>
+    <string name="template_hint_long_clickable" msgid="4546854599035099034">"Көпкө басуу үчүн <xliff:g id="ACTION">%1$s</xliff:g>, кармап туруңуз."</string>
+    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Көпкө басып кармап туруу үчүн <xliff:g id="KEYCOMBO">%1$s</xliff:g> баскычтарын басыңыз."</string>
+    <string name="template_hint_checkable" msgid="504233139047201761">"Которуу үчүн <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Которуштуруу үчүн <xliff:g id="KEYCOMBO">%1$s</xliff:g> баскычтарын басыңыз."</string>
+    <string name="template_hint_edit_text" msgid="2298057410435081106">"Текст киргизүү үчүн <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Текст киргизүү үчүн <xliff:g id="KEYCOMBO">%1$s</xliff:g> баскычтарын басыңыз."</string>
+    <string name="template_hint_spinner" msgid="7251008361827086735">"Өзгөртүү үчүн <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Өзгөртүү үчүн <xliff:g id="KEYCOMBO">%1$s</xliff:g> баскычтарын басыңыз."</string>
+    <string name="template_hint_pager" msgid="5090637252098427661">"Барактарды которуштуруу үчүн эки манжа менен серпип коюңуз."</string>
+    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"Мындан башка беттер жок."</string>
+    <string name="template_hint_seek_control" msgid="6233117586975523663">"Тууралоо үчүн үнүн чоңойтуп/кичирейтүү баскычтарын колдонуңуз"</string>
+    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"Өзгөртүү үчүн <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_hint_custom_actions" msgid="1445181452175177980">"Аракеттер:"</string>
+    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="HINT">%2$s</xliff:g> үчүн <xliff:g id="ACTION">%1$s</xliff:g>."</string>
+    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"<xliff:g id="HINT">%2$s</xliff:g> үчүн <xliff:g id="KEYCOMBO">%1$s</xliff:g> баскычтарын басыңыз."</string>
+    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="HINT">%2$s</xliff:g> үчүн <xliff:g id="ACTION">%1$s</xliff:g>, кармап туруңуз."</string>
+    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock күйүк."</string>
+    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock өчүк."</string>
+    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock күйүк."</string>
+    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock өчүк."</string>
+    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock күйүк."</string>
+    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock өчүк."</string>
+    <string name="orientation_portrait" msgid="7714435567541027105">"Тигинен"</string>
+    <string name="orientation_landscape" msgid="2204457920803882766">"Туурасынан"</string>
+    <string name="title_action_dismiss" msgid="5468480801270912647">"Этибарга албоо"</string>
+    <string name="title_action_expand" msgid="1572280388660465585">"Жайып көрсөтүү"</string>
+    <string name="title_action_collapse" msgid="7790730102557547094">"Жыйыштыруу"</string>
+    <string name="row_index_template" msgid="4107789959609911947">"Катар <xliff:g id="ROW">%1$d</xliff:g>"</string>
+    <string name="column_index_template" msgid="258393957626754806">"Мамыча <xliff:g id="COL">%1$d</xliff:g>"</string>
+    <string name="heading_template" msgid="3585514481777782183">"Баш аты"</string>
+    <string name="row_heading_template" msgid="7106495985061954643">"Катардын аталышы"</string>
+    <string name="column_heading_template" msgid="1222984615395028719">"Тилкенин аталышы"</string>
+    <string name="template_overlay_window" msgid="2628297551956649478">"<xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g> сүрөт ичиндеги сүрөт"</string>
+    <string name="in_list" msgid="444302621514168828">"<xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g> тизмесиндесиз"</string>
+    <string name="in_list_without_name" msgid="547527352661882147">"Тизмеде"</string>
+    <string name="out_of_list" msgid="2739881197703793453">"<xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g> тизмесинин сыртындасыз"</string>
+    <string name="out_of_list_without_name" msgid="6433404246109723383">"Тизмеде жок"</string>
+    <string name="in_grid" msgid="6705387966271590222">"<xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g> торчосундасыз"</string>
+    <string name="in_grid_without_name" msgid="1516356772452222103">"Торчодо"</string>
+    <string name="out_of_grid" msgid="5682718654726730099">"<xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g> торчосунун сыртындасыз"</string>
+    <string name="out_of_grid_without_name" msgid="8856532607453303641">"Торчодо жок"</string>
+    <string name="template_collection_level" msgid="8386016656549198972">"<xliff:g id="LEVEL">%1$s</xliff:g>-деңгээл"</string>
+    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
+      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> нерсе</item>
+      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> нерсе</item>
+    </plurals>
+    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
+      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> сап</item>
+      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> сап</item>
+    </plurals>
+    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
+      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> тилке</item>
+      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> тилке</item>
+    </plurals>
+    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
+      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> белги</item>
+      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> белги</item>
+    </plurals>
+    <string name="template_screen_magnification_on" msgid="3412702166783307741">"Чоңойтуу күйгүзүлгөн. Масштабы: <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
+    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"Масштабы: <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
+    <string name="screen_magnification_off" msgid="3400369407286909776">"Чоңойтуу өчүрүлгөн"</string>
+    <string name="template_speech_rate_change" msgid="4894072082761652120">"Кеп ылдамдыгы <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
+    <string name="audio_focus_on" msgid="6058485499261824861">"Башка добуштарды басаңдатуу функциясы күйгүзүлгөн"</string>
+    <string name="audio_focus_off" msgid="3642265732935547348">"Башка добуштарды басаңдатуу функциясы өчүрүлгөн"</string>
+    <string name="selector_speech_rate_output" msgid="3646194319025868642">"Кеп ылдамдыгы"</string>
+    <string name="selector_verbosity_output" msgid="1939998775584372509">"Кепти дааналатуу"</string>
+    <string name="selector_granularity_output" msgid="2397932210438682648">"Чабыттоо"</string>
+    <string name="selector_audio_focus_output" msgid="2507493163197374282">"Башка добуштарды басаңдатуу"</string>
+    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"Сырсөздөр гарнитура колдонулуп жатканда гана айтылат"</string>
+</resources>
