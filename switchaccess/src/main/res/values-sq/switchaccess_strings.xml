@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Ndrysho qasjen"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"\"Qasja e çelësit\" u lejon personave me dëmtime motorike që të kontrollojnë telefonat dhe tabletët duke përdorur një ose më shumë çelësa. Përdor çelësat që të zgjedhësh artikujt, të lëvizësh, të fusësh tekst, etj."</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"Kontrollo pajisjen me anë të çelësave"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Ndihma dhe komentet"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Skanimi automatik"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Koha e skanimit automatik"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Skanim automatik nga fundi në fillim"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="other">%.2f sekonda</item>
+      <item quantity="one">1 sekondë</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Personalizo skanimin"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Metoda e skanimit"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Vonesa në artikullin e parë"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Cakto çelësat"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Cakto çelësat për veprimet"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Cakto çelësat për skanimin"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Shpejtësia e rreshtit"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"Numri i skanimeve"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Zgjidh se sa herë përsëritet skanimi"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Koha e kthimit"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Shtypjet e shumta brenda kësaj kohe do të trajtohen si një shtypje e vetme."</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Lëshoje për të kryer veprimin"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Kryen veprimin kur lëshohet çelësi"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="other">%d cikle</item>
+      <item quantity="one">%d cikël</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Çelësi \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" është caktuar tashmë te \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\""</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="other">U caktuan %d çelësa</item>
+      <item quantity="one">U caktua %d çelës</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"Çelësi i përzgjedhjes në grup %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Përpara"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Prapa"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Zgjidh"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"Shtypje e gjatë"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Lëviz përpara"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Lëviz prapa"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Hiqe"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"Zgjero"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"Palos"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"Thekso tekstin"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"Kopjo"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"Pri"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"Ngjit"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENYJA"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Prapa"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Kreu"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Përmbledhje"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Njoftime"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Cilësimet e shpejta"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"Lëviz përpara"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"Lëviz prapa"</string>
+    <string name="point_scan" msgid="4514216871544244788">"Skanimi i pikës"</string>
+    <string name="box_scan" msgid="6675486192630209217">"Skanimi i pikës së daljes"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"Rrëshqitja djathtas"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"Rrëshqitja majtas"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"Rrëshqitja lart"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"Rrëshqitja poshtë"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Rrëshqitja (e personalizuar)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"Zvogëlo"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"Zmadho"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Cilësimet e \"Qasjes së çelësit\""</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Shtyp një kombinim çelësash për ta shtuar ose hequr nga lista"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Pastro caktimin e çelësit"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"Nuk janë caktuar çelësa"</string>
+    <string name="more" msgid="1547670498589416840">"Më shumë"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Hapësirë"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Skeda"</string>
+    <string name="save" msgid="5398278773451196019">"Ruaj"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Stili i theksimit i skanimit"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Stili parësor i skanimit"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Ngjyra e theksimit"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Stili i theksimit i rreshtit"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Politika e privatësisë"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Aktivizo zgjedhjen automatike"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Çaktivizo zgjedhjen automatike"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Karakteri tjetër"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Fjala tjetër"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Rreshti tjetër"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Paragrafi tjetër"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Faqja tjetër"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Karakteri i mëparshëm"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Fjala e mëparshme"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Rreshti i mëparshëm"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Paragrafi i mëparshëm"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Faqja e mëparshme"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Fillo automatikisht skanimin"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Skanimi fillon pa e shtypur çelësin"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Hap konfigurimin e \"Qasjes së çelësit\""</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"Asistenti i konfigurimit të \"Qasjes së çelësit\""</string>
+    <string name="one_switch" msgid="5247899666787922810">"Një çelës"</string>
+    <string name="two_switches" msgid="3082487661638289356">"Dy çelësa"</string>
+    <string name="finish" msgid="4267641294267512480">"Përfundo"</string>
+    <string name="exit" msgid="8664597014081860813">"Dil"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"Zgjidh numrin e çelësave"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"Shtyp çelësin për të filluar lëvizjen automatike mes artikujve, më pas shtype sërish për të zgjedhur artikullin e përzgjedhur."</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"Shtyp njërin çelës për të lëvizur mes artikujve. Shtype çelësin tjetër për të theksuar artikullin."</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"Zgjidh shpejtësinë e skanimit"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"Zgjidh për sa kohë duhet të qëndrojë theksimi në secilin artikull"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"E shpejtë (vonesë <xliff:g id="DELAY_SPEED">%1$s</xliff:g> sek.)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"Mesatare (vonesë <xliff:g id="DELAY_SPEED">%1$s</xliff:g> sek.)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"E ngadaltë (vonesë <xliff:g id="DELAY_SPEED">%1$s</xliff:g> sek.)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"E personalizuar"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"vonesa (sekonda)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Çelësi \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" është caktuar tashmë për një veprim tjetër"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"Skanimi i rreshtit-kolonës"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"Përzgjedhja në grup"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"Skanimi linear"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Komentet me zë"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Cilësimet e \"Konvertimit të tekstit në të folur\""</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Për artikuj të shumtë"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Thuaj me zë artikullin e parë dhe të fundit"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Thuaj me zë numrin e artikujve"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Thuaji me zë të gjithë artikujt e theksuar"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Përfundo të folurën përpara se të lëvizësh"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"grupi <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> deri <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> artikuj"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"zgjidh për të lëvizur"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"artikull i panjohur"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"Zgjidh si të skanohet"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"Skano rreshtat një nga një. Pasi përzgjidhet një rresht, lëviz përmes artikujve në atë listë."</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"Lëviz mes artikujve një nga një. Ki parasysh se tastierat do të skanojnë gjithmonë sipas rreshtave."</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"Të gjithë artikujve do t\'u caktohet një ngjyrë. Shtyp çelësin që i korrespondon ngjyrës rreth artikullit që dëshiron. Ngushtoje madhësinë e grupit derisa të arrish te zgjedhja jote."</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Çelësat e caktuar te <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Asnjë"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Të pastrohen çelësat e caktuar?"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"I ke caktuar tashmë çelësat."</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Pastro çelësat"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Mbaj çelësat"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Nuk janë caktuar çelësa"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Këtij veprimi nuk është i caktuar asnjë çelës. Je i sigurt se dëshiron të vazhdosh?"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"Grupi <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Shtyp një çelës për ta caktuar atë që të përzgjedhë grupin <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Shtyp një çelës për t\'ia caktuar atë veprimit \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"Nis skanimin dhe përzgjidh"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Testo konfigurimin me Tic-Tac-Toe"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Shtyp \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" për të filluar skanimin. Shtype çelësin sërish për të zgjedhur artikullin e theksuar. Vazhdo ti i pari!"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Shtyp \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" për të filluar skanimin. Shtype çelësin sërish për të zgjedhur rreshtin e theksuar. Vazhdo ti i pari!"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Shtyp \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" për të lëvizur mes artikujve. Shtyp \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" për të zgjedhur artikullin e theksuar. Vazhdo ti i pari!"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Shtyp \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" për të lëvizur mes rreshtave. Shtyp <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g> për të zgjedhur rreshtin e theksuar. Përsërite për të zgjedhur një artikull në atë rresht. Vazhdo ti i pari!"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Shtyp \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" për të zgjedhur artikujt e theksuar në <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> ose shtyp \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" për të zgjedhur artikujt e theksuar në <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Përsërite për të arritur te artikulli yt. Vazhdo ti i pari!"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Nuk ke ende çelësa të caktuar për të gjitha veprimet. Përdor butonin \"Prapa\" për t\'u kthyer pas dhe për të përfunduar caktimin e çelësave."</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"Rivendos lojën"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"Ky shesh është i zënë tashmë. Provo sërish!"</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"Ti fitove!"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Më shumë fat herën tjetër"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"Barazim"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"Mund të ruash konfigurimin aktual ose mund të fillosh nga e para."</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Ruaj konfigurimin"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Fillo nga e para"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"Konfigurimi përfundoi"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"Je plotësisht gati."</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Mund t\'i ndryshosh gjithnjë cilësimet shtesë ose mund ta hapësh sërish asistentin e konfigurimit nga cilësimet e \"Qasjes së çelësit\"."</string>
+</resources>

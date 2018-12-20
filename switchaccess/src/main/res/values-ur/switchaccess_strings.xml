@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"سوئچ رسائی"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"سوئچ رسائی ایک یا زائد سوئچز کے استعمال کے ذریعے موٹر معذوری کے شکار لوگوں کو فونز اور ٹیبلیٹ استعمال کرنے دیتی ہے۔ سوئچ رسائی کو آئٹمز منتخب کرنے، سکرول کرنے، متن درج کرنے اور مزید بہت کچھ کرنے کیلئے استعمال کریں۔"</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"سوئچز کے ساتھ آلہ کنٹرول کریں"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"مدد اور تاثرات"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"خودکار اسکین"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"خودکار اسکین کا وقت"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"خودکار اسکین معکوس کریں"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="other">‏‎%‎‎.2f سیکنڈ</item>
+      <item quantity="one">1 سیکنڈ</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"اسکین کرنے کو حسب ضرورت بنائیں"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"سکیننگ کا طریقہ کار"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"پہلی آئٹم پر تاخیر"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"سوئچز تفویض کریں"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"کارروائیوں پر سوئچز کو تفویض کریں"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"اسکین کرنے کیلئے سوئچز تفویض کریں"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"لائن کی رفتار"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"اسکینز کی تعداد"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"منتخب کریں کہ اسکیننگ کتنی بار دہرائی جائے"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"وقت کو ڈیباؤنس کریں"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"اس وقت کے دوران متعدد بار دبانا ایک ہی بار دبانے کے بطور خیال کیا جائے گا۔"</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"کارروائی انجام دینے کیلئے ریلیز کریں"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"سوئچ کے ریلیز ہونے کارروائی انجام دیں"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="other">‏%d لوپس</item>
+      <item quantity="one">‏%d لوپ</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"کلید \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' پہلے ہی \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' کو تفویض کردہ ہے۔"</string>
+    <!-- String.format failed for translation -->
+    <!-- no translation found for label_num_keys_assigned_format (249514612391247195) -->
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"‏گروپ منتخب کرنے کا سوئچ ‎%1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"اگلا"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"پچھلا"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"منتخب کریں"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"دیر تک دبائیں"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"آگے سکرول کریں"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"پیچھے سکرول کریں"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"برخاست کریں"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"پھیلائیں"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"سکیڑیں"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"متن ہائی لائٹ کریں"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"کاپی کریں"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"کٹ کریں"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"پیسٹ کریں"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"مینو"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"پیچھے"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"ہوم"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"مجموعی جائزہ"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"اطلاعات"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"فوری ترتیبات"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"آگے سکرول کریں"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"پیچھے اسکرول کریں"</string>
+    <string name="point_scan" msgid="4514216871544244788">"پوائنٹ اسکین"</string>
+    <string name="box_scan" msgid="6675486192630209217">"اخراج کے پوائنٹ کا اسکین"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"دائیں سوائپ کریں"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"بائیں سوائپ کریں"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"اوپر سوائپ کریں"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"نیچے سوائپ کریں"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"سوائپ کریں (حسب ضرورت)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"زوم آؤٹ کریں"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"زوم ان کریں"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"سوئچ رسائی ترتیبات"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"اسے فہرست میں شامل کرنے یا ہٹانے کیلئے سوئچ کا ایک جوڑا دبائیں"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"سوئچ تفویض صاف کریں"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL +‎ "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT +‎ "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT +‎ "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"کوئی سوئچز تفویض نہیں ہوئے"</string>
+    <string name="more" msgid="1547670498589416840">"مزید"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"اسپیس"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"انٹر"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"ٹیب"</string>
+    <string name="save" msgid="5398278773451196019">"محفوظ کریں"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"ہائی لائٹ طرز کو اسکین کرنا"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"بنیادی اسکین طرز"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"ہائی لائٹ والا رنگ"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"ہائی لائٹ والی لائن طرز"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"رازداری کی پالیسی"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"خودکار طور پر منتخب کرنا فعال کریں"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"خودکار طور پر منتخب کرنا غیر فعال کریں"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"اگلا کریکٹر"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"اگلا لفظ"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"اگلی لائن"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"اگلا پیراگراف"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"اگلا صفحہ"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"پچھلا کریکٹر"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"پچھلا لفظ"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"پچھلی لائن"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"پچھلا پیراگراف"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"پچھلا صفحہ"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)‎"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"خود کار طریقے سے اسکیننگ شروع کریں"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"اسکین سوئچ دبائے بغیر شروع ہو جاتا ہے"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"سوئچ رسائی کا سیٹ اپ کھولیں"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"سوئچ رسائی کی سیٹ اپ ویزارڈ"</string>
+    <string name="one_switch" msgid="5247899666787922810">"ایک سوئچ"</string>
+    <string name="two_switches" msgid="3082487661638289356">"دو سوئچز"</string>
+    <string name="finish" msgid="4267641294267512480">"مکمل"</string>
+    <string name="exit" msgid="8664597014081860813">"باہر نکلیں"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"سوئچز کی تعداد منتخب کریں"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"آئٹمز کے درمیان خودکار طور پر منتقل کرنا شروع کرنے کیلئے سوئچ دبائیں، پھر ہائی لائٹ کردہ آئٹم کو منتخب کرنے کیلئے دوبارہ دبائیں۔"</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"آئٹمز کے بیچ منتقل ہونے کیلئے ایک سوئچ دبائیں۔ ہائی لائٹ کردہ آئٹم کو منتخب کرنے کیلئے دوسرا سوئچ دبائیں۔"</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"اسکیننگ کی رفتار منتخب کریں"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"منتخب کریں کہ ہائی لائٹ کو ہر آئٹم پر کتنی دیر رہنا چاہیئے"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"تیز (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> کی تاخیر)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"متوسط (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> کی تاخیر)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"سست (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> تاخیر)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"حسب ضرورت"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"تاخیر (سیکنڈ)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"کلید \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' پہلے سے ہی ایک دوسری کارروائی کو تفویض کردہ ہے"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"قطار-کالم اسکیننگ"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"گروپ انتخاب"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"خطی اسکیننگ"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"صوتی تاثرات"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"‏TTS ترتیبات"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"متعدد آئٹمز کیلئے"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"پہلا اور آخری آئٹم بولیں"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"آئٹمز کی تعداد بولیں"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"تمام ہائی لائٹ کردہ آئٹمز بولیں"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"آگے بڑھنے سے پہلے اسپیچ مکمل کریں"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"گروپ <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> سے <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> آئٹمز"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"سکرول کرنے کیلئے منتخب کریں"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"نامعلوم آئٹم"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"اسکین کرنے کا طریقہ منتخب کریں"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"ایک وقت میں ایک قطار اسکین کریں۔ قطار منتخب ہونے کے بعد، فہرست میں موجود آئٹمز سے منتقل کریں۔"</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"ایک وقت میں ایک آئٹم کے درمیان منتقل کریں۔ نوٹ کریں کہ کی بورڈز ہمیشہ قطار سے اسکین کریں گے۔"</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"تمام آئٹمز کو ایک رنگ تفویض کیا جائے گا۔ آپ جو آئٹم چاہتے ہیں اس کے گرد مماثل رنگ کے سوئچ کو دبائیں۔ اپنے انتخاب تک پہنچنے تک گروپ کا سائز کم کرتے رہیں۔"</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"<xliff:g id="ACTION_NAME">%s</xliff:g> کو سوئچز تفویض ہو گئے"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"کوئی نہیں"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"تفویض کردہ سوئچز صاف کریں؟"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"آپ نے پہلے ہی سوئچز تفویض کر دیے ہیں۔"</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"سوئچز صاف کریں"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"سوئچز رکھیں"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"کوئی سوئچز تفویض نہیں ہوئے"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"اس کارروائی کو کوئی سوئچز تفویض کردہ نہیں ہیں۔ کیا آپ واقعی جاری رکھنا چاہتے ہیں؟"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> گروپ"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"سوئچ کو <xliff:g id="OPTION_COLOR">%1$s</xliff:g> گروپ منتخب کرنے کیلئے تفویض کرنے کیلئے اسے دبائیں۔"</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"اسے \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\" کارروائی پر تفویض کرنے کیلئے سوئچ دبائیں۔"</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"اسکین شروع کریں اور منتخب کریں"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"‏Tic-Tac-Toe کے ساتھ اپنا سیٹ اپ چیک کریں"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"اسکین کرنا شروع کرنے کیلئے \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" دبائیں۔ ہائی لائٹ کردہ آئٹم کو منتخب کرنے کیلئے سوئچ کو دوبارہ دبائیں۔ پہلے آپ!"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"اسکین کرنا شروع کرنے کیلئے \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" دبائیں۔ ہائی لائٹ کردہ قطار کو منتخب کرنے کیلئے سوئچ دوبارہ دبائیں۔ ہائی لائٹ کردہ آئٹم کو منتخب کرنے کیلئے ایک بار پھر دبائیں۔ پہلے آپ!"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"آئٹمز کے بیچ منتقل کرنے کیلئے \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" دبائیں۔ ہائی لائٹ کردہ آئٹم کو منتخب کرنے کیلئے \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" دبائیں۔ پہلے آپ!"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"قطاروں کے بیچ منتقل کرنے کیلئے \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" دبائیں۔ ہائی لائٹ کردہ قطار کو منتخب کرنے کیلئے \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" دبائیں۔ اس قطار میں موجود کسی آئٹم کو منتخب کرنے کیلئے دہرائیں۔ پہلے آپ!"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"\"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g>\" میں ہائی لائٹ کردہ آئٹمز کو منتخب کرنے کیلئے <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> دبائیں یا <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> میں ہائی لائٹ کردہ آئٹمز کو منتخب کرنے کیلئے \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" دبائیں۔ اپنے آئٹم تک پہنچنے کیلئے دہرائیں۔ پہلے آپ!"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"آپ کے پاس اب تک تمام کارروائیوں کیلئے سوئچز تفویض کردہ نہیں ہیں۔ پیچھے جانے کیلئے گزشتہ کا بٹن استعمال کریں اور سوئچز تفویض کرنا مکمل کریں۔"</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"گیم دوبارہ ترتیب دیں"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"یہ مربع لیا جا چکا ہے۔ دوبارہ کوشش کریں!"</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"آپ جیت گئے!"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"اگلی بار کیلئے اچھی قسمت"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"مقابلہ برابر ہے"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"آپ اپنا موجودہ سیٹ اپ رکھ سکتے ہیں یا دوبارہ شروع کریں۔"</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"سیٹ اپ رکھیں"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"دوبارہ شروع کریں"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"سیٹ اپ مکمل ہو گیا"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"آپ پوری طرح سے تیار ہیں۔"</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"آپ سوئچ رسائی ترتیبات سے کبھی بھی اضافی ترتیبات تبدیل کر سکتے ہیں یا دوبارہ سیٹ اپ ویزارڈ کھول سکتے ہیں۔"</string>
+</resources>

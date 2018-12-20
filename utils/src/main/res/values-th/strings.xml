@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="untitled_window" msgid="7017590766394623328">"ไม่มีชื่อ"</string>
+    <string name="template_alert_dialog_template" msgid="5493715708649314332">"การแจ้งเตือน <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"คัดลอก <xliff:g id="TEXT">%1$s</xliff:g> แล้ว"</string>
+    <string name="template_capital_letter" msgid="4920626008395727629">"ตัวพิมพ์ใหญ่ <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
+    <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
+    <string name="template_current_tts_engine" msgid="3963364867159704159">"กำลังใช้ <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
+    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"กดปุ่มที่ใช้ร่วมกันเพื่อตั้งค่าทางลัดใหม่ จะต้องประกอบด้วยปุ่ม ALT หรือ Control เป็นอย่างน้อย"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"กดแป้นที่กดร่วมกันพร้อมกับ <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> ซึ่งเป็นคีย์ตัวปรับแต่ง เพื่อตั้งค่าแป้นพิมพ์ลัดใหม่"</string>
+    <string name="keycombo_unassigned" msgid="5817151372114230015">"ไม่ได้กำหนด"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"ค้นหา"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"ลูกศรขวา"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"ลูกศรซ้าย"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"ลูกศรขึ้น"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"ลูกศรลง"</string>
+    <string name="granularity_default" msgid="4948042687369948597">"ค่าเริ่มต้น"</string>
+    <string name="granularity_character" msgid="2036726841460203840">"อักขระ"</string>
+    <string name="granularity_word" msgid="2653776823920279013">"คำ"</string>
+    <string name="granularity_line" msgid="727359260064093782">"บรรทัด"</string>
+    <string name="granularity_paragraph" msgid="3760401274833105422">"ย่อหน้า"</string>
+    <string name="granularity_page" msgid="2739238666516816581">"หน้า"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"ส่วนหัวและจุดสังเกต"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"รายการ"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"ลิงก์"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"ตัวควบคุม"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"เนื้อหาพิเศษ"</string>
+    <string name="granularity_native_heading" msgid="4197974986104812378">"ส่วนหัว"</string>
+    <string name="granularity_native_control" msgid="2179123672532783038">"ตัวควบคุม"</string>
+    <string name="granularity_native_link" msgid="5811543234687687607">"ลิงก์"</string>
+</resources>

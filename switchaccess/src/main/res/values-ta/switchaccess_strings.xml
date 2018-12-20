@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"அணுகல் மாற்றுதல்"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"உடல் உறுப்புத் திறன் இழந்தவர்கள் Switch Access மூலம் ஒன்று அல்லது அதற்கு மேற்பட்ட சுவிட்ச்சுகளைப் பயன்படுத்தி மொபைல்கள் மற்றும் டேப்லெட்டுகளைக் கட்டுப்படுத்தலாம். சுவிட்ச்சுகளைப் பயன்படுத்தி உருப்படிகளைத் தேர்ந்தெடுக்கலாம், மேலும் கீழும் செல்லலாம், உரையை உள்ளிடலாம், மேலும் பலவற்றைச் செய்யலாம்."</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"சுவிட்ச்கள் மூலம் சாதனத்தைக் கட்டுப்படுத்தலாம்"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"உதவி &amp; கருத்து"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"தானியங்கு ஸ்கேன்"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"தானியங்கு ஸ்கேனிற்கான நேரம்"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"தானியங்கு ஸ்கேன் வரிசையைப் பின்னோக்கி மாற்றுதல்"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="other">%.2f வினாடிகள்</item>
+      <item quantity="one">1 வினாடி</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"ஸ்கேனிங்கைத் தனிப்பயனாக்கு"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"ஸ்கேனிங் முறை"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"முதல் உருப்படியில் தாமதம்"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"சுவிட்ச்சுகளை ஒதுக்கு"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"செயல்களுக்கு, சுவிட்ச்சுகளை ஒதுக்குக"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"ஸ்கேனிங்கிற்கு, சுவிட்ச்சுகளை ஒதுக்குக"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"லைன் வேகம்"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"ஸ்கேன்களின் எண்ணிக்கை"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"எத்தனை முறை ஸ்கேன் செய்ய வேண்டும் என்பதைத் தேர்வு செய்யவும்"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"டிபவுன்ஸ் நேரம்"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"இந்த நேரத்திற்குள் செய்யப்படும் பல அழுத்தங்கள் ஒரே அழுத்தமாகக் கருதப்படும்."</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"செயலை மேற்கொள்ள, விடுவிக்கவும்"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"சுவிட்ச் விடுவிக்கப்பட்டதும், செயலை மேற்கொள்"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="other">%d லூப்கள்</item>
+      <item quantity="one">%d லூப்</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' சுவிட்ச்சானது \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' செயலுக்கு ஏற்கனவே ஒதுக்கப்பட்டுள்ளது"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="other">%d சுவிட்ச்சுகள் ஒதுக்கப்பட்டன</item>
+      <item quantity="one">%d சுவிட்ச் ஒதுக்கப்பட்டது</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"குழுத் தேர்விற்கான சுவிட்ச் %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"அடுத்து"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"முந்தையது"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"தேர்ந்தெடு"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"நெடுநேரம் அழுத்துதல்"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"முன்செல்லுதல்"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"பின்செல்லுதல்"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"நிராகரி"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"விரித்தல்"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"சுருக்குதல்"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"உரையை ஹைலைட் செய்தல்"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"நகலெடுத்தல்"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"வெட்டுதல்"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"ஒட்டுதல்"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"மெனு"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"முந்தையது"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"முகப்பு"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"மேலோட்டப் பார்வை"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"அறிவிப்புகள்"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"உடனடி அமைப்புகள்"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"முன்செல்"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"பின்செல்"</string>
+    <string name="point_scan" msgid="4514216871544244788">"பாயின்ட் ஸ்கேன்"</string>
+    <string name="box_scan" msgid="6675486192630209217">"பாயின்ட் ஸ்கேனிலிருந்து வெளியேறு"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"வலப்புறம் ஸ்வைப் செய்தல்"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"இடப்புறம் ஸ்வைப் செய்தல்"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"மேலே ஸ்வைப் செய்தல்"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"கீழே ஸ்வைப் செய்தல்"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"ஸ்வைப் செய்தல் (தனிப்பயன்)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"சிறிதாக்குதல்"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"பெரிதாக்குதல்"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Switch Access அமைப்புகள்"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"பட்டியலில் அதைச் சேர்க்க மற்றும் அதிலிருந்து அகற்ற, சுவிட்ச் சேர்க்கையை அழுத்தவும்"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"சுவிட்ச் ஒதுக்கீட்டை அழி"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"எந்த சுவிட்ச்சுகளும் ஒதுக்கப்படவில்லை"</string>
+    <string name="more" msgid="1547670498589416840">"மேலும்"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"இடைவெளி"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"எண்டர்"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"டேப்"</string>
+    <string name="save" msgid="5398278773451196019">"சேமி"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"ஹைலைட் செய்யும் நடையை ஸ்கேன் செய்"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"முதன்மை ஸ்கேன் நடை"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"ஹைலைட் செய்யும் வண்ணம்"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"ஹைலைட் செய்யும் கோட்டின் நடை"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"தனியுரிமைக் கொள்கை"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"தானியங்கு தேர்வை இயக்கு"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"தானியங்கு தேர்வை முடக்கு"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"அடுத்த எழுத்துக்குறி"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"அடுத்த சொல்"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"அடுத்த வரி"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"அடுத்த பத்தி"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"அடுத்த பக்கம்"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"முந்தைய எழுத்துக்குறி"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"முந்தைய சொல்"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"முந்தைய வரி"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"முந்தைய பத்தி"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"முந்தைய பக்கம்"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"தானாக ஸ்கேன் செய்யத் தொடங்கு"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"சுவிட்சை அழுத்தாமல் ஸ்கேன் செய்யத் தொடங்கு"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Switch Access அமைவைத் திற"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"Switch Access அமைவு வழிகாட்டி"</string>
+    <string name="one_switch" msgid="5247899666787922810">"ஒரு சுவிட்ச்"</string>
+    <string name="two_switches" msgid="3082487661638289356">"இரண்டு சுவிட்ச்சுகள்"</string>
+    <string name="finish" msgid="4267641294267512480">"முடி"</string>
+    <string name="exit" msgid="8664597014081860813">"வெளியேறு"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"சுவிட்ச்சுகளின் எண்ணிக்கையைத் தேர்வு செய்க"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"உருப்படிகளுக்கு இடையே தானாக நகர்வதைத் தொடங்க, சுவிட்ச்சை அழுத்தவும். பின், ஹைலைட் செய்த உருப்படியைத் தேர்ந்தெடுக்க, மீண்டும் அழுத்தவும்."</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"உருப்படிகளுக்கு இடையே நகர, ஒரு சுவிட்ச்சை அழுத்தவும். ஹைலைட் செய்த உருப்படியைத் தேர்ந்தெடுக்க, மற்றொரு சுவிட்ச்சை அழுத்தவும்."</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"ஸ்கேனிங் வேகத்தைத் தேர்வு செய்க"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"ஒவ்வொரு உருப்படியையும் எவ்வளவு நேரம் ஹைலைட் செய்ய வேண்டும் என்பதைத் தேர்வு செய்யவும்"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"வேகமானது (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>வி தாமதம்)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"நடுத்தரம் (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>வி தாமதம்)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"வேகம் குறைவு (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>வி தாமதம்)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"தனிப்பயன்"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"தாமதம் (வினாடிகள்)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' விசையானது ஏற்கனவே மற்றொரு செயலுக்கு ஒதுக்கப்பட்டுள்ளது"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"வரிசை-நெடுவரிசை ஸ்கேனிங்"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"குழுத் தேர்வு"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"லீனியர் ஸ்கேனிங்"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"பேச்சுவடிவக் கருத்து"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS அமைப்புகள்"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"பல உருப்படிகளுக்கு"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"முதல் &amp; கடைசி உருப்படியைப் படி"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"உருப்படிகளின் எண்ணிக்கையைப் படி"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"ஹைலைட் செய்த எல்லா உருப்படிகளையும் படி"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"அடுத்த உருப்படிக்குச் செல்லும் முன், படிப்பதை முடி"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"குழு <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> முதல் <xliff:g id="ID_2">%2$s</xliff:g> வரை"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> உருப்படிகள்"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"உருட்ட வேண்டிய உருப்படியைத் தேர்ந்தெடுக்கவும்"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"தெரியாத உருப்படி"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"எப்படி ஸ்கேன் செய்ய வேண்டும் என்பதைத் தேர்வு செய்யவும்"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"வரிசையை ஒவ்வொன்றாக ஸ்கேன் செய்யலாம். வரிசை தேர்ந்தெடுக்கப்பட்ட பின், அந்தப் பட்டியலில் உள்ள உருப்படிகளுக்கு இடையே நகரலாம்."</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"ஒவ்வொன்றாக உருப்படிகளுக்கு இடையே நகரலாம். விசைப்பலகைகள் எப்போதும் வரிசையின்படி ஸ்கேன் செய்யும் என்பதை நினைவில்கொள்ளவும்."</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"எல்லா உருப்படிகளுக்கும் வண்ணம் ஒதுக்கப்படும். நீங்கள் விரும்பும் உருப்படியைச் சுற்றியுள்ள வண்ணத்துடன் தொடர்புடைய சுவிட்சை அழுத்தவும். நீங்கள் விரும்பும் உருப்படியை அடையும் வரை, குழுவில் உள்ள உருப்படிகளுக்கான தேர்வைக் குறைக்கவும்."</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"<xliff:g id="ACTION_NAME">%s</xliff:g> செயலுக்கு, சுவிட்ச்சுகள் ஒதுக்கப்பட்டன"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"ஏதுமில்லை"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"ஒதுக்கிய சுவிட்ச்சுகளை அழிக்கவா?"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"ஏற்கனவே சுவிட்ச்சுகளை ஒதுக்கிவிட்டீர்கள்."</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"சுவிட்ச்சுகளை அழி"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"சுவிட்ச்சுகளை வைத்திரு"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"எந்த சுவிட்ச்சுகளும் ஒதுக்கப்படவில்லை"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"இந்தச் செயலுக்கு எந்த சுவிட்ச்சுகளும் ஒதுக்கப்படவில்லை. தொடர விரும்புகிறீர்களா?"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> குழு"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> குழுவைத் தேர்ந்தெடுப்பதற்கான சுவிட்சை ஒதுக்க, அதை அழுத்தவும்."</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"சுவிட்ச்சை \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\" செயலுக்கு ஒதுக்க, அதை அழுத்தவும்."</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"ஸ்கேனைத் தொடங்கி, தேர்ந்தெடுக்கவும்"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Tic-Tac-Toe மூலம் உங்கள் அமைவைச் சோதனை செய்யவும்"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"ஸ்கேனிங்கைத் தொடங்க, \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\"ஐ அழுத்தவும். ஹைலைட் செய்த உருப்படியைத் தேர்ந்தெடுக்க, சுவிட்ச்சை மீண்டும் அழுத்தவும். தொடங்குங்கள்!"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"ஸ்கேனிங்கைத் தொடங்க, \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\"ஐ அழுத்தவும். ஹைலைட் செய்த வரிசையைத் தேர்ந்தெடுக்க, சுவிட்ச்சை மீண்டும் அழுத்தவும். ஹைலைட் செய்த உருப்படியைத் தேர்ந்தெடுக்க, மீண்டும் ஒருமுறை அழுத்தவும். தொடங்குங்கள்!"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"உருப்படிகளுக்கு இடையே நகர, \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\"ஐ அழுத்தவும். ஹைலைட் செய்த உருப்படியைத் தேர்ந்தெடுக்க, \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\"ஐ அழுத்தவும். தொடங்குங்கள்!"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"வரிசைகளுக்கு இடையே நகர, \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\"ஐ அழுத்தவும். ஹைலைட் செய்த வரிசையைத் தேர்ந்தெடுக்க, \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\"ஐ அழுத்தவும். அந்த வரிசையில் ஒரு உருப்படியைத் தேர்ந்தெடுக்க, இந்தச் செயல்முறையை மீண்டும் செய்யவும். தொடங்குங்கள்!"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g> இல் ஹைலைட் செய்த உருப்படிகளைத் தேர்ந்தெடுக்க, \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\"ஐ அழுத்தவும் அல்லது <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> இல் ஹைலைட் செய்த உருப்படிகளைத் தேர்ந்தெடுக்க \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\"ஐ அழுத்தவும். நீங்கள் விரும்பும் உருப்படியை அடையும் வரை, இந்தச் செயல்முறையை மீண்டும் செய்யவும். தொடங்குங்கள்!"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"இதுவரை எந்தச் செயலுக்கும் சுவிட்ச்சுகளை ஒதுக்கவில்லை. முந்தைய திரைக்குச் சென்று சுவிட்ச்சுகளை ஒதுக்க, முந்தையது என்ற பொத்தானைப் பயன்படுத்தவும்."</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"கேமை மீட்டமை"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"இந்தச் சதுரம் ஏற்கனவே எடுக்கப்பட்டுள்ளது. மீண்டும் முயலவும்!"</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"வென்றுவிட்டீர்கள்!"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"அடுத்த முறை நன்றாக விளையாடவும்"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"சமனானது"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"நீங்கள் தற்போதைய அமைவில் தொடரலாம் அல்லது புதிதாகத் தொடங்கலாம்."</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"தற்போதைய அமைவை வைத்திரு"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"மீண்டும் தொடங்கு"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"அமைவு முடிந்தது"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"தயாராகிவிட்டீர்கள்."</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"கூடுதல் அமைப்புகளை எப்போது வேண்டுமானாலும் மாற்றலாம் அல்லது Switch Access அமைப்புகளிலிருந்து அமைவு வழிகாட்டியை மீண்டும் திறக்கலாம்."</string>
+</resources>

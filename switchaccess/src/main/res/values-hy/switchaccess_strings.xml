@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Switch Access"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"Switch Access-ը շարժվելու սահմանափակ հնարավորություններ ունեցող մարդկանց թույլ է տալիս կառավարել հեռախոսը և պլանշետը մեկ կամ մի քանի փոխանջատիչների օգնությամբ: Փոխանջատիչները կարող եք օգտագործել տարրեր ընտրելու, ոլորելու, տեքստ մուտքագրելու և այլ գործողություններ կատարելու համար:"</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"Կառավարել սարքն անջատիչներով"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Օգնություն և հետադարձ կապ"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Ավտոմատ սկանավորում"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Ավտոմատ սկանավորման տևողությունը"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Հետադարձ ավտոմատ որոնում"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="one">%.2f Seconds</item>
+      <item quantity="other">%.2f վայրկյան</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Կարգավորել սկանավորումը"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Սկանավորման եղանակը"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Հապաղում առաջին տարրի վրա"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Փոխանջատիչների նշանակում"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Փոխանջատիչներ գործողությունների համար"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Փոխանջատիչներ սկանավորման համար"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Գծի արագությունը"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"Սկանավորումների քանակը"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Ընտրեք որոնման կրկնությունների քանակը"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Հապաղման ժամանակը"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Այդ ընթացքում կատարած մի քանի սեղմումները կդիտարկվեն որպես մեկ սեղմում:"</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Կատարել՝ ստեղնը բաց թողելուց հետո"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Կատարել գործողությունը փոխանջատիչը բաց թողնելուց հետո"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="one">%d Loops</item>
+      <item quantity="other">%d սկանավորում</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"«<xliff:g id="KEY_NAME">%1$s</xliff:g>» փոխանջատիչն արդեն նշանակված է «<xliff:g id="ACTION_NAME">%2$s</xliff:g>» գործողությանը"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="one">%d switches assigned</item>
+      <item quantity="other">Նշանակվել է %d փոխանջատիչ</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"Խմբի ընտրության փոխանջատիչ %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Հաջորդը"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Նախորդը"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Ընտրել"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"Երկար սեղմել"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Ոլորել առաջ"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Ոլորել հետ"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Փակել"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"Ընդարձակել"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"Կոծկել"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"Նշել տեքստը"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"Պատճենել"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"Կտրել"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"Տեղադրել"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"ԸՆՏՐԱՑԱՆԿ"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Հետ"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Հիմնական էկրան"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Համատեսք"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Ծանուցումներ"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Արագ կարգավորումներ"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"Ոլորել առաջ"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"Ոլորել հետ"</string>
+    <string name="point_scan" msgid="4514216871544244788">"Կետային որոնում"</string>
+    <string name="box_scan" msgid="6675486192630209217">"Դուրս գալ Կետային որոնումից"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"Սահեցնել աջ"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"Սահեցնել ձախ"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"Սահեցնել վերև"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"Սահեցնել ներքև"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Մատը սահեցնել (հատուկ)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"Փոքրացնել"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"Մեծացնել"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Switch Access-ի կարգավորումներ"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Սեղմեք ստեղների որևէ համադրություն՝ ցուցակին ավելացնելու կամ ցուցակից հեռացնելու համար"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Ջնջել փոխանջատիչի նշանակումը"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"Նշանակված փոխանջատիչներ չկան"</string>
+    <string name="more" msgid="1547670498589416840">"Ավելին"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Բացատ"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Մուտքի ստեղն"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Ներդիր"</string>
+    <string name="save" msgid="5398278773451196019">"Պահել"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Սկանավորման ժամանակ գունանշման ոճը"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Նավարկման հիմնական ոճ"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Գունանշման գույնը"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Գունանշման գծի ոճը"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Գաղտնիության քաղաքականություն"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Միացնել ավտոմատ ընտրումը"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Անջատել ավտոմատ ընտրումը"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Հաջորդ նիշը"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Հաջորդ բառը"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Հաջորդ տողը"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Հաջորդ պարբերությունը"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Հաջորդ էջը"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Նախորդ նիշը"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Նախորդ բառը"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Նախորդ տողը"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Նախորդ պարբերությունը"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Նախորդ էջը"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Սկանավորման ինքնագործարկում"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Սկանավորումը սկսվում է առանց փոխանջատիչը սեղմելու"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Գործարկել Switch Access-ի կարգավորումը"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"Switch Access-ի կարգավորման օգնական"</string>
+    <string name="one_switch" msgid="5247899666787922810">"Մեկ փոխանջատիչ"</string>
+    <string name="two_switches" msgid="3082487661638289356">"Երկու փոխանջատիչներ"</string>
+    <string name="finish" msgid="4267641294267512480">"Ավարտել"</string>
+    <string name="exit" msgid="8664597014081860813">"Ելք"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"Ընտրեք փոխանջատիչների քանակը"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"Սեղմեք փոխանջատիչը՝ տարրերի միջև ավտոմատ տեղափոխվելու համար, ապա սեղմեք կրկին՝ նշված տարրն ընտրելու համար:"</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"Սեղմեք փոխանջատիչներից մեկը՝ տարրերի միջև տեղափոխվելու համար: Սեղմեք մյուս փոխանջատիչը՝ նշված տարրը ընտրելու համար:"</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"Ընտրեք որոնելու արագությունը"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"Ընտրեք, թե յուրաքանչյուր տարր որքան ժամանակ պետք է նշված մնա"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"Արագ (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> վ հապաղում)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"Միջին (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> վ հապաղում)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"Դանդաղ (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> վ հապաղում)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"Հատուկ"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"հապաղում (վայրկյան)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"«<xliff:g id="KEY_NAME">%1$s</xliff:g>» ստեղնին արդեն նշանակված է մեկ այլ գործողություն"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"Տողային-սյունակային որոնում"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"Խմբի ընտրություն"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"Գծային որոնում"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Ձայնային արձագանք"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS կարգավորումներ"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Մի քանի տարրերի համար"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Արտասանել առաջին և վերջին տարրերը"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Արտասանել տարրերի քանակը"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Արտասանել բոլոր նշված տարրերը"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Տեղափոխելուց առաջ ավարտել արտասանումը"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"խումբ <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g>-ից մինչև <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> տարր"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"ընտրեք՝ ոլորելու համար"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"անհայտ տարր"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"Ընտրեք որոնման եղանակը"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"Միաժամանակ որոնել միայն մեկ տողում: Տողն ընտրելուց հետո տեղափոխվել միայն այդ ցուցակի տարրերի միջև:"</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"Տեղափոխվել տարրերի միջև՝ ամեն անգամ մեկ տարրով: Խնդրում ենք հաշվի առնել, որ ստեղնաշարերը որոնումը կատարում են միայն տողով:"</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"Բոլոր տարրերին նշանակվելու է գույն: Սեղմեք փոխանջատիչը, որը համապատասխանում է անհրաժեշտ տարրը շրջապատող գույնին: Փոքրացրեք խմբի չափն այնքան, մինչև կհասնեք ձեզ անհրաժեշտ ընտրությանը:"</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"<xliff:g id="ACTION_NAME">%s</xliff:g> գործողությանը նշանակված փոխանջատիչներ"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Չկա"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Ջնջե՞լ նշանակված փոխանջատիչները:"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Փոխանջատիչներ արդեն նշանակել եք:"</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Ջնջել փոխանջատիչները"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Պահպանել անջատիչները"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Նշանակված փոխանջատիչներ չկան"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Այս գործողությանը նշանակված փոխանջատիչներ չկան: Շարունակե՞լ"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> խումբ"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Սեղմեք որևէ փոխանջատիչ՝ դրան նշանակելու <xliff:g id="OPTION_COLOR">%1$s</xliff:g> խմբի ընտրությունը:"</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Սեղմեք որևէ փոխանջատիչ՝ դրան «<xliff:g id="ACTION_NAME">%1$s</xliff:g>» գործողությունը նշանակելու համար:"</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"Սկսել որոնումը և ընտրել"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Ստուգեք կարգավորումը Tic-Tac-Toe-ի միջոցով"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Որոնումը սկսելու համար սեղմեք «<xliff:g id="SWITCH_NAME">%1$s</xliff:g>»: Նշված տարրն ընտրելու համար կրկին սեղմեք փոխանջատիչը: Փորձեք հիմա:"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Որոնումը սկսելու համար սեղմեք «<xliff:g id="SWITCH_NAME">%1$s</xliff:g>»: Նշված տողը ընտրելու համար կրկին սեղմեք փոխանջատիչը: Փորձեք հիմա:"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Տարրերի միջև տեղափոխվելու համար սեղմեք «<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>»: Նշված տարրը ընտրելու համար սեղմեք «<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>»: Փորձեք հիմա:"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Տողերի միջև տեղափոխվելու համար սեղմեք «<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>»: Նշված տողն ընտրելու համար սեղմեք «<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>»: Կրկնեք՝ այդ տողի որևէ տարր ընտրելու համար: Փորձեք հիմա:"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g>-ով նշված տարրերն ընտրելու համար սեղմեք «<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>», իսկ <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>-ով նշվածներն ընտրելու համար՝ «<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>»: Կրկնեք այնքան, մինչև հասնեք ձեզ անհրաժեշտ տարրին: Փորձեք հիմա:"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Դեռ ոչ բոլոր գործողությունների համար եք նշանակել փոխանջատիչներ: Նախորդը կոճակի օգնությամբ անցեք հետ և ավարտեք փոխանջատիչների նշանակումը:"</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"Վերակայել խաղը"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"Այս քառակուսին արդեն զբաղեցվել է: Փորձեք նորից:"</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"Դուք հաղթեցիք"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Հաջորդ անգամ մաղթում ենք հաջողություն"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"Ոչ ոքի"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"Կարող եք պահպանել ընթացիկ կարգավորումները կամ սկսել նորից:"</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Պահպանել կարգավորումները"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Սկսել նորից"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"Կարգավորումն ավարտված է"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"Պատրաստ է:"</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Ցանկացած պահի կարող եք փոխել լրացուցիչ կարգավորումները կամ կրկին գործարկել կարգավորման օգնականը Switch Access-ի կարգավորումներից:"</string>
+</resources>

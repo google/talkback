@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Kontaktadgang"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"Med Kontaktadgang kan personer med nedsat motorisk funktion betjene telefoner og tablets ved hjælp af én eller flere kontakter. Brug kontakterne til at vælge elementer, rulle, indtaste tekst og meget mere."</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"Kontrolenhed med kontakter"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Hjælp og feedback"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Automatisk scanning"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Varighed af automatisk scanning"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Automatisk baglæns scanning"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="one">%.2f sekund</item>
+      <item quantity="other">%.2f sekunder</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Tilpas scanning"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Scanningsmetode"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Forsinkelse i forbindelse med første element"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Tildel kontakter"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Tildel kontakter til handlinger"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Tildel kontakter til scanning"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Hastighed for linjeskift"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"Antal scanninger"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Vælg, hvor mange gange scanningen skal gentages"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Tastetryktid"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Flere tryk inden for dette tidsrum behandles som ét tryk."</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Slip for at udføre handling"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Udfør handling, når kontakten slippes"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="one">%d gentagelse</item>
+      <item quantity="other">%d gentagelser</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Kontakten \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" er allerede tildelt \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\""</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="one">%d kontakt er tildelt</item>
+      <item quantity="other">%d kontakter er tildelt</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"Kontakt %1$d til gruppemarkering"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Næste"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Forrige"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Vælg"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"Tryk længe"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Rul fremad"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Rul baglæns"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Luk"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"Udvid"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"Skjul"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"Fremhæv tekst"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"Kopiér"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"Klip"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"Indsæt"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENU"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Tilbage"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Startskærm"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Oversigt"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Underretninger"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Hurtige indstillinger"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"Rul fremad"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"Rul baglæns"</string>
+    <string name="point_scan" msgid="4514216871544244788">"Elementscanning"</string>
+    <string name="box_scan" msgid="6675486192630209217">"Afslut elementscanning"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"Stryg til højre"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"Stryg til venstre"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"Stryg opad"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"Stryg nedad"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Stryg (tilpasset)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"Zoom ud"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"Zoom ind"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Indstillinger for Kontaktadgang"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Tryk på en kontaktkombination for at føje den til listen eller fjerne den fra listen"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Ryd tildeling af kontakter"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"Der er ikke tildelt nogen kontakter"</string>
+    <string name="more" msgid="1547670498589416840">"Flere"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Mellemrum"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tabulatortast"</string>
+    <string name="save" msgid="5398278773451196019">"Gem"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Fremhævningsstil for scanning"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Primær scanningsstil"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Fremhævningsfarve"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Fremhævningslinjens stil"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Privatlivspolitik"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Aktivér Vælg automatisk"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Deaktiver Vælg automatisk"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Næste tegn"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Næste ord"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Næste linje"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Næste afsnit"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Næste side"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Forrige tegn"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Forrige ord"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Forrige linje"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Forrige afsnit"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Forrige side"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Start scanning automatisk"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Scanning starter uden tryk på kontakten"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Åbn konfigurationsguiden til Kontaktadgang"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"Konfigurationsguide til Kontaktadgang"</string>
+    <string name="one_switch" msgid="5247899666787922810">"Én kontakt"</string>
+    <string name="two_switches" msgid="3082487661638289356">"To kontakter"</string>
+    <string name="finish" msgid="4267641294267512480">"Afslut"</string>
+    <string name="exit" msgid="8664597014081860813">"Luk"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"Vælg antal kontakter"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"Tryk på kontakten for at begynde at skifte automatisk mellem elementer, og tryk derefter igen for at vælge det fremhævede element."</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"Tryk på den ene kontakt for at skifte mellem elementer. Tryk på den anden kontakt for at vælge det fremhævede element."</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"Vælg scanningshastighed"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"Vælg, hvor længe hvert element skal fremhæves"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"Hurtig (forsinkelse på <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"Mellem (forsinkelse på <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"Langsom (forsinkelse på <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"Tilpasset"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"forsinkelse (sek.)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Tasten \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" er allerede tildelt en anden handling"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"Række/kolonne-scanning"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"Gruppemarkering"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"Lineær scanning"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Oplæsning"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Indstillinger for oplæsning"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"For flere elementer"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Oplæs første og sidste element"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Oplæs antallet af elementer"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Oplæs alle fremhævede elementer"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Afslut oplæsning, før du skifter"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"gruppe <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> til <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> elementer"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"vælg for at rulle"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"ukendt element"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"Vælg, hvordan der skal scannes"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"Scan én række ad gangen. Når rækken er valgt, kan du skifte mellem elementerne på den pågældende liste."</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"Skift mellem elementer ét ad gangen. Bemærk, at tastaturer altid scanner efter række."</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"Alle elementer tildeles en farve. Tryk på den kontakt, der svarer til farven rundt om det element, du ønsker. Du kan derefter indsnævre gruppens størrelse, indtil du når dit valg."</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Kontakter, der er tildelt <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Ingen"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Vil du rydde tildelte kontakter?"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Du har allerede tildelt kontakter."</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Ryd kontakter"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Behold kontakter"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Der er ikke tildelt nogen kontakter"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Der er ikke tildelt nogen kontakter til denne handling. Er du sikker på, at du vil forstætte?"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> gruppe"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Tryk på en kontakt for at tildele den til at markere gruppen <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Tryk på en kontakt for at tildele den til handlingen \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"Start scanning, og vælg"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Afprøv din indstilling med kryds og bolle"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Tryk på \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" for at starte scanningen. Tryk på kontakten igen for at vælge det fremhævede element. Du starter."</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Tryk på \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" for at starte scanningen. Tryk på kontakten igen for at vælge den fremhævede række. Tryk endnu engang for at vælge det fremhævede element. Du starter."</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Tryk på \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" for at skifte mellem elementer. Tryk på \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" for at vælge det fremhævede element. Du starter."</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Tryk på \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" for at skifte mellem rækker. Tryk på \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" for at vælge den fremhævede række. Gentag for at vælge et element i den pågældende række. Du starter."</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Tryk på \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" for at vælge elementer, der er fremhævet med <xliff:g id="COLOR_NAME_1">%2$s</xliff:g>, eller tryk på \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" for at vælge elementer, der er fremhævet med <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Gentag for at nå dit element. Du starter."</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Du har ikke tildelt kontakter til alle handlinger endnu. Brug knappen Forrige for at gå tilbage og afslutte tildelingen af kontakter."</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"Nulstil spil"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"Dette felt er allerede taget. Prøv igen."</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"Du vandt"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Bedre held næste gang"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"Uafgjort"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"Du kan beholde din nuværende indstilling eller starte forfra."</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Behold indstillingen"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Start forfra"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"Konfigurationen er færdig"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"Så er du klar."</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Du kan altid ændre yderligere indstillinger eller åbne konfigurationsguiden igen via indstillingerne for Kontaktadgang."</string>
+</resources>

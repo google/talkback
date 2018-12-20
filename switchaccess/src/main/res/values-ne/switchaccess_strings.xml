@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"पहुँच दिने स्विच"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"पहुँच स्विच गर्ने सम्बन्धी सेवाले मांसपेशी सम्बन्धी समस्या भएका व्यक्तिहरूलाई एक वा बढी स्विचहरूको प्रयोग गरी फोन र ट्याब्लेटलाई नियन्त्रण गर्न दिन्छ। वस्तुहरूको छनौट गर्ने, स्क्रोल गर्ने, पाठ प्रविष्ठ गर्ने लगायत थप कामका लागि स्विचको प्रयोग गर्नुहोस्।"</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"स्विचहरूले यन्त्रको नियन्त्रण गर्नुहोस्"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"मद्दत र प्रतिक्रिया"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"स्वतः स्क्यान"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"स्वतः स्क्यानको समय"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"स्वत:स्क्यान हुने प्रक्रियालाई उल्ट्याउनुहोस्"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="other">%.२f सेकेन्ड</item>
+      <item quantity="one">१ सेकेन्ड</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"स्क्यानिङलाई आफू अनुकूल पार्नुहोस्"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"स्क्यान विधि"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"पहिलो वस्तुको विलम्ब"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"स्विचहरू तोक्नुहोस्"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"कारबाही गर्न स्विचहरू तोक्नुहोस्"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"स्क्यान गर्न स्विच तोक्नुहोस्"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"रेखाको गति"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"स्क्यानहरूको सङ्ख्या"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"स्क्यान गर्ने प्रक्रिया कतिपटक दोहोर्‍याउने भन्ने चयन गर्नुहोस्"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"डिबाउन्सको समय"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"यस समयभित्रको पटक पटकको थिचाइलाई एक पटककै थिचाइका रूपमा लिइने छ।"</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"कारबाही सम्पन्न गर्न रिलिज गर्नहोस्"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"स्विच रिलिज भएपछि कारबाही सम्पन्न गर्नुहोस्"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="other">%d लुपहरू</item>
+      <item quantity="one">%d लुप</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"कुञ्जी \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' लाई पहिले नै \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' काम तोकिएको छ।"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="other">%d स्विचहरू तोकिए</item>
+      <item quantity="one">%d स्विच तोकियो</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"समूह चयनका लागि स्विच %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"अर्को"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"अघिल्लो"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"चयन गर्नुहोस्"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"लामो-थिचाइ"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"अगाडि स्क्रोल गर्नुहोस्"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"पछाडि स्क्रोल गर्नुहोस्"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"खारेज गर्नुहोस्"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"विस्तृत गर्नुहोस्"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"संक्षिप्त गर्नुहोस्"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"पाठलाई हाइलाइट गर्नुहोस्"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"प्रतिलिपि गर्नुहोस्"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"काट्नुहोस्"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"टाँस्नुहोस्"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"मेनु"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"पछाडि"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"गृह पृष्ठ"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"परिदृश्य"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"सूचनाहरू"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"द्रुत सेटिङहरू"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"अगाडि स्क्रोल गर्नुहोस्"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"पछाडि स्क्रोल गर्नुहोस्"</string>
+    <string name="point_scan" msgid="4514216871544244788">"विन्दु स्क्यान"</string>
+    <string name="box_scan" msgid="6675486192630209217">"पोइन्ट स्क्यानबाट बाहिर निस्कनुहोस्"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"दायाँतिर स्वाइप गर्नुहोस्"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"बायाँतिर स्वाइप गर्नुहोस्"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"माथितिर स्वाइप गर्नुहोस्"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"तलतिर स्वाइप गर्नुहोस्"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"स्वाइप गर्नुहोस् (आफू अनुकूल)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"जुम आउट गर्नुहोस्"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"जुम इन गर्नुहोस्"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"पहुँच स्विच गर्ने सम्बन्धी सेटिङहरू"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"यसलाई सूचीबाट हटाउन वा थप्न एउटा कुञ्जी संयोजन थिच्नुहोस्।"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"तोकिएको स्विच हटाउनुहोस्"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"कुनै स्विचहरू तोकिएका छैनन्"</string>
+    <string name="more" msgid="1547670498589416840">"थप"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"स्पेस"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"प्रविष्टि गर्नुहोस्"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"ट्याब"</string>
+    <string name="save" msgid="5398278773451196019">"सुरक्षित गर्नुहोस्"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"स्क्यानिङलाई हाइलाइट गर्ने शैली"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"प्राथमिक खोज्ने शैली"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"हाइलाइट गर्ने रङ"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"हाइलाइट गर्ने लाइनको शैली"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"गोपनीयता नीति"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"स्वतः-चयनको प्रक्रियालाई सक्षम गर्नुहोस्"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"स्वतः-चयनको प्रक्रियालाई असक्षम गर्नुहोस्"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"अर्को वर्ण"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"अर्को शब्द"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"अर्को लाइन"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"अर्को अनुच्छेद"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"अर्को पृष्ठ"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"अघिल्लो वर्ण"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"अघिल्लो शब्द"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"अघिल्लो लाइन"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"अघिल्लो अनुच्छेद"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"अघिल्लो पृष्ठ"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"स्क्यान गर्ने कार्य स्वचालित रूपमा सुरु गर्नुहोस्"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"स्विच नथिची स्क्यान सुरु हुन्छ"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"पहुँच स्विच गर्ने सम्बन्धी सेटअप खोल्नुहोस्"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"पहुँच स्विच गर्ने सम्बन्धी सेटअपको जादुगर"</string>
+    <string name="one_switch" msgid="5247899666787922810">"एउटा स्विच"</string>
+    <string name="two_switches" msgid="3082487661638289356">"दुईवटा स्विचहरू"</string>
+    <string name="finish" msgid="4267641294267512480">"सम्पन्न"</string>
+    <string name="exit" msgid="8664597014081860813">"निकास"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"स्विचको सङ्ख्‍या छान्नुहोस्"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"स्वत: एउटा वस्तुबाट अर्को वस्तुमा जान स्विच थिच्नुहोस्, त्यसपछि हाइलाइट गरिएको वस्तु चयन गर्न पुन: थिच्नुहोस्।"</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"एउटा वस्तुबाट अर्को वस्तुमा जान एउटा स्विच थिच्नुहोस्, हाइलाइट गरिएको वस्तु चयन गर्न अर्को स्विच थिच्नुहोस्।"</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"स्क्यानको गति चयन गर्नुहोस्"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"उक्त हाइलाइट प्रत्येक वस्तुमा कतिबेर टिक्नुपर्छ भन्ने छनौट गर्नुहोस्"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"शीघ्र (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>सेकेन्ड विलम्ब)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"मध्यम (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>सेकेन्ड विलम्ब)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"सुस्त (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>सेकेन्ड विलम्ब)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"आफू अनुकूल"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"विलम्ब (सेकेन्ड)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"कुञ्जी \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' लाई पहिले नै अर्को कारबाही गर्ने काम तोकिएको छ"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"पङ्क्ति/स्तम्भ स्क्यानिङ"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"समूहको चयन"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"लिनियर स्क्यान गरिँदै"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"बोली प्रतिक्रिया"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS सेटिङहरू"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"धेरै वस्तुहरूका लागि"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"पहिलो र अन्तिम वस्तु भन्नुहोस्"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"वस्तुहरूको सङ्ख्या भन्नुहोस्"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"हाइलाइट गरिएका सबै वस्तुहरू भन्नुहोस्"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"सार्नुभन्दा पहिले कथन पूरा गर्नुहोस्"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"समूह <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> देखि <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> वस्तुहरू"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"स्क्रोल गर्न चयन गर्नुहोस्"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"अज्ञात वस्तु"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"कसरी स्क्यान गर्ने भन्ने छनौट गर्नुहोस्"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"एक पटकमा एउटा पङ्क्ति स्क्यान गर्नुहोस्। पङ्क्ति चयन गरेपछि, उक्त सूचीमा रहेका वस्तुहरूमाथि सार्नुहोस्।"</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"एक एक गरेर एउटा वस्तुबाट अर्को वस्तुमा जानुहोस्। किबोर्डहरूले सधैं पङ्क्तिका आधारमा स्क्यान गर्ने कुराको हेक्का राख्नुहोस्।"</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"सबै वस्तुहरूका लागि एउटा रङ तोकिने छ। आफूले चाहेको वस्तुसँग मिल्दो वरिपरिको रङको स्विच थिच्नुहोस्। आफूले छनौट गरेको वस्तुसम्म नपुगुन्जेल समूहको आकारलाई साँगुरो पार्दै लानुहोस्।"</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"<xliff:g id="ACTION_NAME">%s</xliff:g> का लागि स्विचहरू तोकिएको छ"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"कुनै पनि होइन"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"काम तोकिएका स्विचहरूलाई हटाउने हो?"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"तपाईंले पहिले नै स्विचहरूको काम तोक्नुभएको छ।"</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"स्विचहरू हटाउनुहोस्"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"स्विचहरू राख्‍नुहोस्"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"कुनै स्विचहरू तोकिएका छैनन्"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"यस कारबाहीका लागि कुनै स्विचहरू तोकिएका छैनन्। तपाईं निश्चित रूपमा जारी राख्‍न चाहनुहुन्छ?"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> समूह"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"यो <xliff:g id="OPTION_COLOR">%1$s</xliff:g> समूह चयन गर्ने काम तोक्न कुनै स्विच थिच्नुहोस्।"</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"यसलाई \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\" कारबाही गर्ने काम तोक्न एउटा स्विच थिच्नुहोस्।"</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"स्क्यान सुरु गरी चयन गर्नुहोस्"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Tic-Tac-Toe मा आफ्नो सेटअपको परीक्षण गर्नुहोस्"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"स्क्यान सुरु गर्न \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" मा थिच्नुहोस्। हाइलाइट गरिएको वस्तुलाई चयन गर्न उक्त स्विचलाई पुन: थिच्नुहोस्। पहिले तपाईं गर्नुहोस्!"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"स्क्यान सुरु गर्न \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" मा थिच्नुहोस्। चयन गरिएको पङ्क्ति छनौट गर्न स्विचलाई पुन: थिच्नुहोस्। चयन गरिएको वस्तुलाई छनौट गर्न पुन: एक पटक थिच्नुहोस्। पहिले तपाईं गर्नुहोस्!"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"एउटा वस्तुबाट अर्को वस्तुमा सार्न\"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" लाई थिच्नुहोस्। चयन गरिएको वस्तुलाई छनौट गर्न \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" लाई थिच्नुहोस्। पहिले तपाईं गर्नुहोस्!"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"एउटा पङ्क्तिबाट अर्को पङ्क्तिमा सार्न \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" लाई थिच्नुहोस्। हाइलाइट गरिएको पङ्क्ति छनौट गर्न \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" मा थिच्नुहोस्। उक्त पङ्क्तिको वस्तु छनौट गर्न प्रक्रियालाई दोहोर्‍याउनुहोस्। पहिले तपाईं गर्नुहोस्!"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g> मा हाइलाइट गरिएका वस्तुहरूलाई चयन गर्न \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" लाई थिच्नुहोस् वा <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> मा हाइलाइट गरिएका वस्तुहरू छनौट गर्न \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" लाई थिच्नुहोस्। आफ्नो वस्तुसम्म पुग्न दोहोर्‍याउनुहोस्। पहिले तपाईं गर्नुहोस्!"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"तपाईंसँग अझसम्म सबै कारबाहीका लागि काम तोकिएका स्विचहरू छैनन्। पछाडि फर्कनका लागि अघिल्लो बटनको प्रयोग गर्नुहोस् र स्विचहरू तोक्ने काम सम्पन्न गर्नुहोस्।"</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"खेल रिसेट गर्नुहोस्"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"यो वर्ग पहिले नै लिइएको छ। फेरि प्रयास गर्नुहोस्!"</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"तपाईँले जित्नुभयो!"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"अर्को पटक भाग्यले साथ देअोस्"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"बराबरी भयो"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"तपाईं आफ्नो हालको सेटअप कायम राख्न वा पुन: सुरु गर्न सक्नुहुन्छ।"</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"सेटअप कायम राख्नुहोस्"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"सुरु गर्नुहोस्"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"सेटअप पूरा भयो"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"तपाईं पूर्ण रूपमा तयार हुनुहुन्छ।"</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"तपाईँले जहिले पनि अतिरिक्त सेटिङहरू परिवर्तन गर्न सक्नुहुन्छ र पहुँच स्विच गर्ने सम्बन्धी सेटिङहरूमा गई पुन: सेटअप जादुगर खोल्नुहोस्।"</string>
+</resources>

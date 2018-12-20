@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="untitled_window" msgid="7017590766394623328">"无标题"</string>
+    <string name="template_alert_dialog_template" msgid="5493715708649314332">"提醒<xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
+    <string name="template_text_copied" msgid="1059175355898959427">"已复制，<xliff:g id="TEXT">%1$s</xliff:g>"</string>
+    <string name="template_capital_letter" msgid="4920626008395727629">"大写的 <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
+    <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> 个<xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
+    <string name="template_current_tts_engine" msgid="3963364867159704159">"使用的是<xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
+    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"按组合键可设置新的快捷方式。快捷方式必须包含 ALT 或 Ctrl 键。"</string>
+    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"按下包含 <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> 辅助键的组合键即可设置新的快捷键。"</string>
+    <string name="keycombo_unassigned" msgid="5817151372114230015">"未指定"</string>
+    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift 键"</string>
+    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt 键"</string>
+    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl 键"</string>
+    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"搜索键"</string>
+    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"向右箭头"</string>
+    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"向左箭头"</string>
+    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"向上箭头"</string>
+    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"向下箭头"</string>
+    <string name="granularity_default" msgid="4948042687369948597">"默认"</string>
+    <string name="granularity_character" msgid="2036726841460203840">"字符"</string>
+    <string name="granularity_word" msgid="2653776823920279013">"字词"</string>
+    <string name="granularity_line" msgid="727359260064093782">"行"</string>
+    <string name="granularity_paragraph" msgid="3760401274833105422">"段落"</string>
+    <string name="granularity_page" msgid="2739238666516816581">"页"</string>
+    <string name="granularity_web_section" msgid="8219174463230029732">"标题和地标"</string>
+    <string name="granularity_web_list" msgid="4386991044245560102">"列表"</string>
+    <string name="granularity_web_link" msgid="7817726975417542626">"链接"</string>
+    <string name="granularity_web_control" msgid="1885138772895126953">"控件"</string>
+    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"特殊内容"</string>
+    <string name="granularity_native_heading" msgid="4197974986104812378">"标题"</string>
+    <string name="granularity_native_control" msgid="2179123672532783038">"控件"</string>
+    <string name="granularity_native_link" msgid="5811543234687687607">"链接"</string>
+</resources>

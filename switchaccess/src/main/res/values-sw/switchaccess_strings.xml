@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Kufikia Kupitia Swichi"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"Ufikiaji kupitia Swichi huruhusu walemavu kudhibiti simu na kompyuta kibao wakitumia swichi moja au zaidi. Tumia swichi kuchagua vipengee, kusogeza, kuweka maandishi na mengine mengi."</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"Dhibiti kifaa ukitumia swichi"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Usaidizi na maoni"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Kukagua kiotomatiki"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Muda wa kukagua kiotomatiki"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Kukagua kiotomatiki ikirudi nyuma"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="other">Sekunde %.2f</item>
+      <item quantity="one">Sekunde 1</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Badilisha ukaguzi upendavyo"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Mbinu ya kukagua"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Kuchelewa kwa kipengee cha kwanza"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Chagua swichi"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Chagua swichi za vitendo"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Chagua swichi za kukagua"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Kasi ya mstari"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"Idadi ya ukaguzi"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Chagua mara ambazo utarudia kukagua"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Weka mipangilio ya wakati"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Kubonyeza mara kadhaa katika muda huu kutachukuliwa kama kubonyeza mara moja."</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Achilia ili utekeleze hatua"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Tekeleza hatua wakati swichi imeachiliwa"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="other">Mifululizo %d</item>
+      <item quantity="one">Mfululizo %d</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Kitufe cha  \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' tayari kimekabidhiwa kwenye \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\'"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="other">Swichi %d zimekabidhiwa</item>
+      <item quantity="one">Swichi %d imekabidhiwa</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"Swichi ya uteuzi wa kikundi %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Inayofuata"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Iliyotangulia"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Teua"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"Bonyeza kwa muda"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Sogeza mbele"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Sogeza nyuma"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Ondoa"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"Panua"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"Kunja"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"Angazia maandishi"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"Nakili"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"Kata"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"Bandika"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENYU"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Nyuma"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Mwanzo"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Muhtasari"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Arifa"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Mipangilio ya Haraka"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"Sogeza mbele"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"Sogeza nyuma"</string>
+    <string name="point_scan" msgid="4514216871544244788">"Kukagua kwa pointi"</string>
+    <string name="box_scan" msgid="6675486192630209217">"Ondoka kwenye ukaguzi wa Sehemu"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"Telezesha kidole kulia"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"Telezesha kidole kushoto"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"Telezesha kidole juu"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"Telezesha kidole chini"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Telezesha kidole (maalum)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"Sogeza mbali"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"Vuta karibu"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Badili mipangilio ya Ufikiaji"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Bonyeza mchanganyiko wa swichi ili uiongeze au uiondoe kwenye orodha"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Futa ukabidhishaji wa swichi"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"Hakuna swichi zilizokabidhiwa"</string>
+    <string name="more" msgid="1547670498589416840">"Zaidi"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Nafasi"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Weka"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Kichupo"</string>
+    <string name="save" msgid="5398278773451196019">"Hifadhi"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Mtindo wa kuangazia ukaguzi"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Mtindo wa msingi wa uchanganuzi"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Rangi ya kuangazia"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Mtindo wa mstari wa kuangazia"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Sera ya faragha"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Washa uchaguzi wa kiotomatiki"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Zima uchaguzi wa kiotomatiki"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Herufi inayofuata"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Neno linalofuata"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Mstari unaofuata"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Aya inayofuata"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Ukurasa unaofuata"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Herufi iliyotangulia"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Neno lililotangulia"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Mstari uliotangulia"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Aya iliyotangulia"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Ukurasa uliotangulia"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Anzisha ukaguzi wa kiotomatiki"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Anzisha ukaguzi bila kubonyeza swichi"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Fungua mipangilio ya Kufikia Swichi"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"Badilisha Ufikiaji wa Utaratibu Uliofupishwa wa Kuweka Mipangilio"</string>
+    <string name="one_switch" msgid="5247899666787922810">"Swichi moja"</string>
+    <string name="two_switches" msgid="3082487661638289356">"Swichi mbili"</string>
+    <string name="finish" msgid="4267641294267512480">"Kamilisha"</string>
+    <string name="exit" msgid="8664597014081860813">"Ondoka"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"Chagua idadi ya swichi"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"Bofya swichi ili uanze kusogeza kiotomatiki kati ya vipengee, kisha ubonyeze tena ili uchague kipengee kilichoangaziwa."</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"Bonyeza swichi moja ili usogeze kati ya vipengee. Bonyeza swichi nyingine ili uchague kipengee kilichoangaziwa."</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"Chagua kasi ya kukagua"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"Chagua muda ambao vipengee vilivyoangaziwa vinapaswa kukaa kwenye kila kipengee."</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"Haraka (kuchelewa kwa sekunde <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"Wastani (kuchelewa kwa sekunde <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"Polepole (kuchelewa kwa sekunde <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"Maalum"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"itachelewa kwa (sekunde)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Kitufe cha \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' tayari kimekabidhiwa kwenye hatua nyingine"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"Kukagua kwa safu mlalo au safu wima"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"Uteuzi wa kikundi"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"Kukagua kwa mstari"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Maelezo yanayotamkwa"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Mipangilio ya TTS"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Kwa vipengee kadhaa"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Zungumza kwanza &amp; kipengee cha mwisho"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Sema idadi ya vipengee"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Tamka vipengee vyote vilivyoangaziwa"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Maliza kutamka kabla ya kusogeza"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"Kikundi cha <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> hadi <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"Vipengee <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"Chagua ili usogeze"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"kipengee kisichojulikana"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"Chagua jinsi ya kukagua"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"Tafuta mstari mmoja kwa wakati mmoja. Baada ya safu mlalo kuchaguliwa, sogeza kati ya vipengee vilivyo kwenye orodha hiyo."</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"Sogeza kati ya vipengee, moja baada ya nyingine. Kumbuka kuwa kila wakati kibodi hukagua kulingana na safu mlalo."</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"Vipengee vyote vitakabidhiwa rangi. Bonyeza swichi inayolingana na rangi karibu na kipengee unachotaka. Punguza kiwango cha kikundi hadi utakapofikia chaguo lako."</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Swichi zilizokabidhiwa kwenye <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Hamna"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Ungependa kuondoa swichi zilizokabidhiwa?"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Tayari umekabidhi swichi."</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Ondoa swichi"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Weka swichi"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Hakuna swichi zilizokabidhiwa"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Hakuna swichi zilizokabidhiwa kwenye hatua hii. Una uhakika unataka kuendelea?"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"Kikundi cha <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Bonyeza swichi ili uikabidhi kwenye kikundi cha <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Bonyeza swichi ili uikabidhi kitendo cha \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"Anza kukagua na kuchagua"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Jaribu mipangilio yako ukitumia Tic-Tac-Toe"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Bonyeza \" <xliff:g id="SWITCH_NAME">%1$s</xliff:g> \" ili uanze kukagua. Bonyeza swichi hiyo tena ili uchague kipengee kilichoangaziwa. Unaweza kuwa wa kwanza!"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Bonyeza <xliff:g id="SWITCH_NAME">%1$s</xliff:g> ili uanze kukagua. Bonyeza swichi hiyo tena ili uchague safu mlalo iliyoangaziwa. Unaweza kuwa wa kwanza!"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Bonyeza <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> ili usogeze kati ya vipengee. Bonyeza <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g> ili uchague kipengee kilichoangaziwa. Unaweza kuwa wa kwanza!"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Bonyeza <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> ili usogeze kati ya safu mlalo. Bonyeza <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g> ili ichague safu mlalo iliyoangaziwa. Rudia ili uchague kipengee kwenye safu mlalo hiyo. Unaweza kuwa kwanza!"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Bonyeza \" <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> \" ili uchague vipengee vilivyoangaziwa katika <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> au ubonyeze \" <xliff:g id="SWITCH_NAME_2">%4$s</xliff:g> \" ili uchague vipengee vilivyoangaziwa kwenye <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Rudia ili ufikie kipengele chako. Unaweza kuwa wa kwanza!"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Bado huna swichi zilizokabidhiwa kwenye vitendo vyote. Tumia kitufe cha Iliyotangulia ili urudi nyuma na umalize kukabidhi swichi."</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"Weka mchezo upya"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"Mraba huu tayari umechukuliwa. Jaribu tena!"</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"Umeshinda!"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Huenda ukawa na bahati nzuri wakati mwingine"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"Ni sare"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"Unaweza kuweka mipangilio yako ya sasa, au uanze tena."</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Hifadhi mipangilio"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Anza tena"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"Imemaliza kuweka mipangilio"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"Uko tayari kutumia."</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Unaweza kubadilisha mipangilio ya ziada au ufungue tena utaratibu uliofupishwa kutoka mipangilio ya Kufikia Kupitia Swichi."</string>
+</resources>

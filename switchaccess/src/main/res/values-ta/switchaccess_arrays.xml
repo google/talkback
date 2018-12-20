@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string-array name="switch_access_color_entries">
+    <item msgid="7934595828699536711">"பச்சை"</item>
+    <item msgid="7616478199824616148">"ஆரஞ்சு"</item>
+    <item msgid="528738291475141372">"சிவப்பு"</item>
+    <item msgid="3613307072137891343">"நீலம்"</item>
+    <item msgid="1719741716015833575">"வெள்ளை"</item>
+  </string-array>
+  <string-array name="switch_access_weight_entries">
+    <item msgid="5215195704613305820">"மெல்லிய திடக் கோடு"</item>
+    <item msgid="7698398358042168523">"நடுத்தர திடக் கோடு"</item>
+    <item msgid="4047443674448719927">"தடித்த திடக் கோடு"</item>
+  </string-array>
+  <string-array name="switch_access_scanning_methods_entries">
+    <item msgid="8644818950395737812">"லீனியர் ஸ்கேனிங்"</item>
+    <item msgid="6882375457227534722">"வரிசை-நெடுவரிசை"</item>
+    <item msgid="2527470982516678330">"குழுத் தேர்வு"</item>
+    <item msgid="7675777327828673805">"நோமோன் கடிகாரங்கள்"</item>
+  </string-array>
+</resources>

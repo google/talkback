@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"按掣功能"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"「按掣功能」讓行動不便人士使用一個或多個按掣控制手機和平板電腦。按掣即可選取項目、捲動和輸入文字等。"</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"透過開關控制裝置"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"說明和意見反映"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"自動掃描"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"自動掃描時間"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"反向自動掃描"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="other">%.2f 秒</item>
+      <item quantity="one">1 秒</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"自訂掃描"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"掃描方法"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"在第一個項目延遲"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"指派按掣"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"將按掣指派至操作"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"為掃描指派按掣"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"線移動速度"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"掃描次數"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"選擇掃描重覆次數"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"防重按時間"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"在此時段按下多次將被視為一次。"</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"放手即執行操作"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"放開按擎時執行操作"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="other">%d 次</item>
+      <item quantity="one">%d 次</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"「<xliff:g id="KEY_NAME">%1$s</xliff:g>」按掣已指派至「<xliff:g id="ACTION_NAME">%2$s</xliff:g>」"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="other">已指派 %d 個按擎</item>
+      <item quantity="one">已指派 %d 個按擎</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"群組選取按擎 %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"下一項"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"返回"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"選取"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"長按"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"向前捲動"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"向後捲動"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"關閉"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"展開"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"收合"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"反白顯示文字"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"複製"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"剪下"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"貼上"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"選單"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"返回"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"主頁"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"概覽"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"通知"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"快速設定"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"向前捲動"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"向後捲動"</string>
+    <string name="point_scan" msgid="4514216871544244788">"點掃描"</string>
+    <string name="box_scan" msgid="6675486192630209217">"退出「點掃描」"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"向右快速滑動"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"向左快速滑動"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"向上快速滑動"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"向下快速滑動"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"快速滑動 (自訂)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"縮小"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"放大"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"「按掣功能」設定"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"按下按鍵組合即可將它加入清單或從清單中移除"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"清除指派按鍵"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"沒有指派按擎"</string>
+    <string name="more" msgid="1547670498589416840">"更多"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"空白"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"輸入"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
+    <string name="save" msgid="5398278773451196019">"儲存"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"掃描反白顯示樣式"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"主要掃描樣式"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"反白顯示顏色"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"反白顯示線條樣式"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"私隱權政策"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"啟用自動選取功能"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"停用自動選取功能"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"下一個字元"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"下一個字詞"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"下一行文字"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"下一段文字"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"下一頁"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"上一個字元"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"上一個字詞"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"上一行文字"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"上一段文字"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"上一頁"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"自動開始掃描"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"開始掃描，無需按下切換按鈕"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"開啟「按掣功能」設定"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"「按掣功能」設定精靈"</string>
+    <string name="one_switch" msgid="5247899666787922810">"一個按擎"</string>
+    <string name="two_switches" msgid="3082487661638289356">"兩個按掣"</string>
+    <string name="finish" msgid="4267641294267512480">"完成"</string>
+    <string name="exit" msgid="8664597014081860813">"退出"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"選擇按擎數量"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"按下按擎，即可在項目之間自動移動，再按一下以選取反白顯示的項目。"</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"按下一個按擎，即可在項目之間移動，再按下另一個按掣以選取反白顯示的項目。"</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"選擇掃描速度"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"選擇每個項目反白顯示的時間"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"快 (延遲 <xliff:g id="DELAY_SPEED">%1$s</xliff:g> 秒)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"中 (延遲 <xliff:g id="DELAY_SPEED">%1$s</xliff:g> 秒)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"慢 (延遲 <xliff:g id="DELAY_SPEED">%1$s</xliff:g> 秒)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"自訂"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"延遲 (秒)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"「<xliff:g id="KEY_NAME">%1$s</xliff:g>」鍵已指派至另一項操作"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"列/欄掃描"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"群組選取"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"直線掃描"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"朗讀功能"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"文字轉語音設定"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"適用於多個項目"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"朗讀第一個和最後一個項目"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"朗讀項目數量"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"朗讀所有反白顯示的項目"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"移動前先完成朗讀"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"群組<xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g>至<xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g>個項目"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"選取就可以捲動"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"不明項目"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"選擇掃描方法"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"每次掃描一列。選取列後，在該清單上的項目移動。"</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"在項目之間逐個移動。請注意，鍵盤一律按列掃描。"</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"所有項目會獲分配一種顏色。按下與項目四周顏色相應的按擎。收窄群組大小，直至選擇完成。"</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"已將按擎指派至「<xliff:g id="ACTION_NAME">%s</xliff:g>」"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"沒有"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"要清除已指派的按擎嗎？"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"您已指派按擎。"</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"清除按擎"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"保留按擎"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"沒有指派按擎"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"沒有指派按擎至此操作。您確定要繼續嗎？"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g>群組"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"按下按擎，即可將按擎指派至<xliff:g id="OPTION_COLOR">%1$s</xliff:g>群組。"</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"按下按擎即可將按掣指派至「<xliff:g id="ACTION_NAME">%1$s</xliff:g>」操作。"</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"開始掃描並選取"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"透過「過三關」測試您的設定"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"按下「<xliff:g id="SWITCH_NAME">%1$s</xliff:g>」即可開始掃描。再次按下按掣以選取反白顯示的項目。您先開始！"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"按下「<xliff:g id="SWITCH_NAME">%1$s</xliff:g>」即可開始掃描。再次按下按掣以選取反白顯示的列。再按一次即可選取反白顯示的項目。您先開始！"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"按下「<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>」即可在項目之間移動。按下「<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>」以選取反白顯示的項目。您先開始！"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"按下「<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>」即可在列之間移動。按下「<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>」以選取反白顯示的列。您可以在該列重覆選取項目。您先開始！"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"按下「<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>」即可選取突顯為<xliff:g id="COLOR_NAME_1">%2$s</xliff:g>的項目，或按下「<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>」以選取突顯為<xliff:g id="COLOR_NAME_3">%3$s</xliff:g>的項目。可重覆選取項目。您先開始！"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"您尚未將按掣指派至所有操作。請使用「返回」按鈕返回並完成指派按掣。"</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"重設遊戲"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"此方格已選取，請再試一次！"</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"您贏了！"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"再接再勵"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"打和"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"您可以保留目前設定，或重新開始。"</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"保留設定"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"重新開始"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"已完成設定"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"大功告成！"</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"您可以隨時變更其他設定，或在「按掣功能」設定中再次開啟設定精靈。"</string>
+</resources>

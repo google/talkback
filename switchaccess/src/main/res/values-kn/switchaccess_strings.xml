@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"ಪ್ರವೇಶ ಬದಲಾವಣೆ"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"ದೈಹಿಕ ನ್ಯೂನ್ಯತೆ ಇರುವ ವ್ಯಕ್ತಿಗಳಿಗೆ ಒಂದು ಅಥವಾ ಒಂದಕ್ಕಿಂತ ಹೆಚ್ಚು ಸ್ವಿಚ್‌ಗಳ ಸಹಾಯದಿಂದ ಫೋನ್‌ ಮತ್ತು ಟ್ಯಾಬ್ಲೆಟ್‌ಗಳನ್ನು ಸುಲಭವಾಗಿ ಬಳಸಲು ಸ್ವಿಚ್ ಪ್ರವೇಶ ಅನುಮತಿಸುತ್ತದೆ.  ಐಟಂಗಳನ್ನು ಆಯ್ಕೆಮಾಡಲು, ಸ್ಕ್ರಾಲ್ ಮಾಡಲು, ಪಠ್ಯವನ್ನು ನಮೂದಿಸಲು ಮತ್ತು ಹೆಚ್ಚಿನದಕ್ಕೆ ಸ್ವಿಚ್‌ಗಳನ್ನು ಬಳಸಿ."</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"ಸ್ವಿಚ್‌ಗಳೊಂದಿಗೆ ಸಾಧನವನ್ನು ನಿಯಂತ್ರಿಸಿ"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"ಸಹಾಯ ಮತ್ತು ಪ್ರತಿಕ್ರಿಯೆ"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"ಸ್ವಯಂ-ಸ್ಕ್ಯಾನ್"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"ಸ್ವಯಂ-ಸ್ಕ್ಯಾನ್ ಸಮಯ"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"ರಿವರ್ಸ್ ಸ್ವಯಂ-ಸ್ಕ್ಯಾನ್"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="one">%.2f ಸೆಕೆಂಡುಗಳು</item>
+      <item quantity="other">%.2f ಸೆಕೆಂಡುಗಳು</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"ಸ್ಕ್ಯಾನ್ ಮಾಡುವಿಕೆಯನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"ಸ್ಕ್ಯಾನಿಂಗ್ ವಿಧಾನ"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"ಮೊದಲ ಐಟಂನಲ್ಲಿ ವಿಳಂಬವಾಗಿದೆ"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"ಸ್ವಿಚ್‌ಗಳನ್ನು ನಿಯೋಜಿಸು"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"ಕ್ರಿಯೆಗೆ ಸ್ವಿಚ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಿ"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"ಸ್ಕ್ಯಾನ್ ಮಾಡಲು ಸ್ವಿಚ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಿ"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"ಸಾಲಿನ ವೇಗ"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"ಸ್ಕ್ಯಾನ್‌ಗಳ ಸಂಖ್ಯೆ"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"ಸ್ಕ್ಯಾನ್ ಮಾಡುವುದನ್ನು ಎಷ್ಟು ಬಾರಿ ಪುನರಾವರ್ತಿಸಬೇಕು ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"ಡಿಬೌನ್ಸ್ ಸಮಯ"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"ಈ ಸಮಯದಲ್ಲಿನ ಬಹು ಒತ್ತುವಿಕೆಗಳನ್ನು ಒಂದೇ ಒತ್ತುವಿಕೆಯಂತೆ ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ."</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"ಕ್ರಿಯೆ ನಿರ್ವಹಿಸಲು ಬಿಡುಗಡೆ ಮಾಡಿ"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"ಸ್ವಿಚ್ ಅನ್ನು ಬಿಡುಗಡೆಗೊಳಿಸಿದಾಗ ಕ್ರಿಯೆಯ ಬದ್ಧತೆ ತೋರಿಸುತ್ತದೆ"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="one">%d ಲೂಪ್‌ಗಳು</item>
+      <item quantity="other">%d ಲೂಪ್‌ಗಳು</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"\'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' ಗೆ \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' ಸ್ವಿಚ್ ಅನ್ನು ಈಗಾಗಲೇ ನಿಯೋಜಿಸಲಾಗಿದೆ"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="one">%d ಸ್ವಿಚ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಲಾಗಿದೆ</item>
+      <item quantity="other">%d ಸ್ವಿಚ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಲಾಗಿದೆ</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"ಗುಂಪು ಆಯ್ಕೆ ಸ್ವಿಚ್ %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"ಮುಂದೆ"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"ಹಿಂದೆ"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"ಆಯ್ಕೆಮಾಡು"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"ದೀರ್ಘವಾಗಿ-ಒತ್ತಿ"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"ಮುಂದಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"ಹಿಂದಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"ವಜಾಗೊಳಿಸಿ"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"ವಿಸ್ತರಿಸು"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"ಕುಗ್ಗಿಸು"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"ಪಠ್ಯ ಹೈಲೈಟ್ ಮಾಡಿ"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"ನಕಲಿಸು"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"ಕತ್ತರಿಸು"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"ಅಂಟಿಸಿ"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"ಮೆನು"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"ಹಿಂದೆ"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"ಮುಖಪುಟ"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"ಅವಲೋಕನ"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"ಅಧಿಸೂಚನೆಗಳು"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‍ಗಳು"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"ಮುಂದಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"ಹಿಂದಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ"</string>
+    <string name="point_scan" msgid="4514216871544244788">"ಪಾಯಿಂಟ್ ಸ್ಕ್ಯಾನ್"</string>
+    <string name="box_scan" msgid="6675486192630209217">"ಎಕ್ಸಿಟ್ ಪಾಯಿಂಟ್ ಸ್ಕ್ಯಾನ್"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"ಬಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"ಎಡಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"ಕೆಳಗೆ ಸ್ವೈಪ್ ಮಾಡಿ"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"ಸ್ವೈಪ್ ಮಾಡಿ (ಕಸ್ಟಮ್)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"ಝೂಮ್ ಔಟ್"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"ಝೂಮ್ ಇನ್"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"ಸ್ವಿಚ್ ಪ್ರವೇಶ ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"ಪಟ್ಟಿಯಿಂದ ಸ್ವಿಚ್ ಸಂಯೋಜನೆಯನ್ನು ಸೇರಿಸಲು ಮತ್ತು ತೆಗೆದುಹಾಕಲು ಅದನ್ನು ಒತ್ತಿರಿ"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"ನಿಯೋಜಿಸಲಾದ ಸ್ವಿಚ್ ಅನ್ನು ತೆರವುಗೊಳಿಸಿ"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"ಯಾವುದೇ ಸ್ವಿಚ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಲಾಗಿಲ್ಲ"</string>
+    <string name="more" msgid="1547670498589416840">"ಇನ್ನಷ್ಟು"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"ಸ್ಪೇಸ್"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"ಟ್ಯಾಬ್"</string>
+    <string name="save" msgid="5398278773451196019">"ಉಳಿಸು"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"ಹೈಲೈಟ್ ಶೈಲಿಯನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಲಾಗುತ್ತಿದೆ"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"ಪ್ರಾಥಮಿಕ ಸ್ಕ್ಯಾನ್ ಶೈಲಿ"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"ಬಣ್ಣ ಹೈಲೈಟ್ ಮಾಡಿ"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"ಸಾಲು ಶೈಲಿ ಹೈಲೈಟ್ ಮಾಡಿ"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"ಗೌಪ್ಯತೆ ನೀತಿ"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"ಸ್ವಯಂ-ಆಯ್ಕೆ ಸಕ್ರಿಯಗೊಳಿಸಿ"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"ಸ್ವಯಂ-ಆಯ್ಕೆ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"ಮುಂದಿನ ಅಕ್ಷರ"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"ಮುಂದಿನ ಪದ"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"ಮುಂದಿನ ಸಾಲು"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"ಮುಂದಿನ ಪ್ಯಾರಾಗ್ರಾಫ್"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"ಮುಂದಿನ ಪುಟ"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"ಹಿಂದಿನ ಅಕ್ಷರ"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"ಹಿಂದಿನ ಪದ"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"ಹಿಂದಿನ ಸಾಲು"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"ಹಿಂದಿನ ಪ್ಯಾರಾಗ್ರಾಫ್"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"ಹಿಂದಿನ ಪುಟ"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸ್ಕ್ಯಾನಿಂಗ್ ಪ್ರಾರಂಭಿಸು"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"ಸ್ವಿಚ್ ಒತ್ತದೆಯೇ ಸ್ಕ್ಯಾನ್ ಪ್ರಾರಂಭಗೊಳ್ಳುತ್ತದೆ"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"ಸೆಟಪ್ ಪ್ರವೇಶಿಸಲು ಸ್ವಿಚ್ ಅನ್ನು ತೆರೆಯಿರಿ"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"ಸೆಟಪ್ ವಿಜಾರ್ಡ್‌ ಪ್ರವೇಶ ಬದಲಾಯಿಸಿ"</string>
+    <string name="one_switch" msgid="5247899666787922810">"ಒಂದು ಸ್ವಿಚ್"</string>
+    <string name="two_switches" msgid="3082487661638289356">"ಎರಡು ಸ್ವಿಚ್‌ಗಳು"</string>
+    <string name="finish" msgid="4267641294267512480">"ಪೂರ್ಣಗೊಳಿಸು"</string>
+    <string name="exit" msgid="8664597014081860813">"ನಿರ್ಗಮಿಸಿ"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"ಸ್ವಿಚ್‌ಗಳ ಸಂಖ್ಯೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಐಟಂಗಳ ನಡುವೆ ಸರಿಸುವುದನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸ್ವಿಚ್ ಒತ್ತಿರಿ ನಂತರ ಹೈಲೈಟ್ ಮಾಡಲಾದ ಐಟಂ ಅನ್ನು ಆಯ್ಕೆಮಾಡಲು ಮತ್ತೆ ಅದನ್ನು ಒತ್ತಿರಿ."</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"ಐಟಂಗಳ ನಡುವೆ ಸರಿಸಲು ಒಂದು ಸ್ವಿಚ್ ಅನ್ನು ಒತ್ತಿರಿ. ಹೈಲೈಟ್ ಮಾಡಲಾದ ಐಟಂ ಅನ್ನು ಆಯ್ಕೆಮಾಡಲು ಇತರ ಸ್ವಿಚ್ ಅನ್ನು ಒತ್ತಿರಿ."</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"ಸ್ಕ್ಯಾನ್ ಮಾಡುವ ವೇಗವನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"ಪ್ರತಿ ಐಟಂನಲ್ಲಿ  ಹೈಲೈಟ್‌ ಎಷ್ಟು ಕಾಲ ಉಳಿಯಬೇಕು ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"ವೇಗ (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> ವಿಳಂಬ)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"ಮಧ್ಯಮ (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> ವಿಳಂಬ)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"ನಿಧಾನ (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> ವಿಳಂಬ)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"ಕಸ್ಟಮ್"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"ವಿಳಂಬ (ಸೆಕೆಂಡುಗಳು)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"ಈಗಾಗಲೇ \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' ಕೀ ಅನ್ನು ಬೇರೆ ಕ್ರಿಯೆಗೆ ನಿಯೋಜಿಸಲಾಗಿದೆ"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"ಸಾಲು-ಕಾಲಮ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಲಾಗುತ್ತಿದೆ"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"ಗುಂಪು ಆಯ್ಕೆ"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"ಲೀನಿಯರ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಲಾಗುತ್ತಿದೆ"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"ಮಾತಿನ ಪ್ರತಿಕ್ರಿಯೆ"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS ಸೆಟ್ಟಿಂಗ್‌ಗಳು"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"ಬಹು ಐಟಂಗಳಿಗಾಗಿ"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"ಮೊದಲಿನ ಮತ್ತು ಕೊನೆಯ ಐಟಂ ಧ್ವನಿ"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"ಐಟಂಗಳ ಸಂಖ್ಯೆಯನ್ನು ಹೇಳಿ"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"ಎಲ್ಲಾ ಹೈಲೈಟ್ ಮಾಡಲಾದ ಐಟಂಗಳ ಧ್ವನಿ"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"ಸರಿಸುವ ಮೊದಲು ಭಾಷಣವನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"ಗುಂಪು <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> ದಿಂದ <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> ಐಟಂಗಳು"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"ಸ್ಕ್ರಾಲ್ ಮಾಡಲು ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"ಅಜ್ಞಾತ ಐಟಂ"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"ಸ್ಕ್ಯಾನ್ ಮಾಡುವುದು ಹೇಗೆ ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"ಏಕಕಾಲಕ್ಕೆ ಒಂದು ಸಾಲನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ. ನಂತರ ಆಯ್ಕೆಮಾಡಲಾದ ಸಾಲನ್ನು ಆ ಪಟ್ಟಿಯಲ್ಲಿನ ಐಟಂಗಳ ಮೂಲಕ ಸರಿಸಿ."</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"ಏಕಕಾಲಕ್ಕೆ ಐಟಂಗಳ ನಡುವೆ ಸರಿಸಿ. ಕೀಬೋರ್ಡ್‌ಗಳನ್ನು ಯಾವಾಗಲೂ ಸಾಲಿನ ಮೂಲಕ ಸ್ಕ್ಯಾನ್ ಮಾಡುತ್ತವೆ ಎಂಬುದನ್ನು ಗಮನಿಸಿ."</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"ಎಲ್ಲಾ ಐಟಂಗಳನ್ನು ಬಣ್ಣದಲ್ಲಿ ನಿಯೋಜಿಸಲಾಗುತ್ತದೆ. ನೀವು ಬಯಸುವ ಐಟಂ ಸುತ್ತಲಿನ ಬಣ್ಣಕ್ಕೆ ಅನುಗುಣವಾಗಿ ಸ್ವಿಚ್ ಅನ್ನು ಒತ್ತಿ. ನಿಮ್ಮ ಆಯ್ಕೆಯನ್ನು ನೀವು ತಲುಪುವವರೆಗೆ ಗುಂಪಿನ ಗಾತ್ರವನ್ನು ಕಿರಿದಾಗಿಸಿ."</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"<xliff:g id="ACTION_NAME">%s</xliff:g> ಗೆ ಸ್ವಿಚ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಲಾಗಿದೆ"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"ಯಾವುದೂ ಅಲ್ಲ"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"ನಿಯೋಜಿಸಲಾದ ಸ್ವಿಚ್‌ಗಳನ್ನು ತೆರವುಗೊಳಿಸುವುದೇ?"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"ನೀವು ಈಗಾಗಲೇ ಸ್ವಿಚ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಿರುವಿರಿ."</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"ಸ್ವಿಚ್‌ಗಳನ್ನು ತೆರವುಗೊಳಿಸು"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"ಸ್ವಿಚ್‌‌ಗಳನ್ನು ಇರಿಸು"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"ಯಾವುದೇ ಸ್ವಿಚ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಲಾಗಿಲ್ಲ"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"ಈ ಕ್ರಿಯೆಗೆ ಯಾವುದೇ ಸ್ವಿಚ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಿಲ್ಲ. ನೀವು ಮುಂದುವರೆಯಲು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> ಗುಂಪು"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> ಗುಂಪು ಆಯ್ಕೆಗೆ ಸ್ವಿಚ್ ಅನ್ನು ನಿಯೋಜಿಸಲು ಅದನ್ನು ಒತ್ತಿರಿ."</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"\"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\" ಕ್ರಿಯೆಗೆ ಇದನ್ನು ನಿಯೋಜಿಸಲು ಸ್ವಿಚ್ ಅನ್ನು ಒತ್ತಿರಿ."</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"ಸ್ಕ್ಯಾನ್ ಪ್ರಾರಂಭಿಸಿ ಮತ್ತು ಆಯ್ಕೆಮಾಡಿ"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Tic-Tac-Toe ಮೂಲಕ ನಿಮ್ಮ ಸೆಟಪ್ ಅನ್ನು ಪರೀಕ್ಷಿಸಿ"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"ಸ್ಕ್ಯಾನ್ ಮಾಡುವುದನ್ನು ಪ್ರಾರಂಭಿಸಲು \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ಒತ್ತಿರಿ. ಹೈಲೈಟ್ ಮಾಡಲಾದ ಐಟಂ ಅನ್ನು ಆಯ್ಕೆಮಾಡಲು ಮತ್ತೆ ಸ್ವಿಚ್ ಅನ್ನು ಒತ್ತಿರಿ. ನೀವು ಮೊದಲಿಗರಾಗಿ!"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"ಸ್ಕ್ಯಾನ್ ಮಾಡುವುದನ್ನು ಪ್ರಾರಂಭಿಸಲು \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ಒತ್ತಿರಿ. ಹೈಲೈಟ್ ಮಾಡಲಾದ ಸಾಲನ್ನು ಆಯ್ಕೆಮಾಡಲು ಮತ್ತೆ ಸ್ವಿಚ್ ಅನ್ನು ಒತ್ತಿರಿ. ಹೈಲೈಟ್ ಮಾಡಲಾದ ಐಟಂ ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ಇನ್ನೊಂದು ಬಾರಿ ಒತ್ತಿರಿ. ನೀವು ಮೊದಲಿಗರಾಗಿ!"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"ಐಟಂಗಳ ನಡುವೆ ಸರಿಸಲು \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ಒತ್ತಿರಿ. ಹೈಲೈಟ್ ಮಾಡಲಾದ ಐಟಂ ಅನ್ನು ಆಯ್ಕೆಮಾಡಲು \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ಒತ್ತಿರಿ. ನೀವು ಮೊದಲಿಗರಾಗಿ!"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"ಸಾಲುಗಳ ನಡುವೆ ಸರಿಸಲು \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ಒತ್ತಿರಿ. ಹೈಲೈಟ್ ಮಾಡಲಾದ ಸಾಲನ್ನು ಆಯ್ಕೆಮಾಡಲು \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ಒತ್ತಿರಿ. ಆ ಸಾಲಿನಲ್ಲಿ ಐಟಂ ಅನ್ನು ಆರಿಸಲು ಪುನರಾವರ್ತಿಸಿ. ನೀವು ಮೊದಲಿಗರಾಗಿ!"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g> ನಲ್ಲಿ ಹೈಲೈಟ್ ಮಾಡಲಾದ ಐಟಂಗಳನ್ನು ಆಯ್ಕೆಮಾಡಲು \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ಒತ್ತಿರಿ ಅಥವಾ <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> ನಲ್ಲಿ ಹೈಲೈಟ್ ಮಾಡಲಾದ ಐಟಂಗಳನ್ನು ಆಯ್ಕೆಮಾಡಲು \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" ಒತ್ತಿರಿ. ನಿಮ್ಮ ಐಟಂ ತಲುಪಲು ಪುನರಾವರ್ತಿಸಿ. ನೀವು ಮೊದಲಿಗರಾಗಿ!"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"ನೀವು ಎಲ್ಲಾ ಕ್ರಿಯೆಗಳಿಗೆ ಇನ್ನೂ ಸ್ವಿಚ್‌ಗಳನ್ನು ನಿಯೋಜಿಸಿಲ್ಲ. ಹಿಂದಕ್ಕೆ ಹೋಗಲು ಹಿಂದಿನ ಬಟನ್ ಬಳಸಿ ಮತ್ತು ಸ್ವಿಚ್‌ಗಳ ನಿಯೋಜಿಸುವಿಕೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ."</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"ಆಟವನ್ನು ಮರುಹೊಂದಿಸು"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"ಈ ಸ್ಕ್ವೇರ್ ಅನ್ನು ಈಗಾಗಲೇ ಪಡೆದುಕೊಳ್ಳಲಾಗಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ!"</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"ನೀವು ಗೆದ್ದಿರುವಿರಿ!"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"ಮುಂದಿನ ಬಾರಿಯ ಅದೃಷ್ಟ ನಿಮ್ಮದಾಗಲಿ"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"ಟೈ ಆಗಿದೆ"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಸೆಟಪ್ ಅನ್ನು ನೀವು ಇರಿಸಿಕೊಳ್ಳಬಹುದು ಅಥವಾ ಪ್ರಾರಂಭಿಸಬಹುದು."</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"ಸೆಟಪ್ ಅನ್ನು ಇರಿಸಿ"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"ಪ್ರಾರಂಭಿಸಿ"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"ಸೆಟಪ್ ಮುಕ್ತಾಯಗೊಂಡಿದೆ"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"ನೀವು ಎಲ್ಲ ರೀತಿಯಲ್ಲಿಯೂ ಸಿದ್ಧರಾಗಿರುವಿರಿ."</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"ನೀವು ಯಾವಾಗ ಬೇಕಾದರೂ ಹೆಚ್ಚುವರಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಬದಲಾಯಿಸಬಹುದು ಅಥವಾ ಸ್ವಿಚ್ ಪ್ರವೇಶ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ಮತ್ತೆ ಸೆಟಪ್ ವಿಜಾರ್ಡ್ ತೆರೆಯಬಹುದು."</string>
+</resources>

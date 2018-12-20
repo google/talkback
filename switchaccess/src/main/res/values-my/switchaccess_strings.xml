@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"အသုံးပြုမှု ပြောင်းမည်"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"ခန္ဓာကိုယ်မသန်စွမ်းသူများသည် Switch Access ဖြင့် ခလုတ်တစ်ခု သို့မဟုတ် ခလုတ်များကိုသုံးပြီး ဖုန်းနှင့် တက်ဘလက်များကို ထိန်းချုပ်နိုင်သည်။ ရွေးချယ်မှုပြုခြင်း၊ လှိမ့်ခြင်း၊ စာသားဖြည့်ခြင်းစသည်တို့ကို လုပ်ဆောင်ရန် ခလုတ်များကို အသုံးပြုပါ။"</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"စက်ကို ခလုတ်ဖြင့် ထိန်းချုပ်ပါ"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"အကူအညီနှင့် အကြံပြုချက်"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"အလိုအလျောက် ရှာဖွေခြင်း"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"ရှာဖွေချိန် အလိုအလျောက်သတ်မှတ်ခြင်း"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"အလိုအလျောက်နောက်ပြန်စကင်ဖတ်ရန်"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="other">%.2f စက္ကန့်</item>
+      <item quantity="one">၁ စက္ကန့်</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"စကင်ဖတ်ခြင်းကို စိတ်ကြိုက်ပြင်ဆင်ရန်"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"စကင်ဖတ်ရန်နည်းလမ်း"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"ပထမဆုံးအကြောင်းအရာတွင် နှောင့်နှေးမှု"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"ခလုတ်များကို သတ်မှတ်ရန်"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"ခလုတ်များ၏ လုပ်ဆောင်ချက်ကို သတ်မှတ်ပါ"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"ခလုတ်များကို စကင်ဖတ်ခြင်းအတွက် သတ်မှတ်ပါ"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"မျဉ်းတန်းအမြန်နှုန်း"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"စကင်ဖတ်သည့် အကြိမ်ရေ"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"စကင်ဖတ်ခြင်းကို အကြိမ်မည်မျှ ပြန်ကျော့မည်ကို ရွေးပါ"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"ခလုတ်တစ်ကြိမ်နှိပ်အဖြစ် သတ်မှတ်ချိန်"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"ဤအချိန်တွင်း အချက်ပေါင်းများစွာ နှိပ်ခြင်းကို တစ်ကြိမ်သာနှိပ်ခြင်းဟု မှတ်ယူပါမည်။"</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"လုပ်ငန်းစရန် ခလုတ်လွှတ်ခြင်း"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"ခလုတ်လွှတ်လိုက်လျှင် လုပ်ငန်းစရန်"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="other">ပြန်ကျော့မှု %d ကြိမ်</item>
+      <item quantity="one">ပြန်ကျော့မှု %d ကြိမ်</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"ခလုတ် \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' ကို \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' အဖြစ် သတ်မှတ်ထားပြီးဖြစ်သည်"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="other">ခလုတ် %d ခုကို သတ်မှတ်ထားသည်</item>
+      <item quantity="one">ခလုတ် %d ခုကို သတ်မှတ်ထားသည်</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"အုပ်စုလိုက်ရွေးချယ်မှု ခလုတ် %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"ရှေသို့"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"ယခင်"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"ရွေးရန်"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"ကြာရှည်နှိပ်ထားရန်"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"ရှေ့သို့ လှိမ့်ရန်"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"နောက်သို့ လှိမ့်ရန်"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"ပယ်ရန်"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"တိုးချဲ့ရန်"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"လျှော့ပြရန်"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"စာသားကို ထင်ရှားစေရန်"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"မိတ္တူကူးရန်"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"ဖြတ်ယူရန်"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"ကူးထည့်ရန်"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"မီနျူး"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"နောက်သို့"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"ပင်မ"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"ခြုံငုံသုံးသပ်ချ"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"အကြောင်းကြားချက်များ"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"အမြန် ဆက်တင်များ"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"ရှေ့သို့ လှိမ့်ရန်"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"နောက်သို့ လှိမ့်ရန်"</string>
+    <string name="point_scan" msgid="4514216871544244788">"အမှတ်လိုက်အမြန်စကင်ဖတ်မှု"</string>
+    <string name="box_scan" msgid="6675486192630209217">"အမှတ်လိုက်အမြန် စကင်ဖတ်မှုမှ ထွက်ရန်"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"ညာဖက်သို့ ပွတ်ဆွဲရန်"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"ဘယ်ဖက်သို့ ပွတ်ဆွဲရန်"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"အပေါ်သို့ ပွတ်ဆွဲရန်"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"အောက်သို့ပွတ်ဆွဲရန်"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"ပွတ်ဆွဲရန် (စိတ်ကြိုက်)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"ဇူးမ်ဖြုတ်ရန်"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"ဇူးမ်ဆွဲရန်"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Switch Access ဆက်တင်များ"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"စာရင်းထဲသို့ ထည့်ရန် သို့မဟုတ် ဖယ်ရှားရန် ကီးအတွဲကို နှိပ်ပါ"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"ခလုတ်သတ်မှတ်ချက်ကို ရှင်းရန်"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"မည်သည့်ခလုတ်များကိုမျှ သတ်မှတ်မထားပါ"</string>
+    <string name="more" msgid="1547670498589416840">"အခြား"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Space ခလုတ်"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter ခလုတ်"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab ခလုတ်"</string>
+    <string name="save" msgid="5398278773451196019">"သိမ်းရန် ခလုတ်"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"အရောင်ဖြင့်အသားပေးဖော်ပြရန်ပုံစံကို ရှာဖွေနေသည်"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"အဓိကစစ်ဆေးမှု စတိုင်"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"အသားပေးဖော်ပြရန် အရောင်"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"အသားပေးဖော်ပြမည့် စာကြောင်းပုံစံ"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"ပုဂ္ဂိုလ်ရေးဆိုင်ရာ မူဝါဒ"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"အလိုအလျောက် ရွေးချယ်ခြင်းကို ဖွင့်ပါ"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"အလိုအလျောက်ရွေးချယ်ခြင်းကို ပိတ်ပါ"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"နောက်စာလုံး"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"နောက်စကားလုံး"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"နောက်စာကြောင်း"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"နောက်စာပိုဒ်"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"နောက်စာမျက်နှာ"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"ယခင်စာလုံး"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"ယခင်စကားလုံး"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"ယခင်စာကြောင်း"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"ယခင်စာပိုဒ်"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"ယခင်စာမျက်နှာ"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"အလိုအလျောက်စတင် ရှာဖွေရန်"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"ခလုတ်မနှိပ်ဘဲ စတင်ရှာဖွေသည်"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Switch Access ပြင်ဆင်သတ်မှတ်မှုကို ဖွင့်ရန်"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"Switch Access အား ပြင်ဆင်သတ်မှတ်ရန် ဝစ်ဇတ်"</string>
+    <string name="one_switch" msgid="5247899666787922810">"ခလုတ်တစ်ခု"</string>
+    <string name="two_switches" msgid="3082487661638289356">"ခလုတ်နှစ်ခု"</string>
+    <string name="finish" msgid="4267641294267512480">"အပြီးသတ်ရန်"</string>
+    <string name="exit" msgid="8664597014081860813">"ထွက်ရန်"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"ခလုတ်အရေအတွက်ကို ရွေးပါ"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"အကြောင်းအရာများအကြား အလိုအလျောက် စတင်ရွှေ့ရန် ခလုတ်ကို နှိပ်ပါ ပြီးလျှင် ထင်ရှားအောင် ပြထားသော အကြောင်းအရာကို ရွေးရန် ၎င်းကိုပင် ထပ်မံနှိပ်ပါ။"</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"အကြောင်းအရာများအကြား ရွှေ့ရန် ခလုတ်တစ်ခုကို နှိပ်ပါ။ ထင်ရှားအောင် ပြထားသောအရာကို ရွေးရန် အခြားခလုတ်ကို နှိပ်ပါ။"</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"စကင်ဖတ်သည့် အြမန်နှုန်းကို ရွေးပါ"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"အကြောင်းအရာတစ်ခုစီအား ထင်ရှားအောင် ပြမည့်အချိန်ကို ရွေးပါ"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"မြန်ဆန်သည် (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> စက္ကန့်သာ နှောင့်နှေးသည်)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"အလယ်အလတ် (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> စက္ကန့် နှောင့်နှေးသည်)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"နှေးသည် (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> စက္ကန့် နှောင့်နှေးသည်)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"စိတ်ကြိုက်"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"နှောင့်နှေးမှု (စက္ကန့်)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"ကီး \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' ကို အခြားလုပ်ဆောင်ချက်အဖြစ် သတ်မှတ်ပြီးဖြစ်သည်"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"အတန်း-ကော်လံအလိုက် စကင်ဖတ်ခြင်း"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"အုပ်စုလိုက်ရွေးချယ်မှု"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"တစ်ပြေးညီ စကင်ဖတ်ခြင်း"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"အသံထွက်အကြံပြုချက်"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS ဆက်တင်များ"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"မျိုးစုံသော အရာများအတွက်"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"ပထမဆုံးနှင့် နောက်ဆုံးအကြောင်းအရာတို့ကို စကားသံဖြင့် ပြောပြပါ"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"အကြောင်းအရာ အရေအတွက်ကို စကားသံဖြင့် ပြောပြပါ"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"ထင်ရှားအောင် ပြထားသော အကြောင်းအရာအားလုံးကို စကားသံဖြင့် ပြောပြပါ"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"မရွှေ့မီ စကားပြောကို အပြီးသတ်ပါ"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"အုပ်စု <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> မှ <xliff:g id="ID_2">%2$s</xliff:g> ထိ"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"အကြောင်းအရာ <xliff:g id="ID_1">%1$s</xliff:g> ခု"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"လှိမ့်ရန် ရွေးပါ"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"အမျိုးအမည်မသိအကြောင်းအရာ"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"စကင်ဖတ်ပုံကို ရွေးပါ"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"တစ်ကြိမ်လျှင် တစ်တန်းမျှ စကင်ဖတ်ပါ။ အတန်းကို ရွေးပြီးသွားလျှင် ၎င်းစာရင်းရှိ အကြောင်းအရာများပေါ်တွင် ရွှေ့ပါ။"</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"တစ်ကြိမ်လျှင် တစ်ခုမျှဖြင့် အကြောင်းအရာများအကြား ရွှေ့ပါ။ ကီးဘုတ်များသည် အမြဲတမ်း အတန်းလိုက် စကင်ဖတ်မည်ကို သတိပြုပါ။"</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"အကြောင်းအရာအားလုံးကို အရောင်တစ်ရောင်အဖြစ် သတ်မှတ်မည်။ သင်ဆန္ဒရှိသော အကြောင်းအရာပတ်ပတ်လည်ရှိ အရောင်နှင့် သက်ဆိုင်သော ခလုတ်ကို ရွေးပါ။ သင်ရွေးချယ်ထားသည်နှင့် ကိုက်ညီမှုမရှိမချင်း အုပ်စု၏ အရွယ်အစားကို လျှော့ချပါ။"</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"<xliff:g id="ACTION_NAME">%s</xliff:g> ဟု သတ်မှတ်ပြီးခလုတ်များ"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"တစ်ခုမျှမရှိ"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"ခလုတ်သတ်မှတ်ချက်များကို ရှင်းမလား။"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"သင်သည် ခလုတ်များကို သတ်မှတ်ပြီးသားဖြစ်သည်။"</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"ခလုတ်များကို ဖျက်ရန်"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"ခလုတ်များကို ယခုအတိုင်းထားရန်"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"မည်သည့်ခလုတ်ကိုမျှ သတ်မှတ်မထားပါ"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"ဤလုပ်ဆောင်ချက်အဖြစ် မည်သည့်ခလုတ်ကိုမျှ သတ်မှတ်မထားပါ။ သင်ဆက်လုပ်လိုသည်မှာ သေချာသလား။"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> အုပ်စု"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> အုပ်စုကို ရွေးရန်အတွက် သတ်မှတ်ချက် ထည့်သွင်းရန် ခလုတ်ပေါ်တွင် နှိပ်ပါ။"</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"ခလုတ်ကို \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\" လုပ်ဆောင်ချက်အဖြစ် သတ်မှတ်ရန် ၎င်းကို နှိပ်ပါ။"</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"စကင်စတင်ဖတ်၍ ရွေးချယ်ပါ"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Tic-Tac-Toe နှင့် သင့်ပြင်ဆင်သတ်မှတ်မှုကို စမ်းသပ်ပါ"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"စတင်၍ စကင်ဖတ်ရန် \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ကို နှိပ်ပါ။ ထင်ရှားအောင် ပြထားသော အကြောင်းအရာကို ရွေးချယ်ရန် ခလုတ်ကို ထပ်မံနှိပ်ပါ။သင်အရင်လုပ်ဆောင်ပါ။"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"စတင်၍ စကင်ဖတ်ရန် \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ကို နှိပ်ပါ။ ထင်ရှားအောင် ပြထားသော အတန်းကို ရွေးချယ်ရန် ခလုတ်ကို ထပ်မံနှိပ်ပါ။ ထင်ရှားအောင် ပြထားသော အကြောင်းအရာကို ရွေးချယ်ရန် နောက်ထပ်တစ်ကြိမ် နှိပ်ပါ။ သင်အရင်လုပ်ဆောင်ပါ။"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"အကြောင်းအရာများအကြား ရွှေ့ရန် \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ကို နှိပ်ပါ။ ထင်ရှားအောင်ပြထားသော အကြောင်းအရာကို ရွေးရန် \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ကို နှိပ်ပါ။ သင်အရင်လုပ်ဆောင်ပါ။"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"အတန်းများအကြား ရွှေ့ရန် \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ကို နှိပ်ပါ။ ထင်ရှားအောင်ပြထားသော အတန်းကို ရွေးရန် \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ကို နှိပ်ပါ။ ၎င်းအတန်းရှိ အကြောင်းအရာကို ရွေးရန် ပြန်ကျော့ပါ။ သင်အရင်လုပ်ဆောင်ပါ။"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g> ဖြင့် ထင်ရှားအောင် ပြထားသော အကြောင်းအရာများကို ရွေးရန် \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ကို နှိပ်ပါ သို့မဟုတ် <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> ဖြင့် ထင်ရှားအောင်ပြထားသော အကြောင်းအရာများကို ရွေးရန် \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" ကို နှိပ်ပါ။ သင့်အကြောင်းအရာသို့ ရောက်ရှိရန် ပြန်ကျော့ပါ။ သင်အရင်လုပ်ဆောင်ပါ။"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"သင့်ထံရှိ ခလုတ်များကို လုပ်ဆောင်ချက်အားလုံးအတွက် မသတ်မှတ်ရသေးပါ။ နောက်သို့ ပြန်သွားရန် \'ယခင်\' ခလုတ်ကို အသုံးပြု၍ ခလုတ်များကို သတ်မှတ်ခြင်း အပြီးသတ်ပါ။"</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"ဂိမ်းကို ပြင်ဆင်သတ်မှတ်ရန်"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"ဤလေးထောင့်ကွက်ကို ယူပြီးသားဖြစ်နေသည်။ ထပ်လုပ်ကြည့်ပါ။"</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"သင်နိုင်သည်။"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"နောက်တစ်ကြိမ်တွင် ကံကောင်းပါစေ"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"သရေပါပဲ"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"လက်ရှိပြင်ဆင်သတ်မှတ်ချက်အတိုင်း ထားနိုင်သည် သို့မဟုတ် အစမှပြန်စပါ။"</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"ပြင်ဆင်သတ်မှတ်မှုကို ယခုအတိုင်းထားရန်"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"အစမှ ပြန်စရန်"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"ပြင်ဆင်သတ်မှတ်မှု ပြီးဆုံးပြီ"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"သင်အဆင်သင့်ဖြစ်ပါပြီ။"</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"ထပ်ဆောင်း ဆက်တင်များကို သင်အြမဲပြင်ဆင်နိုင်သည် သို့မဟုတ် Switch Access ဆက်တင်များမှနေ၍ ပြင်ဆင်သတ်မှတ်ရန် ဝစ်ဇတ်ကို သင်အမြဲဖွင့်နိုင်ပါသည်။"</string>
+</resources>

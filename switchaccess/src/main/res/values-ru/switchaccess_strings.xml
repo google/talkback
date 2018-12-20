@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Switch Access"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"Благодаря Switch Access люди с двигательными нарушениями могут пользоваться телефонами и планшетами с помощью специальных переключателей. Они позволяют выбирать объекты на экране, прокручивать страницы, вводить текст и делать многое другое."</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"Внешний пульт управления"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Справка/отзыв"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Автосканирование"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Время автосканирования"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Обратное автосканирование"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="one">%.2f сек.</item>
+      <item quantity="few">%.2f сек.</item>
+      <item quantity="many">%.2f сек.</item>
+      <item quantity="other">%.2f сек.</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Настроить сканирование"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Способ сканирования"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Задержка на первом объекте"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Назначить переключатели"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Переключатели для действий"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Переключатели для сканирования"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Скорость перемещения по строкам"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"Число сканирований"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Укажите, сколько раз нужно повторять сканирование."</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Время задержки"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Все случайные нажатия, сделанные за это время, учитываться не будут."</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Выполнять при отпускании"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Выполнять действие при отпускании переключателя"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="one">%d сканирование</item>
+      <item quantity="few">%d сканирования</item>
+      <item quantity="many">%d сканирований</item>
+      <item quantity="other">%d сканирования</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Переключатель \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" выполняет действие \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\""</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="one">Назначен %d переключатель</item>
+      <item quantity="few">Назначено %d переключателя</item>
+      <item quantity="many">Назначено %d переключателей</item>
+      <item quantity="other">Назначено %d переключателя</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"Переключатель для выбора группы %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Далее"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Назад"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Выбрать"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"Нажать и удерживать"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Прокрутить вперед"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Прокрутить назад"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Закрыть"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"Развернуть"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"Свернуть"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"Выделить текст"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"Копировать"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"Вырезать"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"Вставить"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"МЕНЮ"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Назад"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Главный экран"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Обзор"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Уведомления"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Быстрые настройки"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"Прокрутить вперед"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"Прокрутить назад"</string>
+    <string name="point_scan" msgid="4514216871544244788">"Точечное сканирование"</string>
+    <string name="box_scan" msgid="6675486192630209217">"Завершить точечное сканирование"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"Провести вправо"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"Провести влево"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"Провести вверх"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"Провести вниз"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Провести по экрану (другое)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"Уменьшить"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"Увеличить"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Настройки Switch Access"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Нажмите комбинацию переключателей, чтобы добавить ее в список или удалить из него"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Удалить назначенные переключатели"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"Переключатели не назначены"</string>
+    <string name="more" msgid="1547670498589416840">"Ещё"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Пробел"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Ввод"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
+    <string name="save" msgid="5398278773451196019">"Сохранить"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Стиль выделения"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Базовый способ выбора"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Цвет выделения"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Толщина линии выделения"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Политика конфиденциальности"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Включить автовыбор"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Отключить автовыбор"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Следующий символ"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Следующее слово"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Следующая строка"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Следующий абзац"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Следующая страница"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Предыдущий символ"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Предыдущее слово"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Предыдущая строка"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Предыдущий абзац"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Предыдущая страница"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Автозапуск сканирования"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Начинать сканирование автоматически"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Настройка Switch Access"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"Мастер настройки Switch Access"</string>
+    <string name="one_switch" msgid="5247899666787922810">"Один переключатель"</string>
+    <string name="two_switches" msgid="3082487661638289356">"Два переключателя"</string>
+    <string name="finish" msgid="4267641294267512480">"Готово"</string>
+    <string name="exit" msgid="8664597014081860813">"Выйти"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"Выберите число переключателей"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"Нажмите переключатель, чтобы начать автоматическое перемещение между объектами. Затем выберите нужный объект, нажав переключатель ещё раз."</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"Чтобы начать перемещение между объектами, нажмите первый переключатель. Чтобы выбрать объект, нажмите второй переключатель."</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"Выберите скорость сканирования"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"Задайте скорость перемещения между объектами"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"Высокая (задержка: <xliff:g id="DELAY_SPEED">%1$s</xliff:g> сек.)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"Средняя (задержка: <xliff:g id="DELAY_SPEED">%1$s</xliff:g> сек.)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"Низкая (задержка: <xliff:g id="DELAY_SPEED">%1$s</xliff:g> сек.)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"Другое значение"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"задержка (в секундах)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Клавиша \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" выполняет другое действие"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"Сканирование по строкам и столбцам"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"Выбор группы"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"Сканирование по строкам"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Озвучивание"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Настройки синтеза речи"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Выбор нескольких объектов"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Озвучивать первый и последний объект"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Озвучивать количество объектов"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Озвучивать все выделенные объекты"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Завершать озвучивание перед перемещением"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"группа <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"начиная с объекта \"<xliff:g id="ID_1">%1$s</xliff:g>\" и заканчивая объектом \"<xliff:g id="ID_2">%2$s</xliff:g>\""</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"объекты (<xliff:g id="ID_1">%1$s</xliff:g>)"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"выберите, чтобы прокрутить"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"неизвестный объект"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"Выберите способ сканирования"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"Переходите от одной строки к другой. Выбрав строку, вы сможете перемещаться по объектам в ней."</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"Перемещайтесь между всеми объектами по очереди. Обратите внимание, что этот способ сканирования всегда выбирается для клавиатур."</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"Все группы будут выделяться разными цветами. Нажмите переключатель, соответствующий цвету группы, затем выберите следующую группу и так далее. Продолжайте, пока не найдете нужный объект."</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Переключатели для действия \"<xliff:g id="ACTION_NAME">%s</xliff:g>\""</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Переключатели не назначены"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Переключатели уже назначены"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Удалить их?"</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Удалить"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Оставить"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Переключатели не назначены"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Переключатели для этого действия пока не назначены. Продолжить?"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"Группа: <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Нажмите переключатель для выбора группы \"<xliff:g id="OPTION_COLOR">%1$s</xliff:g>\"."</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Нажмите переключатель, чтобы присвоить ему действие \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"Начать сканирование и выбрать"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Протестируйте настройки, играя в крестики-нолики"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Чтобы начать сканирование, нажмите \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\". Затем с помощью этого же переключателя выберите нужный объект. Попробуйте!"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Чтобы начать сканирование, нажмите \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\". С помощью этого же переключателя сначала выберите выделенную строку, а затем объект в строке. Попробуйте!"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Чтобы начать перемещение между объектами, нажмите \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\". Затем выберите нужный объект, нажав \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\". Попробуйте!"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Чтобы начать перемещение между строками, нажмите \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\", а чтобы выбрать выделенную строку, нажмите \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\". Затем с помощью этих же переключателей найдите и выберите в строке нужный объект. Попробуйте!"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Чтобы выбрать группу объектов \"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g>\", нажмите \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\", а чтобы выбрать группу \"<xliff:g id="COLOR_NAME_3">%3$s</xliff:g>\", нажмите \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\". Попробуйте!"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Вы назначили переключатели не для всех действий. Нажмите кнопку \"Назад\" и завершите настройку."</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"Начать игру заново"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"Эта клетка уже занята. Попробуйте ещё раз."</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"Вы выиграли!"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Попробуйте ещё раз!"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"Ничья!"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"Вы можете продолжить настройку или начать ее заново."</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Продолжить"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Начать заново"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"Настройка завершена"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"Готово!"</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Чтобы задать другие параметры или вернуться к мастеру настройки, перейдите к настройкам Switch Access."</string>
+</resources>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Prístup s prepínačmi"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"Prístup s prepínačmi umožňuje ľuďom s poruchami motorických funkcií ovládať telefóny a tablety pomocou jedného alebo viacerých prepínačov. Používajte prepínače na výber položiek, posúvanie zobrazenia, zadávanie textu a ďalšie akcie."</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"Ovládať zariadenie prepínačmi"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Pomocník a spätná väzba"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Automatické prehľadávanie"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Čas automatického prehľadávania"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Obrátené automatické prehľadávanie"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="few">%.2f sekundy</item>
+      <item quantity="many">%.2f sekundy</item>
+      <item quantity="other">%.2f sekúnd</item>
+      <item quantity="one">1 sekunda</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Prispôsobenie prehľadávania"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Metóda prehľadávania"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Oneskorenie na prvej položke"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Priradenie prepínačov"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Priradenie prepínačov k akciám"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Priradenie prepínačov na prehľadávanie"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Rýchlosť čiary"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"Počet prehľadaní"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Vyberte, koľkokrát sa má prehľadávanie opakovať"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Doba oneskorenia vstupu"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Viacero stlačení počas tohto časového obdobia sa bude považovať za jedno stlačenie."</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Spúšťať akcie po uvoľnení"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Spustenie akcie po uvoľnení prepínača"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="few">%d cykly</item>
+      <item quantity="many">%d cyklu</item>
+      <item quantity="other">%d cyklov</item>
+      <item quantity="one">%d cyklus</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Prepínač <xliff:g id="KEY_NAME">%1$s</xliff:g> je už priradený k akcii <xliff:g id="ACTION_NAME">%2$s</xliff:g>"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="few">%d priradené prepínače</item>
+      <item quantity="many">%d priradeného prepínača</item>
+      <item quantity="other">%d priradených prepínačov</item>
+      <item quantity="one">%d priradený prepínač</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"Prepínač výberu skupín %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Ďalej"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Späť"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Vybrať"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"Dlho stlačiť"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Posunúť vpred"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Posunúť späť"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Odmietnuť"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"Rozbaliť"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"Zbaliť"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"Zvýrazniť text"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"Kopírovať"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"Vystrihnúť"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"Prilepiť"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"PONUKA"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Späť"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Plocha"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Prehľad"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Upozornenia"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Rýchle nastavenia"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"Posunúť vpred"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"Posunúť dozadu"</string>
+    <string name="point_scan" msgid="4514216871544244788">"Prehľadávanie bodov"</string>
+    <string name="box_scan" msgid="6675486192630209217">"Ukončiť prehľadávanie bodov"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"Prejdite prstom doprava"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"Prejdite prstom doľava"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"Potiahnuť nahor"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"Prejsť prstom nadol"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Prejsť prstom (vlastné)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"Oddialiť"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"Priblížiť"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Nastavenia prístupu s prepínačmi"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Stlačením kombinácie prepínačov môžete položku pridať do zoznamu alebo ju z neho odstrániť"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Vymazať priradenie prepínača"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"Nie sú priradené žiadne prepínače"</string>
+    <string name="more" msgid="1547670498589416840">"Ďalšie"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Medzerník"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
+    <string name="save" msgid="5398278773451196019">"Uložiť"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Štýl zvýraznenia pri skenovaní"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Primárny štýl prehľadávania"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Farba zvýraznenia"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Štýl zvýraznenia riadka"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Pravidlá ochrany súkromia"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Povoliť automatický výber"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Zakázať automatický výber"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Ďalší znak"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Ďalšie slovo"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Ďalší riadok"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Ďalší odsek"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Ďalšia stránka"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Predchádzajúci znak"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Predchádzajúce slovo"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Predchádzajúci riadok"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Predchádzajúci odsek"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Predchádzajúca stránka"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Automaticky spustiť prehľadávanie"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Prehľadávanie sa začne bez stlačenia prepínača"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Otvoriť nastavenie prístupu s prepínačmi"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"Sprievodca nastavením prístupu s prepínačmi"</string>
+    <string name="one_switch" msgid="5247899666787922810">"Jeden prepínač"</string>
+    <string name="two_switches" msgid="3082487661638289356">"Dva prepínače"</string>
+    <string name="finish" msgid="4267641294267512480">"Dokončiť"</string>
+    <string name="exit" msgid="8664597014081860813">"Ukončiť"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"Zvoľte počet prepínačov"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"Pomocou prepínača spustite automatické prechádzanie po položkách. Zvýraznenú položku vyberiete stlačením prepínača Vybrať."</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"Stlačením jedného prepínača môžete prechádzať medzi položkami. Zvýraznenú položku vyberiete stlačením druhého prepínača."</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"Vyberte rýchlosť prehľadávania"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"Zvoľte, ako dlho majú byť zvýraznené jednotlivé položky"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"Rýchle (oneskorenie <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"Stredné (oneskorenie <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"Pomalé (oneskorenie <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"Vlastné"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"oneskorenie (sekundy)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Kláves <xliff:g id="KEY_NAME">%1$s</xliff:g> je už priradený k inej akcii"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"Prehľadávanie po riadkoch a stĺpcoch"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"Výber skupín"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"Lineárne prehľadávanie"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Hlasová odozva"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Nastavenia TTS"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"V prípade viacerých položiek"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Vyslovovať prvú a poslednú položku"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Vyslovovať počet položiek"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Vyslovovať všetky zvýraznené položky"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Dokončiť vyslovenie pred prechodom"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"skupina <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> až <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> položky"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"vyberte a posuňte"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"neznáma položka"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"Vyberte spôsob prehľadávania"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"Postupné prehľadávanie riadkov. Po výbere riadka prechádzajte položkami v príslušnom zozname."</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"Postupné prechádzanie po jednotlivých položkách. Klávesnice vždy prehľadávajú po riadkoch."</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"Všetky položky majú priradenú farbu. Stlačte prepínač zodpovedajúci farbe okolo požadovanej položky. Skupinu zmenšujte, dokým nedosiahnete požadovanú voľbu."</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Prepínače priradené k akcii <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Žiadne"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Vymazať priradené prepínače?"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Už ste priradili prepínače."</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Vymazať prepínače"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Ponechať prepínače"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Nie sú priradené žiadne prepínače"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"K tejto akcii nie sú priradené žiadne prepínače. Naozaj chcete pokračovať?"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"Skupina <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Stlačte prepínač, ktorý chcete priradiť na výber skupiny <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Stlačte prepínač, ktorý chcete priradiť k akcii „<xliff:g id="ACTION_NAME">%1$s</xliff:g>“."</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"Spustenie prehľadávania a výber"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Test nastavenia pomocou hry Piškvorky"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Spustite prehľadávanie pomocou prepínača <xliff:g id="SWITCH_NAME">%1$s</xliff:g>. Jeho opätovným stlačením vyberiete zvýraznenú položku. Ste na ťahu!"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Spustite prehľadávanie pomocou prepínača <xliff:g id="SWITCH_NAME">%1$s</xliff:g>. Jeho opätovným stlačením vyberiete zvýraznený riadok. Ďalším stlačením vyberiete zvýraznenú položku. Ste na ťahu!"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Prechádzajte po položkách pomocou prepínača <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>. Zvýraznenú položku vyberiete pomocou prepínača <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>. Ste na ťahu!"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Prechádzajte po riadkoch pomocou prepínača <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>. Zvýraznený riadok vyberiete pomocou prepínača <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>. Opakujte, kým nevyberiete položku v požadovanom riadku. Ste na ťahu!"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Stlačením prepínača <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> vyberte položky zvýraznené farbou <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> alebo pomocou prepínača <xliff:g id="SWITCH_NAME_2">%4$s</xliff:g> vyberte položky zvýraznené farbou <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Opakujte, dokým neprejdete na požadovanú položku. Ste na ťahu!"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Zatiaľ nemáte priradené prepínače k všetkým akciám. Vráťte sa späť pomocou tlačidla Naspäť a dokončite priradenie prepínačov."</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"Resetovať hru"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"Tento štvorec je už vyplnený. Skúste to znova!"</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"Vyhrali ste!"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Nabudúce budete mať možno viac šťastia"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"Remíza"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"Môžete si ponechať aktuálne nastavenie alebo začať odznova."</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Ponechať nastavenie"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Začať odznova"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"Nastavenie bolo dokončené"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"Všetko je nastavené."</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Ďalšie nastavenia môžete zmeniť kedykoľvek, rovnako ako opätovne otvoriť sprievodcu nastavením v nastaveniach prístupu s prepínačmi."</string>
+</resources>

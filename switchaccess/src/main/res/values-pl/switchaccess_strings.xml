@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Switch Access"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"Funkcja Switch Access umożliwia osobom niepełnosprawnym ruchowo obsługę telefonów i tabletów za pomocą jednego lub kilku przełączników. Przełącznik pozwala wybrać element, przewijać, wpisać tekst i wykonać wiele innych czynności."</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"Steruj urządzeniem, używając przełączników"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Pomoc i opinie"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Automatyczne skanowanie"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Czas automatycznego skanowania"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Wsteczne skanowanie automatyczne"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="few">%.2f sekundy</item>
+      <item quantity="many">%.2f sekund</item>
+      <item quantity="other">%.2f sekundy</item>
+      <item quantity="one">1 sekunda</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Dostosowywanie skanowania"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Metoda skanowania"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Opóźnienie przy pierwszym elemencie"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Przypisywanie przełączników"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Przypisywanie przełączników do czynności"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Przypisywane przełączników do skanowania"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Szybkość linii"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"Liczba skanowań"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Wybierz liczbę powtórzeń skanowania"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Czas odbicia"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Wszystkie naciśnięcia w tym czasie będą traktowane jako jedno naciśnięcie."</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Zwolnij, by wykonać czynność"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Wykonaj czynność po zwolnieniu przełącznika"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="few">%d pętle</item>
+      <item quantity="many">%d pętli</item>
+      <item quantity="other">%d pętli</item>
+      <item quantity="one">%d pętla</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Klawisz „<xliff:g id="KEY_NAME">%1$s</xliff:g>” jest już przypisany do czynności „<xliff:g id="ACTION_NAME">%2$s</xliff:g>”"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="few">%d przypisane przełączniki</item>
+      <item quantity="many">%d przypisanych przełączników</item>
+      <item quantity="other">%d przypisanego przełącznika</item>
+      <item quantity="one">%d przypisany przełącznik</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"Przełącznik wyboru grupy %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Dalej"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Wstecz"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Wybierz"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"Długie naciśnięcie"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Przewiń do przodu"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Przewijanie do tyłu"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Zamknij"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"Rozwiń"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"Zwiń"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"Zaznaczanie tekstu"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"Kopiuj"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"Wytnij"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"Wklej"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENU"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Wstecz"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Ekran główny"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Przegląd"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Powiadomienia"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Szybkie ustawienia"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"Przewiń do przodu"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"Przewijanie do tyłu"</string>
+    <string name="point_scan" msgid="4514216871544244788">"Skanowanie punktowe"</string>
+    <string name="box_scan" msgid="6675486192630209217">"Zakończ skanowanie punktowe"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"Przesuń w prawo"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"Przesuń w lewo"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"Przesuń w górę"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"Przesuń w dół"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Przesunięcie (niestandardowe)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"Pomniejsz"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"Powiększ"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Ustawienia funkcji Switch Access"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Naciśnij kombinację przełączników, by dodać lub usunąć z listy"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Wyczyść przypisanie przełącznika"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"Brak przypisanych przełączników"</string>
+    <string name="more" msgid="1547670498589416840">"Więcej"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Spacja"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
+    <string name="save" msgid="5398278773451196019">"Zapisz"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Styl zaznaczenia podczas skanowania"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Podstawowy styl skanowania"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Kolor zaznaczenia"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Styl linii zaznaczenia"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Polityka prywatności"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Włącz automatyczne wybieranie"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Wyłącz automatyczne wybieranie"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Następny znak"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Następne słowo"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Następny wiersz"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Następny akapit"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Następna strona"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Poprzedni znak"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Poprzednie słowo"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Poprzedni wiersz"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Poprzedni akapit"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Poprzednia strona"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Rozpocznij skanowanie automatycznie"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Skanowanie rozpocznie się bez naciskania przełącznika"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Otwórz konfigurację funkcji Switch Access"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"Kreator ustawień funkcji Switch Access"</string>
+    <string name="one_switch" msgid="5247899666787922810">"Jeden przełącznik"</string>
+    <string name="two_switches" msgid="3082487661638289356">"Dwa przełączniki"</string>
+    <string name="finish" msgid="4267641294267512480">"Zakończ"</string>
+    <string name="exit" msgid="8664597014081860813">"Zamknij"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"Wybierz liczbę przełączników"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"Naciśnij przełącznik, by zacząć automatyczne przechodzenie między elementami, a następnie naciśnij ponownie i wybierz wyróżniony element."</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"Naciśnij jeden przełącznik, by przechodzić między elementami. Naciśnij drugi, by wybrać wyróżniony element."</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"Wybierz szybkość skanowania"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"Wybierz czas wyróżnienia poszczególnych elementów"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"Szybko (opóźnienie <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"Średnio (opóźnienie <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"Wolno (opóźnienie <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"Niestandardowe"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"opóźnienie (w sekundach)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Klawisz „<xliff:g id="KEY_NAME">%1$s</xliff:g>” jest już przypisany do innej czynności"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"Skanowanie wg wierszy/kolumn"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"Wybór grupy"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"Skanowanie liniowe"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Komunikat głosowy"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Ustawienia TTS"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Wiele elementów"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Wypowiadaj nazwę pierwszego i ostatniego elementu"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Wypowiadaj liczbę elementów"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Wypowiadaj nazwy wszystkich wyróżnionych elementów"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Zakończ komunikat głosowy przed przesunięciem"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"grupa <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"Od <xliff:g id="ID_1">%1$s</xliff:g> do <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"Elementy: <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"wybierz, by przewinąć"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"nieznany element"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"Wybierz sposób skanowania"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"Skanowanie pojedynczych wierszy. Po wybraniu wiersza przechodź do kolejnych elementów na liście."</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"Przesuwanie po pojedynczych elementach. Pamiętaj, że klawiatura zawsze skanuje według wiersza."</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"Do wszystkich elementów zostaną przypisane kolory. Naciśnij przełącznik odpowiadający kolorowi wokół wybranego elementu. Zawężaj grupę, aż zdołasz wskazać wybrany element."</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Przełączniki przypisane do czynności <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Brak"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Wyczyścić przypisane przełączniki?"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Przełączniki są już przypisane."</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Wyczyść przełączniki"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Zachowaj przełączniki"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Brak przypisanych przełączników"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Do tej czynności nie przypisano przełączników. Czy na pewno chcesz kontynuować?"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"Grupa <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Naciśnij przełącznik, by przypisać go do wyboru grupy <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Naciśnij przełącznik, by przypisać go do czynności „<xliff:g id="ACTION_NAME">%1$s</xliff:g>”."</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"Rozpoczęcie skanowania i wybór"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Sprawdź konfigurację, grając w kółko i krzyżyk"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Naciśnij „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>”, by rozpocząć skanowanie. Naciśnij przełącznik ponownie, by wybrać wyróżniony element. Twoja kolej."</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Naciśnij „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>”, by rozpocząć skanowanie. Naciśnij przełącznik ponownie, by wybrać wyróżniony wiersz. Twoja kolej."</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Naciśnij „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>”, by przechodzić między elementami. Naciśnij „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>”, wy wybrać wyróżniony element. Twoja kolej."</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Naciśnij „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>”, by przechodzić między wierszami. Naciśnij „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>”, by wybrać wyróżniony wiersz. Powtórz czynność, by wybrać element w tym wierszu. Twoja kolej."</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Naciśnij „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>”, by wybrać wyróżnione elementy w kolorze: <xliff:g id="COLOR_NAME_1">%2$s</xliff:g>, lub „<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>”, by wybrać wyróżnione elementy w kolorze: <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Powtarzaj czynność, aż dotrzesz do swojego elementu. Twoja kolej."</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Nie masz jeszcze wszystkich czynności przypisanych do przełączników. Użyj przycisku Wstecz i dokończ przypisywanie."</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"Zresetuj grę"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"To pole jest już zajęte. Spróbuj jeszcze raz."</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"Wygrywasz"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Następnym razem się uda"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"Remis"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"Możesz zachować bieżącą konfigurację lub zacząć jeszcze raz."</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Zachowaj konfigurację"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Jeszcze raz"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"Konfigurowanie ukończone"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"Wszystko gotowe."</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Zawsze możesz zmienić dodatkowe ustawienia lub ponownie otworzyć kreator w ustawieniach funkcji Switch Access."</string>
+</resources>

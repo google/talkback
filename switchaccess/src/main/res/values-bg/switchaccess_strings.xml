@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Достъп с превключване"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"Функцията Достъп с превключване дава възможност на хората със затруднена мобилност да контролират телефони и таблети с помощта на един или повече превключватели. Използвайте ги, за да избирате елементи, да превъртате, да въвеждате текст и др."</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"Управл. на у-вото с превключватели"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Помощ и отзиви"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Автоматично сканиране"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Забавяне при автоматично сканиране"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Обратно автоматично сканиране"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="other">%.2f секунди</item>
+      <item quantity="one">1 секунда</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Персонализиране на сканирането"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Метод за сканиране"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Забавяне върху първия елемент"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Задаване на превключватели"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Задаване на превключватели за действия"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Задаване на превключватели за сканиране"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Скорост на координатните линии"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"Брой сканирания"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Изберете колко пъти да се повтаря сканирането"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Време за пренебрегване на натисканията"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Многократните натискания в рамките на този период от време ще се третират като едно натискане."</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Извършване на действието при освобождаване"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Извършване на действието при освобождаване на превключвателя"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="other">%d цикъла</item>
+      <item quantity="one">%d цикъл</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Превключвателят „<xliff:g id="KEY_NAME">%1$s</xliff:g>“ вече е зададен за „<xliff:g id="ACTION_NAME">%2$s</xliff:g>“"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="other">Зададени са %d превключвателя</item>
+      <item quantity="one">Зададен е %d превключвател</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"Превключвател %1$d за избиране на група"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Напред"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Назад"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Избиране"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"Продължително натискане"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Превъртане напред"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Превъртане назад"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Отхвърляне"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"Разгъване"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"Свиване"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"Открояване на текста"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"Копиране"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"Изрязване"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"Поставяне"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"МЕНЮ"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Назад"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Начало"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Общ преглед"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Известия"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Бързи настройки"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"Превъртане напред"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"Превъртане назад"</string>
+    <string name="point_scan" msgid="4514216871544244788">"Точково сканиране"</string>
+    <string name="box_scan" msgid="6675486192630209217">"Изход от точковото сканиране"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"Прекарване на пръст надясно"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"Прекарване на пръст наляво"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"Прекарване на пръст нагоре"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"Прекарване на пръст надолу"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Прекарване на пръст (общо)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"Намаляване на мащаба"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"Увеличаване на мащаба"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Настройки на Достъп с превключване"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Натиснете комбинация от превключватели, за да я добавите или премахнете от списъка"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Изчистване на задаването на превключватели"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"Няма зададени превключватели"</string>
+    <string name="more" msgid="1547670498589416840">"Още"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Интервал"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Табулатор"</string>
+    <string name="save" msgid="5398278773451196019">"Запазване"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Стил на открояването при сканиране"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Основен стил на сканиране"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Цвят за открояване"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Стил на контура при открояване"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Декларация за поверителност"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Активиране на автоматичното избиране"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Деактивиране на автоматичното избиране"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Следващ знак"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Следваща дума"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Следващ ред"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Следващ абзац"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Следваща страница"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Предишен знак"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Предишна дума"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Предишен ред"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Предишен абзац"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Предишна страница"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Автоматично стартиране на сканирането"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Сканирането стартира без натискане на превключвателя"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Отваряне на съветника за настройване на Достъп с превключване"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"Съветник за настройване на Достъп с превключване"</string>
+    <string name="one_switch" msgid="5247899666787922810">"Един превключвател"</string>
+    <string name="two_switches" msgid="3082487661638289356">"Два превключвателя"</string>
+    <string name="finish" msgid="4267641294267512480">"Завършване"</string>
+    <string name="exit" msgid="8664597014081860813">"Изход"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"Изберете брой превключватели"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"Натиснете превключвателя, за да започнете да се придвижвате автоматично между елементите, след което го натиснете отново, за да изберете откроения елемент."</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"Натиснете единия превключвател, за да се придвижите между елементите. Използвайте другия, за да изберете откроения елемент."</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"Изберете скорост на сканиране"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"Изберете продължителността на открояване на отделните елементи"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"Бързо (забавяне от <xliff:g id="DELAY_SPEED">%1$s</xliff:g> сек)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"Средно (забавяне от <xliff:g id="DELAY_SPEED">%1$s</xliff:g> сек)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"Бавно (забавяне от <xliff:g id="DELAY_SPEED">%1$s</xliff:g> сек)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"Персонализирано"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"забавяне (секунди)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Клавишът „<xliff:g id="KEY_NAME">%1$s</xliff:g>“ вече е зададен за друго действие"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"Сканиране по ред/колона"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"Избиране на група"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"Линейно сканиране"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Обратна връзка с говор"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Настройки за синтезиран говор"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"За няколко елемента"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Изговаряне на първия и последния елемент"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Изговаряне на броя елементи"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Изговаряне на всички откроени елементи"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Завършване на говора преди придвижване"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"група <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"От <xliff:g id="ID_1">%1$s</xliff:g> до <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> елемента"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"изберете за превъртане"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"неизвестен елемент"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"Изберете начин на сканиране"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"Сканирането ще се извършва ред по ред. След като изберете даден ред, ще се придвижвате между елементите в съответния списък."</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"Елементите ще се открояват последователно един по един. Имайте предвид, че при използване на клавиатура винаги ще се извършва сканиране по редове."</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"За всички елементи ще бъдат зададени цветове. Натиснете превключвателя, отговарящ на цвета около желания елемент. Групата ще става все по-малка и накрая ще стигнете до търсената опция."</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Превключватели, за които е зададено действието „<xliff:g id="ACTION_NAME">%s</xliff:g>“"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Няма"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Да се изчистят ли зададените превключватели?"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Вече сте задали превключватели."</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Изчистване на превключвателите"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Запазване на превключвателите"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Няма зададени превключватели"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Няма зададени превключватели за това действие. Наистина ли искате да продължите?"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"Група в <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Натиснете превключвател, за да зададете да служи за избиране на групата в <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Натиснете превключвател, за да зададете действието „<xliff:g id="ACTION_NAME">%1$s</xliff:g>“ за него."</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"Стартиране на сканирането и избиране"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Тествайте конфигурацията си чрез Tic-Tac-Toe"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Натиснете „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>“, за да стартирате сканирането. Използвайте отново превключвателя, за да изберете откроения елемент. Вие сте на ход!"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Натиснете „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>“, за да стартирате сканирането. Използвайте отново превключвателя, за да посочите откроения ред, и го натиснете трети път, за да изберете откроения елемент. Вие сте на ход!"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Натиснете „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>“, за да се придвижите между елементите. Използвайте „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>“, за да изберете откроения елемент. Вие сте на ход!"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Натиснете „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>“, за да се придвижите между редовете. Използвайте „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>“ веднъж, за да изберете откроения ред, и втори път, за да посочите елемент в него. Вие сте на ход!"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Натиснете „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>“, за да изберете елементите, откроени в <xliff:g id="COLOR_NAME_1">%2$s</xliff:g>, или „<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>“, за да посочите тези в <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Повтаряйте действието, докато стигнете до желания елемент. Вие сте на ход!"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Все още не сте задали превключватели за всички действия. Използвайте бутона „Назад“, за да се върнете и да завършите настройването."</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"Нулиране на играта"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"Това квадратче вече е заето. Опитайте отново!"</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"Спечелихте!"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Пожелаваме ви повече късмет следващия път"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"Резултатът е равен"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"Можете да запазите текущата конфигурация или да започнете отначало."</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Запазване на конфигурацията"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Започване отначало"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"Настройването завърши"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"Готови сте."</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"От настройките на Достъп с превключване винаги можете да промените и други опции или отново да отворите съветника за настройване."</string>
+</resources>

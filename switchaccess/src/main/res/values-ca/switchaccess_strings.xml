@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="switch_service_name" msgid="6043415138576713888">"Accés amb interruptors"</string>
+    <string name="switch_access_service_description" msgid="1693761307544122846">"L\'accés amb interruptors permet que les persones amb discapacitats motores puguin controlar els telèfons i les tauletes amb un interruptor o bé amb més d\'un. Fes servir els interruptors per seleccionar elements, desplaçar-te, introduir text i molt més."</string>
+    <string name="switch_access_service_summary" msgid="511558483506675413">"Controla el dispositiu amb interruptors"</string>
+    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Ajuda i suggeriments"</string>
+    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Cerca automàtica"</string>
+    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Temps de la cerca automàtica"</string>
+    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Inverteix la cerca automàtica"</string>
+    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
+      <item quantity="other">%.2f segons</item>
+      <item quantity="one">1 segon</item>
+    </plurals>
+    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Personalitza la cerca"</string>
+    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Mètode de cerca"</string>
+    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Retard en el primer element"</string>
+    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Assigna interruptors"</string>
+    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Assigna interruptors a accions"</string>
+    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Assigna interruptors per a la cerca"</string>
+    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Velocitat de la línia"</string>
+    <string name="title_pref_loop_count" msgid="1316399564521331896">"Nombre d\'escanejos"</string>
+    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Tria quants cops vols que es repeteixi la cerca"</string>
+    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Temps de rebot"</string>
+    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Més d\'un toc durant aquest període es tractaran com un de sol."</string>
+    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Deixa anar per dur a terme una acció"</string>
+    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Duu a terme l\'acció en deixar anar l\'interruptor"</string>
+    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
+      <item quantity="other">%d bucles</item>
+      <item quantity="one">%d bucle</item>
+    </plurals>
+    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"L\'interruptor <xliff:g id="KEY_NAME">%1$s</xliff:g> ja s\'ha assignat a l\'acció <xliff:g id="ACTION_NAME">%2$s</xliff:g>"</string>
+    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
+      <item quantity="other">%d interruptors assignats</item>
+      <item quantity="one">%d interruptor assignat</item>
+    </plurals>
+    <string name="option_scan_switch_format" msgid="8844133706095072488">"Interruptor de selecció de grup %1$d"</string>
+    <string name="action_name_next" msgid="4106603510441280028">"Següent"</string>
+    <string name="action_name_previous" msgid="5382750123072539005">"Anterior"</string>
+    <string name="action_name_click" msgid="8073233516135659087">"Selecciona"</string>
+    <string name="action_name_long_click" msgid="507348897448984075">"Mantén premut"</string>
+    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Desplaça cap endavant"</string>
+    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Desplaça cap enrere"</string>
+    <string name="action_name_dismiss" msgid="4275752158295125939">"Ignora"</string>
+    <string name="action_name_expand" msgid="4182452732293293291">"Desplega"</string>
+    <string name="action_name_collapse" msgid="1959042827233565196">"Replega"</string>
+    <string name="action_name_highlight_text" msgid="8096784088626654308">"Destaca el text"</string>
+    <string name="action_name_copy" msgid="1469288293927752463">"Copia"</string>
+    <string name="action_name_cut" msgid="2633106458640561312">"Retalla"</string>
+    <string name="action_name_paste" msgid="2366867168882651765">"Enganxa"</string>
+    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENÚ"</string>
+    <string name="global_action_back" msgid="8326879739948707767">"Enrere"</string>
+    <string name="global_action_home" msgid="2498984784930393183">"Inici"</string>
+    <string name="global_action_overview" msgid="51725242460849609">"Aplicacions recents"</string>
+    <string name="global_action_notifications" msgid="7052190988699716765">"Notificacions"</string>
+    <string name="global_action_quick_settings" msgid="425687562421432080">"Configuració ràpida"</string>
+    <string name="scrollable_forward" msgid="5333609138723112412">"Desplaça cap endavant"</string>
+    <string name="scrollable_backward" msgid="1547280412911969785">"Desplaça cap enrere"</string>
+    <string name="point_scan" msgid="4514216871544244788">"Cerca per punt"</string>
+    <string name="box_scan" msgid="6675486192630209217">"Surt de la cerca per punt"</string>
+    <string name="action_name_swipe_right" msgid="84947854784166452">"Llisca cap a la dreta"</string>
+    <string name="action_name_swipe_left" msgid="2116931513199897536">"Llisca cap a l\'esquerra"</string>
+    <string name="action_name_swipe_up" msgid="3425266339761806416">"Llisca cap amunt"</string>
+    <string name="action_name_swipe_down" msgid="7515296139126535594">"Llisca cap avall"</string>
+    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Llisca (personalitzat)"</string>
+    <string name="action_name_zoom_out" msgid="3316693831389888087">"Allunya"</string>
+    <string name="action_name_zoom_in" msgid="5775276854353646583">"Apropa"</string>
+    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Configuració de l\'accés amb interruptors"</string>
+    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Prem una combinació d\'interruptors per afegir-la o suprimir-la de la llista"</string>
+    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Esborra l\'assignació d\'interruptors"</string>
+    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
+    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"MAJ + "</string>
+    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
+    <string name="no_key_assigned" msgid="5178596179827004883">"No s\'han assignat interruptors"</string>
+    <string name="more" msgid="1547670498589416840">"Més"</string>
+    <string name="name_of_space_bar" msgid="5083960909593906754">"Espai"</string>
+    <string name="name_of_enter_key" msgid="6379785627490220649">"Retorn"</string>
+    <string name="name_of_tab_key" msgid="6744983965001375397">"Tabulador"</string>
+    <string name="save" msgid="5398278773451196019">"Desa"</string>
+    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Estil del ressaltat de la cerca"</string>
+    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Estil de cerca principal"</string>
+    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Color de ressaltat"</string>
+    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Estil de la línia del ressaltat"</string>
+    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Política de privadesa"</string>
+    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Activa la selecció automàtica"</string>
+    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Desactiva la selecció automàtica"</string>
+    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Caràcter següent"</string>
+    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Paraula següent"</string>
+    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Línia següent"</string>
+    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Paràgraf següent"</string>
+    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Pàgina següent"</string>
+    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Caràcter anterior"</string>
+    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Paraula anterior"</string>
+    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Línia anterior"</string>
+    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Paràgraf anterior"</string>
+    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Pàgina anterior"</string>
+    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
+    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Inicia la cerca automàticament"</string>
+    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"La cerca s\'inicia sense prémer l\'interruptor"</string>
+    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Obre la configuració de l\'accés amb interruptors"</string>
+    <string name="setup_wizard_heading" msgid="2640995318204651084">"Auxiliar de configuració de l\'accés amb interruptors"</string>
+    <string name="one_switch" msgid="5247899666787922810">"Un interruptor"</string>
+    <string name="two_switches" msgid="3082487661638289356">"Dos interruptors"</string>
+    <string name="finish" msgid="4267641294267512480">"Finalitza"</string>
+    <string name="exit" msgid="8664597014081860813">"Surt"</string>
+    <string name="number_of_switches_heading" msgid="9097335572062162453">"Tria el nombre de interruptors"</string>
+    <string name="one_switch_description_text" msgid="8337586400996301441">"Prem l\'interruptor per començar a desplaçar-te pels elements de manera automàtica i, a continuació, torna a prémer per seleccionar l\'element destacat."</string>
+    <string name="two_switches_description_text" msgid="6038430601522329332">"Prem un interruptor per desplaçar-te entre els elements. Prem-ne un altre per seleccionar l\'element ressaltat."</string>
+    <string name="step_speed_heading" msgid="620309500918283098">"Tria la velocitat de la cerca"</string>
+    <string name="step_speed_subheading" msgid="8122025065439433485">"Tria durant quanta estona ha d\'estar destacat cada element"</string>
+    <string name="fast_radio_button_title" msgid="5090487620278637200">"Ràpid (retard de <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
+    <string name="medium_radio_button_title" msgid="5602244023822764391">"Mitjà (retard de <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
+    <string name="slow_radio_button_title" msgid="2003939981098477091">"Lent (retard de <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
+    <string name="custom_switch" msgid="8943620506977879481">"Personalitzat"</string>
+    <string name="custom_edit_text" msgid="2329599295768944159">"retard (segons)"</string>
+    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"La tecla <xliff:g id="KEY_NAME">%1$s</xliff:g> ja s\'ha assignat a una altra acció"</string>
+    <string name="row_column_scanning_title" msgid="2048923141563186344">"Cerca per fila/columna"</string>
+    <string name="option_scanning_title" msgid="8241421334981836868">"Selecció de grup"</string>
+    <string name="linear_scanning_title" msgid="9112196836805334986">"Cerca lineal"</string>
+    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Comentaris de veu"</string>
+    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Configuració TTS"</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Per a diversos elements"</string>
+    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Anomena el primer i l\'últim element"</string>
+    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Anomena el nombre d\'elements"</string>
+    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Anomena tots els elements ressaltats"</string>
+    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Deixar que acabi la veu abans de desplaçar-te"</string>
+    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"grup <xliff:g id="ID_1">%1$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> a <xliff:g id="ID_2">%2$s</xliff:g>"</string>
+    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> elements"</string>
+    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"selecciona per desplaçar-te"</string>
+    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"element desconegut"</string>
+    <string name="scanning_method_heading" msgid="7171323017672239328">"Tria el mètode de cerca"</string>
+    <string name="row_column_scanning_description" msgid="492223045735324390">"Cerca fila per fila. Després de seleccionar-ne una, desplaça\'t pels elements de la llista."</string>
+    <string name="linear_scanning_description" msgid="105487938131581860">"Mou-te pels elements d\'un en un. Tingues en compte que els teclats sempre fan la cerca per files."</string>
+    <string name="option_scanning_description" msgid="5840199645756828133">"S\'assignarà un color a tots els elements. Prem l\'interruptor que correspongui al color que hi hagi al voltant de l\'element que vulguis. Restringeix la mida del grup segons les teves preferències."</string>
+    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Commutadors assignats a <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
+    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Cap"</string>
+    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Vols esborrar els interruptors assignats?"</string>
+    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Ja has assignat interruptors."</string>
+    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Esborra els interruptors"</string>
+    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Mantén els interruptors"</string>
+    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"No hi ha interruptors assignats"</string>
+    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"No hi ha interruptors assignats a aquesta acció. Confirmes que vols continuar?"</string>
+    <string name="option_scan_switch_title" msgid="2299019033642092563">"grup <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
+    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Prem un interruptor per assignar-hi el grup <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
+    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Prem un interruptor per assignar-lo a l\'acció <xliff:g id="ACTION_NAME">%1$s</xliff:g>."</string>
+    <string name="auto_scan_action_description" msgid="6111936327364342765">"Comença a cercar i a seleccionar elements"</string>
+    <string name="switch_game_heading" msgid="3375148646195038737">"Comprova la configuració amb Tic-Tac-Toe"</string>
+    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Prem <xliff:g id="SWITCH_NAME">%1$s</xliff:g> per començar la cerca. Torna a prémer l\'interruptor per seleccionar l\'element destacat. Comences tu!"</string>
+    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Prem <xliff:g id="SWITCH_NAME">%1$s</xliff:g> per iniciar la cerca. Torna a prémer l\'interruptor per seleccionar la fila destacada. L\'has de tornar a prémer per seleccionar l\'element destacat. Comences tu!"</string>
+    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Prem <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> per desplaçar-te entre els elements. Prem \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" per seleccionar l\'element destacat. Comences tu!"</string>
+    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Prem <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> per desplaçar-te entre les files. Prem <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g> per seleccionar la fila destacada. Repeteix el procés per triar un element de la fila. Comences tu!"</string>
+    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Prem <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> per seleccionar elements destacats en <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> o prem <xliff:g id="SWITCH_NAME_2">%4$s</xliff:g> per seleccionar elements en <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Repeteix el procés fins a arribar al teu element. Comences tu!"</string>
+    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Encara no has assignat interruptors per a totes les accions. Fes servir el botó Anterior per tornar enrere i acabar-ho de fer."</string>
+    <string name="game_reset_button_title" msgid="1631443186692518797">"Restableix el joc"</string>
+    <string name="game_square_already_taken" msgid="7092123933555305454">"Aquest quadrat ja està agafat. Prova-ho amb un altre."</string>
+    <string name="game_win_outcome_title" msgid="1120991403765987810">"Has guanyat!"</string>
+    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Més sort el proper cop!"</string>
+    <string name="game_tie_outcome_title" msgid="57373187590627529">"Empat"</string>
+    <string name="game_outcome_body_text" msgid="5780515852317652387">"Pots mantenir la configuració actual o bé tornar a començar."</string>
+    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Mantén la configuració"</string>
+    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Torna a començar"</string>
+    <string name="setup_completion_heading" msgid="5480299555935791749">"Configuració completada"</string>
+    <string name="setup_completion_message" msgid="8730406671578811674">"Ja estàs a punt."</string>
+    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Pots modificar la configuració addicional o obrir l\'auxiliar de configuració des de la configuració de l\'accés amb interruptors sempre que vulguis."</string>
+</resources>

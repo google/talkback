@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string-array name="switch_access_color_entries">
+    <item msgid="7934595828699536711">"हरा"</item>
+    <item msgid="7616478199824616148">"नारंगी"</item>
+    <item msgid="528738291475141372">"लाल"</item>
+    <item msgid="3613307072137891343">"नीला"</item>
+    <item msgid="1719741716015833575">"सफ़ेद"</item>
+  </string-array>
+  <string-array name="switch_access_weight_entries">
+    <item msgid="5215195704613305820">"पतली ठोस रेखा"</item>
+    <item msgid="7698398358042168523">"मध्यम ठोस रेखा"</item>
+    <item msgid="4047443674448719927">"मोटी ठोस रेखा"</item>
+  </string-array>
+  <string-array name="switch_access_scanning_methods_entries">
+    <item msgid="8644818950395737812">"रेखीय स्कैनिंग"</item>
+    <item msgid="6882375457227534722">"पंक्ति-स्तंभ"</item>
+    <item msgid="2527470982516678330">"समूह चयन"</item>
+    <item msgid="7675777327828673805">"नोमॉन घड़ियां"</item>
+  </string-array>
+</resources>
