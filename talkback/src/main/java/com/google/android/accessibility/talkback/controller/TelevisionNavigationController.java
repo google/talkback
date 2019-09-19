@@ -361,6 +361,13 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
         return false;
       }
     }
+
+    // Web applications and web widgets with role=application have, per the
+    // WAI-ARIA spec's contract, their own JavaScript logic for moving focus.
+    // TalkBack should not consume key events when such an app has accessibility focus.
+    boolean shouldProcessDPadKeyEvent = this.shouldProcessDPadKeyEvent &&
+            !AccessibilityNodeInfoUtils.isWebApplication(cursor);
+
     // TalkBack should always consume up/down/left/right on the d-pad, unless
     // shouldProcessDPadKeyEvent is false. Otherwise, strange things will happen when TalkBack
     // cannot navigate further.
