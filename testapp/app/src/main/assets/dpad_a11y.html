@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example TV web app</title>
+    <style>
+      div.outer {display: grid; grid-template-columns: 150px 150px;}
+      div.inner {background: teal; margin: 20px; color: white; font-size: 30px; font-family: Sans-Serif; display: flex; align-items: center; justify-content: center;}
+      div:focus {background: purple;}
+    </style>
+  </head>
+
+<body role="application">
+ <p tabindex="0">This web app allows navigation in 4 directions. Use your arrow keys (DPAD_UP / DPAD_DOWN / DPAD_LEFT / DPAD_RIGHT).</p>
+ <p tabindex="0"><em>role=application</em> makes TalkBack forward DPAD events to Chromium.</p>
+  <div role="grid">
+    <div class="outer" role="row">
+      <div role="gridcell" class="inner" tabindex="0" id="a" aria-label="Astrid">A</div><div role="gridcell" class="inner" tabindex="0" id="c" aria-label="Caroline">C</div>
+    </div>
+    <div class="outer" role="row">
+      <div role="gridcell" class="inner" tabindex="0" id="b" aria-label="Bernie">B</div><div role="gridcell" class="inner" tabindex="0" id="d" aria-label="David">D</div>
+    </div>
+  </div>
+
+  <input type="radio" name="mechanics" id="usecustomjs" checked> <label for="usecustomjs">JavaScript moves web focus (left/right wrap).</label>
+  <input type="radio" name="mechanics" id="usechromium"> <label for="usechromium">Chromium's built-in key handling moves web focus.</label>
+</body>
+
+<script>
+  // These key handlers use preventDefault to stop Chromium's
+  // built-in focus mechanics, called "Spatial Navigation", which
+  // is enabled by default in Android WebViews.
+  function moveFromA(event) {
+    switch (event.code) {
+      case 'ArrowUp':
+        /* go nowhere */ event.preventDefault(); break;
+      case 'ArrowLeft':
+      case 'ArrowRight':
+        c.focus(); event.preventDefault(); break;
+      case 'ArrowDown':
+        b.focus(); event.preventDefault(); break;
+    }
+  }
+
+  function moveFromC(event) {
+    switch (event.code) {
+      case 'ArrowUp':
+        /* go nowhere */ event.preventDefault(); break;
+      case 'ArrowLeft':
+      case 'ArrowRight':
+        a.focus(); event.preventDefault(); break;
+      case 'ArrowDown':
+        d.focus(); event.preventDefault(); break;
+    }
+  }
+
+  function moveFromB(event) {
+    switch (event.code) {
+      case 'ArrowUp':
+        a.focus(); event.preventDefault(); break;
+      case 'ArrowLeft':
+      case 'ArrowRight':
+        d.focus(); event.preventDefault(); break;
+      case 'ArrowDown':
+        usecustomjs.focus(); event.preventDefault(); break;
+    }
+  }
+
+  function moveFromD(event) {
+    switch (event.code) {
+      case 'ArrowUp':
+        c.focus(); event.preventDefault(); break;
+      case 'ArrowLeft':
+      case 'ArrowRight':
+        b.focus(); event.preventDefault(); break;
+      case 'ArrowDown':
+        usechromium.focus(); event.preventDefault(); break;
+      }
+  }
+
+  // Mimic a typical TV app.
+  function enableCustomDpadNavigation() {
+    a.addEventListener('keydown', moveFromA);
+    b.addEventListener('keydown', moveFromB);
+    c.addEventListener('keydown', moveFromC);
+    d.addEventListener('keydown', moveFromD);
+  }
+
+  function disableCustomDpadNavigation() {
+    a.removeEventListener('keydown', moveFromA);
+    b.removeEventListener('keydown', moveFromB);
+    c.removeEventListener('keydown', moveFromC);
+    d.removeEventListener('keydown', moveFromD);
+  }
+
+  function toggleCustomDpad() {
+    if (usecustomjs.checked)
+      enableCustomDpadNavigation();
+    else
+      disableCustomDpadNavigation();
+  }
+  usecustomjs.addEventListener('change', toggleCustomDpad);
+  usechromium.addEventListener('change', toggleCustomDpad);
+
+  enableCustomDpadNavigation();
+  a.focus();
+</script>

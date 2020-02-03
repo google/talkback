@@ -343,6 +343,15 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
    */
   private boolean shouldIgnore(AccessibilityNodeInfoCompat node, KeyEvent event) {
     final int keyCode = event.getKeyCode();
+    if (AccessibilityNodeInfoUtils.isWebApplication(node)) {
+      // Web applications and web widgets with role=application have, per the
+      // WAI-ARIA spec's contract, their own JavaScript logic for moving focus.
+      // TalkBack should not consume key events when such an app has accessibility focus.
+      // Debug tip: Forward DPAD events whenever the accessibility cursor is on,
+      // or inside, a WebView: if (WebInterfaceUtils.supportsWebActions(node)) return true;
+      return true;
+    }
+
     if (!mShouldProcessDPadKeyEvent
         && (keyCode == KeyEvent.KEYCODE_DPAD_UP
             || keyCode == KeyEvent.KEYCODE_DPAD_DOWN

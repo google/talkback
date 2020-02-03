@@ -63,6 +63,9 @@
     <string name="web_view_session_title">WebView</string>
     <string name="web_view_session_description">View with web content</string>
 
+    <string name="dpad_web_view_session_title">WebView TV app</string>
+    <string name="dpad_web_view_session_description">A TV app where the DPAD moves web focus in four directions.</string>
+
     <string name="single_line_edit_Field_session_title">Single Line Edit Field</string>
     <string name="single_line_edit_Field_session_description">Single-line editable text field</string>
 
@@ -170,6 +173,9 @@
 
     <string name="web_view_test_subtitle">View with Web Content</string>
     <string name="web_view_test_description">With TalkBack: swipe between web elements, double-tap to activate, swipe up and down to select element type. Note: requires Chrome 50 or above to work.</string>
+
+    <string name="dpad_web_view_test_subtitle">WebView TV app</string>
+    <string name="dpad_web_view_test_description">With TalkBack on Android TV: use the directional keys, the DPAD, to move between the four grid items. This test covers TV web apps that implement custom DPAD navigation, for example, TV apps that display grids of video clips.</string>
 
     <string name="web_view_in_scrollable_view_test_subtitle">WebView Inside ScrollView</string>
     <string name="web_view_in_scrollable_view_test_description">With TalkBack: swipe between web elements until the view scrolls, double-tap to activate. Note: requires Chrome 50 or above to work.</string>

@@ -154,6 +154,17 @@
       ]
     },
     {
+      "title": "@string/dpad_web_view_session_title",
+      "description": "@string/dpad_web_view_session_description",
+      "content": [
+        {
+          "subtitle": "@string/dpad_web_view_test_subtitle",
+          "description": "@string/dpad_web_view_test_description",
+          "classname": "com.android.talkbacktests.testsession.WebViewDPADTest"
+        }
+      ]
+    },
+    {
       "title": "@string/single_line_edit_Field_session_title",
       "description": "@string/single_line_edit_Field_session_description",
       "content": [

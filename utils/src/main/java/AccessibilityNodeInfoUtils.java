@@ -32,6 +32,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import com.google.android.accessibility.utils.compat.CompatUtils;
+import com.google.android.accessibility.utils.WebInterfaceUtils;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -147,6 +148,39 @@ public class AccessibilityNodeInfoUtils {
               || "com.android.vending:id/setup_scroll_list".equals(viewId);
         }
       };
+
+  public static boolean hasApplicationWebRole(AccessibilityNodeInfoCompat node) {
+    return node != null && node.getExtras() != null
+        && node.getExtras().containsKey("AccessibilityNodeInfo.chromeRole")
+        && node.getExtras().get("AccessibilityNodeInfo.chromeRole").equals("application");
+  }
+
+  private static final Filter<AccessibilityNodeInfoCompat> FILTER_IN_WEB_APPLICATION =
+      new Filter<AccessibilityNodeInfoCompat>() {
+        @Override
+        public boolean accept(AccessibilityNodeInfoCompat node) {
+          return hasApplicationWebRole(node);
+        }
+      };
+
+  /**
+   * Returns true if |node| has role=application, i.e. |node| has JavaScript
+   * that handles key events.
+   */
+  public static boolean isWebApplication(AccessibilityNodeInfoCompat node) {
+    // When a WebView-like view (an actual WebView or a browser) has focus:
+    // Check the web content's accessibility tree's first node.
+    // If that node wants raw key event, instead of first "tabbing" the green
+    // rect to it, skip ahead and let the web app directly decide where to go.
+    boolean firstWebNode = WebInterfaceUtils.supportsWebActions(node)
+        && !WebInterfaceUtils.supportsWebActions(node.getParent());
+    boolean firstWebNodeWantsKeyEvents = firstWebNode
+        && node.getChildCount() > 0
+        && hasApplicationWebRole(node.getChild(0));
+
+    return firstWebNodeWantsKeyEvents
+        || AccessibilityNodeInfoUtils.getSelfOrMatchingAncestor(node, FILTER_IN_WEB_APPLICATION) != null;
+  }
 
   private AccessibilityNodeInfoUtils() {
     // This class is not instantiable.
