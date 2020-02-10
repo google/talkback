@@ -26,8 +26,8 @@ import com.google.android.accessibility.utils.widget.SimpleOverlay;
  * output and related accessibility feedback.
  */
 public class RadialMenuOverlay extends SimpleOverlay implements DialogInterface {
-  private final RadialMenuView mMenuView;
-  private final RadialMenu mMenu;
+  private final RadialMenuView menuView;
+  private final RadialMenu menu;
 
   /**
    * Constructs a new radial menu overlay, optionally using a node provider to handle accessibility.
@@ -38,32 +38,32 @@ public class RadialMenuOverlay extends SimpleOverlay implements DialogInterface 
   public RadialMenuOverlay(Context context, int menuId, boolean useNodeProvider) {
     super(context, menuId);
 
-    mMenu = new RadialMenu(context, this);
-    mMenuView = new RadialMenuView(context, mMenu, useNodeProvider);
+    menu = new RadialMenu(context, this);
+    menuView = new RadialMenuView(context, menu, useNodeProvider);
 
-    setContentView(mMenuView);
+    setContentView(menuView);
   }
 
   public void showWithDot() {
     super.show();
 
-    mMenu.onShow();
-    mMenuView.displayDot();
+    menu.onShow();
+    menuView.displayDot();
   }
 
   public void showAt(float centerX, float centerY) {
     super.show();
 
-    mMenu.onShow();
-    mMenuView.displayAt(centerX, centerY);
+    menu.onShow();
+    menuView.displayAt(centerX, centerY);
   }
 
   public RadialMenu getMenu() {
-    return mMenu;
+    return menu;
   }
 
   public RadialMenuView getView() {
-    return mMenuView;
+    return menuView;
   }
 
   @Override
@@ -73,7 +73,7 @@ public class RadialMenuOverlay extends SimpleOverlay implements DialogInterface 
 
   @Override
   public void dismiss() {
-    mMenu.onDismiss();
+    menu.onDismiss();
     hide();
   }
 }

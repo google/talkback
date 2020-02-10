@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Tukar Akses"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Akses Suis membolehkan pengguna yang menghidap gangguan motor mengawal telefon dan tablet menggunakan satu atau beberapa suis. Gunakan suis untuk memilih item, menatal, memasukkan teks dan banyak lagi."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Kawal peranti menggunakan suis"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Bantuan &amp; maklum balas"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Autoimbas"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Masa autoimbas"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Songsangkan autoimbas"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f Saat</item>
-      <item quantity="one">1 Saat</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Sesuaikan pengimbasan"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Kaedah pengimbasan"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Lengah pada item yang pertama"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Tentukan suis"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Tentukan suis kepada tindakan"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Tentukan suis untuk pengimbasan"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Kelajuan garisan"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Bilangan imbasan"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Pilih bilangan pengimbasan yang diulang"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Masa nyahlantun"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Berbilang tekanan dalam masa ini akan dianggap sebagai satu tekanan."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Lepaskan untuk melakukan tindakan"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Lakukan tindakan apabila suis dilepaskan"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d Gelung</item>
-      <item quantity="one">%d Gelung</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Kekunci \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' sudah ditentukan untuk \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\'"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">%d suis ditentukan tindakan</item>
-      <item quantity="one">%d suis ditentukan tindakan</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Suis pemilihan kumpulan %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Seterusnya"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Sebelumnya"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Pilih"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Tekan lama"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Tatal ke hadapan"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Tatal ke belakang"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Ketepikan"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Kembangkan"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Runtuhkan"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Serlahkan teks"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Salin"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Potong"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Tampal"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENU"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Kembali"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Skrin Utama"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Gambaran keseluruhan"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Pemberitahuan"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Tetapan Pantas"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Tatal ke hadapan"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Tatal ke belakang"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Pengimbasan titik"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Pengimbasan Titik Keluar"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Leret ke kanan"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Leret ke kiri"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Leret ke atas"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Leret ke bawah"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Leret (tersuai)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Zum keluar"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Zum masuk"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Tetapan Akses Suis"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Tekan gabungan suis untuk menambah atau mengalih keluar suis daripada senarai"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Kosongkan tentuan suis"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Tiada suis yang ditentukan"</string>
-    <string name="more" msgid="1547670498589416840">"Lagi"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Kekunci Ruang"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Kekunci Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Kekunci Tab"</string>
-    <string name="save" msgid="5398278773451196019">"Simpan"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Mengimbas gaya serlahan"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Gaya imbasan utama"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Warna serlahan"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Gaya garisan serlahan"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Dasar privasi"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Dayakan autopilih"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Lumpuhkan autopilih"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Aksara seterusnya"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Perkataan seterusnya"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Baris seterusnya"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Perenggan seterusnya"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Halaman seterusnya"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Aksara sebelumnya"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Perkataan sebelumnya"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Baris sebelumnya"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Perenggan sebelumnya"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Halaman sebelumnya"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Mulakan pengimbasan secara automatik"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Pengimbasan bermula tanpa menekan suis"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Buka persediaan Akses Suis"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Wizard Persediaan Akses Suis"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Satu suis"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Dua suis"</string>
-    <string name="finish" msgid="4267641294267512480">"Selesai"</string>
-    <string name="exit" msgid="8664597014081860813">"Keluar"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Pilih bilangan suis"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Tekan suis untuk mula beralih antara item secara automatik, kemudian tekan lagi untuk memilih item yang diserlahkan."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Tekan satu suis untuk beralih antara item. Tekan suis lain untuk memilih item yang diserlahkan."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Pilih kelajuan pengimbasan"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Pilih tempoh serlahan dipaparkan pada setiap item"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Laju (lengah <xliff:g id="DELAY_SPEED">%1$s</xliff:g>s)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Sederhana (lengah <xliff:g id="DELAY_SPEED">%1$s</xliff:g>s)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Perlahan (lengah <xliff:g id="DELAY_SPEED">%1$s</xliff:g>s)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Tersuai"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"lengah (saat)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Kekunci \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' sudah ditentukan untuk tindakan lain"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Pengimbasan baris-lajur"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Pemilihan kumpulan"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Pengimbasan linear"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Maklum balas yang dituturkan"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Tetapan TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Untuk berbilang item"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Tuturkan item yang pertama &amp; terakhir"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Tuturkan bilangan item"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Tuturkan semua item yang diserlahkan"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Selesaikan pertuturan sebelum beralih"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"kumpulan <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> hingga <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> item"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"pilih untuk menatal"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"item tidak diketahui"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Pilih cara mengimbas"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Imbas satu baris pada satu-satu masa. Setelah baris dipilih, beralih antara item dalam senarai itu."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Beralih antara item satu persatu. Harap maklum bahawa papan kekunci sentiasa mengimbas mengikut baris."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Semua item akan ditentukan warnanya. Tekan suis yang sepadan dengan warna itu di sekitar item yang diingini. Kecilkan saiz kumpulan sehingga anda mencapai pilihan yang diingini."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Suis yang ditentukan untuk <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Tiada"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Kosongkan suis yang ditentukan?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Anda telah tentukan suis."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Kosongkan suis"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Simpan suis"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Tiada suis yang ditentukan"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Tiada suis yang ditentukan untuk tindakan ini. Adakah anda pasti mahu meneruskan?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Kumpulan <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Tekan suis untuk menentukannya supaya memilih kumpulan <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Tekan suis untuk menentukan tindakan \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Mulakan imbas dan pilih"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Uji persediaan anda dengan Tic-Tac-Toe"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Tekan \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" untuk mula mengimbas. Tekan suis sekali lagi untuk memilih item yang diserlahkan. Giliran anda dahulu!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Tekan \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" untuk mula mengimbas. Tekan suis sekali lagi untuk memilih baris yang diserlahkan. Tekan sekali lagi untuk memilih item yang diserlahkan. Giliran anda dahulu!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Tekan \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" untuk beralih antara item. Tekan \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" untuk memilih item yang diserlahkan. Giliran anda dahulu!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Tekan \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" untuk beralih antara baris. Tekan \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" untuk memilih baris yang diserlahkan. Ulang untuk memilih item dalam baris itu. Giliran anda dahulu!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Tekan \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" untuk memilih item yang diserlahkan dalam warna <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> atau tekan \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" untuk memilih item yang diserlahkan dalam warna <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Ulang untuk mencapai item anda. Giliran anda dahulu!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Anda belum menentukan suis untuk semua tindakan. Gunakan butang Sebelumnya untuk kembali dan selesaikan penentuan suis."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Tetapkan semula permainan"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Petak ini telah diambil. Cuba lagi!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Anda menang!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Semoga berjaya selepas ini"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Seri"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Anda boleh menyimpan persediaan semasa atau memulakan semula."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Simpan persediaan"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Mulakan semula"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Persediaan selesai"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Persediaan selesai."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Anda boleh menukar tetapan tambahan pada bila-bila masa atau membuka wizard persediaan sekali lagi daripada tetapan Akses Suis."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Tukar Akses</string>
+  <string name="switch_access_service_description">Akses Suis membolehkan pengguna yang menghidap gangguan motor mengawal telefon dan tablet menggunakan satu atau beberapa suis. Gunakan suis untuk memilih item, menatal, memasukkan teks dan banyak lagi.</string>
+  <string name="switch_access_service_summary">Kawal peranti menggunakan suis</string>
+  <string name="title_pref_help_feedback">Bantuan &amp; maklum balas</string>
+  <string name="title_pref_licenses">Lesen sumber terbuka</string>
+  <string name="title_pref_category_auto_scan">Autoimbas</string>
+  <string name="title_pref_auto_scan_disabled">Autoimbas (dilumpuhkan)</string>
+  <string name="action_key_summary_auto_scan">Penekanan suis ini akan mula mengalihkan serlahan antara item secara automatik. Tindakan menekan sekali lagi akan memilih item yang diserlahkan itu.</string>
+  <string name="title_pref_auto_scan_time_delay">Masa autoimbas</string>
+  <string name="action_name_reverse_auto_scan">Songsangkan autoimbas</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Autoimbas songsang (dilumpuhkan)</string>
+  <string name="action_key_summary_reverse_auto_scan">Penekanan suis ini akan mula mengalihkan serlahan antara item secara songsang. Tindakan menekan sekali lagi akan memilih item yang diserlahkan itu.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 Saat</item>
+    <item quantity="other">%.2f Saat</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Sesuaikan pengimbasan</string>
+  <string name="title_pref_scanning_methods">Kaedah pengimbasan</string>
+  <string name="title_pref_start_scan_delay">Lengah pada item yang pertama</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Pilih masa tambahan yang diluangkan pada item yang pertama. Masa ini ditambahkan pada masa autoimbas.\n\nTetapan ini melibatkan kedua-dua autoimbas dan pengimbasan titik.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Pilih masa tambahan yang diluangkan pada item yang pertama. Selepas masa ini, garisan menegak atau mendatar akan mula bergerak.\n\nTetapan ini melibatkan kedua-dua autoimbas dan pengimbasan titik.</string>
+  <string name="title_pref_category_assign_switches">Tentukan suis</string>
+  <string name="title_pref_category_key_mappings">Tetapkan suis pada tindakan global</string>
+  <string name="summary_pref_category_key_mappings">Tindakan global boleh dilaksanakan pada bila-bila masa</string>
+  <string name="title_pref_category_scan_key_mappings">Tentukan suis untuk pengimbasan</string>
+  <string name="summary_pref_category_scan_key_mappings">Pengimbasan membolehkan anda mengalihkan serlahan dan memilih item yang diserlahkan</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Pergerakan &amp; pemilihan</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Tindakan pada item yang diserlahkan</string>
+  <string name="title_pref_point_scan_line_speed">Kelajuan garisan</string>
+  <string name="dialog_message_pref_line_speed">Pilih kelajuan garisan mendatar dan menegak bergerak merentasi skrin.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 cm per saat</item>
+    <item quantity="other">%.2f cm per saat</item>
+  </plurals>
+  <string name="title_pref_loop_count">Bilangan imbasan</string>
+  <string name="dialog_message_pref_loop_count">Pilih bilangan pengimbasan diulang.\n\nTetapan ini melibatkan kedua-dua autoimbas dan pengimbasan titik.</string>
+  <string name="summary_pref_point_scan">Gunakan garisan bergerak untuk memilih lokasi mendatar dan menegak yang khusus. %1$s</string>
+  <string name="point_scan_enable_animations_message">Hidupkan animasi untuk menggunakan ciri ini.</string>
+  <string name="title_pref_category_switch_accomodation">Penyesuaian suis</string>
+  <string name="title_pref_debounce_time">Abaikan tekanan berulang</string>
+  <string name="dialog_message_pref_debounce_time">Berbilang tekanan suis dalam masa ini akan dianggap sebagai satu tekanan.</string>
+  <string name="title_pref_press_on_release">Lepaskan untuk melakukan tindakan</string>
+  <string name="subtitle_pref_press_on_release">Lakukan tindakan apabila suis dilepaskan</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d Gelung</item>
+    <item quantity="other">%d Gelung</item>
+  </plurals>
+  <string name="preference_off">Mati</string>
+  <string name="preference_on">Hidup</string>
+  <string name="toast_msg_key_already_assigned">Kekunci \'%1$s\' sudah ditentukan untuk \'%2$s\'</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d suis ditentukan tindakan</item>
+    <item quantity="other">%d suis ditentukan tindakan</item>
+  </plurals>
+  <string name="option_scan_switch_format">Suis pemilihan kumpulan %1$d</string>
+  <string name="option_scan_switch_format_with_color">Suis pemilihan kumpulan %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Penekanan suis ini akan memilih kumpulan %1$d.</string>
+  <string name="action_name_next">Seterusnya</string>
+  <string name="action_key_summary_next">Penekanan suis ini akan menyerlahkan item seterusnya.</string>
+  <string name="action_name_previous">Sebelumnya</string>
+  <string name="action_key_summary_previous">Penekanan suis ini akan menyerlahkan item sebelumnya.</string>
+  <string name="action_name_click">Pilih</string>
+  <string name="action_key_summary_click">Penekanan suis ini akan memilih item yang diserlahkan.</string>
+  <string name="action_name_long_click">Ketik &amp; tahan</string>
+  <string name="action_key_summary_long_click">Penekanan suis ini akan menyentuh &amp; menahan item yang diserlahkan.</string>
+  <string name="action_name_scroll_forward">Tatal ke hadapan</string>
+  <string name="action_key_summary_scroll_forward">Penekanan suis ini akan menatal item yang diserlahkan ke hadapan.</string>
+  <string name="action_name_scroll_backward">Tatal ke belakang</string>
+  <string name="action_key_summary_scroll_backward">Penekanan suis ini akan menatal item yang diserlahkan ke belakang.</string>
+  <string name="action_name_dismiss">Ketepikan</string>
+  <string name="action_name_expand">Kembangkan</string>
+  <string name="action_name_collapse">Runtuhkan</string>
+  <string name="action_name_highlight_text">Serlahkan teks</string>
+  <string name="action_group_name_highlight">Serlahkan…</string>
+  <string name="action_name_highlight_all_text">Serlahkan semua teks</string>
+  <string name="action_name_highlight_granular_text">Serlahkan %1$s</string>
+  <string name="action_name_copy">Salin</string>
+  <string name="action_name_copy_all_text">Salin semua</string>
+  <string name="action_name_cut">Potong</string>
+  <string name="action_name_cut_all_text">Potong semua</string>
+  <string name="action_name_paste">Tampal</string>
+  <string name="action_name_undo">Buat asal</string>
+  <string name="action_name_redo">Buat semula</string>
+  <string name="action_group_name_delete">Padam…</string>
+  <string name="action_name_delete">Padamkan %1$s</string>
+  <string name="action_name_delete_highlighted_text">Padamkan teks yang diserlahkan</string>
+  <string name="option_scanning_menu_button">MENU</string>
+  <string name="option_scanning_menu_button_content_description">Menu Akses Suis</string>
+  <string name="switch_access_global_menu">Menu Global Akses Suis</string>
+  <string name="switch_access_actions_menu">Menu Tindakan Akses Suis</string>
+  <string name="switch_access_close_menu">TUTUP</string>
+  <string name="switch_access_back_menu">KEMBALI</string>
+  <string name="next_arrow_content_description">Seterusnya</string>
+  <string name="previous_arrow_content_description">Sebelumnya</string>
+  <string name="global_action_back">Kembali</string>
+  <string name="global_action_key_summary_back">Penekanan suis ini akan kembali ke skrin sebelumnya atau menyembunyikan papan kekunci jika kelihatan.</string>
+  <string name="global_action_home">Skrin Utama</string>
+  <string name="global_action_key_summary_home">Penekanan suis ini akan membawa anda ke Skrin Utama.</string>
+  <string name="global_action_overview">Gambaran keseluruhan</string>
+  <string name="global_action_key_summary_overview">Penekanan suis ini akan menunjukkan senarai apl yang dibuka baru-baru ini.</string>
+  <string name="global_action_notifications">Pemberitahuan</string>
+  <string name="global_action_key_summary_notifications">Penekanan suis ini akan menunjukkan pemberitahuan peranti anda.</string>
+  <string name="global_action_quick_settings">Tetapan Pantas</string>
+  <string name="global_action_key_summary_quick_settings">Penekanan suis ini akan menunjukkan Tetapan Pantas peranti anda.</string>
+  <string name="global_action_power_options">Pilihan kuasa</string>
+  <string name="global_menu_volume_heading">Kelantangan</string>
+  <string name="volume_menu_media">Kelantangan media</string>
+  <string name="volume_menu_call">Kelantangan panggilan</string>
+  <string name="volume_menu_ring">Kelantangan deringan</string>
+  <string name="volume_menu_alarm">Kelantangan penggera</string>
+  <string name="volume_menu_accessibility">Kelantangan kebolehaksesan</string>
+  <string name="volume_menu_mute">Redam</string>
+  <string name="volume_menu_unmute">Nyahredam</string>
+  <string name="volume_menu_increase">Tinggikan</string>
+  <string name="volume_settings">Tetapan kelantangan</string>
+  <string name="volume_menu_decrease">Kurangkan</string>
+  <string name="scrollable_forward">Tatal ke hadapan</string>
+  <string name="scrollable_backward">Tatal ke belakang</string>
+  <string name="point_scan">Pengimbasan titik</string>
+  <string name="box_scan">Pengimbasan Titik Keluar</string>
+  <string name="action_name_swipe_right">Leret ke kanan</string>
+  <string name="action_name_swipe_left">Leret ke kiri</string>
+  <string name="action_name_swipe_up">Leret ke atas</string>
+  <string name="action_name_swipe_down">Leret ke bawah</string>
+  <string name="action_name_swipe_custom">Leret (tersuai)</string>
+  <string name="action_name_zoom_out">Zum keluar</string>
+  <string name="action_name_zoom_in">Zum masuk</string>
+  <string name="switch_access_preferences_title">Tetapan Akses Suis</string>
+  <string name="key_combo_preference_instructions">Tekan gabungan suis untuk menambah atau mengalih keluar suis daripada senarai</string>
+  <string name="key_combo_preference_reset_button">Kosongkan tentuan suis</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Tiada suis yang ditentukan</string>
+  <string name="more">Lagi</string>
+  <string name="name_of_space_bar">Kekunci Ruang</string>
+  <string name="name_of_enter_key">Kekunci Enter</string>
+  <string name="name_of_tab_key">Kekunci Tab</string>
+  <string name="save">Simpan</string>
+  <string name="title_pref_category_display_and_sound">Paparan &amp; bunyi</string>
+  <string name="title_pref_highlight_0">Mengimbas gaya serlahan</string>
+  <string name="title_pref_primary_scan_style">Gaya imbasan utama</string>
+  <string name="title_pref_highlight_0_color">Warna serlahan</string>
+  <string name="title_pref_highlight_0_weight">Gaya garisan serlahan</string>
+  <string name="title_pref_privacy_policy">Dasar privasi</string>
+  <string name="title_pref_auto_select">Autopilih</string>
+  <string name="summary_pref_auto_select">Pilih item yang diserlahkan secara automatik. Jika item tidak dapat dipilih atau jka tetapan ini dimatikan, anda akan melihat menu tindakan yang tersedia.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Dayakan autopilih</string>
+  <string name="switch_access_global_menu_disable_autoselect">Lumpuhkan autopilih</string>
+  <string name="switch_access_move_next">Seterusnya…</string>
+  <string name="switch_access_move_next_character">Aksara seterusnya</string>
+  <string name="switch_access_move_next_word">Perkataan seterusnya</string>
+  <string name="switch_access_move_next_line">Baris seterusnya</string>
+  <string name="switch_access_move_next_paragraph">Perenggan seterusnya</string>
+  <string name="switch_access_move_next_page">Halaman seterusnya</string>
+  <string name="switch_access_move_next_sentence">Ayat seterusnya</string>
+  <string name="switch_access_move_prev">Sebelumnya…</string>
+  <string name="switch_access_move_prev_character">Aksara sebelumnya</string>
+  <string name="switch_access_move_prev_word">Perkataan sebelumnya</string>
+  <string name="switch_access_move_prev_line">Baris sebelumnya</string>
+  <string name="switch_access_move_prev_paragraph">Perenggan sebelumnya</string>
+  <string name="switch_access_move_prev_page">Halaman sebelumnya</string>
+  <string name="switch_access_move_prev_sentence">Ayat sebelumnya</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Mulakan pengimbasan secara automatik</string>
+  <string name="switch_access_auto_start_scan_summary">Pengimbasan bermula tanpa menekan suis</string>
+  <string name="pref_begin_switchaccess_setup_title">Buka panduan persediaan</string>
+  <string name="setup_wizard_heading">Panduan Persediaan Akses Suis</string>
+  <string name="one_switch">Satu suis</string>
+  <string name="two_switches">Dua suis</string>
+  <string name="finish">Selesai</string>
+  <string name="exit">Keluar</string>
+  <string name="intro_heading">Pilih suis</string>
+  <string name="usb_switch_option_text">Suis USB</string>
+  <string name="bluetooth_switch_option_text">Suis Bluetooth</string>
+  <string name="usb_switch_description_text">Sambung suis secara fizikal melalui USB</string>
+  <string name="bluetooth_switch_description_text">Gandingkan suis secara wayarles melalui Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">Peranti anda tidak menyokong Bluetooth. Cuba gunakan suis fizikal.</string>
+  <string name="connected_usb_devices_header">Peranti yang disambungkan</string>
+  <string name="usb_no_devices_connected_message">Peranti USB tidak ditemui. Pastikan peranti anda disambungkan dengan kemas.</string>
+  <string name="connect_usb_heading">Sambung suis USB</string>
+  <string name="pair_bluetooth_heading">Gandingkan suis Bluetooth</string>
+  <string name="pair_bluetooth_subheading">Ketik suis Bluetooth anda di bawah</string>
+  <string name="bluetooth_not_enabled_message">Untuk menggandingkan suis Bluetooth, hidupkan Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Hidupkan Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Tiada peranti Bluetooth yang digandingkan</string>
+  <string name="paired_devices_header">Peranti Bluetooth yang digandingkan</string>
+  <string name="available_devices_header">Peranti Bluetooth yang tersedia</string>
+  <string name="bluetooth_computer_content_description">Komputer</string>
+  <string name="bluetooth_phone_content_description">Telefon</string>
+  <string name="bluetooth_imaging_content_description">Pengimejan</string>
+  <string name="bluetooth_headphone_content_description">Fon kepala</string>
+  <string name="bluetooth_peripheral_content_description">Persisian</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Menyambung…</string>
+  <string name="bluetooth_connected_description">Disambungkan</string>
+  <string name="bluetooth_device_unavailable_description">Peranti tidak tersedia</string>
+  <string name="reconnecting_unsupported_title">Tidak dapat menyambung ke peranti</string>
+  <string name="reconnecting_unsupported_message">Akses Suis tidak dapat menyambung ke peranti yang digandingkan sebelum ini. Pastikan peranti anda dihidupkan dan disambungkan.\n\nJika peranti anda masih tidak dapat disambungkan, pergi ke tetapan Bluetooth dan cuba sambung semula.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Pergi ke tetapan Bluetooth</string>
+  <string name="number_of_switches_heading">Pilih bilangan suis</string>
+  <string name="title_assign_scan_key">Tetapkan Suis %1$s</string>
+  <string name="one_switch_description_text">Tekan suis untuk mula beralih antara item secara automatik. Tekan lagi untuk memilih item yang diserlahkan.</string>
+  <string name="two_switches_description_text">Tekan satu suis untuk beralih antara item. Tekan suis lain untuk memilih item yang diserlahkan.</string>
+  <string name="step_speed_heading">Pilih kelajuan pengimbasan</string>
+  <string name="step_speed_subheading">Pilih tempoh serlahan dipaparkan pada setiap item</string>
+  <string name="fast_radio_button_title">Laju (lengah %1$ss)</string>
+  <string name="medium_radio_button_title">Sederhana (lengah %1$ss)</string>
+  <string name="slow_radio_button_title">Perlahan (lengah %1$ss)</string>
+  <string name="custom_switch">Tersuai</string>
+  <string name="custom_edit_text">lengah (saat)</string>
+  <string name="setup_toast_msg_key_already_assigned">Kekunci \'%1$s\' sudah ditentukan untuk tindakan lain</string>
+  <string name="row_column_scanning_title">Pengimbasan baris-lajur</string>
+  <string name="option_scanning_title">Pemilihan kumpulan (lanjutan)</string>
+  <string name="linear_scanning_title">Pengimbasan linear</string>
+  <string name="linear_scanning_except_keyboard_title">Pengimbasan linear (kecuali papan kekunci)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Pertuturan, bunyi &amp; getaran</string>
+  <string name="title_pref_switch_access_spoken_feedback">Maklum balas yang dituturkan</string>
+  <string name="title_pref_scan_non_actionable_items">Tuturkan teks deskriptif</string>
+  <string name="scan_non_actionable_items_summary">Dengar maklum balas yang dituturkan untuk item yang terdapat tindakan tersedia dan teks deskriptif</string>
+  <string name="title_pref_switch_access_verbosity">Bahasa berjela</string>
+  <string name="summary_verbosity">Pilih jumlah maklumat yang dituturkan</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Butiran bahasa berjela</string>
+  <string name="title_pref_switch_access_keyboard_echo">Gema papan kekunci</string>
+  <string name="keyboard_echo_summary_on">Tuturkan kekunci yang ditaip untuk papan kekunci pada skrin</string>
+  <string name="keyboard_echo_summary_off">Jangan tuturkan kekunci yang ditaip untuk papan kekunci pada skrin</string>
+  <string name="title_pref_enable_hints">Tuturkan petunjuk penggunaan</string>
+  <string name="enable_hints_summary_on">Petunjuk penggunaan dituturkan semasa navigasi, selepas sedikit kelengahan</string>
+  <string name="enable_hints_summary_off">Petunjuk penggunaan tidak dituturkan apabila mengalihkan fokus kebolehaksesan</string>
+  <string name="title_pref_speak_container_element_position">Tuturkan maklumat senarai dan grid</string>
+  <string name="speak_container_element_position_summary_on">Maklumat senarai dan grid dituturkan</string>
+  <string name="speak_container_element_position_summary_off">Maklumat senarai dan grid tidak dituturkan</string>
+  <string name="title_pref_speak_element_type">Tuturkan jenis unsur</string>
+  <string name="speak_element_type_summary_on">Jenis unsur dituturkan untuk item yang difokus</string>
+  <string name="speak_element_type_summary_off">Jenis unsur tidak dituturkan untuk item yang difokus</string>
+  <string name="title_pref_pitch_change_for_ime">Gunakan perubahan nada</string>
+  <string name="pitch_change_for_ime_summary_on">Tuturkan maklum balas papan kekunci dalam nada suara yang lebih rendah</string>
+  <string name="pitch_change_for_ime_summary_off">Jangan ubah maklum balas suara apabila bercakap</string>
+  <string name="title_pref_speak_selected_item_or_group">Tuturkan item atau kumpulan yang dipilih</string>
+  <string name="speak_selected_item_or_group_summary">Tuturkan nama item atau kumpulan selepas dipilih</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Masa tuturan maksimum per item</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Tetapkan jumlah masa maksimum untuk perihalan tuturan setiap item. Pertuturan akan dipotong selepas masa yang ditetapkan.\nNota: Pembayang sentiasa dituturkan jika dihidupkan.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Pelbagai</string>
+  <string name="title_pref_node_description_order">Susunan perihalan unsur</string>
+  <string name="title_pref_switch_access_speak_element_ids">Tuturkan ID elemen</string>
+  <string name="speak_element_ids_summary_on">ID unsur dituturkan bagi butang yang tidak berlabel</string>
+  <string name="speak_element_ids_summary_off">ID unsur tidak dituturkan bagi butang yang tidak berlabel</string>
+  <string name="title_pref_switch_access_tts_settings">Tetapan TTS</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Apabila berbilang item diserlahkan</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Tuturkan item yang pertama dan terakhir</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Tuturkan bilangan item</string>
+  <string name="title_pref_switch_access_speak_all_items">Tuturkan semua item yang diserlahkan</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Selesaikan pertuturan sebelum beralih</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Maklum balas lain</string>
+  <string name="title_pref_developer_settings">Tetapan pembangun</string>
+  <string name="title_pref_spoken_feedback_overlay">Paparkan output pertuturan</string>
+  <string name="title_pref_switch_access_vibration_feedback">Maklum balas getaran</string>
+  <string name="vibration_feedback_summary">Getar untuk menunjukkan bahawa sesuatu telah berubah (mis. kandungan pada skrin berubah)</string>
+  <string name="title_pref_switch_access_sound_feedback">Maklum balas bunyi</string>
+  <string name="sound_feedback_summary">Mainkan ikon audio untuk menunjukkan bahawa sesuatu telah berubah (mis. kandungan pada skrin berubah)</string>
+  <string name="title_pref_switch_access_sound_volume">Kelantangan bunyi</string>
+  <string name="title_pref_switch_access_audio_ducking">Merendahkan audio</string>
+  <string name="audio_ducking_summary">Kurangkan kelantangan audio lain semasa bercakap</string>
+  <string name="switch_access_focus_cleared_no_selection">Skrin berubah</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Tekan pilih suis untuk memilih baris</string>
+  <string name="switch_access_spoken_feedback_group">kumpulan %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Tekan suis kumpulan %1$s untuk memilih kumpulan</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Tekan suis kumpulan %1$s untuk memilih item</string>
+  <string name="switch_access_spoken_feedback_to">%1$s hingga %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s item</string>
+  <string name="switch_access_spoken_feedback_group_selected">kumpulan %1$s dipilih</string>
+  <string name="switch_access_spoken_feedback_row_selected">baris dipilih</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s dipilih</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">boleh ditatal</string>
+  <string name="switch_access_spoken_feedback_scroll">pilih untuk menatal</string>
+  <string name="switch_access_spoken_feedback_unknown">item tidak diketahui</string>
+  <string name="scanning_method_heading">Pilih cara mengimbas</string>
+  <string name="row_column_scanning_description">Imbas satu baris pada satu-satu masa. Setelah baris dipilih, beralih antara item dalam senarai itu.</string>
+  <string name="linear_scanning_description">Beralih antara item satu persatu</string>
+  <string name="linear_scanning_except_keyboard_description">Beralih antara item satu persatu. Harap maklum bahawa papan kekunci akan mengimbas mengikut baris.</string>
+  <string name="option_scanning_description">Semua item akan ditentukan warnanya. Tekan suis yang sepadan dengan warna itu di sekitar item yang diingini. Kecilkan saiz kumpulan sehingga anda mencapai pilihan yang diingini.</string>
+  <string name="setup_switch_assignment_heading">Suis yang ditentukan untuk %s</string>
+  <string name="setup_switch_assignment_empty">Tiada</string>
+  <string name="clear_keys_dialog_title">Kosongkan suis yang ditentukan?</string>
+  <string name="clear_keys_dialog_message">Anda telah tentukan suis.</string>
+  <string name="clear_keys_dialog_positive_button">Kosongkan suis</string>
+  <string name="clear_keys_dialog_negative_button">Simpan suis</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Tiada suis yang ditentukan</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Tiada suis yang ditentukan untuk tindakan ini. Adakah anda pasti mahu meneruskan?</string>
+  <string name="option_scan_switch_title">Kumpulan %1$s</string>
+  <string name="option_scan_switch_subtitle">Tekan suis untuk menentukannya supaya memilih kumpulan %1$s.</string>
+  <string name="assign_switch_subtitle">Tekan suis untuk menentukan tindakan \"%1$s\".</string>
+  <string name="auto_scan_action_description">Mulakan imbas dan pilih</string>
+  <string name="switch_game_heading">Uji persediaan anda dengan Tic-Tac-Toe</string>
+  <string name="switch_game_one_switch_linear_subheading">Tekan \"%1$s\" untuk mula mengimbas. Tekan suis sekali lagi untuk memilih item yang diserlahkan. Giliran anda dahulu!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Tekan \"%1$s\" untuk mula mengimbas. Tekan suis sekali lagi untuk memilih baris yang diserlahkan. Tekan sekali lagi untuk memilih item yang diserlahkan. Giliran anda dahulu!</string>
+  <string name="switch_game_two_switch_linear_subheading">Tekan \"%1$s\" untuk beralih antara item. Tekan \"%2$s\" untuk memilih item yang diserlahkan. Giliran anda dahulu!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Tekan \"%1$s\" untuk beralih antara baris. Tekan \"%2$s\" untuk memilih baris yang diserlahkan. Ulang untuk memilih item dalam baris itu. Giliran anda dahulu!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Tekan \"%1$s\" untuk memilih item yang diserlahkan dalam warna %2$s atau tekan \"%4$s\" untuk memilih item yang diserlahkan dalam warna %3$s. Ulang untuk mencapai item anda. Giliran anda dahulu!</string>
+  <string name="switch_game_incomplete_switches_subheading">Anda belum menentukan suis untuk semua tindakan. Gunakan butang Sebelumnya untuk kembali dan selesaikan penentuan suis.</string>
+  <string name="game_square_content_description">%1$s di kedudukan %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">kosong</string>
+  <string name="game_reset_button_title">Tetapkan semula permainan</string>
+  <string name="game_square_already_taken">Petak ini telah diambil. Cuba lagi!</string>
+  <string name="game_win_outcome_title">Anda menang!</string>
+  <string name="game_loss_outcome_title">Semoga berjaya selepas ini</string>
+  <string name="game_tie_outcome_title">Seri</string>
+  <string name="game_outcome_body_text">Anda boleh menyimpan persediaan semasa atau memulakan semula.</string>
+  <string name="game_outcome_positive_response">Simpan persediaan</string>
+  <string name="game_outcome_negative_response">Mulakan semula</string>
+  <string name="setup_completion_heading">Persediaan selesai</string>
+  <string name="setup_completion_message">Persediaan selesai.</string>
+  <string name="setup_completion_settings_reminder">Anda boleh menukar tetapan tambahan pada bila-bila masa atau membuka wizard persediaan sekali lagi daripada tetapan Akses Suis.</string>
+  <string name="dialog_url_list">Pilih pautan</string>
+  <string name="dialog_do_not_disturb_permission_title">Akses Suis memerlukan kebenaran untuk melaraskan kelantangan</string>
+  <string name="dialog_do_not_disturb_permission_message">Untuk melaraskan kelantangan daripada menu Akses Suis, hidupkan akses Jangan Ganggu untuk Android Accessibility Suite</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Buka tetapan</string>
 </resources>

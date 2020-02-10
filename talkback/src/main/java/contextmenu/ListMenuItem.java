@@ -21,7 +21,7 @@ import android.view.SubMenu;
 
 public class ListMenuItem extends ContextMenuItem {
 
-  private ListSubMenu mSubMenu;
+  private ListSubMenu subMenu;
 
   public ListMenuItem(Context context, int groupId, int itemId, int order, CharSequence title) {
     super(context, groupId, itemId, order, title);
@@ -35,16 +35,16 @@ public class ListMenuItem extends ContextMenuItem {
       CharSequence title,
       ListSubMenu subMenu) {
     super(context, groupId, itemId, order, title);
-    mSubMenu = subMenu;
+    this.subMenu = subMenu;
   }
 
   @Override
   public boolean hasSubMenu() {
-    return mSubMenu != null;
+    return subMenu != null;
   }
 
   @Override
   public SubMenu getSubMenu() {
-    return mSubMenu;
+    return subMenu;
   }
 }

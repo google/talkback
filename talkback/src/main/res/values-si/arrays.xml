@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>බොත්තම</item>
+    <item>සලකුණු කොටුව</item>
+    <item>වර්ණ සොයා ගන්නා</item>
+    <item>දින වේලා පාලනය</item>
+    <item>දින වේලා පාලනය</item>
+    <item>දින පාලනය</item>
+    <item>ඊ-තැපැල් සඳහා පෙළ සංස්කරණය කරන්න</item>
+    <item>ගොනු තේරීම</item>
+    <item translatable="false"></item>
+    <item>බොත්තම</item>
+    <item>මාස පාලනය</item>
+    <item>සංඛ්‍යාත්මක පෙළ පමණක් සංස්කරණය කරන්න</item>
+    <item>මුරපද සංස්කරණ පෙළ</item>
+    <item>රේඩියෝ බොත්තම</item>
+    <item>ස්ලයිඩ</item>
+    <item>යළි පිහිටුවන්න</item>
+    <item>සෙවීම සඳහා පෙළ සංස්කරණය කරන්න</item>
+    <item>බොත්තම</item>
+    <item>දුරකථන අංකය සඳහා පෙළ සංස්කරණය කරන්න</item>
+    <item>පෙළ සංස්කරණය කරන්න</item>
+    <item>URL සඳහා පෙළ සංස්කරණය කරන්න</item>
+    <item>වර්ෂයේ සතිය පාලනය</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>ඇඟවීම</item>
+    <item>ඇඟවීමේ සංවාදය</item>
+    <item>බොත්තම</item>
+    <item>සලකුණු කොටුව</item>
+    <item>සංයුක්ත කොටුව</item>
+    <item>සංවාදය</item>
+    <item>ජාලක කොටුව</item>
+    <item>සබැඳිය</item>
+    <item>ලෝග</item>
+    <item>සීමා රේඛාව</item>
+    <item>මෙනු අයිතමය</item>
+    <item>මෙනු අයිතම සළකුණු කොටුව</item>
+    <item>මෙනු අයිතම රේඩියෝ බොත්තම</item>
+    <item>විකල්පය</item>
+    <item>ප්‍රගති තීරුව</item>
+    <item>රේඩියෝ බොත්තම</item>
+    <item>රේඩියෝ බොත්තම් සමූහය</item>
+    <item>අනුචලන තීරුව</item>
+    <item>ස්ලයිඩ</item>
+    <item>භ්‍රමණ බොත්තම</item>
+    <item>තත්ත්වය</item>
+    <item>ටැබය</item>
+    <item>ටැබ පැනලය</item>
+    <item>පෙළ කොටුව</item>
+    <item>කාල ගණනය</item>
+    <item>මෙවලම් තීරුව</item>
+    <item>මෙවලම් ඉඟිය</item>
+    <item>රුක් අයිතමය</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>සබැඳිය</item>
+    <item>ශීර්ෂය එක</item>
+    <item>ශීර්ෂය දෙක</item>
+    <item>ශීර්ෂය තුන</item>
+    <item>ශීර්ෂය හතර</item>
+    <item>ශීර්ෂය පහ</item>
+    <item>ශීර්ෂය හය</item>
+    <item>බොත්තම</item>
+    <item>සංයුක්ත කොටුව</item>
+    <item>වගුව</item>
+    <item>පෙළ ප්‍රදේශය</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

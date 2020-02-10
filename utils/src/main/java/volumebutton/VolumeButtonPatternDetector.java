@@ -20,7 +20,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 import com.google.android.accessibility.utils.Performance;
@@ -32,29 +32,39 @@ import java.util.List;
  * This class listens to key events, and when it detects certain key combinations, it creates
  * key-combination events. This class contains various VolumeButtonPatternMatcher subclasses.
  */
+// TODO:  Simplify VolumeButtonPatternMatcher subclasses.
 public class VolumeButtonPatternDetector {
 
   /** Constants denoting different sequences of pushing the volume buttons. */
-  @IntDef({SHORT_PRESS_PATTERN, TWO_BUTTONS_LONG_PRESS_PATTERN, TWO_BUTTONS_THREE_PRESS_PATTERN})
+  @IntDef({
+    SHORT_PRESS_PATTERN,
+    LONG_PRESS_PATTERN,
+    SHORT_DOUBLE_PRESS_PARTTERN,
+    TWO_BUTTONS_LONG_PRESS_PATTERN,
+    TWO_BUTTONS_THREE_PRESS_PATTERN
+  })
   public @interface ButtonSequence {}
 
   public static final int SHORT_PRESS_PATTERN = 1;
-  public static final int TWO_BUTTONS_LONG_PRESS_PATTERN = 2;
-  public static final int TWO_BUTTONS_THREE_PRESS_PATTERN = 3;
+  public static final int LONG_PRESS_PATTERN = 2;
+  public static final int TWO_BUTTONS_LONG_PRESS_PATTERN = 3;
+  public static final int TWO_BUTTONS_THREE_PRESS_PATTERN = 4;
+  public static final int SHORT_DOUBLE_PRESS_PARTTERN = 5;
 
   /** Constants denoting different combinations of the volume buttons. */
-  @IntDef({VOLUME_UP, VOLUME_DOWN, TWO_BUTTONS})
+  @IntDef({VOLUME_UP, VOLUME_DOWN, TWO_BUTTONS, PLAY_PAUSE})
   public @interface ButtonsUsed {}
 
   public static final int VOLUME_UP = KeyEvent.KEYCODE_VOLUME_UP;
   public static final int VOLUME_DOWN = KeyEvent.KEYCODE_VOLUME_DOWN;
+  public static final int PLAY_PAUSE = KeyEvent.KEYCODE_HEADSETHOOK;
   public static final int TWO_BUTTONS = 1;
 
   private static final long LONG_PRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout();
   private static final int CHECK_MATCHERS_MESSAGE = 1;
 
   private OnPatternMatchListener mListener;
-  private final List<VolumeButtonPatternMatcher> mPatternMatchers;
+  private final List<VolumeButtonPatternMatcher> patternMatchers;
 
   private final Handler mHandler =
       new Handler(Looper.getMainLooper()) {
@@ -67,11 +77,16 @@ public class VolumeButtonPatternDetector {
       };
 
   public VolumeButtonPatternDetector(Context context) {
-    mPatternMatchers = new ArrayList<>();
-    mPatternMatchers.add(new SingleVolumeButtonShortPressPatternMatcher(VOLUME_UP));
-    mPatternMatchers.add(new SingleVolumeButtonShortPressPatternMatcher(VOLUME_DOWN));
-    mPatternMatchers.add(new DoubleVolumeButtonLongPressPatternMatcher());
-    mPatternMatchers.add(new DoubleVolumeButtonThreeShortPressPatternMatcher());
+    patternMatchers = new ArrayList<>();
+    patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(SHORT_PRESS_PATTERN, VOLUME_UP));
+    patternMatchers.add(
+        new SingleVolumeButtonPressPatternMatcher(SHORT_PRESS_PATTERN, VOLUME_DOWN));
+    patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(SHORT_PRESS_PATTERN, PLAY_PAUSE));
+    patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(LONG_PRESS_PATTERN, VOLUME_UP));
+    patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(LONG_PRESS_PATTERN, VOLUME_DOWN));
+    patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(LONG_PRESS_PATTERN, PLAY_PAUSE));
+    patternMatchers.add(new DoubleVolumeButtonLongPressPatternMatcher());
+    patternMatchers.add(new DoubleVolumeButtonThreeShortPressPatternMatcher());
   }
 
   public boolean onKeyEvent(KeyEvent keyEvent) {
@@ -91,6 +106,7 @@ public class VolumeButtonPatternDetector {
     switch (keyCode) {
       case KeyEvent.KEYCODE_VOLUME_DOWN:
       case KeyEvent.KEYCODE_VOLUME_UP:
+      case KeyEvent.KEYCODE_HEADSETHOOK:
         return true;
       default:
         return false;
@@ -98,13 +114,13 @@ public class VolumeButtonPatternDetector {
   }
 
   private void processKeyEvent(KeyEvent event) {
-    for (VolumeButtonPatternMatcher matcher : mPatternMatchers) {
+    for (VolumeButtonPatternMatcher matcher : patternMatchers) {
       matcher.onKeyEvent(event);
     }
   }
 
   private void checkMatchers() {
-    for (VolumeButtonPatternMatcher matcher : mPatternMatchers) {
+    for (VolumeButtonPatternMatcher matcher : patternMatchers) {
       if (matcher.checkMatch()) {
         EventId eventId =
             Performance.getInstance().onVolumeKeyComboEventReceived(matcher.getPatternCode());
@@ -115,7 +131,7 @@ public class VolumeButtonPatternDetector {
   }
 
   public void clearState() {
-    for (VolumeButtonPatternMatcher matcher : mPatternMatchers) {
+    for (VolumeButtonPatternMatcher matcher : patternMatchers) {
       matcher.clear();
     }
   }

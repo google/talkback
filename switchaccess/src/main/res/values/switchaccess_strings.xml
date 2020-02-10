@@ -26,31 +26,30 @@
     -->
     <string name="title_pref_help_feedback">Help &#38; feedback</string>
 
+    <!-- Label for preference that displays legal information about the licenses used in this app. [CHAR LIMIT=NONE] -->
+    <string name="title_pref_licenses">Open source licenses</string>
+
     <!--
         Auto scanning highlights each item, one after another, spending a set amount of time
-        (the Auto Scan Time) on each item. The user presses a button when the item they want to
+        (the Auto-scan time) on each item. The user presses a button when the item they want to
         activate is highlighted.
     -->
     <string name="title_pref_category_auto_scan">Auto-scan</string>
 
     <!--
-        Nomon clock scanning displays animated clocks next to each item such that the user can select
-        a desired item. Each item is "selectable" for a given period of time (the Nomon Clock active
-        time).
+        Auto-scan preference title when auto-scan is disabled.
+
+        Auto scanning highlights each item, one after another, spending a set amount of time (the
+        Auto-scan time) on each item. The user presses a button when the item they want to activate
+        is highlighted.
     -->
-    <string name="title_pref_nomon_clock_time_delay" translatable="false">Clock delay time</string>
+    <string name="title_pref_auto_scan_disabled">Auto-scan (disabled)</string>
 
     <!--
-        Nomon clock scanning displays animated clocks next to each item such that the user can select
-        a desired item. Multiple items can share the same clock in a group.
+        Description of what the Auto-scan switch does. Shown in the dialog where users can assign a
+        switch or combination of switches to "Auto-scan".
     -->
-    <string name="title_pref_num_nomon_clock_groups" translatable="false">Number of clock groups</string>
-
-    <!--
-        Dialog message for Nomon clock groups. Explains what the 'Number of Nomon clock groups' setting is.
-        TODO: use this string as explanatory text to the user
-    -->
-    <string name="dialog_message_pref_nomon_clock_group_count" translatable="false">Choose the maximum number of groups for your specified delay time. Shorter time delays are easier to use with fewer groups (but they will usually require more narrowing-down for selected items).</string>
+    <string name="action_key_summary_auto_scan">Pressing this switch will automatically start moving the highlight between items. Pressing again will select the highlighted item.</string>
 
     <!--
          Auto scanning highlights each item, one after another, spending a set amount of time
@@ -65,9 +64,24 @@
      -->
     <string name="action_name_reverse_auto_scan">Reverse auto-scan</string>
 
+    <!--
+         Title of the "Reverse auto-scan" key assignment preference when "Auto-scan" is disabled.
+
+         Reverse auto scanning highlights each item, starting from the last item and moving
+         backward. The user presses a 'REVERSE AUTO SCAN' key when they want to start reverse auto
+         scan or to activate highlighted item.
+     -->
+    <string name="title_pref_reverse_auto_scan_disabled">Reverse auto-scan (disabled)</string>
+
+    <!--
+        Description of what the Reverse auto-scan switch does. Shown in the dialog where users can
+        assign a switch or combination of switches to "Reverse auto-scan".
+    -->
+    <string name="action_key_summary_reverse_auto_scan">Pressing this switch will automatically start moving the highlight between items in reverse.  Pressing again will select the highlighted item.</string>
+
     <plurals name="time_delay_summary_format">
         <item quantity="one">1 Second</item>
-        <item quantity="other">%.2f Seconds</item>
+        <item quantity="other"><xliff:g id="quantity" example="2.3">%.2f</xliff:g> Seconds</item>
     </plurals>
 
     <!--
@@ -91,21 +105,63 @@
     <string name="title_pref_start_scan_delay">Delay on first item</string>
 
     <!--
+        Dialog message for the "Delay on first item" setting. This setting appears under the
+        "Auto-scan" category, but affects both auto-scan and point scan (the setting is duplicated
+        under the "Point scan" category).
+    -->
+    <string name="dialog_message_pref_start_scan_delay_auto_scan">Choose the extra time that is spent on the first item. This time is added to the auto-scan time.\n\nThis setting affects both auto-scan and point scan.</string>
+
+    <!--
+        Dialog message for the "Delay on first item" setting. This setting appears under the "Point
+        scan" category, but affects both auto-scan and point scan (the setting is duplicated under
+        the "Auto-scan" category).
+    -->
+    <string name="dialog_message_pref_start_scan_delay_point_scan">Choose the extra time that is spent on the first item. After this time, the vertical or horizontal line will begin to move.\n\nThis setting affects both auto-scan and point scan.</string>
+
+    <!--
         Settings category title for the section that allows users to assign switches.
     -->
     <string name="title_pref_category_assign_switches">Assign switches</string>
 
     <!--
-        Settings heading for the section that allows users to assign combinations of keys to actions
-        on the device.
+        Settings heading for the section that allows users to assign combinations of keys to global
+        actions (actions that can be performed from anywhere) on the device.
     -->
-    <string name="title_pref_category_key_mappings">Assign switches to actions</string>
+    <string name="title_pref_category_key_mappings">Assign switches to global actions</string>
 
     <!--
-        Settings heading for the section that allows users to assign combinations of keys to actions
-        that shift focus (scan) to different views or groups of views
+        Settings summary for the section that allows users to assign combinations of keys to global
+        actions (actions that can be performed from anywhere) on the device.
+    -->
+    <string name="summary_pref_category_key_mappings">Global actions can be performed at any time</string>
+
+    <!--
+        Settings heading for the section that allows users to assign combinations of keys to
+        actions that (a) shift highlight (scan) to different views or groups of views and (b)
+        perform actions (e.g. click, scroll) on the highlighted item.
     -->
     <string name="title_pref_category_scan_key_mappings">Assign switches for scanning</string>
+
+    <!--
+        Settings summary for the section that allows users to assign combinations of keys to actions
+        that (a) shift highlight (scan) to different views or groups of views and (b) click on the
+        highlighted item.
+    -->
+    <string name="summary_pref_category_scan_key_mappings">Scanning lets you move highlight and select highlighted items</string>
+
+    <!--
+        Settings heading for the section under "Assign switches for scanning" that allows users to
+        assign combinations of keys to actions that (a) shift highlight (scan) to different views or
+        groups of views and (b) click on the highlighted item.
+    -->
+    <string name="title_pref_category_key_mappings_movement_and_selection">Movement &#38; selection</string>
+
+    <!--
+        Settings heading for the section under "Assign switches for scanning" that allows users to
+        assign combinations of keys to actions (other than click) that can be performed on the
+        selected item.
+    -->
+    <string name="title_pref_category_key_mappings_highlighted_item_actions">Actions on highlighted item</string>
 
     <!--
         Preference title for setting that allows a user to set the speed at which a line moves
@@ -113,6 +169,14 @@
         then an x-coordinate.
     -->
     <string name="title_pref_point_scan_line_speed">Line speed</string>
+
+    <!-- Dialog message for "Line speed". Explains what the "Line speed" setting is. -->
+    <string name="dialog_message_pref_line_speed">Choose how fast the horizontal and vertical lines move across the screen.</string>
+
+    <plurals name="line_speed_summary_format">
+        <item quantity="one">1 cm per second</item>
+        <item quantity="other"><xliff:g id="quantity" example="2.3">%.2f</xliff:g> cm per second</item>
+    </plurals>
 
     <!--
         Preference title for setting that allows a user to set how many times the point scanning and
@@ -127,7 +191,25 @@
     <!--
         Dialog message for Number of scans. Explains what the 'Number of scans' setting is.
     -->
-    <string name="dialog_message_pref_loop_count">Choose how many times scanning repeats</string>
+    <string name="dialog_message_pref_loop_count">Choose how many times scanning repeats.\n\nThis setting affects both auto-scan and point scan.</string>
+
+    <!--
+        Summary for "Point scan" preference category and "Point scan" toggle. Point scan lets users
+        select a location on the screen by using moving horizontal and vertical lines.
+        enable_animations_message will be either empty or point_scan_enable_animations_message.
+    -->
+    <string name="summary_pref_point_scan">Use moving lines to select a specific horizontal and vertical location. <xliff:g id="enable_animations_message" example="Enable animations">%1$s</xliff:g></string>
+
+  <!--
+        String that is added to summary_pref_point_scan only when animations are disabled.
+  -->
+    <string name="point_scan_enable_animations_message">Turn on animations to use this feature.</string>
+
+    <!--
+        Preference category for settings that affect how switch presses are interpreted by Switch
+        Access.
+    -->
+    <string name="title_pref_category_switch_accomodation">Switch accomodation</string>
 
     <!--
         Preference title for setting that allows a user to set debounce time. Debouncing is used to
@@ -141,12 +223,12 @@
         after the first key press would be the soonest that the key press would be considered a
         distinct key press.
     -->
-    <string name="title_pref_debounce_time">Debounce time</string>
+    <string name="title_pref_debounce_time">Ignore repeated presses</string>
 
     <!--
-        Dialog message for Debounce time. Explains what the 'Debounce time' setting is.
+        Dialog message for Debounce time. Explains what the 'Ignore repeated presses' setting is.
     -->
-    <string name="dialog_message_pref_debounce_time">Multiple presses within this time will be treated as one press."</string>
+    <string name="dialog_message_pref_debounce_time">Multiple switch presses within this time will be treated as one press."</string>
 
     <!--
         Preference title for a setting that allows the user to choose whether presses should occur
@@ -169,14 +251,11 @@
         <item quantity="other">%d Loops</item>
     </plurals>
 
-    <!--
-         Label showing how many groups the Nomon clock methods are configured to
-         make.
-    -->
-    <plurals name="label_num_nomon_groups_format" translatable="false">
-        <item quantity="one">%d group</item>
-        <item quantity="other">%d groups</item>
-    </plurals>
+    <!-- Preference summary shown when a preference is off -->
+    <string name="preference_off">Off</string>
+
+    <!-- Preference summary shown when a preference is on -->
+    <string name="preference_on">On</string>
 
     <!--
         Toast shown when the user tries to assign a key to action currently being configured
@@ -190,28 +269,34 @@
         <item quantity="other">%d switches assigned</item>
     </plurals>
 
-    <!-- Option scanning allows a user to navigate (scan) through a tree of all actions (options)
-         that are possible in a user interface. The navigation uses switches such as large buttons
-         or specialized hardware attached to a wheelchair.
-
-         As the user navigates the UI, as each moment they may press one of several switches
-         to choose an action. They may configure various switches for this purpose. This string
-         labels each one with a number.
+    <!-- Group selection partitions items on screen into groups, depending on how many switches the
+         user assigns. This string labels each switch with a number which corresponds to a group on
+         screen. Each group is assigned a color, so the user can select the switch corresponding to
+         the color of the group they wish to select.
     -->
     <string name="option_scan_switch_format">Group selection switch %1$d</string>
 
-    <!-- Nomon clocks allow a user to use clock displays to select any actions (options)
-         that are possible in a user interface. The navigation uses switches such as large buttons
-         or specialized hardware attached to a wheelchair.
-
-         As the user navigates the UI, as each moment they may press one of several switches
-         to choose an action. They may configure various switches for this purpose. This string
-         labels each one with a number.
+    <!-- Group selection partitions items on screen into groups, depending on how many switches the
+         user assigns. This string labels each switch with a number which corresponds to a group on
+         screen and a string which is corresponds to the color assigned to the group they wish to
+         select. [CHAR_LIMIT=56]
     -->
-    <string name="nomon_clock_switch_format" translatable="false">Nomon Clock Switch %1$d</string>
+    <string name="option_scan_switch_format_with_color">Group selection switch %1$d (%2$s)</string>
+
+    <!--
+        Description of what the Group x switch does, where x is the name of this group. Shown in the
+        dialog where users can assign a switch or combination of switches to "Group x".
+    -->
+    <string name="option_scan_key_summary_format">Pressing this switch will select group %1$d.</string>
 
     <!-- Name of action that moves highlighting to the next option on the screen. -->
     <string name="action_name_next">Next</string>
+
+    <!--
+        Description of what the Next switch does. Shown in the dialog where users can assign a
+        switch or combination of switches to "Next".
+    -->
+    <string name="action_key_summary_next">Pressing this switch will highlight the next item.</string>
 
     <!-- Name of action that moves highlighting to the previous option on the screen.
          Note that another item is for the BACK button. These options should be labeled
@@ -219,14 +304,32 @@
     <string name="action_name_previous">Previous</string>
 
     <!--
+        Description of what the Previous switch does. Shown in the dialog where users can assign a
+        switch or combination of switches to "Previous".
+    -->
+    <string name="action_key_summary_previous">Pressing this switch will highlight the previous item.</string>
+
+    <!--
         Name of action that selects (clicks on) the currently highlighted View.
     -->
     <string name="action_name_click">Select</string>
 
     <!--
+        Description of what the Select switch does. Shown in the dialog where users can assign a
+        switch or combination of switches to "Select".
+    -->
+    <string name="action_key_summary_click">Pressing this switch will select the highlighted item.</string>
+
+    <!--
         Name of action that long-clicks the currently highlighted View.
     -->
-    <string name="action_name_long_click">Long-press</string>
+    <string name="action_name_long_click">Touch &#38; hold</string>
+
+    <!--
+        Description of what the Touch & hold switch does. Shown in the dialog where users can assign
+        a switch or combination of switches to "Touch & hold".
+    -->
+    <string name="action_key_summary_long_click">Pressing this switch will touch &#38; hold the highlighted item.</string>
 
     <!--
         Name of action that scrolls the currently highlighted View forward.
@@ -234,9 +337,21 @@
     <string name="action_name_scroll_forward">Scroll forward</string>
 
     <!--
+        Description of what the Scroll forward switch does. Shown in the dialog where users can
+        assign a switch or combination of switches to "Scroll forward".
+    -->
+    <string name="action_key_summary_scroll_forward">Pressing this switch will scroll the highlighted item forward.</string>
+
+    <!--
         Name of action that scrolls the currently highlighted View backward.
     -->
     <string name="action_name_scroll_backward">Scroll backward</string>
+
+    <!--
+        Description of what the Scroll backward switch does. Shown in the dialog where users can
+        assign a switch or combination of switches to "Scroll backward".
+    -->
+    <string name="action_key_summary_scroll_backward">Pressing this switch will scroll the highlighted item backward.</string>
 
     <!--
         Name of action that dismisses the currently highlighted View.
@@ -259,9 +374,29 @@
     <string name="action_name_highlight_text">Highlight text</string>
 
     <!--
+        Name of action that highlights all text in the highlighted View.
+    -->
+    <string name="action_group_name_highlight">Highlight ...</string>
+
+    <!--
+        Name of action that highlights all text.
+    -->
+    <string name="action_name_highlight_all_text">Highlight all text</string>
+
+    <!--
+        Name of action that highlights text in the highlighted View with some granularity.
+    -->
+    <string name="action_name_highlight_granular_text">Highlight <xliff:g id="highlight_granularity" example="previous word">%1$s</xliff:g></string>
+
+    <!--
         Name of action that copies the selected text.
     -->
     <string name="action_name_copy">Copy</string>
+
+    <!--
+        Name of action that copies all text.
+    -->
+    <string name="action_name_copy_all_text">Copy all</string>
 
     <!--
         Name of action that cuts the selected text.
@@ -269,16 +404,181 @@
     <string name="action_name_cut">Cut</string>
 
     <!--
+        Name of action that cuts all text.
+    -->
+    <string name="action_name_cut_all_text">Cut all</string>
+
+    <!--
         Name of action that pastes the contents of the clipboard into the currently selected View.
     -->
     <string name="action_name_paste">Paste</string>
 
+    <!--
+        Name of action that undoes the previous action.
+    -->
+    <string name="action_name_undo">Undo</string>
+
+    <!--
+        Name of action that redoes a previously undone action.
+    -->
+    <string name="action_name_redo">Redo</string>
+
+    <!--
+        Name of action group that deletes text. This will be a menu option that leads to Delete
+        options that include granularities.
+    -->
+    <string name="action_group_name_delete">Delete ...</string>
+
+    <!--
+        Name of action that deletes text with some granularity.
+    -->
+    <string name="action_name_delete">Delete <xliff:g id="delete_granularity" example="previous word">%1$s</xliff:g></string>
+
+    <!--
+        Name of action that deletes the currently highlighted text.
+    -->
+    <string name="action_name_delete_highlighted_text">Delete highlighted text</string>
+
     <string name="option_scanning_menu_button">MENU</string>
+
+    <!--
+        Spoken feedback given to the user when the global menu button is highlighted.
+    -->
+    <string name="option_scanning_menu_button_content_description">Switch Access Menu</string>
+
+    <!--
+        Spoken feedback given to the user when the Switch Access global menu shows up. This menu is
+        triggered when the user selects the Switch Access menu button.
+    -->
+    <string name="switch_access_global_menu">Switch Access Global Menu</string>
+
+    <!--
+        Spoken feedback given to the user when the Switch Access actions menu shows up. This menu
+        is triggered when the user selects a scrollable item, or when auto-select is disabled and
+        the user selects an item that supports multiple actions.
+    -->
+    <string name="switch_access_actions_menu">Switch Access Actions Menu</string>
+
+    <!--
+        Displayed on the button used to close the Switch Access menu.
+    -->
+    <string name="switch_access_close_menu">CLOSE</string>
+
+    <!--
+        Displayed within nested menus to go back to the previous menu screen. [CHAR_LIMIT=40]
+    -->
+    <string name="switch_access_back_menu">BACK</string>
+
+    <!--
+        Content description for the next arrow button.
+    -->
+    <string name ="next_arrow_content_description">Next</string>
+
+    <!--
+        Content description for the previous arrow button.
+    -->
+    <string name ="previous_arrow_content_description">Previous</string>
+
     <string name="global_action_back">Back</string>
+
+    <!--
+        Description of what the Back switch does. Shown in the dialog where users can assign a
+        switch or combination of switches to "Back".
+    -->
+    <string name="global_action_key_summary_back">Pressing this switch will go back to the previous screen or hide the keyboard, if it is visible.</string>
+
     <string name="global_action_home">Home</string>
+
+    <!--
+        Description of what the Home switch does. Shown in the dialog where users can assign a
+        switch or combination of switches to "Home".
+    -->
+    <string name="global_action_key_summary_home">Pressing this switch will go to the Home screen.</string>
+
     <string name="global_action_overview">Overview</string>
+
+    <!--
+        Description of what the Overview switch does. Shown in the dialog where users can assign a
+        switch or combination of switches to "Overview".
+    -->
+    <string name="global_action_key_summary_overview">Pressing this switch will show a list of recently opened apps.</string>
+
     <string name="global_action_notifications">Notifications</string>
+
+    <!--
+        Description of what the Notificaitons switch does. Shown in the dialog where users can assign a
+        switch or combination of switches to "Notifications".
+    -->
+    <string name="global_action_key_summary_notifications">Pressing this switch will show your device’s notifications.</string>
+
     <string name="global_action_quick_settings">Quick Settings</string>
+
+    <!--
+        Description of what the Quick Settings switch does. Shown in the dialog where users can assign a
+        switch or combination of switches to "Quick Settings".
+    -->
+    <string name="global_action_key_summary_quick_settings">Pressing this switch will show your device’s Quick Settings.</string>
+
+    <!--
+        Action that displays the power dialog.
+    -->
+    <string name="global_action_power_options">Power options</string>
+
+    <!--
+      Global menu button that opens the Volume options submenu. [CHAR_LIMIT=42].
+    -->
+    <string name="global_menu_volume_heading">Volume</string>
+
+    <!--
+      Volume submenu button that opens a submenu for adjusting Media volume. [CHAR_LIMIT=42].
+    -->
+    <string name="volume_menu_media">Media volume</string>
+
+    <!--
+      Volume submenu button that opens a submenu for adjusting Call volume. [CHAR_LIMIT=42].
+    -->
+    <string name="volume_menu_call">Call volume</string>
+
+    <!--
+      Volume submenu button that opens a submenu for adjusting Ring volume. [CHAR_LIMIT=42].
+    -->
+    <string name="volume_menu_ring">Ring volume</string>
+
+    <!--
+      Volume submenu button that opens a submenu for adjusting Alarm volume. [CHAR_LIMIT=42].
+    -->
+    <string name="volume_menu_alarm">Alarm volume</string>
+
+    <!--
+      Volume submenu button that opens a submenu for adjusting Accessibility volume.
+      [CHAR_LIMIT=42].
+    -->
+    <string name="volume_menu_accessibility">Accessibility volume</string>
+
+    <!--
+        Volume adjustment submenu button that mutes a volume type. [CHAR_LIMIT=42].
+    -->
+    <string name="volume_menu_mute">Mute</string>
+
+    <!--
+        Volume adjustment submenu button that unmutes a volume type. [CHAR_LIMIT=42].
+    -->
+    <string name="volume_menu_unmute">Unmute</string>
+
+    <!--
+        Volume adjustment submenu button that increases the volume of a volume type. [CHAR_LIMIT=42].
+    -->
+    <string name="volume_menu_increase">Increase</string>
+
+    <!--
+        Volume adjustment submenu button that launches volume settings. [CHAR_LIMIT=42].
+    -->
+    <string name="volume_settings">Volume settings</string>
+
+    <!--
+        Volume adjustment submenu button that decreases the volume of a volume type. [CHAR_LIMIT=42].
+    -->
+    <string name="volume_menu_decrease">Decrease</string>
 
     <string name="scrollable_forward">Scroll forward</string>
     <string name="scrollable_backward">Scroll backward</string>
@@ -296,6 +596,10 @@
     <string name="switch_access_preferences_title">Switch Access settings</string>
     <string name="key_combo_preference_instructions">Press a switch combination to add or remove it from the list</string>
     <string name="key_combo_preference_reset_button">Clear switch assignment</string>
+    <!-- Title of a switch preference that toggles using the screen as a switch. -->
+    <string name="key_combo_preference_screen_switch_toggle" translatable="false">Use your screen as a switch for this action</string>
+    <!-- Title of a switch preference that toggles using the screen as a switch and is disabled because the screen is already assigned elsewhere. -->
+    <string name="key_combo_preference_screen_switch_toggle_disabled" translatable="false">Your screen is currently being used as a switch for a different action</string>
     <string name="key_combo_preference_control_plus">"CTRL + "</string>
     <string name="key_combo_preference_shift_plus">"SHIFT + "</string>
     <string name="key_combo_preference_alt_plus">"ALT + "</string>
@@ -313,15 +617,24 @@
     <!-- Shown when the tab key is assigned to an action. -->
     <string name="name_of_tab_key">"Tab"</string>
 
-    <!-- Name of button that closes key assignment dialog and saves changes for which buttons are used for an action -->
+    <!-- Name of button that closes key assignment dialog and saves changes for which buttons are used for an action. -->
     <string name="save">Save</string>
+
+    <!-- Shown in a list of all switches assigned to a particular action when the screen switch is assigned to that action. The 'screen switch' refers to the device's screen being used as a switch.-->
+    <string name="name_of_screen_switch" translatable="false">Screen Switch</string>
+
+    <!--
+         Preference category that contains settings that deal with the Switch Access highlight and
+         sound feedback provided to the user.
+    -->
+    <string name="title_pref_category_display_and_sound">Display &#38; sound</string>
 
     <!-- Label for preference for how an item is highlighted before it is selected. -->
     <string name="title_pref_highlight_0">"Scanning highlight style"</string>
 
     <!--
         Label for preference for how an item is highlighted before it is selected when using a
-         scanning method that only highlights in one color
+        scanning method that only highlights in one color
     -->
     <string name="title_pref_primary_scan_style">"Primary scan style"</string>
 
@@ -331,21 +644,44 @@
     <string name="title_pref_highlight_0_weight">"Highlight line style"</string>
 
     <!--
-        Title of a preference that opens the pricacy policy
+        Title of a preference that opens the privacy policy
     -->
     <string name="title_pref_privacy_policy">"Privacy policy"</string>
 
     <!--
-        Menu item to start automatically peforming "select" actions when possible
+        Title of a preference that toggles whether the "select" action is automatically performed,
+        when possible. (See comment "Background for multi-action support" above for more context.)
+    -->
+    <string name="title_pref_auto_select">Auto-select</string>
+
+    <!--
+        Summary for a preference that toggles whether the "select" action is automatically
+        performed, when possible. (See comment "Background for multi-action support" above for more
+        context.)
+    -->
+    <string name="summary_pref_auto_select">Automatically select the highlighted item. If the item can’t be selected, or if this setting is off, you’ll see a menu of available actions.</string>
+
+    <!--
+        Menu item to start automatically performing "select" actions when possible
         (see comment "Background for multi-action support" above for more context).
     -->
     <string name="switch_access_global_menu_enable_autoselect">"Enable auto-select"</string>
 
     <!--
-        Menu item to stop automatically peforming "select" actions when possible.
+        Menu item to stop automatically performing "select" actions when possible.
         (see comment "Background for multi-action support" above for more context).
     -->
     <string name="switch_access_global_menu_disable_autoselect">"Disable auto-select"</string>
+
+    <!--
+        Menu item to stop using the screen as a switch and return to default screen functionality.
+    -->
+    <string name="switch_access_global_menu_disable_screen_switch" translatable="false">"Disable screen switch"</string>
+
+    <!--
+        Menu item to move forward when editing or navigating text.
+    -->
+    <string name="switch_access_move_next">"Next ..."</string>
 
     <!--
         Menu item to move forward by one character when editing or navigating text.
@@ -353,24 +689,34 @@
     <string name="switch_access_move_next_character">"Next character"</string>
 
     <!--
-        Menu item to move forward by one character when editing or navigating text.
+        Menu item to move forward by one word when editing or navigating text.
     -->
     <string name="switch_access_move_next_word">"Next word"</string>
 
     <!--
-        Menu item to move forward by one character when editing or navigating text.
+        Menu item to move forward by one line when editing or navigating text.
     -->
     <string name="switch_access_move_next_line">"Next line"</string>
 
     <!--
-        Menu item to move forward by one character when editing or navigating text.
+        Menu item to move forward by one paragraph when editing or navigating text.
     -->
     <string name="switch_access_move_next_paragraph">"Next paragraph"</string>
 
     <!--
-        Menu item to move forward by one character when editing or navigating text.
+        Menu item to move forward by one page when editing or navigating text.
     -->
     <string name="switch_access_move_next_page">"Next page"</string>
+
+    <!--
+        Menu item to move forward by one sentence when editing or navigating text.
+    -->
+    <string name="switch_access_move_next_sentence">"Next sentence"</string>
+
+    <!--
+        Menu item to move backward when editing or navigating text.
+    -->
+    <string name="switch_access_move_prev">"Previous ..."</string>
 
     <!--
         Menu item to move back by one character when editing or navigating text.
@@ -378,24 +724,29 @@
     <string name="switch_access_move_prev_character">"Previous character"</string>
 
     <!--
-        Menu item to move forward by one character when editing or navigating text.
+        Menu item to move back by one word when editing or navigating text.
     -->
     <string name="switch_access_move_prev_word">"Previous word"</string>
 
     <!--
-        Menu item to move forward by one character when editing or navigating text.
+        Menu item to move back by one line when editing or navigating text.
     -->
     <string name="switch_access_move_prev_line">"Previous line"</string>
 
     <!--
-        Menu item to move forward by one character when editing or navigating text.
+        Menu item to move back by one paragraph when editing or navigating text.
     -->
     <string name="switch_access_move_prev_paragraph">"Previous paragraph"</string>
 
     <!--
-        Menu item to move forward by one character when editing or navigating text.
+        Menu item to move back by one page when editing or navigating text.
     -->
     <string name="switch_access_move_prev_page">"Previous page"</string>
+
+    <!--
+        Menu item to move back by one sentence when editing or navigating text.
+    -->
+    <string name="switch_access_move_prev_sentence">"Previous sentence"</string>
 
     <!--
         Format string used to add a view number to an action for actions that may go to two targets
@@ -422,14 +773,14 @@
     <!--
         Title of a preference that launches the Switch Access setup wizard.
     -->
-    <string name="pref_begin_switchaccess_setup_title">"Open Switch Access setup"</string>
+    <string name="pref_begin_switchaccess_setup_title">Open setup guide</string>
 
     <!--
         Name of the activity to allow users to configure Switch Access in a simple screen flow.
         Setup "Wizard" is a colloquial term used for a technology that makes another task quicker
         and easier.
     -->
-    <string name="setup_wizard_heading">Switch Access Setup Wizard</string>
+    <string name="setup_wizard_heading">Switch Access Setup Guide</string>
 
     <!--
          Number of switches that the user plans on using in their Switch Access setup. Switch is
@@ -449,15 +800,160 @@
     <string name="exit">Exit</string>
 
     <!--
+          Title of header for screen prompting users to choose a type of switch to set-up.
+     -->
+    <string name="intro_heading">Choose switch</string>
+
+    <!--
+        Options for types of switches for which users can be guided through the pairing process.
+    -->
+    <string name="usb_switch_option_text">USB switch</string>
+    <string name="bluetooth_switch_option_text">Bluetooth switch</string>
+
+    <!--
+        Option description for usb_switch_option_text. After selecting this option, the user will be guided through the USB device connection process.
+    -->
+    <string name="usb_switch_description_text">Physically connect a switch via USB</string>
+
+    <!--
+        Option description for bluetooth_switch_option_text. After selecting this option, the user will be guided through the Bluetooth pairing process.
+    -->
+    <string name="bluetooth_switch_description_text">Pair a switch wirelessly via Bluetooth</string>
+
+    <!--
+        Option description for bluetooth_switch_option_text. This text is only shown when the device
+        doesn't support Bluetooth and the option to pair a Bluetooth switch is disabled.
+    -->
+    <string name="bluetooth_unsupported_description_text">Your device doesn\'t support Bluetooth. Try using a physical switch instead.</string>
+
+    <!--
+        Title of header for a list of currently connected USB devices.
+    -->
+    <string name="connected_usb_devices_header">Connected devices</string>
+
+    <!--
+       Message to display when no USB devices are connected to our device.
+   -->
+    <string name="usb_no_devices_connected_message">No USB devices found. Make sure your device is securely connected.</string>
+
+    <!--
+        Title of header for screen displaying a list of connected USB devices.
+    -->
+    <string name="connect_usb_heading">Connect USB switch</string>
+
+    <!--
+        Title of header for screen displaying lists of paired and available Bluetooth devices.
+    -->
+    <string name = "pair_bluetooth_heading">Pair Bluetooth switch</string>
+
+    <!--
+        Instructional text for the Bluetooth pairing screen.
+    -->
+    <string name = "pair_bluetooth_subheading">Tap your Bluetooth switch below</string>
+
+    <!--
+        Message to display when permission to enable Bluetooth has been denied or Bluetooth has
+        been disabled.
+    -->
+    <string name="bluetooth_not_enabled_message">To pair a Bluetooth switch, turn on Bluetooth</string>
+
+    <!--
+        Title of button that causes users to be asked if they would like to enable Bluetooth. Shown
+        when permission to enable Bluetooth has been denied or Bluetooth has been disabled.
+    -->
+    <string name="enable_bluetooth_button_title">Turn on Bluetooth</string>
+
+    <!--
+        Message that is shown when no Bluetooth devices are paired to this device.
+    -->
+    <string name="bluetooth_no_devices_paired">No Bluetooth devices are paired</string>
+
+    <!--
+        Title of header for previously paired bluetooth devices.
+    -->
+    <string name ="paired_devices_header">Paired Bluetooth devices</string>
+
+    <!--
+        Title of header for nearby and available Bluetooth devices.
+    -->
+    <string name ="available_devices_header">Available Bluetooth devices</string>
+
+    <!--
+      Content description for a computer Bluetooth device.
+    -->
+    <string name ="bluetooth_computer_content_description">Computer</string>
+
+    <!--
+      Content description for a phone Bluetooth device.
+    -->
+    <string name ="bluetooth_phone_content_description">Phone</string>
+
+    <!--
+      Content description for an imaging Bluetooth device.
+    -->
+    <string name ="bluetooth_imaging_content_description">Imaging</string>
+
+    <!--
+      Content description for a headphone Bluetooth device.
+    -->
+    <string name ="bluetooth_headphone_content_description">Headphone</string>
+
+    <!--
+      Content description for a peripheral Bluetooth device.
+    -->
+    <string name ="bluetooth_peripheral_content_description">Peripheral</string>
+
+    <!--
+      Content description for a generic Bluetooth device.
+    -->
+    <string name ="bluetooth_default_content_description">Bluetooth</string>
+
+    <!--
+      Description that is displayed when we attempt to connect to a Bluetooth device.
+    -->
+    <string name ="bluetooth_connecting_description">Connecting...</string>
+
+    <!--
+      Description that is displayed after we successfully connect to a Bluetooth device.
+    -->
+    <string name ="bluetooth_connected_description">Connected</string>
+
+    <!--
+      Description that is displayed after we unsuccessfully attempt to connect to a Bluetooth device.
+    -->
+    <string name ="bluetooth_device_unavailable_description">Device unavailable</string>
+
+    <!--
+      Title text of a dialog that is displayed when reconnecting to a previously paired device.
+    -->
+    <string name="reconnecting_unsupported_title">Couldn\'t connect to device</string>
+
+    <!--
+      Message of a dialog that is shown when reconnecting to a previously paired device.
+    -->
+    <string name="reconnecting_unsupported_message">Switch Access couldn\'t connect to your previously paired device. Make sure that your device is on and connected.\n\nIf your device still won\'t connect, go to Bluetooth settings and try reconnecting.</string>
+
+    <!--
+      Text of button that launches the Bluetooth Settings page. Button is visible on dialog displayed
+      when reconnecting previously paired devices.
+    -->
+    <string name="reconnecting_unsupported_launch_bluetooth_settings">Go to Bluetooth settings</string>
+
+    <!--
          Heading instructing the user to select how many switches they plan to use
          in their personal Switch Access configuration.
     -->
     <string name="number_of_switches_heading">Choose number of switches</string>
 
     <!--
+        Title of the setup page which allows users to assign switches for scanning.
+    -->
+    <string name="title_assign_scan_key">Assign <xliff:g id="action_name" example="Next">%1$s</xliff:g> Switch</string>
+
+    <!--
         Description of scanning with one switch configured.
     -->
-    <string name="one_switch_description_text">Press the switch to start moving between items automatically, then press again to select the highlighted item.</string>
+    <string name="one_switch_description_text">Press the switch to start moving between items automatically. Press again to select the highlighted item.</string>
 
     <!--
         Description of scanning with two switches enabled.
@@ -470,61 +966,230 @@
     <string name="step_speed_heading">Choose scanning speed</string>
 
     <!--
-         Subheading clarifying the instruction to select the preferred length of time for Switch
-         Access to pause before highlighting the next option.
+        Subheading clarifying the instruction to select the preferred length of time for Switch
+        Access to pause before highlighting the next option.
     -->
     <string name="step_speed_subheading">Choose how long the highlight should stay on each item</string>
 
     <!--
-         List of speed options for Switch Access to use, formatted by general description, followed
-         by exact delay corresponding to that speed.
+        List of speed options for Switch Access to use, formatted by general description, followed
+        by exact delay corresponding to that speed.
     -->
     <string name="fast_radio_button_title">Fast (<xliff:g id="delay_speed" example="0.75">%1$s</xliff:g>s delay)</string>
     <string name="medium_radio_button_title">Medium (<xliff:g id="delay_speed" example="1.50">%1$s</xliff:g>s delay)</string>
     <string name="slow_radio_button_title">Slow (<xliff:g id="delay_speed" example="2.50">%1$s</xliff:g>s delay)</string>
 
     <!--
-         Option title indicating the use of the number field where the user can type their own
-         preferred scan delay time.
+        Option title indicating the use of the number field where the user can type their own
+        preferred scan delay time.
     -->
     <string name="custom_switch">Custom</string>
 
     <!--
-         Text field label indicating that the desired scan delay in seconds is to be typed in there.
+        Text field label indicating that the desired scan delay in seconds is to be typed in there.
     -->
     <string name="custom_edit_text">delay (seconds)</string>
 
     <!--
-         Toast shown when the user tries to assign a key to action currently being configured when
-         the key is already assigned to another action.
+        Toast shown when the user tries to assign a key to action currently being configured when
+        the key is already assigned to another action.
     -->
     <string name="setup_toast_msg_key_already_assigned">The key \'<xliff:g id="key_name" example="A">%1$s</xliff:g>\' is already assigned to another action</string>
 
     <!--
-         Label of radio button corresponding to the row column scanning configuration.
+        Label of radio button corresponding to the row column scanning configuration.
     -->
     <string name="row_column_scanning_title">Row-column scanning</string>
 
     <!--
-         Label of radio button corresponding to the option scanning configuration.
+        Label of radio button corresponding to the group selection configuration.
     -->
-    <string name="option_scanning_title">Group selection</string>
+    <string name="option_scanning_title">Group selection (advanced)</string>
 
     <!--
-         Label of radio button corresponding to the Nomon clock scanning configuration.
+        Label of radio button corresponding to the linear scanning configuration.
     -->
-    <string name="nomon_scanning_title" translatable="false">Nomon clock selection</string>
+    <string name="linear_scanning_title">Linear scanning</string>
 
     <!--
         Label of radio button corresponding to the row column (keyboard only) scanning
         configuration.
     -->
-    <string name="linear_scanning_title">Linear scanning</string>
+    <string name="linear_scanning_except_keyboard_title">Linear scanning (except keyboard)</string>
+
+    <!--
+        Preference title that, when tapped, will open Speech, sound & vibration feedback settings.
+        The Speech, sound & vibration feedback settings determine what feedback (e.g., speech,
+        earcon, and vibration) the user will get when using Switch Access to scan and select items,
+        as well as the details of these feedback.
+    -->
+    <string name="title_pref_switch_access_speech_sound_vibration">Speech, sound &#38; vibration</string>
 
     <!--
         Preference title for a toggle that enables and disables spoken feedback.
     -->
     <string name="title_pref_switch_access_spoken_feedback">Spoken feedback</string>
+
+    <!--
+        Title of a toggle preference that lets users to hear the spoken feedback for
+        non-actionable items when the toggle is on.
+    -->
+    <string name="title_pref_scan_non_actionable_items">Speak descriptive text</string>
+
+    <!--
+        Summary of the toggle preference that lets users to hear the spoken feedback for
+        non-actionable items when the toggle is on.
+    -->
+    <string name="scan_non_actionable_items_summary">Hear spoken feedback for items with available actions and descriptive text</string>
+
+    <!--
+        Preference title that, when tapped, will open Verbosity settings. The Verbosity settings
+        determine how much information is spoken.
+    -->
+    <string name="title_pref_switch_access_verbosity">Verbosity</string>
+
+    <!--
+        Summary of the Verbosity settings that let users to choose how much information is
+        spoken.
+    -->
+    <string name="summary_verbosity">Choose how much information is spoken</string>
+
+    <!--
+        Category title under the “Verbosity” setting, it contains settings related with the
+        verbosity preferences.
+    -->
+    <string name="title_pref_verbosity_category_verbosity_details">Verbosity details</string>
+
+    <!--
+        Title of the "Keyboard echo" toggle preference that causes Switch Access to speak the typed
+        keys of the on-screen keyboard after that key is selected.
+    -->
+    <string name="title_pref_switch_access_keyboard_echo">Keyboard echo</string>
+
+    <!--
+        Summary of the "Keyboard echo" toggle preference when it is turned on.
+    -->
+    <string name="keyboard_echo_summary_on">Speak typed keys for on-screen keyboard</string>
+
+    <!--
+        Summary of the "Keyboard echo" toggle preference when it is turned off.
+    -->
+    <string name="keyboard_echo_summary_off">Don\'t speak typed keys for on-screen keyboard</string>
+
+    <!--
+        Title of the "Speak usage hints" toggle preference that lets users to hear usage hints for
+        actionable items when the toggle is on. Usage hints provide information on how to perform
+        actions (e.g. select, scroll, etc.) on the item. These hints are provided after the
+        corresponding item's description is spoken.
+    -->
+    <string name="title_pref_enable_hints">Speak usage hints</string>
+
+    <!--
+        Summary of the "Speak usage hints" toggle preference when it is turned on.
+    -->
+    <string name="enable_hints_summary_on">Usage hints are spoken during navigation after a brief delay</string>
+
+    <!--
+        Summary of the "Speak usage hints" toggle preference when it is turned off.
+    -->
+    <string name="enable_hints_summary_off">Usage hints are not spoken when moving accessibility focus</string>
+
+    <!--
+        Title of the "Speak list and grid information" toggle preference that causes Switch Access
+        to speak location of the highlighted element in a list or grid.
+    -->
+    <string name="title_pref_speak_container_element_position">Speak list and grid information</string>
+
+    <!--
+        Summary of the "Speak list and grid information" toggle preference when it is turned on.
+    -->
+    <string name="speak_container_element_position_summary_on">List and grid information is spoken</string>
+
+    <!--
+        Summary of the "Speak list and grid information" toggle preference when it is turned off.
+    -->
+    <string name="speak_container_element_position_summary_off">List and grid information is not spoken</string>
+
+    <!--
+        Title of the "Speak element type" preference that causes Switch Access to speak types of
+        elements with accessibility focus.
+    -->
+    <string name="title_pref_speak_element_type">Speak element type</string>
+
+    <!--
+        Summary of the "Speak element type" toggle preference when it is turned on.
+    -->
+    <string name="speak_element_type_summary_on">Element type is spoken for focused items</string>
+
+    <!--
+        Summary of the "Speak element type" toggle preference when it is turned off.
+    -->
+    <string name="speak_element_type_summary_off">Element type is not spoken for focused items</string>
+
+    <!--
+        Title of the "Use pitch changes" toggle preference that changes the pitch of spoken
+        feedback for typed keys.
+    -->
+    <string name="title_pref_pitch_change_for_ime">Use pitch changes</string>
+
+    <!--
+        Summary of the "Use pitch changes" toggle preference when it is turned on.
+    -->
+    <string name="pitch_change_for_ime_summary_on">Speak keyboard feedback in a lower-pitched voice</string>
+
+    <!--
+        Summary of the "Use pitch changes" toggle preference when it is turned off.
+    -->
+    <string name="pitch_change_for_ime_summary_off">Don\'t change voice feedback when speaking</string>
+
+    <!--
+      Title of the "Speak selected item or group" toggle preference that causes Switch Access to
+      speak the name of the item or group that was selected.
+    -->
+    <string name="title_pref_speak_selected_item_or_group">Speak selected item or group</string>
+
+    <!--
+        Summary of the "Speak selected item or group" toggle preference.
+    -->
+    <string name="speak_selected_item_or_group_summary">Speak the name of an item or group after it is selected</string>
+
+    <!--
+        Title of a preference that lets the user decide the maximum amount of time to wait for
+        a speech to finish before starting the next speech. Speeches that take longer than this
+        time to complete will be truncated when auto-scan is turned on.
+    -->
+    <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Maximum spoken time per item</string>
+
+    <!--
+        Description of the “Maximum speech time per item” setting. Appears in the dialog where this setting is set.
+    -->
+    <string name="dialog_message_pref_maximum_time_per_item">Set the maximum amount of time for each item’s spoken description. Speech will be cut off after the set time.\nNote: Hints will always be spoken if turned on. </string>
+
+    <!--
+        Category title under the “Verbosity” setting, it contains miscellaneous settings related with the spoken feedback.
+    -->
+    <string name="title_pref_verbosity_category_miscellaneous">Miscellaneous</string>
+
+    <!--
+        Label for a preference that changes order of describing user-interface elements.
+    -->
+    <string name="title_pref_node_description_order">Element description order</string>
+
+    <!--
+        Title of the "Speak element IDs" toggle preference that causes Switch Access to speak
+        element IDs instead of unlabeled buttons.
+    -->
+    <string name="title_pref_switch_access_speak_element_ids">Speak element IDs</string>
+
+    <!--
+        Summary of the "Speak element IDs" toggle preference when it is turned on.
+    -->
+    <string name="speak_element_ids_summary_on">Element IDs are spoken for unlabeled buttons</string>
+
+    <!--
+        Summary of the "Speak element IDs" toggle preference when it is turned off.
+    -->
+    <string name="speak_element_ids_summary_off">Element IDs are not spoken for unlabeled buttons</string>
 
     <!--
         Preference title that, when tapped, will open TTS settings.
@@ -535,14 +1200,14 @@
         Category title for preferences that only apply when more than one item is highlighted. This
         will only happen when row scanning or using group selection.
     -->
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">For multiple items</string>
+    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">When multiple items are highlighted</string>
 
     <!--
         Preference title for a toggle that allows the user to either include or exclude speaking
         the first and last item currently highlighted. Used only when there are two or more items
         highlighted.
     -->
-    <string name="title_pref_switch_access_speak_first_last_item">Speak first &#38; last item</string>
+    <string name="title_pref_switch_access_speak_first_last_item">Speak first and last items</string>
 
     <!--
         Title of a toggle preference that includes or excludes the number of items highlighted in
@@ -564,21 +1229,95 @@
     <string name="title_pref_switch_access_spoken_feedback_finish_speech">Finish speech before moving</string>
 
     <!--
-        Category title for spoken feedback settings that apply to all scanning methods.
+        Category title for customizing the sound and vibration feedback.
     -->
-    <string name="title_pref_spoken_feedback_general_settings" translatable="false">General settings</string>
+    <string name="title_pref_spoken_feedback_other_feedback">Other feedback</string>
+
 
     <!--
-        Title of a toggle preference that lets the user decide whether to include or exclude
-        non-actionable items when scanning items on the screen.
+      Category title for developer settings.
     -->
-    <string name="title_pref_scan_non_actionable_items" translatable="false">Include non-actionable items</string>
+    <string name="title_pref_developer_settings">Developer settings</string>
+
+    <!--
+      Preference title for a toggle that enables showing speech output on the screen.
+    -->
+    <string name="title_pref_spoken_feedback_overlay">Display speech output</string>
+
+    <!--
+        Preference title for a toggle that enables and disables vibration feedback in response to
+        an accessibility event.
+    -->
+    <string name="title_pref_switch_access_vibration_feedback">Vibration feedback</string>
+
+    <!--
+        Summary of the "vibration feedback" toggle preference that enables and disables vibration
+        feedback in response to an accessibility event.
+    -->
+    <string name="vibration_feedback_summary">Vibrate to indicate that something changed (e.g., content on the screen changed)</string>
+
+    <!--
+        Preference title for a toggle that enables and disables sound feedback (earcon) in response
+        to an accessibility event.
+    -->
+    <string name="title_pref_switch_access_sound_feedback">Sound feedback</string>
+
+    <!--
+        Summary of the "Sound feedback" toggle preference that enables and disables sound
+        feedback (earcon) in response to an accessibility event.
+    -->
+    <string name="sound_feedback_summary">Play an earcon to indicate that something changed (e.g., content on the screen changed)</string>
+
+    <!--
+        Preference title for a toggle that lets users to set the volume of sound (earcon, not TTS)
+        feedback.
+    -->
+    <string name="title_pref_switch_access_sound_volume">Sound volume</string>
+
+    <!--
+        Preference title for a toggle that causes Switch Access to decrease the audio volume of
+        other applications during speech output.
+    -->
+    <string name="title_pref_switch_access_audio_ducking">Audio ducking</string>
+
+    <!--
+        Summary of the "Audio ducking" toggle preference that causes Switch Access to decrease the
+        audio volume of other applications during speech output.
+    -->
+    <string name="audio_ducking_summary">Decrease other audio volume while speaking</string>
+
+    <!--
+        Spoken feedback given to the user when the focus is cleared and the user is in the middle
+        of scanning and has not yet selected an item. That is, the screen was updated, but not
+        because of any action taken by the user.
+    -->
+    <string name="switch_access_focus_cleared_no_selection">Screen changed</string>
+
+    <!--
+        Portion of spoken feedback indicating to the user what they should do to select the current
+        row. This feedback is only applicable when row-column selection is enabled.
+    -->
+    <string name="switch_access_spoken_feedback_row_column_selection_hint">Press select switch to select row</string>
 
     <!--
         Portion of spoken feedback indicating to the user which group is currently being read out
         loud.
     -->
     <string name="switch_access_spoken_feedback_group">group <xliff:g example="one">%1$s</xliff:g></string>
+
+    <!--
+        Portion of spoken feedback indicating to the user which button they should press to select
+        a group. This feedback is only applicable when group selection is enabled.
+    -->
+    <string name="switch_access_spoken_feedback_group_selection_hint">Press group <xliff:g example="one">%1$s</xliff:g> switch to select group</string>
+
+    <!--
+        Portion of spoken feedback indicating to the user which button they should press to select
+        the single item in a group. This feedback is only applicable when group selection is
+        enabled and only one item is in this group. In this situation, selecting the group will
+        automatically select the item.
+    -->
+    <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Press group <xliff:g example="one">%1$s</xliff:g> switch to select item</string>
 
     <!--
         Portion of spoken feedback indicating to the user the range of items currently highlighted.
@@ -593,9 +1332,28 @@
     <string name="switch_access_spoken_feedback_items"><xliff:g example="three">%1$s</xliff:g> items</string>
 
     <!--
-        Spoken feedback given to the user when a scrollable item is highlighted. Selecting the item
-        will either scroll the item or give the user a choice of directions in which the item can
-        be scrolled.
+        Spoken feedback given to the user when a group is selected.
+    -->
+    <string name="switch_access_spoken_feedback_group_selected">group <xliff:g example="three">%1$s</xliff:g> selected</string>
+
+    <!--
+        Spoken feedback given to the user when a row is selected.
+    -->
+    <string name="switch_access_spoken_feedback_row_selected">row selected</string>
+
+    <!--
+        Spoken feedback given to the user when an item is selected.
+    -->
+    <string name="switch_access_spoken_feedback_item_selected"><xliff:g example="item">%1$s</xliff:g> selected</string>
+
+    <!--
+        The first portion of spoken feedback given to the user when a scrollable item is
+        highlighted.
+    -->
+    <string name="switch_access_spoken_feedback_item_scrollable">scrollable</string>
+
+    <!--
+        Spoken feedback given to the user when a scrollable item is highlighted. Selecting the item will either scroll the item or give the user a choice of directions in which the item can be scrolled.
     -->
     <string name="switch_access_spoken_feedback_scroll">select to scroll</string>
 
@@ -606,29 +1364,29 @@
 
     <!--
          Title instructing users to choose between the three (row-column (keyboard only),
-         row-column, or option scanning) switch setup configurations.
+         row-column, or group selection) switch setup configurations.
     -->
-    <string name="scanning_method_heading">Choose how to scan</string>
 
+    <string name="scanning_method_heading">Choose how to scan</string>
     <!--
          Description of scanning with row column scanning enabled.
     -->
     <string name="row_column_scanning_description">Scan one row at a time. After row is selected, move through items in that list.</string>
 
     <!--
+         Description of scanning with linear scanning enabled.
+    -->
+    <string name="linear_scanning_description">Move between items one at a time</string>
+
+    <!--
          Description of scanning with row column (keyboard only) scanning enabled.
     -->
-    <string name="linear_scanning_description">Move between items one at a time. Note that keyboards will always scan by row.</string>
+    <string name="linear_scanning_except_keyboard_description">Move between items one at a time. Note that keyboards will scan by row.</string>
 
     <!--
-         Description of scanning with option scanning enabled.
+         Description of scanning with group selection enabled.
     -->
     <string name="option_scanning_description">All items will be assigned a color. Press the switch corresponding to the color around the item you want. Narrow down the size of the group until you reach your choice.</string>
-
-    <!--
-         Description of scanning with Nomon scanning enabled.
-    -->
-    <string name="nomon_scanning_description" translatable="false">Use a timer to narrow down items on the screen. Press the switch when your desired item is active and repeat if more than one choice remains.</string>
 
     <!--
         Heading for key assignment list view on configure switch screen in Setup Wizard.
@@ -676,12 +1434,12 @@
     <string name="setup_switch_assignment_nothing_assigned_message">No switches are assigned to this action. Are you sure you want to continue?</string>
 
     <!--
-         Heading for assignment screen for option scan switch action in setup wizard.
+         Heading for assignment screen for group selection switch action in setup wizard.
     -->
     <string name="option_scan_switch_title"><xliff:g id="option_color" example="Red">%1$s</xliff:g> group</string>
 
     <!--
-         Subheading for assignment screen for option scan switch action in setup wizard.
+         Subheading for assignment screen for group selection switch action in setup wizard.
     -->
     <string name="option_scan_switch_subtitle">Press a switch to assign it to select the <xliff:g id="option_color" example="Red">%1$s</xliff:g> group.</string>
 
@@ -713,22 +1471,35 @@
     <!--
         Subheading for Tic-Tac-Toe in the two switch linear scan setup flow.
     -->
-    <string name="switch_game_two_switch_linear_subheading">Press \"<xliff:g id="switch_name" example="Next">%1$s</xliff:g>\" to move between items. Press \"<xliff:g id="switch_name" example="Next">%2$s</xliff:g>\" to select the highlighted item. You go first!</string>
+    <string name="switch_game_two_switch_linear_subheading">Press \"<xliff:g id="switch_name_one" example="Next">%1$s</xliff:g>\" to move between items. Press \"<xliff:g id="switch_name_two" example="Next">%2$s</xliff:g>\" to select the highlighted item. You go first!</string>
 
     <!--
         Subheading for Tic-Tac-Toe in the two switch row column scan setup flow.
     -->
-    <string name="switch_game_two_switch_row_col_subheading">Press \"<xliff:g id="switch_name" example="Next">%1$s</xliff:g>\" to move between rows. Press \"<xliff:g id="switch_name" example="Next">%2$s</xliff:g>\" to select the highlighted row. Repeat to choose an item in that row. You go first!</string>
+    <string name="switch_game_two_switch_row_col_subheading">Press \"<xliff:g id="switch_name_one" example="Next">%1$s</xliff:g>\" to move between rows. Press \"<xliff:g id="switch_name_two" example="Next">%2$s</xliff:g>\" to select the highlighted row. Repeat to choose an item in that row. You go first!</string>
 
     <!--
-        Subheading for Tic-Tac-Toe in the two switch option scan setup flow.
+        Subheading for Tic-Tac-Toe in the two switch group selection setup flow.
     -->
-    <string name="switch_game_two_switch_option_scan_subheading">Press \"<xliff:g id="switch_name" example="Next">%1$s</xliff:g>\" to select items highlighted in <xliff:g id="color_name" example="Blue">%2$s</xliff:g> or press \"<xliff:g id="switch_name" example="Next">%4$s</xliff:g>\" to select items highlighted in <xliff:g id="color_name" example="Red">%3$s</xliff:g>. Repeat to reach your item. You go first!</string>
+    <string name="switch_game_two_switch_option_scan_subheading">Press \"<xliff:g id="switch_name_one" example="Next">%1$s</xliff:g>\" to select items highlighted in <xliff:g id="color_name_one" example="Blue">%2$s</xliff:g> or press \"<xliff:g id="switch_name_two" example="Next">%4$s</xliff:g>\" to select items highlighted in <xliff:g id="color_name_two" example="Red">%3$s</xliff:g>. Repeat to reach your item. You go first!</string>
 
     <!--
         Subheading for Tic-Tac-Toe when switches are not fully assigned.
     -->
     <string name="switch_game_incomplete_switches_subheading">You don\'t have switches assigned for all actions yet. Use the Previous button to go back and finish assigning switches.</string>
+
+    <!--
+        Content description for a square in the 3-by-3 Tic-tac-toe grid.
+    -->
+    <string name="game_square_content_description"><xliff:g id="marker_type" example="X">%1$s</xliff:g> at position <xliff:g id="first_coordinate" example="2">%2$s</xliff:g>, <xliff:g id="second_coordinate" example="3">%3$s</xliff:g></string>
+
+    <!--
+        Portion of the content description for a square in the 3-by-3 Tic-tac-toe grid that
+        indicates that there is no player marker (X or O) at this position. For example, if this
+        string is "empty", then the full content description for an empty square at position (2, 3)
+        would be "empty at position 2, 3".
+    -->
+    <string name="game_square_no_marker_content_description">empty</string>
 
     <!--
         Label of Tic-Tac-Toe reset game button.
@@ -786,4 +1557,32 @@
         Reminder to the user that they can modify their settings on the Switch Access settings page.
     -->
     <string name="setup_completion_settings_reminder">You can always change additional settings or open the setup wizard again from Switch Access settings.</string>
+
+    <!--
+        Title of dialog that is shown when the user clicks an item with multiple URLs/links.
+    -->
+    <string name="dialog_url_list">
+        Choose a link
+    </string>
+
+    <!--
+       Title of dialog that is shown when user is prompted to adjust Do Not Disturb Settings. [CHAR LIMIT=NONE]
+    -->
+    <string name="dialog_do_not_disturb_permission_title">
+      Switch Access needs permission to adjust volume
+    </string>
+
+    <!--
+      Message of dialog that is shown when user is prompted to adjust Do Not Disturb Settings. Explains how users can adjust Do Not Disturb Settings. [CHAR LIMIT=NONE]
+    -->
+    <string name="dialog_do_not_disturb_permission_message">
+        To adjust volume from the Switch Access menu, turn on Do Not Disturb access for Android Accessibility Suite
+    </string>
+
+    <!--
+      Confirmation button on Do Not Disturb permissions dialog that takes user to Do Not Disturb settings. [CHAR LIMIT=NONE]
+    -->
+    <string name="dialog_go_to_do_not_disturb_settings_button">
+      Open settings
+    </string>
 </resources>

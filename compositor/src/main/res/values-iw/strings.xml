@@ -1,161 +1,184 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"‏TalkBack מופעל"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"‏TalkBack מושהה"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"‏הפעלת TalkBack חודשה"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"‏TalkBack מושבת"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"קורא מסך קולי מופעל"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"קורא מסך קולי מושעה"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"קורא מסך קולי מופעל מחדש"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"קורא מסך קולי מושבת"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"תחילת השדה"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"סוף השדה"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"מצב הבחירה מופעל"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"מצב הבחירה מושבת"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"הבחירה נוקתה"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"שיחה"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"הודעה"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"אימייל"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"אירוע"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"מבצע"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"שעון מעורר"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"התקדמות"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"רשתות חברתיות"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"שגיאה"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"פקד מדיה"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"סטטוס מערכת"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"שירות"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"תפריט <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> מחליף את <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> נמחק"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"נגזר, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"מודבק, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, נבחר"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"טקסט נבחר: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, הבחירה בוטלה"</string>
-    <string name="template_text_error" msgid="153775825635730287">"קלט לא חוקי <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> תווים הוחלפו ב-<xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> תווים"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> עבור <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> אחוזים."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="two"><xliff:g id="TYPE_2">%1$s</xliff:g> מציג <xliff:g id="COUNT_3">%2$d</xliff:g> פריטים.</item>
-      <item quantity="many"><xliff:g id="TYPE_2">%1$s</xliff:g> מציג <xliff:g id="COUNT_3">%2$d</xliff:g> פריטים.</item>
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> מציג <xliff:g id="COUNT_3">%2$d</xliff:g> פריטים.</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> מציג פריט <xliff:g id="COUNT_1">%2$d</xliff:g>.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"רשת"</string>
-    <string name="value_listview" msgid="7625152822709234439">"רשימה"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"שורת כרטיסיות"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"רשימה נפתחת"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"תיבת סימון"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"לחצן בחירה"</string>
-    <string name="value_button" msgid="2459787142940409576">"לחצן"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"פקד חיפוש"</string>
-    <string name="value_switch" msgid="6946709666466895221">"מתג"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"תיבת עריכה"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"עריכה"</string>
-    <string name="value_image" msgid="5114229220871881124">"תמונה"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"ללא תווית"</string>
-    <string name="value_pager" msgid="7708574424402835461">"תצוגה בעלת מספר דפים"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"דף"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"סרגל התקדמות"</string>
-    <string name="value_webview" msgid="291321285400233958">"תצוגת אינטרנט."</string>
-    <string name="template_password_selected" msgid="962942796289068525">"תווים <xliff:g id="FROM_INDEX">%1$d</xliff:g> עד <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"תו <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"סיסמה"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"חלונית הזזה נפתחה"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"אפשרויות."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"הטקסט נוקה"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"הגעת לאורך המרבי"</string>
-    <string name="value_selected" msgid="1307429702194660766">"נבחר"</string>
-    <string name="value_checked" msgid="3006751014125833966">"מסומן"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"לא מסומן"</string>
-    <string name="value_on" msgid="39454338086317219">"פועל"</string>
-    <string name="value_off" msgid="6700497510945744608">"כבוי"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"מושבת"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"מורחב"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"מכווץ"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"הקשה כפולה"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"הקש"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"לחץ על \'בחר\'"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> כדי להפעיל."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"הקש על <xliff:g id="KEYCOMBO">%1$s</xliff:g> כדי להפעיל."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> והחזק ללחיצה ארוכה."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"הקש על <xliff:g id="KEYCOMBO">%1$s</xliff:g> כדי לבצע לחיצה ארוכה."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> כדי להחליף."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"הקש על <xliff:g id="KEYCOMBO">%1$s</xliff:g> כדי להחליף מצב."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> כדי להזין טקסט."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"הקש על <xliff:g id="KEYCOMBO">%1$s</xliff:g> כדי להזין טקסט."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> כדי לשנות."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"הקש על <xliff:g id="KEYCOMBO">%1$s</xliff:g> כדי לשנות."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"החלק בשתי אצבעות כדי לעבור בין דפים."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"אין דפים נוספים."</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"Use volume keys to adjust"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g> כדי לשנות."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"פעולות:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> כדי <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"הקש על <xliff:g id="KEYCOMBO">%1$s</xliff:g> כדי <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> והחזק כדי <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"‏מקש Caps Lock פועל."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"‏מקש Caps Lock כבוי."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"‏מקש Num Lock פועל."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"‏מקש Num Lock כבוי."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"‏מקש Scroll Lock פועל."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"‏מקש Scroll Lock כבוי."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"לאורך"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"לרוחב"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"ביטול"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"הרחב"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"כווץ"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"שורה <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"עמודה <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"כותרת"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"כותרת שורה"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"כותרת עמודה"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"<xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g> תמונה בתוך תמונה"</string>
-    <string name="in_list" msgid="444302621514168828">"בתוך רשימה <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"ברשימה"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"מחוץ לרשימה <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"מחוץ לרשימה"</string>
-    <string name="in_grid" msgid="6705387966271590222">"בתוך רשת <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"ברשת"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"מחוץ לרשת <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"מחוץ לרשת"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"רמה <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="two"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> פריטים</item>
-      <item quantity="many"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> פריטים</item>
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> פריטים</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> פריט</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="two"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> שורות</item>
-      <item quantity="many"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> שורות</item>
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> שורות</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> שורה</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="two"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> עמודות</item>
-      <item quantity="many"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> עמודות</item>
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> עמודות</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> עמודה</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="two"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> תווים</item>
-      <item quantity="many"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> תווים</item>
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> תווים</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> תו</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"הפעלת הגדלה ל-%%<xliff:g id="SCALEINPERCENT">%1$d</xliff:g>"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"הגדלה ל-%%<xliff:g id="SCALEINPERCENT">%1$d</xliff:g>"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"כיבית את ההגדלה"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"קצב דיבור %%<xliff:g id="SCALEINPERCENT">%1$d</xliff:g>"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"התאמה של עוצמת השמע מופעלת"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"התאמה של עוצמת השמע מושבתת"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"קצב דיבור"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"רמת הנגשה"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"ניווט"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"התאמה של עוצמת השמע"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"הסיסמאות מוקראות רק בשימוש באוזניות"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">‏TalkBack מופעל</string>
+  <string name="talkback_suspended">‏TalkBack מושהה</string>
+  <string name="talkback_resumed">‏הפעלת TalkBack חודשה</string>
+  <string name="talkback_disabled">‏TalkBack מושבת</string>
+  <string name="spokenfeedback_on">קורא מסך קולי מופעל</string>
+  <string name="spokenfeedback_suspended">קורא מסך קולי מושעה</string>
+  <string name="spokenfeedback_resumed">קורא מסך קולי מופעל מחדש</string>
+  <string name="spokenfeedback_disabled">קורא מסך קולי מושבת</string>
+  <string name="notification_type_beginning_of_field">תחילת השדה</string>
+  <string name="notification_type_end_of_field">סוף השדה</string>
+  <string name="notification_type_selection_mode_on">מצב הבחירה מופעל</string>
+  <string name="notification_type_selection_mode_off">מצב הבחירה מושבת</string>
+  <string name="notification_type_selection_cleared">הבחירה נוקתה</string>
+  <string name="notification_category_call">שיחה</string>
+  <string name="notification_category_msg">הודעה</string>
+  <string name="notification_category_email">אימייל</string>
+  <string name="notification_category_event">אירוע</string>
+  <string name="notification_category_promo">מבצע</string>
+  <string name="notification_category_alarm">שעון מעורר</string>
+  <string name="notification_category_progress">התקדמות</string>
+  <string name="notification_category_social">רשתות חברתיות</string>
+  <string name="notification_category_err">שגיאה</string>
+  <string name="notification_category_transport">פקד מדיה</string>
+  <string name="notification_category_sys">סטטוס מערכת</string>
+  <string name="notification_category_service">שירות</string>
+  <string name="template_drawer_opened">תפריט %1$s</string>
+  <string name="template_text_replaced">%1$s מחליף את %2$s</string>
+  <string name="template_text_removed">%1$s נמחק</string>
+  <string name="template_text_cut">נגזר, %1$s</string>
+  <string name="template_text_pasted">מודבק, %1$s</string>
+  <string name="template_text_selected">%1$s, נבחר</string>
+  <string name="template_announce_selected_text">טקסט נבחר: %1$s</string>
+  <string name="template_text_unselected">%1$s, הבחירה בוטלה</string>
+  <string name="template_text_error">קלט לא חוקי %1$s</string>
+  <string name="template_replaced_characters">%1$s תווים הוחלפו ב-%2$s תווים</string>
+  <string name="template_labeled_item">%1$s עבור %2$s</string>
+  <string name="template_percent">%1$s אחוזים.</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s מציג פריט %2$d.</item>
+    <item quantity="two">%1$s מציג %2$d פריטים.</item>
+    <item quantity="many">%1$s מציג %2$d פריטים.</item>
+    <item quantity="other">%1$s מציג %2$d פריטים.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">רשת</string>
+  <string name="value_listview">רשימה</string>
+  <string name="value_tabwidget">שורת כרטיסיות</string>
+  <string name="value_spinner">רשימה נפתחת</string>
+  <string name="value_checkbox">תיבת סימון</string>
+  <string name="value_radio_button">לחצן בחירה</string>
+  <string name="value_button">לחצן</string>
+  <string name="value_seek_bar">פקד חיפוש</string>
+  <string name="value_switch">מתג</string>
+  <string name="value_edit_box">תיבת עריכה</string>
+  <string name="value_edit_box_editing">עריכה</string>
+  <string name="value_image">תמונה</string>
+  <string name="value_unlabelled">ללא תווית</string>
+  <string name="value_pager">תצוגה בעלת מספר דפים</string>
+  <string name="value_pager_page">דף</string>
+  <string name="value_progress_bar">סרגל התקדמות</string>
+  <string name="value_webview">תצוגת אינטרנט.</string>
+  <string name="value_toolbar">סרגל כלים</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">תווים %1$d עד %2$d</string>
+  <string name="template_password_traversed">תו %1$d</string>
+  <string name="value_password">סיסמה</string>
+  <string name="value_sliding_drawer_opened">חלונית הזזה נפתחה</string>
+  <string name="value_options_menu_open">אפשרויות.</string>
+  <string name="value_text_cleared">הטקסט נוקה</string>
+  <string name="value_text_max_length">הגעת לאורך המרבי</string>
+  <string name="value_selected">נבחר</string>
+  <string name="value_checked">מסומן</string>
+  <string name="value_not_checked">לא מסומן</string>
+  <string name="value_on">פועל</string>
+  <string name="value_off">כבוי</string>
+  <string name="value_disabled">מושבת</string>
+  <string name="value_expanded">מורחב</string>
+  <string name="value_collapsed">מכווץ</string>
+  <string name="value_double_tap">הקשה כפולה</string>
+  <string name="value_single_tap">הקש</string>
+  <string name="value_switch_press">יש להקיש על \'בחירת מתג\'</string>
+  <string name="value_press_select">לחץ על \'בחר\'</string>
+  <string name="template_hint_clickable">%1$s כדי להפעיל.</string>
+  <string name="template_hint_clickable_keyboard">הקש על %1$s כדי להפעיל.</string>
+  <string name="template_hint_long_clickable">%1$s והחזק ללחיצה ארוכה.</string>
+  <string name="template_hint_long_clickable_keyboard">הקש על %1$s כדי לבצע לחיצה ארוכה.</string>
+  <string name="template_hint_checkable">%1$s כדי להחליף.</string>
+  <string name="template_hint_checkable_keyboard">הקש על %1$s כדי להחליף מצב.</string>
+  <string name="template_hint_edit_text">%1$s כדי לערוך טקסט.</string>
+  <string name="template_hint_edit_text_keyboard">יש להקיש על %1$s כדי לערוך טקסט.</string>
+  <string name="template_hint_spinner">%1$s כדי לשנות.</string>
+  <string name="template_hint_spinner_keyboard">הקש על %1$s כדי לשנות.</string>
+  <string name="template_hint_pager">החלק בשתי אצבעות כדי לעבור בין דפים.</string>
+  <string name="template_hint_pager_single_page">אין דפים נוספים.</string>
+  <string name="template_hint_seek_control">Use volume keys to adjust</string>
+  <string name="template_hint_seek_control_tv">%1$s כדי לשנות.</string>
+  <string name="template_hint_custom_actions">פעולות:</string>
+  <string name="template_custom_hint_for_actions">%1$s כדי %2$s.</string>
+  <string name="template_custom_hint_for_actions_keyboard">הקש על %1$s כדי %2$s.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s והחזק כדי %2$s.</string>
+  <string name="template_sa_custom_hint_scrollable">%1$s כדי לגלול.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">%1$s כדי להציג את הפעולות הזמינות.</string>
+  <string name="template_sa_hint_seek_control">יש ללחוץ על \'בחירת מתג\' כדי לבצע התאמה</string>
+  <string name="value_caps_lock_on">‏מקש Caps Lock פועל.</string>
+  <string name="value_caps_lock_off">‏מקש Caps Lock כבוי.</string>
+  <string name="value_num_lock_on">‏מקש Num Lock פועל.</string>
+  <string name="value_num_lock_off">‏מקש Num Lock כבוי.</string>
+  <string name="value_scroll_lock_on">‏מקש Scroll Lock פועל.</string>
+  <string name="value_scroll_lock_off">‏מקש Scroll Lock כבוי.</string>
+  <string name="orientation_portrait">לאורך</string>
+  <string name="orientation_landscape">לרוחב</string>
+  <string name="title_action_dismiss">ביטול</string>
+  <string name="title_action_expand">הרחב</string>
+  <string name="title_action_collapse">כווץ</string>
+  <string name="row_index_template">שורה %1$d</string>
+  <string name="column_index_template">עמודה %1$d</string>
+  <string name="heading_template">כותרת</string>
+  <string name="row_heading_template">כותרת שורה</string>
+  <string name="column_heading_template">כותרת עמודה</string>
+  <string name="in_list">בתוך רשימה %1$s</string>
+  <string name="in_list_without_name">ברשימה</string>
+  <string name="out_of_list">מחוץ לרשימה %1$s</string>
+  <string name="out_of_list_without_name">מחוץ לרשימה</string>
+  <string name="in_grid">בתוך רשת %1$s</string>
+  <string name="in_grid_without_name">ברשת</string>
+  <string name="out_of_grid">מחוץ לרשת %1$s</string>
+  <string name="out_of_grid_without_name">מחוץ לרשת</string>
+  <string name="in_pager_with_name">בתצוגת הדפים %1$s</string>
+  <string name="in_pager">בתצוגת דפים</string>
+  <string name="out_of_pager_with_name">מחוץ לתצוגת הדפים %1$s</string>
+  <string name="out_of_pager">מחוץ לתצוגת הדפים</string>
+  <string name="in_vertical_pager_with_name">בתצוגת הדפים האנכית %1$s</string>
+  <string name="in_vertical_pager">בתצוגת דפים אנכית</string>
+  <string name="out_of_vertical_pager_with_name">מחוץ לתצוגת הדפים האנכית %1$s</string>
+  <string name="out_of_vertical_pager">מחוץ לתצוגת הדפים האנכית</string>
+  <string name="in_horizontal_pager_with_name">בתצוגת הדפים האופקית %1$s</string>
+  <string name="in_horizontal_pager">בתצוגת דפים אופקית</string>
+  <string name="out_of_horizontal_pager_with_name">מחוץ לתצוגת הדפים האופקית %1$s</string>
+  <string name="out_of_horizontal_pager">מחוץ לתצוגת הדפים האופקית</string>
+  <string name="in_grid_pager_with_name">בתצוגת דפים רשתית %1$s</string>
+  <string name="in_grid_pager">בתצוגת דפים רשתית</string>
+  <string name="out_of_grid_pager_with_name">מחוץ לתצוגת הדפים הרשתית %1$s</string>
+  <string name="out_of_grid_pager">מחוץ לתצוגת הדפים הרשתית</string>
+  <string name="template_collection_level">רמה %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d פריט</item>
+    <item quantity="two">%1$d פריטים</item>
+    <item quantity="many">%1$d פריטים</item>
+    <item quantity="other">%1$d פריטים</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d שורה</item>
+    <item quantity="two">%1$d שורות</item>
+    <item quantity="many">%1$d שורות</item>
+    <item quantity="other">%1$d שורות</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d עמודה</item>
+    <item quantity="two">%1$d עמודות</item>
+    <item quantity="many">%1$d עמודות</item>
+    <item quantity="other">%1$d עמודות</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d תו</item>
+    <item quantity="two">%1$d תווים</item>
+    <item quantity="many">%1$d תווים</item>
+    <item quantity="other">%1$d תווים</item>
+  </plurals>
+  <string name="template_screen_magnification_on">הפעלת הגדלה ל-%%%1$d</string>
+  <string name="template_screen_magnification_scale_changed">הגדלה ל-%%%1$d</string>
+  <string name="screen_magnification_off">כיבית את ההגדלה</string>
+  <string name="template_speech_rate_change">קצב דיבור %%%1$d</string>
+  <string name="audio_focus_on">התאמה של עוצמת השמע מופעלת</string>
+  <string name="audio_focus_off">התאמה של עוצמת השמע מושבתת</string>
+  <string name="selector_speech_rate_output">קצב דיבור</string>
+  <string name="selector_verbosity_output">רמת הנגשה</string>
+  <string name="selector_granularity_output">ניווט</string>
+  <string name="selector_audio_focus_output">התאמה של עוצמת השמע</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">הסיסמאות מוקראות רק בשימוש באוזניות</string>
+  <string name="template_hint_menu_type_high_verbosity">%1$s זמין, יש להשתמש ב-%2$s כדי להציג.</string>
+  <string name="template_hint_menu_type_low_verbosity">%1$s זמין.</string>
 </resources>

@@ -20,33 +20,19 @@ import android.content.Context;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.accessibility.utils.input.CursorController;
-import com.google.android.accessibility.utils.input.CursorGranularity;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.apps.common.proguard.UsedByReflection;
 
 /** Provides callbacks to check for completion of Lesson 4, part 1 */
 @UsedByReflection("tutorial.json")
-public class Lesson4Part1Exercise extends TextExercise
-    implements CursorController.GranularityChangeListener {
+public class Lesson4Part1Exercise extends TextExercise {
 
   @Override
   public void onInitialized(Context context) {
-    TalkBackService service = TalkBackService.getInstance();
-    if (service != null) {
-      CursorController cursorController = service.getCursorController();
-      cursorController.addGranularityListener(this);
-    }
   }
 
   @Override
-  public void clear() {
-    TalkBackService service = TalkBackService.getInstance();
-    if (service != null) {
-      CursorController cursorController = service.getCursorController();
-      cursorController.removeGranularityListener(this);
-    }
-  }
+  public void clear() {}
 
   @Override
   public CharSequence getText(Context context) {
@@ -70,9 +56,6 @@ public class Lesson4Part1Exercise extends TextExercise
           (EventId) null);
     }
   }
-
-  @Override
-  public void onGranularityChanged(CursorGranularity granularity) {}
 
   @Override
   public int getEventTypes() {

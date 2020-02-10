@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_stream_volume_set">%1$s բարձրությունը սահմանված է %2$d տոկոս:</string>
+  <string name="value_stream_master">Հիմօրինակ</string>
+  <string name="value_stream_voice_call">Հեռախոսազանգ</string>
+  <string name="value_stream_system">Համակարգի ձայն</string>
+  <string name="value_stream_ring">Զանգերանգ</string>
+  <string name="value_stream_music">Երաժշտություն</string>
+  <string name="value_stream_alarm">Զարթուցիչ</string>
+  <string name="value_stream_notification">Ծանուցում</string>
+  <string name="value_stream_dtmf">Հավաքելու ընթացքում հպման ձայնը</string>
+  <string name="value_stream_accessibility">Հատուկ գործառույթներ</string>
+  <string name="value_googletv_screen_saver">Էկրանապահ</string>
+</resources>

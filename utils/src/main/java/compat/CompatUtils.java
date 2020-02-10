@@ -20,6 +20,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import org.checkerframework.checker.nullness.qual.PolyNull;
 
 public class CompatUtils {
   private static final String TAG = CompatUtils.class.getSimpleName();
@@ -75,7 +76,9 @@ public class CompatUtils {
     return null;
   }
 
-  public static Object invoke(Object receiver, Object defaultValue, Method method, Object... args) {
+  @PolyNull
+  public static Object invoke(
+      Object receiver, @PolyNull Object defaultValue, Method method, Object... args) {
     if (method == null) {
       return defaultValue;
     }

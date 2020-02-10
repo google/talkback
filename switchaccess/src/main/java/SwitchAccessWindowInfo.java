@@ -16,19 +16,17 @@
 
 package com.google.android.accessibility.switchaccess;
 
-import android.annotation.TargetApi;
 import android.graphics.Rect;
-import android.os.Build;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import java.util.ArrayList;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Extension of AccessibilityWindowInfo that returns {@code ExtendedNodeCompat} for its root */
-@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class SwitchAccessWindowInfo {
-  final AccessibilityWindowInfo mAccessibilityWindowInfo;
-  final List<AccessibilityWindowInfo> mListOfWindowsAbove;
+  private final AccessibilityWindowInfo accessibilityWindowInfo;
+  private final List<AccessibilityWindowInfo> listOfWindowsAbove;
 
   /**
    * Convert a list of standard {@code AccessibilityWindowInfo} objects into a list of {@code
@@ -56,22 +54,28 @@ public class SwitchAccessWindowInfo {
     if (accessibilityWindowInfo == null) {
       throw new NullPointerException();
     }
-    mAccessibilityWindowInfo = accessibilityWindowInfo;
-    mListOfWindowsAbove = listOfWindowsAbove;
+    this.accessibilityWindowInfo = accessibilityWindowInfo;
+    this.listOfWindowsAbove = listOfWindowsAbove;
   }
 
   /** @return The root of the window */
+  @Nullable
   public SwitchAccessNodeCompat getRoot() {
-    AccessibilityNodeInfo root = mAccessibilityWindowInfo.getRoot();
-    return (root == null) ? null : new SwitchAccessNodeCompat((Object) root, mListOfWindowsAbove);
+    AccessibilityNodeInfo root = null;
+    try {
+      root = accessibilityWindowInfo.getRoot();
+    } catch (NullPointerException | SecurityException | StackOverflowError e) {
+      // If the framework throws an exception, ignore.
+    }
+    return (root == null) ? null : new SwitchAccessNodeCompat(root, listOfWindowsAbove);
   }
 
   /** @return The type of the window. See {@link AccessibilityWindowInfo} */
   public int getType() {
-    return mAccessibilityWindowInfo.getType();
+    return accessibilityWindowInfo.getType();
   }
 
   public void getBoundsInScreen(Rect outBounds) {
-    mAccessibilityWindowInfo.getBoundsInScreen(outBounds);
+    accessibilityWindowInfo.getBoundsInScreen(outBounds);
   }
 }

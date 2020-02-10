@@ -35,12 +35,13 @@ import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.FrameLayout;
-import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.FormFactorUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
+import com.google.android.accessibility.utils.widget.DialogUtils;
 import com.google.android.accessibility.utils.widget.SimpleOverlay;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Overlay to block double-taps on an EditText in explore-by-touch mode. */
 public class NodeBlockingOverlay extends SimpleOverlay {
@@ -63,25 +64,21 @@ public class NodeBlockingOverlay extends SimpleOverlay {
    */
   private static final int DELAY_SHOW_MS = (int) (DOUBLE_TAP_MIN_MS * 1.5);
 
-  private final AnimHandler mAnimHandler = new AnimHandler(this);
-  private final FrameLayout mRootLayout;
-  private final GestureDetector mGestureDetector;
-  private final GestureListener mGestureListener = new GestureListener();
-  private final OnDoubleTapListener mDoubleTapListener;
-  private long mLastHideTime = 0;
-  private int mLastTouchAction = MotionEvent.ACTION_CANCEL;
-  private long mLastTouchDownTime = 0;
-  private Rect mDesiredRect = null;
+  private final AnimHandler animHandler = new AnimHandler(this);
+  private final FrameLayout rootLayout;
+  private final GestureDetector gestureDetector;
+  private final GestureListener gestureListener = new GestureListener();
+  private final OnDoubleTapListener doubleTapListener;
+  private long lastHideTime = 0;
+  private int lastTouchAction = MotionEvent.ACTION_CANCEL;
+  private long lastTouchDownTime = 0;
+  @Nullable private Rect desiredRect = null;
 
   public NodeBlockingOverlay(Context context, OnDoubleTapListener doubleTapListener) {
     super(context);
 
     final WindowManager.LayoutParams params = getParams();
-    if (BuildVersionUtils.isAtLeastLMR1()) {
-      params.type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
-    } else {
-      params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
-    }
+    params.type = DialogUtils.getDialogType();
     params.format = PixelFormat.TRANSPARENT;
     params.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
     params.flags |= WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
@@ -90,18 +87,18 @@ public class NodeBlockingOverlay extends SimpleOverlay {
     params.gravity = Gravity.LEFT | Gravity.TOP; // Tested with RTL and seems OK.
     setParams(params);
 
-    mRootLayout = new FrameLayout(context);
-    mRootLayout.setBackgroundColor(0x00000000); // Transparent black.
+    rootLayout = new FrameLayout(context);
+    rootLayout.setBackgroundColor(0x00000000); // Transparent black.
 
-    mGestureDetector = new GestureDetector(context, mGestureListener);
-    mDoubleTapListener = doubleTapListener;
+    gestureDetector = new GestureDetector(context, gestureListener);
+    this.doubleTapListener = doubleTapListener;
 
-    setContentView(mRootLayout);
+    setContentView(rootLayout);
   }
 
   /** The NodeBlockingOverlay is only supported on non-TV platforms with explore-by-touch. */
   public static boolean isSupported(TalkBackService service) {
-    if (FormFactorUtils.getInstance(service).isTv()) {
+    if (FeatureSupport.isTv(service)) {
       return false;
     }
 
@@ -124,15 +121,15 @@ public class NodeBlockingOverlay extends SimpleOverlay {
    * @param r The bounds for the overlay.
    */
   public void showDelayed(Rect r) {
-    mAnimHandler.removeMessages(AnimHandler.WHAT_HIDE);
-    mAnimHandler.removeMessages(AnimHandler.WHAT_RELAYOUT);
+    animHandler.removeMessages(AnimHandler.WHAT_HIDE);
+    animHandler.removeMessages(AnimHandler.WHAT_RELAYOUT);
 
-    mDesiredRect = r;
-    if (!mAnimHandler.hasMessages(AnimHandler.WHAT_SHOW)) {
-      if (SystemClock.uptimeMillis() - mLastHideTime > DELAY_HIDE_MS) {
-        mAnimHandler.sendEmptyMessageDelayed(AnimHandler.WHAT_SHOW, DELAY_SHOW_MS);
+    desiredRect = r;
+    if (!animHandler.hasMessages(AnimHandler.WHAT_SHOW)) {
+      if (SystemClock.uptimeMillis() - lastHideTime > DELAY_HIDE_MS) {
+        animHandler.sendEmptyMessageDelayed(AnimHandler.WHAT_SHOW, DELAY_SHOW_MS);
       } else {
-        mAnimHandler.sendEmptyMessage(AnimHandler.WHAT_SHOW);
+        animHandler.sendEmptyMessage(AnimHandler.WHAT_SHOW);
       }
     }
   }
@@ -143,9 +140,9 @@ public class NodeBlockingOverlay extends SimpleOverlay {
    * @param r The bounds for the overlay.
    */
   public void show(Rect r) {
-    mAnimHandler.removeCallbacksAndMessages(null);
-    mDesiredRect = r;
-    mAnimHandler.sendEmptyMessage(AnimHandler.WHAT_SHOW);
+    animHandler.removeCallbacksAndMessages(null);
+    desiredRect = r;
+    animHandler.sendEmptyMessage(AnimHandler.WHAT_SHOW);
   }
 
   /**
@@ -155,79 +152,79 @@ public class NodeBlockingOverlay extends SimpleOverlay {
    * use {@link #hide()} instead.
    */
   public void hideDelayed() {
-    mAnimHandler.removeMessages(AnimHandler.WHAT_SHOW);
-    mAnimHandler.removeMessages(AnimHandler.WHAT_RELAYOUT);
+    animHandler.removeMessages(AnimHandler.WHAT_SHOW);
+    animHandler.removeMessages(AnimHandler.WHAT_RELAYOUT);
 
-    if (!mAnimHandler.hasMessages(AnimHandler.WHAT_HIDE)) {
-      mAnimHandler.sendEmptyMessageDelayed(AnimHandler.WHAT_HIDE, DELAY_HIDE_MS);
+    if (!animHandler.hasMessages(AnimHandler.WHAT_HIDE)) {
+      animHandler.sendEmptyMessageDelayed(AnimHandler.WHAT_HIDE, DELAY_HIDE_MS);
     }
   }
 
   @Override
   public void hide() {
     super.hide();
-    mAnimHandler.removeCallbacksAndMessages(null);
-    mLastHideTime = SystemClock.uptimeMillis();
-    mLastTouchAction = MotionEvent.ACTION_CANCEL;
+    animHandler.removeCallbacksAndMessages(null);
+    lastHideTime = SystemClock.uptimeMillis();
+    lastTouchAction = MotionEvent.ACTION_CANCEL;
   }
 
   public boolean isVisibleOrShowPending() {
-    return isVisible() || mAnimHandler.hasMessages(AnimHandler.WHAT_SHOW);
+    return isVisible() || animHandler.hasMessages(AnimHandler.WHAT_SHOW);
   }
 
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
     if (event.getEventType() == AccessibilityEvent.TYPE_TOUCH_INTERACTION_START) {
-      mGestureListener.clearDoubleTapOccurred();
+      gestureListener.clearDoubleTapOccurred();
 
       // EBT doesn't send an intermediate down action during a double-tap
       // (checked behavior against Android L, M, N).
-      if (mLastTouchAction == MotionEvent.ACTION_DOWN) {
+      if (lastTouchAction == MotionEvent.ACTION_DOWN) {
         MotionEvent upEvent =
             MotionEvent.obtain(
-                mLastTouchDownTime,
+                lastTouchDownTime,
                 event.getEventTime() - DOUBLE_TAP_MIN_MS,
                 MotionEvent.ACTION_UP,
                 0 /* x*/,
                 0 /* y */,
                 0 /* metaState */);
-        mGestureDetector.onTouchEvent(upEvent);
+        gestureDetector.onTouchEvent(upEvent);
         upEvent.recycle();
       }
 
       // Update down time and send actual down event.
-      mLastTouchDownTime = event.getEventTime();
+      lastTouchDownTime = event.getEventTime();
       MotionEvent downEvent =
           MotionEvent.obtain(
-              mLastTouchDownTime,
+              lastTouchDownTime,
               event.getEventTime(),
               MotionEvent.ACTION_DOWN,
               0 /* x*/,
               0 /* y */,
               0 /* metaState */);
-      mGestureDetector.onTouchEvent(downEvent);
+      gestureDetector.onTouchEvent(downEvent);
       downEvent.recycle();
 
-      mLastTouchAction = MotionEvent.ACTION_DOWN;
+      lastTouchAction = MotionEvent.ACTION_DOWN;
     } else if (event.getEventType() == AccessibilityEvent.TYPE_TOUCH_INTERACTION_END) {
       // Send actual up event using cached down time.
       MotionEvent upEvent =
           MotionEvent.obtain(
-              mLastTouchDownTime,
+              lastTouchDownTime,
               event.getEventTime(),
               MotionEvent.ACTION_UP,
               0 /* x*/,
               0 /* y */,
               0 /* metaState */);
-      mGestureDetector.onTouchEvent(upEvent);
+      gestureDetector.onTouchEvent(upEvent);
       upEvent.recycle();
 
       // Check if a double tap occurred during the last interaction.
-      if (mGestureListener.getDoubleTapOccurred()) {
-        mDoubleTapListener.onDoubleTap(eventId);
-        mGestureListener.clearDoubleTapOccurred();
+      if (gestureListener.getDoubleTapOccurred()) {
+        doubleTapListener.onDoubleTap(eventId);
+        gestureListener.clearDoubleTapOccurred();
       }
 
-      mLastTouchAction = MotionEvent.ACTION_UP;
+      lastTouchAction = MotionEvent.ACTION_UP;
     }
   }
 
@@ -242,7 +239,7 @@ public class NodeBlockingOverlay extends SimpleOverlay {
     public static final int WHAT_RELAYOUT = 3;
 
     /**
-     * Specifies the delta between y=0 in AccessibilityNodeInfo (mDesiredRect) and y=0 in
+     * Specifies the delta between y=0 in AccessibilityNodeInfo (desiredRect) and y=0 in
      * WindowManager.LayoutParams. The y-position specified in WindowManager.LayoutParams
      * corresponds to the vertical distance from the status bar (if it is visible), but the
      * y-position in AccessibilityNodeInfo always refers to the vertical distance from the top of
@@ -250,7 +247,7 @@ public class NodeBlockingOverlay extends SimpleOverlay {
      * right position; in addition, we must be cognizant that the status bar may appear and reappear
      * when switching activities.
      */
-    private int mLastVerticalError = 0;
+    private int lastVerticalError = 0;
 
     public AnimHandler(NodeBlockingOverlay parent) {
       super(parent);
@@ -270,10 +267,10 @@ public class NodeBlockingOverlay extends SimpleOverlay {
             // shown before doing the final layout (we may need to compensate for the
             // status bar height).
             WindowManager.LayoutParams lp = parent.getParams();
-            lp.x = parent.mDesiredRect.left;
-            lp.y = parent.mDesiredRect.top - mLastVerticalError;
-            lp.width = parent.mDesiredRect.width();
-            lp.height = parent.mDesiredRect.height();
+            lp.x = parent.desiredRect.left;
+            lp.y = parent.desiredRect.top - lastVerticalError;
+            lp.width = parent.desiredRect.width();
+            lp.height = parent.desiredRect.height();
             parent.setParams(lp);
             parent.show();
             sendEmptyMessage(WHAT_RELAYOUT);
@@ -284,11 +281,11 @@ public class NodeBlockingOverlay extends SimpleOverlay {
             // Does final relayout. Our LayoutParams position on the screen needs to be
             // adjusted to compensate for the status bar height.
             int[] actual = new int[2];
-            parent.mRootLayout.getLocationOnScreen(actual);
+            parent.rootLayout.getLocationOnScreen(actual);
 
             WindowManager.LayoutParams lp = parent.getParams();
-            mLastVerticalError += actual[1] - parent.mDesiredRect.top;
-            lp.y = parent.mDesiredRect.top - mLastVerticalError;
+            lastVerticalError += actual[1] - parent.desiredRect.top;
+            lp.y = parent.desiredRect.top - lastVerticalError;
             parent.setParams(lp);
           }
           break;
@@ -299,20 +296,20 @@ public class NodeBlockingOverlay extends SimpleOverlay {
 
   /** Used to detect double-taps in the NodeBlockingOverlay. */
   private static class GestureListener extends SimpleOnGestureListener {
-    private boolean mDoubleTapOccurred = false;
+    private boolean doubleTapOccurred = false;
 
     @Override
     public boolean onDoubleTap(MotionEvent e) {
-      mDoubleTapOccurred = true;
+      doubleTapOccurred = true;
       return super.onDoubleTap(e);
     }
 
     public boolean getDoubleTapOccurred() {
-      return mDoubleTapOccurred;
+      return doubleTapOccurred;
     }
 
     public void clearDoubleTapOccurred() {
-      mDoubleTapOccurred = false;
+      doubleTapOccurred = false;
     }
   }
 }

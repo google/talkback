@@ -1,172 +1,327 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Switch Access"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Доступ праз пераключальнікі дазваляе людзям з парушэннямі руху кіраваць тэлефонамі і планшэтамі з дапамогай аднаго ці некалькіх пераключальнікаў. Выкарыстоўвайце пераключальнікі, каб шукаць элементы, прагортваць іх, уводзіць тэкст і рабіць многае іншае."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Кантр. прыл. пераключальнікамі"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Даведка і водгукі"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Аўтаматычнае сканіраванне"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Час аўтаматычнага сканіравання"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Аўтаматычны пошук з канца"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="one">%.2f секунда</item>
-      <item quantity="few">%.2f секунды</item>
-      <item quantity="many">%.2f секунд</item>
-      <item quantity="other">%.2f секунды</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Наладжванне пошуку"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Метад сканіравання"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Затрымка на першым элеменце"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Прызначэнне пераключальнікаў"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Прызначэнне пераключальнікаў для дзеянняў"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Прызначэнне пераключальнікаў для пошуку"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Хуткасць лініі"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Колькасць пошукаў"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Выберыце, колькі разоў трэба паўтараць пошук"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Час затрымкі"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Некалькі націскаў на працягу гэтага часу будуць прызнаны адным націскам."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Адпусціць, каб выканаць дзеянне"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Выканаць дзеянне, як толькі пераключальнік будзе адпушчаны"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="one">%d цыкл</item>
-      <item quantity="few">%d цыклы</item>
-      <item quantity="many">%d цыклаў</item>
-      <item quantity="other">%d цыкла</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Пераключальнік \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" ужо прызначаны для дзеяння \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\""</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="one">%d пераключальнік прызначаны</item>
-      <item quantity="few">%d пераключальнікі прызначаны</item>
-      <item quantity="many">%d пераключальнікаў прызначаны</item>
-      <item quantity="other">%d пераключальніка прызначаны</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Пераключальнік выбару групы %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Наступны"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Папярэдні"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Выбраць"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Доўгі націск"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Прагартаць наперад"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Прагартаць назад"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Адхіліць"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Разгарнуць"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Згарнуць"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Вылучыць тэкст"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Капіраваць"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Выразаць"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Уставіць"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"МЕНЮ"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Назад"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Галоўная старонка"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Агляд"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Апавяшчэнні"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Хуткія налады"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Прагартаць наперад"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Прагартаць назад"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Пошук пункту"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Выхад з пошуку пункту"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Прагартаць управа"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Прагартаць улева"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Прагартаць уверх"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Прагартаць уніз"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Прагартаць (адвольна)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Паменшыць маштаб"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Павялічыць маштаб"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Налады Switch Access"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Націсніце спалучэнне пераключальнікаў, каб дадаць яго ў спіс або выдаліць са спіса"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Выдаліць прызначэнне для пераключальніка"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Пераключальнікі не прызначаны"</string>
-    <string name="more" msgid="1547670498589416840">"Яшчэ"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Прабел"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"Захаваць"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Стыль вылучэння падчас сканіравання"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Першасны стыль сканіравання"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Колер вылучэння"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Таўшчыня мяжы вылучэння"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Палітыка прыватнасці"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Уключыць аўтаматычны выбар"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Адключыць аўтаматычны выбар"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Наступны сімвал"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Наступнае слова"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Наступны радок"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Наступны абзац"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Наступная старонка"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Папярэдні сімвал"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Папярэдняе слова"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Папярэдні радок"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Папярэдні абзац"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Папярэдняя старонка"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Аўтаматычны запуск сканіравання"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Сканіраванне пачынаецца без націскання пераключальніка"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Налады Switch Access"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Майстар усталёўкі доступу праз пераключальнікі"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Адзін пераключальнік"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Два пераключальнікі"</string>
-    <string name="finish" msgid="4267641294267512480">"Завяршыць"</string>
-    <string name="exit" msgid="8664597014081860813">"Выйсці"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Выберыце колькасць пераключальнікаў"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Націсніце пераключальнік для пачатку аўтаматычнага перамяшчэння паміж элементамі, а затым націсніце яшчэ раз для выбару вылучанага элемента."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Націсніце адзін пераключальнік для перамяшчэння паміж элементамі. Націсніце іншы пераключальнік для выбару вылучанага элемента."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Выберыце хуткасць пошуку"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Выберыце, як доўга вылученне павінна заставацца на кожным элеменце"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Хутка (затрымка <xliff:g id="DELAY_SPEED">%1$s</xliff:g> с)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Умерана (затрымка <xliff:g id="DELAY_SPEED">%1$s</xliff:g> с)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Марудна (затрымка <xliff:g id="DELAY_SPEED">%1$s</xliff:g> с)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Карыстальніцкае значэнне"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"затрымка (у секундах)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Клавіша \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" ужо прызначана для іншага дзеяння"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Пошук па радку-слупку"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Выбар групы"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Лінейны пошук"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Вусны водгук"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Налады TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Для некалькіх элементаў"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Агучыць першы і апошні элемент"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Агучыць колькасць элементаў"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Агучыць усе вылучаныя элементы"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Скончыць гаварыць перад перамяшчэннем"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"група <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"Ад <xliff:g id="ID_1">%1$s</xliff:g> да <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"Элементаў: <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"выберыце для прагорткі"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"невядомы элемент"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Выбар спосабу пошуку"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Шукайце ў адным радку за адзін раз. Пасля выбару радка перамяшчайцеся па элементах у гэтым спісе."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Перамяшчайцеся паміж элементамі па адным за раз. Звярніце ўвагу, што клавіятура заўсёды будзе шукаць па радках."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Усім элементам будзе прызначаны колер. Націсніце пераключальнік, які адпавядае колеру патрэбнага элемента. Скараціце памер групы, пакуль не дасягнеце выбранага элемента."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Пераключальнікі прызначаны для дзеяння \"<xliff:g id="ACTION_NAME">%s</xliff:g>\""</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Няма"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Выдаліць прызначэнні пераключальнікаў?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Вы ўжо прызначылі пераключальнікі."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Выдаліць пераключальнікі"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Захаваць налады пераключальнікаў"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Пераключальнікі не прызначаны"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Няма пераключальнікаў, прызначаных для гэтага дзеяння. Вы ўпэўнены, што хочаце працягнуць?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Група наступнага колеру: <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Націсніце пераключальнік, каб прызначыць яго для выбару групы наступнага колеру: <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Націсніце пераключальнік, каб прызначыць яго для дзеяння \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Пачаць пошук і выбар"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Праверце свае налады з дапамогай гульні ў крыжыкі-нулікі"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Націсніце \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" для пачатку пошуку. Націсніце пераключальнік яшчэ раз для выбару вылучанага элемента. Пачынайце!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Націсніце \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" для пачатку пошуку. Націсніце пераключальнік яшчэ раз для выбару вылучанага радка. Націсніце яшчэ раз для выбару вылучанага элемента. Пачынайце!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Націсніце \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" для перамяшчэння паміж элементамі. Націсніце \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" для выбару вылучанага элемента. Пачынайце!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Націсніце \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" для перамяшчэння паміж радкамі. Націсніце \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" для выбару вылучанага радка. Паўтарыце дзеянні для выбару элемента ў гэтым радку. Пачынайце!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Націсніце \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" для выбару элементаў, вылучаных наступным колерам: <xliff:g id="COLOR_NAME_1">%2$s</xliff:g>. Або націсніце \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" для выбару элементаў, вылучаных наступным колерам: <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Паўтарыце дзеянні, каб знайсці патрэбны элемент. Пачынайце!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"У вас пакуль няма пераключальнікаў, прызначаных для ўсіх дзеянняў. Націсніце кнопку \"Назад\", каб вярнуцца і скончыць прызначэнне пераключальнікаў."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Скінуць гульню"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Гэты квадрацік ужо заняты. Паспрабуйце яшчэ раз!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Вы перамаглі!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"У наступны раз пашанцуе"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Нічыя"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Вы можаце захаваць бягучыя налады або пачаць усё зноў."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Захаваць налады"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Пачаць зноў"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Наладжванне скончана"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Усё гатова."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Вы заўсёды можаце змяніць дадатковыя налады або адкрыць майстар усталёўкі зноў з налад доступу праз пераключальнікі."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Доступ праз пераключальнікі</string>
+  <string name="switch_access_service_description">Доступ праз пераключальнікі дазваляе людзям з парушэннямі руху кіраваць тэлефонамі і планшэтамі з дапамогай аднаго ці некалькіх пераключальнікаў. Выкарыстоўвайце пераключальнікі, каб шукаць элементы, прагортваць іх, уводзіць тэкст і інш.</string>
+  <string name="switch_access_service_summary">Кантроль пераключальнікамі</string>
+  <string name="title_pref_help_feedback">Даведка і водгукі</string>
+  <string name="title_pref_licenses">Ліцэнзіі на ПЗ з адкрытым зыходным кодам</string>
+  <string name="title_pref_category_auto_scan">Аўтаматычнае сканіраванне</string>
+  <string name="title_pref_auto_scan_disabled">Аўтаматычнае сканіраванне (выключана)</string>
+  <string name="action_key_summary_auto_scan">Калі націснуць на гэты пераключальнік, элементы пачнуць аўтаматычна вылучацца. Каб выбраць вылучаны элемент, націсніце на пераключальнік яшчэ раз.</string>
+  <string name="title_pref_auto_scan_time_delay">Час аўтаматычнага сканіравання</string>
+  <string name="action_name_reverse_auto_scan">Аўтаматычны пошук з канца</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Зваротнае аўтаматычнае сканіраванне (выключана)</string>
+  <string name="action_key_summary_reverse_auto_scan">Калі націснуць на гэты пераключальнік, элементы пачнуць аўтаматычна вылучацца. Каб выбраць вылучаны элемент, націсніце на пераключальнік яшчэ раз.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">%.2f секунда</item>
+    <item quantity="few">%.2f секунды</item>
+    <item quantity="many">%.2f секунд</item>
+    <item quantity="other">%.2f секунды</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Наладжванне пошуку</string>
+  <string name="title_pref_scanning_methods">Метад сканіравання</string>
+  <string name="title_pref_start_scan_delay">Затрымка на першым элеменце</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Выберыце дадатковы час для першага элемента. Гэты час дадаецца да часу аўтаматычнага сканіравання.\n\nГэта налада ўплывае на аўтаматычнае і кропкавае сканіраванне.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Выберыце дадатковы час для першага элемента. Па заканчэнні гэтага часу пачне рухацца вертыкальная ці гарызантальная лінія.\n\nГэта налада ўплывае на аўтаматычнае і кропкавае сканіраванне.</string>
+  <string name="title_pref_category_assign_switches">Прызначэнне пераключальнікаў</string>
+  <string name="title_pref_category_key_mappings">Прызначыць пераключальнікі для агульных дзеянняў</string>
+  <string name="summary_pref_category_key_mappings">Агульныя дзеянні можна выканаць у любы час</string>
+  <string name="title_pref_category_scan_key_mappings">Прызначэнне пераключальнікаў для пошуку</string>
+  <string name="summary_pref_category_scan_key_mappings">Сканіраванне дазваляе перамяшчаць вылучэнне і выбіраць вылучаныя элементы</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Перамяшчэнне і выбар</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Дзеянні з вылучаным элементам</string>
+  <string name="title_pref_point_scan_line_speed">Хуткасць лініі</string>
+  <string name="dialog_message_pref_line_speed">Выберыце хуткасць перамяшчэння гарызантальных і вертыкальных ліній на экране.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">%.2f см у секунду</item>
+    <item quantity="few">%.2f см у секунду</item>
+    <item quantity="many">%.2f см у секунду</item>
+    <item quantity="other">%.2f см у секунду</item>
+  </plurals>
+  <string name="title_pref_loop_count">Колькасць пошукаў</string>
+  <string name="dialog_message_pref_loop_count">Выберыце, колькі разоў паўтараць сканіраванне.\n\nГэта налада ўплывае на аўтаматычнае і кропкавае сканіраванне.</string>
+  <string name="summary_pref_point_scan">Для выбару становішча па гарызанталі і па вертыкалі выкарыстоўвайце рухомыя лініі. %1$s</string>
+  <string name="point_scan_enable_animations_message">Каб карыстацца гэтай функцыяй, уключыце анімацыю.</string>
+  <string name="title_pref_category_switch_accomodation">Змяніць размяшчэнне</string>
+  <string name="title_pref_debounce_time">Ігнараваць паўторныя націскі</string>
+  <string name="dialog_message_pref_debounce_time">Некалькі націскаў на працягу гэтага часу будуць лічыцца адным націскам.</string>
+  <string name="title_pref_press_on_release">Адпусціць, каб выканаць дзеянне</string>
+  <string name="subtitle_pref_press_on_release">Выканаць дзеянне, як толькі пераключальнік будзе адпушчаны</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d цыкл</item>
+    <item quantity="few">%d цыклы</item>
+    <item quantity="many">%d цыклаў</item>
+    <item quantity="other">%d цыкла</item>
+  </plurals>
+  <string name="preference_off">Выключана</string>
+  <string name="preference_on">Уключана</string>
+  <string name="toast_msg_key_already_assigned">Пераключальнік \"%1$s\" ужо прызначаны для дзеяння \"%2$s\"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d пераключальнік прызначаны</item>
+    <item quantity="few">%d пераключальнікі прызначаны</item>
+    <item quantity="many">%d пераключальнікаў прызначаны</item>
+    <item quantity="other">%d пераключальніка прызначаны</item>
+  </plurals>
+  <string name="option_scan_switch_format">Пераключальнік выбару групы %1$d</string>
+  <string name="option_scan_switch_format_with_color">Пераключальнік выбару групы %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Націснуўшы на гэты пераключальнік, вы выбераце групу \"%1$d\".</string>
+  <string name="action_name_next">Далей</string>
+  <string name="action_key_summary_next">Націснуўшы на гэты пераключальнік, вы вылучыце наступны элемент.</string>
+  <string name="action_name_previous">Назад</string>
+  <string name="action_key_summary_previous">Націснуўшы на гэты пераключальнік, вы вылучыце папярэдні элемент.</string>
+  <string name="action_name_click">Выбраць</string>
+  <string name="action_key_summary_click">Націснуўшы на гэты пераключальнік, вы выбераце вылучаны элемент.</string>
+  <string name="action_name_long_click">Дакрануцца і ўтрымліваць</string>
+  <string name="action_key_summary_long_click">Націснуўшы на гэты пераключальнік, вы ўтрымаеце вылучаны элемент.</string>
+  <string name="action_name_scroll_forward">Прагартаць наперад</string>
+  <string name="action_key_summary_scroll_forward">Націснуўшы на гэты пераключальнік, вы прагартаеце вылучаны элемент наперад.</string>
+  <string name="action_name_scroll_backward">Прагартаць назад</string>
+  <string name="action_key_summary_scroll_backward">Націснуўшы на гэты пераключальнік, вы прагартаеце вылучаны элемент назад.</string>
+  <string name="action_name_dismiss">Адхіліць</string>
+  <string name="action_name_expand">Разгарнуць</string>
+  <string name="action_name_collapse">Згарнуць</string>
+  <string name="action_name_highlight_text">Вылучыць тэкст</string>
+  <string name="action_group_name_highlight">Вылучыць ...</string>
+  <string name="action_name_highlight_all_text">Вылучыць увесь тэкст</string>
+  <string name="action_name_highlight_granular_text">Вылучыць %1$s</string>
+  <string name="action_name_copy">Капіраваць</string>
+  <string name="action_name_copy_all_text">Капіраваць усё</string>
+  <string name="action_name_cut">Выразаць</string>
+  <string name="action_name_cut_all_text">Выразаць усё</string>
+  <string name="action_name_paste">Уставіць</string>
+  <string name="action_name_undo">Адрабіць</string>
+  <string name="action_name_redo">Узнавіць</string>
+  <string name="action_group_name_delete">Выдаліць ...</string>
+  <string name="action_name_delete">Выдаліць %1$s</string>
+  <string name="action_name_delete_highlighted_text">Выдаліць вылучаны тэкст</string>
+  <string name="option_scanning_menu_button">МЕНЮ</string>
+  <string name="option_scanning_menu_button_content_description">Меню доступу праз пераключальнікі</string>
+  <string name="switch_access_global_menu">Агульнае меню доступу праз пераключальнікі</string>
+  <string name="switch_access_actions_menu">Меню дзеянняў над доступам праз пераключальнікі</string>
+  <string name="switch_access_close_menu">ЗАКРЫЦЬ</string>
+  <string name="switch_access_back_menu">НАЗАД</string>
+  <string name="next_arrow_content_description">Далей</string>
+  <string name="previous_arrow_content_description">Назад</string>
+  <string name="global_action_back">Назад</string>
+  <string name="global_action_key_summary_back">Націснуўшы на гэты пераключальнік, вы вернеце папярэдні экран ці схаваеце клавіятуру.</string>
+  <string name="global_action_home">Галоўная старонка</string>
+  <string name="global_action_key_summary_home">Націснуўшы на гэты пераключальнік, вы пяройдзеце на галоўны экран.</string>
+  <string name="global_action_overview">Агляд</string>
+  <string name="global_action_key_summary_overview">Націснуўшы на гэты пераключальнік, вы адкрыеце спіс апошніх праграм.</string>
+  <string name="global_action_notifications">Апавяшчэнні</string>
+  <string name="global_action_key_summary_notifications">Націснуўшы на гэты пераключальнік, вы адкрыеце апавяшчэнні прылады.</string>
+  <string name="global_action_quick_settings">Хуткія налады</string>
+  <string name="global_action_key_summary_quick_settings">Націснуўшы на гэты пераключальнік, вы адкрыеце хуткія налады прылады.</string>
+  <string name="global_action_power_options">Налады кнопкі сілкавання</string>
+  <string name="global_menu_volume_heading">Гучнасць</string>
+  <string name="volume_menu_media">Гучнасць мультымедыя</string>
+  <string name="volume_menu_call">Гучнасць выкліку</string>
+  <string name="volume_menu_ring">Гучнасць званка</string>
+  <string name="volume_menu_alarm">Гучнасць будзільніка</string>
+  <string name="volume_menu_accessibility">Гучнасць для спецыяльных магчымасцей</string>
+  <string name="volume_menu_mute">Выключыць гук</string>
+  <string name="volume_menu_unmute">Уключыць гук</string>
+  <string name="volume_menu_increase">Павялічыць</string>
+  <string name="volume_settings">Налады гучнасці</string>
+  <string name="volume_menu_decrease">Паменшыць</string>
+  <string name="scrollable_forward">Прагартаць наперад</string>
+  <string name="scrollable_backward">Прагартаць назад</string>
+  <string name="point_scan">Кропкавае сканіраванне</string>
+  <string name="box_scan">Выхад з кропкавага сканіравання</string>
+  <string name="action_name_swipe_right">Прагартаць управа</string>
+  <string name="action_name_swipe_left">Прагартаць улева</string>
+  <string name="action_name_swipe_up">Прагартаць уверх</string>
+  <string name="action_name_swipe_down">Прагартаць уніз</string>
+  <string name="action_name_swipe_custom">Прагартаць (адвольна)</string>
+  <string name="action_name_zoom_out">Паменшыць маштаб</string>
+  <string name="action_name_zoom_in">Павялічыць маштаб</string>
+  <string name="switch_access_preferences_title">Налады доступу праз пераключальнікі</string>
+  <string name="key_combo_preference_instructions">Націсніце спалучэнне пераключальнікаў, каб дадаць яго ў спіс або выдаліць са спіса</string>
+  <string name="key_combo_preference_reset_button">Выдаліць прызначэнне для пераключальніка</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Пераключальнікі не прызначаны</string>
+  <string name="more">Яшчэ</string>
+  <string name="name_of_space_bar">Прабел</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">Захаваць</string>
+  <string name="title_pref_category_display_and_sound">Экран і гук</string>
+  <string name="title_pref_highlight_0">Стыль вылучэння падчас сканіравання</string>
+  <string name="title_pref_primary_scan_style">Першасны стыль сканіравання</string>
+  <string name="title_pref_highlight_0_color">Колер вылучэння</string>
+  <string name="title_pref_highlight_0_weight">Таўшчыня лініі вылучэння</string>
+  <string name="title_pref_privacy_policy">Палітыка прыватнасці</string>
+  <string name="title_pref_auto_select">Аўтаматычны выбар</string>
+  <string name="summary_pref_auto_select">Аўтаматычна выбірае вылучаны элемент. Калі выбраць элемент не ўдаецца ці гэта налада выключана, адлюстроўваецца меню даступных дзеянняў.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Уключыць аўтаматычны выбар</string>
+  <string name="switch_access_global_menu_disable_autoselect">Адключыць аўтаматычны выбар</string>
+  <string name="switch_access_move_next">Далей...</string>
+  <string name="switch_access_move_next_character">Наступны сімвал</string>
+  <string name="switch_access_move_next_word">Наступнае слова</string>
+  <string name="switch_access_move_next_line">Наступны радок</string>
+  <string name="switch_access_move_next_paragraph">Наступны абзац</string>
+  <string name="switch_access_move_next_page">Наступная старонка</string>
+  <string name="switch_access_move_next_sentence">Наступны сказ</string>
+  <string name="switch_access_move_prev">Назад...</string>
+  <string name="switch_access_move_prev_character">Папярэдні сімвал</string>
+  <string name="switch_access_move_prev_word">Папярэдняе слова</string>
+  <string name="switch_access_move_prev_line">Папярэдні радок</string>
+  <string name="switch_access_move_prev_paragraph">Папярэдні абзац</string>
+  <string name="switch_access_move_prev_page">Папярэдняя старонка</string>
+  <string name="switch_access_move_prev_sentence">Папярэдні сказ</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Аўтаматычны запуск сканіравання</string>
+  <string name="switch_access_auto_start_scan_summary">Сканіраванне пачынаецца без націскання пераключальніка</string>
+  <string name="pref_begin_switchaccess_setup_title">Адкрыць майстар наладкі</string>
+  <string name="setup_wizard_heading">Майстар наладкі доступу праз пераключальнікі</string>
+  <string name="one_switch">Адзін пераключальнік</string>
+  <string name="two_switches">Два пераключальнікі</string>
+  <string name="finish">Завяршыць</string>
+  <string name="exit">Выйсці</string>
+  <string name="intro_heading">Выбраць пераключальнік</string>
+  <string name="usb_switch_option_text">USB-пераключальнік</string>
+  <string name="bluetooth_switch_option_text">Bluetooth-пераключальнік</string>
+  <string name="usb_switch_description_text">Падключыць пераключальнік праз USB</string>
+  <string name="bluetooth_switch_description_text">Спалучыць бесправадны пераключальнік праз Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">Гэта прылада не падтрымлівае Bluetooth. Паспрабуйце скарыстаць фізічнае пераключэнне.</string>
+  <string name="connected_usb_devices_header">Падлучаныя прылады</string>
+  <string name="usb_no_devices_connected_message">Прылады USB не знойдзены. Пераканайцеся, што прылада надзейна падключана.</string>
+  <string name="connect_usb_heading">Падлучыць USB-пераключальнік</string>
+  <string name="pair_bluetooth_heading">Спалучыць Bluetooth-пераключальнік</string>
+  <string name="pair_bluetooth_subheading">Дакраніцеся да Bluetooth-пераключальніка ніжэй</string>
+  <string name="bluetooth_not_enabled_message">Каб спалучыць Bluetooth-пераключальнік, уключыце Bluetooth.</string>
+  <string name="enable_bluetooth_button_title">Уключыць Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Няма спалучаных Bluetooth-прылад</string>
+  <string name="paired_devices_header">Спалучаныя прылады Bluetooth</string>
+  <string name="available_devices_header">Даступныя Bluetooth-прылады</string>
+  <string name="bluetooth_computer_content_description">Камп\'ютар</string>
+  <string name="bluetooth_phone_content_description">Тэлефон</string>
+  <string name="bluetooth_imaging_content_description">Прылада візуалізацыі</string>
+  <string name="bluetooth_headphone_content_description">Навушнікі</string>
+  <string name="bluetooth_peripheral_content_description">Перыферыйная прылада</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Падключаецца...</string>
+  <string name="bluetooth_connected_description">Падключана</string>
+  <string name="bluetooth_device_unavailable_description">Прылада недаступная</string>
+  <string name="reconnecting_unsupported_title">Не ўдалося падключыцца да прылады</string>
+  <string name="reconnecting_unsupported_message">Доступу праз пераключальнікі не ўдалося падключыцца да папярэдняй спалучанай прылады. Пераканайцеся, што прылада ўключана і падлучана.\n\nКалі падключыць прыладу ўсё роўна не ўдаецца, перайдзіце ў налады Bluetooth і паспрабуйце падключыцца яшчэ раз.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Перайсці ў налады Bluetooth</string>
+  <string name="number_of_switches_heading">Выберыце колькасць пераключальнікаў</string>
+  <string name="title_assign_scan_key">Прызначыць пераключальнік \"%1$s\"</string>
+  <string name="one_switch_description_text">Націсніце пераключальнік для аўтаматычнага перамяшчэння паміж элементамі. Націсніце яшчэ раз, каб выбраць вылучаны элемент.</string>
+  <string name="two_switches_description_text">Націсніце адзін пераключальнік для перамяшчэння паміж элементамі. Націсніце іншы пераключальнік для выбару вылучанага элемента.</string>
+  <string name="step_speed_heading">Выберыце хуткасць пошуку</string>
+  <string name="step_speed_subheading">Задайце скорасць перамяшчэння паміж элементамі</string>
+  <string name="fast_radio_button_title">Хутка (затрымка %1$s с)</string>
+  <string name="medium_radio_button_title">Умерана (затрымка %1$s с)</string>
+  <string name="slow_radio_button_title">Марудна (затрымка %1$s с)</string>
+  <string name="custom_switch">Карыстальніцкае значэнне</string>
+  <string name="custom_edit_text">затрымка (у секундах)</string>
+  <string name="setup_toast_msg_key_already_assigned">Клавіша \"%1$s\" ужо прызначана для іншага дзеяння</string>
+  <string name="row_column_scanning_title">Пошук па радку-слупку</string>
+  <string name="option_scanning_title">Выбар групы (пашыраны)</string>
+  <string name="linear_scanning_title">Пошук па радках</string>
+  <string name="linear_scanning_except_keyboard_title">Лінейны пошук (акрамя клавіятуры)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Маўленне, гук і вібрацыя</string>
+  <string name="title_pref_switch_access_spoken_feedback">Вусны водгук</string>
+  <string name="title_pref_scan_non_actionable_items">Агучваць апісальны тэкст</string>
+  <string name="scan_non_actionable_items_summary">Слухаць агучванне элементаў с даступнымі дзеяннямі і апісальным тэкстам</string>
+  <string name="title_pref_switch_access_verbosity">Дэталізацыя</string>
+  <string name="summary_verbosity">Выбраць інфармацыю, якую трэба агучваць</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Падрабязнасці дэталізацыі</string>
+  <string name="title_pref_switch_access_keyboard_echo">Рэха клавіятуры</string>
+  <string name="keyboard_echo_summary_on">Агучваць націснутыя клавішы экраннай клавіятуры</string>
+  <string name="keyboard_echo_summary_off">Не агучваць націснутыя клавішы экраннай клавіятуры</string>
+  <string name="title_pref_enable_hints">Агучваць падказкі па выкарыстанні</string>
+  <string name="enable_hints_summary_on">Падчас навігацыі падказкі па выкарыстанні агучваюцца пасля кароткай затрымкі</string>
+  <string name="enable_hints_summary_off">Падказкі па выкарыстанні не агучваюцца пры пераходзе паміж элементамі</string>
+  <string name="title_pref_speak_container_element_position">Агучваць месца ў спісе або ў сетцы</string>
+  <string name="speak_container_element_position_summary_on">Звесткі пра месца ў спісе або сетцы агучваюцца</string>
+  <string name="speak_container_element_position_summary_off">Звесткі пра месца ў спісе або сетцы не агучваюцца</string>
+  <string name="title_pref_speak_element_type">Агучваць тып элемента</string>
+  <string name="speak_element_type_summary_on">Тып выбранага элемента агучваецца</string>
+  <string name="speak_element_type_summary_off">Тып выбранага элемента не агучваецца</string>
+  <string name="title_pref_pitch_change_for_ime">Змяняць танальнасць гуку</string>
+  <string name="pitch_change_for_ime_summary_on">Агучваць падказкі для клавіятуры нізкім тонам</string>
+  <string name="pitch_change_for_ime_summary_off">Не змяняць тон голасу падчас размовы</string>
+  <string name="title_pref_speak_selected_item_or_group">Агучваць выбраны элемент ці групу элементаў</string>
+  <string name="speak_selected_item_or_group_summary">Агучваць назву выбранага элемента ці групы элементаў</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Максімальны час агучвання элементаў</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Наладзьце максімальную колькасць часу для агучвання кожнага элемента. Па заканчэнні вызначанага часу агучванне будзе спыняцца.\nЗаўвага. Калі падказкі ўключаны, яны заўсёды агучваюцца.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Рознае</string>
+  <string name="title_pref_node_description_order">Парадак апісання элемента</string>
+  <string name="title_pref_switch_access_speak_element_ids">Агучваць ідэнтыфікатары элемента</string>
+  <string name="speak_element_ids_summary_on">Для кнопак без подпісаў ідэнтыфікатары элементаў агучваюцца</string>
+  <string name="speak_element_ids_summary_off">Для кнопак без подпісаў ідэнтыфікатары элементаў не агучваюцца</string>
+  <string name="title_pref_switch_access_tts_settings">Налады TTS</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Калі вылучаюцца некалькі элементаў</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Прагаворваць першы і апошні элемент</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Агучыць колькасць элементаў</string>
+  <string name="title_pref_switch_access_speak_all_items">Агучыць усе вылучаныя элементы</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Скончыць гаварыць перад перамяшчэннем</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Іншыя сігналы</string>
+  <string name="title_pref_developer_settings">Налады распрацоўшчыка</string>
+  <string name="title_pref_spoken_feedback_overlay">Выводзіць гаворку на экран</string>
+  <string name="title_pref_switch_access_vibration_feedback">Вібрасігнал</string>
+  <string name="vibration_feedback_summary">Вібрыраваць, каб паказаць, што нешта змянілася (напрыклад, змянілася змесціва экрана)</string>
+  <string name="title_pref_switch_access_sound_feedback">Гукавы сігнал</string>
+  <string name="sound_feedback_summary">Прайграваць гукавы сігнал, каб паказаць, што нешта змянілася (напрыклад, змянілася змесціва экрана)</string>
+  <string name="title_pref_switch_access_sound_volume">Гучнасць</string>
+  <string name="title_pref_switch_access_audio_ducking">Сцішыць аўдыя</string>
+  <string name="audio_ducking_summary">Паменшыць гучнасць іншых праграм падчас размовы</string>
+  <string name="switch_access_focus_cleared_no_selection">Экран змяніўся</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Каб выбраць радок, націсніце на пераключальнік выбару</string>
+  <string name="switch_access_spoken_feedback_group">група %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Каб выбраць групу, націсніце на пераключальнік групы %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Каб выбраць элемент, націсніце на пераключальнік групы %1$s</string>
+  <string name="switch_access_spoken_feedback_to">Ад %1$s да %2$s</string>
+  <string name="switch_access_spoken_feedback_items">Элементаў: %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selected">група %1$s выбрана</string>
+  <string name="switch_access_spoken_feedback_row_selected">радок выбраны</string>
+  <string name="switch_access_spoken_feedback_item_selected">элемент \"%1$s\" выбраны</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">можна прагарнуць</string>
+  <string name="switch_access_spoken_feedback_scroll">выберыце для прагорткі</string>
+  <string name="switch_access_spoken_feedback_unknown">невядомы элемент</string>
+  <string name="scanning_method_heading">Выбар спосабу пошуку</string>
+  <string name="row_column_scanning_description">Шукайце ў адным радку за адзін раз. Пасля выбару радка перамяшчайцеся па элементах у гэтым спісе.</string>
+  <string name="linear_scanning_description">Перамяшчацца паміж элементамі па чарзе</string>
+  <string name="linear_scanning_except_keyboard_description">Перамяшчайцеся паміж элементамі па чарзе. Звярніце ўвагу, што для клавіятуры заўсёды будзе выкарыстоўвацца сканіраванне па радках.</string>
+  <string name="option_scanning_description">Усім элементам будзе прызначаны колер. Націсніце пераключальнік, які адпавядае колеру патрэбнага элемента. Скараціце памер групы, пакуль не дасягнеце выбранага элемента.</string>
+  <string name="setup_switch_assignment_heading">Пераключальнікі прызначаны для дзеяння \"%s\"</string>
+  <string name="setup_switch_assignment_empty">Няма</string>
+  <string name="clear_keys_dialog_title">Выдаліць прызначэнні пераключальнікаў?</string>
+  <string name="clear_keys_dialog_message">Вы ўжо прызначылі пераключальнікі.</string>
+  <string name="clear_keys_dialog_positive_button">Выдаліць пераключальнікі</string>
+  <string name="clear_keys_dialog_negative_button">Захаваць налады пераключальнікаў</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Пераключальнікі не прызначаны</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Няма пераключальнікаў, прызначаных для гэтага дзеяння. Вы ўпэўнены, што хочаце працягнуць?</string>
+  <string name="option_scan_switch_title">Група наступнага колеру: %1$s</string>
+  <string name="option_scan_switch_subtitle">Націсніце пераключальнік, каб прызначыць яго для выбару групы наступнага колеру: %1$s.</string>
+  <string name="assign_switch_subtitle">Націсніце пераключальнік, каб прызначыць яго для дзеяння \"%1$s\".</string>
+  <string name="auto_scan_action_description">Пачаць пошук і выбар</string>
+  <string name="switch_game_heading">Праверце свае налады з дапамогай гульні ў крыжыкі-нулікі</string>
+  <string name="switch_game_one_switch_linear_subheading">Націсніце \"%1$s\" для пачатку пошуку. Націсніце пераключальнік яшчэ раз для выбару вылучанага элемента. Пачынайце!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Націсніце \"%1$s\" для пачатку пошуку. Націсніце пераключальнік яшчэ раз для выбару вылучанага радка. Націсніце яшчэ раз для выбару вылучанага элемента. Пачынайце!</string>
+  <string name="switch_game_two_switch_linear_subheading">Для перамяшчэння паміж элементамі націсніце \"%1$s\". Для выбару вылучанага элемента націсніце \"%2$s\". Пачынайце!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Для перамяшчэння паміж радкамі націсніце \"%1$s\". Для выбару вылучанага радка націсніце \"%2$s\". Каб выбраць элемент у гэтым радку, паўтарыце дзеянні. Пачынайце!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Націсніце \"%1$s\", каб выбраць элементы, вылучаныя колерам \"%2$s\", або націсніце \"%4$s\", каб выбраць элементы, вылучаныя колерам \"%3$s\". Каб знайсці патрэбны элемент, паўтарыце дзеянні. Пачынайце!</string>
+  <string name="switch_game_incomplete_switches_subheading">У вас пакуль няма пераключальнікаў, прызначаных для ўсіх дзеянняў. Націсніце кнопку \"Назад\", каб вярнуцца і скончыць прызначэнне пераключальнікаў.</string>
+  <string name="game_square_content_description">%1$s у пазіцыі %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">пуста</string>
+  <string name="game_reset_button_title">Скінуць гульню</string>
+  <string name="game_square_already_taken">Гэты квадрацік ужо заняты. Паспрабуйце яшчэ раз!</string>
+  <string name="game_win_outcome_title">Вы перамаглі!</string>
+  <string name="game_loss_outcome_title">У наступны раз пашанцуе</string>
+  <string name="game_tie_outcome_title">Нічыя</string>
+  <string name="game_outcome_body_text">Вы можаце захаваць бягучыя налады або пачаць усё зноў.</string>
+  <string name="game_outcome_positive_response">Захаваць налады</string>
+  <string name="game_outcome_negative_response">Пачаць зноў</string>
+  <string name="setup_completion_heading">Наладжванне скончана</string>
+  <string name="setup_completion_message">Усё гатова.</string>
+  <string name="setup_completion_settings_reminder">Вы заўсёды можаце змяніць дадатковыя налады або адкрыць майстар усталёўкі зноў з налад доступу праз пераключальнікі.</string>
+  <string name="dialog_url_list">Выберыце спасылку</string>
+  <string name="dialog_do_not_disturb_permission_title">Функцыі \"Доступ праз пераключальнікі\" патрэбны дазвол на рэгуляванне гучнасці</string>
+  <string name="dialog_do_not_disturb_permission_message">Каб рэгуляваць гучнасць з меню доступу праз пераключальнікі, уключыце для Спецыяльных магчымасцей для Android доступ да функцыі \"Не турбаваць\"</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Адкрыць налады</string>
 </resources>

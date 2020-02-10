@@ -19,9 +19,45 @@
 
     <style name="SwitchAccessSettings" parent="@android:style/Theme.DeviceDefault.Settings" />
 
-    <style name="SwitchAccessButtonBarButtonStyle" parent="@android:style/Widget.Material.ButtonBar">
-        <item name="android:textColor">@color/quantum_teal_700</item>
+    <style name="SwitchAccessButtonBarButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <!--
+             Set the background so that it is transparent and uses the background color of
+             the layout.
+        -->
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/setup_wizard_accent_color</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
+    <style name="SetupWizardGamePieceStyle">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:backgroundTint">@color/switch_game_background</item>
+        <item name="android:textSize">@dimen/setup_wizard_game_button_text_size</item>
+        <item name="android:height">@dimen/setup_wizard_game_piece_size</item>
+        <item name="android:width">@dimen/setup_wizard_game_piece_size</item>
+    </style>
+
+  <style name = "SetupGuideAlertDialogButtonBarButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+    <item name="android:textColor">@color/setup_wizard_accent_color</item>
+    <item name="android:backgroundTint">@android:color/transparent</item>
+  </style>
+
+    <!--
+       Custom themes should descend from Theme.AppCompat.DayNight or
+       Theme.MaterialComponents.DayNight in order to support Dark Mode on Q.
+    -->
+   <style name="AlertDialogStyle" parent="Theme.AppCompat.DayNight.Dialog.Alert"/>
+
+   <style name="SetupGuideAlertDialogStyle" parent="@style/AlertDialogStyle">
+     <item name="android:textColor">@color/setup_wizard_accent_color</item>
+     <item name="android:buttonBarButtonStyle">@style/SetupGuideAlertDialogButtonBarButtonStyle</item>
+   </style>
+
+   <style name="SetupGuideStyle" parent="Theme.AppCompat.DayNight.DarkActionBar">
+     <item name="colorAccent">@color/setup_wizard_accent_color</item>
+   </style>
+
+  <style name="SetupButtonTheme" parent="Theme.AppCompat.DayNight">
+    <item name="colorPrimary">@color/setup_wizard_button_background</item>
+  </style>
 </resources>

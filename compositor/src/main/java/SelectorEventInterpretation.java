@@ -17,6 +17,7 @@
 package com.google.android.accessibility.compositor;
 
 import com.google.android.accessibility.utils.ReadOnly;
+import com.google.android.accessibility.utils.StringBuilderUtils;
 
 /** Contains derived data about selector events. */
 public class SelectorEventInterpretation extends ReadOnly {
@@ -33,6 +34,6 @@ public class SelectorEventInterpretation extends ReadOnly {
 
   @Override
   public String toString() {
-    return EventInterpretation.optionalMemberString("action", mAction);
+    return StringBuilderUtils.joinFields(StringBuilderUtils.optionalField("Action", mAction));
   }
 }

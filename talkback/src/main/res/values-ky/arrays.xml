@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Баскыч</item>
+    <item>Белги кутучасы</item>
+    <item>Түс тандагыч</item>
+    <item>Күн/убакыт көзөмөл каражаты</item>
+    <item>Күн/убакыт көзөмөл каражаты</item>
+    <item>Күн боюнча көзөмөлдөө каражаты</item>
+    <item>Электрондук почта дарегинин текстин түзөтүү</item>
+    <item>Файл тандоо</item>
+    <item translatable="false"></item>
+    <item>Баскыч</item>
+    <item>Ай көзөмөл каражаты</item>
+    <item>Сандык текст гана түзөтүлсүн</item>
+    <item>Сырсөздү түзөтүү тексти</item>
+    <item>Радио баскычы</item>
+    <item>Жылмышма</item>
+    <item>Баштапкы абалга келтирүү</item>
+    <item>Изделүүчү текстти түзөтүү</item>
+    <item>Баскыч</item>
+    <item>Телефон номеринин текстин түзөтүү</item>
+    <item>Текстти түзөтүү</item>
+    <item>URL текстин түзөтүү</item>
+    <item>Апталык көзөмөл каражаты</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Шашылыш билдирүү</item>
+    <item>Шашылыш билдирүү диалог терезеси</item>
+    <item>Баскыч</item>
+    <item>Белги кутучасы</item>
+    <item>Айкалыштырылган кутуча</item>
+    <item>Диалог</item>
+    <item>Торчо уячасы</item>
+    <item>Шилтеме</item>
+    <item>Таржымал</item>
+    <item>Жүгүрмө сап</item>
+    <item>Менюдагы нерсе</item>
+    <item>Менюдагы нерсенин белги кутучасы</item>
+    <item>Менюдагы нерсенин радио баскычы</item>
+    <item>Параметр</item>
+    <item>Абал тилкеси</item>
+    <item>Радио баскычы</item>
+    <item>Радио баскыч тобу</item>
+    <item>Сыдырып кароо тилкеси</item>
+    <item>Жылмышма</item>
+    <item>Тегеретүү баскычы</item>
+    <item>Абал</item>
+    <item>Өтмөк</item>
+    <item>Өтмөк тактасы</item>
+    <item>Текст кутучасы</item>
+    <item>Таймер</item>
+    <item>Куралдар тилкеси</item>
+    <item>Курал кеңеш</item>
+    <item>Дарак элементи</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Шилтеме</item>
+    <item>Биринчи баш ат</item>
+    <item>Экинчи баш ат</item>
+    <item>Үчүнчү баш ат</item>
+    <item>Төртүнчү баш ат</item>
+    <item>Бешинчи баш ат</item>
+    <item>Алтынчы баш ат</item>
+    <item>Баскыч</item>
+    <item>Айкалыштырылган кутуча</item>
+    <item>Жадыбал</item>
+    <item>Текст аймагы</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

@@ -16,7 +16,9 @@
 
 package com.google.android.accessibility.compositor;
 
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.ReadOnly;
+import com.google.android.accessibility.utils.StringBuilderUtils;
 
 /**
  * Data structure containing a more specific event type, along with extracted data from the event.
@@ -32,13 +34,13 @@ public class TextEventInterpretation extends ReadOnly {
   private boolean mIsCutAction = false;
   private boolean mIsPasteAction = false;
 
-  private CharSequence mTextOrDescription;
+  @Nullable private CharSequence textOrDescription;
   private CharSequence mRemovedText;
   private CharSequence mAddedText;
   private CharSequence mInitialWord;
-  private CharSequence mDeselectedText;
-  private CharSequence mSelectedText;
-  private CharSequence mTraversedText;
+  private @Nullable CharSequence mDeselectedText;
+  private @Nullable CharSequence mSelectedText;
+  private @Nullable CharSequence mTraversedText;
 
   ////////////////////////////////////////////////////////////////////////////////////
   // Construction
@@ -92,13 +94,14 @@ public class TextEventInterpretation extends ReadOnly {
     return mIsPasteAction;
   }
 
-  public void setTextOrDescription(CharSequence text) {
+  public void setTextOrDescription(@Nullable CharSequence text) {
     checkIsWritable();
-    mTextOrDescription = text;
+    textOrDescription = text;
   }
 
+  @Nullable
   public CharSequence getTextOrDescription() {
-    return mTextOrDescription;
+    return textOrDescription;
   }
 
   public void setRemovedText(CharSequence removedText) {
@@ -128,63 +131,50 @@ public class TextEventInterpretation extends ReadOnly {
     return mInitialWord;
   }
 
-  public void setDeselectedText(CharSequence text) {
+  public void setDeselectedText(@Nullable CharSequence text) {
     checkIsWritable();
     mDeselectedText = text;
   }
 
-  public CharSequence getDeselectedText() {
+  public @Nullable CharSequence getDeselectedText() {
     return mDeselectedText;
   }
 
-  public void setSelectedText(CharSequence text) {
+  public void setSelectedText(@Nullable CharSequence text) {
     checkIsWritable();
     mSelectedText = text;
   }
 
-  public CharSequence getSelectedText() {
+  public @Nullable CharSequence getSelectedText() {
     return mSelectedText;
   }
 
-  public void setTraversedText(CharSequence text) {
+  public void setTraversedText(@Nullable CharSequence text) {
     checkIsWritable();
     mTraversedText = text;
   }
 
-  public CharSequence getTraversedText() {
+  public @Nullable CharSequence getTraversedText() {
     return mTraversedText;
   }
 
   ////////////////////////////////////////////////////////////////////////////////////
   // Methods to display the data
 
-  /** Shows the non-default data values. */
+  /** Display only non-default fields. */
   @Override
   public String toString() {
-    StringBuilder string = new StringBuilder();
-    string.append(String.format(" event=%s", Compositor.eventTypeToString(mEvent)));
-    string.append(String.format(" reason=%s", quote(mReason)));
-    string.append(optionalMemberString("isCut", mIsCutAction));
-    string.append(optionalMemberString("isPaste", mIsPasteAction));
-    string.append(optionalMemberString("textOrDescription", mTextOrDescription));
-    string.append(optionalMemberString("removedText", mRemovedText));
-    string.append(optionalMemberString("addedText", mAddedText));
-    string.append(optionalMemberString("initialWord", mInitialWord));
-    string.append(optionalMemberString("deselectedText", mDeselectedText));
-    string.append(optionalMemberString("selectedText", mSelectedText));
-    string.append(optionalMemberString("traversedText", mTraversedText));
-    return string.toString();
-  }
-
-  private static CharSequence optionalMemberString(String name, boolean value) {
-    return value ? String.format(" %s=%s", name, value) : "";
-  }
-
-  private static CharSequence optionalMemberString(String name, CharSequence value) {
-    return (value == null) ? "" : String.format(" %s=%s", name, quote(value));
-  }
-
-  private static CharSequence quote(CharSequence text) {
-    return (text == null) ? "null" : String.format("\"%s\"", text);
+    return StringBuilderUtils.joinFields(
+        StringBuilderUtils.optionalField("Event", Compositor.eventTypeToString(mEvent)),
+        StringBuilderUtils.optionalText("Reason", mReason),
+        StringBuilderUtils.optionalTag("isCut", mIsCutAction),
+        StringBuilderUtils.optionalTag("isPaste", mIsPasteAction),
+        StringBuilderUtils.optionalText("textOrDescription", textOrDescription),
+        StringBuilderUtils.optionalText("removedText", mRemovedText),
+        StringBuilderUtils.optionalText("addedText", mAddedText),
+        StringBuilderUtils.optionalText("initialWord", mInitialWord),
+        StringBuilderUtils.optionalText("deselectedText", mDeselectedText),
+        StringBuilderUtils.optionalText("selectedText", mSelectedText),
+        StringBuilderUtils.optionalText("traversedText", mTraversedText));
   }
 }

@@ -16,10 +16,11 @@
 
 package com.google.android.accessibility.utils.traversal;
 
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import java.util.HashMap;
 import java.util.Map;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Window could have its content views hierarchy. Views in that hierarchy could be traversed one
@@ -32,7 +33,7 @@ import java.util.Map;
 @SuppressWarnings("JavadocReference")
 public class OrderedTraversalStrategy implements TraversalStrategy {
 
-  private AccessibilityNodeInfoCompat mRootNode;
+  @Nullable private AccessibilityNodeInfoCompat mRootNode;
   private final OrderedTraversalController mController;
   private final Map<AccessibilityNodeInfoCompat, Boolean> mSpeakingNodesCache;
 
@@ -62,7 +63,7 @@ public class OrderedTraversalStrategy implements TraversalStrategy {
   }
 
   @Override
-  public AccessibilityNodeInfoCompat findFocus(
+  public @Nullable AccessibilityNodeInfoCompat findFocus(
       AccessibilityNodeInfoCompat startNode, @SearchDirection int direction) {
     switch (direction) {
       case TraversalStrategy.SEARCH_FOCUS_FORWARD:
@@ -75,7 +76,7 @@ public class OrderedTraversalStrategy implements TraversalStrategy {
     return null;
   }
 
-  private AccessibilityNodeInfoCompat focusNext(AccessibilityNodeInfoCompat node) {
+  private @Nullable AccessibilityNodeInfoCompat focusNext(AccessibilityNodeInfoCompat node) {
     AccessibilityNodeInfoCompat rootNode = AccessibilityNodeInfoCompat.obtain(node);
     AccessibilityNodeInfoCompat targetNode;
     try {
@@ -87,7 +88,7 @@ public class OrderedTraversalStrategy implements TraversalStrategy {
     return targetNode;
   }
 
-  private AccessibilityNodeInfoCompat focusPrevious(AccessibilityNodeInfoCompat node) {
+  private @Nullable AccessibilityNodeInfoCompat focusPrevious(AccessibilityNodeInfoCompat node) {
     AccessibilityNodeInfoCompat rootNode = AccessibilityNodeInfoCompat.obtain(node);
     AccessibilityNodeInfoCompat targetNode;
     try {
@@ -100,7 +101,7 @@ public class OrderedTraversalStrategy implements TraversalStrategy {
   }
 
   @Override
-  public AccessibilityNodeInfoCompat focusInitial(
+  public @Nullable AccessibilityNodeInfoCompat focusInitial(
       AccessibilityNodeInfoCompat root, @SearchDirection int direction) {
     if (direction == SEARCH_FOCUS_FORWARD) {
       return mController.findFirst(root);

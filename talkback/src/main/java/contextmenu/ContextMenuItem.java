@@ -16,7 +16,6 @@
 
 package com.google.android.accessibility.talkback.contextmenu;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
@@ -26,95 +25,111 @@ import android.view.ActionProvider;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
+import com.google.android.accessibility.talkback.focusmanagement.FocusActor;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
+/** ContextMenuItem class */
 public abstract class ContextMenuItem implements MenuItem {
 
-  private Context mContext;
-  private int mItemId;
-  private int mGroupId;
-  private char mAlphaShortcut;
-  private char mNumericShortcut;
-  private Drawable mIcon;
-  private int mOrder;
-  private Intent mIntent;
-  private boolean mEnabled = true;
-  private CharSequence mTitle;
-  private CharSequence mTitleCondensed;
-  private boolean mVisible = true;
-  private boolean mCheckable = false;
-  private boolean mChecked = false;
-  private OnMenuItemClickListener mListener;
-  private ContextMenuInfo mMenuInfo;
+  private Context context;
+  private int itemId;
+  private int groupId;
+  private char alphaShortcut;
+  private char numericShortcut;
+  @Nullable private Drawable icon;
+  private int order;
+  private Intent intent;
+  private boolean enabled = true;
+  private CharSequence title;
+  private CharSequence titleCondensed;
+  private boolean visible = true;
+  private boolean checkable = false;
+  private boolean checked = false;
+  private OnMenuItemClickListener listener;
+  private ContextMenuInfo menuInfo;
   // Used for EditText cursor control.
   // When the user performs cursor control(Move cursor to end, etc, from Local Context Menu)
   // in an EditText, the accessibility focus will be saved (when navigating in the context menu)
   // and reset back(when the context menu dismisses). A TYPE_ACCESSIBILITY_VIEW_FOCUS and a
   // TYPE_WINDOWS_CHANGED event will be fired. To avoid EditText description re-read after
   // the cursor control, we need to skip these two events.
-  private boolean mSkipRefocusEvents = false;
-  private boolean mShowsAlertDialog = false;
+  private boolean skipRefocusEvents = false;
+  private boolean skipWindowEvents = false;
+  private boolean showsAlertDialog = false;
+  private DeferredType deferredType = DeferredType.NONE;
+  private boolean needRestoreFocus = false;
+
+  /** Enum defining kinds of rule to activate deferred action. */
+  public enum DeferredType {
+    /** Default value not to defer action. */
+    NONE,
+    /** Defers the action until windows are stable. */
+    WINDOWS_STABLE,
+    /** Defers the action until the service receives accessibility focus event. */
+    ACCESSIBILITY_FOCUS_RECEIVED
+  }
 
   protected ContextMenuItem(
       Context context, int groupId, int itemId, int order, CharSequence title) {
-    mItemId = itemId;
-    mGroupId = groupId;
-    mContext = context;
-    mOrder = order;
-    mTitle = title;
-    mMenuInfo = new ContextMenuInfo();
+    this.itemId = itemId;
+    this.groupId = groupId;
+    this.context = context;
+    this.order = order;
+    this.title = title;
+    menuInfo = new ContextMenuInfo();
   }
 
   @Override
   public char getAlphabeticShortcut() {
-    return mAlphaShortcut;
+    return alphaShortcut;
   }
 
   @Override
   public char getNumericShortcut() {
-    return mNumericShortcut;
+    return numericShortcut;
   }
 
   @Override
   public ContextMenuItem setAlphabeticShortcut(char alphaChar) {
-    mAlphaShortcut = alphaChar;
+    alphaShortcut = alphaChar;
     return this;
   }
 
   @Override
   public ContextMenuItem setNumericShortcut(char numericChar) {
-    mNumericShortcut = numericChar;
+    numericShortcut = numericChar;
     return this;
   }
 
   @Override
   public ContextMenuItem setShortcut(char numericChar, char alphaChar) {
-    mNumericShortcut = numericChar;
-    mAlphaShortcut = alphaChar;
+    numericShortcut = numericChar;
+    alphaShortcut = alphaChar;
     return this;
   }
 
   @Override
   public int getGroupId() {
-    return mGroupId;
+    return groupId;
   }
 
   @Override
   public Drawable getIcon() {
-    return mIcon;
+    return icon;
   }
 
   @Override
   public MenuItem setIcon(Drawable icon) {
-    mIcon = icon;
+    this.icon = icon;
     return this;
   }
 
   @Override
   public MenuItem setIcon(int iconRes) {
     if (iconRes == 0) {
-      mIcon = null;
+      icon = null;
     } else {
-      mIcon = mContext.getResources().getDrawable(iconRes);
+      icon = context.getResources().getDrawable(iconRes);
     }
 
     return this;
@@ -122,100 +137,100 @@ public abstract class ContextMenuItem implements MenuItem {
 
   @Override
   public int getOrder() {
-    return mOrder;
+    return order;
   }
 
   @Override
   public Intent getIntent() {
-    return mIntent;
+    return intent;
   }
 
   @Override
   public MenuItem setIntent(Intent intent) {
-    mIntent = intent;
+    this.intent = intent;
     return this;
   }
 
   @Override
   public boolean isEnabled() {
-    return mEnabled;
+    return enabled;
   }
 
   @Override
   public MenuItem setEnabled(boolean enabled) {
-    mEnabled = enabled;
+    this.enabled = enabled;
     return this;
   }
 
   @Override
   public CharSequence getTitle() {
-    return mTitle;
+    return title;
   }
 
   @Override
   public MenuItem setTitle(CharSequence title) {
-    mTitle = title;
+    this.title = title;
     return this;
   }
 
   @Override
   public CharSequence getTitleCondensed() {
-    return mTitleCondensed;
+    return titleCondensed;
   }
 
   @Override
   public MenuItem setTitleCondensed(CharSequence titleCondensed) {
-    mTitleCondensed = titleCondensed;
+    this.titleCondensed = titleCondensed;
     return this;
   }
 
   @Override
   public MenuItem setTitle(int titleRes) {
-    mTitle = mContext.getText(titleRes);
+    title = context.getText(titleRes);
     return this;
   }
 
   @Override
   public int getItemId() {
-    return mItemId;
+    return itemId;
   }
 
   @Override
   public boolean isCheckable() {
-    return mCheckable;
+    return checkable;
   }
 
   @Override
   public boolean isChecked() {
-    return mCheckable && mChecked;
+    return checkable && checked;
   }
 
   @Override
   public boolean isVisible() {
-    return mVisible;
+    return visible;
   }
 
   @Override
   public MenuItem setCheckable(boolean checkable) {
-    mCheckable = checkable;
+    this.checkable = checkable;
     return this;
   }
 
   @Override
   public MenuItem setChecked(boolean checked) {
-    mChecked = checked;
+    this.checked = checked;
     return this;
   }
 
   @Override
   public MenuItem setVisible(boolean visible) {
-    mVisible = visible;
+    this.visible = visible;
     return this;
   }
 
   @Override
   public MenuItem setOnMenuItemClickListener(OnMenuItemClickListener menuItemClickListener) {
-    mListener = menuItemClickListener;
+    listener = menuItemClickListener;
     return this;
   }
 
@@ -229,7 +244,6 @@ public abstract class ContextMenuItem implements MenuItem {
     return false;
   }
 
-  @TargetApi(14)
   @Override
   public ActionProvider getActionProvider() {
     return null;
@@ -245,7 +259,6 @@ public abstract class ContextMenuItem implements MenuItem {
     return false;
   }
 
-  @TargetApi(14)
   @Override
   public MenuItem setActionProvider(ActionProvider actionProvider) {
     throw new UnsupportedOperationException();
@@ -278,7 +291,7 @@ public abstract class ContextMenuItem implements MenuItem {
 
   @Override
   public ContextMenu.ContextMenuInfo getMenuInfo() {
-    return mMenuInfo;
+    return menuInfo;
   }
 
   //TODO internal sdk has no setIconTintList abstract method but public sdk does.
@@ -295,37 +308,129 @@ public abstract class ContextMenuItem implements MenuItem {
     return this;
   }
 
-  public void setSkipRefocusEvents(boolean skip) {
-    mSkipRefocusEvents = skip;
-  }
-
-  public boolean getSkipRefocusEvents() {
-    return mSkipRefocusEvents;
-  }
-
-  public void setShowsAlertDialog(boolean showsAlertDialog) {
-    mShowsAlertDialog = showsAlertDialog;
-  }
-
-  public boolean getShowsAlertDialog() {
-    return mShowsAlertDialog;
-  }
-
   /**
    * Attempts to perform this item's click action.
    *
    * @return {@code true} if this item performs an action
    */
   public boolean onClickPerformed() {
-    if (mCheckable) {
-      mChecked = !mChecked;
+    if (checkable) {
+      checked = !checked;
     }
 
-    return mListener != null && mListener.onMenuItemClick(this);
+    return listener != null && listener.onMenuItemClick(this);
   }
 
   /** This class doesn't actually do anything. */
   private static class ContextMenuInfo implements ContextMenu.ContextMenuInfo {
     // Empty class.
+  }
+
+  /**
+   * Returns whether menu should restore focus on next screen change. It will restore cache node
+   * from {@link FocusActor#cacheNodeToRestoreFocus()}.
+   */
+  public boolean shouldRestoreFocusOnScreenChange() {
+    return !hasNextPopupWidget() && getNeedRestoreFocus();
+  }
+
+  /**
+   * Some item actions need to perform on the current active window otherwise it would be failed.
+   * For example, "Read from Next" and "Navigation Granularity" require delay... to wait for the
+   * context-menu to disappear, so that focus lands on the content window.
+   *
+   * @return one of {@code DeferredType}
+   */
+  public DeferredType getDeferActionType() {
+    if (hasNextPopupWidget()) {
+      return DeferredType.NONE;
+    }
+    return getDeferredType();
+  }
+
+  /**
+   * Some item actions will send spoken feedback. So skip next focus announcement to prevent confuse
+   * user.
+   *
+   * @return return {@code true} to skip next focus announcement.
+   */
+  public boolean needToSkipNextFocusAnnouncement() {
+    return !hasNextPopupWidget() && getSkipRefocusEvents();
+  }
+
+  /**
+   * Some item actions will send spoken feedback. So skip next window announcement to prevent
+   * confuse user.
+   *
+   * @return return {@code true} to skip next window announcement.
+   */
+  public boolean needToSkipNextWindowAnnouncement() {
+    return !hasNextPopupWidget() && getSkipWindowEvents();
+  }
+
+  /**
+   * Returns {@code true} if clicking the menu item has next popup widget to postpone close rules to
+   * next popup widget to handle.
+   */
+  private boolean hasNextPopupWidget() {
+    return hasSubMenu() || getShowsAlertDialog();
+  }
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////
+  // Ref  provides methods to get/set configs and these configs are triggered
+  // when the item has been clicked and menu is about to close.
+
+  /** Sets whether to mute next focus event announcement when clicks the menu item. */
+  public void setSkipRefocusEvents(boolean skip) {
+    skipRefocusEvents = skip;
+  }
+
+  /** Returns whether to mute next focus event announcement when clicks the menu item. */
+  public boolean getSkipRefocusEvents() {
+    return skipRefocusEvents;
+  }
+
+  /** Sets whether to mute next window event announcement when clicks the menu item. */
+  public void setSkipWindowEvents(boolean skip) {
+    skipWindowEvents = skip;
+  }
+
+  /** Returns whether to mute next window event announcement when clicks the menu item. */
+  public boolean getSkipWindowEvents() {
+    return skipWindowEvents;
+  }
+
+  /** Sets whether to show alert dialog when clicks the menu item. */
+  public void setShowsAlertDialog(boolean showsAlertDialog) {
+    this.showsAlertDialog = showsAlertDialog;
+  }
+
+  /** Returns whether to show alert dialog when clicks the menu item. */
+  public boolean getShowsAlertDialog() {
+    return showsAlertDialog;
+  }
+
+  /**
+   * Sets defer type to defer action when clicks the menu item.
+   *
+   * @param deferredType one of {@code DeferredType}.
+   */
+  public void setDeferredType(DeferredType deferredType) {
+    this.deferredType = deferredType;
+  }
+
+  /** Returns {@code DeferredType} to defer action when clicks the menu item. */
+  public DeferredType getDeferredType() {
+    return deferredType;
+  }
+
+  /** Sets whether to restore cached focus when clicks the menu item. */
+  public void setNeedRestoreFocus(boolean needRestoreFocus) {
+    this.needRestoreFocus = needRestoreFocus;
+  }
+
+  /** Returns whether to restore cached focus when clicks the menu item. */
+  public boolean getNeedRestoreFocus() {
+    return needRestoreFocus;
   }
 }

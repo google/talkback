@@ -1,172 +1,327 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Switch Access"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Кнопковий доступ дає змогу людям із вадами руху керувати телефонами та планшетами за допомогою одного чи кількох перемикачів. Використовуйте перемикачі, щоб вибирати елементи, прокручувати, вводити текст тощо."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Керуйте пристроєм перемикачами"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Довідка й відгуки"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Автосканування"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Час автосканування"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Зворотне автоматичне сканування"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="one">%.2f секунда</item>
-      <item quantity="few">%.2f секунди</item>
-      <item quantity="many">%.2f секунд</item>
-      <item quantity="other">%.2f секунди</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Налаштувати сканування"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Метод сканування"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Затримка на першому елементі"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Призначити функції перемикачам"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Призначити функції перемикачам"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Призначити перемикачі для сканування"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Швидкість рядка"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Кількість сканувань"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Виберіть, скільки разів повторювати сканування"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Час затримки"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Кілька одночасних натискань вважатимуться одним."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Відпустити, щоб виконати дію"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Відпустіть перемикач, щоб виконувати дії"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="one">%d петля</item>
-      <item quantity="few">%d петлі</item>
-      <item quantity="many">%d петель</item>
-      <item quantity="other">%d петлі</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Перемикачу \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" вже призначено функцію \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\""</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="one">Призначено %d перемикач</item>
-      <item quantity="few">Призначено %d перемикачі</item>
-      <item quantity="many">Призначено %d перемикачів</item>
-      <item quantity="other">Призначено %d перемикача</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Перемикач для вибору групи (%1$d)"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Далі"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Назад"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Вибрати"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Утримувати"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Прокрутити вперед"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Прокрутити назад"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Закрити"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Розгорнути"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Згорнути"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Виділити текст"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Скопіювати"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Вирізати"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Вставити"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"МЕНЮ"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Назад"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Головний екран"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Огляд"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Сповіщення"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Швидкі налаштування"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Прокрутити вперед"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Прокрутити назад"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Точка сканування"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Кінцева точка сканування"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Провести пальцем праворуч"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Провести пальцем ліворуч"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Провести пальцем угору"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Провести пальцем униз"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Гортати (користувацька)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Зменшити"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Збільшити"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Налаштування кнопкового доступу"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Натисніть комбінацію перемикачів, щоб додати або видалити її зі списку"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Видалити призначену перемикачеві функцію"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Немає перемикачів із призначеними функціями"</string>
-    <string name="more" msgid="1547670498589416840">"Більше"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Пробіл"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"Зберегти"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Стиль виділення під час сканування"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Основний спосіб сканування"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Колір виділення"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Стиль лінії виділення"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Політика конфіденційності"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Увімкнути автоматичний вибір"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Вимкнути автоматичний вибір"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Наступний символ"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Наступне слово"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Наступний рядок"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Наступний абзац"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Наступна сторінка"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Попередній символ"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Попереднє слово"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Попередній рядок"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Попередній абзац"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Попередня сторінка"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Автоматично починати сканування"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Сканування починається без натискання перемикача"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Відкрити налаштування кнопкового доступу"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Майстер налаштування кнопкового доступу"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Один перемикач"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Два перемикачі"</string>
-    <string name="finish" msgid="4267641294267512480">"Завершити"</string>
-    <string name="exit" msgid="8664597014081860813">"Вийти"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Виберіть кількість перемикачів"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Натисніть перемикач, щоб автоматично переміщатися між елементами. Натисніть знову, щоб вибрати виділений елемент."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Натисніть один перемикач, щоб переміщатися між елементами. Натисніть інший перемикач, щоб вибрати виділений елемент."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Виберіть швидкість сканування"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Виберіть тривалість виділення кожного елемента"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Швидко (затримка <xliff:g id="DELAY_SPEED">%1$s</xliff:g> с)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Помірно (затримка <xliff:g id="DELAY_SPEED">%1$s</xliff:g> с)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Повільно (затримка <xliff:g id="DELAY_SPEED">%1$s</xliff:g> с)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Указати"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"затримка (у секундах)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Клавіші \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" вже призначено іншу функцію"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Сканування по рядках і стовпцях"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Вибір групи"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Лінійне сканування"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Голосові підказки"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Налаштування синтезу мовлення"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Для кількох елементів"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Озвучувати перший і останній елементи"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Озвучувати кількість елементів"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Озвучувати всі виділені елементи"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Закінчити озвучення, перш ніж перейти до наступного елемента"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"група <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> – <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"елементів: <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"виберіть, щоб прокрутити"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"невідомий елемент"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Виберіть спосіб сканування"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Скануйте рядок послідовно. Коли рядок буде вибрано, переміщайтеся між елементами списку."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Переміщайтеся між елементами по одному. Зауважте: клавіатури сканують по рядках."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Усім елементам будуть призначені кольори. Натисніть перемикач, який відповідає кольору навколо потрібного елемента. За потреби змініть розмір групи."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Перемикачам призначено таку функцію: <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Немає"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Видалити призначені перемикачі?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Ви вже призначили перемикачі."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Видалити перемикачі"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Залишити перемикачі"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Немає перемикачів із призначеними функціями"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Немає перемикачів із такою функцією. Продовжити?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Група <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Натисніть перемикач, щоб він вибирав групу <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Натисніть перемикач, щоб призначити йому функцію \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Запускає сканування та вибирає"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Перевірте налаштування в грі \"Хрестики-нулики\""</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Натисніть перемикач \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\", щоб сканувати. Натисніть знову, щоб вибрати виділений рядок"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Натисніть перемикач \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\", щоб сканувати. Натисніть знову, щоб вибрати виділений рядок. Натисніть знову, щоб вибрати виділений елемент. Перший хід ваш."</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Натисніть перемикач \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\", щоб переміщатися між елементами.Натисніть перемикач \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\", щоб вибрати виділений рядок. Перший хід ваш."</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Натисніть перемикач \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\", щоб переміщатися між рядками. Натисніть перемикач \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\", щоб вибрати виділений рядок. Повторіть, щоб вибрати елемент у рядку. Перший хід ваш."</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Натисніть перемикач \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\", щоб вибрати елементи, виділені таким кольором: <xliff:g id="COLOR_NAME_1">%2$s</xliff:g>, або натисніть перемикач \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\", щоб вибрати елементи, виділені таким кольором: <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Повторіть, щоб переміститися до потрібного елемента. Перший хід ваш."</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"У вас ще немає перемикачів, для яких призначено всі функції. Щоб повернутися назад і призначити перемикачам функції, натисніть кнопку \"Назад\"."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Відновити гру"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Цей квадрат уже заповнено. Повторіть спробу."</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Ви виграли."</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Пощастить наступного разу"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Нічия"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Ви можете зберегти поточні налаштування або почати знову."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Продовжити налаштування"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Почати знову"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Налаштування завершено"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Готово."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Ви можете будь-коли змінити додаткові параметри чи відкрити майстер налаштування у відповідному меню кнопкового доступу."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Кнопковий доступ</string>
+  <string name="switch_access_service_description">Кнопковий доступ дає змогу людям із вадами руху керувати телефонами та планшетами за допомогою одного чи кількох перемикачів. Використовуйте перемикачі, щоб вибирати елементи, прокручувати, вводити текст тощо.</string>
+  <string name="switch_access_service_summary">керування пристроєм перемикачами</string>
+  <string name="title_pref_help_feedback">Довідка й відгуки</string>
+  <string name="title_pref_licenses">Ліцензії відкритого коду</string>
+  <string name="title_pref_category_auto_scan">Автосканування</string>
+  <string name="title_pref_auto_scan_disabled">Автоматичне сканування (вимкнено)</string>
+  <string name="action_key_summary_auto_scan">Якщо натиснути цей перемикач, елементи автоматично виділятимуться по черзі. Якщо натиснути знову, буде вибрано виділений елемент.</string>
+  <string name="title_pref_auto_scan_time_delay">Час автосканування</string>
+  <string name="action_name_reverse_auto_scan">Зворотне автосканування</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Зворотне автосканування (вимкнено)</string>
+  <string name="action_key_summary_reverse_auto_scan">Якщо натиснути цей перемикач, елементи автоматично виділятимуться по черзі у зворотньому порядку. Якщо натиснути знову, буде вибрано виділений елемент.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">%.2f секунда</item>
+    <item quantity="few">%.2f секунди</item>
+    <item quantity="many">%.2f секунд</item>
+    <item quantity="other">%.2f секунди</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Налаштувати сканування</string>
+  <string name="title_pref_scanning_methods">Метод сканування</string>
+  <string name="title_pref_start_scan_delay">Затримка на першому елементі</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Виберіть додатковий час, який витрачається на перший елемент. Він додається до часу автоматичного сканування.\n\nЦей параметр впливає на автоматичне й точкове сканування.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Виберіть додатковий час, який витрачається на перший елемент. Коли цей час мине, вертикальна або горизонтальна лінія почне рухатись.\n\nЦей параметр впливає на автоматичне й точкове сканування.</string>
+  <string name="title_pref_category_assign_switches">Призначити функції перемикачам</string>
+  <string name="title_pref_category_key_mappings">Перемикачі для загальних дій</string>
+  <string name="summary_pref_category_key_mappings">Загальні дії можна виконувати будь-коли</string>
+  <string name="title_pref_category_scan_key_mappings">Призначити перемикачі для сканування</string>
+  <string name="summary_pref_category_scan_key_mappings">Сканування дає змогу переміщувати виділення й вибирати виділені елементи</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Переміщення й вибір</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Дії з виділеним елементом</string>
+  <string name="title_pref_point_scan_line_speed">Швидкість ліній</string>
+  <string name="dialog_message_pref_line_speed">Виберіть швидкість руху горизонтальних і вертикальних ліній на екрані.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">%.2f см на секунду</item>
+    <item quantity="few">%.2f см на секунду</item>
+    <item quantity="many">%.2f см на секунду</item>
+    <item quantity="other">%.2f см на секунду</item>
+  </plurals>
+  <string name="title_pref_loop_count">Кількість сканувань</string>
+  <string name="dialog_message_pref_loop_count">Виберіть, скільки разів повторювати сканування.\n\nЦей параметр впливає на автоматичне й точкове сканування.</string>
+  <string name="summary_pref_point_scan">Вибирати місце за допомогою рухомих горизонтальних і вертикальних ліній. %1$s</string>
+  <string name="point_scan_enable_animations_message">Увімкніть анімації, щоб використовувати цю функцію.</string>
+  <string name="title_pref_category_switch_accomodation">Налаштування перемикача</string>
+  <string name="title_pref_debounce_time">Ігнорувати повторювані натискання</string>
+  <string name="dialog_message_pref_debounce_time">Кілька натискань перемикача впродовж цього часу вважатимуться одним.</string>
+  <string name="title_pref_press_on_release">Відпустити, щоб виконати дію</string>
+  <string name="subtitle_pref_press_on_release">Відпустіть перемикач, щоб виконувати дії</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d повторення</item>
+    <item quantity="few">%d повторення</item>
+    <item quantity="many">%d повторень</item>
+    <item quantity="other">%d повторення</item>
+  </plurals>
+  <string name="preference_off">Вимкнено</string>
+  <string name="preference_on">Увімкнено</string>
+  <string name="toast_msg_key_already_assigned">Перемикачу \"%1$s\" вже призначено функцію \"%2$s\"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">Призначено %d перемикач</item>
+    <item quantity="few">Призначено %d перемикачі</item>
+    <item quantity="many">Призначено %d перемикачів</item>
+    <item quantity="other">Призначено %d перемикача</item>
+  </plurals>
+  <string name="option_scan_switch_format">Перемикач для вибору групи (%1$d)</string>
+  <string name="option_scan_switch_format_with_color">Перемикач для вибору групи %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Натиснувши цей перемикач, ви виберете групу %1$d.</string>
+  <string name="action_name_next">Далі</string>
+  <string name="action_key_summary_next">Натиснувши цей перемикач, ви виділите наступний елемент.</string>
+  <string name="action_name_previous">Назад</string>
+  <string name="action_key_summary_previous">Натиснувши цей перемикач, ви виділите попередній елемент.</string>
+  <string name="action_name_click">Вибрати</string>
+  <string name="action_key_summary_click">Натиснувши цей перемикач, ви виберете виділений елемент.</string>
+  <string name="action_name_long_click">Натиснути й утримувати</string>
+  <string name="action_key_summary_long_click">Натиснувши цей перемикач, ви утримуватимете виділений елемент.</string>
+  <string name="action_name_scroll_forward">Прокрутити вперед</string>
+  <string name="action_key_summary_scroll_forward">Натиснувши цей перемикач, ви прокрутите виділений елемент уперед.</string>
+  <string name="action_name_scroll_backward">Прокрутити назад</string>
+  <string name="action_key_summary_scroll_backward">Натиснувши цей перемикач, ви прокрутите виділений елемент назад.</string>
+  <string name="action_name_dismiss">Закрити</string>
+  <string name="action_name_expand">Розгорнути</string>
+  <string name="action_name_collapse">Згорнути</string>
+  <string name="action_name_highlight_text">Виділити текст</string>
+  <string name="action_group_name_highlight">Виділити …</string>
+  <string name="action_name_highlight_all_text">Виділити весь текст</string>
+  <string name="action_name_highlight_granular_text">Виділити (%1$s)</string>
+  <string name="action_name_copy">Скопіювати</string>
+  <string name="action_name_copy_all_text">Копіювати все</string>
+  <string name="action_name_cut">Вирізати</string>
+  <string name="action_name_cut_all_text">Вирізати все</string>
+  <string name="action_name_paste">Вставити</string>
+  <string name="action_name_undo">Відмінити</string>
+  <string name="action_name_redo">Повторити</string>
+  <string name="action_group_name_delete">Видалити …</string>
+  <string name="action_name_delete">Видалити (%1$s)</string>
+  <string name="action_name_delete_highlighted_text">Видалити виділений текст</string>
+  <string name="option_scanning_menu_button">МЕНЮ</string>
+  <string name="option_scanning_menu_button_content_description">Меню кнопкового доступу</string>
+  <string name="switch_access_global_menu">Глобальне меню кнопкового доступу</string>
+  <string name="switch_access_actions_menu">Меню дій кнопкового доступу</string>
+  <string name="switch_access_close_menu">ЗАКРИТИ</string>
+  <string name="switch_access_back_menu">НАЗАД</string>
+  <string name="next_arrow_content_description">Далі</string>
+  <string name="previous_arrow_content_description">Назад</string>
+  <string name="global_action_back">Назад</string>
+  <string name="global_action_key_summary_back">Натиснувши цей перемикач, ви повернетеся на попередній екран або сховаєте клавіатуру, якщо її видно.</string>
+  <string name="global_action_home">Головний екран</string>
+  <string name="global_action_key_summary_home">Натиснувши цей перемикач, ви перейдете на головний екран.</string>
+  <string name="global_action_overview">Огляд</string>
+  <string name="global_action_key_summary_overview">Натиснувши цей перемикач, ви побачите список нещодавно відкритих додатків.</string>
+  <string name="global_action_notifications">Сповіщення</string>
+  <string name="global_action_key_summary_notifications">Натиснувши цей перемикач, ви побачите сповіщення пристрою.</string>
+  <string name="global_action_quick_settings">Швидкі налаштування</string>
+  <string name="global_action_key_summary_quick_settings">Натиснувши цей перемикач, ви відкриєте вікно швидкого налаштування пристрою.</string>
+  <string name="global_action_power_options">Опції живлення</string>
+  <string name="global_menu_volume_heading">Гучність</string>
+  <string name="volume_menu_media">Гучність медіа</string>
+  <string name="volume_menu_call">Гучність виклику</string>
+  <string name="volume_menu_ring">Гучність дзвінка</string>
+  <string name="volume_menu_alarm">Гучність будильника</string>
+  <string name="volume_menu_accessibility">Спеціальні можливості: гучність</string>
+  <string name="volume_menu_mute">Вимкнути звук</string>
+  <string name="volume_menu_unmute">Увімкнути звук</string>
+  <string name="volume_menu_increase">Збільшити</string>
+  <string name="volume_settings">Налаштувати гучність</string>
+  <string name="volume_menu_decrease">Зменшити</string>
+  <string name="scrollable_forward">Прокрутити вперед</string>
+  <string name="scrollable_backward">Прокрутити назад</string>
+  <string name="point_scan">Точкове сканування</string>
+  <string name="box_scan">Кінцева точка сканування</string>
+  <string name="action_name_swipe_right">Провести пальцем праворуч</string>
+  <string name="action_name_swipe_left">Провести пальцем ліворуч</string>
+  <string name="action_name_swipe_up">Провести пальцем угору</string>
+  <string name="action_name_swipe_down">Провести пальцем униз</string>
+  <string name="action_name_swipe_custom">Гортати (користувацька)</string>
+  <string name="action_name_zoom_out">Зменшити</string>
+  <string name="action_name_zoom_in">Збільшити</string>
+  <string name="switch_access_preferences_title">Налаштування кнопкового доступу</string>
+  <string name="key_combo_preference_instructions">Натисніть комбінацію перемикачів, щоб додати або видалити її зі списку</string>
+  <string name="key_combo_preference_reset_button">Видалити призначену перемикачеві функцію</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Перемикачі не призначено</string>
+  <string name="more">Більше</string>
+  <string name="name_of_space_bar">Пробіл</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">Зберегти</string>
+  <string name="title_pref_category_display_and_sound">Зображення і звук</string>
+  <string name="title_pref_highlight_0">Стиль виділення під час сканування</string>
+  <string name="title_pref_primary_scan_style">Основний спосіб сканування</string>
+  <string name="title_pref_highlight_0_color">Колір виділення</string>
+  <string name="title_pref_highlight_0_weight">Стиль лінії виділення</string>
+  <string name="title_pref_privacy_policy">Політика конфіденційності</string>
+  <string name="title_pref_auto_select">Автоматичний вибір</string>
+  <string name="summary_pref_auto_select">Автоматично вибирати виділений елемент. Якщо елемент не можна вибрати або цей параметр вимкнено, з’явиться меню доступних дій.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Увімкнути автоматичний вибір</string>
+  <string name="switch_access_global_menu_disable_autoselect">Вимкнути автоматичний вибір</string>
+  <string name="switch_access_move_next">Далі …</string>
+  <string name="switch_access_move_next_character">Наступний символ</string>
+  <string name="switch_access_move_next_word">Наступне слово</string>
+  <string name="switch_access_move_next_line">Наступний рядок</string>
+  <string name="switch_access_move_next_paragraph">Наступний абзац</string>
+  <string name="switch_access_move_next_page">Наступна сторінка</string>
+  <string name="switch_access_move_next_sentence">Наступне речення</string>
+  <string name="switch_access_move_prev">Назад …</string>
+  <string name="switch_access_move_prev_character">Попередній символ</string>
+  <string name="switch_access_move_prev_word">Попереднє слово</string>
+  <string name="switch_access_move_prev_line">Попередній рядок</string>
+  <string name="switch_access_move_prev_paragraph">Попередній абзац</string>
+  <string name="switch_access_move_prev_page">Попередня сторінка</string>
+  <string name="switch_access_move_prev_sentence">Попереднє речення</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Автоматично починати сканування</string>
+  <string name="switch_access_auto_start_scan_summary">Сканування починається без натискання перемикача</string>
+  <string name="pref_begin_switchaccess_setup_title">Відкрити посібник із налаштування</string>
+  <string name="setup_wizard_heading">Налаштування кнопкового доступу</string>
+  <string name="one_switch">Один перемикач</string>
+  <string name="two_switches">Два перемикачі</string>
+  <string name="finish">Завершити</string>
+  <string name="exit">Вийти</string>
+  <string name="intro_heading">Виберіть перемикач</string>
+  <string name="usb_switch_option_text">Перемикач USB</string>
+  <string name="bluetooth_switch_option_text">Перемикач Bluetooth</string>
+  <string name="usb_switch_description_text">Фізично підключити перемикач через USB</string>
+  <string name="bluetooth_switch_description_text">Створити пару з перемикачем через бездротове з’єднання або Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">Ваш пристрій не підтримує Bluetooth. Спробуйте скористатися фізичним перемикачем.</string>
+  <string name="connected_usb_devices_header">Під’єднані пристрої</string>
+  <string name="usb_no_devices_connected_message">Пристроїв USB не знайдено. Переконайтеся, що пристрій надійно під’єднано.</string>
+  <string name="connect_usb_heading">Під’єднайте перемикач USB</string>
+  <string name="pair_bluetooth_heading">Створити пару з перемикачем Bluetooth</string>
+  <string name="pair_bluetooth_subheading">Торкніться перемикача Bluetooth нижче</string>
+  <string name="bluetooth_not_enabled_message">Щоб створити пару з перемикачем Bluetooth, увімкніть Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Увімкніть Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Не створено пар із пристроями Bluetooth</string>
+  <string name="paired_devices_header">Пристрої Bluetooth, з якими створено пару</string>
+  <string name="available_devices_header">Доступні пристрої Bluetooth</string>
+  <string name="bluetooth_computer_content_description">Комп’ютер</string>
+  <string name="bluetooth_phone_content_description">Телефон</string>
+  <string name="bluetooth_imaging_content_description">Візуалізація</string>
+  <string name="bluetooth_headphone_content_description">Навушники</string>
+  <string name="bluetooth_peripheral_content_description">Периферійний</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">З’єднання…</string>
+  <string name="bluetooth_connected_description">З’єднано</string>
+  <string name="bluetooth_device_unavailable_description">Пристрій недоступний</string>
+  <string name="reconnecting_unsupported_title">Не вдалося під’єднатися до пристрою</string>
+  <string name="reconnecting_unsupported_message">Не вдалося під’єднатися до пристрою, з яким створено пару, через кнопковий доступ. Переконайтеся, що пристрій увімкнено й під’єднано.\n\nАбо перейдіть у налаштування Bluetooth і під’єднайте його ще раз.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Перейти в налаштування Bluetooth</string>
+  <string name="number_of_switches_heading">Виберіть кількість перемикачів</string>
+  <string name="title_assign_scan_key">Призначити перемикач \"%1$s\"</string>
+  <string name="one_switch_description_text">Натисніть перемикач, щоб автоматично переходити між елементами. Натисніть знову, щоб вибрати виділений елемент.</string>
+  <string name="two_switches_description_text">Натисніть один перемикач, щоб переміщатися між елементами. Натисніть інший перемикач, щоб вибрати виділений елемент.</string>
+  <string name="step_speed_heading">Виберіть швидкість сканування</string>
+  <string name="step_speed_subheading">Виберіть тривалість виділення кожного елемента</string>
+  <string name="fast_radio_button_title">Швидко (затримка %1$s с)</string>
+  <string name="medium_radio_button_title">Помірно (затримка %1$s с)</string>
+  <string name="slow_radio_button_title">Повільно (затримка %1$s с)</string>
+  <string name="custom_switch">Указати</string>
+  <string name="custom_edit_text">затримка (у секундах)</string>
+  <string name="setup_toast_msg_key_already_assigned">Клавіші \"%1$s\" вже призначено іншу функцію</string>
+  <string name="row_column_scanning_title">Сканування по рядках і стовпцях</string>
+  <string name="option_scanning_title">Вибір групи (додатково)</string>
+  <string name="linear_scanning_title">Лінійне сканування</string>
+  <string name="linear_scanning_except_keyboard_title">Лінійне сканування (крім клавіатури)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Мовлення, звук і вібрація</string>
+  <string name="title_pref_switch_access_spoken_feedback">Голосові підказки</string>
+  <string name="title_pref_scan_non_actionable_items">Озвучувати текст описів</string>
+  <string name="scan_non_actionable_items_summary">Слухайте голосові підказки для елементів із діями й текстом описів</string>
+  <string name="title_pref_switch_access_verbosity">Деталізація</string>
+  <string name="summary_verbosity">Виберіть, скільки інформації озвучуватиметься</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Відомості про деталізацію</string>
+  <string name="title_pref_switch_access_keyboard_echo">Озвучення натиснених клавіш</string>
+  <string name="keyboard_echo_summary_on">Озвучувати клавіші, натиснені на екранній клавіатурі</string>
+  <string name="keyboard_echo_summary_off">Не озвучувати клавіші, натиснені на екранній клавіатурі</string>
+  <string name="title_pref_enable_hints">Озвучувати підказки з користування</string>
+  <string name="enable_hints_summary_on">Підказки щодо користування озвучуються під час навігації з невеликою затримкою</string>
+  <string name="enable_hints_summary_off">Підказки щодо користування не озвучуються, якщо переходити між елементами</string>
+  <string name="title_pref_speak_container_element_position">Озвучувати дані зі списків і таблиць</string>
+  <string name="speak_container_element_position_summary_on">Озвучується інформація зі списків і таблиць</string>
+  <string name="speak_container_element_position_summary_off">Інформація зі списків і таблиць не озвучується</string>
+  <string name="title_pref_speak_element_type">Озвучувати типи елементів</string>
+  <string name="speak_element_type_summary_on">Озвучуються типи вибраних елементів</string>
+  <string name="speak_element_type_summary_off">Типи вибраних елементів не озвучуються</string>
+  <string name="title_pref_pitch_change_for_ime">Змінювати тон під час озвучування</string>
+  <string name="pitch_change_for_ime_summary_on">Озвучувати підказки для клавіатури нижчим тоном</string>
+  <string name="pitch_change_for_ime_summary_off">Не змінювати голосові підказки під час озвучування</string>
+  <string name="title_pref_speak_selected_item_or_group">Озвучувати вибраний елемент/групу</string>
+  <string name="speak_selected_item_or_group_summary">Озвучувати назву елемента або групи, коли їх вибрано</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Максимальний час озвучування елемента</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Налаштуйте максимальний час озвучування опису кожного елемента. Коли вказаний час мине, мовлення припиниться.\nПримітка. Підказки завжди озвучуються, якщо їх увімкнено.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Інше</string>
+  <string name="title_pref_node_description_order">Порядок опису елементів</string>
+  <string name="title_pref_switch_access_speak_element_ids">Озвучувати ідентифікатори елементів</string>
+  <string name="speak_element_ids_summary_on">Ідентифікатори елементів озвучуються для кнопок без міток</string>
+  <string name="speak_element_ids_summary_off">Ідентифікатори елементів не озвучуються для кнопок без міток</string>
+  <string name="title_pref_switch_access_tts_settings">Налаштування синтезу мовлення</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Коли виділено кілька елементів</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Озвучувати перший і останній</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Озвучувати кількість елементів</string>
+  <string name="title_pref_switch_access_speak_all_items">Озвучувати всі виділені елементи</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Закінчити озвучення, тоді перейти</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Інші сигнали</string>
+  <string name="title_pref_developer_settings">Налаштування розробника</string>
+  <string name="title_pref_spoken_feedback_overlay">Показувати результат мовлення</string>
+  <string name="title_pref_switch_access_vibration_feedback">Вібросигнал</string>
+  <string name="vibration_feedback_summary">Вібрувати, коли щось змінюється (наприклад, вміст на екрані)</string>
+  <string name="title_pref_switch_access_sound_feedback">Звуковий сигнал</string>
+  <string name="sound_feedback_summary">Вмикати звуковий сигнал, коли щось змінюється (наприклад, вміст на екрані)</string>
+  <string name="title_pref_switch_access_sound_volume">Гучність звуку</string>
+  <string name="title_pref_switch_access_audio_ducking">Зменшення гучності аудіо</string>
+  <string name="audio_ducking_summary">Зменшувати гучність іншого аудіо під час озвучування</string>
+  <string name="switch_access_focus_cleared_no_selection">Екран змінено</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Натисніть перемикач вибору, щоб вибрати рядок</string>
+  <string name="switch_access_spoken_feedback_group">група %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Натисніть перемикач групи %1$s, щоб вибрати її</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Натисніть перемикач групи %1$s, щоб вибрати елемент</string>
+  <string name="switch_access_spoken_feedback_to">%1$s – %2$s</string>
+  <string name="switch_access_spoken_feedback_items">елементів: %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selected">групу %1$s вибрано</string>
+  <string name="switch_access_spoken_feedback_row_selected">рядок вибрано</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s вибрано</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">можна прокручувати</string>
+  <string name="switch_access_spoken_feedback_scroll">виберіть, щоб прокрутити</string>
+  <string name="switch_access_spoken_feedback_unknown">невідомий елемент</string>
+  <string name="scanning_method_heading">Виберіть спосіб сканування</string>
+  <string name="row_column_scanning_description">Скануйте рядок за рядком по черзі. Коли рядок буде вибрано, переміщайтеся між елементами списку.</string>
+  <string name="linear_scanning_description">Переходьте між елементами по черзі</string>
+  <string name="linear_scanning_except_keyboard_description">Переходьте між елементами по черзі. Зауважте: клавіатури сканують дії за рядками.</string>
+  <string name="option_scanning_description">Усім елементам будуть призначені кольори. Натисніть перемикач, який відповідає кольору навколо потрібного елемента. За потреби змініть розмір групи.</string>
+  <string name="setup_switch_assignment_heading">Перемикачам призначено таку функцію: %s</string>
+  <string name="setup_switch_assignment_empty">Немає</string>
+  <string name="clear_keys_dialog_title">Видалити призначені перемикачі?</string>
+  <string name="clear_keys_dialog_message">Ви вже призначили перемикачі.</string>
+  <string name="clear_keys_dialog_positive_button">Видалити перемикачі</string>
+  <string name="clear_keys_dialog_negative_button">Залишити перемикачі</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Перемикачі не призначено</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Немає перемикачів із такою функцією. Продовжити?</string>
+  <string name="option_scan_switch_title">Група %1$s</string>
+  <string name="option_scan_switch_subtitle">Натисніть перемикач, щоб він вибирав групу %1$s.</string>
+  <string name="assign_switch_subtitle">Натисніть перемикач, щоб призначити йому функцію \"%1$s\".</string>
+  <string name="auto_scan_action_description">Запуск сканування та вибору</string>
+  <string name="switch_game_heading">Перевірте налаштування в грі \"Хрестики-нулики\"</string>
+  <string name="switch_game_one_switch_linear_subheading">Натисніть перемикач \"%1$s\", щоб сканувати. Натисніть знову, щоб вибрати виділений рядок</string>
+  <string name="switch_game_one_switch_row_col_subheading">Натисніть перемикач \"%1$s\", щоб сканувати. Натисніть знову, щоб вибрати виділений рядок. Натисніть знову, щоб вибрати виділений елемент. Перший хід ваш.</string>
+  <string name="switch_game_two_switch_linear_subheading">Натисніть перемикач \"%1$s\", щоб переходити між елементами. Натисніть перемикач \"%2$s\", щоб вибрати виділений елемент.</string>
+  <string name="switch_game_two_switch_row_col_subheading">Натисніть перемикач \"%1$s\", щоб переходити між рядками. Натисніть перемикач \"%2$s\", щоб вибрати виділений рядок. Повторіть, щоб вибрати елемент у цьому рядку.</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Натисніть перемикач \"%1$s\", щоб вибрати елементи, виділені таким кольором: %2$s. Або натисніть перемикач \"%4$s\", щоб вибрати елементи, виділені таким кольором: %3$s. Повторіть, щоб перейти до потрібного елемента.</string>
+  <string name="switch_game_incomplete_switches_subheading">У вас ще немає перемикачів, для яких призначено всі функції. Щоб повернутися назад і призначити перемикачам функції, натисніть кнопку \"Назад\".</string>
+  <string name="game_square_content_description">%1$s у позиції %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">порожньо</string>
+  <string name="game_reset_button_title">Відновити гру</string>
+  <string name="game_square_already_taken">Цей квадрат уже заповнено. Повторіть спробу.</string>
+  <string name="game_win_outcome_title">Ви виграли.</string>
+  <string name="game_loss_outcome_title">Пощастить наступного разу</string>
+  <string name="game_tie_outcome_title">Нічия</string>
+  <string name="game_outcome_body_text">Ви можете зберегти поточні налаштування або почати знову.</string>
+  <string name="game_outcome_positive_response">Продовжити налаштування</string>
+  <string name="game_outcome_negative_response">Почати знову</string>
+  <string name="setup_completion_heading">Налаштування завершено</string>
+  <string name="setup_completion_message">Готово.</string>
+  <string name="setup_completion_settings_reminder">Ви можете будь-коли змінити додаткові параметри чи відкрити майстер налаштування у відповідному меню кнопкового доступу.</string>
+  <string name="dialog_url_list">Виберіть посилання</string>
+  <string name="dialog_do_not_disturb_permission_title">Функції \"Кнопковий доступ\" потрібен дозвіл на налаштування гучності</string>
+  <string name="dialog_do_not_disturb_permission_message">Щоб налаштовувати гучність із меню кнопкового доступу, відкрийте додатку Спеціальні можливості для Android доступ до режиму \"Не турбувати\"</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Відкрити налаштування</string>
 </resources>

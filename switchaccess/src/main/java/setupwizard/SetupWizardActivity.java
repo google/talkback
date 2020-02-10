@@ -16,49 +16,68 @@
 
 package com.google.android.accessibility.switchaccess.setupwizard;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
+import androidx.annotation.VisibleForTesting;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.ContextThemeWrapper;
 import android.view.KeyEvent;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ViewAnimator;
-import com.google.android.accessibility.switchaccess.Analytics;
-import com.google.android.accessibility.switchaccess.KeyAssignmentUtils;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import com.google.android.accessibility.switchaccess.BuildConfig;
 import com.google.android.accessibility.switchaccess.R;
 import com.google.android.accessibility.switchaccess.ScreenViewListener;
-import com.google.android.accessibility.switchaccess.SwitchAccessPreferenceActivity;
-import com.google.android.accessibility.switchaccess.setupwizard.SetupWizardConfigureSwitch.Action;
-import java.util.Stack;
+import com.google.android.accessibility.switchaccess.SwitchAccessLogger;
+import com.google.android.accessibility.switchaccess.SwitchAccessPreferenceCache;
+import com.google.android.accessibility.switchaccess.keyassignment.KeyAssignmentUtils;
+import com.google.android.accessibility.switchaccess.proto.SwitchAccessSetupScreenEnum.SetupScreen;
+import com.google.android.accessibility.switchaccess.setupwizard.SetupWizardConfigureSwitchFragment.Action;
+import com.google.android.accessibility.switchaccess.setupwizard.SetupWizardScanningMethodFragment.NumberOfSwitches;
+import com.google.android.accessibility.switchaccess.setupwizard.bluetooth.BluetoothEventManager;
+import java.util.ArrayDeque;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** A short and simple wizard to configure a working one or two switch system. */
-public class SetupWizardActivity extends Activity {
+public class SetupWizardActivity extends AppCompatActivity {
 
-  /*
-   * Indices of screens in the view animator.
-   */
-  public static final int INDEX_NUMBER_OF_SWITCHES_SCREEN = 0;
-  public static final int INDEX_ONE_SWITCH_OPTION_SCREEN = 1;
-  public static final int INDEX_TWO_SWITCH_OPTION_SCREEN = 2;
-  public static final int INDEX_AUTO_SCAN_KEY_SCREEN = 3;
-  public static final int INDEX_STEP_SPEED_SCREEN = 4;
-  public static final int INDEX_NEXT_KEY_SCREEN = 5;
-  public static final int INDEX_SELECT_KEY_SCREEN = 6;
-  public static final int INDEX_OPTION_ONE_KEY_SCREEN = 7;
-  public static final int INDEX_OPTION_TWO_KEY_SCREEN = 8;
-  public static final int INDEX_SWITCH_GAME_SCREEN = 9;
-  public static final int INDEX_COMPLETION_SCREEN = 10;
-  public static final int INDEX_EXIT_SETUP = -1;
+  /* Keeps a history of previous fragment tags. */
+  private ArrayDeque<SetupScreen> previousSetupScreens;
 
-  /* Holds all setup wiard views and navigates between them. */
-  private ViewAnimator mViewAnimator;
+  private ScreenViewListener screenViewListener;
 
-  /* Keeps a history of previous screen indexes. */
-  private Stack<Integer> mPreviousScreenIndexes;
+  private SetupScreenListener setupScreenListener;
 
-  private ScreenViewListener mScreenViewListener;
+  /* The currently displayed fragment. */
+  private SetupWizardScreenFragment currentScreenFragment;
+
+  /* The SetupScreen associated with the currently displayed fragment. */
+  private SetupScreen currentSetupScreen;
+
+  /* The Bluetooth event manager to pass to the {@link SetupWizardPairBluetoothFragment}. */
+  private BluetoothEventManager bluetoothEventManager;
+
+  /* The sdk version being used. This should only be changed during testing. */
+  private static int sdkVersion = VERSION.SDK_INT;
+
+  // Even though FragmentActivity#onActivityResult's Intent parameter is non-null the checker thinks
+  // it should be @Nullable.
+  @SuppressWarnings("nullness:override.param.invalid")
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    /* Pass along to the current screen fragment so that fragments can change behavior based on
+     * the result. This is needed so that a message can be shown if a request to enable Bluetooth
+     * is denied. */
+    currentScreenFragment.onActivityResult(requestCode, resultCode, data);
+  }
 
   /**
    * Create the view animator which holds the setup wizard views. Populate it with the necessary
@@ -67,118 +86,164 @@ public class SetupWizardActivity extends Activity {
    * @param savedInstanceState Saved state from prior execution
    */
   @Override
-  public void onCreate(Bundle savedInstanceState) {
+  public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    SwitchAccessPreferenceActivity.setRefreshUiOnResume(true);
+    // Hide the currently visible fragment. Otherwise, multiple fragments may be visible if the
+    // activity is recreated in the middle of setup (e.g. in the dialog on the tic-tac-toe screen).
+    // This needs to be called in #onCreate because the fragments are not hidden correctly in
+    // #onStop or #onDestroy on an activity recreate.
+    Fragment currentlyVisibleFragment =
+        getSupportFragmentManager().findFragmentById(R.id.fragment_layout_container);
+    if (currentlyVisibleFragment != null) {
+      getSupportFragmentManager()
+          .beginTransaction()
+          .hide(currentlyVisibleFragment)
+          .commitNowAllowingStateLoss();
+    }
 
-    final Animation inAnimation = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
-    final Animation outAnimation = AnimationUtils.loadAnimation(this, android.R.anim.fade_out);
+    previousSetupScreens = new ArrayDeque<>();
+    setContentView(R.layout.switch_access_setup_layout);
 
-    ScreenIterator screenIterator = new ScreenIterator();
-    mViewAnimator = new ViewAnimator(this);
-    mViewAnimator.setInAnimation(inAnimation);
-    mViewAnimator.setOutAnimation(outAnimation);
-    mViewAnimator.addView(
-        new SetupWizardNumberOfSwitches(this, screenIterator), INDEX_NUMBER_OF_SWITCHES_SCREEN);
-
-    mViewAnimator.addView(
-        new SetupWizardScanningMethod(
-            this, screenIterator, SetupWizardScanningMethod.NumberOfSwitches.ONE),
-        INDEX_ONE_SWITCH_OPTION_SCREEN);
-    mViewAnimator.addView(
-        new SetupWizardScanningMethod(
-            this, screenIterator, SetupWizardScanningMethod.NumberOfSwitches.TWO),
-        INDEX_TWO_SWITCH_OPTION_SCREEN);
-
-    mViewAnimator.addView(
-        new SetupWizardConfigureSwitch(this, Action.AUTO_SCAN, screenIterator),
-        INDEX_AUTO_SCAN_KEY_SCREEN);
-    mViewAnimator.addView(new SetupWizardStepSpeed(this, screenIterator), INDEX_STEP_SPEED_SCREEN);
-
-    /* Row Column Scanning */
-    mViewAnimator.addView(
-        new SetupWizardConfigureSwitch(this, Action.NEXT, screenIterator), INDEX_NEXT_KEY_SCREEN);
-    mViewAnimator.addView(
-        new SetupWizardConfigureSwitch(this, Action.SELECT, screenIterator),
-        INDEX_SELECT_KEY_SCREEN);
-
-    /* Option Scanning */
-    mViewAnimator.addView(
-        new SetupWizardConfigureSwitch(this, Action.OPTION_ONE, screenIterator),
-        INDEX_OPTION_ONE_KEY_SCREEN);
-    mViewAnimator.addView(
-        new SetupWizardConfigureSwitch(this, Action.OPTION_TWO, screenIterator),
-        INDEX_OPTION_TWO_KEY_SCREEN);
-
-    /* Wrap-up screens */
-    mViewAnimator.addView(
-        new SetupWizardSwitchGame(this, screenIterator), INDEX_SWITCH_GAME_SCREEN);
-    mViewAnimator.addView(
-        new SetupWizardCompletionScreen(this, screenIterator), INDEX_COMPLETION_SCREEN);
-
-    mViewAnimator.setDisplayedChild(INDEX_NUMBER_OF_SWITCHES_SCREEN);
-    mPreviousScreenIndexes = new Stack<>();
-    setContentView(mViewAnimator);
-
-    getCurrentScreen().onStart();
-    setNavigationButtonText(getCurrentScreen());
-    ActionBar actionBar = getActionBar();
+    ActionBar actionBar = getSupportActionBar();
     // The Action Bar can be null during robolectric testing, so check.
     if (actionBar != null) {
       actionBar.setTitle(R.string.setup_wizard_heading);
     }
 
     warnUserIfSwitchesAssigned();
+  }
 
-    // Set the listener if Analytics instance exists; do not create a new instance.
-    mScreenViewListener = Analytics.getInstanceIfExists();
+  @Override
+  public void onStart() {
+    if (setupScreenListener == null) {
+      SwitchAccessLogger logger = SwitchAccessLogger.getOrCreateInstance(this);
+      screenViewListener = logger;
+      setupScreenListener = logger;
+      setButtonClickListener();
+
+      // TODO: Display the switch type screen once Bluetooth pairing can be supported on
+      // more versions of Android.
+      /* Display the first screen in the setup wizard. */
+      if ((sdkVersion >= VERSION_CODES.O) || BuildConfig.DEBUG) {
+        displayScreen(SetupScreen.SWITCH_TYPE_SCREEN);
+      } else {
+        displayScreen(SetupScreen.NUMBER_OF_SWITCHES_SCREEN);
+      }
+    } else {
+      setupScreenListener.onSetupScreenShown(currentSetupScreen);
+    }
+    super.onStart();
+  }
+
+  @Override
+  public void onStop() {
+    if (setupScreenListener != null) {
+      setupScreenListener.onSetupScreenShown(SetupScreen.EXIT_SETUP);
+    }
+    super.onStop();
+  }
+
+  @Override
+  public void onDestroy() {
+    SwitchAccessLogger logger = SwitchAccessLogger.getInstanceIfExists();
+    if (logger != null) {
+      logger.stop(this);
+    }
+
+    SwitchAccessPreferenceCache.shutdownIfInitialized(this);
+    super.onDestroy();
+  }
+
+  /* Sets the button click listener for the next and previous buttons shown for each view. */
+  private void setButtonClickListener() {
+    OnClickListener buttonListener =
+        view -> {
+          if (view.getId() == R.id.next_button) {
+            displayNextScreenOrWarning();
+          } else if (view.getId() == R.id.previous_button) {
+            displayPreviousScreen();
+          }
+        };
+
+    findViewById(R.id.previous_button).setOnClickListener(buttonListener);
+    findViewById(R.id.next_button).setOnClickListener(buttonListener);
   }
 
   private void warnUserIfSwitchesAssigned() {
     if (KeyAssignmentUtils.areKeysAssigned(this)) {
-      AlertDialog.Builder clearKeysBuilder = new AlertDialog.Builder(this);
+      AlertDialog.Builder clearKeysBuilder =
+          new AlertDialog.Builder(
+              new ContextThemeWrapper(this, R.style.SetupGuideAlertDialogStyle));
       clearKeysBuilder.setTitle(getString(R.string.clear_keys_dialog_title));
       clearKeysBuilder.setMessage(getString(R.string.clear_keys_dialog_message));
 
       clearKeysBuilder.setPositiveButton(
           R.string.clear_keys_dialog_positive_button,
-          new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-              KeyAssignmentUtils.clearAllKeyPrefs(SetupWizardActivity.this);
-              recreate();
-              dialog.cancel();
-            }
+          (dialogInterface, viewId) -> {
+            KeyAssignmentUtils.clearAllKeyPrefs(SetupWizardActivity.this);
+            recreate();
+            dialogInterface.cancel();
           });
 
       clearKeysBuilder.setNegativeButton(
           R.string.clear_keys_dialog_negative_button,
-          new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-              dialog.cancel();
-            }
-          });
+          (dialogInterface, viewId) -> dialogInterface.cancel());
 
       AlertDialog clearKeysDialog = clearKeysBuilder.create();
       clearKeysDialog.show();
     }
   }
 
-  private void displayScreen(int screenToDisplay) {
-    if (screenToDisplay == mViewAnimator.getDisplayedChild()) {
-      return;
+  /*
+   * Update the fragment manager to display the fragment that corresponds to the given SetupScreen.
+   * Create the desired fragment if it doesn't already exist.
+   */
+  private void displayScreen(SetupScreen screen) {
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    /* Hide the previous fragment. */
+    if (currentScreenFragment != null) {
+      /* In order to ensure that state information from the previous fragment has been saved, hide
+       * the previous fragment with a separate fragment transaction than the one used to show the
+       * new fragment. */
+      fragmentManager
+          .beginTransaction()
+          .hide(currentScreenFragment)
+          .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+          .commitAllowingStateLoss();
+      fragmentManager.executePendingTransactions();
     }
 
-    getCurrentScreen().onStop();
+    SetupWizardScreenFragment fragment =
+        (SetupWizardScreenFragment) fragmentManager.findFragmentByTag(screen.name());
+    FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-    mViewAnimator.setDisplayedChild(screenToDisplay);
-    getCurrentScreen().onStart();
-    setNavigationButtonText(getCurrentScreen());
+    transaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
+    if (fragment == null) {
+      /* Create a new fragment. */
+      fragment = createScreenFragment(screen);
+      if (currentScreenFragment != null) {
+        transaction.add(R.id.fragment_layout_container, fragment, screen.name());
+      } else {
+        transaction.replace(R.id.fragment_layout_container, fragment, screen.name());
+      }
+    } else {
+      /* The desired fragment has been previously created, so show it. */
+      transaction.show(fragment);
+    }
 
-    if (mScreenViewListener != null) {
-      mScreenViewListener.onScreenShown(getCurrentScreen().getScreenName());
+    /* Update the view to reflect the new screen. */
+    transaction.commitAllowingStateLoss();
+    currentScreenFragment = fragment;
+    currentSetupScreen = screen;
+    setNavigationButtonText(currentScreenFragment);
+
+    if (screenViewListener != null) {
+      screenViewListener.onScreenShown(currentScreenFragment.getScreenName());
+    }
+
+    if (setupScreenListener != null) {
+      setupScreenListener.onSetupScreenShown(currentSetupScreen);
     }
   }
 
@@ -188,31 +253,23 @@ public class SetupWizardActivity extends Activity {
      * wishes to continue if they attempt to proceed to the next screen without assigning any
      * switches. This combats human error in completing the setup wizard.
      */
-    if (getCurrentScreen() instanceof SetupWizardConfigureSwitch
-        && !((SetupWizardConfigureSwitch) getCurrentScreen()).hasSwitchesAdded()) {
-      AlertDialog.Builder noKeysBuilder = new AlertDialog.Builder(this);
+    if (currentScreenFragment instanceof SetupWizardConfigureSwitchFragment
+        && !((SetupWizardConfigureSwitchFragment) currentScreenFragment).hasSwitchesAdded()) {
+      AlertDialog.Builder noKeysBuilder =
+          new AlertDialog.Builder(
+              new ContextThemeWrapper(this, R.style.SetupGuideAlertDialogStyle));
       noKeysBuilder.setTitle(getString(R.string.setup_switch_assignment_nothing_assigned_title));
       noKeysBuilder.setMessage(
           getString(R.string.setup_switch_assignment_nothing_assigned_message));
 
       noKeysBuilder.setPositiveButton(
           android.R.string.ok,
-          new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-              displayNextScreen();
-              dialog.cancel();
-            }
+          (dialogInterface, viewId) -> {
+            displayNextScreen();
+            dialogInterface.cancel();
           });
 
-      noKeysBuilder.setNegativeButton(
-          android.R.string.cancel,
-          new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-              dialog.cancel();
-            }
-          });
+      noKeysBuilder.setNegativeButton(android.R.string.cancel, (dialog, viewId) -> dialog.cancel());
 
       AlertDialog noKeysDialog = noKeysBuilder.create();
       noKeysDialog.show();
@@ -221,41 +278,63 @@ public class SetupWizardActivity extends Activity {
     }
   }
 
+  /*
+   * Finds and displays the next screen using the current screen index.
+   */
   private void displayNextScreen() {
-    int nextScreen = getCurrentScreen().getNextScreen();
-    if (nextScreen == INDEX_EXIT_SETUP) {
+    SetupScreen nextScreen = currentScreenFragment.getNextScreen();
+    if (nextScreen == SetupScreen.EXIT_SETUP) {
       finish();
       return;
     }
 
-    mPreviousScreenIndexes.push(mViewAnimator.getDisplayedChild());
+    if (nextScreen == SetupScreen.VIEW_NOT_CREATED) {
+      // Wait until the fragment view has been created before getting the next screen.
+      return;
+    }
+
+    previousSetupScreens.push(currentSetupScreen);
     displayScreen(nextScreen);
   }
 
   private void displayPreviousScreen() {
-    if (mPreviousScreenIndexes.empty()) {
+    if (previousSetupScreens.isEmpty()) {
       finish();
       return;
     }
 
-    displayScreen(mPreviousScreenIndexes.pop());
+    SetupScreen prevScreen = previousSetupScreens.pop();
+    displayScreen(prevScreen);
   }
 
   /**
    * Sets the text on the bottom navigation buttons. "Previous" shown when the previous screen
    * exists, "Exit" otherwise. "Next" shown when the next screen exists, "Finish" otherwise.
    */
-  protected void setNavigationButtonText(SetupScreen screen) {
-    if (screen.getNextScreen() == INDEX_EXIT_SETUP) {
-      screen.showFinishButton();
+  private void setNavigationButtonText(SetupWizardScreenFragment screen) {
+    /*
+     * Don't check if screen.getNextScreen() is EXIT_SETUP here. If the view has
+     * not yet been created for the fragment, getNextScreen() may throw errors.
+     */
+    if (screen instanceof SetupWizardCompletionScreenFragment) {
+      /* Show the "Finish" button. */
+      setButtonText(R.id.next_button, R.string.finish);
     } else {
-      screen.showNextButton();
+      /* Show the "Next" button. */
+      setButtonText(R.id.next_button, R.string.action_name_next);
     }
-    if (mPreviousScreenIndexes.empty()) {
-      screen.showExitButton();
+    if (previousSetupScreens.isEmpty()) {
+      /* Show the "Exit" button. */
+      setButtonText(R.id.previous_button, R.string.exit);
     } else {
-      screen.showPreviousButton();
+      /* Show the "Previous" button. */
+      setButtonText(R.id.previous_button, R.string.action_name_previous);
     }
+  }
+
+  private void setButtonText(int buttonId, int buttonTextId) {
+    final Button button = findViewById(buttonId);
+    button.setText(getApplicationContext().getString(buttonTextId));
   }
 
   /**
@@ -263,8 +342,35 @@ public class SetupWizardActivity extends Activity {
    *
    * @return SetupScreen active in the view animator
    */
-  public SetupScreen getCurrentScreen() {
-    return (SetupScreen) mViewAnimator.getCurrentView();
+  @VisibleForTesting
+  public SetupWizardScreenFragment getCurrentScreen() {
+    return currentScreenFragment;
+  }
+
+  /**
+   * Sets the BluetoothEventManager to pass to the {@link SetupWizardPairBluetoothFragment} in
+   * testing.
+   */
+  @VisibleForTesting
+  public void setBluetoothEventManager(BluetoothEventManager bluetoothEventManager) {
+    this.bluetoothEventManager = bluetoothEventManager;
+  }
+
+  /** Sets the ScreenViewListener to pass to the {@link ScreenViewListener} in testing. */
+  @VisibleForTesting
+  void setScreenViewListener(ScreenViewListener screenViewListener) {
+    this.screenViewListener = screenViewListener;
+  }
+
+  /** Sets the SetupScreenListener to pass to the {@link SetupScreenListener} in testing. */
+  @VisibleForTesting
+  void setSetupScreenListener(SetupScreenListener setupScreenListener) {
+    this.setupScreenListener = setupScreenListener;
+  }
+
+  @VisibleForTesting
+  public static void setVersionSdk(int sdkVersion) {
+    SetupWizardActivity.sdkVersion = sdkVersion;
   }
 
   @Override
@@ -274,27 +380,106 @@ public class SetupWizardActivity extends Activity {
       return false;
     } else {
       /* Pass key event on to child screen */
-      return getCurrentScreen().dispatchKeyEvent(event);
+      return currentScreenFragment.dispatchKeyEvent(event);
     }
   }
 
   /**
-   * Get the view animator containing the setup screens.
+   * Creates a new fragment associated with the given setup screen.
    *
-   * @return the ViewAnimator object belonging to this activity
+   * @param screen The fragment tag to get a fragment for
+   * @return The fragment associated with the provided tag
    */
-  public ViewAnimator getViewAnimator() {
-    return this.mViewAnimator;
+  // The returned fragment can only be null if screen is EXIT_SETUP or SCREEN_UNDEFINED. The former
+  // cannot be reached because this method is only called in #displayScreen, and #displayScreen is
+  // never called with screen == EXIT_SETUP. The latter cannot be reached because SCREEN_UNDEFINED
+  // is never actually used.
+  @SuppressWarnings("nullness:return.type.incompatible")
+  private SetupWizardScreenFragment createScreenFragment(SetupScreen screen) {
+    SetupWizardScreenFragment fragment = null;
+
+    switch (screen) {
+        /* Bluetooth- and usb-pairing prompting and screens, guarded by the {@link
+         * FeatureFlags#bluetoothSetupWizard} feature flag. */
+      case SWITCH_TYPE_SCREEN:
+        fragment = new SetupWizardSwitchTypeFragment();
+        break;
+      case USB_DEVICE_LIST_SCREEN:
+        fragment = new SetupWizardUsbDeviceListFragment();
+        break;
+      case PAIR_BLUETOOTH_SCREEN:
+        fragment = new SetupWizardPairBluetoothFragment();
+        if (bluetoothEventManager != null) {
+          ((SetupWizardPairBluetoothFragment) fragment)
+              .setBluetoothEventManager(bluetoothEventManager);
+        }
+        break;
+        /* Initial switch preference screens. */
+      case NUMBER_OF_SWITCHES_SCREEN:
+        fragment = new SetupWizardNumberOfSwitchesFragment();
+        break;
+      case ONE_SWITCH_OPTION_SCREEN:
+        fragment = new SetupWizardScanningMethodFragment();
+        ((SetupWizardScanningMethodFragment) fragment).setNumberOfSwitches(NumberOfSwitches.ONE);
+        break;
+      case TWO_SWITCH_OPTION_SCREEN:
+        fragment = new SetupWizardScanningMethodFragment();
+        ((SetupWizardScanningMethodFragment) fragment).setNumberOfSwitches(NumberOfSwitches.TWO);
+        break;
+        /* Auto Scanning */
+      case AUTO_SCAN_KEY_SCREEN:
+        fragment = new SetupWizardConfigureSwitchFragment();
+        ((SetupWizardConfigureSwitchFragment) fragment).setActionToBeAssigned(Action.AUTO_SCAN);
+        break;
+        /* Row Column Scanning */
+      case NEXT_KEY_SCREEN:
+        fragment = new SetupWizardConfigureSwitchFragment();
+        ((SetupWizardConfigureSwitchFragment) fragment).setActionToBeAssigned(Action.NEXT);
+        break;
+      case SELECT_KEY_SCREEN:
+        fragment = new SetupWizardConfigureSwitchFragment();
+        ((SetupWizardConfigureSwitchFragment) fragment).setActionToBeAssigned(Action.SELECT);
+        break;
+        /* Group Selection */
+      case GROUP_ONE_KEY_SCREEN:
+        fragment = new SetupWizardConfigureSwitchFragment();
+        ((SetupWizardConfigureSwitchFragment) fragment).setActionToBeAssigned(Action.GROUP_ONE);
+        break;
+      case GROUP_TWO_KEY_SCREEN:
+        fragment = new SetupWizardConfigureSwitchFragment();
+        ((SetupWizardConfigureSwitchFragment) fragment).setActionToBeAssigned(Action.GROUP_TWO);
+        break;
+        /* Wrap-up screens */
+      case STEP_SPEED_SCREEN:
+        fragment = new SetupWizardStepSpeedFragment();
+        break;
+      case SWITCH_GAME_INVALID_CONFIGURATION_SCREEN:
+      case SWITCH_GAME_VALID_CONFIGURATION_SCREEN:
+        fragment = new SetupWizardSwitchGameFragment();
+        break;
+      case COMPLETION_SCREEN:
+        fragment = new SetupWizardCompletionScreenFragment();
+        break;
+        /* Exit tag. */
+      case EXIT_SETUP:
+        /* The fragment view hadn't been created yet when we attempted to get the next screen. We
+         * should remain on the same setup screen until the view has been fully created. */
+      case VIEW_NOT_CREATED:
+        /* Unspecified screen tag. This should never be reached. */
+      case SCREEN_UNDEFINED:
+        break;
+    }
+
+    return fragment;
   }
 
-  /** Used to pass the control over screen navigation to the views associated with this Activity. */
-  public class ScreenIterator {
-    public void nextScreen() {
-      displayNextScreenOrWarning();
-    }
-
-    public void previousScreen() {
-      displayPreviousScreen();
-    }
+  /** Interface that is notified when a setup screen is shown. */
+  public interface SetupScreenListener {
+    /**
+     * Called when a setup screen is shown.
+     *
+     * @param setupScreen The setup screen that is shown
+     */
+    void onSetupScreenShown(SetupScreen setupScreen);
   }
 }

@@ -19,18 +19,19 @@ package com.google.android.accessibility.talkback.labeling;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.util.Log;
 import com.google.android.accessibility.utils.LocaleUtils;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.labeling.LabelProviderClient;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Map;
 
 public class PackageLabelsFetchRequest extends LabelClientRequest<Map<String, Label>> {
 
-  private final Context mContext;
-  private final String mPackageName;
-  private final OnLabelsFetchedListener mOnLabelFetchedListener;
+  private static final String TAG = "PackageLabelsFetchReq";
+
+  private final Context context;
+  private final String packageName;
+  private final OnLabelsFetchedListener onLabelFetchedListener;
 
   public PackageLabelsFetchRequest(
       LabelProviderClient client,
@@ -38,29 +39,28 @@ public class PackageLabelsFetchRequest extends LabelClientRequest<Map<String, La
       String packageName,
       OnLabelsFetchedListener listener) {
     super(client);
-    mContext = context;
-    mPackageName = packageName;
-    mOnLabelFetchedListener = listener;
+    this.context = context;
+    this.packageName = packageName;
+    onLabelFetchedListener = listener;
   }
 
   @Override
   public Map<String, Label> doInBackground() {
     int versionCode = Integer.MAX_VALUE;
     try {
-      final PackageInfo packageInfo = mContext.getPackageManager().getPackageInfo(mPackageName, 0);
+      final PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 0);
       versionCode = packageInfo.versionCode;
     } catch (PackageManager.NameNotFoundException e) {
-      LogUtils.log(
-          this, Log.WARN, "Unable to resolve package info during prefetch for %s", mPackageName);
+      LogUtils.w(TAG, "Unable to resolve package info during prefetch for %s", packageName);
     }
 
-    return mClient.getLabelsForPackage(mPackageName, LocaleUtils.getDefaultLocale(), versionCode);
+    return mClient.getLabelsForPackage(packageName, LocaleUtils.getDefaultLocale(), versionCode);
   }
 
   @Override
   public void onPostExecute(Map<String, Label> result) {
-    if (mOnLabelFetchedListener != null) {
-      mOnLabelFetchedListener.onLabelsFetched(result);
+    if (onLabelFetchedListener != null) {
+      onLabelFetchedListener.onLabelsFetched(result);
     }
   }
 

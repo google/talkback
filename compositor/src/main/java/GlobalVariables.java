@@ -18,31 +18,33 @@ package com.google.android.accessibility.compositor;
 
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
-import android.content.res.Configuration;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityRecordCompat;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityRecordCompat;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.CollectionState;
-import com.google.android.accessibility.utils.FormFactorUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.SpannableUtils;
 import com.google.android.accessibility.utils.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.TimedFlags;
-import com.google.android.accessibility.utils.WindowManager;
+import com.google.android.accessibility.utils.WindowsDelegate;
 import com.google.android.accessibility.utils.compat.provider.SettingsCompatUtils;
 import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.keyboard.KeyComboManager;
 import com.google.android.accessibility.utils.keyboard.KeyComboModel;
+import com.google.android.accessibility.utils.keyboard.KeyboardUtils;
 import com.google.android.accessibility.utils.parsetree.ParseTree;
+import com.google.android.accessibility.utils.parsetree.ParseTree.VariableDelegate;
 import com.google.android.accessibility.utils.traversal.SimpleTraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
 import com.google.android.apps.common.proguard.UsedByReflection;
 import java.util.HashMap;
 import java.util.Map;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Tracks the current global state for the parse tree. */
 public class GlobalVariables extends TimedFlags implements ParseTree.VariableDelegate {
@@ -75,16 +77,16 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
 
   private static final int GLOBAL_SYNCED_ACCESSIBILITY_FOCUS_LATCH = 6000;
   private static final int GLOBAL_IS_KEYBOARD_ACTIVE = 6001;
-  private static final int GLOBAL_HAS_WINDOW_SUPPORT = 6002;
-  private static final int GLOBAL_IS_SELECTION_MODE_ACTIVE = 6003;
-  private static final int GLOBAL_SPEAK_PASSWORD_ALL_ANDROID = 6004;
-  private static final int GLOBAL_INPUT_MODE = 6005;
-  private static final int GLOBAL_USE_SINGLE_TAP = 6006;
-  private static final int GLOBAL_SPEECH_RATE_CHANGE = 6007;
-  private static final int GLOBAL_USE_AUTO_SELECT = 6008;
-  private static final int GLOBAL_USE_AUDIO_FOCUS = 6009;
-  private static final int GLOBAL_LAST_TEXT_EDIT_IS_PASSWORD = 6010;
-  private static final int GLOBAL_SPEAK_PASSWORD_ANDROID_O_PLUS = 6011;
+  private static final int GLOBAL_IS_SELECTION_MODE_ACTIVE = 6002;
+  private static final int GLOBAL_INPUT_MODE = 6003;
+  private static final int GLOBAL_USE_SINGLE_TAP = 6004;
+  private static final int GLOBAL_SPEECH_RATE_CHANGE = 6005;
+  private static final int GLOBAL_USE_AUTO_SELECT = 6006;
+  private static final int GLOBAL_USE_AUDIO_FOCUS = 6007;
+  private static final int GLOBAL_LAST_TEXT_EDIT_IS_PASSWORD = 6008;
+  private static final int GLOBAL_SPEAK_PASS_SERVICE_POLICY = 6009;
+  private static final int GLOBAL_SPEAK_PASS_FIELD_CONTENT = 6010;
+  private static final int GLOBAL_ENABLE_USAGE_HINT = 6011;
 
   private static final int COLLECTION_NAME = 6100;
   private static final int COLLECTION_ROLE = 6101;
@@ -103,6 +105,9 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   private static final int COLLECTION_TABLE_ITEM_COLUMN_NAME = 6114;
   private static final int COLLECTION_TABLE_ITEM_COLUMN_INDEX = 6115;
   private static final int COLLECTION_LIST_ITEM_IS_HEADING = 6116;
+  private static final int COLLECTION_PAGER_ITEM_ROW_INDEX = 6117;
+  private static final int COLLECTION_PAGER_ITEM_COLUMN_INDEX = 6118;
+  private static final int COLLECTION_PAGER_ITEM_IS_HEADING = 6119;
 
   private static final int WINDOWS_LAST_WINDOW_ID = 6200;
   private static final int WINDOWS_IS_SPLIT_SCREEN_MODE = 6201;
@@ -119,16 +124,12 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   private static final int SCREEN_MAGNIFICATION_LAST_SCALE = 6500;
   private static final int SCREEN_MAGNIFICATION_CURRENT_SCALE = 6501;
 
-  public interface WindowsDelegate {
-    CharSequence getWindowTitle(int windowId);
-
-    boolean isSplitScreenMode();
-  }
+  private static final int GESTURE_STRING_FOR_NODE_ACTIONS = 6600;
 
   private final Context mContext;
   private final AccessibilityService mService;
   private final InputModeManager mInputModeManager;
-  private final KeyComboManager mKeyComboManager;
+  @Nullable private final KeyComboManager mKeyComboManager;
   private final CollectionState mCollectionState = new CollectionState();
   private WindowsDelegate mWindowsDelegate;
 
@@ -148,25 +149,34 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   private boolean mIsLastFocusInScrollableNode = false;
   private boolean mIsFocusEdgeListItem = false;
 
-  private static final boolean FLAG_HAS_WINDOW_SUPPORT = BuildVersionUtils.isAtLeastLMR1();
-
-  private boolean mIsSoftKeyboardActive = false;
-  private boolean mIsHardKeyboardActive = false;
-
   // Variables for the spoken feedback functionality of Switch Access
   private boolean mIsAutoSelectEnabled = false;
 
   // Defaults to true so that upgrading to this version will not impact previous behavior.
   private boolean mShouldSpeakPasswords = true;
 
+  @Nullable private final GestureShortcutProvider gestureShortcutProvider;
+
+  // Defaults to true to speak usage hint.
+  private boolean usageHintEnabled = true;
+
   public GlobalVariables(
       AccessibilityService service,
       InputModeManager inputModeManager,
-      KeyComboManager keyComboManager) {
+      @Nullable KeyComboManager keyComboManager) {
+    this(service, inputModeManager, keyComboManager, /* gestureShortcutProvider= */ null);
+  }
+
+  public GlobalVariables(
+      AccessibilityService service,
+      InputModeManager inputModeManager,
+      @Nullable KeyComboManager keyComboManager,
+      @Nullable GestureShortcutProvider gestureShortcutProvider) {
     mContext = service;
     mService = service;
     mInputModeManager = inputModeManager;
     mKeyComboManager = keyComboManager;
+    this.gestureShortcutProvider = gestureShortcutProvider;
   }
 
   public void setWindowsDelegate(WindowsDelegate delegate) {
@@ -206,10 +216,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     parseTree.addBooleanVariable(
         "global.syncedAccessibilityFocusLatch", GLOBAL_SYNCED_ACCESSIBILITY_FOCUS_LATCH);
     parseTree.addBooleanVariable("global.isKeyboardActive", GLOBAL_IS_KEYBOARD_ACTIVE);
-    parseTree.addBooleanVariable("global.hasWindowSupport", GLOBAL_HAS_WINDOW_SUPPORT);
     parseTree.addBooleanVariable("global.isSelectionModeActive", GLOBAL_IS_SELECTION_MODE_ACTIVE);
-    parseTree.addBooleanVariable(
-        "global.speakPasswordOnAllAndroid", GLOBAL_SPEAK_PASSWORD_ALL_ANDROID);
     parseTree.addEnumVariable("global.inputMode", GLOBAL_INPUT_MODE, ENUM_INPUT_MODE);
     parseTree.addBooleanVariable("global.useSingleTap", GLOBAL_USE_SINGLE_TAP);
     parseTree.addNumberVariable("global.speechRate", GLOBAL_SPEECH_RATE_CHANGE);
@@ -218,7 +225,10 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     parseTree.addBooleanVariable(
         "global.lastTextEditIsPassword", GLOBAL_LAST_TEXT_EDIT_IS_PASSWORD);
     parseTree.addBooleanVariable(
-        "global.speakPasswordOnAndroidShowingPasswords", GLOBAL_SPEAK_PASSWORD_ANDROID_O_PLUS);
+        "global.speakPasswordsServicePolicy", GLOBAL_SPEAK_PASS_SERVICE_POLICY);
+    parseTree.addBooleanVariable(
+        "global.speakPasswordFieldContent", GLOBAL_SPEAK_PASS_FIELD_CONTENT);
+    parseTree.addBooleanVariable("global.enableUsageHint", GLOBAL_ENABLE_USAGE_HINT);
 
     // Collection
     parseTree.addStringVariable("collection.name", COLLECTION_NAME);
@@ -244,6 +254,11 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
         "collection.tableItem.columnName", COLLECTION_TABLE_ITEM_COLUMN_NAME);
     parseTree.addIntegerVariable(
         "collection.tableItem.columnIndex", COLLECTION_TABLE_ITEM_COLUMN_INDEX);
+    parseTree.addIntegerVariable("collection.pagerItem.rowIndex", COLLECTION_PAGER_ITEM_ROW_INDEX);
+    parseTree.addIntegerVariable(
+        "collection.pagerItem.columnIndex", COLLECTION_PAGER_ITEM_COLUMN_INDEX);
+    parseTree.addBooleanVariable(
+        "collection.pagerItem.isHeading", COLLECTION_PAGER_ITEM_IS_HEADING);
     parseTree.addBooleanVariable("collection.listItem.isHeading", COLLECTION_LIST_ITEM_IS_HEADING);
 
     parseTree.addBooleanVariable("windows.isSplitScreenMode", WINDOWS_IS_SPLIT_SCREEN_MODE);
@@ -266,6 +281,8 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     parseTree.addNumberVariable(
         "screenMagnification.currentScale", SCREEN_MAGNIFICATION_CURRENT_SCALE);
 
+    parseTree.addStringVariable("gesture.nodeMenuShortcut", GESTURE_STRING_FOR_NODE_ACTIONS);
+
     // Functions
     parseTree.addFunction("cleanUp", this);
     parseTree.addFunction("collapseRepeatedCharactersAndCleanUp", this);
@@ -275,6 +292,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     parseTree.addFunction("getWindowTitle", this);
     parseTree.addFunction("round", this);
     parseTree.addFunction("spelling", this);
+    parseTree.addFunction("equals", this);
   }
 
   public void updateStateFromEvent(AccessibilityEvent event) {
@@ -297,6 +315,9 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
             }
 
             TraversalStrategy traversalStrategy = new SimpleTraversalStrategy();
+            // TODO: TraversalStrategyUtils.isEdgeListItem() doesn't include Role check in
+            // AccessibilityNodeInfoUtils.FILTER_AUTO_SCROLL. Shall we use
+            // TraversalStrategyUtils.isAutoScrollEdgeListItem() instead?
             mIsFocusEdgeListItem =
                 TraversalStrategyUtils.isEdgeListItem(sourceNode, traversalStrategy);
             traversalStrategy.recycle();
@@ -309,6 +330,10 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
         break;
       default: // fall out
     }
+  }
+
+  public void setUsageHintEnabled(boolean enabled) {
+    usageHintEnabled = enabled;
   }
 
   public void setUseSingleTap(boolean value) {
@@ -343,14 +368,17 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     mLastTextEditIsPassword = value;
   }
 
-  /** Used by SpeakPasswordsManager. */
+  /**
+   * Set by SpeakPasswordsManager. Incorporates service-level speak-passwords preference and
+   * headphone state.
+   */
   public void setSpeakPasswords(boolean shouldSpeakPasswords) {
     mShouldSpeakPasswords = shouldSpeakPasswords;
   }
 
   /** Used internally and by TextEventInterpreter. */
   public boolean shouldSpeakPasswords() {
-    if (FormFactorUtils.useSpeakPasswordsServicePref()) {
+    if (FeatureSupport.useSpeakPasswordsServicePref()) {
       return mShouldSpeakPasswords;
     } else {
       return SettingsCompatUtils.SecureCompatUtils.shouldSpeakPasswords(mContext);
@@ -364,20 +392,15 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
       case GLOBAL_SYNCED_ACCESSIBILITY_FOCUS_LATCH:
         return checkAndClearRecentFlag(EVENT_SYNCED_ACCESSIBILITY_FOCUS);
       case GLOBAL_IS_KEYBOARD_ACTIVE:
-        {
-          // TODO: Move the logic of updating keyboard state into WindowTracker.
-          updateSoftKeyboardState();
-          updateHardKeyboardState();
-          return mIsSoftKeyboardActive || mIsHardKeyboardActive;
-        }
-      case GLOBAL_HAS_WINDOW_SUPPORT:
-        return FLAG_HAS_WINDOW_SUPPORT;
+        return KeyboardUtils.isKeyboardActive(mService);
       case GLOBAL_IS_SELECTION_MODE_ACTIVE:
         return mSelectionModeActive;
-      case GLOBAL_SPEAK_PASSWORD_ALL_ANDROID:
-        return shouldSpeakPasswords();
-      case GLOBAL_SPEAK_PASSWORD_ANDROID_O_PLUS:
+      case GLOBAL_SPEAK_PASS_SERVICE_POLICY:
         return mShouldSpeakPasswords;
+      case GLOBAL_SPEAK_PASS_FIELD_CONTENT:
+        // Password field content is available only on android N-, and available only based on
+        // system setting, regardless of headphones state.
+        return shouldSpeakPasswords() && !FeatureSupport.useSpeakPasswordsServicePref();
       case GLOBAL_USE_SINGLE_TAP:
         return mUseSingleTap;
       case GLOBAL_USE_AUTO_SELECT:
@@ -386,6 +409,8 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
         return mUseAudioFocus;
       case GLOBAL_LAST_TEXT_EDIT_IS_PASSWORD:
         return mLastTextEditIsPassword;
+      case GLOBAL_ENABLE_USAGE_HINT:
+        return usageHintEnabled;
 
         // Collections
       case COLLECTION_EXISTS:
@@ -402,6 +427,11 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
         {
           CollectionState.ListItemState itemState = mCollectionState.getListItemState();
           return itemState != null && itemState.isHeading();
+        }
+      case COLLECTION_PAGER_ITEM_IS_HEADING:
+        {
+          CollectionState.PagerItemState itemState = mCollectionState.getPagerItemState();
+          return (itemState != null) && itemState.isHeading();
         }
 
         // Windows
@@ -447,6 +477,16 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
           CollectionState.TableItemState itemState = mCollectionState.getTableItemState();
           return itemState != null ? itemState.getColumnIndex() : 0;
         }
+      case COLLECTION_PAGER_ITEM_ROW_INDEX:
+        {
+          CollectionState.PagerItemState itemState = mCollectionState.getPagerItemState();
+          return (itemState == null) ? 0 : itemState.getRowIndex();
+        }
+      case COLLECTION_PAGER_ITEM_COLUMN_INDEX:
+        {
+          CollectionState.PagerItemState itemState = mCollectionState.getPagerItemState();
+          return (itemState == null) ? 0 : itemState.getColumnIndex();
+        }
       case WINDOWS_LAST_WINDOW_ID:
         return mLastWindowId;
       default:
@@ -469,7 +509,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   }
 
   @Override
-  public CharSequence getString(int variableId) {
+  public @Nullable CharSequence getString(int variableId) {
     switch (variableId) {
       case COLLECTION_NAME:
         return mCollectionState.getCollectionName();
@@ -492,6 +532,10 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
         {
           return getKeyComboStringRepresentation(
               getKeyComboCodeForKey(R.string.keycombo_shortcut_perform_long_click));
+        }
+      case GESTURE_STRING_FOR_NODE_ACTIONS:
+        {
+          return gestureShortcutProvider != null ? gestureShortcutProvider.nodeMenuShortcut() : "";
         }
       default:
         return "";
@@ -518,7 +562,8 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   }
 
   @Override
-  public ParseTree.VariableDelegate getReference(int variableId) {
+  @Nullable
+  public VariableDelegate getReference(int variableId) {
     return null;
   }
 
@@ -528,33 +573,14 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   }
 
   @Override
-  public CharSequence getArrayStringElement(int variableId, int index) {
+  public @Nullable CharSequence getArrayStringElement(int variableId, int index) {
     return "";
   }
 
   @Override
-  public ParseTree.VariableDelegate getArrayChildElement(int variableId, int index) {
+  @Nullable
+  public VariableDelegate getArrayChildElement(int variableId, int index) {
     return null;
-  }
-
-  private void updateSoftKeyboardState() {
-    if (mService == null) {
-      mIsSoftKeyboardActive = false;
-      return;
-    }
-
-    WindowManager windowManager = new WindowManager(mService);
-    mIsSoftKeyboardActive = windowManager.isInputWindowOnScreen();
-  }
-
-  private void updateHardKeyboardState() {
-    if (mContext == null) {
-      mIsHardKeyboardActive = false;
-      return;
-    }
-    // Check if hard keyboard is active.
-    Configuration config = mContext.getResources().getConfiguration();
-    mIsHardKeyboardActive = (config.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO);
   }
 
   // TODO: Move this function into utils.
@@ -591,7 +617,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   }
 
   @UsedByReflection("compositor.json")
-  private CharSequence collapseRepeatedCharactersAndCleanUp(CharSequence text) {
+  private @Nullable CharSequence collapseRepeatedCharactersAndCleanUp(CharSequence text) {
     return SpeechCleanupUtils.collapseRepeatedCharactersAndCleanUp(mContext, text);
   }
 
@@ -604,7 +630,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     if (TextUtils.isEmpty(appendText)) {
       return conditionalText;
     }
-    StringBuilder result = new StringBuilder();
+    SpannableStringBuilder result = new SpannableStringBuilder();
     result.append(conditionalText);
     result.append(SpannableUtils.wrapWithIdentifierSpan(", "));
     result.append(appendText);
@@ -620,7 +646,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     if (TextUtils.isEmpty(prependText)) {
       return conditionalText;
     }
-    StringBuilder result = new StringBuilder();
+    SpannableStringBuilder result = new SpannableStringBuilder();
     result.append(prependText);
     result.append(SpannableUtils.wrapWithIdentifierSpan(", "));
     result.append(conditionalText);
@@ -639,7 +665,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     if (TextUtils.isEmpty(prependText)) {
       return conditionalText;
     }
-    StringBuilder result = new StringBuilder();
+    SpannableStringBuilder result = new SpannableStringBuilder();
     result.append(prependText);
     result.append(SpannableUtils.wrapWithIdentifierSpan(" "));
     result.append(conditionalText);
@@ -674,5 +700,10 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
 
     CharSequence title = mWindowsDelegate.getWindowTitle(windowId);
     return title != null ? title : "";
+  }
+
+  @UsedByReflection("compositor.json")
+  private boolean equals(CharSequence text1, CharSequence text2) {
+    return TextUtils.equals(text1, text2);
   }
 }

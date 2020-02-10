@@ -16,10 +16,25 @@
 
 package com.google.android.accessibility.utils;
 
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import android.os.Build;
+import android.os.LocaleList;
+import android.os.PersistableBundle;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import android.text.ParcelableSpan;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.SpannedString;
 import android.text.TextUtils;
+import android.text.style.LocaleSpan;
+import android.text.style.TtsSpan;
+import android.text.style.URLSpan;
+import android.util.Log;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import java.util.Locale;
+import java.util.Set;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Utility methods for working with spannable objects. */
 public final class SpannableUtils {
@@ -40,8 +55,8 @@ public final class SpannableUtils {
     return spannedText;
   }
 
-  public static boolean isWrappedWithTargetSpan(
-      CharSequence text, Class<?> spanClass, boolean shouldTrim) {
+  public static <T> boolean isWrappedWithTargetSpan(
+      CharSequence text, Class<T> spanClass, boolean shouldTrim) {
     if (TextUtils.isEmpty(text) || !(text instanceof Spannable)) {
       return false;
     }
@@ -52,12 +67,12 @@ public final class SpannableUtils {
       return false;
     }
     Spannable spannable = (Spannable) text;
-    Object[] spans = spannable.getSpans(0, text.length(), spanClass);
+    T[] spans = spannable.getSpans(0, text.length(), spanClass);
     if ((spans == null) || (spans.length != 1)) {
       return false;
     }
 
-    Object span = spans[0];
+    T span = spans[0];
     return (spannable.getSpanStart(span) == 0)
         && (spannable.getSpanEnd(span) == spannable.length());
   }
@@ -70,23 +85,19 @@ public final class SpannableUtils {
    * @param spanClass Class of target span.
    * @return SpannableString with at least 1 target span. null if no target span found in the node.
    */
-  public static SpannableString getStringWithTargetSpan(
-      AccessibilityNodeInfoCompat node, Class<?> spanClass) {
+  public static <T> @Nullable SpannableString getStringWithTargetSpan(
+      AccessibilityNodeInfoCompat node, Class<T> spanClass) {
 
     CharSequence text = node.getContentDescription();
-    if (!TextUtils.isEmpty(text)) {
-      if (!(text instanceof SpannableString)) {
-        return null;
-      }
-    } else {
-      text = node.getText();
-      if (TextUtils.isEmpty(text) || !(text instanceof SpannableString)) {
+    if (isEmptyOrNotSpannableStringType(text)) {
+      text = AccessibilityNodeInfoUtils.getText(node);
+      if (isEmptyOrNotSpannableStringType(text)) {
         return null;
       }
     }
 
-    SpannableString spannable = (SpannableString) text;
-    final Object[] spans = spannable.getSpans(0, spannable.length(), spanClass);
+    SpannableString spannable = SpannableString.valueOf(text);
+    T[] spans = spannable.getSpans(0, spannable.length(), spanClass);
     if (spans == null || spans.length == 0) {
       return null;
     }
@@ -100,16 +111,116 @@ public final class SpannableUtils {
    * @param text Text to remove span.
    * @param spanClass class of span to be removed.
    */
-  public static void stripTargetSpanFromText(CharSequence text, Class<?> spanClass) {
+  public static <T> void stripTargetSpanFromText(CharSequence text, Class<T> spanClass) {
     if (TextUtils.isEmpty(text) || !(text instanceof SpannableString)) {
       return;
     }
     SpannableString spannable = (SpannableString) text;
-    final Object[] spans = spannable.getSpans(0, spannable.length(), spanClass);
+    T[] spans = spannable.getSpans(0, spannable.length(), spanClass);
     if (spans != null) {
-      for (Object span : spans) {
-        spannable.removeSpan(span);
+      for (T span : spans) {
+        if (span != null) {
+          spannable.removeSpan(span);
+        }
       }
     }
+  }
+
+  /**
+   * Logs the type, position and args of spans which attach to given text, but only if log priority
+   * is equal to Log.VERBOSE. Format is {type 'spanned text' extra-data} {type 'other text'
+   * extra-data} ..."
+   *
+   * @param text Text to be logged
+   */
+  public static String spansToStringForLogging(CharSequence text) {
+    if (!LogUtils.shouldLog(Log.VERBOSE)) {
+      return null;
+    }
+
+    if (isEmptyOrNotSpannableStringType(text)) {
+      return null;
+    }
+
+    Spanned spanned = (Spanned) text;
+    ParcelableSpan[] spans = spanned.getSpans(0, text.length(), ParcelableSpan.class);
+    if (spans.length == 0) {
+      return null;
+    }
+
+    StringBuilder stringBuilder = new StringBuilder();
+    for (ParcelableSpan span : spans) {
+      stringBuilder.append("{");
+      // Span type.
+      stringBuilder.append(span.getClass().getSimpleName());
+
+      // Span text.
+      int start = spanned.getSpanStart(span);
+      int end = spanned.getSpanEnd(span);
+      if (start < 0 || end < 0 || start == end) {
+        stringBuilder.append(" invalid index:[");
+        stringBuilder.append(start);
+        stringBuilder.append(",");
+        stringBuilder.append(end);
+        stringBuilder.append("]}");
+        continue;
+      } else {
+        stringBuilder.append(" '");
+        stringBuilder.append(spanned, start, end);
+        stringBuilder.append("'");
+      }
+
+      // Extra data.
+      if (span instanceof LocaleSpan) {
+        LocaleSpan localeSpan = (LocaleSpan) span;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+          Locale locale = localeSpan.getLocale();
+          if (locale != null) {
+            stringBuilder.append(" locale=");
+            stringBuilder.append(locale);
+          }
+        } else {
+          LocaleList localeList = localeSpan.getLocales();
+          int size = localeList.size();
+          if (size > 0) {
+            stringBuilder.append(" locale=[");
+            for (int i = 0; i < size - 1; i++) {
+              stringBuilder.append(localeList.get(i));
+              stringBuilder.append(",");
+            }
+            stringBuilder.append(localeList.get(size - 1));
+            stringBuilder.append("]");
+          }
+        }
+
+      } else if (span instanceof TtsSpan) {
+        TtsSpan ttsSpan = (TtsSpan) span;
+        stringBuilder.append(" ttsType=");
+        stringBuilder.append(ttsSpan.getType());
+        PersistableBundle bundle = ttsSpan.getArgs();
+        Set<String> keys = bundle.keySet();
+        if (!keys.isEmpty()) {
+          for (String key : keys) {
+            stringBuilder.append(" ");
+            stringBuilder.append(key);
+            stringBuilder.append("=");
+            stringBuilder.append(bundle.get(key));
+          }
+        }
+      } else if (span instanceof URLSpan) {
+        URLSpan urlSpan = (URLSpan) span;
+        stringBuilder.append(" url=");
+        stringBuilder.append(urlSpan.getURL());
+      }
+      stringBuilder.append("}");
+    }
+    return stringBuilder.toString();
+  }
+
+  private static boolean isEmptyOrNotSpannableStringType(CharSequence text) {
+    return TextUtils.isEmpty(text)
+        || !(text instanceof SpannedString
+            || text instanceof SpannableString
+            || text instanceof SpannableStringBuilder);
   }
 }

@@ -16,10 +16,12 @@
             android:id="@+id/autoscan_speeds_radio_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:focusable="true"
+            android:focusable="false"
             android:orientation="vertical" >
 
             <RadioButton
+                android:paddingTop="@dimen/setup_wizard_step_speed_padding"
+                android:paddingBottom="@dimen/setup_wizard_step_speed_padding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/fast_speed_radio_button"
@@ -27,14 +29,17 @@
                 android:textSize="@dimen/setup_wizard_text_size" />
 
             <RadioButton
+                android:paddingTop="@dimen/setup_wizard_step_speed_padding"
+                android:paddingBottom="@dimen/setup_wizard_step_speed_padding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/medium_speed_radio_button"
-                android:checked="true"
                 android:layout_marginBottom="@dimen/setup_wizard_radio_button_padding"
                 android:textSize="@dimen/setup_wizard_text_size" />
 
             <RadioButton
+                android:paddingTop="@dimen/setup_wizard_step_speed_padding"
+                android:paddingBottom="@dimen/setup_wizard_step_speed_padding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/slow_speed_radio_button"
@@ -42,6 +47,8 @@
                 android:textSize="@dimen/setup_wizard_text_size" />
 
             <RadioButton
+                android:paddingTop="@dimen/setup_wizard_step_speed_padding"
+                android:paddingBottom="@dimen/setup_wizard_step_speed_padding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/custom_speed_radio_button"
@@ -51,6 +58,8 @@
         </RadioGroup>
 
         <EditText
+            android:paddingTop="@dimen/setup_wizard_step_speed_padding"
+            android:paddingBottom="@dimen/setup_wizard_step_speed_padding"
             android:id="@+id/custom_speed_edit_text"
             android:clickable="true"
             android:focusable="true"

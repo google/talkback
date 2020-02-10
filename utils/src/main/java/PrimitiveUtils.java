@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.utils;
 
-import static android.support.v4.util.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkArgument;
 
 /** Utility class containing operations on primitive data. */
 public final class PrimitiveUtils {

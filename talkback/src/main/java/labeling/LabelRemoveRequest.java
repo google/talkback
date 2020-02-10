@@ -16,41 +16,41 @@
 
 package com.google.android.accessibility.talkback.labeling;
 
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.labeling.LabelProviderClient;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 public class LabelRemoveRequest extends LabelClientRequest<Boolean> {
 
-  private final Label mLabel;
-  private final CustomLabelManager.OnLabelsInPackageChangeListener mListener;
+  private static final String TAG = "LabelRemoveRequest";
+
+  private final Label label;
+  private final CustomLabelManager.OnLabelsInPackageChangeListener listener;
 
   public LabelRemoveRequest(
       LabelProviderClient client,
       Label label,
       CustomLabelManager.OnLabelsInPackageChangeListener listener) {
     super(client);
-    mLabel = label;
-    mListener = listener;
+    this.label = label;
+    this.listener = listener;
   }
 
   @Override
   public Boolean doInBackground() {
-    LogUtils.log(
-        this, Log.VERBOSE, "Spawning new LabelRemoveRequest(%d) for label: %s", hashCode(), mLabel);
+    LogUtils.v(TAG, "Spawning new LabelRemoveRequest(%d) for label: %s", hashCode(), label);
 
-    if (mLabel == null || mLabel.getId() == Label.NO_ID) {
+    if (label == null || label.getId() == Label.NO_ID) {
       return false;
     }
 
-    boolean deleteResult = mClient.deleteLabel(mLabel.getId());
+    boolean deleteResult = mClient.deleteLabel(label.getId());
     if (deleteResult) {
       mClient.deleteLabel(
-          mLabel.getPackageName(),
-          mLabel.getViewName(),
-          mLabel.getLocale(),
-          mLabel.getPackageVersion(),
+          label.getPackageName(),
+          label.getViewName(),
+          label.getLocale(),
+          label.getPackageVersion(),
           CustomLabelManager.SOURCE_TYPE_BACKUP);
     }
 
@@ -59,11 +59,10 @@ public class LabelRemoveRequest extends LabelClientRequest<Boolean> {
 
   @Override
   public void onPostExecute(Boolean result) {
-    LogUtils.log(
-        this, Log.VERBOSE, "LabelRemoveRequest(%d) complete. Result: %s", hashCode(), result);
+    LogUtils.v(TAG, "LabelRemoveRequest(%d) complete. Result: %s", hashCode(), result);
 
-    if (mListener != null && result) {
-      mListener.onLabelsInPackageChanged(mLabel.getPackageName());
+    if (listener != null && result) {
+      listener.onLabelsInPackageChanged(label.getPackageName());
     }
   }
 }

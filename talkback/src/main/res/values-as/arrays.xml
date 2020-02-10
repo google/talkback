@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>বুটাম</item>
+    <item>চ্চেক বক্স</item>
+    <item>ৰং নিৰ্বাচক</item>
+    <item>তাৰিখ আৰু সময়ৰ নিয়ন্ত্ৰণ</item>
+    <item>তাৰিখ আৰু সময়ৰ নিয়ন্ত্ৰণ</item>
+    <item>তাৰিখৰ নিয়ন্ত্ৰণ</item>
+    <item>ইমেইলৰ পাঠ সম্পাদনা কৰক</item>
+    <item>ফাইলৰ বাছনি</item>
+    <item translatable="false"></item>
+    <item>বুটাম</item>
+    <item>মাহৰ নিয়ন্ত্ৰণ</item>
+    <item>কেৱল সংখ্যা থকা পাঠ সম্পাদনা কৰক</item>
+    <item>পাছৱর্ড সম্পাদনা কৰা পাঠ</item>
+    <item>ৰেডিঅ\' বুটাম</item>
+    <item>শ্লাইডাৰ</item>
+    <item>ৰিছেট কৰক</item>
+    <item>সন্ধানৰ পাঠ সম্পাদনা কৰক</item>
+    <item>বুটাম</item>
+    <item>টেলিফ\'ন নম্বৰ সম্পাদনা কৰক</item>
+    <item>পাঠ সম্পাদনা কৰক</item>
+    <item>URLৰ পাঠ সম্পাদনা কৰক</item>
+    <item>বছৰটোৰ কোনো সপ্তাহৰ নিয়ন্ত্ৰণ</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>সতৰ্কতা</item>
+    <item>সতৰ্কতা সম্পৰ্কীয় ডায়ল\'গ</item>
+    <item>বুটাম</item>
+    <item>চ্চেক বক্স</item>
+    <item>কম্ব\' বক্স</item>
+    <item>ডায়ল\'গ</item>
+    <item>গ্ৰিড চেল</item>
+    <item>লিংক</item>
+    <item>লগ</item>
+    <item>মাৰকী</item>
+    <item>মেনুত থকা বস্তু</item>
+    <item>মেনুত থকা বস্তুৰ চ্চেক বক্স</item>
+    <item>মেনুত থকা বস্তুৰ ৰেডিঅ\' বুটাম</item>
+    <item>বিকল্প</item>
+    <item>প্ৰগতিৰ হাৰ নির্দেশ কৰা দণ্ড</item>
+    <item>ৰেডিঅ\' বুটাম</item>
+    <item>ৰেডিঅ\' বুটামৰ গোট</item>
+    <item>স্ক্ৰ\'ল কৰা দণ্ড</item>
+    <item>শ্লাইডাৰ</item>
+    <item>স্পিন বুটাম</item>
+    <item>স্থিতি</item>
+    <item>টেব</item>
+    <item>টেবৰ পেনেল</item>
+    <item>পাঠৰ বাকচ</item>
+    <item>টাইমাৰ</item>
+    <item>সঁজুলিৰ দণ্ড</item>
+    <item>সঁজুলি ব্যৱহাৰৰ পৰামর্শ</item>
+    <item>ট্ৰীত থকা বস্তু</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>লিংক</item>
+    <item>প্ৰথম স্তৰৰ শিৰোনাম</item>
+    <item>দ্বিতীয় স্তৰৰ শিৰোনাম</item>
+    <item>তৃতীয় স্তৰৰ শিৰোনাম</item>
+    <item>চতুর্থ স্তৰৰ শিৰোনাম</item>
+    <item>পঞ্চম স্তৰৰ শিৰোনাম</item>
+    <item>ষষ্ঠ স্তৰৰ শিৰোনাম</item>
+    <item>বুটাম</item>
+    <item>কম্ব\' বক্স</item>
+    <item>তালিকা</item>
+    <item>পাঠ লিখা ক্ষেত্ৰ</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

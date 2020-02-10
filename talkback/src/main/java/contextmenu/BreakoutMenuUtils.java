@@ -19,10 +19,10 @@ package com.google.android.accessibility.talkback.contextmenu;
 class BreakoutMenuUtils {
   public abstract static class JogDial {
     /** The number of segments in a jog dial. */
-    private final int mSegmentCount;
+    private final int segmentCount;
 
     public JogDial(int segmentCount) {
-      mSegmentCount = segmentCount;
+      this.segmentCount = segmentCount;
     }
 
     /**
@@ -36,15 +36,15 @@ class BreakoutMenuUtils {
     public void populateMenu(RadialMenu radialMenu) {
       radialMenu.clear();
 
-      for (int i = 0; i < mSegmentCount; i++) {
+      for (int i = 0; i < segmentCount; i++) {
         final RadialMenuItem item = radialMenu.add(RadialMenu.NONE, i, i, "");
-        item.setOnMenuItemSelectionListener(mJogListener);
+        item.setOnMenuItemSelectionListener(jogListener);
       }
     }
 
     /** Returns the number of segments in this jog dial. */
     public int getSegmentCount() {
-      return mSegmentCount;
+      return segmentCount;
     }
 
     /** Called when the user first touches the jog dial. */
@@ -60,26 +60,26 @@ class BreakoutMenuUtils {
      * Jog listener added to individual segments. Interprets movement between adjacent segments as
      * rotation.
      */
-    private final RadialMenuItem.OnMenuItemSelectionListener mJogListener =
+    private final RadialMenuItem.OnMenuItemSelectionListener jogListener =
         new RadialMenuItem.OnMenuItemSelectionListener() {
-          private int mLastItem = -1;
+          private int lastItem = -1;
 
           @Override
           public boolean onMenuItemSelection(RadialMenuItem item) {
             final int itemId = item.getItemId();
-            final int diff = (itemId - mLastItem);
+            final int diff = (itemId - lastItem);
 
-            if (mLastItem >= 0) {
-              if ((diff == -1) || (diff == -mSegmentCount)) {
+            if (lastItem >= 0) {
+              if ((diff == -1) || (diff == -segmentCount)) {
                 onPrevious();
-              } else if ((diff == 1) || (diff == mSegmentCount)) {
+              } else if ((diff == 1) || (diff == segmentCount)) {
                 onNext();
               }
             } else {
               onFirstTouch();
             }
 
-            mLastItem = item.getItemId();
+            lastItem = item.getItemId();
 
             // Don't swallow this event, let the parent handle it as well.
             return false;

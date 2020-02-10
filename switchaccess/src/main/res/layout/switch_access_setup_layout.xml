@@ -43,47 +43,10 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <ViewStub
-            android:id="@+id/switch_access_setup_number_of_switches_import"
-            android:inflatedId="@+id/switch_access_setup_number_of_switches_inflated_import"
-            android:layout="@layout/switch_access_setup_number_of_switches"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <ViewStub
-            android:id="@+id/switch_access_setup_scanning_method_import"
-            android:inflatedId="@+id/switch_access_setup_scanning_method_inflated_import"
-            android:layout="@layout/switch_access_setup_scanning_method"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <ViewStub
-            android:id="@+id/switch_access_setup_configure_switch_import"
-            android:inflatedId="@+id/switch_access_setup_configure_switch_inflated_import"
-            android:layout="@layout/switch_access_setup_configure_switch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <ViewStub
-            android:id="@+id/switch_access_setup_step_speed_import"
-            android:inflatedId="@+id/switch_access_setup_step_speed_inflated_import"
-            android:layout="@layout/switch_access_setup_step_speed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <ViewStub
-            android:id="@+id/switch_access_setup_switch_game_import"
-            android:inflatedId="@+id/switch_access_setup_switch_game_inflated_import"
-            android:layout="@layout/switch_access_setup_switch_game"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <ViewStub
-            android:id="@+id/switch_access_setup_completion_import"
-            android:inflatedId="@+id/switch_access_setup_completion_inflated_import"
-            android:layout="@layout/switch_access_setup_completion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+      <FrameLayout
+          android:id="@+id/fragment_layout_container"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
@@ -95,24 +58,26 @@
         android:paddingEnd="@dimen/setup_wizard_activity_margin"
         android:background="@color/setup_wizard_footer_background" >
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/previous_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:minHeight="@dimen/setup_wizard_min_button_height"
             android:layout_weight="1"
             android:focusable="true"
             android:textAllCaps="true"
             android:gravity="center"
-            style="@style/SwitchAccessButtonBarButtonStyle" />
+            style="@style/SwitchAccessButtonBarButtonStyle"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/next_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:minHeight="@dimen/setup_wizard_min_button_height"
             android:focusable="true"
             android:textAllCaps="true"
             android:gravity="center"
-            style="@style/SwitchAccessButtonBarButtonStyle" />
+            style="@style/SwitchAccessButtonBarButtonStyle"/>
     </LinearLayout>
 </LinearLayout>

@@ -17,6 +17,7 @@
 package com.google.android.accessibility.utils.volumebutton;
 
 import android.os.SystemClock;
+import androidx.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 
@@ -25,8 +26,8 @@ public class DoubleVolumeButtonLongPressPatternMatcher extends VolumeButtonPatte
 
   private static final int LONG_PRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout();
 
-  private VolumeButtonAction mVolumeUpAction;
-  private VolumeButtonAction mVolumeDownAction;
+  private @Nullable VolumeButtonAction mVolumeUpAction;
+  private @Nullable VolumeButtonAction mVolumeDownAction;
 
   public DoubleVolumeButtonLongPressPatternMatcher() {
     super(
@@ -73,16 +74,16 @@ public class DoubleVolumeButtonLongPressPatternMatcher extends VolumeButtonPatte
 
   @Override
   public boolean checkMatch() {
+    long uptime = SystemClock.uptimeMillis();
     if (mVolumeUpAction == null || mVolumeDownAction == null) {
       return false;
     }
 
     long doubleButtonStartTimestamp =
         Math.max(mVolumeUpAction.startTimestamp, mVolumeDownAction.startTimestamp);
-    long upButtonEndTimestamp =
-        mVolumeUpAction.pressed ? SystemClock.uptimeMillis() : mVolumeUpAction.endTimestamp;
+    long upButtonEndTimestamp = mVolumeUpAction.pressed ? uptime : mVolumeUpAction.endTimestamp;
     long downButtonEndTimestamp =
-        mVolumeDownAction.pressed ? SystemClock.uptimeMillis() : mVolumeDownAction.endTimestamp;
+        mVolumeDownAction.pressed ? uptime : mVolumeDownAction.endTimestamp;
     long doubleButtonEndTimestamp = Math.min(upButtonEndTimestamp, downButtonEndTimestamp);
     return doubleButtonEndTimestamp - doubleButtonStartTimestamp > LONG_PRESS_TIMEOUT;
   }

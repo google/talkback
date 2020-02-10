@@ -32,26 +32,26 @@ public class OrientationMonitor {
     public void onOrientationChanged(int newOrientation);
   }
 
-  private final Compositor mCompositor;
-  private final PowerManager mPowerManager;
+  private final Compositor compositor;
+  private final PowerManager powerManager;
 
   /** The orientation of the most recently received configuration. */
-  private int mLastOrientation;
+  private int lastOrientation;
 
-  private List<OnOrientationChangedListener> mListeners;
+  private List<OnOrientationChangedListener> listeners;
 
   public OrientationMonitor(Compositor compositor, Context context) {
-    mCompositor = compositor;
-    mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-    mListeners = new ArrayList<>();
+    this.compositor = compositor;
+    powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+    listeners = new ArrayList<>();
   }
 
   public void addOnOrientationChangedListener(OnOrientationChangedListener listener) {
-    mListeners.add(listener);
+    listeners.add(listener);
   }
 
   public void notifyOnOrientationChanged(int newOrientation) {
-    for (OnOrientationChangedListener listener : mListeners) {
+    for (OnOrientationChangedListener listener : listeners) {
       listener.onOrientationChanged(newOrientation);
     }
   }
@@ -64,25 +64,25 @@ public class OrientationMonitor {
    */
   public void onConfigurationChanged(Configuration newConfig) {
     final int orientation = newConfig.orientation;
-    if (orientation == mLastOrientation) {
+    if (orientation == lastOrientation) {
       return;
     }
 
     EventId eventId = Performance.getInstance().onRotateEventReceived(orientation);
 
-    mLastOrientation = orientation;
-    notifyOnOrientationChanged(mLastOrientation);
+    lastOrientation = orientation;
+    notifyOnOrientationChanged(lastOrientation);
 
-    //noinspection deprecation
-    if (!mPowerManager.isScreenOn()) {
+    // noinspection deprecation
+    if (!powerManager.isScreenOn()) {
       // Don't announce rotation when the screen is off.
       return;
     }
 
     if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-      mCompositor.sendEvent(Compositor.EVENT_ORIENTATION_PORTRAIT, eventId);
+      compositor.handleEvent(Compositor.EVENT_ORIENTATION_PORTRAIT, eventId);
     } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-      mCompositor.sendEvent(Compositor.EVENT_ORIENTATION_LANDSCAPE, eventId);
+      compositor.handleEvent(Compositor.EVENT_ORIENTATION_LANDSCAPE, eventId);
     }
 
     Performance.getInstance().onHandlerDone(eventId);

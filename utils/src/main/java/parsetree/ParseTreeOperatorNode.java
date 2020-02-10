@@ -16,10 +16,12 @@
 
 package com.google.android.accessibility.utils.parsetree;
 
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 class ParseTreeOperatorNode extends ParseTreeNode {
+
+  private static final String TAG = "ParseTreeOperatorNode";
+
   private final @ParseTree.Operator int mOperator;
   private final ParseTreeNode mLvalue;
   private final ParseTreeNode mRvalue;
@@ -94,7 +96,7 @@ class ParseTreeOperatorNode extends ParseTreeNode {
       case ParseTree.OPERATOR_MULTIPLY:
       case ParseTree.OPERATOR_DIVIDE:
       case ParseTree.OPERATOR_POW:
-        LogUtils.log(this, Log.ERROR, "Cannot coerce Number to Boolean");
+        LogUtils.e(TAG, "Cannot coerce Number to Boolean");
         return false;
 
       case ParseTree.OPERATOR_EQUALS:
@@ -159,7 +161,7 @@ class ParseTreeOperatorNode extends ParseTreeNode {
       case ParseTree.OPERATOR_AND:
       case ParseTree.OPERATOR_OR:
       default:
-        LogUtils.log(this, Log.ERROR, "Cannot coerce Boolean to Integer");
+        LogUtils.e(TAG, "Cannot coerce Boolean to Integer");
         return 0;
     }
   }
@@ -193,7 +195,7 @@ class ParseTreeOperatorNode extends ParseTreeNode {
       case ParseTree.OPERATOR_AND:
       case ParseTree.OPERATOR_OR:
       default:
-        LogUtils.log(this, Log.ERROR, "Cannot coerce Boolean to Number");
+        LogUtils.e(TAG, "Cannot coerce Boolean to Number");
         return 0;
     }
   }
@@ -223,7 +225,7 @@ class ParseTreeOperatorNode extends ParseTreeNode {
       return mLvalue.resolveToNumber(delegate, logIndent)
           == mRvalue.resolveToNumber(delegate, logIndent);
     }
-    LogUtils.log(this, Log.ERROR, "Incompatible types in compare: %d, %d", ltype, rtype);
+    LogUtils.e(TAG, "Incompatible types in compare: %d, %d", ltype, rtype);
     return false;
   }
 }

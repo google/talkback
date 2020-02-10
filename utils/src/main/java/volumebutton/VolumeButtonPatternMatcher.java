@@ -21,6 +21,7 @@ import com.google.android.accessibility.utils.volumebutton.VolumeButtonPatternDe
 import com.google.android.accessibility.utils.volumebutton.VolumeButtonPatternDetector.ButtonsUsed;
 
 /** Matches patterned action on volume buttons. */
+// TODO:  Simplify VolumeButtonPatternMatcher subclasses.
 public abstract class VolumeButtonPatternMatcher {
 
   @ButtonSequence private final int mPatternCode;

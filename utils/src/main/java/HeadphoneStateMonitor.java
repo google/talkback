@@ -16,12 +16,10 @@
 
 package com.google.android.accessibility.utils;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioDeviceCallback;
 import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
-import android.os.Build;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -41,11 +39,7 @@ public class HeadphoneStateMonitor {
   private Context mContext;
   private Listener mListener;
 
-  @TargetApi(Build.VERSION_CODES.M)
   public HeadphoneStateMonitor(Context context) {
-    if (!BuildVersionUtils.isAtLeastM()) {
-      return;
-    }
     mContext = context;
     mAudioDeviceCallback =
         new AudioDeviceCallback() {
@@ -74,11 +68,7 @@ public class HeadphoneStateMonitor {
   }
 
   /** Initializes this HeadphoneStateMonitor to start listening to headphone state changes. */
-  @TargetApi(Build.VERSION_CODES.M)
   public void startMonitoring() {
-    if (!BuildVersionUtils.isAtLeastM()) {
-      return;
-    }
     AudioManager audioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
     // Initialize the active device count.
     mConnectedAudioDevices.clear();
@@ -92,11 +82,7 @@ public class HeadphoneStateMonitor {
   }
 
   /** Stop listening to headphone state changes. */
-  @TargetApi(Build.VERSION_CODES.M)
   public void stopMonitoring() {
-    if (!BuildVersionUtils.isAtLeastM()) {
-      return;
-    }
     AudioManager audioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
     audioManager.unregisterAudioDeviceCallback(mAudioDeviceCallback);
   }
@@ -115,21 +101,16 @@ public class HeadphoneStateMonitor {
    * result.
    */
   @SuppressWarnings("deprecation")
-  @TargetApi(Build.VERSION_CODES.M)
   public static boolean isHeadphoneOn(Context context) {
     AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-    if (BuildVersionUtils.isAtLeastM()) {
-      AudioDeviceInfo[] devices = audioManager.getDevices(AudioManager.GET_DEVICES_OUTPUTS);
-      for (AudioDeviceInfo device : devices) {
-        if (isExternalDevice(device)) {
-          // While there can be more than one external audio device, finding one is enough here.
-          return true;
-        }
+    AudioDeviceInfo[] devices = audioManager.getDevices(AudioManager.GET_DEVICES_OUTPUTS);
+    for (AudioDeviceInfo device : devices) {
+      if (isExternalDevice(device)) {
+        // While there can be more than one external audio device, finding one is enough here.
+        return true;
       }
-      return false;
-    } else {
-      return audioManager.isBluetoothA2dpOn() || audioManager.isWiredHeadsetOn();
     }
+    return false;
   }
 
   /**

@@ -1,151 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"Talkback ativado"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack suspenso"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack retomado"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"TalkBack desativado"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"Feedback falado ativado"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"Feedback falado suspenso"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"Feedback falado retomado"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"Feedback falado desativado"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Início do campo"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Fim do campo"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Modo de seleção ativado"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Modo de seleção desativado"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Seleção removida"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"Ligar"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"Mensagem"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"E-mail"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"Evento"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"Promoção"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"Alarme"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"Andamento"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"Redes sociais"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"Erro"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"Controle de mídia"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"Status do sistema"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"Serviço"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"Menu de <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> substituiu <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> excluído"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"cortado, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"colado, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, selecionado"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"Texto selecionado: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, não selecionado"</string>
-    <string name="template_text_error" msgid="153775825635730287">"Entrada inválida <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> caracteres substituídos por <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> caracteres"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> para <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> por cento."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="one"><xliff:g id="TYPE_2">%1$s</xliff:g> exibindo <xliff:g id="COUNT_3">%2$d</xliff:g> itens.</item>
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> exibindo <xliff:g id="COUNT_3">%2$d</xliff:g> itens.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"Grade"</string>
-    <string name="value_listview" msgid="7625152822709234439">"Lista"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"Barra de guias"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"Lista suspensa"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"Caixa de seleção"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"Botão de opção"</string>
-    <string name="value_button" msgid="2459787142940409576">"Botão"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"Controle de busca"</string>
-    <string name="value_switch" msgid="6946709666466895221">"Interruptor"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"Caixa de edição"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"Editando"</string>
-    <string name="value_image" msgid="5114229220871881124">"Imagem"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"Sem marcador"</string>
-    <string name="value_pager" msgid="7708574424402835461">"Visualização de várias páginas"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"Página"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"Barra de progresso"</string>
-    <string name="value_webview" msgid="291321285400233958">"Visualização da Web"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"Caracteres de <xliff:g id="FROM_INDEX">%1$d</xliff:g> a <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"Caractere <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"senha"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Barra deslizante aberta"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"Opções."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"Texto limpo"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Tamanho máximo atingido"</string>
-    <string name="value_selected" msgid="1307429702194660766">"selecionado"</string>
-    <string name="value_checked" msgid="3006751014125833966">"selecionado"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"não selecionado"</string>
-    <string name="value_on" msgid="39454338086317219">"ativado"</string>
-    <string name="value_off" msgid="6700497510945744608">"desativado"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"desativado"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"expandido"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"recolhido"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"Tocar duas vezes"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"Toque"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"Pressione \"Selecionar\""</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> para ativar."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Pressione <xliff:g id="KEYCOMBO">%1$s</xliff:g> para ativar."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> e segure para manter pressionado."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Pressione <xliff:g id="KEYCOMBO">%1$s</xliff:g> para manter pressionado."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> para alternar."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Pressione <xliff:g id="KEYCOMBO">%1$s</xliff:g> para alternar."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> para inserir texto."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Pressione <xliff:g id="KEYCOMBO">%1$s</xliff:g> para digitar um texto."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> para alterar."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Pressione <xliff:g id="KEYCOMBO">%1$s</xliff:g> para alterar."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"Deslize com dois dedos para alternar entre as páginas."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"Mais nenhuma página."</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"Use as teclas de volume para ajustar"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g> para alterar."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"Ações:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> para <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Pressione <xliff:g id="KEYCOMBO">%1$s</xliff:g> para <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> e mantenha pressionado para <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock ativado."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock desativado."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock ativado."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock desativado."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock ativado."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock desativado."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"Retrato"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"Paisagem"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"Dispensar"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"Expandir"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"Recolher"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"Linha <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"Coluna <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"Título"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"Título de linha"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"Título da coluna"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"Picture-in-picture de <xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g>"</string>
-    <string name="in_list" msgid="444302621514168828">"Na lista <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"Na lista"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"Fora da lista <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"Fora da lista"</string>
-    <string name="in_grid" msgid="6705387966271590222">"Na grade <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"Na grade"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"Fora da grade <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"Fora da grade"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"Nível <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> itens</item>
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> itens</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="one"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> linhas</item>
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> linhas</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> colunas</item>
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> colunas</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> caracteres</item>
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> caracteres</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"Ampliação em <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"<xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%% de ampliação"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"Ampliação desativada"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"Taxa de fala: <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"Redução de áudio ativada"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"Redução de áudio desativada"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"Taxa de fala"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"Verbosidade"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"Navegação"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"Redução de áudio"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"Senhas faladas apenas ao usar fones de ouvido"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">Talkback ativado</string>
+  <string name="talkback_suspended">TalkBack suspenso</string>
+  <string name="talkback_resumed">TalkBack retomado</string>
+  <string name="talkback_disabled">TalkBack desativado</string>
+  <string name="spokenfeedback_on">Feedback falado ativado</string>
+  <string name="spokenfeedback_suspended">Feedback falado suspenso</string>
+  <string name="spokenfeedback_resumed">Feedback falado retomado</string>
+  <string name="spokenfeedback_disabled">Feedback falado desativado</string>
+  <string name="notification_type_beginning_of_field">Início do campo</string>
+  <string name="notification_type_end_of_field">Fim do campo</string>
+  <string name="notification_type_selection_mode_on">Modo de seleção ativado</string>
+  <string name="notification_type_selection_mode_off">Modo de seleção desativado</string>
+  <string name="notification_type_selection_cleared">Seleção removida</string>
+  <string name="notification_category_call">Ligar</string>
+  <string name="notification_category_msg">Mensagem</string>
+  <string name="notification_category_email">E-mail</string>
+  <string name="notification_category_event">Evento</string>
+  <string name="notification_category_promo">Promoção</string>
+  <string name="notification_category_alarm">Alarme</string>
+  <string name="notification_category_progress">Andamento</string>
+  <string name="notification_category_social">Redes sociais</string>
+  <string name="notification_category_err">Erro</string>
+  <string name="notification_category_transport">Controle de mídia</string>
+  <string name="notification_category_sys">Status do sistema</string>
+  <string name="notification_category_service">Serviço</string>
+  <string name="template_drawer_opened">Menu de %1$s</string>
+  <string name="template_text_replaced">%1$s substituiu %2$s</string>
+  <string name="template_text_removed">%1$s excluído</string>
+  <string name="template_text_cut">cortado, %1$s</string>
+  <string name="template_text_pasted">colado, %1$s</string>
+  <string name="template_text_selected">%1$s, selecionado</string>
+  <string name="template_announce_selected_text">Texto selecionado: %1$s</string>
+  <string name="template_text_unselected">%1$s, não selecionado</string>
+  <string name="template_text_error">Entrada inválida %1$s</string>
+  <string name="template_replaced_characters">%1$s caracteres substituídos por %2$s caracteres</string>
+  <string name="template_labeled_item">%1$s para %2$s</string>
+  <string name="template_percent">%1$s por cento.</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s exibindo %2$d itens.</item>
+    <item quantity="other">%1$s exibindo %2$d itens.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">Grade</string>
+  <string name="value_listview">Lista</string>
+  <string name="value_tabwidget">Barra de guias</string>
+  <string name="value_spinner">Lista suspensa</string>
+  <string name="value_checkbox">Caixa de seleção</string>
+  <string name="value_radio_button">Botão de opção</string>
+  <string name="value_button">Botão</string>
+  <string name="value_seek_bar">Controle de busca</string>
+  <string name="value_switch">Interruptor</string>
+  <string name="value_edit_box">Caixa de edição</string>
+  <string name="value_edit_box_editing">Editando</string>
+  <string name="value_image">Imagem</string>
+  <string name="value_unlabelled">Sem marcador</string>
+  <string name="value_pager">Visualização de várias páginas</string>
+  <string name="value_pager_page">Página</string>
+  <string name="value_progress_bar">Barra de progresso</string>
+  <string name="value_webview">Visualização da Web</string>
+  <string name="value_toolbar">Barra de ferramentas</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">Caracteres de %1$d a %2$d</string>
+  <string name="template_password_traversed">Caractere %1$d</string>
+  <string name="value_password">senha</string>
+  <string name="value_sliding_drawer_opened">Barra deslizante aberta</string>
+  <string name="value_options_menu_open">Opções.</string>
+  <string name="value_text_cleared">Texto limpo</string>
+  <string name="value_text_max_length">Tamanho máximo atingido</string>
+  <string name="value_selected">selecionado</string>
+  <string name="value_checked">selecionado</string>
+  <string name="value_not_checked">não selecionado</string>
+  <string name="value_on">ativado</string>
+  <string name="value_off">desativado</string>
+  <string name="value_disabled">desativado</string>
+  <string name="value_expanded">expandido</string>
+  <string name="value_collapsed">recolhido</string>
+  <string name="value_double_tap">Tocar duas vezes</string>
+  <string name="value_single_tap">Toque</string>
+  <string name="value_switch_press">Pressione o interruptor de seleção</string>
+  <string name="value_press_select">Pressione \"Selecionar\"</string>
+  <string name="template_hint_clickable">%1$s para ativar.</string>
+  <string name="template_hint_clickable_keyboard">Pressione %1$s para ativar.</string>
+  <string name="template_hint_long_clickable">%1$s e segure para manter pressionado.</string>
+  <string name="template_hint_long_clickable_keyboard">Pressione %1$s para manter pressionado.</string>
+  <string name="template_hint_checkable">%1$s para alternar.</string>
+  <string name="template_hint_checkable_keyboard">Pressione %1$s para alternar.</string>
+  <string name="template_hint_edit_text">%1$s para editar o texto.</string>
+  <string name="template_hint_edit_text_keyboard">Pressione %1$s para editar o texto.</string>
+  <string name="template_hint_spinner">%1$s para alterar.</string>
+  <string name="template_hint_spinner_keyboard">Pressione %1$s para alterar.</string>
+  <string name="template_hint_pager">Deslize com dois dedos para alternar entre as páginas.</string>
+  <string name="template_hint_pager_single_page">Mais nenhuma página.</string>
+  <string name="template_hint_seek_control">Use as teclas de volume para ajustar</string>
+  <string name="template_hint_seek_control_tv">%1$s para alterar.</string>
+  <string name="template_hint_custom_actions">Ações:</string>
+  <string name="template_custom_hint_for_actions">%1$s para %2$s.</string>
+  <string name="template_custom_hint_for_actions_keyboard">Pressione %1$s para %2$s.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s e mantenha pressionado para %2$s.</string>
+  <string name="template_sa_custom_hint_scrollable">%1$s para rolar.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">%1$s para ver as ações disponíveis.</string>
+  <string name="template_sa_hint_seek_control">Pressione o interruptor de seleção para ajustar</string>
+  <string name="value_caps_lock_on">Caps Lock ativado.</string>
+  <string name="value_caps_lock_off">Caps Lock desativado.</string>
+  <string name="value_num_lock_on">Num Lock ativado.</string>
+  <string name="value_num_lock_off">Num Lock desativado.</string>
+  <string name="value_scroll_lock_on">Scroll Lock ativado.</string>
+  <string name="value_scroll_lock_off">Scroll Lock desativado.</string>
+  <string name="orientation_portrait">Retrato</string>
+  <string name="orientation_landscape">Paisagem</string>
+  <string name="title_action_dismiss">Dispensar</string>
+  <string name="title_action_expand">Expandir</string>
+  <string name="title_action_collapse">Recolher</string>
+  <string name="row_index_template">Linha %1$d</string>
+  <string name="column_index_template">Coluna %1$d</string>
+  <string name="heading_template">Título</string>
+  <string name="row_heading_template">Título de linha</string>
+  <string name="column_heading_template">Título da coluna</string>
+  <string name="in_list">Na lista %1$s</string>
+  <string name="in_list_without_name">Na lista</string>
+  <string name="out_of_list">Fora da lista %1$s</string>
+  <string name="out_of_list_without_name">Fora da lista</string>
+  <string name="in_grid">Na grade %1$s</string>
+  <string name="in_grid_without_name">Na grade</string>
+  <string name="out_of_grid">Fora da grade %1$s</string>
+  <string name="out_of_grid_without_name">Fora da grade</string>
+  <string name="in_pager_with_name">No pager %1$s</string>
+  <string name="in_pager">No pager</string>
+  <string name="out_of_pager_with_name">Fora do pager %1$s</string>
+  <string name="out_of_pager">Fora do pager</string>
+  <string name="in_vertical_pager_with_name">No pager vertical %1$s</string>
+  <string name="in_vertical_pager">No pager vertical</string>
+  <string name="out_of_vertical_pager_with_name">Fora do pager vertical %1$s</string>
+  <string name="out_of_vertical_pager">Fora do pager vertical</string>
+  <string name="in_horizontal_pager_with_name">No pager horizontal %1$s</string>
+  <string name="in_horizontal_pager">No pager horizontal</string>
+  <string name="out_of_horizontal_pager_with_name">Fora do pager horizontal %1$s</string>
+  <string name="out_of_horizontal_pager">Fora do pager horizontal</string>
+  <string name="in_grid_pager_with_name">No pager em grade %1$s</string>
+  <string name="in_grid_pager">No pager em grade</string>
+  <string name="out_of_grid_pager_with_name">Fora do pager em grade %1$s</string>
+  <string name="out_of_grid_pager">Fora do pager em grade</string>
+  <string name="template_collection_level">Nível %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d itens</item>
+    <item quantity="other">%1$d itens</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d linhas</item>
+    <item quantity="other">%1$d linhas</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d colunas</item>
+    <item quantity="other">%1$d colunas</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d caracteres</item>
+    <item quantity="other">%1$d caracteres</item>
+  </plurals>
+  <string name="template_screen_magnification_on">Ampliação em %1$d%%</string>
+  <string name="template_screen_magnification_scale_changed">%1$d%% de ampliação</string>
+  <string name="screen_magnification_off">Ampliação desativada</string>
+  <string name="template_speech_rate_change">Velocidade da fala: %1$d%%</string>
+  <string name="audio_focus_on">Redução de áudio ativada</string>
+  <string name="audio_focus_off">Redução de áudio desativada</string>
+  <string name="selector_speech_rate_output">Velocidade da fala</string>
+  <string name="selector_verbosity_output">Verbosidade</string>
+  <string name="selector_granularity_output">Navegação</string>
+  <string name="selector_audio_focus_output">Redução de áudio</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">Senhas faladas apenas ao usar fones de ouvido</string>
+  <string name="template_hint_menu_type_high_verbosity">%1$s disponível. Use o gesto %2$s para ver.</string>
+  <string name="template_hint_menu_type_low_verbosity">%1$s disponível.</string>
 </resources>

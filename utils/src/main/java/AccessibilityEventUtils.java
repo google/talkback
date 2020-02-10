@@ -18,21 +18,50 @@ package com.google.android.accessibility.utils;
 
 import android.app.Notification;
 import android.os.Parcelable;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityRecordCompat;
-import android.support.v4.view.accessibility.AccessibilityWindowInfoCompat;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityRecordCompat;
+import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityNodeInfo;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** This class contains utility methods. */
 public class AccessibilityEventUtils {
 
   private static final String DIALOG_CLASS_NAME = "android.app.Dialog";
+  private static final String VOLUME_CONTROLS_CLASS_IN_ANDROID_P =
+      "com.android.systemui.volume.VolumeDialogImpl$CustomDialog";
+
+  /** Unknown window id. Must match private variable AccessibilityWindowInfo.UNDEFINED_WINDOW_ID */
+  public static final int WINDOW_ID_NONE = -1;
+
+  /** Undefined scroll delta. */
+  public static final int DELTA_UNDEFINED = -1;
 
   private AccessibilityEventUtils() {
     // This class is not instantiable.
+  }
+
+  /** Returns window id from event, or WINDOW_ID_NONE. */
+  public static int getWindowId(@Nullable AccessibilityEvent event) {
+    if (event == null) {
+      return WINDOW_ID_NONE;
+    }
+    // Try to get window id from event.
+    int windowId = event.getWindowId();
+    if (windowId != WINDOW_ID_NONE) {
+      return windowId;
+    }
+    // Try to get window id from event source.
+    AccessibilityNodeInfo source = event.getSource();
+    try {
+      return (source == null) ? WINDOW_ID_NONE : source.getWindowId();
+    } finally {
+      AccessibilityNodeInfoUtils.recycleNodes(source);
+    }
   }
 
   /**
@@ -107,13 +136,15 @@ public class AccessibilityEventUtils {
    *   <li>Returns true for volume slider.
    * </ul>
    */
+  // TODO: Add window-types similar to AccessibilityWindowInfo.getType(), but more
+  // specific and more stable across android versions.
   public static boolean isNonMainWindowEvent(AccessibilityEvent event) {
     // If there's an actual window ID, we need to check the window type (if window available).
     boolean isNonMainWindow = false;
     AccessibilityRecordCompat record = AccessibilityEventCompat.asRecord(event);
     AccessibilityNodeInfoCompat source = record.getSource();
     if (source != null) {
-      AccessibilityWindowInfoCompat window = source.getWindow();
+      AccessibilityWindowInfoCompat window = AccessibilityNodeInfoUtils.getWindow(source);
       if (window == null) {
         // If window is not visible, we cannot know whether the window type is input method
         // or not. Let's assume that it comes from an IME. If window is visible but window
@@ -126,11 +157,7 @@ public class AccessibilityEventUtils {
             isNonMainWindow = true;
             break;
           case AccessibilityWindowInfoCompat.TYPE_SYSTEM:
-            // Volume slider case.
-            // TODO: Find better way to handle volume slider.
-            isNonMainWindow =
-                BuildVersionUtils.isAtLeastO()
-                    && TextUtils.equals(event.getClassName(), DIALOG_CLASS_NAME);
+            isNonMainWindow = isFromVolumeControlPanel(event);
             break;
           default: // fall out
         }
@@ -139,6 +166,20 @@ public class AccessibilityEventUtils {
       source.recycle();
     }
     return isNonMainWindow;
+  }
+
+  public static boolean isFromVolumeControlPanel(AccessibilityEvent event) {
+    // Volume slider case.
+    // TODO: Find better way to handle volume slider.
+    CharSequence sourceClassName = event.getClassName();
+    boolean isVolumeInAndroidP =
+        BuildVersionUtils.isAtLeastP()
+            && TextUtils.equals(sourceClassName, VOLUME_CONTROLS_CLASS_IN_ANDROID_P);
+    boolean isVolumeInAndroidO =
+        BuildVersionUtils.isAtLeastO()
+            && (!BuildVersionUtils.isAtLeastP())
+            && TextUtils.equals(sourceClassName, DIALOG_CLASS_NAME);
+    return isVolumeInAndroidO || isVolumeInAndroidP;
   }
 
   /** Returns whether the {@link AccessibilityEvent} contains {@link Notification} data. */
@@ -155,7 +196,7 @@ public class AccessibilityEventUtils {
    * @param event The event to extract from.
    * @return The extracted Notification, or {@code null} on error.
    */
-  public static Notification extractNotification(AccessibilityEvent event) {
+  public static @Nullable Notification extractNotification(AccessibilityEvent event) {
     final Parcelable parcelable = event.getParcelableData();
 
     if (!(parcelable instanceof Notification)) {
@@ -242,17 +283,38 @@ public class AccessibilityEventUtils {
     return defaultValue;
   }
 
+  public static boolean hasSourceNode(AccessibilityEvent event) {
+    if (event == null) {
+      return false;
+    }
+    AccessibilityNodeInfo source = event.getSource();
+    try {
+      return source != null;
+    } finally {
+      AccessibilityNodeInfoUtils.recycleNodes(source);
+    }
+  }
+
   /**
-   * Recycles an old event, and obtains a copy of a new event to replace the old event. Example
-   * usage: AccessibilityEvent lastEvent = firstEvent.obtain(); // Use lastEvent... lastEvent =
-   * replace(lastEvent, secondEvent); // Use lastEvent... lastEvent.recycle();
+   * Recycles an old event, and obtains a copy of a new event to replace the old event.
+   *
+   * <p>Example usage:
+   *
+   * <pre>{@code
+   * AccessibilityEvent lastEvent = firstEvent.obtain();
+   * // Use lastEvent...
+   * lastEvent = replaceWithCopy(lastEvent, secondEvent);
+   * // Use lastEvent...
+   * lastEvent.recycle();
+   * }</pre>
    *
    * @param old An old event, which will be recycled by this function.
    * @param newEvent A new event which will be copied by this function. Caller must recycle
    *     newEvent.
    * @return A copy of newEvent, that the caller must eventually recycle.
    */
-  public static AccessibilityEvent replace(AccessibilityEvent old, AccessibilityEvent newEvent) {
+  public static AccessibilityEvent replaceWithCopy(
+      @Nullable AccessibilityEvent old, @Nullable AccessibilityEvent newEvent) {
     if (old != null) {
       old.recycle();
     }
@@ -350,5 +412,19 @@ public class AccessibilityEventUtils {
       default:
         return "(unhandled)";
     }
+  }
+
+  public static int getScrollDeltaX(AccessibilityEvent event) {
+    return BuildVersionUtils.isAtLeastP() ? event.getScrollDeltaX() : DELTA_UNDEFINED;
+  }
+
+  public static int getScrollDeltaY(AccessibilityEvent event) {
+    return BuildVersionUtils.isAtLeastP() ? event.getScrollDeltaY() : DELTA_UNDEFINED;
+  }
+
+  public static boolean hasValidScrollDelta(AccessibilityEvent event) {
+    return BuildVersionUtils.isAtLeastP()
+        && ((event.getScrollDeltaX() != DELTA_UNDEFINED)
+            || (event.getScrollDeltaY() != DELTA_UNDEFINED));
   }
 }

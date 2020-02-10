@@ -20,10 +20,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -31,6 +30,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.TextView;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.contextmenu.MenuActionInterceptor;
@@ -50,30 +50,30 @@ public class TutorialLessonFragment extends Fragment
   private static final int DELAY_BEFORE_ANNOUNCE_LESSON = 100;
   private static final int DELAY_BEFORE_AUTO_MOVE_TO_NEXT_LESSON = 1000;
 
-  private TutorialController mTutorialController;
-  private TutorialLesson mLesson;
-  private TutorialLessonPage mPage;
-  private Exercise mExercise;
-  private int mCurrentPage;
-  private TutorialNavigationCallback mCallback;
-  private TextView mDescription;
-  private SpeechController mSpeechController;
-  private GestureActionMonitor mActionMonitor = new GestureActionMonitor();
-  private Handler mHandler = new Handler(Looper.getMainLooper());
+  private TutorialController tutorialController;
+  private TutorialLesson lesson;
+  private TutorialLessonPage page;
+  private Exercise exercise;
+  private int currentPage;
+  private TutorialNavigationCallback callback;
+  private TextView description;
+  private SpeechController speechController;
+  private GestureActionMonitor actionMonitor = new GestureActionMonitor();
+  private Handler handler = new Handler(Looper.getMainLooper());
 
   public void setLesson(TutorialLesson lesson, int currentPage) {
-    mLesson = lesson;
-    mPage = mLesson.getLessonPage(currentPage);
-    mCurrentPage = currentPage;
-    mExercise = mPage.getExercise();
+    this.lesson = lesson;
+    page = this.lesson.getLessonPage(currentPage);
+    this.currentPage = currentPage;
+    exercise = page.getExercise();
   }
 
   public void setTutorialController(TutorialController tutorialController) {
-    mTutorialController = tutorialController;
+    this.tutorialController = tutorialController;
   }
 
   public void setTutorialNavigationCallback(TutorialNavigationCallback callback) {
-    mCallback = callback;
+    this.callback = callback;
   }
 
   @Override
@@ -81,24 +81,24 @@ public class TutorialLessonFragment extends Fragment
     super.onCreate(instance);
     setRetainInstance(true);
     setHasOptionsMenu(true);
-    if (mExercise != null) {
-      mExercise.setExerciseCallBack(this);
+    if (exercise != null) {
+      exercise.setExerciseCallBack(this);
     }
 
     TalkBackService service = TalkBackService.getInstance();
     if (service != null) {
-      mSpeechController = service.getSpeechController();
+      speechController = service.getSpeechController();
     }
 
-    mActionMonitor.setListener(this);
+    actionMonitor.setListener(this);
   }
 
   @Override
   public void onStart() {
     super.onStart();
 
-    MenuTransformer menuTransformer = mExercise.getContextMenuTransformer();
-    MenuActionInterceptor menuActionInterceptor = mExercise.getContextMenuActionInterceptor();
+    MenuTransformer menuTransformer = exercise.getContextMenuTransformer();
+    MenuActionInterceptor menuActionInterceptor = exercise.getContextMenuActionInterceptor();
     TalkBackService service = TalkBackService.getInstance();
     if (service != null) {
       MenuManager menuManager = service.getMenuManager();
@@ -120,18 +120,18 @@ public class TutorialLessonFragment extends Fragment
             }
 
             view.announceForAccessibility(getTitle());
-            view.announceForAccessibility(mPage.getSubtitle());
-            mDescription.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED);
+            view.announceForAccessibility(page.getSubtitle());
+            description.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED);
           }
         },
         DELAY_BEFORE_ANNOUNCE_LESSON);
-    mExercise.onInitialized(getActivity());
+    exercise.onInitialized(getActivity());
   }
 
   @Override
   public void onStop() {
     super.onStop();
-    mExercise.clear();
+    exercise.clear();
     TalkBackService service = TalkBackService.getInstance();
     if (service != null) {
       service.getMenuManager().setMenuTransformer(null);
@@ -153,20 +153,20 @@ public class TutorialLessonFragment extends Fragment
       }
 
       LocalBroadcastManager.getInstance(activity)
-          .registerReceiver(mActionMonitor, GestureActionMonitor.FILTER);
+          .registerReceiver(actionMonitor, GestureActionMonitor.FILTER);
     }
 
     TalkBackService service = TalkBackService.getInstance();
     if (service != null) {
-      service.addEventListener(mExercise);
+      service.addEventListener(exercise);
     }
   }
 
   private String getTitle() {
-    if (!TextUtils.isEmpty(mPage.getTitle())) {
-      return mPage.getTitle();
+    if (!TextUtils.isEmpty(page.getTitle())) {
+      return page.getTitle();
     } else {
-      return mLesson.getTitle();
+      return lesson.getTitle();
     }
   }
 
@@ -175,45 +175,45 @@ public class TutorialLessonFragment extends Fragment
     super.onPause();
     TalkBackService service = TalkBackService.getInstance();
     if (service != null) {
-      service.postRemoveEventListener(mExercise);
+      service.postRemoveEventListener(exercise);
     }
 
     Activity activity = getActivity();
     if (activity != null) {
-      LocalBroadcastManager.getInstance(activity).unregisterReceiver(mActionMonitor);
+      LocalBroadcastManager.getInstance(activity).unregisterReceiver(actionMonitor);
     }
 
-    mHandler.removeCallbacksAndMessages(null);
+    handler.removeCallbacksAndMessages(null);
   }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
     int layoutId;
-    if (mExercise == null || mTutorialController == null || mCallback == null) {
+    if (exercise == null || tutorialController == null || callback == null) {
       return null;
     }
-    if (mExercise.needScrollableContainer()) {
+    if (exercise.needScrollableContainer()) {
       layoutId = R.layout.tutorial_lesson_fragment_scrollable;
     } else {
       layoutId = R.layout.tutorial_lesson_fragment;
     }
     View view = inflater.inflate(layoutId, container, false);
 
-    mDescription = (TextView) view.findViewById(R.id.description);
-    mDescription.setText(mPage.getDescription());
+    description = (TextView) view.findViewById(R.id.description);
+    description.setText(page.getDescription());
 
     TextView subTitle = (TextView) view.findViewById(R.id.part_subtitle);
-    subTitle.setText(mPage.getSubtitle());
+    subTitle.setText(page.getSubtitle());
 
     TextView currentPage = (TextView) view.findViewById(R.id.current_page);
     TextView next = (TextView) view.findViewById(R.id.next);
-    if (mCurrentPage < mLesson.getPagesCount() - 1) {
+    if (this.currentPage < lesson.getPagesCount() - 1) {
       next.setText(R.string.tutorial_next);
       currentPage.setVisibility(View.VISIBLE);
       currentPage.setText(
           getString(
-              R.string.tutorial_page_number_of, mCurrentPage + 1, mLesson.getPagesCount() - 1));
-    } else if (mTutorialController.getNextLesson(mLesson) == null) {
+              R.string.tutorial_page_number_of, this.currentPage + 1, lesson.getPagesCount() - 1));
+    } else if (tutorialController.getNextLesson(lesson) == null) {
       next.setText(R.string.tutorial_home);
     } else {
       next.setText(R.string.tutorial_next_lesson);
@@ -225,7 +225,7 @@ public class TutorialLessonFragment extends Fragment
     previous.setContentDescription(getString(R.string.tutorial_previous));
 
     ViewGroup contentContainer = (ViewGroup) view.findViewById(R.id.practice_area);
-    View contentView = mPage.getExercise().getContentView(inflater, contentContainer);
+    View contentView = page.getExercise().getContentView(inflater, contentContainer);
     ViewGroup.LayoutParams params =
         new ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -238,12 +238,12 @@ public class TutorialLessonFragment extends Fragment
   public void onClick(View v) {
     final int viewId = v.getId();
     if (viewId == R.id.next) {
-      if (mCallback != null) {
-        mCallback.onNextPageClicked(mLesson, mCurrentPage);
+      if (callback != null) {
+        callback.onNextPageClicked(lesson, currentPage);
       }
     } else if (viewId == R.id.previous_page) {
-      if (mCallback != null) {
-        mCallback.onPreviousPageClicked(mLesson, mCurrentPage);
+      if (callback != null) {
+        callback.onPreviousPageClicked(lesson, currentPage);
       }
     }
   }
@@ -252,8 +252,8 @@ public class TutorialLessonFragment extends Fragment
   public boolean onOptionsItemSelected(MenuItem item) {
     if (item.getItemId() == android.R.id.home) {
       // Handle action bar up button.
-      if (mCallback != null) {
-        mCallback.onNavigateUpClicked();
+      if (callback != null) {
+        callback.onNavigateUpClicked();
       }
       return true;
     }
@@ -262,7 +262,7 @@ public class TutorialLessonFragment extends Fragment
 
   @Override
   public void onExerciseCompleted(boolean autoSwitchLesson, int completeMessageResId) {
-    if (mSpeechController == null) {
+    if (speechController == null) {
       return;
     }
 
@@ -286,15 +286,15 @@ public class TutorialLessonFragment extends Fragment
       return;
     }
 
-    mHandler.postDelayed(
+    handler.postDelayed(
         new Runnable() {
           @Override
           public void run() {
-            mSpeechController.speak(
+            speechController.speak(
                 getString(completeMessageResId), /* text */
                 null, /* earcons */
                 null, /* haptics */
-                SpeechController.QUEUE_MODE_UNINTERRUPTIBLE, /* queueMode */
+                SpeechController.QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH, /* queueMode */
                 0, /* flags */
                 0, /* utteranceGroup */
                 null, /* speechParams */
@@ -313,12 +313,12 @@ public class TutorialLessonFragment extends Fragment
       return;
     }
 
-    mHandler.postDelayed(
+    handler.postDelayed(
         new Runnable() {
           @Override
           public void run() {
             if (getActivity() != null) {
-              mCallback.onNextPageClicked(mLesson, mCurrentPage);
+              callback.onNextPageClicked(lesson, currentPage);
             }
           }
         },
@@ -327,10 +327,10 @@ public class TutorialLessonFragment extends Fragment
 
   @Override
   public void onGestureAction(String action) {
-    if (mExercise == null || TextUtils.isEmpty(action) || getActivity() == null) {
+    if (exercise == null || TextUtils.isEmpty(action) || getActivity() == null) {
       return;
     }
 
-    mExercise.onAction(getActivity(), action);
+    exercise.onAction(getActivity(), action);
   }
 }

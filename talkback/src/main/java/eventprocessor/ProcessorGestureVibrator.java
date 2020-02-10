@@ -16,15 +16,20 @@
 
 package com.google.android.accessibility.talkback.eventprocessor;
 
-import android.os.Handler;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import static com.google.android.accessibility.talkback.Feedback.GESTURE_VIBRATION;
+
+import androidx.core.view.accessibility.AccessibilityEventCompat;
 import android.view.accessibility.AccessibilityEvent;
+import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.accessibility.utils.output.FeedbackController;
 
-/** Produces continuous vibration feedback during framework gesture recognition. */
+/**
+ * Produces continuous vibration feedback during framework gesture recognition. This class currently
+ * is a mix of event-interpreter and feedback-mapper.
+ */
 public class ProcessorGestureVibrator implements AccessibilityEventListener {
   /** Delay after a gesture starts before feedback begins. */
   private static final int FEEDBACK_DELAY = 70;
@@ -34,12 +39,11 @@ public class ProcessorGestureVibrator implements AccessibilityEventListener {
       AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START
           | AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END;
 
-  /** Feedback controller, used to vibrate and play sounds. */
-  private final FeedbackController mFeedbackController;
+  /** Callback to return generated feedback to pipeline. */
+  private final Pipeline.FeedbackReturner feedbackReturner;
 
-  public ProcessorGestureVibrator(FeedbackController feedbackController) {
-    if (feedbackController == null) throw new IllegalStateException();
-    mFeedbackController = feedbackController;
+  public ProcessorGestureVibrator(Pipeline.FeedbackReturner feedbackReturner) {
+    this.feedbackReturner = feedbackReturner;
   }
 
   @Override
@@ -51,24 +55,25 @@ public class ProcessorGestureVibrator implements AccessibilityEventListener {
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
     switch (event.getEventType()) {
       case AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START:
-        mHandler.postDelayed(mFeedbackRunnable, FEEDBACK_DELAY);
+        {
+          feedbackReturner.returnFeedback(
+              eventId,
+              Feedback.interrupt(GESTURE_VIBRATION, /* level= */ 1)
+                  .setDelayMs(FEEDBACK_DELAY)
+                  .vibration(R.array.gesture_detection_repeated_pattern)
+                  .sound(R.raw.gesture_begin));
         break;
+        }
       case AccessibilityEventCompat.TYPE_GESTURE_DETECTION_END:
-        mHandler.removeCallbacks(mFeedbackRunnable);
-        mFeedbackController.interrupt();
+        {
+          feedbackReturner.returnFeedback(
+              eventId,
+              Feedback.interrupt(GESTURE_VIBRATION, /* level= */ 1)
+                  .setInterruptSoundAndVibration(true));
         break;
+        }
       default: // fall out
     }
   }
 
-  private final Handler mHandler = new Handler();
-
-  private final Runnable mFeedbackRunnable =
-      new Runnable() {
-        @Override
-        public void run() {
-          mFeedbackController.playHaptic(R.array.gesture_detection_repeated_pattern);
-          mFeedbackController.playAuditory(R.raw.gesture_begin, 1.0f, 0.5f);
-        }
-      };
 }

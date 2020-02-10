@@ -21,7 +21,9 @@ import android.os.Bundle;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.FailoverTextToSpeech;
 import com.google.android.accessibility.utils.Performance.EventId;
+import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public interface SpeechController {
   /** Default stream for speech output. */
@@ -34,21 +36,35 @@ public interface SpeechController {
   int QUEUE_MODE_INTERRUPT = 0;
   int QUEUE_MODE_QUEUE = 1;
   /**
-   * Similiar to QUEUE_MODE_QUEUE. The only difference is FeedbackItem in this mode cannot be
+   * Similar to QUEUE_MODE_QUEUE. The only difference is FeedbackItem in this mode cannot be
    * interrupted by another while it is speaking. This includes not being removed from the queue
-   * unless shutdown is called.
+   * unless shutdown is called. FeedbackItem in this mode will still be interrupted and removed from
+   * the queue when {@link SpeechController#interrupt} is called.
    */
-  int QUEUE_MODE_UNINTERRUPTIBLE = 2;
+  int QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH = 2;
 
   int QUEUE_MODE_FLUSH_ALL = 3;
+  /**
+   * FeedbackItem in this mode cannot be interrupted or removed from the queue when {@link
+   * SpeechController#interrupt(boolean, boolean, boolean)} is called and the
+   * interruptItemsThatCanIgnoreInterrupts parameter is true.
+   */
+  int QUEUE_MODE_CAN_IGNORE_INTERRUPTS = 4;
+  /**
+   * FeedbackItems in this mode have the properties of both QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH
+   * and QUEUE_MODE_CAN_IGNORE_INTERRUPTS.
+   */
+  int QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH_CAN_IGNORE_INTERRUPTS = 5;
 
   // Speech item status codes.
   int STATUS_ERROR = 1;
-  int STATUS_SPEAKING = 2;
   int STATUS_INTERRUPTED = 3;
   int STATUS_SPOKEN = 4;
   int STATUS_NOT_SPOKEN = 5;
-
+  // A status indicates that the speech was interrupted by the client, and the Observer should not
+  // be notified when speech stops as a result of the interruption.
+  int STATUS_ERROR_DONT_NOTIFY_OBSERVER = 6;
+  int STATUS_PAUSE = 7;
   int UTTERANCE_GROUP_DEFAULT = 0;
   int UTTERANCE_GROUP_TEXT_SELECTION = 1;
   int UTTERANCE_GROUP_SEEK_PROGRESS = 2;
@@ -60,16 +76,20 @@ public interface SpeechController {
    * {@link FeedbackItem}/{@link Utterance}.
    */
   interface Delegate {
-    boolean shouldSuppressPassiveFeedback();
+    boolean isAudioPlaybackActive();
+
+    boolean isMicrophoneActiveAndHeadphoneOff();
+
+    boolean isSsbActiveAndHeadphoneOff();
+
+    boolean isPhoneCallActive();
 
     void onSpeakingForcedFeedback();
-
-    void interruptAllFeedback(boolean stopTtsSpeechCompletely);
   }
 
   /**
-   * Listener for speech started and completed. TODO: This is only used for tests. Evaluate if
-   * it's still appropriate.
+   * Listener for speech started and completed. TODO: This is only used for tests. Evaluate
+   * if it's still appropriate.
    */
   interface SpeechControllerListener {
     void onUtteranceQueued(FeedbackItem utterance);
@@ -84,6 +104,8 @@ public interface SpeechController {
     void onSpeechStarting();
 
     void onSpeechCompleted();
+
+    void onSpeechPaused();
   }
 
   /** Interface for a run method, used to perform action when an utterance starts. */
@@ -126,16 +148,16 @@ public interface SpeechController {
 
   /** Builder class for input parameters to {@code speak()}. */
   class SpeakOptions {
-    public Set<Integer> mEarcons = null;
-    public Set<Integer> mHaptics = null;
+    public @Nullable Set<Integer> mEarcons = null;
+    public @Nullable Set<Integer> mHaptics = null;
     public int mQueueMode = QUEUE_MODE_QUEUE;
     public int mFlags = 0;
     public int mUtteranceGroup = UTTERANCE_GROUP_DEFAULT;
-    public Bundle mSpeechParams = null;
-    public Bundle mNonSpeechParams = null;
-    public UtteranceStartRunnable mStartingAction = null;
-    public UtteranceRangeStartCallback mRangeStartCallback = null;
-    public UtteranceCompleteRunnable mCompletedAction = null;
+    public @Nullable Bundle mSpeechParams = null;
+    public @Nullable Bundle mNonSpeechParams = null;
+    public @Nullable UtteranceStartRunnable mStartingAction = null;
+    public @Nullable UtteranceRangeStartCallback mRangeStartCallback = null;
+    public @Nullable UtteranceCompleteRunnable mCompletedAction = null;
 
     private SpeakOptions() {} // To instantiate, use create().
 
@@ -188,9 +210,45 @@ public interface SpeechController {
       return this;
     }
 
-    public SpeakOptions setCompletedAction(UtteranceCompleteRunnable runnable) {
+    public SpeakOptions setCompletedAction(@Nullable UtteranceCompleteRunnable runnable) {
       mCompletedAction = runnable;
       return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o) {
+        return true;
+      }
+      if (!(o instanceof SpeakOptions)) {
+        return false;
+      }
+      SpeakOptions that = (SpeakOptions) o;
+      return mQueueMode == that.mQueueMode
+          && mFlags == that.mFlags
+          && mUtteranceGroup == that.mUtteranceGroup
+          && Objects.equals(mEarcons, that.mEarcons)
+          && Objects.equals(mHaptics, that.mHaptics)
+          && Objects.equals(mSpeechParams, that.mSpeechParams)
+          && Objects.equals(mNonSpeechParams, that.mNonSpeechParams)
+          && Objects.equals(mStartingAction, that.mStartingAction)
+          && Objects.equals(mRangeStartCallback, that.mRangeStartCallback)
+          && Objects.equals(mCompletedAction, that.mCompletedAction);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(
+          mEarcons,
+          mHaptics,
+          mQueueMode,
+          mFlags,
+          mUtteranceGroup,
+          mSpeechParams,
+          mNonSpeechParams,
+          mStartingAction,
+          mRangeStartCallback,
+          mCompletedAction);
     }
   }
 
@@ -210,7 +268,9 @@ public interface SpeechController {
    *     <ul>
    *       <li>{@link #QUEUE_MODE_INTERRUPT}
    *       <li>{@link #QUEUE_MODE_QUEUE}
-   *       <li>{@link #QUEUE_MODE_UNINTERRUPTIBLE}
+   *       <li>{@link #QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH}
+   *       <li>{@link #QUEUE_MODE_CAN_IGNORE_INTERRUPTS}
+   *       <li>{@link #QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH_CAN_IGNORE_INTERRUPTS}
    *     </ul>
    *
    * @param flags Bit mask of speaking flags. Use {@code 0} for no flags, or a combination of the
@@ -237,18 +297,23 @@ public interface SpeechController {
       int queueMode,
       int flags,
       int utteranceGroup,
-      Bundle speechParams,
+      @Nullable Bundle speechParams,
       Bundle nonSpeechParams,
       UtteranceStartRunnable startAction,
       UtteranceRangeStartCallback rangeStartCallback,
       UtteranceCompleteRunnable completedAction,
-      EventId eventId);
+      @Nullable EventId eventId);
 
   /**
    * @see #speak(CharSequence, Set, Set, int, int, int, Bundle, Bundle, UtteranceStartRunnable,
    *     UtteranceRangeStartCallback, UtteranceCompleteRunnable, EventId)
    */
-  void speak(CharSequence text, int queueMode, int flags, Bundle speechParams, EventId eventId);
+  void speak(
+      CharSequence text,
+      int queueMode,
+      int flags,
+      @Nullable Bundle speechParams,
+      @Nullable EventId eventId);
 
   /**
    * @see #speak(CharSequence, Set, Set, int, int, int, Bundle, Bundle, UtteranceStartRunnable,
@@ -275,15 +340,15 @@ public interface SpeechController {
       int queueMode,
       int flags,
       int uttranceGroup,
-      Bundle speechParams,
+      @Nullable Bundle speechParams,
       Bundle nonSpeechParams,
-      EventId eventId);
+      @Nullable EventId eventId);
 
   /**
    * @see #speak(CharSequence, Set, Set, int, int, int, Bundle, Bundle, UtteranceStartRunnable,
    *     UtteranceRangeStartCallback, UtteranceCompleteRunnable, EventId)
    */
-  void speak(CharSequence text, EventId eventId, SpeakOptions options);
+  void speak(CharSequence text, @Nullable EventId eventId, @Nullable SpeakOptions options);
 
   boolean isSpeaking();
 
@@ -293,29 +358,37 @@ public interface SpeechController {
 
   void removeObserver(Observer observer);
 
-  /** Stops all Talkback speech. Stops speech from other apps if stopTtsSpeechCompletely is true */
+  void setTTSChangeAnnouncementEnabled(boolean enabled);
+
+  /**
+   * Stops all speech from the calling app. Stops speech from other apps if stopTtsSpeechCompletely
+   * is true.
+   */
   void interrupt(boolean stopTtsSpeechCompletely);
 
-  /** Sends an interrupt to the delegate without modifying internal state. */
-  void interruptAllFeedback(boolean stopTtsSpeechCompletely);
+  /**
+   * Stops all speech from the calling app.
+   *
+   * @param stopTtsSpeechCompletely Whether to also stop speech from other apps
+   * @param callObserver Whether to notify the Observer once speech is stopped
+   */
+  void interrupt(boolean stopTtsSpeechCompletely, boolean callObserver);
 
-  /** Returns the last spoken utterance. */
-  FeedbackItem getLastUtterance();
+  /**
+   * Stops all speech from the calling app.
+   *
+   * @param stopTtsSpeechCompletely Whether to also stop speech from other apps
+   * @param callObserver Whether to notify the Observer once speech is stopped
+   * @param interruptItemsThatCanIgnoreInterrupts Whether to interrupt and remove FeedbackItems that
+   *     are in the QUEUE_MODE_CAN_IGNORE_INTERRUPTS or
+   *     QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH_CAN_IGNORE_INTERRUPTS mode when this method is
+   *     called
+   */
+  void interrupt(
+      boolean stopTtsSpeechCompletely,
+      boolean callObserver,
+      boolean interruptItemsThatCanIgnoreInterrupts);
 
-  /** Repeats the last spoken utterance. */
-  boolean repeatLastUtterance();
-
-  /** Repeats the provided utterance. */
-  boolean repeatUtterance(FeedbackItem item);
-
-  /** Spells the last spoken utterance. */
-  boolean spellLastUtterance();
-
-  /** Spells the text. */
-  boolean spellUtterance(CharSequence text);
-
-  /** Copies the last phrase spoken by TalkBack to clipboard */
-  boolean copyLastUtteranceToClipboard(FeedbackItem item, EventId eventId);
 
   int peekNextUtteranceId();
 
@@ -356,4 +429,19 @@ public interface SpeechController {
    * handled in TTS thread.
    */
   void setHandleTtsCallbackInMainThread(boolean shouldHandleInMainThread);
+
+  /**
+   * Stops current feedbackFragment but don't callback UtteranceCompleteAction since it's an
+   * suspended state. {@link Observer#onSpeechPaused()} will be called if it works successfully.
+   */
+  void pause();
+
+  /**
+   * Speaks remaining sentence of suspended feedbackFragment. It works properly when {@link
+   * FailoverTextToSpeech.FailoverTtsListener#onUtteranceRangeStarted(String, int, int)} could be
+   * called by TTS engine(ex Samsung TTS engine doesn't support it ) and Android version should be
+   * above Oreo, otherwise it would speak whole text of the feedbackFragment. {@link
+   * Observer#onSpeechStarting()} will be called if it works successfully.
+   */
+  void resume();
 }

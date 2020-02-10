@@ -1,169 +1,323 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Slēdžu piekļuve"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Slēdžu piekļuve ļauj personām ar kustību traucējumiem pārvaldīt tālruni vai planšetdatoru, izmantojot vienu vai vairākus slēdžus. Slēdžus var izmantot, lai atlasītu vienumus, ritinātu, ievadītu tekstu vai veiktu citas darbības."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Kontrolēt ierīci ar slēdžiem"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Palīdzība un atsauksmes"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Automātiskā meklēšana"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Automātiskās meklēšanas laiks"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Automātiski skenēt pretējā virzienā"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="zero">%.2f sekunžu</item>
-      <item quantity="one">%.2f sekunde</item>
-      <item quantity="other">%.2f sekundes</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Skenēšanas pielāgošana"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Skenēšanas metode"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Aizkave pie pirmā vienuma"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Slēdžu piešķiršana"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Slēdžu piešķiršana darbībām"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Slēdžu piešķiršana skenēšanai"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Rindiņas ātrums"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Skenēšanas reižu skaits"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Izvēlieties, cik reizes atkārtot skenēšanu."</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Atkārtoto komandu ignorēšanas laiks"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Vairākkārtēja vienuma nospiešana šajā laika posmā tiks uzskatīta par vienu nospiešanas reizi."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Atlaist, lai sāktu darbību"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Veikt darbību, kad slēdzis ir atlaists"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="zero">%d ciklu</item>
-      <item quantity="one">%d cikls</item>
-      <item quantity="other">%d cikli</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Slēdzis “<xliff:g id="KEY_NAME">%1$s</xliff:g>” jau ir piešķirts darbībai “<xliff:g id="ACTION_NAME">%2$s</xliff:g>”."</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="zero">Darbībām piešķirti %d slēdži</item>
-      <item quantity="one">Darbībām piešķirts %d slēdzis</item>
-      <item quantity="other">Darbībām piešķirti %d slēdži</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Grupas atlases slēdzis: %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Tālāk"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Atpakaļ"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Atlasīt"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Nospiest un turēt"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Ritināt uz priekšu"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Ritināt atpakaļ"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Nerādīt"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Izvērst"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Sakļaut"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Iezīmēt tekstu"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Kopēt"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Izgriezt"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Ielīmēt"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"IZVĒLNE"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Atpakaļ"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Sākums"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Kopsavilkums"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Paziņojumi"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Ātrie iestatījumi"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Ritināt uz priekšu"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Ritināt atpakaļ"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Punktu skenēšana"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Pārtraukt punktu skenēšanu"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Vilkt pa labi"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Vilkt pa kreisi"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Vilkt augšup"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Vilkt lejup"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Vilkt (pielāgot)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Tālināt"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Tuvināt"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Slēdžu piekļuves iestatījumi"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Nospiediet slēdžu kombināciju, lai to pievienotu sarakstam vai noņemtu no saraksta."</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Dzēst darbībai piešķirto slēdzi"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL+ "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT+ "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT+ "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Nav piešķirts neviens slēdzis."</string>
-    <string name="more" msgid="1547670498589416840">"Vairāk"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Atstarpes taustiņš"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Ievadīšanas taustiņš"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tabulēšanas taustiņš"</string>
-    <string name="save" msgid="5398278773451196019">"Saglabāt"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Izcelšanas stils meklēšanā"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Galvenais pārlūkošanas stils"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Izcelšanas krāsa"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Izcelšanas elementa līnijas stils"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Konfidencialitātes politika"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Iespējot automātisko atlasi"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Atspējot automātisko atlasi"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Nākamā rakstzīme"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Nākamais vārds"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Nākamā rindiņa"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Nākamā rindkopa"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Nākamā lapa"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Iepriekšējā rakstzīme"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Iepriekšējais vārds"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Iepriekšējā rindiņa"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Iepriekšējā rindkopa"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Iepriekšējā lapa"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Automātiski palaist meklēšanu"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Meklēšana tiks sākta, nenospiežot slēdzi"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Atvērt slēdžu piekļuves iestatījumus"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Slēdžu piekļuves iestatīšanas vednis"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Viens slēdzis"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Divi slēdži"</string>
-    <string name="finish" msgid="4267641294267512480">"Pabeigt"</string>
-    <string name="exit" msgid="8664597014081860813">"Iziet"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Izvēlieties slēdžu skaitu"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Nospiediet slēdzi, lai automātiski sāktu pārvietoties pa vienumiem, pēc tam nospiediet to vēlreiz, lai atlasītu iezīmēto vienumu."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Nospiediet vienu slēdzi, lai pārvietotos pa vienumiem. Nospiediet otru slēdzi, lai atlasītu iezīmēto vienumu."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Izvēlieties skenēšanas ātrumu"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Izvēlieties laiku, cik ilgi katrs vienums būs iezīmēts"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Ātra (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> s aizkave)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Vidēja (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> s aizkave)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Lēna (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> s aizkave)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Pielāgots"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"aizkave (sekundes)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Taustiņam “<xliff:g id="KEY_NAME">%1$s</xliff:g>” jau ir piešķirta cita darbība."</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Skenēt rindās/slejās"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Atlasīt grupu"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Lineāri skenēt"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Balss komentāri"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS iestatījumi"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Vairākiem vienumiem"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Nosaukt pirmo un pēdējo vienumu"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Nosaukt vienumu skaitu"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Nosaukt visus iezīmētos vienumus"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Noklausīties komentāru pirms pāriešanas"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"<xliff:g id="ID_1">%1$s</xliff:g>. grupa"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"No <xliff:g id="ID_1">%1$s</xliff:g>. līdz <xliff:g id="ID_2">%2$s</xliff:g>."</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> vienumi"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"atlasiet, lai ritinātu"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"nezināms vienums"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Izvēlieties skenēšanas veidu"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Skenējiet vienumus pa vienai rindai. Kad rinda ir atlasīta, varat pārvietoties pa sarakstā redzamajiem vienumiem."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Pārvietojieties, pārejot no vienuma uz vienumu. Ņemiet vērā, ka tastatūra vienmēr veiks skenēšanu pa vienai rindai."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Visiem vienumiem tiks piešķirta krāsa. Nospiediet slēdzi, kas atbilst ap vēlamo vienumu redzamajai krāsai. Samaziniet grupā iekļauto vienumu skaitu, līdz sasniedzat vēlamo skaitu."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Slēdži, kas piešķirti darbībai “<xliff:g id="ACTION_NAME">%s</xliff:g>”"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Neviens"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Vai notīrīt darbībām piešķirtos slēdžus?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Slēdži jau ir piešķirti darbībām."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Notīrīt slēdžus"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Paturēt slēdžus"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Nav piešķirts neviens slēdzis."</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Šai darbībai nav piešķirts neviens slēdzis. Vai tiešām vēlaties turpināt?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Grupas krāsa: <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Nospiediet slēdzi, lai piešķirtu to grupas <xliff:g id="OPTION_COLOR">%1$s</xliff:g> atlasīšanai."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Nospiediet slēdzi, lai piešķirtu to darbībai “<xliff:g id="ACTION_NAME">%1$s</xliff:g>”."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Sākt skenēšanu un atlasi"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Iestatījumu pārbaude, spēlējot Tic-Tac-Toe"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Lai sāktu skenēšanu, nospiediet slēdzi “<xliff:g id="SWITCH_NAME">%1$s</xliff:g>”. Lai atlasītu iezīmēto vienumu, vēlreiz nospiediet slēdzi. Jūsu kārta!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Lai sāktu skenēšanu, nospiediet slēdzi “<xliff:g id="SWITCH_NAME">%1$s</xliff:g>”. Lai atlasītu iezīmēto rindu, vēlreiz nospiediet šo slēdzi. Lai atlasītu iezīmēto vienumu, nospiediet slēdzi vēl vienu reizi. Jūsu kārta!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Lai pārvietotos pa vienumiem, nospiediet slēdzi “<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>”. Lai atlasītu iezīmēto vienumu, nospiediet slēdzi “<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>”. Jūsu kārta!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Lai pārvietotos pa rindām, nospiediet slēdzi ”<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>”. Lai atlasītu atzīmēto rindu, nospiediet slēdzi “<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>”. Atkārtojiet šīs darbības, lai izvēlētos vienumu šajā rindā. Jūsu kārta!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Lai atlasītu krāsā <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> atzīmētos vienumus, nospiediet slēdzi “<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>”. Lai atlasītu krāsā <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> atzīmētos vienumus, nospiediet slēdzi “<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>”. Atkārtojiet šīs darbības, līdz esat atlasījis vēlamo vienumu. Jūsu kārta!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Dažām darbībām vēl nav piešķirti slēdži. Izmantojiet pogu “Iepriekšējā”, lai atgrieztos attiecīgajā sadaļā un pabeigtu slēdžu piešķiršanu."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Atiestatīt spēli"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Šis kvadrāts jau ir atzīmēts. Mēģiniet vēlreiz!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Jūs uzvarējāt!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Lai veicas nākamajā reizē!"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Neizšķirts"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Varat paturēt pašreizējos iestatījumus vai sākt no jauna."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Paturēt iestatījumus"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Sākt no jauna"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Iestatīšana pabeigta"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Gatavs!"</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Varat jebkurā brīdī mainīt papildu iestatījumus vai atkārtoti atvērt iestatīšanas vedni sadaļā “Slēdžu piekļuves iestatījumi”."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Slēdžu piekļuve</string>
+  <string name="switch_access_service_description">Slēdžu piekļuve ļauj personām ar kustību traucējumiem pārvaldīt tālruni vai planšetdatoru, izmantojot vienu vai vairākus slēdžus. Slēdžus var izmantot, lai atlasītu vienumus, ritinātu, ievadītu tekstu vai veiktu citas darbības.</string>
+  <string name="switch_access_service_summary">Kontrolēt ierīci ar slēdžiem</string>
+  <string name="title_pref_help_feedback">Palīdzība un atsauksmes</string>
+  <string name="title_pref_licenses">Atklātā pirmkoda licences</string>
+  <string name="title_pref_category_auto_scan">Automātiskā meklēšana</string>
+  <string name="title_pref_auto_scan_disabled">Automātiskā pārlūkošana (atspējota)</string>
+  <string name="action_key_summary_auto_scan">Nospiežot šo slēdzi, izcēlums sāks automātiski pārvietoties starp vienumiem. Vēlreiz nospiežot slēdzi, tiks atlasīts izceltais vienums.</string>
+  <string name="title_pref_auto_scan_time_delay">Automātiskās meklēšanas laiks</string>
+  <string name="action_name_reverse_auto_scan">Automātiski skenēt pretējā virzienā</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Automātiskā pārlūkošana pretējā virzienā (atspējota)</string>
+  <string name="action_key_summary_reverse_auto_scan">Nospiežot šo slēdzi, izcēlums sāks automātiski pārvietoties starp vienumiem apgrieztā secībā. Vēlreiz nospiežot slēdzi, tiks atlasīts izceltais vienums.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="zero">%.2f sekunžu</item>
+    <item quantity="one">%.2f sekunde</item>
+    <item quantity="other">%.2f sekundes</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Skenēšanas pielāgošana</string>
+  <string name="title_pref_scanning_methods">Skenēšanas metode</string>
+  <string name="title_pref_start_scan_delay">Aizkave pie pirmā vienuma</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Izvēlieties papildu laiku, ko pavadīt uz pirmā vienuma. Šis laiks tiks pievienots automātiskās pārlūkošanas laikam.\n\nŠis iestatījums ietekmē gan automātisko pārlūkošanu, gan punktu pārlūkošanu.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Izvēlieties papildu laiku, ko pavadīt uz pirmā vienuma. Pēc norādītā laika vertikālā vai horizontālā līnija sāks kustēties.\n\nŠis iestatījums ietekmē gan automātisko pārlūkošanu, gan punktu pārlūkošanu.</string>
+  <string name="title_pref_category_assign_switches">Slēdžu piešķiršana</string>
+  <string name="title_pref_category_key_mappings">Slēdžu piešķiršana vispārīgām darbībām</string>
+  <string name="summary_pref_category_key_mappings">Globālas darbības varat veikt jebkurā laikā</string>
+  <string name="title_pref_category_scan_key_mappings">Slēdžu piešķiršana skenēšanai</string>
+  <string name="summary_pref_category_scan_key_mappings">Izmantojot pārlūkošanu, varat pārvietot atzīmētās vietas un atlasīt atzīmētos vienumus</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Kustība un atlase</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Darbības ar atzīmēto vienumu</string>
+  <string name="title_pref_point_scan_line_speed">Rindiņas ātrums</string>
+  <string name="dialog_message_pref_line_speed">Varat izvēlēties, cik ātri horizontālajai un vertikālajai līnijai jāpārvietojas pa ekrānu.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="zero">%.2f centimetru sekundē</item>
+    <item quantity="one">%.2f centimetrs sekundē</item>
+    <item quantity="other">%.2f centimetri sekundē</item>
+  </plurals>
+  <string name="title_pref_loop_count">Skenēšanas reižu skaits</string>
+  <string name="dialog_message_pref_loop_count">Izvēlieties, cik reizes atkārtot pārlūkošanu.\n\nŠis iestatījums ietekmē gan automātisko pārlūkošanu, gan punktu pārlūkošanu.</string>
+  <string name="summary_pref_point_scan">Varat atlasīt konkrētu horizontālo un vertikālo atrašanās vietu, izmantojot kustīgas līnijas. %1$s</string>
+  <string name="point_scan_enable_animations_message">Ieslēdziet animācijas, lai varētu izmantot šo funkciju.</string>
+  <string name="title_pref_category_switch_accomodation">Slēdžu pielāgošana</string>
+  <string name="title_pref_debounce_time">Ignorēt atkārtotu nospiešanu</string>
+  <string name="dialog_message_pref_debounce_time">Vairākkārtēja slēdža nospiešana šajā laika posmā tiks uzskatīta par vienu nospiešanas reizi.</string>
+  <string name="title_pref_press_on_release">Atlaist, lai sāktu darbību</string>
+  <string name="subtitle_pref_press_on_release">Veikt darbību, kad slēdzis ir atlaists</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="zero">%d ciklu</item>
+    <item quantity="one">%d cikls</item>
+    <item quantity="other">%d cikli</item>
+  </plurals>
+  <string name="preference_off">Izslēgta</string>
+  <string name="preference_on">Ieslēgta</string>
+  <string name="toast_msg_key_already_assigned">Slēdzis “%1$s” jau ir piešķirts darbībai “%2$s”.</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="zero">Darbībām piešķirti %d slēdži</item>
+    <item quantity="one">Darbībām piešķirts %d slēdzis</item>
+    <item quantity="other">Darbībām piešķirti %d slēdži</item>
+  </plurals>
+  <string name="option_scan_switch_format">Grupas atlases slēdzis: %1$d</string>
+  <string name="option_scan_switch_format_with_color">Grupas atlases slēdzis: %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Nospiežot šo slēdzi, tiks atlasīta grupa %1$d.</string>
+  <string name="action_name_next">Tālāk</string>
+  <string name="action_key_summary_next">Nospiežot šo slēdzi, tiks izcelts nākamais vienums.</string>
+  <string name="action_name_previous">Atpakaļ</string>
+  <string name="action_key_summary_previous">Nospiežot šo slēdzi, tiks izcelts iepriekšējais vienums.</string>
+  <string name="action_name_click">Atlasīt</string>
+  <string name="action_key_summary_click">Nospiežot šo slēdzi, tiks atlasīts izceltais vienums.</string>
+  <string name="action_name_long_click">Pieskaršanās un turēšana</string>
+  <string name="action_key_summary_long_click">Nospiežot šo slēdzi, notiks pieskaršanās izceltajam vienumam un turēšana.</string>
+  <string name="action_name_scroll_forward">Ritināt uz priekšu</string>
+  <string name="action_key_summary_scroll_forward">Nospiežot šo slēdzi, izceltais vienums tiks ritināts uz priekšu.</string>
+  <string name="action_name_scroll_backward">Ritināt atpakaļ</string>
+  <string name="action_key_summary_scroll_backward">Nospiežot šo slēdzi, izceltais vienums tiks ritināts atpakaļ.</string>
+  <string name="action_name_dismiss">Nerādīt</string>
+  <string name="action_name_expand">Izvērst</string>
+  <string name="action_name_collapse">Sakļaut</string>
+  <string name="action_name_highlight_text">Iezīmēt tekstu</string>
+  <string name="action_group_name_highlight">Atzīmēt...</string>
+  <string name="action_name_highlight_all_text">Atzīmēt visu tekstu</string>
+  <string name="action_name_highlight_granular_text">Atzīmēt šādu teksta daļu: %1$s</string>
+  <string name="action_name_copy">Kopēt</string>
+  <string name="action_name_copy_all_text">Kopēt visu</string>
+  <string name="action_name_cut">Izgriezt</string>
+  <string name="action_name_cut_all_text">Izgriezt visu</string>
+  <string name="action_name_paste">Ielīmēt</string>
+  <string name="action_name_undo">Atsaukt</string>
+  <string name="action_name_redo">Atcelt atsaukšanu</string>
+  <string name="action_group_name_delete">Dzēst...</string>
+  <string name="action_name_delete">Dzēst šādu teksta daļu: %1$s</string>
+  <string name="action_name_delete_highlighted_text">Dzēst atzīmēto tekstu</string>
+  <string name="option_scanning_menu_button">IZVĒLNE</string>
+  <string name="option_scanning_menu_button_content_description">Slēdžu piekļuves izvēlne</string>
+  <string name="switch_access_global_menu">Slēdžu piekļuves globālā izvēlne</string>
+  <string name="switch_access_actions_menu">Slēdžu piekļuves darbību izvēlne</string>
+  <string name="switch_access_close_menu">AIZVĒRT</string>
+  <string name="switch_access_back_menu">ATPAKAĻ</string>
+  <string name="next_arrow_content_description">Tālāk</string>
+  <string name="previous_arrow_content_description">Atpakaļ</string>
+  <string name="global_action_back">Atpakaļ</string>
+  <string name="global_action_key_summary_back">Nospiežot šo slēdzi, notiks atgriešanās iepriekšējā ekrānā vai tiks paslēpta tastatūra, ja tā ir redzama.</string>
+  <string name="global_action_home">Sākums</string>
+  <string name="global_action_key_summary_home">Nospiežot šo slēdzi, tiks atvērts sākuma ekrāns.</string>
+  <string name="global_action_overview">Kopsavilkums</string>
+  <string name="global_action_key_summary_overview">Nospiežot šo slēdzi, tiks parādīts nesen atvērto lietotņu saraksts.</string>
+  <string name="global_action_notifications">Paziņojumi</string>
+  <string name="global_action_key_summary_notifications">Nospiežot šo slēdzi, tiks parādīti ierīces paziņojumi.</string>
+  <string name="global_action_quick_settings">Ātrie iestatījumi</string>
+  <string name="global_action_key_summary_quick_settings">Nospiežot šo slēdzi, tiks parādīti ierīces ātrie iestatījumi.</string>
+  <string name="global_action_power_options">Barošanas opcijas</string>
+  <string name="global_menu_volume_heading">Skaļums</string>
+  <string name="volume_menu_media">Multivides skaļums</string>
+  <string name="volume_menu_call">Zvana skaļums</string>
+  <string name="volume_menu_ring">Zvana skaļums</string>
+  <string name="volume_menu_alarm">Signāla skaļums</string>
+  <string name="volume_menu_accessibility">Pieejamības paziņojumu skaļums</string>
+  <string name="volume_menu_mute">Izslēgt skaņu</string>
+  <string name="volume_menu_unmute">Ieslēgt skaņu</string>
+  <string name="volume_menu_increase">Palielināt</string>
+  <string name="volume_settings">Skaļuma iestatījumi</string>
+  <string name="volume_menu_decrease">Samazināt</string>
+  <string name="scrollable_forward">Ritināt uz priekšu</string>
+  <string name="scrollable_backward">Ritināt atpakaļ</string>
+  <string name="point_scan">Punktu skenēšana</string>
+  <string name="box_scan">Pārtraukt punktu skenēšanu</string>
+  <string name="action_name_swipe_right">Vilkt pa labi</string>
+  <string name="action_name_swipe_left">Vilkt pa kreisi</string>
+  <string name="action_name_swipe_up">Vilkt augšup</string>
+  <string name="action_name_swipe_down">Vilkt lejup</string>
+  <string name="action_name_swipe_custom">Vilkt (pielāgot)</string>
+  <string name="action_name_zoom_out">Tālināt</string>
+  <string name="action_name_zoom_in">Tuvināt</string>
+  <string name="switch_access_preferences_title">Slēdžu piekļuves iestatījumi</string>
+  <string name="key_combo_preference_instructions">Nospiediet slēdžu kombināciju, lai to pievienotu sarakstam vai noņemtu no saraksta.</string>
+  <string name="key_combo_preference_reset_button">Dzēst darbībai piešķirto slēdzi</string>
+  <string name="key_combo_preference_control_plus">CTRL+ </string>
+  <string name="key_combo_preference_shift_plus">SHIFT+ </string>
+  <string name="key_combo_preference_alt_plus">ALT+ </string>
+  <string name="no_key_assigned">Nav piešķirts neviens slēdzis.</string>
+  <string name="more">Vairāk</string>
+  <string name="name_of_space_bar">Atstarpes taustiņš</string>
+  <string name="name_of_enter_key">Ievadīšanas taustiņš</string>
+  <string name="name_of_tab_key">Tabulēšanas taustiņš</string>
+  <string name="save">Saglabāt</string>
+  <string name="title_pref_category_display_and_sound">Attēlošana un skaņa</string>
+  <string name="title_pref_highlight_0">Izcelšanas stils meklēšanā</string>
+  <string name="title_pref_primary_scan_style">Galvenais pārlūkošanas stils</string>
+  <string name="title_pref_highlight_0_color">Izcelšanas krāsa</string>
+  <string name="title_pref_highlight_0_weight">Izcelšanas elementa līnijas stils</string>
+  <string name="title_pref_privacy_policy">Konfidencialitātes politika</string>
+  <string name="title_pref_auto_select">Automātiskā atlasīšana</string>
+  <string name="summary_pref_auto_select">Automātiski atlasīt atzīmēto vienumu. Ja vienumu nevar atlasīt vai šis iestatījums ir izslēgts, tiek rādīta pieejamo darbību izvēlne.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Iespējot automātisko atlasi</string>
+  <string name="switch_access_global_menu_disable_autoselect">Atspējot automātisko atlasi</string>
+  <string name="switch_access_move_next">Tālāk...</string>
+  <string name="switch_access_move_next_character">Nākamā rakstzīme</string>
+  <string name="switch_access_move_next_word">Nākamais vārds</string>
+  <string name="switch_access_move_next_line">Nākamā rindiņa</string>
+  <string name="switch_access_move_next_paragraph">Nākamā rindkopa</string>
+  <string name="switch_access_move_next_page">Nākamā lapa</string>
+  <string name="switch_access_move_next_sentence">Nākamais teikums</string>
+  <string name="switch_access_move_prev">Atpakaļ...</string>
+  <string name="switch_access_move_prev_character">Iepriekšējā rakstzīme</string>
+  <string name="switch_access_move_prev_word">Iepriekšējais vārds</string>
+  <string name="switch_access_move_prev_line">Iepriekšējā rindiņa</string>
+  <string name="switch_access_move_prev_paragraph">Iepriekšējā rindkopa</string>
+  <string name="switch_access_move_prev_page">Iepriekšējā lapa</string>
+  <string name="switch_access_move_prev_sentence">Iepriekšējais teikums</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Automātiski palaist meklēšanu</string>
+  <string name="switch_access_auto_start_scan_summary">Meklēšana tiks sākta, nenospiežot slēdzi</string>
+  <string name="pref_begin_switchaccess_setup_title">Atvērt iestatīšanas ceļvedi</string>
+  <string name="setup_wizard_heading">Slēdžu piekļuves iestatīšanas ceļvedis</string>
+  <string name="one_switch">Viens slēdzis</string>
+  <string name="two_switches">Divi slēdži</string>
+  <string name="finish">Pabeigt</string>
+  <string name="exit">Iziet</string>
+  <string name="intro_heading">Slēdža izvēle</string>
+  <string name="usb_switch_option_text">USB slēdzis</string>
+  <string name="bluetooth_switch_option_text">Bluetooth slēdzis</string>
+  <string name="usb_switch_description_text">Fiziski pievienojiet slēdzi, izmantojot USB savienojumu</string>
+  <string name="bluetooth_switch_description_text">Bezvadu režīmā savienojiet slēdzi pārī, izmantojot Bluetooth savienojumu</string>
+  <string name="bluetooth_unsupported_description_text">Jūsu ierīcē Bluetooth savienojums netiek atbalstīts. Varat tā vietā izmantot fizisku slēdzi.</string>
+  <string name="connected_usb_devices_header">Pievienotās ierīces</string>
+  <string name="usb_no_devices_connected_message">Nav atrasta neviena USB ierīce. Ierīcei ir jābūt izveidotam drošam savienojumam.</string>
+  <string name="connect_usb_heading">Savienojums, izmantojot USB slēdzi</string>
+  <string name="pair_bluetooth_heading">Bluetooth slēdža savienošana pārī</string>
+  <string name="pair_bluetooth_subheading">Pieskarieties Bluetooth slēdzim zemāk</string>
+  <string name="bluetooth_not_enabled_message">Lai savienotu Bluetooth slēdzi pārī, ieslēdziet Bluetooth savienojumu</string>
+  <string name="enable_bluetooth_button_title">Ieslēgt Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Neviena Bluetooth ierīce nav savienota pārī ar šo ierīci</string>
+  <string name="paired_devices_header">Pārī savienotās Bluetooth ierīces</string>
+  <string name="available_devices_header">Pieejamās Bluetooth ierīces</string>
+  <string name="bluetooth_computer_content_description">Dators</string>
+  <string name="bluetooth_phone_content_description">Tālrunis</string>
+  <string name="bluetooth_imaging_content_description">Attēlu apstrādes ierīce</string>
+  <string name="bluetooth_headphone_content_description">Austiņas</string>
+  <string name="bluetooth_peripheral_content_description">Perifērijas ierīce</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Notiek savienojuma izveide...</string>
+  <string name="bluetooth_connected_description">Izveidots savienojums</string>
+  <string name="bluetooth_device_unavailable_description">Ierīce nav pieejama</string>
+  <string name="reconnecting_unsupported_title">Nevarēja izveidot savienojumu ar ierīci</string>
+  <string name="reconnecting_unsupported_message">Slēdžu piekļuve nevarēja izveidot savienojumu ar iepriekšējo pārī savienoto ierīci. Ierīcei ir jābūt ieslēgtai un pievienotai.\n\nJa joprojām neizdodas izveidot savienojumu ar ierīci, pārejiet uz Bluetooth iestatījumiem un mēģiniet atkārtoti izveidot savienojumu.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Pāriet uz Bluetooth iestatījumiem</string>
+  <string name="number_of_switches_heading">Izvēlieties slēdžu skaitu</string>
+  <string name="title_assign_scan_key">Slēdža “%1$s” piešķiršana</string>
+  <string name="one_switch_description_text">Lai sāktu automātiski pārvietoties pa vienumiem, nospiediet slēdzi. Lai atlasītu iezīmēto vienumu, vēlreiz nospiediet slēdzi.</string>
+  <string name="two_switches_description_text">Nospiediet vienu slēdzi, lai pārvietotos pa vienumiem. Nospiediet otru slēdzi, lai atlasītu iezīmēto vienumu.</string>
+  <string name="step_speed_heading">Izvēlieties skenēšanas ātrumu</string>
+  <string name="step_speed_subheading">Izvēlieties laiku, cik ilgi katrs vienums būs iezīmēts</string>
+  <string name="fast_radio_button_title">Ātra (%1$s s aizkave)</string>
+  <string name="medium_radio_button_title">Vidēja (%1$s s aizkave)</string>
+  <string name="slow_radio_button_title">Lēna (%1$s s aizkave)</string>
+  <string name="custom_switch">Pielāgots</string>
+  <string name="custom_edit_text">aizkave (sekundes)</string>
+  <string name="setup_toast_msg_key_already_assigned">Taustiņam “%1$s” jau ir piešķirta cita darbība.</string>
+  <string name="row_column_scanning_title">Skenēt rindās/slejās</string>
+  <string name="option_scanning_title">Grupas atlase (papildu)</string>
+  <string name="linear_scanning_title">Lineāri skenēt</string>
+  <string name="linear_scanning_except_keyboard_title">Lineārā pārlūkošana (izņemot tastatūru)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Runa, skaņa un vibrācija</string>
+  <string name="title_pref_switch_access_spoken_feedback">Balss komentāri</string>
+  <string name="title_pref_scan_non_actionable_items">Izrunāt aprakstošu tekstu</string>
+  <string name="scan_non_actionable_items_summary">Atskaņot balss komentārus par vienumiem ar pieejamām darbībām un vienumiem ar aprakstošu tekstu</string>
+  <string name="title_pref_switch_access_verbosity">Detalizētība</string>
+  <string name="summary_verbosity">Izvēlieties atskaņojamās informācijas apjomu.</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Informācija par detalizētību</string>
+  <string name="title_pref_switch_access_keyboard_echo">Tastatūras atbalss</string>
+  <string name="keyboard_echo_summary_on">Izrunāt ekrāna tastatūrā nospiestos taustiņus</string>
+  <string name="keyboard_echo_summary_off">Neizrunāt ekrāna tastatūrā nospiestos taustiņus</string>
+  <string name="title_pref_enable_hints">Izrunāt lietošanas ieteikumus</string>
+  <string name="enable_hints_summary_on">Lietošanas ieteikumi tiek izrunāti navigācijas laikā pēc īsa brīža.</string>
+  <string name="enable_hints_summary_off">Pārvietojot pieejamības fokusu, netiek izrunāti lietošanas ieteikumi.</string>
+  <string name="title_pref_speak_container_element_position">Izrunāt sarakstu un režģu informāciju</string>
+  <string name="speak_container_element_position_summary_on">Tiek izrunāta informācija par sarakstiem un režģiem.</string>
+  <string name="speak_container_element_position_summary_off">Netiek izrunāta informācija par sarakstiem un režģiem.</string>
+  <string name="title_pref_speak_element_type">Izrunāt elementa veidu</string>
+  <string name="speak_element_type_summary_on">Tiek izrunāts izvēlēto vienumu elementa veids.</string>
+  <string name="speak_element_type_summary_off">Netiek izrunāts izvēlēto vienumu elementa veids.</string>
+  <string name="title_pref_pitch_change_for_ime">Izmantot balss augstuma maiņu</string>
+  <string name="pitch_change_for_ime_summary_on">Pazemināt balss toni, runājot tastatūras balss komentārus</string>
+  <string name="pitch_change_for_ime_summary_off">Runājot nemainīt balss komentārus</string>
+  <string name="title_pref_speak_selected_item_or_group">Atlasītā vienuma vai grupas izrunāšana</string>
+  <string name="speak_selected_item_or_group_summary">Kad vienums vai grupa ir atlasīta, izrunāt tās nosaukumu</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Maksimālais runāšanas laiks uz vienumu</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Iestatiet maksimālo laiku katra vienuma izrunātajam aprakstam. Iestatītajā laikā runa tiks pārtraukta.\nPiezīme. Ja norādes ir ieslēgtas, tās vienmēr tiek izrunātas.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Dažādi</string>
+  <string name="title_pref_node_description_order">Elementu aprakstīšanas secība</string>
+  <string name="title_pref_switch_access_speak_element_ids">Izrunāt elementu ID</string>
+  <string name="speak_element_ids_summary_on">Elementu ID tiek izrunāti pogām, kam nav iezīmju.</string>
+  <string name="speak_element_ids_summary_off">Elementu ID netiek izrunāti pogām, kam nav iezīmju.</string>
+  <string name="title_pref_switch_access_tts_settings">TTS iestatījumi</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Ja ir atzīmēti vairāki vienumi</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Izrunāt pirmo un pēdējo vienumu</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Nosaukt vienumu skaitu</string>
+  <string name="title_pref_switch_access_speak_all_items">Nosaukt visus iezīmētos vienumus</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Noklausīties komentāru pirms pāriešanas</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Citi signāli</string>
+  <string name="title_pref_developer_settings">Izstrādātāja iestatījumi</string>
+  <string name="title_pref_spoken_feedback_overlay">Runas izvades rādīšana</string>
+  <string name="title_pref_switch_access_vibration_feedback">Vibrācija</string>
+  <string name="vibration_feedback_summary">Vibrēt, lai norādītu izmaiņas (piemēram, mainīts ekrāna saturs)</string>
+  <string name="title_pref_switch_access_sound_feedback">Skaņas signāls</string>
+  <string name="sound_feedback_summary">Atskaņot audio ikonu, lai norādītu izmaiņas (piemēram, mainīts ekrāna saturs)</string>
+  <string name="title_pref_switch_access_sound_volume">Skaņas skaļums</string>
+  <string name="title_pref_switch_access_audio_ducking">Audio klusināšana</string>
+  <string name="audio_ducking_summary">Samazināt citu lietotņu audio skaļumu runāšanas laikā</string>
+  <string name="switch_access_focus_cleared_no_selection">Ekrāns tika mainīts</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Lai atlasītu rindu, nospiediet slēdzi Atlasīt</string>
+  <string name="switch_access_spoken_feedback_group">%1$s. grupa</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Lai atlasītu grupu, nospiediet grupas numur %1$s slēdzi</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Lai atlasītu vienumu, nospiediet grupas numur %1$s slēdzi</string>
+  <string name="switch_access_spoken_feedback_to">No %1$s. līdz %2$s.</string>
+  <string name="switch_access_spoken_feedback_items">%1$s vienumi</string>
+  <string name="switch_access_spoken_feedback_group_selected">grupa numur %1$s ir atlasīta</string>
+  <string name="switch_access_spoken_feedback_row_selected">rinda ir atlasīta</string>
+  <string name="switch_access_spoken_feedback_item_selected">Vienums %1$s tika atlasīts</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">ritināms</string>
+  <string name="switch_access_spoken_feedback_scroll">atlasiet, lai ritinātu</string>
+  <string name="switch_access_spoken_feedback_unknown">nezināms vienums</string>
+  <string name="scanning_method_heading">Izvēlieties skenēšanas veidu</string>
+  <string name="row_column_scanning_description">Skenējiet vienumus pa vienai rindai. Kad rinda ir atlasīta, varat pārvietoties pa sarakstā redzamajiem vienumiem.</string>
+  <string name="linear_scanning_description">Pāriet no vienuma uz vienumu</string>
+  <string name="linear_scanning_except_keyboard_description">Pārvietojieties, pārejot no vienuma uz vienumu. Ņemiet vērā, ka tastatūra vienmēr veiks skenēšanu pa vienai rindai.</string>
+  <string name="option_scanning_description">Visiem vienumiem tiks piešķirta krāsa. Nospiediet slēdzi, kas atbilst ap vēlamo vienumu redzamajai krāsai. Samaziniet grupā iekļauto vienumu skaitu, līdz sasniedzat vēlamo skaitu.</string>
+  <string name="setup_switch_assignment_heading">Slēdži, kas piešķirti darbībai “%s”</string>
+  <string name="setup_switch_assignment_empty">Neviens</string>
+  <string name="clear_keys_dialog_title">Vai notīrīt darbībām piešķirtos slēdžus?</string>
+  <string name="clear_keys_dialog_message">Slēdži jau ir piešķirti darbībām.</string>
+  <string name="clear_keys_dialog_positive_button">Notīrīt slēdžus</string>
+  <string name="clear_keys_dialog_negative_button">Paturēt slēdžus</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Nav piešķirts neviens slēdzis.</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Šai darbībai nav piešķirts neviens slēdzis. Vai tiešām vēlaties turpināt?</string>
+  <string name="option_scan_switch_title">Grupas krāsa: %1$s</string>
+  <string name="option_scan_switch_subtitle">Nospiediet slēdzi, lai piešķirtu to grupas %1$s atlasīšanai.</string>
+  <string name="assign_switch_subtitle">Nospiediet slēdzi, lai piešķirtu to darbībai “%1$s”.</string>
+  <string name="auto_scan_action_description">Sākt skenēšanu un atlasi</string>
+  <string name="switch_game_heading">Iestatījumu pārbaude, spēlējot Tic-Tac-Toe</string>
+  <string name="switch_game_one_switch_linear_subheading">Lai sāktu skenēšanu, nospiediet slēdzi “%1$s”. Lai atlasītu iezīmēto vienumu, vēlreiz nospiediet slēdzi. Jūsu kārta!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Lai sāktu skenēšanu, nospiediet slēdzi “%1$s”. Lai atlasītu iezīmēto rindu, vēlreiz nospiediet šo slēdzi. Lai atlasītu iezīmēto vienumu, nospiediet slēdzi vēl vienu reizi. Jūsu kārta!</string>
+  <string name="switch_game_two_switch_linear_subheading">Lai pārvietotos pa vienumiem, nospiediet slēdzi “%1$s”. Lai atlasītu izcelto vienumu, nospiediet slēdzi “%2$s”. Jūsu kārta!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Lai pārvietotos pa rindām, nospiediet slēdzi “%1$s”. Lai atlasītu izcelto rindu, nospiediet slēdzi “%2$s”. Atkārtojiet šīs darbības, lai izvēlētos vienumu šajā rindā. Jūsu kārta!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Lai atlasītu krāsā %2$s izceltos vienumus, nospiediet slēdzi “%1$s”. Lai atlasītu krāsā %3$s izceltos vienumus, nospiediet slēdzi “%4$s”. Atkārtojiet šīs darbības, līdz esat atlasījis vēlamo vienumu. Jūsu kārta!</string>
+  <string name="switch_game_incomplete_switches_subheading">Dažām darbībām vēl nav piešķirti slēdži. Izmantojiet pogu “Iepriekšējā”, lai atgrieztos attiecīgajā sadaļā un pabeigtu slēdžu piešķiršanu.</string>
+  <string name="game_square_content_description">%1$s šādā pozīcijā: %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">tukšs</string>
+  <string name="game_reset_button_title">Atiestatīt spēli</string>
+  <string name="game_square_already_taken">Šis kvadrāts jau ir atzīmēts. Mēģiniet vēlreiz!</string>
+  <string name="game_win_outcome_title">Jūs uzvarējāt!</string>
+  <string name="game_loss_outcome_title">Lai veicas nākamajā reizē!</string>
+  <string name="game_tie_outcome_title">Neizšķirts</string>
+  <string name="game_outcome_body_text">Varat paturēt pašreizējos iestatījumus vai sākt no jauna.</string>
+  <string name="game_outcome_positive_response">Paturēt iestatījumus</string>
+  <string name="game_outcome_negative_response">Sākt no jauna</string>
+  <string name="setup_completion_heading">Iestatīšana pabeigta</string>
+  <string name="setup_completion_message">Gatavs!</string>
+  <string name="setup_completion_settings_reminder">Varat jebkurā brīdī mainīt papildu iestatījumus vai atkārtoti atvērt iestatīšanas vedni sadaļā “Slēdžu piekļuves iestatījumi”.</string>
+  <string name="dialog_url_list">Saites izvēle</string>
+  <string name="dialog_do_not_disturb_permission_title">Slēdžu piekļuvei ir nepieciešama atļauja pielāgot skaļumu</string>
+  <string name="dialog_do_not_disturb_permission_message">Lai varētu pielāgot skaļumu no slēdžu piekļuves izvēlnes, ieslēdziet lietotnes Android Accessibility Suite piekļuvi režīmam “Netraucēt”.</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Atvērt iestatījumus</string>
 </resources>

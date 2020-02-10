@@ -17,10 +17,10 @@
 package com.google.android.accessibility.switchaccess.treebuilding;
 
 import android.graphics.Rect;
-import com.google.android.accessibility.switchaccess.ShowActionsMenuNode;
-import com.google.android.accessibility.switchaccess.TreeScanLeafNode;
-import com.google.android.accessibility.switchaccess.TreeScanNode;
-import com.google.android.accessibility.switchaccess.TreeScanSelectionNode;
+import com.google.android.accessibility.switchaccess.treenodes.ShowActionsMenuNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanLeafNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanSelectionNode;
 import java.io.PrintStream;
 import java.util.Iterator;
 
@@ -33,7 +33,6 @@ public class TreeBuilderUtils {
    * @param printStream The stream to which to print
    * @param prefix Any prefix that should be prepended to each line.
    */
-  @SuppressWarnings("unused")
   public static void printTree(TreeScanNode tree, PrintStream printStream, String prefix) {
     String treeClassName = tree.getClass().getSimpleName();
     if (tree instanceof ShowActionsMenuNode) {

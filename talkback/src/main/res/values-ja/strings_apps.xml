@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_stream_volume_set">%1$sの音量を%2$dパーセントに設定しました。</string>
+  <string name="value_stream_master">マスター</string>
+  <string name="value_stream_voice_call">通話</string>
+  <string name="value_stream_system">システムサウンド</string>
+  <string name="value_stream_ring">着信音</string>
+  <string name="value_stream_music">音楽</string>
+  <string name="value_stream_alarm">アラーム</string>
+  <string name="value_stream_notification">通知</string>
+  <string name="value_stream_dtmf">プッシュホン発信</string>
+  <string name="value_stream_accessibility">ユーザー補助機能</string>
+  <string name="value_googletv_screen_saver">スクリーンセーバー</string>
+</resources>

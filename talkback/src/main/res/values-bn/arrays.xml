@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>বোতাম</item>
+    <item>চেকবাক্স</item>
+    <item>রঙ চয়নকারী</item>
+    <item>তারিখ ও সময় নিয়ন্ত্রণ</item>
+    <item>তারিখ ও সময় নিয়ন্ত্রণ</item>
+    <item>তারিখ নিয়ন্ত্রণ</item>
+    <item>ইমেলের জন্য পাঠ্য সম্পাদনা করুন</item>
+    <item>ফাইল নির্বাচন</item>
+    <item translatable="false"></item>
+    <item>বোতাম</item>
+    <item>মাস নিয়ন্ত্রণ</item>
+    <item>শুধুমাত্র সাংখ্যিক পাঠ্য সম্পাদনা করুন</item>
+    <item>পাসওয়ার্ড সম্পাদনা পাঠ্য</item>
+    <item>রেডিও বোতাম</item>
+    <item>স্লাইডার</item>
+    <item>আবার সেট করুন</item>
+    <item>সার্চের জন্য পাঠ্য সম্পাদনা করুন</item>
+    <item>বোতাম</item>
+    <item>টেলিফোন নম্বরের জন্য পাঠ্য সম্পাদনা করুন</item>
+    <item>পাঠ্য সম্পাদনা করুন</item>
+    <item>URL এর জন্য পাঠ্য সম্পাদনা করুন</item>
+    <item>কোনো বছরের সপ্তাহ নিয়ন্ত্রণে</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>সতর্কতা</item>
+    <item>সতর্কতা ডায়ালগ</item>
+    <item>বোতাম</item>
+    <item>চেকবাক্স</item>
+    <item>কম্বো বাক্স</item>
+    <item>ডায়ালগ</item>
+    <item>গ্রিড কক্ষ</item>
+    <item>লিঙ্ক</item>
+    <item>লগ</item>
+    <item>মার্কি</item>
+    <item>মেনু আইটেম</item>
+    <item>মেনু আইটেম চেকবাক্স</item>
+    <item>মেনু আইটেম রেডিও বোতাম</item>
+    <item>বিকল্প</item>
+    <item>প্রগতি দণ্ড</item>
+    <item>রেডিও বোতাম</item>
+    <item>রেডিও বোতাম গ্রুপ</item>
+    <item>স্ক্রোল দণ্ড</item>
+    <item>স্লাইডার</item>
+    <item>স্পিন বোতাম</item>
+    <item>স্থিতি</item>
+    <item>ট্যাব</item>
+    <item>ট্যাব প্যানেল</item>
+    <item>পাঠ্য বাক্স</item>
+    <item>টাইমার</item>
+    <item>টুল দণ্ড</item>
+    <item>টুল টিপ</item>
+    <item>ট্রি আইটেম</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>লিঙ্ক</item>
+    <item>শিরোনাম এক</item>
+    <item>শিরোনাম দুই</item>
+    <item>শিরোনাম তিন</item>
+    <item>শিরোনাম চার</item>
+    <item>শিরোনাম পাঁচ</item>
+    <item>শিরোনাম ছয়</item>
+    <item>বোতাম</item>
+    <item>কম্বো বাক্স</item>
+    <item>সারণী</item>
+    <item>পাঠ্য এলাকা</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

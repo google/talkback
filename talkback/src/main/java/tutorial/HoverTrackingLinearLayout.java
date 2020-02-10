@@ -23,7 +23,7 @@ import android.widget.LinearLayout;
 
 public class HoverTrackingLinearLayout extends LinearLayout {
 
-  private boolean mDidHoverEnter;
+  private boolean didHoverEnter;
 
   public HoverTrackingLinearLayout(Context context) {
     super(context);
@@ -40,16 +40,16 @@ public class HoverTrackingLinearLayout extends LinearLayout {
   @Override
   public boolean onHoverEvent(MotionEvent event) {
     if (event.getAction() == MotionEvent.ACTION_HOVER_ENTER) {
-      mDidHoverEnter = true;
+      didHoverEnter = true;
     }
     return super.onHoverEvent(event);
   }
 
   public void clearTracking() {
-    mDidHoverEnter = false;
+    didHoverEnter = false;
   }
 
   public boolean didHoverEnter() {
-    return mDidHoverEnter;
+    return didHoverEnter;
   }
 }

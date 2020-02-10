@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.talkback.eventprocessor;
 
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
 import android.util.SparseIntArray;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
@@ -45,13 +45,13 @@ class EventQueue {
           | AccessibilityEventCompat.TYPE_VIEW_SCROLLED;
 
   /** The list responsible for maintaining events in the event queue. */
-  private final ArrayList<AccessibilityEvent> mEventQueue = new ArrayList<>();
+  private final ArrayList<AccessibilityEvent> eventQueue = new ArrayList<>();
 
   /**
    * The current number of events in the queue for each event type that match a type defined in
    * {@code MASK_LIMITED_EVENT_TYPES}.
    */
-  private final SparseIntArray mQualifyingEvents = new SparseIntArray();
+  private final SparseIntArray qualifyingEvents = new SparseIntArray();
 
   /**
    * Adds an {@link AccessibilityEvent} to the queue for processing. If this addition causes the
@@ -65,11 +65,11 @@ class EventQueue {
     final int eventType = clone.getEventType();
 
     if (AccessibilityEventUtils.eventMatchesAnyType(clone, MASK_LIMITED_EVENT_TYPES)) {
-      final int eventCountOfType = mQualifyingEvents.get(eventType, 0);
-      mQualifyingEvents.put(eventType, (eventCountOfType + 1));
+      final int eventCountOfType = qualifyingEvents.get(eventType, 0);
+      qualifyingEvents.put(eventType, (eventCountOfType + 1));
     }
 
-    mEventQueue.add(clone);
+    eventQueue.add(clone);
     enforceEventLimits();
   }
 
@@ -79,25 +79,25 @@ class EventQueue {
    * @return The event at the front of the queue.
    */
   public AccessibilityEvent dequeue() {
-    if (mEventQueue.isEmpty()) {
+    if (eventQueue.isEmpty()) {
       return null;
     }
 
-    final AccessibilityEvent event = mEventQueue.remove(0);
+    final AccessibilityEvent event = eventQueue.remove(0);
 
     if (event != null
         && AccessibilityEventUtils.eventMatchesAnyType(event, MASK_LIMITED_EVENT_TYPES)) {
       final int eventType = event.getEventType();
-      final int eventCountOfType = mQualifyingEvents.get(eventType, 0);
-      mQualifyingEvents.put(eventType, (eventCountOfType - 1));
+      final int eventCountOfType = qualifyingEvents.get(eventType, 0);
+      qualifyingEvents.put(eventType, (eventCountOfType - 1));
     }
     return event;
   }
 
   /** Clears the event queue and discards all events waiting for processing. */
   public void clear() {
-    mEventQueue.clear();
-    mQualifyingEvents.clear();
+    eventQueue.clear();
+    qualifyingEvents.clear();
   }
 
   /**
@@ -106,7 +106,7 @@ class EventQueue {
    * @return {@code true} if the queue is empty, {@code false} otherwise
    */
   public boolean isEmpty() {
-    return mEventQueue.isEmpty();
+    return eventQueue.isEmpty();
   }
 
   /**
@@ -117,24 +117,24 @@ class EventQueue {
   private void enforceEventLimits() {
     int eventTypesToPrune = 0;
     // Locate event types which exceed the allowable limit
-    for (int i = 0; i < mQualifyingEvents.size(); i++) {
-      final int eventType = mQualifyingEvents.keyAt(i);
-      final int eventsOfType = mQualifyingEvents.valueAt(i);
+    for (int i = 0; i < qualifyingEvents.size(); i++) {
+      final int eventType = qualifyingEvents.keyAt(i);
+      final int eventsOfType = qualifyingEvents.valueAt(i);
       if (eventsOfType > MAXIMUM_QUALIFYING_EVENTS) {
         eventTypesToPrune |= eventType;
       }
     }
 
-    final Iterator<AccessibilityEvent> iterator = mEventQueue.iterator();
+    final Iterator<AccessibilityEvent> iterator = eventQueue.iterator();
     while (iterator.hasNext() && (eventTypesToPrune != 0)) {
       final AccessibilityEvent next = iterator.next();
 
       // Prune offending events
       if (AccessibilityEventUtils.eventMatchesAnyType(next, eventTypesToPrune)) {
         final int eventType = next.getEventType();
-        int eventCountOfType = mQualifyingEvents.get(eventType, 0);
+        int eventCountOfType = qualifyingEvents.get(eventType, 0);
         eventCountOfType--;
-        mQualifyingEvents.put(eventType, eventCountOfType);
+        qualifyingEvents.put(eventType, eventCountOfType);
         iterator.remove();
 
         // Stop pruning further events of this type if the number of

@@ -17,15 +17,27 @@
 
 <resources>
 
-    <style name="TalkBackSettings" parent="@android:style/Theme.DeviceDefault.Settings" />
+  <!--The basic theme for service-->
+  <style name="BaseTheme" parent="Theme.AppCompat.Light"/>
 
-  <!-- the theme applied to the dialog for keyboard shortcuts -->
-  <style name="KeyboardShortcutTextDescription" parent="android:style/Theme.DeviceDefault.Dialog"/>
+  <!--The theme is for preference settings-->
+  <style name="TalkBackSettings" parent="Theme.AppCompat.Light" >
+    <item name="colorAccent">@color/colorAccent</item>
+  </style>
 
-    <style name="DialogStyle" parent="@android:style/Theme.DeviceDefault.Dialog">
-        <item name="android:windowNoTitle">true</item>
-    </style>
+  <style name="DialogStyle" parent="Theme.AppCompat.Light.Dialog">
+    <item name="android:windowNoTitle">true</item>
+  </style>
 
+  <!-- The theme applied for mic permissions need for voice commands -->
+  <style name="BlankActivityTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
+    <!-- windowIsFloating is needed, otherwise the nav bar and status bar have black background. -->
+    <item name="android:windowIsFloating">true</item>
+    <!-- When the window is floating, the background is dimmed by default, we should turn it off. -->
+    <item name="android:backgroundDimEnabled">false</item>
+  </style>
+
+  <!--The theme is for dark dim screen text style-->
     <style name="DimmingInstructionText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -45,8 +57,8 @@
         <item name="android:minHeight">@dimen/tutorial_header_min_height</item>
     </style>
 
-    <!-- the theme applied to the application or activity -->
-    <style name="TutorialActivityTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    <!-- The theme applied to the tutorial activity -->
+    <style name="TutorialActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:actionBarStyle">@style/TutorialActionBar</item>
     </style>
 

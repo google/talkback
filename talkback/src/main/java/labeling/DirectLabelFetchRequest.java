@@ -21,25 +21,25 @@ import com.google.android.accessibility.utils.labeling.LabelProviderClient;
 
 public class DirectLabelFetchRequest extends LabelClientRequest<Label> {
 
-  private long mLabelId;
-  private OnLabelFetchedListener mOnLabelFetchedListener;
+  private long labelId;
+  private OnLabelFetchedListener onLabelFetchedListener;
 
   public DirectLabelFetchRequest(
       LabelProviderClient client, long labelId, OnLabelFetchedListener listener) {
     super(client);
-    mLabelId = labelId;
-    mOnLabelFetchedListener = listener;
+    this.labelId = labelId;
+    onLabelFetchedListener = listener;
   }
 
   @Override
   public Label doInBackground() {
-    return mClient.getLabelById(mLabelId);
+    return mClient.getLabelById(labelId);
   }
 
   @Override
   public void onPostExecute(Label result) {
-    if (mOnLabelFetchedListener != null) {
-      mOnLabelFetchedListener.onLabelFetched(result);
+    if (onLabelFetchedListener != null) {
+      onLabelFetchedListener.onLabelFetched(result);
     }
   }
 

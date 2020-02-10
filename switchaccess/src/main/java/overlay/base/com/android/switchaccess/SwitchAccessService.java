@@ -17,7 +17,7 @@
 package com.android.switchaccess;
 
 import android.accessibilityservice.AccessibilityService;
-import android.annotation.TargetApi;
+import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -26,100 +26,190 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.os.Trace;
 import android.os.UserManager;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.accessibility.AccessibilityEvent;
-import com.google.android.accessibility.switchaccess.Analytics;
+import com.google.android.accessibility.compositor.Compositor;
+import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.switchaccess.AutoScanController;
-import com.google.android.accessibility.switchaccess.ClearOverlayNode;
-import com.google.android.accessibility.switchaccess.FeedbackController;
-import com.google.android.accessibility.switchaccess.KeyAssignmentUtils;
-import com.google.android.accessibility.switchaccess.KeyboardEventManager;
+import com.google.android.accessibility.switchaccess.FeatureFlags;
 import com.google.android.accessibility.switchaccess.OptionManager;
-import com.google.android.accessibility.switchaccess.OverlayController;
+import com.google.android.accessibility.switchaccess.PerformanceMonitor;
+import com.google.android.accessibility.switchaccess.PerformanceMonitor.KeyPressEvent;
 import com.google.android.accessibility.switchaccess.PointScanManager;
-import com.google.android.accessibility.switchaccess.ShowGlobalMenuNode;
-import com.google.android.accessibility.switchaccess.SwitchAccessPreferenceActivity;
-import com.google.android.accessibility.switchaccess.SwitchAccessWindowInfo;
-import com.google.android.accessibility.switchaccess.TreeScanNode;
+import com.google.android.accessibility.switchaccess.SwitchAccessLogger;
+import com.google.android.accessibility.switchaccess.SwitchAccessPreferenceCache;
+import com.google.android.accessibility.switchaccess.SwitchAccessPreferenceCache.SwitchAccessPreferenceChangedListener;
+import com.google.android.accessibility.switchaccess.SwitchAccessPreferenceUtils;
 import com.google.android.accessibility.switchaccess.UiChangeDetector;
+import com.google.android.accessibility.switchaccess.UiChangeHandler;
 import com.google.android.accessibility.switchaccess.UiChangeStabilizer;
+import com.google.android.accessibility.switchaccess.feedback.SwitchAccessAccessibilityEventFeedbackController;
+import com.google.android.accessibility.switchaccess.feedback.SwitchAccessActionFeedbackController;
+import com.google.android.accessibility.switchaccess.feedback.SwitchAccessFeedbackController;
+import com.google.android.accessibility.switchaccess.feedback.SwitchAccessHighlightFeedbackController;
+import com.google.android.accessibility.switchaccess.keyassignment.KeyAssignmentUtils;
+import com.google.android.accessibility.switchaccess.keyboardactions.KeyboardEventManager;
 import com.google.android.accessibility.switchaccess.setupwizard.SetupWizardActivity;
 import com.google.android.accessibility.switchaccess.treebuilding.MainTreeBuilder;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.accessibility.switchaccess.ui.OverlayController;
+import com.google.android.accessibility.utils.ScreenMonitor;
 import com.google.android.accessibility.utils.SharedKeyEvent;
-import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.feedback.AccessibilityHintsManager;
+import com.google.android.accessibility.utils.input.InputModeManager;
+import com.google.android.accessibility.utils.output.FeedbackController;
+import com.google.android.accessibility.utils.output.SpeechController;
+import com.google.android.accessibility.utils.output.SpeechControllerImpl;
 import com.google.android.accessibility.utils.widget.SimpleOverlay;
+import com.google.android.libraries.accessibility.utils.concurrent.ThreadUtils;
+import com.google.android.libraries.accessibility.utils.eventfilter.AccessibilityEventFilter;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.checkerframework.dataflow.qual.SideEffectFree;
 
 /**
  * Enable a user to perform touch gestures using keyboards with only a small number of keys. These
  * keyboards may be adapted to match a user's capabilities, for example with very large buttons,
  * proximity sensors around the head, or sip/puff switches.
  */
-@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class SwitchAccessService extends AccessibilityService
-    implements SharedPreferences.OnSharedPreferenceChangeListener,
-        UiChangeStabilizer.UiChangedListener,
-        SharedKeyEvent.Listener {
+    implements SwitchAccessPreferenceChangedListener,
+        SharedKeyEvent.Listener,
+        SpeechController.Delegate {
 
-  private UiChangeStabilizer mUiChangeStabilizer;
-  private UiChangeDetector mEventProcessor;
+  private static final String TAG = "SAService";
 
-  private Analytics mAnalytics;
+  private UiChangeStabilizer uiChangeStabilizer;
+  private UiChangeDetector eventProcessor;
+  private UiChangeHandler uiChangeHandler;
+  private AccessibilityEventFilter accessibilityEventFilter;
 
-  private WakeLock mWakeLock;
+  private SwitchAccessLogger analytics;
 
-  private static SwitchAccessService sInstance = null;
+  private WakeLock wakeLock;
 
-  private OverlayController mOverlayController;
-  private OptionManager mOptionManager;
-  private AutoScanController mAutoScanController;
-  private PointScanManager mPointScanManager;
-  private KeyboardEventManager mKeyboardEventManager;
-  private MainTreeBuilder mMainTreeBuilder;
-  private FeedbackController mFeedbackController;
+  @Nullable private static SwitchAccessService instance;
 
-  private final BroadcastReceiver mUserUnlockedBroadcastReceiver =
+  private OverlayController overlayController;
+  private OptionManager optionManager;
+  private AutoScanController autoScanController;
+  private PointScanManager pointScanManager;
+  private KeyboardEventManager keyboardEventManager;
+  private SwitchAccessFeedbackController switchAccessFeedbackController;
+  /** {@link BroadcastReceiver} for tracking the screen status. */
+  private ScreenMonitor screenMonitor;
+
+  private boolean spokenFeedbackEnabledInServiceInfo;
+  private boolean hapticFeedbackEnabledInServiceInfo;
+  private boolean auditoryFeedbackEnabledInServiceInfo;
+
+  private HandlerThread handlerThread =
+      new HandlerThread("BackgroundThread", android.os.Process.THREAD_PRIORITY_BACKGROUND);
+
+  private final BroadcastReceiver userUnlockedBroadcastReceiver =
       new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-          mAnalytics = Analytics.getOrCreateInstance(SwitchAccessService.this);
-          unregisterReceiver(mUserUnlockedBroadcastReceiver);
+          analytics = SwitchAccessLogger.getOrCreateInstance(SwitchAccessService.this);
+          unregisterReceiver(userUnlockedBroadcastReceiver);
+        }
+      };
+
+  private final BroadcastReceiver screenOffBroadcastReceiver =
+      new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+          String action = intent.getAction();
+          if ((action != null) && (action.equals(Intent.ACTION_SCREEN_OFF))) {
+            overlayController.clearMenuOverlay();
+          }
         }
       };
 
   @Override
+  public void onCreate() {
+    super.onCreate();
+
+    if (KeyAssignmentUtils.areKeysAssigned(this)) {
+      PerformanceMonitor.getOrCreateInstance()
+          .initializePerformanceMonitoringIfNotInitialized(this, getApplication());
+    }
+
+    handlerThread.start();
+  }
+
+  @Override
   public boolean onUnbind(Intent intent) {
+    ThreadUtils.removeCallbacksAndMessages(null);
+    if (instance != null) {
+      unregisterReceiver(screenOffBroadcastReceiver);
+    }
+
+    instance = null;
     try {
-      mAutoScanController.stopScan();
+      autoScanController.stopScan();
+      uiChangeStabilizer.shutdown();
+      uiChangeHandler.shutdown();
     } catch (NullPointerException e) {
       // Ignore.
     }
-    mUiChangeStabilizer.shutdown();
     return super.onUnbind(intent);
   }
 
   @Override
   public void onDestroy() {
     SharedKeyEvent.unregister(this);
-    if (mAnalytics != null) {
-      mAnalytics.stop();
+    if (analytics != null) {
+      analytics.stop(this);
     }
-    mOptionManager.shutdown();
-    mOverlayController.shutdown();
-    mMainTreeBuilder.shutdown();
-    mPointScanManager.shutdown();
-    mFeedbackController.shutdown();
-    sInstance = null;
+    SwitchAccessPreferenceUtils.unregisterSwitchAccessPreferenceChangedListener(this);
+    PerformanceMonitor.getOrCreateInstance().shutdown();
+
+    // Check for nullness before shutting down as these can be null during Robolectric testing.
+    if (optionManager != null) {
+      optionManager.shutdown();
+    }
+
+    if (overlayController != null) {
+      overlayController.shutdown();
+    }
+
+    if (pointScanManager != null) {
+      pointScanManager.shutdown();
+    }
+
+    if (switchAccessFeedbackController != null) {
+      switchAccessFeedbackController.shutdown();
+    }
+
+    if (screenMonitor != null) {
+      unregisterReceiver(screenMonitor);
+    }
+
+    SwitchAccessPreferenceCache.shutdownIfInitialized(this);
+    instance = null;
     super.onDestroy();
   }
 
   @Override
   public void onAccessibilityEvent(AccessibilityEvent event) {
-    mEventProcessor.onAccessibilityEvent(event, null /* EventId */);
+    Trace.beginSection("SwitchAccessService#onAccessibilityEvent");
+    // Only process the AccessibilityEvents when the screen is on.
+    if (screenMonitor != null && screenMonitor.isScreenOn()) {
+      if (eventProcessor != null) {
+        eventProcessor.onAccessibilityEvent(event);
+      }
+      if (accessibilityEventFilter != null) {
+        accessibilityEventFilter.onAccessibilityEvent(event);
+      }
+    }
+    Trace.endSection();
   }
 
   @Override
@@ -128,8 +218,10 @@ public class SwitchAccessService extends AccessibilityService
   }
 
   /** @return The active SwitchingControl instance or {@code null} if not available. */
+  @Nullable
+  @SideEffectFree
   public static SwitchAccessService getInstance() {
-    return sInstance;
+    return instance;
   }
 
   /**
@@ -142,21 +234,36 @@ public class SwitchAccessService extends AccessibilityService
    */
   @Override
   public boolean onKeyEventShared(KeyEvent keyEvent) {
-    if (mKeyboardEventManager.onKeyEvent(keyEvent, mAnalytics)) {
-      mWakeLock.acquire();
-      mWakeLock.release();
-      /*
-       * This is inefficient but is needed when we pull down the notification shade.
-       * It also only works because the key event handling is delayed to see if the
-       * UI needs to stabilize.
-       * TODO: Refactor so we only re-index immediately after events if we're scanning
-       */
-      if (!SwitchAccessPreferenceActivity.isPointScanEnabled(this)) {
-        rebuildScanTree();
-      }
+    Trace.beginSection("SwitchAccessService#onKeyEventShared");
+    if (keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
+      PerformanceMonitor.getOrCreateInstance()
+          .startNewTimerEvent(KeyPressEvent.UNKNOWN_KEY_ASSIGNMENT);
+    }
+
+    if (keyboardEventManager.onKeyEvent(keyEvent, analytics, this)) {
+      wakeLock.acquire();
+      wakeLock.release();
+
+      Trace.endSection();
       return true;
     }
+    Trace.endSection();
     return false;
+  }
+
+  /**
+   * Alert the event processor that the user has initiated a screen change. This method should only
+   * be called after a key press that results in a screen change (e.g. global action, starting a
+   * scan, clicking an item, etc.)
+   */
+  public void onUserInitiatedScreenChange() {
+    /*
+     * This is needed when we pull down the notification shade. It also only works because the key
+     * event handling is delayed to see if the UI needs to stabilize.
+     */
+    if (!SwitchAccessPreferenceUtils.isPointScanEnabled(this) && (eventProcessor != null)) {
+      eventProcessor.onUserClick();
+    }
   }
 
   /*
@@ -166,34 +273,114 @@ public class SwitchAccessService extends AccessibilityService
   @SuppressWarnings("deprecation")
   @Override
   protected void onServiceConnected() {
-    sInstance = this;
+    // Enable verbose logging in dev builds.
+    if (FeatureFlags.devBuildLogging()) {
+      LogUtils.setLogLevel(Log.VERBOSE);
+    }
+
+    AccessibilityServiceInfo accessibilityServiceInfo = getServiceInfo();
+    if (accessibilityServiceInfo != null) {
+      spokenFeedbackEnabledInServiceInfo =
+          ((accessibilityServiceInfo.feedbackType & AccessibilityServiceInfo.FEEDBACK_SPOKEN) != 0);
+      hapticFeedbackEnabledInServiceInfo =
+          ((accessibilityServiceInfo.feedbackType & AccessibilityServiceInfo.FEEDBACK_HAPTIC) != 0);
+      auditoryFeedbackEnabledInServiceInfo =
+          ((accessibilityServiceInfo.feedbackType & AccessibilityServiceInfo.FEEDBACK_AUDIBLE)
+              != 0);
+      updateServiceInfoIfFeedbackTypeChanged();
+    } else {
+      spokenFeedbackEnabledInServiceInfo = false;
+      hapticFeedbackEnabledInServiceInfo = false;
+      auditoryFeedbackEnabledInServiceInfo = false;
+    }
+
+    // Make sure that the soft keyboard can be shown when a hardware key is connected. Only
+    // supported on Q+.
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+      getSoftKeyboardController().setShowMode(AccessibilityService.SHOW_MODE_IGNORE_HARD_KEYBOARD);
+    }
+
     SimpleOverlay highlightOverlay = new SimpleOverlay(this);
     SimpleOverlay globalMenuButtonOverlay = new SimpleOverlay(this, 0, true);
     SimpleOverlay menuOverlay = new SimpleOverlay(this, 0, true);
-    mOverlayController =
-        new OverlayController(highlightOverlay, globalMenuButtonOverlay, menuOverlay);
-    mOverlayController.configureOverlays();
-    mFeedbackController = new FeedbackController(this);
-    mOptionManager = new OptionManager(mOverlayController, mFeedbackController);
-    mPointScanManager = new PointScanManager(mOverlayController, this);
-    mMainTreeBuilder = new MainTreeBuilder(this);
-    mAutoScanController =
-        new AutoScanController(mOptionManager, mFeedbackController, new Handler(), this);
-    mKeyboardEventManager =
-        new KeyboardEventManager(this, mOptionManager, mAutoScanController, mPointScanManager);
+    SimpleOverlay screenSwitchOverlay = new SimpleOverlay(this, 0, true);
+    overlayController =
+        new OverlayController(
+            highlightOverlay, globalMenuButtonOverlay, menuOverlay, screenSwitchOverlay);
+    overlayController.configureOverlays();
+    configureScreenSwitch();
+
+    FeedbackController feedbackController = new FeedbackController(this);
+    SpeechControllerImpl speechController =
+        new SpeechControllerImpl(this, this, feedbackController);
+    GlobalVariables globalVariables = new GlobalVariables(this, new InputModeManager(), null);
+    Compositor compositor =
+        new Compositor(
+            this, speechController, null, globalVariables, Compositor.FLAVOR_SWITCH_ACCESS);
+    AccessibilityHintsManager hintsManager = new AccessibilityHintsManager(speechController);
+    SwitchAccessHighlightFeedbackController highlightFeedbackController =
+        new SwitchAccessHighlightFeedbackController(
+            this, compositor, speechController, hintsManager);
+    SwitchAccessActionFeedbackController actionFeedbackController =
+        new SwitchAccessActionFeedbackController(this, speechController, feedbackController);
+    SwitchAccessAccessibilityEventFeedbackController accessibilityEventFeedbackController =
+        new SwitchAccessAccessibilityEventFeedbackController(
+            this, compositor, globalVariables, speechController, feedbackController, hintsManager);
+    switchAccessFeedbackController =
+        new SwitchAccessFeedbackController(
+            this,
+            compositor,
+            speechController,
+            feedbackController,
+            globalVariables,
+            hintsManager,
+            highlightFeedbackController,
+            actionFeedbackController,
+            accessibilityEventFeedbackController,
+            new Handler());
+
+    optionManager = new OptionManager(overlayController, switchAccessFeedbackController);
+    pointScanManager = new PointScanManager(overlayController, this);
+    autoScanController =
+        new AutoScanController(optionManager, switchAccessFeedbackController, new Handler(), this);
+    keyboardEventManager =
+        new KeyboardEventManager(this, optionManager, autoScanController, pointScanManager);
     PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-    mWakeLock =
-        powerManager.newWakeLock(
-            PowerManager.FULL_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "SwitchAccess");
-    SharedPreferencesUtils.getSharedPreferences(this)
-        .registerOnSharedPreferenceChangeListener(this);
-    mUiChangeStabilizer = new UiChangeStabilizer(this);
-    mEventProcessor = new UiChangeDetector(mUiChangeStabilizer);
+    if (powerManager != null) {
+      wakeLock =
+          powerManager.newWakeLock(
+              PowerManager.FULL_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "SwitchAccess:");
+    }
+    screenMonitor = new ScreenMonitor(powerManager);
+    registerReceiver(screenMonitor, screenMonitor.getFilter());
+    screenMonitor.updateScreenState();
+
+    SwitchAccessPreferenceUtils.registerSwitchAccessPreferenceChangedListener(this, this);
+    uiChangeHandler =
+        new UiChangeHandler(
+            this,
+            new MainTreeBuilder(this),
+            optionManager,
+            overlayController,
+            pointScanManager,
+            new Handler(handlerThread.getLooper()));
+    uiChangeStabilizer = new UiChangeStabilizer(uiChangeHandler, switchAccessFeedbackController);
+    eventProcessor = new UiChangeDetector(uiChangeStabilizer);
+    accessibilityEventFilter = new AccessibilityEventFilter(switchAccessFeedbackController);
     SharedKeyEvent.register(this);
 
+    overlayController.setGlobalMenuButtonListener(uiChangeStabilizer);
+
+    // Register a broadcast receiver so that we can clear the menu overlay when the screen turns
+    // off.
+    IntentFilter intentFilter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
+    registerReceiver(screenOffBroadcastReceiver, intentFilter);
+
     UserManager userManager = (UserManager) getSystemService(Context.USER_SERVICE);
-    if ((Build.VERSION.SDK_INT < Build.VERSION_CODES.N) || userManager.isUserUnlocked()) {
-      mAnalytics = Analytics.getOrCreateInstance(this);
+    if ((Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+        || ((userManager != null) && userManager.isUserUnlocked())) {
+      analytics = SwitchAccessLogger.getOrCreateInstance(this);
+      overlayController.addMenuListener(analytics);
       if (!KeyAssignmentUtils.areKeysAssigned(this)) {
         Intent intent = new Intent(this, SetupWizardActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -210,61 +397,137 @@ public class SwitchAccessService extends AccessibilityService
       // Register a broadcast receiver, so we know when the user unlocks the device
       IntentFilter filter = new IntentFilter();
       filter.addAction(Intent.ACTION_USER_UNLOCKED);
-      this.registerReceiver(mUserUnlockedBroadcastReceiver, filter);
+      this.registerReceiver(userUnlockedBroadcastReceiver, filter);
     }
+
+    // Don't set the instance until the service has finished connecting. Otherwise,
+    // BadTokenExceptions can occur before the service is fully set up.
+    instance = this;
   }
 
   @Override
   protected boolean onKeyEvent(KeyEvent keyEvent) {
-    return SharedKeyEvent.onKeyEvent(this, keyEvent);
+    Trace.beginSection("SwitchAccessService#onKeyEvent");
+    boolean wasKeyEventProcessed = SharedKeyEvent.onKeyEvent(this, keyEvent);
+    Trace.endSection();
+    return wasKeyEventProcessed;
   }
 
   @Override
-  public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-    LogUtils.log(this, Log.DEBUG, "A shared preference changed: %s", key);
-    mKeyboardEventManager.reloadPreferences(this);
-  }
+  public void onPreferenceChanged(SharedPreferences prefs, String key) {
+    Trace.beginSection("SwitchAccessService#onPreferenceChanged");
+    updateServiceInfoIfFeedbackTypeChanged();
+    LogUtils.d(TAG, "A shared preference changed: %s", key);
+    keyboardEventManager.reloadPreferences(this);
 
-  @Override
-  public void onUiChangedAndIsNowStable() {
-    if (SwitchAccessPreferenceActivity.isPointScanEnabled(this)) {
-      // Only reset scan if we're not already scanning so as not to throw users off with the
-      // cursor randomly jumping to the beginning.
-      mPointScanManager.onUiChanged();
+    // TODO: Refactor this out of SwitchAccessService.
+    if (SwitchAccessPreferenceUtils.isScreenSwitchEnabled(this)) {
+      overlayController.showScreenSwitch();
     } else {
-      rebuildScanTree();
+      overlayController.hideScreenSwitch();
     }
+    Trace.endSection();
   }
 
   /** Get Option Manager. Used by Analytics. */
   public OptionManager getOptionManager() {
-    return mOptionManager;
+    return optionManager;
   }
 
   /** Get Point Scan Manager. Used by Analytics. */
   public PointScanManager getPointScanManager() {
-    return mPointScanManager;
+    return pointScanManager;
   }
 
   /** Get OverlayController. Used by Analytics. */
   public OverlayController getOverlayController() {
-    return mOverlayController;
+    return overlayController;
   }
 
-  private void rebuildScanTree() {
-    TreeScanNode firstOrLastNode;
-    boolean shouldPlaceNodeFirst;
-    if (mOverlayController.isMenuVisible()) {
-      firstOrLastNode = new ClearOverlayNode(mOverlayController);
-      shouldPlaceNodeFirst = false;
-    } else {
-      firstOrLastNode = new ShowGlobalMenuNode(mOverlayController);
-      shouldPlaceNodeFirst = true;
+  @Override
+  public boolean isAudioPlaybackActive() {
+    return false;
+  }
+
+  @Override
+  public boolean isMicrophoneActiveAndHeadphoneOff() {
+    return false;
+  }
+
+  @Override
+  public boolean isSsbActiveAndHeadphoneOff() {
+    return false;
+  }
+
+  @Override
+  public boolean isPhoneCallActive() {
+    return false;
+  }
+
+  @Override
+  public void onSpeakingForcedFeedback() {}
+
+  private void updateServiceInfoIfFeedbackTypeChanged() {
+    boolean spokenFeedbackEnabled = SwitchAccessPreferenceUtils.isSpokenFeedbackEnabled(this);
+    boolean hapticFeedbackEnabled = SwitchAccessPreferenceUtils.shouldPlayVibrationFeedback(this);
+    boolean auditoryFeedbackEnabled = SwitchAccessPreferenceUtils.shouldPlaySoundFeedback(this);
+
+    if ((spokenFeedbackEnabled == spokenFeedbackEnabledInServiceInfo)
+        && (hapticFeedbackEnabled == hapticFeedbackEnabledInServiceInfo)
+        && (auditoryFeedbackEnabled == auditoryFeedbackEnabledInServiceInfo)) {
+      return;
     }
-    mOptionManager.clearFocusIfNewTree(
-        mMainTreeBuilder.addWindowListToTree(
-            SwitchAccessWindowInfo.convertZOrderWindowList(getWindows()),
-            firstOrLastNode,
-            shouldPlaceNodeFirst));
+
+    AccessibilityServiceInfo serviceInfo = getServiceInfo();
+    if (serviceInfo == null) {
+      LogUtils.e(TAG, "Failed to update feedback type, service info was null");
+      return;
+    }
+
+    if (spokenFeedbackEnabled) {
+      serviceInfo.feedbackType |= AccessibilityServiceInfo.FEEDBACK_SPOKEN;
+    } else {
+      serviceInfo.feedbackType &= ~AccessibilityServiceInfo.FEEDBACK_SPOKEN;
+    }
+    if (hapticFeedbackEnabled) {
+      serviceInfo.feedbackType |= AccessibilityServiceInfo.FEEDBACK_HAPTIC;
+    } else {
+      serviceInfo.feedbackType &= ~AccessibilityServiceInfo.FEEDBACK_HAPTIC;
+    }
+    if (auditoryFeedbackEnabled) {
+      serviceInfo.feedbackType |= AccessibilityServiceInfo.FEEDBACK_AUDIBLE;
+    } else {
+      serviceInfo.feedbackType &= ~AccessibilityServiceInfo.FEEDBACK_AUDIBLE;
+    }
+    setServiceInfo(serviceInfo);
+
+    spokenFeedbackEnabledInServiceInfo = spokenFeedbackEnabled;
+    hapticFeedbackEnabledInServiceInfo = hapticFeedbackEnabled;
+    auditoryFeedbackEnabledInServiceInfo = auditoryFeedbackEnabled;
+  }
+
+  private void configureScreenSwitch() {
+    overlayController.setScreenSwitchOnTouchListener(
+        (view, event) -> {
+          if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            return onKeyEventShared(KeyAssignmentUtils.SCREEN_SWITCH_EVENT_DOWN);
+          } else {
+            return onKeyEventShared(KeyAssignmentUtils.SCREEN_SWITCH_EVENT_UP);
+          }
+        });
+
+    if (SwitchAccessPreferenceUtils.isScreenSwitchEnabled(this)) {
+      overlayController.showScreenSwitch();
+    }
+  }
+
+  // TODO: Investigate making this non-static.
+  /**
+   * Returns {@code true} if the service is active. This will be true when {@link
+   * SwitchAccessService#getInstance} does not return null.
+   */
+  public static boolean isActive() {
+    return getInstance() != null;
   }
 }
+

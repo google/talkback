@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Αλλαγή πρόσβασης"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Η Πρόσβαση με διακόπτη παρέχει στους χρήστες με κινητικά προβλήματα τη δυνατότητα χρήσης τηλεφώνων και tablet χρησιμοποιώντας έναν ή περισσότερους διακόπτες. Χρησιμοποιήστε διακόπτες για να επιλέξετε στοιχεία, να κάνετε κύλιση, να καταχωρήσετε κείμενο, κ.λπ."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Έλεγχος συσκευής με διακόπτες"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Βοήθεια και σχόλια"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Αυτόματη σάρωση"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Χρόνος αυτόματης σάρωσης"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Αντίστροφη αυτόματη σάρωση"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f δευτερόλεπτα</item>
-      <item quantity="one">1 δευτερόλεπτο</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Προσαρμογή σάρωσης"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Μέθοδος σάρωσης"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Καθυστέρηση στο πρώτο στοιχείο"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Αντιστοίχιση διακοπτών"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Αντιστοίχιση διακοπτών σε ενέργειες"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Αντιστοίχιση διακοπτών για σάρωση"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Ταχύτητα γραμμής"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Πλήθος σαρώσεων"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Επιλέξτε το πλήθος επαναλήψεων της σάρωσης"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Χρόνος μεμονωμένου πατήματος"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Τα πολλαπλά πατήματα εντός αυτού του χρονικού διαστήματος θα θεωρηθούν ένα πάτημα."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Εκτέλεση με απελ/ρωση διακ."</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Εκτέλεση ενέργειας κατά την απελευθέρωση του διακόπτη"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d επαναλήψεις</item>
-      <item quantity="one">%d επανάληψη</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Ο διακόπτης \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" έχει ήδη αντιστοιχιστεί στην ενέργεια \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\""</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">Αντιστοιχίστηκαν %d διακόπτες</item>
-      <item quantity="one">Αντιστοιχίστηκε %d διακόπτης</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Διακόπτης επιλογής ομάδας %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Επόμενο"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Προηγούμενο"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Επιλογή"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Παρατεταμένο πάτημα"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Κύλιση προς τα εμπρός"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Κύλιση προς τα πίσω"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Παράβλεψη"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Ανάπτυξη"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Σύμπτυξη"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Επισήμανση κειμένου"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Αντιγραφή"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Αποκοπή"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Επικόλληση"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"ΜΕΝΟΥ"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Πίσω"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Αρχική οθόνη"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Επισκόπηση"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Ειδοποιήσεις"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Γρήγορες ρυθμίσεις"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Κύλιση προς τα εμπρός"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Κύλιση προς τα πίσω"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Σάρωση σημείου"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Σάρωση σημείων εξόδου"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Σύρετε προς τα δεξιά"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Σύρετε προς τα αριστερά"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Σύρετε προς τα επάνω"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Σύρετε προς τα κάτω"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Σύρετε το δάχτυλό σας (προσαρμογή)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Σμίκρυνση"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Μεγέθυνση"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Ρυθμίσεις Πρόσβασης με διακόπτη"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Πατήστε έναν συνδυασμό διακοπτών για να τον προσθέσετε ή να τον καταργήσετε από τη λίστα"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Κατάργηση αντιστοίχισης διακόπτη"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Δεν έχουν αντιστοιχιστεί διακόπτες"</string>
-    <string name="more" msgid="1547670498589416840">"Περισσότερα"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Πλήκτρο διαστήματος"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Εισαγωγή"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"Αποθήκευση"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Σάρωση στυλ επισήμανσης"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Βασικό στυλ σάρωσης"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Χρώμα επισήμανσης"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Στυλ γραμμής επισήμανσης"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Πολιτική απορρήτου"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Ενεργοποίηση αυτόματης επιλογής"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Απενεργοποίηση αυτόματης επιλογής"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Επόμενος χαρακτήρας"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Επόμενη λέξη"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Επόμενη γραμμή"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Επόμενη παράγραφος"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Επόμενη σελίδα"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Προηγούμενος χαρακτήρας"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Προηγούμενη λέξη"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Προηγούμενη γραμμή"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Προηγούμενη παράγραφος"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Προηγούμενη σελίδα"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Αυτόματη εκκίνηση της σάρωσης"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Η σάρωση ξεκινά χωρίς να πατήσετε το διακόπτη"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Άνοιγμα ρυθμίσεων Πρόσβασης με διακόπτη"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Οδηγός ρύθμισης Πρόσβασης με διακόπτη"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Ένας διακόπτης"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Δύο διακόπτες"</string>
-    <string name="finish" msgid="4267641294267512480">"Τέλος"</string>
-    <string name="exit" msgid="8664597014081860813">"Έξοδος"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Επιλέξτε το πλήθος των διακοπτών"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Πατήστε τον διακόπτη για να αρχίσει η αυτόματη εναλλαγή μεταξύ στοιχείων, και στη συνέχεια πατήστε τον ξανά για να επιλέξετε το στοιχείο που έχει επισημανθεί."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Πατήστε έναν διακόπτη για να μετακινηθείτε μεταξύ των στοιχείων. Πατήστε τον άλλο διακόπτη για να επιλέξετε το στοιχείο που έχετε επισημάνει."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Επιλέξτε ταχύτητα σάρωσης"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Επιλέξτε τη διάρκεια επισήμανσης κάθε στοιχείου"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Μεγάλη ταχύτητα (καθυστέρηση <xliff:g id="DELAY_SPEED">%1$s</xliff:g> δευτ.)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Μεσαία ταχύτητα (καθυστέρηση <xliff:g id="DELAY_SPEED">%1$s</xliff:g> δευτ.)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Μικρή ταχύτητα (καθυστέρηση <xliff:g id="DELAY_SPEED">%1$s</xliff:g> δευτ.)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Προσαρμογή"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"καθυστέρηση (δευτερόλεπτα)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Το πλήκτρο \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" έχει ήδη αντιστοιχιστεί σε άλλη ενέργεια."</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Σάρωση σειράς-στήλης"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Επιλογή ομάδας"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Γραμμική σάρωση"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Εκφωνημένα σχόλια"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Ρυθμίσεις TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Για πολλαπλά στοιχεία"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Εκφώνηση πρώτου και τελευταίου στοιχείου"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Εκφώνηση του πλήθους στοιχείων"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Εκφώνηση όλων των επισημασμένων στοιχείων"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Ολοκλήρωση εκφώνησης πριν από τη μετακίνηση"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"ομάδα <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> έως <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> στοιχεία"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"επιλέξτε για να κάνετε κύλιση"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"άγνωστο στοιχείο"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Επιλέξτε τρόπο σάρωσης"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Σάρωση μίας σειράς κάθε φορά. Όταν επιλεγεί η σειρά, μετακίνηση στα στοιχεία της λίστας."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Μετακίνηση ανά ένα στοιχείο. Έχετε υπόψη ότι τα πληκτρολόγια θα σαρώνουν πάντα ανά σειρά."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Σε όλα τα στοιχεία θα αντιστοιχιστεί ένα χρώμα. Πατήστε τον διακόπτη που αντιστοιχεί στο χρώμα γύρω από το επιθυμητό στοιχείο. Ελαττώστε το μέγεθος της ομάδας μέχρι να καταλήξετε στην επιλογή σας."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Διακόπτες που έχουν αντιστοιχιστεί στην ενέργεια <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Κανένα"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Κατάργηση αντιστοιχισμένων διακοπτών;"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Έχετε ήδη αντιστοιχίσει διακόπτες."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Κατάργηση διακοπτών"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Διατήρηση διακοπτών"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Δεν έχουν αντιστοιχιστεί διακόπτες"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Δεν έχουν αντιστοιχιστεί διακόπτες σε αυτήν την ενέργεια. Είστε βέβαιοι ότι θέλετε να συνεχίσετε;"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Ομάδα: <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Πατήστε έναν διακόπτη για να αντιστοιχίσετε την ενέργεια επιλογής της ομάδας <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Πατήστε έναν διακόπτη για να τον αντιστοιχίσετε στην ενέργεια \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Έναρξη σάρωσης και επιλογή"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Έλεγχος των ρυθμίσεών σας με την τρίλιζα"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Πατήστε τον διακόπτη \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" για να ξεκινήσει η σάρωση. Πατήστε ξανά τον διακόπτη για να επιλέξετε το επισημασμένο στοιχείο. Ξεκινήστε εσείς!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Πατήστε τον διακόπτη \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" για να ξεκινήσει η σάρωση. Πατήστε τον διακόπτη ξανά για να επιλέξετε την επισημασμένη σειρά. Πατήστε άλλη μία φορά για να επιλέξετε το επισημασμένο στοιχείο. Ξεκινήστε εσείς!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Πατήστε τον διακόπτη \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" για να μετακινηθείτε μεταξύ στοιχείων. Πατήστε τον διακόπτη \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" για να επιλέξετε το επισημασμένο στοιχείο. Ξεκινήστε εσείς!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Πατήστε τον διακόπτη \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" για να μετακινηθείτε μεταξύ σειρών. Πατήστε τον διακόπτη \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" για να επιλέξετε την επισημασμένη σειρά. Επαναλάβετε τη διαδικασία για να επιλέξετε το επιθυμητό στοιχείο στη σειρά. Ξεκινήστε εσείς!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Πατήστε τον διακόπτη \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" για να επιλέξετε στοιχεία που έχουν επισημανθεί με <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> χρώμα ή πατήστε τον διακόπτη \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" για να επιλέξετε στοιχεία που έχουν επισημανθεί με <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> χρώμα. Επαναλάβετε τη διαδικασία μέχρι να μεταβείτε στο επιθυμητό στοιχείο. Ξεκινήστε εσείς!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Δεν έχετε αντιστοιχίσει διακόπτες για όλες τις ενέργειες. Χρησιμοποιήστε το κουμπί \"Προηγούμενο\" για να επιστρέψετε και να ολοκληρώσετε την αντιστοίχιση διακοπτών."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Επανέναρξη παιχνιδιού"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Αυτό το τετράγωνο δεν είναι κενό. Προσπαθήστε ξανά!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Κερδίσατε!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Θα τα πάτε καλύτερα την επόμενη φορά"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Ισοπαλία"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Μπορείτε να κρατήσετε τις τρέχουσες ρυθμίσεις ή να ξεκινήσετε από την αρχή."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Διατήρηση ρυθμίσεων"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Έναρξη από την αρχή"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Η ρύθμιση ολοκληρώθηκε"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Είστε έτοιμοι."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Μπορείτε οποιαδήποτε στιγμή να αλλάξετε τις πρόσθετες ρυθμίσεις ή να ανοίξετε τον οδηγό ρύθμισης ξανά από τις ρυθμίσεις της Πρόσβασης με διακόπτη."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Πρόσβαση με διακόπτη</string>
+  <string name="switch_access_service_description">Η Πρόσβαση με διακόπτη παρέχει στους χρήστες με κινητικά προβλήματα τη δυνατότητα χρήσης τηλεφώνων και tablet χρησιμοποιώντας έναν ή περισσότερους διακόπτες. Χρησιμοποιήστε διακόπτες για να επιλέξετε στοιχεία, να κάνετε κύλιση, να καταχωρήσετε κείμενο, κ.λπ.</string>
+  <string name="switch_access_service_summary">Έλεγχος συσκευής με διακόπτες</string>
+  <string name="title_pref_help_feedback">Βοήθεια και σχόλια</string>
+  <string name="title_pref_licenses">Άδειες ανοικτού κώδικα</string>
+  <string name="title_pref_category_auto_scan">Αυτόματη σάρωση</string>
+  <string name="title_pref_auto_scan_disabled">Αυτόματη σάρωση (απενεργοποιημένη)</string>
+  <string name="action_key_summary_auto_scan">Πατώντας αυτόν τον διακόπτη, θα ξεκινήσει αυτόματα η μετακίνηση της επισήμανσης μεταξύ των στοιχείων. Πατώντας τον διακόπτη ξανά, θα επιλεγεί το στοιχείο που έχει επισημανθεί.</string>
+  <string name="title_pref_auto_scan_time_delay">Χρόνος αυτόματης σάρωσης</string>
+  <string name="action_name_reverse_auto_scan">Αντίστροφη αυτόματη σάρωση</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Αντίστροφη αυτόματη σάρωση (απενεργοποιημένη)</string>
+  <string name="action_key_summary_reverse_auto_scan">Πατώντας αυτόν τον διακόπτη, θα ξεκινήσει αυτόματα η μετακίνηση της επισήμανσης μεταξύ των στοιχείων με αντίστροφη σειρά. Πατώντας τον διακόπτη ξανά, θα επιλεγεί το στοιχείο που έχει επισημανθεί.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 δευτερόλεπτο</item>
+    <item quantity="other">%.2f δευτερόλεπτα</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Προσαρμογή σάρωσης</string>
+  <string name="title_pref_scanning_methods">Μέθοδος σάρωσης</string>
+  <string name="title_pref_start_scan_delay">Καθυστέρηση στο πρώτο στοιχείο</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Επιλέξτε το επιπλέον χρονικό διάστημα που αφιερώνεται στο πρώτο στοιχείο. Αυτό το χρονικό διάστημα προστίθεται στον χρόνο αυτόματης σάρωσης.\n\nΑυτή η ρύθμιση επηρεάζει τόσο την αυτόματη σάρωση όσο και τη σάρωση σημείου.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Επιλέξτε το επιπλέον χρονικό διάστημα που αφιερώνεται στο πρώτο στοιχείο. Με την πάροδο αυτού του χρονικού διαστήματος, θα ξεκινήσει να κινείται η οριζόντια ή η κάθετη γραμμή.\n\nΑυτή η ρύθμιση επηρεάζει τόσο την αυτόματη σάρωση όσο και τη σάρωση σημείου.</string>
+  <string name="title_pref_category_assign_switches">Αντιστοίχιση διακοπτών</string>
+  <string name="title_pref_category_key_mappings">Αντιστοίχιση διακοπτών σε καθολικές ενέργειες</string>
+  <string name="summary_pref_category_key_mappings">Οι καθολικές ενέργειες μπορούν να εκτελεστούν ανά πάσα στιγμή</string>
+  <string name="title_pref_category_scan_key_mappings">Αντιστοίχιση διακοπτών για σάρωση</string>
+  <string name="summary_pref_category_scan_key_mappings">Η σάρωση σάς επιτρέπει να μετακινείτε την επισήμανση ή να επιλέγετε στοιχεία που έχουν επισημανθεί</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Μετακίνηση και επιλογή</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Ενέργειες σε στοιχείο που έχει επισημανθεί</string>
+  <string name="title_pref_point_scan_line_speed">Ταχύτητα γραμμής</string>
+  <string name="dialog_message_pref_line_speed">Επιλέξτε πόσο γρήγορα θα μετακινούνται οι κάθετες και οριζόντιες γραμμές στην οθόνη.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 εκ. ανά δευτερόλεπτο</item>
+    <item quantity="other">%.2f εκ. ανά δευτερόλεπτο</item>
+  </plurals>
+  <string name="title_pref_loop_count">Πλήθος σαρώσεων</string>
+  <string name="dialog_message_pref_loop_count">Επιλέξτε πόσες φορές θα επαναλαμβάνεται η σάρωση.\n\nΑυτή η ρύθμιση επηρεάζει τόσο την αυτόματη σάρωση όσο και τη σάρωση σημείου.</string>
+  <string name="summary_pref_point_scan">Χρησιμοποιήστε τις κινούμενες γραμμές για να επιλέξετε μια συγκεκριμένη οριζόντια και κάθετη τοποθεσία. %1$s</string>
+  <string name="point_scan_enable_animations_message">Ενεργοποιήστε τις κινούμενες εικόνες για να χρησιμοποιήσετε αυτήν τη λειτουργία.</string>
+  <string name="title_pref_category_switch_accomodation">Προσαρμογή διακόπτη</string>
+  <string name="title_pref_debounce_time">Να παραβλέπονται τα επαναλαμβανόμενα πατήματα</string>
+  <string name="dialog_message_pref_debounce_time">Τα πολλαπλά πατήματα του διακόπτη εντός αυτού του χρονικού διαστήματος θα αντιμετωπίζονται ως ένα πάτημα.</string>
+  <string name="title_pref_press_on_release">Εκτέλεση με απελ/ρωση διακ.</string>
+  <string name="subtitle_pref_press_on_release">Εκτέλεση ενέργειας κατά την απελευθέρωση του διακόπτη</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d επανάληψη</item>
+    <item quantity="other">%d επαναλήψεις</item>
+  </plurals>
+  <string name="preference_off">Ανενεργή</string>
+  <string name="preference_on">Ενεργή</string>
+  <string name="toast_msg_key_already_assigned">Ο διακόπτης \"%1$s\" έχει ήδη αντιστοιχιστεί στην ενέργεια \"%2$s\"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">Αντιστοιχίστηκε %d διακόπτης</item>
+    <item quantity="other">Αντιστοιχίστηκαν %d διακόπτες</item>
+  </plurals>
+  <string name="option_scan_switch_format">Διακόπτης επιλογής ομάδας %1$d</string>
+  <string name="option_scan_switch_format_with_color">Διακόπτης επιλογής ομάδας %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Πατώντας αυτόν τον διακόπτη θα επιλεγεί η ομάδα %1$d.</string>
+  <string name="action_name_next">Επόμενο</string>
+  <string name="action_key_summary_next">Πατώντας αυτόν τον διακόπτη θα επισημανθεί το επόμενο στοιχείο.</string>
+  <string name="action_name_previous">Προηγούμενο</string>
+  <string name="action_key_summary_previous">Πατώντας αυτόν τον διακόπτη θα επισημανθεί το προηγούμενο στοιχείο.</string>
+  <string name="action_name_click">Επιλογή</string>
+  <string name="action_key_summary_click">Πατώντας αυτόν τον διακόπτη θα επιλεγεί το στοιχείο που έχει επισημανθεί.</string>
+  <string name="action_name_long_click">Αγγίξτε παρατεταμένα</string>
+  <string name="action_key_summary_long_click">Πατώντας αυτόν τον διακόπτη θα πραγματοποιηθεί παρατεταμένο άγγιγμα στο στοιχείο που έχει επισημανθεί.</string>
+  <string name="action_name_scroll_forward">Κύλιση προς τα εμπρός</string>
+  <string name="action_key_summary_scroll_forward">Πατώντας αυτόν τον διακόπτη θα πραγματοποιηθεί κύλιση του στοιχείου που έχει επισημανθεί προς τα εμπρός.</string>
+  <string name="action_name_scroll_backward">Κύλιση προς τα πίσω</string>
+  <string name="action_key_summary_scroll_backward">Πατώντας αυτόν τον διακόπτη θα πραγματοποιηθεί κύλιση του στοιχείου που έχει επισημανθεί προς τα πίσω.</string>
+  <string name="action_name_dismiss">Παράβλεψη</string>
+  <string name="action_name_expand">Ανάπτυξη</string>
+  <string name="action_name_collapse">Σύμπτυξη</string>
+  <string name="action_name_highlight_text">Επισήμανση κειμένου</string>
+  <string name="action_group_name_highlight">Επισήμανση…</string>
+  <string name="action_name_highlight_all_text">Επισήμανση όλου του κειμένου</string>
+  <string name="action_name_highlight_granular_text">Επισήμανση %1$s</string>
+  <string name="action_name_copy">Αντιγραφή</string>
+  <string name="action_name_copy_all_text">Αντιγραφή όλων</string>
+  <string name="action_name_cut">Αποκοπή</string>
+  <string name="action_name_cut_all_text">Αποκοπή όλων</string>
+  <string name="action_name_paste">Επικόλληση</string>
+  <string name="action_name_undo">Αναίρεση</string>
+  <string name="action_name_redo">Επανάληψη</string>
+  <string name="action_group_name_delete">Διαγραφή…</string>
+  <string name="action_name_delete">Διαγραφή %1$s</string>
+  <string name="action_name_delete_highlighted_text">Διαγραφή επισημασμένου κειμένου</string>
+  <string name="option_scanning_menu_button">ΜΕΝΟΥ</string>
+  <string name="option_scanning_menu_button_content_description">Μενού πρόσβασης με διακόπτη</string>
+  <string name="switch_access_global_menu">Καθολικό μενού πρόσβασης με διακόπτη</string>
+  <string name="switch_access_actions_menu">Μενού ενεργειών πρόσβασης με διακόπτη</string>
+  <string name="switch_access_close_menu">ΚΛΕΙΣΙΜΟ</string>
+  <string name="switch_access_back_menu">ΠΙΣΩ</string>
+  <string name="next_arrow_content_description">Επόμενο</string>
+  <string name="previous_arrow_content_description">Προηγούμενο</string>
+  <string name="global_action_back">Πίσω</string>
+  <string name="global_action_key_summary_back">Πατώντας αυτόν τον διακόπτη θα πραγματοποιηθεί επιστροφή στην προηγούμενη οθόνη ή απόκρυψη του πληκτρολογίου, εάν είναι ορατό.</string>
+  <string name="global_action_home">Αρχική οθόνη</string>
+  <string name="global_action_key_summary_home">Πατώντας αυτόν τον διακόπτη θα πραγματοποιηθεί μετάβαση στην αρχική οθόνη.</string>
+  <string name="global_action_overview">Επισκόπηση</string>
+  <string name="global_action_key_summary_overview">Πατώντας αυτόν τον διακόπτη θα εμφανιστεί μια λίστα με τις εφαρμογές που ανοίχτηκαν πρόσφατα.</string>
+  <string name="global_action_notifications">Ειδοποιήσεις</string>
+  <string name="global_action_key_summary_notifications">Πατώντας αυτόν τον διακόπτη θα εμφανιστούν οι ειδοποιήσεις της συσκευής σας.</string>
+  <string name="global_action_quick_settings">Γρήγορες ρυθμίσεις</string>
+  <string name="global_action_key_summary_quick_settings">Πατώντας αυτόν τον διακόπτη θα εμφανιστούν οι Γρήγορες ρυθμίσεις της συσκευής σας.</string>
+  <string name="global_action_power_options">Επιλογές λειτουργίας</string>
+  <string name="global_menu_volume_heading">Ένταση ήχου</string>
+  <string name="volume_menu_media">Ένταση ήχου πολυμέσων</string>
+  <string name="volume_menu_call">Ένταση ήχου κλήσεων</string>
+  <string name="volume_menu_ring">Ένταση ήχου κλήσης</string>
+  <string name="volume_menu_alarm">Ένταση ήχου ξυπνητηριού</string>
+  <string name="volume_menu_accessibility">Ένταση ήχου προσβασιμότητας</string>
+  <string name="volume_menu_mute">Σίγαση</string>
+  <string name="volume_menu_unmute">Κατάργηση σίγασης</string>
+  <string name="volume_menu_increase">Αύξηση</string>
+  <string name="volume_settings">Ρυθμίσεις έντασης ήχου</string>
+  <string name="volume_menu_decrease">Μείωση</string>
+  <string name="scrollable_forward">Κύλιση προς τα εμπρός</string>
+  <string name="scrollable_backward">Κύλιση προς τα πίσω</string>
+  <string name="point_scan">Σάρωση σημείου</string>
+  <string name="box_scan">Σάρωση σημείων εξόδου</string>
+  <string name="action_name_swipe_right">Σύρετε προς τα δεξιά</string>
+  <string name="action_name_swipe_left">Σύρετε προς τα αριστερά</string>
+  <string name="action_name_swipe_up">Σύρετε προς τα επάνω</string>
+  <string name="action_name_swipe_down">Σύρετε προς τα κάτω</string>
+  <string name="action_name_swipe_custom">Σύρετε το δάχτυλό σας (προσαρμογή)</string>
+  <string name="action_name_zoom_out">Σμίκρυνση</string>
+  <string name="action_name_zoom_in">Μεγέθυνση</string>
+  <string name="switch_access_preferences_title">Ρυθμίσεις Πρόσβασης με διακόπτη</string>
+  <string name="key_combo_preference_instructions">Πατήστε έναν συνδυασμό διακοπτών για να τον προσθέσετε ή να τον καταργήσετε από τη λίστα.</string>
+  <string name="key_combo_preference_reset_button">Κατάργηση αντιστοίχισης διακόπτη</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Δεν έχουν αντιστοιχιστεί διακόπτες</string>
+  <string name="more">Περισσότερα</string>
+  <string name="name_of_space_bar">Πλήκτρο διαστήματος</string>
+  <string name="name_of_enter_key">Εισαγωγή</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">Αποθήκευση</string>
+  <string name="title_pref_category_display_and_sound">Οθόνη και ήχος</string>
+  <string name="title_pref_highlight_0">Σάρωση στυλ επισήμανσης</string>
+  <string name="title_pref_primary_scan_style">Βασικό στυλ σάρωσης</string>
+  <string name="title_pref_highlight_0_color">Χρώμα επισήμανσης</string>
+  <string name="title_pref_highlight_0_weight">Στυλ γραμμής επισήμανσης</string>
+  <string name="title_pref_privacy_policy">Πολιτική απορρήτου</string>
+  <string name="title_pref_auto_select">Αυτόματη επιλογή</string>
+  <string name="summary_pref_auto_select">Να επιλέγεται αυτόματα το στοιχείο που έχει επισημανθεί. Εάν η επιλογή του στοιχείου δεν είναι δυνατή ή αν αυτή η ρύθμιση είναι απενεργοποιημένη, θα δείτε ένα μενού με τις διαθέσιμες ενέργειες.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Ενεργοποίηση αυτόματης επιλογής</string>
+  <string name="switch_access_global_menu_disable_autoselect">Απενεργοποίηση αυτόματης επιλογής</string>
+  <string name="switch_access_move_next">Επόμενο…</string>
+  <string name="switch_access_move_next_character">Επόμενος χαρακτήρας</string>
+  <string name="switch_access_move_next_word">Επόμενη λέξη</string>
+  <string name="switch_access_move_next_line">Επόμενη γραμμή</string>
+  <string name="switch_access_move_next_paragraph">Επόμενη παράγραφος</string>
+  <string name="switch_access_move_next_page">Επόμενη σελίδα</string>
+  <string name="switch_access_move_next_sentence">Επόμενη πρόταση</string>
+  <string name="switch_access_move_prev">Προηγούμενο…</string>
+  <string name="switch_access_move_prev_character">Προηγούμενος χαρακτήρας</string>
+  <string name="switch_access_move_prev_word">Προηγούμενη λέξη</string>
+  <string name="switch_access_move_prev_line">Προηγούμενη γραμμή</string>
+  <string name="switch_access_move_prev_paragraph">Προηγούμενη παράγραφος</string>
+  <string name="switch_access_move_prev_page">Προηγούμενη σελίδα</string>
+  <string name="switch_access_move_prev_sentence">Προηγούμενη πρόταση</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Αυτόματη εκκίνηση της σάρωσης</string>
+  <string name="switch_access_auto_start_scan_summary">Η σάρωση ξεκινά χωρίς να πατήσετε το διακόπτη</string>
+  <string name="pref_begin_switchaccess_setup_title">Άνοιγμα οδηγού ρύθμισης</string>
+  <string name="setup_wizard_heading">Οδηγός ρύθμισης της πρόσβασης με διακόπτη</string>
+  <string name="one_switch">Ένας διακόπτης</string>
+  <string name="two_switches">Δύο διακόπτες</string>
+  <string name="finish">Τέλος</string>
+  <string name="exit">Έξοδος</string>
+  <string name="intro_heading">Επιλογή διακόπτη</string>
+  <string name="usb_switch_option_text">Διακόπτης USB</string>
+  <string name="bluetooth_switch_option_text">Διακόπτης Bluetooth</string>
+  <string name="usb_switch_description_text">Φυσική σύνδεση διακόπτη μέσω USB</string>
+  <string name="bluetooth_switch_description_text">Ασύρματη σύζευξη διακόπτη μέσω Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">Η συσκευή σας δεν υποστηρίζει Bluetooth. Εναλλακτικά, δοκιμάστε να χρησιμοποιήσετε έναν φυσικό διακόπτη.</string>
+  <string name="connected_usb_devices_header">Συνδεδεμένες συσκευές</string>
+  <string name="usb_no_devices_connected_message">Δεν βρέθηκαν συσκευές USB. Βεβαιωθείτε ότι η συσκευή σας έχει συνδεθεί με ασφάλεια.</string>
+  <string name="connect_usb_heading">Διακόπτης σύνδεσης USB</string>
+  <string name="pair_bluetooth_heading">Σύζευξη διακόπτη Bluetooth</string>
+  <string name="pair_bluetooth_subheading">Πατήστε τον παρακάτω διακόπτη Bluetooth</string>
+  <string name="bluetooth_not_enabled_message">Για να κάνετε σύζευξη ενός διακόπτη Bluetooth, ενεργοποιήστε το Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Ενεργοποίηση Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Δεν υπάρχουν συζευγμένες συσκευές Bluetooth</string>
+  <string name="paired_devices_header">Συζευγμένες συσκευές Bluetooth</string>
+  <string name="available_devices_header">Διαθέσιμες συσκευές Bluetooth</string>
+  <string name="bluetooth_computer_content_description">Υπολογιστής</string>
+  <string name="bluetooth_phone_content_description">Τηλέφωνο</string>
+  <string name="bluetooth_imaging_content_description">Συσκευή απεικόνισης</string>
+  <string name="bluetooth_headphone_content_description">Ακουστικά</string>
+  <string name="bluetooth_peripheral_content_description">Περιφερειακό</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Σύνδεση…</string>
+  <string name="bluetooth_connected_description">Συνδέθηκε</string>
+  <string name="bluetooth_device_unavailable_description">Η συσκευή δεν είναι διαθέσιμη</string>
+  <string name="reconnecting_unsupported_title">Δεν ήταν δυνατή η σύνδεση στη συσκευή</string>
+  <string name="reconnecting_unsupported_message">Η πρόσβαση με διακόπτη δεν μπόρεσε να συνδεθεί στην προηγούμενη συζευγμένη συσκευή. Βεβαιωθείτε ότι η συσκευή σας είναι ενεργή και συνδεδεμένη.\n\nΕάν η συσκευή εξακολουθεί να μην συνδέεται, μεταβείτε στις ρυθμίσεις Bluetooth και δοκιμάστε να συνδεθείτε ξανά.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Μεταβείτε στις ρυθμίσεις Bluetooth</string>
+  <string name="number_of_switches_heading">Επιλέξτε το πλήθος των διακοπτών</string>
+  <string name="title_assign_scan_key">Αντιστοίχιση διακόπτη %1$s</string>
+  <string name="one_switch_description_text">Πατήστε τον διακόπτη για να ξεκινήσει η αυτόματη εναλλαγή μεταξύ στοιχείων. Πατήστε τον ξανά για να επιλέξετε το στοιχείο που έχει επισημανθεί.</string>
+  <string name="two_switches_description_text">Πατήστε έναν διακόπτη για να μετακινηθείτε μεταξύ των στοιχείων. Πατήστε τον άλλο διακόπτη για να επιλέξετε το στοιχείο που έχετε επισημάνει.</string>
+  <string name="step_speed_heading">Επιλέξτε ταχύτητα σάρωσης</string>
+  <string name="step_speed_subheading">Επιλέξτε τη διάρκεια επισήμανσης κάθε στοιχείου</string>
+  <string name="fast_radio_button_title">Μεγάλη ταχύτητα (καθυστέρηση %1$s δευτ.)</string>
+  <string name="medium_radio_button_title">Μεσαία ταχύτητα (καθυστέρηση %1$s δευτ.)</string>
+  <string name="slow_radio_button_title">Μικρή ταχύτητα (καθυστέρηση %1$s δευτ.)</string>
+  <string name="custom_switch">Προσαρμογή</string>
+  <string name="custom_edit_text">καθυστέρηση (δευτερόλεπτα)</string>
+  <string name="setup_toast_msg_key_already_assigned">Το πλήκτρο \"%1$s\" έχει ήδη αντιστοιχιστεί σε άλλη ενέργεια.</string>
+  <string name="row_column_scanning_title">Σάρωση σειράς-στήλης</string>
+  <string name="option_scanning_title">Επιλογή ομάδας (σύνθετη)</string>
+  <string name="linear_scanning_title">Γραμμική σάρωση</string>
+  <string name="linear_scanning_except_keyboard_title">Γραμμική σάρωση (εκτός πληκτρολογίου)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Ομιλία, ήχος και δόνηση</string>
+  <string name="title_pref_switch_access_spoken_feedback">Εκφωνημένα σχόλια</string>
+  <string name="title_pref_scan_non_actionable_items">Εκφώνηση περιγραφικού κειμένου</string>
+  <string name="scan_non_actionable_items_summary">Ακρόαση εκφωνημένων σχολίων για στοιχεία με διαθέσιμες ενέργειες και περιγραφικό κείμενο</string>
+  <string name="title_pref_switch_access_verbosity">Έκταση</string>
+  <string name="summary_verbosity">Επιλέξτε την ποσότητα των πληροφοριών που θα εκφωνούνται</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Λεπτομέρειες έκτασης</string>
+  <string name="title_pref_switch_access_keyboard_echo">Ηχώ πληκτρολογίου</string>
+  <string name="keyboard_echo_summary_on">Εκφώνηση των πλήκτρων που πληκτρολογούνται στο πληκτρολόγιο οθόνης</string>
+  <string name="keyboard_echo_summary_off">Να μην εκφωνούνται τα πλήκτρα που πληκτρολογούνται στο πληκτρολόγιο οθόνης</string>
+  <string name="title_pref_enable_hints">Εκφώνηση υποδείξεων χρήσης</string>
+  <string name="enable_hints_summary_on">Οι υποδείξεις χρήσης εκφωνούνται κατά την πλοήγηση, μετά από μια σύντομη καθυστέρηση</string>
+  <string name="enable_hints_summary_off">Οι υποδείξεις χρήσης δεν εκφωνούνται κατά τη μετακίνηση της εστίασης προσβασιμότητας</string>
+  <string name="title_pref_speak_container_element_position">Εκφώνηση πληροφοριών λίστας και πλέγματος</string>
+  <string name="speak_container_element_position_summary_on">Οι πληροφορίες λίστας και πλέγματος εκφωνούνται</string>
+  <string name="speak_container_element_position_summary_off">Οι πληροφορίες λίστας και πλέγματος δεν εκφωνούνται</string>
+  <string name="title_pref_speak_element_type">Εκφώνηση τύπου στοιχείου</string>
+  <string name="speak_element_type_summary_on">Ο τύπος στοιχείου εκφωνείται για εστιασμένα στοιχεία</string>
+  <string name="speak_element_type_summary_off">Ο τύπος στοιχείου δεν εκφωνείται για εστιασμένα στοιχεία</string>
+  <string name="title_pref_pitch_change_for_ime">Χρήση αλλαγών τόνου φωνής</string>
+  <string name="pitch_change_for_ime_summary_on">Εκφώνηση σχολίων πληκτρολογίου σε χαμηλότερο τόνο φωνής</string>
+  <string name="pitch_change_for_ime_summary_off">Να μην αλλάζει ο τόνος της φωνή κατά την εκφώνηση</string>
+  <string name="title_pref_speak_selected_item_or_group">Εκφώνηση επιλεγμένου στοιχείου ή ομάδας</string>
+  <string name="speak_selected_item_or_group_summary">Εκφώνηση του ονόματος ενός στοιχείου ή μιας ομάδας όταν επιλεγεί</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Μέγιστο χρονικό διάστημα εκφώνησης ανά στοιχείο</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Ορίστε το μέγιστο χρονικό διάστημα για την εκφώνηση της περιγραφής κάθε στοιχείου. Η εκφώνηση θα διακοπεί μετά την πάροδο του καθορισμένου χρονικού διαστήματος.\nΣημείωση: Οι υποδείξεις θα εκφωνούνται πάντα εάν είναι ενεργοποιημένες.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Διάφορα</string>
+  <string name="title_pref_node_description_order">Σειρά περιγραφής στοιχείων</string>
+  <string name="title_pref_switch_access_speak_element_ids">Αναγνωριστικά στοιχείων ομιλίας</string>
+  <string name="speak_element_ids_summary_on">Τα αναγνωριστικά στοιχείων εκφωνούνται για κουμπιά χωρίς ετικέτα</string>
+  <string name="speak_element_ids_summary_off">Τα αναγνωριστικά στοιχείων δεν εκφωνούνται για κουμπιά χωρίς ετικέτα</string>
+  <string name="title_pref_switch_access_tts_settings">Ρυθμίσεις TTS</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Όταν επισημαίνονται πολλά στοιχεία</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Εκφώνηση πρώτου και τελευταίου στοιχείου</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Εκφώνηση του πλήθους στοιχείων</string>
+  <string name="title_pref_switch_access_speak_all_items">Εκφώνηση όλων των επισημασμένων στοιχείων</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Ολοκλήρωση εκφώνησης πριν από τη μετακίνηση</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Άλλα σχόλια</string>
+  <string name="title_pref_developer_settings">Ρυθμίσεις προγραμματιστή</string>
+  <string name="title_pref_spoken_feedback_overlay">Εμφάνιση εξόδου ομιλίας</string>
+  <string name="title_pref_switch_access_vibration_feedback">Σχόλια με δόνηση</string>
+  <string name="vibration_feedback_summary">Να δονείται η συσκευή ως ένδειξη πραγματοποίησης κάποιας αλλαγής (π.χ. αλλαγή του περιεχομένου της οθόνης)</string>
+  <string name="title_pref_switch_access_sound_feedback">Ηχητικά σχόλια</string>
+  <string name="sound_feedback_summary">Να αναπαράγεται ένα ηχητικό μήνυμα ως ένδειξη πραγματοποίησης κάποιας αλλαγής (π.χ. αλλαγή του περιεχομένου της οθόνης)</string>
+  <string name="title_pref_switch_access_sound_volume">Ένταση ήχου</string>
+  <string name="title_pref_switch_access_audio_ducking">Μείωση έντασης ήχου</string>
+  <string name="audio_ducking_summary">Μείωση της έντασης των άλλων ήχων κατά την ομιλία</string>
+  <string name="switch_access_focus_cleared_no_selection">Η οθόνη άλλαξε</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Πατήστε τον διακόπτη επιλογής για να επιλέξετε σειρά</string>
+  <string name="switch_access_spoken_feedback_group">ομάδα %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Πατήστε τον διακόπτη της ομάδας %1$s για να την επιλέξετε</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Πατήστε τον διακόπτη της ομάδας %1$s για να επιλέξτε το στοιχείο</string>
+  <string name="switch_access_spoken_feedback_to">%1$s έως %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s στοιχεία</string>
+  <string name="switch_access_spoken_feedback_group_selected">επιλέχτηκε η ομάδα %1$s</string>
+  <string name="switch_access_spoken_feedback_row_selected">η σειρά επιλέχτηκε</string>
+  <string name="switch_access_spoken_feedback_item_selected">Το %1$s επιλέχτηκε</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">με δυνατότητα κύλισης</string>
+  <string name="switch_access_spoken_feedback_scroll">επιλέξτε για να κάνετε κύλιση</string>
+  <string name="switch_access_spoken_feedback_unknown">άγνωστο στοιχείο</string>
+  <string name="scanning_method_heading">Επιλέξτε τρόπο σάρωσης</string>
+  <string name="row_column_scanning_description">Σάρωση μίας σειράς κάθε φορά. Όταν επιλεγεί η σειρά, μετακίνηση στα στοιχεία της λίστας.</string>
+  <string name="linear_scanning_description">Μετακίνηση από στοιχείο σε στοιχείο.</string>
+  <string name="linear_scanning_except_keyboard_description">Μετακίνηση από στοιχείο σε στοιχείο. Έχετε υπόψη ότι τα πληκτρολόγια σαρώνουν ανά σειρά.</string>
+  <string name="option_scanning_description">Σε όλα τα στοιχεία θα αντιστοιχιστεί ένα χρώμα. Πατήστε τον διακόπτη που αντιστοιχεί στο χρώμα γύρω από το επιθυμητό στοιχείο. Ελαττώστε το μέγεθος της ομάδας μέχρι να καταλήξετε στην επιλογή σας.</string>
+  <string name="setup_switch_assignment_heading">Διακόπτες που έχουν αντιστοιχιστεί στην ενέργεια %s</string>
+  <string name="setup_switch_assignment_empty">Κανένα</string>
+  <string name="clear_keys_dialog_title">Κατάργηση αντιστοιχισμένων διακοπτών;</string>
+  <string name="clear_keys_dialog_message">Έχετε ήδη αντιστοιχίσει διακόπτες.</string>
+  <string name="clear_keys_dialog_positive_button">Κατάργηση διακοπτών</string>
+  <string name="clear_keys_dialog_negative_button">Διατήρηση διακοπτών</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Δεν έχουν αντιστοιχιστεί διακόπτες</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Δεν έχουν αντιστοιχιστεί διακόπτες σε αυτήν την ενέργεια. Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
+  <string name="option_scan_switch_title">Ομάδα: %1$s</string>
+  <string name="option_scan_switch_subtitle">Πατήστε έναν διακόπτη για να αντιστοιχίσετε την ενέργεια επιλογής της ομάδας %1$s.</string>
+  <string name="assign_switch_subtitle">Πατήστε έναν διακόπτη για να τον αντιστοιχίσετε στην ενέργεια \"%1$s\".</string>
+  <string name="auto_scan_action_description">Έναρξη σάρωσης και επιλογή</string>
+  <string name="switch_game_heading">Έλεγχος των ρυθμίσεών σας με την τρίλιζα</string>
+  <string name="switch_game_one_switch_linear_subheading">Πατήστε τον διακόπτη \"%1$s\" για να ξεκινήσει η σάρωση. Πατήστε ξανά τον διακόπτη για να επιλέξετε το επισημασμένο στοιχείο. Ξεκινήστε εσείς!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Πατήστε τον διακόπτη \"%1$s\" για να ξεκινήσει η σάρωση. Πατήστε τον διακόπτη ξανά για να επιλέξετε την επισημασμένη σειρά. Πατήστε άλλη μία φορά για να επιλέξετε το επισημασμένο στοιχείο. Ξεκινήστε εσείς!</string>
+  <string name="switch_game_two_switch_linear_subheading">Πατήστε τον διακόπτη \"%1$s\" για να μετακινηθείτε μεταξύ των στοιχείων. Πατήστε τον διακόπτη \"%2$s\" για να επιλέξετε το στοιχείο που έχει επισημανθεί. Ξεκινήστε εσείς!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Πατήστε τον διακόπτη \"%1$s\" για να μετακινηθείτε μεταξύ των σειρών. Πατήστε τον διακόπτη \"%2$s\" για να επιλέξετε τη σειρά που έχει επισημανθεί. Πατήστε ξανά για να επιλέξετε ένα στοιχείο σε αυτήν τη σειρά. Ξεκινήστε εσείς!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Πατήστε τον διακόπτη \"%1$s\" για να επιλέξετε στοιχεία που έχουν επισημανθεί με %2$s χρώμα ή πατήστε τον διακόπτη \"%4$s\" για να επιλέξετε στοιχεία που έχουν επισημανθεί με %3$s χρώμα. Πατήστε ξανά για να φτάσετε στο στοιχείο σας. Ξεκινήστε εσείς!</string>
+  <string name="switch_game_incomplete_switches_subheading">Δεν έχετε αντιστοιχίσει διακόπτες για όλες τις ενέργειες. Χρησιμοποιήστε το κουμπί \"Προηγούμενο\" για να επιστρέψετε και να ολοκληρώσετε την αντιστοίχιση διακοπτών.</string>
+  <string name="game_square_content_description">%1$s στη θέση %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">κενό</string>
+  <string name="game_reset_button_title">Επανέναρξη παιχνιδιού</string>
+  <string name="game_square_already_taken">Αυτό το τετράγωνο δεν είναι κενό. Προσπαθήστε ξανά!</string>
+  <string name="game_win_outcome_title">Κερδίσατε!</string>
+  <string name="game_loss_outcome_title">Θα τα πάτε καλύτερα την επόμενη φορά</string>
+  <string name="game_tie_outcome_title">Ισοπαλία</string>
+  <string name="game_outcome_body_text">Μπορείτε να κρατήσετε τις τρέχουσες ρυθμίσεις ή να ξεκινήσετε από την αρχή.</string>
+  <string name="game_outcome_positive_response">Διατήρηση ρυθμίσεων</string>
+  <string name="game_outcome_negative_response">Έναρξη από την αρχή</string>
+  <string name="setup_completion_heading">Η ρύθμιση ολοκληρώθηκε</string>
+  <string name="setup_completion_message">Είστε έτοιμοι.</string>
+  <string name="setup_completion_settings_reminder">Μπορείτε οποιαδήποτε στιγμή να αλλάξετε τις πρόσθετες ρυθμίσεις ή να ανοίξετε τον οδηγό ρύθμισης ξανά από τις ρυθμίσεις της Πρόσβασης με διακόπτη.</string>
+  <string name="dialog_url_list">Επιλογή συνδέσμου</string>
+  <string name="dialog_do_not_disturb_permission_title">Η πρόσβαση με διακόπτη χρειάζεται άδεια για προσαρμογή της έντασης ήχου</string>
+  <string name="dialog_do_not_disturb_permission_message">Για προσαρμογή της έντασης του ήχου από το μενού της Πρόσβασης με διακόπτη, ενεργοποιήστε την πρόσβαση στη λειτουργία Μην ενοχλείτε για τη Σουίτα Προσβασιμότητας Android.</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Άνοιγμα ρυθμίσεων</string>
 </resources>

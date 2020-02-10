@@ -16,23 +16,22 @@
 
 package com.google.android.accessibility.talkback;
 
+import static com.google.android.accessibility.talkback.Feedback.FocusDirection.Action.NEXT_GRANULARITY;
+import static com.google.android.accessibility.talkback.Feedback.FocusDirection.Action.PREVIOUS_GRANULARITY;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityService.MagnificationController.OnMagnificationChangedListener;
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.accessibilityservice.FingerprintGestureController;
 import android.accessibilityservice.FingerprintGestureController.FingerprintGestureCallback;
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.AlertDialog;
-import android.app.KeyguardManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -42,37 +41,29 @@ import android.content.res.Resources;
 import android.graphics.Region;
 import android.media.AudioManager;
 import android.os.Build;
-import android.os.Handler;
 import android.provider.Settings;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.VisibleForTesting;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-import android.view.accessibility.AccessibilityWindowInfo;
-import android.widget.CheckBox;
-import android.widget.ScrollView;
-import android.widget.TextView;
 import com.android.talkback.TalkBackPreferencesActivity;
 import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.compositor.EventFilter;
 import com.google.android.accessibility.compositor.GlobalVariables;
+import com.google.android.accessibility.talkback.PrimesController.Timer;
 import com.google.android.accessibility.talkback.contextmenu.ListMenuManager;
 import com.google.android.accessibility.talkback.contextmenu.MenuManager;
 import com.google.android.accessibility.talkback.contextmenu.MenuManagerWrapper;
 import com.google.android.accessibility.talkback.contextmenu.RadialMenuManager;
-import com.google.android.accessibility.talkback.controller.CursorControllerApp;
 import com.google.android.accessibility.talkback.controller.DimScreenController;
 import com.google.android.accessibility.talkback.controller.DimScreenControllerApp;
+import com.google.android.accessibility.talkback.controller.DirectionNavigationActor;
+import com.google.android.accessibility.talkback.controller.DirectionNavigationController;
 import com.google.android.accessibility.talkback.controller.FullScreenReadController;
 import com.google.android.accessibility.talkback.controller.FullScreenReadControllerApp;
 import com.google.android.accessibility.talkback.controller.GestureController;
-import com.google.android.accessibility.talkback.controller.GestureControllerApp;
 import com.google.android.accessibility.talkback.controller.SelectorController;
 import com.google.android.accessibility.talkback.controller.TelevisionNavigationController;
 import com.google.android.accessibility.talkback.eventprocessor.AccessibilityEventProcessor;
@@ -80,36 +71,48 @@ import com.google.android.accessibility.talkback.eventprocessor.AccessibilityEve
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorAccessibilityHints;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorCursorState;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorEventQueue;
-import com.google.android.accessibility.talkback.eventprocessor.ProcessorFocusAndSingleTap;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorGestureVibrator;
+import com.google.android.accessibility.talkback.eventprocessor.ProcessorMagnification;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorPermissionDialogs;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorPhoneticLetters;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorScreen;
-import com.google.android.accessibility.talkback.eventprocessor.ProcessorScrollPosition;
+import com.google.android.accessibility.talkback.eventprocessor.ProcessorScrollPositionForFocusManagement;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorVolumeStream;
 import com.google.android.accessibility.talkback.features.ProximitySensorListener;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusManager;
+import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
+import com.google.android.accessibility.talkback.focusmanagement.AutoScrollActor;
+import com.google.android.accessibility.talkback.focusmanagement.FocusActor;
+import com.google.android.accessibility.talkback.focusmanagement.interpreter.AutoScrollInterpreter;
+import com.google.android.accessibility.talkback.focusmanagement.interpreter.InputFocusInterpreter;
+import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;
+import com.google.android.accessibility.talkback.focusmanagement.interpreter.TouchExplorationInterpreter;
+import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
 import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
 import com.google.android.accessibility.talkback.labeling.PackageRemovalReceiver;
+import com.google.android.accessibility.talkback.menurules.NodeMenuRuleProcessor;
+import com.google.android.accessibility.talkback.screensearch.SearchScreenNodeStrategy;
+import com.google.android.accessibility.talkback.screensearch.UniversalSearchManager;
 import com.google.android.accessibility.talkback.speech.SpeakPasswordsManager;
 import com.google.android.accessibility.talkback.tutorial.AccessibilityTutorialActivity;
+import com.google.android.accessibility.talkback.utils.ExperimentalUtils;
+import com.google.android.accessibility.talkback.utils.NotificationUtils;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
+import com.google.android.accessibility.talkback.voicecommands.SpeechRecognitionManager;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
-import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.AudioPlaybackMonitor;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.EditTextActionHistory;
-import com.google.android.accessibility.utils.FormFactorUtils;
-import com.google.android.accessibility.utils.HardwareUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.HeadphoneStateMonitor;
-import com.google.android.accessibility.utils.LogUtils;
-import com.google.android.accessibility.utils.PerformActionUtils;
+import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.ScreenMonitor;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
 import com.google.android.accessibility.utils.ServiceStateListener;
 import com.google.android.accessibility.utils.SharedKeyEvent;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
-import com.google.android.accessibility.utils.input.CursorController;
 import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.input.TextCursorManager;
 import com.google.android.accessibility.utils.keyboard.KeyComboManager;
@@ -117,18 +120,26 @@ import com.google.android.accessibility.utils.output.FeedbackController;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.output.SpeechController.UtteranceCompleteRunnable;
 import com.google.android.accessibility.utils.output.SpeechControllerImpl;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import javax.annotation.concurrent.GuardedBy;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** An {@link AccessibilityService} that provides spoken, haptic, and audible feedback. */
 public class TalkBackService extends AccessibilityService
     implements Thread.UncaughtExceptionHandler, SpeechController.Delegate, SharedKeyEvent.Listener {
 
-  // Set to TRUE to use experimental focus management feature.
-  public static final boolean USE_A11Y_FOCUS_MANAGER = false;
+  // TODO: Remove the flag and unhide summarization.
+  // Flag used to hide screen summarization.
+  public static final boolean ENABLE_SUMMARIZATION = false;
+
+  // TODO: Remove the flag and unhide voice commands.
+  // Flag used to hide voice commands.
+  // TODO: Controll the flag by P/H.
+  public static final boolean ENABLE_VOICE_COMMANDS = false;
 
   /** Whether the user has seen the TalkBack tutorial. */
   public static final String PREF_FIRST_TIME_USER = "first_time_user";
@@ -166,170 +177,190 @@ public class TalkBackService extends AccessibilityService
   /** Intent to open text-to-speech settings. */
   public static final String INTENT_TTS_SETTINGS = "com.android.settings.TTS_SETTINGS";
 
+  /** Default interactive UI timeout in milliseconds. */
+  public static final int DEFAULT_INTERACTIVE_UI_TIMEOUT_MILLIS = 10000;
+
   /** Action used to resume feedback. */
   private static final String ACTION_RESUME_FEEDBACK =
       "com.google.android.marvin.talkback.RESUME_FEEDBACK";
 
   /** An active instance of TalkBack. */
-  private static TalkBackService sInstance = null;
+  @Nullable private static TalkBackService instance = null;
 
-  private static final String LOGTAG = "TalkBackService";
+  private static final String TAG = "TalkBackService";
 
   /**
    * List of key event processors. Processors in the list are sent the event in the order they were
    * added until a processor consumes the event.
    */
-  private final LinkedList<ServiceKeyEventListener> mKeyEventListeners = new LinkedList<>();
+  private final List<ServiceKeyEventListener> keyEventListeners = new ArrayList<>();
 
   /** The current state of the service. */
-  private int mServiceState;
+  private int serviceState;
 
   /** Components to receive callbacks on changes in the service's state. */
-  private List<ServiceStateListener> mServiceStateListeners = new LinkedList<>();
+  private List<ServiceStateListener> serviceStateListeners = new ArrayList<>();
 
   /** Controller for speech feedback. */
-  private SpeechControllerImpl mSpeechController;
+  private SpeechControllerImpl speechController;
+
+  /** Staged pipeline for separating interpreters, feedback-mappers, and actors. */
+  private Pipeline pipeline;
 
   /** Controller for audio and haptic feedback. */
-  private FeedbackController mFeedbackController;
+  private FeedbackController feedbackController;
 
   /** Watches the proximity sensor, and silences feedback when triggered. */
-  private ProximitySensorListener mProximitySensorListener;
+  private ProximitySensorListener proximitySensorListener;
 
-  private GlobalVariables mGlobalVariables;
-  private EventFilter mEventFilter;
-  private Compositor mCompositor;
+  private GlobalVariables globalVariables;
+  private EventFilter eventFilter;
+  private Compositor compositor;
 
   /** Controller for reading the entire hierarchy. */
-  private FullScreenReadControllerApp mFullScreenReadController;
+  private FullScreenReadControllerApp fullScreenReadController;
 
-  private EditTextActionHistory mEditTextActionHistory;
+  private EditTextActionHistory editTextActionHistory;
 
   /** Interface for monitoring current and previous cursor position in editable node */
-  private TextCursorManager mTextCursorManager;
+  private TextCursorManager textCursorManager;
 
   /** Monitors voice actions from other applications */
-  private VoiceActionMonitor mVoiceActionMonitor;
+  private VoiceActionMonitor voiceActionMonitor;
 
   /** Maintains cursor state during explore-by-touch by working around EBT problems. */
-  private ProcessorCursorState mProcessorCursorState;
+  private ProcessorCursorState processorCursorState;
 
   /** Processor for allowing clicking on buttons in permissions dialogs. */
-  private ProcessorPermissionDialogs mProcessorPermissionsDialogs;
+  private ProcessorPermissionDialogs processorPermissionsDialogs;
 
   /** Controller for manage keyboard commands */
-  private KeyComboManager mKeyComboManager;
-
-  /** Listener for device shake events. */
-  private ShakeDetector mShakeDetector;
-
-  /** Manager for side tap events */
-  private SideTapManager mSideTapManager;
+  private KeyComboManager keyComboManager;
 
   /** Manager for showing radial menus. */
-  private MenuManagerWrapper mMenuManager;
+  private MenuManagerWrapper menuManager;
 
   /** Manager for handling custom labels. */
-  private CustomLabelManager mLabelManager;
+  private CustomLabelManager labelManager;
 
-  /** Manager for keyboard search. */
-  private KeyboardSearchManager mKeyboardSearchManager;
-
-  /** Controller for cursor movement. */
-  private CursorController mCursorController;
-
-  /** Processor for moving access focus. */
-  private ProcessorFocusAndSingleTap mProcessorFollowFocus;
-
-  private AccessibilityFocusManager mAccessibilityFocusManager;
+  /** Manager for the screen search feature. */
+  private UniversalSearchManager universalSearchManager;
 
   /** Orientation monitor for watching orientation changes. */
-  private OrientationMonitor mOrientationMonitor;
+  private OrientationMonitor orientationMonitor;
 
   /** {@link BroadcastReceiver} for tracking the ringer and screen states. */
-  private RingerModeAndScreenMonitor mRingerModeAndScreenMonitor;
+  private RingerModeAndScreenMonitor ringerModeAndScreenMonitor;
 
   /** {@link BroadcastReceiver} for tracking volume changes. */
-  private VolumeMonitor mVolumeMonitor;
+  private VolumeMonitor volumeMonitor;
 
   /** {@link android.content.BroadcastReceiver} for tracking battery status changes. */
-  private BatteryMonitor mBatteryMonitor;
+  private BatteryMonitor batteryMonitor;
 
   /** {@link BroadcastReceiver} for tracking headphone connected status changes. */
-  private HeadphoneStateMonitor mHeadphoneStateMonitor;
+  private HeadphoneStateMonitor headphoneStateMonitor;
+
+  /** Tracks changes to audio output and provides information on what types of audio are playing. */
+  private AudioPlaybackMonitor audioPlaybackMonitor;
 
   /** Manages screen dimming */
-  private DimScreenController mDimScreenController;
+  private DimScreenController dimScreenController;
 
   /** The television controller; non-null if the device is a television (Android TV). */
-  private TelevisionNavigationController mTelevisionNavigationController;
+  private TelevisionNavigationController televisionNavigationController;
 
-  private TelevisionDPadManager mTelevisionDPadManager;
+  private TelevisionDPadManager televisionDPadManager;
 
   /** {@link BroadcastReceiver} for tracking package removals for custom label data consistency. */
-  private PackageRemovalReceiver mPackageReceiver;
+  private PackageRemovalReceiver packageReceiver;
 
   /** The analytics instance, used for sending data to Google Analytics. */
-  private Analytics mAnalytics;
+  private Analytics analytics;
 
   /** Callback to be invoked when fingerprint gestures are being used for accessibility. */
-  private FingerprintGestureCallback mFingerprintGestureCallback;
+  private FingerprintGestureCallback fingerprintGestureCallback;
 
   /** Controller for the selector */
-  private SelectorController mSelectorController;
+  private SelectorController selectorController;
 
   /** Controller for handling gestures */
-  private GestureController mGestureController;
+  private GestureController gestureController;
 
   /** Alert dialog shown when the user attempts to suspend feedback. */
-  private AlertDialog mSuspendDialog;
+  private TalkBackSuspendDialog talkBackSuspendDialog;
 
   /** Shared preferences used within TalkBack. */
-  private SharedPreferences mPrefs;
+  private SharedPreferences prefs;
 
   /** The system's uncaught exception handler */
-  private UncaughtExceptionHandler mSystemUeh;
-
-  /** The node that was focused during the last call to {@link #saveFocusedNode()} */
-  private SavedNode mSavedNode = new SavedNode();
+  private UncaughtExceptionHandler systemUeh;
 
   /** The system feature if the device supports touch screen */
-  private boolean mSupportsTouchScreen = true;
+  private boolean supportsTouchScreen = true;
 
   /** Preference specifying when TalkBack should automatically resume. */
-  private String mAutomaticResume;
+  private String automaticResume;
 
   /** Whether the current root node is dirty or not. */
-  private boolean mIsRootNodeDirty = true;
+  private boolean isRootNodeDirty = true;
   /** Keep Track of current root node. */
-  private AccessibilityNodeInfo mRootNode;
+  private AccessibilityNodeInfo rootNode;
 
-  private AccessibilityEventProcessor mAccessibilityEventProcessor;
+  private AccessibilityEventProcessor accessibilityEventProcessor;
 
   /** Keeps track of whether we need to run the locked-boot-completed callback when connected. */
-  private boolean mLockedBootCompletedPending;
+  private boolean lockedBootCompletedPending;
 
-  private final InputModeManager mInputModeManager = new InputModeManager();
+  private final InputModeManager inputModeManager = new InputModeManager();
 
-  private ProcessorAccessibilityHints mProcessorHints;
+  private ProcessorAccessibilityHints processorHints;
 
-  private ProcessorScreen mProcessorScreen;
+  private ProcessorScreen processorScreen;
 
-  private OnMagnificationChangedListener mOnMagnificationChangedListener;
+  private OnMagnificationChangedListener onMagnificationChangedListener;
 
-  private final DisableTalkBackCompleteAction mDisableTalkBackCompleteAction =
+  private final DisableTalkBackCompleteAction disableTalkBackCompleteAction =
       new DisableTalkBackCompleteAction();
 
-  private SpeakPasswordsManager mSpeakPasswordsManager;
+  /** Timeout to turn off TalkBack without waiting for callback from TTS. */
+  private static final long TURN_OFF_TIMEOUT_MS = 5000;
+
+  private static final long TURN_OFF_WAIT_PERIOD_MS = 1000;
+
+  private SpeakPasswordsManager speakPasswordsManager;
+
+  // Focus logic
+  private AccessibilityFocusMonitor accessibilityFocusMonitor;
+  private AccessibilityFocusManager accessibilityFocusManager;
+  private FocusActor focuser;
+  private InputFocusInterpreter inputFocusInterpreter;
+  private ProcessorScrollPositionForFocusManagement processorScrollPositionForFocusManagement;
+
+  private ProcessorEventQueue processorEventQueue;
+
+  private ProcessorPhoneticLetters processorPhoneticLetters;
+
+  private GestureShortcutMapping gestureShortcutMapping;
+
+  private NodeMenuRuleProcessor nodeMenuRuleProcessor;
+
+  private PrimesController primesController;
 
   @Override
   public void onCreate() {
     super.onCreate();
 
+    primesController = new PrimesController();
+    primesController.initialize(getApplication());
+    primesController.startTimer(Timer.START_UP);
+
+    this.setTheme(R.style.BaseTheme);
+
     if (BuildVersionUtils.isAtLeastN()) {
-      mOnMagnificationChangedListener =
+      onMagnificationChangedListener =
           new OnMagnificationChangedListener() {
-            private float mLastScale = 1.0f;
+            private float lastScale = 1.0f;
 
             @Override
             public void onMagnificationChanged(
@@ -339,35 +370,36 @@ public class TalkBackService extends AccessibilityService
                 float centerX,
                 float centerY) {
               // Do nothing if scale hasn't changed.
-              if (scale == mLastScale) {
+              if (scale == lastScale) {
                 return;
               }
 
-              mGlobalVariables.setScreenMagnificationLastScale(mLastScale);
-              mGlobalVariables.setScreenMagnificationCurrentScale(scale);
+              globalVariables.setScreenMagnificationLastScale(lastScale);
+              globalVariables.setScreenMagnificationCurrentScale(scale);
 
-              mLastScale = scale;
+              lastScale = scale;
 
-              mCompositor.sendEvent(
+              compositor.handleEvent(
                   Compositor.EVENT_SCREEN_MAGNIFICATION_CHANGED, Performance.EVENT_ID_UNTRACKED);
             }
           };
     }
 
-    sInstance = this;
+    instance = this;
     setServiceState(ServiceStateListener.SERVICE_STATE_INACTIVE);
 
     SharedPreferencesUtils.migrateSharedPreferences(this);
 
-    mPrefs = SharedPreferencesUtils.getSharedPreferences(this);
+    prefs = SharedPreferencesUtils.getSharedPreferences(this);
 
-    mSystemUeh = Thread.getDefaultUncaughtExceptionHandler();
+    systemUeh = Thread.getDefaultUncaughtExceptionHandler();
     Thread.setDefaultUncaughtExceptionHandler(this);
 
-    mAccessibilityEventProcessor = new AccessibilityEventProcessor(this);
+    accessibilityEventProcessor = new AccessibilityEventProcessor(this);
     initializeInfrastructure();
 
     SharedKeyEvent.register(this);
+    primesController.stopTimer(Timer.START_UP);
   }
 
   /**
@@ -386,7 +418,7 @@ public class TalkBackService extends AccessibilityService
    * @return TTS volume in [0.0f, 1.0f].
    */
   private float calculateFinalAnnouncementVolume() {
-    if (!FormFactorUtils.hasAcessibilityAudioStream(this)) {
+    if (!FeatureSupport.hasAcessibilityAudioStream(this)) {
       return 1.0f;
     }
     AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
@@ -394,9 +426,9 @@ public class TalkBackService extends AccessibilityService
     int musicStreamVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
     int musicStreamMaxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
     int accessibilityStreamVolume =
-        (mVolumeMonitor == null) ? -1 : mVolumeMonitor.getCachedAccessibilityStreamVolume();
+        (volumeMonitor == null) ? -1 : volumeMonitor.getCachedAccessibilityStreamVolume();
     int accessibilityStreamMaxVolume =
-        (mVolumeMonitor == null) ? -1 : mVolumeMonitor.getCachedAccessibilityMaxVolume();
+        (volumeMonitor == null) ? -1 : volumeMonitor.getCachedAccessibilityMaxVolume();
     if (musicStreamVolume <= 0
         || musicStreamMaxVolume <= 0
         || accessibilityStreamVolume < 0
@@ -431,26 +463,24 @@ public class TalkBackService extends AccessibilityService
 
   @Override
   public boolean onUnbind(Intent intent) {
+    final long turningOffTime = System.currentTimeMillis();
     interruptAllFeedback(false /* stopTtsSpeechCompletely */);
-    // Main thread will be waiting during the TTS announcement, thus in this special case we should
-    // not handle TTS callback in main thread.
-    mSpeechController.setHandleTtsCallbackInMainThread(false);
-    // TalkBack is not allowed to display overlay at this state.
-    mSpeechController.setOverlayEnabled(false);
-    mSpeechController.setSpeechVolume(calculateFinalAnnouncementVolume());
-    mCompositor.sendEventWithCompletionHandler(
+    pipeline.onUnbind(calculateFinalAnnouncementVolume());
+    gestureShortcutMapping.onUnbind();
+    compositor.handleEventWithCompletionHandler(
         Compositor.EVENT_SPOKEN_FEEDBACK_DISABLED,
         Performance.EVENT_ID_UNTRACKED,
-        mDisableTalkBackCompleteAction);
+        disableTalkBackCompleteAction);
     while (true) {
-      synchronized (mDisableTalkBackCompleteAction) {
-        if (mDisableTalkBackCompleteAction.isDone) {
-          break;
-        }
+      synchronized (disableTalkBackCompleteAction) {
         try {
-          mDisableTalkBackCompleteAction.wait();
+          disableTalkBackCompleteAction.wait(TURN_OFF_WAIT_PERIOD_MS);
         } catch (InterruptedException e) {
           // Do nothing
+        }
+        if (System.currentTimeMillis() - turningOffTime > TURN_OFF_TIMEOUT_MS
+            || disableTalkBackCompleteAction.isDone) {
+          break;
         }
       }
     }
@@ -467,197 +497,131 @@ public class TalkBackService extends AccessibilityService
       suspendInfrastructure();
     }
 
-    sInstance = null;
+    instance = null;
 
     // Shutdown and unregister all components.
     shutdownInfrastructure();
     setServiceState(ServiceStateListener.SERVICE_STATE_INACTIVE);
-    mServiceStateListeners.clear();
+    serviceStateListeners.clear();
   }
 
   @Override
   public void onConfigurationChanged(Configuration newConfig) {
-    if (isServiceActive() && (mOrientationMonitor != null)) {
-      mOrientationMonitor.onConfigurationChanged(newConfig);
+    this.getTheme().applyStyle(R.style.BaseTheme, /* force= */ true);
+
+    if (isServiceActive() && (orientationMonitor != null)) {
+      orientationMonitor.onConfigurationChanged(newConfig);
     }
 
     // Clear the radial menu cache to reload localized strings.
-    mMenuManager.clearCache();
+    menuManager.clearCache();
+
+    gestureShortcutMapping.onConfigurationChanged(newConfig);
   }
 
   @Override
   public void onAccessibilityEvent(AccessibilityEvent event) {
     Performance perf = Performance.getInstance();
     EventId eventId = perf.onEventReceived(event);
-
-    mAccessibilityEventProcessor.onAccessibilityEvent(event, eventId);
+    accessibilityEventProcessor.onAccessibilityEvent(event, eventId);
 
     perf.onHandlerDone(eventId);
   }
 
   public boolean supportsTouchScreen() {
-    return mSupportsTouchScreen;
+    return supportsTouchScreen;
   }
 
   @Override
   public AccessibilityNodeInfo getRootInActiveWindow() {
-    if (mIsRootNodeDirty || mRootNode == null) {
-      mRootNode = super.getRootInActiveWindow();
-      mIsRootNodeDirty = false;
+    if (isRootNodeDirty || rootNode == null) {
+      rootNode = super.getRootInActiveWindow();
+      isRootNodeDirty = false;
     }
-    return mRootNode == null ? null : AccessibilityNodeInfo.obtain(mRootNode);
+    return rootNode == null ? null : AccessibilityNodeInfo.obtain(rootNode);
   }
 
   public void setRootDirty(boolean rootIsDirty) {
-    mIsRootNodeDirty = rootIsDirty;
+    isRootNodeDirty = rootIsDirty;
   }
 
   private void setServiceState(int newState) {
-    if (mServiceState == newState) {
+    if (serviceState == newState) {
       return;
     }
 
-    mServiceState = newState;
-    for (ServiceStateListener listener : mServiceStateListeners) {
+    serviceState = newState;
+    for (ServiceStateListener listener : serviceStateListeners) {
       listener.onServiceStateChanged(newState);
     }
   }
 
   public void addServiceStateListener(ServiceStateListener listener) {
     if (listener != null) {
-      mServiceStateListeners.add(listener);
+      serviceStateListeners.add(listener);
     }
   }
 
   public void removeServiceStateListener(ServiceStateListener listener) {
     if (listener != null) {
-      mServiceStateListeners.remove(listener);
+      serviceStateListeners.remove(listener);
     }
+  }
+
+  /** Stops all delayed events in the service. */
+  public void clearQueues() {
+    interruptAllFeedback(/* stopTtsSpeechCompletely= */ false);
+    processorEventQueue.clearQueue();
+    if (processorScreen != null && processorScreen.getWindowEventInterpreter() != null) {
+      processorScreen.getWindowEventInterpreter().clearQueue();
+    }
+    // TODO: Clear queues wherever there are message handlers that delay event processing.
   }
 
   /** Suspends TalkBack, showing a confirmation dialog if applicable. */
   public void requestSuspendTalkBack(EventId eventId) {
-    final boolean showConfirmation =
-        SharedPreferencesUtils.getBooleanPref(
-            mPrefs,
-            getResources(),
-            R.string.pref_show_suspension_confirmation_dialog,
-            R.bool.pref_show_suspension_confirmation_dialog_default);
+    if (talkBackSuspendDialog == null) {
+      talkBackSuspendDialog = new TalkBackSuspendDialog(this);
+    }
+
+    final boolean showConfirmation = talkBackSuspendDialog.getShouldShowDialogPref();
     if (showConfirmation) {
-      confirmSuspendTalkBack();
+      // Shows a dialog asking the user to confirm suspension of TalkBack.
+      talkBackSuspendDialog.confirmSuspendTalkBack(automaticResume);
     } else {
       suspendTalkBack(eventId);
     }
-  }
-
-  /** Shows a dialog asking the user to confirm suspension of TalkBack. */
-  private void confirmSuspendTalkBack() {
-    // Ensure only one dialog is showing.
-    if (mSuspendDialog != null) {
-      if (mSuspendDialog.isShowing()) {
-        return;
-      } else {
-        mSuspendDialog.dismiss();
-        mSuspendDialog = null;
-      }
-    }
-
-    final LayoutInflater inflater = LayoutInflater.from(this);
-    @SuppressLint("InflateParams")
-    final ScrollView root = (ScrollView) inflater.inflate(R.layout.suspend_talkback_dialog, null);
-    final CheckBox confirmCheckBox = (CheckBox) root.findViewById(R.id.show_warning_checkbox);
-    final TextView message = (TextView) root.findViewById(R.id.message_resume);
-
-    final DialogInterface.OnClickListener okayClick =
-        new DialogInterface.OnClickListener() {
-          @Override
-          public void onClick(DialogInterface dialog, int which) {
-            if (which == DialogInterface.BUTTON_POSITIVE) {
-              if (!confirmCheckBox.isChecked()) {
-                SharedPreferencesUtils.putBooleanPref(
-                    mPrefs,
-                    getResources(),
-                    R.string.pref_show_suspension_confirmation_dialog,
-                    false);
-              }
-
-              EventId eventId = EVENT_ID_UNTRACKED; // Not tracking menu events performance.
-              suspendTalkBack(eventId);
-            }
-          }
-        };
-
-    final OnDismissListener onDismissListener =
-        new OnDismissListener() {
-          @Override
-          public void onDismiss(DialogInterface dialog) {
-            mSuspendDialog = null;
-          }
-        };
-
-    if (mAutomaticResume.equals(getString(R.string.resume_screen_keyguard))) {
-      message.setText(getString(R.string.message_resume_keyguard));
-    } else if (mAutomaticResume.equals(getString(R.string.resume_screen_manual))) {
-      message.setText(getString(R.string.message_resume_manual));
-    } else { // screen on is the default value
-      message.setText(getString(R.string.message_resume_screen_on));
-    }
-
-    mSuspendDialog =
-        new AlertDialog.Builder(this)
-            .setTitle(R.string.dialog_title_suspend_talkback)
-            .setView(root)
-            .setNegativeButton(android.R.string.cancel, null)
-            .setPositiveButton(android.R.string.ok, okayClick)
-            .create();
-
-    if (BuildVersionUtils.isAtLeastLMR1()) {
-      mSuspendDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY);
-    } else {
-      mSuspendDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ERROR);
-    }
-
-    mSuspendDialog.setOnDismissListener(onDismissListener);
-    mSuspendDialog.show();
   }
 
   /** Suspends TalkBack and Explore by Touch. */
   public void suspendTalkBack(EventId eventId) {
 
     // Ensure that talkback does not suspend on system with accessibility shortcut.
-    if (FormFactorUtils.getInstance(this).hasAccessibilityShortcut()) {
-      SharedPreferencesUtils.storeBooleanAsync(mPrefs, getString(R.string.pref_suspended), false);
+    if (FeatureSupport.hasAccessibilityShortcut(this)) {
+      SharedPreferencesUtils.storeBooleanAsync(prefs, getString(R.string.pref_suspended), false);
       return;
     }
 
     if (!isServiceActive()) {
-      LogUtils.log(this, Log.ERROR, "Attempted to suspend TalkBack while already suspended.");
+      LogUtils.e(TAG, "Attempted to suspend TalkBack while already suspended.");
       return;
     }
 
-    SharedPreferencesUtils.storeBooleanAsync(mPrefs, getString(R.string.pref_suspended), true);
-    mFeedbackController.playAuditory(R.raw.paused_feedback);
+    SharedPreferencesUtils.storeBooleanAsync(prefs, getString(R.string.pref_suspended), true);
+    feedbackController.playAuditory(R.raw.paused_feedback, eventId);
 
-    if (mSupportsTouchScreen) {
+    if (supportsTouchScreen) {
       requestTouchExploration(false);
     }
 
-    if (mCursorController != null) {
-      try {
-        mCursorController.clearCursor(eventId);
-      } catch (SecurityException e) {
-        LogUtils.log(this, Log.ERROR, "Unable to clear cursor");
-      }
-    }
-
-    mInputModeManager.clear();
+    inputModeManager.clear();
 
     AccessibilityTutorialActivity.stopActiveTutorial();
 
     final IntentFilter filter = new IntentFilter();
     filter.addAction(ACTION_RESUME_FEEDBACK);
     filter.addAction(Intent.ACTION_SCREEN_ON);
-    registerReceiver(mSuspendedReceiver, filter, PERMISSION_TALKBACK, null);
+    registerReceiver(suspendedReceiver, filter, PERMISSION_TALKBACK, null);
 
     // Suspending infrastructure sets sIsTalkBackSuspended to true.
     suspendInfrastructure();
@@ -665,19 +629,15 @@ public class TalkBackService extends AccessibilityService
     final Intent resumeIntent = new Intent(ACTION_RESUME_FEEDBACK);
     final PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, resumeIntent, 0);
     final Notification notification =
-        new NotificationCompat.Builder(this)
-            .setContentTitle(getString(R.string.notification_title_talkback_suspended))
-            .setContentText(getString(R.string.notification_message_talkback_suspended))
-            .setPriority(NotificationCompat.PRIORITY_MAX)
-            .setSmallIcon(R.drawable.ic_stat_info)
-            .setContentIntent(pendingIntent)
-            .setOngoing(true)
-            .setWhen(0)
-            .build();
-
+        NotificationUtils.createNotification(
+            this,
+            null,
+            getString(R.string.notification_title_talkback_suspended),
+            getString(R.string.notification_message_talkback_suspended),
+            pendingIntent);
     startForeground(R.id.notification_suspended, notification);
 
-    mCompositor.sendEvent(Compositor.EVENT_SPOKEN_FEEDBACK_SUSPENDED, eventId);
+    compositor.handleEvent(Compositor.EVENT_SPOKEN_FEEDBACK_SUSPENDED, eventId);
   }
 
   /**
@@ -687,13 +647,13 @@ public class TalkBackService extends AccessibilityService
    */
   public void disableTalkBackFromTutorial(EventId eventId) {
     if (isServiceActive()) {
-      if (mSupportsTouchScreen) {
+      if (supportsTouchScreen) {
         requestTouchExploration(false);
       }
       AccessibilityTutorialActivity.stopActiveTutorial();
 
       // OK to clear completely since TalkBack is about to go away.
-      mServiceStateListeners.clear();
+      serviceStateListeners.clear();
     }
     disableSelf();
   }
@@ -701,16 +661,24 @@ public class TalkBackService extends AccessibilityService
   /** Resumes TalkBack and Explore by Touch. */
   public void resumeTalkBack(EventId eventId) {
     if (isServiceActive()) {
-      LogUtils.log(this, Log.ERROR, "Attempted to resume TalkBack when not suspended.");
+      LogUtils.e(TAG, "Attempted to resume TalkBack when not suspended.");
       return;
     }
 
-    SharedPreferencesUtils.storeBooleanAsync(mPrefs, getString(R.string.pref_suspended), false);
+    SharedPreferencesUtils.storeBooleanAsync(prefs, getString(R.string.pref_suspended), false);
 
-    unregisterReceiver(mSuspendedReceiver);
+    unregisterReceiver(suspendedReceiver);
     resumeInfrastructure();
 
-    mCompositor.sendEvent(Compositor.EVENT_SPOKEN_FEEDBACK_RESUMED, eventId);
+    compositor.handleEvent(Compositor.EVENT_SPOKEN_FEEDBACK_RESUMED, eventId);
+  }
+
+  private boolean shouldInterruptByAnyKeyEvent() {
+    if (FullScreenReadControllerApp.ENABLE_CONTINUOUS_READING_MODE_ENHANCE
+        && fullScreenReadController.isActive()) {
+      return false;
+    }
+    return true;
   }
 
   /**
@@ -723,13 +691,20 @@ public class TalkBackService extends AccessibilityService
    */
   @Override
   public boolean onKeyEventShared(KeyEvent keyEvent) {
+    if (keyEvent.getKeyCode() == KeyEvent.KEYCODE_UNKNOWN) {
+      // Tapping on fingerprint sensor somehow files KeyEvent with KEYCODE_UNKNOW, which will change
+      // input mode to keyboard, and cancel pending accessibility hints. It is OK to just ignore
+      // these KeyEvents since they're unused in TalkBack.
+      return false;
+    }
     Performance perf = Performance.getInstance();
     EventId eventId = perf.onEventReceived(keyEvent);
 
     if (isServiceActive()) {
       // Stop the TTS engine when any key (except for volume up/down key) is pressed on physical
       // keyboard.
-      if (keyEvent.getDeviceId() != 0
+      if (shouldInterruptByAnyKeyEvent()
+          && keyEvent.getDeviceId() != 0
           && keyEvent.getAction() == KeyEvent.ACTION_DOWN
           && keyEvent.getKeyCode() != KeyEvent.KEYCODE_VOLUME_DOWN
           && keyEvent.getKeyCode() != KeyEvent.KEYCODE_VOLUME_UP) {
@@ -737,7 +712,7 @@ public class TalkBackService extends AccessibilityService
       }
     }
 
-    for (ServiceKeyEventListener listener : mKeyEventListeners) {
+    for (ServiceKeyEventListener listener : keyEventListeners) {
       if (!isServiceActive() && !listener.processWhenServiceSuspended()) {
         continue;
       }
@@ -764,118 +739,92 @@ public class TalkBackService extends AccessibilityService
 
     Performance perf = Performance.getInstance();
     EventId eventId = perf.onGestureEventReceived(gestureId);
+    primesController.startTimer(Timer.GESTURE_EVENT);
 
-    LogUtils.log(this, Log.VERBOSE, "Recognized gesture %s", gestureId);
+    LogUtils.v(TAG, "Recognized gesture %s", gestureId);
 
-    if (mKeyboardSearchManager != null && mKeyboardSearchManager.onGesture(eventId)) {
-      perf.onHandlerDone(eventId);
-      return true;
-    }
-    mAnalytics.onGesture(gestureId);
-    mFeedbackController.playAuditory(R.raw.gesture_end);
+    analytics.onGesture(gestureId);
+    feedbackController.playAuditory(R.raw.gesture_end, eventId);
 
-    mMenuManager.onGesture(gestureId);
-    mGestureController.onGesture(gestureId, eventId);
+    menuManager.onGesture(gestureId);
+    gestureController.onGesture(gestureId, eventId);
 
     // Measure latency.
     // Preceding event handling frequently initiates a framework action, which in turn
     // cascades a focus event, which in turn generates feedback.
     perf.onHandlerDone(eventId);
+    primesController.stopTimer(Timer.GESTURE_EVENT);
 
     return true;
   }
 
   public GestureController getGestureController() {
-    if (mGestureController == null) {
+    if (gestureController == null) {
       throw new RuntimeException("mGestureController has not been initialized");
     }
 
-    return mGestureController;
+    return gestureController;
   }
 
-  public SpeechController getSpeechController() {
-    if (mSpeechController == null) {
+  // TODO: As controller logic moves to pipeline, delete this function.
+  public SpeechControllerImpl getSpeechController() {
+    if (speechController == null) {
       throw new RuntimeException("mSpeechController has not been initialized");
     }
 
-    return mSpeechController;
+    return speechController;
   }
 
   public FeedbackController getFeedbackController() {
-    if (mFeedbackController == null) {
+    if (feedbackController == null) {
       throw new RuntimeException("mFeedbackController has not been initialized");
     }
 
-    return mFeedbackController;
+    return feedbackController;
   }
 
   public VoiceActionMonitor getVoiceActionMonitor() {
-    if (mVoiceActionMonitor == null) {
+    if (voiceActionMonitor == null) {
       throw new RuntimeException("mVoiceActionMonitor has not been initialized");
     }
 
-    return mVoiceActionMonitor;
-  }
-
-  public CursorController getCursorController() {
-    if (mCursorController == null) {
-      throw new RuntimeException("mCursorController has not been initialized");
-    }
-
-    return mCursorController;
+    return voiceActionMonitor;
   }
 
   public KeyComboManager getKeyComboManager() {
-    return mKeyComboManager;
+    return keyComboManager;
   }
 
   public FullScreenReadController getFullScreenReadController() {
-    if (mFullScreenReadController == null) {
+    if (fullScreenReadController == null) {
       throw new RuntimeException("mFullScreenReadController has not been initialized");
     }
 
-    return mFullScreenReadController;
+    return fullScreenReadController;
   }
 
   public DimScreenController getDimScreenController() {
-    if (mDimScreenController == null) {
+    if (dimScreenController == null) {
       throw new RuntimeException("mDimScreenController has not been initialized");
     }
 
-    return mDimScreenController;
+    return dimScreenController;
   }
 
   public CustomLabelManager getLabelManager() {
-    if (mLabelManager == null) {
+    if (labelManager == null) {
       throw new RuntimeException("mLabelManager has not been initialized");
     }
 
-    return mLabelManager;
+    return labelManager;
   }
 
   public Analytics getAnalytics() {
-    if (mAnalytics == null) {
+    if (analytics == null) {
       throw new RuntimeException("mAnalytics has not been initialized");
     }
 
-    return mAnalytics;
-  }
-
-  public RingerModeAndScreenMonitor getRingerModeAndScreenMonitor() {
-    if (mRingerModeAndScreenMonitor == null) {
-      throw new RuntimeException("mRingerModeAndScreenMonitor has not been initialized");
-    }
-
-    return mRingerModeAndScreenMonitor;
-  }
-
-  /**
-   * Obtains the shared instance of TalkBack's {@link ShakeDetector}
-   *
-   * @return the shared {@link ShakeDetector} instance, or null if not initialized.
-   */
-  public ShakeDetector getShakeDetector() {
-    return mShakeDetector;
+    return analytics;
   }
 
   /**
@@ -883,153 +832,63 @@ public class TalkBackService extends AccessibilityService
    * device is a television. Otherwise returns {@code null}.
    */
   public TelevisionNavigationController getTelevisionNavigationController() {
-    return mTelevisionNavigationController;
+    return televisionNavigationController;
   }
 
   public AccessibilityFocusManager getAccessibilityFocusManager() {
-    return mAccessibilityFocusManager;
+    return accessibilityFocusManager;
   }
 
-  public ProcessorFocusAndSingleTap getProcessorFocusAndSingleTap() {
-    return mProcessorFollowFocus;
+  @VisibleForTesting
+  public TextCursorManager getTextCursorManager() {
+    return textCursorManager;
   }
 
-  public ProcessorAccessibilityHints getProcessorAccessibilityHints() {
-    return mProcessorHints;
+  @VisibleForTesting
+  public RingerModeAndScreenMonitor getRingerModeAndScreenMonitor() {
+    return ringerModeAndScreenMonitor;
   }
 
-  /** Save the currently focused node so that focus can be returned to it later. */
-  public void saveFocusedNode() {
-    mSavedNode.recycle();
+  @VisibleForTesting
+  public GlobalVariables getGlobalVariables() {
+    return globalVariables;
+  }
 
-    AccessibilityNodeInfoCompat node = mCursorController.getCursorOrInputCursor();
-    if (node != null) {
-      mSavedNode.saveNodeState(node, mCursorController.getGranularityAt(node), this);
-      node.recycle();
+  /** Registers the dialog to {@link RingerModeAndScreenMonitor} for screen monitor. */
+  public void registerDialog(DialogInterface dialog) {
+    if (ringerModeAndScreenMonitor != null) {
+      ringerModeAndScreenMonitor.registerDialog(dialog);
     }
   }
 
-  public boolean hasSavedNode() {
-    return mSavedNode.getNode() != null;
-  }
-
-  /**
-   * Reset the accessibility focus to the node that was focused during the last call to {@link
-   * #saveFocusedNode()}
-   */
-  public void resetFocusedNode(EventId eventId) {
-    resetFocusedNode(0, eventId);
-  }
-
-  public void resetFocusedNode(long delay, final EventId eventId) {
-    final Handler handler = new Handler();
-    handler.postDelayed(
-        new Runnable() {
-          @SuppressLint("InlinedApi")
-          @Override
-          public void run() {
-            AccessibilityNodeInfoCompat node = mSavedNode.getNode();
-            if (node == null) {
-              return;
-            }
-
-            AccessibilityNodeInfoCompat refreshed = AccessibilityNodeInfoUtils.refreshNode(node);
-
-            if (refreshed != null) {
-              if (!refreshed.isAccessibilityFocused()) {
-                // Restore accessibility focus.
-                mCursorController.setGranularity(
-                    mSavedNode.getGranularity(), refreshed, false, eventId);
-                mSavedNode.restoreTextAndSelection(eventId);
-
-                PerformActionUtils.performAction(
-                    refreshed, AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS, eventId);
-              } else if (BuildVersionUtils.isAtLeastN()
-                  && mSavedNode.getAnchor() != null
-                  && refreshed.getWindow() == null) {
-                // The node is anchored, but its window has disappeared.
-                // We need to wait for the node's window to appear, and then do a fuzzy-find
-                // to place accessibility focus on the node's replacement.
-                mCursorController.setGranularity(
-                    mSavedNode.getGranularity(), refreshed, false, eventId);
-                mSavedNode.restoreTextAndSelection(eventId);
-
-                resetFocusedNodeInAnchoredWindow(
-                    mSavedNode.getNode(), mSavedNode.getAnchor(), 250 /* ms */, eventId);
-              }
-
-              refreshed.recycle();
-            }
-
-            mSavedNode.recycle();
-          }
-        },
-        delay);
-  }
-
-  /**
-   * Resets the accessibility focus to an item inside an anchored window. We must delay slightly in
-   * order for the anchored window to reappear in the windows list before attempting to place the
-   * accessibility focus. Furthermore, we cannot find the exact previously-focused item again; we
-   * must do a fuzzy search for it instead.
-   */
-  private void resetFocusedNodeInAnchoredWindow(
-      AccessibilityNodeInfoCompat node,
-      AccessibilityNodeInfoCompat anchor,
-      long delay,
-      final EventId eventId) {
-    if (node == null || anchor == null) {
-      return;
+  /** Unregisters the dialog from {@link RingerModeAndScreenMonitor} for screen monitor. */
+  public void unregisterDialog(DialogInterface dialog) {
+    if (ringerModeAndScreenMonitor != null) {
+      ringerModeAndScreenMonitor.unregisterDialog(dialog);
     }
-
-    final AccessibilityNodeInfoCompat obtainedNode = AccessibilityNodeInfoCompat.obtain(node);
-    final AccessibilityNodeInfoCompat obtainedAnchor = AccessibilityNodeInfoCompat.obtain(anchor);
-
-    final Handler handler = new Handler();
-    handler.postDelayed(
-        new Runnable() {
-          @Override
-          public void run() {
-            com.google.android.accessibility.utils.WindowManager windowManager =
-                new com.google.android.accessibility.utils.WindowManager(TalkBackService.this);
-
-            AccessibilityWindowInfo anchoredWindow =
-                windowManager.getAnchoredWindow(obtainedAnchor);
-            AccessibilityNodeInfoCompat refreshed =
-                AccessibilityNodeInfoUtils.refreshNodeFuzzy(obtainedNode, anchoredWindow);
-            if (refreshed != null) {
-              PerformActionUtils.performAction(
-                  refreshed, AccessibilityNodeInfoCompat.ACTION_ACCESSIBILITY_FOCUS, eventId);
-              refreshed.recycle();
-            }
-            obtainedNode.recycle();
-            obtainedAnchor.recycle();
-          }
-        },
-        delay);
   }
 
   private void showGlobalContextMenu(EventId eventId) {
-    if (mSupportsTouchScreen) {
-      mMenuManager.showMenu(R.menu.global_context_menu, eventId);
+    if (supportsTouchScreen) {
+      menuManager.showMenu(R.menu.global_context_menu, eventId);
     }
   }
 
   private void showLocalContextMenu(EventId eventId) {
-    if (mSupportsTouchScreen) {
-      mMenuManager.showMenu(R.menu.local_context_menu, eventId);
+    if (supportsTouchScreen) {
+      menuManager.showMenu(R.menu.local_context_menu, eventId);
     }
   }
 
   private void showCustomActions(EventId eventId) {
-    if (mSupportsTouchScreen) {
-      mMenuManager.showMenu(R.id.custom_action_menu, eventId);
+    if (supportsTouchScreen) {
+      menuManager.showMenu(R.id.custom_action_menu, eventId);
     }
   }
 
   private void showLanguageOptions(EventId eventId) {
-    if (mSupportsTouchScreen) {
-      mMenuManager.showMenu(R.menu.language_menu, eventId);
+    if (supportsTouchScreen) {
+      menuManager.showMenu(R.menu.language_menu, eventId);
     }
   }
 
@@ -1047,44 +906,54 @@ public class TalkBackService extends AccessibilityService
 
   @Override
   public void onInterrupt() {
-    if (mProcessorScreen != null && FormFactorUtils.getInstance(this).isArc()) {
+    if (processorScreen != null && FeatureSupport.isArc()) {
       // In Arc, we consider that focus goes out from Arc when onInterrupt is called.
-      mProcessorScreen.clearScreenState();
+      processorScreen.clearScreenState();
     }
     interruptAllFeedback(false /* stopTtsSpeechCompletely */);
   }
 
   @Override
-  public boolean shouldSuppressPassiveFeedback() {
-    return mVoiceActionMonitor.shouldSuppressPassiveFeedback();
+  public boolean isAudioPlaybackActive() {
+    return voiceActionMonitor.isAudioPlaybackActive();
+  }
+
+  @Override
+  public boolean isMicrophoneActiveAndHeadphoneOff() {
+    return voiceActionMonitor.isMicrophoneActiveAndHeadphoneOff();
+  }
+
+  @Override
+  public boolean isSsbActiveAndHeadphoneOff() {
+    return voiceActionMonitor.isSsbActiveAndHeadphoneOff();
+  }
+
+  @Override
+  public boolean isPhoneCallActive() {
+    return voiceActionMonitor.isPhoneCallActive();
   }
 
   @Override
   public void onSpeakingForcedFeedback() {
-    mVoiceActionMonitor.onSpeakingForcedFeedback();
+    voiceActionMonitor.onSpeakingForcedFeedback();
   }
 
   // Interrupts all Talkback feedback. Stops speech from other apps if stopTtsSpeechCompletely
   // is true.
-  @Override
   public void interruptAllFeedback(boolean stopTtsSpeechCompletely) {
 
-    if (mFullScreenReadController != null) {
-      mFullScreenReadController.interrupt();
+    if (fullScreenReadController != null) {
+      fullScreenReadController.interrupt();
     }
 
-    if (mSpeechController != null) {
-      mSpeechController.interrupt(stopTtsSpeechCompletely);
-    }
-
-    if (mFeedbackController != null) {
-      mFeedbackController.interrupt();
+    if (pipeline != null) {
+      pipeline.interruptAllFeedback(stopTtsSpeechCompletely);
     }
   }
 
   @Override
   protected void onServiceConnected() {
-    LogUtils.log(this, Log.VERBOSE, "System bound to service.");
+    LogUtils.v(TAG, "System bound to service.");
 
     // The service must be connected before getFingerprintGestureController() is called, thus we
     // cannot initialize fingerprint gesture detection in onCreate().
@@ -1094,29 +963,28 @@ public class TalkBackService extends AccessibilityService
 
     // Handle any update actions.
     final TalkBackUpdateHelper helper = new TalkBackUpdateHelper(this);
-    helper.showPendingNotifications();
     helper.checkUpdate();
 
     EventId eventId = EVENT_ID_UNTRACKED; // Performance not tracked for service events.
-    if (mPrefs.getBoolean(getString(R.string.pref_suspended), false)) {
-      if (FormFactorUtils.getInstance(this).hasAccessibilityShortcut()) {
+    if (prefs.getBoolean(getString(R.string.pref_suspended), false)) {
+      if (FeatureSupport.hasAccessibilityShortcut(this)) {
         // Announce that talkback is still on. Even though talkback is not suspendable on android O,
         // talkback might start suspended if user downgrades, suspends, then upgrades talkback, or
         // it could happen if user restored settings from older talkback that was suspended.
-        SharedPreferencesUtils.storeBooleanAsync(mPrefs, getString(R.string.pref_suspended), false);
-        mCompositor.sendEvent(Compositor.EVENT_SPOKEN_FEEDBACK_ON, eventId);
+        SharedPreferencesUtils.storeBooleanAsync(prefs, getString(R.string.pref_suspended), false);
+        compositor.handleEvent(Compositor.EVENT_SPOKEN_FEEDBACK_ON, eventId);
       } else {
         suspendTalkBack(eventId);
       }
     } else {
-      mCompositor.sendEvent(Compositor.EVENT_SPOKEN_FEEDBACK_ON, eventId);
+      compositor.handleEvent(Compositor.EVENT_SPOKEN_FEEDBACK_ON, eventId);
     }
 
     // If the locked-boot-completed intent was fired before onServiceConnected, we queued it,
     // so now we need to run it.
-    if (mLockedBootCompletedPending) {
+    if (lockedBootCompletedPending) {
       onLockedBootCompletedInternal(eventId);
-      mLockedBootCompletedPending = false;
+      lockedBootCompletedPending = false;
     }
     showTutorialIfNecessary();
   }
@@ -1131,7 +999,7 @@ public class TalkBackService extends AccessibilityService
       return ServiceStateListener.SERVICE_STATE_INACTIVE;
     }
 
-    return service.mServiceState;
+    return service.serviceState;
   }
 
   /**
@@ -1139,7 +1007,7 @@ public class TalkBackService extends AccessibilityService
    * for testing because it can be overridden by mocks.
    */
   public boolean isInstanceActive() {
-    return mServiceState == ServiceStateListener.SERVICE_STATE_ACTIVE;
+    return serviceState == ServiceStateListener.SERVICE_STATE_ACTIVE;
   }
 
   /** @return {@code true} if TalkBack is running and initialized, {@code false} otherwise. */
@@ -1148,39 +1016,31 @@ public class TalkBackService extends AccessibilityService
   }
 
   /** Returns the active TalkBack instance, or {@code null} if not available. */
-  public static TalkBackService getInstance() {
-    return sInstance;
+  public static @Nullable TalkBackService getInstance() {
+    return instance;
   }
 
   /** Initialize {@link FingerprintGestureCallback} for detecting fingerprint gestures. */
   @TargetApi(Build.VERSION_CODES.O)
   private void initializeFingerprintGestureCallback() {
-    if (mFingerprintGestureCallback != null || !supportFingerprintGesture()) {
+    if (fingerprintGestureCallback != null || !supportFingerprintGesture()) {
       return;
     }
-    mFingerprintGestureCallback =
+    fingerprintGestureCallback =
         new FingerprintGestureCallback() {
           @Override
           public void onGestureDetected(int gesture) {
-            if (isServiceActive() && mGestureController != null) {
+            if (isServiceActive() && gestureController != null) {
               Performance perf = Performance.getInstance();
               EventId eventId = perf.onFingerprintGestureEventReceived(gesture);
 
-              LogUtils.log(this, Log.VERBOSE, "Recognized fingerprint gesture %s", gesture);
-
-              // Interrupt keyboard search when the fingerprint gesture is assigned with action.
-              if (mGestureController.isFingerprintGestureAssigned(gesture)
-                  && mKeyboardSearchManager != null
-                  && mKeyboardSearchManager.onGesture(eventId)) {
-                perf.onHandlerDone(eventId);
-                return;
-              }
+              LogUtils.v(TAG, "Recognized fingerprint gesture %s", gesture);
 
               // TODO: Update analytics data.
               // TODO: Check if we should dismiss radial menu.
-              mFeedbackController.playAuditory(R.raw.gesture_end);
+              feedbackController.playAuditory(R.raw.gesture_end, eventId);
 
-              mGestureController.onFingerprintGesture(gesture, eventId);
+              gestureController.onFingerprintGesture(gesture, eventId);
 
               // Measure latency.
               // Preceding event handling frequently initiates a framework action, which in turn
@@ -1191,9 +1051,8 @@ public class TalkBackService extends AccessibilityService
 
           @Override
           public void onGestureDetectionAvailabilityChanged(boolean available) {
-            LogUtils.log(
-                this,
-                Log.VERBOSE,
+            LogUtils.v(
+                TAG,
                 "Fingerprint gesture detection is now "
                     + (available ? "available" : "unavailable")
                     + ".");
@@ -1206,198 +1065,301 @@ public class TalkBackService extends AccessibilityService
    * {@link #onCreate}.
    */
   private void initializeInfrastructure() {
-    // TODO: we still need it keep true for TV until TouchExplore and Accessibility focus is not
-    // unpaired
-    // mSupportsTouchScreen = packageManager.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN);
+    // TODO: we still need it keep true for TV until TouchExplore and Accessibility focus is
+    // not unpaired
+    // supportsTouchScreen = packageManager.hasSystemFeature(PackageManager.FEATURE_TOUCHSCREEN);
 
-    mFeedbackController = new FeedbackController(this);
+    feedbackController = new FeedbackController(this);
+    speechController = new SpeechControllerImpl(this, this, feedbackController);
 
-    mKeyComboManager = KeyComboManager.create(this);
-    mKeyComboManager.addListener(mKeyComboListener);
-
-    mGlobalVariables = new GlobalVariables(this, mInputModeManager, mKeyComboManager);
-
-    mSpeechController = new SpeechControllerImpl(this, this, mFeedbackController);
-
-    mCursorController = new CursorControllerApp(this, mGlobalVariables);
-    addEventListener(mCursorController);
-
-    mAnalytics = new TalkBackAnalytics(this);
-    mAnalytics.onTalkBackServiceStarted();
-
-    mVoiceActionMonitor = new VoiceActionMonitor(this);
-    mAccessibilityEventProcessor.setVoiceActionMonitor(mVoiceActionMonitor);
-
-    mFullScreenReadController =
-        new FullScreenReadControllerApp(mFeedbackController, mCursorController, this);
-    addEventListener(mFullScreenReadController);
-
-    mKeyEventListeners.add(mInputModeManager);
-
-    mProximitySensorListener = new ProximitySensorListener(this, mSpeechController);
-
-    mShakeDetector = new ShakeDetector(mFullScreenReadController, this);
-
-    mMenuManager = new MenuManagerWrapper();
-    updateMenuManagerFromPreferences(); // Sets mMenuManager
-
-    mRingerModeAndScreenMonitor =
-        new RingerModeAndScreenMonitor(
-            mFeedbackController,
-            mMenuManager,
-            mShakeDetector,
-            mSpeechController,
-            mProximitySensorListener,
-            this);
-    mAccessibilityEventProcessor.setRingerModeAndScreenMonitor(mRingerModeAndScreenMonitor);
-
-    mTextCursorManager = new TextCursorManager();
-    addEventListener(mTextCursorManager);
-
-    mLabelManager = new CustomLabelManager(this);
-
-    @Compositor.Flavor int compositorFlavor;
-    if (FormFactorUtils.getInstance(this).isArc()) {
-      compositorFlavor = Compositor.FLAVOR_ARC;
-    } else if (FormFactorUtils.getInstance(this).isTv()) {
-      compositorFlavor = Compositor.FLAVOR_TV;
-    } else {
-      compositorFlavor = Compositor.FLAVOR_NONE;
+    keyComboManager = KeyComboManager.create(this);
+    keyComboManager.addListener(keyComboListener);
+    if (FullScreenReadControllerApp.ENABLE_CONTINUOUS_READING_MODE_ENHANCE) {
+      keyComboManager.setKeyUpListener(keyUpListener);
     }
-    mCompositor =
-        new Compositor(this, mSpeechController, mLabelManager, mGlobalVariables, compositorFlavor);
+
+    gestureShortcutMapping = new GestureShortcutMapping(this);
+
+    globalVariables =
+        new GlobalVariables(this, inputModeManager, keyComboManager, gestureShortcutMapping);
+
+    labelManager = new CustomLabelManager(this);
+
+    compositor =
+        new Compositor(
+            this,
+            /* speechController= */ null,
+            labelManager,
+            globalVariables,
+            getCompositorFlavor());
+    // TODO: Make pipeline run Compositor, which returns speech feedback, no callback.
+
+    analytics = new TalkBackAnalytics(this);
+
+    processorPhoneticLetters = new ProcessorPhoneticLetters(this);
+
+    // Construct event-interpreters.
+    AutoScrollInterpreter autoScrollInterpreter = new AutoScrollInterpreter();
+    ScreenStateMonitor screenStateMonitor = new ScreenStateMonitor(/* service= */ this);
+
+    // Constructor output-actor-state.
+    textCursorManager = new TextCursorManager();
+    addEventListener(textCursorManager);
+    editTextActionHistory = new EditTextActionHistory();
+
+    // Construct output-actors.
+    AutoScrollActor scroller = new AutoScrollActor();
+    AccessibilityFocusActionHistory focusHistory = new AccessibilityFocusActionHistory();
+    accessibilityFocusMonitor = new AccessibilityFocusMonitor(this, focusHistory.reader);
+    focuser = new FocusActor(this, screenStateMonitor, focusHistory, accessibilityFocusMonitor);
+    DirectionNavigationActor directionNavigationActor =
+        new DirectionNavigationActor(
+            inputModeManager,
+            globalVariables,
+            analytics,
+            compositor,
+            this,
+            processorPhoneticLetters,
+            accessibilityFocusMonitor,
+            screenStateMonitor);
+    TextEditActor editor = new TextEditActor(this, editTextActionHistory, textCursorManager);
+
+    // Construct pipeline.
+    pipeline =
+        new Pipeline(
+            new Interpreters(autoScrollInterpreter),
+            new Actors(
+                speechController,
+                feedbackController,
+                scroller,
+                focuser,
+                directionNavigationActor,
+                new SearchScreenNodeStrategy(/* observer= */ null, labelManager),
+                editor));
+    autoScrollInterpreter.setDirectionNavigationActor(directionNavigationActor);
+
+    nodeMenuRuleProcessor =
+        new NodeMenuRuleProcessor(this, pipeline.getFeedbackReturner(), pipeline.getActorState());
+    compositor.setNodeMenuProvider(nodeMenuRuleProcessor);
+
+    compositor.setSpeaker(pipeline.getSpeaker());
+
+    ScrollEventInterpreter scrollEventInterpreter =
+        new ScrollEventInterpreter(pipeline.getActorState());
+      addEventListener(scrollEventInterpreter);
+
+      processorScrollPositionForFocusManagement =
+          new ProcessorScrollPositionForFocusManagement(compositor);
+      scrollEventInterpreter.addListener(processorScrollPositionForFocusManagement);
+
+    scrollEventInterpreter.setAutoScrollInterpreter(autoScrollInterpreter);
+
+    inputFocusInterpreter =
+        new InputFocusInterpreter(/* service= */ this, globalVariables, pipeline.getActorState());
+      TouchExplorationInterpreter touchExplorationInterpreter =
+          new TouchExplorationInterpreter(inputModeManager);
+    DirectionNavigationController directionNavigationController =
+        new DirectionNavigationController(this, pipeline.getFeedbackReturner());
+
+      // Register AccessibilityEventListeners
+      addEventListener(screenStateMonitor);
+    addEventListener(inputFocusInterpreter);
+      addEventListener(touchExplorationInterpreter);
+    addEventListener(directionNavigationController);
+      addEventListener(new ProcessorMagnification(/* service= */ this));
+
+    // TODO: Move AccessibilityFocusManager into pipeline-actors, and do not expose
+    // ActorStateWritable outside actors.
+    accessibilityFocusManager =
+        new AccessibilityFocusManager(
+            /* service= */ this,
+            pipeline.getFeedbackReturner(),
+            pipeline.getActorState(),
+            screenStateMonitor,
+            accessibilityFocusMonitor,
+            primesController);
+
+    scrollEventInterpreter.addListener(accessibilityFocusManager);
+    inputFocusInterpreter.addViewTargetListener(accessibilityFocusManager);
+      touchExplorationInterpreter.addTouchExplorationActionListener(accessibilityFocusManager);
+      screenStateMonitor.addScreenStateChangeListener(accessibilityFocusManager);
+    autoScrollInterpreter.setDirectionNavigationActor(directionNavigationActor);
+
+    screenStateMonitor.addScreenStateChangeListener(inputFocusInterpreter);
+    directionNavigationController.setAccessibilityFocusManager(accessibilityFocusManager);
+
+    voiceActionMonitor = new VoiceActionMonitor(this);
+    accessibilityEventProcessor.setVoiceActionMonitor(voiceActionMonitor);
+
+    fullScreenReadController =
+        new FullScreenReadControllerApp(
+            accessibilityFocusMonitor,
+            accessibilityFocusManager,
+            pipeline.getFeedbackReturner(),
+            this);
+    addEventListener(fullScreenReadController);
+
+    keyEventListeners.add(inputModeManager);
+
+    // TODO: Move controllers into pipeline, stop letting them access
+    // speechController.
+    proximitySensorListener = new ProximitySensorListener(this, speechController);
+
+    menuManager = new MenuManagerWrapper();
+    updateMenuManagerFromPreferences(); // Sets menuManager
+
+    ringerModeAndScreenMonitor =
+        new RingerModeAndScreenMonitor(
+            menuManager,
+            pipeline.getFeedbackReturner(),
+            proximitySensorListener,
+            this);
+    accessibilityEventProcessor.setRingerModeAndScreenMonitor(ringerModeAndScreenMonitor);
 
     // Only use speak-pass talkback-preference on android O+.
-    if (FormFactorUtils.useSpeakPasswordsServicePref()) {
-      mHeadphoneStateMonitor = new HeadphoneStateMonitor(this);
-      mSpeakPasswordsManager =
-          new SpeakPasswordsManager(this, mHeadphoneStateMonitor, mGlobalVariables);
+    if (FeatureSupport.useSpeakPasswordsServicePref()) {
+      headphoneStateMonitor = new HeadphoneStateMonitor(this);
+      speakPasswordsManager =
+          new SpeakPasswordsManager(this, headphoneStateMonitor, globalVariables);
     }
 
-    mEditTextActionHistory = new EditTextActionHistory();
-
-    mSelectorController = new SelectorController(this, mCompositor, mCursorController, mAnalytics);
-
-    mGestureController =
-        new GestureControllerApp(
-            this,
-            mCursorController,
-            mFeedbackController,
-            mFullScreenReadController,
-            mMenuManager,
-            mSelectorController);
-
-    mSideTapManager = new SideTapManager(this, mGestureController);
-    addEventListener(mSideTapManager);
-    mFeedbackController.addHapticFeedbackListener(mSideTapManager);
-
-    // Add event processors. These will process incoming AccessibilityEvents
-    // in the order they are added.
-    mEventFilter =
-        new EventFilter(
-            mCompositor,
-            this,
-            mTextCursorManager,
-            mCursorController,
-            mInputModeManager,
-            mEditTextActionHistory,
-            mGlobalVariables);
-    mEventFilter.setVoiceActionDelegate(mVoiceActionMonitor);
-
-    ProcessorEventQueue processorEventQueue = new ProcessorEventQueue(mEventFilter);
-
-    addEventListener(processorEventQueue);
-    addEventListener(
-        new ProcessorScrollPosition(
-            mFullScreenReadController, mSpeechController, mCursorController, this));
-    addEventListener(new ProcessorPhoneticLetters(this, mSpeechController));
-
-    mProcessorScreen = new ProcessorScreen(this);
-    mGlobalVariables.setWindowsDelegate(mProcessorScreen);
-    addEventListener(mProcessorScreen);
-
-    mProcessorHints = new ProcessorAccessibilityHints(this, mSpeechController, mCompositor);
-    addEventListener(mProcessorHints);
-    mKeyEventListeners.add(0, mProcessorHints); // Needs to be first; will not catch any events.
-
-    if (USE_A11Y_FOCUS_MANAGER) {
-      mAccessibilityFocusManager =
-          new AccessibilityFocusManager(
-              /* service= */ this,
-              mSpeechController,
-              mFeedbackController,
-              /* speechControllerDelegate= */ this);
-      addEventListener(mAccessibilityFocusManager);
-    } else {
-      mProcessorFollowFocus =
-          new ProcessorFocusAndSingleTap(
-              mCursorController, mFeedbackController, mSpeechController, this, mGlobalVariables);
-      addEventListener(mProcessorFollowFocus);
-    }
+    selectorController =
+        new SelectorController(
+            this, compositor, pipeline.getFeedbackReturner(), pipeline.getActorState(), analytics);
 
     // ProcessorPermissionDialogs gets the instance of DimScreenController
     // So DimScreenController need to be initialized before ProcessorPermissionDialogs
     DimScreenControllerApp dimScreenController = new DimScreenControllerApp(this);
-    mDimScreenController = dimScreenController;
-
-    mProcessorCursorState = new ProcessorCursorState(this, mGlobalVariables);
-    mProcessorPermissionsDialogs = new ProcessorPermissionDialogs(this);
-
-    mVolumeMonitor = new VolumeMonitor(mSpeechController, this);
-    mBatteryMonitor =
-        new BatteryMonitor(
-            this,
-            mSpeechController,
-            (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE));
-
-    // TODO: Move this into the custom label manager code
-    mPackageReceiver = new PackageRemovalReceiver();
-
-    addEventListener(new ProcessorGestureVibrator(mFeedbackController));
+    this.dimScreenController = dimScreenController;
 
     ProcessorVolumeStream processorVolumeStream =
         new ProcessorVolumeStream(
-            mFeedbackController,
-            mCursorController,
-            mDimScreenController,
-            mSpeechController,
-            mFullScreenReadController,
+            pipeline.getFeedbackReturner(),
+            accessibilityFocusMonitor,
+            this.dimScreenController,
+            pipeline.getActorState(),
+            fullScreenReadController,
             this,
-            mGlobalVariables);
+            globalVariables,
+            menuManager);
     addEventListener(processorVolumeStream);
-    mKeyEventListeners.add(processorVolumeStream);
+    keyEventListeners.add(processorVolumeStream);
+
+    SpeechRecognitionManager speechRecognitionManager =
+        new SpeechRecognitionManager(this, pipeline.getFeedbackReturner());
+
+    gestureController =
+        new GestureController(
+            this,
+            pipeline.getFeedbackReturner(),
+            pipeline.getActorState(),
+            fullScreenReadController,
+            menuManager,
+            selectorController,
+            speechRecognitionManager,
+            processorVolumeStream,
+            accessibilityFocusMonitor,
+            gestureShortcutMapping);
+
+    speechRecognitionManager.setGestureController(gestureController);
+
+    audioPlaybackMonitor = new AudioPlaybackMonitor(this);
+
+    // Add event processors. These will process incoming AccessibilityEvents
+    // in the order they are added.
+    eventFilter =
+        new EventFilter(
+            compositor,
+            this,
+            textCursorManager,
+            directionNavigationActor.state,
+            inputModeManager,
+            editTextActionHistory,
+            audioPlaybackMonitor,
+            globalVariables);
+    eventFilter.setVoiceActionDelegate(voiceActionMonitor);
+    eventFilter.setAccessibilityFocusEventInterpreter(accessibilityFocusManager);
+    processorEventQueue = new ProcessorEventQueue(eventFilter);
+
+    addEventListener(processorEventQueue);
+    addEventListener(processorPhoneticLetters);
+
+    processorHints =
+        new ProcessorAccessibilityHints(speechController, compositor, accessibilityFocusManager);
+    addEventListener(processorHints);
+    keyEventListeners.add(0, processorHints); // Needs to be first; will not catch any events.
+
+    // Create window event interpreter and announcer.
+    processorScreen =
+        new ProcessorScreen(this, processorHints, keyComboManager, pipeline.getFeedbackReturner());
+    globalVariables.setWindowsDelegate(processorScreen);
+    addEventListener(processorScreen);
+      screenStateMonitor.setWindowEventInterpreter(processorScreen.getWindowEventInterpreter());
+
+    processorCursorState =
+        new ProcessorCursorState(this, pipeline.getFeedbackReturner(), globalVariables);
+    processorPermissionsDialogs =
+        new ProcessorPermissionDialogs(this, dimScreenController, pipeline.getFeedbackReturner());
+
+    volumeMonitor = new VolumeMonitor(pipeline.getFeedbackReturner(), this);
+    batteryMonitor =
+        new BatteryMonitor(
+            this, speechController, (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE));
+
+    // TODO: Move this into the custom label manager code
+    packageReceiver = new PackageRemovalReceiver();
+
+    addEventListener(new ProcessorGestureVibrator(pipeline.getFeedbackReturner()));
 
     // Search mode should receive key combos immediately after the TalkBackService.
-    mKeyboardSearchManager = new KeyboardSearchManager(this, mLabelManager);
-    mKeyEventListeners.add(mKeyboardSearchManager);
-    addEventListener(mKeyboardSearchManager);
-    mKeyComboManager.addListener(mKeyboardSearchManager);
-    mKeyComboManager.addListener(mCursorController);
-    mKeyEventListeners.add(mKeyComboManager);
-    mServiceStateListeners.add(mKeyComboManager);
+    universalSearchManager =
+        new UniversalSearchManager(
+            this,
+            labelManager,
+            pipeline.getFeedbackReturner(),
+            ringerModeAndScreenMonitor,
+            processorScreen.getWindowEventInterpreter());
+    keyComboManager.addListener(universalSearchManager);
+    autoScrollInterpreter.setSearchManager(universalSearchManager);
 
-    addEventListener(mSavedNode);
+    keyComboManager.addListener(directionNavigationController);
+    keyEventListeners.add(keyComboManager);
+    serviceStateListeners.add(keyComboManager);
 
-    mOrientationMonitor = new OrientationMonitor(mCompositor, this);
-    mOrientationMonitor.addOnOrientationChangedListener(dimScreenController);
+    orientationMonitor = new OrientationMonitor(compositor, this);
+    orientationMonitor.addOnOrientationChangedListener(dimScreenController);
 
-    KeyboardLockMonitor keyboardLockMonitor = new KeyboardLockMonitor(mCompositor);
-    mKeyEventListeners.add(keyboardLockMonitor);
+    KeyboardLockMonitor keyboardLockMonitor = new KeyboardLockMonitor(compositor);
+    keyEventListeners.add(keyboardLockMonitor);
 
     if (Build.VERSION.SDK_INT >= TelevisionNavigationController.MIN_API_LEVEL
-        && FormFactorUtils.getInstance(this).isTv()) {
-      mTelevisionNavigationController = new TelevisionNavigationController(this);
-      mKeyEventListeners.add(mTelevisionNavigationController);
-      mTelevisionDPadManager = new TelevisionDPadManager(mTelevisionNavigationController);
-      addEventListener(mTelevisionDPadManager);
+        && FeatureSupport.isTv(this)) {
+      televisionNavigationController =
+          new TelevisionNavigationController(
+              this, accessibilityFocusMonitor, pipeline.getFeedbackReturner());
+      keyEventListeners.add(televisionNavigationController);
+      televisionDPadManager = new TelevisionDPadManager(televisionNavigationController);
+      addEventListener(televisionDPadManager);
+    }
+
+    analytics.onTalkBackServiceStarted();
+  }
+
+  public @Compositor.Flavor int getCompositorFlavor() {
+    if (FeatureSupport.isArc()) {
+      return Compositor.FLAVOR_ARC;
+    } else if (FeatureSupport.isTv(this)) {
+      return Compositor.FLAVOR_TV;
+    } else {
+      return Compositor.FLAVOR_NONE;
     }
   }
 
   public void updateMenuManagerFromPreferences() {
-    mMenuManager.dismissAll();
+    menuManager.dismissAll();
 
     if (SharedPreferencesUtils.getBooleanPref(
-        mPrefs,
+        prefs,
         getResources(),
         R.string.pref_show_context_menu_as_list_key,
         R.bool.pref_show_menu_as_list)) {
@@ -1407,29 +1369,43 @@ public class TalkBackService extends AccessibilityService
     }
   }
 
+  public UniversalSearchManager getUniversalSearchManager() {
+    return universalSearchManager;
+  }
+
   // Gets the user preferred locale changed using language switcher.
   public Locale getUserPreferredLocale() {
-    return mCompositor.getUserPreferredLanguage();
+    return compositor.getUserPreferredLanguage();
   }
 
   // Sets the user preferred locale changed using language switcher.
   public void setUserPreferredLocale(Locale locale) {
-    mCompositor.setUserPreferredLanguage(locale);
+    compositor.setUserPreferredLanguage(locale);
   }
 
   public void setMenuManagerToList() {
-    mMenuManager.setMenuManager(
-        new ListMenuManager(this, mEditTextActionHistory, mTextCursorManager, mGlobalVariables));
+    ListMenuManager listMenuManager =
+        new ListMenuManager(
+            this, pipeline.getFeedbackReturner(), accessibilityFocusMonitor, nodeMenuRuleProcessor);
+    menuManager.setMenuManager(listMenuManager);
+    // () Monitor stable windows to activate the deferred menu action.
+    if (processorScreen != null && processorScreen.getWindowEventInterpreter() != null) {
+      processorScreen.getWindowEventInterpreter().addListener(listMenuManager);
+    }
   }
 
   public void setMenuManagerToRadial() {
-    mMenuManager.setMenuManager(
+    menuManager.setMenuManager(
         new RadialMenuManager(
-            mSupportsTouchScreen, this, mEditTextActionHistory, mTextCursorManager));
+            supportsTouchScreen,
+            this,
+            pipeline.getFeedbackReturner(),
+            accessibilityFocusMonitor,
+            nodeMenuRuleProcessor));
   }
 
   public MenuManager getMenuManager() {
-    return mMenuManager;
+    return menuManager;
   }
 
   /**
@@ -1438,7 +1414,7 @@ public class TalkBackService extends AccessibilityService
    * @return whether fingerprint gesture is supported on the device.
    */
   private boolean supportFingerprintGesture() {
-    return BuildVersionUtils.isAtLeastO() && HardwareUtils.isFingerprintSupported(this);
+    return BuildVersionUtils.isAtLeastO() && FeatureSupport.isFingerprintSupported(this);
   }
 
   /**
@@ -1446,8 +1422,16 @@ public class TalkBackService extends AccessibilityService
    * #onServiceConnected} and when TalkBack resumes from a suspended state.
    */
   private void resumeInfrastructure() {
+    // Log meta-data about service.
+    LogUtils.d(
+        TAG,
+        "resumeInfrastructure() version=%s log-level=%s utils.BuildConfig.DEBUG=%s",
+        PackageManagerUtils.getVersionName(this),
+        LogUtils.getLogLevel(),
+        com.google.android.accessibility.utils.BuildConfig.DEBUG);
+
     if (isServiceActive()) {
-      LogUtils.log(this, Log.ERROR, "Attempted to resume while not suspended");
+      LogUtils.e(TAG, "Attempted to resume while not suspended");
       return;
     }
 
@@ -1462,19 +1446,20 @@ public class TalkBackService extends AccessibilityService
     info.flags |= AccessibilityServiceInfo.DEFAULT;
     info.flags |= AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS;
     info.flags |= AccessibilityServiceInfo.FLAG_REQUEST_FILTER_KEY_EVENTS;
-    if (BuildVersionUtils.isAtLeastLMR1()) {
-      info.flags |= AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS;
-    }
+    info.flags |= AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS;
     if (BuildVersionUtils.isAtLeastO()) {
       info.flags |= AccessibilityServiceInfo.FLAG_ENABLE_ACCESSIBILITY_VOLUME;
-      info.flags |= AccessibilityServiceInfo.FLAG_REQUEST_FINGERPRINT_GESTURES;
     }
+    info.flags |= ExperimentalUtils.getAddtionalTalkBackServiceFlags();
     info.notificationTimeout = 0;
+    if (BuildVersionUtils.isAtLeastQ()) {
+      info.setInteractiveUiTimeoutMillis(DEFAULT_INTERACTIVE_UI_TIMEOUT_MILLIS);
+    }
 
     // Ensure the initial touch exploration request mode is correct.
-    if (mSupportsTouchScreen
+    if (supportsTouchScreen
         && SharedPreferencesUtils.getBooleanPref(
-            mPrefs,
+            prefs,
             getResources(),
             R.string.pref_explore_by_touch_key,
             R.bool.pref_explore_by_touch_default)) {
@@ -1483,72 +1468,98 @@ public class TalkBackService extends AccessibilityService
 
     setServiceInfo(info);
 
-    if (mVoiceActionMonitor != null) {
-      mVoiceActionMonitor.onResumeInfrastructure();
+    if (voiceActionMonitor != null) {
+      voiceActionMonitor.onResumeInfrastructure();
     }
 
-    if (mRingerModeAndScreenMonitor != null) {
-      registerReceiver(mRingerModeAndScreenMonitor, mRingerModeAndScreenMonitor.getFilter());
+    if (audioPlaybackMonitor != null) {
+      audioPlaybackMonitor.onResumeInfrastructure();
+    }
+
+    if (ringerModeAndScreenMonitor != null) {
+      registerReceiver(ringerModeAndScreenMonitor, ringerModeAndScreenMonitor.getFilter());
       // It could now be confused with the current screen state
-      mRingerModeAndScreenMonitor.updateScreenState();
+      ringerModeAndScreenMonitor.updateScreenState();
     }
 
-    if (mHeadphoneStateMonitor != null) {
-      mHeadphoneStateMonitor.startMonitoring();
+    if (headphoneStateMonitor != null) {
+      headphoneStateMonitor.startMonitoring();
     }
 
-    if (mVolumeMonitor != null) {
-      registerReceiver(mVolumeMonitor, mVolumeMonitor.getFilter());
-      if (FormFactorUtils.hasAcessibilityAudioStream(this)) {
+    if (volumeMonitor != null) {
+      registerReceiver(volumeMonitor, volumeMonitor.getFilter());
+      if (FeatureSupport.hasAcessibilityAudioStream(this)) {
         // Cache the initial volume in case that the volume is never changed during runtime.
-        mVolumeMonitor.cacheAccessibilityStreamVolume();
+        volumeMonitor.cacheAccessibilityStreamVolume();
       }
     }
 
-    if (mBatteryMonitor != null) {
-      registerReceiver(mBatteryMonitor, mBatteryMonitor.getFilter());
+    if (batteryMonitor != null) {
+      registerReceiver(batteryMonitor, batteryMonitor.getFilter());
     }
 
-    if (mPackageReceiver != null) {
-      registerReceiver(mPackageReceiver, mPackageReceiver.getFilter());
-      if (mLabelManager != null) {
-        mLabelManager.ensureDataConsistency();
+    if (packageReceiver != null) {
+      registerReceiver(packageReceiver, packageReceiver.getFilter());
+      if (labelManager != null) {
+        labelManager.ensureDataConsistency();
       }
     }
 
-    if (mSideTapManager != null) {
-      registerReceiver(mSideTapManager, SideTapManager.getFilter());
-    }
-
-    mPrefs.registerOnSharedPreferenceChangeListener(mSharedPreferenceChangeListener);
-    mPrefs.registerOnSharedPreferenceChangeListener(mAnalytics);
+    prefs.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
+    prefs.registerOnSharedPreferenceChangeListener(analytics);
 
     // Add the broadcast listener for gestures.
     final IntentFilter filter = new IntentFilter();
     filter.addAction(ACTION_PERFORM_GESTURE_ACTION);
-    registerReceiver(mActiveReceiver, filter, PERMISSION_TALKBACK, null);
+    registerReceiver(activeReceiver, filter, PERMISSION_TALKBACK, null);
 
-    if (mTelevisionDPadManager != null) {
-      registerReceiver(mTelevisionDPadManager, TelevisionDPadManager.getFilter());
+    if (televisionDPadManager != null) {
+      registerReceiver(televisionDPadManager, TelevisionDPadManager.getFilter());
     }
 
     if (BuildVersionUtils.isAtLeastN()) {
       MagnificationController magnificationController = getMagnificationController();
-      if (magnificationController != null && mOnMagnificationChangedListener != null) {
-        magnificationController.addListener(mOnMagnificationChangedListener);
+      if (magnificationController != null && onMagnificationChangedListener != null) {
+        magnificationController.addListener(onMagnificationChangedListener);
       }
     }
 
-    if (mFingerprintGestureCallback != null) {
+    if ((fingerprintGestureCallback != null) && (getFingerprintGestureController() != null)) {
       getFingerprintGestureController()
-          .registerFingerprintGestureCallback(mFingerprintGestureCallback, null);
+          .registerFingerprintGestureCallback(fingerprintGestureCallback, null);
     }
 
     reloadPreferences();
 
-    mDimScreenController.resume();
+    dimScreenController.resume();
 
-    mCursorController.initLastEditable();
+    inputFocusInterpreter.initLastEditableFocusForGlobalVariables();
+  }
+
+  private void requestFingerprintGesture(boolean enable) {
+    // Use fingerprintGestureCallback to check whether the feature is supported on this device.
+    if (fingerprintGestureCallback == null) {
+      return;
+    }
+    AccessibilityServiceInfo info = getServiceInfo();
+    if (info == null) {
+      LogUtils.e(TAG, "Failed to requestFingerprintGesture, service info was null");
+      return;
+    }
+
+    boolean isEnabled =
+        (info.flags & AccessibilityServiceInfo.FLAG_REQUEST_FINGERPRINT_GESTURES) != 0;
+
+    if (isEnabled == enable) {
+      return;
+    }
+
+    if (enable) {
+      info.flags |= AccessibilityServiceInfo.FLAG_REQUEST_FINGERPRINT_GESTURES;
+    } else {
+      info.flags &= ~AccessibilityServiceInfo.FLAG_REQUEST_FINGERPRINT_GESTURES;
+    }
+    setServiceInfo(info);
   }
 
   @Override
@@ -1558,8 +1569,8 @@ public class TalkBackService extends AccessibilityService
         super.unregisterReceiver(receiver);
       }
     } catch (IllegalArgumentException e) {
-      Log.e(
-          LOGTAG,
+      LogUtils.e(
+          TAG,
           "Do not unregister receiver as it was never registered: "
               + receiver.getClass().getSimpleName());
     }
@@ -1580,55 +1591,49 @@ public class TalkBackService extends AccessibilityService
    */
   private void suspendInfrastructure() {
     if (!isServiceActive()) {
-      LogUtils.log(this, Log.ERROR, "Attempted to suspend while already suspended");
+      LogUtils.e(TAG, "Attempted to suspend while already suspended");
       return;
     }
 
-    if (mVoiceActionMonitor != null) {
-      mVoiceActionMonitor.onSuspendInfrastructure();
+    if (voiceActionMonitor != null) {
+      voiceActionMonitor.onSuspendInfrastructure();
     }
 
-    mDimScreenController.suspend();
+    if (audioPlaybackMonitor != null) {
+      audioPlaybackMonitor.onSuspendInfrastructure();
+    }
+
+    dimScreenController.suspend();
 
     interruptAllFeedback(false /* stopTtsSpeechCompletely */);
     setServiceState(ServiceStateListener.SERVICE_STATE_SUSPENDED);
 
     // Some apps depend on these being set to false when TalkBack is disabled.
-    if (mSupportsTouchScreen) {
+    if (supportsTouchScreen) {
       requestTouchExploration(false);
     }
 
-    mPrefs.unregisterOnSharedPreferenceChangeListener(mSharedPreferenceChangeListener);
-    mPrefs.unregisterOnSharedPreferenceChangeListener(mSharedPreferenceChangeListener);
+    prefs.unregisterOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
+    prefs.unregisterOnSharedPreferenceChangeListener(analytics);
 
-    if (mMenuManager != null) {
-      mMenuManager.clearCache();
+    if (menuManager != null) {
+      menuManager.clearCache();
     }
 
     unregisterReceivers(
-        mActiveReceiver,
-        mRingerModeAndScreenMonitor,
-        mBatteryMonitor,
-        mPackageReceiver,
-        mVolumeMonitor,
-        mSideTapManager,
-        mTelevisionDPadManager);
+        activeReceiver,
+        ringerModeAndScreenMonitor,
+        batteryMonitor,
+        packageReceiver,
+        volumeMonitor,
+        televisionDPadManager);
 
-    if (mVolumeMonitor != null) {
-      mVolumeMonitor.releaseControl();
+    if (volumeMonitor != null) {
+      volumeMonitor.releaseControl();
     }
 
-    if (mShakeDetector != null) {
-      mShakeDetector.setEnabled(false);
-    }
-
-    // The tap detector is enabled through reloadPreferences
-    if (mSideTapManager != null) {
-      mSideTapManager.onSuspendInfrastructure();
-    }
-
-    if (mHeadphoneStateMonitor != null) {
-      mHeadphoneStateMonitor.stopMonitoring();
+    if (headphoneStateMonitor != null) {
+      headphoneStateMonitor.stopMonitoring();
     }
 
     // Remove any pending notifications that shouldn't persist.
@@ -1637,39 +1642,38 @@ public class TalkBackService extends AccessibilityService
 
     if (BuildVersionUtils.isAtLeastN()) {
       MagnificationController magnificationController = getMagnificationController();
-      if (magnificationController != null && mOnMagnificationChangedListener != null) {
-        magnificationController.removeListener(mOnMagnificationChangedListener);
+      if (magnificationController != null && onMagnificationChangedListener != null) {
+        magnificationController.removeListener(onMagnificationChangedListener);
       }
     }
 
-    if (mFingerprintGestureCallback != null) {
+    if ((fingerprintGestureCallback != null) && (getFingerprintGestureController() != null)) {
       getFingerprintGestureController()
-          .unregisterFingerprintGestureCallback(mFingerprintGestureCallback);
+          .unregisterFingerprintGestureCallback(fingerprintGestureCallback);
     }
+
+    requestFingerprintGesture(false);
+
   }
 
   /** Shuts down the infrastructure in case it has been initialized. */
   private void shutdownInfrastructure() {
     // we put it first to be sure that screen dimming would be removed even if code bellow
     // will crash by any reason. Because leaving user with dimmed screen is super bad
-    mDimScreenController.shutdown();
+    dimScreenController.shutdown();
 
-    if (mCursorController != null) {
-      mCursorController.shutdown();
+    if (fullScreenReadController != null) {
+      fullScreenReadController.shutdown();
     }
 
-    if (mFullScreenReadController != null) {
-      mFullScreenReadController.shutdown();
+    if (labelManager != null) {
+      labelManager.shutdown();
     }
 
-    if (mLabelManager != null) {
-      mLabelManager.shutdown();
-    }
-
-    mProximitySensorListener.shutdown();
-    mFeedbackController.shutdown();
-    mSpeechController.shutdown();
-    mAnalytics.onTalkBackServiceStopped();
+    proximitySensorListener.shutdown();
+    feedbackController.shutdown();
+    pipeline.shutdown();
+    analytics.onTalkBackServiceStopped();
   }
 
   /**
@@ -1678,7 +1682,7 @@ public class TalkBackService extends AccessibilityService
    * @param listener The listener to add.
    */
   public void addEventListener(AccessibilityEventListener listener) {
-    mAccessibilityEventProcessor.addAccessibilityEventListener(listener);
+    accessibilityEventProcessor.addAccessibilityEventListener(listener);
   }
 
   /**
@@ -1688,20 +1692,31 @@ public class TalkBackService extends AccessibilityService
    * @param listener The listener to remove.
    */
   public void postRemoveEventListener(final AccessibilityEventListener listener) {
-    mAccessibilityEventProcessor.postRemoveAccessibilityEventListener(listener);
+    accessibilityEventProcessor.postRemoveAccessibilityEventListener(listener);
+  }
+
+  /** Returns a boolean preference by resource id. */
+  private boolean getBooleanPref(int prefKeyResId, int prefDefaultResId) {
+    return SharedPreferencesUtils.getBooleanPref(
+        prefs, getResources(), prefKeyResId, prefDefaultResId);
   }
 
   /** Reloads service preferences. */
   private void reloadPreferences() {
     final Resources res = getResources();
 
+    // Preferece to reduce window announcement delay.
+    boolean reduceDelayPref =
+        getBooleanPref(
+            R.string.pref_reduce_window_delay_key, R.bool.pref_reduce_window_delay_default);
+    if (processorScreen != null && processorScreen.getWindowEventInterpreter() != null) {
+      processorScreen.getWindowEventInterpreter().setReduceDelayPref(reduceDelayPref);
+    }
+
     // If performance statistics changing enabled setting... clear collected stats.
     boolean performanceEnabled =
         SharedPreferencesUtils.getBooleanPref(
-            mPrefs,
-            res,
-            R.string.pref_performance_stats_key,
-            R.bool.pref_performance_stats_default);
+            prefs, res, R.string.pref_performance_stats_key, R.bool.pref_performance_stats_default);
     Performance performance = Performance.getInstance();
     if (performance.getEnabled() != performanceEnabled) {
       performance.clearRecentEvents();
@@ -1709,174 +1724,180 @@ public class TalkBackService extends AccessibilityService
       performance.setEnabled(performanceEnabled);
     }
 
-    mAccessibilityEventProcessor.setSpeakWhenScreenOff(
+    accessibilityEventProcessor.setSpeakWhenScreenOff(
         VerbosityPreferences.getPreferenceValueBool(
-            mPrefs,
+            prefs,
             res,
             res.getString(R.string.pref_screenoff_key),
             res.getBoolean(R.bool.pref_screenoff_default)));
 
-    mAutomaticResume =
-        mPrefs.getString(
+    accessibilityEventProcessor.setDumpEventMask(
+        prefs.getInt(res.getString(R.string.pref_dump_event_mask_key), 0));
+
+    automaticResume =
+        prefs.getString(
             res.getString(R.string.pref_resume_talkback_key), getString(R.string.resume_screen_on));
 
     final boolean silenceOnProximity =
         SharedPreferencesUtils.getBooleanPref(
-            mPrefs, res, R.string.pref_proximity_key, R.bool.pref_proximity_default);
-    mProximitySensorListener.setSilenceOnProximity(silenceOnProximity);
+            prefs, res, R.string.pref_proximity_key, R.bool.pref_proximity_default);
+    proximitySensorListener.setSilenceOnProximity(silenceOnProximity);
 
     LogUtils.setLogLevel(
         SharedPreferencesUtils.getIntFromStringPref(
-            mPrefs, res, R.string.pref_log_level_key, R.string.pref_log_level_default));
+            prefs, res, R.string.pref_log_level_key, R.string.pref_log_level_default));
 
     final boolean useSingleTap =
         SharedPreferencesUtils.getBooleanPref(
-            mPrefs, res, R.string.pref_single_tap_key, R.bool.pref_single_tap_default);
-    mGlobalVariables.setUseSingleTap(useSingleTap);
-    if (USE_A11Y_FOCUS_MANAGER) {
-      mAccessibilityFocusManager.setSingleTapEnabled(useSingleTap);
-    } else {
-      mProcessorFollowFocus.setSingleTapEnabled(useSingleTap);
-    }
-    if (mShakeDetector != null) {
-      final int shakeThreshold =
-          SharedPreferencesUtils.getIntFromStringPref(
-              mPrefs,
-              res,
-              R.string.pref_shake_to_read_threshold_key,
-              R.string.pref_shake_to_read_threshold_default);
-      final boolean useShake =
-          (shakeThreshold > 0)
-              && (mVoiceActionMonitor.getCurrentCallState() == TelephonyManager.CALL_STATE_IDLE);
+            prefs, res, R.string.pref_single_tap_key, R.bool.pref_single_tap_default);
+    globalVariables.setUseSingleTap(useSingleTap);
+    accessibilityFocusManager.setSingleTapEnabled(useSingleTap);
 
-      mShakeDetector.setEnabled(useShake);
-    }
-
-    if (mSideTapManager != null) {
-      mSideTapManager.onReloadPreferences();
-    }
-
-    if (mSupportsTouchScreen) {
+    if (supportsTouchScreen) {
       // Touch exploration *must* be enabled on TVs for TalkBack to function.
       final boolean touchExploration =
-          FormFactorUtils.getInstance(this).isTv()
+          FeatureSupport.isTv(this)
               || SharedPreferencesUtils.getBooleanPref(
-                  mPrefs,
+                  prefs,
                   res,
                   R.string.pref_explore_by_touch_key,
                   R.bool.pref_explore_by_touch_default);
       requestTouchExploration(touchExploration);
     }
 
-    mProcessorCursorState.onReloadPreferences(this);
-    mProcessorPermissionsDialogs.onReloadPreferences(this);
+    processorCursorState.onReloadPreferences(this);
+    processorPermissionsDialogs.onReloadPreferences(this);
 
     // Reload speech preferences.
-    mSpeechController.setOverlayEnabled(
+    pipeline.setOverlayEnabled(
         SharedPreferencesUtils.getBooleanPref(
-            mPrefs, res, R.string.pref_tts_overlay_key, R.bool.pref_tts_overlay_default));
-    mSpeechController.setUseIntonation(
+            prefs, res, R.string.pref_tts_overlay_key, R.bool.pref_tts_overlay_default));
+    pipeline.setUseIntonation(
         VerbosityPreferences.getPreferenceValueBool(
-            mPrefs,
+            prefs,
             res,
             res.getString(R.string.pref_intonation_key),
             res.getBoolean(R.bool.pref_intonation_default)));
-    mSpeechController.setSpeechPitch(
+    pipeline.setSpeechPitch(
         SharedPreferencesUtils.getFloatFromStringPref(
-            mPrefs, res, R.string.pref_speech_pitch_key, R.string.pref_speech_pitch_default));
+            prefs, res, R.string.pref_speech_pitch_key, R.string.pref_speech_pitch_default));
     float speechRate =
         SharedPreferencesUtils.getFloatFromStringPref(
-            mPrefs, res, R.string.pref_speech_rate_key, R.string.pref_speech_rate_default);
-    mSpeechController.setSpeechRate(speechRate);
-    mGlobalVariables.setSpeechRate(speechRate);
+            prefs, res, R.string.pref_speech_rate_key, R.string.pref_speech_rate_default);
+    pipeline.setSpeechRate(speechRate);
+    globalVariables.setSpeechRate(speechRate);
     int keyboardPref =
         Integer.parseInt(
             VerbosityPreferences.getPreferenceValueString(
-                mPrefs,
+                prefs,
                 res,
                 res.getString(R.string.pref_keyboard_echo_key),
                 res.getString(R.string.pref_keyboard_echo_default)));
-    mEventFilter.setKeyboardEcho(keyboardPref);
+    eventFilter.setKeyboardEcho(keyboardPref);
 
     boolean useAudioFocus =
         SharedPreferencesUtils.getBooleanPref(
-            mPrefs, res, R.string.pref_use_audio_focus_key, R.bool.pref_use_audio_focus_default);
-    mSpeechController.setUseAudioFocus(useAudioFocus);
-    mGlobalVariables.setUseAudioFocus(useAudioFocus);
+            prefs, res, R.string.pref_use_audio_focus_key, R.bool.pref_use_audio_focus_default);
+    pipeline.setUseAudioFocus(useAudioFocus);
+    globalVariables.setUseAudioFocus(useAudioFocus);
 
     // Speech volume is stored as int [0,100] and scaled to float [0,1].
-    if (!FormFactorUtils.hasAcessibilityAudioStream(this)) {
-      mSpeechController.setSpeechVolume(
+    if (!FeatureSupport.hasAcessibilityAudioStream(this)) {
+      pipeline.setSpeechVolume(
           SharedPreferencesUtils.getIntFromStringPref(
-                  mPrefs, res, R.string.pref_speech_volume_key, R.string.pref_speech_volume_default)
+                  prefs, res, R.string.pref_speech_volume_key, R.string.pref_speech_volume_default)
               / 100.0f);
     }
 
     updateMenuManagerFromPreferences();
 
-    if (mSpeakPasswordsManager != null) {
-      mSpeakPasswordsManager.onPreferencesChanged();
+    if (speakPasswordsManager != null) {
+      speakPasswordsManager.onPreferencesChanged();
     }
 
     // Reload feedback preferences.
     int adjustment =
         SharedPreferencesUtils.getIntFromStringPref(
-            mPrefs,
-            res,
-            R.string.pref_soundback_volume_key,
-            R.string.pref_soundback_volume_default);
-    mFeedbackController.setVolumeAdjustment(adjustment / 100.0f);
+            prefs, res, R.string.pref_soundback_volume_key, R.string.pref_soundback_volume_default);
+    feedbackController.setVolumeAdjustment(adjustment / 100.0f);
 
     boolean hapticEnabled =
         SharedPreferencesUtils.getBooleanPref(
-            mPrefs, res, R.string.pref_vibration_key, R.bool.pref_vibration_default);
-    mFeedbackController.setHapticEnabled(hapticEnabled);
+            prefs, res, R.string.pref_vibration_key, R.bool.pref_vibration_default);
+    feedbackController.setHapticEnabled(hapticEnabled);
 
     boolean auditoryEnabled =
         SharedPreferencesUtils.getBooleanPref(
-            mPrefs, res, R.string.pref_soundback_key, R.bool.pref_soundback_default);
-    mFeedbackController.setAuditoryEnabled(auditoryEnabled);
+            prefs, res, R.string.pref_soundback_key, R.bool.pref_soundback_default);
+    feedbackController.setAuditoryEnabled(auditoryEnabled);
+
+    if (processorScrollPositionForFocusManagement != null) {
+      processorScrollPositionForFocusManagement.setVerboseAnnouncement(
+          VerbosityPreferences.getPreferenceValueBool(
+              prefs,
+              res,
+              res.getString(R.string.pref_verbose_scroll_announcement_key),
+              res.getBoolean(R.bool.pref_verbose_scroll_announcement_default)));
+    }
+
+    boolean isFingerprintGestureAssigned =
+        BuildVersionUtils.isAtLeastO()
+            && (gestureController.isFingerprintGestureAssigned(
+                    FingerprintGestureController.FINGERPRINT_GESTURE_SWIPE_UP)
+                || gestureController.isFingerprintGestureAssigned(
+                    FingerprintGestureController.FINGERPRINT_GESTURE_SWIPE_DOWN)
+                || gestureController.isFingerprintGestureAssigned(
+                    FingerprintGestureController.FINGERPRINT_GESTURE_SWIPE_LEFT)
+                || gestureController.isFingerprintGestureAssigned(
+                    FingerprintGestureController.FINGERPRINT_GESTURE_SWIPE_RIGHT));
+    requestFingerprintGesture(isFingerprintGestureAssigned);
 
     // Update compositor preferences.
-    if (mCompositor != null) {
+    if (compositor != null) {
       // Update preference: speak collection info.
       boolean speakCollectionInfo =
           VerbosityPreferences.getPreferenceValueBool(
-              mPrefs,
+              prefs,
               res,
               res.getString(R.string.pref_speak_container_element_positions_key),
               res.getBoolean(R.bool.pref_speak_container_element_positions_default));
-      mCompositor.setSpeakCollectionInfo(speakCollectionInfo);
+      compositor.setSpeakCollectionInfo(speakCollectionInfo);
 
       // Update preference: speak roles.
       boolean speakRoles =
           VerbosityPreferences.getPreferenceValueBool(
-              mPrefs,
+              prefs,
               res,
               res.getString(R.string.pref_speak_roles_key),
               res.getBoolean(R.bool.pref_speak_roles_default));
-      mCompositor.setSpeakRoles(speakRoles);
+      compositor.setSpeakRoles(speakRoles);
 
       // Update preference: description order.
       String descriptionOrder =
           SharedPreferencesUtils.getStringPref(
-              mPrefs,
-              res,
-              R.string.pref_node_desc_order_key,
-              R.string.pref_node_desc_order_default);
-      mCompositor.setDescriptionOrder(prefValueToDescriptionOrder(res, descriptionOrder));
+              prefs, res, R.string.pref_node_desc_order_key, R.string.pref_node_desc_order_default);
+      compositor.setDescriptionOrder(prefValueToDescriptionOrder(res, descriptionOrder));
 
       // Update preference: speak element IDs.
       boolean speakElementIds =
           SharedPreferencesUtils.getBooleanPref(
-              mPrefs,
+              prefs,
               res,
               R.string.pref_speak_element_ids_key,
               R.bool.pref_speak_element_ids_default);
-      mCompositor.setSpeakElementIds(speakElementIds);
+      compositor.setSpeakElementIds(speakElementIds);
+
+      // Update preference: speak usage hints.
+      boolean speakUsageHints =
+          VerbosityPreferences.getPreferenceValueBool(
+              prefs,
+              res,
+              res.getString(R.string.pref_a11y_hints_key),
+              res.getBoolean(R.bool.pref_a11y_hints_default));
+      globalVariables.setUsageHintEnabled(speakUsageHints);
 
       // Reload compositor configuration.
-      mCompositor.refreshParseTreeIfNeeded();
+      compositor.refreshParseTreeIfNeeded();
     }
   }
 
@@ -1892,58 +1913,48 @@ public class TalkBackService extends AccessibilityService
         value, resources.getString(R.string.pref_node_desc_order_value_name_role_state_pos))) {
       return Compositor.DESC_ORDER_NAME_ROLE_STATE_POSITION;
     } else {
-      LogUtils.log(
-          Compositor.class,
-          Log.ERROR,
-          "Unhandled description order preference value \"%s\"",
-          value);
+      LogUtils.e(TAG, "Unhandled description order preference value \"%s\"", value);
       return Compositor.DESC_ORDER_STATE_NAME_ROLE_POSITION;
     }
   }
 
-  @Override
-  public List<AccessibilityWindowInfo> getWindows() {
-    List<AccessibilityWindowInfo> windows;
-    // If build version is not isAtLeastN(), there is a chance of ClassCastException or
-    // NullPointerException.
-    // TODO: Create a wrapper for AccessibilityService#getWindows() in
-    // AccessibilityServiceCompatUtils and route all calls to AccessibilityService#getWindows() via
-    // AccessibilityServiceCompatUtils.
-    if (!BuildVersionUtils.isAtLeastN()) {
-      try {
-        windows = super.getWindows();
-      } catch (Exception e) {
-        LogUtils.log(
-            this, Log.ERROR, "Exception occurred at AccessibilityService#getWindows(): %s", e);
-        return new ArrayList<AccessibilityWindowInfo>();
-      }
-    } else {
-      windows = super.getWindows();
+  /**
+   * Attempts to return the state of touch exploration.
+   *
+   * <p>Should only be called if {@link #supportsTouchScreen} is true.
+   *
+   * @return {@code true} if touch exploration is enabled, {@code false} if touch exploration is
+   *     disabled or {@code null} if we couldn't get the state of touch exploration.
+   */
+  private @Nullable Boolean isTouchExplorationEnabled() {
+    final AccessibilityServiceInfo info = getServiceInfo();
+    if (info == null) {
+      LogUtils.e(TAG, "Failed to read touch exploration request state, service info was null");
+      return null;
     }
-    return windows;
+
+    return ((info.flags & AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE) != 0);
   }
 
   /**
    * Attempts to change the state of touch exploration.
    *
-   * <p>Should only be called if {@link #mSupportsTouchScreen} is true.
+   * <p>Should only be called if {@link #supportsTouchScreen} is true.
    *
    * @param requestedState {@code true} to request exploration.
+   * @return {@code true} if touch exploration is now enabled, {@code false} if touch exploration is
+   *     now disabled or {@code null} if we couldn't get the state of touch exploration which means
+   *     no change to touch exploration state occurred.
    */
-  private void requestTouchExploration(boolean requestedState) {
+  private @Nullable Boolean requestTouchExploration(boolean requestedState) {
     final AccessibilityServiceInfo info = getServiceInfo();
-    if (info == null) {
-      LogUtils.log(
-          this,
-          Log.ERROR,
-          "Failed to change touch exploration request state, service info was null");
-      return;
+    Boolean currentState = isTouchExplorationEnabled();
+    if (currentState == null || info == null) {
+      return null;
     }
 
-    final boolean currentState =
-        ((info.flags & AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE) != 0);
     if (currentState == requestedState) {
-      return;
+      return currentState;
     }
 
     if (requestedState) {
@@ -1953,15 +1964,16 @@ public class TalkBackService extends AccessibilityService
     }
 
     setServiceInfo(info);
-  }
 
+    return isTouchExplorationEnabled();
+  }
   /**
    * Launches the touch exploration tutorial if necessary.
    *
    * @return {@code true} if the tutorial is launched successfully.
    */
   public boolean showTutorialIfNecessary() {
-    if (FormFactorUtils.getInstance(this).isArc()) {
+    if (FeatureSupport.isArc()) {
       return false;
     }
 
@@ -1974,7 +1986,7 @@ public class TalkBackService extends AccessibilityService
 
     final int touchscreenState = getResources().getConfiguration().touchscreen;
 
-    if (touchscreenState != Configuration.TOUCHSCREEN_NOTOUCH && mSupportsTouchScreen) {
+    if (touchscreenState != Configuration.TOUCHSCREEN_NOTOUCH && supportsTouchScreen) {
       final Intent tutorial = new Intent(this, AccessibilityTutorialActivity.class);
       tutorial.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       tutorial.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -1987,18 +1999,18 @@ public class TalkBackService extends AccessibilityService
   }
 
   private boolean isFirstTimeUser() {
-    return mPrefs.getBoolean(PREF_FIRST_TIME_USER, true);
+    return prefs.getBoolean(PREF_FIRST_TIME_USER, true);
   }
 
-  private final KeyComboManager.KeyComboListener mKeyComboListener =
+  private final KeyComboManager.KeyComboListener keyComboListener =
       new KeyComboManager.KeyComboListener() {
         @Override
         public boolean onComboPerformed(int id, EventId eventId) {
           switch (id) {
             case KeyComboManager.ACTION_SUSPEND_OR_RESUME:
-              if (mServiceState == ServiceStateListener.SERVICE_STATE_SUSPENDED) {
+              if (serviceState == ServiceStateListener.SERVICE_STATE_SUSPENDED) {
                 resumeTalkBack(eventId);
-              } else if (mServiceState == ServiceStateListener.SERVICE_STATE_ACTIVE) {
+              } else if (serviceState == ServiceStateListener.SERVICE_STATE_ACTIVE) {
                 requestSuspendTalkBack(eventId);
               }
               return true;
@@ -2015,16 +2027,18 @@ public class TalkBackService extends AccessibilityService
               TalkBackService.this.performGlobalAction(GLOBAL_ACTION_RECENTS);
               return true;
             case KeyComboManager.ACTION_GRANULARITY_INCREASE:
-              mCursorController.nextGranularity(eventId);
+              pipeline.execute(
+                  Feedback.create(eventId, Feedback.focusDirection(NEXT_GRANULARITY).build()));
               return true;
             case KeyComboManager.ACTION_GRANULARITY_DECREASE:
-              mCursorController.previousGranularity(eventId);
+              pipeline.execute(
+                  Feedback.create(eventId, Feedback.focusDirection(PREVIOUS_GRANULARITY).build()));
               return true;
             case KeyComboManager.ACTION_READ_FROM_TOP:
-              mFullScreenReadController.startReadingFromBeginning(eventId);
+              fullScreenReadController.startReadingFromBeginning(eventId);
               return true;
             case KeyComboManager.ACTION_READ_FROM_NEXT_ITEM:
-              mFullScreenReadController.startReadingFromNextNode(eventId);
+              fullScreenReadController.startReadingFromNextNode(eventId);
               return true;
             case KeyComboManager.ACTION_GLOBAL_CONTEXT_MENU:
               showGlobalContextMenu(eventId);
@@ -2051,18 +2065,28 @@ public class TalkBackService extends AccessibilityService
         }
       };
 
+  private final KeyComboManager.KeyUpListener keyUpListener =
+      new KeyComboManager.KeyUpListener() {
+        @Override
+        public void onKeyUpShouldInterrupt(boolean interrupt) {
+          if (interrupt && fullScreenReadController.isActive()) {
+            fullScreenReadController.interrupt();
+          }
+        }
+      };
+
   /** Reloads preferences whenever their values change. */
-  private final OnSharedPreferenceChangeListener mSharedPreferenceChangeListener =
+  private final OnSharedPreferenceChangeListener sharedPreferenceChangeListener =
       new OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-          LogUtils.log(this, Log.DEBUG, "A shared preference changed: %s", key);
+          LogUtils.d(TAG, "A shared preference changed: %s", key);
           reloadPreferences();
         }
       };
 
   /** Broadcast receiver for actions that happen while the service is active. */
-  private final BroadcastReceiver mActiveReceiver =
+  private final BroadcastReceiver activeReceiver =
       new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -2072,14 +2096,14 @@ public class TalkBackService extends AccessibilityService
             int gestureId =
                 intent.getIntExtra(EXTRA_GESTURE_ACTION, R.string.shortcut_value_unassigned);
             EventId eventId = Performance.getInstance().onGestureEventReceived(gestureId);
-            mGestureController.onGesture(gestureId, eventId);
+            gestureController.onGesture(gestureId, eventId);
             Performance.getInstance().onHandlerDone(eventId);
           }
         }
       };
 
   /** Broadcast receiver for actions that happen while the service is inactive. */
-  private final BroadcastReceiver mSuspendedReceiver =
+  private final BroadcastReceiver suspendedReceiver =
       new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -2089,13 +2113,11 @@ public class TalkBackService extends AccessibilityService
           if (ACTION_RESUME_FEEDBACK.equals(action)) {
             resumeTalkBack(eventId);
           } else if (Intent.ACTION_SCREEN_ON.equals(action)) {
-            if (mAutomaticResume.equals(getString(R.string.resume_screen_keyguard))) {
-              final KeyguardManager keyguard =
-                  (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
-              if (keyguard.inKeyguardRestrictedInputMode()) {
+            if (automaticResume.equals(getString(R.string.resume_screen_keyguard))) {
+              if (ScreenMonitor.isDeviceLocked(instance)) {
                 resumeTalkBack(eventId);
               }
-            } else if (mAutomaticResume.equals(getString(R.string.resume_screen_on))) {
+            } else if (automaticResume.equals(getString(R.string.resume_screen_on))) {
               resumeTalkBack(eventId);
             }
           }
@@ -2103,10 +2125,10 @@ public class TalkBackService extends AccessibilityService
       };
 
   public void onLockedBootCompleted(EventId eventId) {
-    if (mServiceState == ServiceStateListener.SERVICE_STATE_INACTIVE) {
+    if (serviceState == ServiceStateListener.SERVICE_STATE_INACTIVE) {
       // onServiceConnected has not completed yet. We need to defer the boot completion
       // callback until after onServiceConnected has run.
-      mLockedBootCompletedPending = true;
+      lockedBootCompletedPending = true;
     } else {
       // onServiceConnected has already completed, so we should run the callback now.
       onLockedBootCompletedInternal(eventId);
@@ -2118,11 +2140,11 @@ public class TalkBackService extends AccessibilityService
     // If the TTS changes here, it is probably a non-FBE TTS that didn't appear in the TTS
     // engine list when TalkBack initialized during system boot, so we want the change to be
     // invisible to the user.
-    mSpeechController.updateTtsEngine(true /* quiet */);
+    pipeline.onBoot(/* quiet= */ true);
 
     if (!isServiceActive()
-        && mAutomaticResume != null
-        && !mAutomaticResume.equals(getString(R.string.resume_screen_manual))) {
+        && automaticResume != null
+        && !automaticResume.equals(getString(R.string.resume_screen_manual))) {
       resumeTalkBack(eventId);
     }
   }
@@ -2132,38 +2154,38 @@ public class TalkBackService extends AccessibilityService
     // If the TTS changes here, it is probably a non-FBE TTS that is available after the user
     // unlocks their phone. In this case, the user heard Google TTS at the lock screen, so we
     // should let them know that we're using their preferred TTS now.
-    mSpeechController.updateTtsEngine(false /* quiet */);
+    pipeline.onBoot(/* quiet= */ false);
 
-    if (mLabelManager != null) {
-      mLabelManager.ensureLabelsLoaded();
+    if (labelManager != null) {
+      labelManager.ensureLabelsLoaded();
     }
   }
 
   @Override
   public void uncaughtException(Thread thread, Throwable ex) {
     try {
-      if (mDimScreenController != null) {
-        mDimScreenController.shutdown();
+      if (dimScreenController != null) {
+        dimScreenController.shutdown();
       }
 
-      if (mMenuManager != null && mMenuManager.isMenuShowing()) {
-        mMenuManager.dismissAll();
+      if (menuManager != null && menuManager.isMenuShowing()) {
+        menuManager.dismissAll();
       }
 
-      if (mSuspendDialog != null) {
-        mSuspendDialog.dismiss();
+      if (talkBackSuspendDialog != null) {
+        talkBackSuspendDialog.dismissDialog();
       }
     } catch (Exception e) {
       // Do nothing.
     } finally {
-      if (mSystemUeh != null) {
-        mSystemUeh.uncaughtException(thread, ex);
+      if (systemUeh != null) {
+        systemUeh.uncaughtException(thread, ex);
       }
     }
   }
 
   public void setTestingListener(TalkBackListener testingListener) {
-    mAccessibilityEventProcessor.setTestingListener(testingListener);
+    accessibilityEventProcessor.setTestingListener(testingListener);
   }
 
   public boolean isScreenOrientationLandscape() {
@@ -2175,11 +2197,7 @@ public class TalkBackService extends AccessibilityService
   }
 
   public InputModeManager getInputModeManager() {
-    return mInputModeManager;
-  }
-
-  public void notifyDumpEventPreferenceChanged(int eventType, boolean shouldDump) {
-    mAccessibilityEventProcessor.onDumpEventPreferenceChanged(eventType, shouldDump);
+    return inputModeManager;
   }
 
   /** Runnable to run after announcing "TalkBack off". */

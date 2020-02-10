@@ -4,75 +4,110 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <LinearLayout
+    <com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioGroupWithSubheadings
+        android:id="@+id/scanning_options_radio_group"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="@dimen/setup_wizard_padding_radio_buttons_start"
-        android:paddingEnd="@dimen/setup_wizard_padding_start_end"
-        android:paddingTop="@dimen/setup_wizard_padding_heading_top"
+        android:padding="@dimen/setup_wizard_padding_radio_buttons_start"
         android:focusable="false" >
 
-        <RadioGroup
-            android:id="@+id/scanning_options_radio_group"
+      <com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading
+          android:id="@+id/linear_scanning_row"
+          android:orientation="vertical"
+          android:layout_height="wrap_content"
+          android:layout_width="match_parent">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/setup_wizard_text_size"
+            android:id="@+id/linear_scanning_radio_button"
+            android:layout_weight="1"
+            android:text="@string/linear_scanning_title"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/linear_scanning_description_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:focusable="true"
-            android:orientation="vertical" >
+            android:paddingStart="@dimen/setup_wizard_text_padding_start"
+            android:paddingBottom="@dimen/setup_wizard_radio_button_description_padding"
+            android:textSize="@dimen/setup_wizard_subtext_size"
+            android:textAlignment="viewStart"
+            android:text="@string/linear_scanning_description"
+            android:visibility="gone" />
+      </com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading>
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/setup_wizard_text_size"
-                android:id="@+id/linear_scanning_radio_button"
-                android:layout_weight="1"
-                android:checked="true"
-                android:text="@string/linear_scanning_title" />
+      <com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading
+          android:orientation="vertical"
+          android:layout_height="wrap_content"
+          android:layout_width="match_parent">
 
-            <TextView
-                android:id="@+id/linear_scanning_description_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="@dimen/setup_wizard_text_padding_start"
-                android:paddingBottom="@dimen/setup_wizard_radio_button_description_padding"
-                android:textSize="@dimen/setup_wizard_subtext_size"
-                android:textAlignment="viewStart"
-                android:text="@string/linear_scanning_description" />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/setup_wizard_text_size"
+            android:id="@+id/linear_scanning_except_keyboard_radio_button"
+            android:layout_weight="1"
+            android:text="@string/linear_scanning_except_keyboard_title" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/setup_wizard_text_size"
-                android:id="@+id/row_column_scanning_radio_button"
-                android:layout_weight="1"
-                android:text="@string/row_column_scanning_title" />
+        <TextView
+            android:id="@+id/linear_scanning_except_keyboard_description_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/setup_wizard_text_padding_start"
+            android:paddingBottom="@dimen/setup_wizard_radio_button_description_padding"
+            android:textSize="@dimen/setup_wizard_subtext_size"
+            android:textAlignment="viewStart"
+            android:text="@string/linear_scanning_except_keyboard_description" />
+      </com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading>
 
-            <TextView
-                android:id="@+id/row_column_scanning_description_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="@dimen/setup_wizard_text_padding_start"
-                android:paddingBottom="@dimen/setup_wizard_radio_button_description_padding"
-                android:textSize="@dimen/setup_wizard_subtext_size"
-                android:textAlignment="viewStart"
-                android:text="@string/row_column_scanning_description" />
+      <com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading
+          android:orientation="vertical"
+          android:layout_height="wrap_content"
+          android:layout_width="match_parent">
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/setup_wizard_text_size"
-                android:id="@+id/option_scanning_radio_button"
-                android:layout_weight="1"
-                android:text="@string/option_scanning_title" />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/setup_wizard_text_size"
+            android:id="@+id/row_column_scanning_radio_button"
+            android:layout_weight="1"
+            android:text="@string/row_column_scanning_title" />
 
-            <TextView
-                android:id="@+id/option_scanning_description_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingStart="@dimen/setup_wizard_text_padding_start"
-                android:textSize="@dimen/setup_wizard_subtext_size"
-                android:textAlignment="viewStart"
-                android:text="@string/option_scanning_description" />
-        </RadioGroup>
-    </LinearLayout>
+        <TextView
+            android:id="@+id/row_column_scanning_description_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/setup_wizard_text_padding_start"
+            android:paddingBottom="@dimen/setup_wizard_radio_button_description_padding"
+            android:textSize="@dimen/setup_wizard_subtext_size"
+            android:textAlignment="viewStart"
+            android:text="@string/row_column_scanning_description" />
+      </com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading>
+
+      <com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading
+          android:orientation="vertical"
+          android:layout_height="wrap_content"
+          android:layout_width="match_parent">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/setup_wizard_text_size"
+            android:id="@+id/group_selection_radio_button"
+            android:layout_weight="1"
+            android:text="@string/option_scanning_title" />
+
+        <TextView
+            android:id="@+id/group_selection_description_view"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:paddingStart="@dimen/setup_wizard_text_padding_start"
+             android:textSize="@dimen/setup_wizard_subtext_size"
+             android:textAlignment="viewStart"
+             android:text="@string/option_scanning_description" />
+      </com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading>
+    </com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioGroupWithSubheadings>
 </ScrollView>

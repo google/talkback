@@ -23,6 +23,8 @@ import android.text.TextUtils;
 import android.util.SparseIntArray;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.checkerframework.checker.nullness.qual.PolyNull;
 
 /** Utilities for cleaning up speech text. */
 public class SpeechCleanupUtils {
@@ -143,6 +145,8 @@ public class SpeechCleanupUtils {
     UNICODE_MAP.put('\u00a2', R.string.symbol_cent);
     UNICODE_MAP.put('\u2252', R.string.symbol_approximately_equals);
     UNICODE_MAP.put('\u222b', R.string.symbol_integral);
+    UNICODE_MAP.put('\u27e8', R.string.symbol_mathematical_left_angle_bracket);
+    UNICODE_MAP.put('\u27e9', R.string.symbol_mathematical_right_angle_bracket);
   }
 
   /**
@@ -150,13 +154,13 @@ public class SpeechCleanupUtils {
    *
    * @param context The context used to resolve string resources.
    * @param text The text to clean up.
-   * @return Cleaned up text.
+   * @return Cleaned up text, or null if text is null.
    */
-  public static CharSequence cleanUp(Context context, CharSequence text) {
+  public static @PolyNull CharSequence cleanUp(Context context, @PolyNull CharSequence text) {
     if (text != null) {
-      int trimmedLength = TextUtils.getTrimmedLength(text);
+      CharSequence textAfterTrim = trimText(text);
+      int trimmedLength = textAfterTrim.length();
       if (trimmedLength == 1) {
-        CharSequence textAfterTrim = trimText(text);
         CharSequence textAfterCleanUp = getCleanValueFor(context, textAfterTrim.charAt(0));
 
         // Return the text as it is if it remains the same after clean up so
@@ -198,15 +202,15 @@ public class SpeechCleanupUtils {
   public static CharSequence trimText(CharSequence text) {
     CharSequence trimmedText;
     int start = 0;
-    int end = text.length() - 1;
-    while ((start <= end) && Character.isWhitespace(text.charAt(start))) {
+    int last = text.length() - 1;
+    while ((start <= last) && Character.isWhitespace(text.charAt(start))) {
       start++;
     }
 
-    while ((end > start) && text.charAt(end) == ' ') {
-      end--;
+    while ((last > start) && Character.isWhitespace(text.charAt(last))) {
+      last--;
     }
-    trimmedText = text.subSequence(start, (end + 1));
+    trimmedText = text.subSequence(start, (last + 1));
     return trimmedText;
   }
 
@@ -218,7 +222,8 @@ public class SpeechCleanupUtils {
    * @param text The text to process
    * @return The text with consecutive identical characters collapsed
    */
-  public static CharSequence collapseRepeatedCharacters(Context context, CharSequence text) {
+  public static @Nullable CharSequence collapseRepeatedCharacters(
+      Context context, @Nullable CharSequence text) {
     if (TextUtils.isEmpty(text)) {
       return null;
     }
@@ -244,8 +249,8 @@ public class SpeechCleanupUtils {
    * Convenience method that feeds the given text through {@link #collapseRepeatedCharacters} and
    * then {@link #cleanUp}.
    */
-  public static CharSequence collapseRepeatedCharactersAndCleanUp(
-      Context context, CharSequence text) {
+  public static @Nullable CharSequence collapseRepeatedCharactersAndCleanUp(
+      Context context, @Nullable CharSequence text) {
     CharSequence collapsed = collapseRepeatedCharacters(context, text);
     CharSequence cleanedUp = cleanUp(context, collapsed);
     return cleanedUp;

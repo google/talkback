@@ -20,20 +20,20 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 
 /** Utility methods for interacting with {@link SharedPreferences} objects. */
 public class SharedPreferencesUtils {
   /**
    * Returns the value of an integer preference stored as a string. This is necessary when using a
    * {@link android.preference.ListPreference} to manage an integer preference, since the entries
-   * must be {@link String} values.
+   * must be String values.
    *
-   * @param prefs Shared preferences from which to obtain the value.
-   * @param res Resources from which to obtain the key and default value.
-   * @param keyResId Resource identifier for the key.
-   * @param defaultResId Resource identifier for the default value.
-   * @return The preference value, or the default value if not set.
+   * @param prefs Shared preferences from which to obtain the value
+   * @param res Resources from which to obtain the key and default value
+   * @param keyResId Resource identifier for the key
+   * @param defaultResId Resource identifier for the default value
+   * @return The preference value, or the default value if not set
    */
   public static int getIntFromStringPref(
       SharedPreferences prefs, Resources res, int keyResId, int defaultResId) {
@@ -44,13 +44,13 @@ public class SharedPreferencesUtils {
   /**
    * Returns the value of a floating point preference stored as a string. This is necessary when
    * using a {@link android.preference.ListPreference} to manage a floating point preference, since
-   * the entries must be {@link String} values.
+   * the entries must be String values.
    *
-   * @param prefs Shared preferences from which to obtain the value.
-   * @param res Resources from which to obtain the key and default value.
-   * @param keyResId Resource identifier for the key.
-   * @param defaultResId Resource identifier for the default value.
-   * @return The preference value, or the default value if not set.
+   * @param prefs Shared preferences from which to obtain the value
+   * @param res Resources from which to obtain the key and default value
+   * @param keyResId Resource identifier for the key
+   * @param defaultResId Resource identifier for the default value
+   * @return The preference value, or the default value if not set
    */
   public static float getFloatFromStringPref(
       SharedPreferences prefs, Resources res, int keyResId, int defaultResId) {
@@ -61,11 +61,11 @@ public class SharedPreferencesUtils {
   /**
    * Returns the value of a string preference.
    *
-   * @param prefs Shared preferences from which to obtain the value.
-   * @param res Resources from which to obtain the key and default value.
-   * @param keyResId Resource identifier for the key.
-   * @param defaultResId Resource identifier for the default value.
-   * @return The preference value, or the default value if not set.
+   * @param prefs Shared preferences from which to obtain the value
+   * @param res Resources from which to obtain the key and default value
+   * @param keyResId Resource identifier for the key
+   * @param defaultResId Resource identifier for the default value
+   * @return The preference value, or the default value if not set
    */
   public static String getStringPref(
       SharedPreferences prefs, Resources res, int keyResId, int defaultResId) {
@@ -74,13 +74,59 @@ public class SharedPreferencesUtils {
   }
 
   /**
+   * Stores the value of a String preference.
+   *
+   * @param prefs Shared preferences from which to obtain the value
+   * @param res Resources from which to obtain the key and default value
+   * @param keyResId Resource identifier for the key
+   * @param value The value to store
+   */
+  public static void putStringPref(
+      SharedPreferences prefs, Resources res, int keyResId, String value) {
+    final SharedPreferences.Editor editor = prefs.edit();
+    editor.putString(res.getString(keyResId), value);
+    editor.apply();
+  }
+
+  /**
+   * Returns the value of an integer preference.
+   *
+   * @param prefs Shared preferences from which to obtain the value
+   * @param res Resources from which to obtain the key and default value
+   * @param keyResId Resource identifier for the key
+   * @param defaultResId Resource identifier for the default value
+   * @return The preference value, or the default value if not set
+   */
+  public static int getIntPref(
+      SharedPreferences prefs, Resources res, int keyResId, int defaultResId) {
+    if (defaultResId == 0) {
+      throw new IllegalArgumentException("defaultResId should not be 0");
+    }
+    return prefs.getInt(res.getString(keyResId), res.getInteger(defaultResId));
+  }
+
+  /**
+   * Stores the value of an integer preference.
+   *
+   * @param prefs Shared preferences from which to obtain the value
+   * @param res Resources from which to obtain the key and default value
+   * @param keyResId Resource identifier for the key
+   * @param value The value to store
+   */
+  public static void putIntPref(SharedPreferences prefs, Resources res, int keyResId, int value) {
+    final SharedPreferences.Editor editor = prefs.edit();
+    editor.putInt(res.getString(keyResId), value);
+    editor.apply();
+  }
+
+  /**
    * Returns the value of a boolean preference.
    *
-   * @param prefs Shared preferences from which to obtain the value.
-   * @param res Resources from which to obtain the key and default value.
-   * @param keyResId Resource identifier for the key.
-   * @param defaultResId Resource identifier for the default value.
-   * @return The preference value, or the default value if not set.
+   * @param prefs Shared preferences from which to obtain the value
+   * @param res Resources from which to obtain the key and default value
+   * @param keyResId Resource identifier for the key
+   * @param defaultResId Resource identifier for the default value
+   * @return The preference value, or the default value if not set
    */
   public static boolean getBooleanPref(
       SharedPreferences prefs, Resources res, int keyResId, int defaultResId) {
@@ -90,11 +136,11 @@ public class SharedPreferencesUtils {
   /**
    * Returns the value of a boolean preference.
    *
-   * @param prefs Shared preferences from which to obtain the value.
-   * @param res Resources from which to obtain the key and default value.
-   * @param keyResId Resource identifier for the key.
-   * @param defaultValue The default value.
-   * @return The preference value, or the default value if not set.
+   * @param prefs Shared preferences from which to obtain the value
+   * @param res Resources from which to obtain the key and default value
+   * @param keyResId Resource identifier for the key
+   * @param defaultValue The default value
+   * @return The preference value, or the default value if not set
    */
   public static boolean getBooleanPref(
       SharedPreferences prefs, Resources res, int keyResId, boolean defaultValue) {
@@ -104,10 +150,10 @@ public class SharedPreferencesUtils {
   /**
    * Stores the value of a boolean preference.
    *
-   * @param prefs Shared preferences from which to obtain the value.
-   * @param res Resources from which to obtain the key and default value.
-   * @param keyResId Resource identifier for the key.
-   * @param value The value to store.
+   * @param prefs Shared preferences from which to obtain the value
+   * @param res Resources from which to obtain the key and default value
+   * @param keyResId Resource identifier for the key
+   * @param value The value to store
    */
   public static void putBooleanPref(
       SharedPreferences prefs, Resources res, int keyResId, boolean value) {
@@ -117,9 +163,9 @@ public class SharedPreferencesUtils {
   /**
    * Stores the value of a boolean preference async.
    *
-   * @param prefs Shared preferences from which to obtain the value.
+   * @param prefs Shared preferences from which to obtain the value
    * @param key The pref key
-   * @param value The value to store.
+   * @param value The value to store
    */
   public static void storeBooleanAsync(SharedPreferences prefs, String key, boolean value) {
     SharedPreferences.Editor editor = prefs.edit();

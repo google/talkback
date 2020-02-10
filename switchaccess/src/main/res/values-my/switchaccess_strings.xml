@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"အသုံးပြုမှု ပြောင်းမည်"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"ခန္ဓာကိုယ်မသန်စွမ်းသူများသည် Switch Access ဖြင့် ခလုတ်တစ်ခု သို့မဟုတ် ခလုတ်များကိုသုံးပြီး ဖုန်းနှင့် တက်ဘလက်များကို ထိန်းချုပ်နိုင်သည်။ ရွေးချယ်မှုပြုခြင်း၊ လှိမ့်ခြင်း၊ စာသားဖြည့်ခြင်းစသည်တို့ကို လုပ်ဆောင်ရန် ခလုတ်များကို အသုံးပြုပါ။"</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"စက်ကို ခလုတ်ဖြင့် ထိန်းချုပ်ပါ"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"အကူအညီနှင့် အကြံပြုချက်"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"အလိုအလျောက် ရှာဖွေခြင်း"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"ရှာဖွေချိန် အလိုအလျောက်သတ်မှတ်ခြင်း"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"အလိုအလျောက်နောက်ပြန်စကင်ဖတ်ရန်"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f စက္ကန့်</item>
-      <item quantity="one">၁ စက္ကန့်</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"စကင်ဖတ်ခြင်းကို စိတ်ကြိုက်ပြင်ဆင်ရန်"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"စကင်ဖတ်ရန်နည်းလမ်း"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"ပထမဆုံးအကြောင်းအရာတွင် နှောင့်နှေးမှု"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"ခလုတ်များကို သတ်မှတ်ရန်"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"ခလုတ်များ၏ လုပ်ဆောင်ချက်ကို သတ်မှတ်ပါ"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"ခလုတ်များကို စကင်ဖတ်ခြင်းအတွက် သတ်မှတ်ပါ"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"မျဉ်းတန်းအမြန်နှုန်း"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"စကင်ဖတ်သည့် အကြိမ်ရေ"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"စကင်ဖတ်ခြင်းကို အကြိမ်မည်မျှ ပြန်ကျော့မည်ကို ရွေးပါ"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"ခလုတ်တစ်ကြိမ်နှိပ်အဖြစ် သတ်မှတ်ချိန်"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"ဤအချိန်တွင်း အချက်ပေါင်းများစွာ နှိပ်ခြင်းကို တစ်ကြိမ်သာနှိပ်ခြင်းဟု မှတ်ယူပါမည်။"</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"လုပ်ငန်းစရန် ခလုတ်လွှတ်ခြင်း"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"ခလုတ်လွှတ်လိုက်လျှင် လုပ်ငန်းစရန်"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">ပြန်ကျော့မှု %d ကြိမ်</item>
-      <item quantity="one">ပြန်ကျော့မှု %d ကြိမ်</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"ခလုတ် \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' ကို \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' အဖြစ် သတ်မှတ်ထားပြီးဖြစ်သည်"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">ခလုတ် %d ခုကို သတ်မှတ်ထားသည်</item>
-      <item quantity="one">ခလုတ် %d ခုကို သတ်မှတ်ထားသည်</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"အုပ်စုလိုက်ရွေးချယ်မှု ခလုတ် %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"ရှေသို့"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"ယခင်"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"ရွေးရန်"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"ကြာရှည်နှိပ်ထားရန်"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"ရှေ့သို့ လှိမ့်ရန်"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"နောက်သို့ လှိမ့်ရန်"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"ပယ်ရန်"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"တိုးချဲ့ရန်"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"လျှော့ပြရန်"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"စာသားကို ထင်ရှားစေရန်"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"မိတ္တူကူးရန်"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"ဖြတ်ယူရန်"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"ကူးထည့်ရန်"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"မီနျူး"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"နောက်သို့"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"ပင်မ"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"ခြုံငုံသုံးသပ်ချ"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"အကြောင်းကြားချက်များ"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"အမြန် ဆက်တင်များ"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"ရှေ့သို့ လှိမ့်ရန်"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"နောက်သို့ လှိမ့်ရန်"</string>
-    <string name="point_scan" msgid="4514216871544244788">"အမှတ်လိုက်အမြန်စကင်ဖတ်မှု"</string>
-    <string name="box_scan" msgid="6675486192630209217">"အမှတ်လိုက်အမြန် စကင်ဖတ်မှုမှ ထွက်ရန်"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"ညာဖက်သို့ ပွတ်ဆွဲရန်"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"ဘယ်ဖက်သို့ ပွတ်ဆွဲရန်"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"အပေါ်သို့ ပွတ်ဆွဲရန်"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"အောက်သို့ပွတ်ဆွဲရန်"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"ပွတ်ဆွဲရန် (စိတ်ကြိုက်)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"ဇူးမ်ဖြုတ်ရန်"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"ဇူးမ်ဆွဲရန်"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Switch Access ဆက်တင်များ"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"စာရင်းထဲသို့ ထည့်ရန် သို့မဟုတ် ဖယ်ရှားရန် ကီးအတွဲကို နှိပ်ပါ"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"ခလုတ်သတ်မှတ်ချက်ကို ရှင်းရန်"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"မည်သည့်ခလုတ်များကိုမျှ သတ်မှတ်မထားပါ"</string>
-    <string name="more" msgid="1547670498589416840">"အခြား"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Space ခလုတ်"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter ခလုတ်"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab ခလုတ်"</string>
-    <string name="save" msgid="5398278773451196019">"သိမ်းရန် ခလုတ်"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"အရောင်ဖြင့်အသားပေးဖော်ပြရန်ပုံစံကို ရှာဖွေနေသည်"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"အဓိကစစ်ဆေးမှု စတိုင်"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"အသားပေးဖော်ပြရန် အရောင်"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"အသားပေးဖော်ပြမည့် စာကြောင်းပုံစံ"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"ပုဂ္ဂိုလ်ရေးဆိုင်ရာ မူဝါဒ"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"အလိုအလျောက် ရွေးချယ်ခြင်းကို ဖွင့်ပါ"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"အလိုအလျောက်ရွေးချယ်ခြင်းကို ပိတ်ပါ"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"နောက်စာလုံး"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"နောက်စကားလုံး"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"နောက်စာကြောင်း"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"နောက်စာပိုဒ်"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"နောက်စာမျက်နှာ"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"ယခင်စာလုံး"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"ယခင်စကားလုံး"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"ယခင်စာကြောင်း"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"ယခင်စာပိုဒ်"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"ယခင်စာမျက်နှာ"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"အလိုအလျောက်စတင် ရှာဖွေရန်"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"ခလုတ်မနှိပ်ဘဲ စတင်ရှာဖွေသည်"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Switch Access ပြင်ဆင်သတ်မှတ်မှုကို ဖွင့်ရန်"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Switch Access အား ပြင်ဆင်သတ်မှတ်ရန် ဝစ်ဇတ်"</string>
-    <string name="one_switch" msgid="5247899666787922810">"ခလုတ်တစ်ခု"</string>
-    <string name="two_switches" msgid="3082487661638289356">"ခလုတ်နှစ်ခု"</string>
-    <string name="finish" msgid="4267641294267512480">"အပြီးသတ်ရန်"</string>
-    <string name="exit" msgid="8664597014081860813">"ထွက်ရန်"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"ခလုတ်အရေအတွက်ကို ရွေးပါ"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"အကြောင်းအရာများအကြား အလိုအလျောက် စတင်ရွှေ့ရန် ခလုတ်ကို နှိပ်ပါ ပြီးလျှင် ထင်ရှားအောင် ပြထားသော အကြောင်းအရာကို ရွေးရန် ၎င်းကိုပင် ထပ်မံနှိပ်ပါ။"</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"အကြောင်းအရာများအကြား ရွှေ့ရန် ခလုတ်တစ်ခုကို နှိပ်ပါ။ ထင်ရှားအောင် ပြထားသောအရာကို ရွေးရန် အခြားခလုတ်ကို နှိပ်ပါ။"</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"စကင်ဖတ်သည့် အြမန်နှုန်းကို ရွေးပါ"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"အကြောင်းအရာတစ်ခုစီအား ထင်ရှားအောင် ပြမည့်အချိန်ကို ရွေးပါ"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"မြန်ဆန်သည် (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> စက္ကန့်သာ နှောင့်နှေးသည်)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"အလယ်အလတ် (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> စက္ကန့် နှောင့်နှေးသည်)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"နှေးသည် (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> စက္ကန့် နှောင့်နှေးသည်)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"စိတ်ကြိုက်"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"နှောင့်နှေးမှု (စက္ကန့်)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"ကီး \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' ကို အခြားလုပ်ဆောင်ချက်အဖြစ် သတ်မှတ်ပြီးဖြစ်သည်"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"အတန်း-ကော်လံအလိုက် စကင်ဖတ်ခြင်း"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"အုပ်စုလိုက်ရွေးချယ်မှု"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"တစ်ပြေးညီ စကင်ဖတ်ခြင်း"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"အသံထွက်အကြံပြုချက်"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS ဆက်တင်များ"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"မျိုးစုံသော အရာများအတွက်"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"ပထမဆုံးနှင့် နောက်ဆုံးအကြောင်းအရာတို့ကို စကားသံဖြင့် ပြောပြပါ"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"အကြောင်းအရာ အရေအတွက်ကို စကားသံဖြင့် ပြောပြပါ"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"ထင်ရှားအောင် ပြထားသော အကြောင်းအရာအားလုံးကို စကားသံဖြင့် ပြောပြပါ"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"မရွှေ့မီ စကားပြောကို အပြီးသတ်ပါ"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"အုပ်စု <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> မှ <xliff:g id="ID_2">%2$s</xliff:g> ထိ"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"အကြောင်းအရာ <xliff:g id="ID_1">%1$s</xliff:g> ခု"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"လှိမ့်ရန် ရွေးပါ"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"အမျိုးအမည်မသိအကြောင်းအရာ"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"စကင်ဖတ်ပုံကို ရွေးပါ"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"တစ်ကြိမ်လျှင် တစ်တန်းမျှ စကင်ဖတ်ပါ။ အတန်းကို ရွေးပြီးသွားလျှင် ၎င်းစာရင်းရှိ အကြောင်းအရာများပေါ်တွင် ရွှေ့ပါ။"</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"တစ်ကြိမ်လျှင် တစ်ခုမျှဖြင့် အကြောင်းအရာများအကြား ရွှေ့ပါ။ ကီးဘုတ်များသည် အမြဲတမ်း အတန်းလိုက် စကင်ဖတ်မည်ကို သတိပြုပါ။"</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"အကြောင်းအရာအားလုံးကို အရောင်တစ်ရောင်အဖြစ် သတ်မှတ်မည်။ သင်ဆန္ဒရှိသော အကြောင်းအရာပတ်ပတ်လည်ရှိ အရောင်နှင့် သက်ဆိုင်သော ခလုတ်ကို ရွေးပါ။ သင်ရွေးချယ်ထားသည်နှင့် ကိုက်ညီမှုမရှိမချင်း အုပ်စု၏ အရွယ်အစားကို လျှော့ချပါ။"</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"<xliff:g id="ACTION_NAME">%s</xliff:g> ဟု သတ်မှတ်ပြီးခလုတ်များ"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"တစ်ခုမျှမရှိ"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"ခလုတ်သတ်မှတ်ချက်များကို ရှင်းမလား။"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"သင်သည် ခလုတ်များကို သတ်မှတ်ပြီးသားဖြစ်သည်။"</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"ခလုတ်များကို ဖျက်ရန်"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"ခလုတ်များကို ယခုအတိုင်းထားရန်"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"မည်သည့်ခလုတ်ကိုမျှ သတ်မှတ်မထားပါ"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"ဤလုပ်ဆောင်ချက်အဖြစ် မည်သည့်ခလုတ်ကိုမျှ သတ်မှတ်မထားပါ။ သင်ဆက်လုပ်လိုသည်မှာ သေချာသလား။"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> အုပ်စု"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> အုပ်စုကို ရွေးရန်အတွက် သတ်မှတ်ချက် ထည့်သွင်းရန် ခလုတ်ပေါ်တွင် နှိပ်ပါ။"</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"ခလုတ်ကို \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\" လုပ်ဆောင်ချက်အဖြစ် သတ်မှတ်ရန် ၎င်းကို နှိပ်ပါ။"</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"စကင်စတင်ဖတ်၍ ရွေးချယ်ပါ"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Tic-Tac-Toe နှင့် သင့်ပြင်ဆင်သတ်မှတ်မှုကို စမ်းသပ်ပါ"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"စတင်၍ စကင်ဖတ်ရန် \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ကို နှိပ်ပါ။ ထင်ရှားအောင် ပြထားသော အကြောင်းအရာကို ရွေးချယ်ရန် ခလုတ်ကို ထပ်မံနှိပ်ပါ။သင်အရင်လုပ်ဆောင်ပါ။"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"စတင်၍ စကင်ဖတ်ရန် \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ကို နှိပ်ပါ။ ထင်ရှားအောင် ပြထားသော အတန်းကို ရွေးချယ်ရန် ခလုတ်ကို ထပ်မံနှိပ်ပါ။ ထင်ရှားအောင် ပြထားသော အကြောင်းအရာကို ရွေးချယ်ရန် နောက်ထပ်တစ်ကြိမ် နှိပ်ပါ။ သင်အရင်လုပ်ဆောင်ပါ။"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"အကြောင်းအရာများအကြား ရွှေ့ရန် \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ကို နှိပ်ပါ။ ထင်ရှားအောင်ပြထားသော အကြောင်းအရာကို ရွေးရန် \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ကို နှိပ်ပါ။ သင်အရင်လုပ်ဆောင်ပါ။"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"အတန်းများအကြား ရွှေ့ရန် \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ကို နှိပ်ပါ။ ထင်ရှားအောင်ပြထားသော အတန်းကို ရွေးရန် \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ကို နှိပ်ပါ။ ၎င်းအတန်းရှိ အကြောင်းအရာကို ရွေးရန် ပြန်ကျော့ပါ။ သင်အရင်လုပ်ဆောင်ပါ။"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g> ဖြင့် ထင်ရှားအောင် ပြထားသော အကြောင်းအရာများကို ရွေးရန် \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ကို နှိပ်ပါ သို့မဟုတ် <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> ဖြင့် ထင်ရှားအောင်ပြထားသော အကြောင်းအရာများကို ရွေးရန် \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" ကို နှိပ်ပါ။ သင့်အကြောင်းအရာသို့ ရောက်ရှိရန် ပြန်ကျော့ပါ။ သင်အရင်လုပ်ဆောင်ပါ။"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"သင့်ထံရှိ ခလုတ်များကို လုပ်ဆောင်ချက်အားလုံးအတွက် မသတ်မှတ်ရသေးပါ။ နောက်သို့ ပြန်သွားရန် \'ယခင်\' ခလုတ်ကို အသုံးပြု၍ ခလုတ်များကို သတ်မှတ်ခြင်း အပြီးသတ်ပါ။"</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"ဂိမ်းကို ပြင်ဆင်သတ်မှတ်ရန်"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"ဤလေးထောင့်ကွက်ကို ယူပြီးသားဖြစ်နေသည်။ ထပ်လုပ်ကြည့်ပါ။"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"သင်နိုင်သည်။"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"နောက်တစ်ကြိမ်တွင် ကံကောင်းပါစေ"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"သရေပါပဲ"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"လက်ရှိပြင်ဆင်သတ်မှတ်ချက်အတိုင်း ထားနိုင်သည် သို့မဟုတ် အစမှပြန်စပါ။"</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"ပြင်ဆင်သတ်မှတ်မှုကို ယခုအတိုင်းထားရန်"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"အစမှ ပြန်စရန်"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"ပြင်ဆင်သတ်မှတ်မှု ပြီးဆုံးပြီ"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"သင်အဆင်သင့်ဖြစ်ပါပြီ။"</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"ထပ်ဆောင်း ဆက်တင်များကို သင်အြမဲပြင်ဆင်နိုင်သည် သို့မဟုတ် Switch Access ဆက်တင်များမှနေ၍ ပြင်ဆင်သတ်မှတ်ရန် ဝစ်ဇတ်ကို သင်အမြဲဖွင့်နိုင်ပါသည်။"</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">ခလုတ် အသုံးပြုခြင်း</string>
+  <string name="switch_access_service_description">ခန္ဓာကိုယ်မသန်စွမ်းသူများသည် Switch Access ဖြင့် ခလုတ်တစ်ခု သို့မဟုတ် ခလုတ်များကိုသုံးပြီး ဖုန်းနှင့် တက်ဘလက်များကို ထိန်းချုပ်နိုင်သည်။ ရွေးချယ်မှုပြုခြင်း၊ လှိမ့်ခြင်း၊ စာသားဖြည့်ခြင်းစသည်တို့ကို လုပ်ဆောင်ရန် ခလုတ်များကို အသုံးပြုပါ။</string>
+  <string name="switch_access_service_summary">စက်ကို ခလုတ်ဖြင့် ထိန်းချုပ်ပါ</string>
+  <string name="title_pref_help_feedback">အကူအညီနှင့် အကြံပြုချက်</string>
+  <string name="title_pref_licenses">အခမဲ့ရင်းမြစ်လိုင်စင်များ</string>
+  <string name="title_pref_category_auto_scan">အလိုအလျောက် ရှာဖွေခြင်း</string>
+  <string name="title_pref_auto_scan_disabled">အလိုအလျောက် စကင်လုပ်ခြင်း (ပိတ်ထားသည်)</string>
+  <string name="action_key_summary_auto_scan">ဤခလုတ်ကို နှိပ်လိုက်ခြင်းအားဖြင့် အကြောင်းအရာတစ်ခုမှ နောက်တစ်ခုသို့ အလိုအလျောက် ရွှေ့ပေးမည်ဖြစ်သည်။ နောက်တစ်ကြိမ် နှိပ်လိုက်ခြင်းဖြင့် အကြောင်းအရာကို ရွေးပေးမည်ဖြစ်သည်။</string>
+  <string name="title_pref_auto_scan_time_delay">အလိုအလျောက် စကင်လုပ်ချိန်</string>
+  <string name="action_name_reverse_auto_scan">ပြောင်းပြန် အော်တိုစကင်ဖတ်ရန်</string>
+  <string name="title_pref_reverse_auto_scan_disabled">အလိုအလျောက် စကင်လုပ်ခြင်း ပြောင်းပြန် (ပိတ်ထားသည်)</string>
+  <string name="action_key_summary_reverse_auto_scan">ဤခလုတ်ကို နှိပ်လိုက်ခြင်းအားဖြင့် အကြောင်းအရာတစ်ခုမှ နောက်တစ်ခုသို့ ပြောင်းပြန် အလိုအလျောက် ရွှေ့ပေးမည်ဖြစ်သည်။ နောက်တစ်ကြိမ် နှိပ်လိုက်ခြင်းဖြင့် အကြောင်းအရာကို ရွေးပေးမည်ဖြစ်သည်။</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">၁ စက္ကန့်</item>
+    <item quantity="other">%.2f စက္ကန့်</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">စကင်ဖတ်ခြင်းကို စိတ်ကြိုက်ပြင်ဆင်ရန်</string>
+  <string name="title_pref_scanning_methods">စကင်ဖတ်ရန်နည်းလမ်း</string>
+  <string name="title_pref_start_scan_delay">ပထမဆုံးအကြောင်းအရာတွင် နှောင့်နှေးမှု</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">ပထမအရာအတွက် အသုံးပြုခဲ့သည့်အချိန်ပိုကို ရွေးပါ။ ဤအချိန်ကို အလိုအလျောက်ရှာဖွေရန် အချိန်တွင် ထည့်သွင်းထားပါသည်။\n\nဤဆက်တင်သည် အလိုအလျောက်ရှာဖွေခြင်းနှင့် အမှတ်ရှာဖွေခြင်းတို့ နှစ်ခုလုံးအပေါ် သက်ရောက်မှု ရှိပါသည်။</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">ပထမဆုံး အကြောင်းအရာပေါ်တွင် သုံးထားသည့် အပိုဆောင်းအချိန်ကို ရွေးပါ။ ဤအကြိမ်ပြီးသည့်အခါ ဒေါင်လိုက် သို့မဟုတ် အလျားလိုက်မျဉ်းများ စတင်ရွေ့လျားပါမည်။\n\nဤဆက်တင်က အလိုအလျောက် စကင်လုပ်ခြင်းနှင့် ညွှန်ပြပြီး စကင်လုပ်ခြင်း နှစ်ခုစလုံးကို သက်ရောက်ပါသည်။</string>
+  <string name="title_pref_category_assign_switches">ခလုတ်များကို သတ်မှတ်ရန်</string>
+  <string name="title_pref_category_key_mappings">နေရာတိုင်းမှ လုပ်ဆောင်နိုင်သည့် ခလုတ်များ သတ်မှတ်ခြင်း</string>
+  <string name="summary_pref_category_key_mappings">အများသုံး လုပ်ဆောင်ချက်များကို အချိန်မရွေး ဆောင်ရွက်နိုင်ပါသည်</string>
+  <string name="title_pref_category_scan_key_mappings">စကင်ဖတ်ရန် ခလုတ်သတ်မှတ်ပါ</string>
+  <string name="summary_pref_category_scan_key_mappings">စကင်လုပ်ခြင်းက ထင်ရှားစေသည့်အရာကို ရွှေ့၍ ထင်ရှားအောင်ပြထားသည့် အကြောင်းအရာများကို ရွေးချယ်စေနိုင်သည်။</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">ရွေ့လျားမှုနှင့် ရွေးချယ်မှု</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">ထင်ရှားအောင်ပြထားသည့် အကြောင်းအရာအတွက် လုပ်ဆောင်ချက်များ</string>
+  <string name="title_pref_point_scan_line_speed">မျဉ်းတန်းအမြန်နှုန်း</string>
+  <string name="dialog_message_pref_line_speed">မျက်နှာပြင်တွင် အလျားလိုက်နှင့် ဒေါင်လိုက်မျဉ်းများ မည်မျှမြန်အောင် ရွေ့လျားသည်ကို ရွေးချယ်ပါ။</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">တစ်စက္ကန့်လျှင် ၁ စင်တီမီတာ</item>
+    <item quantity="other">တစ်စက္ကန့်လျှင် %.2f စင်တီမီတာ</item>
+  </plurals>
+  <string name="title_pref_loop_count">စကင်ဖတ်သည့် အကြိမ်ရေ</string>
+  <string name="dialog_message_pref_loop_count">စကင်ဖတ်ခြင်းကို အကြိမ်မည်မျှ ပြန်ကျော့မည်ကို ရွေးပါ။\n\nဤဆက်တင်က အလိုအလျောက် စကင်လုပ်ခြင်းနှင့် ညွှန်ပြပြီး စကင်လုပ်ခြင်း နှစ်ခုစလုံးကို သက်ရောက်ပါသည်။</string>
+  <string name="summary_pref_point_scan">ရွေ့လျားနေသည့် မျဉ်းများကိုအသုံးပြု၍ ဒေါင်လိုက်နှင့် အလျားလိုက် တိကျသောတည်နေရာကို ရွေးပါ။ %1$s</string>
+  <string name="point_scan_enable_animations_message">ဤဝန်ဆောင်မှုကို အသုံးပြုရန် လှုပ်ရှားသက်ဝင်မှုများကို ဖွင့်ပါ</string>
+  <string name="title_pref_category_switch_accomodation">လိုက်လျောညီထွေလုပ်ဆောင်ပုံ ပြောင်းရန်</string>
+  <string name="title_pref_debounce_time">ထပ်ခါတလဲလဲ နှိပ်ချက်များကို လျစ်လျူရှုရန်</string>
+  <string name="dialog_message_pref_debounce_time">ဤအချိန်တွင်း အချက်ပေါင်းများစွာ ခလုတ်နှိပ်ခြင်းကို တစ်ကြိမ်သာနှိပ်ခြင်းဟု မှတ်ယူပါမည်။</string>
+  <string name="title_pref_press_on_release">လုပ်ငန်းစရန် ခလုတ်လွှတ်ခြင်း</string>
+  <string name="subtitle_pref_press_on_release">ခလုတ်လွှတ်လိုက်လျှင် လုပ်ငန်းစရန်</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d ကြိမ် ပြန်ကျော့မှု</item>
+    <item quantity="other">%d ကြိမ် ပြန်ကျော့မှု</item>
+  </plurals>
+  <string name="preference_off">ပိတ်ထားသည်</string>
+  <string name="preference_on">ဖွင့်ထားသည်</string>
+  <string name="toast_msg_key_already_assigned">ခလုတ် \'%1$s\' ကို \'%2$s\' အဖြစ် သတ်မှတ်ထားပြီးဖြစ်သည်</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">ခလုတ် %d ခုကို သတ်မှတ်ထားသည်</item>
+    <item quantity="other">ခလုတ် %d ခုကို သတ်မှတ်ထားသည်</item>
+  </plurals>
+  <string name="option_scan_switch_format">အုပ်စုလိုက်ရွေးချယ်မှု ခလုတ် %1$d</string>
+  <string name="option_scan_switch_format_with_color">အုပ်စုလိုက်ရွေးချယ်မှု ခလုတ် %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">ဤခလုတ်ကို နှိပ်ခြင်းဖြင့် အဖွဲ့ %1$d ကို ရွေးလိုက်ပါမည်။</string>
+  <string name="action_name_next">ရှေသို့</string>
+  <string name="action_key_summary_next">ဤခလုတ်ကို နှိပ်ခြင်းဖြင့် အကြောင်းအရာ နောက်တစ်ခုသို့ ရွှေ့လိုက်ပါမည်။</string>
+  <string name="action_name_previous">ယခင်</string>
+  <string name="action_key_summary_previous">ဤခလုတ်ကို နှိပ်ခြင်းအားဖြင့် ယခင်အကြောင်းအရာသို့ ရွှေ့ပေးပါမည်။</string>
+  <string name="action_name_click">ရွေးရန်</string>
+  <string name="action_key_summary_click">ဤခလုတ်ကို နှိပ်ခြင်းအားဖြင့် အကြောင်းအရာကို ရွေးပေးပါမည်။</string>
+  <string name="action_name_long_click">တို့ထိ၍ ဖိထားရန်</string>
+  <string name="action_key_summary_long_click">ဤခလုတ်ကို နှိပ်ခြင်းအားဖြင့် အကြောင်းအရာကို ထိပြီး ဖိထားပေးပါမည်။</string>
+  <string name="action_name_scroll_forward">ရှေ့သို့ လှိမ့်ရန်</string>
+  <string name="action_key_summary_scroll_forward">ဤခလုတ်ကို နှိပ်ခြင်းအားဖြင့် ရွေးထားသည့် အကြောင်းအရာကို အရှေ့သို့ လှိမ့်ပေးပါမည်။</string>
+  <string name="action_name_scroll_backward">နောက်သို့ လှိမ့်ရန်</string>
+  <string name="action_key_summary_scroll_backward">ဤခလုတ်ကို နှိပ်ခြင်းအားဖြင့် ရွေးထားသည့် အကြောင်းအရာကို နောက်ပြန်လှိမ့်ပေးပါမည်။</string>
+  <string name="action_name_dismiss">ပယ်ရန်</string>
+  <string name="action_name_expand">တိုးချဲ့ရန်</string>
+  <string name="action_name_collapse">လျှော့ပြရန်</string>
+  <string name="action_name_highlight_text">စာသားကို ထင်ရှားစေရန်</string>
+  <string name="action_group_name_highlight">မြင်သာစေရန် …</string>
+  <string name="action_name_highlight_all_text">စာသားအားလုံး မြင်သာစေရန်</string>
+  <string name="action_name_highlight_granular_text">%1$s ကို မြင်သာစေရန်</string>
+  <string name="action_name_copy">မိတ္တူကူးရန်</string>
+  <string name="action_name_copy_all_text">အားလုံး မိတ္တူကူးရန်</string>
+  <string name="action_name_cut">ဖြတ်ယူရန်</string>
+  <string name="action_name_cut_all_text">အားလုံး ဖြတ်ရန်</string>
+  <string name="action_name_paste">ကူးထည့်ရန်</string>
+  <string name="action_name_undo">တစ်ဆင့်နောက်ပြန်ရန်</string>
+  <string name="action_name_redo">ထပ်လုပ်ရန်</string>
+  <string name="action_group_name_delete">ဖျက်ရန် …</string>
+  <string name="action_name_delete">%1$s ကို ဖျက်ရန်</string>
+  <string name="action_name_delete_highlighted_text">မြင်သာအောင်လုပ်ထားသော စာသားကို ဖျက်ရန်</string>
+  <string name="option_scanning_menu_button">မီနျူး</string>
+  <string name="option_scanning_menu_button_content_description">ခလုတ် အသုံးပြုမှု မီနူး</string>
+  <string name="switch_access_global_menu">Switch Access ကမ္ဘာသုံး မီနူး</string>
+  <string name="switch_access_actions_menu">Switch Access လုပ်ဆောင်ချက်များ မီနူး</string>
+  <string name="switch_access_close_menu">ပိတ်ရန်</string>
+  <string name="switch_access_back_menu">နောက်သို့</string>
+  <string name="next_arrow_content_description">ရှေ့သို့</string>
+  <string name="previous_arrow_content_description">ယခင်</string>
+  <string name="global_action_back">နောက်သို့</string>
+  <string name="global_action_key_summary_back">ဤခလုတ်ကို နှိပ်ခြင်းအားဖြင့် ယခင်မျက်နှာပြင်သို့ ပြန်ရောက်သွားပါမည် သို့မဟုတ် ကီးဘုတ်ကို မြင်နေရလျှင် ဖျောက်ပေးပါမည်။</string>
+  <string name="global_action_home">ပင်မ</string>
+  <string name="global_action_key_summary_home">ဤခလုတ်ကို နှိပ်ခြင်းအားဖြင့် \'ပင်မ\' မျက်နှာပြင်သို့ ရောက်သွားပါမည်။</string>
+  <string name="global_action_overview">အကျဉ်း</string>
+  <string name="global_action_key_summary_overview">ဤခလုတ်ကို နှိပ်ခြင်းအားဖြင့် မကြာသေးခင်က ဖွင့်ထားသည့် အက်ပ်များ၏ စာရင်းကို ပြပေးပါမည်။</string>
+  <string name="global_action_notifications">အကြောင်းကြားချက်များ</string>
+  <string name="global_action_key_summary_notifications">ဤခလုတ်ကို နှိပ်ခြင်းအားဖြင့် သင့်စက်ပစ္စည်း၏ အကြောင်းကြားချက်များကို ပြပေးပါမည်။</string>
+  <string name="global_action_quick_settings">အမြန် ဆက်တင်များ</string>
+  <string name="global_action_key_summary_quick_settings">ဤခလုတ်ကို နှိပ်ခြင်းအားဖြင့် သင့်စက်ပစ္စည်း၏ \'အမြန်ဆက်တင်များ\' ကို ပြပေးပါမည်။</string>
+  <string name="global_action_power_options">ပါဝါ ရွေးစရာများ</string>
+  <string name="global_menu_volume_heading">အသံအတိုးအကျယ်</string>
+  <string name="volume_menu_media">မီဒီယာသံ အတိုးအကျယ်</string>
+  <string name="volume_menu_call">ဖုန်းခေါ်သံ အတိုးအကျယ်</string>
+  <string name="volume_menu_ring">ဖုန်းမြည်သံ အတိုးအကျယ်</string>
+  <string name="volume_menu_alarm">နှိုးစက်သံ အတိုးအကျယ်</string>
+  <string name="volume_menu_accessibility">အများသုံး အသံအတိုးအကျယ်</string>
+  <string name="volume_menu_mute">အသံဖျောက်ရန်</string>
+  <string name="volume_menu_unmute">အသံပြန်ဖွင့်ရန်</string>
+  <string name="volume_menu_increase">အသံချဲ့ရန်</string>
+  <string name="volume_settings">အသံအတိုးအကျယ် ဆက်တင်များ</string>
+  <string name="volume_menu_decrease">အသံတိုးရန်</string>
+  <string name="scrollable_forward">ရှေ့သို့ လှိမ့်ရန်</string>
+  <string name="scrollable_backward">နောက်သို့ လှိမ့်ရန်</string>
+  <string name="point_scan">အမှတ်လိုက်အမြန်စကင်ဖတ်မှု</string>
+  <string name="box_scan">အမှတ်လိုက်အမြန် စကင်ဖတ်မှုမှ ထွက်ရန်</string>
+  <string name="action_name_swipe_right">ညာဖက်သို့ ပွတ်ဆွဲရန်</string>
+  <string name="action_name_swipe_left">ဘယ်ဖက်သို့ ပွတ်ဆွဲရန်</string>
+  <string name="action_name_swipe_up">အပေါ်သို့ ပွတ်ဆွဲရန်</string>
+  <string name="action_name_swipe_down">အောက်သို့ပွတ်ဆွဲရန်</string>
+  <string name="action_name_swipe_custom">ပွတ်ဆွဲရန် (စိတ်ကြိုက်)</string>
+  <string name="action_name_zoom_out">ဇူးမ်ဖြုတ်ရန်</string>
+  <string name="action_name_zoom_in">ဇူးမ်ဆွဲရန်</string>
+  <string name="switch_access_preferences_title">Switch Access ဆက်တင်များ</string>
+  <string name="key_combo_preference_instructions">စာရင်းထဲသို့ ထည့်ရန် သို့မဟုတ် ဖယ်ရှားရန် ကီးအတွဲကို နှိပ်ပါ</string>
+  <string name="key_combo_preference_reset_button">ခလုတ်သတ်မှတ်ချက်ကို ရှင်းရန်</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">မည်သည့်ခလုတ်များကိုမျှ သတ်မှတ်မထားပါ</string>
+  <string name="more">အခြား</string>
+  <string name="name_of_space_bar">Space ခလုတ်</string>
+  <string name="name_of_enter_key">Enter ခလုတ်</string>
+  <string name="name_of_tab_key">Tab ခလုတ်</string>
+  <string name="save">သိမ်းရန်</string>
+  <string name="title_pref_category_display_and_sound">မျက်နှာပြင်ပြသမှုနှင့် အသံ</string>
+  <string name="title_pref_highlight_0">အသားပေးပုံစံ ရှာဖွေနေသည်</string>
+  <string name="title_pref_primary_scan_style">အဓိကစစ်ဆေးမှု စတိုင်</string>
+  <string name="title_pref_highlight_0_color">အသားပေးဖော်ပြရန် အရောင်</string>
+  <string name="title_pref_highlight_0_weight">အသားပေးဖော်ပြမည့် စာကြောင်းပုံစံ</string>
+  <string name="title_pref_privacy_policy">ပုဂ္ဂိုလ်ရေးဆိုင်ရာ မူဝါဒ</string>
+  <string name="title_pref_auto_select">အလိုအလျောက် ရွေးချယ်ခြင်း</string>
+  <string name="summary_pref_auto_select">ထင်ရှားအောင်ပြထားသည့် အကြောင်းအရာကို အလိုအလျောက် ရွေးချယ်ပါ။ အကြောင်းအရာကို ရွေးချယ်၍ မရလျှင် သို့မဟုတ် ဤဆက်တင်ကို ပိတ်ထားလျှင် ရနိုင်သည့် လုပ်ဆောင်ချက်များ မီနူးကို မြင်ရပါမည်။</string>
+  <string name="switch_access_global_menu_enable_autoselect">အလိုအလျောက် ရွေးချယ်ခြင်းကို ဖွင့်ပါ</string>
+  <string name="switch_access_global_menu_disable_autoselect">အလိုအလျောက်ရွေးချယ်ခြင်းကို ပိတ်ပါ</string>
+  <string name="switch_access_move_next">ရှေ့သို့ …</string>
+  <string name="switch_access_move_next_character">နောက်စာလုံး</string>
+  <string name="switch_access_move_next_word">နောက်စကားလုံး</string>
+  <string name="switch_access_move_next_line">နောက်စာကြောင်း</string>
+  <string name="switch_access_move_next_paragraph">နောက်စာပိုဒ်</string>
+  <string name="switch_access_move_next_page">နောက်စာမျက်နှာ</string>
+  <string name="switch_access_move_next_sentence">ရှေ့ ဝါကျ</string>
+  <string name="switch_access_move_prev">ယခင် …</string>
+  <string name="switch_access_move_prev_character">ယခင်စာလုံး</string>
+  <string name="switch_access_move_prev_word">ယခင်စကားလုံး</string>
+  <string name="switch_access_move_prev_line">ယခင်စာကြောင်း</string>
+  <string name="switch_access_move_prev_paragraph">ယခင်စာပိုဒ်</string>
+  <string name="switch_access_move_prev_page">ယခင်စာမျက်နှာ</string>
+  <string name="switch_access_move_prev_sentence">ယခင် ဝါကျ</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">အလိုအလျောက်စတင် ရှာဖွေရန်</string>
+  <string name="switch_access_auto_start_scan_summary">ခလုတ်မနှိပ်ဘဲ စတင်ရှာဖွေသည်</string>
+  <string name="pref_begin_switchaccess_setup_title">ထည့်သွင်းမှု လမ်းညွှန် ဖွင့်ရန်</string>
+  <string name="setup_wizard_heading">ခလုတ်သုံးရန် စနစ်ထည့်သွင်းခြင်း လမ်းညွှန်</string>
+  <string name="one_switch">ခလုတ်တစ်ခု</string>
+  <string name="two_switches">ခလုတ်နှစ်ခု</string>
+  <string name="finish">အပြီးသတ်ရန်</string>
+  <string name="exit">ထွက်ရန်</string>
+  <string name="intro_heading">ခလုတ် ရွေးရန်</string>
+  <string name="usb_switch_option_text">USB ခလုတ်</string>
+  <string name="bluetooth_switch_option_text">ဘလူးတုသ် ခလုတ်</string>
+  <string name="usb_switch_description_text">USB မှတစ်ဆင့် ပြင်ပခလုတ်ကို ချိတ်ဆက်ရန်</string>
+  <string name="bluetooth_switch_description_text">ဘလူးတုသ် မှတစ်ဆင့် ခလုတ်ကို ကြိုးမဲ့တွဲချိတ်ရန်</string>
+  <string name="bluetooth_unsupported_description_text">သင့်စက်သည် ဘလူးတုသ်ကို ပံ့ပိုးမထားပါ။ ထိုအစား ပြင်ပခလုတ်ကို အသုံးပြုကြည့်ပါ။</string>
+  <string name="connected_usb_devices_header">ချိတ်ဆက်ထားသော စက်များ</string>
+  <string name="usb_no_devices_connected_message">USB စက်မရှိပါ။ သင်၏စက်ကို အားသွင်းကြိုးနှင့် ချိတ်ထားမထား စစ်ဆေးပါ။</string>
+  <string name="connect_usb_heading">USB ခလုတ် ချိတ်ဆက်ခြင်း</string>
+  <string name="pair_bluetooth_heading">ဘလူးတုသ် ခလုတ်ကို တွဲချိတ်ပါ</string>
+  <string name="pair_bluetooth_subheading">အောက်တွင် သင့်ဘလူးတုသ်ခလုတ်ကို တို့ပါ</string>
+  <string name="bluetooth_not_enabled_message">ဘလူးတုသ်ခလုတ် တွဲချိတ်ရန် ဘလူးတုသ်ကို ဖွင့်ပါ</string>
+  <string name="enable_bluetooth_button_title">ဘလူးတုသ်ဖွင့်ရန်</string>
+  <string name="bluetooth_no_devices_paired">ဘလူးတုသ်စက်များ တွဲချိတ်မထားပါ</string>
+  <string name="paired_devices_header">တွဲထားသော ဘလူးတုသ်စက်များ</string>
+  <string name="available_devices_header">ရနိုင်သည့် ဘလူးတုသ်စက်များ</string>
+  <string name="bluetooth_computer_content_description">ကွန်ပျူတာ</string>
+  <string name="bluetooth_phone_content_description">ဖုန်း</string>
+  <string name="bluetooth_imaging_content_description">ဓာတ်ပုံဆိုင်ရာ</string>
+  <string name="bluetooth_headphone_content_description">နားကြပ်</string>
+  <string name="bluetooth_peripheral_content_description">ချိတ်ဆက်ပစ္စည်း</string>
+  <string name="bluetooth_default_content_description">ဘလူးတုသ်</string>
+  <string name="bluetooth_connecting_description">ချိတ်ဆက်နေသည်...</string>
+  <string name="bluetooth_connected_description">ချိတ်ဆက်ပြီးပါပြီ</string>
+  <string name="bluetooth_device_unavailable_description">စက်မရနိုင်ပါ</string>
+  <string name="reconnecting_unsupported_title">စက်သို့ ချိတ်ဆက်၍မရပါ</string>
+  <string name="reconnecting_unsupported_message">Switch Access က သင်ယခင်ကတွဲထားသော စက်သို့ ချိတ်ဆက်၍မရပါ။ သင့်စက်ကို ဖွင့်ထားပြီ: ချိတ်ဆက်ထားမထား စစ်ဆေးပါ။\n\nသင့်စက် ချိတ်ဆက်၍မရသေးလျှင် ဘလူးတုသ်ဆက်တင်များသို့ သွားပြီး ပြန်ချိတ်ဆက်ကြည့်ပါ။</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">ဘလူးတုသ်ဆက်တင်များသို့ သွားရန်</string>
+  <string name="number_of_switches_heading">ခလုတ်အရေအတွက်ကို ရွေးပါ</string>
+  <string name="title_assign_scan_key">%1$s ခလုတ် သတ်မှတ်ခြင်း</string>
+  <string name="one_switch_description_text">အကြောင်းအရာများအကြား အလိုအလျောက် စတင်ရွှေ့ရန် ခလုတ်ကို နှိပ်ပါ။ ထင်ရှားအောင် ပြထားသော အကြောင်းအရာကို ရွေးရန် ၎င်းကိုပင် ထပ်မံနှိပ်ပါ။</string>
+  <string name="two_switches_description_text">အကြောင်းအရာများအကြား ရွှေ့ရန် ခလုတ်တစ်ခုကို နှိပ်ပါ။ ထင်ရှားအောင် ပြထားသောအရာကို ရွေးရန် အခြားခလုတ်ကို နှိပ်ပါ။</string>
+  <string name="step_speed_heading">စကင်ဖတ်သည့် အြမန်နှုန်းကို ရွေးပါ</string>
+  <string name="step_speed_subheading">အကြောင်းအရာတစ်ခုစီအား ထင်ရှားအောင် ပြမည့်အချိန်ကို ရွေးပါ</string>
+  <string name="fast_radio_button_title">မြန်ဆန်သည် (%1$s စက္ကန့်သာ နှောင့်နှေးသည်)</string>
+  <string name="medium_radio_button_title">အလယ်အလတ် (%1$s စက္ကန့် နှောင့်နှေးသည်)</string>
+  <string name="slow_radio_button_title">နှေးသည် (%1$s စက္ကန့် နှောင့်နှေးသည်)</string>
+  <string name="custom_switch">စိတ်ကြိုက်</string>
+  <string name="custom_edit_text">နှောင့်နှေးမှု (စက္ကန့်)</string>
+  <string name="setup_toast_msg_key_already_assigned">ကီး \'%1$s\' ကို အခြားလုပ်ဆောင်ချက်အဖြစ် သတ်မှတ်ပြီးဖြစ်သည်</string>
+  <string name="row_column_scanning_title">အတန်း-ကော်လံအလိုက် စကင်ဖတ်ခြင်း</string>
+  <string name="option_scanning_title">အုပ်စုရွေးချယ်မှု (အဆင့်မြင့်)</string>
+  <string name="linear_scanning_title">တစ်ဖြောင့်တည်း စကင်ဖတ်ခြင်း</string>
+  <string name="linear_scanning_except_keyboard_title">အလျားလိုက် စကင်လုပ်ခြင်း (ကီးဘုတ်မှလွဲ၍)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">စကားသံ၊ အသံနှင့် တုန်ခါမှု</string>
+  <string name="title_pref_switch_access_spoken_feedback">အသံထွက်အကြံပြုချက်</string>
+  <string name="title_pref_scan_non_actionable_items">ဖော်ပြချက်စာသားကို အသံထွက်ပြောပေးရန်</string>
+  <string name="scan_non_actionable_items_summary">ရရှိနိုင်သော လုပ်ဆောင်ချက်များနှင့် ဖော်ပြချက်စာသား ပါဝင်သည့် အရာဝတ္ထုများအတွက် စကားပြော အကြံပြုချက်ကို နားထောင်ပါ</string>
+  <string name="title_pref_switch_access_verbosity">အကျယ်ချဲ့ရှင်းပြရန်</string>
+  <string name="summary_verbosity">အချက်အလက်မည်မျှကို အသံထွက်ပြောပေးရန် ရွေးပါ</string>
+  <string name="title_pref_verbosity_category_verbosity_details">အကျယ်ချဲ့ရှင်းပြခြင်း အသေးစိတ်များ</string>
+  <string name="title_pref_switch_access_keyboard_echo">ကီးဘုတ် အသံထွက်</string>
+  <string name="keyboard_echo_summary_on">မျက်နှာပြင် လက်ကွက်အတွက် ရိုက်သည့်ကီးများကို အသံထွက်ပြောပေးပါ</string>
+  <string name="keyboard_echo_summary_off">မျက်နှာပြင် လက်ကွက်အတွက် ရိုက်သည့်ကီးများကို မပြောပါနှင့်</string>
+  <string name="title_pref_enable_hints">အသုံးပြုမှု အကြံပေးချက်များကို အသံထွက်ပြောပေးရန်</string>
+  <string name="enable_hints_summary_on">လမ်းညွှန်နေချိန်တွင် အသုံးပြုမှု အကြံပေးချက်များကို အချိန်အနည်းငယ် နောက်ကျပြီး အသံထွက်ပြောပေးသည်</string>
+  <string name="enable_hints_summary_off">အများသုံးစွဲနိုင်ရန် အထူးဦးစားပေးမှုကို ရွှေ့သည့်အခါ အသုံးပြုမှု အကြံပေးချက်များကို ပြောမပေးပါ</string>
+  <string name="title_pref_speak_container_element_position">စာရင်းနှင့် ဇယားကွက် အချက်အလက်များပြောရန်</string>
+  <string name="speak_container_element_position_summary_on">စာရင်းနှင့် ဇယားကွက် အချက်အလက်များကို အသံထွက်ပြောပေးသည်</string>
+  <string name="speak_container_element_position_summary_off">စာရင်းနှင့် ဇယားကွက် အချက်အလက်များကို ပြောမပေးပါ</string>
+  <string name="title_pref_speak_element_type">အကြောင်းအရာ အမျိုးအစားကို ပြောရန်</string>
+  <string name="speak_element_type_summary_on">အထူးဦးစားပေး အရာများအတွက် ပစ္စည်းအမျိုးအစားကို အသံထွက်ပြောပေးပါသည်</string>
+  <string name="speak_element_type_summary_off">အထူးဦးစားပေး အရာများအတွက် ပစ္စည်းအမျိုးအစားကို ပြောမပေးပါ</string>
+  <string name="title_pref_pitch_change_for_ime">အသံအနိမ့်အမြင့် အပြောင်းအလဲများကို အသုံးပြုရန်</string>
+  <string name="pitch_change_for_ime_summary_on">ကီးဘုတ် တုံ့ပြန်ချက်ကို အသံနိမ့်ဖြင့် ပြောပါ</string>
+  <string name="pitch_change_for_ime_summary_off">စကားပြောနေစဉ် အသံတုံ့ပြန်မှုကို မပြောင်းပါနှင့်</string>
+  <string name="title_pref_speak_selected_item_or_group">ရွေးထားသည့်အရာ (သို့) အုပ်စုကို အသံထွက်ပြောခြင်း</string>
+  <string name="speak_selected_item_or_group_summary">အရာ (သို့) အုပ်စုကို ရွေးပြီးနောက် ၎င်းအမည်များကို ပြောရန်</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">အသံထွက်ပြောရန် တစ်ခုလျှင် အများဆုံးကြာချိန်</string>
+  <string name="dialog_message_pref_maximum_time_per_item">အကြောင်းအရာတစ်ခုစီ၏အကြောင်းအရာကို အသံထွက်ပြောမည့် အများဆုံးကြာချိန် သတ်မှတ်ပါ။ သတ်မှတ်ထားချိန် လွန်လျှင် စကားပြောဆိုမှုကို ဖြတ်တောက်ပါမည်။\nမှတ်ချက်- ဖွင့်ထားလျှင် အကြံပြုချက်များကို အမြဲအသံထွက်ပြောပေးပါမည်။</string>
+  <string name="title_pref_verbosity_category_miscellaneous">အထွေထွေ</string>
+  <string name="title_pref_node_description_order">အကြောင်းအရာဖော်ပြချက် အစီအစဉ်</string>
+  <string name="title_pref_switch_access_speak_element_ids">အကြောင်းအရာ ID များကို အသံထွက်ပြောပေးရန်</string>
+  <string name="speak_element_ids_summary_on">အညွှန်းမပါသော ခလုတ်များအတွက် အကြောင်းအရာ ID များကို အသံထွက်ပြောပေးပါမည်</string>
+  <string name="speak_element_ids_summary_off">အညွှန်းမပါသော ခလုတ်များအတွက် အကြောင်းအရာ ID များကို အသံထွက် ပြောမပေးပါ</string>
+  <string name="title_pref_switch_access_tts_settings">TTS ဆက်တင်များ</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">အကြောင်းအရာများစွာကို မြင်သာထင်သာဖြစ်အောင် လုပ်ထားသည့်အခါ</string>
+  <string name="title_pref_switch_access_speak_first_last_item">ပထမဆုံးနှင့် နောက်ဆုံး အကြောင်းအရာကို အသံထွက်ပြောပါ</string>
+  <string name="title_pref_switch_access_speak_number_of_items">အရာများ၏ နံပါတ်ကို ပြောခြင်း</string>
+  <string name="title_pref_switch_access_speak_all_items">အရောင်တင်ထားသည့် အရာအားလုံးကို ပြောခြင်း</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">မရွှေ့မီ စကားပြောကို အပြီးသတ်ပါ</string>
+  <string name="title_pref_spoken_feedback_other_feedback">အခြား တုံ့ပြန်ချက်</string>
+  <string name="title_pref_developer_settings">ဆော့ဖ်ဝဲအင်ဂျင်နီယာ ဆက်တင်များ</string>
+  <string name="title_pref_spoken_feedback_overlay">စကားပြော ထုတ်ပေးမှုကို ပြရန်</string>
+  <string name="title_pref_switch_access_vibration_feedback">တုန်ခါမှု တုံ့ပြန်ချက်</string>
+  <string name="vibration_feedback_summary">တစ်ခုခုပြောင်းသွားကြောင်း (ဥပမာ မျက်နှာပြင်ပေါ်ရှိ အကြောင်းအရာ ပြောင်းသွားခြင်း) ဖော်ပြရန် တုန်ခါပါ</string>
+  <string name="title_pref_switch_access_sound_feedback">အသံဖြင့် တုံ့ပြန်ချက်</string>
+  <string name="sound_feedback_summary">တစ်ခုခုပြောင်းသွားကြောင်း (ဥပမာ မျက်နှာပြင်ပေါ်ရှိ အကြောင်းအရာ ပြောင်းသွားခြင်း) ဖော်ပြရန် အသံတစ်ခု ဖွင့်ပါ</string>
+  <string name="title_pref_switch_access_sound_volume">အသံအတိုးအကျယ်</string>
+  <string name="title_pref_switch_access_audio_ducking">နောက်ခံသံလျှော့ချခြင်း</string>
+  <string name="audio_ducking_summary">စကားပြောနေလျှင် အခြားအသံကို လျှော့လိုက်ပါ</string>
+  <string name="switch_access_focus_cleared_no_selection">မျက်နှာပြင် ပြောင်းထားသည်</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">အတန်းကို ရွေးချယ်ရန် ခလုတ်ရွေးရန်ကို နှိပ်ပါ</string>
+  <string name="switch_access_spoken_feedback_group">အုပ်စု %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">အုပ်စုကို ရွေးချယ်ရန် အုပ်စု %1$s ခလုတ်ကို နှိပ်ပါ</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">အကြောင်းအရာကို ရွေးချယ်ရန် အုပ်စု %1$s ခလုတ်ကို နှိပ်ပါ</string>
+  <string name="switch_access_spoken_feedback_to">%1$s မှ %2$s ထိ</string>
+  <string name="switch_access_spoken_feedback_items">အကြောင်းအရာ %1$s ခု</string>
+  <string name="switch_access_spoken_feedback_group_selected">အုပ်စု %1$s ရွေးချယ်ထားသည်</string>
+  <string name="switch_access_spoken_feedback_row_selected">အတန်း ရွေးချယ်ထားသည်</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s ရွေးချယ်ထားသည်</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">လှိမ့်နိုင်သည်</string>
+  <string name="switch_access_spoken_feedback_scroll">လှိမ့်ရန် ရွေးပါ</string>
+  <string name="switch_access_spoken_feedback_unknown">အမျိုးအမည်မသိအကြောင်းအရာ</string>
+  <string name="scanning_method_heading">စကင်ဖတ်ပုံကို ရွေးပါ</string>
+  <string name="row_column_scanning_description">တစ်ကြိမ်လျှင် တစ်တန်းမျှ စကင်ဖတ်ပါ။ အတန်းကို ရွေးပြီးသွားလျှင် ၎င်းစာရင်းရှိ အကြောင်းအရာများပေါ်တွင် ရွှေ့ပါ။</string>
+  <string name="linear_scanning_description">အကြောင်းအရာများအကြား တစ်ကြိမ်လျှင် တစ်ခုနှုန်းဖြင့်ရွှေ့ပါ</string>
+  <string name="linear_scanning_except_keyboard_description">အကြောင်းအရာများအကြား တစ်ကြိမ်လျှင် တစ်ခုနှုန်းဖြင့်ရွှေ့ပါ။ ကီးဘုတ်များသည် အတန်းလိုက် စကင်ဖတ်မည်ကို သတိပြုပါ။</string>
+  <string name="option_scanning_description">အကြောင်းအရာအားလုံးကို အရောင်တစ်ရောင်အဖြစ် သတ်မှတ်မည်။ သင်ဆန္ဒရှိသော အကြောင်းအရာပတ်ပတ်လည်ရှိ အရောင်နှင့် သက်ဆိုင်သော ခလုတ်ကို ရွေးပါ။ သင်ရွေးချယ်ထားသည်နှင့် ကိုက်ညီမှုမရှိမချင်း အုပ်စု၏ အရွယ်အစားကို လျှော့ချပါ။</string>
+  <string name="setup_switch_assignment_heading">%s ဟု သတ်မှတ်ပြီးခလုတ်များ</string>
+  <string name="setup_switch_assignment_empty">မရှိ</string>
+  <string name="clear_keys_dialog_title">ခလုတ်သတ်မှတ်ချက်များကို ရှင်းမလား။</string>
+  <string name="clear_keys_dialog_message">သင်သည် ခလုတ်များကို သတ်မှတ်ပြီးသားဖြစ်သည်။</string>
+  <string name="clear_keys_dialog_positive_button">ခလုတ်များကို ဖျက်ရန်</string>
+  <string name="clear_keys_dialog_negative_button">ခလုတ်များကို ယခုအတိုင်းထားရန်</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">မည်သည့်ခလုတ်ကိုမျှ သတ်မှတ်မထားပါ</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">ဤလုပ်ဆောင်ချက်အဖြစ် မည်သည့်ခလုတ်ကိုမျှ သတ်မှတ်မထားပါ။ သင်ဆက်လုပ်လိုသည်မှာ သေချာသလား။</string>
+  <string name="option_scan_switch_title">%1$s အုပ်စု</string>
+  <string name="option_scan_switch_subtitle">%1$s အုပ်စုကို ရွေးရန်အတွက် သတ်မှတ်ချက် ထည့်သွင်းရန် ခလုတ်ပေါ်တွင် နှိပ်ပါ။</string>
+  <string name="assign_switch_subtitle">ခလုတ်ကို \"%1$s\" လုပ်ဆောင်ချက်အဖြစ် သတ်မှတ်ရန် ၎င်းကို နှိပ်ပါ။</string>
+  <string name="auto_scan_action_description">စကင်စတင်ဖတ်၍ ရွေးချယ်ပါ</string>
+  <string name="switch_game_heading">Tic-Tac-Toe ဖြင့် သင်၏ စနစ်ထည့်သွင်းမှုကို စမ်းသပ်ပါ</string>
+  <string name="switch_game_one_switch_linear_subheading">စတင်၍ စကင်ဖတ်ရန် \"%1$s\" ကို နှိပ်ပါ။ ထင်ရှားအောင် ပြထားသော အကြောင်းအရာကို ရွေးချယ်ရန် ခလုတ်ကို ထပ်မံနှိပ်ပါ။သင်အရင်လုပ်ဆောင်ပါ။</string>
+  <string name="switch_game_one_switch_row_col_subheading">စတင်၍ စကင်ဖတ်ရန် \"%1$s\" ကို နှိပ်ပါ။ ထင်ရှားအောင် ပြထားသော အတန်းကို ရွေးချယ်ရန် ခလုတ်ကို ထပ်မံနှိပ်ပါ။ ထင်ရှားအောင် ပြထားသော အကြောင်းအရာကို ရွေးချယ်ရန် နောက်ထပ်တစ်ကြိမ် နှိပ်ပါ။ သင်အရင်လုပ်ဆောင်ပါ။</string>
+  <string name="switch_game_two_switch_linear_subheading">အကြောင်းအရာတစ်ခုမှ နောက်တစ်ခုသို့ ရွှေ့ရန် \"%1$s\" ကို နှိပ်ပါ။ \"%2$s\" ကို နှိပ်၍ အကြောင်းအရာကို ရွေးပါ။ စတင် လိုက်ပါ။</string>
+  <string name="switch_game_two_switch_row_col_subheading">အတန်းတစ်တန်းမှ နောက်တစ်တန်းသို့ ရွှေ့ရန် \"%1$s\" ကို နှိပ်ပါ။ \"%2$s\" ကို နှိပ်၍ လက်ရှိအတန်းကို ရွေးပါ။ စတင် လိုက်ပါ။</string>
+  <string name="switch_game_two_switch_option_scan_subheading">%2$s နှင့် လက်ရှိအကြောင်းအရာများကို \"%1$s\" နှိပ်ပြီး ရွေးပါ သို့မဟုတ် \"%4$s\" ကို နှိပ်ပြီး %3$s နှင့် လက်ရှိအကြောင်းအရာများကို ရွေးပါ။ သင်လိုအပ်သည့် အကြောင်းအရာသို့ ရောက်ရှိရန် ထပ်မံလုပ်ဆောင်ပါ။ စတင် လိုက်ပါ။</string>
+  <string name="switch_game_incomplete_switches_subheading">သင့်ထံရှိ ခလုတ်များကို လုပ်ဆောင်ချက်အားလုံးအတွက် မသတ်မှတ်ရသေးပါ။ နောက်သို့ ပြန်သွားရန် \'ယခင်\' ခလုတ်ကို အသုံးပြု၍ ခလုတ်များကို သတ်မှတ်ခြင်း အပြီးသတ်ပါ။</string>
+  <string name="game_square_content_description">%2$s၊ %3$s တွင်ရှိသော %1$s</string>
+  <string name="game_square_no_marker_content_description">ဘာမျှမရှိပါ</string>
+  <string name="game_reset_button_title">ဂိမ်းကို ပြင်ဆင်သတ်မှတ်ရန်</string>
+  <string name="game_square_already_taken">ဤလေးထောင့်ကွက်ကို ယူပြီးသားဖြစ်နေသည်။ ထပ်လုပ်ကြည့်ပါ။</string>
+  <string name="game_win_outcome_title">သင်နိုင်သည်။</string>
+  <string name="game_loss_outcome_title">နောက်တစ်ကြိမ်တွင် ကံကောင်းပါစေ</string>
+  <string name="game_tie_outcome_title">သရေပါပဲ</string>
+  <string name="game_outcome_body_text">လက်ရှိပြင်ဆင်သတ်မှတ်ချက်အတိုင်း ထားနိုင်သည် သို့မဟုတ် အစမှပြန်စပါ။</string>
+  <string name="game_outcome_positive_response">ပြင်ဆင်သတ်မှတ်မှုကို ယခုအတိုင်းထားရန်</string>
+  <string name="game_outcome_negative_response">အစမှ ပြန်စရန်</string>
+  <string name="setup_completion_heading">စနစ်ထည့်သွင်းမှု ပြီးပါပြီ</string>
+  <string name="setup_completion_message">သင်အဆင်သင့်ဖြစ်ပါပြီ။</string>
+  <string name="setup_completion_settings_reminder">ထပ်ဆောင်း ဆက်တင်များကို အမြဲပြင်နိုင်သည် သို့မဟုတ် \'ခလုတ်သုံးခြင်း\' ဆက်တင်များမှနေ၍ စနစ်ထည့်သွင်းခြင်း ဝစ်ဇတ်ကို ပြန်ဖွင့်နိုင်သည်။</string>
+  <string name="dialog_url_list">လင့်ခ်တစ်ခု ရွေးပါ</string>
+  <string name="dialog_do_not_disturb_permission_title">\'ခလုတ်သုံးခြင်း\' သည် အသံအတိုးအကျယ် ချိန်ညှိရန် ခွင့်ပြုချက် လိုအပ်ပါသည်</string>
+  <string name="dialog_do_not_disturb_permission_message">\'ခလုတ်သုံးခြင်း\' မီနူးမှ အသံအတိုးအကျယ် ချိန်ညှိရန် Android Accessibility Suite အတွက် \'မနှောင့်ယှက်ရ\' သုံးခွင့်ကို ဖွင့်ထားပါ</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">ဆက်တင်များ ဖွင့်ရန်</string>
 </resources>

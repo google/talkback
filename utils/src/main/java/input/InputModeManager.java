@@ -16,8 +16,8 @@
 
 package com.google.android.accessibility.utils.input;
 
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
 import android.view.InputDevice;
 import android.view.KeyEvent;
 import com.google.android.accessibility.utils.Performance.EventId;
@@ -80,6 +80,21 @@ public class InputModeManager implements ServiceKeyEventListener {
   @Override
   public boolean processWhenServiceSuspended() {
     return false;
+  }
+
+  public static String inputModeToString(@InputMode int inputMode) {
+    switch (inputMode) {
+      case INPUT_MODE_TOUCH:
+        return "INPUT_MODE_TOUCH";
+      case INPUT_MODE_KEYBOARD:
+        return "INPUT_MODE_KEYBOARD";
+      case INPUT_MODE_TV_REMOTE:
+        return "INPUT_MODE_TV_REMOTE";
+      case INPUT_MODE_NON_ALPHABETIC_KEYBOARD:
+        return "INPUT_MODE_NON_ALPHABETIC_KEYBOARD";
+      default:
+        return "INPUT_MODE_UNKNOWN";
+    }
   }
 
   // Checks if the event is from a non alphabetic keyboard, like the ones built into a phone.

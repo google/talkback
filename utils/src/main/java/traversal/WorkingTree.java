@@ -16,34 +16,37 @@
 
 package com.google.android.accessibility.utils.traversal;
 
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Tree that represents Accessibility node hierarchy. It lets reorder the structure of the tree. */
 public class WorkingTree {
 
-  private AccessibilityNodeInfoCompat mNode;
-  private WorkingTree mParent;
-  private List<WorkingTree> mChildren;
+  private static final String TAG = "WorkingTree";
 
-  public WorkingTree(AccessibilityNodeInfoCompat node, WorkingTree parent) {
+  private AccessibilityNodeInfoCompat mNode;
+  @Nullable private WorkingTree mParent;
+  private final List<WorkingTree> mChildren = new ArrayList<>();
+
+  public WorkingTree(AccessibilityNodeInfoCompat node, @Nullable WorkingTree parent) {
     mNode = node;
     mParent = parent;
-    mChildren = new ArrayList<>();
   }
 
   public AccessibilityNodeInfoCompat getNode() {
     return mNode;
   }
 
-  public WorkingTree getParent() {
+  public @Nullable WorkingTree getParent() {
     return mParent;
   }
 
-  public void setParent(WorkingTree parent) {
+  public void setParent(@Nullable WorkingTree parent) {
     mParent = parent;
   }
 
@@ -55,30 +58,58 @@ public class WorkingTree {
     return mChildren.remove(child);
   }
 
-  public boolean hasNoChild(WorkingTree subTree) {
+  /** Checks whether subTree is a descendant of this WorkingTree node. */
+  public boolean hasDescendant(@Nullable WorkingTree tree) {
+
+    if (ancestorsHaveLoop()) {
+      LogUtils.w(TAG, "Looped ancestors line");
+      return false;
+    }
+
+    // For each ancestor of target descendant node...
+    WorkingTree subTree = tree;
     while (subTree != null) {
       AccessibilityNodeInfoCompat node = subTree.getNode();
+
+      // If ancestor is this working tree node... target is descendant of this node.
       if (mNode.equals(node)) {
-        return false;
+        return true;
       }
 
       subTree = subTree.getParent();
     }
 
-    return true;
+    return false;
+  }
+
+  /** Checks whether subTree is a descendant of this WorkingTree node. */
+  public boolean ancestorsHaveLoop() {
+
+    // Not owner of contained nodes, do not call recycle().
+    Set<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
+
+    // For each ancestor node...
+    for (WorkingTree workNode = this; workNode != null; workNode = workNode.getParent()) {
+      AccessibilityNodeInfoCompat accessNode = workNode.getNode();
+      if (visitedNodes.contains(accessNode)) {
+        return true;
+      }
+      visitedNodes.add(accessNode);
+    }
+    return false;
   }
 
   public void swapChild(WorkingTree swappedChild, WorkingTree newChild) {
     int position = mChildren.indexOf(swappedChild);
     if (position < 0) {
-      LogUtils.log(Log.ERROR, "WorkingTree IllegalStateException: swap child not found");
+      LogUtils.e(TAG, "WorkingTree IllegalStateException: swap child not found");
       return;
     }
 
     mChildren.set(position, newChild);
   }
 
-  public WorkingTree getNext() {
+  public @Nullable WorkingTree getNext() {
     if (!mChildren.isEmpty()) {
       return mChildren.get(0);
     }
@@ -96,7 +127,7 @@ public class WorkingTree {
     return null;
   }
 
-  public WorkingTree getNextSibling() {
+  public @Nullable WorkingTree getNextSibling() {
     WorkingTree parent = getParent();
     if (parent == null) {
       return null;
@@ -104,7 +135,7 @@ public class WorkingTree {
 
     int currentIndex = parent.mChildren.indexOf(this);
     if (currentIndex < 0) {
-      LogUtils.log(Log.ERROR, "WorkingTree IllegalStateException: swap child not found");
+      LogUtils.e(TAG, "WorkingTree IllegalStateException: swap child not found");
       return null;
     }
 
@@ -118,7 +149,7 @@ public class WorkingTree {
     return parent.mChildren.get(currentIndex);
   }
 
-  public WorkingTree getPrevious() {
+  public @Nullable WorkingTree getPrevious() {
     WorkingTree previousSibling = getPreviousSibling();
     if (previousSibling != null) {
       return previousSibling.getLastNode();
@@ -127,7 +158,7 @@ public class WorkingTree {
     return getParent();
   }
 
-  public WorkingTree getPreviousSibling() {
+  public @Nullable WorkingTree getPreviousSibling() {
     WorkingTree parent = getParent();
     if (parent == null) {
       return null;
@@ -135,7 +166,7 @@ public class WorkingTree {
 
     int currentIndex = parent.mChildren.indexOf(this);
     if (currentIndex < 0) {
-      LogUtils.log(Log.ERROR, "WorkingTree IllegalStateException: swap child not found");
+      LogUtils.e(TAG, "WorkingTree IllegalStateException: swap child not found");
       return null;
     }
 
@@ -160,8 +191,9 @@ public class WorkingTree {
 
   public WorkingTree getRoot() {
     WorkingTree root = this;
-    while (root.getParent() != null) {
-      root = root.getParent();
+    WorkingTree parent;
+    while ((parent = root.getParent()) != null) {
+      root = parent;
     }
 
     return root;

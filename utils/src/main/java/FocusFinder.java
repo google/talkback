@@ -17,10 +17,10 @@
 package com.google.android.accessibility.utils;
 
 import android.accessibilityservice.AccessibilityService;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.util.Log;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
-import com.google.android.accessibility.utils.traversal.NodeFocusFinder;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Functions to find focus.
@@ -30,13 +30,12 @@ import com.google.android.accessibility.utils.traversal.NodeFocusFinder;
  */
 public class FocusFinder {
 
-  public static final int SEARCH_FORWARD = NodeFocusFinder.SEARCH_FORWARD;
-  public static final int SEARCH_BACKWARD = NodeFocusFinder.SEARCH_BACKWARD;
+  private static final String TAG = "FocusFinder";
 
   /** This class should not be instantiated. */
   private FocusFinder() {}
 
-  public static AccessibilityNodeInfoCompat getFocusedNode(
+  public static @Nullable AccessibilityNodeInfoCompat getFocusedNode(
       AccessibilityService service, boolean fallbackOnRoot) {
     AccessibilityNodeInfo root = service.getRootInActiveWindow();
     AccessibilityNodeInfo focused = null;
@@ -53,7 +52,7 @@ public class FocusFinder {
           root = null;
         }
       } else {
-        LogUtils.log(service, Log.ERROR, "No current window root");
+        LogUtils.e(TAG, "No current window root");
       }
 
       if (ret != null) {

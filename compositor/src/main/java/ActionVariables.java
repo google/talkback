@@ -17,8 +17,9 @@
 package com.google.android.accessibility.compositor;
 
 import android.content.Context;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
+import androidx.annotation.Nullable;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.parsetree.ParseTree;
@@ -86,12 +87,12 @@ class ActionVariables implements ParseTree.VariableDelegate {
   }
 
   @Override
-  public CharSequence getString(int variableId) {
+  public @Nullable CharSequence getString(int variableId) {
     return SpeechCleanupUtils.collapseRepeatedCharactersAndCleanUp(
         mContext, getStringInternal(variableId));
   }
 
-  private CharSequence getStringInternal(int variableId) {
+  private @Nullable CharSequence getStringInternal(int variableId) {
     switch (variableId) {
       case ACTION_LABEL:
         return mAction.getLabel() == null ? "" : mAction.getLabel();
@@ -111,7 +112,7 @@ class ActionVariables implements ParseTree.VariableDelegate {
   }
 
   @Override
-  public ParseTree.VariableDelegate getReference(int variableId) {
+  public @Nullable ParseTree.VariableDelegate getReference(int variableId) {
     return mParentVariables.getReference(variableId);
   }
 
@@ -121,12 +122,12 @@ class ActionVariables implements ParseTree.VariableDelegate {
   }
 
   @Override
-  public CharSequence getArrayStringElement(int variableId, int index) {
+  public @Nullable CharSequence getArrayStringElement(int variableId, int index) {
     return mParentVariables.getArrayStringElement(variableId, index);
   }
 
   @Override
-  public ParseTree.VariableDelegate getArrayChildElement(int variableId, int index) {
+  public @Nullable ParseTree.VariableDelegate getArrayChildElement(int variableId, int index) {
     return mParentVariables.getArrayChildElement(variableId, index);
   }
 

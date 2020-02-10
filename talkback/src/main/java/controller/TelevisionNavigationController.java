@@ -16,23 +16,36 @@
 
 package com.google.android.accessibility.talkback.controller;
 
+import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD;
+import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD;
+import static com.google.android.accessibility.talkback.Feedback.Focus.Action.CLICK_ANCESTOR;
+import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_KEYBOARD;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_DOWN;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_LEFT;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_RIGHT;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_UP;
+
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Build;
 import android.os.Message;
-import android.support.annotation.IntDef;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.IntDef;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.SpannableStringBuilder;
 import android.util.SparseBooleanArray;
 import android.view.KeyEvent;
 import android.widget.AdapterView;
+import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.ClassLoadingCache;
 import com.google.android.accessibility.utils.Filter;
-import com.google.android.accessibility.utils.PerformActionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Performance.EventIdAnd;
 import com.google.android.accessibility.utils.Role;
@@ -42,14 +55,18 @@ import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.TreeDebug;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
 import com.google.android.accessibility.utils.WindowManager;
-import com.google.android.accessibility.utils.input.CursorController;
 import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
+import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirection;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-/** Implements directional-pad navigation specific to Android TV devices. */
+/**
+ * Implements directional-pad navigation specific to Android TV devices. Currently operates as mixed
+ * event-interpreter and feedback-mapper, interacting with RingerModeAndScreenMonitor and
+ * TelevisionDPadManager.
+ */
 public class TelevisionNavigationController implements ServiceKeyEventListener {
 
   public static final int MIN_API_LEVEL = Build.VERSION_CODES.M;
@@ -67,12 +84,12 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
       new Filter<AccessibilityNodeInfoCompat>() {
         @Override
         public boolean accept(AccessibilityNodeInfoCompat node) {
-          //; the ScrollAdapterView intercepts D-pad events on M; pass through
+          // ; the ScrollAdapterView intercepts D-pad events on M; pass through
           // the up and down events so that the user can scroll these lists.
           // "com.android.tv.settings" - Android TV Settings app and SetupWraith (setup wizard)
           // "com.google.android.gsf.notouch" - Google Account setup in SetupWraith
-          return ("com.android.tv.settings".equals(node.getPackageName())
-                  || "com.google.android.gsf.notouch".equals(node.getPackageName()))
+          return ("com.android.tv.settings".contentEquals(node.getPackageName())
+                  || "com.google.android.gsf.notouch".contentEquals(node.getPackageName()))
               && ClassLoadingCache.checkInstanceOf(node.getClassName(), AdapterView.class);
         }
       };
@@ -86,35 +103,40 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
   // The four arrow buttons move the seek control and the select button exits seek control mode.
   private static final int MODE_SEEK_CONTROL = 1;
 
-  private final TalkBackService mService;
-  private final CursorController mCursorController;
-  private final SparseBooleanArray mHandledKeyDown = new SparseBooleanArray();
-  private @RemoteMode int mMode = MODE_NAVIGATE;
-  private TelevisionKeyHandler mHandler = new TelevisionKeyHandler(this);
-  private final String mTreeDebugPrefKey;
-  private boolean mTreeDebugEnabled = false;
+  private final TalkBackService service;
+  private final AccessibilityFocusMonitor accessibilityFocusMonitor;
+  private final Pipeline.FeedbackReturner pipeline;
+  private final SparseBooleanArray handledKeyDown = new SparseBooleanArray();
+  private @RemoteMode int mode = MODE_NAVIGATE;
+  private TelevisionKeyHandler handler = new TelevisionKeyHandler(this);
+  private final String treeDebugPrefKey;
+  private boolean treeDebugEnabled = false;
 
-  private boolean mShouldProcessDPadKeyEvent = true;
+  private boolean shouldProcessDPadKeyEvent = true;
 
-  public TelevisionNavigationController(TalkBackService service) {
-    mService = service;
-    mCursorController = mService.getCursorController();
+  public TelevisionNavigationController(
+      TalkBackService service,
+      AccessibilityFocusMonitor accessibilityFocusMonitor,
+      Pipeline.FeedbackReturner pipeline) {
+    this.service = service;
+    this.accessibilityFocusMonitor = accessibilityFocusMonitor;
+    this.pipeline = pipeline;
 
     final SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(service);
-    prefs.registerOnSharedPreferenceChangeListener(mTreeDebugChangeListener);
-    mTreeDebugPrefKey = service.getString(R.string.pref_tree_debug_key);
-    mTreeDebugChangeListener.onSharedPreferenceChanged(prefs, mTreeDebugPrefKey);
+    prefs.registerOnSharedPreferenceChangeListener(treeDebugChangeListener);
+    treeDebugPrefKey = service.getString(R.string.pref_tree_debug_key);
+    treeDebugChangeListener.onSharedPreferenceChanged(prefs, treeDebugPrefKey);
   }
 
   public void setShouldProcessDPadEvent(boolean shouldProcessEvent) {
-    mShouldProcessDPadKeyEvent = shouldProcessEvent;
+    shouldProcessDPadKeyEvent = shouldProcessEvent;
   }
 
   @Override
   public boolean onKeyEvent(KeyEvent event, EventId eventId) {
-    mService.getInputModeManager().setInputMode(InputModeManager.INPUT_MODE_TV_REMOTE);
+    service.getInputModeManager().setInputMode(InputModeManager.INPUT_MODE_TV_REMOTE);
 
-    WindowManager windowManager = new WindowManager(mService);
+    WindowManager windowManager = new WindowManager(service);
 
     // Let the system handle keyboards. The keys are input-focusable so this works fine.
     // Note: on Android TV, it looks like the on-screen IME always appears, even when a physical
@@ -126,7 +148,8 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
 
     // Note: we getCursorOrInputCursor because we want to avoid getting the root if there
     // is no cursor; getCursor is defined as getting the root if there is no a11y focus.
-    AccessibilityNodeInfoCompat cursor = mCursorController.getCursorOrInputCursor();
+    AccessibilityNodeInfoCompat cursor =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
 
     try {
       if (shouldIgnore(cursor, event)) {
@@ -146,12 +169,12 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
           case KeyEvent.KEYCODE_DPAD_DOWN:
             // Directional navigation takes a non-trivial amount of time, so we should
             // post to the handler and return true immediately.
-            mHandler.postDirectionalKeyEvent(event, cursor, eventId);
+            handler.postDirectionalKeyEvent(event, cursor, eventId);
             return true;
           case KeyEvent.KEYCODE_DPAD_CENTER:
             // Can't post to handler because the return value might vary.
             boolean handledCenter = onCenterKey(cursor, eventId);
-            mHandledKeyDown.put(KeyEvent.KEYCODE_DPAD_CENTER, handledCenter);
+            handledKeyDown.put(KeyEvent.KEYCODE_DPAD_CENTER, handledCenter);
             return handledCenter;
           case KeyEvent.KEYCODE_ENTER:
             // Note: handling the Enter key won't interfere with typing because
@@ -159,11 +182,11 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
             // this will also skip handling the Enter key if using a physical keyboard.)
             // Can't post to handler because the return value might vary.
             boolean handledEnter = onCenterKey(cursor, eventId);
-            mHandledKeyDown.put(KeyEvent.KEYCODE_ENTER, handledEnter);
+            handledKeyDown.put(KeyEvent.KEYCODE_ENTER, handledEnter);
             return handledEnter;
           case KeyEvent.KEYCODE_SEARCH:
-            if (mTreeDebugEnabled) {
-              TreeDebug.logNodeTrees(mService.getWindows());
+            if (treeDebugEnabled) {
+              TreeDebug.logNodeTrees(AccessibilityServiceCompatUtils.getWindows(service));
               return true;
             }
             break;
@@ -178,19 +201,19 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
           case KeyEvent.KEYCODE_DPAD_DOWN:
             return true;
           case KeyEvent.KEYCODE_DPAD_CENTER:
-            if (mHandledKeyDown.get(KeyEvent.KEYCODE_DPAD_CENTER)) {
-              mHandledKeyDown.delete(KeyEvent.KEYCODE_DPAD_CENTER);
+            if (handledKeyDown.get(KeyEvent.KEYCODE_DPAD_CENTER)) {
+              handledKeyDown.delete(KeyEvent.KEYCODE_DPAD_CENTER);
               return true;
             }
             break;
           case KeyEvent.KEYCODE_ENTER:
-            if (mHandledKeyDown.get(KeyEvent.KEYCODE_ENTER)) {
-              mHandledKeyDown.delete(KeyEvent.KEYCODE_ENTER);
+            if (handledKeyDown.get(KeyEvent.KEYCODE_ENTER)) {
+              handledKeyDown.delete(KeyEvent.KEYCODE_ENTER);
               return true;
             }
             break;
           case KeyEvent.KEYCODE_SEARCH:
-            if (mTreeDebugEnabled) {
+            if (treeDebugEnabled) {
               return true;
             }
             break;
@@ -205,43 +228,32 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
   }
 
   private void onDirectionalKey(int keyCode, AccessibilityNodeInfoCompat cursor, EventId eventId) {
-    switch (mMode) {
+    switch (mode) {
       case MODE_NAVIGATE:
         {
+          @SearchDirection int direction = SEARCH_FOCUS_UNKNOWN;
           switch (keyCode) {
             case KeyEvent.KEYCODE_DPAD_LEFT:
-              mCursorController.left(
-                  false /* wrap around */,
-                  true /* auto scroll */,
-                  true /* use input focus */,
-                  InputModeManager.INPUT_MODE_KEYBOARD,
-                  eventId);
+              direction = SEARCH_FOCUS_LEFT;
               break;
             case KeyEvent.KEYCODE_DPAD_RIGHT:
-              mCursorController.right(
-                  false /* wrap around */,
-                  true /* auto scroll */,
-                  true /* use input focus */,
-                  InputModeManager.INPUT_MODE_KEYBOARD,
-                  eventId);
+              direction = SEARCH_FOCUS_RIGHT;
               break;
             case KeyEvent.KEYCODE_DPAD_UP:
-              mCursorController.up(
-                  false /* wrap around */,
-                  true /* auto scroll */,
-                  true /* use input focus */,
-                  InputModeManager.INPUT_MODE_KEYBOARD,
-                  eventId);
+              direction = SEARCH_FOCUS_UP;
               break;
             case KeyEvent.KEYCODE_DPAD_DOWN:
-              mCursorController.down(
-                  false /* wrap around */,
-                  true /* auto scroll */,
-                  true /* use input focus */,
-                  InputModeManager.INPUT_MODE_KEYBOARD,
-                  eventId);
+              direction = SEARCH_FOCUS_DOWN;
               break;
             default: // fall out
+          }
+          if (direction != SEARCH_FOCUS_UNKNOWN) {
+            pipeline.returnFeedback(
+                eventId,
+                Feedback.focusDirection(direction)
+                    .setInputMode(INPUT_MODE_KEYBOARD)
+                    .setScroll(true)
+                    .setDefaultToInputFocus(true));
           }
         }
         break;
@@ -250,31 +262,33 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
           if (Role.getRole(cursor) != Role.ROLE_SEEK_CONTROL) {
             setMode(MODE_NAVIGATE, eventId);
           } else {
-            boolean isRtl = WindowManager.isScreenLayoutRTL(mService);
+            boolean isRtl = WindowManager.isScreenLayoutRTL(service);
             switch (keyCode) {
               case KeyEvent.KEYCODE_DPAD_UP:
-                PerformActionUtils.performAction(
-                    cursor, AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD, eventId);
+                pipeline.returnFeedback(
+                    eventId, Feedback.nodeAction(cursor, ACTION_SCROLL_FORWARD));
                 break;
               case KeyEvent.KEYCODE_DPAD_RIGHT:
-                PerformActionUtils.performAction(
-                    cursor,
-                    isRtl
-                        ? AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD
-                        : AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD,
-                    eventId);
+                if (isRtl) {
+                  pipeline.returnFeedback(
+                      eventId, Feedback.nodeAction(cursor, ACTION_SCROLL_BACKWARD));
+                } else {
+                  pipeline.returnFeedback(
+                      eventId, Feedback.nodeAction(cursor, ACTION_SCROLL_FORWARD));
+                }
                 break;
               case KeyEvent.KEYCODE_DPAD_DOWN:
-                PerformActionUtils.performAction(
-                    cursor, AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD, eventId);
+                pipeline.returnFeedback(
+                    eventId, Feedback.nodeAction(cursor, ACTION_SCROLL_BACKWARD));
                 break;
               case KeyEvent.KEYCODE_DPAD_LEFT:
-                PerformActionUtils.performAction(
-                    cursor,
-                    isRtl
-                        ? AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD
-                        : AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD,
-                    eventId);
+                if (isRtl) {
+                  pipeline.returnFeedback(
+                      eventId, Feedback.nodeAction(cursor, ACTION_SCROLL_FORWARD));
+                } else {
+                  pipeline.returnFeedback(
+                      eventId, Feedback.nodeAction(cursor, ACTION_SCROLL_BACKWARD));
+                }
                 break;
               default: // fall out
             }
@@ -287,14 +301,14 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
 
   /** Returns true if TalkBack should consume the center key; otherwise returns false. */
   private boolean onCenterKey(AccessibilityNodeInfoCompat cursor, EventId eventId) {
-    switch (mMode) {
+    switch (mode) {
       case MODE_NAVIGATE:
         {
           if (Role.getRole(cursor) == Role.ROLE_SEEK_CONTROL) {
             // Seek control, center key toggles seek control input mode instead of clicking.
             setMode(MODE_SEEK_CONTROL, eventId);
             return true;
-          } else if (mCursorController.clickCurrentHierarchical(eventId)) {
+          } else if (pipeline.returnFeedback(eventId, Feedback.focus(CLICK_ANCESTOR))) {
             // We were able to find a clickable node in the hierarchy.
             return true;
           } else if (cursor == null
@@ -337,13 +351,13 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
    * <p>To mitigate this, we will (very conservatively) pass through the D-pad key events for
    * certain views, effectively restoring the TB 4.3 behavior for these views.
    *
-   * <p>2. Ignore D-pad KeyEvents if mShouldProcessDPadKeyEvent is false. Which is a workaround to
+   * <p>2. Ignore D-pad KeyEvents if shouldProcessDPadKeyEvent is false. Which is a workaround to
    * for accessibility issue in Netflix. Refer to {@link com.android.talkback.TelevisionDPadManager}
    * for more details.
    */
   private boolean shouldIgnore(AccessibilityNodeInfoCompat node, KeyEvent event) {
     final int keyCode = event.getKeyCode();
-    if (!mShouldProcessDPadKeyEvent
+    if (!shouldProcessDPadKeyEvent
         && (keyCode == KeyEvent.KEYCODE_DPAD_UP
             || keyCode == KeyEvent.KEYCODE_DPAD_DOWN
             || keyCode == KeyEvent.KEYCODE_DPAD_LEFT
@@ -362,7 +376,7 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
   }
 
   private void setMode(@RemoteMode int newMode, EventId eventId) {
-    if (newMode == mMode) {
+    if (newMode == mode) {
       return;
     }
 
@@ -373,7 +387,7 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
       // "XYZ mode ended".
       template = R.string.template_tv_remote_mode_ended;
       hint = false;
-      modeForFeedback = mMode; // Speak the old mode name on exit.
+      modeForFeedback = mode; // Speak the old mode name on exit.
     } else {
       // "XYZ mode started".
       template = R.string.template_tv_remote_mode_started;
@@ -381,39 +395,43 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
       modeForFeedback = newMode; // Speak the new mode name on enter.
     }
 
-    SpannableStringBuilder builder = new SpannableStringBuilder();
+    SpannableStringBuilder ttsText = new SpannableStringBuilder();
     switch (modeForFeedback) {
       case MODE_SEEK_CONTROL:
         StringBuilderUtils.appendWithSeparator(
-            builder,
-            mService.getString(
-                template, mService.getString(R.string.value_tv_remote_mode_seek_control)));
+            ttsText,
+            service.getString(
+                template, service.getString(R.string.value_tv_remote_mode_seek_control)));
         if (hint) {
           StringBuilderUtils.appendWithSeparator(
-              builder, mService.getString(R.string.value_hint_tv_remote_mode_seek_control));
+              ttsText, service.getString(R.string.value_hint_tv_remote_mode_seek_control));
         }
         break;
       default: // fall out
     }
 
     // Really critical that the user understands what mode the remote control is in.
-    mService
-        .getSpeechController()
-        .speak(
-            builder, /* Text */
-            SpeechController.QUEUE_MODE_INTERRUPT, /* QueueMode */
-            FeedbackItem.FLAG_FORCED_FEEDBACK, /* Flags */
-            null, /* SpeechParams */
-            eventId);
+    SpeechController.SpeakOptions speakOptions =
+        SpeechController.SpeakOptions.create()
+            .setQueueMode(SpeechController.QUEUE_MODE_INTERRUPT)
+            .setFlags(
+                FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
+                    | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
+                    | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE);
+    pipeline.returnFeedback(eventId, Feedback.speech(ttsText, speakOptions));
 
-    mMode = newMode;
+    mode = newMode;
   }
 
   /** Silently resets the remote mode to navigate mode. */
   public void resetToNavigateMode() {
-    mMode = MODE_NAVIGATE;
+    mode = MODE_NAVIGATE;
   }
 
+  /**
+   * Message handler to allow onKeyEvent() to return before timeout, while handler finishes key
+   * processing later.
+   */
   private static class TelevisionKeyHandler
       extends WeakReferenceHandler<TelevisionNavigationController> {
     private static final int WHAT_DIRECTIONAL = 1;
@@ -425,6 +443,7 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
     @Override
     protected void handleMessage(Message msg, TelevisionNavigationController parent) {
       int keyCode = msg.arg1;
+      @SuppressWarnings("unchecked")
       EventIdAnd<AccessibilityNodeInfoCompat> cursorAndEventId =
           (EventIdAnd<AccessibilityNodeInfoCompat>) msg.obj;
       AccessibilityNodeInfoCompat cursor = cursorAndEventId.object;
@@ -448,21 +467,21 @@ public class TelevisionNavigationController implements ServiceKeyEventListener {
         obtainedCursor = AccessibilityNodeInfoCompat.obtain(cursor);
       }
       EventIdAnd<AccessibilityNodeInfoCompat> cursorAndEventId =
-          new EventIdAnd(obtainedCursor, eventId);
+          new EventIdAnd<>(obtainedCursor, eventId);
       Message msg = obtainMessage(WHAT_DIRECTIONAL, event.getKeyCode(), 0, cursorAndEventId);
       sendMessageDelayed(msg, 0);
     }
   }
 
-  private final OnSharedPreferenceChangeListener mTreeDebugChangeListener =
+  private final OnSharedPreferenceChangeListener treeDebugChangeListener =
       new OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-          if (key != null && key.equals(mTreeDebugPrefKey)) {
-            mTreeDebugEnabled =
+          if (key != null && key.equals(treeDebugPrefKey)) {
+            treeDebugEnabled =
                 SharedPreferencesUtils.getBooleanPref(
                     sharedPreferences,
-                    mService.getResources(),
+                    service.getResources(),
                     R.string.pref_tree_debug_key,
                     R.bool.pref_tree_debug_default);
           }

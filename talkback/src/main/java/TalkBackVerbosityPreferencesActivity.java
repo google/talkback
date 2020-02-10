@@ -19,26 +19,22 @@ package com.google.android.accessibility.talkback;
 import static com.android.talkback.TalkBackPreferencesActivity.TalkBackPreferenceFragment.HIDDEN_PREFERENCE_KEY_IDS_IN_ARC;
 import static com.android.talkback.TalkBackPreferencesActivity.TalkBackPreferenceFragment.HIDDEN_PREFERENCE_KEY_IDS_ON_WATCH;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceGroup;
-import android.preference.SwitchPreference;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.MenuItem;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceGroup;
+import androidx.preference.SwitchPreference;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
-import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.FormFactorUtils;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.accessibility.utils.BasePreferencesActivity;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 
 /**
@@ -46,69 +42,47 @@ import java.util.ArrayList;
  *
  * <p>Allow flexibility for multiple customizable presets, in the future.
  */
-public class TalkBackVerbosityPreferencesActivity extends Activity {
+public class TalkBackVerbosityPreferencesActivity extends BasePreferencesActivity {
+
+  private static final String TAG = "TBVerbosityPrefActivity";
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    // Configure action bar.
-    setTitle(getString(R.string.pref_verbosity_title));
-    ActionBar actionBar = getActionBar();
-    if (actionBar != null) {
-      actionBar.setDisplayHomeAsUpEnabled(true);
-    }
-
-    // Create user-interface for currently selected verbosity preset.
-    VerbosityPrefFragment fragment = new VerbosityPrefFragment();
-    getFragmentManager().beginTransaction().replace(android.R.id.content, fragment).commit();
-  }
-
-  /** If action-bar "navigate up" button is pressed, end this sub-activity. */
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case android.R.id.home:
-        finish();
-        return true;
-      default:
-        return super.onOptionsItemSelected(item);
-    }
+  protected PreferenceFragmentCompat createPreferenceFragment() {
+    return new VerbosityPrefFragment(getApplicationContext());
   }
 
   /** Panel holding a set of verbosity preferences. Recreated when preset value changes. */
-  public static class VerbosityPrefFragment extends PreferenceFragment {
+  public static class VerbosityPrefFragment extends PreferenceFragmentCompat {
 
     // Member data
-    private SharedPreferences mPreferences;
-    private String mPresetValue; // String identifier for selected preset.
+    private SharedPreferences preferences;
+    private String presetValue; // String identifier for selected preset.
+    private final Context context;
+
+    public VerbosityPrefFragment(Context context) {
+      this.context = context;
+    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 
-      // Get initial preset value.
-      if (BuildVersionUtils.isAtLeastN()) {
-        getPreferenceManager().setStorageDeviceProtected();
-      }
-      Context context = getActivity().getApplicationContext();
-      mPreferences = SharedPreferencesUtils.getSharedPreferences(context);
-      mPresetValue =
+      preferences = SharedPreferencesUtils.getSharedPreferences(context);
+      presetValue =
           SharedPreferencesUtils.getStringPref(
-              mPreferences,
+              preferences,
               getResources(),
               R.string.pref_verbosity_preset_key,
               R.string.pref_verbosity_preset_value_default);
 
       // Create the preferences screen.
-      addPreferencesFromResource(R.xml.verbosity_preferences);
+      PreferenceSettingsUtils.addPreferencesFromResource(this, R.xml.verbosity_preferences);
 
       // Hide some preferences for devices like watch and ARC.
-      if (FormFactorUtils.getInstance(context).isArc()) {
+      if (FeatureSupport.isArc()) {
         PreferenceSettingsUtils.hidePreferences(
             context, getPreferenceScreen(), HIDDEN_PREFERENCE_KEY_IDS_IN_ARC);
       }
-      if (FormFactorUtils.getInstance(context).isWatch()) {
+      if (FeatureSupport.isWatch(context)) {
         PreferenceSettingsUtils.hidePreferences(
             context, getPreferenceScreen(), HIDDEN_PREFERENCE_KEY_IDS_ON_WATCH);
       }
@@ -117,8 +91,8 @@ public class TalkBackVerbosityPreferencesActivity extends Activity {
       copyPresetsToUi(detailedPrefs); // Cheap, just reading preferences.
 
       // Disable default preset preference details.
-      if (mPresetValue.equals(getString(R.string.pref_verbosity_preset_value_high))
-          || mPresetValue.equals(getString(R.string.pref_verbosity_preset_value_low))) {
+      if (presetValue.equals(getString(R.string.pref_verbosity_preset_value_high))
+          || presetValue.equals(getString(R.string.pref_verbosity_preset_value_low))) {
         disablePreferenceDetails(detailedPrefs);
       }
 
@@ -151,7 +125,7 @@ public class TalkBackVerbosityPreferencesActivity extends Activity {
       for (Preference preference : detailedPrefs) {
         // Change active key to preset key.
         String key = preference.getKey();
-        String keyForPreset = VerbosityPreferences.toPresetPrefKey(mPresetValue, key);
+        String keyForPreset = VerbosityPreferences.toPresetPrefKey(presetValue, key);
         preference.setKey(keyForPreset);
 
         // Retrieve preset preference value and update UI element.
@@ -159,9 +133,9 @@ public class TalkBackVerbosityPreferencesActivity extends Activity {
           SwitchPreference prefSwitch = (SwitchPreference) preference;
           boolean value =
               VerbosityPreferences.getPreferencePresetBool(
-                  mPreferences,
+                  preferences,
                   getResources(),
-                  mPresetValue,
+                  presetValue,
                   key,
                   getDefaultValueForSwitchPreferences(key));
           prefSwitch.setChecked(value);
@@ -169,16 +143,12 @@ public class TalkBackVerbosityPreferencesActivity extends Activity {
           ListPreference prefList = (ListPreference) preference;
           String value =
               VerbosityPreferences.getPreferencePresetString(
-                  mPreferences, getResources(), mPresetValue, key, null);
+                  preferences, getResources(), presetValue, key, null);
           if (value != null) {
             prefList.setValue(value);
           }
         } else {
-          LogUtils.log(
-              this,
-              Log.ERROR,
-              "Unhandled preference type %s",
-              preference.getClass().getSimpleName());
+          LogUtils.e(TAG, "Unhandled preference type %s", preference.getClass().getSimpleName());
         }
       }
     }
@@ -205,6 +175,9 @@ public class TalkBackVerbosityPreferencesActivity extends Activity {
       } else if (key.equals(
           getResources().getString(R.string.pref_speak_container_element_positions_key))) {
         return getResources().getBoolean(R.bool.pref_speak_container_element_positions_default);
+      } else if (key.equals(
+          getResources().getString(R.string.pref_verbose_scroll_announcement_key))) {
+        return getResources().getBoolean(R.bool.pref_verbose_scroll_announcement_default);
       }
       return true;
     }
@@ -214,51 +187,57 @@ public class TalkBackVerbosityPreferencesActivity extends Activity {
       super.onResume();
       attachPreferenceListeners();
       String presetValueString =
-          mPreferences.getString(
+          preferences.getString(
               getString(R.string.pref_verbosity_preset_key),
               getString(R.string.pref_verbosity_preset_value_default));
       replaceFragment(presetValueString);
     }
 
     private void attachPreferenceListeners() {
-      mPreferences.registerOnSharedPreferenceChangeListener(mOnSharedPreferenceChangeListener);
+      preferences.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     @Override
     public void onPause() {
       super.onPause();
-      mPreferences.unregisterOnSharedPreferenceChangeListener(mOnSharedPreferenceChangeListener);
+      preferences.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     /** Listener for preference changes. */
-    private final OnSharedPreferenceChangeListener mOnSharedPreferenceChangeListener =
+    private final OnSharedPreferenceChangeListener onSharedPreferenceChangeListener =
         new OnSharedPreferenceChangeListener() {
           @Override
           public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+            if (!isAdded() || (getActivity() == null)) {
+              LogUtils.w(
+                  TAG,
+                  "Fragment is not attached to activity, do not update verbosity setting page.");
+              return;
+            }
             // Handles ListPreference changed case and case where the preset is changed
             // using the selector and the fragment is visible.
             if (TextUtils.equals(key, getString(R.string.pref_verbosity_preset_key))) {
               String newValueString =
-                  mPreferences.getString(
+                  preferences.getString(
                       getString(R.string.pref_verbosity_preset_key),
                       getString(R.string.pref_verbosity_preset_value_default));
 
               replaceFragment(newValueString);
 
               // Announce new preset. If the verbosity is changed using the selector,
-              // GestureControllerApp.changeVerbosity will also call this method. SpeechController
+              // GestureController.changeVerbosity will also call this method. SpeechController
               // will then deduplicate the announcement event so only one is spoken.
-              announcePresetChange(newValueString, getActivity());
+              announcePresetChange(newValueString, context);
             }
           }
         };
 
     /** Replace preference fragment if the preset value has changed */
     private void replaceFragment(String newValueString) {
-      if (TextUtils.equals(mPresetValue, newValueString)) {
+      if (TextUtils.equals(presetValue, newValueString)) {
         return;
       }
-      VerbosityPrefFragment newFragment = new VerbosityPrefFragment();
+      VerbosityPrefFragment newFragment = new VerbosityPrefFragment(context);
       getFragmentManager().beginTransaction().replace(android.R.id.content, newFragment).commit();
     }
 

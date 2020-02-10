@@ -17,9 +17,11 @@
 package com.google.android.accessibility.utils.parsetree;
 
 import android.content.res.Resources;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Method;
@@ -277,9 +279,11 @@ import org.json.JSONObject;
  * </ul>
  */
 public class ParseTree {
+
+  private static final String TAG = "ParseTree";
+
   public ParseTree(Resources resources, String packageName) {
-    mResources = resources;
-    mPackageName = packageName;
+    mTreeInfo = new TreeInfo(resources, packageName);
   }
 
   /** An interface for supplying variables to the ParseTree */
@@ -292,16 +296,20 @@ public class ParseTree {
 
     double getNumber(int variableId);
 
+    @Nullable
     CharSequence getString(int variableId);
 
     int getEnum(int variableId);
 
+    @Nullable
     VariableDelegate getReference(int variableId);
 
     int getArrayLength(int variableId);
 
+    @Nullable
     CharSequence getArrayStringElement(int variableId, int index);
 
+    @Nullable
     VariableDelegate getArrayChildElement(int variableId, int index);
   }
 
@@ -408,6 +416,8 @@ public class ParseTree {
   }
 
   private static class TreeInfo {
+    private final Resources resources;
+    private final String packageName;
     private final Map<String, ParseTreeNode> mNamedNodes = new HashMap<>();
     private final JSONObject mEventTree = new JSONObject();
     private final JSONObject mNodes = new JSONObject();
@@ -421,14 +431,17 @@ public class ParseTree {
     private final Set<String> mPendingNamedNodes = new HashSet<>();
     private final List<Pair<ParseTreeForEachChildNode, JSONObject>> mDeferredForEachChildNodes =
         new ArrayList<>();
+
+    private TreeInfo(Resources resources, String packageName) {
+      this.resources = resources;
+      this.packageName = packageName;
+    }
   }
 
-  private final Resources mResources;
-  private final String mPackageName;
   private final Map<Pair<Integer, Integer>, ParseTreeNode> mEvents = new HashMap<>();
 
   // Data used to build the parse tree.  It's released once the tree is built.
-  private TreeInfo mTreeInfo = new TreeInfo();
+  private @Nullable TreeInfo mTreeInfo;
 
   private static final Pattern CONSTANT_PATTERN = Pattern.compile("#\\w+");
   private static final Pattern NODE_PATTERN = Pattern.compile("%\\w+");
@@ -454,21 +467,26 @@ public class ParseTree {
    *     either direction.
    */
   public void addEnum(int enumId, Map<Integer, String> values) {
-    if (mTreeInfo.mEnums.containsKey(enumId)) {
-      throw new IllegalStateException("Can't add enum, ID " + enumId + " already in use");
-    }
-
-    Map<String, Integer> reverseEnum = new HashMap<>();
-    for (Map.Entry<Integer, String> entry : values.entrySet()) {
-      if (reverseEnum.containsKey(entry.getValue())) {
-        throw new IllegalStateException(
-            "Duplicate name: " + entry.getValue() + " in enum definition");
+    if (mTreeInfo != null) {
+      TreeInfo treeInfo = mTreeInfo;
+      if (treeInfo.mEnums.containsKey(enumId)) {
+        throw new IllegalStateException("Can't add enum, ID " + enumId + " already in use");
       }
 
-      reverseEnum.put(entry.getValue(), entry.getKey());
-    }
+      Map<String, Integer> reverseEnum = new HashMap<>();
+      for (Map.Entry<Integer, String> entry : values.entrySet()) {
+        if (reverseEnum.containsKey(entry.getValue())) {
+          throw new IllegalStateException(
+              "Duplicate name: " + entry.getValue() + " in enum definition");
+        }
 
-    mTreeInfo.mEnums.put(enumId, reverseEnum);
+        reverseEnum.put(entry.getValue(), entry.getKey());
+      }
+
+      treeInfo.mEnums.put(enumId, reverseEnum);
+    } else {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
+    }
   }
 
   /**
@@ -478,12 +496,18 @@ public class ParseTree {
    * @param eventId ID used to invoke the event. Must be unique.
    */
   public void addEvent(String eventName, int eventId) {
-    if (mTreeInfo.mEventNames.containsKey(eventId)) {
-      throw new IllegalStateException(
-          "Can't add event: " + eventName + ", ID " + eventId + " already in use");
-    }
+    if (mTreeInfo != null) {
+      TreeInfo treeInfo = mTreeInfo;
 
-    mTreeInfo.mEventNames.put(eventId, eventName);
+      if (treeInfo.mEventNames.containsKey(eventId)) {
+        throw new IllegalStateException(
+            "Can't add event: " + eventName + ", ID " + eventId + " already in use");
+      }
+
+      treeInfo.mEventNames.put(eventId, eventName);
+    } else {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
+    }
   }
 
   /**
@@ -637,6 +661,11 @@ public class ParseTree {
   }
 
   public void addFunction(String name, Object delegate, Method method) {
+    if (mTreeInfo == null) {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
+      return;
+    }
+
     mTreeInfo.mFunctions.put(name, Pair.create(delegate, method));
   }
 
@@ -647,7 +676,13 @@ public class ParseTree {
    * @param definition Contains the JSON representing the parse tree data to be added.
    */
   public void mergeTree(JSONObject definition) {
+    if (mTreeInfo == null) {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
+      return;
+    }
+
     try {
+      TreeInfo treeInfo = mTreeInfo;
       if (definition.has("events")) {
         JSONObject events = definition.getJSONObject("events");
         Iterator<String> eventNames = events.keys();
@@ -655,17 +690,17 @@ public class ParseTree {
           String eventName = eventNames.next();
 
           // Unknown events are not allowed.
-          if (!mTreeInfo.mEventNames.containsValue(eventName)) {
+          if (!treeInfo.mEventNames.containsValue(eventName)) {
             throw new IllegalStateException("Unknown event name: " + eventName);
           }
 
           // Ensure there is an event registered for |eventName|
           JSONObject event;
-          if (mTreeInfo.mEventTree.has(eventName)) {
-            event = mTreeInfo.mEventTree.getJSONObject(eventName);
+          if (treeInfo.mEventTree.has(eventName)) {
+            event = treeInfo.mEventTree.getJSONObject(eventName);
           } else {
             event = new JSONObject();
-            mTreeInfo.mEventTree.put(eventName, event);
+            treeInfo.mEventTree.put(eventName, event);
           }
 
           // Put the new event's outputs into the tree.
@@ -674,7 +709,7 @@ public class ParseTree {
           while (outputs.hasNext()) {
             String outputName = outputs.next();
             // Unknown outputs are not allowed.
-            if (!mTreeInfo.mOutputNames.containsValue(outputName)) {
+            if (!treeInfo.mOutputNames.containsValue(outputName)) {
               throw new IllegalStateException("Unknown output name: " + outputName);
             }
             event.put(outputName, newEvent.get(outputName));
@@ -686,7 +721,7 @@ public class ParseTree {
         Iterator<String> nodeNames = nodes.keys();
         while (nodeNames.hasNext()) {
           String nodeName = nodeNames.next();
-          mTreeInfo.mNodes.put(nodeName, nodes.get(nodeName));
+          treeInfo.mNodes.put(nodeName, nodes.get(nodeName));
         }
       }
     } catch (JSONException e) {
@@ -695,35 +730,64 @@ public class ParseTree {
   }
 
   public void setConstantBool(String name, boolean value) {
-    mTreeInfo.mConstants.put(name, new ParseTreeBooleanConstantNode(value));
+    if (mTreeInfo != null) {
+      mTreeInfo.mConstants.put(name, new ParseTreeBooleanConstantNode(value));
+    } else {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
+    }
   }
 
   public void setConstantInteger(String name, int value) {
-    mTreeInfo.mConstants.put(name, new ParseTreeIntegerConstantNode(value));
+    if (mTreeInfo != null) {
+      mTreeInfo.mConstants.put(name, new ParseTreeIntegerConstantNode(value));
+    } else {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
+    }
   }
 
   public void setConstantNumber(String name, double value) {
-    mTreeInfo.mConstants.put(name, new ParseTreeNumberConstantNode(value));
+    if (mTreeInfo != null) {
+      mTreeInfo.mConstants.put(name, new ParseTreeNumberConstantNode(value));
+    } else {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
+    }
   }
 
   public void setConstantEnum(String name, int enumType, int value) {
-    mTreeInfo.mConstants.put(name, new ParseTreeIntegerConstantNode(value, enumType));
+    if (mTreeInfo != null) {
+      mTreeInfo.mConstants.put(name, new ParseTreeIntegerConstantNode(value, enumType));
+    } else {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
+    }
   }
 
   public void setConstantString(String name, CharSequence value) {
-    mTreeInfo.mConstants.put(name, new ParseTreeStringConstantNode(value));
+    if (mTreeInfo != null) {
+      mTreeInfo.mConstants.put(name, new ParseTreeStringConstantNode(value));
+    } else {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
+    }
   }
 
   /**
    * Build the parse tree. Once this function is called, the parse tree can no longer be modified.
    * The only valid functions to call then are parseEventTo*
    */
+  // TODO: incompatible types in argument.
+  @SuppressWarnings("nullness:argument.type.incompatible")
   public void build() {
-    for (int eventId : mTreeInfo.mEventNames.keySet()) {
-      for (String outputName : mTreeInfo.mOutputs.keySet()) {
-        VariableInfo outputInfo = mTreeInfo.mOutputs.get(outputName);
-        String eventName = mTreeInfo.mEventNames.get(eventId);
-        JSONObject eventDefinition = mTreeInfo.mEventTree.optJSONObject(eventName);
+    if (mTreeInfo == null) {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
+      return;
+    }
+
+    TreeInfo treeInfo = mTreeInfo;
+    mTreeInfo = null;
+    for (int eventId : treeInfo.mEventNames.keySet()) {
+      for (String outputName : treeInfo.mOutputs.keySet()) {
+        VariableInfo outputInfo = treeInfo.mOutputs.get(outputName);
+        String eventName = treeInfo.mEventNames.get(eventId);
+        JSONObject eventDefinition = treeInfo.mEventTree.optJSONObject(eventName);
         if (eventDefinition != null && eventDefinition.has(outputName)) {
           switch (outputInfo.variableType) {
             case ParseTree.VARIABLE_BOOL:
@@ -734,7 +798,8 @@ public class ParseTree {
               mEvents.put(
                   Pair.create(eventId, outputInfo.id),
                   new ParseTreeCommentNode(
-                      createParseTreeFromObject(eventDefinition.opt(outputName), outputInfo),
+                      createParseTreeFromObject(
+                          treeInfo, eventDefinition.opt(outputName), outputInfo),
                       EVENT_FORMAT,
                       new Object[] {outputName, eventName}));
               break;
@@ -749,16 +814,16 @@ public class ParseTree {
       }
     }
 
-    while (!mTreeInfo.mDeferredForEachChildNodes.isEmpty()) {
+    while (!treeInfo.mDeferredForEachChildNodes.isEmpty()) {
       Pair<ParseTreeForEachChildNode, JSONObject> current =
-          mTreeInfo.mDeferredForEachChildNodes.remove(0);
+          treeInfo.mDeferredForEachChildNodes.remove(0);
 
       current.first.setFunction(
           createParseTreeFromObject(
-              current.second.opt("evaluate"), new VariableInfo("function...", VARIABLE_STRING)));
+              treeInfo,
+              current.second.opt("evaluate"),
+              new VariableInfo("function...", VARIABLE_STRING)));
     }
-
-    mTreeInfo = null;
   }
 
   /**
@@ -823,7 +888,8 @@ public class ParseTree {
    * @param delegate The delegate to retrieve variables from
    * @return A string built from evaluating the event's output definition.
    */
-  public CharSequence parseEventToString(int eventId, int outputId, VariableDelegate delegate) {
+  public @Nullable CharSequence parseEventToString(
+      int eventId, int outputId, VariableDelegate delegate) {
     ParseTreeNode eventNode = mEvents.get(Pair.create(eventId, outputId));
     if (eventNode != null) {
       return eventNode.resolveToString(delegate, "");
@@ -851,39 +917,42 @@ public class ParseTree {
   }
 
   private void addVariable(String varName, VariableInfo varInfo) {
-    if (mTreeInfo.mVariables.containsKey(varName)) {
-      throw new IllegalStateException("Can't add variable: " + varName + ", name already in use");
-    }
-
-    for (VariableInfo info : mTreeInfo.mVariables.values()) {
-      if (varInfo.id == info.id) {
-        throw new IllegalStateException(
-            "Can't add variable: " + varName + ", ID " + varInfo.id + " already in use");
+    if (mTreeInfo != null) {
+      TreeInfo treeInfo = mTreeInfo;
+      if (treeInfo.mVariables.containsKey(varName)) {
+        throw new IllegalStateException("Can't add variable: " + varName + ", name already in use");
       }
-    }
 
-    mTreeInfo.mVariables.put(varName, varInfo);
+      for (VariableInfo info : treeInfo.mVariables.values()) {
+        if (varInfo.id == info.id) {
+          throw new IllegalStateException(
+              "Can't add variable: " + varName + ", ID " + varInfo.id + " already in use");
+        }
+      }
+
+      treeInfo.mVariables.put(varName, varInfo);
+    } else {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
+    }
   }
 
   private void addOutput(String outputName, VariableInfo type) {
-    if (mTreeInfo.mOutputs.containsKey(outputName)) {
-      throw new IllegalStateException("Can't add output: " + outputName + " already in use");
+    if (mTreeInfo != null) {
+      TreeInfo treeInfo = mTreeInfo;
+      if (treeInfo.mOutputs.containsKey(outputName)) {
+        throw new IllegalStateException("Can't add output: " + outputName + " already in use");
+      }
+
+      if (treeInfo.mOutputNames.containsKey(type.id)) {
+        throw new IllegalStateException(
+            "Can't add output: " + outputName + ", ID " + type.id + " already in use");
+      }
+
+      treeInfo.mOutputNames.put(type.id, outputName);
+      treeInfo.mOutputs.put(outputName, type);
+    } else {
+      LogUtils.w(TAG, "Parse tree has been built and is immutable");
     }
-
-    if (mTreeInfo.mOutputNames.containsKey(type.id)) {
-      throw new IllegalStateException(
-          "Can't add output: " + outputName + ", ID " + type.id + " already in use");
-    }
-
-    mTreeInfo.mOutputNames.put(type.id, outputName);
-    mTreeInfo.mOutputs.put(outputName, type);
-  }
-
-  private ParseTreeNode createParseTreeFromObject(
-      Object value, VariableInfo hint, String nodeName) {
-    ParseTreeNode node = createParseTreeFromObject(value, hint);
-    node.setNodeName(nodeName);
-    return node;
   }
 
   /**
@@ -893,7 +962,8 @@ public class ParseTree {
    * @param hint The type of value that is expected to be returned by this node.
    * @return A ParseTreeNode that will follow the logic defined by |value| when evaluated.
    */
-  private ParseTreeNode createParseTreeFromObject(Object value, VariableInfo hint) {
+  private static ParseTreeNode createParseTreeFromObject(
+      TreeInfo treeInfo, Object value, VariableInfo hint) {
     if (value instanceof Boolean) {
       // Boolean values are always constants.
       return new ParseTreeBooleanConstantNode((Boolean) value);
@@ -913,26 +983,27 @@ public class ParseTree {
             // Booleans and number types imply that the string is a statement that should be
             // evaluated.
             ParseTreeNode result =
-                createParseTreeFromStatement((String) value, 0, ((String) value).length());
+                createParseTreeFromStatement(
+                    treeInfo, (String) value, 0, ((String) value).length());
             return new ParseTreeCommentNode(result, "Evaluating: %s", new Object[] {value});
           }
 
         case ParseTree.VARIABLE_ENUM:
           // Enums imply that the value of the string should be looked up in the enum
           // definition.
-          return createEnumParseTreeFromString((String) value, hint.enumType);
+          return createEnumParseTreeFromString(treeInfo, (String) value, hint.enumType);
 
         case ParseTree.VARIABLE_STRING:
           {
             // Strings should have variables, constants, nodes and resources expanded.
-            ParseTreeNode result = createStringParseTreeFromString((String) value);
+            ParseTreeNode result = createStringParseTreeFromString(treeInfo, (String) value);
             return new ParseTreeCommentNode(result, "Evaluating: %s", new Object[] {value});
           }
 
         case ParseTree.VARIABLE_ARRAY:
           // If it's an array, this value will either be expanded to an array, or added as
           // a string.
-          return createArrayChildParseTreeFromString((String) value);
+          return createArrayChildParseTreeFromString(treeInfo, (String) value);
 
         case ParseTree.VARIABLE_REFERENCE:
         case ParseTree.VARIABLE_CHILD_ARRAY:
@@ -949,7 +1020,8 @@ public class ParseTree {
         Object childTree = jsonArray.opt(i);
         if (childTree != null) {
           children.add(
-              createParseTreeFromObject(childTree, new VariableInfo("array...", VARIABLE_ARRAY)));
+              createParseTreeFromObject(
+                  treeInfo, childTree, new VariableInfo("array...", VARIABLE_ARRAY)));
         } else if (i != length - 1) {
           // We allow the last element in an array to be null, since that just means there is a
           // trailing comma.
@@ -961,17 +1033,17 @@ public class ParseTree {
       // JSONObject implies a function of some sort.
       JSONObject jsonObject = (JSONObject) value;
       if (jsonObject.has("if")) {
-        return createIfParseTreeFromObject(jsonObject, hint);
+        return createIfParseTreeFromObject(treeInfo, jsonObject, hint);
       } else if (jsonObject.has("join")) {
-        return createJoinParseTreeFromObject(jsonObject);
+        return createJoinParseTreeFromObject(treeInfo, jsonObject);
       } else if (jsonObject.has("fallback")) {
-        return createFallbackParseTreeFromObject(jsonObject);
+        return createFallbackParseTreeFromObject(treeInfo, jsonObject);
       } else if (jsonObject.has("switch")) {
-        return createSwitchParseTreeFromObject(jsonObject, hint);
+        return createSwitchParseTreeFromObject(treeInfo, jsonObject, hint);
       } else if (jsonObject.has("for_reference")) {
-        return createForReferenceParseTreeNodeFromObject(jsonObject, hint);
+        return createForReferenceParseTreeNodeFromObject(treeInfo, jsonObject, hint);
       } else if (jsonObject.has("for_each_child")) {
-        return createForEachChildParseTreeNodeFromObject(jsonObject);
+        return createForEachChildParseTreeNodeFromObject(treeInfo, jsonObject);
       } else {
         StringBuilder keys = new StringBuilder();
         Iterator<String> keyIter = jsonObject.keys();
@@ -987,11 +1059,11 @@ public class ParseTree {
     }
   }
 
-  private ParseTreeNode createArrayParseTreeFromObject(Object value) {
+  private static ParseTreeNode createArrayParseTreeFromObject(TreeInfo treeInfo, Object value) {
     // If the object already evaluates to an array, return it.  Otherwise, it needs to be
     // wrapped.
     ParseTreeNode child =
-        createParseTreeFromObject(value, new VariableInfo("array...", VARIABLE_ARRAY));
+        createParseTreeFromObject(treeInfo, value, new VariableInfo("array...", VARIABLE_ARRAY));
     if (child.getType() == VARIABLE_ARRAY) {
       return child;
     } else {
@@ -1001,7 +1073,8 @@ public class ParseTree {
     }
   }
 
-  private ParseTreeNode createParseTreeFromStatement(String value, int start, int end) {
+  private static ParseTreeNode createParseTreeFromStatement(
+      TreeInfo treeInfo, String value, int start, int end) {
     ParseTreeNode lvalue = null;
 
     int offset = start;
@@ -1018,7 +1091,8 @@ public class ParseTree {
           offset++;
 
           int statementEnd = findStatementEnd(value, offset, OPERATOR_CLASS_TOKEN);
-          ParseTreeNode childNode = createParseTreeFromStatement(value, offset, statementEnd);
+          ParseTreeNode childNode =
+              createParseTreeFromStatement(treeInfo, value, offset, statementEnd);
           if (!childNode.canCoerceTo(VARIABLE_BOOL)) {
             throw new IllegalStateException(
                 String.format(
@@ -1031,13 +1105,13 @@ public class ParseTree {
           // Variable follows.
           int tokenEnd = findTokenEnd(value, offset);
           String name = value.substring(offset + 1, tokenEnd);
-          lvalue = createVariableNode(name);
+          lvalue = createVariableNode(treeInfo, name);
           offset = tokenEnd;
         } else if (current == '#') {
           // Constant follows.
           int tokenEnd = findTokenEnd(value, offset);
           String name = value.substring(offset + 1, tokenEnd);
-          lvalue = createConstantNode(name);
+          lvalue = createConstantNode(treeInfo, name);
           offset = tokenEnd;
         } else if (current == '@') {
           // Resource follows.
@@ -1045,21 +1119,22 @@ public class ParseTree {
           // Since this is handled as an integer, we ignore any parameters.
           lvalue =
               new ParseTreeResourceNode(
-                  mResources, value.substring(offset, tokenEnd), mPackageName);
+                  treeInfo.resources, value.substring(offset, tokenEnd), treeInfo.packageName);
           offset = tokenEnd;
         } else if (current == '%') {
           int tokenEnd = findTokenEnd(value, offset);
           String variableText = value.substring(offset + 1, tokenEnd);
           lvalue =
-              getOrCreateNamedNode(variableText, new VariableInfo(variableText, VARIABLE_NUMBER));
+              getOrCreateNamedNode(
+                  treeInfo, variableText, new VariableInfo(variableText, VARIABLE_NUMBER));
           offset = tokenEnd;
         } else if (isNumberStart(value, offset)) {
           int numberEnd = findNumberEnd(value, offset);
           String valueString = value.substring(offset, numberEnd);
           if (valueString.indexOf('.') == -1) {
-            lvalue = new ParseTreeIntegerConstantNode(Integer.valueOf(valueString));
+            lvalue = new ParseTreeIntegerConstantNode(Integer.parseInt(valueString));
           } else {
-            lvalue = new ParseTreeNumberConstantNode(Double.valueOf(valueString));
+            lvalue = new ParseTreeNumberConstantNode(Double.parseDouble(valueString));
           }
           offset = numberEnd;
         } else if (isFunctionStart(current)) {
@@ -1068,11 +1143,11 @@ public class ParseTree {
             throw new IllegalStateException("Function is missing parameter list: " + value);
           }
           int paramEnd = findMatchingParen(value, tokenEnd);
-          lvalue = createFunctionNode(value, offset, tokenEnd, paramEnd);
+          lvalue = createFunctionNode(treeInfo, value, offset, tokenEnd, paramEnd);
           offset = paramEnd;
         } else if (current == '(') {
           int statementEnd = findMatchingParen(value, offset);
-          lvalue = createParseTreeFromStatement(value, offset + 1, statementEnd - 1);
+          lvalue = createParseTreeFromStatement(treeInfo, value, offset + 1, statementEnd - 1);
           offset = statementEnd;
         } else {
           throw new IllegalStateException("Cannot parse statement: " + value);
@@ -1089,12 +1164,12 @@ public class ParseTree {
           // string to an enum value.
           int stringEnd = findStringEnd(value, offset);
           String enumValue = getString(value, offset, stringEnd);
-          rvalue = createEnumParseTreeFromString(enumValue, lvalue.getEnumType());
+          rvalue = createEnumParseTreeFromString(treeInfo, enumValue, lvalue.getEnumType());
           offset = stringEnd;
         } else {
           // Evaluate the next portion of the string as an rvalue.
           int statementEnd = findStatementEnd(value, offset, getOperatorClass(operator));
-          rvalue = createParseTreeFromStatement(value, offset, statementEnd);
+          rvalue = createParseTreeFromStatement(treeInfo, value, offset, statementEnd);
           offset = statementEnd;
         }
 
@@ -1128,10 +1203,18 @@ public class ParseTree {
       offset = operatorEnd;
     }
 
+    if (lvalue == null) {
+      if (end == 0) {
+        lvalue = new ParseTreeCommentNode(null, "Empty Node", true);
+
+      } else {
+        throw new IllegalStateException("Could not parse statement: " + value);
+      }
+    }
     return lvalue;
   }
 
-  private ParseTreeNode createStringParseTreeFromString(String value) {
+  private static ParseTreeNode createStringParseTreeFromString(TreeInfo treeInfo, String value) {
     List<ParseTreeNode> parts = new ArrayList<>();
 
     int offset = 0;
@@ -1154,26 +1237,26 @@ public class ParseTree {
             throw new IllegalStateException("Function is missing parameter list: " + value);
           }
           int paramEnd = findMatchingParen(value, tokenEnd);
-          parts.add(createFunctionNode(value, offset, tokenEnd, paramEnd));
+          parts.add(createFunctionNode(treeInfo, value, offset, tokenEnd, paramEnd));
           offset = paramEnd;
         } else {
           switch (current) {
             case '$':
-              parts.add(createVariableNode(value.substring(offset + 1, tokenEnd)));
+              parts.add(createVariableNode(treeInfo, value.substring(offset + 1, tokenEnd)));
               offset = tokenEnd;
               break;
             case '#':
-              parts.add(createConstantNode(value.substring(offset + 1, tokenEnd)));
+              parts.add(createConstantNode(treeInfo, value.substring(offset + 1, tokenEnd)));
               offset = tokenEnd;
               break;
             case '@':
               ParseTreeResourceNode node =
                   new ParseTreeResourceNode(
-                      mResources, value.substring(offset, tokenEnd), mPackageName);
+                      treeInfo.resources, value.substring(offset, tokenEnd), treeInfo.packageName);
               offset = tokenEnd;
               if (offset < valueLength && value.charAt(offset) == '(') {
                 int paramEnd = findMatchingParen(value, offset);
-                node.addParams(createParamListFromString(value, offset));
+                node.addParams(createParamListFromString(treeInfo, value, offset));
                 offset = paramEnd;
               }
               parts.add(node);
@@ -1183,7 +1266,7 @@ public class ParseTree {
                 String variableText = value.substring(offset + 1, tokenEnd);
                 parts.add(
                     getOrCreateNamedNode(
-                        variableText, new VariableInfo(variableText, VARIABLE_STRING)));
+                        treeInfo, variableText, new VariableInfo(variableText, VARIABLE_STRING)));
                 offset = tokenEnd;
               }
               break;
@@ -1203,19 +1286,22 @@ public class ParseTree {
     }
   }
 
-  private ParseTreeNode createEnumParseTreeFromString(String value, int enumType) {
+  private static ParseTreeNode createEnumParseTreeFromString(
+      TreeInfo treeInfo, String value, int enumType) {
     if (TextUtils.isEmpty(value)) {
       throw new IllegalStateException("Empty value is invalid for enum");
     }
 
     if (value.charAt(0) == '$') {
-      return createVariableNode(value.substring(1));
+      return createVariableNode(treeInfo, value.substring(1));
     } else if (value.charAt(0) == '%') {
       String variableText = value.substring(1);
       return getOrCreateNamedNode(
-          variableText, new VariableInfo(variableText, VARIABLE_ENUM, enumType, 0 /* inId */));
+          treeInfo,
+          variableText,
+          new VariableInfo(variableText, VARIABLE_ENUM, enumType, 0 /* inId */));
     } else {
-      Map<String, Integer> enumMap = mTreeInfo.mEnums.get(enumType);
+      Map<String, Integer> enumMap = treeInfo.mEnums.get(enumType);
       if (enumMap == null) {
         throw new IllegalStateException("Unknown enum type: " + enumType);
       }
@@ -1229,22 +1315,25 @@ public class ParseTree {
     }
   }
 
-  private ParseTreeNode createArrayChildParseTreeFromString(String value) {
+  private static ParseTreeNode createArrayChildParseTreeFromString(
+      TreeInfo treeInfo, String value) {
     if (CONSTANT_PATTERN.matcher(value).matches()) {
-      return createConstantNode(value.substring(1));
+      return createConstantNode(treeInfo, value.substring(1));
     } else if (NODE_PATTERN.matcher(value).matches()) {
       String variableText = value.substring(1);
-      return getOrCreateNamedNode(variableText, new VariableInfo(variableText, VARIABLE_ARRAY));
+      return getOrCreateNamedNode(
+          treeInfo, variableText, new VariableInfo(variableText, VARIABLE_ARRAY));
     } else if (VARIABLE_PATTERN.matcher(value).matches()) {
-      return createVariableNode(value.substring(1));
+      return createVariableNode(treeInfo, value.substring(1));
     } else {
-      return createStringParseTreeFromString(value);
+      return createStringParseTreeFromString(treeInfo, value);
     }
   }
 
   private static final String IF_FORMAT = "if (%s):";
 
-  private ParseTreeNode createIfParseTreeFromObject(JSONObject value, VariableInfo hint) {
+  private static ParseTreeNode createIfParseTreeFromObject(
+      TreeInfo treeInfo, JSONObject value, VariableInfo hint) {
     Object ifDefinition = value.opt("if");
     Object thenDefinition = value.opt("then");
     Object elseDefinition = value.opt("else");
@@ -1253,16 +1342,18 @@ public class ParseTree {
       throw new IllegalStateException("'if' requires either 'then' or 'else'");
     }
 
+    // TODO: incompatible types in argument.
+    @SuppressWarnings("nullness:argument.type.incompatible")
     ParseTreeNode ifNode =
-        createParseTreeFromObject(ifDefinition, new VariableInfo("if...", VARIABLE_BOOL));
+        createParseTreeFromObject(treeInfo, ifDefinition, new VariableInfo("if...", VARIABLE_BOOL));
     ParseTreeNode onTrue = null;
     ParseTreeNode onFalse = null;
     if (thenDefinition != null) {
-      onTrue = createParseTreeFromObject(thenDefinition, hint);
+      onTrue = createParseTreeFromObject(treeInfo, thenDefinition, hint);
     }
 
     if (elseDefinition != null) {
-      onFalse = createParseTreeFromObject(elseDefinition, hint);
+      onFalse = createParseTreeFromObject(treeInfo, elseDefinition, hint);
     }
 
     ParseTreeNode result = new ParseTreeIfNode(ifNode, onTrue, onFalse);
@@ -1271,18 +1362,21 @@ public class ParseTree {
     return new ParseTreeCommentNode(result, IF_FORMAT, new Object[] {ifString});
   }
 
-  private ParseTreeNode createJoinParseTreeFromObject(JSONObject value) {
+  // TODO: incompatible types in argument.
+  @SuppressWarnings("nullness:argument.type.incompatible")
+  private static ParseTreeNode createJoinParseTreeFromObject(TreeInfo treeInfo, JSONObject value) {
     Object joinDefinition = value.opt("join");
     String separator = value.optString("separator", ", ");
     boolean pruneEmpty = value.optBoolean("prune_empty", true);
 
     return new ParseTreeJoinNode(
-        createArrayParseTreeFromObject(joinDefinition), separator, pruneEmpty);
+        createArrayParseTreeFromObject(treeInfo, joinDefinition), separator, pruneEmpty);
   }
 
   private static final String FALLBACK_FORMAT = "fallback (%d items):";
 
-  private ParseTreeNode createFallbackParseTreeFromObject(JSONObject value) {
+  private static ParseTreeNode createFallbackParseTreeFromObject(
+      TreeInfo treeInfo, JSONObject value) {
     JSONArray fallbackDefinition = value.optJSONArray("fallback");
     if (fallbackDefinition == null) {
       throw new IllegalStateException("'fallback' must be an Array");
@@ -1293,7 +1387,9 @@ public class ParseTree {
     for (int i = 0; i < length; i++) {
       children.add(
           createParseTreeFromObject(
-              fallbackDefinition.opt(i), new VariableInfo("fallback...", VARIABLE_STRING)));
+              treeInfo,
+              fallbackDefinition.opt(i),
+              new VariableInfo("fallback...", VARIABLE_STRING)));
     }
     ParseTreeNode result = new ParseTreeFallbackNode(children);
     return new ParseTreeCommentNode(result, FALLBACK_FORMAT, new Object[] {length});
@@ -1302,7 +1398,8 @@ public class ParseTree {
   private static final String SWITCH_FORMAT = "switch (%s):";
   private static final String CASE_FORMAT = "case %s:";
 
-  private ParseTreeNode createSwitchParseTreeFromObject(JSONObject value, VariableInfo hint) {
+  private static ParseTreeNode createSwitchParseTreeFromObject(
+      TreeInfo treeInfo, JSONObject value, VariableInfo hint) {
     String switchVariable = value.optString("switch");
     JSONObject casesDefinition = value.optJSONObject("cases");
     Object defaultDefinition = value.opt("default");
@@ -1318,31 +1415,34 @@ public class ParseTree {
     ParseTreeNode switchNode;
     if (VARIABLE_PATTERN.matcher(switchVariable).matches()) {
       String switchVariableName = switchVariable.substring(1);
-      VariableInfo variableInfo = mTreeInfo.mVariables.get(switchVariableName);
+      VariableInfo variableInfo = treeInfo.mVariables.get(switchVariableName);
       if (variableInfo == null) {
         throw new IllegalStateException("Unknown variable: " + switchVariable);
       }
 
       if (variableInfo.variableType != VARIABLE_ENUM
-          || !mTreeInfo.mEnums.containsKey(variableInfo.enumType)) {
+          || !treeInfo.mEnums.containsKey(variableInfo.enumType)) {
         throw new IllegalStateException("'switch' requires a valid enum: " + switchVariable);
       }
 
-      switchNode = createVariableNode(switchVariableName);
+      switchNode = createVariableNode(treeInfo, switchVariableName);
     } else if (CONSTANT_PATTERN.matcher(switchVariable).matches()) {
-      switchNode = createConstantNode(switchVariable.substring(1));
+      switchNode = createConstantNode(treeInfo, switchVariable.substring(1));
     } else {
       throw new IllegalStateException(
           "'switch' condition must be a variable or constant: " + switchVariable);
     }
 
     int enumType = switchNode.getEnumType();
-    Map<String, Integer> enums = mTreeInfo.mEnums.get(enumType);
+    Map<String, Integer> enums = treeInfo.mEnums.get(enumType);
+    if (enums == null) {
+      throw new IllegalStateException("Enum type " + enumType + " doesn't exist");
+    }
     Map<Integer, ParseTreeNode> cases = new HashMap<>();
 
     ParseTreeNode defaultNode = null;
     if (defaultDefinition != null) {
-      defaultNode = createParseTreeFromObject(defaultDefinition, hint);
+      defaultNode = createParseTreeFromObject(treeInfo, defaultDefinition, hint);
     }
 
     Iterator<String> caseNames = casesDefinition.keys();
@@ -1353,7 +1453,9 @@ public class ParseTree {
         throw new IllegalStateException(
             "Enum type " + enumType + " doesn't contain value: " + caseName);
       }
-      ParseTreeNode node = createParseTreeFromObject(casesDefinition.opt(caseName), hint);
+      // TODO: incompatible types in argument.
+      @SuppressWarnings("nullness:argument.type.incompatible")
+      ParseTreeNode node = createParseTreeFromObject(treeInfo, casesDefinition.opt(caseName), hint);
       cases.put(
           enumValue, new ParseTreeCommentNode(node, CASE_FORMAT, new Object[] {caseName}, false));
     }
@@ -1364,8 +1466,8 @@ public class ParseTree {
 
   private static final String FOR_REFERENCE_FORMAT = "for_reference (%s):";
 
-  private ParseTreeNode createForReferenceParseTreeNodeFromObject(
-      JSONObject value, VariableInfo hint) {
+  private static ParseTreeNode createForReferenceParseTreeNodeFromObject(
+      TreeInfo treeInfo, JSONObject value, VariableInfo hint) {
     String forReferenceVariable = value.optString("for_reference");
 
     if (forReferenceVariable == null || !VARIABLE_PATTERN.matcher(forReferenceVariable).matches()) {
@@ -1378,7 +1480,7 @@ public class ParseTree {
     }
 
     String forReferenceVariableName = forReferenceVariable.substring(1);
-    VariableInfo variableInfo = mTreeInfo.mVariables.get(forReferenceVariableName);
+    VariableInfo variableInfo = treeInfo.mVariables.get(forReferenceVariableName);
     if (variableInfo == null) {
       throw new IllegalStateException("Unknown variable: " + forReferenceVariable);
     }
@@ -1388,16 +1490,20 @@ public class ParseTree {
           "'for_reference' requires a reference: " + forReferenceVariable);
     }
 
-    ParseTreeNode function = createParseTreeFromObject(value.opt("evaluate"), hint);
+    // TODO: incompatible types in argument.
+    @SuppressWarnings("nullness:argument.type.incompatible")
+    ParseTreeNode function = createParseTreeFromObject(treeInfo, value.opt("evaluate"), hint);
     ParseTreeForReferenceNode result =
-        new ParseTreeForReferenceNode(createVariableNode(forReferenceVariableName), function);
+        new ParseTreeForReferenceNode(
+            createVariableNode(treeInfo, forReferenceVariableName), function);
     return new ParseTreeCommentNode(
         result, FOR_REFERENCE_FORMAT, new Object[] {forReferenceVariable});
   }
 
   private static final String FOR_EACH_CHILD_FORMAT = "for_each_child (%s):";
 
-  private ParseTreeNode createForEachChildParseTreeNodeFromObject(JSONObject value) {
+  private static ParseTreeNode createForEachChildParseTreeNodeFromObject(
+      TreeInfo treeInfo, JSONObject value) {
     String forEachChildVariable = value.optString("for_each_child");
 
     if (forEachChildVariable == null || !VARIABLE_PATTERN.matcher(forEachChildVariable).matches()) {
@@ -1410,7 +1516,7 @@ public class ParseTree {
     }
 
     String forEachChildVariableName = forEachChildVariable.substring(1);
-    VariableInfo variableInfo = mTreeInfo.mVariables.get(forEachChildVariableName);
+    VariableInfo variableInfo = treeInfo.mVariables.get(forEachChildVariableName);
     if (variableInfo == null) {
       throw new IllegalStateException("Unknown variable: " + forEachChildVariable);
     }
@@ -1421,35 +1527,39 @@ public class ParseTree {
     }
 
     ParseTreeForEachChildNode result =
-        new ParseTreeForEachChildNode(createVariableNode(forEachChildVariableName));
-    mTreeInfo.mDeferredForEachChildNodes.add(Pair.create(result, value));
+        new ParseTreeForEachChildNode(createVariableNode(treeInfo, forEachChildVariableName));
+    treeInfo.mDeferredForEachChildNodes.add(Pair.create(result, value));
     return new ParseTreeCommentNode(
         result, FOR_EACH_CHILD_FORMAT, new Object[] {forEachChildVariable});
   }
 
-  private ParseTreeNode getOrCreateNamedNode(String name, VariableInfo hint) {
-    ParseTreeNode node = mTreeInfo.mNamedNodes.get(name);
+  private static final String NAMED_NODE_FORMAT = "%%%s";
+
+  private static ParseTreeNode getOrCreateNamedNode(
+      TreeInfo treeInfo, String name, VariableInfo hint) {
+    ParseTreeNode node = treeInfo.mNamedNodes.get(name);
     if (node != null) {
       return node;
     }
 
-    if (mTreeInfo.mPendingNamedNodes.contains(name)) {
+    if (treeInfo.mPendingNamedNodes.contains(name)) {
       throw new IllegalStateException("Named node creates a cycle: " + name);
     }
 
-    Object nodeDefinition = mTreeInfo.mNodes.opt(name);
+    Object nodeDefinition = treeInfo.mNodes.opt(name);
     if (nodeDefinition == null) {
       throw new IllegalStateException("Missing named node: " + name);
     }
-    mTreeInfo.mPendingNamedNodes.add(name);
-    node = createParseTreeFromObject(nodeDefinition, hint, name);
-    mTreeInfo.mNamedNodes.put(name, node);
-    mTreeInfo.mPendingNamedNodes.remove(name);
+    treeInfo.mPendingNamedNodes.add(name);
+    node = createParseTreeFromObject(treeInfo, nodeDefinition, hint);
+    node = new ParseTreeCommentNode(node, NAMED_NODE_FORMAT, new Object[] {name}); // Wrap in trace.
+    treeInfo.mNamedNodes.put(name, node);
+    treeInfo.mPendingNamedNodes.remove(name);
     return node;
   }
 
-  private ParseTreeNode createVariableNode(String name) {
-    VariableInfo varInfo = mTreeInfo.mVariables.get(name);
+  private static ParseTreeNode createVariableNode(TreeInfo treeInfo, String name) {
+    VariableInfo varInfo = treeInfo.mVariables.get(name);
     if (varInfo == null) {
       throw new IllegalStateException("Unknown variable: " + name);
     }
@@ -1461,30 +1571,30 @@ public class ParseTree {
     }
   }
 
-  private ParseTreeNode createConstantNode(String name) {
-    ParseTreeNode node = mTreeInfo.mConstants.get(name);
+  private static ParseTreeNode createConstantNode(TreeInfo treeInfo, String name) {
+    ParseTreeNode node = treeInfo.mConstants.get(name);
     if (node == null) {
       throw new IllegalStateException("Unknown constant: " + name);
     }
     return node;
   }
 
-  private ParseTreeNode createFunctionNode(
-      String value, int nameOffset, int paramOffset, int paramEnd) {
+  private static ParseTreeNode createFunctionNode(
+      TreeInfo treeInfo, String value, int nameOffset, int paramOffset, int paramEnd) {
     ParseTreeNode result = null;
     String name = value.substring(nameOffset, paramOffset);
     if (TextUtils.equals(name, "length")) {
-      List<ParseTreeNode> params = createParamListFromString(value, paramOffset);
+      List<ParseTreeNode> params = createParamListFromString(treeInfo, value, paramOffset);
       if (params.size() != 1) {
         throw new IllegalStateException("length() takes exactly one argument: " + value);
       }
       result = new ParseTreeLengthNode(params.get(0));
     } else {
-      Pair<Object, Method> function = mTreeInfo.mFunctions.get(name);
+      Pair<Object, Method> function = treeInfo.mFunctions.get(name);
       if (function == null) {
         throw new IllegalStateException("Unknown function: " + name);
       }
-      List<ParseTreeNode> params = createParamListFromString(value, paramOffset);
+      List<ParseTreeNode> params = createParamListFromString(treeInfo, value, paramOffset);
       result = new ParseTreeFunctionNode(function.first, function.second, params);
     }
 
@@ -1500,7 +1610,8 @@ public class ParseTree {
    * @param offset Offset in the string to start from.
    * @return A list of ParseTreeNodes generated from each statement in the list.
    */
-  private List<ParseTreeNode> createParamListFromString(String value, int offset) {
+  private static List<ParseTreeNode> createParamListFromString(
+      TreeInfo treeInfo, String value, int offset) {
     List<ParseTreeNode> result = new ArrayList<>();
 
     // Move the offset past the initial '('
@@ -1509,7 +1620,7 @@ public class ParseTree {
       offset = skipWhitespace(value, offset);
 
       int end = findStatementEnd(value, offset, OPERATOR_CLASS_NONE);
-      result.add(createParseTreeFromStatement(value, offset, end));
+      result.add(createParseTreeFromStatement(treeInfo, value, offset, end));
       offset = end;
 
       offset = skipWhitespace(value, offset);

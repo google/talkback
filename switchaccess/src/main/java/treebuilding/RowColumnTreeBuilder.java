@@ -16,67 +16,89 @@
 
 package com.google.android.accessibility.switchaccess.treebuilding;
 
-import android.content.Context;
+import android.accessibilityservice.AccessibilityService;
 import android.graphics.Rect;
-import com.google.android.accessibility.switchaccess.ClearFocusNode;
 import com.google.android.accessibility.switchaccess.SwitchAccessNodeCompat;
-import com.google.android.accessibility.switchaccess.SwitchAccessWindowInfo;
-import com.google.android.accessibility.switchaccess.TreeScanNode;
-import com.google.android.accessibility.switchaccess.TreeScanSelectionNode;
+import com.google.android.accessibility.switchaccess.treenodes.ClearFocusNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanSelectionNode;
 import java.util.Comparator;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
- * Builds an option scanning tree for row-column scanning. The rows are linear scanned, as are the
- * elements withing the row. Note that this builder ignores the hierarchy of the views entirely. It
- * just groups Views based on their spatial location. That works fine for something like a keyboard,
- * but will not be ideal for all UIs.
+ * Builds a binary tree for row-column scanning. The rows are linear scanned, as are the elements
+ * within the row. Note that this builder ignores the hierarchy of the views entirely. It just
+ * groups Views based on their spatial location. That works fine for something like a keyboard, but
+ * will not be ideal for all UIs.
  */
 public class RowColumnTreeBuilder extends BinaryTreeBuilder {
   /* Any rows shorter than this should just be linearly scanned */
   private static final int MIN_NODES_PER_ROW = 3;
 
   private static final Comparator<RowBounds> ROW_BOUNDS_COMPARATOR =
-      new Comparator<RowBounds>() {
-        @Override
-        public int compare(RowBounds rowBounds, RowBounds t1) {
-          if (rowBounds.mTop != t1.mTop) {
-            /* Want higher y coords to be traversed later */
-            return t1.mTop - rowBounds.mTop;
-          }
-          /* Want larger views to be traversed earlier */
-          return rowBounds.mBottom - t1.mBottom;
+      (rowBounds, otherRowBounds) -> {
+        if (!rowBounds.equals(otherRowBounds)
+            && (rowBounds.top <= otherRowBounds.top)
+            && (rowBounds.bottom >= otherRowBounds.bottom)
+            && (rowBounds.left != otherRowBounds.left)) {
+          /*
+           * For rows that vertically span multiple other rows, traverse the left ones earlier. For
+           * example, the diagram below shows the correct traversal of the given rows.
+           * _____________
+           * |   |   |   |
+           * | 1 | 2 |   |
+           * |___|___|   |
+           * |   |   |   |
+           * | 3 | 4 | 7 |
+           * |___|___|   |
+           * |   |   |   |
+           * | 5 | 6 |   |
+           * |___|___|___|
+           */
+          return otherRowBounds.left - rowBounds.left;
+        } else if (rowBounds.top != otherRowBounds.top) {
+          /* Want higher y coordinates to be traversed earlier. */
+          return otherRowBounds.top - rowBounds.top;
         }
+        /* Want larger views to be traversed earlier. */
+        return rowBounds.bottom - otherRowBounds.bottom;
       };
 
   private static class RowBounds {
-    private final int mTop;
-    private final int mBottom;
+    private final int top;
+    private final int bottom;
 
-    public RowBounds(int top, int bottom) {
-      mTop = top;
-      mBottom = bottom;
+    // Used only for sorting, not for equality. If two RowBounds have equal tops and bottoms but
+    // different lefts, they are still equal by definition of a row. i.e. items next to each other
+    // with identical tops and bottoms are considered to be in the same row, regardless of
+    // horizontal position.
+    private final int left;
+
+    public RowBounds(int top, int bottom, int left) {
+      this.top = top;
+      this.bottom = bottom;
+      this.left = left;
     }
 
     @Override
     public int hashCode() {
       /* Not the most general hash, but sufficient for reasonable screen sizes */
-      return (mTop << 16) + mBottom;
+      return (top << 16) + bottom;
     }
 
     @Override
-    public boolean equals(Object o) {
-      if (!(o instanceof RowBounds)) {
-        return false;
-      }
-      return (((RowBounds) o).mTop == mTop) && (((RowBounds) o).mBottom == mBottom);
+    public boolean equals(@Nullable Object o) {
+      return (o instanceof RowBounds)
+          && (((RowBounds) o).top == top)
+          && (((RowBounds) o).bottom == bottom);
     }
   }
 
-  public RowColumnTreeBuilder(Context context) {
-    super(context);
+  public RowColumnTreeBuilder(AccessibilityService service) {
+    super(service);
   }
 
   @Override
@@ -105,16 +127,6 @@ public class RowColumnTreeBuilder extends BinaryTreeBuilder {
     return tree;
   }
 
-  @Override
-  public TreeScanNode addWindowListToTree(
-      List<SwitchAccessWindowInfo> windowList,
-      TreeScanNode treeToBuildOn,
-      boolean shouldPlaceTreeFirst,
-      boolean includeNonActionableItems) {
-    /* Not currently needed */
-    return null;
-  }
-
   private SortedMap<RowBounds, SortedMap<Integer, SwitchAccessNodeCompat>>
       getMapOfNodesByXYCoordinate(
           SwitchAccessNodeCompat root, boolean shouldScanNonActionableItems) {
@@ -132,7 +144,8 @@ public class RowColumnTreeBuilder extends BinaryTreeBuilder {
          * Use negative value so traversal will start with the last elements, so the first
          * ones end up at the top of the tree.
          */
-        RowBounds rowBounds = new RowBounds(boundsInScreen.top, boundsInScreen.bottom);
+        RowBounds rowBounds =
+            new RowBounds(boundsInScreen.top, boundsInScreen.bottom, boundsInScreen.left);
         SortedMap<Integer, SwitchAccessNodeCompat> mapOfNodes = nodesByXYCoordinate.get(rowBounds);
         if (mapOfNodes == null) {
           mapOfNodes = new TreeMap<>();

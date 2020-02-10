@@ -15,4 +15,6 @@
 
 <resources>
     <bool name="is_tablet">false</bool>
+    <!-- Whether to support lift-to-type, declare it in meta-data of AndroidManifest.xml -->
+    <bool name="support_lift_to_type">true</bool>
 </resources>

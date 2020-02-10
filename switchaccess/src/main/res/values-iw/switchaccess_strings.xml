@@ -1,172 +1,328 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"שינוי אופן גישה"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"גישה באמצעות מתג מאפשרת לאנשים עם קשיים מוטוריים לשלוט בטלפונים וטאבלטים באמצעות מתג אחד או יותר. השתמש במתגים כדי לבחור פריטים, לגלול, להזין טקסט ועוד."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"שליטה במכשיר באמצעות מתגים"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"עזרה ומשוב"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"סריקה אוטומטית"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"זמן בסריקה אוטומטית"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"סריקה אוטומטית הפוכה"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="two">‏%.2f שניות</item>
-      <item quantity="many">‏%.2f שניות</item>
-      <item quantity="other">‏%.2f שניות</item>
-      <item quantity="one">שנייה אחת</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"סריקה מותאמת אישית"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"שיטת סריקה"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"עיכוב בפריט הראשון"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"הקצאת מתגים"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"הקצאת מתגים לפעולות"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"הקצאת מתגים לסריקה"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"מהירות קו"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"מספר הסריקות"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"בחר כמה פעמים לחזור על הסריקה"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"‏זמן Debounce"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"לחיצות מרובות בתוך פרק זמן זה יחשבו כלחיצה אחת."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"שחרור כדי לבצע פעולה"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"בצע פעולה כאשר המתג משוחרר"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="two">‏%d לולאות</item>
-      <item quantity="many">‏%d לולאות</item>
-      <item quantity="other">‏%d לולאות</item>
-      <item quantity="one">‏%d לולאה</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"המקש \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' כבר מוקצה לפעולה \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\'"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="two">‏%d מתגים הוקצו</item>
-      <item quantity="many">‏%d מתגים הוקצו</item>
-      <item quantity="other">‏%d מתגים הוקצו</item>
-      <item quantity="one">‏מתג %d הוקצה</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"‏מתג בחירת קבוצה %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"הבא"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"הקודם"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"בחר"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"לחיצה ארוכה"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"גלילה קדימה"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"גלילה אחורה"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"ביטול"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"הרחב"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"כווץ"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"הדגשת טקסט"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"העתק"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"חתוך"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"הדבק"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"תפריט"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"הקודם"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"דף הבית"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"סקירה"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"הודעות"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"הגדרות מהירות"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"גלילה קדימה"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"גלילה אחורה"</string>
-    <string name="point_scan" msgid="4514216871544244788">"סריקת נקודה"</string>
-    <string name="box_scan" msgid="6675486192630209217">"נקודת יציאה לסריקה"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"החלקה ימינה"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"החלקה שמאלה"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"החלקה מעלה"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"החלקה מטה"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"החלקה (מותאמת אישית)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"התרחק"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"התקרב"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"הגדרות גישה באמצעות מתג"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"הקש שילוב מתגים כדי להוסיף או להסיר אותו מהרשימה"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"נקה הקצאת מתגים"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL +‎ "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT +‎ "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT +‎ "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"לא הוקצו מתגים"</string>
-    <string name="more" msgid="1547670498589416840">"עוד"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"רווח"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"שמור"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"סגנון הדגשה בסריקה"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"סגנון סריקה ראשי"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"צבע הדגשה"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"סגנון הדגשת שורה"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"מדיניות הפרטיות"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"הפעל בחירה אוטומטית"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"השבת בחירה אוטומטית"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"התו הבא"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"המילה הבאה"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"השורה הבאה"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"הפיסקה הבאה"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"הדף הבא"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"התו הקודם"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"המילה הקודמת"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"השורה הקודמת"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"הפיסקה הקודמת"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"הדף הקודם"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"התחלה אוטומטית לסריקה"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"הסריקה מתחילה ללא הקשה על המתג"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"פתח התקנת גישה באמצעות מתג"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"אשף ההגדרה גישה באמצעות מתג"</string>
-    <string name="one_switch" msgid="5247899666787922810">"מתג אחד"</string>
-    <string name="two_switches" msgid="3082487661638289356">"שני מתגים"</string>
-    <string name="finish" msgid="4267641294267512480">"סיום"</string>
-    <string name="exit" msgid="8664597014081860813">"יציאה"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"בחר את מספר המתגים"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"לחץ על המתג כדי להתחיל לנוע בין הפריטים באופן אוטומטי, ולאחר מכן לחץ שוב כדי לבחור את הפריט המודגש."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"לחץ על מתג אחד כדי לעבור בין פריטים. לחץ על המתג האחר כדי לבחור את הפריט המודגש."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"בחר מהירות סריקה"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"בחר כמה זמן על ההדגשה להישאר על כל פריט"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"מהירה (עיכוב של <xliff:g id="DELAY_SPEED">%1$s</xliff:g> שניות)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"בינונית (עיכוב של <xliff:g id="DELAY_SPEED">%1$s</xliff:g> שניות)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"איטית (עיכוב של <xliff:g id="DELAY_SPEED">%1$s</xliff:g> שניות)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"מותאם אישית"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"עיכוב (שניות)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"המקש \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' כבר הוקצה לפעולה אחרת"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"סריקת שורות/עמודות"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"בחירת קבוצה"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"סריקה ליניארית"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"קורא מסך קולי"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"‏הגדרות TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"עבור פריטים מרובים"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"אמור את הפריט הראשון והאחרון"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"אמור את מספר הפריטים"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"אמור את כל הפריטים המודגשים"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"סיום דיבור לפני מעבר"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"קבוצה <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> ל <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> פריטים"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"בחר כדי לגלול"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"פריט לא ידוע"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"בחר כיצד לסרוק"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"סרוק שורה אחת בכל פעם. לאחר שנבחרה שורה, עבור בין פריטים ברשימה זו."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"עבור בין פריטים בזה אחר זה. שים לב כי המקלדות תמיד יסרקו לפי שורה."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"לכל הפריטים יוקצו צבעים. לחץ על המתג המתאים לצבע סביב הפריט הרצוי. צמצם את גודל הקבוצה עד שתגיע לבחירה שלך."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"מתגים שהוקצו לפעולה <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"אף אחד"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"האם לנקות מתגים שהוקצו?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"כבר הקצית מתגים."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"נקה מתגים"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"שמור מתגים"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"לא הוקצו מתגים"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"לא הוקצו מתגים לפעולה זו. האם ברצונך להמשיך?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"קבוצה בצבע <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"לחץ על מתג כדי להקצות אותו לבחירת הקבוצה בצבע <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"לחץ על מתג כדי להקצות אותו לפעולה \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"התחל סריקה ובחר"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"בדוק את ההגדרות שלך עם איקס-עיגול"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"לחץ על \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" כדי להתחיל בסריקה. לחץ על המתג שוב כדי לבחור את הפריט המודגש. אתה ראשון!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"לחץ על \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" כדי להתחיל בסריקה. לחץ שנית על המתג כדי לבחור את השורה המודגשת. אתה ראשון!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"לחץ על \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" כדי לעבור בין הפריטים. לחץ על \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" כדי לבחור את הפריט המודגש. אתה ראשון!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"לחץ על \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> כדי לעבור בין השורות. לחץ \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" כדי לבחור את הפריטים המודגשים. חזור כדי להגיע לפריט שלך. אתה ראשון!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"לחץ על \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" כדי לבחור את הפריטים המודגשים ב<xliff:g id="COLOR_NAME_1">%2$s</xliff:g> או לחץ \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\"  כדי לבחור את הפריטים המודגשים ב<xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. חזור כדי להגיע לפריט שלך. אתה ראשון!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"עדיין לא הוקצו מתגים לכל הפעולות. השתמש בלחצן הקודם כדי לחזור ולסיים הקצאת המתגים."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"אפס משחק"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"הריבוע הזה כבר תפוס. נסה שוב!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"ניצחת!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"בהצלחה בפעם הבאה"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"תיקו!"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"תוכל לשמור את ההגדרות הנוכחיות שלך, או להתחיל מחדש."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"שמור הגדרות"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"ברצוני להתחיל מחדש"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"ההתקנה הסתיימה"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"הכל מוכן."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"תוכל תמיד לשנות הגדרות נוספות או לפתוח שוב את אשף ההגדרה מהגדרות הגישה באמצעות מתג."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">גישה באמצעות מתג</string>
+  <string name="switch_access_service_description">גישה באמצעות מתג מאפשרת לאנשים עם קשיים מוטוריים לשלוט בטלפונים וטאבלטים באמצעות מתג אחד או יותר. השתמש במתגים כדי לבחור פריטים, לגלול, להזין טקסט ועוד.</string>
+  <string name="switch_access_service_summary">שליטה במכשיר באמצעות מתגים</string>
+  <string name="title_pref_help_feedback">עזרה ומשוב</string>
+  <string name="title_pref_licenses">רישיונות קוד פתוח</string>
+  <string name="title_pref_category_auto_scan">סריקה אוטומטית</string>
+  <string name="title_pref_auto_scan_disabled">סריקה אוטומטית (מושבתת)</string>
+  <string name="action_key_summary_auto_scan">לחיצה על מתג זה תתחיל להעביר את ההדגשה בין פריטים באופן אוטומטי. לחיצה חוזרת תבחר את הפריט המודגש.</string>
+  <string name="title_pref_auto_scan_time_delay">זמן בסריקה אוטומטית</string>
+  <string name="action_name_reverse_auto_scan">סריקה אוטומטית הפוכה</string>
+  <string name="title_pref_reverse_auto_scan_disabled">סריקה אוטומטית לאחור (מושבתת)</string>
+  <string name="action_key_summary_reverse_auto_scan">לחיצה על מתג זה תתחיל להעביר את ההדגשה בין הפריטים בסדר הפוך. לחיצה חוזרת תבחר את הפריט המודגש.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">שניה אחת</item>
+    <item quantity="two">%.2f שניות</item>
+    <item quantity="many">%.2f שניות</item>
+    <item quantity="other">%.2f שניות</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">סריקה מותאמת אישית</string>
+  <string name="title_pref_scanning_methods">שיטת סריקה</string>
+  <string name="title_pref_start_scan_delay">עיכוב בפריט הראשון</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">‏בחירת תוספת הזמן שהוקדש לפריט הראשון. משך זמן זה מתווסף למשך הסריקה האוטומטית.\n\nהגדרה זו משפיעה על הסריקה האוטומטית וגם על סריקת נקודה.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">‏יש לבחור את תוספת הזמן שתוקדש לפריט הראשון. לאחר משך זמן זה, יתחילו הקו האנכי או הקו האופקי לנוע.\n\nהגדרה זו משפיעה על סריקה אוטומטית וכן על סריקת נקודה.</string>
+  <string name="title_pref_category_assign_switches">הקצאת מתגים</string>
+  <string name="title_pref_category_key_mappings">הקצאת מתגים לפעולות גלובליות</string>
+  <string name="summary_pref_category_key_mappings">פעולות גלובליות ניתן לבצע בכל עת</string>
+  <string name="title_pref_category_scan_key_mappings">הקצאת מתגים לסריקה</string>
+  <string name="summary_pref_category_scan_key_mappings">סריקה מאפשרת להזיז סימון ולבחור פריטים מסומנים</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">הזזה ובחירה</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">פעולות על פריטים מסומנים</string>
+  <string name="title_pref_point_scan_line_speed">מהירות קו</string>
+  <string name="dialog_message_pref_line_speed">ניתן לבחור באיזו מהירות ינועו הקו האופקי והקו האנכי במסך.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 ס\"מ לשנייה</item>
+    <item quantity="two">%.2f ס\"מ לשנייה</item>
+    <item quantity="many">%.2f ס\"מ לשנייה</item>
+    <item quantity="other">%.2f ס\"מ לשנייה</item>
+  </plurals>
+  <string name="title_pref_loop_count">מספר הסריקות</string>
+  <string name="dialog_message_pref_loop_count">‏ניתן לבחור כמה פעמים הסריקה חוזרת.\n\n הגדרה זו משפיעה על סריקה אוטומטית וכן על סריקת נקודה.</string>
+  <string name="summary_pref_point_scan">ניתן להשתמש בקווים הנעים כדי לבחור מיקום מסוים - אופקי ואנכי. %1$s</string>
+  <string name="point_scan_enable_animations_message">יש להפעיל את האנימציות כדי להשתמש בתכונה זו.</string>
+  <string name="title_pref_category_switch_accomodation">התאמת מתגים</string>
+  <string name="title_pref_debounce_time">התעלמות מלחיצות חוזרות</string>
+  <string name="dialog_message_pref_debounce_time">לחיצות מרובות על המתג בתוך פרק זמן זה יחשבו כלחיצה אחת.</string>
+  <string name="title_pref_press_on_release">שחרור כדי לבצע פעולה</string>
+  <string name="subtitle_pref_press_on_release">בצע פעולה כאשר המתג משוחרר</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d לולאה</item>
+    <item quantity="two">%d לולאות</item>
+    <item quantity="many">%d לולאות</item>
+    <item quantity="other">%d לולאות</item>
+  </plurals>
+  <string name="preference_off">כבוי</string>
+  <string name="preference_on">פועל</string>
+  <string name="toast_msg_key_already_assigned">המקש \'%1$s\' כבר מוקצה לפעולה \'%2$s\'</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">מתג %d הוקצה</item>
+    <item quantity="two">%d מתגים הוקצו</item>
+    <item quantity="many">%d מתגים הוקצו</item>
+    <item quantity="other">%d מתגים הוקצו</item>
+  </plurals>
+  <string name="option_scan_switch_format">מתג בחירת קבוצה %1$d</string>
+  <string name="option_scan_switch_format_with_color">מתג בחירת קבוצה %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">לחיצה על מתג זה תבחר בקבוצה %1$d.</string>
+  <string name="action_name_next">הבא</string>
+  <string name="action_key_summary_next">לחיצה על מתג זה תדגיש את הפריט הבא.</string>
+  <string name="action_name_previous">הקודם</string>
+  <string name="action_key_summary_previous">לחיצה על מתג זה תדגיש את הפריט הקודם.</string>
+  <string name="action_name_click">בחר</string>
+  <string name="action_key_summary_click">לחיצה על מתג זה תבחר בפריט המודגש.</string>
+  <string name="action_name_long_click">לחיצה ארוכה</string>
+  <string name="action_key_summary_long_click">לחיצה על מתג זה תבצע לחיצה ארוכה על הפריט המודגש.</string>
+  <string name="action_name_scroll_forward">גלילה קדימה</string>
+  <string name="action_key_summary_scroll_forward">לחיצה על מתג זה תגלול את הפריט המודגש קדימה.</string>
+  <string name="action_name_scroll_backward">גלילה אחורה</string>
+  <string name="action_key_summary_scroll_backward">לחיצה על מתג זה תגלול את הפריט המודגש אחורה.</string>
+  <string name="action_name_dismiss">ביטול</string>
+  <string name="action_name_expand">הרחב</string>
+  <string name="action_name_collapse">כווץ</string>
+  <string name="action_name_highlight_text">הדגשת טקסט</string>
+  <string name="action_group_name_highlight">הדגשה…</string>
+  <string name="action_name_highlight_all_text">הדגשת כל הטקסט</string>
+  <string name="action_name_highlight_granular_text">הדגשה של %1$s</string>
+  <string name="action_name_copy">העתק</string>
+  <string name="action_name_copy_all_text">העתקת הכול</string>
+  <string name="action_name_cut">חתוך</string>
+  <string name="action_name_cut_all_text">גזירת הכול</string>
+  <string name="action_name_paste">הדבק</string>
+  <string name="action_name_undo">ביטול הפעולה</string>
+  <string name="action_name_redo">ביצוע מחדש</string>
+  <string name="action_group_name_delete">מחיקה…</string>
+  <string name="action_name_delete">מחיקה של %1$s</string>
+  <string name="action_name_delete_highlighted_text">מחיקה של הטקסט המודגש</string>
+  <string name="option_scanning_menu_button">תפריט</string>
+  <string name="option_scanning_menu_button_content_description">תפריט גישה באמצעות מתג</string>
+  <string name="switch_access_global_menu">תפריט גלובלי של גישה באמצעות מתג</string>
+  <string name="switch_access_actions_menu">תפריט פעולות של גישה באמצעות מתג</string>
+  <string name="switch_access_close_menu">סגירה</string>
+  <string name="switch_access_back_menu">חזרה</string>
+  <string name="next_arrow_content_description">הבא</string>
+  <string name="previous_arrow_content_description">הקודם</string>
+  <string name="global_action_back">הקודם</string>
+  <string name="global_action_key_summary_back">לחיצה על מתג זה תחזיר למסך הקודם או תסתיר את המקלדת, אם היא גלויה.</string>
+  <string name="global_action_home">דף הבית</string>
+  <string name="global_action_key_summary_home">לחיצה על מתג זה תעביר למסך הבית.</string>
+  <string name="global_action_overview">סקירה</string>
+  <string name="global_action_key_summary_overview">לחיצה על מתג זה תציג רשימה של אפליקציות שנפתחו לאחרונה.</string>
+  <string name="global_action_notifications">התראות</string>
+  <string name="global_action_key_summary_notifications">לחיצה על מתג זה תציג את ההתראות במכשיר.</string>
+  <string name="global_action_quick_settings">הגדרות מהירות</string>
+  <string name="global_action_key_summary_quick_settings">לחיצה על מתג זה תציג את ההגדרות המהירות של המכשיר.</string>
+  <string name="global_action_power_options">אפשרויות הפעלה</string>
+  <string name="global_menu_volume_heading">עוצמת קול</string>
+  <string name="volume_menu_media">עוצמת קול של מדיה</string>
+  <string name="volume_menu_call">עוצמת קול של שיחות</string>
+  <string name="volume_menu_ring">עוצמת הצלצול</string>
+  <string name="volume_menu_alarm">עוצמת קול של התראה</string>
+  <string name="volume_menu_accessibility">עוצמת קול של נגישות</string>
+  <string name="volume_menu_mute">השתקה</string>
+  <string name="volume_menu_unmute">ביטול השתקה</string>
+  <string name="volume_menu_increase">הגדלה</string>
+  <string name="volume_settings">הגדרות עוצמת הקול</string>
+  <string name="volume_menu_decrease">הפחתה</string>
+  <string name="scrollable_forward">גלילה קדימה</string>
+  <string name="scrollable_backward">גלילה אחורה</string>
+  <string name="point_scan">סריקת נקודה</string>
+  <string name="box_scan">נקודת יציאה לסריקה</string>
+  <string name="action_name_swipe_right">החלקה ימינה</string>
+  <string name="action_name_swipe_left">החלקה שמאלה</string>
+  <string name="action_name_swipe_up">החלקה מעלה</string>
+  <string name="action_name_swipe_down">החלקה מטה</string>
+  <string name="action_name_swipe_custom">החלקה (מותאמת אישית)</string>
+  <string name="action_name_zoom_out">התרחק</string>
+  <string name="action_name_zoom_in">התקרב</string>
+  <string name="switch_access_preferences_title">הגדרות גישה באמצעות מתג</string>
+  <string name="key_combo_preference_instructions">הקש שילוב מתגים כדי להוסיף או להסיר אותו מהרשימה</string>
+  <string name="key_combo_preference_reset_button">נקה הקצאת מתגים</string>
+  <string name="key_combo_preference_control_plus">CTRL +‎ </string>
+  <string name="key_combo_preference_shift_plus">SHIFT +‎ </string>
+  <string name="key_combo_preference_alt_plus">ALT +‎ </string>
+  <string name="no_key_assigned">לא הוקצו מתגים</string>
+  <string name="more">עוד</string>
+  <string name="name_of_space_bar">רווח</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">שמור</string>
+  <string name="title_pref_category_display_and_sound">תצוגה וצליל</string>
+  <string name="title_pref_highlight_0">סגנון הדגשה בסריקה</string>
+  <string name="title_pref_primary_scan_style">סגנון סריקה ראשי</string>
+  <string name="title_pref_highlight_0_color">צבע הדגשה</string>
+  <string name="title_pref_highlight_0_weight">סגנון הדגשת שורה</string>
+  <string name="title_pref_privacy_policy">מדיניות הפרטיות</string>
+  <string name="title_pref_auto_select">בחירה אוטומטית</string>
+  <string name="summary_pref_auto_select">בחירה אוטומטית בפריט המסומן. אם לא ניתן לבחור את הפריט, או אם הגדרה זו כבויה, יוצג תפריט של פעולות זמינות.</string>
+  <string name="switch_access_global_menu_enable_autoselect">הפעל בחירה אוטומטית</string>
+  <string name="switch_access_global_menu_disable_autoselect">השבת בחירה אוטומטית</string>
+  <string name="switch_access_move_next">הבא…</string>
+  <string name="switch_access_move_next_character">התו הבא</string>
+  <string name="switch_access_move_next_word">המילה הבאה</string>
+  <string name="switch_access_move_next_line">השורה הבאה</string>
+  <string name="switch_access_move_next_paragraph">הפיסקה הבאה</string>
+  <string name="switch_access_move_next_page">הדף הבא</string>
+  <string name="switch_access_move_next_sentence">המשפט הבא</string>
+  <string name="switch_access_move_prev">הקודם…</string>
+  <string name="switch_access_move_prev_character">התו הקודם</string>
+  <string name="switch_access_move_prev_word">המילה הקודמת</string>
+  <string name="switch_access_move_prev_line">השורה הקודמת</string>
+  <string name="switch_access_move_prev_paragraph">הפיסקה הקודמת</string>
+  <string name="switch_access_move_prev_page">הדף הקודם</string>
+  <string name="switch_access_move_prev_sentence">המשפט הקודם</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">התחלה אוטומטית לסריקה</string>
+  <string name="switch_access_auto_start_scan_summary">הסריקה מתחילה ללא הקשה על המתג</string>
+  <string name="pref_begin_switchaccess_setup_title">פתיחה של מדריך ההגדרות</string>
+  <string name="setup_wizard_heading">מדריך להגדרת גישה באמצעות מתג</string>
+  <string name="one_switch">מתג אחד</string>
+  <string name="two_switches">שני מתגים</string>
+  <string name="finish">סיום</string>
+  <string name="exit">יציאה</string>
+  <string name="intro_heading">בחירת מתג</string>
+  <string name="usb_switch_option_text">‏מתג USB</string>
+  <string name="bluetooth_switch_option_text">‏מתג Bluetooth</string>
+  <string name="usb_switch_description_text">‏חיבור מתג פיזית באמצעות USB</string>
+  <string name="bluetooth_switch_description_text">‏התאמת מתג באופן אלחוטי באמצעות Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">‏המכשיר שברשותך אינו תומך ב-Bluetooth. במקום זאת, יש לנסות להשתמש במתג פיזי.</string>
+  <string name="connected_usb_devices_header">התקנים מחוברים</string>
+  <string name="usb_no_devices_connected_message">‏לא נמצאו התקני USB. צריך לוודא שההתקן מחובר היטב.</string>
+  <string name="connect_usb_heading">‏חיבור של מתג USB</string>
+  <string name="pair_bluetooth_heading">‏התאמה של מתג Bluetooth</string>
+  <string name="pair_bluetooth_subheading">‏יש להקיש על מתג ה-Bluetooth למטה</string>
+  <string name="bluetooth_not_enabled_message">‏כדי להתאים מתג Bluetooth, יש להפעיל Bluetooth</string>
+  <string name="enable_bluetooth_button_title">‏הפעלת Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">‏אין מכשירי Bluetooth מותאמים</string>
+  <string name="paired_devices_header">‏התקני Bluetooth מותאמים</string>
+  <string name="available_devices_header">‏מכשירי Bluetooth זמינים</string>
+  <string name="bluetooth_computer_content_description">מחשב</string>
+  <string name="bluetooth_phone_content_description">טלפון</string>
+  <string name="bluetooth_imaging_content_description">הדמיה</string>
+  <string name="bluetooth_headphone_content_description">אוזנייה</string>
+  <string name="bluetooth_peripheral_content_description">ציוד היקפי</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">מתחבר...</string>
+  <string name="bluetooth_connected_description">מחובר</string>
+  <string name="bluetooth_device_unavailable_description">המכשיר לא זמין</string>
+  <string name="reconnecting_unsupported_title">לא ניתן להתחבר למכשיר</string>
+  <string name="reconnecting_unsupported_message">‏אין אפשרות להתחבר למכשיר המותאם הקודם באמצעות גישה באמצעות מתג. יש לוודא שהמכשיר מופעל ומחובר.\n\nאם המכשיר עדיין לא מתחבר, יש לעבור להגדרות Bluetooth ולנסות להתחבר מחדש.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">‏מעבר אל הגדרות Bluetooth</string>
+  <string name="number_of_switches_heading">בחר את מספר המתגים</string>
+  <string name="title_assign_scan_key">הקצאת המתג %1$s</string>
+  <string name="one_switch_description_text">יש להקיש על המתג כדי להתחיל לעבור בין הפריטים באופן אוטומטי. לאחר מכן, צריך להקיש שוב כדי לבחור את הפריט המסומן.</string>
+  <string name="two_switches_description_text">לחץ על מתג אחד כדי לעבור בין פריטים. לחץ על המתג האחר כדי לבחור את הפריט המודגש.</string>
+  <string name="step_speed_heading">בחר מהירות סריקה</string>
+  <string name="step_speed_subheading">בחר כמה זמן על ההדגשה להישאר על כל פריט</string>
+  <string name="fast_radio_button_title">מהירה (עיכוב של %1$s שניות)</string>
+  <string name="medium_radio_button_title">בינונית (עיכוב של %1$s שניות)</string>
+  <string name="slow_radio_button_title">איטית (עיכוב של %1$s שניות)</string>
+  <string name="custom_switch">מותאם אישית</string>
+  <string name="custom_edit_text">עיכוב (שניות)</string>
+  <string name="setup_toast_msg_key_already_assigned">המקש \'%1$s\' כבר הוקצה לפעולה אחרת</string>
+  <string name="row_column_scanning_title">סריקת שורות/עמודות</string>
+  <string name="option_scanning_title">בחירת קבוצה (הגדרות מתקדמות)</string>
+  <string name="linear_scanning_title">סריקה ליניארית</string>
+  <string name="linear_scanning_except_keyboard_title">סריקה לינארית (למעט מקלדת)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">דיבור, צליל ורטט</string>
+  <string name="title_pref_switch_access_spoken_feedback">קורא מסך קולי</string>
+  <string name="title_pref_scan_non_actionable_items">הקראת טקסט תיאורי</string>
+  <string name="scan_non_actionable_items_summary">שמיעה של קורא מסך קולי המקריא פריטים הכוללים פעולות זמינות וטקסט תיאורי</string>
+  <string name="title_pref_switch_access_verbosity">דרגות מלל</string>
+  <string name="summary_verbosity">בחירה בכמות המידע המוקרא</string>
+  <string name="title_pref_verbosity_category_verbosity_details">פרטי מלל</string>
+  <string name="title_pref_switch_access_keyboard_echo">הגיית הקלדה</string>
+  <string name="keyboard_echo_summary_on">הקראת המקשים שהוקשו במקלדת שמופיעה במסך</string>
+  <string name="keyboard_echo_summary_off">ללא הקראת המקשים שהוקשו במקלדת שמופיעה במסך</string>
+  <string name="title_pref_enable_hints">הקראת טיפים לשימוש</string>
+  <string name="enable_hints_summary_on">הקראת טיפים לשימוש במהלך הניווט לאחר השהיה קצרה</string>
+  <string name="enable_hints_summary_off">ללא הקראת טיפים לשימוש בזמן הזזה של מיקוד הנגישות</string>
+  <string name="title_pref_speak_container_element_position">הקראת מיקומים של פריטים ברשימות</string>
+  <string name="speak_container_element_position_summary_on">מיקומים של פריטים ברשימות יוקראו בקול</string>
+  <string name="speak_container_element_position_summary_off">ללא הקראת מיקומים של פריטים ברשימות</string>
+  <string name="title_pref_speak_element_type">הקראה של סוג הרכיב</string>
+  <string name="speak_element_type_summary_on">הקראת סוג הרכיב של הפריטים הנמצאים במיקוד הנגישות</string>
+  <string name="speak_element_type_summary_off">ללא הקראה של סוג הרכיב של פריטים הנמצאים במיקוד הנגישות</string>
+  <string name="title_pref_pitch_change_for_ime">שימוש בשינויי גובה הקול</string>
+  <string name="pitch_change_for_ime_summary_on">הקראת משוב מקלדת בקול נמוך יותר</string>
+  <string name="pitch_change_for_ime_summary_off">ללא שינוי של גובה הקול בעת ההקראה</string>
+  <string name="title_pref_speak_selected_item_or_group">השמעה בקול של שם הפריט או שם הקבוצה שנבחרו</string>
+  <string name="speak_selected_item_or_group_summary">יש להשמיע בקול את שם הפריט או שם הקבוצה לאחר בחירתם</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">זמן הקראה מרבי לפריט</string>
+  <string name="dialog_message_pref_maximum_time_per_item">‏הגדרה של משך הזמן המרבי להקראת התיאור של כל פריט. ההקראה תופסק לאחר משך הזמן שהוגדר.\nהערה: כשאפשרות זו מופעלת, הטיפים תמיד יוקראו.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">שונות</string>
+  <string name="title_pref_node_description_order">סדר התיאור של הרכיבים</string>
+  <string name="title_pref_switch_access_speak_element_ids">הקראת מזהי הרכיב</string>
+  <string name="speak_element_ids_summary_on">הקראה של מזהי הרכיב של לחצנים ללא תווית</string>
+  <string name="speak_element_ids_summary_off">ללא הקראת מזהי הרכיב של לחצנים ללא תווית</string>
+  <string name="title_pref_switch_access_tts_settings">‏הגדרות TTS</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">כאשר יש ריבוי של פריטים מודגשים</string>
+  <string name="title_pref_switch_access_speak_first_last_item">הקראת הפריט הראשון והאחרון</string>
+  <string name="title_pref_switch_access_speak_number_of_items">אמור את מספר הפריטים</string>
+  <string name="title_pref_switch_access_speak_all_items">אמור את כל הפריטים המודגשים</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">סיום דיבור לפני מעבר</string>
+  <string name="title_pref_spoken_feedback_other_feedback">משוב נוסף</string>
+  <string name="title_pref_developer_settings">הגדרות למפתחים</string>
+  <string name="title_pref_spoken_feedback_overlay">הצגת פלט קולי</string>
+  <string name="title_pref_switch_access_vibration_feedback">משוב ברטט</string>
+  <string name="vibration_feedback_summary">הפעלת רטט כדי לציין שמשהו השתנה (למשל שינוי תוכן במסך)</string>
+  <string name="title_pref_switch_access_sound_feedback">משוב צלילי</string>
+  <string name="sound_feedback_summary">הפעלה של התראת צליל כדי לציין שמשהו השתנה (למשל שינוי של תוכן במסך)</string>
+  <string name="title_pref_switch_access_sound_volume">עוצמת הצליל</string>
+  <string name="title_pref_switch_access_audio_ducking">התאמה של עוצמת השמע</string>
+  <string name="audio_ducking_summary">החלשת העוצמה של פרטי אודיו אחרים בזמן דיבור</string>
+  <string name="switch_access_focus_cleared_no_selection">המסך השתנה</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">יש להקיש על מתג הבחירה כדי לבחור שורה</string>
+  <string name="switch_access_spoken_feedback_group">קבוצה %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">יש להקיש על מתג קבוצה %1$s כדי לבחור קבוצה</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">יש להקיש על מתג קבוצה %1$s כדי לבחור פריט</string>
+  <string name="switch_access_spoken_feedback_to">%1$s ל %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s פריטים</string>
+  <string name="switch_access_spoken_feedback_group_selected">נבחרה קבוצה %1$s</string>
+  <string name="switch_access_spoken_feedback_row_selected">נבחרה שורה</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s נבחר</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">ניתן לגלילה</string>
+  <string name="switch_access_spoken_feedback_scroll">בחר כדי לגלול</string>
+  <string name="switch_access_spoken_feedback_unknown">פריט לא ידוע</string>
+  <string name="scanning_method_heading">בחר כיצד לסרוק</string>
+  <string name="row_column_scanning_description">סרוק שורה אחת בכל פעם. לאחר שנבחרה שורה, עבור בין פריטים ברשימה זו.</string>
+  <string name="linear_scanning_description">מעבר בין הפריטים, פריט אחד בכל פעם</string>
+  <string name="linear_scanning_except_keyboard_description">מעבר בין פריטים בזה אחר זה. חשוב לשים לב כי המקלדות יסרקו תמיד לפי שורה.</string>
+  <string name="option_scanning_description">לכל הפריטים יוקצו צבעים. לחץ על המתג המתאים לצבע סביב הפריט הרצוי. צמצם את גודל הקבוצה עד שתגיע לבחירה שלך.</string>
+  <string name="setup_switch_assignment_heading">מתגים שהוקצו לפעולה %s</string>
+  <string name="setup_switch_assignment_empty">אף אחד</string>
+  <string name="clear_keys_dialog_title">האם לנקות מתגים שהוקצו?</string>
+  <string name="clear_keys_dialog_message">כבר הקצית מתגים.</string>
+  <string name="clear_keys_dialog_positive_button">נקה מתגים</string>
+  <string name="clear_keys_dialog_negative_button">שמור מתגים</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">לא הוקצו מתגים</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">לא הוקצו מתגים לפעולה זו. האם ברצונך להמשיך?</string>
+  <string name="option_scan_switch_title">קבוצה בצבע %1$s</string>
+  <string name="option_scan_switch_subtitle">לחץ על מתג כדי להקצות אותו לבחירת הקבוצה בצבע %1$s.</string>
+  <string name="assign_switch_subtitle">לחץ על מתג כדי להקצות אותו לפעולה \"%1$s\".</string>
+  <string name="auto_scan_action_description">התחל סריקה ובחר</string>
+  <string name="switch_game_heading">בדוק את ההגדרות שלך עם איקס-עיגול</string>
+  <string name="switch_game_one_switch_linear_subheading">לחץ על \"%1$s\" כדי להתחיל בסריקה. לחץ על המתג שוב כדי לבחור את הפריט המודגש. אתה ראשון!</string>
+  <string name="switch_game_one_switch_row_col_subheading">לחץ על \"%1$s\" כדי להתחיל בסריקה. לחץ שנית על המתג כדי לבחור את השורה המודגשת.
+אתה ראשון!</string>
+  <string name="switch_game_two_switch_linear_subheading">יש ללחוץ על \"%1$s\" כדי לעבור בין פריטים. ללחוץ על \"%2$s\" כדי לבחור את הפריט המודגש. אפשר להתחיל!</string>
+  <string name="switch_game_two_switch_row_col_subheading">יש ללחוץ על \"%1$s\" כדי לעבור בין השורות. ייש ללחוץ על \"%2$s\" כדי לבחור בשורה המודגשת. ניתן לחזור על הפעולה כדי לבחור פריט בשורה זו. אפשר להתחיל!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">יש ללחוץ על \"%1$s\" כדי לבחור פריטים מודגשים בצבע %2$s או ללחוץ על \"%4$s\" כדי לבחור פריטים מודגשים בצבע %3$s. ניתן לחזור על הפעולה כדי להגיע לפריט הרצוי. אפשר להתחיל!</string>
+  <string name="switch_game_incomplete_switches_subheading">עדיין לא הוקצו מתגים לכל הפעולות. השתמש בלחצן הקודם כדי לחזור ולסיים הקצאת המתגים.</string>
+  <string name="game_square_content_description">%1$s במיקום %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">ריק</string>
+  <string name="game_reset_button_title">אפס משחק</string>
+  <string name="game_square_already_taken">הריבוע הזה כבר תפוס. נסה שוב!</string>
+  <string name="game_win_outcome_title">ניצחת!</string>
+  <string name="game_loss_outcome_title">בהצלחה בפעם הבאה</string>
+  <string name="game_tie_outcome_title">תיקו!</string>
+  <string name="game_outcome_body_text">תוכל לשמור את ההגדרות הנוכחיות שלך, או להתחיל מחדש.</string>
+  <string name="game_outcome_positive_response">שמור הגדרות</string>
+  <string name="game_outcome_negative_response">ברצוני להתחיל מחדש</string>
+  <string name="setup_completion_heading">ההתקנה הסתיימה</string>
+  <string name="setup_completion_message">הכל מוכן.</string>
+  <string name="setup_completion_settings_reminder">תוכל תמיד לשנות הגדרות נוספות או לפתוח שוב את אשף ההגדרה מהגדרות הגישה באמצעות מתג.</string>
+  <string name="dialog_url_list">יש לבחור קישור</string>
+  <string name="dialog_do_not_disturb_permission_title">לגישה באמצעות מתג נדרשת הרשאה להתאמה של עוצמת הקול</string>
+  <string name="dialog_do_not_disturb_permission_message">‏להתאמת עוצמת הקול מתפריט הגישה באמצעות מתג, יש להפעיל את הגישה לתכונה \'נא לא להפריע\' עבור כלי הנגישות של Android</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">פתיחת ההגדרות</string>
 </resources>

@@ -23,9 +23,9 @@ import java.util.List;
 
 public class ImportLabelRequest extends LabelClientRequest<Integer> {
 
-  private final List<Label> mLabels;
-  private final boolean mOverrideExistingLabels;
-  private final OnImportLabelCallback mCallback;
+  private final List<Label> labels;
+  private final boolean overrideExistingLabels;
+  private final OnImportLabelCallback callback;
 
   public ImportLabelRequest(
       LabelProviderClient client,
@@ -33,9 +33,9 @@ public class ImportLabelRequest extends LabelClientRequest<Integer> {
       boolean overrideExistingLabels,
       OnImportLabelCallback listener) {
     super(client);
-    mLabels = labels;
-    mOverrideExistingLabels = overrideExistingLabels;
-    mCallback = listener;
+    this.labels = labels;
+    this.overrideExistingLabels = overrideExistingLabels;
+    callback = listener;
   }
 
   @Override
@@ -52,7 +52,7 @@ public class ImportLabelRequest extends LabelClientRequest<Integer> {
       currentLabels = new ArrayList<>();
     }
 
-    LabelSeparator separator = new LabelSeparator(currentLabels, mLabels);
+    LabelSeparator separator = new LabelSeparator(currentLabels, labels);
     List<Label> newLabels = separator.getImportedNewLabels();
     int updateCount = 0;
     int labelCount = newLabels.size();
@@ -62,7 +62,7 @@ public class ImportLabelRequest extends LabelClientRequest<Integer> {
       updateCount++;
     }
 
-    if (mOverrideExistingLabels) {
+    if (overrideExistingLabels) {
       List<Label> existentConflictLabels = separator.getExistingConflictLabels();
       int existentLabelCount = existentConflictLabels.size();
       for (int index = 0; index < existentLabelCount; index++) {
@@ -84,8 +84,8 @@ public class ImportLabelRequest extends LabelClientRequest<Integer> {
 
   @Override
   public void onPostExecute(Integer result) {
-    if (mCallback != null && result != null) {
-      mCallback.onLabelImported(result);
+    if (callback != null && result != null) {
+      callback.onLabelImported(result);
     }
   }
 

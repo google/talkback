@@ -31,19 +31,20 @@ import android.telephony.TelephonyManager;
 import android.text.SpannableStringBuilder;
 import android.text.format.DateFormat;
 import android.text.format.DateUtils;
-import android.util.Log;
 import com.google.android.accessibility.talkback.contextmenu.MenuManager;
 import com.google.android.accessibility.talkback.controller.TelevisionNavigationController;
 import com.google.android.accessibility.talkback.features.ProximitySensorListener;
-import com.google.android.accessibility.utils.FormFactorUtils;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.output.FeedbackController;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
+import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 // TODO: Refactor this class into two separate receivers
@@ -51,6 +52,9 @@ import java.util.Set;
 // and call into other classes.
 /** {@link BroadcastReceiver} for receiving updates for our context - device state */
 public class RingerModeAndScreenMonitor extends BroadcastReceiver {
+
+  private static final String TAG = "RingerModeAndScreenMon";
+
   /** The intent filter to match phone and screen state changes. */
   private static final IntentFilter STATE_CHANGE_FILTER = new IntentFilter();
 
@@ -61,60 +65,51 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
     STATE_CHANGE_FILTER.addAction(Intent.ACTION_USER_PRESENT);
   }
 
-  private final Context mContext;
-  private final SpeechController mSpeechController;
-  private final ProximitySensorListener mProximitySensorListener;
-  private final ShakeDetector mShakeDetector;
-  private final TelevisionNavigationController mTelevisionNavigationController;
-  private final AudioManager mAudioManager;
-  private final FeedbackController mFeedbackController;
-  private final MenuManager mMenuManager;
-  private final TelephonyManager mTelephonyManager;
-  private final Set<DialogInterface> mOpenDialogs = new HashSet<>();
-  private final boolean mIsWatch;
+  private final TalkBackService service;
+  private final Pipeline.FeedbackReturner pipeline;
+  private final ProximitySensorListener proximitySensorListener;
+  private final TelevisionNavigationController televisionNavigationController;
+  private final AudioManager audioManager;
+  private final MenuManager menuManager;
+  private final TelephonyManager telephonyManager;
+  private final Set<DialogInterface> openDialogs = new HashSet<>();
+  private final boolean isWatch;
 
   /** The current ringer mode. */
-  private int mRingerMode = AudioManager.RINGER_MODE_NORMAL;
+  private int ringerMode = AudioManager.RINGER_MODE_NORMAL;
 
-  private boolean mIsScreenOn;
+  private boolean isScreenOn;
+
+  /** The list containing screen changed listeners from other function callback. */
+  private List<ScreenChangedListener> screenChangedListeners = new ArrayList<>();
 
   /** Creates a new instance. */
   public RingerModeAndScreenMonitor(
-      FeedbackController feedbackController,
       MenuManager menuManager,
-      ShakeDetector shakeDetector,
-      SpeechController speechController,
+      Pipeline.FeedbackReturner pipeline,
       ProximitySensorListener proximitySensorListener,
-      TalkBackService context) {
-    if (feedbackController == null) {
-      throw new IllegalStateException();
-    }
+      TalkBackService service) {
     if (menuManager == null) {
       throw new IllegalStateException();
     }
-    if (speechController == null) {
+    if (pipeline == null) {
       throw new IllegalStateException();
     }
     if (proximitySensorListener == null) {
       throw new IllegalStateException();
     }
-    if (shakeDetector == null) {
-      throw new IllegalStateException();
-    }
 
-    mContext = context;
-    mFeedbackController = feedbackController;
-    mMenuManager = menuManager;
-    mSpeechController = speechController;
-    mProximitySensorListener = proximitySensorListener;
-    mShakeDetector = shakeDetector;
-    mTelevisionNavigationController = context.getTelevisionNavigationController();
+    this.service = service;
+    this.menuManager = menuManager;
+    this.pipeline = pipeline;
+    this.proximitySensorListener = proximitySensorListener;
+    televisionNavigationController = service.getTelevisionNavigationController();
 
-    mAudioManager = (AudioManager) context.getSystemService(Service.AUDIO_SERVICE);
-    mTelephonyManager = (TelephonyManager) context.getSystemService(Service.TELEPHONY_SERVICE);
-    //noinspection deprecation
-    mIsScreenOn = ((PowerManager) context.getSystemService(Context.POWER_SERVICE)).isScreenOn();
-    mIsWatch = FormFactorUtils.getInstance(context).isWatch();
+    audioManager = (AudioManager) service.getSystemService(Service.AUDIO_SERVICE);
+    telephonyManager = (TelephonyManager) service.getSystemService(Service.TELEPHONY_SERVICE);
+    // noinspection deprecation
+    isScreenOn = ((PowerManager) service.getSystemService(Context.POWER_SERVICE)).isScreenOn();
+    isWatch = FeatureSupport.isWatch(service);
   }
 
   @Override
@@ -132,11 +127,11 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
             intent.getIntExtra(AudioManager.EXTRA_RINGER_MODE, AudioManager.RINGER_MODE_NORMAL));
         break;
       case Intent.ACTION_SCREEN_ON:
-        mIsScreenOn = true;
+        isScreenOn = true;
         handleScreenOn(eventId);
         break;
       case Intent.ACTION_SCREEN_OFF:
-        mIsScreenOn = false;
+        isScreenOn = false;
         handleScreenOff(eventId);
         break;
       case Intent.ACTION_USER_PRESENT:
@@ -146,12 +141,12 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
   }
 
   public void updateScreenState() {
-    //noinspection deprecation
-    mIsScreenOn = ((PowerManager) mContext.getSystemService(Context.POWER_SERVICE)).isScreenOn();
+    // noinspection deprecation
+    isScreenOn = ((PowerManager) service.getSystemService(Context.POWER_SERVICE)).isScreenOn();
   }
 
   public boolean isScreenOn() {
-    return mIsScreenOn;
+    return isScreenOn;
   }
 
   public IntentFilter getFilter() {
@@ -161,8 +156,16 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
   /** Handles when the device is unlocked. Just speaks "unlocked." */
   private void handleDeviceUnlocked(EventId eventId) {
     if (isIdle()) {
-      final String text = mContext.getString(R.string.value_device_unlocked);
-      mSpeechController.speak(text, SpeechController.QUEUE_MODE_INTERRUPT, 0, null, eventId);
+      if (isWatch) {
+        // : Use chime instead of speech on watches, since it happens on every screen wake
+        // whether or not the screen lock is enabled.
+        pipeline.returnFeedback(eventId, Feedback.sound(R.raw.volume_beep));
+      } else {
+        final String ttsText = service.getString(R.string.value_device_unlocked);
+        SpeakOptions speakOptions =
+            SpeakOptions.create().setQueueMode(SpeechController.QUEUE_MODE_INTERRUPT);
+        pipeline.returnFeedback(eventId, Feedback.speech(ttsText, speakOptions));
+      }
     }
   }
 
@@ -172,62 +175,64 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
    */
   @SuppressWarnings("deprecation")
   private void handleScreenOff(EventId eventId) {
-    mProximitySensorListener.setScreenIsOn(false);
-    mMenuManager.dismissAll();
+    proximitySensorListener.setScreenIsOn(false);
+    menuManager.dismissAll();
 
     // Iterate over a copy because dialog dismiss handlers might try to unregister dialogs.
-    LinkedList<DialogInterface> openDialogsCopy = new LinkedList<>(mOpenDialogs);
+    List<DialogInterface> openDialogsCopy = new ArrayList<>(openDialogs);
     for (DialogInterface dialog : openDialogsCopy) {
       dialog.cancel();
     }
-    mOpenDialogs.clear();
+    openDialogs.clear();
 
-    final SpannableStringBuilder builder =
-        new SpannableStringBuilder(mContext.getString(R.string.value_screen_off));
+    final SpannableStringBuilder ttsText =
+        new SpannableStringBuilder(service.getString(R.string.value_screen_off));
     // Only announce ringer state if we're not in a call.
     if (isIdle()) {
-      appendRingerStateAnnouncement(builder);
-    }
-
-    mShakeDetector.pausePolling();
-
-    if (mRingerMode == AudioManager.RINGER_MODE_NORMAL) {
-      final float volume;
-      // Gets TalkBack's default earcon volume from FeedbackController.
-      final float talkbackVolume = getStreamVolume(FeedbackController.DEFAULT_STREAM);
-      if ((talkbackVolume > 0)
-          && (mAudioManager.isWiredHeadsetOn() || mAudioManager.isBluetoothA2dpOn())) {
-        // TODO: refactor the following lines.
-        // Play the ringer beep on the default (music) stream to avoid
-        // issues with ringer audio (e.g. no speech on ICS and
-        // interruption of music on JB). Adjust playback volume to
-        // compensate for music volume.
-        final float ringVolume = getStreamVolume(AudioManager.STREAM_RING);
-        volume = Math.min(1.0f, (ringVolume / talkbackVolume));
-      } else {
-        volume = 1.0f;
-      }
-
-      //: Do not have any chime for Android Wear during screen off.
-      if (!mIsWatch) {
-        // Normally we'll play the volume beep on the ring stream.
-        mFeedbackController.playAuditory(R.raw.volume_beep, 1.0f /* rate */, volume);
-      }
+      appendRingerStateAnnouncement(ttsText);
     }
 
     // Always reset the television remote mode to the standard (navigate) mode on screen off.
-    if (mTelevisionNavigationController != null) {
-      mTelevisionNavigationController.resetToNavigateMode();
+    if (televisionNavigationController != null) {
+      televisionNavigationController.resetToNavigateMode();
     }
 
-    //: Do not have any screen off message for Android Wear.
-    if (!mIsWatch) {
-      mSpeechController.speak(
-          builder,
-          SpeechController.QUEUE_MODE_INTERRUPT,
-          FeedbackItem.FLAG_NO_HISTORY,
-          null,
-          eventId);
+    // Stop queued speech and events. AccessibilityEventProcessor will block new events.
+    service.clearQueues();
+
+    // Speak "screen off".
+    // : Do not have any screen off message and any chime for Android Wear.
+    if (!isWatch) {
+      SpeakOptions speakOptions =
+          SpeakOptions.create()
+              .setQueueMode(SpeechController.QUEUE_MODE_INTERRUPT)
+              .setFlags(FeedbackItem.FLAG_NO_HISTORY);
+      final float volume;
+      if (ringerMode == AudioManager.RINGER_MODE_NORMAL) {
+        // Gets TalkBack's default earcon volume from FeedbackController.
+        final float talkbackVolume = getStreamVolume(FeedbackController.DEFAULT_STREAM);
+        if ((talkbackVolume > 0)
+            && (audioManager.isWiredHeadsetOn() || audioManager.isBluetoothA2dpOn())) {
+          // TODO: refactor the following lines.
+          // Play the ringer beep on the default (music) stream to avoid
+          // issues with ringer audio (e.g. no speech on ICS and
+          // interruption of music on JB). Adjust playback volume to
+          // compensate for music volume.
+          final float ringVolume = getStreamVolume(AudioManager.STREAM_RING);
+          volume = Math.min(1.0f, (ringVolume / talkbackVolume));
+        } else {
+          volume = 1.0f;
+        }
+        // Normally we'll play the volume beep on the ring stream.
+        pipeline.returnFeedback(
+            eventId, Feedback.sound(R.raw.volume_beep, 1.0f, volume).speech(ttsText, speakOptions));
+      } else {
+        pipeline.returnFeedback(eventId, Feedback.speech(ttsText, speakOptions));
+      }
+    }
+
+    for (ScreenChangedListener screenChangedListener : screenChangedListeners) {
+      screenChangedListener.onScreenChanged(isScreenOn, eventId);
     }
   }
 
@@ -237,32 +242,40 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
    */
   private void handleScreenOn(EventId eventId) {
     // TODO: This doesn't look right. Should probably be using a listener.
-    mProximitySensorListener.setScreenIsOn(true);
-    final SpannableStringBuilder builder = new SpannableStringBuilder();
+    proximitySensorListener.setScreenIsOn(true);
+    final SpannableStringBuilder ttsText = new SpannableStringBuilder();
 
     if (isIdle()) {
       // Need the old version to support version older than JB_MR1
-      //noinspection deprecation
+      // noinspection deprecation
       if (Settings.Secure.getInt(
-              mContext.getContentResolver(), Settings.Secure.DEVICE_PROVISIONED, 0)
+              service.getContentResolver(), Settings.Secure.DEVICE_PROVISIONED, 0)
           != 0) {
-        appendCurrentTimeAnnouncement(builder);
+        appendCurrentTimeAnnouncement(ttsText);
       } else {
         // Device is not ready, just speak screen on
-        builder.append(mContext.getString(R.string.value_screen_on));
+        ttsText.append(service.getString(R.string.value_screen_on));
       }
     }
 
-    mShakeDetector.resumePolling();
-    mSpeechController.speak(
-        builder,
-        // Uses QUEUE_MODE_QUEUE so that time announcement does not interrupt "unlocked".
-        SpeechController.QUEUE_MODE_QUEUE,
-        // For android wear devices, use FLAG_FORCED_FEEDBACK, since speech is being suppressed
-        // when turning on the screen.
-        mIsWatch ? FeedbackItem.FLAG_FORCED_FEEDBACK : 0,
-        null,
-        eventId);
+    SpeakOptions speakOptions =
+        SpeakOptions.create()
+            // Uses QUEUE_MODE_QUEUE so that time announcement does not interrupt "unlocked".
+            .setQueueMode(SpeechController.QUEUE_MODE_QUEUE)
+            .setFlags(
+                // For android wear devices, use forced feedback, since speech is being suppressed
+                // when turning on the screen.
+                isWatch
+                    ? (FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
+                        | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
+                        | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE)
+                    : FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE);
+
+    pipeline.returnFeedback(eventId, Feedback.speech(ttsText, speakOptions));
+
+    for (ScreenChangedListener screenChangedListener : screenChangedListeners) {
+      screenChangedListener.onScreenChanged(isScreenOn, eventId);
+    }
   }
 
   /**
@@ -271,13 +284,13 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
    * @return true when phone is idle
    */
   private boolean isIdle() {
-    return mTelephonyManager != null
-        && mTelephonyManager.getCallState() == TelephonyManager.CALL_STATE_IDLE;
+    return telephonyManager != null
+        && telephonyManager.getCallState() == TelephonyManager.CALL_STATE_IDLE;
   }
 
   /** Handles when the ringer mode (ex. volume) changes. Announces the current ringer state. */
   private void handleRingerModeChanged(int ringerMode) {
-    mRingerMode = ringerMode;
+    this.ringerMode = ringerMode;
   }
 
   /**
@@ -289,12 +302,12 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
   private void appendCurrentTimeAnnouncement(SpannableStringBuilder builder) {
     int timeFlags = DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_CAP_NOON_MIDNIGHT;
 
-    if (DateFormat.is24HourFormat(mContext)) {
+    if (DateFormat.is24HourFormat(service)) {
       timeFlags |= DateUtils.FORMAT_24HOUR;
     }
 
     final CharSequence dateTime =
-        DateUtils.formatDateTime(mContext, System.currentTimeMillis(), timeFlags);
+        DateUtils.formatDateTime(service, System.currentTimeMillis(), timeFlags);
 
     StringBuilderUtils.appendWithSeparator(builder, dateTime);
   }
@@ -305,23 +318,23 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
    * @param builder The string to append to.
    */
   private void appendRingerStateAnnouncement(SpannableStringBuilder builder) {
-    if (mTelephonyManager == null) {
+    if (telephonyManager == null) {
       return;
     }
 
     final String announcement;
 
-    switch (mRingerMode) {
+    switch (ringerMode) {
       case AudioManager.RINGER_MODE_SILENT:
-        announcement = mContext.getString(R.string.value_ringer_silent);
+        announcement = service.getString(R.string.value_ringer_silent);
         break;
       case AudioManager.RINGER_MODE_VIBRATE:
-        announcement = mContext.getString(R.string.value_ringer_vibrate);
+        announcement = service.getString(R.string.value_ringer_vibrate);
         break;
       case AudioManager.RINGER_MODE_NORMAL:
         return;
       default:
-        LogUtils.log(TalkBackService.class, Log.ERROR, "Unknown ringer mode: %d", mRingerMode);
+        LogUtils.e(TAG, "Unknown ringer mode: %d", ringerMode);
         return;
     }
 
@@ -335,18 +348,28 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
    * @return The stream volume as a fraction of its maximum volume.
    */
   private float getStreamVolume(int streamType) {
-    final int currentVolume = mAudioManager.getStreamVolume(streamType);
-    final int maxVolume = mAudioManager.getStreamMaxVolume(streamType);
+    final int currentVolume = audioManager.getStreamVolume(streamType);
+    final int maxVolume = audioManager.getStreamMaxVolume(streamType);
     return (currentVolume / (float) maxVolume);
   }
 
   /** Registers a dialog to be auto-cancelled when the screen turns off. */
   public void registerDialog(DialogInterface dialog) {
-    mOpenDialogs.add(dialog);
+    openDialogs.add(dialog);
   }
 
   /** Removes a dialog from the list of dialogs to be auto-cancelled. */
   public void unregisterDialog(DialogInterface dialog) {
-    mOpenDialogs.remove(dialog);
+    openDialogs.remove(dialog);
+  }
+
+  /** Listener interface to callback when screen on/off. */
+  public interface ScreenChangedListener {
+    void onScreenChanged(boolean isScreenOn, EventId eventId);
+  }
+
+  /** Add listener which will be called when received screen on/off intent. */
+  public void addScreenChangedListener(ScreenChangedListener listener) {
+    screenChangedListeners.add(listener);
   }
 }

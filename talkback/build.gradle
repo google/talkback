@@ -4,5 +4,8 @@ apply plugin: 'com.android.library'
 apply from: "../shared.gradle"
 
 dependencies {
-    compile project(':compositor')
+    implementation project(':proguard')  // Only exists in github repo.
+    implementation project(':utils')
+    implementation project(':lib_utils_log')
+    implementation project(':compositor')
 }

@@ -18,44 +18,44 @@ package com.google.android.accessibility.talkback.menurules;
 
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnDismissListener;
 import android.os.Bundle;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.RangeInfoCompat;
-import android.view.KeyEvent;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.RangeInfoCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnFocusChangeListener;
-import android.view.WindowManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.TextView.OnEditorActionListener;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItemBuilder;
+import com.google.android.accessibility.talkback.dialog.BaseDialog;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.PerformActionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Provides a LCM item to manually enter a percentage value for seek controls. This functionality is
  * only available on Android N and later.
  */
 public class RuleSeekBar implements NodeMenuRule {
+
+  private final Pipeline.FeedbackReturner pipeline;
+
+  public RuleSeekBar(Pipeline.FeedbackReturner pipeline) {
+    this.pipeline = pipeline;
+  }
 
   @Override
   public boolean accept(TalkBackService service, AccessibilityNodeInfoCompat node) {
@@ -71,8 +71,9 @@ public class RuleSeekBar implements NodeMenuRule {
   public List<ContextMenuItem> getMenuItemsForNode(
       TalkBackService service,
       ContextMenuItemBuilder menuItemBuilder,
-      AccessibilityNodeInfoCompat node) {
-    List<ContextMenuItem> items = new LinkedList<>();
+      AccessibilityNodeInfoCompat node,
+      boolean includeAncestors) {
+    List<ContextMenuItem> items = new ArrayList<>();
 
     if (node != null) {
       final ContextMenuItem setLevel =
@@ -82,8 +83,8 @@ public class RuleSeekBar implements NodeMenuRule {
               R.id.seekbar_breakout_set_level,
               Menu.NONE,
               service.getString(R.string.title_seek_bar_edit));
-      setLevel.setOnMenuItemClickListener(new SeekBarDialogManager(service, node));
-      setLevel.setSkipRefocusEvents(true);
+      setLevel.setOnMenuItemClickListener(new SeekBarDialogManager(service, node, pipeline));
+      setLevel.setShowsAlertDialog(true);
       items.add(setLevel);
     }
 
@@ -123,135 +124,101 @@ public class RuleSeekBar implements NodeMenuRule {
   }
 
   // Deals with opening the dialog from the menu item and controlling the dialog lifecycle.
-  private static class SeekBarDialogManager
-      implements MenuItem.OnMenuItemClickListener, OnDismissListener {
+  private static class SeekBarDialogManager extends BaseDialog
+      implements MenuItem.OnMenuItemClickListener {
     private static final int INVALID_VALUE = -1;
 
-    private final TalkBackService mService;
-    private AccessibilityNodeInfoCompat mSeekBar; // Note: not final so we can null it out.
-    private int mOldValue = INVALID_VALUE;
-    private int mValue = INVALID_VALUE;
+    @Nullable private AccessibilityNodeInfoCompat seekBar; // Note: not final so we can null it out.
+    private int oldValue = INVALID_VALUE;
+    private int value = INVALID_VALUE;
+    @Nullable private EditText editText;
 
-    private View mRootView;
-    private AlertDialog mDialog;
-
-    public SeekBarDialogManager(TalkBackService service, AccessibilityNodeInfoCompat seekBar) {
-      mService = service;
-      mSeekBar = AccessibilityNodeInfoCompat.obtain(seekBar);
+    public SeekBarDialogManager(
+        TalkBackService service,
+        AccessibilityNodeInfoCompat seekBar,
+        Pipeline.FeedbackReturner pipeline) {
+      super(service, R.string.title_seek_bar_edit, pipeline);
+      this.seekBar = AccessibilityNodeInfoCompat.obtain(seekBar);
+      this.setIsFromLocalContextMenu(true);
     }
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
       // Verify that node is OK and get the current seek control level first.
-      final RangeInfoCompat rangeInfo = mSeekBar.getRangeInfo();
+      final RangeInfoCompat rangeInfo = seekBar.getRangeInfo();
       if (rangeInfo == null) {
         return false;
       }
 
-      mOldValue = realToPercent(rangeInfo.getCurrent(), rangeInfo.getMin(), rangeInfo.getMax());
-      mService.saveFocusedNode();
-
-      LayoutInflater inflater = LayoutInflater.from(mService);
-      mRootView = inflater.inflate(R.layout.seekbar_level_dialog, null);
-
-      final AlertDialog.Builder builder =
-          new AlertDialog.Builder(mService)
-              .setView(mRootView)
-              .setTitle(mService.getString(R.string.title_seek_bar_edit))
-              .setPositiveButton(android.R.string.ok, null)
-              .setNegativeButton(android.R.string.cancel, null)
-              .setCancelable(true)
-              .setOnDismissListener(this);
-
-      mDialog = builder.create();
-      if (BuildVersionUtils.isAtLeastLMR1()) {
-        mDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY);
-      } else {
-        mDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ERROR);
-      }
-      mDialog.show();
-      mService.getRingerModeAndScreenMonitor().registerDialog(mDialog);
-
-      // We'd like to keep focus off of the text field until the user activates it.
-      final Button okButton = mDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-      okButton.setFocusableInTouchMode(true);
-      okButton.requestFocus();
-
-      // Fill in the text field and restore normal input focus behavior when it gets focus.
-      final EditText percentage = (EditText) mRootView.findViewById(R.id.seek_bar_level);
-      percentage.setText(Integer.toString(mOldValue));
-      percentage.setOnFocusChangeListener(
-          new OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-              if (hasFocus) {
-                okButton.setFocusableInTouchMode(false);
-              }
-            }
-          });
-      percentage.setOnEditorActionListener(
-          new OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+      oldValue = realToPercent(rangeInfo.getCurrent(), rangeInfo.getMin(), rangeInfo.getMax());
+      if (showDialog() != null) {
+        editText.setText(Integer.toString(oldValue));
+        editText.setOnEditorActionListener(
+            (v, actionId, event) -> {
               if (actionId == EditorInfo.IME_ACTION_DONE) {
                 submitDialog();
                 return true;
               }
               return false;
-            }
-          });
-
-      // Use our own custom listener to prevent the dialog from closing if there's an error.
-      okButton.setOnClickListener(
-          new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              submitDialog();
-            }
-          });
-
+            });
+      }
       return true;
     }
 
-    @Override
-    public void onDismiss(DialogInterface dialog) {
-      if (mSeekBar == null) {
-        return;
-      }
-
-      // This will only set the value if the user clicked "OK" because only "OK" will
-      // change the mValue field to not be INVALID_VALUE.
-      if (mValue != INVALID_VALUE && mValue != mOldValue) {
-        setProgress(mSeekBar, mValue);
-      }
-
-      EventId eventId = EVENT_ID_UNTRACKED; // Performance not tracked for menu events.
-      mService.resetFocusedNode(eventId);
-      mService.getRingerModeAndScreenMonitor().unregisterDialog(dialog);
-      mSeekBar.recycle();
-      mSeekBar = null;
-    }
-
     private void submitDialog() {
-      if (mRootView == null || mDialog == null) {
+      if (editText == null) {
         return;
       }
 
-      final EditText percentage = (EditText) mRootView.findViewById(R.id.seek_bar_level);
       try {
-        int percentValue = Integer.parseInt(percentage.getText().toString());
+        int percentValue = Integer.parseInt(editText.getText().toString());
         if (percentValue < 0 || percentValue > 100) {
           throw new IndexOutOfBoundsException();
         }
 
         // Need to delay setting value until the dialog is dismissed.
-        mValue = percentValue;
-        mDialog.dismiss();
+        value = percentValue;
+        dismissDialog();
       } catch (NumberFormatException | IndexOutOfBoundsException ex) {
         // Set the error text popup.
-        CharSequence instructions = mService.getString(R.string.value_seek_bar_dialog_instructions);
-        percentage.setError(instructions);
+        CharSequence instructions = context.getString(R.string.value_seek_bar_dialog_instructions);
+        editText.setError(instructions);
       }
+    }
+
+    @Override
+    public void handleDialogClick(int buttonClicked) {
+      if (buttonClicked == DialogInterface.BUTTON_POSITIVE) {
+        submitDialog();
+      }
+    }
+
+    @Override
+    public void handleDialogDismiss() {
+      if (seekBar == null) {
+        return;
+      }
+      // This will only set the value if the user clicked "OK" because only "OK" will
+      // change the value field to not be INVALID_VALUE.
+      if (value != INVALID_VALUE && value != oldValue) {
+        setProgress(seekBar, value);
+      }
+      seekBar.recycle();
+      seekBar = null;
+      editText = null;
+    }
+
+    @Override
+    public String getMessageString() {
+      return null;
+    }
+
+    @Override
+    public View getCustomizedView() {
+      LayoutInflater inflater = LayoutInflater.from(context);
+      View rootView = inflater.inflate(R.layout.seekbar_level_dialog, null);
+      editText = rootView.findViewById(R.id.seek_bar_level);
+      return rootView;
     }
   }
 }

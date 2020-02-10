@@ -1,151 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"TalkBack dihidupkan"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack digantung"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack disambung semula"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"TalkBack dimatikan"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"Maklum Balas Tuturan dihidupkan"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"Maklum Balas Tuturan ditangguhkan"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"Maklum Balas Tuturan disambung semula"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"Maklum Balas Tuturan dimatikan"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Permulaan medan"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Akhir medan"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Mod pemilihan dihidupkan"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Mod pemilihan dimatikan"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Pilihan dikosongkan"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"Panggil"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"Mesej"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"E-mel"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"Acara"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"Promosi"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"Penggera"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"Kemajuan"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"Sosial"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"Ralat"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"Kawalan media"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"Status sistem"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"Perkhidmatan"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"Menu <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> menggantikan <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> dipadam"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"dipotong, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"ditampal, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, dipilih"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"Teks yang dipilih: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, dinyahpilih"</string>
-    <string name="template_text_error" msgid="153775825635730287">"Input tidak sah <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> aksara digantikan dengan <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> aksara"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> untuk <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"Peratus <xliff:g id="PERCENTAGE">%1$s</xliff:g>."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> menunjukkan <xliff:g id="COUNT_3">%2$d</xliff:g> item.</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> menunjukkan <xliff:g id="COUNT_1">%2$d</xliff:g> item.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"Grid"</string>
-    <string name="value_listview" msgid="7625152822709234439">"Senarai"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"Bar tab"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"Senarai lungsur"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"Kotak pilihan"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"Butang radio"</string>
-    <string name="value_button" msgid="2459787142940409576">"Butang"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"Kawalan jangkau"</string>
-    <string name="value_switch" msgid="6946709666466895221">"Tukar"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"Kotak edit"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"Mengedit"</string>
-    <string name="value_image" msgid="5114229220871881124">"Imej"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"Tidak berlabel"</string>
-    <string name="value_pager" msgid="7708574424402835461">"Paparan berbilang halaman"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"Halaman"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"Bar kemajuan"</string>
-    <string name="value_webview" msgid="291321285400233958">"Paparan web"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"Aksara <xliff:g id="FROM_INDEX">%1$d</xliff:g> hingga <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"Aksara <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"kata laluan"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Laci gelangsar dibuka"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"Pilihan."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"Teks telah dipadam bersih"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Panjang maksimum telah dicapai"</string>
-    <string name="value_selected" msgid="1307429702194660766">"dipilih"</string>
-    <string name="value_checked" msgid="3006751014125833966">"disemak"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"tidak disemak"</string>
-    <string name="value_on" msgid="39454338086317219">"hidup"</string>
-    <string name="value_off" msgid="6700497510945744608">"mati"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"dilumpuhkan"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"dikembangkan"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"diruntuhkan"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"Kelik dua kali"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"Ketik"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"Tekan pilih"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> untuk mengaktifkan item."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Tekan <xliff:g id="KEYCOMBO">%1$s</xliff:g> untuk mengaktifkan."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> dan tahan untuk tekan lama."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Tekan <xliff:g id="KEYCOMBO">%1$s</xliff:g> untuk menekan lama."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> untuk menogol."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Tekan <xliff:g id="KEYCOMBO">%1$s</xliff:g> untuk menogol."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> untuk memasukkan teks."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Tekan <xliff:g id="KEYCOMBO">%1$s</xliff:g> untuk memasukkan teks."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> untuk menukar."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Tekan <xliff:g id="KEYCOMBO">%1$s</xliff:g> untuk menukar."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"Leret menggunakan dua jari untuk menukar halaman."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"Tiada lagi halaman."</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"Gunakan kekunci kelantangan untuk melaras"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g> untuk menukar."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"Tindakan:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> untuk <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Tekan <xliff:g id="KEYCOMBO">%1$s</xliff:g> untuk <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> dan tahan untuk <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock dihidupkan."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock dimatikan."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock dihidupkan."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock dimatikan."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock dihidupkan."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock dimatikan."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"Potret"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"Landskap"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"Ketepikan"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"Kembangkan"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"Runtuhkan"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"Baris <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"Lajur <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"Tajuk"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"Tajuk baris"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"Tajuk lajur"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"Gambar dalam gambar <xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g>"</string>
-    <string name="in_list" msgid="444302621514168828">"Dalam senarai <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"Dalam senarai"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"Luar senarai <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"Di luar senarai"</string>
-    <string name="in_grid" msgid="6705387966271590222">"Dalam grid <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"Dalam grid"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"Luar grid <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"Di luar grid"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"Aras <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> item</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> item</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> baris</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> baris</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> lajur</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> lajur</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> aksara</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> aksara</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"Pembesaran pada <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"Pembesaran <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"Pembesaran dimatikan"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"Kadar pertuturan <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"Rendahkan audio dihidupkan"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"Rendahkan audio dimatikan"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"Kadar pertuturan"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"Bahasa berjela"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"Navigasi"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"Merendahkan audio"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"Kata laluan hanya dituturkan apabila menggunakan fon kepala"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">TalkBack dihidupkan</string>
+  <string name="talkback_suspended">TalkBack digantung</string>
+  <string name="talkback_resumed">TalkBack disambung semula</string>
+  <string name="talkback_disabled">TalkBack dimatikan</string>
+  <string name="spokenfeedback_on">Maklum Balas Tuturan dihidupkan</string>
+  <string name="spokenfeedback_suspended">Maklum Balas Tuturan ditangguhkan</string>
+  <string name="spokenfeedback_resumed">Maklum Balas Tuturan disambung semula</string>
+  <string name="spokenfeedback_disabled">Maklum Balas Tuturan dimatikan</string>
+  <string name="notification_type_beginning_of_field">Permulaan medan</string>
+  <string name="notification_type_end_of_field">Akhir medan</string>
+  <string name="notification_type_selection_mode_on">Mod pemilihan dihidupkan</string>
+  <string name="notification_type_selection_mode_off">Mod pemilihan dimatikan</string>
+  <string name="notification_type_selection_cleared">Pilihan dikosongkan</string>
+  <string name="notification_category_call">Panggil</string>
+  <string name="notification_category_msg">Mesej</string>
+  <string name="notification_category_email">E-mel</string>
+  <string name="notification_category_event">Acara</string>
+  <string name="notification_category_promo">Promosi</string>
+  <string name="notification_category_alarm">Penggera</string>
+  <string name="notification_category_progress">Kemajuan</string>
+  <string name="notification_category_social">Sosial</string>
+  <string name="notification_category_err">Ralat</string>
+  <string name="notification_category_transport">Kawalan media</string>
+  <string name="notification_category_sys">Status sistem</string>
+  <string name="notification_category_service">Perkhidmatan</string>
+  <string name="template_drawer_opened">Menu %1$s</string>
+  <string name="template_text_replaced">%1$s menggantikan %2$s</string>
+  <string name="template_text_removed">%1$s dipadam</string>
+  <string name="template_text_cut">dipotong, %1$s</string>
+  <string name="template_text_pasted">ditampal, %1$s</string>
+  <string name="template_text_selected">%1$s, dipilih</string>
+  <string name="template_announce_selected_text">Teks yang dipilih: %1$s</string>
+  <string name="template_text_unselected">%1$s, dinyahpilih</string>
+  <string name="template_text_error">Input tidak sah %1$s</string>
+  <string name="template_replaced_characters">%1$s aksara digantikan dengan %2$s aksara</string>
+  <string name="template_labeled_item">%1$s untuk %2$s</string>
+  <string name="template_percent">Peratus %1$s.</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s menunjukkan %2$d item.</item>
+    <item quantity="other">%1$s menunjukkan %2$d item.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">Grid</string>
+  <string name="value_listview">Senarai</string>
+  <string name="value_tabwidget">Bar tab</string>
+  <string name="value_spinner">Senarai lungsur</string>
+  <string name="value_checkbox">Kotak pilihan</string>
+  <string name="value_radio_button">Butang radio</string>
+  <string name="value_button">Butang</string>
+  <string name="value_seek_bar">Kawalan jangkau</string>
+  <string name="value_switch">Tukar</string>
+  <string name="value_edit_box">Kotak edit</string>
+  <string name="value_edit_box_editing">Mengedit</string>
+  <string name="value_image">Imej</string>
+  <string name="value_unlabelled">Tidak berlabel</string>
+  <string name="value_pager">Paparan berbilang halaman</string>
+  <string name="value_pager_page">Halaman</string>
+  <string name="value_progress_bar">Bar kemajuan</string>
+  <string name="value_webview">Paparan web</string>
+  <string name="value_toolbar">Bar Alat</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">Aksara %1$d hingga %2$d</string>
+  <string name="template_password_traversed">Aksara %1$d</string>
+  <string name="value_password">kata laluan</string>
+  <string name="value_sliding_drawer_opened">Laci gelangsar dibuka</string>
+  <string name="value_options_menu_open">Pilihan.</string>
+  <string name="value_text_cleared">Teks telah dipadam bersih</string>
+  <string name="value_text_max_length">Panjang maksimum telah dicapai</string>
+  <string name="value_selected">dipilih</string>
+  <string name="value_checked">disemak</string>
+  <string name="value_not_checked">tidak disemak</string>
+  <string name="value_on">hidup</string>
+  <string name="value_off">mati</string>
+  <string name="value_disabled">dilumpuhkan</string>
+  <string name="value_expanded">dikembangkan</string>
+  <string name="value_collapsed">diruntuhkan</string>
+  <string name="value_double_tap">Kelik dua kali</string>
+  <string name="value_single_tap">Ketik</string>
+  <string name="value_switch_press">Tekan Pilih Suis</string>
+  <string name="value_press_select">Tekan pilih</string>
+  <string name="template_hint_clickable">%1$s untuk mengaktifkan item.</string>
+  <string name="template_hint_clickable_keyboard">Tekan %1$s untuk mengaktifkan.</string>
+  <string name="template_hint_long_clickable">%1$s dan tahan untuk tekan lama.</string>
+  <string name="template_hint_long_clickable_keyboard">Tekan %1$s untuk menekan lama.</string>
+  <string name="template_hint_checkable">%1$s untuk menogol.</string>
+  <string name="template_hint_checkable_keyboard">Tekan %1$s untuk menogol.</string>
+  <string name="template_hint_edit_text">%1$s untuk mengedit teks.</string>
+  <string name="template_hint_edit_text_keyboard">Tekan %1$s untuk mengedit teks.</string>
+  <string name="template_hint_spinner">%1$s untuk menukar.</string>
+  <string name="template_hint_spinner_keyboard">Tekan %1$s untuk menukar.</string>
+  <string name="template_hint_pager">Leret menggunakan dua jari untuk menukar halaman.</string>
+  <string name="template_hint_pager_single_page">Tiada lagi halaman.</string>
+  <string name="template_hint_seek_control">Gunakan kekunci kelantangan untuk melaras</string>
+  <string name="template_hint_seek_control_tv">%1$s untuk menukar.</string>
+  <string name="template_hint_custom_actions">Tindakan:</string>
+  <string name="template_custom_hint_for_actions">%1$s untuk %2$s.</string>
+  <string name="template_custom_hint_for_actions_keyboard">Tekan %1$s untuk %2$s.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s dan tahan untuk %2$s.</string>
+  <string name="template_sa_custom_hint_scrollable">%1$s untuk menatal.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">%1$s untuk tindakan yang tersedia.</string>
+  <string name="template_sa_hint_seek_control">Tekan Pilih Suis untuk melaras</string>
+  <string name="value_caps_lock_on">Caps Lock dihidupkan.</string>
+  <string name="value_caps_lock_off">Caps Lock dimatikan.</string>
+  <string name="value_num_lock_on">Num Lock dihidupkan.</string>
+  <string name="value_num_lock_off">Num Lock dimatikan.</string>
+  <string name="value_scroll_lock_on">Scroll Lock dihidupkan.</string>
+  <string name="value_scroll_lock_off">Scroll Lock dimatikan.</string>
+  <string name="orientation_portrait">Potret</string>
+  <string name="orientation_landscape">Landskap</string>
+  <string name="title_action_dismiss">Ketepikan</string>
+  <string name="title_action_expand">Kembangkan</string>
+  <string name="title_action_collapse">Runtuhkan</string>
+  <string name="row_index_template">Baris %1$d</string>
+  <string name="column_index_template">Lajur %1$d</string>
+  <string name="heading_template">Tajuk</string>
+  <string name="row_heading_template">Tajuk baris</string>
+  <string name="column_heading_template">Tajuk lajur</string>
+  <string name="in_list">Dalam senarai %1$s</string>
+  <string name="in_list_without_name">Dalam senarai</string>
+  <string name="out_of_list">Luar senarai %1$s</string>
+  <string name="out_of_list_without_name">Di luar senarai</string>
+  <string name="in_grid">Dalam grid %1$s</string>
+  <string name="in_grid_without_name">Dalam grid</string>
+  <string name="out_of_grid">Luar grid %1$s</string>
+  <string name="out_of_grid_without_name">Di luar grid</string>
+  <string name="in_pager_with_name">Dalam halaman %1$s</string>
+  <string name="in_pager">Dalam halaman</string>
+  <string name="out_of_pager_with_name">Kehabisan halaman %1$s</string>
+  <string name="out_of_pager">Kehabisan halaman</string>
+  <string name="in_vertical_pager_with_name">Dalam halaman menegak %1$s</string>
+  <string name="in_vertical_pager">Dalam halaman menegak</string>
+  <string name="out_of_vertical_pager_with_name">Kehabisan halaman menegak %1$s</string>
+  <string name="out_of_vertical_pager">Kehabisan halaman menegak</string>
+  <string name="in_horizontal_pager_with_name">Dalam halaman mendatar %1$s</string>
+  <string name="in_horizontal_pager">Dalam halaman mendatar</string>
+  <string name="out_of_horizontal_pager_with_name">Kehabisan halaman mendatar %1$s</string>
+  <string name="out_of_horizontal_pager">Luar halaman mendatar</string>
+  <string name="in_grid_pager_with_name">Halaman dalam grid %1$s</string>
+  <string name="in_grid_pager">Halaman dalam grid</string>
+  <string name="out_of_grid_pager_with_name">Kehabisan halaman grid %1$s</string>
+  <string name="out_of_grid_pager">Kehabisan halaman grid</string>
+  <string name="template_collection_level">Aras %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d item</item>
+    <item quantity="other">%1$d item</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d baris</item>
+    <item quantity="other">%1$d baris</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d lajur</item>
+    <item quantity="other">%1$d lajur</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d aksara</item>
+    <item quantity="other">%1$d aksara</item>
+  </plurals>
+  <string name="template_screen_magnification_on">Pembesaran pada %1$d%%</string>
+  <string name="template_screen_magnification_scale_changed">Pembesaran %1$d%%</string>
+  <string name="screen_magnification_off">Pembesaran dimatikan</string>
+  <string name="template_speech_rate_change">Kadar pertuturan %1$d%%</string>
+  <string name="audio_focus_on">Rendahkan audio dihidupkan</string>
+  <string name="audio_focus_off">Rendahkan audio dimatikan</string>
+  <string name="selector_speech_rate_output">Kadar pertuturan</string>
+  <string name="selector_verbosity_output">Bahasa berjela</string>
+  <string name="selector_granularity_output">Navigasi</string>
+  <string name="selector_audio_focus_output">Merendahkan audio</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">Kata laluan hanya dituturkan apabila menggunakan fon kepala</string>
+  <string name="template_hint_menu_type_high_verbosity">%1$s tersedia, gunakan %2$s untuk melihat.</string>
+  <string name="template_hint_menu_type_low_verbosity">%1$s tersedia.</string>
 </resources>

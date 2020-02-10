@@ -28,12 +28,15 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.Handler;
-import android.support.v4.app.NotificationCompat;
+import com.google.android.accessibility.talkback.utils.NotificationUtils;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
+import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.keyboard.KeyComboManager;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 public class TalkBackUpdateHelper {
+  private static final String TAG = TalkBackUpdateHelper.class.getSimpleName();
   public static final String PREF_APP_VERSION = "app_version";
 
   /** Time in milliseconds after initialization to delay the posting of TalkBack notifications. */
@@ -46,51 +49,34 @@ public class TalkBackUpdateHelper {
   /* package */ static final int GESTURE_CHANGE_NOTIFICATION_ID = 2;
 
   /** Notification ID for the built-in gesture change notification. */
-  /* package */ private static final int BUILT_IN_GESTURE_CHANGE_NOTIFICATION_ID = 3;
+  private static final int BUILT_IN_GESTURE_CHANGE_NOTIFICATION_ID = 3;
 
-  private final Handler mHandler = new Handler();
+  private static final int SIDE_TAP_REMOVED_CHANGE_NOTIFICATION_ID = 4;
 
-  private final TalkBackService mService;
-  private final NotificationManager mNotificationManager;
-  private final SharedPreferences mSharedPreferences;
+  private final Handler handler = new Handler();
+
+  private final TalkBackService service;
+  private final NotificationManager notificationManager;
+  private final SharedPreferences sharedPreferences;
 
   public TalkBackUpdateHelper(TalkBackService service) {
-    mService = service;
-    mNotificationManager =
-        (NotificationManager) mService.getSystemService(Context.NOTIFICATION_SERVICE);
-    mSharedPreferences = SharedPreferencesUtils.getSharedPreferences(mService);
-  }
-
-  public void showPendingNotifications() {
-    // Revision 74 changes the gesture model for Jelly Bean and above.
-    // This flag is used to ensure they accept the notification of this
-    // change.
-    final boolean userMustAcceptGestureChange =
-        mSharedPreferences.getBoolean(
-            mService.getString(R.string.pref_must_accept_gesture_change_notification), false);
-
-    if (userMustAcceptGestureChange) {
-      // Build the intent for when the notification is clicked.
-      final Intent notificationIntent =
-          new Intent(mService, GestureChangeNotificationActivity.class);
-      notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-
-      NotificationPosterRunnable runnable =
-          new NotificationPosterRunnable(
-              buildGestureChangeNotification(notificationIntent), GESTURE_CHANGE_NOTIFICATION_ID);
-      mHandler.postDelayed(runnable, NOTIFICATION_DELAY);
-    }
+    this.service = service;
+    notificationManager =
+        (NotificationManager) this.service.getSystemService(Context.NOTIFICATION_SERVICE);
+    sharedPreferences = SharedPreferencesUtils.getSharedPreferences(this.service);
   }
 
   public void checkUpdate() {
-    final int previousVersion = mSharedPreferences.getInt(PREF_APP_VERSION, -1);
 
-    final PackageManager pm = mService.getPackageManager();
+    showPendingNotifications();
+
+    final int previousVersion = sharedPreferences.getInt(PREF_APP_VERSION, -1);
+
+    final PackageManager pm = service.getPackageManager();
     final int currentVersion;
 
     try {
-      final PackageInfo packageInfo = pm.getPackageInfo(mService.getPackageName(), 0);
+      final PackageInfo packageInfo = pm.getPackageInfo(service.getPackageName(), 0);
       currentVersion = packageInfo.versionCode;
     } catch (NameNotFoundException e) {
       e.printStackTrace();
@@ -101,7 +87,7 @@ public class TalkBackUpdateHelper {
       return;
     }
 
-    final Editor editor = mSharedPreferences.edit();
+    final Editor editor = sharedPreferences.edit();
     editor.putInt(PREF_APP_VERSION, currentVersion);
 
     // Revision 74 changes the gesture model added in revision 68.
@@ -140,8 +126,20 @@ public class TalkBackUpdateHelper {
       copyVerbosityActivePrefsToPresetCustom(editor);
     }
 
+    // TalkBack 6.2 changes dump event settings.
+    if ((previousVersion != -1) && (previousVersion < 60200000)) {
+      remapDumpEventPref();
+    }
+
+    // TalkBack 8.1 remaps legacy pref values for revision 97 and the version is based on the
+    // current config from cl/260661171.
+    if ((previousVersion != -1) && (previousVersion < 60103761)) {
+      remapUpDownGestures();
+      notifyUserThatSideTapShortcutsRemoved();
+    }
+
     // Update key combo model.
-    KeyComboManager keyComboManager = mService.getKeyComboManager();
+    KeyComboManager keyComboManager = service.getKeyComboManager();
     if (keyComboManager != null) {
       keyComboManager.getKeyComboModel().updateVersion(previousVersion);
     }
@@ -149,9 +147,34 @@ public class TalkBackUpdateHelper {
     editor.apply();
   }
 
+  /**
+   * Changes to use one single pref as dump event bit mask instead of having one pref per event
+   * type.
+   */
+  private void remapDumpEventPref() {
+    Resources resources = service.getResources();
+    int[] eventTypes = AccessibilityEventUtils.getAllEventTypes();
+
+    int eventDumpMask = 0;
+    Editor editor = sharedPreferences.edit();
+
+    for (int eventType : eventTypes) {
+      String prefKey = resources.getString(R.string.pref_dump_event_key_prefix, eventType);
+      if (sharedPreferences.getBoolean(prefKey, false)) {
+        eventDumpMask |= eventType;
+      }
+      editor.remove(prefKey);
+    }
+
+    if (eventDumpMask != 0) {
+      editor.putInt(resources.getString(R.string.pref_dump_event_mask_key), eventDumpMask);
+    }
+
+    editor.apply();
+  }
   /** Copies preferences from the old preference keys, to preference keys for preset "custom". */
   private void copyVerbosityActivePrefsToPresetCustom(SharedPreferences.Editor editor) {
-    Resources resources = mService.getResources();
+    Resources resources = service.getResources();
     String presetName = resources.getString(R.string.pref_verbosity_preset_value_custom);
 
     // Copy boolean preferences.
@@ -186,22 +209,90 @@ public class TalkBackUpdateHelper {
 
   private void copyPreferenceBoolean(
       SharedPreferences.Editor editor, String presetName, int prefKeyId, int prefDefaultId) {
-    Resources resources = mService.getResources();
+    Resources resources = service.getResources();
     String key = resources.getString(prefKeyId);
     boolean valueDefault = resources.getBoolean(prefDefaultId);
-    boolean value = mSharedPreferences.getBoolean(key, valueDefault);
+    boolean value = sharedPreferences.getBoolean(key, valueDefault);
     String keyForPreset = VerbosityPreferences.toPresetPrefKey(presetName, key);
     editor.putBoolean(keyForPreset, value);
   }
 
   private void copyPreferenceString(
       SharedPreferences.Editor editor, String presetName, int prefKeyId, int prefDefaultId) {
-    Resources resources = mService.getResources();
+    Resources resources = service.getResources();
     String key = resources.getString(prefKeyId);
     String valueDefault = resources.getString(prefDefaultId);
-    String value = mSharedPreferences.getString(key, valueDefault);
+    String value = sharedPreferences.getString(key, valueDefault);
     String keyForPreset = VerbosityPreferences.toPresetPrefKey(presetName, key);
     editor.putString(keyForPreset, value);
+  }
+
+  private void notifyUserThatSideTapShortcutsRemoved() {
+
+    // Only show notification if shake or side-tap were enabled.
+    Resources resources = service.getResources();
+    boolean enabled =
+        !sharedPreferences
+            .getString(
+                resources.getString(R.string.pref_shortcut_single_tap_key),
+                resources.getString(R.string.pref_shortcut_single_tap_default))
+            .equals(resources.getString(R.string.shortcut_value_unassigned));
+    enabled |=
+        !sharedPreferences
+            .getString(
+                resources.getString(R.string.pref_shortcut_double_tap_key),
+                resources.getString(R.string.pref_shortcut_double_tap_default))
+            .equals(resources.getString(R.string.shortcut_value_unassigned));
+    enabled |=
+        (0
+            < SharedPreferencesUtils.getIntFromStringPref(
+                sharedPreferences,
+                resources,
+                R.string.pref_shake_to_read_threshold_key,
+                R.string.pref_shake_to_read_threshold_default));
+    if (!enabled) {
+      return;
+    }
+
+    // Build the intent to run NotificationActivity when the notification is clicked.
+    final Intent notificationIntent = new Intent(service, NotificationActivity.class);
+    notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+    notificationIntent.putExtra(
+        NotificationActivity.EXTRA_INT_DIALOG_TITLE,
+        R.string.notification_title_talkback_gestures_changed);
+    notificationIntent.putExtra(
+        NotificationActivity.EXTRA_INT_DIALOG_MESSAGE, R.string.side_tap_shortcuts_removed_details);
+    notificationIntent.putExtra(
+        NotificationActivity.EXTRA_INT_NOTIFICATION_ID, SIDE_TAP_REMOVED_CHANGE_NOTIFICATION_ID);
+
+    // Build notification, and run it after a delay.
+    Notification notification = buildGestureChangeNotification(notificationIntent);
+    handler.postDelayed(
+        () -> notificationManager.notify(SIDE_TAP_REMOVED_CHANGE_NOTIFICATION_ID, notification),
+        NOTIFICATION_DELAY);
+  }
+
+  private void showPendingNotifications() {
+    // Revision 74 changes the gesture model for Jelly Bean and above.
+    // This flag is used to ensure they accept the notification of this
+    // change.
+    final boolean userMustAcceptGestureChange =
+        sharedPreferences.getBoolean(
+            service.getString(R.string.pref_must_accept_gesture_change_notification), false);
+
+    if (userMustAcceptGestureChange) {
+      // Build the intent for when the notification is clicked.
+      final Intent notificationIntent =
+          new Intent(service, GestureChangeNotificationActivity.class);
+      notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+
+      NotificationPosterRunnable runnable =
+          new NotificationPosterRunnable(
+              buildGestureChangeNotification(notificationIntent), GESTURE_CHANGE_NOTIFICATION_ID);
+      handler.postDelayed(runnable, NOTIFICATION_DELAY);
+    }
   }
 
   /**
@@ -209,7 +300,7 @@ public class TalkBackUpdateHelper {
    * gesture change notification.
    */
   private void notifyUserOfGestureChanges() {
-    final Editor editor = mSharedPreferences.edit();
+    final Editor editor = sharedPreferences.edit();
 
     // Manually persist old defaults until the user acknowledges the change.
     deprecateStringPreference(
@@ -231,24 +322,24 @@ public class TalkBackUpdateHelper {
 
     // Flag that this user needs to get through the notification flow.
     editor.putBoolean(
-        mService.getString(R.string.pref_must_accept_gesture_change_notification), true);
+        service.getString(R.string.pref_must_accept_gesture_change_notification), true);
 
     editor.apply();
 
     // Build the intent for when the notification is clicked.
-    final Intent notificationIntent = new Intent(mService, GestureChangeNotificationActivity.class);
+    final Intent notificationIntent = new Intent(service, GestureChangeNotificationActivity.class);
     notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 
     NotificationPosterRunnable runnable =
         new NotificationPosterRunnable(
             buildGestureChangeNotification(notificationIntent), GESTURE_CHANGE_NOTIFICATION_ID);
-    mHandler.postDelayed(runnable, NOTIFICATION_DELAY);
+    handler.postDelayed(runnable, NOTIFICATION_DELAY);
   }
 
   private void notifyUserOfBuiltInGestureChanges() {
     // Build the intent for when the notification is clicked.
-    final Intent notificationIntent = new Intent(mService, NotificationActivity.class);
+    final Intent notificationIntent = new Intent(service, NotificationActivity.class);
     notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
     notificationIntent.putExtra(
@@ -264,7 +355,7 @@ public class TalkBackUpdateHelper {
         new NotificationPosterRunnable(
             buildGestureChangeNotification(notificationIntent),
             BUILT_IN_GESTURE_CHANGE_NOTIFICATION_ID);
-    mHandler.postDelayed(runnable, NOTIFICATION_DELAY);
+    handler.postDelayed(runnable, NOTIFICATION_DELAY);
   }
 
   private void notifyUserOfBuiltInGestureChanges45() {
@@ -275,7 +366,7 @@ public class TalkBackUpdateHelper {
     //    same (even if the user has changed one gesture and not the other).
 
     // Set the up and down gestures to the old defaults if the user hasn't modified them yet.
-    final Editor editor = mSharedPreferences.edit();
+    final Editor editor = sharedPreferences.edit();
     deprecateStringPreference(
         editor, R.string.pref_shortcut_up_key, R.string.pref_deprecated_shortcut_up);
     deprecateStringPreference(
@@ -283,22 +374,22 @@ public class TalkBackUpdateHelper {
     editor.apply();
 
     // Are the preferences both equal to the old default?
-    String upPrefKey = mService.getString(R.string.pref_shortcut_up_key);
-    String downPrefKey = mService.getString(R.string.pref_shortcut_down_key);
-    String upPrefDeprecated = mService.getString(R.string.pref_deprecated_shortcut_up);
-    String downPrefDeprecated = mService.getString(R.string.pref_deprecated_shortcut_down);
+    String upPrefKey = service.getString(R.string.pref_shortcut_up_key);
+    String downPrefKey = service.getString(R.string.pref_shortcut_down_key);
+    String upPrefDeprecated = service.getString(R.string.pref_deprecated_shortcut_up);
+    String downPrefDeprecated = service.getString(R.string.pref_deprecated_shortcut_down);
 
     // Only reset prefs if the user has changed at least one of them to a non-default value.
     boolean prefsMatchDeprecated =
-        upPrefDeprecated.equals(mSharedPreferences.getString(upPrefKey, null))
-            && downPrefDeprecated.equals(mSharedPreferences.getString(downPrefKey, null));
+        upPrefDeprecated.equals(sharedPreferences.getString(upPrefKey, null))
+            && downPrefDeprecated.equals(sharedPreferences.getString(downPrefKey, null));
     if (prefsMatchDeprecated) {
       editor.remove(upPrefKey);
       editor.remove(downPrefKey);
       editor.apply();
 
       // Build the intent for when the notification is clicked.
-      final Intent notificationIntent = new Intent(mService, NotificationActivity.class);
+      final Intent notificationIntent = new Intent(service, NotificationActivity.class);
       notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       notificationIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
       notificationIntent.putExtra(
@@ -314,33 +405,21 @@ public class TalkBackUpdateHelper {
           new NotificationPosterRunnable(
               buildGestureChangeNotification(notificationIntent),
               BUILT_IN_GESTURE_CHANGE_NOTIFICATION_ID);
-      mHandler.postDelayed(runnable, NOTIFICATION_DELAY);
+      handler.postDelayed(runnable, NOTIFICATION_DELAY);
     }
   }
 
   private Notification buildGestureChangeNotification(Intent clickIntent) {
     final PendingIntent pendingIntent =
-        PendingIntent.getActivity(mService, 0, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent.getActivity(service, 0, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-    final String ticker = mService.getString(R.string.notification_title_talkback_gestures_changed);
+    final String ticker = service.getString(R.string.notification_title_talkback_gestures_changed);
     final String contentTitle =
-        mService.getString(R.string.notification_title_talkback_gestures_changed);
+        service.getString(R.string.notification_title_talkback_gestures_changed);
     final String contentText =
-        mService.getString(R.string.notification_message_talkback_gestures_changed);
-    final Notification notification =
-        new NotificationCompat.Builder(mService)
-            .setSmallIcon(R.drawable.ic_stat_info)
-            .setTicker(ticker)
-            .setContentTitle(contentTitle)
-            .setContentText(contentText)
-            .setContentIntent(pendingIntent)
-            .setAutoCancel(false)
-            .setWhen(0)
-            .build();
-
-    notification.defaults |= Notification.DEFAULT_SOUND;
-    notification.flags |= Notification.FLAG_ONGOING_EVENT;
-    return notification;
+        service.getString(R.string.notification_message_talkback_gestures_changed);
+    return NotificationUtils.createNotification(
+        service, ticker, contentTitle, contentText, pendingIntent);
   }
 
   /**
@@ -353,9 +432,9 @@ public class TalkBackUpdateHelper {
    */
   private void deprecateStringPreference(
       Editor editor, int resIdPrefKey, int deprecatedDefaultResId) {
-    final String key = mService.getString(resIdPrefKey);
-    final String oldDefault = mService.getString(deprecatedDefaultResId);
-    final String userSetOrOldDefault = mSharedPreferences.getString(key, oldDefault);
+    final String key = service.getString(resIdPrefKey);
+    final String oldDefault = service.getString(deprecatedDefaultResId);
+    final String userSetOrOldDefault = sharedPreferences.getString(key, oldDefault);
 
     editor.putString(key, userSetOrOldDefault);
   }
@@ -365,7 +444,7 @@ public class TalkBackUpdateHelper {
    * local breakout menu.
    */
   private void remapContinuousReadingMenu() {
-    final Editor editor = mSharedPreferences.edit();
+    final Editor editor = sharedPreferences.edit();
     final String targetValue = "READ_ALL_BREAKOUT";
     final String replaceValue = "LOCAL_BREAKOUT";
     final int[] gestureKeys = {
@@ -380,8 +459,8 @@ public class TalkBackUpdateHelper {
     };
 
     for (int key : gestureKeys) {
-      final String prefKey = mService.getString(key);
-      if (mSharedPreferences.getString(prefKey, "").equals(targetValue)) {
+      final String prefKey = service.getString(key);
+      if (sharedPreferences.getString(prefKey, "").equals(targetValue)) {
         editor.putString(prefKey, replaceValue);
       }
     }
@@ -397,18 +476,79 @@ public class TalkBackUpdateHelper {
   private void remapShakeToReadPref() {
     final boolean oldPrefOn =
         SharedPreferencesUtils.getBooleanPref(
-            mSharedPreferences,
-            mService.getResources(),
+            sharedPreferences,
+            service.getResources(),
             R.string.pref_shake_to_read_key,
             R.bool.pref_shake_to_read_default);
 
     if (oldPrefOn) {
-      final Editor editor = mSharedPreferences.edit();
+      final Editor editor = sharedPreferences.edit();
       editor.putString(
-          mService.getString(R.string.pref_shake_to_read_threshold_key),
-          mService.getString(R.string.pref_shake_to_read_threshold_conversion_default));
-      editor.putBoolean(mService.getString(R.string.pref_shake_to_read_key), false);
+          service.getString(R.string.pref_shake_to_read_threshold_key),
+          service.getString(R.string.pref_shake_to_read_threshold_conversion_default));
+      editor.putBoolean(service.getString(R.string.pref_shake_to_read_key), false);
       editor.apply();
+    }
+  }
+
+  /**
+   * Revision 97 re-defines the default action of the up-then-down and down-then-up gestures, and
+   * uses runtime logic to convert old to new gestures. This update removes the runtime logic, and
+   * remaps legacy actions to up-then-down and down-then-up if user doesn't change these values.
+   */
+  private void remapUpDownGestures() {
+    String shortcutUpAndDownKey = service.getString(R.string.pref_shortcut_up_and_down_key);
+    String shortcutDownAndUpKey = service.getString(R.string.pref_shortcut_down_and_up_key);
+    boolean hasPrefDefaultUpAndDownKey = sharedPreferences.contains(shortcutUpAndDownKey);
+    boolean hasPrefDefaultDownAndUpKey = sharedPreferences.contains(shortcutDownAndUpKey);
+
+    if (hasPrefDefaultUpAndDownKey && hasPrefDefaultDownAndUpKey) {
+      return;
+    }
+
+    // Gets legacy pref key before Revision 97
+    if (sharedPreferences.contains(
+        service.getString(R.string.pref_two_part_vertical_gestures_key))) {
+      String pref =
+          sharedPreferences.getString(
+              service.getString(R.string.pref_two_part_vertical_gestures_key),
+              service.getString(R.string.value_two_part_vertical_gestures_jump));
+      if (pref.equals(service.getString(R.string.value_two_part_vertical_gestures_jump))) {
+        if (!hasPrefDefaultUpAndDownKey) {
+          LogUtils.d(TAG, "update up-then-down gesture value from legacy jump pref.");
+          sharedPreferences
+              .edit()
+              .putString(
+                  shortcutUpAndDownKey, service.getString(R.string.shortcut_value_first_in_screen))
+              .apply();
+        }
+        if (!hasPrefDefaultDownAndUpKey) {
+          LogUtils.d(TAG, "update down-then-up gesture value from legacy jump pref.");
+          sharedPreferences
+              .edit()
+              .putString(
+                  shortcutDownAndUpKey, service.getString(R.string.shortcut_value_last_in_screen))
+              .apply();
+        }
+      } else if (pref.equals(service.getString(R.string.value_two_part_vertical_gestures_cycle))) {
+        if (!hasPrefDefaultUpAndDownKey) {
+          LogUtils.d(TAG, "update up-then-down gesture value from legacy cycle pref.");
+          sharedPreferences
+              .edit()
+              .putString(
+                  shortcutUpAndDownKey,
+                  service.getString(R.string.shortcut_value_previous_granularity))
+              .apply();
+        }
+        if (!hasPrefDefaultDownAndUpKey) {
+          LogUtils.d(TAG, "update down-then-up gesture value from legacy cycle pref.");
+          sharedPreferences
+              .edit()
+              .putString(
+                  shortcutDownAndUpKey, service.getString(R.string.shortcut_value_next_granularity))
+              .apply();
+        }
+      }
     }
   }
 
@@ -416,17 +556,17 @@ public class TalkBackUpdateHelper {
    * Runnable used for posting notifications to the {@link NotificationManager} after a short delay.
    */
   private class NotificationPosterRunnable implements Runnable {
-    private Notification mNotification;
-    private int mId;
+    private Notification notification;
+    private int id;
 
     NotificationPosterRunnable(Notification n, int id) {
-      mNotification = n;
-      mId = id;
+      notification = n;
+      this.id = id;
     }
 
     @Override
     public void run() {
-      mNotificationManager.notify(mId, mNotification);
+      notificationManager.notify(id, notification);
     }
   }
 }

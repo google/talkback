@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.utils.input;
 
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.google.android.accessibility.utils.AccessibilityEventListener;

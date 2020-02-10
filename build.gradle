@@ -11,7 +11,7 @@ buildscript {
     }
     dependencies {
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.5.1'
     }
 }
 
@@ -23,10 +23,10 @@ allprojects {
 }
 
 android {
-    buildToolsVersion '27.0.0'
+    buildToolsVersion '29.0.0'
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion 27
+        targetSdkVersion 29
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'
         multiDexEnabled true
     }
@@ -41,6 +41,6 @@ android {
 }
 
 dependencies {
-    compile project(':switchaccess')
-    compile project(':talkback')
+    implementation project(':switchaccess')
+    implementation project(':talkback')
 }

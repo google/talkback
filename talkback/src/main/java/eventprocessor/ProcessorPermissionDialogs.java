@@ -16,19 +16,22 @@
 
 package com.google.android.accessibility.talkback.eventprocessor;
 
+import android.content.Context;
 import android.graphics.Rect;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityRecordCompat;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import android.view.accessibility.AccessibilityEvent;
+import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.NodeBlockingOverlay;
 import com.google.android.accessibility.talkback.NodeBlockingOverlay.OnDoubleTapListener;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.controller.DimScreenController;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.PerformActionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Enables the user to click "allow" on permissions dialogs by intercepting tap events that occur
@@ -43,8 +46,7 @@ public class ProcessorPermissionDialogs implements AccessibilityEventListener, O
    * framework performs ACTION_CLICK instead of mocking touch down/up actions when double tap on
    * screen. Thus the target API level is M <= api level <= N.
    */
-  private static final boolean IS_API_LEVEL_SUPPORTED =
-      BuildVersionUtils.isAtLeastM() && !BuildVersionUtils.isAtLeastNMR1();
+  private static final boolean IS_API_LEVEL_SUPPORTED = !BuildVersionUtils.isAtLeastNMR1();
 
   public static final String ALLOW_BUTTON =
       "com.android.packageinstaller:id/permission_allow_button";
@@ -57,25 +59,30 @@ public class ProcessorPermissionDialogs implements AccessibilityEventListener, O
           | AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUS_CLEARED
           | AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
 
-  private final NodeBlockingOverlay mOverlay;
-  private AccessibilityNodeInfoCompat mAllowNode = null;
-  private boolean mRegistered = false;
-  private DimScreenController mDimScreenController;
+  private final NodeBlockingOverlay overlay;
+  @Nullable private AccessibilityNodeInfoCompat allowNode = null;
+  private boolean registered = false;
+  private DimScreenController dimScreenController;
+  private final Pipeline.FeedbackReturner pipeline;
 
-  public ProcessorPermissionDialogs(TalkBackService service) {
-    mDimScreenController = service.getDimScreenController();
-    mOverlay = new NodeBlockingOverlay(service, this);
+  public ProcessorPermissionDialogs(
+      Context context,
+      DimScreenController dimScreenController,
+      Pipeline.FeedbackReturner pipeline) {
+    this.dimScreenController = dimScreenController;
+    this.pipeline = pipeline;
+    overlay = new NodeBlockingOverlay(context, this);
   }
 
   public void onReloadPreferences(TalkBackService service) {
     boolean supported = IS_API_LEVEL_SUPPORTED && NodeBlockingOverlay.isSupported(service);
-    if (mRegistered && !supported) {
+    if (registered && !supported) {
       service.postRemoveEventListener(this);
       clearNode();
-      mRegistered = false;
-    } else if (!mRegistered && supported) {
+      registered = false;
+    } else if (!registered && supported) {
       service.addEventListener(this);
-      mRegistered = true;
+      registered = true;
     }
   }
 
@@ -93,11 +100,11 @@ public class ProcessorPermissionDialogs implements AccessibilityEventListener, O
         AccessibilityNodeInfoCompat source = record.getSource();
         if (source != null) {
           if (ALLOW_BUTTON.equals(source.getViewIdResourceName())
-              && mDimScreenController.isDimmingEnabled()) {
+              && dimScreenController.isDimmingEnabled()) {
             Rect sourceRect = new Rect();
             source.getBoundsInScreen(sourceRect);
-            mOverlay.show(sourceRect);
-            mAllowNode = source;
+            overlay.show(sourceRect);
+            allowNode = source;
           } else {
             source.recycle();
           }
@@ -110,26 +117,26 @@ public class ProcessorPermissionDialogs implements AccessibilityEventListener, O
       default: // fall out
     }
 
-    if (mAllowNode != null) {
-      mOverlay.onAccessibilityEvent(event, eventId);
+    if (allowNode != null) {
+      overlay.onAccessibilityEvent(event, eventId);
     }
   }
 
   @Override
   public void onDoubleTap(EventId eventId) {
-    if (mAllowNode != null) {
-      PerformActionUtils.performAction(
-          mAllowNode, AccessibilityNodeInfoCompat.ACTION_CLICK, eventId);
-      mAllowNode.recycle();
-      mAllowNode = null;
+    if (allowNode != null) {
+      pipeline.returnFeedback(
+          eventId, Feedback.nodeAction(allowNode, AccessibilityNodeInfoCompat.ACTION_CLICK));
+      allowNode.recycle();
+      allowNode = null;
     }
   }
 
   private void clearNode() {
-    mOverlay.hide();
-    if (mAllowNode != null) {
-      mAllowNode.recycle();
-      mAllowNode = null;
+    overlay.hide();
+    if (allowNode != null) {
+      allowNode.recycle();
+      allowNode = null;
     }
   }
 }

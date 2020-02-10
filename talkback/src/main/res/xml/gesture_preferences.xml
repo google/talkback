@@ -122,6 +122,7 @@
         android:summary="%s"
         android:title="@string/title_pref_shortcut_left_and_up"/>
   </PreferenceCategory>
+
   <!-- Fingerprint sensor swipe gestures -->
   <PreferenceCategory
       android:key="@string/pref_category_fingerprint_touch_shortcuts_key"
@@ -154,32 +155,6 @@
         android:key="@string/pref_shortcut_fingerprint_right_key"
         android:summary="%s"
         android:title="@string/title_pref_shortcut_fingerprint_right"/>
-
-  </PreferenceCategory>
-  <PreferenceCategory
-      android:key="@string/pref_category_side_tap_shortcuts_key"
-      android:title="@string/title_pref_category_side_tap_shortcuts">
-    <ListPreference
-        android:defaultValue="@string/pref_shortcut_single_tap_default"
-        android:entries="@array/pref_shortcut_entries"
-        android:entryValues="@array/pref_shortcut_values"
-        android:key="@string/pref_shortcut_single_tap_key"
-        android:summary="%s"
-        android:title="@string/title_pref_shortcut_single_tap"/>
-    <ListPreference
-        android:defaultValue="@string/pref_shortcut_double_tap_default"
-        android:entries="@array/pref_shortcut_entries"
-        android:entryValues="@array/pref_shortcut_values"
-        android:key="@string/pref_shortcut_double_tap_key"
-        android:summary="%s"
-        android:title="@string/title_pref_shortcut_double_tap"/>
-    <ListPreference
-        android:defaultValue="@string/pref_tap_sensitivity_default"
-        android:entries="@array/pref_tap_sensitivity_entries"
-        android:entryValues="@array/pref_tap_sensitivity_values"
-        android:key="@string/pref_tap_sensitivity_key"
-        android:summary="%s"
-        android:title="@string/title_pref_tap_sensitivity"/>
   </PreferenceCategory>
 
 </PreferenceScreen>

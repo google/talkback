@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>ປຸ່ມ</item>
+    <item>ກ່ອງ​ເຄື່ອງ​ໝາຍ</item>
+    <item>ໂຕເລືອກສີ</item>
+    <item>ໂຕ​ຄວບ​ຄຸມ​ວັນ​ເວ​ລາ</item>
+    <item>ໂຕ​ຄວບ​ຄຸມ​ວັນ​ເວ​ລາ</item>
+    <item>​ໂຕ​ຄວບ​ຄຸມ​ວັນ​ທີ</item>
+    <item>​ແກ້​ໄຂ​ຂໍ້​ຄວາມ​ສຳ​ລັບ​ອີ​ເມວ</item>
+    <item>​ໂຕ​ເລືອກ​ໄຟລ໌</item>
+    <item translatable="false"></item>
+    <item>ປຸ່ມ</item>
+    <item>ໂຕຄວບຄຸມເດືອນ</item>
+    <item>​ແກ້​ໄຂ​ຂໍ້​ຄວາມ​ໂຕ​ເລກ​ເທົ່າ​ນັ້ນ</item>
+    <item>​ຂໍ້​ຄວາມ​ແກ້​ໄຂ​ລະ​ຫັດ​ຜ່ານ</item>
+    <item>​ປຸ່ມ​ເຄື່ອງ​ໝາຍ​ເລືອກ</item>
+    <item>ໂຕສະໄລ້</item>
+    <item>ຣີເຊັດ</item>
+    <item>​ແກ້​ໄຂ​ຂໍ້​ຄວາມ​ສຳ​ລັບ​ການ​ຊອກ​ຫາ</item>
+    <item>ປຸ່ມ</item>
+    <item>​ແກ້​ໄຂ​ຂໍ້​ຄວາມ​ເບີ​ໂທ​ລະ​ສັບ</item>
+    <item>​ແກ້​ໄຂ​ຂໍ້​ຄວາມ</item>
+    <item>​ແກ້​ໄຂ​ຂໍ້​ຄວາມ​ສຳ​ລັບ URL</item>
+    <item>ໂຕ​ຄວບ​ຄຸມ​ອາ​ທິດ​ຂອງ​ປີ</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>​ແຈ້ງ​ເຕືອນ</item>
+    <item>​ຂໍ້​ຄວາມ​ແຈ້ງ​ເຕືອນ</item>
+    <item>ປຸ່ມ</item>
+    <item>ກ່ອງ​ເຄື່ອງ​ໝາຍ</item>
+    <item>ກ່ອງຄອມໂບ້</item>
+    <item>ຂໍ້ຄວາມ</item>
+    <item>​ຕາ​ລາງຕາ​ໜ່າງ</item>
+    <item>​ລິ້ງ</item>
+    <item>​ບັນ​ທຶກ</item>
+    <item>​ໂຕ​ໜັງ​ສື​ເລື່ອນ</item>
+    <item>ລາຍການເມນູ</item>
+    <item>ລາຍການເມນູ​ກ່ອງ​ເຄື່ອງ​ໝາຍ</item>
+    <item>​ປຸ່ມ​ເຄື່ອງ​ໝາຍ​ເລືອກ​ລາຍ​ການ​ເມ​ນູ</item>
+    <item>​ໂຕ​ເລືອກ</item>
+    <item>ແຖບຄວາມຄືບໜ້າ</item>
+    <item>​ປຸ່ມ​ເຄື່ອງ​ໝາຍ​ເລືອກ</item>
+    <item>ກຸ່ມປຸ່ມ​ເຄື່ອງ​ໝາຍ​ເລືອກ</item>
+    <item>​ແຖບ​ເລື່ອນ</item>
+    <item>ໂຕສະໄລ້</item>
+    <item>ປຸ່ມໝຸນ</item>
+    <item>ສະຖານະ</item>
+    <item>​ແຖບ</item>
+    <item>ແຜງ​ແຖບ</item>
+    <item>ກ່ອງຂໍ້ຄວາມ</item>
+    <item>ໂມງນັບ​ຖອຍຫລັງ</item>
+    <item>ແຖບເຄື່ອງມື</item>
+    <item>ຄຳອະທິບາຍ​ເຄື່ອງມື</item>
+    <item>ລາຍການ​ຜັງຕົ້ນໄມ້</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>​ລິ້ງ</item>
+    <item>ຫົວເລື່ອງນຶ່ງ</item>
+    <item>ຫົວເລື່ອງສອງ</item>
+    <item>ຫົວເລື່ອງສາມ</item>
+    <item>ຫົວເລື່ອງສີ່</item>
+    <item>ຫົວເລື່ອງຫ້າ</item>
+    <item>ຫົວເລື່ອງຫົກ</item>
+    <item>ປຸ່ມ</item>
+    <item>ກ່ອງຄອມໂບ້</item>
+    <item>​ຕາ​ຕາ​ລາງ</item>
+    <item>ພື້ນ​ທີ່​ຂໍ້​ຄວາມ</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

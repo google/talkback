@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Poga</item>
+    <item>Izvēles rūtiņa</item>
+    <item>Krāsu izvēle</item>
+    <item>Datuma un laika vadīkla</item>
+    <item>Datuma un laika vadīkla</item>
+    <item>Datuma vadīkla</item>
+    <item>Rediģēšanas teksts e-pasta ziņojumam</item>
+    <item>Faila atlase</item>
+    <item translatable="false"></item>
+    <item>Poga</item>
+    <item>Mēneša vadīkla</item>
+    <item>Rediģēšanas teksts: tikai cipari</item>
+    <item>Paroles rediģēšanas teksts</item>
+    <item>Poga</item>
+    <item>Slīdnis</item>
+    <item>Atiestatīt</item>
+    <item>Rediģēšanas teksts meklēšanai</item>
+    <item>Poga</item>
+    <item>Rediģēšanas teksts tālruņa numuram</item>
+    <item>Rediģēšanas teksts</item>
+    <item>Rediģēšanas teksts vietrādim URL</item>
+    <item>Gada nedēļas vadīkla</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Brīdinājums</item>
+    <item>Brīdinājuma dialoglodziņš</item>
+    <item>Poga</item>
+    <item>Izvēles rūtiņa</item>
+    <item>Kombinētais lodziņš</item>
+    <item>Dialoglodziņš</item>
+    <item>Režģa šūna</item>
+    <item>Saite</item>
+    <item>Žurnāls</item>
+    <item>Slīdošais teksts</item>
+    <item>Izvēlnes vienums</item>
+    <item>Izvēlnes vienuma izvēles rūtiņa</item>
+    <item>Izvēlnes vienuma poga</item>
+    <item>Opcija</item>
+    <item>Norises josla</item>
+    <item>Poga</item>
+    <item>Pogu grupa</item>
+    <item>Ritjosla</item>
+    <item>Slīdnis</item>
+    <item>Skaitītājpoga</item>
+    <item>Statuss</item>
+    <item>Cilne</item>
+    <item>Cilnes panelis</item>
+    <item>Tekstlodziņš</item>
+    <item>Taimeris</item>
+    <item>Rīkjosla</item>
+    <item>Rīka padoms</item>
+    <item>Koka vienums</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Saite</item>
+    <item>Pirmā līmeņa virsraksts</item>
+    <item>Otrā līmeņa virsraksts</item>
+    <item>Trešā līmeņa virsraksts</item>
+    <item>Ceturtā līmeņa virsraksts</item>
+    <item>Piektā līmeņa virsraksts</item>
+    <item>Sestā līmeņa virsraksts</item>
+    <item>Poga</item>
+    <item>Kombinētais lodziņš</item>
+    <item>Tabula</item>
+    <item>Teksta apgabals</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

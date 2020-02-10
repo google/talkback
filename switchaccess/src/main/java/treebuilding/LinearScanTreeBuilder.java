@@ -16,20 +16,18 @@
 
 package com.google.android.accessibility.switchaccess.treebuilding;
 
-import android.content.Context;
-import com.google.android.accessibility.switchaccess.ClearFocusNode;
+import android.accessibilityservice.AccessibilityService;
 import com.google.android.accessibility.switchaccess.SwitchAccessNodeCompat;
-import com.google.android.accessibility.switchaccess.SwitchAccessWindowInfo;
-import com.google.android.accessibility.switchaccess.TreeScanNode;
+import com.google.android.accessibility.switchaccess.treenodes.ClearFocusNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanNode;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 
 /** Builds a binary tree of TreeScanNodes using linear scanning. */
 public class LinearScanTreeBuilder extends BinaryTreeBuilder {
 
-  public LinearScanTreeBuilder(Context context) {
-    super(context);
+  public LinearScanTreeBuilder(AccessibilityService service) {
+    super(service);
   }
 
   @Override
@@ -46,13 +44,4 @@ public class LinearScanTreeBuilder extends BinaryTreeBuilder {
     return tree;
   }
 
-  @Override
-  public TreeScanNode addWindowListToTree(
-      List<SwitchAccessWindowInfo> windowList,
-      TreeScanNode treeToBuildOn,
-      boolean shouldPlaceTreeFirst,
-      boolean includeNonActionableItems) {
-    /* Not currently needed */
-    return null;
-  }
 }

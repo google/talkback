@@ -17,7 +17,8 @@
 package com.google.android.accessibility.compositor;
 
 import android.content.Context;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.Nullable;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.utils.labeling.LabelManager;
 import com.google.android.accessibility.utils.parsetree.ParseTree;
@@ -28,11 +29,13 @@ import java.util.Locale;
 class VariablesFactory {
   private final Context mContext;
   private final GlobalVariables mGlobalVariables;
-  private final LabelManager mLabelManager;
+  @Nullable private final LabelManager mLabelManager;
+  @Nullable private NodeMenuProvider nodeMenuProvider;
   // Stores the user preferred locale changed using language switcher.
-  private Locale mUserPreferredLocale;
+  private @Nullable Locale mUserPreferredLocale;
 
-  VariablesFactory(Context context, GlobalVariables globalVariables, LabelManager labelManager) {
+  VariablesFactory(
+      Context context, GlobalVariables globalVariables, @Nullable LabelManager labelManager) {
     mContext = context;
     mGlobalVariables = globalVariables;
     mLabelManager = labelManager;
@@ -44,6 +47,7 @@ class VariablesFactory {
   }
 
   // Gets the user preferred locale changed using language switcher.
+  @Nullable
   Locale getUserPreferredLocale() {
     return mUserPreferredLocale;
   }
@@ -53,27 +57,37 @@ class VariablesFactory {
     mUserPreferredLocale = locale;
   }
 
+  public void setNodeMenuProvider(@Nullable NodeMenuProvider nodeMenuProvider) {
+    this.nodeMenuProvider = nodeMenuProvider;
+  }
+
+  // Copies node, does not recycle original node.
   VariableDelegate createLocalVariableDelegate(
-      AccessibilityEvent event,
-      AccessibilityNodeInfoCompat node,
-      EventInterpretation eventInterpreted) {
+      @Nullable AccessibilityEvent event,
+      @Nullable AccessibilityNodeInfoCompat node,
+      @Nullable EventInterpretation interpretation) {
     VariableDelegate delegate = mGlobalVariables;
-    // Node variables is constructed first, so that its parent is mGlobalVariables.  This ensures
-    // that child nodes it creates don't have access to top level local variables.
+    if (event != null) {
+      delegate =
+          new EventVariables(mContext, delegate, event, event.getSource(), mUserPreferredLocale);
+    }
+
+    if (interpretation != null) {
+      delegate =
+          new InterpretationVariables(mContext, delegate, interpretation, mUserPreferredLocale);
+    }
+
+    // Node variables is constructed last. This ensures that child nodes it creates have access to
+    // top level global variables.
     if (node != null) {
       delegate =
           new NodeVariables(
               mContext,
               mLabelManager,
+              nodeMenuProvider,
               delegate,
               AccessibilityNodeInfoCompat.obtain(node),
               mUserPreferredLocale);
-    }
-
-    if (event != null) {
-      delegate =
-          new EventVariables(
-              mContext, delegate, event, event.getSource(), eventInterpreted, mUserPreferredLocale);
     }
     return delegate;
   }
@@ -83,6 +97,7 @@ class VariablesFactory {
       // Allow mGlobalVariables to be null for tests.
       mGlobalVariables.declareVariables(parseTree);
     }
+    InterpretationVariables.declareVariables(parseTree);
     EventVariables.declareVariables(parseTree);
     NodeVariables.declareVariables(parseTree);
     ActionVariables.declareVariables(parseTree);

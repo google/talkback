@@ -12,35 +12,52 @@
     <dimen name="setup_wizard_text_padding_start">30dp</dimen>
     <dimen name="setup_wizard_radio_button_description_padding">16dp</dimen>
     <dimen name="setup_wizard_radio_button_padding">8dp</dimen>
+    <dimen name="setup_wizard_screen_switch_toggle_left_padding">7dp</dimen>
+    <dimen name="setup_wizard_screen_switch_toggle_text_padding">15dp</dimen>
     <dimen name="setup_wizard_activity_margin">16dp</dimen>
     <dimen name="setup_wizard_key_assignment_padding">24dp</dimen>
-    <dimen name="setup_wizard_completion_text_padding_top">30dp</dimen>
     <dimen name="setup_wizard_completion_text_separation_padding">15dp</dimen>
+    <dimen name="setup_wizard_min_button_height">56dp</dimen>
+    <dimen name="setup_wizard_step_speed_padding">12dp</dimen>
 
-    <dimen name="setup_wizard_game_piece_size">90dp</dimen>
+    <dimen name="setup_wizard_game_piece_size">100dp</dimen>
     <dimen name="setup_wizard_game_button_text_size">70dp</dimen>
 
     <!-- Menu dimensions -->
     <dimen name="switch_access_min_button_size">48dp</dimen>
-
-    <dimen name="switch_access_menu_button_width">150dp</dimen>
-    <dimen name="switch_access_menu_button_height">120dp</dimen>
-    <dimen name="switch_access_menu_margin_between_buttons">10dp</dimen>
-
-    <dimen name="switch_access_menu_icon_size">40dp</dimen>
+    <dimen name="switch_access_submenu_header_padding_top">36dp</dimen>
+    <dimen name="switch_access_submenu_header_padding_bottom">53dp</dimen>
     <dimen name="switch_access_small_menu_icon_size">24dp</dimen>
+    <dimen name="switch_access_menu_button_top_padding">15dp</dimen>
+    <dimen name="switch_access_menu_margin_between_buttons">10dp</dimen>
+    <dimen name="switch_access_menu_padding_between_icon_and_text">5dp</dimen>
+    <dimen name="switch_access_horizontal_margin_to_menu_edge">10dp</dimen>
+    <dimen name="switch_access_menu_border_radius">10dp</dimen>
+    <dimen name="switch_access_submenu_header_button_margin_start">9dp</dimen>
+    <dimen name="switch_access_submenu_header_button_margin_top">18dp</dimen>
+    <dimen name="switch_access_volume_submenu_margin">9dp</dimen>
+    <dimen name="switch_access_volume_submenu_slider_width">209dp</dimen>
+    <dimen name="switch_access_volume_submenu_slider_height_with_thumb">18dp</dimen>
+    <dimen name="switch_access_volume_submenu_slider_height">2dp</dimen>
+    <dimen name="switch_access_volume_submenu_slider_corner_radius">10dp</dimen>
+    <dimen name="switch_access_volume_submenu_slider_thumb_radius">12dp</dimen>
 
-    <dimen name="switch_access_menu_text_size">17sp</dimen>
-    <dimen name="switch_access_menu_text_padding">4dp</dimen>
+    <!--
+         This allows the menu to extend beyond the edge of the screen for proper height
+         calculations. Without this, the menu's height will be clipped to the edges of the screen,
+         and we can't readjust the placement/size properly. We need enough room for the largest
+         possible menu height minus half of the screen height because the items that allow the least
+         space for the menu are those in the vertical center. So these are the cases where the menu
+         has the potential to extend beyond the screen edge the greatest amount.
+    -->
+    <dimen name="switch_access_menu_margin_beyond_screen">-150dp</dimen>
 
-    <!-- Nomon Clock dimensions -->
-    <dimen name="nomon_clock_diameter">75dp</dimen>
-    <dimen name="nomon_clock_hand_width">37dp</dimen>
-    <dimen name="nomon_clock_hand_height">7dp</dimen>
-    <dimen name="nomon_clock_hand_radius">7dp</dimen>
-    <dimen name="nomon_clock_hand_padding_left">37dp</dimen>
-    <dimen name="nomon_clock_hand_padding_right">7dp</dimen>
-    <dimen name="nomon_clock_outline_width">5dp</dimen>
+    <dimen name="switch_access_menu_icon_size">30dp</dimen>
+    <dimen name="switch_access_menu_header_size">16sp</dimen>
+    <dimen name="switch_access_menu_text_size">12sp</dimen>
+    <dimen name="switch_access_menu_button_width">85dp</dimen>
+    <dimen name="switch_access_menu_button_height">100dp</dimen>
+    <dimen name="switch_access_menu_minimum_footer_height">46dp</dimen>
 
     <!-- Arrow scroll indicator dimensions -->
     <dimen name="scroll_indicator_icon_size">32dp</dimen>
@@ -48,4 +65,6 @@
     <dimen name="scroll_indicator_size_narrow">32dp</dimen>
     <dimen name="scroll_indicator_corner_radius">4dp</dimen>
 
+    <!-- Dimensions for preferences -->
+    <dimen name="edit_text_preference_min_height">48dp</dimen>
 </resources>

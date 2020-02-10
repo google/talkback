@@ -26,12 +26,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
-import android.support.v4.os.UserManagerCompat;
+import androidx.core.os.UserManagerCompat;
 import android.text.TextUtils;
-import android.util.Log;
 import com.google.android.accessibility.talkback.BuildConfig;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.labeling.LabelsTable;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Locale;
 
 /**
@@ -45,6 +44,9 @@ import java.util.Locale;
  * </ul>
  */
 public class LabelProvider extends ContentProvider {
+
+  private static final String TAG = "LabelProvider";
+
   public static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".providers.LabelProvider";
   static final String LABELS_PATH = "labels";
   static final Uri LABELS_CONTENT_URI =
@@ -62,15 +64,15 @@ public class LabelProvider extends ContentProvider {
   private static final String UNKNOWN_URI_FORMAT_STRING = "Unknown URI: %s";
   private static final String NULL_URI_FORMAT_STRING = "URI is null";
 
-  static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+  static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
   static {
-    sUriMatcher.addURI(AUTHORITY, LABELS_CONTENT_URI.getPath(), LABELS);
-    sUriMatcher.addURI(AUTHORITY, LABELS_ID_CONTENT_URI.getPath(), LABELS_ID);
-    sUriMatcher.addURI(AUTHORITY, PACKAGE_SUMMARY_URI.getPath(), PACKAGE_SUMMARY);
+    uriMatcher.addURI(AUTHORITY, LABELS_CONTENT_URI.getPath(), LABELS);
+    uriMatcher.addURI(AUTHORITY, LABELS_ID_CONTENT_URI.getPath(), LABELS_ID);
+    uriMatcher.addURI(AUTHORITY, PACKAGE_SUMMARY_URI.getPath(), PACKAGE_SUMMARY);
   }
 
-  private SQLiteDatabase mDatabase;
+  private SQLiteDatabase database;
 
   @Override
   public boolean onCreate() {
@@ -92,7 +94,7 @@ public class LabelProvider extends ContentProvider {
   @Override
   public Uri insert(Uri uri, ContentValues values) {
     if (uri == null) {
-      LogUtils.log(this, Log.WARN, NULL_URI_FORMAT_STRING);
+      LogUtils.w(TAG, NULL_URI_FORMAT_STRING);
       return null;
     }
 
@@ -100,7 +102,7 @@ public class LabelProvider extends ContentProvider {
       return null;
     }
 
-    switch (sUriMatcher.match(uri)) {
+    switch (uriMatcher.match(uri)) {
       case LABELS:
         initializeDatabaseIfNull();
 
@@ -109,20 +111,20 @@ public class LabelProvider extends ContentProvider {
         }
 
         if (values.containsKey(LabelsTable.KEY_ID)) {
-          LogUtils.log(this, Log.WARN, "Label ID must be assigned by the database.");
+          LogUtils.w(TAG, "Label ID must be assigned by the database.");
           return null;
         }
 
-        long rowId = mDatabase.insert(LabelsTable.TABLE_NAME, null, values);
+        long rowId = database.insert(LabelsTable.TABLE_NAME, null, values);
 
         if (rowId < 0) {
-          LogUtils.log(this, Log.WARN, "Failed to insert label.");
+          LogUtils.w(TAG, "Failed to insert label.");
           return null;
         } else {
           return ContentUris.withAppendedId(LABELS_CONTENT_URI, rowId);
         }
       default:
-        LogUtils.log(this, Log.WARN, UNKNOWN_URI_FORMAT_STRING, uri);
+        LogUtils.w(TAG, UNKNOWN_URI_FORMAT_STRING, uri);
         return null;
     }
   }
@@ -144,7 +146,7 @@ public class LabelProvider extends ContentProvider {
   public Cursor query(
       Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
     if (uri == null) {
-      LogUtils.log(this, Log.WARN, NULL_URI_FORMAT_STRING);
+      LogUtils.w(TAG, NULL_URI_FORMAT_STRING);
       return null;
     }
 
@@ -157,7 +159,7 @@ public class LabelProvider extends ContentProvider {
 
     String groupBy = null;
 
-    switch (sUriMatcher.match(uri)) {
+    switch (uriMatcher.match(uri)) {
       case LABELS:
         if (TextUtils.isEmpty(sortOrder)) {
           sortOrder = LabelsTable.KEY_ID;
@@ -169,7 +171,7 @@ public class LabelProvider extends ContentProvider {
         try {
           labelId = Integer.parseInt(labelIdString);
         } catch (NumberFormatException e) {
-          LogUtils.log(this, Log.WARN, UNKNOWN_URI_FORMAT_STRING, uri);
+          LogUtils.w(TAG, UNKNOWN_URI_FORMAT_STRING, uri);
           return null;
         }
 
@@ -182,14 +184,14 @@ public class LabelProvider extends ContentProvider {
         sortOrder = LabelsTable.KEY_PACKAGE_NAME;
         break;
       default:
-        LogUtils.log(this, Log.WARN, UNKNOWN_URI_FORMAT_STRING, uri);
+        LogUtils.w(TAG, UNKNOWN_URI_FORMAT_STRING, uri);
         return null;
     }
 
     initializeDatabaseIfNull();
 
     return queryBuilder.query(
-        mDatabase, projection, selection, selectionArgs, groupBy, null /* having */, sortOrder);
+        database, projection, selection, selectionArgs, groupBy, null /* having */, sortOrder);
   }
 
   /**
@@ -205,7 +207,7 @@ public class LabelProvider extends ContentProvider {
   @Override
   public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
     if (uri == null) {
-      LogUtils.log(this, Log.WARN, NULL_URI_FORMAT_STRING);
+      LogUtils.w(TAG, NULL_URI_FORMAT_STRING);
       return 0;
     }
 
@@ -213,12 +215,12 @@ public class LabelProvider extends ContentProvider {
       return 0;
     }
 
-    switch (sUriMatcher.match(uri)) {
+    switch (uriMatcher.match(uri)) {
       case LABELS:
         {
           initializeDatabaseIfNull();
 
-          int result = mDatabase.update(LabelsTable.TABLE_NAME, values, selection, selectionArgs);
+          int result = database.update(LabelsTable.TABLE_NAME, values, selection, selectionArgs);
           getContext().getContentResolver().notifyChange(uri, null /* observer */);
           return result;
         }
@@ -231,13 +233,13 @@ public class LabelProvider extends ContentProvider {
           try {
             labelId = Integer.parseInt(labelIdString);
           } catch (NumberFormatException e) {
-            LogUtils.log(this, Log.WARN, UNKNOWN_URI_FORMAT_STRING, uri);
+            LogUtils.w(TAG, UNKNOWN_URI_FORMAT_STRING, uri);
             return 0;
           }
 
           final String where = String.format(Locale.ROOT, "%s = %d", LabelsTable.KEY_ID, labelId);
           final int result =
-              mDatabase.update(
+              database.update(
                   LabelsTable.TABLE_NAME,
                   values,
                   combineSelectionAndWhere(selection, where),
@@ -248,7 +250,7 @@ public class LabelProvider extends ContentProvider {
           return result;
         }
       default:
-        LogUtils.log(this, Log.WARN, UNKNOWN_URI_FORMAT_STRING, uri);
+        LogUtils.w(TAG, UNKNOWN_URI_FORMAT_STRING, uri);
         return 0;
     }
   }
@@ -265,7 +267,7 @@ public class LabelProvider extends ContentProvider {
   @Override
   public int delete(Uri uri, String selection, String[] selectionArgs) {
     if (uri == null) {
-      LogUtils.log(this, Log.WARN, NULL_URI_FORMAT_STRING);
+      LogUtils.w(TAG, NULL_URI_FORMAT_STRING);
       return 0;
     }
 
@@ -273,12 +275,12 @@ public class LabelProvider extends ContentProvider {
       return 0;
     }
 
-    switch (sUriMatcher.match(uri)) {
+    switch (uriMatcher.match(uri)) {
       case LABELS:
         {
           initializeDatabaseIfNull();
 
-          int result = mDatabase.delete(LabelsTable.TABLE_NAME, selection, selectionArgs);
+          int result = database.delete(LabelsTable.TABLE_NAME, selection, selectionArgs);
           getContext().getContentResolver().notifyChange(uri, null /* observer */);
           return result;
         }
@@ -291,13 +293,13 @@ public class LabelProvider extends ContentProvider {
           try {
             labelId = Integer.parseInt(labelIdString);
           } catch (NumberFormatException e) {
-            LogUtils.log(this, Log.WARN, UNKNOWN_URI_FORMAT_STRING, uri);
+            LogUtils.w(TAG, UNKNOWN_URI_FORMAT_STRING, uri);
             return 0;
           }
 
           final String where = String.format(Locale.ROOT, "%s = %d", LabelsTable.KEY_ID, labelId);
           final int result =
-              mDatabase.delete(
+              database.delete(
                   LabelsTable.TABLE_NAME,
                   combineSelectionAndWhere(selection, where),
                   selectionArgs);
@@ -307,15 +309,15 @@ public class LabelProvider extends ContentProvider {
           return result;
         }
       default:
-        LogUtils.log(this, Log.WARN, UNKNOWN_URI_FORMAT_STRING, uri);
+        LogUtils.w(TAG, UNKNOWN_URI_FORMAT_STRING, uri);
         return 0;
     }
   }
 
   @Override
   public void shutdown() {
-    if (mDatabase != null) {
-      mDatabase.close();
+    if (database != null) {
+      database.close();
     }
   }
 
@@ -343,8 +345,8 @@ public class LabelProvider extends ContentProvider {
    * <p>Note: the database is automatically cleaned up by the kernel when the process terminates.
    */
   private void initializeDatabaseIfNull() {
-    if (mDatabase == null) {
-      mDatabase = new LabelsDatabaseOpenHelper(getContext()).getWritableDatabase();
+    if (database == null) {
+      database = new LabelsDatabaseOpenHelper(getContext()).getWritableDatabase();
     }
   }
 

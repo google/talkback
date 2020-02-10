@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Bouton</item>
+    <item>Case à cocher</item>
+    <item>Sélecteur de couleur</item>
+    <item>Commande de la date et l\'heure</item>
+    <item>Commande de la date et l\'heure</item>
+    <item>Commande de la date</item>
+    <item>Modifier le texte de l\'adresse de courriel</item>
+    <item>Sélection de fichier</item>
+    <item translatable="false"></item>
+    <item>Bouton</item>
+    <item>Commande de mois</item>
+    <item>Modifier uniquement le texte numérique</item>
+    <item>Texte de modification du mot de passe</item>
+    <item>Bouton radio</item>
+    <item>Curseur</item>
+    <item>Réinitialiser</item>
+    <item>Modifier le texte de la recherche</item>
+    <item>Bouton</item>
+    <item>Modifier le texte pour le numéro de téléphone</item>
+    <item>Modifier le texte</item>
+    <item>Modifier le texte pour l\'URL</item>
+    <item>Commande de la semaine</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Alerte</item>
+    <item>Boîte de dialogue d\'alerte</item>
+    <item>Bouton</item>
+    <item>Case à cocher</item>
+    <item>Liste déroulante</item>
+    <item>Boîte de dialogue</item>
+    <item>Cellule de grille</item>
+    <item>Lien</item>
+    <item>Journal</item>
+    <item>Bannière défilante</item>
+    <item>Élément de menu</item>
+    <item>Case à cocher d\'un élément de menu</item>
+    <item>Bouton radio d\'un élément de menu</item>
+    <item>Option</item>
+    <item>Barre de progression</item>
+    <item>Bouton radio</item>
+    <item>Groupe de boutons radio</item>
+    <item>Barre de défilement</item>
+    <item>Curseur</item>
+    <item>Bouton de pivotement</item>
+    <item>État</item>
+    <item>Tabulation</item>
+    <item>Panneau de tabulation</item>
+    <item>Zone de texte</item>
+    <item>Minuteur</item>
+    <item>Barre d\'outils</item>
+    <item>Infobulle</item>
+    <item>Article arbre</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Lien</item>
+    <item>Titre de niveau un</item>
+    <item>Titre de niveau deux</item>
+    <item>Titre de niveau trois</item>
+    <item>Titre de niveau quatre</item>
+    <item>Titre de niveau cinq</item>
+    <item>Titre de niveau six</item>
+    <item>Bouton</item>
+    <item>Liste déroulante</item>
+    <item>table</item>
+    <item>Zone de texte</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

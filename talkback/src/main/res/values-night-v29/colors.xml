@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+  <color name="tutorial_footer_background">#313235</color>
+  <color name="tutorial_footer_buttons">#f8f9fa</color>
+  <color name="tutorial_footer_chevron_color">@android:color/white</color>
+  <color name="tutorial_main_item_title">#f8f9fa</color>
+  <color name="tutorial_main_item_buttons">#8de1d9</color>
+  <color name="tutorial_main_item_background">#202124</color>
+  <color name="tutorial_main_item_stroke">#5F6368</color>
+  <color name="tutorial_semi_black">#dadce0</color>
+  <color name="tutorial_grid_item">#8DE1D9</color>
+  <color name="tutorial_arrow_color">#f8f9fa</color>
+
+  <color name="settings_bg_color">@color/google_black</color>
+  <color name="actionBarTextColorPrimary">@color/google_grey200</color>
+  <color name="colorAccent">@color/google_blue300</color>
+</resources>

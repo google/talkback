@@ -19,19 +19,20 @@ package com.google.android.accessibility.compositor;
 import static com.google.android.accessibility.compositor.TextEventHistory.NO_INDEX;
 
 import android.content.Context;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.Nullable;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import android.text.SpannableString;
 import android.text.TextUtils;
-import android.util.Log;
+import android.text.style.TtsSpan;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.SpeechCleanupUtils;
-import com.google.android.accessibility.utils.input.CursorController;
 import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.input.TextCursorManager;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.List;
 
 /**
@@ -40,12 +41,19 @@ import java.util.List;
  */
 public class TextEventInterpreter {
 
+  private static final String TAG = "TextEventInterpreter";
+
+  /** A minimal interface to read text-selection state. */
+  public interface SelectionStateReader {
+    boolean isSelectionModeActive();
+  }
+
   // /////////////////////////////////////////////////////////////////////////////////
   // Member variables
 
   private final Context mContext;
-  private final TextCursorManager mTextCursorManager;
-  private final CursorController mCursorController;
+  @Nullable private final TextCursorManager mTextCursorManager;
+  @Nullable private final SelectionStateReader selectionStateReader;
   private final InputModeManager mInputModeManager;
   private final GlobalVariables mGlobalVariables;
 
@@ -57,14 +65,14 @@ public class TextEventInterpreter {
 
   public TextEventInterpreter(
       Context context,
-      TextCursorManager textCursorManager,
-      CursorController cursorController,
+      @Nullable TextCursorManager textCursorManager,
+      @Nullable SelectionStateReader selectionStateReader,
       InputModeManager inputModeManager,
       TextEventHistory history,
       GlobalVariables globalVariables) {
     mContext = context;
     mTextCursorManager = textCursorManager;
-    mCursorController = cursorController;
+    this.selectionStateReader = selectionStateReader;
     mInputModeManager = inputModeManager;
     mHistory = history;
     mGlobalVariables = globalVariables;
@@ -74,8 +82,7 @@ public class TextEventInterpreter {
   // Methods to interpret event based on event content and event history
 
   /** Extract a text event interpretation data from event. May return null. */
-  public TextEventInterpretation interpret(AccessibilityEvent event) {
-
+  public @Nullable TextEventInterpretation interpret(AccessibilityEvent event) {
     // Interpret more specific event type.
     @Compositor.Event int eventType = event.getEventType();
     TextEventInterpretation interpretation;
@@ -99,7 +106,7 @@ public class TextEventInterpreter {
     // Display interpretation, seal interpretation.
     interpretation.setReadOnly();
     if (isTextEvent) {
-      LogUtils.log(this, Log.INFO, "interpretation: %s", interpretation);
+      LogUtils.i(TAG, "interpretation: %s", interpretation);
     }
     return interpretation;
   }
@@ -119,6 +126,9 @@ public class TextEventInterpreter {
         interpretation.setEvent(Compositor.EVENT_TYPE_INPUT_TEXT_PASSWORD_ADD);
       } else if ((added <= 0) && (removed == 1)) {
         interpretation.setEvent(Compositor.EVENT_TYPE_INPUT_TEXT_PASSWORD_REMOVE);
+      } else if (isJunkyCharacterReplacedByBulletInUnlockPinEntry(event)) {
+        return interpretation.setInvalid(
+            "Junky text change event when the number typed in pin entry is replaced by bullet.");
       } else {
         interpretation.setEvent(Compositor.EVENT_TYPE_INPUT_TEXT_PASSWORD_REPLACE);
       }
@@ -165,13 +175,17 @@ public class TextEventInterpreter {
     final int addedLength = addedText.length();
     if (removedLength > addedLength) {
       if (TextUtils.regionMatches(removedText, 0, addedText, 0, addedLength)) {
-        removedText = removedText.subSequence(addedLength, removedLength);
+        removedText = getSubsequenceWithSpans(removedText, addedLength, removedLength);
+        // Prevent TapPresubmit alert for Nullable annotation conflict
+        removedText = (removedText == null) ? "" : removedText;
         addedText = "";
       }
     } else if (addedLength > removedLength) {
       if (TextUtils.regionMatches(removedText, 0, addedText, 0, removedLength)) {
         removedText = "";
-        addedText = addedText.subSequence(removedLength, addedLength);
+        addedText = getSubsequenceWithSpans(addedText, removedLength, addedLength);
+        // Prevent TapPresubmit alert for Nullable annotation conflict
+        addedText = (addedText == null) ? "" : addedText;
       }
     }
     interpretation.setRemovedText(removedText);
@@ -180,6 +194,10 @@ public class TextEventInterpreter {
     // Apply speech clean up rules. Example: changing "A" to "capital A".
     final CharSequence cleanRemovedText = SpeechCleanupUtils.cleanUp(mContext, removedText);
     final CharSequence cleanAddedText = SpeechCleanupUtils.cleanUp(mContext, addedText);
+    if (isJunkyCharacterReplacedByBulletInUnlockPinEntry(event)) {
+      return interpretation.setInvalid(
+          "Junky text change event when the number typed in pin entry is replaced by bullet.");
+    }
 
     // Text added
     if (!TextUtils.isEmpty(cleanAddedText)) {
@@ -207,6 +225,30 @@ public class TextEventInterpreter {
     return interpretation.setInvalid("addedText and removedText are both empty.");
   }
 
+  /**
+   * Returns {@code true} if it's a junky {@link AccessibilityEvent#TYPE_VIEW_TEXT_CHANGED} when
+   * typing pin code in unlock screen.
+   *
+   * <p>Starting from P, pin entry at lock screen files text changed event when the digit typed in
+   * is visually replaced by bullet. We don't want to announce this change.
+   *
+   * <p>Fortunately, password field at lock screen doesn't have this issue.
+   */
+  private static boolean isJunkyCharacterReplacedByBulletInUnlockPinEntry(
+      AccessibilityEvent event) {
+    if (!BuildVersionUtils.isAtLeastP()
+        || (event.getAddedCount() != 1)
+        || (event.getRemovedCount() != 1)) {
+      return false;
+    }
+    AccessibilityNodeInfo source = event.getSource();
+    try {
+      return AccessibilityNodeInfoUtils.isPinEntry(source);
+    } finally {
+      AccessibilityNodeInfoUtils.recycleNodes(source);
+    }
+  }
+
   private TextEventInterpretation interpretSelectionChange(AccessibilityEvent event) {
     // Default to original event type.
     @Compositor.Event int eventType = event.getEventType();
@@ -216,10 +258,13 @@ public class TextEventInterpreter {
     final boolean isGranularTraversal =
         (event.getEventType()
             == AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY);
-    final CharSequence text;
+    final @Nullable CharSequence text;
     if (isGranularTraversal) {
-      // Use the description (if present) or aggregate event text.
-      text = AccessibilityEventUtils.getEventTextOrDescription(event);
+      // Gets text from node instead of event to prevent missing locale spans.
+      AccessibilityNodeInfoCompat nodeToAnnounce =
+          AccessibilityNodeInfoUtils.toCompat(event.getSource());
+      text = AccessibilityNodeInfoUtils.getNodeText(nodeToAnnounce);
+      AccessibilityNodeInfoUtils.recycleNodes(nodeToAnnounce);
     } else {
       // Only use the first item from getText().
       text = getEventText(event);
@@ -256,12 +301,18 @@ public class TextEventInterpreter {
       return interpretation;
     }
 
+    if (mTextCursorManager == null) {
+      interpretation.setInvalid("TextCursorManager is null.");
+      return interpretation;
+    }
+
     int toIndex = event.getToIndex();
     int fromIndex = event.getFromIndex();
     int previousCursorPos = mTextCursorManager.getPreviousCursorPosition();
     int currentCursorPos = mTextCursorManager.getCurrentCursorPosition();
-    int textLength = text.length();
-    boolean isSelectionModeActive = mCursorController.isSelectionModeActive();
+    int textLength = TextUtils.isEmpty(text) ? 0 : text.length();
+    boolean isSelectionModeActive =
+        (selectionStateReader != null) && selectionStateReader.isSelectionModeActive();
 
     int eventTypeInt = eventType;
     long eventTime = event.getEventTime();
@@ -313,7 +364,7 @@ public class TextEventInterpreter {
         // Extract traversed text.
         int startIndex = Math.min(mHistory.getLastToIndex(), toIndex);
         int endIndex = Math.max(mHistory.getLastToIndex(), toIndex);
-        if (0 <= startIndex && endIndex <= text.length()) {
+        if (0 <= startIndex && endIndex <= textLength) {
           CharSequence traversedText = getSubsequence(isPassword, text, startIndex, endIndex);
           interpretation.setTraversedText(traversedText);
         }
@@ -322,7 +373,7 @@ public class TextEventInterpreter {
         return interpretation;
         /**
          * TODO refactor the following three cases when we get more information for the text
-         * selection action on physical keyboard.
+         * selection action on physical keyboard. 
          *
          * <p>Sometimes TalkBack cannot distinguish between "select all" action and "move cursor
          * within selection mode" action. In this case, we currently classify the ambiguous action
@@ -385,12 +436,13 @@ public class TextEventInterpreter {
         if (event.getMovementGranularity()
             == AccessibilityNodeInfoCompat.MOVEMENT_GRANULARITY_CHARACTER) {
           int charIndex = Math.min(fromIndex, toIndex);
-          if (0 <= charIndex && charIndex < text.length()) {
-            traversedText = String.valueOf(text.charAt(charIndex));
+          if (0 <= charIndex && charIndex < textLength) {
+            traversedText = getSubsequenceWithSpans(text, charIndex, charIndex + 1);
           }
         } else {
           traversedText =
-              text.subSequence(Math.min(fromIndex, toIndex), Math.max(fromIndex, toIndex));
+              getSubsequenceWithSpans(
+                  text, Math.min(fromIndex, toIndex), Math.max(fromIndex, toIndex));
         }
         interpretation.setTraversedText(traversedText);
         return interpretation;
@@ -436,7 +488,7 @@ public class TextEventInterpreter {
     return ((beforeText.length() + diff) == afterText.length());
   }
 
-  private static CharSequence getRemovedText(AccessibilityEvent event) {
+  private static @Nullable CharSequence getRemovedText(AccessibilityEvent event) {
     final CharSequence beforeText = event.getBeforeText();
     if (beforeText == null) {
       return null;
@@ -448,14 +500,25 @@ public class TextEventInterpreter {
       return "";
     }
 
-    return beforeText.subSequence(beforeBegIndex, beforeEndIndex);
+    return getSubsequenceWithSpans(beforeText, beforeBegIndex, beforeEndIndex);
   }
 
-  private static CharSequence getAddedText(AccessibilityEvent event) {
+  /**
+   * Returns {@code null}, empty string or the added text depending on the event.
+   *
+   * <p>For cases where event.getText() is null or bad size, text interpretation is expected to be
+   * set invalid with "addedText is null" in interpretTextChange(). Hence where event.getText() is
+   * null or bad size, we return null as returning an empty string here would bypass this condition
+   * and the text interpretation would be incorrect.
+   *
+   * @param event
+   * @return the added text.
+   */
+  private static @Nullable CharSequence getAddedText(AccessibilityEvent event) {
     final List<CharSequence> textList = event.getText();
     // noinspection ConstantConditions
     if (textList == null || textList.size() > 1) {
-      LogUtils.log(Compositor.class, Log.WARN, "getAddedText: Text list was null or bad size");
+      LogUtils.w(TAG, "getAddedText: Text list was null or bad size");
       return null;
     }
 
@@ -467,16 +530,15 @@ public class TextEventInterpreter {
 
     final CharSequence text = textList.get(0);
     if (text == null) {
-      LogUtils.log(Compositor.class, Log.WARN, "getAddedText: First text entry was null");
+      LogUtils.w(TAG, "getAddedText: First text entry was null");
       return null;
     }
 
     final int addedBegIndex = event.getFromIndex();
     final int addedEndIndex = addedBegIndex + event.getAddedCount();
     if (areInvalidIndices(text, addedBegIndex, addedEndIndex)) {
-      LogUtils.log(
-          Compositor.class,
-          Log.WARN,
+      LogUtils.w(
+          TAG,
           "getAddedText: Invalid indices (%d,%d) for \"%s\"",
           addedBegIndex,
           addedEndIndex,
@@ -484,7 +546,7 @@ public class TextEventInterpreter {
       return "";
     }
 
-    return text.subSequence(addedBegIndex, addedEndIndex);
+    return getSubsequenceWithSpans(text, addedBegIndex, addedEndIndex);
   }
 
   private static boolean areInvalidIndices(CharSequence text, int begin, int end) {
@@ -498,14 +560,16 @@ public class TextEventInterpreter {
     final int fromIndex = event.getFromIndex();
 
     if (fromIndex > text.length()) {
-      LogUtils.log(this, Log.WARN, "Received event with invalid fromIndex: %s", event);
+      LogUtils.w(TAG, "Received event with invalid fromIndex: %s", event);
       return false;
     }
 
     // Check if any visible text was added.
-    int trimmedLength = TextUtils.getTrimmedLength(addedText);
-    if (trimmedLength > 0) {
-      return false;
+    if (addedText != null) {
+      int trimmedLength = TextUtils.getTrimmedLength(addedText);
+      if (trimmedLength > 0) {
+        return false;
+      }
     }
 
     final int breakIndex = getPrecedingWhitespace(text, fromIndex);
@@ -552,14 +616,19 @@ public class TextEventInterpreter {
     AccessibilityNodeInfo source = null;
     try {
       source = event.getSource();
-      return (source != null) && source.equals(mHistory.getLastNode());
+      AccessibilityNodeInfo lastNode = mHistory.getLastNode();
+      return (source != null) && lastNode != null && source.equals(lastNode);
     } finally {
       AccessibilityNodeInfoUtils.recycleNodes(source);
     }
   }
 
-  private CharSequence getUnselectedText(
-      boolean isPassword, CharSequence text, int fromIndex, int toIndex, int lastToIndex) {
+  private @Nullable CharSequence getUnselectedText(
+      boolean isPassword,
+      @Nullable CharSequence text,
+      int fromIndex,
+      int toIndex,
+      int lastToIndex) {
     if (fromIndex < lastToIndex && toIndex < lastToIndex) {
       return getSubsequence(isPassword, text, Math.max(fromIndex, toIndex), lastToIndex);
     } else if (fromIndex > lastToIndex && toIndex > lastToIndex) {
@@ -569,8 +638,12 @@ public class TextEventInterpreter {
     }
   }
 
-  private CharSequence getSelectedText(
-      boolean isPassword, CharSequence text, int fromIndex, int toIndex, int lastToIndex) {
+  private @Nullable CharSequence getSelectedText(
+      boolean isPassword,
+      @Nullable CharSequence text,
+      int fromIndex,
+      int toIndex,
+      int lastToIndex) {
     if (fromIndex < toIndex && lastToIndex < toIndex) {
       return getSubsequence(isPassword, text, Math.max(fromIndex, lastToIndex), toIndex);
     } else if (fromIndex > toIndex && lastToIndex > toIndex) {
@@ -593,17 +666,40 @@ public class TextEventInterpreter {
    * @return the requested subsequence or an alternate description for passwords, or null if range
    *     is invalid.
    */
-  private CharSequence getSubsequence(boolean isPassword, CharSequence text, int from, int to) {
+  private @Nullable CharSequence getSubsequence(
+      boolean isPassword, @Nullable CharSequence text, int from, int to) {
     if (isPassword && !mGlobalVariables.shouldSpeakPasswords()) {
       if (to - from == 1) {
         return mContext.getString(R.string.template_password_traversed, from + 1);
       } else {
         return mContext.getString(R.string.template_password_selected, from + 1, to);
       }
-    } else if (0 <= from && to <= text.length() && from <= to) {
-      return text.subSequence(from, to);
     } else {
+      return getSubsequenceWithSpans(text, from, to);
+    }
+  }
+
+  // ,remove only TtsSpans which are marked up beyond the boundary of traversed text.
+  @Nullable
+  public static CharSequence getSubsequenceWithSpans(
+      @Nullable CharSequence text, int from, int to) {
+    if (text == null) {
       return null;
     }
+    if (from < 0 || text.length() < to || to < from) {
+      return null;
+    }
+
+    SpannableString textWithSpans = SpannableString.valueOf(text);
+    CharSequence subsequence = text.subSequence(from, to);
+    SpannableString subsequenceWithSpans = SpannableString.valueOf(subsequence);
+    TtsSpan[] spans = subsequenceWithSpans.getSpans(0, subsequence.length(), TtsSpan.class);
+
+    for (TtsSpan span : spans) {
+      if (textWithSpans.getSpanStart(span) < from || to < textWithSpans.getSpanEnd(span)) {
+        subsequenceWithSpans.removeSpan(span);
+      }
+    }
+    return subsequence;
   }
 }

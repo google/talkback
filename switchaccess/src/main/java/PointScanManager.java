@@ -21,51 +21,67 @@ import android.accessibilityservice.GestureDescription;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.graphics.Rect;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.os.Build;
-import android.os.Handler;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import com.android.switchaccess.SwitchAccessService;
 import com.google.android.accessibility.switchaccess.OptionManager.ScanListener;
-import com.google.android.accessibility.switchaccess.utils.GestureUtils;
-import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.switchaccess.OptionManager.ScanStateChangeTrigger;
+import com.google.android.accessibility.switchaccess.SwitchAccessPreferenceCache.SwitchAccessPreferenceChangedListener;
+import com.google.android.accessibility.switchaccess.menuitems.MenuItem.SelectMenuItemListener;
+import com.google.android.accessibility.switchaccess.menuitems.MenuItemOnClickListener;
+import com.google.android.accessibility.switchaccess.menuitems.PointScanMenuItem;
+import com.google.android.accessibility.switchaccess.proto.SwitchAccessMenuItemEnum.MenuItem;
+import com.google.android.accessibility.switchaccess.proto.SwitchAccessMenuTypeEnum.MenuType;
+import com.google.android.accessibility.switchaccess.ui.OverlayController;
+import com.google.android.accessibility.switchaccess.ui.OverlayController.MenuListener;
+import com.google.android.libraries.accessibility.utils.concurrent.ThreadUtils;
+import com.google.android.libraries.accessibility.utils.device.ScreenUtils;
+import com.google.android.libraries.accessibility.utils.input.GestureUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Manager for point scanning, where the entire screen is scanned in each direction so the user can
  * select a point to start performing gestures.
  */
 @TargetApi(Build.VERSION_CODES.N)
-public class PointScanManager implements SharedPreferences.OnSharedPreferenceChangeListener {
-  public static final int ACTION_CLICK = 0;
-  public static final int ACTION_LONG_CLICK = 1;
-  public static final int ACTION_SWIPE_RIGHT = 2;
-  public static final int ACTION_SWIPE_LEFT = 3;
-  public static final int ACTION_SWIPE_UP = 4;
-  public static final int ACTION_SWIPE_DOWN = 5;
-  public static final int ACTION_SWIPE_CUSTOM = 6;
-  public static final int ACTION_ZOOM_OUT = 7;
-  public static final int ACTION_ZOOM_IN = 8;
+public class PointScanManager implements SwitchAccessPreferenceChangedListener, MenuListener {
+  /** Possible actions that can be performed with point scanning. */
+  public enum PointScanAction {
+    ACTION_CLICK,
+    ACTION_LONG_CLICK,
+    ACTION_SWIPE_RIGHT,
+    ACTION_SWIPE_LEFT,
+    ACTION_SWIPE_UP,
+    ACTION_SWIPE_DOWN,
+    ACTION_SWIPE_CUSTOM,
+    ACTION_ZOOM_OUT,
+    ACTION_ZOOM_IN
+  }
 
   /** Possible directions in which scanning can occur. */
-  public static enum ScanMode {
+  public enum ScanMode {
     NONE,
     X,
     Y
-  };
+  }
 
-  private static final String TAG = PointScanManager.class.getSimpleName();
+  private static final String TAG = "PointScanManager";
+
+  // Keep track of whether the scan just completed so that we don't automatically start rescanning
+  // each time a scan finishes - this would cause point scan to continue scanning indefinitely.
+  private boolean scanFinished = false;
 
   // The distance between the starting point and the ending point of a swipe gesture. Use a large
   // number, so that it will later be adjusted to move exactly to the edge of the screen. Do not
@@ -85,99 +101,92 @@ public class PointScanManager implements SharedPreferences.OnSharedPreferenceCha
   // Interpolator used to move the point scan animations
   private static final LinearInterpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
 
-  // Time to wait before starting scanning. We wait this long before perfoming a gesture selected
-  // from the point scan gestures menu.
-  private int mDelayBeforeScanningStartsMs;
+  private final ShapeDrawable lineDrawable;
 
-  private boolean mPointScanEnabled;
-  private boolean mAutoStartScanEnabled;
-  private boolean mAutoSelectEnabled;
+  private final AccessibilityService service;
+  private final OverlayController overlayController;
 
-  private final ShapeDrawable mLineDrawable;
+  @Nullable private ScanListener scanListener;
+  private PointScanListener pointScanListener;
 
-  private final AccessibilityService mService;
-  private final OverlayController mOverlayController;
-
-  private final Handler mHandler;
-  private ScanListener mScanListener = null;
-
-  private final Runnable mStartAnimationRunnable =
+  private final Runnable startAnimationRunnable =
       new Runnable() {
         @Override
         public void run() {
-          if (!mPointScanEnabled) {
-            mCurrentAnimator = null;
+          if (!SwitchAccessPreferenceUtils.isPointScanEnabled(overlayController.getContext())) {
+            currentAnimator = null;
             return;
           }
 
-          if (mCurrentAnimator != null) {
-            mCurrentAnimator.start();
+          if (currentAnimator != null) {
+            currentAnimator.start();
           } else {
             resetScan();
           }
         }
       };
 
-  private final Runnable mResumeAnimationRunnable =
+  private final Runnable resumeAnimationRunnable =
       new Runnable() {
         @Override
         public void run() {
-          if (!mPointScanEnabled) {
-            mCurrentAnimator = null;
+          if (!SwitchAccessPreferenceUtils.isPointScanEnabled(overlayController.getContext())) {
+            currentAnimator = null;
             return;
           }
 
-          if (mCurrentAnimator != null) {
-            mCurrentAnimator.resume();
+          if (currentAnimator != null) {
+            currentAnimator.resume();
           } else {
             resetScan();
           }
         }
       };
 
-  // The speed at which the point scanning lines move in dp/ms
-  private float mLineSpeed;
-
-  // The number of times that scanning repeats before stopping
-  private int mRepeatCount;
-
-  private ValueAnimator mCurrentAnimator;
+  @Nullable private ValueAnimator currentAnimator;
 
   // The x and y coordinates selected by the user. Note: these are set only after the animation
   // has been started and cancelled.
-  private int mX;
-  private int mY;
+  private int x;
+  private int y;
   // Only used when the point scan action disambiguation menu is shown. When this menu is shown,
   // the coordinates for where the user wishes the action are stored here.
-  private int mPrevX;
-  private int mPrevY;
+  private int prevX;
+  private int prevY;
 
   // The direction in which we are currently scanning
-  private ScanMode mScanMode = ScanMode.NONE;
+  private ScanMode scanMode = ScanMode.NONE;
 
   // Whether the user has selected to perform a custom swipe
-  private boolean mIsPerformingCustomSwipe;
+  private boolean isPerformingCustomSwipe;
+
+  @Nullable private SelectMenuItemListener selectMenuItemListener;
+
+  // Indicates if the Switch Access global menu button was just clicked. Used for the new menu
+  // redesign to keep the menu button on screen when it's selected. The new menu is placed next to
+  // the selected item, with everything darkened in the background except the selected item. So,
+  // when the menu button is selected, we want to keep the menu button visible. Otherwise, the
+  // global menu would show up and there would be a non-darkened patch in the background with
+  // nothing inside it.
+  private boolean globalMenuButtonJustClicked;
 
   /**
    * @param overlayController The overlay on which to show the scan bars
    * @param service The service that will dispatch the gestures
    */
   public PointScanManager(OverlayController overlayController, AccessibilityService service) {
-    mOverlayController = overlayController;
-    mService = service;
-    mHandler = new Handler();
-    mLineDrawable = new ShapeDrawable(new RectShape());
-    SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(mService);
-    onSharedPreferenceChanged(prefs, null);
-    prefs.registerOnSharedPreferenceChangeListener(this);
-    mIsPerformingCustomSwipe = false;
+    this.overlayController = overlayController;
+    this.service = service;
+    lineDrawable = new ShapeDrawable(new RectShape());
+    isPerformingCustomSwipe = false;
+    SwitchAccessPreferenceUtils.registerSwitchAccessPreferenceChangedListener(service, this);
+    overlayController.addMenuListener(this);
   }
 
   /** Shut down nicely. */
   public void shutdown() {
-    SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(mService);
-    prefs.unregisterOnSharedPreferenceChangeListener(this);
-    mHandler.removeCallbacks(mStartAnimationRunnable);
+    SwitchAccessPreferenceUtils.unregisterSwitchAccessPreferenceChangedListener(this);
+    ThreadUtils.removeCallbacks(startAnimationRunnable);
   }
 
   /**
@@ -185,29 +194,57 @@ public class PointScanManager implements SharedPreferences.OnSharedPreferenceCha
    *
    * @param listener The listener to be set
    */
-  public void setScanListener(ScanListener listener) {
-    mScanListener = listener;
+  public void setScanListener(@Nullable ScanListener listener) {
+    scanListener = listener;
+  }
+
+  /**
+   * Register a listener to notify of point scan actions.
+   *
+   * @param listener The listener to be set
+   */
+  public void setPointScanListener(PointScanListener listener) {
+    pointScanListener = listener;
+  }
+
+  /**
+   * Register a listener to notify of the selection of a Switch Access menu item.
+   *
+   * @param listener The listener to be set
+   */
+  public void setSelectMenuItemListener(@Nullable SelectMenuItemListener listener) {
+    selectMenuItemListener = listener;
+  }
+
+  @Override
+  public void onMenuShown(MenuType menuType, int menuId) {
+    globalMenuButtonJustClicked = (menuType == MenuType.TYPE_GLOBAL);
+  }
+
+  @Override
+  public void onMenuClosed(int menuId) {
+    globalMenuButtonJustClicked = false;
   }
 
   /** Resets scanning, so that the next time onSelect() is called scanning restarts. */
   private void resetScan() {
-    mHandler.removeCallbacks(mStartAnimationRunnable);
-    mOverlayController.clearHighlightOverlay();
-    mScanMode = ScanMode.NONE;
+    ThreadUtils.removeCallbacks(startAnimationRunnable);
+    overlayController.clearHighlightOverlay();
+    scanMode = ScanMode.NONE;
 
-    if (mAutoStartScanEnabled || mOverlayController.isMenuVisible()) {
-      onSelect();
-    } else {
+    if (SwitchAccessPreferenceUtils.isAutostartScanEnabled(overlayController.getContext())
+        && !scanFinished) {
+      onSelect(ScanStateChangeTrigger.FEATURE_AUTO_START_SCAN);
+    } else if (!overlayController.isMenuVisible()) {
       // Put clearing the menu button overlay in a Handler as if the user just chose to click
       // on the menu button, we don't want to remove it until after the click has been
       // performed.
-      mHandler.postDelayed(
-          new Runnable() {
-            @Override
-            public void run() {
-              if (mScanMode == ScanMode.NONE) {
-                mOverlayController.clearMenuButtonOverlay();
-              }
+      ThreadUtils.runOnMainThreadDelayed(
+          SwitchAccessService::isActive,
+          () -> {
+            // Ensure that scanning has not resumed before clearing the menu button overlay.
+            if ((scanMode == ScanMode.NONE) && !globalMenuButtonJustClicked) {
+              overlayController.clearMenuButtonOverlay();
             }
           },
           DELAY_BEFORE_REMOVING_MENU_BUTTON_MS);
@@ -219,14 +256,23 @@ public class PointScanManager implements SharedPreferences.OnSharedPreferenceCha
    * enabled or a menu is visible, scanning is started.
    */
   public void onUiChanged() {
-    if (mIsPerformingCustomSwipe) {
+    // #onUiChanged is called when point scan finishes and the Switch Access menu button disappears.
+    // Because of this, we should prevent point scan from resuming immediately after it has ended.
+    boolean shouldPreventAutoStartScan = scanFinished;
+    scanFinished = false;
+    if (isPerformingCustomSwipe) {
       // Do nothing.
       return;
-    } else if (mScanMode == ScanMode.NONE) {
-      if (mAutoStartScanEnabled || mOverlayController.isMenuVisible()) {
-        onSelect();
+    } else if (scanMode == ScanMode.NONE) {
+      // If we just finished scanning, don't automatically restart the scan in order to honor
+      // the selected number of scanning loops.
+      if (SwitchAccessPreferenceUtils.isAutostartScanEnabled(overlayController.getContext())
+          && !shouldPreventAutoStartScan) {
+        onSelect(ScanStateChangeTrigger.FEATURE_AUTO_START_SCAN);
+      } else if (overlayController.isMenuVisible()) {
+        onSelect(ScanStateChangeTrigger.FEATURE_POINT_SCAN_MENU);
       }
-    } else if (!mOverlayController.isHighlightOverlayVisible()) {
+    } else if (!overlayController.isHighlightOverlayVisible()) {
       // If another class cleared the highlight overlay (e.g. because a user tapped the
       // Switch Access menu), we should reset scanning.
       resetScan();
@@ -237,10 +283,10 @@ public class PointScanManager implements SharedPreferences.OnSharedPreferenceCha
   public void undo() {
     // If no coordinate has been selected and a menu is visible, move to the previous menu
     // screen if one exists or remove the menu if there is no previous menu screen.
-    if ((mScanMode != ScanMode.X) && mOverlayController.isMenuVisible()) {
-      mOverlayController.moveToPreviousMenuItemsOrClearOverlays();
+    if ((scanMode != ScanMode.X) && overlayController.isMenuVisible()) {
+      overlayController.moveToPreviousMenuItems();
     }
-    mIsPerformingCustomSwipe = false;
+    isPerformingCustomSwipe = false;
     resetScan();
   }
 
@@ -248,55 +294,75 @@ public class PointScanManager implements SharedPreferences.OnSharedPreferenceCha
    * Indicate that the user has made a selection. Will either transition from vertical to horizontal
    * scanning or perform the specified action.
    */
-  public void onSelect() {
-    if ((mCurrentAnimator == null) && (mScanMode != ScanMode.NONE)) {
+  public void onSelect(ScanStateChangeTrigger trigger) {
+    if ((currentAnimator == null) && (scanMode != ScanMode.NONE)) {
       // Note: This should never happen
-      mScanMode = ScanMode.NONE;
-      mIsPerformingCustomSwipe = false;
+      scanMode = ScanMode.NONE;
+      isPerformingCustomSwipe = false;
     }
-    switch (mScanMode) {
+    switch (scanMode) {
       case NONE:
-        mOverlayController.clearHighlightOverlay();
-        mOverlayController.drawMenuButtonIfMenuNotVisible();
+        overlayController.clearHighlightOverlay();
+        overlayController.drawMenuButtonIfMenuNotVisible();
         startScan(ScanMode.Y);
-        mScanMode = ScanMode.Y;
-        if (mScanListener != null) {
-          mScanListener.onScanStart();
+        scanMode = ScanMode.Y;
+        if (scanListener != null) {
+          scanListener.onScanStart(trigger);
         }
         break;
       case Y:
-        mCurrentAnimator.cancel();
+        // Ignore any switch presses changing from Y-scan to X-scan if the highlight is not yet
+        // visible. Otherwise, it is possible for the Y-scan line to become invisible.
+        if (!overlayController.isHighlightOverlayVisible()) {
+          return;
+        }
+
+        cancelCurrentAnimator();
         startScan(ScanMode.X);
-        mScanMode = ScanMode.X;
-        if (mScanListener != null) {
-          mScanListener.onScanFocusChanged();
+        scanMode = ScanMode.X;
+        if (scanListener != null) {
+          scanListener.onScanFocusChanged(trigger);
         }
         break;
       case X:
-        mCurrentAnimator.cancel();
-        mCurrentAnimator = null;
-        mOverlayController.clearHighlightOverlay();
-        if (mIsPerformingCustomSwipe) {
-          performAction(ACTION_SWIPE_CUSTOM);
-          mIsPerformingCustomSwipe = false;
+        cancelCurrentAnimator();
+        currentAnimator = null;
+        overlayController.clearHighlightOverlay();
+        if (isPerformingCustomSwipe) {
+          performAction(PointScanAction.ACTION_SWIPE_CUSTOM);
+          isPerformingCustomSwipe = false;
           /* Dispatch the gesture to (x, y) */
-        } else if (mAutoSelectEnabled || mOverlayController.isMenuVisible()) {
+        } else if (SwitchAccessPreferenceUtils.isAutoselectEnabled(overlayController.getContext())
+            || overlayController.isMenuVisible()) {
           // Select the current point
-          performAction(ACTION_CLICK);
+          performAction(PointScanAction.ACTION_CLICK);
         } else {
           // Disambiguate between possible gestures
-          mOverlayController.drawMenu(PointScanMenuItem.getPointScanMenuItemList(mService, this));
-          mPrevX = mX;
-          mPrevY = mY;
+          overlayController.drawMenu(
+              PointScanMenuItem.getPointScanMenuItemList(service, this), new Rect(x, y, x, y));
+          prevX = x;
+          prevY = y;
         }
-        if (mScanListener != null) {
-          mScanListener.onScanSelection();
+        if (scanListener != null) {
+          scanListener.onScanSelection(trigger);
         }
         resetScan();
         break;
-      default:
-        // Do nothing
     }
+  }
+
+  // This method is called only in #onSelect. The logic is too complicated for the null checker to
+  // figure out that this is only called if currentAnimator is not null. This is the easiest way to
+  // contain the suppression such that the entire #onSelect method isn't suppressed.
+  @SuppressWarnings("nullness:dereference.of.nullable")
+  private void cancelCurrentAnimator() {
+    if (currentAnimator == null) {
+      LogUtils.w(
+          TAG,
+          "currentAnimator was null! Please ensure currentAnimator is not null before calling "
+              + "this method.");
+    }
+    currentAnimator.cancel();
   }
 
   /**
@@ -305,111 +371,131 @@ public class PointScanManager implements SharedPreferences.OnSharedPreferenceCha
    * @param scanMode the current scan mode. Determines scan direction.
    */
   private void startScan(final ScanMode scanMode) {
-    // Create the ValueAnimator in a separate function before assigning it to mCurrentAnimator
-    // as otheriwise mCurrentAnimator becomes null after the function terminates...
-    mCurrentAnimator = createAndDrawCurrentAnimator(scanMode);
+    // Create the ValueAnimator in a separate function before assigning it to currentAnimator
+    // as otherwise currentAnimator becomes null after the function terminates...
+    currentAnimator = createAndDrawCurrentAnimator(scanMode);
 
     // Remove any previous callbacks so we don't restart after starting to scan, causing the
     // line to jump back to the start
-    mHandler.removeCallbacks(mStartAnimationRunnable);
+    ThreadUtils.removeCallbacks(startAnimationRunnable);
     // Pause before starting to scan, so the user knows when to expect scanning
-    mHandler.postDelayed(mStartAnimationRunnable, mDelayBeforeScanningStartsMs);
+    ThreadUtils.runOnMainThreadDelayed(
+        SwitchAccessService::isActive,
+        startAnimationRunnable,
+        SwitchAccessPreferenceUtils.getFirstItemScanDelayMs(overlayController.getContext()));
   }
 
   private ValueAnimator createAndDrawCurrentAnimator(final ScanMode scanMode) {
     // Create the view that will hold the new line
-    final WindowManager windowManager =
-        (WindowManager) mService.getSystemService(Context.WINDOW_SERVICE);
-    final Point screenSize = new Point();
-    windowManager.getDefaultDisplay().getRealSize(screenSize);
+    final Point screenSize = ScreenUtils.getRealScreenSize(service);
 
-    int duration;
-    if (PointScanManager.ScanMode.Y == scanMode) {
-      mLineDrawable.setIntrinsicWidth(screenSize.x);
-      mLineDrawable.setIntrinsicHeight((int) mLineDrawable.getPaint().getStrokeWidth());
-      duration = (int) (screenSize.y / mLineSpeed);
-    } else if (ScanMode.X == scanMode) {
-      mLineDrawable.setIntrinsicWidth((int) mLineDrawable.getPaint().getStrokeWidth());
-      mLineDrawable.setIntrinsicHeight(screenSize.y);
-      duration = (int) (screenSize.x / mLineSpeed);
-    } else {
-      // Note: This should never happen
-      return null;
+    int duration = 0;
+    switch (scanMode) {
+      case Y:
+        lineDrawable.setIntrinsicWidth(screenSize.x);
+        lineDrawable.setIntrinsicHeight((int) lineDrawable.getPaint().getStrokeWidth());
+        duration =
+            (int)
+                (screenSize.y
+                    / SwitchAccessPreferenceUtils.getPointScanLineSpeed(
+                        overlayController.getContext()));
+        break;
+      case X:
+        lineDrawable.setIntrinsicWidth((int) lineDrawable.getPaint().getStrokeWidth());
+        lineDrawable.setIntrinsicHeight(screenSize.y);
+        duration =
+            (int)
+                (screenSize.x
+                    / SwitchAccessPreferenceUtils.getPointScanLineSpeed(
+                        overlayController.getContext()));
+        break;
+      case NONE:
+        // Note: This should never happen
+        if (FeatureFlags.crashOnError()) {
+          throw new IllegalArgumentException(
+              "scanMode should not be NONE during #createAndDrawCurrentAnimator");
+        }
     }
 
-    final View view = new View(mService);
-    view.setBackground(mLineDrawable);
+    final View view = new View(service);
+    view.setBackground(lineDrawable);
     final RelativeLayout.LayoutParams layoutParams =
         new RelativeLayout.LayoutParams(
-            mLineDrawable.getIntrinsicWidth(), mLineDrawable.getIntrinsicHeight());
+            lineDrawable.getIntrinsicWidth(), lineDrawable.getIntrinsicHeight());
     view.setLayoutParams(layoutParams);
     // Add the view as soon as possible to minimize perceived latency for the user
-    mOverlayController.addViewAndShow(view);
+    overlayController.addViewAndShow(view);
 
     // Configure the line animator
     final ValueAnimator valueAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
     if (ScanMode.Y == scanMode) {
-      mY = 0;
+      y = 0;
       valueAnimator.addUpdateListener(
-          new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-              final float animatedValue = (float) valueAnimator.getAnimatedValue();
-              // Move the horizontal line down as the animation progresses.
-              layoutParams.topMargin = (int) (animatedValue * screenSize.y);
-              view.setLayoutParams(layoutParams);
-            }
+          animatorUpdateListenerValueAnimator -> {
+            final float animatedValue =
+                (float) animatorUpdateListenerValueAnimator.getAnimatedValue();
+            // Move the horizontal line down as the animation progresses.
+            layoutParams.topMargin = (int) (animatedValue * screenSize.y);
+            view.setLayoutParams(layoutParams);
           });
     } else { // ScanMode.X == scanMode
-      mX = 0;
+      x = 0;
       valueAnimator.addUpdateListener(
-          new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-              final float animatedValue = (float) valueAnimator.getAnimatedValue();
-              // Move the vertical line to the right as the animation progresses.
-              layoutParams.leftMargin = (int) (animatedValue * screenSize.x);
-              view.setLayoutParams(layoutParams);
-            }
+          animatorUpdateListenerValueAnimator -> {
+            final float animatedValue =
+                (float) animatorUpdateListenerValueAnimator.getAnimatedValue();
+            // Move the vertical line to the right as the animation progresses.
+            layoutParams.leftMargin = (int) (animatedValue * screenSize.x);
+            view.setLayoutParams(layoutParams);
           });
     }
     valueAnimator.setDuration(duration);
     valueAnimator.setInterpolator(LINEAR_INTERPOLATOR);
-    valueAnimator.setRepeatCount(mRepeatCount);
+    valueAnimator.setRepeatCount(
+        SwitchAccessPreferenceUtils.getNumberOfScanningLoops(overlayController.getContext()) - 1);
     valueAnimator.addListener(
         new Animator.AnimatorListener() {
           @Override
           public void onAnimationCancel(Animator animation) {
-            if (mCurrentAnimator == null) {
-              resetScan();
+            if (currentAnimator == null) {
+              if (FeatureFlags.crashOnError()) {
+                throw new NullPointerException(
+                    "currentAnimator became null before it could be cancelled.");
+              } else {
+                resetScan();
+                return;
+              }
             }
-            final WindowManager windowManager =
-                (WindowManager) mService.getSystemService(Context.WINDOW_SERVICE);
-            final Point screenSize = new Point();
-            windowManager.getDefaultDisplay().getRealSize(screenSize);
+            Point screenSize = ScreenUtils.getRealScreenSize(service);
             if (scanMode == ScanMode.Y) {
-              mY = (int) (screenSize.y * (float) mCurrentAnimator.getAnimatedValue());
+              y = (int) (screenSize.y * (float) currentAnimator.getAnimatedValue());
             } else {
-              mX = (int) (screenSize.x * (float) mCurrentAnimator.getAnimatedValue());
+              x = (int) (screenSize.x * (float) currentAnimator.getAnimatedValue());
             }
           }
 
           @Override
           public void onAnimationEnd(Animator animation) {
-            if ((mCurrentAnimator != null) && (mCurrentAnimator.getAnimatedFraction() == 1.0)) {
+            if ((currentAnimator != null) && (currentAnimator.getAnimatedFraction() == 1.0)) {
               // The user didn't make a selection, so reset point scanning.
+              scanFinished = true;
               resetScan();
-              if (mScanListener != null) {
-                mScanListener.onScanCompletedWithNoSelection();
+              if (scanListener != null) {
+                scanListener.onScanFocusClearedAtEndWithNoSelection(
+                    ScanStateChangeTrigger.FEATURE_POINT_SCAN);
               }
             }
           }
 
           @Override
           public void onAnimationRepeat(Animator animation) {
-            if (mCurrentAnimator != null) {
-              mCurrentAnimator.pause();
-              mHandler.postDelayed(mResumeAnimationRunnable, mDelayBeforeScanningStartsMs);
+            if (currentAnimator != null) {
+              currentAnimator.pause();
+              ThreadUtils.runOnMainThreadDelayed(
+                  SwitchAccessService::isActive,
+                  resumeAnimationRunnable,
+                  SwitchAccessPreferenceUtils.getFirstItemScanDelayMs(
+                      overlayController.getContext()));
             }
           }
 
@@ -426,94 +512,125 @@ public class PointScanManager implements SharedPreferences.OnSharedPreferenceCha
    *
    * @param scanAction the action to perform
    */
-  private void performAction(int scanAction) {
-    Log.v(TAG, "Performing action: " + scanAction);
+  // Even though AccessibilityService#dispatchGesture is annotated as @Nullable for its second and
+  // third parameters, the checker thinks it only accepts non-null.
+  @SuppressWarnings("nullness:argument.type.incompatible")
+  private void performAction(PointScanAction scanAction) {
+    LogUtils.v(TAG, "Performing action: " + scanAction);
     GestureDescription gesture;
     switch (scanAction) {
       case ACTION_CLICK:
-        gesture = GestureUtils.createTap(mService, mX, mY);
+        gesture = GestureUtils.createTap(service, x, y);
         break;
       case ACTION_LONG_CLICK:
-        gesture = GestureUtils.createLongPress(mService, mX, mY);
+        gesture = GestureUtils.createLongPress(service, x, y);
         break;
       case ACTION_SWIPE_RIGHT:
-        gesture = GestureUtils.createSwipe(mService, mX, mY, mX + SWIPE_DISTANCE, mY);
+        gesture = GestureUtils.createSwipe(service, x, y, x + SWIPE_DISTANCE, y);
         break;
       case ACTION_SWIPE_LEFT:
-        gesture = GestureUtils.createSwipe(mService, mX, mY, mX - SWIPE_DISTANCE, mY);
+        gesture = GestureUtils.createSwipe(service, x, y, x - SWIPE_DISTANCE, y);
         break;
       case ACTION_SWIPE_UP:
-        gesture = GestureUtils.createSwipe(mService, mX, mY, mX, mY - SWIPE_DISTANCE);
+        gesture = GestureUtils.createSwipe(service, x, y, x, y - SWIPE_DISTANCE);
         break;
       case ACTION_SWIPE_DOWN:
-        gesture = GestureUtils.createSwipe(mService, mX, mY, mX, mY + SWIPE_DISTANCE);
+        gesture = GestureUtils.createSwipe(service, x, y, x, y + SWIPE_DISTANCE);
         break;
       case ACTION_SWIPE_CUSTOM:
-        gesture = GestureUtils.createSwipe(mService, mPrevX, mPrevY, mX, mY);
+        gesture = GestureUtils.createSwipe(service, prevX, prevY, x, y);
         break;
       case ACTION_ZOOM_OUT:
-        gesture =
-            GestureUtils.createPinch(mService, mX, mY, PINCH_DISTANCE_FAR, PINCH_DISTANCE_CLOSE);
+        gesture = GestureUtils.createPinch(service, x, y, PINCH_DISTANCE_FAR, PINCH_DISTANCE_CLOSE);
         break;
       case ACTION_ZOOM_IN:
-        gesture =
-            GestureUtils.createPinch(mService, mX, mY, PINCH_DISTANCE_CLOSE, PINCH_DISTANCE_FAR);
+        gesture = GestureUtils.createPinch(service, x, y, PINCH_DISTANCE_CLOSE, PINCH_DISTANCE_FAR);
         break;
       default:
         return;
     }
-    mService.dispatchGesture(gesture, null, null);
+    service.dispatchGesture(gesture, null, null);
+    if (pointScanListener != null) {
+      pointScanListener.onActionPerformed();
+    }
   }
 
-  /** Return the {@link View.OnClickListener} for the given scan action. */
-  public View.OnClickListener createOnClickListenerForAction(final int scanAction) {
+  /** Return the {@link MenuItemOnClickListener} for the given scan action. */
+  public MenuItemOnClickListener createOnClickListenerForAction(final PointScanAction scanAction) {
     final Runnable runnable;
-    if (scanAction == ACTION_SWIPE_CUSTOM) {
+    if (scanAction == PointScanAction.ACTION_SWIPE_CUSTOM) {
       runnable = createOnClickListenerRunnableForCustomSwipe();
     } else {
       runnable = createOnClickListenerRunnableForOneStepAction(scanAction);
     }
 
-    return new View.OnClickListener() {
+    return new MenuItemOnClickListener() {
       @Override
-      public void onClick(View view) {
-        mOverlayController.clearMenuOverlay();
-        mHandler.postDelayed(runnable, TIME_TO_HIDE_MENU_MS);
+      public void onClick() {
+        ThreadUtils.runOnMainThreadDelayed(
+            SwitchAccessService::isActive, runnable, TIME_TO_HIDE_MENU_MS);
+
+        if (selectMenuItemListener != null) {
+          switch (scanAction) {
+            case ACTION_CLICK:
+              selectMenuItemListener.onMenuItemSelected(MenuItem.ACTION_MENU_POINT_SCAN_CLICK);
+              break;
+            case ACTION_LONG_CLICK:
+              selectMenuItemListener.onMenuItemSelected(MenuItem.ACTION_MENU_POINT_SCAN_LONG_CLICK);
+              break;
+            case ACTION_SWIPE_LEFT:
+              selectMenuItemListener.onMenuItemSelected(MenuItem.ACTION_MENU_POINT_SCAN_SWIPE_LEFT);
+              break;
+            case ACTION_SWIPE_RIGHT:
+              selectMenuItemListener.onMenuItemSelected(
+                  MenuItem.ACTION_MENU_POINT_SCAN_SWIPE_RIGHT);
+              break;
+            case ACTION_SWIPE_UP:
+              selectMenuItemListener.onMenuItemSelected(MenuItem.ACTION_MENU_POINT_SCAN_SWIPE_UP);
+              break;
+            case ACTION_SWIPE_DOWN:
+              selectMenuItemListener.onMenuItemSelected(MenuItem.ACTION_MENU_POINT_SCAN_SWIPE_DOWN);
+              break;
+            case ACTION_SWIPE_CUSTOM:
+              selectMenuItemListener.onMenuItemSelected(
+                  MenuItem.ACTION_MENU_POINT_SCAN_SWIPE_CUSTOM);
+              break;
+            case ACTION_ZOOM_IN:
+              selectMenuItemListener.onMenuItemSelected(MenuItem.ACTION_MENU_POINT_SCAN_ZOOM_IN);
+              break;
+            case ACTION_ZOOM_OUT:
+              selectMenuItemListener.onMenuItemSelected(MenuItem.ACTION_MENU_POINT_SCAN_ZOOM_OUT);
+          }
+        }
       }
     };
   }
 
   /*
-   * Create a runnable for when the user selects a cutom swipe from the point scan action menu.
+   * Create a runnable for when the user selects a custom swipe from the point scan action menu.
    * The user has already specified the origin of the swipe, but we still need to ask the user for
    * the destination of the swipe.
    */
   private Runnable createOnClickListenerRunnableForCustomSwipe() {
     // We need the user to choose a second point before we can perform the action.
-    return new Runnable() {
-      @Override
-      public void run() {
-        mIsPerformingCustomSwipe = true;
-        mScanMode = ScanMode.NONE;
-        onSelect();
-        drawPoint(mPrevX, mPrevY);
-      }
+    return () -> {
+      isPerformingCustomSwipe = true;
+      scanMode = ScanMode.NONE;
+      onSelect(ScanStateChangeTrigger.FEATURE_POINT_SCAN_CUSTOM_SWIPE);
+      drawPoint(prevX, prevY);
     };
   }
 
   /*
    * Create a runnable for when the user selects a point scan action from the point scan action
-   * menu, where this action can be perfored without asking the user for further input.
+   * menu, where this action can be performed without asking the user for further input.
    */
-  private Runnable createOnClickListenerRunnableForOneStepAction(final int scanAction) {
-    return new Runnable() {
-      @Override
-      public void run() {
-        mX = mPrevX;
-        mY = mPrevY;
-        performAction(scanAction);
-        resetScan();
-      }
+  private Runnable createOnClickListenerRunnableForOneStepAction(final PointScanAction scanAction) {
+    return () -> {
+      x = prevX;
+      y = prevY;
+      performAction(scanAction);
+      resetScan();
     };
   }
 
@@ -521,60 +638,77 @@ public class PointScanManager implements SharedPreferences.OnSharedPreferenceCha
    * Draw a point at (x, y).
    */
   private void drawPoint(int x, int y) {
-    ImageView point = new ImageView(mService);
+    ImageView point = new ImageView(service);
     point.setImageResource(R.drawable.ic_circle);
 
-    int strokeWidth = (int) mLineDrawable.getPaint().getStrokeWidth() * 4;
-    point.setColorFilter(mLineDrawable.getPaint().getColor());
+    int strokeWidth = (int) (lineDrawable.getPaint().getStrokeWidth() * 4);
+    point.setColorFilter(lineDrawable.getPaint().getColor());
     final RelativeLayout.LayoutParams layoutParams =
         new RelativeLayout.LayoutParams(strokeWidth, strokeWidth);
     layoutParams.leftMargin = x;
     layoutParams.topMargin = y;
     point.setLayoutParams(layoutParams);
 
-    mOverlayController.addViewAndShow(point);
+    overlayController.addViewAndShow(point);
   }
 
+  /** Notify that preferences have changed. */
   @Override
-  public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-    Resources resources = mService.getResources();
+  public void onPreferenceChanged(SharedPreferences sharedPreferences, String preferenceKey) {
     // Configure highlighting.
     String hexStringColor =
-        prefs.getString(
-            resources.getString(R.string.pref_highlight_0_color_key),
-            resources.getString(R.string.pref_highlight_0_color_default));
+        SwitchAccessPreferenceUtils.getHighlightColorForScanningMethodsWithOneHighlight(service);
     int color = Integer.parseInt(hexStringColor, 16);
 
     Paint linePaint = new Paint();
     linePaint.setColor(color);
     linePaint.setAlpha(255);
 
-    String weightString =
-        prefs.getString(
-            resources.getString(R.string.pref_highlight_0_weight_key),
-            resources.getString(R.string.pref_highlight_weight_default));
-    int weight = Integer.parseInt(weightString);
-    DisplayMetrics dm = mService.getResources().getDisplayMetrics();
+    int weight =
+        Integer.parseInt(
+            SwitchAccessPreferenceUtils.getHighlightWeightForScanningMethodsWithOneHighlight(
+                service));
+    DisplayMetrics dm = service.getResources().getDisplayMetrics();
     float strokeWidth = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, weight, dm);
     linePaint.setStrokeWidth(strokeWidth);
-    mLineDrawable.getPaint().set(linePaint);
+    lineDrawable.getPaint().set(linePaint);
 
-    // Read new line speed.
-    mLineSpeed = SwitchAccessPreferenceActivity.getPointScanLineSpeed(mService);
+    // TODO: Ensure that line speed changes are properly tested once PointScanManager
+    // and its tests are refactored to improve testability.
+    // If the line speed changes in the middle of scanning, continue the scan with the new line
+    // speed.
+    if (scanMode != ScanMode.NONE
+        && preferenceKey.contentEquals(
+            service.getString(R.string.pref_key_point_scan_line_speed))) {
+      // Checking if currentAnimator is null needs to be moved to a separate if-statement in order
+      // to make the null checker happy.
+      if (currentAnimator != null) {
+        float duration = currentAnimator.getDuration();
+        Point screenSize = ScreenUtils.getRealScreenSize(service);
+        if (scanMode == ScanMode.Y) {
+          duration =
+              (screenSize.y
+                  / SwitchAccessPreferenceUtils.getPointScanLineSpeed(
+                      overlayController.getContext()));
+        } else if (scanMode == ScanMode.X) {
+          duration =
+              (screenSize.x
+                  / SwitchAccessPreferenceUtils.getPointScanLineSpeed(
+                      overlayController.getContext()));
+        }
 
-    // Read the repeat count for the animation.
-    mRepeatCount = SwitchAccessPreferenceActivity.getNumberOfScanningLoops(mService) - 1;
+        // An extra check to appease the null-checker.
+        if (currentAnimator != null) {
+          currentAnimator.setDuration((int) duration);
+        }
+      }
+    }
+  }
 
-    // Read the time delay for the first item.
-    mDelayBeforeScanningStartsMs = SwitchAccessPreferenceActivity.getFirstItemScanDelayMs(mService);
+  /** Interface to monitor point scan events. */
+  public interface PointScanListener {
 
-    // Is point scan enabled?
-    mPointScanEnabled = SwitchAccessPreferenceActivity.isPointScanEnabled(mService);
-
-    // Should we auto-start scanning?
-    mAutoStartScanEnabled = SwitchAccessPreferenceActivity.isAutostartScanEnabled(mService);
-
-    // Is auto-select enabled?
-    mAutoSelectEnabled = SwitchAccessPreferenceActivity.isAutoselectEnabled(mService);
+    /** Called when a point scan action is performed. */
+    void onActionPerformed();
   }
 }

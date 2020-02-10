@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Switch Access"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"გადამრთველით წვდომა მოძრაობასთან დაკავშირებული დარღვევების მქონე მომხმარებლებს, ერთი ან მეტი გადამრთველის მეშვეობით, საკუთარი ტელეფონებისა და ტაბლეტების მართვის საშუალებას აძლევს. გადამრთველების მეშვეობით შესაძლებელია ერთეულების არჩევა, გადაადგილება, ტექსტის შეყვანა და სხვა ქმედებების შესრულება."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"მოწყობილობის გადამრთველებით მართვა"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"დახმარება და გამოხმაურება"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"ავტომატური სკანირება"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"ავტომატური სკანირების დრო"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"ავტომატური უკუსკანირება"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f წამი</item>
-      <item quantity="one">1 წამი</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"სკანირების მორგება"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"სკანირების მეთოდი"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"დაყოვნება პირველ ერთეულზე"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"გადამრთველების მინიჭება"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"ქმედებებისთვის გადამრთველების მინიჭება"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"სკანირებისთვის გადამრთველების მინიჭება"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"ხაზის სიჩქარე"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"სკანირებების რაოდენობა"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"აირჩიეთ, რამდენჯერ გამეორდეს სკანირება"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"განმეორებითი დაჭერის აღკვეთის დრო"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"მითითებული პერიოდის განმავლობაში რამდენიმე დაჭერა ერთ დაჭერად აღიქმება."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"აშვება ქმედების შესასრულებლად"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"ქმედების შესრულება გადამრთველის აშვებისას"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d ციკლი</item>
-      <item quantity="one">%d ციკლი</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"გადამრთველს „<xliff:g id="KEY_NAME">%1$s</xliff:g>“ უკვე მინიჭებული აქვს „<xliff:g id="ACTION_NAME">%2$s</xliff:g>“"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">მინიჭებულია %d გადამრთველი</item>
-      <item quantity="one">მინიჭებულია %d გადამრთველი</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"ჯგუფური არჩევის გადამრთველი %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"შემდეგი"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"წინა"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"არჩევა"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"ხანგრძლივად დაჭერა"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"წინ გადაადგილება"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"უკან გადაადგილება"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"დახურვა"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"გაშლა"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"ჩაკეცვა"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"ტექსტის გამოყოფა"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"კოპირება"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"ამოჭრა"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"ჩასმა"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"მენიუ"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"უკან"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"სახლი"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"მიმოხილვა"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"შეტყობინებები"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"სწრაფი პარამეტრები"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"წინ გადაადგილება"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"უკან გადაადგილება"</string>
-    <string name="point_scan" msgid="4514216871544244788">"წერტილოვანი სკანირება"</string>
-    <string name="box_scan" msgid="6675486192630209217">"წერტილოვანი სკანირებიდან გასვლა"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"მარჯვნივ გადაფურცვლა"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"მარხცნივ გადაფურცვლა"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"ზემოთ გადაფურცვლა"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"ქვემოთ გადაფურცვლა"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"გადაფურცვლა (მორგებული)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"მასშტაბის შემცირება"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"მასშტაბის გადიდება"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"გადამრთველით წვდომის პარამეტრები"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"დააჭირეთ გადამრთველის კომბინაციას სიიდან მის წასაშლელად"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"მინიჭებული გადამრთველის გასუფთავება"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"გადამრთველები მინიჭებული არ არის"</string>
-    <string name="more" msgid="1547670498589416840">"მეტი"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"შორისი"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"შეყვანა"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"ჩანართი"</string>
-    <string name="save" msgid="5398278773451196019">"შენახვა"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"სკანირების მონიშვნის სტილი"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"სკანირების ძირითადი სტილი"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"მონიშვნის ფერი"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"მონიშვნის ხაზის სტილი"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"კონფიდენციალურობის დებულება"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"ავტომატური არჩევის ჩართვა"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"ავტომატური არჩევის გათიშვა"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"შემდეგი სიმბოლო"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"შემდეგი სიტყვა"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"შემდეგი სტრიქონი"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"შემდეგი აბზაცი"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"შემდეგი გვერდი"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"წინა სიმბოლო"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"წინა სიტყვა"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"წინა სტრიქონი"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"წინა აბზაცი"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"წინა გვერდი"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"სკანირების ავტომატურად დაწყება"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"სკანირება გადამრთველზე დაჭერის გარეშე დაიწყება"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"გადამრთველით წვდომის დაყენების გახსნა"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"გადამრთველით წვდომის დაყენების ოსტატი"</string>
-    <string name="one_switch" msgid="5247899666787922810">"ერთი გადამრთველი"</string>
-    <string name="two_switches" msgid="3082487661638289356">"ორი გადამრთველი"</string>
-    <string name="finish" msgid="4267641294267512480">"დასრულება"</string>
-    <string name="exit" msgid="8664597014081860813">"გასვლა"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"აირჩიეთ გადამრთველების რაოდენობა"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"დააჭირეთ გადამრთველს ერთეულებს შორის გადაადგილების ავტომატურად დასაწყებად, ხოლო შემდეგ, დააჭირეთ ხელახლა გამოყოფილი ერთეულის ასარჩევად."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"ერთეულებს შორის გადასაადგილებლად, დააჭირეთ ერთ გადამრთველს. გამოყოფილი ერთეულის ასარჩევად, დააჭირეთ მეორეს."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"აირჩიეთ სკანირების სიჩქარე"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"აირჩიეთ, რა პერიოდის განმავლობაში უნდა დარჩეს გამოყოფა თითოეულ ერთეულზე"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"სწრაფი (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>-წამიანი დაყოვნება)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"საშუალო (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>-წამიანი დაყოვნება)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"ნელი (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>-წამიანი დაყოვნება)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"მორგებული"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"დაყოვნება (წამი)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"კლავიშს „<xliff:g id="KEY_NAME">%1$s</xliff:g>“ უკვე მინიჭებული აქვს სხვა ქმედება"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"სკანირება მწკრივი-სვეტის პრინციპით"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"ჯგუფური არჩევა"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"წრფივი სკანირება"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"გახმოვანებული უკუკავშირი"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"ტექსტის გახმოვანების პარამეტრები"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"რამდენიმე ერთეულისთვის"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"პირველი და ბოლო ერთეულის წარმოთქმა"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"ერთეულების რაოდენობის წარმოთქმა"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"ყველა გამოყოფილი ერთეულის წარმოთქმა"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"გადასვლამდე საუბრის დასრულება"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"ჯგუფი <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g>-დან <xliff:g id="ID_2">%2$s</xliff:g>-მდე"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> ერთეული"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"აირჩიეთ გადასაადგილებლად"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"ერთეული უცნობია"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"აირჩიეთ სკანირების ხერხი"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"ერთდროულად მხოლოდ ერთი მწკრივის სკანირება განხორციელდება. მწკრივის არჩევის შემდეგ, სიაში არსებულ ელემენტებს შორის გადაადგილება მოხდება."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"ერთეულებს შორის გადაადგილება ეტაპობრივად განხორციელდება. გაითვალისწინეთ, რომ კლავიატურები ყოველთვის მწკრივების მიხედვით დასკანირდება."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"ყველა ერთეულს მიენიჭება ფერი. დააჭირეთ იმ გადამრთველს, რომელიც სასურველი ერთეულის გარშემო მოცემულ ფერს შეესაბამება. შეამცირეთ ჯგუფის ზომა, სანამ თქვენს არჩევანამდე არ მიხვალთ."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"გადამრთველები, რომლებსაც მინიჭებული აქვთ ფუნქცია <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"არცერთი"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"გსურთ მინიჭებული გადამრთველების გასუფთავება?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"თქვენ უკვე მინიჭებული გაქვთ გადამრთველები."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"გადამრთველების გასუფთავება"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"გადამრთველების შენარჩუნება"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"გადამრთველები მინიჭებული არ არის"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"ეს ფუნქცია არცერთ გადამრთველს არ აქვს მინიჭებული. ნამდვილად გსურთ გაგრძელება?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> ჯგუფი"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"დააჭირეთ გადამრთველს, რათა ის <xliff:g id="OPTION_COLOR">%1$s</xliff:g> ჯგუფის ამომრჩევად განისაზღვროს."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"დააჭირეთ გადამრთველს, რათა მას მიენიჭოს ფუნქცია „<xliff:g id="ACTION_NAME">%1$s</xliff:g>“."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"სკანირების დაწყება და არჩევა"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"გამოცადეთ თქვენი კონფიგურაცია „ჯვრების და ნულების“ თამაშით"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"სკანირების დასაწყებად, დაჭერით აირჩიეთ „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>“. გამოყოფილი ერთეულის ასარჩევად, ხელახლა დააჭირეთ გადამრთველს. თქვენ იწყებთ!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"სკანირების დასაწყებად, დაჭერით აირჩიეთ „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>“. გამოყოფილი მწკრივის ასარჩევად, ხელახლა დააჭირეთ გადამრთველს. გამოყოფილი ერთეულის ასარჩევად, კიდევ ერთხელ დააჭირეთ. თქვენ იწყებთ!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"ერთეულებს შორის გადასაადგილებლად, დაჭერით აირჩიეთ „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>“. გამოყოფილი ერთეულის ასარჩევად, დააჭირეთ „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>“-ს. თქვენ იწყებთ!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"მწკრივებს შორის გადასაადგილებლად, დაჭერით აირჩიეთ „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>“. გამოყოფილი მწკრივის ასარჩევად, დააჭირეთ „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>“-ს. გაიმეორეთ ქმედება მოცემულ მწკრივში ერთეულის ასარჩევად. თქვენ იწყებთ!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"დააჭირეთ „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>“-ს, რათა აირჩიოთ ერთეულები, რომლებიც გამოყოფილია <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> ფერით, ან დააჭირეთ „<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>“, რათა აირჩიოთ ერთეულები, რომლებიც გამოყოფილია <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> ფერით. გაიმეორეთ ქმედება, სანამ სასურველ ერთეულამდე არ მიხვალთ. თქვენ იწყებთ!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"ყველა ქმედებისთვის გადამრთველები ჯერ არ განგისაზღვრავთ. გამოიყენეთ ღილაკი „წინა“, დაბრუნდით და დაასრულეთ გადამრთველების მინიჭება."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"თამაშის გადაყენება"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"ეს კვადრატი უკვე დაკავებულია. ცადეთ ხელახლა!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"თქვენ მოიგეთ!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"იმედია, შემდეგში უფრო გაგიმართლებთ"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"ფრეა"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"შეგიძლიათ შეინარჩუნოთ არსებული კონფიგურაცია, ან თავიდან დაიწყოთ."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"კონფიგურაციის შენარჩუნება"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"თავიდან დაწყება"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"დაყენება დასრულდა"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"ყველაფერი მზადაა."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"დამატებითი პარამეტრების ნებისმიერ დროს შეცვლა, ან დაყენების ოსტატის ხელახლა გახსნა გადამრთველით წვდომის პარამეტრებიდან შეგიძლიათ."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Switch Access</string>
+  <string name="switch_access_service_description">გადამრთველით წვდომა მოძრაობასთან დაკავშირებული დარღვევების მქონე მომხმარებლებს, ერთი ან მეტი გადამრთველის მეშვეობით, საკუთარი ტელეფონებისა და ტაბლეტების მართვის საშუალებას აძლევს. გადამრთველების მეშვეობით შესაძლებელია ერთეულების არჩევა, გადაადგილება, ტექსტის შეყვანა და სხვა ქმედებების შესრულება.</string>
+  <string name="switch_access_service_summary">მოწყობილობის გადამრთველებით მართვა</string>
+  <string name="title_pref_help_feedback">დახმარება და გამოხმაურება</string>
+  <string name="title_pref_licenses">ღია კოდის ლიცენზიები</string>
+  <string name="title_pref_category_auto_scan">ავტომატური სკანირება</string>
+  <string name="title_pref_auto_scan_disabled">ავტომატური სკანირება (გათიშულია)</string>
+  <string name="action_key_summary_auto_scan">ამ გადამრთველზე დაჭერა მონიშვნას ავტომატურად გადააადგილებს ერთეულებს შორის. მონიშნული ერთეულის არჩევა შესაძლებელია ხელახლა დაჭერით.</string>
+  <string name="title_pref_auto_scan_time_delay">ავტომატური სკანირების დრო</string>
+  <string name="action_name_reverse_auto_scan">ავტომატური უკუსკანირება</string>
+  <string name="title_pref_reverse_auto_scan_disabled">ავტომატური სკანირება უკუმიმართულებით (გათიშულია)</string>
+  <string name="action_key_summary_reverse_auto_scan">ამ გადამრთველზე დაჭერა მონიშვნას ავტომატურად გადააადგილებს ერთეულებს შორის საპირისპირო მიმდევრობით. მონიშნული ერთეულის არჩევა შესაძლებელია ხელახლა დაჭერით.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 წამი</item>
+    <item quantity="other">%.2f წამი</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">სკანირების მორგება</string>
+  <string name="title_pref_scanning_methods">სკანირების მეთოდი</string>
+  <string name="title_pref_start_scan_delay">დაყოვნება პირველ ერთეულზე</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">აირჩიეთ დამატებითი დრო, რომელიც პირველ ერთეულს მოხმარდება. ეს დრო ავტომატური სკანირების დროს დაემატება.\n\nეს პარამეტრი ზეგავლენას იქონიებს ავტომატურ სკანირებასა და წერტილოვან სკანირებაზე.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">აირჩიეთ დამატებითი დრო, რომელიც პირველ ერთეულს მოხმარდება. დროის ამოწურვის შემდეგ ვერტიკალური და ჰორიზონტალური ხაზები ამოძრავდება.\n\nეს პარამეტრი ზეგავლენას იქონიებს ავტომატურ სკანირებასა და წერტილოვან სკანირებაზე.</string>
+  <string name="title_pref_category_assign_switches">გადამრთველების მინიჭება</string>
+  <string name="title_pref_category_key_mappings">გლობალური ქმედებებისთვის გადამრთველების მინიჭება</string>
+  <string name="summary_pref_category_key_mappings">გლობალური ქმედებების განხორციელება ნებისმიერ დროს არის შესაძლებელი</string>
+  <string name="title_pref_category_scan_key_mappings">სკანირებისთვის გადამრთველების მინიჭება</string>
+  <string name="summary_pref_category_scan_key_mappings">სკანირება მონიშვნის გადაადგილებასა და მონიშნული ერთეულების არჩევის საშუალებას იძლევა</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">გადაადგილება და არჩევა</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">ქმედებები მონიშნული ერთეულისთვის</string>
+  <string name="title_pref_point_scan_line_speed">ხაზის სიჩქარე</string>
+  <string name="dialog_message_pref_line_speed">აირჩიეთ, რამდენად სწრაფად უნდა გადაადგილდეს ეკრანზე ჰორიზონტალური და ვერტიკალური ხაზები.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 სმ წამში</item>
+    <item quantity="other">%.2f სმ წამში</item>
+  </plurals>
+  <string name="title_pref_loop_count">სკანირებების რაოდენობა</string>
+  <string name="dialog_message_pref_loop_count">აირჩიეთ, რამდენჯერ გამეორდეს სკანირება.\n\nეს პარამეტრი ზემოქმედებს ავტომატურ სკანირებასა და წერტილოვან სკანირებაზე.</string>
+  <string name="summary_pref_point_scan">მოძრავი ხაზების გამოყენება კონკრეტული ჰორიზონტალური ან ვერტიკალური მდებარეობის ასარჩევად. %1$s</string>
+  <string name="point_scan_enable_animations_message">ამ ფუნქციის გამოსაყენებლად ჩართეთ ანიმაცია.</string>
+  <string name="title_pref_category_switch_accomodation">დალაგების გადართვა</string>
+  <string name="title_pref_debounce_time">განმეორებითი დაჭერების უგულვებელყოფა</string>
+  <string name="dialog_message_pref_debounce_time">მითითებული პერიოდის განმავლობაში რამდენიმე დაჭერა ერთ დაჭერად აღიქმება.</string>
+  <string name="title_pref_press_on_release">აშვება ქმედების შესასრულებლად</string>
+  <string name="subtitle_pref_press_on_release">ქმედების შესრულება გადამრთველის აშვებისას</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d ციკლი</item>
+    <item quantity="other">%d ციკლი</item>
+  </plurals>
+  <string name="preference_off">გამორთული</string>
+  <string name="preference_on">ჩართული</string>
+  <string name="toast_msg_key_already_assigned">გადამრთველს „%1$s“ უკვე მინიჭებული აქვს „%2$s“</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">მინიჭებულია %d გადამრთველი</item>
+    <item quantity="other">მინიჭებულია %d გადამრთველი</item>
+  </plurals>
+  <string name="option_scan_switch_format">ჯგუფური არჩევის გადამრთველი %1$d</string>
+  <string name="option_scan_switch_format_with_color">ჯგუფური არჩევის გადამრთველი %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">ამ გადამრთველზე დაჭერით აირჩევა ჯგუფი %1$d.</string>
+  <string name="action_name_next">შემდეგი</string>
+  <string name="action_key_summary_next">ამ გადამრთველზე დაჭერით მოინიშნება შემდეგი ერთეული.</string>
+  <string name="action_name_previous">წინა</string>
+  <string name="action_key_summary_previous">ამ გადამრთველზე დაჭერით მოინიშნება წინა ერთეული.</string>
+  <string name="action_name_click">არჩევა</string>
+  <string name="action_key_summary_click">ამ გადამრთველზე დაჭერით აირჩევა მონიშნული ერთეული.</string>
+  <string name="action_name_long_click">ხანგრძლივად შეეხეთ</string>
+  <string name="action_key_summary_long_click">ამ გადამრთველზე დაჭერით მოხდება მონიშნული ერთეულის ფიქსაცია.</string>
+  <string name="action_name_scroll_forward">წინ გადაადგილება</string>
+  <string name="action_key_summary_scroll_forward">ამ გადამრთველზე დაჭერით მონიშნული ერთეული წინ გადაადგილდება.</string>
+  <string name="action_name_scroll_backward">უკან გადაადგილება</string>
+  <string name="action_key_summary_scroll_backward">ამ გადამრთველზე დაჭერით მონიშნული ერთეული უკან გადაადგილდება.</string>
+  <string name="action_name_dismiss">დახურვა</string>
+  <string name="action_name_expand">გაშლა</string>
+  <string name="action_name_collapse">ჩაკეცვა</string>
+  <string name="action_name_highlight_text">ტექსტის გამოყოფა</string>
+  <string name="action_group_name_highlight">გამოყოფა...</string>
+  <string name="action_name_highlight_all_text">მთელი ტექსტის გამოყოფა</string>
+  <string name="action_name_highlight_granular_text">გამოიყოს %1$s</string>
+  <string name="action_name_copy">კოპირება</string>
+  <string name="action_name_copy_all_text">ყველას კოპირება</string>
+  <string name="action_name_cut">ამოჭრა</string>
+  <string name="action_name_cut_all_text">ყველას ამოჭრა</string>
+  <string name="action_name_paste">ჩასმა</string>
+  <string name="action_name_undo">მოქმედების გაუქმება</string>
+  <string name="action_name_redo">გამეორება</string>
+  <string name="action_group_name_delete">წაშლა...</string>
+  <string name="action_name_delete">წაიშალოს %1$s</string>
+  <string name="action_name_delete_highlighted_text">გამოყოფილი ტექსტის წაშლა</string>
+  <string name="option_scanning_menu_button">მენიუ</string>
+  <string name="option_scanning_menu_button_content_description">გადამრთველით წვდომის მენიუ</string>
+  <string name="switch_access_global_menu">Switch Access-ის გლობალური მენიუ</string>
+  <string name="switch_access_actions_menu">Switch Access-ის ჩართვის მოქმედებების მენიუ</string>
+  <string name="switch_access_close_menu">დახურვა</string>
+  <string name="switch_access_back_menu">უკან</string>
+  <string name="next_arrow_content_description">შემდეგი</string>
+  <string name="previous_arrow_content_description">წინა</string>
+  <string name="global_action_back">უკან</string>
+  <string name="global_action_key_summary_back">ამ გადამრთველზე დაჭერით მოხდება წინა ეკრანზე გადასვლა, ან კლავიატურის დამალვა, თუ ის ხილულია.</string>
+  <string name="global_action_home">სახლი</string>
+  <string name="global_action_key_summary_home">ამ გადამრთველზე დაჭერით მთავარ ეკრანზე გადასვლა მოხდება.</string>
+  <string name="global_action_overview">მიმოხილვა</string>
+  <string name="global_action_key_summary_overview">ამ გადამრთველზე დაჭერით ნაჩვენები იქნება ახლახან გახსნილი აპების სია.</string>
+  <string name="global_action_notifications">შეტყობინებები</string>
+  <string name="global_action_key_summary_notifications">ამ გადამრთველზე დაჭერა თქვენი მოწყობილობის შეტყობინებებს გიჩვენებთ.</string>
+  <string name="global_action_quick_settings">სწრაფი პარამეტრები</string>
+  <string name="global_action_key_summary_quick_settings">ამ გადამრთველზე დაჭერა გიჩვენებთ თქვენი მოწყობილობის სწრაფ პარამეტრებს.</string>
+  <string name="global_action_power_options">ელკვების ვარიანტები</string>
+  <string name="global_menu_volume_heading">ხმის სიმძლავრე</string>
+  <string name="volume_menu_media">მედიის ხმის სიმძლავრე</string>
+  <string name="volume_menu_call">ზარის ხმის სიმძლავრე</string>
+  <string name="volume_menu_ring">ზარის ხმის სიმძლავრე</string>
+  <string name="volume_menu_alarm">მაღვიძარას ხმის სიმძლავრე</string>
+  <string name="volume_menu_accessibility">მარტივი წვდომის ხმის სიმძლავრე</string>
+  <string name="volume_menu_mute">დადუმება</string>
+  <string name="volume_menu_unmute">დადუმების მოხსნა</string>
+  <string name="volume_menu_increase">გაზრდა</string>
+  <string name="volume_settings">ხმის სიმძლავრის პარამეტრები</string>
+  <string name="volume_menu_decrease">შემცირება</string>
+  <string name="scrollable_forward">წინ გადაადგილება</string>
+  <string name="scrollable_backward">უკან გადაადგილება</string>
+  <string name="point_scan">წერტილოვანი სკანირება</string>
+  <string name="box_scan">წერტილოვანი სკანირებიდან გასვლა</string>
+  <string name="action_name_swipe_right">მარჯვნივ გადაფურცვლა</string>
+  <string name="action_name_swipe_left">მარხცნივ გადაფურცვლა</string>
+  <string name="action_name_swipe_up">ზემოთ გადაფურცვლა</string>
+  <string name="action_name_swipe_down">ქვემოთ გადაფურცვლა</string>
+  <string name="action_name_swipe_custom">გადაფურცვლა (მორგებული)</string>
+  <string name="action_name_zoom_out">მასშტაბის შემცირება</string>
+  <string name="action_name_zoom_in">მასშტაბის გადიდება</string>
+  <string name="switch_access_preferences_title">გადამრთველით წვდომის პარამეტრები</string>
+  <string name="key_combo_preference_instructions">დააჭირეთ გადამრთველის კომბინაციას სიიდან მის წასაშლელად</string>
+  <string name="key_combo_preference_reset_button">მინიჭებული გადამრთველის გასუფთავება</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">გადამრთველები მინიჭებული არ არის</string>
+  <string name="more">მეტი</string>
+  <string name="name_of_space_bar">შორისი</string>
+  <string name="name_of_enter_key">შეყვანა</string>
+  <string name="name_of_tab_key">ჩანართი</string>
+  <string name="save">შენახვა</string>
+  <string name="title_pref_category_display_and_sound">ეკრანი და ხმა</string>
+  <string name="title_pref_highlight_0">სკანირების მონიშვნის სტილი</string>
+  <string name="title_pref_primary_scan_style">სკანირების ძირითადი სტილი</string>
+  <string name="title_pref_highlight_0_color">მონიშვნის ფერი</string>
+  <string name="title_pref_highlight_0_weight">მონიშვნის ხაზის სტილი</string>
+  <string name="title_pref_privacy_policy">კონფიდენციალურობის დებულება</string>
+  <string name="title_pref_auto_select">ავტომატური არჩევა</string>
+  <string name="summary_pref_auto_select">მონიშნული ერთეულის ავტომატურად არჩევა. თუ ერთეულის არჩევა ვერ ხერხდება, ან ეს პარამეტრი გამორთულია, თქვენ ხელმისაწვდომი ქმედებების მენიუს დაინახავთ.</string>
+  <string name="switch_access_global_menu_enable_autoselect">ავტომატური არჩევის ჩართვა</string>
+  <string name="switch_access_global_menu_disable_autoselect">ავტომატური არჩევის გათიშვა</string>
+  <string name="switch_access_move_next">შემდეგი...</string>
+  <string name="switch_access_move_next_character">შემდეგი სიმბოლო</string>
+  <string name="switch_access_move_next_word">შემდეგი სიტყვა</string>
+  <string name="switch_access_move_next_line">შემდეგი სტრიქონი</string>
+  <string name="switch_access_move_next_paragraph">შემდეგი აბზაცი</string>
+  <string name="switch_access_move_next_page">შემდეგი გვერდი</string>
+  <string name="switch_access_move_next_sentence">შემდეგი წინადადება</string>
+  <string name="switch_access_move_prev">წინა...</string>
+  <string name="switch_access_move_prev_character">წინა სიმბოლო</string>
+  <string name="switch_access_move_prev_word">წინა სიტყვა</string>
+  <string name="switch_access_move_prev_line">წინა სტრიქონი</string>
+  <string name="switch_access_move_prev_paragraph">წინა აბზაცი</string>
+  <string name="switch_access_move_prev_page">წინა გვერდი</string>
+  <string name="switch_access_move_prev_sentence">წინა წინადადება</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">სკანირების ავტომატურად დაწყება</string>
+  <string name="switch_access_auto_start_scan_summary">სკანირება გადამრთველზე დაჭერის გარეშე დაიწყება</string>
+  <string name="pref_begin_switchaccess_setup_title">დაყენების სახელმძღვანელოს გახსნა</string>
+  <string name="setup_wizard_heading">გადამრთველით წვდომის დაყენების სახელმძღვანელო</string>
+  <string name="one_switch">ერთი გადამრთველი</string>
+  <string name="two_switches">ორი გადამრთველი</string>
+  <string name="finish">დასრულება</string>
+  <string name="exit">გასვლა</string>
+  <string name="intro_heading">აირჩიეთ გადამრთველი</string>
+  <string name="usb_switch_option_text">USB გადამრთველი</string>
+  <string name="bluetooth_switch_option_text">Bluetooth-ის ჩართვა</string>
+  <string name="usb_switch_description_text">გადამრთველის ფიზიკურად დაკავშირება USB-ით</string>
+  <string name="bluetooth_switch_description_text">გადამრთველის უსადენოდ დაკავშირება Bluetooth-ით</string>
+  <string name="bluetooth_unsupported_description_text">მოწყობილობას არ აქვს Bluetooth-ის მხარდაჭერა. ამის ნაცვლად, ცადეთ ფიზიკური გადამრთველის გამოყენება.</string>
+  <string name="connected_usb_devices_header">დაკავშირებული მოწყობილობები</string>
+  <string name="usb_no_devices_connected_message">USB მოწყობილობები არ იძებნება. დარწმუნდით, რომ თქვენი მოწყობილობა საიმედოდ არის დაკავშირებული.</string>
+  <string name="connect_usb_heading">USB-ის ჩამრთველის დაკავშირება</string>
+  <string name="pair_bluetooth_heading">Bluetooth-გადამრთველის დაწყვილება</string>
+  <string name="pair_bluetooth_subheading">შეეხეთ Bluetooth-ის ჩამრთველს ქვემოთ</string>
+  <string name="bluetooth_not_enabled_message">Bluetooth-გადამრთველის დასაწყვილებლად Bluetooth უნდა ჩართოთ</string>
+  <string name="enable_bluetooth_button_title">Bluetooth-ის ჩართვა</string>
+  <string name="bluetooth_no_devices_paired">დაწყვილებული Bluetooth მოწყობილობები არ იძებნება</string>
+  <string name="paired_devices_header">დაწყვილებული Bluetooth-მოწყობილობები</string>
+  <string name="available_devices_header">ხელმისაწვდომი Bluetooth მოწყობილობები</string>
+  <string name="bluetooth_computer_content_description">კომპიუტერი</string>
+  <string name="bluetooth_phone_content_description">ტელეფონი</string>
+  <string name="bluetooth_imaging_content_description">გამოსახულებათა დამუშავების მოწყობილობა</string>
+  <string name="bluetooth_headphone_content_description">ყურსასმენი</string>
+  <string name="bluetooth_peripheral_content_description">პერიფერიული</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">მიმდინარეობს დაკავშირება…</string>
+  <string name="bluetooth_connected_description">დაკავშირებულია</string>
+  <string name="bluetooth_device_unavailable_description">მოწყობილობა მიუწვდომელია</string>
+  <string name="reconnecting_unsupported_title">მოწყობილობასთან დაკავშირება ვერ მოხერხდა</string>
+  <string name="reconnecting_unsupported_message">Switch Access ვერ დაუკავშირდა თქვენს დაწყვილებულ მოწყობილობას. დარწმუნდით, რომ თქვენი მოწყობილობა ჩართულია და დაკავშირებული.\n\nთუ მოწყობილობა მაინც ვერ ახერხებს დაკავშირებას, გადადით Bluetooth-ის პარამეტრებზე და ხელახლა დაკავშირება ცადეთ.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Bluetooth-ის პარამეტრებზე გადასვლა</string>
+  <string name="number_of_switches_heading">აირჩიეთ გადამრთველების რაოდენობა</string>
+  <string name="title_assign_scan_key">%1$s-ის გადამრთველის მიკუთვნება</string>
+  <string name="one_switch_description_text">დააჭირეთ გადამრთველს ერთეულებს შორის გადაადგილების ავტომატურად დასაწყებად. გამოყოფილი ერთეულის ასარჩევად ხელახლა დააჭირეთ.</string>
+  <string name="two_switches_description_text">ერთეულებს შორის გადასაადგილებლად, დააჭირეთ ერთ გადამრთველს. გამოყოფილი ერთეულის ასარჩევად, დააჭირეთ მეორეს.</string>
+  <string name="step_speed_heading">აირჩიეთ სკანირების სიჩქარე</string>
+  <string name="step_speed_subheading">აირჩიეთ, რა პერიოდის განმავლობაში უნდა დარჩეს გამოყოფა თითოეულ ერთეულზე</string>
+  <string name="fast_radio_button_title">სწრაფი (%1$s-წამიანი დაყოვნება)</string>
+  <string name="medium_radio_button_title">საშუალო (%1$s-წამიანი დაყოვნება)</string>
+  <string name="slow_radio_button_title">ნელი (%1$s-წამიანი დაყოვნება)</string>
+  <string name="custom_switch">მორგებული</string>
+  <string name="custom_edit_text">დაყოვნება (წამი)</string>
+  <string name="setup_toast_msg_key_already_assigned">კლავიშს „%1$s“ უკვე მინიჭებული აქვს სხვა ქმედება</string>
+  <string name="row_column_scanning_title">სკანირება მწკრივი-სვეტის პრინციპით</string>
+  <string name="option_scanning_title">ჯგუფური არჩევა (გაფართოებული)</string>
+  <string name="linear_scanning_title">წრფივი სკანირება</string>
+  <string name="linear_scanning_except_keyboard_title">წრფივი სკანირება (კლავიატურის გარდა)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">მეტყველება, ხმა და ვიბრაცია</string>
+  <string name="title_pref_switch_access_spoken_feedback">გახმოვანებული უკუკავშირი</string>
+  <string name="title_pref_scan_non_actionable_items">აღწერილობითი ტექსტის გახმოვანება</string>
+  <string name="scan_non_actionable_items_summary">გახმოვანებული უკუკავშირის მოსმენა ერთეულებისთვის, რომლებსაც ხელმისაწვდომი ქმედებები და აღწერილობა აქვს</string>
+  <string name="title_pref_switch_access_verbosity">დეტალიზაცია</string>
+  <string name="summary_verbosity">აირჩიეთ, რა სახის ინფორმაცია უნდა გახმოვანდეს</string>
+  <string name="title_pref_verbosity_category_verbosity_details">დეტალიზაციის ინფორმაცია</string>
+  <string name="title_pref_switch_access_keyboard_echo">კლავიატურის ექო</string>
+  <string name="keyboard_echo_summary_on">ეკრანულ კლავიატურაზე აკრეფილი ღილაკების წარმოთქმა</string>
+  <string name="keyboard_echo_summary_off">ეკრანულ კლავიატურაზე აკრეფილი ღილაკების წარმოთქმის გამორთვა</string>
+  <string name="title_pref_enable_hints">წარმოთქვი გამოყენების მინიშნებები</string>
+  <string name="enable_hints_summary_on">გამოყენების მინიშნებები გახმოვანდება ნავიგაციისას, ხანმოკლე დაყოვნების შემდეგ</string>
+  <string name="enable_hints_summary_off">გამოყენების მინიშნებები მარტივი წვდომის ფოკუსის გადატანისას არ გახმოვანდება</string>
+  <string name="title_pref_speak_container_element_position">სიისა და ბადის ინფორმაციის გახმოვანება</string>
+  <string name="speak_container_element_position_summary_on">სიისა და ბადის ინფორმაცია გახმოვანდება</string>
+  <string name="speak_container_element_position_summary_off">სიისა და ბადის ინფორმაცია არ გახმოვანდება</string>
+  <string name="title_pref_speak_element_type">ელემენტის ტიპის გახმოვანება</string>
+  <string name="speak_element_type_summary_on">ელემენტის ტიპი გახმოვანდება ფოკუსირებული ერთეულებისთვის</string>
+  <string name="speak_element_type_summary_off">ელემენტის ტიპი არ გახმოვანდება ფოკუსირებული ერთეულებისთვის</string>
+  <string name="title_pref_pitch_change_for_ime">გამოიყენე ტონალობის ცვლილება</string>
+  <string name="pitch_change_for_ime_summary_on">კლავიატურაზე აკრეფილი სიმბოლოების ხმადაბლა წარმოთქმა</string>
+  <string name="pitch_change_for_ime_summary_off">წარმოთქმისას არ შეიცვალოს უკუკავშირის ტონალობა</string>
+  <string name="title_pref_speak_selected_item_or_group">არჩეული ერთეულის ან ჯგუფის გახმოვანება</string>
+  <string name="speak_selected_item_or_group_summary">არჩევის შემდეგ ერთეულის ან ჯგუფის სახელის გახმოვანება</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">გახმოვანების მაქს. დრო ერთეულზე</string>
+  <string name="dialog_message_pref_maximum_time_per_item">დააყენეთ დროის მაქსიმალური ლიმიტი თითოეული ერთეულის აღწერილობის გახმოვანებისთვის. დროის დაყენებული ლიმიტის შემდეგ გახმოვანება შეწყდება.\nგაითვალისწინეთ: ჩართვის შემთხვევაში, მინიშნებები ყოველთვის გახმოვანდება.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">სხვადასხვა</string>
+  <string name="title_pref_node_description_order">ელემენტის აღწერილობის მიმდევრობა</string>
+  <string name="title_pref_switch_access_speak_element_ids">ელემენტის ID-ების გახმოვანება</string>
+  <string name="speak_element_ids_summary_on">ელემენტის იდენტიფიკაციები გახმოვანდება უსახელო ღილაკებისთვის</string>
+  <string name="speak_element_ids_summary_off">ელემენტის იდენტიფიკაციები არ გახმოვანდება უსახელო ღილაკებისთვის</string>
+  <string name="title_pref_switch_access_tts_settings">ტექსტის გახმოვანების პარამეტრები</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">როცა მონიშნულია რამდენიმე ერთეული</string>
+  <string name="title_pref_switch_access_speak_first_last_item">პირველი და ბოლო ერთეულების გახმოვანება</string>
+  <string name="title_pref_switch_access_speak_number_of_items">ერთეულების რაოდენობის წარმოთქმა</string>
+  <string name="title_pref_switch_access_speak_all_items">ყველა გამოყოფილი ერთეულის წარმოთქმა</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">გადასვლამდე საუბრის დასრულება</string>
+  <string name="title_pref_spoken_feedback_other_feedback">სხვა უკუკავშირი</string>
+  <string name="title_pref_developer_settings">დეველოპერის პარამეტრები</string>
+  <string name="title_pref_spoken_feedback_overlay">წარმოთქმული ფრაზების ეკრანზე გამოტანა</string>
+  <string name="title_pref_switch_access_vibration_feedback">უკუკავშირი ვიბრაციით</string>
+  <string name="vibration_feedback_summary">გარკვეული ცვლილების შემდეგ ვიბრირება (მაგ., ეკრანზე კონტენტის ცვლილებისას)</string>
+  <string name="title_pref_switch_access_sound_feedback">ხმოვანი უკუკავშირი</string>
+  <string name="sound_feedback_summary">გარკვეული ცვლილების შემდეგ ხმოვანი ეფექტის დაკვრა (მაგ., ეკრანზე კონტენტის ცვლილებისას)</string>
+  <string name="title_pref_switch_access_sound_volume">ხმის სიმაღლე</string>
+  <string name="title_pref_switch_access_audio_ducking">აუდიო დაკინგი</string>
+  <string name="audio_ducking_summary">წარმოთქმისას სხვა ხმების მიჩუმება</string>
+  <string name="switch_access_focus_cleared_no_selection">ეკრანი შეიცვალა</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">დააჭირეთ არჩევის გადამრთველს მწკრივის ასარჩევად</string>
+  <string name="switch_access_spoken_feedback_group">ჯგუფი %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">დააჭირეთ ჯგუფის „%1$s“ გადამრთველს ერთეულის ასარჩევად</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">დააჭირეთ ჯგუფის „%1$s“ გადამრთველს ერთეულის ასარჩევად</string>
+  <string name="switch_access_spoken_feedback_to">%1$s-დან %2$s-მდე</string>
+  <string name="switch_access_spoken_feedback_items">%1$s ერთეული</string>
+  <string name="switch_access_spoken_feedback_group_selected">ჯგუფი „%1$s“ არჩეულია</string>
+  <string name="switch_access_spoken_feedback_row_selected">მწკრივი არჩეულია</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s არჩეულია</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">გადაადგილების შესაძლებლობით</string>
+  <string name="switch_access_spoken_feedback_scroll">აირჩიეთ გადასაადგილებლად</string>
+  <string name="switch_access_spoken_feedback_unknown">ერთეული უცნობია</string>
+  <string name="scanning_method_heading">აირჩიეთ სკანირების ხერხი</string>
+  <string name="row_column_scanning_description">ერთდროულად მხოლოდ ერთი მწკრივის სკანირება განხორციელდება. მწკრივის არჩევის შემდეგ, სიაში არსებულ ელემენტებს შორის გადაადგილება მოხდება.</string>
+  <string name="linear_scanning_description">ერთეულებს შორის გადაადგილება ეტაპობრივად</string>
+  <string name="linear_scanning_except_keyboard_description">ერთეულებს შორის გადაადგილება ეტაპობრივად განხორციელდება. გაითვალისწინეთ, რომ კლავიატურები მწკრივების მიხედვით დასკანირდება.</string>
+  <string name="option_scanning_description">ყველა ერთეულს მიენიჭება ფერი. დააჭირეთ იმ გადამრთველს, რომელიც სასურველი ერთეულის გარშემო მოცემულ ფერს შეესაბამება. შეამცირეთ ჯგუფის ზომა, სანამ თქვენს არჩევანამდე არ მიხვალთ.</string>
+  <string name="setup_switch_assignment_heading">გადამრთველები, რომლებსაც მინიჭებული აქვთ ფუნქცია %s</string>
+  <string name="setup_switch_assignment_empty">არცერთი</string>
+  <string name="clear_keys_dialog_title">გსურთ მინიჭებული გადამრთველების გასუფთავება?</string>
+  <string name="clear_keys_dialog_message">თქვენ უკვე მინიჭებული გაქვთ გადამრთველები.</string>
+  <string name="clear_keys_dialog_positive_button">გადამრთველების გასუფთავება</string>
+  <string name="clear_keys_dialog_negative_button">გადამრთველების შენარჩუნება</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">გადამრთველები მინიჭებული არ არის</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">ეს ფუნქცია არცერთ გადამრთველს არ აქვს მინიჭებული. ნამდვილად გსურთ გაგრძელება?</string>
+  <string name="option_scan_switch_title">%1$s ჯგუფი</string>
+  <string name="option_scan_switch_subtitle">დააჭირეთ გადამრთველს, რათა ის %1$s ჯგუფის ამომრჩევად განისაზღვროს.</string>
+  <string name="assign_switch_subtitle">დააჭირეთ გადამრთველს, რათა მას მიენიჭოს ფუნქცია „%1$s“.</string>
+  <string name="auto_scan_action_description">სკანირების დაწყება და არჩევა</string>
+  <string name="switch_game_heading">გამოცადეთ თქვენი კონფიგურაცია „ჯვრების და ნულების“ თამაშით</string>
+  <string name="switch_game_one_switch_linear_subheading">სკანირების დასაწყებად, დაჭერით აირჩიეთ „%1$s“. გამოყოფილი ერთეულის ასარჩევად, ხელახლა დააჭირეთ გადამრთველს. თქვენ იწყებთ!</string>
+  <string name="switch_game_one_switch_row_col_subheading">სკანირების დასაწყებად, დაჭერით აირჩიეთ „%1$s“. გამოყოფილი მწკრივის ასარჩევად, ხელახლა დააჭირეთ გადამრთველს. გამოყოფილი ერთეულის ასარჩევად, კიდევ ერთხელ დააჭირეთ. თქვენ იწყებთ!</string>
+  <string name="switch_game_two_switch_linear_subheading">ერთეულებს შორის გადასაადგილებლად დააჭირეთ „%1$s“-ს, ხოლო მონიშნული ერთეულის არჩევისთვის, დააჭირეთ „%2$s“-ს. აბა ცადეთ!</string>
+  <string name="switch_game_two_switch_row_col_subheading">მწკრივებს შორის გადასაადგილებლად, დააჭირეთ „%1$s“-ს, გამოყოფილი მწკრივის ასარჩევად კი დააჭირეთ %2$s-ს. გაიმეორეთ ქმედება მოცემულ მწკრივში ერთეულის ასარჩევად. აბა ცადეთ!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">დააჭირეთ „%1$s“-ს, რათა აირჩიოთ ერთეულები, რომლებიც გამოყოფილია %2$s ფერით, ან დააჭირეთ „%4$s“, რათა აირჩიოთ ერთეულები, რომლებიც გამოყოფილია %3$s ფერით. გაიმეორეთ ქმედება, სანამ სასურველ ერთეულამდე არ მიხვალთ. აბა ცადეთ!</string>
+  <string name="switch_game_incomplete_switches_subheading">ყველა ქმედებისთვის გადამრთველები ჯერ არ განგისაზღვრავთ. გამოიყენეთ ღილაკი „წინა“, დაბრუნდით და დაასრულეთ გადამრთველების მინიჭება.</string>
+  <string name="game_square_content_description">%1$s არის პოზიციაზე: %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">ცარიელი</string>
+  <string name="game_reset_button_title">თამაშის გადაყენება</string>
+  <string name="game_square_already_taken">ეს კვადრატი უკვე დაკავებულია. ცადეთ ხელახლა!</string>
+  <string name="game_win_outcome_title">თქვენ მოიგეთ!</string>
+  <string name="game_loss_outcome_title">იმედია, შემდეგში უფრო გაგიმართლებთ</string>
+  <string name="game_tie_outcome_title">ფრეა</string>
+  <string name="game_outcome_body_text">შეგიძლიათ შეინარჩუნოთ არსებული კონფიგურაცია, ან თავიდან დაიწყოთ.</string>
+  <string name="game_outcome_positive_response">კონფიგურაციის შენარჩუნება</string>
+  <string name="game_outcome_negative_response">თავიდან დაწყება</string>
+  <string name="setup_completion_heading">დაყენება დასრულდა</string>
+  <string name="setup_completion_message">ყველაფერი მზადაა.</string>
+  <string name="setup_completion_settings_reminder">დამატებითი პარამეტრების ნებისმიერ დროს შეცვლა, ან დაყენების ოსტატის ხელახლა გახსნა გადამრთველით წვდომის პარამეტრებიდან შეგიძლიათ.</string>
+  <string name="dialog_url_list">აირჩიეთ ბმული</string>
+  <string name="dialog_do_not_disturb_permission_title">გადამრთველით წვდომას სჭირდება ნებართვა ხმის სიმძლავრის დასარეგულირებლად</string>
+  <string name="dialog_do_not_disturb_permission_message">გადამრთველით წვდომის მენიუდან ხმის სიმძლავრის დასარეგულირებლად Android მარტივი წვდომის ხელსაწყოებს ჩაურთეთ წვდომა „არ შემაწუხოთ“ რეჟიმზე</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">პარამეტრების გახსნა</string>
 </resources>

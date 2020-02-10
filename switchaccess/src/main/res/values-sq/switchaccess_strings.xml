@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Ndrysho qasjen"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"\"Qasja e çelësit\" u lejon personave me dëmtime motorike që të kontrollojnë telefonat dhe tabletët duke përdorur një ose më shumë çelësa. Përdor çelësat që të zgjedhësh artikujt, të lëvizësh, të fusësh tekst, etj."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Kontrollo pajisjen me anë të çelësave"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Ndihma dhe komentet"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Skanimi automatik"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Koha e skanimit automatik"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Skanim automatik nga fundi në fillim"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f sekonda</item>
-      <item quantity="one">1 sekondë</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Personalizo skanimin"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Metoda e skanimit"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Vonesa në artikullin e parë"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Cakto çelësat"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Cakto çelësat për veprimet"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Cakto çelësat për skanimin"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Shpejtësia e rreshtit"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Numri i skanimeve"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Zgjidh se sa herë përsëritet skanimi"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Koha e kthimit"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Shtypjet e shumta brenda kësaj kohe do të trajtohen si një shtypje e vetme."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Lëshoje për të kryer veprimin"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Kryen veprimin kur lëshohet çelësi"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d cikle</item>
-      <item quantity="one">%d cikël</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Çelësi \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" është caktuar tashmë te \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\""</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">U caktuan %d çelësa</item>
-      <item quantity="one">U caktua %d çelës</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Çelësi i përzgjedhjes në grup %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Përpara"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Prapa"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Zgjidh"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Shtypje e gjatë"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Lëviz përpara"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Lëviz prapa"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Hiqe"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Zgjero"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Palos"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Thekso tekstin"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Kopjo"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Pri"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Ngjit"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENYJA"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Prapa"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Kreu"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Përmbledhje"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Njoftime"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Cilësimet e shpejta"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Lëviz përpara"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Lëviz prapa"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Skanimi i pikës"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Skanimi i pikës së daljes"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Rrëshqitja djathtas"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Rrëshqitja majtas"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Rrëshqitja lart"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Rrëshqitja poshtë"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Rrëshqitja (e personalizuar)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Zvogëlo"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Zmadho"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Cilësimet e \"Qasjes së çelësit\""</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Shtyp një kombinim çelësash për ta shtuar ose hequr nga lista"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Pastro caktimin e çelësit"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Nuk janë caktuar çelësa"</string>
-    <string name="more" msgid="1547670498589416840">"Më shumë"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Hapësirë"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Skeda"</string>
-    <string name="save" msgid="5398278773451196019">"Ruaj"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Stili i theksimit i skanimit"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Stili parësor i skanimit"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Ngjyra e theksimit"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Stili i theksimit i rreshtit"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Politika e privatësisë"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Aktivizo zgjedhjen automatike"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Çaktivizo zgjedhjen automatike"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Karakteri tjetër"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Fjala tjetër"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Rreshti tjetër"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Paragrafi tjetër"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Faqja tjetër"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Karakteri i mëparshëm"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Fjala e mëparshme"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Rreshti i mëparshëm"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Paragrafi i mëparshëm"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Faqja e mëparshme"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Fillo automatikisht skanimin"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Skanimi fillon pa e shtypur çelësin"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Hap konfigurimin e \"Qasjes së çelësit\""</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Asistenti i konfigurimit të \"Qasjes së çelësit\""</string>
-    <string name="one_switch" msgid="5247899666787922810">"Një çelës"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Dy çelësa"</string>
-    <string name="finish" msgid="4267641294267512480">"Përfundo"</string>
-    <string name="exit" msgid="8664597014081860813">"Dil"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Zgjidh numrin e çelësave"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Shtyp çelësin për të filluar lëvizjen automatike mes artikujve, më pas shtype sërish për të zgjedhur artikullin e përzgjedhur."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Shtyp njërin çelës për të lëvizur mes artikujve. Shtype çelësin tjetër për të theksuar artikullin."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Zgjidh shpejtësinë e skanimit"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Zgjidh për sa kohë duhet të qëndrojë theksimi në secilin artikull"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"E shpejtë (vonesë <xliff:g id="DELAY_SPEED">%1$s</xliff:g> sek.)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Mesatare (vonesë <xliff:g id="DELAY_SPEED">%1$s</xliff:g> sek.)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"E ngadaltë (vonesë <xliff:g id="DELAY_SPEED">%1$s</xliff:g> sek.)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"E personalizuar"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"vonesa (sekonda)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Çelësi \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" është caktuar tashmë për një veprim tjetër"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Skanimi i rreshtit-kolonës"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Përzgjedhja në grup"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Skanimi linear"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Komentet me zë"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Cilësimet e \"Konvertimit të tekstit në të folur\""</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Për artikuj të shumtë"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Thuaj me zë artikullin e parë dhe të fundit"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Thuaj me zë numrin e artikujve"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Thuaji me zë të gjithë artikujt e theksuar"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Përfundo të folurën përpara se të lëvizësh"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"grupi <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> deri <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> artikuj"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"zgjidh për të lëvizur"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"artikull i panjohur"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Zgjidh si të skanohet"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Skano rreshtat një nga një. Pasi përzgjidhet një rresht, lëviz përmes artikujve në atë listë."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Lëviz mes artikujve një nga një. Ki parasysh se tastierat do të skanojnë gjithmonë sipas rreshtave."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Të gjithë artikujve do t\'u caktohet një ngjyrë. Shtyp çelësin që i korrespondon ngjyrës rreth artikullit që dëshiron. Ngushtoje madhësinë e grupit derisa të arrish te zgjedhja jote."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Çelësat e caktuar te <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Asnjë"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Të pastrohen çelësat e caktuar?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"I ke caktuar tashmë çelësat."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Pastro çelësat"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Mbaj çelësat"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Nuk janë caktuar çelësa"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Këtij veprimi nuk është i caktuar asnjë çelës. Je i sigurt se dëshiron të vazhdosh?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Grupi <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Shtyp një çelës për ta caktuar atë që të përzgjedhë grupin <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Shtyp një çelës për t\'ia caktuar atë veprimit \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Nis skanimin dhe përzgjidh"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Testo konfigurimin me Tic-Tac-Toe"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Shtyp \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" për të filluar skanimin. Shtype çelësin sërish për të zgjedhur artikullin e theksuar. Vazhdo ti i pari!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Shtyp \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" për të filluar skanimin. Shtype çelësin sërish për të zgjedhur rreshtin e theksuar. Vazhdo ti i pari!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Shtyp \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" për të lëvizur mes artikujve. Shtyp \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" për të zgjedhur artikullin e theksuar. Vazhdo ti i pari!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Shtyp \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" për të lëvizur mes rreshtave. Shtyp <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g> për të zgjedhur rreshtin e theksuar. Përsërite për të zgjedhur një artikull në atë rresht. Vazhdo ti i pari!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Shtyp \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" për të zgjedhur artikujt e theksuar në <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> ose shtyp \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" për të zgjedhur artikujt e theksuar në <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Përsërite për të arritur te artikulli yt. Vazhdo ti i pari!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Nuk ke ende çelësa të caktuar për të gjitha veprimet. Përdor butonin \"Prapa\" për t\'u kthyer pas dhe për të përfunduar caktimin e çelësave."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Rivendos lojën"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Ky shesh është i zënë tashmë. Provo sërish!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Ti fitove!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Më shumë fat herën tjetër"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Barazim"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Mund të ruash konfigurimin aktual ose mund të fillosh nga e para."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Ruaj konfigurimin"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Fillo nga e para"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Konfigurimi përfundoi"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Je plotësisht gati."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Mund t\'i ndryshosh gjithnjë cilësimet shtesë ose mund ta hapësh sërish asistentin e konfigurimit nga cilësimet e \"Qasjes së çelësit\"."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Qasja me çelës</string>
+  <string name="switch_access_service_description">\"Qasja me çelës\" u lejon personave me dëmtime motorike që të kontrollojnë telefonat dhe tabletët duke përdorur një ose më shumë çelësa. Përdor çelësat që të zgjedhësh artikujt, të lëvizësh, të fusësh tekst, etj.</string>
+  <string name="switch_access_service_summary">Kontrollo pajisjen me anë të çelësave</string>
+  <string name="title_pref_help_feedback">Ndihma dhe komentet</string>
+  <string name="title_pref_licenses">Licencat me burim të hapur</string>
+  <string name="title_pref_category_auto_scan">Skanimi automatik</string>
+  <string name="title_pref_auto_scan_disabled">Skano automatikisht (i çaktivizuar)</string>
+  <string name="action_key_summary_auto_scan">Shtypja e këtij çelësi do të fillojë automatikisht lëvizjen e theksimit mes artikujve. Shtypja për së dyti do të zgjedhë artikullin e theksuar.</string>
+  <string name="title_pref_auto_scan_time_delay">Koha e skanimit automatik</string>
+  <string name="action_name_reverse_auto_scan">Skanim automatik nga fundi në fillim</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Rikthe skanimin automatik (i çaktivizuar)</string>
+  <string name="action_key_summary_reverse_auto_scan">Shtypja e këtij çelësi do të fillojë automatikisht lëvizjen e theksimit mes artikujve në rend të kundërt. Shtypja për së dyti do të zgjedhë artikullin e theksuar.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 sekondë</item>
+    <item quantity="other">%.2f sekonda</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Personalizo skanimin</string>
+  <string name="title_pref_scanning_methods">Metoda e skanimit</string>
+  <string name="title_pref_start_scan_delay">Vonesa në artikullin e parë</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Zgjidh kohën shtesë që shpenzohet në artikullin e parë. Kjo kohë shtohet në kohën e skanimit automatik.\n\nKy cilësim ndikon si te skanimi automatik, ashtu edhe te skanimi i pikës.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Zgjidh kohën shtesë që shpenzohet në artikullin e parë. Pas kësaj kohe, do të fillojë të lëvizë vija vertikale ose horizontale.\n\nKy cilësim ndikon si te skanimi automatik, ashtu edhe te skanimi i pikës.</string>
+  <string name="title_pref_category_assign_switches">Cakto çelësat</string>
+  <string name="title_pref_category_key_mappings">Cakto çelësat për veprimet globale</string>
+  <string name="summary_pref_category_key_mappings">Veprimet globale mund të kryhen në çdo moment</string>
+  <string name="title_pref_category_scan_key_mappings">Cakto çelësat për skanimin</string>
+  <string name="summary_pref_category_scan_key_mappings">Skanimi të lejon të lëvizësh theksimin dhe të zgjedhësh artikujt e theksuar</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Lëvizja dhe zgjedhja</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Veprimet mbi artikullin e theksuar</string>
+  <string name="title_pref_point_scan_line_speed">Shpejtësia e rreshtit</string>
+  <string name="dialog_message_pref_line_speed">Zgjidh se sa shpejt lëvizin vijat horizontale dhe vertikale nëpër ekran.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 cm në sekondë</item>
+    <item quantity="other">%.2f cm në sekondë</item>
+  </plurals>
+  <string name="title_pref_loop_count">Numri i skanimeve</string>
+  <string name="dialog_message_pref_loop_count">Zgjidh se sa herë përsëritet skanimi.\n\nKy cilësim ndikon si te skanimi automatik, ashtu edhe te skanimi i pikës.</string>
+  <string name="summary_pref_point_scan">Përdor vijat që lëvizin për të zgjedhur një vendndodhje specifike horizontale dhe vertikale. %1$s</string>
+  <string name="point_scan_enable_animations_message">Aktivizo animacionet për të përdorur këtë funksion.</string>
+  <string name="title_pref_category_switch_accomodation">Ndërro akomodimin</string>
+  <string name="title_pref_debounce_time">Shpërfill shtypjet e përsëritura</string>
+  <string name="dialog_message_pref_debounce_time">Shtypjet e shumta të çelësit brenda kësaj kohe do të trajtohen si një shtypje e vetme.</string>
+  <string name="title_pref_press_on_release">Lëshoje për të kryer veprimin</string>
+  <string name="subtitle_pref_press_on_release">Kryen veprimin kur lëshohet çelësi</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d cikël</item>
+    <item quantity="other">%d cikle</item>
+  </plurals>
+  <string name="preference_off">Joaktiv</string>
+  <string name="preference_on">Aktiv</string>
+  <string name="toast_msg_key_already_assigned">Çelësi \"%1$s\" është caktuar tashmë te \"%2$s\"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">U caktua %d çelës</item>
+    <item quantity="other">U caktuan %d çelësa</item>
+  </plurals>
+  <string name="option_scan_switch_format">Çelësi i përzgjedhjes në grup %1$d</string>
+  <string name="option_scan_switch_format_with_color">Çelësi i zgjedhjes së grupit %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Shtypja e këtij çelësi do të zgjedhë grupin %1$d.</string>
+  <string name="action_name_next">Përpara</string>
+  <string name="action_key_summary_next">Shtypja e këtij çelësi do të theksojë artikullin e radhës.</string>
+  <string name="action_name_previous">Prapa</string>
+  <string name="action_key_summary_previous">Shtypja e këtij çelësi do të theksojë artikullin e mëparshëm.</string>
+  <string name="action_name_click">Zgjidh</string>
+  <string name="action_key_summary_click">Shtypja e këtij çelësi do të zgjedhë artikullin e theksuar.</string>
+  <string name="action_name_long_click">Prek dhe mbaj të shtypur</string>
+  <string name="action_key_summary_long_click">Shtypja e këtij çelësi do të prekë dhe do të mbajë të shtypur artikullin e theksuar.</string>
+  <string name="action_name_scroll_forward">Lëviz përpara</string>
+  <string name="action_key_summary_scroll_forward">Shtypja e këtij çelësi do të lëvizë përpara artikullin e theksuar.</string>
+  <string name="action_name_scroll_backward">Lëviz prapa</string>
+  <string name="action_key_summary_scroll_backward">Shtypja e këtij çelësi do të lëvizë prapa artikullin e theksuar.</string>
+  <string name="action_name_dismiss">Hiqe</string>
+  <string name="action_name_expand">Zgjero</string>
+  <string name="action_name_collapse">Palos</string>
+  <string name="action_name_highlight_text">Thekso tekstin</string>
+  <string name="action_group_name_highlight">Thekso ...</string>
+  <string name="action_name_highlight_all_text">Thekso të gjithë tekstin</string>
+  <string name="action_name_highlight_granular_text">Thekso %1$s</string>
+  <string name="action_name_copy">Kopjo</string>
+  <string name="action_name_copy_all_text">Kopjo të gjitha</string>
+  <string name="action_name_cut">Pri</string>
+  <string name="action_name_cut_all_text">Prit të gjitha</string>
+  <string name="action_name_paste">Ngjit</string>
+  <string name="action_name_undo">Zhbëj</string>
+  <string name="action_name_redo">Ribëj</string>
+  <string name="action_group_name_delete">Fshi ...</string>
+  <string name="action_name_delete">Fshi %1$s</string>
+  <string name="action_name_delete_highlighted_text">Fshi tekstin e theksuar</string>
+  <string name="option_scanning_menu_button">MENYJA</string>
+  <string name="option_scanning_menu_button_content_description">Menyja e \"Qasjes me çelës\"</string>
+  <string name="switch_access_global_menu">Menyja globale e \"Qasjes me çelës\"</string>
+  <string name="switch_access_actions_menu">Menyja e veprimeve të \"Qasjes me çelës\"</string>
+  <string name="switch_access_close_menu">MBYLL</string>
+  <string name="switch_access_back_menu">PRAPA</string>
+  <string name="next_arrow_content_description">Para</string>
+  <string name="previous_arrow_content_description">Prapa</string>
+  <string name="global_action_back">Prapa</string>
+  <string name="global_action_key_summary_back">Shtypja e këtij çelësi do të të kthejë tek ekrani i mëparshëm ose do të fshehë tastierën, nëse është e dukshme.</string>
+  <string name="global_action_home">Kreu</string>
+  <string name="global_action_key_summary_home">Shtypja e këtij çelësi do të të çojë tek ekrani kryesor.</string>
+  <string name="global_action_overview">Përmbledhje</string>
+  <string name="global_action_key_summary_overview">Shtypja e këtij çelësi do të shfaqë një listë të aplikacioneve të hapura së fundi.</string>
+  <string name="global_action_notifications">Njoftime</string>
+  <string name="global_action_key_summary_notifications">Shtypja e këtij çelësi do të shfaqë njoftimet e pajisjes sate.</string>
+  <string name="global_action_quick_settings">Cilësimet e shpejta</string>
+  <string name="global_action_key_summary_quick_settings">Shtypja e këtij çelësi do të shfaqë \"Cilësimet e shpejta\" të pajisjes sate.</string>
+  <string name="global_action_power_options">Opsionet e energjisë</string>
+  <string name="global_menu_volume_heading">Volumi</string>
+  <string name="volume_menu_media">Volumi i medias</string>
+  <string name="volume_menu_call">Volumi i telefonatës</string>
+  <string name="volume_menu_ring">Volumi i ziles</string>
+  <string name="volume_menu_alarm">Volumi i alarmit</string>
+  <string name="volume_menu_accessibility">Volumi i qasshmërisë</string>
+  <string name="volume_menu_mute">Pa zë</string>
+  <string name="volume_menu_unmute">Me zë</string>
+  <string name="volume_menu_increase">Rrit</string>
+  <string name="volume_settings">Cilësimet e volumit</string>
+  <string name="volume_menu_decrease">Pakëso</string>
+  <string name="scrollable_forward">Lëviz përpara</string>
+  <string name="scrollable_backward">Lëviz prapa</string>
+  <string name="point_scan">Skanimi i pikës</string>
+  <string name="box_scan">Skanimi i pikës së daljes</string>
+  <string name="action_name_swipe_right">Rrëshqitja djathtas</string>
+  <string name="action_name_swipe_left">Rrëshqitja majtas</string>
+  <string name="action_name_swipe_up">Rrëshqitja lart</string>
+  <string name="action_name_swipe_down">Rrëshqitja poshtë</string>
+  <string name="action_name_swipe_custom">Rrëshqitja (e personalizuar)</string>
+  <string name="action_name_zoom_out">Zvogëlo</string>
+  <string name="action_name_zoom_in">Zmadho</string>
+  <string name="switch_access_preferences_title">Cilësimet e \"Qasjes me çelës\"</string>
+  <string name="key_combo_preference_instructions">Shtyp një kombinim çelësash për ta shtuar ose hequr nga lista</string>
+  <string name="key_combo_preference_reset_button">Pastro caktimin e çelësit</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Nuk janë caktuar çelësa</string>
+  <string name="more">Më shumë</string>
+  <string name="name_of_space_bar">Hapësirë</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">Skeda</string>
+  <string name="save">Ruaj</string>
+  <string name="title_pref_category_display_and_sound">Ekrani dhe tingulli</string>
+  <string name="title_pref_highlight_0">Stili i theksimit i skanimit</string>
+  <string name="title_pref_primary_scan_style">Stili parësor i skanimit</string>
+  <string name="title_pref_highlight_0_color">Ngjyra e theksimit</string>
+  <string name="title_pref_highlight_0_weight">Stili i theksimit i rreshtit</string>
+  <string name="title_pref_privacy_policy">Politika e privatësisë</string>
+  <string name="title_pref_auto_select">Zgjidh automatikisht</string>
+  <string name="summary_pref_auto_select">Zgjidh automatikisht artikullin e theksuar. Nëse artikulli nuk mund të zgjidhet ose nëse ky cilësim është joaktiv, do të shohësh një meny me veprimet që ofrohen.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Aktivizo zgjedhjen automatike</string>
+  <string name="switch_access_global_menu_disable_autoselect">Çaktivizo zgjedhjen automatike</string>
+  <string name="switch_access_move_next">Para ...</string>
+  <string name="switch_access_move_next_character">Karakteri tjetër</string>
+  <string name="switch_access_move_next_word">Fjala tjetër</string>
+  <string name="switch_access_move_next_line">Rreshti tjetër</string>
+  <string name="switch_access_move_next_paragraph">Paragrafi tjetër</string>
+  <string name="switch_access_move_next_page">Faqja tjetër</string>
+  <string name="switch_access_move_next_sentence">Fjalia tjetër</string>
+  <string name="switch_access_move_prev">Prapa ...</string>
+  <string name="switch_access_move_prev_character">Karakteri i mëparshëm</string>
+  <string name="switch_access_move_prev_word">Fjala e mëparshme</string>
+  <string name="switch_access_move_prev_line">Rreshti i mëparshëm</string>
+  <string name="switch_access_move_prev_paragraph">Paragrafi i mëparshëm</string>
+  <string name="switch_access_move_prev_page">Faqja e mëparshme</string>
+  <string name="switch_access_move_prev_sentence">Fjalia e mëparshme</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Fillo automatikisht skanimin</string>
+  <string name="switch_access_auto_start_scan_summary">Skanimi fillon pa e shtypur çelësin</string>
+  <string name="pref_begin_switchaccess_setup_title">Hap udhëzuesin e konfigurimit</string>
+  <string name="setup_wizard_heading">Udhëzuesi i konfigurimit të \"Qasjes me çelës\"</string>
+  <string name="one_switch">Një çelës</string>
+  <string name="two_switches">Dy çelësa</string>
+  <string name="finish">Përfundo</string>
+  <string name="exit">Dil</string>
+  <string name="intro_heading">Zgjidh çelësin</string>
+  <string name="usb_switch_option_text">Çelës me USB</string>
+  <string name="bluetooth_switch_option_text">Çelësi i Bluetooth-it</string>
+  <string name="usb_switch_description_text">Lidh fizikisht një çelës përmes USB-së</string>
+  <string name="bluetooth_switch_description_text">Çifto me valë një çelës përmes Bluetooth-it</string>
+  <string name="bluetooth_unsupported_description_text">Pajisja jote nuk e mbështet Bluetooth-in. Provo të përdorësh në vend të kësaj një çelës fizik.</string>
+  <string name="connected_usb_devices_header">Pajisjet e lidhura</string>
+  <string name="usb_no_devices_connected_message">Nuk u gjetën pajisje USB. Sigurohu që pajisja jote të jetë e lidhur në mënyrë të sigurt.</string>
+  <string name="connect_usb_heading">Lidh çelësin e USB-së</string>
+  <string name="pair_bluetooth_heading">Çifto çelësin me Bluetooth</string>
+  <string name="pair_bluetooth_subheading">Trokit çelësin e Bluetooth-it më poshtë</string>
+  <string name="bluetooth_not_enabled_message">Për të çiftuar një çelës me Bluetooth, aktivizo Bluetooth-in</string>
+  <string name="enable_bluetooth_button_title">Aktivizo Bluetooth-in</string>
+  <string name="bluetooth_no_devices_paired">Nuk është çiftuar asnjë pajisje me Bluetooth</string>
+  <string name="paired_devices_header">Pajisjet e çiftuara me Bluetooth</string>
+  <string name="available_devices_header">Pajisjet me Bluetooth që ofrohen</string>
+  <string name="bluetooth_computer_content_description">Kompjuter</string>
+  <string name="bluetooth_phone_content_description">Telefon</string>
+  <string name="bluetooth_imaging_content_description">Imazhe</string>
+  <string name="bluetooth_headphone_content_description">Kufje</string>
+  <string name="bluetooth_peripheral_content_description">Pajisje periferike</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Po lidhet...</string>
+  <string name="bluetooth_connected_description">Lidhur</string>
+  <string name="bluetooth_device_unavailable_description">Pajisja nuk ofrohet</string>
+  <string name="reconnecting_unsupported_title">Nuk mund të lidhej me pajisjen</string>
+  <string name="reconnecting_unsupported_message">\"Qasja me çelës\" nuk mund të lidhej me pajisjen e çiftuar më herët. Sigurohu që pajisja jote të jetë e ndezur dhe e lidhur.\n\nNëse pajisja jote ende nuk lidhet, shko te cilësimet e Bluetooth-t dhe provo të rilidhesh.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Shko te cilësimet e Bluetooth-it</string>
+  <string name="number_of_switches_heading">Zgjidh numrin e çelësave</string>
+  <string name="title_assign_scan_key">Cakto çelësin për %1$s</string>
+  <string name="one_switch_description_text">Shtyp çelësin për të filluar lëvizjen automatike mes artikujve. Shtype sërish për të zgjedhur artikullin e theksuar.</string>
+  <string name="two_switches_description_text">Shtyp njërin çelës për të lëvizur mes artikujve. Shtype çelësin tjetër për të theksuar artikullin.</string>
+  <string name="step_speed_heading">Zgjidh shpejtësinë e skanimit</string>
+  <string name="step_speed_subheading">Zgjidh për sa kohë duhet të qëndrojë theksimi në secilin artikull</string>
+  <string name="fast_radio_button_title">E shpejtë (vonesë %1$s sek.)</string>
+  <string name="medium_radio_button_title">Mesatare (vonesë %1$s sek.)</string>
+  <string name="slow_radio_button_title">E ngadaltë (vonesë %1$s sek.)</string>
+  <string name="custom_switch">E personalizuar</string>
+  <string name="custom_edit_text">vonesa (sekonda)</string>
+  <string name="setup_toast_msg_key_already_assigned">Çelësi \"%1$s\" është caktuar tashmë për një veprim tjetër</string>
+  <string name="row_column_scanning_title">Skanimi i rreshtit-kolonës</string>
+  <string name="option_scanning_title">Zgjedhja në grup (e përparuar)</string>
+  <string name="linear_scanning_title">Skanimi linear</string>
+  <string name="linear_scanning_except_keyboard_title">Skanim linear (përveç tastierës)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Ligjërimi, tingulli dhe dridhja</string>
+  <string name="title_pref_switch_access_spoken_feedback">Komentet me zë</string>
+  <string name="title_pref_scan_non_actionable_items">Shqipto tekstin përshkrues</string>
+  <string name="scan_non_actionable_items_summary">Dëgjo komentet me zë për artikujt me veprimet që ofrohen dhe tekstin përshkrues</string>
+  <string name="title_pref_switch_access_verbosity">Detajimi</string>
+  <string name="summary_verbosity">Zgjidh se sa informacion të thuhet</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Detajet e detajimit</string>
+  <string name="title_pref_switch_access_keyboard_echo">Jehona e tastierës</string>
+  <string name="keyboard_echo_summary_on">Shqipto tastet e shtypura për tastierën në ekran</string>
+  <string name="keyboard_echo_summary_off">Mos shqipto tastet e shtypura për tastierën në ekran</string>
+  <string name="title_pref_enable_hints">Shqipto këshillat e përdorimit</string>
+  <string name="enable_hints_summary_on">Këshillat për përdorimin shqiptohen gjatë navigimit, pas një vonese të shkurtër</string>
+  <string name="enable_hints_summary_off">Këshillat për përdorimin nuk shqiptohen kur zhvendoset fokusi i qasshmërisë</string>
+  <string name="title_pref_speak_container_element_position">Shqipto informacionin e listës dhe të rrjetës</string>
+  <string name="speak_container_element_position_summary_on">Informacionet e listës dhe të rrjetës shqiptohen</string>
+  <string name="speak_container_element_position_summary_off">Informacionet e listës dhe të rrjetës nuk shqiptohen</string>
+  <string name="title_pref_speak_element_type">Shqipto llojin e elementit</string>
+  <string name="speak_element_type_summary_on">Lloji i elementit shqiptohet për artikujt e fokusuar</string>
+  <string name="speak_element_type_summary_off">Lloji i elementit nuk shqiptohet për artikujt e fokusuar</string>
+  <string name="title_pref_pitch_change_for_ime">Përdor ndryshimet e tonit</string>
+  <string name="pitch_change_for_ime_summary_on">Shqiptoje reagimin e tastierës me një zë me ton më të ulët</string>
+  <string name="pitch_change_for_ime_summary_off">Mos e ndrysho reagimin me zë kur flet</string>
+  <string name="title_pref_speak_selected_item_or_group">Shqipto artikullin ose grupin e zgjedhur</string>
+  <string name="speak_selected_item_or_group_summary">Shqipto emrin e një artikulli ose grupi pasi të zgjidhet</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Koha maksimale e shqiptuar për artikull</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Cakto sasinë maksimale të kohës për përshkrimin me shqiptim të secilit artikull. Shqiptimi do të ndërpritet pas kohës së caktuar.\nShënim: Këshillat do të shqiptohen gjithmonë nëse janë të aktivizuara.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Të ndryshme</string>
+  <string name="title_pref_node_description_order">Rendi i përshkrimit të elementit</string>
+  <string name="title_pref_switch_access_speak_element_ids">Shqipto ID-të e elementeve</string>
+  <string name="speak_element_ids_summary_on">ID-të e elementeve shqiptohen për butonat pa etiketa</string>
+  <string name="speak_element_ids_summary_off">ID-të e elementeve nuk shqiptohen për butonat pa etiketa</string>
+  <string name="title_pref_switch_access_tts_settings">Cilësimet e \"Konvertimit të tekstit në të folur\"</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Kur artikuj të shumëfishtë janë theksuar</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Shqipto artikullin e parë dhe të fundit</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Thuaj me zë numrin e artikujve</string>
+  <string name="title_pref_switch_access_speak_all_items">Thuaji me zë të gjithë artikujt e theksuar</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Përfundo të folurën përpara se të lëvizësh</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Reagime të tjera</string>
+  <string name="title_pref_developer_settings">Cilësimet e zhvilluesit</string>
+  <string name="title_pref_spoken_feedback_overlay">Shfaq daljen e ligjërimit</string>
+  <string name="title_pref_switch_access_vibration_feedback">Reagimi me dridhje</string>
+  <string name="vibration_feedback_summary">Dridh për të treguar se diçka ndryshoi (p.sh. përmbajtja në ekran ndryshoi)</string>
+  <string name="title_pref_switch_access_sound_feedback">Reagimi me zë</string>
+  <string name="sound_feedback_summary">Luaj një tingull të shkurtër për të treguar se diçka ndryshoi (p.sh. përmbajtja në ekran ndryshoi)</string>
+  <string name="title_pref_switch_access_sound_volume">Volumi i zërit</string>
+  <string name="title_pref_switch_access_audio_ducking">Ulja e zhurmave në sfond</string>
+  <string name="audio_ducking_summary">Ule volumin e audiove të tjera kur flet</string>
+  <string name="switch_access_focus_cleared_no_selection">Ekrani ndryshoi</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Zgjidh çelësin për të zgjedhur rreshtin</string>
+  <string name="switch_access_spoken_feedback_group">grupi %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Shtyp çelësin e grupit %1$s për të zgjedhur grupin</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Shtyp çelësin e grupit %1$s për të zgjedhur artikullin</string>
+  <string name="switch_access_spoken_feedback_to">%1$s deri %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s artikuj</string>
+  <string name="switch_access_spoken_feedback_group_selected">u zgjodh grupi %1$s</string>
+  <string name="switch_access_spoken_feedback_row_selected">rreshti u zgjodh</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s u zgjodh</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">mund të lëvizet</string>
+  <string name="switch_access_spoken_feedback_scroll">zgjidh për të lëvizur</string>
+  <string name="switch_access_spoken_feedback_unknown">artikull i panjohur</string>
+  <string name="scanning_method_heading">Zgjidh si të skanohet</string>
+  <string name="row_column_scanning_description">Skano rreshtat një nga një. Pasi përzgjidhet një rresht, lëviz përmes artikujve në atë listë.</string>
+  <string name="linear_scanning_description">Lëviz mes artikujve një nga një</string>
+  <string name="linear_scanning_except_keyboard_description">Lëviz mes artikujve një nga një. Ki parasysh se tastierat do të skanojnë sipas rreshtave.</string>
+  <string name="option_scanning_description">Të gjithë artikujve do t\'u caktohet një ngjyrë. Shtyp çelësin që i korrespondon ngjyrës rreth artikullit që dëshiron. Ngushtoje madhësinë e grupit derisa të arrish te zgjedhja jote.</string>
+  <string name="setup_switch_assignment_heading">Çelësat e caktuar te %s</string>
+  <string name="setup_switch_assignment_empty">Asnjë</string>
+  <string name="clear_keys_dialog_title">Të pastrohen çelësat e caktuar?</string>
+  <string name="clear_keys_dialog_message">I ke caktuar tashmë çelësat.</string>
+  <string name="clear_keys_dialog_positive_button">Pastro çelësat</string>
+  <string name="clear_keys_dialog_negative_button">Mbaj çelësat</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Nuk janë caktuar çelësa</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Këtij veprimi nuk është i caktuar asnjë çelës. Je i sigurt se dëshiron të vazhdosh?</string>
+  <string name="option_scan_switch_title">Grupi %1$s</string>
+  <string name="option_scan_switch_subtitle">Shtyp një çelës për ta caktuar atë që të përzgjedhë grupin %1$s.</string>
+  <string name="assign_switch_subtitle">Shtyp një çelës për t\'ia caktuar atë veprimit \"%1$s\".</string>
+  <string name="auto_scan_action_description">Nis skanimin dhe përzgjidh</string>
+  <string name="switch_game_heading">Testo konfigurimin me Tic-Tac-Toe</string>
+  <string name="switch_game_one_switch_linear_subheading">Shtyp \"%1$s\" për të filluar skanimin. Shtype çelësin sërish për të zgjedhur artikullin e theksuar. Vazhdo ti i pari!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Shtyp \"%1$s\" për të filluar skanimin. Shtype çelësin sërish për të zgjedhur rreshtin e theksuar. Vazhdo ti i pari!</string>
+  <string name="switch_game_two_switch_linear_subheading">Shtyp \"%1$s\" për të lëvizur mes artikujve. Shtyp \"%2$s\" për të zgjedhur artikullin e theksuar. Vazhdo ti i pari!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Shtyp \"%1$s\" për të lëvizur mes rreshtave. Shtyp \"%2$s\" për të zgjedhur rreshtin e theksuar. Përsërite për të zgjedhur një artikull në atë rresht. Vazhdo ti i pari!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Shtyp \"%1$s\" për të zgjedhur artikujt e theksuar në %2$s ose shtyp \"%4$s\" për të zgjedhur artikujt e theksuar në %3$s. Përsërite për të arritur te artikulli yt. Vazhdo ti i pari!</string>
+  <string name="switch_game_incomplete_switches_subheading">Nuk ke ende çelësa të caktuar për të gjitha veprimet. Përdor butonin \"Prapa\" për t\'u kthyer pas dhe për të përfunduar caktimin e çelësave.</string>
+  <string name="game_square_content_description">%1$s në pozicionin %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">bosh</string>
+  <string name="game_reset_button_title">Rivendos lojën</string>
+  <string name="game_square_already_taken">Ky shesh është i zënë tashmë. Provo sërish!</string>
+  <string name="game_win_outcome_title">Ti fitove!</string>
+  <string name="game_loss_outcome_title">Më shumë fat herën tjetër</string>
+  <string name="game_tie_outcome_title">Barazim</string>
+  <string name="game_outcome_body_text">Mund të ruash konfigurimin aktual ose mund të fillosh nga e para.</string>
+  <string name="game_outcome_positive_response">Ruaj konfigurimin</string>
+  <string name="game_outcome_negative_response">Fillo nga e para</string>
+  <string name="setup_completion_heading">Konfigurimi përfundoi</string>
+  <string name="setup_completion_message">Je plotësisht gati.</string>
+  <string name="setup_completion_settings_reminder">Mund t\'i ndryshosh gjithnjë cilësimet shtesë ose mund ta hapësh sërish asistentin e konfigurimit nga cilësimet e \"Qasjes me çelës\".</string>
+  <string name="dialog_url_list">Zgjidh një lidhje</string>
+  <string name="dialog_do_not_disturb_permission_title">\"Qasja me çelës\" ka nevojë për leje për të rregulluar volumin</string>
+  <string name="dialog_do_not_disturb_permission_message">Për të rregulluar volumin nga menyja e \"Qasjes me çelës\", aktivizo qasjen e \"Mos shqetëso\" për \"Paketën e qasshmërisë së Android\"</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Hap cilësimet</string>
 </resources>

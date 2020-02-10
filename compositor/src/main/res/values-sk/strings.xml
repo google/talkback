@@ -1,161 +1,184 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"Aplikácia TalkBack je zapnutá"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"Aplikácia TalkBack bola pozastavená"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"Aplikácia TalkBack bola obnovená"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"Funkcia TalkBack je vypnutá"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"Hovorená spätná väzba je zapnutá"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"Hovorená spätná väzba je pozastavená"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"Hovorená spätná väzba bola obnovená"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"Hovorená spätná väzba je vypnutá"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Začiatok poľa"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Koniec poľa"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Režim výberu je zapnutý"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Režim výberu je vypnutý"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Výber bol vymazaný"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"Hovor"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"Správa"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"E-mail"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"Udalosť"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"Propagácia"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"Budík"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"Priebeh"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"Sociálne siete"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"Chyba"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"Ovládanie médií"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"Stav systému"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"Služba"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"Ponuka <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"Text <xliff:g id="NEW_TEXT">%1$s</xliff:g> bol nahradený textom <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"Text <xliff:g id="TEXT">%1$s</xliff:g> bol odstránený"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"vystrihnuté, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"prilepené, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, vybraté"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"Vybratý text: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, nevybraté"</string>
-    <string name="template_text_error" msgid="153775825635730287">"Neplatný vstup: <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"Niekoľko znakov (počet: <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g>) bolo nahradených inými znakmi (počet: <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g>)"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> pre <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> percent."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="few"><xliff:g id="TYPE_2">%1$s</xliff:g> zobrazuje <xliff:g id="COUNT_3">%2$d</xliff:g> položky.</item>
-      <item quantity="many"><xliff:g id="TYPE_2">%1$s</xliff:g> zobrazuje <xliff:g id="COUNT_3">%2$d</xliff:g> položky.</item>
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> zobrazuje <xliff:g id="COUNT_3">%2$d</xliff:g> položiek.</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> zobrazuje <xliff:g id="COUNT_1">%2$d</xliff:g> položku.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"Mriežka"</string>
-    <string name="value_listview" msgid="7625152822709234439">"Zoznam"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"Panel kariet"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"Rozbaľovací zoznam"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"Začiarkavacie políčko"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"Prepínač"</string>
-    <string name="value_button" msgid="2459787142940409576">"Tlačidlo"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"Posúvač"</string>
-    <string name="value_switch" msgid="6946709666466895221">"Prepínač"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"Pole úprav"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"Úpravy"</string>
-    <string name="value_image" msgid="5114229220871881124">"Obrázok"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"Neoznačené"</string>
-    <string name="value_pager" msgid="7708574424402835461">"Zobrazenie viacerých stránok"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"Stránka"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"Panel priebehu"</string>
-    <string name="value_webview" msgid="291321285400233958">"Webové zobrazenie"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"Znaky <xliff:g id="FROM_INDEX">%1$d</xliff:g> až <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"Znak <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"heslo"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Výsuvné okno otvorené"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"Možnosti"</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"Text bol vymazaný"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Bola dosiahnutá maximálna povolená dĺžka"</string>
-    <string name="value_selected" msgid="1307429702194660766">"vybraté"</string>
-    <string name="value_checked" msgid="3006751014125833966">"začiarknuté"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"nezačiarknuté"</string>
-    <string name="value_on" msgid="39454338086317219">"zapnuté"</string>
-    <string name="value_off" msgid="6700497510945744608">"vypnuté"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"deaktivované"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"rozbalené"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"zbalené"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"Dvakrát klepnite"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"Klepnite"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"Stlačte výber"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"Ak chcete aktivovať, <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> aktivujete."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"Dlhé stlačenie: <xliff:g id="ACTION">%1$s</xliff:g> a podržte"</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> vykonáte dlhé stlačenie."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"Ak chcete prepnúť, <xliff:g id="ACTION">%1$s</xliff:g>"</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> prepnete voľbu."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"Ak chcete zadať text, <xliff:g id="ACTION">%1$s</xliff:g>"</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> zadáte text."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"Akciou <xliff:g id="ACTION">%1$s</xliff:g> vykonáte zmenu"</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> vykonáte zmenu."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"Ak chcete prepnúť stránky, prejdite dvoma prstami."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"Žiadne ďalšie stránky."</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"Na úpravu použitie klávesy na ovládanie hlasitosti"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"Akciou <xliff:g id="ACTION">%1$s</xliff:g> vykonáte zmenu."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"Akcie:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> vykoná akciu <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Stlačením klávesov <xliff:g id="KEYCOMBO">%1$s</xliff:g> vykonáte akciu <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> a podržanie vykoná akciu <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Funkcia Caps Lock je zapnutá."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Funkcia Caps Lock je vypnutá."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Funkcia Num Lock je zapnutá."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Funkcia Num Lock je vypnutá."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Funkcia Scroll Lock je zapnutá."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Funkcia Scroll Lock je vypnutá."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"Na výšku"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"Na šírku"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"Odmietnuť"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"Rozbaliť"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"Zbaliť"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"Riadok <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"Stĺpec <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"Nadpis"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"Nadpis riadka"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"Nadpis stĺpca"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"<xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g>, obraz v obraze"</string>
-    <string name="in_list" msgid="444302621514168828">"V zozname <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"V zozname"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"Mimo zoznamu <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"Mimo zoznamu"</string>
-    <string name="in_grid" msgid="6705387966271590222">"V mriežke <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"V mriežke"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"Mimo mriežky <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"Mimo mriežky"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"<xliff:g id="LEVEL">%1$s</xliff:g>. úroveň"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="few"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> položky</item>
-      <item quantity="many"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> položky</item>
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> položiek</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> položka</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="few"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> riadky</item>
-      <item quantity="many"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> riadka</item>
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> riadkov</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> riadok</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="few"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> stĺpce</item>
-      <item quantity="many"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> stĺpca</item>
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> stĺpcov</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> stĺpec</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="few"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znaky</item>
-      <item quantity="many"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znaku</item>
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znakov</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> znak</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"Priblíženie <xliff:g id="SCALEINPERCENT">%1$d</xliff:g> %%"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"Priblíženie <xliff:g id="SCALEINPERCENT">%1$d</xliff:g> %%"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"Priblíženie je vypnuté"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"Rýchlosť reči <xliff:g id="SCALEINPERCENT">%1$d</xliff:g> %%"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"Stlmenie zvuku je zapnuté"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"Stlmenie zvuku je vypnuté"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"Rýchlosť reči"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"Mnohovravnosť"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"Navigácia"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"Stlmenie zvuku"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"Heslá sa vyslovujú iba cez slúchadlá"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">Aplikácia TalkBack je zapnutá</string>
+  <string name="talkback_suspended">Aplikácia TalkBack bola pozastavená</string>
+  <string name="talkback_resumed">Aplikácia TalkBack bola obnovená</string>
+  <string name="talkback_disabled">Funkcia TalkBack je vypnutá</string>
+  <string name="spokenfeedback_on">Hovorená spätná väzba je zapnutá</string>
+  <string name="spokenfeedback_suspended">Hovorená spätná väzba je pozastavená</string>
+  <string name="spokenfeedback_resumed">Hovorená spätná väzba bola obnovená</string>
+  <string name="spokenfeedback_disabled">Hovorená spätná väzba je vypnutá</string>
+  <string name="notification_type_beginning_of_field">Začiatok poľa</string>
+  <string name="notification_type_end_of_field">Koniec poľa</string>
+  <string name="notification_type_selection_mode_on">Režim výberu je zapnutý</string>
+  <string name="notification_type_selection_mode_off">Režim výberu je vypnutý</string>
+  <string name="notification_type_selection_cleared">Výber bol vymazaný</string>
+  <string name="notification_category_call">Hovor</string>
+  <string name="notification_category_msg">Správa</string>
+  <string name="notification_category_email">E-mail</string>
+  <string name="notification_category_event">Udalosť</string>
+  <string name="notification_category_promo">Propagácia</string>
+  <string name="notification_category_alarm">Budík</string>
+  <string name="notification_category_progress">Priebeh</string>
+  <string name="notification_category_social">Sociálne siete</string>
+  <string name="notification_category_err">Chyba</string>
+  <string name="notification_category_transport">Ovládanie médií</string>
+  <string name="notification_category_sys">Stav systému</string>
+  <string name="notification_category_service">Služba</string>
+  <string name="template_drawer_opened">Ponuka %1$s</string>
+  <string name="template_text_replaced">Text %1$s bol nahradený textom %2$s</string>
+  <string name="template_text_removed">Text %1$s bol odstránený</string>
+  <string name="template_text_cut">vystrihnuté, %1$s</string>
+  <string name="template_text_pasted">prilepené, %1$s</string>
+  <string name="template_text_selected">%1$s, vybraté</string>
+  <string name="template_announce_selected_text">Vybratý text: %1$s</string>
+  <string name="template_text_unselected">%1$s, nevybraté</string>
+  <string name="template_text_error">Neplatný vstup: %1$s</string>
+  <string name="template_replaced_characters">Niekoľko znakov (počet: %1$s) bolo nahradených inými znakmi (počet: %2$s)</string>
+  <string name="template_labeled_item">%1$s pre %2$s</string>
+  <string name="template_percent">%1$s percent.</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s zobrazuje %2$d položku.</item>
+    <item quantity="few">%1$s zobrazuje %2$d položky.</item>
+    <item quantity="many">%1$s zobrazuje %2$d položky.</item>
+    <item quantity="other">%1$s zobrazuje %2$d položiek.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">Mriežka</string>
+  <string name="value_listview">Zoznam</string>
+  <string name="value_tabwidget">Panel kariet</string>
+  <string name="value_spinner">Rozbaľovací zoznam</string>
+  <string name="value_checkbox">Začiarkavacie políčko</string>
+  <string name="value_radio_button">Prepínač</string>
+  <string name="value_button">Tlačidlo</string>
+  <string name="value_seek_bar">Posúvač</string>
+  <string name="value_switch">Prepínač</string>
+  <string name="value_edit_box">Pole úprav</string>
+  <string name="value_edit_box_editing">Úpravy</string>
+  <string name="value_image">Obrázok</string>
+  <string name="value_unlabelled">Neoznačené</string>
+  <string name="value_pager">Zobrazenie viacerých stránok</string>
+  <string name="value_pager_page">Stránka</string>
+  <string name="value_progress_bar">Panel priebehu</string>
+  <string name="value_webview">Webové zobrazenie</string>
+  <string name="value_toolbar">Panel s nástrojmi</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">Znaky %1$d až %2$d</string>
+  <string name="template_password_traversed">Znak %1$d</string>
+  <string name="value_password">heslo</string>
+  <string name="value_sliding_drawer_opened">Výsuvné okno otvorené</string>
+  <string name="value_options_menu_open">Možnosti</string>
+  <string name="value_text_cleared">Text bol vymazaný</string>
+  <string name="value_text_max_length">Bola dosiahnutá maximálna povolená dĺžka</string>
+  <string name="value_selected">vybraté</string>
+  <string name="value_checked">začiarknuté</string>
+  <string name="value_not_checked">nezačiarknuté</string>
+  <string name="value_on">zapnuté</string>
+  <string name="value_off">vypnuté</string>
+  <string name="value_disabled">deaktivované</string>
+  <string name="value_expanded">rozbalené</string>
+  <string name="value_collapsed">zbalené</string>
+  <string name="value_double_tap">Dvakrát klepnite</string>
+  <string name="value_single_tap">Klepnite</string>
+  <string name="value_switch_press">Stlačením prepínača výberu</string>
+  <string name="value_press_select">Stlačte výber</string>
+  <string name="template_hint_clickable">Ak chcete aktivovať, %1$s.</string>
+  <string name="template_hint_clickable_keyboard">Stlačením klávesov %1$s aktivujete.</string>
+  <string name="template_hint_long_clickable">Dlhé stlačenie: %1$s a podržte</string>
+  <string name="template_hint_long_clickable_keyboard">Stlačením klávesov %1$s vykonáte dlhé stlačenie.</string>
+  <string name="template_hint_checkable">Ak chcete prepnúť, %1$s</string>
+  <string name="template_hint_checkable_keyboard">Stlačením klávesov %1$s prepnete voľbu.</string>
+  <string name="template_hint_edit_text">%1$s a upravte text.</string>
+  <string name="template_hint_edit_text_keyboard">Stlačte %1$s a upravte text.</string>
+  <string name="template_hint_spinner">Akciou %1$s vykonáte zmenu</string>
+  <string name="template_hint_spinner_keyboard">Stlačením klávesov %1$s vykonáte zmenu.</string>
+  <string name="template_hint_pager">Ak chcete prepnúť stránky, prejdite dvoma prstami.</string>
+  <string name="template_hint_pager_single_page">Žiadne ďalšie stránky.</string>
+  <string name="template_hint_seek_control">Na úpravu použitie klávesy na ovládanie hlasitosti</string>
+  <string name="template_hint_seek_control_tv">Akciou %1$s vykonáte zmenu.</string>
+  <string name="template_hint_custom_actions">Akcie:</string>
+  <string name="template_custom_hint_for_actions">%1$s vykoná akciu %2$s.</string>
+  <string name="template_custom_hint_for_actions_keyboard">Stlačením klávesov %1$s vykonáte akciu %2$s.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s a podržanie vykoná akciu %2$s.</string>
+  <string name="template_sa_custom_hint_scrollable">%1$s posuňte zobrazenie.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">%1$s si sprístupníte dostupné akcie.</string>
+  <string name="template_sa_hint_seek_control">Upravte pomocou tlačidla Vybrať prepínač</string>
+  <string name="value_caps_lock_on">Funkcia Caps Lock je zapnutá.</string>
+  <string name="value_caps_lock_off">Funkcia Caps Lock je vypnutá.</string>
+  <string name="value_num_lock_on">Funkcia Num Lock je zapnutá.</string>
+  <string name="value_num_lock_off">Funkcia Num Lock je vypnutá.</string>
+  <string name="value_scroll_lock_on">Funkcia Scroll Lock je zapnutá.</string>
+  <string name="value_scroll_lock_off">Funkcia Scroll Lock je vypnutá.</string>
+  <string name="orientation_portrait">Na výšku</string>
+  <string name="orientation_landscape">Na šírku</string>
+  <string name="title_action_dismiss">Odmietnuť</string>
+  <string name="title_action_expand">Rozbaliť</string>
+  <string name="title_action_collapse">Zbaliť</string>
+  <string name="row_index_template">Riadok %1$d</string>
+  <string name="column_index_template">Stĺpec %1$d</string>
+  <string name="heading_template">Nadpis</string>
+  <string name="row_heading_template">Nadpis riadka</string>
+  <string name="column_heading_template">Nadpis stĺpca</string>
+  <string name="in_list">V zozname %1$s</string>
+  <string name="in_list_without_name">V zozname</string>
+  <string name="out_of_list">Mimo zoznamu %1$s</string>
+  <string name="out_of_list_without_name">Mimo zoznamu</string>
+  <string name="in_grid">V mriežke %1$s</string>
+  <string name="in_grid_without_name">V mriežke</string>
+  <string name="out_of_grid">Mimo mriežky %1$s</string>
+  <string name="out_of_grid_without_name">Mimo mriežky</string>
+  <string name="in_pager_with_name">V stránkovači %1$s</string>
+  <string name="in_pager">V stránkovači</string>
+  <string name="out_of_pager_with_name">Mimo stránkovača %1$s</string>
+  <string name="out_of_pager">Mimo stránkovača</string>
+  <string name="in_vertical_pager_with_name">Vo zvislom stránkovači %1$s</string>
+  <string name="in_vertical_pager">Vo zvislom stránkovači</string>
+  <string name="out_of_vertical_pager_with_name">Mimo zvislého stránkovača %1$s</string>
+  <string name="out_of_vertical_pager">Mimo zvislého stránkovača</string>
+  <string name="in_horizontal_pager_with_name">Vo vodorovnom stránkovači %1$s</string>
+  <string name="in_horizontal_pager">Vo vodorovnom stránkovači</string>
+  <string name="out_of_horizontal_pager_with_name">Mimo vodorovného stránkovača %1$s</string>
+  <string name="out_of_horizontal_pager">Mimo vodorovného stránkovača</string>
+  <string name="in_grid_pager_with_name">V mriežkovom stránkovači %1$s</string>
+  <string name="in_grid_pager">V mriežkovom stránkovači</string>
+  <string name="out_of_grid_pager_with_name">Mimo mriežkového stránkovača %1$s</string>
+  <string name="out_of_grid_pager">Mimo mriežkového stránkovača</string>
+  <string name="template_collection_level">%1$s. úroveň</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d položka</item>
+    <item quantity="few">%1$d položky</item>
+    <item quantity="many">%1$d položky</item>
+    <item quantity="other">%1$d položiek</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d riadok</item>
+    <item quantity="few">%1$d riadky</item>
+    <item quantity="many">%1$d riadka</item>
+    <item quantity="other">%1$d riadkov</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d stĺpec</item>
+    <item quantity="few">%1$d stĺpce</item>
+    <item quantity="many">%1$d stĺpca</item>
+    <item quantity="other">%1$d stĺpcov</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d znak</item>
+    <item quantity="few">%1$d znaky</item>
+    <item quantity="many">%1$d znaku</item>
+    <item quantity="other">%1$d znakov</item>
+  </plurals>
+  <string name="template_screen_magnification_on">Priblíženie %1$d %%</string>
+  <string name="template_screen_magnification_scale_changed">Priblíženie %1$d %%</string>
+  <string name="screen_magnification_off">Priblíženie je vypnuté</string>
+  <string name="template_speech_rate_change">Rýchlosť reči %1$d %%</string>
+  <string name="audio_focus_on">Stlmenie zvuku je zapnuté</string>
+  <string name="audio_focus_off">Stlmenie zvuku je vypnuté</string>
+  <string name="selector_speech_rate_output">Rýchlosť reči</string>
+  <string name="selector_verbosity_output">Podrobnosť</string>
+  <string name="selector_granularity_output">Navigácia</string>
+  <string name="selector_audio_focus_output">Stlmenie zvuku</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">Heslá sa vyslovujú iba cez slúchadlá</string>
+  <string name="template_hint_menu_type_high_verbosity">%1$s je k dispozícii, dá sa zobraziť pomocou gesta %2$s.</string>
+  <string name="template_hint_menu_type_low_verbosity">%1$s je k dispozícii.</string>
 </resources>

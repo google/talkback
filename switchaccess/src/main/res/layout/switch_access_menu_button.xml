@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_button_layout"
     android:layout_width="@dimen/switch_access_menu_button_width"
-    android:layout_height="@dimen/switch_access_menu_button_height"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/switch_access_menu_button_height"
     android:backgroundTint="@color/switch_access_menu_button_background"
     android:focusable="false" >
 
     <LinearLayout
+        android:id="@+id/button_linear_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="top|center"
         android:orientation="vertical"
+        android:paddingTop="@dimen/switch_access_menu_button_top_padding"
         android:focusable="false" >
 
         <ImageView
@@ -28,8 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
-            android:paddingRight="@dimen/switch_access_menu_text_padding"
-            android:paddingLeft="@dimen/switch_access_menu_text_padding"
+            android:paddingTop="@dimen/switch_access_menu_padding_between_icon_and_text"
             android:textSize="@dimen/switch_access_menu_text_size"
             android:textColor="@color/switch_access_menu_button_text"
             android:focusable="false" />

@@ -20,54 +20,54 @@ import com.google.android.accessibility.utils.Performance.EventId;
 
 public class MenuManagerWrapper implements MenuManager {
 
-  private MenuManager mMenuManager;
+  private MenuManager menuManager;
 
   public void setMenuManager(MenuManager menuManager) {
-    mMenuManager = menuManager;
+    this.menuManager = menuManager;
   }
 
   @Override
   public boolean showMenu(int menuId, EventId eventId) {
-    return mMenuManager != null && mMenuManager.showMenu(menuId, eventId);
+    return menuManager != null && menuManager.showMenu(menuId, eventId);
   }
 
   @Override
   public boolean isMenuShowing() {
-    return mMenuManager != null && mMenuManager.isMenuShowing();
+    return menuManager != null && menuManager.isMenuShowing();
   }
 
   @Override
   public void dismissAll() {
-    if (mMenuManager != null) {
-      mMenuManager.dismissAll();
+    if (menuManager != null) {
+      menuManager.dismissAll();
     }
   }
 
   @Override
   public void clearCache() {
-    if (mMenuManager != null) {
-      mMenuManager.clearCache();
+    if (menuManager != null) {
+      menuManager.clearCache();
     }
   }
 
   @Override
   public void onGesture(int gesture) {
-    if (mMenuManager != null) {
-      mMenuManager.onGesture(gesture);
+    if (menuManager != null) {
+      menuManager.onGesture(gesture);
     }
   }
 
   @Override
   public void setMenuTransformer(MenuTransformer transformer) {
-    if (mMenuManager != null) {
-      mMenuManager.setMenuTransformer(transformer);
+    if (menuManager != null) {
+      menuManager.setMenuTransformer(transformer);
     }
   }
 
   @Override
   public void setMenuActionInterceptor(MenuActionInterceptor actionInterceptor) {
-    if (mMenuManager != null) {
-      mMenuManager.setMenuActionInterceptor(actionInterceptor);
+    if (menuManager != null) {
+      menuManager.setMenuActionInterceptor(actionInterceptor);
     }
   }
 }

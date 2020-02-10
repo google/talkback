@@ -1,22 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string-array name="switch_access_color_entries">
-    <item msgid="7934595828699536711">"Grön"</item>
-    <item msgid="7616478199824616148">"Orange"</item>
-    <item msgid="528738291475141372">"Röd"</item>
-    <item msgid="3613307072137891343">"Blå"</item>
-    <item msgid="1719741716015833575">"Vit"</item>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="switch_access_color_entries" translatable="true">
+    <item>Grön</item>
+    <item>Orange</item>
+    <item>Röd</item>
+    <item>Blå</item>
+    <item>Vit</item>
   </string-array>
-  <string-array name="switch_access_weight_entries">
-    <item msgid="5215195704613305820">"Tunn heldragen linje"</item>
-    <item msgid="7698398358042168523">"Medeltjock heldragen linje"</item>
-    <item msgid="4047443674448719927">"Tjock heldragen linje"</item>
+  <string-array name="switch_access_weight_entries" translatable="true">
+    <item>Tunn heldragen linje</item>
+    <item>Medeltjock heldragen linje</item>
+    <item>Tjock heldragen linje</item>
   </string-array>
-  <string-array name="switch_access_scanning_methods_entries">
-    <item msgid="8644818950395737812">"Linjär genomsökning"</item>
-    <item msgid="6882375457227534722">"Rad–kolumn"</item>
-    <item msgid="2527470982516678330">"Val av grupp"</item>
-    <item msgid="7675777327828673805">"Nomon-klockor"</item>
+  <string-array name="switch_access_sound_volume_entries">
+    <item>Samma som medievolymen</item>
+    <item>75 % av medievolymen</item>
+    <item>50 % av medievolymen</item>
+    <item>25 % av medievolymen</item>
+  </string-array>
+  <string-array name="switch_access_sound_volume_values">
+    <item>100</item>
+    <item>75</item>
+    <item>50</item>
+    <item>25</item>
+  </string-array>
+  <string-array name="switch_access_node_description_order_entries">
+    <item>Status, namn, typ</item>
+    <item>Typ, namn, status</item>
+    <item>Namn, typ, status</item>
   </string-array>
 </resources>

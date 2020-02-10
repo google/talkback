@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Botó</item>
+    <item>Casella de selecció</item>
+    <item>Selector de color</item>
+    <item>Control de data i hora</item>
+    <item>Control de data i hora</item>
+    <item>Control de data</item>
+    <item>Text d\'edició de correu electrònic</item>
+    <item>Selecció de fitxer</item>
+    <item translatable="false"></item>
+    <item>Botó</item>
+    <item>Control mensual</item>
+    <item>Text d\'edició numèric</item>
+    <item>Text d\'edició de contrasenya</item>
+    <item>Botó d\'opció</item>
+    <item>Botó lliscant</item>
+    <item>Restableix</item>
+    <item>Text d\'edició de cerca</item>
+    <item>Botó</item>
+    <item>Text d\'edició del número de telèfon</item>
+    <item>Text d\'edició</item>
+    <item>Text d\'edició d\'URL</item>
+    <item>Control de la setmana de l\'any</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Alerta</item>
+    <item>Diàleg d\'alerta</item>
+    <item>Botó</item>
+    <item>Casella de selecció</item>
+    <item>Quadre combinat</item>
+    <item>Diàleg</item>
+    <item>Cel·la de graella</item>
+    <item>Enllaç</item>
+    <item>Registre</item>
+    <item>Franja lliscant</item>
+    <item>Element de menú</item>
+    <item>Casella de selecció d\'element de menú</item>
+    <item>Botó d\'opció d\'element de menú</item>
+    <item>Opció</item>
+    <item>Barra de progrés</item>
+    <item>Botó d\'opció</item>
+    <item>Grup de botons d\'opció</item>
+    <item>Barra de desplaçament</item>
+    <item>Botó lliscant</item>
+    <item>Botó de gir</item>
+    <item>Estat</item>
+    <item>Pestanya</item>
+    <item>Tauler de pestanya</item>
+    <item>Quadre de text</item>
+    <item>Temporitzador</item>
+    <item>Barra d\'eines</item>
+    <item>Descripció emergent</item>
+    <item>Element d\'arbre</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Enllaç</item>
+    <item>Encapçalament u</item>
+    <item>Encapçalament dos</item>
+    <item>Encapçalament tres</item>
+    <item>Encapçalament quatre</item>
+    <item>Encapçalament cinc</item>
+    <item>Encapçalament sis</item>
+    <item>Botó</item>
+    <item>Quadre combinat</item>
+    <item>Taula</item>
+    <item>Àrea de text</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

@@ -17,25 +17,17 @@
 package com.google.android.accessibility.utils;
 
 import android.os.Build;
-import android.support.v4.os.BuildCompat;
+import androidx.core.os.BuildCompat;
 
 /**
  * This file provides a wrapper for the Build versions. Everytime an android version number gets
- * fixed, this file should be updated.
+ * fixed, this file should be updated. Generally, BuildCompat.isAtLeast*() works before android
+ * release is finalized, Build.VERSION_CODES.* works after.
  */
 public class BuildVersionUtils {
 
-  public static boolean isAtLeastL() {
-    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
-  }
-
-  public static boolean isAtLeastLMR1() {
-    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1;
-  }
-
-  public static boolean isAtLeastM() {
-    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
-  }
+  // TODO: Use Build.VERSION_CODES.R when available.
+  public static final int API_R = 30;
 
   public static boolean isM() {
     return Build.VERSION.SDK_INT == Build.VERSION_CODES.M;
@@ -54,10 +46,19 @@ public class BuildVersionUtils {
   }
 
   public static boolean isAtLeastOMR1() {
-    return BuildCompat.isAtLeastOMR1();
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1;
   }
 
   public static boolean isAtLeastP() {
-    return BuildCompat.isAtLeastP();
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.P;
+  }
+
+  public static boolean isAtLeastQ() {
+    return BuildCompat.isAtLeastQ() || Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q;
+  }
+
+  // TODO Add BuildCompat.isAtLeastR() when available
+  public static boolean isAtLeastR() {
+    return Build.VERSION.SDK_INT >= API_R;
   }
 }

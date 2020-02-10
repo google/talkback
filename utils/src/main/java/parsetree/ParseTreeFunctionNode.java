@@ -16,13 +16,16 @@
 
 package com.google.android.accessibility.utils.parsetree;
 
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+/** ParseTreeFunctionNode */
 class ParseTreeFunctionNode extends ParseTreeNode {
+
+  private static final String TAG = "ParseTreeFunctionNode";
+
   private final @ParseTree.VariableType int mType;
   private final Object mDelegate;
   private final Method mFunction;
@@ -81,13 +84,17 @@ class ParseTreeFunctionNode extends ParseTreeNode {
   @Override
   public boolean resolveToBoolean(ParseTree.VariableDelegate delegate, String logIndent) {
     if (mType != ParseTree.VARIABLE_BOOL) {
-      LogUtils.log(this, Log.ERROR, "Cannot coerce to Boolean");
+      LogUtils.e(TAG, "Cannot coerce to Boolean");
       return false;
     }
     try {
-      return (Boolean) mFunction.invoke(mDelegate, getParams(delegate, logIndent));
+      Boolean result = (Boolean) mFunction.invoke(mDelegate, getParams(delegate, logIndent));
+      if (result == null) {
+        return false;
+      }
+      return result;
     } catch (Exception e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return false;
     }
   }
@@ -95,13 +102,17 @@ class ParseTreeFunctionNode extends ParseTreeNode {
   @Override
   public int resolveToInteger(ParseTree.VariableDelegate delegate, String logIndent) {
     if (mType != ParseTree.VARIABLE_INTEGER) {
-      LogUtils.log(this, Log.ERROR, "Cannot coerce to Integer");
+      LogUtils.e(TAG, "Cannot coerce to Integer");
       return 0;
     }
     try {
-      return (Integer) mFunction.invoke(mDelegate, getParams(delegate, logIndent));
+      Integer result = (Integer) mFunction.invoke(mDelegate, getParams(delegate, logIndent));
+      if (result == null) {
+        return 0;
+      }
+      return result;
     } catch (Exception e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return 0;
     }
   }
@@ -111,8 +122,11 @@ class ParseTreeFunctionNode extends ParseTreeNode {
     Object result;
     try {
       result = mFunction.invoke(mDelegate, getParams(delegate, logIndent));
+      if (result == null) {
+        return 0;
+      }
     } catch (Exception e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return 0;
     }
     if (mType == ParseTree.VARIABLE_INTEGER) {
@@ -120,7 +134,7 @@ class ParseTreeFunctionNode extends ParseTreeNode {
     } else if (mType == ParseTree.VARIABLE_NUMBER) {
       return (Double) result;
     } else {
-      LogUtils.log(this, Log.ERROR, "Cannot coerce to a Number");
+      LogUtils.e(TAG, "Cannot coerce to a Number");
       return 0;
     }
   }
@@ -130,8 +144,11 @@ class ParseTreeFunctionNode extends ParseTreeNode {
     Object result;
     try {
       result = mFunction.invoke(mDelegate, getParams(delegate, logIndent));
+      if (result == null) {
+        return "";
+      }
     } catch (Exception e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return "";
     }
     if (mType == ParseTree.VARIABLE_STRING) {
@@ -146,12 +163,16 @@ class ParseTreeFunctionNode extends ParseTreeNode {
   public List<CharSequence> resolveToArray(ParseTree.VariableDelegate delegate, String logIndent) {
     if (mType == ParseTree.VARIABLE_ARRAY) {
       try {
-        return (List<CharSequence>) mFunction.invoke(mDelegate, getParams(delegate, logIndent));
+        List<CharSequence> result =
+            (List<CharSequence>) mFunction.invoke(mDelegate, getParams(delegate, logIndent));
+        if (result != null) {
+          return result;
+        }
       } catch (Exception e) {
-        LogUtils.log(this, Log.ERROR, e.toString());
+        LogUtils.e(TAG, e.toString());
       }
     } else {
-      LogUtils.log(this, Log.ERROR, "Cannot coerce to an Array");
+      LogUtils.e(TAG, "Cannot coerce to an Array");
     }
     return new ArrayList<>();
   }
@@ -179,14 +200,15 @@ class ParseTreeFunctionNode extends ParseTreeNode {
         case ParseTree.VARIABLE_CHILD_ARRAY:
         default:
           // This should never happen.
-          LogUtils.log(this, Log.ERROR, "Cannot resolve param " + i);
+          LogUtils.e(TAG, "Cannot resolve param " + i);
           break;
       }
     }
     return result;
   }
 
-  private static @ParseTree.VariableType int getVariableType(Class clazz) {
+  @ParseTree.VariableType
+  private static int getVariableType(Class<?> clazz) {
     if (clazz == boolean.class) {
       return ParseTree.VARIABLE_BOOL;
     } else if (clazz == int.class) {

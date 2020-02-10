@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Class to gather data from the accelerometer and gyroscope and detect tapping on the side of the
@@ -112,13 +113,13 @@ public class IntegratedTapDetector
   private final SensorManager mSensorManager;
 
   /* Queues to store taps from accelerometer. */
-  private final Queue<Tap> mAccelTapEventQueue = new LinkedList<>();
+  private final Queue<Tap> accelTapEventQueue = new LinkedList<>();
 
   /* Queues to store taps from gyroscope. */
-  private final Queue<Tap> mGyroTapEventQueue = new LinkedList<>();
+  private final Queue<Tap> gyroTapEventQueue = new LinkedList<>();
 
   /* Queues to store taps detected by integrating the lower-level detectors. */
-  private final Queue<Tap> mIntegratedTapEventQueue = new LinkedList<>();
+  private final Queue<Tap> integratedTapEventQueue = new LinkedList<>();
 
   /* The accelerometer-based tap detector being integrated */
   private final ThreeDSensorTapDetector mAccelTapDetector;
@@ -164,8 +165,8 @@ public class IntegratedTapDetector
   // Visible for testing
   public IntegratedTapDetector(
       SensorManager sensorManager,
-      ThreeDSensorTapDetector accelTapDetector,
-      ThreeDSensorTapDetector gyroTapDetector) {
+      @Nullable ThreeDSensorTapDetector accelTapDetector,
+      @Nullable ThreeDSensorTapDetector gyroTapDetector) {
     mSensorManager = sensorManager;
     // TODO: Determine the correct priority of this thread
     HandlerThread thread = new HandlerThread("AccelGyroAudioTapDetector", -20);
@@ -344,11 +345,11 @@ public class IntegratedTapDetector
   public void threeDSensorTapDetected(
       ThreeDSensorTapDetector threeDSensorTapDetector, long timestamp, double tapConfidence) {
     if (threeDSensorTapDetector == mAccelTapDetector) {
-      mAccelTapEventQueue.add(new Tap(tapConfidence, timestamp));
+      accelTapEventQueue.add(new Tap(tapConfidence, timestamp));
     }
 
     if (threeDSensorTapDetector == mGyroTapDetector) {
-      mGyroTapEventQueue.add(new Tap(tapConfidence, timestamp));
+      gyroTapEventQueue.add(new Tap(tapConfidence, timestamp));
     }
 
     emitTapsFromQueues(timestamp);
@@ -438,8 +439,8 @@ public class IntegratedTapDetector
   }
 
   /*
-   * Combine taps from mAccelTapEventQueue and mGyroTapEventQueue into a single
-   * mIntegratedTapEventQueue.
+   * Combine taps from accelTapEventQueue and gyroTapEventQueue into a single
+   * integratedTapEventQueue.
    *
    * @param timestamp is the current timestamp.
    */
@@ -448,16 +449,17 @@ public class IntegratedTapDetector
      * When neither queue is empty, we have all of the information needed to process the most
      * recent tap.
      */
-    while ((mGyroTapEventQueue.size() > 0) && (mAccelTapEventQueue.size() > 0)) {
-      if (mGyroTapEventQueue.peek().nanos
-          > mAccelTapEventQueue.peek().nanos + MAX_OFFSET_BETWEEN_TAP_DETECTORS) {
-        mIntegratedTapEventQueue.add(mAccelTapEventQueue.remove());
+    Tap gyroTap;
+    Tap accelTap;
+    while (((gyroTap = gyroTapEventQueue.peek()) != null)
+        && ((accelTap = accelTapEventQueue.peek()) != null)) {
+      if (gyroTap.nanos > accelTap.nanos + MAX_OFFSET_BETWEEN_TAP_DETECTORS) {
+        integratedTapEventQueue.add(accelTapEventQueue.remove());
         continue;
       }
 
-      if (mAccelTapEventQueue.peek().nanos
-          > mGyroTapEventQueue.peek().nanos + MAX_OFFSET_BETWEEN_TAP_DETECTORS) {
-        mIntegratedTapEventQueue.add(mGyroTapEventQueue.remove());
+      if (accelTap.nanos > gyroTap.nanos + MAX_OFFSET_BETWEEN_TAP_DETECTORS) {
+        integratedTapEventQueue.add(gyroTapEventQueue.remove());
         continue;
       }
 
@@ -465,11 +467,11 @@ public class IntegratedTapDetector
        *  The two times are close enough that we can combine these taps.  We set the quality
        *  of this tap equal to the sum of that from the two detectors.
        */
-      Tap accelTap = mAccelTapEventQueue.remove();
-      Tap gyroTap = mGyroTapEventQueue.remove();
+      accelTapEventQueue.remove();
+      gyroTapEventQueue.remove();
       Tap integratedTap =
           new Tap(accelTap.quality + gyroTap.quality, Math.min(accelTap.nanos, gyroTap.nanos));
-      mIntegratedTapEventQueue.add(integratedTap);
+      integratedTapEventQueue.add(integratedTap);
     }
 
     /*
@@ -477,11 +479,12 @@ public class IntegratedTapDetector
      * while() loop never executes.
      */
     Queue<Tap> nonEmptyTapQueue =
-        (mGyroTapEventQueue.size() > 0) ? mGyroTapEventQueue : mAccelTapEventQueue;
-    while (nonEmptyTapQueue.size() > 0) {
+        gyroTapEventQueue.isEmpty() ? accelTapEventQueue : gyroTapEventQueue;
+    Tap tap;
+    while ((tap = nonEmptyTapQueue.peek()) != null) {
       long latestTimeThatCantBeADoubleTap =
           timestamp - MAX_OFFSET_BETWEEN_TAP_DETECTORS - MAX_TAP_DETECTOR_LATENCY;
-      if (nonEmptyTapQueue.peek().nanos > latestTimeThatCantBeADoubleTap) {
+      if (tap.nanos > latestTimeThatCantBeADoubleTap) {
         break;
       }
 
@@ -490,10 +493,10 @@ public class IntegratedTapDetector
             "Picidae",
             String.format(
                 "Adding tap at time %d from nonempty to integrated queue at time %d",
-                nonEmptyTapQueue.peek().nanos, timestamp));
+                tap.nanos, timestamp));
       }
 
-      mIntegratedTapEventQueue.add(nonEmptyTapQueue.remove());
+      integratedTapEventQueue.add(nonEmptyTapQueue.remove());
     }
   }
 
@@ -503,8 +506,8 @@ public class IntegratedTapDetector
    * tap.
    */
   private void processIntegratedQueueAsSingleAndDoubleTaps(long timestamp) {
-    while (mIntegratedTapEventQueue.size() >= 2) {
-      Tap olderTap = mIntegratedTapEventQueue.remove();
+    while (integratedTapEventQueue.size() >= 2) {
+      Tap olderTap = integratedTapEventQueue.remove();
       if (!tapAllowedAt(olderTap.nanos)) {
         if (DEBUG) {
           Log.v(
@@ -515,8 +518,9 @@ public class IntegratedTapDetector
         continue;
       }
 
-      Tap newerTap = mIntegratedTapEventQueue.peek();
-      if (newerTap.nanos < olderTap.nanos + mMaxDoubleTapSpacingNanos) {
+      Tap newerTap;
+      if (((newerTap = integratedTapEventQueue.peek()) != null)
+          && (newerTap.nanos < olderTap.nanos + mMaxDoubleTapSpacingNanos)) {
         /*
          * Taps are close enough together. Must have one tap above min single-tap quality,
          * and the other above min double-tap quality
@@ -527,7 +531,7 @@ public class IntegratedTapDetector
             (newerTap.quality >= mMinDoubleTapQuality) && (olderTap.quality >= mMinTapQuality);
         if (qualityGoodEnough1 || qualityGoodEnough2) {
           sendDoubleTapToListeners(olderTap.nanos);
-          mIntegratedTapEventQueue.remove();
+          integratedTapEventQueue.remove();
           continue;
         }
       }
@@ -543,7 +547,7 @@ public class IntegratedTapDetector
       }
     }
 
-    if (mIntegratedTapEventQueue.size() == 0) {
+    if (integratedTapEventQueue.isEmpty()) {
       return;
     }
 
@@ -552,9 +556,10 @@ public class IntegratedTapDetector
         (mMaxDoubleTapSpacingNanos > 0)
             ? MAX_OFFSET_BETWEEN_TAP_DETECTORS + MAX_TAP_DETECTOR_LATENCY
             : 0;
-    if (mIntegratedTapEventQueue.peek().nanos
-        <= timestamp - mMaxDoubleTapSpacingNanos - maxOffsetToConsider) {
-      Tap tap = mIntegratedTapEventQueue.remove();
+    Tap tap;
+    if (((tap = integratedTapEventQueue.peek()) != null)
+        && (tap.nanos <= timestamp - mMaxDoubleTapSpacingNanos - maxOffsetToConsider)) {
+      integratedTapEventQueue.remove();
       if ((tap.quality >= mMinTapQuality) && tapAllowedAt(tap.nanos)) {
         sendSingleTapToListeners(tap.nanos);
       } else if (DEBUG) {

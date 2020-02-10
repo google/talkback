@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>دکمه</item>
+    <item>کادر تأیید</item>
+    <item>انتخاب‌گر رنگ</item>
+    <item>کنترل تاریخ و زمان</item>
+    <item>کنترل تاریخ و زمان</item>
+    <item>کنترل تاریخ</item>
+    <item>ویرایش نوشتار برای ایمیل</item>
+    <item>انتخاب فایل</item>
+    <item translatable="false"></item>
+    <item>دکمه</item>
+    <item>کنترل ماه</item>
+    <item>فقط ویرایش عددی نوشتار</item>
+    <item>نوشتار ویرایش گذرواژه</item>
+    <item>دکمه رادیویی</item>
+    <item>اسلایدر</item>
+    <item>بازنشانی</item>
+    <item>ویرایش نوشتار برای جستجو</item>
+    <item>دکمه</item>
+    <item>ویرایش نوشتار برای شماره تلفن</item>
+    <item>ویرایش نوشتار</item>
+    <item>ویرایش نوشتار برای نشانی وب</item>
+    <item>کنترل هفته سال</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>هشدار</item>
+    <item>پیام هشدار</item>
+    <item>دکمه</item>
+    <item>کادر تأیید</item>
+    <item>کادر ترکیبی</item>
+    <item>گفتگو</item>
+    <item>سلول جدول</item>
+    <item>پیوند</item>
+    <item>گزارش</item>
+    <item>نوشتار متحرک روی صفحه</item>
+    <item>مورد منو</item>
+    <item>کادر تأیید مورد منو</item>
+    <item>دکمه رادیویی مورد منو</item>
+    <item>گزینه</item>
+    <item>نوار پیشرفت</item>
+    <item>دکمه رادیویی</item>
+    <item>گروه دکمه‌ رادیویی</item>
+    <item>نوار پیمایش</item>
+    <item>اسلایدر</item>
+    <item>دکمه چرخان</item>
+    <item>وضعیت</item>
+    <item>برگه</item>
+    <item>پانل برگه</item>
+    <item>کادر نوشتار</item>
+    <item>تایمر</item>
+    <item>نوارابزار</item>
+    <item>نکته ابزار</item>
+    <item>مورد درختی</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>پیوند</item>
+    <item>سطح اول عنوان</item>
+    <item>سطح دوم عنوان</item>
+    <item>سطح سوم عنوان</item>
+    <item>سطح چهارم عنوان</item>
+    <item>سطح پنجم عنوان</item>
+    <item>سطح ششم عنوان</item>
+    <item>دکمه</item>
+    <item>کادر ترکیبی</item>
+    <item>جدول</item>
+    <item>ناحیه نوشتار</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

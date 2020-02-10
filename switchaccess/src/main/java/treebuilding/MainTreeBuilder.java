@@ -16,22 +16,17 @@
 
 package com.google.android.accessibility.switchaccess.treebuilding;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.Point;
+import android.accessibilityservice.AccessibilityService;
 import android.graphics.Rect;
-import android.support.annotation.VisibleForTesting;
-import android.text.TextUtils;
+import androidx.annotation.VisibleForTesting;
 import android.view.accessibility.AccessibilityWindowInfo;
-import com.google.android.accessibility.switchaccess.ClearFocusNode;
-import com.google.android.accessibility.switchaccess.R;
 import com.google.android.accessibility.switchaccess.SwitchAccessNodeCompat;
-import com.google.android.accessibility.switchaccess.SwitchAccessPreferenceActivity;
+import com.google.android.accessibility.switchaccess.SwitchAccessPreferenceUtils;
 import com.google.android.accessibility.switchaccess.SwitchAccessWindowInfo;
-import com.google.android.accessibility.switchaccess.TreeScanNode;
-import com.google.android.accessibility.switchaccess.TreeScanSelectionNode;
-import com.google.android.accessibility.switchaccess.utils.ScreenUtils;
-import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.switchaccess.treenodes.ClearFocusNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanSelectionNode;
+import com.google.android.accessibility.utils.DisplayUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -39,38 +34,30 @@ import java.util.Iterator;
 import java.util.List;
 
 /** Builder that constructs a hierarchy to scan from a list of windows */
-public class MainTreeBuilder extends TreeBuilder
-    implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class MainTreeBuilder extends TreeBuilder {
 
-  private final RowColumnTreeBuilder mRowColumnTreeBuilder;
-  private final LinearScanTreeBuilder mLinearScanTreeBuilder;
-  private final TalkBackOrderNDegreeTreeBuilder mOrderNTreeBuilder;
-  private TreeBuilder mBuilderForViews;
-  private boolean mOptionScanningEnabled;
-  private boolean mNomonScanningEnabled;
-  private boolean mScanNonActionableItemsEnabled;
+  private final RowColumnTreeBuilder rowColumnTreeBuilder;
+  private final LinearScanTreeBuilder linearScanTreeBuilder;
+  private final TalkBackOrderNDegreeTreeBuilder orderNTreeBuilder;
 
-  /** @param context A valid context for interacting with the framework */
-  public MainTreeBuilder(Context context) {
-    super(context);
-    mLinearScanTreeBuilder = new LinearScanTreeBuilder(context);
-    mRowColumnTreeBuilder = new RowColumnTreeBuilder(context);
-    mOrderNTreeBuilder = new TalkBackOrderNDegreeTreeBuilder(context);
-    updatePrefs(SharedPreferencesUtils.getSharedPreferences(mContext));
-    SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(mContext);
-    prefs.registerOnSharedPreferenceChangeListener(this);
+  /** @param service A valid {@link AccessibilityService} for interacting with the framework */
+  public MainTreeBuilder(AccessibilityService service) {
+    super(service);
+    linearScanTreeBuilder = new LinearScanTreeBuilder(service);
+    rowColumnTreeBuilder = new RowColumnTreeBuilder(service);
+    orderNTreeBuilder = new TalkBackOrderNDegreeTreeBuilder(service);
   }
 
   @VisibleForTesting
   public MainTreeBuilder(
-      Context context,
+      AccessibilityService service,
       LinearScanTreeBuilder linearScanTreeBuilder,
       RowColumnTreeBuilder rowColumnTreeBuilder,
       TalkBackOrderNDegreeTreeBuilder talkBackOrderNDegreeTreeBuilder) {
-    super(context);
-    mLinearScanTreeBuilder = linearScanTreeBuilder;
-    mRowColumnTreeBuilder = rowColumnTreeBuilder;
-    mOrderNTreeBuilder = talkBackOrderNDegreeTreeBuilder;
+    super(service);
+    this.linearScanTreeBuilder = linearScanTreeBuilder;
+    this.rowColumnTreeBuilder = rowColumnTreeBuilder;
+    orderNTreeBuilder = talkBackOrderNDegreeTreeBuilder;
   }
 
   /**
@@ -89,10 +76,12 @@ public class MainTreeBuilder extends TreeBuilder
     if (windowList != null) {
       List<SwitchAccessWindowInfo> wList = new ArrayList<>(windowList);
       sortWindowListForTraversalOrder(wList);
-      removeExtraButtonsWindowFromWindowList(wList);
-      if (mOptionScanningEnabled || mNomonScanningEnabled) {
-        return mOrderNTreeBuilder.addWindowListToTree(
-            wList, treeToBuildOn, shouldPlaceTreeFirst, mScanNonActionableItemsEnabled);
+      removeStatusBarButtonsFromWindowList(wList);
+      if (SwitchAccessPreferenceUtils.isGroupSelectionEnabled(service)) {
+        return orderNTreeBuilder.addWindowListToTree(
+            wList,
+            treeToBuildOn,
+            SwitchAccessPreferenceUtils.shouldScanNonActionableItems(service));
       }
       // Make sure that if the user doesn't perform an explicit selection, focus is cleared.
       TreeScanNode newTree = new ClearFocusNode();
@@ -106,12 +95,19 @@ public class MainTreeBuilder extends TreeBuilder
       for (SwitchAccessWindowInfo window : wList) {
         SwitchAccessNodeCompat windowRoot = window.getRoot();
         if (windowRoot != null) {
-          if (window.getType() == AccessibilityWindowInfo.TYPE_INPUT_METHOD) {
+          if (!SwitchAccessPreferenceUtils.isLinearScanningEnabled(service)
+              && window.getType() == AccessibilityWindowInfo.TYPE_INPUT_METHOD) {
             newTree =
-                mRowColumnTreeBuilder.addViewHierarchyToTree(
-                    windowRoot, newTree, mScanNonActionableItemsEnabled);
+                rowColumnTreeBuilder.addViewHierarchyToTree(
+                    windowRoot,
+                    newTree,
+                    SwitchAccessPreferenceUtils.shouldScanNonActionableItems(service));
           } else {
-            newTree = addViewHierarchyToTree(windowRoot, newTree, mScanNonActionableItemsEnabled);
+            newTree =
+                addViewHierarchyToTree(
+                    windowRoot,
+                    newTree,
+                    SwitchAccessPreferenceUtils.shouldScanNonActionableItems(service));
           }
           windowRoot.recycle();
         }
@@ -129,18 +125,8 @@ public class MainTreeBuilder extends TreeBuilder
       SwitchAccessNodeCompat root,
       TreeScanNode treeToBuildOn,
       boolean shouldScanNonActionableItems) {
-    return mBuilderForViews.addViewHierarchyToTree(
-        root, treeToBuildOn, shouldScanNonActionableItems);
-  }
-
-  @Override
-  public TreeScanNode addWindowListToTree(
-      List<SwitchAccessWindowInfo> windowList,
-      TreeScanNode treeToBuildOn,
-      boolean shouldPlaceTreeFirst,
-      boolean includeNonActionableItems) {
-    /* Not currently needed */
-    return null;
+    return getBuilderForViews()
+        .addViewHierarchyToTree(root, treeToBuildOn, shouldScanNonActionableItems);
   }
 
   /**
@@ -192,16 +178,10 @@ public class MainTreeBuilder extends TreeBuilder
   }
 
   /*
-   * Removes the window with navigation bar buttons (BACK, HOME, RECENTS) as well as items on the
-   * status bar from the window list. We remove navigation bar buttons because on some (but not
-   * all - see) devices, the highlight rectangles don't show up on around the navigation
-   * bar buttons. Also, some devices don't have soft navigation bar buttons, therefore, we can't
-   * scan them.
+   * Removes items on the status bar from the window list.
    */
-  private void removeExtraButtonsWindowFromWindowList(List<SwitchAccessWindowInfo> windowList) {
-    Point screenSize = new Point();
-    ScreenUtils.getScreenSize(mContext, screenSize);
-    int statusBarHeight = ScreenUtils.getStatusBarHeight(mContext);
+  private void removeStatusBarButtonsFromWindowList(List<SwitchAccessWindowInfo> windowList) {
+    int statusBarHeight = DisplayUtils.getStatusBarHeightInPixel(service);
 
     final Iterator<SwitchAccessWindowInfo> windowIterator = windowList.iterator();
     while (windowIterator.hasNext()) {
@@ -217,61 +197,14 @@ public class MainTreeBuilder extends TreeBuilder
       /* Filter out items in the status bar */
       if ((windowBounds.bottom <= statusBarHeight)) {
         windowIterator.remove();
-        continue;
       }
-
-      /* Keep system dialogs (app has crashed), which don't border any edge */
-      if ((windowBounds.top > 0)
-          && (windowBounds.bottom < screenSize.y)
-          && (windowBounds.left > 0)
-          && (windowBounds.right < screenSize.x)) {
-        continue;
-      }
-
-      /* Keep notifications, which start at the top and cover more than half the width */
-      if ((windowBounds.top <= 0) && (windowBounds.width() > screenSize.x / 2)) {
-        continue;
-      }
-
-      /* Keep large system overlays like the context menu */
-      final int windowArea = windowBounds.width() * windowBounds.height();
-      final int screenArea = screenSize.x * screenSize.y;
-      if (windowArea > (screenArea / 2)) {
-        continue;
-      }
-
-      windowIterator.remove();
     }
   }
 
-  @Override
-  public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-    updatePrefs(prefs);
-    mOrderNTreeBuilder.updatePrefs(prefs);
-  }
-
-  private void updatePrefs(SharedPreferences prefs) {
-    String viewLinearImeRowColKey = mContext.getString(R.string.views_linear_ime_row_col_key);
-    String optionScanKey = mContext.getString(R.string.option_scanning_key);
-    String nomonScanKey = mContext.getString(R.string.nomon_clocks_key);
-    String scanPref =
-        prefs.getString(
-            mContext.getString(R.string.pref_scanning_methods_key),
-            mContext.getString(R.string.pref_scanning_methods_default));
-
-    mOptionScanningEnabled = TextUtils.equals(scanPref, optionScanKey);
-    mNomonScanningEnabled = TextUtils.equals(scanPref, nomonScanKey);
-    mScanNonActionableItemsEnabled =
-        SwitchAccessPreferenceActivity.shouldScanNonActionableItems(mContext);
-
-    mBuilderForViews =
-        (TextUtils.equals(scanPref, viewLinearImeRowColKey))
-            ? mLinearScanTreeBuilder
-            : mRowColumnTreeBuilder;
-  }
-
-  public void shutdown() {
-    SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(mContext);
-    prefs.unregisterOnSharedPreferenceChangeListener(this);
+  private TreeBuilder getBuilderForViews() {
+    return (SwitchAccessPreferenceUtils.isLinearScanningWithoutKeyboardEnabled(service)
+            || SwitchAccessPreferenceUtils.isLinearScanningEnabled(service))
+        ? linearScanTreeBuilder
+        : rowColumnTreeBuilder;
   }
 }

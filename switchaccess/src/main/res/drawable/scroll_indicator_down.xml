@@ -6,13 +6,14 @@
         android:width="@dimen/scroll_indicator_size_wide"
         android:gravity="bottom|center_horizontal" >
         <shape android:shape="rectangle" >
+            <solid android:color="@color/switch_access_menu_background" />
             <corners
                 android:topLeftRadius="@dimen/scroll_indicator_corner_radius"
                 android:topRightRadius="@dimen/scroll_indicator_corner_radius"/>
         </shape>
     </item>
     <item
-        android:drawable="@drawable/quantum_ic_keyboard_arrow_down_white_24"
+        android:drawable="@drawable/ic_scroll_down_white"
         android:gravity="bottom|center_horizontal"
         android:width="@dimen/scroll_indicator_icon_size"
         android:height="@dimen/scroll_indicator_icon_size" />

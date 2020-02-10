@@ -17,14 +17,12 @@
 package com.google.android.accessibility.talkback.contextmenu;
 
 import android.content.Context;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.MenuInflater;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.menurules.NodeMenuRuleProcessor;
-import com.google.android.accessibility.utils.EditTextActionHistory;
-import com.google.android.accessibility.utils.FormFactorUtils;
-import com.google.android.accessibility.utils.input.TextCursorManager;
 
 /**
  * Used by {@link ListMenuManager} to configure each list-style context menu before display.
@@ -34,73 +32,64 @@ import com.google.android.accessibility.utils.input.TextCursorManager;
  */
 public class ListMenuPreparer {
 
-  private final Context mContext;
-  private final TalkBackService mService;
-  private final EditTextActionHistory mEditTextActionHistory;
-  private final TextCursorManager mTextCursorManager;
+  private final Context context;
+  private final TalkBackService service;
+  private final AccessibilityFocusMonitor accessibilityFocusMonitor;
+  private final NodeMenuRuleProcessor nodeMenuRuleProcessor;
 
   public ListMenuPreparer(
       TalkBackService service,
-      EditTextActionHistory editTextActionHistory,
-      TextCursorManager textCursorManager) {
-    mContext = service;
-    mService = service;
-    mEditTextActionHistory = editTextActionHistory;
-    mTextCursorManager = textCursorManager;
+      AccessibilityFocusMonitor accessibilityFocusMonitor,
+      NodeMenuRuleProcessor nodeMenuRuleProcessor) {
+    context = service;
+    this.service = service;
+    this.accessibilityFocusMonitor = accessibilityFocusMonitor;
+    this.nodeMenuRuleProcessor = nodeMenuRuleProcessor;
   }
 
   public void prepareMenu(ListMenu menu, int menuId) {
     if (menuId == R.menu.global_context_menu) {
-      new MenuInflater(mContext).inflate(R.menu.global_context_menu, menu);
+      new MenuInflater(context).inflate(R.menu.global_context_menu, menu);
       menu.removeItem(R.id.quick_navigation);
-      if (FormFactorUtils.getInstance(mContext).hasAccessibilityShortcut()) {
-        menu.removeItem(R.id.pause_feedback);
-      }
 
-      GlobalMenuProcessor globalMenuProcessor = new GlobalMenuProcessor(mService);
+      GlobalMenuProcessor globalMenuProcessor = new GlobalMenuProcessor(service);
 
       globalMenuProcessor.prepareMenu(menu);
-      menu.setTitle(mContext.getString(R.string.global_context_menu_title));
+      menu.setTitle(context.getString(R.string.global_context_menu_title));
     } else if (menuId == R.menu.local_context_menu) {
       final AccessibilityNodeInfoCompat currentNode =
-          mService.getCursorController().getCursorOrInputCursor();
+          accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
       if (currentNode == null) {
         return;
       }
 
-      NodeMenuRuleProcessor menuRuleProcessor =
-          new NodeMenuRuleProcessor(mService, mEditTextActionHistory, mTextCursorManager);
-      menuRuleProcessor.prepareMenuForNode(menu, currentNode);
+      nodeMenuRuleProcessor.prepareMenuForNode(menu, currentNode);
       currentNode.recycle();
-      menu.setTitle(mContext.getString(R.string.local_context_menu_title));
+      menu.setTitle(context.getString(R.string.local_context_menu_title));
     } else if (menuId == R.id.custom_action_menu) {
       final AccessibilityNodeInfoCompat currentNode =
-          mService.getCursorController().getCursorOrInputCursor();
+          accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
       if (currentNode == null) {
         return;
       }
 
-      NodeMenuRuleProcessor menuRuleProcessor =
-          new NodeMenuRuleProcessor(mService, mEditTextActionHistory, mTextCursorManager);
-      menuRuleProcessor.prepareCustomActionMenuForNode(menu, currentNode);
+      nodeMenuRuleProcessor.prepareCustomActionMenuForNode(menu, currentNode);
       currentNode.recycle();
-      menu.setTitle(mContext.getString(R.string.title_custom_action));
+      menu.setTitle(context.getString(R.string.title_custom_action));
     } else if (menuId == R.id.editing_menu) {
       final AccessibilityNodeInfoCompat currentNode =
-          mService.getCursorController().getCursorOrInputCursor();
+          accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
       if (currentNode == null) {
         return;
       }
 
-      NodeMenuRuleProcessor menuRuleProcessor =
-          new NodeMenuRuleProcessor(mService, mEditTextActionHistory, mTextCursorManager);
-      menuRuleProcessor.prepareEditingMenuForNode(menu, currentNode);
+      nodeMenuRuleProcessor.prepareEditingMenuForNode(menu, currentNode);
       currentNode.recycle();
-      menu.setTitle(mContext.getString(R.string.title_edittext_controls));
+      menu.setTitle(context.getString(R.string.title_edittext_controls));
     } else if (menuId == R.menu.language_menu) {
       // Menu for language switcher
-      LanguageMenuProcessor.prepareLanguageMenu(mService, menu);
-      menu.setTitle(mService.getString(R.string.language_options));
+      LanguageMenuProcessor.prepareLanguageMenu(service, menu);
+      menu.setTitle(service.getString(R.string.language_options));
     }
   }
 }

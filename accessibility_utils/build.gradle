@@ -1,7 +1,0 @@
-/* For building open-source release of accessibility services.  */
-
-apply plugin: 'com.android.library'
-
-android {
-    compileSdkVersion "android-27"
-}

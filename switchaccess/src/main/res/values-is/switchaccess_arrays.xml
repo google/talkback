@@ -1,22 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string-array name="switch_access_color_entries">
-    <item msgid="7934595828699536711">"Grænt"</item>
-    <item msgid="7616478199824616148">"Appelsínugult"</item>
-    <item msgid="528738291475141372">"Rautt"</item>
-    <item msgid="3613307072137891343">"Blátt"</item>
-    <item msgid="1719741716015833575">"Hvítt"</item>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="switch_access_color_entries" translatable="true">
+    <item>Grænt</item>
+    <item>Appelsínugult</item>
+    <item>Rautt</item>
+    <item>Blátt</item>
+    <item>Hvítt</item>
   </string-array>
-  <string-array name="switch_access_weight_entries">
-    <item msgid="5215195704613305820">"Mjó óbrotin lína"</item>
-    <item msgid="7698398358042168523">"Meðalþykk óbrotin lína"</item>
-    <item msgid="4047443674448719927">"Þykk óbrotin lína"</item>
+  <string-array name="switch_access_weight_entries" translatable="true">
+    <item>Mjó óbrotin lína</item>
+    <item>Meðalþykk óbrotin lína</item>
+    <item>Þykk óbrotin lína</item>
   </string-array>
-  <string-array name="switch_access_scanning_methods_entries">
-    <item msgid="8644818950395737812">"Línuleg skönnun"</item>
-    <item msgid="6882375457227534722">"Lína-dálkur"</item>
-    <item msgid="2527470982516678330">"Hópaval"</item>
-    <item msgid="7675777327828673805">"Nomon-klukkur"</item>
+  <string-array name="switch_access_sound_volume_entries">
+    <item>Sami og hljóðstyrkur efnis</item>
+    <item>75% af hljóðstyrk efnisspilunar</item>
+    <item>50% af hljóðstyrk efnisspilunar</item>
+    <item>25% af hljóðstyrk efnisspilunar</item>
+  </string-array>
+  <string-array name="switch_access_sound_volume_values">
+    <item>100</item>
+    <item>75</item>
+    <item>50</item>
+    <item>25</item>
+  </string-array>
+  <string-array name="switch_access_node_description_order_entries">
+    <item>Staða, heiti, gerð</item>
+    <item>Gerð, heiti, staða</item>
+    <item>Heiti, gerð, staða</item>
   </string-array>
 </resources>

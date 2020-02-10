@@ -19,21 +19,20 @@ package com.google.android.accessibility.switchaccess.setupwizard;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Handler;
-import android.view.View;
+import android.view.ContextThemeWrapper;
 import android.widget.Button;
 import android.widget.GridLayout;
-import com.google.android.accessibility.switchaccess.KeyAssignmentUtils;
 import com.google.android.accessibility.switchaccess.R;
+import com.google.android.accessibility.switchaccess.keyassignment.KeyAssignmentUtils;
 import java.util.ArrayList;
 import java.util.List;
 
 /** Controller for the logic of the switch controlled game of Tic-Tac-Toe. */
 public class SetupWizardTicTacToeController {
 
-  /* Tic-tac-toe markers for the human and computer plyers */
+  /* Tic-tac-toe markers for the human and computer players */
   public static final String HUMAN_PLAYER_MARKER = "O";
   public static final String COMPUTER_PLAYER_MARKER = "X";
 
@@ -55,35 +54,27 @@ public class SetupWizardTicTacToeController {
   /* Time delay between the human move and the following computer move */
   private static final int COMPUTER_MOVE_DELAY_MS = 1500;
 
-  private final Context mContext;
+  private final Context context;
 
   /* GridLayout consisting of the buttons that make up the game board */
-  private final GridLayout mGameBoard;
+  private final GridLayout gameBoard;
 
   /* Button to reset Tic-Tac-Toe back to a new game */
-  private final Button mResetButton;
+  private final Button resetButton;
 
   /* Used to track which spaces remain open on the board */
-  private final List<Integer> mEmptySpacesIndicies;
-
-  /* Screen iterator to the next screen when a user is satisfied with their configuration */
-  private final SetupWizardActivity.ScreenIterator mIterator;
+  private final List<Integer> emptySpacesIndices;
 
   /* Helper class used to generate moves of the computer opponent */
-  private final TicTacToeComputerMoveGenerator mComputerMoveGenerator;
+  private final TicTacToeComputerMoveGenerator computerMoveGenerator;
 
   /**
    * @param context Current application context
    * @param gameBoard GridLayout containing the buttons that make up the tic-tac-toe board
    * @param resetButton Button to reset the board to a new game
-   * @param iterator Screen iterator to navigate forward if a user is satisfied with their setup
    */
-  public SetupWizardTicTacToeController(
-      Context context,
-      GridLayout gameBoard,
-      Button resetButton,
-      SetupWizardActivity.ScreenIterator iterator) {
-    this(context, gameBoard, resetButton, iterator, new TicTacToeComputerMoveGenerator());
+  public SetupWizardTicTacToeController(Context context, GridLayout gameBoard, Button resetButton) {
+    this(context, gameBoard, resetButton, new TicTacToeComputerMoveGenerator());
   }
 
   /**
@@ -92,46 +83,36 @@ public class SetupWizardTicTacToeController {
    * @param context Current application context
    * @param gameBoard GridLayout containing the buttons that make up the tic-tac-toe board
    * @param resetButton Button to reset the board to a new game
-   * @param iterator Screen iterator to navigate forward if a user is satisfied with their setup
    * @param computerMoveGenerator Custom computer move generator for this game
    */
   public SetupWizardTicTacToeController(
       Context context,
       GridLayout gameBoard,
       Button resetButton,
-      SetupWizardActivity.ScreenIterator iterator,
       TicTacToeComputerMoveGenerator computerMoveGenerator) {
-    mContext = context;
-    mGameBoard = gameBoard;
-    mIterator = iterator;
-    mEmptySpacesIndicies = new ArrayList<>();
-    mComputerMoveGenerator = computerMoveGenerator;
+    this.context = context;
+    this.gameBoard = gameBoard;
+    emptySpacesIndices = new ArrayList<>();
+    this.computerMoveGenerator = computerMoveGenerator;
 
-    mResetButton = resetButton;
-    mResetButton.setOnClickListener(
-        new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-            resetGameBoard();
-          }
-        });
+    this.resetButton = resetButton;
+    this.resetButton.setOnClickListener(view -> resetGameBoard());
 
     resetGameBoard();
   }
 
   private void resetGameBoard() {
-    for (int i = 0; i < mGameBoard.getChildCount(); i++) {
-      ((Button) mGameBoard.getChildAt(i)).setText("");
-    }
-
-    mEmptySpacesIndicies.clear();
-
-    for (int i = 0; i < SPACES_COUNT; i++) {
-      mEmptySpacesIndicies.add(i);
+    String emptySpaceDescription =
+        context.getString(R.string.game_square_no_marker_content_description);
+    emptySpacesIndices.clear();
+    for (int position = 0; position < SPACES_COUNT; position++) {
+      ((Button) gameBoard.getChildAt(position)).setText("");
+      updateContentDescriptionForPosition(position, emptySpaceDescription);
+      emptySpacesIndices.add(position);
     }
 
     setGameButtonsEnabled(true);
-    mResetButton.setEnabled(false);
+    resetButton.setEnabled(false);
   }
 
   /**
@@ -142,35 +123,22 @@ public class SetupWizardTicTacToeController {
   public void playerMove(int moveLocation) {
     setGameButtonsEnabled(false);
 
-    Button moveTile = ((Button) mGameBoard.getChildAt(moveLocation));
-
-    moveTile.setText(HUMAN_PLAYER_MARKER);
-    moveTile.setTextColor(Color.BLACK);
-
-    mEmptySpacesIndicies.remove(mEmptySpacesIndicies.indexOf(moveLocation));
-
-    if (checkForWin(moveLocation)) {
-      displayFinishDialog(mContext.getString(R.string.game_win_outcome_title));
+    boolean gameIsOver =
+        makeMoveAndMaybeEndGame(
+            moveLocation,
+            HUMAN_PLAYER_MARKER,
+            Color.BLACK,
+            false /* announceMove */,
+            R.string.game_win_outcome_title);
+    if (gameIsOver) {
       return;
     }
 
-    if (mEmptySpacesIndicies.isEmpty()) {
-      displayFinishDialog(mContext.getString(R.string.game_tie_outcome_title));
-      return;
-    }
-
-    /* Player always moves first, followed by a compuer move. The computer move is delayed by
+    /* Player always moves first, followed by a computer move. The computer move is delayed by
      * one and a half second to give the game a more natural feel.
      */
     Handler handler = new Handler();
-    handler.postDelayed(
-        new Runnable() {
-          @Override
-          public void run() {
-            computerMove();
-          }
-        },
-        COMPUTER_MOVE_DELAY_MS);
+    handler.postDelayed(this::computerMove, COMPUTER_MOVE_DELAY_MS);
   }
 
   /**
@@ -178,28 +146,71 @@ public class SetupWizardTicTacToeController {
    * that location.
    */
   private void computerMove() {
-    int moveLocation = mComputerMoveGenerator.generateRandomMove(mEmptySpacesIndicies);
+    int moveLocation = computerMoveGenerator.generateRandomMove(emptySpacesIndices);
 
-    ((Button) mGameBoard.getChildAt(moveLocation)).setText(COMPUTER_PLAYER_MARKER);
-    ((Button) mGameBoard.getChildAt(moveLocation)).setTextColor(Color.WHITE);
-
-    mEmptySpacesIndicies.remove(mEmptySpacesIndicies.indexOf(moveLocation));
-
-    if (checkForWin(moveLocation)) {
-      displayFinishDialog(mContext.getString(R.string.game_loss_outcome_title));
-      return;
-    }
-
-    /*
-     * This should never be triggered with the current game flow. With the human moving first
-     * and an odd number of moves to play, a tie will only result from the human's last move.
-     */
-    if (mEmptySpacesIndicies.isEmpty()) {
-      displayFinishDialog(mContext.getString(R.string.game_tie_outcome_title));
+    boolean gameIsOver =
+        makeMoveAndMaybeEndGame(
+            moveLocation,
+            COMPUTER_PLAYER_MARKER,
+            Color.WHITE,
+            true /* announceMove */,
+            R.string.game_loss_outcome_title);
+    if (gameIsOver) {
       return;
     }
 
     setGameButtonsEnabled(true);
+  }
+
+  /**
+   * Makes a move at the specified location. If this ends the game, displays a dialog.
+   *
+   * @param moveLocation The location of the move
+   * @param playerMarker The character that will be used as marker for the player that just made the
+   *     move (human or computer)
+   * @param playerColor The color that will be used to draw the playerMarker
+   * @param announceMove Whether to announce the move that has just been made
+   * @param onWinDialogStringResId The string that will be displayed if the player (human or
+   *     computer) making this move just won the game
+   * @return {@code true} if the game is over
+   */
+  private boolean makeMoveAndMaybeEndGame(
+      int moveLocation,
+      String playerMarker,
+      int playerColor,
+      boolean announceMove,
+      int onWinDialogStringResId) {
+    Button moveLocationButton = ((Button) gameBoard.getChildAt(moveLocation));
+    moveLocationButton.setText(playerMarker);
+    moveLocationButton.setTextColor(playerColor);
+    String moveDescription = updateContentDescriptionForPosition(moveLocation, playerMarker);
+    if (announceMove) {
+      moveLocationButton.announceForAccessibility(moveDescription);
+    }
+
+    emptySpacesIndices.remove(emptySpacesIndices.indexOf(moveLocation));
+
+    if (checkForWin(moveLocation)) {
+      displayFinishDialog(context.getString(onWinDialogStringResId));
+      return true;
+    }
+
+    if (emptySpacesIndices.isEmpty()) {
+      displayFinishDialog(context.getString(R.string.game_tie_outcome_title));
+      return true;
+    }
+
+    // The game is not yet over.
+    return false;
+  }
+
+  private String updateContentDescriptionForPosition(int position, String markerDescription) {
+    String row = Integer.toString((position / ROW_COLUMN_COUNT) + 1);
+    String column = Integer.toString((position % ROW_COLUMN_COUNT) + 1);
+    String spaceContentDescription =
+        context.getString(R.string.game_square_content_description, markerDescription, row, column);
+    gameBoard.getChildAt(position).setContentDescription(spaceContentDescription);
+    return spaceContentDescription;
   }
 
   private boolean checkForWin(int moveLocation) {
@@ -207,23 +218,19 @@ public class SetupWizardTicTacToeController {
     int row = moveLocation / ROW_COLUMN_COUNT;
     int column = moveLocation % ROW_COLUMN_COUNT;
 
-    String currentMoveMarker = ((Button) mGameBoard.getChildAt(moveLocation)).getText().toString();
+    String currentMoveMarker = getButtonTextAtPosition(moveLocation);
 
     /* Check the move row for a win */
-    if (currentMoveMarker.equals(((Button) mGameBoard.getChildAt(row * ROW_COLUMN_COUNT)).getText())
-        && currentMoveMarker.equals(
-            ((Button) mGameBoard.getChildAt(row * ROW_COLUMN_COUNT + 1)).getText())
-        && currentMoveMarker.equals(
-            ((Button) mGameBoard.getChildAt(row * ROW_COLUMN_COUNT + 2)).getText())) {
+    if (currentMoveMarker.equals(getButtonTextAtPosition(row * ROW_COLUMN_COUNT))
+        && currentMoveMarker.equals(getButtonTextAtPosition(row * ROW_COLUMN_COUNT + 1))
+        && currentMoveMarker.equals(getButtonTextAtPosition(row * ROW_COLUMN_COUNT + 2))) {
       return true;
     }
 
     /* Check the move column for a win */
-    if (currentMoveMarker.equals(((Button) mGameBoard.getChildAt(column)).getText())
-        && currentMoveMarker.equals(
-            ((Button) mGameBoard.getChildAt(column + ROW_COLUMN_COUNT)).getText())
-        && currentMoveMarker.equals(
-            ((Button) mGameBoard.getChildAt(column + ROW_COLUMN_COUNT * 2)).getText())) {
+    if (currentMoveMarker.equals(getButtonTextAtPosition(column))
+        && currentMoveMarker.equals(getButtonTextAtPosition(column + ROW_COLUMN_COUNT))
+        && currentMoveMarker.equals(getButtonTextAtPosition(column + ROW_COLUMN_COUNT * 2))) {
       return true;
     }
 
@@ -233,15 +240,14 @@ public class SetupWizardTicTacToeController {
      * whether the move location modulo CENTER_INDEX is not zero.
      */
     if ((moveLocation % CENTER_INDEX == 0)
-        && currentMoveMarker.equals(((Button) mGameBoard.getChildAt(0)).getText())
-        && currentMoveMarker.equals(((Button) mGameBoard.getChildAt(CENTER_INDEX)).getText())
-        && currentMoveMarker.equals(((Button) mGameBoard.getChildAt(CENTER_INDEX * 2)).getText())) {
+        && currentMoveMarker.equals(getButtonTextAtPosition(0))
+        && currentMoveMarker.equals(getButtonTextAtPosition(CENTER_INDEX))
+        && currentMoveMarker.equals(getButtonTextAtPosition(CENTER_INDEX * 2))) {
       return true;
     } else if ((moveLocation % ANTI_DIAGONAL == 0)
-        && currentMoveMarker.equals(((Button) mGameBoard.getChildAt(ANTI_DIAGONAL)).getText())
-        && currentMoveMarker.equals(((Button) mGameBoard.getChildAt(CENTER_INDEX)).getText())
-        && currentMoveMarker.equals(
-            ((Button) mGameBoard.getChildAt(ANTI_DIAGONAL * 3)).getText())) {
+        && currentMoveMarker.equals(getButtonTextAtPosition(ANTI_DIAGONAL))
+        && currentMoveMarker.equals(getButtonTextAtPosition(CENTER_INDEX))
+        && currentMoveMarker.equals(getButtonTextAtPosition(ANTI_DIAGONAL * 3))) {
       return true;
     }
     return false;
@@ -249,41 +255,38 @@ public class SetupWizardTicTacToeController {
 
   private void displayFinishDialog(String outcome) {
     setGameButtonsEnabled(false);
-    mResetButton.setEnabled(true);
+    resetButton.setEnabled(true);
 
-    AlertDialog.Builder gameOverBuilder = new AlertDialog.Builder(mContext);
+    AlertDialog.Builder gameOverBuilder =
+        new AlertDialog.Builder(
+            new ContextThemeWrapper(context, R.style.SetupGuideAlertDialogStyle));
     gameOverBuilder.setTitle(outcome);
-    gameOverBuilder.setMessage(mContext.getString(R.string.game_outcome_body_text));
+    gameOverBuilder.setMessage(context.getString(R.string.game_outcome_body_text));
 
     gameOverBuilder.setNegativeButton(
-        mContext.getString(R.string.game_outcome_negative_response),
-        new DialogInterface.OnClickListener() {
-          @Override
-          public void onClick(DialogInterface dialog, int id) {
-            ((Activity) mContext).recreate();
-            KeyAssignmentUtils.clearAllKeyPrefs(mContext);
-            dialog.cancel();
-          }
+        context.getString(R.string.game_outcome_negative_response),
+        (dialogInterface, viewId) -> {
+          ((Activity) context).recreate();
+          KeyAssignmentUtils.clearAllKeyPrefs(context);
+          dialogInterface.cancel();
         });
 
     gameOverBuilder.setPositiveButton(
-        mContext.getString(R.string.game_outcome_positive_response),
-        new DialogInterface.OnClickListener() {
-          @Override
-          public void onClick(DialogInterface dialog, int id) {
-            mIterator.nextScreen();
-            dialog.cancel();
-          }
-        });
+        context.getString(R.string.game_outcome_positive_response),
+        (dialogInterface, viewId) -> dialogInterface.cancel());
 
     AlertDialog gameOverDialog = gameOverBuilder.create();
     gameOverDialog.show();
   }
 
   private void setGameButtonsEnabled(boolean setEnabled) {
-    for (int i = 0; i < mGameBoard.getChildCount(); i++) {
-      ((Button) mGameBoard.getChildAt(i)).setEnabled(setEnabled);
+    for (int i = 0; i < gameBoard.getChildCount(); i++) {
+      gameBoard.getChildAt(i).setEnabled(setEnabled);
     }
-    mResetButton.setEnabled(setEnabled);
+    resetButton.setEnabled(setEnabled);
+  }
+
+  private String getButtonTextAtPosition(int position) {
+    return ((Button) gameBoard.getChildAt(position)).getText().toString();
   }
 }

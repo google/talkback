@@ -47,7 +47,7 @@ public class Lesson3Part2Exercise extends ContextMenuExercise {
 
   @Override
   public int getImageResource() {
-    return R.drawable.up_right_arrow;
+    return R.drawable.ic_up_right_arrow;
   }
 
   @Override

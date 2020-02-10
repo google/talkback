@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Painike</item>
+    <item>Valintaruutu</item>
+    <item>Värin valinta</item>
+    <item>Päivämäärän ja ajan hallinta</item>
+    <item>Päivämäärän ja ajan hallinta</item>
+    <item>Päivämäärän valinta</item>
+    <item>Muokkaa sähköpostin tekstiä</item>
+    <item>Tiedoston valinta</item>
+    <item translatable="false"></item>
+    <item>Painike</item>
+    <item>Kuukauden valinta</item>
+    <item>Muokkaa numeromuotoista tekstiä</item>
+    <item>Salasanan muokkaus</item>
+    <item>Valintanappi</item>
+    <item>Liu\'utuspalkki</item>
+    <item>Palauta</item>
+    <item>Muokkaa haun tekstiä</item>
+    <item>Painike</item>
+    <item>Muokkaa puhelinnumeron tekstiä</item>
+    <item>Muokkaa tekstiä</item>
+    <item>Muokkaa URL-osoitteen tekstiä</item>
+    <item>Viikon valinta</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Ilmoitus</item>
+    <item>Ilmoitusikkuna</item>
+    <item>Painike</item>
+    <item>Valintaruutu</item>
+    <item>Yhdistelmäkenttä</item>
+    <item>Valintaikkuna</item>
+    <item>Taulukon solu</item>
+    <item>Linkki</item>
+    <item>Loki</item>
+    <item>Vierivä teksti</item>
+    <item>Valikkokohde</item>
+    <item>Valikkokohteen valintaruutu</item>
+    <item>Valikkokohteen valintanappi</item>
+    <item>Vaihtoehto</item>
+    <item>Etenemispalkki</item>
+    <item>Valintanappi</item>
+    <item>Valintanappiryhmä</item>
+    <item>Vierityspalkki</item>
+    <item>Liu\'utuspalkki</item>
+    <item>Numerovalintapainike</item>
+    <item>Tila</item>
+    <item>Sarkain</item>
+    <item>Välilehtipaneeli</item>
+    <item>Tekstikenttä</item>
+    <item>Ajastin</item>
+    <item>Työkalupalkki</item>
+    <item>Työkaluvihje</item>
+    <item>Puukuvaajakohde</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Linkki</item>
+    <item>Tason yksi otsikko</item>
+    <item>Tason kaksi otsikko</item>
+    <item>Tason kolme otsikko</item>
+    <item>Tason neljä otsikko</item>
+    <item>Tason viisi otsikko</item>
+    <item>Tason kuusi otsikko</item>
+    <item>Painike</item>
+    <item>Yhdistelmäkenttä</item>
+    <item>Taulukko</item>
+    <item>Tekstikenttä</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

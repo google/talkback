@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.google.android.accessibility.compositor">
+
+  <uses-sdk android:targetSdkVersion="28" />
+
 </manifest>
 
 

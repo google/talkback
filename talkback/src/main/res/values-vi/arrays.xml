@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Nút</item>
+    <item>Hộp kiểm</item>
+    <item>Công cụ chọn màu</item>
+    <item>Kiểm soát ngày giờ</item>
+    <item>Kiểm soát ngày giờ</item>
+    <item>Kiểm soát ngày</item>
+    <item>Văn bản chỉnh sửa email</item>
+    <item>Lựa chọn tệp</item>
+    <item translatable="false"></item>
+    <item>Nút</item>
+    <item>Kiểm soát tháng</item>
+    <item>Văn bản chỉnh sửa chỉ dành cho số</item>
+    <item>Văn bản chỉnh sửa mật khẩu</item>
+    <item>Nút đài</item>
+    <item>Thanh trượt</item>
+    <item>Đặt lại</item>
+    <item>Văn bản chỉnh sửa tìm kiếm</item>
+    <item>Nút</item>
+    <item>Văn bản chỉnh sửa số điện thoại</item>
+    <item>Văn bản chỉnh sửa</item>
+    <item>Văn bản chỉnh sửa URL</item>
+    <item>Kiểm soát tuần trong năm</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Thông báo</item>
+    <item>Hộp thoại thông báo</item>
+    <item>Nút</item>
+    <item>Hộp kiểm</item>
+    <item>Hộp kết hợp</item>
+    <item>Hộp thoại</item>
+    <item>Ô lưới</item>
+    <item>Liên kết</item>
+    <item>Nhật ký</item>
+    <item>Bảng chữ chạy</item>
+    <item>Mục menu</item>
+    <item>Hộp kiểm mục menu</item>
+    <item>Nút đài mục menu</item>
+    <item>Tùy chọn</item>
+    <item>Thanh tiến độ</item>
+    <item>Nút đài</item>
+    <item>Nhóm nút đài</item>
+    <item>Thanh cuộn</item>
+    <item>Thanh trượt</item>
+    <item>Nút quay tròn</item>
+    <item>Trạng thái</item>
+    <item>Tab</item>
+    <item>Bảng điều khiển tab</item>
+    <item>Hộp văn bản</item>
+    <item>Bộ hẹn giờ</item>
+    <item>Thanh công cụ</item>
+    <item>Mẹo sử dụng công cụ</item>
+    <item>Mục cây</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Liên kết</item>
+    <item>Tiêu đề một</item>
+    <item>Tiêu đề hai</item>
+    <item>Tiêu đề ba</item>
+    <item>Tiêu đề bốn</item>
+    <item>Tiêu đề năm</item>
+    <item>Tiêu đề sáu</item>
+    <item>Nút</item>
+    <item>Hộp kết hợp</item>
+    <item>Bảng</item>
+    <item>Vùng văn bản</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

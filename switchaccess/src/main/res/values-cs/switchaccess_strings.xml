@@ -1,172 +1,327 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Přístup pomocí přepínačů"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Přístup pomocí přepínačů umožňuje uživatelům s pohybovým postižením ovládat telefony a tablety pomocí jednoho nebo více přepínačů. Přepínače slouží k výběru položek, posouvání, zadávání textu a dalším akcím."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Ovládání zařízení pomocí přepínačů"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Nápověda a zpětná vazba"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Automatické prohledávání"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Čas automatického prohledávání"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Zpětné automatické prohledání"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="few">%.2f sekundy</item>
-      <item quantity="many">%.2f sekundy</item>
-      <item quantity="other">%.2f sekund</item>
-      <item quantity="one">1 sekunda</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Přizpůsobit prohledávání"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Metoda skenování"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Prodleva na první položce"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Přiřadit přepínače"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Přiřadit přepínače k akcím"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Přiřadit přepínače k prohledávání"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Rychlost čáry"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Počet prohledání"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Výběr počtu opakování prohledání"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Čas prodlevy debounce"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Více stisknutí během tohoto časového úseku bude považováno za jedno stisknutí."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Provést akci po uvolnění"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Akce bude provedena po uvolnění přepínače"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="few">%d smyčky</item>
-      <item quantity="many">%d smyčky</item>
-      <item quantity="other">%d smyček</item>
-      <item quantity="one">%d smyčka</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Přepínač <xliff:g id="KEY_NAME">%1$s</xliff:g> je již přiřazen k akci <xliff:g id="ACTION_NAME">%2$s</xliff:g>"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="few">Jsou přiřazeny %d přepínače</item>
-      <item quantity="many">Je přiřazeno %d přepínače</item>
-      <item quantity="other">Je přiřazeno %d přepínačů</item>
-      <item quantity="one">Je přiřazen %d přepínač</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Přepínač pro výběr skupiny %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Další"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Předchozí"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Vybrat"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Dlouze stisknout"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Posunout vpřed"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Posunout zpět"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Zavřít"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Rozbalit"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Sbalit"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Zvýraznit text"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Kopírovat"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Vyjmout"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Vložit"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"NABÍDKA"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Zpět"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Plocha"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Přehled"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Oznámení"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Rychlé nastavení"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Posunout vpřed"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Posunout zpět"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Prohledání místa"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Ukončit prohledání místa"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Přejet doprava"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Přejet doleva"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Přejet nahoru"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Přejet dolů"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Posunout (vlastní)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Oddálit"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Přiblížit"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Nastavení přístupu pomocí přepínačů"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Stiskněte kombinaci přepínačů k přidání nebo odebrání položky ze seznamu."</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Vymazat přiřazení přepínačů"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Nejsou přiřazeny žádné přepínače"</string>
-    <string name="more" msgid="1547670498589416840">"Další"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Mezerník"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tabulátor"</string>
-    <string name="save" msgid="5398278773451196019">"Uložit"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Styl zvýraznění při prohledávání"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Primární styl vyhledávání"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Barva zvýraznění"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Styl čáry zvýraznění"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Zásady ochrany soukromí"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Povolit automatický výběr"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Zakázat automatický výběr"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Další znak"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Další slovo"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Další řádek"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Další odstavec"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Další stránka"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Předchozí znak"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Předchozí slovo"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Předchozí řádek"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Předchozí odstavec"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Předchozí stránka"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Automaticky zahájit prohledávání"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Prohledávání začne bez stisknutí přepínače"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Otevřít nastavení přístupu pomocí přepínačů"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Průvodce nastavením přístupu pomocí přepínačů"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Jeden přepínač"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Dva přepínače"</string>
-    <string name="finish" msgid="4267641294267512480">"Dokončit"</string>
-    <string name="exit" msgid="8664597014081860813">"Ukončit"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Vyberte počet přepínačů"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Stisknutím přepínače zahájíte automatický pohyb mezi položkami. Dalším stisknutím vyberete zvýrazněnou položku."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Stisknutím jednoho přepínače můžete přecházet mezi položkami. Stisknutím druhého přepínače vyberete zvýrazněnou položku."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Vyberte rychlost prohledávání"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Vyberte, jak dlouho mají jednotlivé položky zůstat zvýrazněny"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Rychlé (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>s prodleva)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Střední (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>s prodleva)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Pomalé (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>s prodleva)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Vlastní"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"prodleva (sekundy)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Klávesa <xliff:g id="KEY_NAME">%1$s</xliff:g> je již přiřazena k jiné akci."</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Prohledávání po řádcích/sloupcích"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Výběr skupiny"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Lineární prohledávání"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Mluvená navigace"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Nastavení převodu textu na řeč"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Pro několik položek"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Přečíst první a poslední položku"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Přečíst počet položek"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Přečíst všechny zvýrazněné položky"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Před přesunem dokončit čtení"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"skupina <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> až <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"počet položek: <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"po výběru lze posouvat"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"neznámá položka"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Zvolte způsob prohledání"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Prohledání jednoho řádku po druhém. Po výběru řádku můžete přecházet mezi položkami v příslušném seznamu."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Přechod mezi jednotlivými položkami. Poznámka: Klávesnice vždy prohledávají po řádcích."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Všem položkám bude přiřazena barva. Stiskněte přepínač, který odpovídá barvě kolem požadované položky. Poté skupinu zužujte, dokud nedosáhnete požadované možnosti."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Přepínače přiřazené k akci <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Žádné"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Vymazat přiřazené přepínače?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Přepínače jste již přiřadili."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Vymazat přepínače"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Ponechat přepínače"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Nejsou přiřazeny žádné přepínače"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"K této akci nejsou přiřazeny žádné přepínače. Opravdu chcete pokračovat?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> skupina"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Stisknutím přepínače jej přiřadíte k výběru skupiny <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Stisknutím přepínače jej přiřadíte k akci <xliff:g id="ACTION_NAME">%1$s</xliff:g>."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Zahájení prohledávání a výběr"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Otestujte nastavení pomocí piškvorek"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Stisknutím přepínače <xliff:g id="SWITCH_NAME">%1$s</xliff:g> zahájíte prohledávání. Zvýrazněnou položku vyberete opětovným stisknutím přepínače. Vyzkoušejte to."</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Stisknutím přepínače <xliff:g id="SWITCH_NAME">%1$s</xliff:g> zahájíte prohledávání. Zvýrazněný řádek vyberete opětovným stisknutím přepínače. Dalším stisknutím vyberete zvýrazněnou položku. Vyzkoušejte to."</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Stisknutím přepínače <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> můžete přecházet mezi položkami. Zvýrazněnou položku vyberete stisknutím přepínače <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>. Vyzkoušejte to."</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Stisknutím přepínače <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> můžete přecházet mezi řádky. Zvýrazněný řádek vyberete pomocí přepínače <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>. Postup opakujte, dokud nevyberete položku v požadovaném řádku. Vyzkoušejte to."</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Stisknutím přepínače <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> vyberete položky zvýrazněné barvou <xliff:g id="COLOR_NAME_1">%2$s</xliff:g>, stisknutím přepínače <xliff:g id="SWITCH_NAME_2">%4$s</xliff:g> vyberete položky zvýrazněné barvou <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Postup opakujte, dokud se nedostanete na požadovanou položku. Vyzkoušejte to."</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Ještě jste nepřiřadili přepínače ke všem akcím. Vraťte se zpět pomocí tlačítka Předchozí a dokončete přiřazení přepínačů."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Resetovat hru"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Tento čtvereček je již obsazen. Zkuste to znovu."</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Vítězství!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Příště to bude lepší"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Remíza"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Můžete ponechat aktuální nastavení nebo začít znovu."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Ponechat nastavení"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Začít znovu"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Nastavení dokončeno"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Nyní je vše připraveno."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Kdykoliv můžete změnit další nastavení nebo v nastavení přístupu pomocí přepínačů znovu otevřít průvodce nastavením."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Přístup pomocí přepínačů</string>
+  <string name="switch_access_service_description">Přístup pomocí přepínačů umožňuje uživatelům s pohybovým postižením ovládat telefony a tablety pomocí jednoho nebo více přepínačů. Přepínače slouží k výběru položek, posouvání, zadávání textu a dalším akcím.</string>
+  <string name="switch_access_service_summary">Ovládání zařízení pomocí přepínačů</string>
+  <string name="title_pref_help_feedback">Nápověda a zpětná vazba</string>
+  <string name="title_pref_licenses">Licence open source</string>
+  <string name="title_pref_category_auto_scan">Automatické prohledávání</string>
+  <string name="title_pref_auto_scan_disabled">Automatické prohledávání (vypnuto)</string>
+  <string name="action_key_summary_auto_scan">Stisknutím tohoto přepínače automaticky spustíte přesun zvýraznění mezi položkami. Opětovným stisknutím zvýrazněnou položku vyberete.</string>
+  <string name="title_pref_auto_scan_time_delay">Čas automatického prohledávání</string>
+  <string name="action_name_reverse_auto_scan">Zpětné automatické prohledání</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Zpětné automatické prohledání (vypnuto)</string>
+  <string name="action_key_summary_reverse_auto_scan">Stisknutím tohoto přepínače automaticky spustíte zpětný přesun zvýraznění mezi položkami. Opětovným stisknutím zvýrazněnou položku vyberete.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 sekunda</item>
+    <item quantity="few">%.2f sekundy</item>
+    <item quantity="many">%.2f sekundy</item>
+    <item quantity="other">%.2f sekund</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Přizpůsobit prohledávání</string>
+  <string name="title_pref_scanning_methods">Metoda skenování</string>
+  <string name="title_pref_start_scan_delay">Prodleva na první položce</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Vyberte čas navíc, který strávíte na první položce. Tento čas bude přičten k času automatického prohledávání.\n\nToto nastavení má vliv na automatické prohledávání i prohledání místa.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Vyberte čas navíc, který strávíte na první položce. Po uplynutí této doby se začne pohybovat svislá nebo vodorovná čára.\n\nToto nastavení má vliv na automatické prohledávání i prohledání místa.</string>
+  <string name="title_pref_category_assign_switches">Přiřadit přepínače</string>
+  <string name="title_pref_category_key_mappings">Přiřadit přepínače ke globálním akcím</string>
+  <string name="summary_pref_category_key_mappings">Globální akce lze provést kdykoli</string>
+  <string name="title_pref_category_scan_key_mappings">Přiřadit přepínače k prohledávání</string>
+  <string name="summary_pref_category_scan_key_mappings">Prohledávání umožňuje přesouvat zvýraznění a vybírat zvýrazněné položky</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Pohyb a výběr</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Akce se zvýrazněnou položkou</string>
+  <string name="title_pref_point_scan_line_speed">Rychlost čáry</string>
+  <string name="dialog_message_pref_line_speed">Zvolte, jak rychle se po obrazovce budou pohybovat vodorovné a svislé čáry.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 cm za sekundu</item>
+    <item quantity="few">%.2f cm za sekundu</item>
+    <item quantity="many">%.2f cm za sekundu</item>
+    <item quantity="other">%.2f cm za sekundu</item>
+  </plurals>
+  <string name="title_pref_loop_count">Počet prohledání</string>
+  <string name="dialog_message_pref_loop_count">Vyberte, kolikrát se má prohledávání opakovat.\n\nToto nastavení má vliv na automatické prohledávání i prohledání místa.</string>
+  <string name="summary_pref_point_scan">Pomocí pohyblivých čar vyberte konkrétní svislou a vodorovnou pozici. %1$s</string>
+  <string name="point_scan_enable_animations_message">Chcete-li používat tuto funkci, zapněte animace.</string>
+  <string name="title_pref_category_switch_accomodation">Přizpůsobení přepínačů</string>
+  <string name="title_pref_debounce_time">Ignorovat opakovaná stisknutí</string>
+  <string name="dialog_message_pref_debounce_time">Více stisknutí přepínače během tohoto časového úseku bude považováno za jedno stisknutí.</string>
+  <string name="title_pref_press_on_release">Provést akci po uvolnění</string>
+  <string name="subtitle_pref_press_on_release">Akce bude provedena po uvolnění přepínače</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d smyčka</item>
+    <item quantity="few">%d smyčky</item>
+    <item quantity="many">%d smyčky</item>
+    <item quantity="other">%d smyček</item>
+  </plurals>
+  <string name="preference_off">Vypnuto</string>
+  <string name="preference_on">Zapnuto</string>
+  <string name="toast_msg_key_already_assigned">Přepínač %1$s je již přiřazen k akci %2$s</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">Je přiřazen %d přepínač</item>
+    <item quantity="few">Jsou přiřazeny %d přepínače</item>
+    <item quantity="many">Je přiřazeno %d přepínače</item>
+    <item quantity="other">Je přiřazeno %d přepínačů</item>
+  </plurals>
+  <string name="option_scan_switch_format">Přepínač pro výběr skupiny %1$d</string>
+  <string name="option_scan_switch_format_with_color">Přepínač pro výběr skupiny %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Stisknutím tohoto přepínače vyberete skupinu %1$d.</string>
+  <string name="action_name_next">Další</string>
+  <string name="action_key_summary_next">Stisknutím tohoto přepínače zvýrazníte další položku.</string>
+  <string name="action_name_previous">Předchozí</string>
+  <string name="action_key_summary_previous">Stisknutím tohoto přepínače zvýrazníte předchozí položku.</string>
+  <string name="action_name_click">Vybrat</string>
+  <string name="action_key_summary_click">Stisknutím tohoto přepínače vyberete zvýrazněnou položku.</string>
+  <string name="action_name_long_click">Přidržení</string>
+  <string name="action_key_summary_long_click">Stisknutím tohoto přepínače podržíte zvýrazněnou položku.</string>
+  <string name="action_name_scroll_forward">Posunout vpřed</string>
+  <string name="action_key_summary_scroll_forward">Stisknutím tohoto přepínače posunete zvýrazněnou položku dopředu.</string>
+  <string name="action_name_scroll_backward">Posunout zpět</string>
+  <string name="action_key_summary_scroll_backward">Stisknutím tohoto přepínače posunete zvýrazněnou položku dozadu.</string>
+  <string name="action_name_dismiss">Zavřít</string>
+  <string name="action_name_expand">Rozbalit</string>
+  <string name="action_name_collapse">Sbalit</string>
+  <string name="action_name_highlight_text">Zvýraznit text</string>
+  <string name="action_group_name_highlight">Zvýraznit…</string>
+  <string name="action_name_highlight_all_text">Zvýraznit celý text</string>
+  <string name="action_name_highlight_granular_text">Zvýraznit %1$s</string>
+  <string name="action_name_copy">Kopírovat</string>
+  <string name="action_name_copy_all_text">Kopírovat vše</string>
+  <string name="action_name_cut">Vyjmout</string>
+  <string name="action_name_cut_all_text">Vyjmout vše</string>
+  <string name="action_name_paste">Vložit</string>
+  <string name="action_name_undo">Zpět</string>
+  <string name="action_name_redo">Znovu</string>
+  <string name="action_group_name_delete">Smazat…</string>
+  <string name="action_name_delete">Smazat %1$s</string>
+  <string name="action_name_delete_highlighted_text">Smazat zvýrazněný text</string>
+  <string name="option_scanning_menu_button">NABÍDKA</string>
+  <string name="option_scanning_menu_button_content_description">Nabídka přístupu pomocí přepínačů</string>
+  <string name="switch_access_global_menu">Globální nabídka přístupu pomocí přepínačů</string>
+  <string name="switch_access_actions_menu">Nabídka akcí přístupu pomocí přepínačů</string>
+  <string name="switch_access_close_menu">ZAVŘÍT</string>
+  <string name="switch_access_back_menu">ZPĚT</string>
+  <string name="next_arrow_content_description">Další</string>
+  <string name="previous_arrow_content_description">Předchozí</string>
+  <string name="global_action_back">Zpět</string>
+  <string name="global_action_key_summary_back">Stisknutím tohoto přepínače se vrátíte zpět na předchozí obrazovku nebo skryjete klávesnici, je-li viditelná.</string>
+  <string name="global_action_home">Plocha</string>
+  <string name="global_action_key_summary_home">Stisknutím tohoto přepínače přejdete na plochu.</string>
+  <string name="global_action_overview">Přehled</string>
+  <string name="global_action_key_summary_overview">Stisknutím tohoto přepínače zobrazíte seznam nedávno otevřených aplikací.</string>
+  <string name="global_action_notifications">Oznámení</string>
+  <string name="global_action_key_summary_notifications">Stisknutím tohoto přepínače zobrazíte oznámení v zařízení.</string>
+  <string name="global_action_quick_settings">Rychlé nastavení</string>
+  <string name="global_action_key_summary_quick_settings">Stisknutím tohoto přepínače zobrazíte Rychlé nastavení v zařízení.</string>
+  <string name="global_action_power_options">Možnosti napájení</string>
+  <string name="global_menu_volume_heading">Hlasitost</string>
+  <string name="volume_menu_media">Hlasitost médií</string>
+  <string name="volume_menu_call">Hlasitost hovoru</string>
+  <string name="volume_menu_ring">Hlasitost vyzvánění</string>
+  <string name="volume_menu_alarm">Hlasitost budíku</string>
+  <string name="volume_menu_accessibility">Hlasitost zvuků pro usnadnění přístupu</string>
+  <string name="volume_menu_mute">Ztlumit</string>
+  <string name="volume_menu_unmute">Zapnout zvuk</string>
+  <string name="volume_menu_increase">Zvýšit</string>
+  <string name="volume_settings">Nastavení hlasitosti</string>
+  <string name="volume_menu_decrease">Snížit</string>
+  <string name="scrollable_forward">Posunout vpřed</string>
+  <string name="scrollable_backward">Posunout zpět</string>
+  <string name="point_scan">Prohledávání místa</string>
+  <string name="box_scan">Ukončit prohledání místa</string>
+  <string name="action_name_swipe_right">Přejet doprava</string>
+  <string name="action_name_swipe_left">Přejet doleva</string>
+  <string name="action_name_swipe_up">Přejet nahoru</string>
+  <string name="action_name_swipe_down">Přejet dolů</string>
+  <string name="action_name_swipe_custom">Posunout (vlastní)</string>
+  <string name="action_name_zoom_out">Oddálit</string>
+  <string name="action_name_zoom_in">Přiblížit</string>
+  <string name="switch_access_preferences_title">Nastavení přístupu pomocí přepínačů</string>
+  <string name="key_combo_preference_instructions">Stiskněte kombinaci přepínačů k přidání nebo odebrání položky ze seznamu.</string>
+  <string name="key_combo_preference_reset_button">Vymazat přiřazení přepínačů</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Nejsou přiřazeny žádné přepínače</string>
+  <string name="more">Další</string>
+  <string name="name_of_space_bar">Mezerník</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">Tabulátor</string>
+  <string name="save">Uložit</string>
+  <string name="title_pref_category_display_and_sound">Zobrazení a zvuk</string>
+  <string name="title_pref_highlight_0">Styl zvýraznění při prohledávání</string>
+  <string name="title_pref_primary_scan_style">Primární styl vyhledávání</string>
+  <string name="title_pref_highlight_0_color">Barva zvýraznění</string>
+  <string name="title_pref_highlight_0_weight">Styl čáry zvýraznění</string>
+  <string name="title_pref_privacy_policy">Zásady ochrany soukromí</string>
+  <string name="title_pref_auto_select">Automatický výběr</string>
+  <string name="summary_pref_auto_select">Automaticky vybrat zvýrazněnou položku. Pokud položku vybrat nelze, nebo je-li toto nastavení vypnuté, zobrazí se nabídka dostupných akcí.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Povolit automatický výběr</string>
+  <string name="switch_access_global_menu_disable_autoselect">Zakázat automatický výběr</string>
+  <string name="switch_access_move_next">Další…</string>
+  <string name="switch_access_move_next_character">Další znak</string>
+  <string name="switch_access_move_next_word">Další slovo</string>
+  <string name="switch_access_move_next_line">Další řádek</string>
+  <string name="switch_access_move_next_paragraph">Další odstavec</string>
+  <string name="switch_access_move_next_page">Další stránka</string>
+  <string name="switch_access_move_next_sentence">Další věta</string>
+  <string name="switch_access_move_prev">Předchozí…</string>
+  <string name="switch_access_move_prev_character">Předchozí znak</string>
+  <string name="switch_access_move_prev_word">Předchozí slovo</string>
+  <string name="switch_access_move_prev_line">Předchozí řádek</string>
+  <string name="switch_access_move_prev_paragraph">Předchozí odstavec</string>
+  <string name="switch_access_move_prev_page">Předchozí stránka</string>
+  <string name="switch_access_move_prev_sentence">Předchozí věta</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Automaticky zahájit prohledávání</string>
+  <string name="switch_access_auto_start_scan_summary">Prohledávání začne bez stisknutí přepínače</string>
+  <string name="pref_begin_switchaccess_setup_title">Otevřít průvodce nastavením</string>
+  <string name="setup_wizard_heading">Průvodce nastavením přístupu pomocí přepínačů</string>
+  <string name="one_switch">Jeden přepínač</string>
+  <string name="two_switches">Dva přepínače</string>
+  <string name="finish">Dokončit</string>
+  <string name="exit">Ukončit</string>
+  <string name="intro_heading">Vyberte přepínač</string>
+  <string name="usb_switch_option_text">Přepínač USB</string>
+  <string name="bluetooth_switch_option_text">Přepínač Bluetooth</string>
+  <string name="usb_switch_description_text">Připojit přepínač fyzicky pomocí USB</string>
+  <string name="bluetooth_switch_description_text">Spárovat přepínač bezdrátově pomocí Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">Vaše zařízení rozhraní Bluetooth nepodporuje. Zkuste namísto toho použít fyzický přepínač.</string>
+  <string name="connected_usb_devices_header">Připojená zařízení</string>
+  <string name="usb_no_devices_connected_message">Nebyla nalezena žádná zařízení USB. Zkontrolujte, zda je zařízení bezpečně připojeno.</string>
+  <string name="connect_usb_heading">Připojit přepínač USB</string>
+  <string name="pair_bluetooth_heading">Spárovat přepínač Bluetooth</string>
+  <string name="pair_bluetooth_subheading">Níže klepněte na přepínač Bluetooth</string>
+  <string name="bluetooth_not_enabled_message">Chcete-li spárovat přepínač Bluetooth, zapněte rozhraní Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Zapnout Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Nejsou spárována žádná zařízení Bluetooth</string>
+  <string name="paired_devices_header">Spárovaná zařízení Bluetooth</string>
+  <string name="available_devices_header">Dostupná zařízení Bluetooth</string>
+  <string name="bluetooth_computer_content_description">Počítač</string>
+  <string name="bluetooth_phone_content_description">Telefon</string>
+  <string name="bluetooth_imaging_content_description">Zobrazovací zařízení</string>
+  <string name="bluetooth_headphone_content_description">Sluchátka</string>
+  <string name="bluetooth_peripheral_content_description">Periferní zařízení</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Připojování…</string>
+  <string name="bluetooth_connected_description">Připojeno</string>
+  <string name="bluetooth_device_unavailable_description">Zařízení není k dispozici</string>
+  <string name="reconnecting_unsupported_title">K zařízení se nelze připojit</string>
+  <string name="reconnecting_unsupported_message">Přístupu pomocí přepínačů se nepodařilo připojit k již dříve spárovanému zařízení. Zkontrolujte, zda je zařízení zapnuté a připojené.\n\nPokud se zařízení stále nedaří připojit, přejděte do nastavení Bluetooth a zkuste připojení provést znovu.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Přejděte do nastavení Bluetooth</string>
+  <string name="number_of_switches_heading">Vyberte počet přepínačů</string>
+  <string name="title_assign_scan_key">Přiřazení přepínače %1$s</string>
+  <string name="one_switch_description_text">Stisknutím přepínače zahájíte automatický pohyb mezi položkami. Dalším stisknutím vyberete zvýrazněnou položku.</string>
+  <string name="two_switches_description_text">Stisknutím jednoho přepínače můžete přecházet mezi položkami. Stisknutím druhého přepínače vyberete zvýrazněnou položku.</string>
+  <string name="step_speed_heading">Vyberte rychlost prohledávání</string>
+  <string name="step_speed_subheading">Vyberte, jak dlouho mají jednotlivé položky zůstat zvýrazněny</string>
+  <string name="fast_radio_button_title">Rychlé (%1$ss prodleva)</string>
+  <string name="medium_radio_button_title">Střední (%1$ss prodleva)</string>
+  <string name="slow_radio_button_title">Pomalé (%1$ss prodleva)</string>
+  <string name="custom_switch">Vlastní</string>
+  <string name="custom_edit_text">prodleva (sekundy)</string>
+  <string name="setup_toast_msg_key_already_assigned">Klávesa %1$s je již přiřazena k jiné akci.</string>
+  <string name="row_column_scanning_title">Prohledávání po řádcích/sloupcích</string>
+  <string name="option_scanning_title">Výběr skupiny (rozšířené)</string>
+  <string name="linear_scanning_title">Lineární prohledávání</string>
+  <string name="linear_scanning_except_keyboard_title">Lineární prohledávání (kromě klávesnice)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Řeč, zvuk a vibrace</string>
+  <string name="title_pref_switch_access_spoken_feedback">Mluvená navigace</string>
+  <string name="title_pref_scan_non_actionable_items">Vyslovovat popisný text</string>
+  <string name="scan_non_actionable_items_summary">Budete dostávat hlasovou odezvu k položkám, u kterých jsou dostupné akce nebo popisný text</string>
+  <string name="title_pref_switch_access_verbosity">Výřečnost</string>
+  <string name="summary_verbosity">Určete, kolik informací bude vyřčeno</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Podrobnosti výřečnosti</string>
+  <string name="title_pref_switch_access_keyboard_echo">Hlasová odezva klávesnice</string>
+  <string name="keyboard_echo_summary_on">Vyslovovat klávesy stisknuté na softwarové klávesnici</string>
+  <string name="keyboard_echo_summary_off">Nevyslovovat klávesy stisknuté na softwarové klávesnici</string>
+  <string name="title_pref_enable_hints">Přehrávat tipy k použití</string>
+  <string name="enable_hints_summary_on">Při navigaci jsou po krátké prodlevě hlasově sdělovány rady ohledně použití</string>
+  <string name="enable_hints_summary_off">Při přesunu zaměření pro usnadnění přístupu nejsou hlasově sdělovány rady ohledně použití</string>
+  <string name="title_pref_speak_container_element_position">Číst informace ze seznamů a mřížek</string>
+  <string name="speak_container_element_position_summary_on">Informace ze seznamů a mřížek jsou sdělovány</string>
+  <string name="speak_container_element_position_summary_off">Informace ze seznamů a mřížek nejsou sdělovány</string>
+  <string name="title_pref_speak_element_type">Číst typy prvků</string>
+  <string name="speak_element_type_summary_on">U zaměřených prvků bude vysloven typ prvku</string>
+  <string name="speak_element_type_summary_off">U zaměřených prvků nebude vysloven typ prvku</string>
+  <string name="title_pref_pitch_change_for_ime">Měnit výšku hlasu</string>
+  <string name="pitch_change_for_ime_summary_on">Opakovat odezvu klávesnice hlubším hlasem</string>
+  <string name="pitch_change_for_ime_summary_off">Při mluvení neměnit hlasovou odezvu</string>
+  <string name="title_pref_speak_selected_item_or_group">Přečíst vybranou položku nebo skupinu</string>
+  <string name="speak_selected_item_or_group_summary">Přečíst název položky nebo skupiny, která je vybrána</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Maximální doba mluvení na položku</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Nastavte maximální dobu pro vyslovení popisu jednotlivých položek. Po uplynutí zadané doby bude čtení ukončeno.\nPoznámka: Tipy budou sdělovány vždy, budou-li zapnuté.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Různé</string>
+  <string name="title_pref_node_description_order">Pořadí popisu prvků</string>
+  <string name="title_pref_switch_access_speak_element_ids">Čtení ID prvků</string>
+  <string name="speak_element_ids_summary_on">U neoznačených tlačítek budou ID prvků vyslovována</string>
+  <string name="speak_element_ids_summary_off">U neoznačených tlačítek nebudou ID prvků vyslovována</string>
+  <string name="title_pref_switch_access_tts_settings">Nastavení převodu textu na řeč</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Když je zvýrazněno více položek</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Přečíst první a poslední položku</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Přečíst počet položek</string>
+  <string name="title_pref_switch_access_speak_all_items">Přečíst všechny zvýrazněné položky</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Před přesunem dokončit čtení</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Další odezva</string>
+  <string name="title_pref_developer_settings">Nastavení vývojáře</string>
+  <string name="title_pref_spoken_feedback_overlay">Zobrazit hlasový výstup</string>
+  <string name="title_pref_switch_access_vibration_feedback">Vibrační odezva</string>
+  <string name="vibration_feedback_summary">Vibracemi označovat změny (např. změnu obsahu obrazovky)</string>
+  <string name="title_pref_switch_access_sound_feedback">Zvuková odezva</string>
+  <string name="sound_feedback_summary">Přehráním zvukového signálu označovat změny (např. změnu obsahu obrazovky)</string>
+  <string name="title_pref_switch_access_sound_volume">Hlasitost zvuku</string>
+  <string name="title_pref_switch_access_audio_ducking">Zeslabení zvuku</string>
+  <string name="audio_ducking_summary">Sníží hlasitost ostatních zvuků při hovoru</string>
+  <string name="switch_access_focus_cleared_no_selection">Obrazovka se změnila</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Řádek vyberete stisknutím přepínače výběru</string>
+  <string name="switch_access_spoken_feedback_group">skupina %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Skupinu vyberete stisknutím přepínače skupiny %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Položku vyberete stisknutím přepínače skupiny %1$s</string>
+  <string name="switch_access_spoken_feedback_to">%1$s až %2$s</string>
+  <string name="switch_access_spoken_feedback_items">počet položek: %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selected">Je vybrána skupina %1$s</string>
+  <string name="switch_access_spoken_feedback_row_selected">Je vybrán řádek</string>
+  <string name="switch_access_spoken_feedback_item_selected">Je vybrána položka %1$s</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">posunovací</string>
+  <string name="switch_access_spoken_feedback_scroll">po výběru lze posouvat</string>
+  <string name="switch_access_spoken_feedback_unknown">neznámá položka</string>
+  <string name="scanning_method_heading">Zvolte způsob prohledání</string>
+  <string name="row_column_scanning_description">Prohledání jednoho řádku po druhém. Po výběru řádku můžete přecházet mezi položkami v příslušném seznamu.</string>
+  <string name="linear_scanning_description">Přechod mezi jednotlivými položkami</string>
+  <string name="linear_scanning_except_keyboard_description">Přechod mezi jednotlivými položkami. Poznámka: Klávesnice budou prohledávat po řádcích.</string>
+  <string name="option_scanning_description">Všem položkám bude přiřazena barva. Stiskněte přepínač, který odpovídá barvě kolem požadované položky. Poté skupinu zužujte, dokud nedosáhnete požadované možnosti.</string>
+  <string name="setup_switch_assignment_heading">Přepínače přiřazené k akci %s</string>
+  <string name="setup_switch_assignment_empty">Žádné</string>
+  <string name="clear_keys_dialog_title">Vymazat přiřazené přepínače?</string>
+  <string name="clear_keys_dialog_message">Přepínače jste již přiřadili.</string>
+  <string name="clear_keys_dialog_positive_button">Vymazat přepínače</string>
+  <string name="clear_keys_dialog_negative_button">Ponechat přepínače</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Nejsou přiřazeny žádné přepínače</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">K této akci nejsou přiřazeny žádné přepínače. Opravdu chcete pokračovat?</string>
+  <string name="option_scan_switch_title">%1$s skupina</string>
+  <string name="option_scan_switch_subtitle">Stisknutím přepínače jej přiřadíte k výběru skupiny %1$s.</string>
+  <string name="assign_switch_subtitle">Stisknutím přepínače jej přiřadíte k akci %1$s.</string>
+  <string name="auto_scan_action_description">Zahájení prohledávání a výběr</string>
+  <string name="switch_game_heading">Otestujte nastavení pomocí piškvorek</string>
+  <string name="switch_game_one_switch_linear_subheading">Stisknutím přepínače %1$s zahájíte prohledávání. Zvýrazněnou položku vyberete opětovným stisknutím přepínače. Vyzkoušejte to.</string>
+  <string name="switch_game_one_switch_row_col_subheading">Stisknutím přepínače %1$s zahájíte prohledávání. Zvýrazněný řádek vyberete opětovným stisknutím přepínače. Dalším stisknutím vyberete zvýrazněnou položku. Vyzkoušejte to.</string>
+  <string name="switch_game_two_switch_linear_subheading">Stisknutím přepínače %1$s můžete procházet mezi položkami. Stisknutím přepínače %2$s vyberete zvýrazněnou položku. Vyzkoušejte to.</string>
+  <string name="switch_game_two_switch_row_col_subheading">Stisknutím přepínače %1$s můžete přecházet mezi řádky. Stisknutím přepínače %2$s vyberete zvýrazněný řádek. Stejným postupem vyberete položku v daném řádku. Vyzkoušejte to.</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Stisknutím přepínače %1$s vyberete položky zvýrazněné barvou %2$s, stisknutím přepínače %4$s vyberete položky zvýrazněné barvou %3$s. Postup opakujte, dokud se nedostanete na požadovanou položku. Vyzkoušejte to.</string>
+  <string name="switch_game_incomplete_switches_subheading">Ještě jste nepřiřadili přepínače ke všem akcím. Vraťte se zpět pomocí tlačítka Předchozí a dokončete přiřazení přepínačů.</string>
+  <string name="game_square_content_description">%1$s na pozici %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">prázdné pole</string>
+  <string name="game_reset_button_title">Resetovat hru</string>
+  <string name="game_square_already_taken">Tento čtvereček je již obsazen. Zkuste to znovu.</string>
+  <string name="game_win_outcome_title">Vítězství!</string>
+  <string name="game_loss_outcome_title">Příště to bude lepší</string>
+  <string name="game_tie_outcome_title">Remíza</string>
+  <string name="game_outcome_body_text">Můžete ponechat aktuální nastavení nebo začít znovu.</string>
+  <string name="game_outcome_positive_response">Ponechat nastavení</string>
+  <string name="game_outcome_negative_response">Začít znovu</string>
+  <string name="setup_completion_heading">Nastavení dokončeno</string>
+  <string name="setup_completion_message">Nyní je vše připraveno.</string>
+  <string name="setup_completion_settings_reminder">Kdykoliv můžete změnit další nastavení nebo v nastavení přístupu pomocí přepínačů znovu otevřít průvodce nastavením.</string>
+  <string name="dialog_url_list">Výběr odkazu</string>
+  <string name="dialog_do_not_disturb_permission_title">Přístup pomocí přepínačů potřebuje oprávnění k úpravám hlasitosti</string>
+  <string name="dialog_do_not_disturb_permission_message">Chcete-li upravovat hlasitost z nabídky přístupu pomocí přepínačů, udělte Nástrojům přístupnosti pro Android přístup k režimu Nerušit</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Otevřít nastavení</string>
 </resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Preference label for volume the same as the accessibility-stream volume. -->
+    <string name="value_volume_100_percent" formatted="false">Match speech volume</string>
+    <!-- Preference label for volume 75% of the accessibility-stream volume. -->
+    <string name="value_volume_75_percent" formatted="false" >75% of speech volume</string>
+    <!-- Preference label for volume 50% of the accessibility-stream volume. -->
+    <string name="value_volume_50_percent" formatted="false">50% of speech volume</string>
+    <!-- Preference label for volume 25% of the accessibility-stream volume. -->
+    <string name="value_volume_25_percent" formatted="false">25% of speech volume</string>
+
+</resources>

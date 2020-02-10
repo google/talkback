@@ -17,13 +17,14 @@
 package com.google.android.accessibility.utils.traversal;
 
 import android.graphics.Rect;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Children nodes iterator that iterates its children according the order of AccessibilityNodeInfo
@@ -48,7 +49,7 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
   }
 
   public static ReorderedChildrenIterator createAscendingIterator(
-      AccessibilityNodeInfoCompat parent, NodeCachedBoundsCalculator boundsCalculator) {
+      AccessibilityNodeInfoCompat parent, @Nullable NodeCachedBoundsCalculator boundsCalculator) {
     if (parent == null) {
       return null;
     }
@@ -57,7 +58,7 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
   }
 
   public static ReorderedChildrenIterator createDescendingIterator(
-      AccessibilityNodeInfoCompat parent, NodeCachedBoundsCalculator boundsCalculator) {
+      AccessibilityNodeInfoCompat parent, @Nullable NodeCachedBoundsCalculator boundsCalculator) {
     if (parent == null) {
       return null;
     }
@@ -65,27 +66,25 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
     return new ReorderedChildrenIterator(parent, false, boundsCalculator);
   }
 
-  private AccessibilityNodeInfoCompat mParent;
+  private final AccessibilityNodeInfoCompat mParent;
   private int mCurrentIndex;
-  private List<AccessibilityNodeInfoCompat> mNodes;
-  private boolean mIsAscending;
+  private final List<AccessibilityNodeInfoCompat> mNodes;
+  private final boolean mIsAscending;
   private final boolean mRightToLeft = false; // TODO: Refactor to get RTL state.
-  private NodeCachedBoundsCalculator mBoundsCalculator;
+  private final NodeCachedBoundsCalculator mBoundsCalculator;
 
   // Avoid constantly creating and discarding Rects.
-  private Rect mTempLeftBounds = new Rect();
-  private Rect mTempRightBounds = new Rect();
+  private final Rect mTempLeftBounds = new Rect();
+  private final Rect mTempRightBounds = new Rect();
 
   private ReorderedChildrenIterator(
       AccessibilityNodeInfoCompat parent,
       boolean isAscending,
-      NodeCachedBoundsCalculator boundsCalculator) {
+      @Nullable NodeCachedBoundsCalculator boundsCalculator) {
     mParent = parent;
     mIsAscending = isAscending;
-    mBoundsCalculator = boundsCalculator;
-    if (boundsCalculator == null) {
-      mBoundsCalculator = new NodeCachedBoundsCalculator();
-    }
+    mBoundsCalculator =
+        (boundsCalculator == null) ? new NodeCachedBoundsCalculator() : boundsCalculator;
 
     mNodes = new ArrayList<>(mParent.getChildCount());
     init(mParent);
@@ -197,7 +196,7 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
    * framework to sort children of ViewGroups. This is essentially copied from {@link
    * android.view.ViewGroup.ViewLocationHolder#compareTo} with minor modifications.
    */
-  private int compare(Rect leftBounds, Rect rightBounds) {
+  private int compare(@Nullable Rect leftBounds, @Nullable Rect rightBounds) {
     if (leftBounds == null || rightBounds == null) {
       return -1;
     }
@@ -244,7 +243,7 @@ public class ReorderedChildrenIterator implements Iterator<AccessibilityNodeInfo
 
   public void recycle() {
     AccessibilityNodeInfoUtils.recycleNodes(mNodes);
-    mNodes = null;
+    mNodes.clear();
   }
 
   private void fillNodesFromParent() {

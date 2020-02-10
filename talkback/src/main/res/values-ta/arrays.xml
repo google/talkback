@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>பட்டன்</item>
+    <item>செக் பாக்ஸ்</item>
+    <item>வண்ணத் தேர்வி</item>
+    <item>தேதி மற்றும் நேரக் கட்டுப்பாடு</item>
+    <item>தேதி மற்றும் நேரக் கட்டுப்பாடு</item>
+    <item>தேதி கட்டுப்பாடு</item>
+    <item>மின்னஞ்சலுக்கான உரையைத் திருத்து</item>
+    <item>கோப்பு தேர்வு</item>
+    <item translatable="false"></item>
+    <item>பட்டன்</item>
+    <item>மாதக் கட்டுப்பாடு</item>
+    <item>எண்முறை உரை திருத்தம் மட்டுமே</item>
+    <item>கடவுச்சொல் உரைப் பெட்டி</item>
+    <item>ரேடியோ பட்டன்</item>
+    <item>ஸ்லைடர்</item>
+    <item>மீட்டமை</item>
+    <item>தேடலுக்கான உரையைத் திருத்து</item>
+    <item>பட்டன்</item>
+    <item>ஃபோன் எண்ணிற்கான உரையைத் திருத்து</item>
+    <item>உரையைத் திருத்து</item>
+    <item>URLக்கான உரையைத் திருத்து</item>
+    <item>ஆண்டின் வாரக் கட்டுப்பாடு</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>விழிப்பூட்டல்</item>
+    <item>விழிப்பூட்டல் செய்தி</item>
+    <item>பட்டன்</item>
+    <item>செக் பாக்ஸ்</item>
+    <item>காம்போ பாக்ஸ்</item>
+    <item>செய்தி</item>
+    <item>கட்ட வடிவ கலம்</item>
+    <item>இணைப்பு</item>
+    <item>பதிவு</item>
+    <item>மார்க்யூ</item>
+    <item>மெனு உருப்படி</item>
+    <item>மெனு உருப்படி செக் பாக்ஸ்</item>
+    <item>மெனு உருப்படி ரேடியோ பட்டன்</item>
+    <item>விருப்பம்</item>
+    <item>செயல்நிலைப் பட்டி</item>
+    <item>ரேடியோ பட்டன்</item>
+    <item>ரேடியோ பட்டன் குழு</item>
+    <item>உருட்டல் பட்டி</item>
+    <item>ஸ்லைடர்</item>
+    <item>சுழல் பட்டன்</item>
+    <item>நிலை</item>
+    <item>தாவல்</item>
+    <item>தாவல் பேனல்</item>
+    <item>உரைப் பெட்டி</item>
+    <item>டைமர்</item>
+    <item>கருவிப்பட்டி</item>
+    <item>கருவியின் உதவிக்குறிப்பு</item>
+    <item>துணைப் பிரிவு உருப்படி</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>இணைப்பு</item>
+    <item>முதல்நிலை தலைப்பு</item>
+    <item>இரண்டாம்நிலை தலைப்பு</item>
+    <item>மூன்றாம்நிலை தலைப்பு</item>
+    <item>நான்காம்நிலை தலைப்பு</item>
+    <item>ஐந்தாம்நிலை தலைப்பு</item>
+    <item>ஆறாம்நிலை தலைப்பு</item>
+    <item>பட்டன்</item>
+    <item>காம்போ பாக்ஸ்</item>
+    <item>அட்டவணை</item>
+    <item>உரைப் பகுதி</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

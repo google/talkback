@@ -20,15 +20,16 @@ import android.content.Context;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.JsonUtils;
 import java.io.IOException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class TutorialController {
 
-  private Tutorial mTutorial;
+  private Tutorial tutorial;
 
   public TutorialController(Context context) throws Exception {
-    mTutorial = createTutorial(context);
+    tutorial = createTutorial(context);
   }
 
   private Tutorial createTutorial(Context context) throws IOException, JSONException {
@@ -37,15 +38,15 @@ public class TutorialController {
   }
 
   public Tutorial getTutorial() {
-    return mTutorial;
+    return tutorial;
   }
 
-  public TutorialLesson getNextLesson(TutorialLesson lesson) {
+  public @Nullable TutorialLesson getNextLesson(TutorialLesson lesson) {
     int nextIndex = lesson.getLessonIndex() + 1;
-    if (nextIndex >= mTutorial.getLessonsCount()) {
+    if (nextIndex >= tutorial.getLessonsCount()) {
       return null;
     }
 
-    return mTutorial.getLesson(nextIndex);
+    return tutorial.getLesson(nextIndex);
   }
 }

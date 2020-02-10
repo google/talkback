@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Префрлете пристап"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"„Префрли пристап“ им дозволува на луѓето со моторни нарушувања да ги контролираат телефоните и таблетите со едно или повеќе копчиња. Користете копчиња за да изберете ставки, да лизгате, да внесувате текст и друго."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Контр. го уредот со прекинув."</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Помош и повратни информации"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Автоматско скенирање"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Време на автоматско скенирање"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Обратно автоматско скенирање"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="one">%.2f секунда</item>
-      <item quantity="other">%.2f секунди</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Приспособување на скенирањето"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Метод на скенирање"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Задоцнување на првата ставка"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Назначување копчиња"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Назначете копчиња за дејства"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Назначете копчиња за скенирање"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Брзина на линијата"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Број на скенирања"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Изберете колку пати да се повторува скенирањето"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Време на толеранција на притискање"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Повеќе притискања во овој период ќе се третираат како едно."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Отпуштете го за да извршите дејство"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Извршете дејство кога копчето е отпуштено"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="one">%d повторување</item>
-      <item quantity="other">%d повторувања</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Копчето „<xliff:g id="KEY_NAME">%1$s</xliff:g>“ е веќе назначено за „<xliff:g id="ACTION_NAME">%2$s</xliff:g>“"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="one">Назначено е %d копче</item>
-      <item quantity="other">Назначени се %d копчиња</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Копче %1$d за групно избирање"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Следно"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Претходно"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Избери"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Долго притискање"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Лизгање нанапред"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Лизгање наназад"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Отфрли"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Проширување"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Собирање"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Нагласување на текстот"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Копирање"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Сечење"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Залепување"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"МЕНИ"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Назад"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Почетна страница"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Краток преглед"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Известувања"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Брзи поставки"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Лизгајте нанапред"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Лизгајте наназад"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Скенирање точка"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Скенирање на излезната точка"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Повлекување надесно"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Повлекување налево"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Повлекување нагоре"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Повлекување надолу"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Повлекување (приспособено)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Одзумирање"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Зумирање"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Поставки за „Префрли пристап“"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Притиснете комбинација од копчиња за да ја додадете или отстраните од списокот"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Избриши го назначувањето на копчето"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Нема назначени копчиња"</string>
-    <string name="more" msgid="1547670498589416840">"Повеќе"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Space"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Внеси"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"Зачувај"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Стил на нагласување на скенирањето"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Примарен стил на скенирање"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Боја за нагласување"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Стил на линијата за нагласување"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Политика за приватност"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Овозможи автоматско избирање"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Оневозможи автоматско избирање"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Следен знак"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Следен збор"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Следен ред"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Следен пасус"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Следна страница"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Претходен знак"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Претходен збор"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Претходен ред"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Претходен пасус"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Претходна страница"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Автоматски започни со скенирање"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Скенирањето започнува без притискање на прекинувачот"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Отвори го поставувањето за „Префрли пристап“"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Волшебник за поставување „Префрли пристап“"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Едно копче"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Две копчиња"</string>
-    <string name="finish" msgid="4267641294267512480">"Заврши"</string>
-    <string name="exit" msgid="8664597014081860813">"Излези"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Изберете број на копчиња"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Притиснете го копчето за да започнете да се движите помеѓу ставките автоматски, а потоа притиснете повторно за да ја изберете нагласената ставка."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Притиснете го едното копче за да се движите помеѓу ставките. Притиснете го другото за да ја изберете нагласената ставка."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Изберете ја брзината на скенирање"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Изберете колку долго да стои нагласувањето на секоја ставка"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Брзо (задоцнување од <xliff:g id="DELAY_SPEED">%1$s</xliff:g> сек.)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Средно (задоцнување од <xliff:g id="DELAY_SPEED">%1$s</xliff:g> сек.)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Бавно (задоцнување од <xliff:g id="DELAY_SPEED">%1$s</xliff:g> сек.)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Приспособено"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"задоцнување (секунди)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Копчето „<xliff:g id="KEY_NAME">%1$s</xliff:g>“ е веќе назначено за друго дејство"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Скенирање редови-колони"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Групно избирање"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Линеарно скенирање"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Говорни повратни информации"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Поставки за „Од текст во говор“"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"За повеќе ставки"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Изговори ги првата и последната ставка"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Изговори го бројот на ставки"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Изговори ги сите нагласени ставки"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Заврши го говорот пред да се преместиш"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"група <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> до <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> ставки"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"изберете за да лизгате"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"непозната ставка"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Изберете како да скенирате"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Скенирајте ги редовите еден по еден. Откако редот ќе биде избран, движете се низ ставките во тој список."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Движете се помеѓу ставките, една по една. Имајте предвид дека тастатурите секогаш ќе скенираат по редови."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"На сите ставки ќе им биде доделена боја. Притиснете го копчето што одговара на бојата околу ставката што ја сакате. Стеснувајте ја големината на групата сѐ додека не го постигнете вашиот избор."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Копчиња назначени за <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Ниедно"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Да се избришат назначените копчиња?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Веќе назначивте копчиња."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Избриши ги копчињата"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Задржи ги копчињата"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Нема назначени копчиња"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Нема назначени копчиња за дејствово. Дали сте сигурни дека сакате да продолжите?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> група"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Притиснете копче за да го назначите да ја избере <xliff:g id="OPTION_COLOR">%1$s</xliff:g> група."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Притиснете копче за да го назначите за дејството „<xliff:g id="ACTION_NAME">%1$s</xliff:g>“."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Започнете со скенирање и изберете"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Тестирајте го поставувањето со „икс-точка“"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Притиснете „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>“ за да започнете со скенирање. Притиснете го копчето повторно за да ја изберете нагласената ставка. Ајде прво вие."</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Притиснете „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>“ за да започнете со скенирање. Притиснете го копчето повторно за да го изберете нагласениот ред. Притиснете уште еднаш за да ја изберете нагласената ставка. Ајде прво вие."</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Притиснете „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>“ за да се движите помеѓу ставки. Притиснете „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>“ за да ја изберете нагласената ставка. Ајде прво вие."</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Притиснете „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>“ за да се движите помеѓу редовите. Притиснете „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>“ за да го изберете нагласениот ред. Повторете за да изберете ставка во тој ред. Ајде прво вие."</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Притиснете „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>“ за да изберете ставки нагласени со <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> боја или притиснете „<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>“ за да изберете ставки нагласени со <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> боја. Повторете за да стигнете до ставката. Ајде прво вие."</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Сѐ уште немате назначени копчиња за сите дејства. Користете го копчето „Претходно“ за да се вратите и да го завршите назначувањето на копчињата."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Ресетирај ја играта"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Квадратов е веќе зафатен. Обидете се повторно."</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Победивте!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Повеќе среќа следниот пат"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Нерешено е"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Може да го задржите тековното поставување или да почнете одново."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Задржи го поставувањето"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Почни одново"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Поставувањето е завршено"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Подготвени сте."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Секогаш може да измените дополнителни поставки или да го отворите повторно волшебникот за поставување од поставките за „Префрли пристап“."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Пристап со прекинувачи</string>
+  <string name="switch_access_service_description">„Префрли пристап“ им дозволува на луѓето со моторни нарушувања да ги контролираат телефоните и таблетите со едно или повеќе копчиња. Користете копчиња за да изберете ставки, да лизгате, да внесувате текст и друго.</string>
+  <string name="switch_access_service_summary">Контр. го уредот со прекинув.</string>
+  <string name="title_pref_help_feedback">Помош и повратни информации</string>
+  <string name="title_pref_licenses">Лиценци за софтвер со отворен код</string>
+  <string name="title_pref_category_auto_scan">Автоматско скенирање</string>
+  <string name="title_pref_auto_scan_disabled">Автоматско скенирање (оневозможено)</string>
+  <string name="action_key_summary_auto_scan">Со притискање на прекинувачов автоматски ќе започне да се поместува нагласувањето помеѓу ставките. Ако го притиснете повторно, ќе се избере нагласената ставка.</string>
+  <string name="title_pref_auto_scan_time_delay">Време на автоматско скенирање</string>
+  <string name="action_name_reverse_auto_scan">Обратно автоматско скенирање</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Обратно автоматско скенирање (оневозможено)</string>
+  <string name="action_key_summary_reverse_auto_scan">Со притискање на прекинувачов автоматски ќе започне да се поместува нагласувањето помеѓу ставките обратно. Ако го притиснете повторно, ќе се избере нагласената ставка.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">%.2f секунда</item>
+    <item quantity="other">%.2f секунди</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Приспособување на скенирањето</string>
+  <string name="title_pref_scanning_methods">Метод на скенирање</string>
+  <string name="title_pref_start_scan_delay">Задоцнување на првата ставка</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Изберете го дополнителното време што ќе се потроши на првата ставка. Ова време се додава на времето за автоматско скенирање.\n\nОваа поставка влијае на автоматското скенирање и на скенирањето точки.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Изберете го дополнителното време што ќе се потроши на првата ставка. После ова време, вертикалната или хоризонталната линија ќе почне да се движи.\n\nОваа поставка влијае на автоматското скенирање и на скенирањето точки.</string>
+  <string name="title_pref_category_assign_switches">Назначување копчиња</string>
+  <string name="title_pref_category_key_mappings">Назначете прекинувачи за глобални дејства</string>
+  <string name="summary_pref_category_key_mappings">Глобалните дејства може да се извршуваат во секое време</string>
+  <string name="title_pref_category_scan_key_mappings">Назначете копчиња за скенирање</string>
+  <string name="summary_pref_category_scan_key_mappings">Скенирањето ви овозможува да го преместувате нагласувањето и да ги избирате нагласените ставки</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Движење и избор</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Дејства на нагласена ставка</string>
+  <string name="title_pref_point_scan_line_speed">Брзина на линијата</string>
+  <string name="dialog_message_pref_line_speed">Изберете колку брзо хоризонталните и вертикалните линии се движат по екранот.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">%.2f см во секунда</item>
+    <item quantity="other">%.2f см во секунда</item>
+  </plurals>
+  <string name="title_pref_loop_count">Број на скенирања</string>
+  <string name="dialog_message_pref_loop_count">Изберете колку пати се повторува скенирањето.\n\nОваа поставка влијае на автоматското скенирање и на скенирање точки.</string>
+  <string name="summary_pref_point_scan">Користете подвижни линии за да изберете одредена хоризонтална и вертикална локација. %1$s</string>
+  <string name="point_scan_enable_animations_message">Вклучете ги анимациите за да ја користите функцијава.</string>
+  <string name="title_pref_category_switch_accomodation">Приспособување на прекинувачите</string>
+  <string name="title_pref_debounce_time">Игнорирај ги повторените притискања</string>
+  <string name="dialog_message_pref_debounce_time">Повеќе притискања на прекинувачот во овој период ќе се третираат како едно.</string>
+  <string name="title_pref_press_on_release">Отпуштете го за да извршите дејство</string>
+  <string name="subtitle_pref_press_on_release">Извршете дејство кога копчето е отпуштено</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d повторување</item>
+    <item quantity="other">%d повторувања</item>
+  </plurals>
+  <string name="preference_off">Исклучено</string>
+  <string name="preference_on">Вклучено</string>
+  <string name="toast_msg_key_already_assigned">Копчето „%1$s“ е веќе назначено за „%2$s“</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">Назначено е %d копче</item>
+    <item quantity="other">Назначени се %d копчиња</item>
+  </plurals>
+  <string name="option_scan_switch_format">Копче %1$d за групно избирање</string>
+  <string name="option_scan_switch_format_with_color">Копче %1$d за групно избирање (%2$s)</string>
+  <string name="option_scan_key_summary_format">Ако го притиснете овој прекинувач, ќе се избере групата %1$d.</string>
+  <string name="action_name_next">Следно</string>
+  <string name="action_key_summary_next">Ако го притиснете овој прекинувач, ќе се нагласи следната ставка.</string>
+  <string name="action_name_previous">Претходно</string>
+  <string name="action_key_summary_previous">Ако го притиснете овој прекинувач, ќе се нагласи претходната ставка.</string>
+  <string name="action_name_click">Избери</string>
+  <string name="action_key_summary_click">Ако го притиснете овој прекинувач, ќе се избере нагласената ставка.</string>
+  <string name="action_name_long_click">Допри и задржи</string>
+  <string name="action_key_summary_long_click">Ако го притиснете овој прекинувач, ќе се допре и задржи нагласената ставка.</string>
+  <string name="action_name_scroll_forward">Лизгање нанапред</string>
+  <string name="action_key_summary_scroll_forward">Ако го притиснете овој прекинувач, ќе се лизга нагласената ставка нанапред.</string>
+  <string name="action_name_scroll_backward">Лизгање наназад</string>
+  <string name="action_key_summary_scroll_backward">Ако го притиснете овој прекинувач, ќе се лизга нагласената ставка наназад.</string>
+  <string name="action_name_dismiss">Отфрли</string>
+  <string name="action_name_expand">Проширување</string>
+  <string name="action_name_collapse">Собирање</string>
+  <string name="action_name_highlight_text">Нагласување на текстот</string>
+  <string name="action_group_name_highlight">Нагласи…</string>
+  <string name="action_name_highlight_all_text">Нагласи го целиот текст</string>
+  <string name="action_name_highlight_granular_text">Нагласи %1$s</string>
+  <string name="action_name_copy">Копирање</string>
+  <string name="action_name_copy_all_text">Копирај сѐ</string>
+  <string name="action_name_cut">Сечење</string>
+  <string name="action_name_cut_all_text">Исечи сѐ</string>
+  <string name="action_name_paste">Залепување</string>
+  <string name="action_name_undo">Врати</string>
+  <string name="action_name_redo">Повтори</string>
+  <string name="action_group_name_delete">Избриши…</string>
+  <string name="action_name_delete">Избриши %1$s</string>
+  <string name="action_name_delete_highlighted_text">Избриши го нагласениот текст</string>
+  <string name="option_scanning_menu_button">МЕНИ</string>
+  <string name="option_scanning_menu_button_content_description">Мени „Префрли пристап“</string>
+  <string name="switch_access_global_menu">Глобално мени за „Пристап со прекинувачи“</string>
+  <string name="switch_access_actions_menu">Мени со дејства за „Пристап со прекинувачи“</string>
+  <string name="switch_access_close_menu">ЗАТВОРИ</string>
+  <string name="switch_access_back_menu">НАЗАД</string>
+  <string name="next_arrow_content_description">Следно</string>
+  <string name="previous_arrow_content_description">Претходно</string>
+  <string name="global_action_back">Назад</string>
+  <string name="global_action_key_summary_back">Ако го притиснете овој прекинувач, ќе се вратите на претходниот екран или ќе се сокрие тастатурата ако е видлива.</string>
+  <string name="global_action_home">Почетна страница</string>
+  <string name="global_action_key_summary_home">Ако го притиснете овој прекинувач, ќе отидете на „Почетен екран“.</string>
+  <string name="global_action_overview">Краток преглед</string>
+  <string name="global_action_key_summary_overview">Ако го притиснете овој прекинувач, ќе се прикаже список со неодамна отворени апликации.</string>
+  <string name="global_action_notifications">Известувања</string>
+  <string name="global_action_key_summary_notifications">Ако го притиснете овој прекинувач, ќе се прикажат известувањата на вашиот уред.</string>
+  <string name="global_action_quick_settings">Брзи поставки</string>
+  <string name="global_action_key_summary_quick_settings">Ако го притиснете овој прекинувач, ќе се прикажат „Брзите поставки“ на вашиот уред.</string>
+  <string name="global_action_power_options">Опции за напојување</string>
+  <string name="global_menu_volume_heading">Јачина на звук</string>
+  <string name="volume_menu_media">Јачина на звук за аудиовизуелни содржини</string>
+  <string name="volume_menu_call">Јачина на звук за повици</string>
+  <string name="volume_menu_ring">Јачина на звук за ѕвонење</string>
+  <string name="volume_menu_alarm">Јачина на звук за аларми</string>
+  <string name="volume_menu_accessibility">Јачина на звук за пристапност</string>
+  <string name="volume_menu_mute">Исклучи звук</string>
+  <string name="volume_menu_unmute">Вклучи звук</string>
+  <string name="volume_menu_increase">Зголеми</string>
+  <string name="volume_settings">Поставки за јачина на звук</string>
+  <string name="volume_menu_decrease">Намали</string>
+  <string name="scrollable_forward">Лизгајте нанапред</string>
+  <string name="scrollable_backward">Лизгајте наназад</string>
+  <string name="point_scan">Скенирање точка</string>
+  <string name="box_scan">Скенирање на излезната точка</string>
+  <string name="action_name_swipe_right">Повлекување надесно</string>
+  <string name="action_name_swipe_left">Повлекување налево</string>
+  <string name="action_name_swipe_up">Повлекување нагоре</string>
+  <string name="action_name_swipe_down">Повлекување надолу</string>
+  <string name="action_name_swipe_custom">Повлекување (приспособено)</string>
+  <string name="action_name_zoom_out">Одзумирање</string>
+  <string name="action_name_zoom_in">Зумирање</string>
+  <string name="switch_access_preferences_title">Поставки за „Префрли пристап“</string>
+  <string name="key_combo_preference_instructions">Притиснете комбинација од копчиња за да ја додадете или отстраните од списокот</string>
+  <string name="key_combo_preference_reset_button">Избриши го назначувањето на копчето</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Нема назначени копчиња</string>
+  <string name="more">Повеќе</string>
+  <string name="name_of_space_bar">Space</string>
+  <string name="name_of_enter_key">Внеси</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">Зачувај</string>
+  <string name="title_pref_category_display_and_sound">Екран и звук</string>
+  <string name="title_pref_highlight_0">Стил на нагласување на скенирањето</string>
+  <string name="title_pref_primary_scan_style">Примарен стил на скенирање</string>
+  <string name="title_pref_highlight_0_color">Боја за нагласување</string>
+  <string name="title_pref_highlight_0_weight">Стил на линијата за нагласување</string>
+  <string name="title_pref_privacy_policy">Политика за приватност</string>
+  <string name="title_pref_auto_select">Автоматско избирање</string>
+  <string name="summary_pref_auto_select">Автоматско избирање на нагласената ставка. Ако ставката не може да се избере или ако поставкава е исклучена, ќе видите мени со достапни дејства.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Овозможи автоматско избирање</string>
+  <string name="switch_access_global_menu_disable_autoselect">Оневозможи автоматско избирање</string>
+  <string name="switch_access_move_next">Следно…</string>
+  <string name="switch_access_move_next_character">Следен знак</string>
+  <string name="switch_access_move_next_word">Следен збор</string>
+  <string name="switch_access_move_next_line">Следен ред</string>
+  <string name="switch_access_move_next_paragraph">Следен пасус</string>
+  <string name="switch_access_move_next_page">Следна страница</string>
+  <string name="switch_access_move_next_sentence">Следна реченица</string>
+  <string name="switch_access_move_prev">Претходно…</string>
+  <string name="switch_access_move_prev_character">Претходен знак</string>
+  <string name="switch_access_move_prev_word">Претходен збор</string>
+  <string name="switch_access_move_prev_line">Претходен ред</string>
+  <string name="switch_access_move_prev_paragraph">Претходен пасус</string>
+  <string name="switch_access_move_prev_page">Претходна страница</string>
+  <string name="switch_access_move_prev_sentence">Претходна реченица</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Автоматски започни со скенирање</string>
+  <string name="switch_access_auto_start_scan_summary">Скенирањето започнува без притискање на прекинувачот</string>
+  <string name="pref_begin_switchaccess_setup_title">Отворање на водичот за поставување</string>
+  <string name="setup_wizard_heading">Водич за поставување на „Пристап со прекинувачи“</string>
+  <string name="one_switch">Едно копче</string>
+  <string name="two_switches">Две копчиња</string>
+  <string name="finish">Заврши</string>
+  <string name="exit">Излези</string>
+  <string name="intro_heading">Избор на прекинувач</string>
+  <string name="usb_switch_option_text">USB-прекинувач</string>
+  <string name="bluetooth_switch_option_text">Прекинувач за Bluetooth</string>
+  <string name="usb_switch_description_text">Физички поврзи прекинувач преку USB</string>
+  <string name="bluetooth_switch_description_text">Безжично спари прекинувач преку Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">Уредот не поддржува Bluetooth. Наместо тоа, употребете физички прекинувач.</string>
+  <string name="connected_usb_devices_header">Поврзани уреди</string>
+  <string name="usb_no_devices_connected_message">Не се најдени USB-уреди. Проверете дали уредот е безбедно поврзан.</string>
+  <string name="connect_usb_heading">Поврзување USB-прекинувач</string>
+  <string name="pair_bluetooth_heading">Спарување Bluetooth-прекинувач</string>
+  <string name="pair_bluetooth_subheading">Допрете го прекинувачот за Bluetooth подолу</string>
+  <string name="bluetooth_not_enabled_message">За да спарите Bluetooth-прекинувач, вклучете Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Вклучи Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Нема спарени уреди со Bluetooth</string>
+  <string name="paired_devices_header">Спарени уреди со Bluetooth</string>
+  <string name="available_devices_header">Достапни уреди со Bluetooth</string>
+  <string name="bluetooth_computer_content_description">Компјутер</string>
+  <string name="bluetooth_phone_content_description">Телефон</string>
+  <string name="bluetooth_imaging_content_description">Слики</string>
+  <string name="bluetooth_headphone_content_description">Слушалка</string>
+  <string name="bluetooth_peripheral_content_description">Периферен</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Се поврзува…</string>
+  <string name="bluetooth_connected_description">Поврзано</string>
+  <string name="bluetooth_device_unavailable_description">Уредот е недостапен</string>
+  <string name="reconnecting_unsupported_title">Не може да се поврзе со уредот</string>
+  <string name="reconnecting_unsupported_message">„Пристапот со прекинувачи“ не може да се поврзе со претходно спарениот уред. Проверете дали уредот е вклучен и поврзан.\n\nАко уредот сѐ уште не сака да се поврзе, одете во поставките за Bluetooth и пробајте да го поврзете повторно.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Оди во поставките за Bluetooth</string>
+  <string name="number_of_switches_heading">Изберете број на копчиња</string>
+  <string name="title_assign_scan_key">Доделете прекинувач за „%1$s“</string>
+  <string name="one_switch_description_text">Притиснете го прекинувачот за да започнете да се движите помеѓу ставките автоматски. Притиснете го повторно за да ја изберете нагласената ставка.</string>
+  <string name="two_switches_description_text">Притиснете го едното копче за да се движите помеѓу ставките. Притиснете го другото за да ја изберете нагласената ставка.</string>
+  <string name="step_speed_heading">Изберете ја брзината на скенирање</string>
+  <string name="step_speed_subheading">Изберете колку долго да стои нагласувањето на секоја ставка</string>
+  <string name="fast_radio_button_title">Брзо (задоцнување од %1$s сек.)</string>
+  <string name="medium_radio_button_title">Средно (задоцнување од %1$s сек.)</string>
+  <string name="slow_radio_button_title">Бавно (задоцнување од %1$s сек.)</string>
+  <string name="custom_switch">Приспособено</string>
+  <string name="custom_edit_text">задоцнување (секунди)</string>
+  <string name="setup_toast_msg_key_already_assigned">Копчето „%1$s“ е веќе назначено за друго дејство</string>
+  <string name="row_column_scanning_title">Скенирање редови-колони</string>
+  <string name="option_scanning_title">Групно избирање (напредно)</string>
+  <string name="linear_scanning_title">Линеарно скенирање</string>
+  <string name="linear_scanning_except_keyboard_title">Линеарно скенирање (освен тастатура)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Говор, звук и вибрации</string>
+  <string name="title_pref_switch_access_spoken_feedback">Говорни повратни информации</string>
+  <string name="title_pref_scan_non_actionable_items">Изговарај описен текст</string>
+  <string name="scan_non_actionable_items_summary">Слушајте говорни повратни информации за ставки со достапни дејства и описен текст</string>
+  <string name="title_pref_switch_access_verbosity">Речитост</string>
+  <string name="summary_verbosity">Изберете колку информации да се изговараат</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Детали за речитост</string>
+  <string name="title_pref_switch_access_keyboard_echo">Ехо од тастатура</string>
+  <string name="keyboard_echo_summary_on">Изговарај ги напишаните копчиња за тастатура на екран</string>
+  <string name="keyboard_echo_summary_off">Не изговарај ги напишаните копчиња за тастатура на екран</string>
+  <string name="title_pref_enable_hints">Изговарај совети за користење</string>
+  <string name="enable_hints_summary_on">Совети за користење се изговараат при навигацијата со кратко задоцнување</string>
+  <string name="enable_hints_summary_off">Совети за користење не се изговараат при преместување на фокусот за пристапност</string>
+  <string name="title_pref_speak_container_element_position">Изговарај информации за список и мрежа</string>
+  <string name="speak_container_element_position_summary_on">Се изговараат информациите за список и мрежа</string>
+  <string name="speak_container_element_position_summary_off">Не се изговараат информациите за список и мрежа</string>
+  <string name="title_pref_speak_element_type">Изговарај го типот на елементот</string>
+  <string name="speak_element_type_summary_on">Се изговара типот на елементот за ставките во фокус</string>
+  <string name="speak_element_type_summary_off">Не се изговара типот на елементот за ставките во фокус</string>
+  <string name="title_pref_pitch_change_for_ime">Менувај ја висина на гласот</string>
+  <string name="pitch_change_for_ime_summary_on">Изговарај ги повратните информации за тастатурата со понизок глас</string>
+  <string name="pitch_change_for_ime_summary_off">Не менувај ги говорните повратни информации кога зборуваш</string>
+  <string name="title_pref_speak_selected_item_or_group">Изговарај ја избраната ставка или група</string>
+  <string name="speak_selected_item_or_group_summary">Изговарај го името на ставката или групата откако ќе се избере</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Максимално време за говорен опис по ставка</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Поставете го максималното време за говорен опис на секоја ставка. Говорот ќе се прекине по поставеното време.\nНапомена: советите секогаш ќе се изговараат ако се вклучени.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Разни</string>
+  <string name="title_pref_node_description_order">Редослед на опишување елементи</string>
+  <string name="title_pref_switch_access_speak_element_ids">Изговарај ID-кодови на елементи</string>
+  <string name="speak_element_ids_summary_on">Се изговараат ID-кодови на елементи за неозначени копчиња</string>
+  <string name="speak_element_ids_summary_off">Не се изговараат ID-кодови на елементи за неозначени копчиња</string>
+  <string name="title_pref_switch_access_tts_settings">Поставки за „Од текст во говор“</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Кога се истакнати повеќе ставки</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Изговарај ја првата и последната ставка</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Изговори го бројот на ставки</string>
+  <string name="title_pref_switch_access_speak_all_items">Изговори ги сите нагласени ставки</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Заврши го говорот пред да се преместиш</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Други повратни информации</string>
+  <string name="title_pref_developer_settings">Програмерски поставки</string>
+  <string name="title_pref_spoken_feedback_overlay">Приказ на говорен излез</string>
+  <string name="title_pref_switch_access_vibration_feedback">Повратни информации со вибрации</string>
+  <string name="vibration_feedback_summary">Вибрирај за да означиш дека нешто се сменило (на пр., дека содржините на екранот се смениле)</string>
+  <string name="title_pref_switch_access_sound_feedback">Звучни повратни информации</string>
+  <string name="sound_feedback_summary">Пуштај тон за да означиш дека нешто се сменило (на пр., дека содржините на екранот се смениле)</string>
+  <string name="title_pref_switch_access_sound_volume">Јачина на звук</string>
+  <string name="title_pref_switch_access_audio_ducking">Намалување звук на апликации</string>
+  <string name="audio_ducking_summary">Намали го звукот на другите апликации додека зборуваш</string>
+  <string name="switch_access_focus_cleared_no_selection">Екранот се промени</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Притиснете го избраниот прекинувач за да го изберете редот</string>
+  <string name="switch_access_spoken_feedback_group">група %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Притиснете го прекинувачот за групата %1$s за да ја изберете групата</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Притиснете го прекинувачот за групата %1$s за да ја изберете ставката</string>
+  <string name="switch_access_spoken_feedback_to">%1$s до %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s ставки</string>
+  <string name="switch_access_spoken_feedback_group_selected">избрана е групата %1$s</string>
+  <string name="switch_access_spoken_feedback_row_selected">избран е редот</string>
+  <string name="switch_access_spoken_feedback_item_selected">избрана е %1$s</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">може да се лизга</string>
+  <string name="switch_access_spoken_feedback_scroll">изберете за да лизгате</string>
+  <string name="switch_access_spoken_feedback_unknown">непозната ставка</string>
+  <string name="scanning_method_heading">Изберете како да скенирате</string>
+  <string name="row_column_scanning_description">Скенирајте ги редовите еден по еден. Откако редот ќе биде избран, движете се низ ставките во тој список.</string>
+  <string name="linear_scanning_description">Движи се помеѓу ставките една по една</string>
+  <string name="linear_scanning_except_keyboard_description">Движи се помеѓу ставките една по една. Имајте предвид дека тастатурите ќе скенираат по редови.</string>
+  <string name="option_scanning_description">На сите ставки ќе им биде доделена боја. Притиснете го копчето што одговара на бојата околу ставката што ја сакате. Стеснувајте ја големината на групата сѐ додека не го постигнете вашиот избор.</string>
+  <string name="setup_switch_assignment_heading">Копчиња назначени за %s</string>
+  <string name="setup_switch_assignment_empty">Ниедно</string>
+  <string name="clear_keys_dialog_title">Да се избришат назначените копчиња?</string>
+  <string name="clear_keys_dialog_message">Веќе назначивте копчиња.</string>
+  <string name="clear_keys_dialog_positive_button">Избриши ги копчињата</string>
+  <string name="clear_keys_dialog_negative_button">Задржи ги копчињата</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Нема назначени копчиња</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Нема назначени копчиња за дејствово. Дали сте сигурни дека сакате да продолжите?</string>
+  <string name="option_scan_switch_title">%1$s група</string>
+  <string name="option_scan_switch_subtitle">Притиснете копче за да го назначите да ја избере %1$s група.</string>
+  <string name="assign_switch_subtitle">Притиснете копче за да го назначите за дејството „%1$s“.</string>
+  <string name="auto_scan_action_description">Започнете со скенирање и изберете</string>
+  <string name="switch_game_heading">Тестирајте го поставувањето со „икс-точка“</string>
+  <string name="switch_game_one_switch_linear_subheading">Притиснете „%1$s“ за да започнете со скенирање. Притиснете го копчето повторно за да ја изберете нагласената ставка. Ајде прво вие.</string>
+  <string name="switch_game_one_switch_row_col_subheading">Притиснете „%1$s“ за да започнете со скенирање. Притиснете го копчето повторно за да го изберете нагласениот ред. Притиснете уште еднаш за да ја изберете нагласената ставка. Ајде прво вие.</string>
+  <string name="switch_game_two_switch_linear_subheading">Притиснете „%1$s“ за да се движите помеѓу ставки. Притиснете „%2$s“ за да ја изберете нагласената ставка. Ајде прво вие.</string>
+  <string name="switch_game_two_switch_row_col_subheading">Притиснете „%1$s“ за да се движите помеѓу редовите. Притиснете „%2$s“ за да го изберете нагласениот ред. Повторете за да изберете ставка во тој ред. Ајде прво вие.</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Притиснете „%1$s“ за да изберете ставки нагласени со %2$s боја или притиснете „%4$s“ за да изберете ставки нагласени со %3$s боја. Повторете за да стигнете до ставката. Ајде прво вие.</string>
+  <string name="switch_game_incomplete_switches_subheading">Сѐ уште немате назначени копчиња за сите дејства. Користете го копчето „Претходно“ за да се вратите и да го завршите назначувањето на копчињата.</string>
+  <string name="game_square_content_description">%1$s на позиција %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">празно</string>
+  <string name="game_reset_button_title">Ресетирај ја играта</string>
+  <string name="game_square_already_taken">Квадратов е веќе зафатен. Обидете се повторно.</string>
+  <string name="game_win_outcome_title">Победивте!</string>
+  <string name="game_loss_outcome_title">Повеќе среќа следниот пат</string>
+  <string name="game_tie_outcome_title">Нерешено е</string>
+  <string name="game_outcome_body_text">Може да го задржите тековното поставување или да почнете одново.</string>
+  <string name="game_outcome_positive_response">Задржи го поставувањето</string>
+  <string name="game_outcome_negative_response">Почни одново</string>
+  <string name="setup_completion_heading">Поставувањето е завршено</string>
+  <string name="setup_completion_message">Подготвени сте.</string>
+  <string name="setup_completion_settings_reminder">Секогаш може да измените дополнителни поставки или да го отворите повторно волшебникот за поставување од поставките за „Префрли пристап“.</string>
+  <string name="dialog_url_list">Изберете линк</string>
+  <string name="dialog_do_not_disturb_permission_title">„Пристапот со прекинувачи“ бара дозвола за приспособување на јачината на звукот</string>
+  <string name="dialog_do_not_disturb_permission_message">За да ја приспособите јачината на звукот од менито за „Пристапот со прекинувачи“, вклучете пристап до „Не вознемирувај“ за „Пакетот услуги за пристапност на Android“</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Отвори ги поставките</string>
 </resources>

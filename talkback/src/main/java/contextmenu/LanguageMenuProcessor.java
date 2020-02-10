@@ -16,18 +16,16 @@
 
 package com.google.android.accessibility.talkback.contextmenu;
 
-import android.app.KeyguardManager;
-import android.content.Context;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.Voice;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.utils.FailoverTextToSpeech;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.accessibility.utils.ScreenMonitor;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +35,8 @@ import java.util.Set;
 
 /** Configure dynamic menu items on the language context menu. */
 public class LanguageMenuProcessor {
+
+  private static final String TAG = "LanguageMenuProcessor";
 
   private static List<ContextMenuItem> getMenuItems(
       TalkBackService service, ContextMenuItemBuilder menuItemBuilder) {
@@ -109,13 +109,8 @@ public class LanguageMenuProcessor {
     if (service == null) {
       return null;
     }
-
-    KeyguardManager keyguardManager =
-        (KeyguardManager) service.getSystemService(Context.KEYGUARD_SERVICE);
-    boolean isLocked = keyguardManager.inKeyguardRestrictedInputMode();
-
     // We do not want to show languages menu if the user is on the lock screen.
-    if (isLocked) {
+    if (ScreenMonitor.isDeviceLocked(service)) {
       return null;
     }
 
@@ -127,11 +122,15 @@ public class LanguageMenuProcessor {
     Set<Voice> voices;
     try {
       voices = mTts.getEngineInstance().getVoices();
-    } catch (NullPointerException e) {
-      LogUtils.log(Log.ERROR, "TTS client crashed while generating language menu items");
+    } catch (Exception e) {
+      LogUtils.e(TAG, "TTS client crashed while generating language menu items");
       e.printStackTrace();
       return null;
     }
+    if (voices == null) {
+      return null;
+    }
+
     for (Voice voice : voices) {
       Set<String> features = voice.getFeatures();
       // Filtering the installed voices to add to the menu
@@ -164,11 +163,11 @@ public class LanguageMenuProcessor {
 
   private static class LanguageMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
     private final HashMap<Locale, String> res;
-    private TalkBackService mService;
+    private TalkBackService service;
 
     public LanguageMenuItemClickListener(TalkBackService service, HashMap<Locale, String> result) {
       res = result;
-      mService = service;
+      this.service = service;
     }
 
     @Override
@@ -186,7 +185,7 @@ public class LanguageMenuProcessor {
           break;
         }
       }
-      mService.setUserPreferredLocale(locale);
+      service.setUserPreferredLocale(locale);
       return true;
     }
   }

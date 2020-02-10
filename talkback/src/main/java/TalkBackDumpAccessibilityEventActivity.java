@@ -16,43 +16,37 @@
 
 package com.google.android.accessibility.talkback;
 
-import android.app.ActionBar;
-import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
 import android.text.SpannableString;
-import android.text.TextUtils;
 import android.text.style.TtsSpan;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
-import com.google.android.accessibility.utils.BuildVersionUtils;
+import com.google.android.accessibility.utils.BasePreferencesActivity;
+import com.google.android.accessibility.utils.PreferenceSettingsUtils;
+import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import java.util.ArrayList;
+import java.util.List;
 
 /** Activity used to set TalkBack's dump events preferences. */
-public class TalkBackDumpAccessibilityEventActivity extends Activity {
+public class TalkBackDumpAccessibilityEventActivity extends BasePreferencesActivity {
 
-  private MenuItem.OnMenuItemClickListener mListener;
+  private MenuItem.OnMenuItemClickListener listener;
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    setTitle(getString(R.string.title_activity_dump_a11y_event));
-
-    ActionBar actionBar = getActionBar();
-    if (actionBar != null) {
-      actionBar.setDisplayHomeAsUpEnabled(true);
-    }
+  protected PreferenceFragmentCompat createPreferenceFragment() {
     TalkBackDumpAccessibilityEventFragment fragment = new TalkBackDumpAccessibilityEventFragment();
-    mListener = fragment;
-    getFragmentManager().beginTransaction().replace(android.R.id.content, fragment).commit();
+    listener = fragment;
+    return fragment;
   }
 
   /**
@@ -66,7 +60,7 @@ public class TalkBackDumpAccessibilityEventActivity extends Activity {
       finish();
       return true;
     } else if (itemId == R.id.disable_all || itemId == R.id.enable_all) {
-      return mListener.onMenuItemClick(item);
+      return listener.onMenuItemClick(item);
     } else {
       return super.onOptionsItemSelected(item);
     }
@@ -79,62 +73,39 @@ public class TalkBackDumpAccessibilityEventActivity extends Activity {
     return true;
   }
 
-  public static class TalkBackDumpAccessibilityEventFragment extends PreferenceFragment
-      implements MenuItem.OnMenuItemClickListener, OnPreferenceChangeListener {
+  /** Fragment used to display TalkBack's dump events preferences. */
+  public static class TalkBackDumpAccessibilityEventFragment extends PreferenceFragmentCompat
+      implements MenuItem.OnMenuItemClickListener {
 
-    private TalkBackService mService;
-    /** List of all the accessibility event types */
-    private static final int[] DUMP_A11Y_EVENT_IDS = AccessibilityEventUtils.getAllEventTypes();
-
-    /** List of preference keys */
-    private ArrayList<String> mDumpEventPrefKeys = new ArrayList<>(DUMP_A11Y_EVENT_IDS.length);
+    private final List<EventDumperSwitchPreference> switchPreferences = new ArrayList<>();
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+      Context context = getActivity();
 
-      // Set preferences to use device-protected storage.
-      if (BuildVersionUtils.isAtLeastN()) {
-        getPreferenceManager().setStorageDeviceProtected();
-      }
+      PreferenceSettingsUtils.addPreferencesFromResource(this, R.xml.dump_events_preferences);
 
-      mService = TalkBackService.getInstance();
-
-      // Compose preference keys from a key prefix and accessibility event types.
-      for (int id : DUMP_A11Y_EVENT_IDS) {
-        mDumpEventPrefKeys.add(getString(R.string.pref_dump_event_key_prefix, id));
-      }
-
-      addPreferencesFromResource(R.xml.dump_events_preferences);
       PreferenceScreen screen = getPreferenceScreen();
 
-      for (int i = 0; i < DUMP_A11Y_EVENT_IDS.length; i++) {
-        String title = AccessibilityEvent.eventTypeToString(DUMP_A11Y_EVENT_IDS[i]);
-        if (TextUtils.isEmpty(title)) {
-          continue;
-        }
-
-        SwitchPreference preference = new SwitchPreference(getActivity());
-        preference.setKey(mDumpEventPrefKeys.get(i));
-
-        // Add TtsSpan to the titles to improve readability.
-        SpannableString spannableString = new SpannableString(title);
-        TtsSpan ttsSpan = new TtsSpan.TextBuilder(title.replaceAll("_", " ")).build();
-        spannableString.setSpan(ttsSpan, 0, title.length(), 0 /* no flag */);
-        preference.setTitle(spannableString);
-
+      for (int eventType : AccessibilityEventUtils.getAllEventTypes()) {
+        EventDumperSwitchPreference preference =
+            new EventDumperSwitchPreference(context, eventType);
+        switchPreferences.add(preference);
         screen.addPreference(preference);
-        preference.setOnPreferenceChangeListener(this);
       }
     }
 
-    private void setAllPreferenceValue(boolean value) {
-      for (String prefKey : mDumpEventPrefKeys) {
-        Preference preference = findPreference(prefKey);
-        if (preference != null) {
-          ((SwitchPreference) preference).setChecked(value);
-          onPreferenceChange(preference, value);
-        }
+    private void setDumpAllEvents(boolean enabled) {
+      Context context = getActivity().getApplicationContext();
+      SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
+      prefs
+          .edit()
+          .putInt(
+              context.getString(R.string.pref_dump_event_mask_key),
+              enabled ? AccessibilityEvent.TYPES_ALL_MASK : 0)
+          .apply();
+      for (EventDumperSwitchPreference preference : switchPreferences) {
+        preference.setChecked(enabled);
       }
     }
 
@@ -142,24 +113,54 @@ public class TalkBackDumpAccessibilityEventActivity extends Activity {
     public boolean onMenuItemClick(MenuItem menuItem) {
       final int itemId = menuItem.getItemId();
       if (itemId == R.id.disable_all) {
-        setAllPreferenceValue(false);
+        setDumpAllEvents(false);
         return true;
       } else if (itemId == R.id.enable_all) {
-        setAllPreferenceValue(true);
+        setDumpAllEvents(true);
         return true;
       } else {
         return false;
       }
     }
 
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-      if (mService != null) {
-        String prefKey = preference.getKey();
-        int index = mDumpEventPrefKeys.indexOf(prefKey);
-        mService.notifyDumpEventPreferenceChanged(DUMP_A11Y_EVENT_IDS[index], (boolean) newValue);
+    private static class EventDumperSwitchPreference extends SwitchPreference
+        implements OnPreferenceChangeListener {
+      private final int eventType;
+
+      EventDumperSwitchPreference(Context context, int eventType) {
+        super(context);
+        this.eventType = eventType;
+        setOnPreferenceChangeListener(this);
+
+        String title = AccessibilityEvent.eventTypeToString(eventType);
+        // Add TtsSpan to the titles to improve readability.
+        SpannableString spannableString = new SpannableString(title);
+        TtsSpan ttsSpan = new TtsSpan.TextBuilder(title.replaceAll("_", " ")).build();
+        spannableString.setSpan(ttsSpan, 0, title.length(), 0 /* no flag */);
+        setTitle(spannableString);
+
+        // Set initial value.
+        SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(getContext());
+        int value = prefs.getInt(getContext().getString(R.string.pref_dump_event_mask_key), 0);
+        setChecked((value & eventType) != 0);
       }
-      return true;
+
+      @Override
+      public boolean onPreferenceChange(Preference preference, Object o) {
+        boolean enabled = (Boolean) o;
+        SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(getContext());
+        int value = prefs.getInt(getContext().getString(R.string.pref_dump_event_mask_key), 0);
+        if (enabled) {
+          value |= eventType;
+        } else {
+          value &= ~eventType;
+        }
+        prefs
+            .edit()
+            .putInt(getContext().getString(R.string.pref_dump_event_mask_key), value)
+            .apply();
+        return true;
+      }
     }
   }
 }

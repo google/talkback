@@ -17,22 +17,26 @@
 package com.google.android.accessibility.talkback.menurules;
 
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
+import static com.google.android.accessibility.utils.input.CursorGranularity.DEFAULT;
 
 import android.content.Context;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Analytics;
 import com.google.android.accessibility.talkback.CursorGranularityManager;
+import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem;
+import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem.DeferredType;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItemBuilder;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
-import com.google.android.accessibility.utils.input.CursorController;
 import com.google.android.accessibility.utils.input.CursorGranularity;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,6 +44,15 @@ import java.util.List;
  * adds web-specific granularities.
  */
 public class RuleGranularity implements NodeMenuRule {
+
+  private final Pipeline.FeedbackReturner pipeline;
+  private final ActorState actorState;
+
+  public RuleGranularity(Pipeline.FeedbackReturner pipeline, ActorState actorState) {
+    this.pipeline = pipeline;
+    this.actorState = actorState;
+  }
+
   @Override
   public boolean accept(TalkBackService service, AccessibilityNodeInfoCompat node) {
     EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance for menu events.
@@ -50,11 +63,11 @@ public class RuleGranularity implements NodeMenuRule {
   public List<ContextMenuItem> getMenuItemsForNode(
       TalkBackService service,
       ContextMenuItemBuilder menuItemBuilder,
-      AccessibilityNodeInfoCompat node) {
+      AccessibilityNodeInfoCompat node,
+      boolean includeAncestors) {
     EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance for menu events.
-    final CursorController cursorController = service.getCursorController();
-    final CursorGranularity current = cursorController.getGranularityAt(node);
-    final List<ContextMenuItem> items = new LinkedList<>();
+    final CursorGranularity current = actorState.getDirectionNavigation().getGranularityAt(node);
+    final List<ContextMenuItem> items = new ArrayList<>();
     final List<CursorGranularity> granularities =
         CursorGranularityManager.getSupportedGranularities(service, node, eventId);
     final boolean hasWebContent = WebInterfaceUtils.hasNavigableWebContent(node);
@@ -65,7 +78,7 @@ public class RuleGranularity implements NodeMenuRule {
     }
 
     final GranularityMenuItemClickListener clickListener =
-        new GranularityMenuItemClickListener(service, node, hasWebContent);
+        new GranularityMenuItemClickListener(service, pipeline, node, hasWebContent);
 
     for (CursorGranularity granularity : granularities) {
       ContextMenuItem item =
@@ -78,6 +91,9 @@ public class RuleGranularity implements NodeMenuRule {
       item.setOnMenuItemClickListener(clickListener);
       item.setCheckable(true);
       item.setChecked(granularity.equals(current));
+      // Skip window and focued event for granularity options, see .
+      item.setSkipRefocusEvents(true);
+      item.setSkipWindowEvents(true);
 
       // Items are added in "natural" order, e.g. object first.
       items.add(item);
@@ -97,6 +113,22 @@ public class RuleGranularity implements NodeMenuRule {
               service.getString(R.string.granularity_pseudo_web_special_content));
       specialContent.setOnMenuItemClickListener(clickListener);
       items.add(specialContent);
+
+      // Landmark granularity will be available for webviews only via local context menu and so
+      // it is added separately from the granularities list.
+      ContextMenuItem landmark =
+          menuItemBuilder.createMenuItem(
+              service,
+              Menu.NONE,
+              CursorGranularity.WEB_LANDMARK.resourceId,
+              Menu.NONE,
+              service.getString(R.string.granularity_web_landmark));
+      landmark.setOnMenuItemClickListener(clickListener);
+      items.add(landmark);
+    }
+
+    for (ContextMenuItem item : items) {
+      item.setDeferredType(DeferredType.ACCESSIBILITY_FOCUS_RECEIVED);
     }
 
     return items;
@@ -115,17 +147,20 @@ public class RuleGranularity implements NodeMenuRule {
   private static class GranularityMenuItemClickListener
       implements MenuItem.OnMenuItemClickListener {
 
-    private final CursorController mCursorController;
-    private final Analytics mAnalytics;
-    private final AccessibilityNodeInfoCompat mNode;
-    private final boolean mHasWebContent;
+    private final Analytics analytics;
+    private final Pipeline.FeedbackReturner pipeline;
+    private final AccessibilityNodeInfoCompat node;
+    private final boolean hasWebContent;
 
     public GranularityMenuItemClickListener(
-        TalkBackService service, AccessibilityNodeInfoCompat node, boolean hasWebContent) {
-      mCursorController = service.getCursorController();
-      mAnalytics = service.getAnalytics();
-      mNode = AccessibilityNodeInfoCompat.obtain(node);
-      mHasWebContent = hasWebContent;
+        TalkBackService service,
+        Pipeline.FeedbackReturner pipeline,
+        AccessibilityNodeInfoCompat node,
+        boolean hasWebContent) {
+      analytics = service.getAnalytics();
+      this.pipeline = pipeline;
+      this.node = AccessibilityNodeInfoCompat.obtain(node);
+      this.hasWebContent = hasWebContent;
     }
 
     @Override
@@ -144,34 +179,33 @@ public class RuleGranularity implements NodeMenuRule {
           // send further navigation movements at the default
           // granularity.
           // TODO: Check if this is still needed.
-          mCursorController.setGranularity(
-              CursorGranularity.DEFAULT, false /* fromUser */, eventId);
-          WebInterfaceUtils.setSpecialContentModeEnabled(mNode, true, eventId);
+          pipeline.returnFeedback(eventId, Feedback.granularity(DEFAULT));
+          WebInterfaceUtils.setSpecialContentModeEnabled(node, true, eventId);
           return true;
         }
 
         final CursorGranularity granularity = CursorGranularity.fromResourceId(itemId);
         if (granularity == null) {
           return false;
-        } else if (mHasWebContent && granularity == CursorGranularity.DEFAULT) {
+        } else if (hasWebContent && granularity == CursorGranularity.DEFAULT) {
           // When the user switches to default granularity, always
           // inform ChromeVox of this change so it can exit special
           // content navigation mode if applicable. Sending this even
           // when that mode hasn't been entered is fine and is simply
           // a no-op on the ChromeVox side.
           // TODO: Check if this is still needed.
-          WebInterfaceUtils.setSpecialContentModeEnabled(mNode, false, eventId);
+          WebInterfaceUtils.setSpecialContentModeEnabled(node, false, eventId);
         }
 
         boolean result =
-            mCursorController.setGranularity(granularity, true /* fromUser */, eventId);
+            pipeline.returnFeedback(eventId, Feedback.granularity(granularity).setFromUser(true));
         if (result) {
-          mAnalytics.onGranularityChanged(
+          analytics.onGranularityChanged(
               granularity, Analytics.TYPE_CONTEXT_MENU, /* isPending= */ false);
         }
         return result;
       } finally {
-        mNode.recycle();
+        node.recycle();
       }
     }
   }

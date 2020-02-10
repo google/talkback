@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+  <!--
+    Padding and margins should be added directly to the children of this linear layout, instead of
+    to the linear layout itself. Otherwise, touch feedback for the Bluetooth device buttons can
+    become clipped.
+  -->
+  <LinearLayout
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:paddingTop="@dimen/setup_wizard_padding_heading_top"
+      android:fillViewport="true">
+
+      <LinearLayout
+          android:id="@+id/bluetooth_enabled_layout"
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:focusable="false">
+
+        <!-- Paired bluetooth devices. -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/setup_wizard_text_padding_start"
+            android:paddingBottom="@dimen/setup_wizard_padding_heading_bottom"
+            android:layout_marginStart="@dimen/setup_wizard_padding_radio_buttons_start"
+            android:layout_marginEnd="@dimen/setup_wizard_padding_start_end"
+            android:gravity="start"
+            android:text="@string/paired_devices_header"
+            android:textAllCaps="false"
+            android:textColor="@color/bluetooth_or_usb_accent_color"
+            style="?android:attr/listSeparatorTextViewStyle"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/paired_bluetooth_devices_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/bluetooth_no_paired_devices_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/setup_wizard_text_padding_start"
+            android:textAlignment="viewStart"
+            android:visibility="visible"
+            android:layout_marginStart="@dimen/setup_wizard_padding_radio_buttons_start"
+            android:layout_marginEnd="@dimen/setup_wizard_padding_start_end"
+            android:text="@string/bluetooth_no_devices_paired" />
+
+        <!-- Available bluetooth devices. -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/setup_wizard_text_padding_start"
+            android:orientation="horizontal">
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingBottom="@dimen/setup_wizard_padding_heading_bottom"
+              android:text="@string/available_devices_header"
+              android:layout_marginStart="@dimen/setup_wizard_padding_radio_buttons_start"
+              android:layout_marginEnd="@dimen/setup_wizard_padding_start_end"
+              android:textAllCaps="false"
+              android:textColor="@color/bluetooth_or_usb_accent_color"
+              style="?android:attr/listSeparatorTextViewStyle"/>
+
+          <ProgressBar
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:indeterminateOnly="true"
+              android:indeterminateTint="@color/bluetooth_or_usb_accent_color"
+              android:paddingStart="@dimen/setup_wizard_padding_radio_buttons_start"
+              android:paddingEnd="@dimen/setup_wizard_padding_start_end"
+              android:layout_alignParentEnd="true"
+              style="@android:style/Widget.Material.ProgressBar.Small.Title"/>
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/available_bluetooth_devices_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+      </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/bluetooth_not_enabled_layout"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginStart="@dimen/setup_wizard_padding_radio_buttons_start"
+      android:layout_marginEnd="@dimen/setup_wizard_padding_start_end"
+      android:visibility="gone"
+      android:focusable="false">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/setup_wizard_text_padding_start"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/setup_wizard_text_size"
+        android:text="@string/bluetooth_not_enabled_message" />
+
+    <Button
+        android:id="@+id/enable_bluetooth_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/setup_wizard_radio_button_description_padding"
+        android:text="@string/enable_bluetooth_button_title"
+        android:layout_alignParentBottom="true"
+        style="@style/Widget.AppCompat.Button"/>
+  </LinearLayout>
+</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

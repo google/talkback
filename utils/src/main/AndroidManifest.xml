@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.google.android.accessibility.utils" >
 
+  <uses-sdk android:targetSdkVersion="28" />
+
 </manifest>
 
 

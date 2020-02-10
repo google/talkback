@@ -25,10 +25,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
 import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -37,6 +37,9 @@ import java.util.Map;
  * class and a connection to a {@link android.content.ContentProvider} for labels.
  */
 public class LabelProviderClient {
+
+  private static final String TAG = "LabelProviderClient";
+
   private static final String EQUALS_ARG = " = ?";
   private static final String NOT_EQUALS_ARG = " != ? ";
   private static final String LEQ_ARG = " <= ?";
@@ -96,7 +99,7 @@ public class LabelProviderClient {
     mClient = contentResolver.acquireContentProviderClient(mLabelsContentUri);
 
     if (mClient == null) {
-      LogUtils.log(this, Log.WARN, "Failed to acquire content provider client.");
+      LogUtils.w(TAG, "Failed to acquire content provider client.");
     }
   }
 
@@ -111,7 +114,7 @@ public class LabelProviderClient {
    *     insert operation failed.
    */
   public Label insertLabel(Label label, int sourceType) {
-    LogUtils.log(this, Log.DEBUG, "Inserting label: %s.", label);
+    LogUtils.d(TAG, "Inserting label: %s.", label);
 
     if (label == null) {
       return null;
@@ -119,7 +122,7 @@ public class LabelProviderClient {
 
     final long labelId = label.getId();
     if (label.getId() != Label.NO_ID) {
-      LogUtils.log(this, Log.WARN, "Cannot insert label with existing ID (id=%d).", labelId);
+      LogUtils.w(TAG, "Cannot insert label with existing ID (id=%d).", labelId);
       return null;
     }
 
@@ -134,12 +137,12 @@ public class LabelProviderClient {
     try {
       resultUri = mClient.insert(mLabelsContentUri, values);
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return null;
     }
 
     if (resultUri == null) {
-      LogUtils.log(this, Log.WARN, "Failed to insert label.");
+      LogUtils.w(TAG, "Failed to insert label.");
       return null;
     }
 
@@ -156,7 +159,7 @@ public class LabelProviderClient {
    *     returns no results, or {@code null} if the query fails.
    */
   public List<Label> getCurrentLabels() {
-    LogUtils.log(this, Log.DEBUG, "Querying all labels.");
+    LogUtils.d(TAG, "Querying all labels.");
 
     if (!checkClient()) {
       return null;
@@ -175,7 +178,7 @@ public class LabelProviderClient {
 
       return getLabelListFromCursor(cursor);
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return null;
     } finally {
       if (cursor != null) {
@@ -185,7 +188,7 @@ public class LabelProviderClient {
   }
 
   public boolean hasImportedLabels() {
-    LogUtils.log(this, Log.DEBUG, "Has imported label request");
+    LogUtils.d(TAG, "Has imported label request");
 
     if (!checkClient()) {
       return false;
@@ -204,7 +207,7 @@ public class LabelProviderClient {
 
       return cursor != null && cursor.getCount() > 0;
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return false;
     } finally {
       if (cursor != null) {
@@ -222,7 +225,7 @@ public class LabelProviderClient {
    *     returns no results, or {@code null} if the query fails.
    */
   public List<PackageLabelInfo> getPackageSummary(String locale) {
-    LogUtils.log(this, Log.DEBUG, "Querying package summary.");
+    LogUtils.d(TAG, "Querying package summary.");
 
     if (!checkClient()) {
       return null;
@@ -242,7 +245,7 @@ public class LabelProviderClient {
 
       return getPackageSummaryFromCursor(cursor);
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return null;
     } finally {
       if (cursor != null) {
@@ -264,9 +267,8 @@ public class LabelProviderClient {
    */
   public Map<String, Label> getLabelsForPackage(
       String packageName, String locale, int maxPackageVersion) {
-    LogUtils.log(
-        this,
-        Log.DEBUG,
+    LogUtils.d(
+        TAG,
         "Querying labels for package: packageName=%s, locale=%s, maxPackageVersion=%s.",
         packageName,
         locale,
@@ -296,7 +298,7 @@ public class LabelProviderClient {
 
       return getLabelMapFromCursor(cursor);
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return null;
     } finally {
       if (cursor != null) {
@@ -328,7 +330,7 @@ public class LabelProviderClient {
    * @return The label with the given ID, or {@code null} if no such label was found.
    */
   public Label getLabelById(long id) {
-    LogUtils.log(this, Log.DEBUG, "Querying single label: id=%d.", id);
+    LogUtils.d(TAG, "Querying single label: id=%d.", id);
 
     if (!checkClient()) {
       return null;
@@ -347,7 +349,7 @@ public class LabelProviderClient {
 
       return getLabelFromCursor(cursor);
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return null;
     } finally {
       if (cursor != null) {
@@ -365,7 +367,7 @@ public class LabelProviderClient {
    * @return {@code true} if the update succeeded, or {@code false} otherwise.
    */
   public boolean updateLabel(Label label, int newSourceType) {
-    LogUtils.log(this, Log.DEBUG, "Updating label: %s.", label);
+    LogUtils.d(TAG, "Updating label: %s.", label);
 
     if (label == null) {
       return false;
@@ -378,7 +380,7 @@ public class LabelProviderClient {
     final long labelId = label.getId();
 
     if (labelId == Label.NO_ID) {
-      LogUtils.log(this, Log.WARN, "Cannot update label with no ID.");
+      LogUtils.w(TAG, "Cannot update label with no ID.");
       return false;
     }
 
@@ -391,20 +393,20 @@ public class LabelProviderClient {
           mClient.update(uri, values, null /* selection */, null /* selectionArgs */);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return false;
     }
   }
 
   public boolean updateLabelSourceType(long labelId, int newSourceType) {
-    LogUtils.log(this, Log.DEBUG, "Updating label source type");
+    LogUtils.d(TAG, "Updating label source type");
 
     if (!checkClient()) {
       return false;
     }
 
     if (labelId == Label.NO_ID) {
-      LogUtils.log(this, Log.WARN, "Cannot update label with no ID.");
+      LogUtils.w(TAG, "Cannot update label with no ID.");
       return false;
     }
 
@@ -416,13 +418,13 @@ public class LabelProviderClient {
       final int rowsAffected = mClient.update(uri, values, null, null);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return false;
     }
   }
 
   public boolean updateSourceType(int currentSourceType, int newSourceType) {
-    LogUtils.log(this, Log.DEBUG, "Updating source type");
+    LogUtils.d(TAG, "Updating source type");
 
     if (!checkClient()) {
       return false;
@@ -436,7 +438,7 @@ public class LabelProviderClient {
       final int rowsAffected = mClient.update(mLabelsContentUri, values, selection, null);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return false;
     }
   }
@@ -450,14 +452,14 @@ public class LabelProviderClient {
    * @return {@code true} if the delete succeeded, or {@code false} otherwise.
    */
   public boolean deleteLabel(long labelId) {
-    LogUtils.log(this, Log.DEBUG, "Deleting label: %s.", labelId);
+    LogUtils.d(TAG, "Deleting label: %s.", labelId);
 
     if (!checkClient()) {
       return false;
     }
 
     if (labelId == Label.NO_ID) {
-      LogUtils.log(this, Log.WARN, "Cannot delete label with no ID.");
+      LogUtils.w(TAG, "Cannot delete label with no ID.");
       return false;
     }
 
@@ -467,16 +469,15 @@ public class LabelProviderClient {
       final int rowsAffected = mClient.delete(uri, null /* selection */, null /* selectionArgs */);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return false;
     }
   }
 
   public boolean deleteLabel(
       String packageName, String viewName, String locale, int packageVersion, int sourceType) {
-    LogUtils.log(
-        this,
-        Log.DEBUG,
+    LogUtils.d(
+        TAG,
         "Deleting label: package name: %s, view name: %s,"
             + " locale: %s, package version: %d, source type: %d",
         packageName,
@@ -501,13 +502,13 @@ public class LabelProviderClient {
       final int rowsAffected = mClient.delete(mLabelsContentUri, DELETE_LABEL_SELECTION, whereArgs);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return false;
     }
   }
 
   public boolean deleteLabels(int sourceType) {
-    LogUtils.log(this, Log.DEBUG, "Deleting backup labels");
+    LogUtils.d(TAG, "Deleting backup labels");
 
     if (!checkClient()) {
       return false;
@@ -518,7 +519,7 @@ public class LabelProviderClient {
       int rowsAffected = mClient.delete(mLabelsContentUri, selection, null);
       return rowsAffected > 0;
     } catch (RemoteException e) {
-      LogUtils.log(this, Log.ERROR, e.toString());
+      LogUtils.e(TAG, e.toString());
       return false;
     }
   }
@@ -570,7 +571,7 @@ public class LabelProviderClient {
    */
   private Label getLabelFromCursorAtCurrentPosition(Cursor cursor) {
     if (cursor == null || cursor.isClosed() || cursor.isAfterLast()) {
-      LogUtils.log(this, Log.WARN, "Failed to get label from cursor.");
+      LogUtils.w(TAG, "Failed to get label from cursor.");
       return null;
     }
 
@@ -606,7 +607,7 @@ public class LabelProviderClient {
    */
   private PackageLabelInfo getPackageLabelInfoFromCursor(Cursor cursor) {
     if (cursor == null || cursor.isClosed() || cursor.isAfterLast()) {
-      LogUtils.log(this, Log.WARN, "Failed to get PackageLabelInfo from cursor.");
+      LogUtils.w(TAG, "Failed to get PackageLabelInfo from cursor.");
       return null;
     }
 
@@ -646,7 +647,7 @@ public class LabelProviderClient {
       return Collections.emptyList();
     }
 
-    final List<Label> result = new LinkedList<>();
+    final List<Label> result = new ArrayList<>();
     while (cursor.moveToNext()) {
       final Label label = getLabelFromCursorAtCurrentPosition(cursor);
       if (label != null) {
@@ -671,7 +672,7 @@ public class LabelProviderClient {
       return Collections.emptyList();
     }
 
-    final List<PackageLabelInfo> result = new LinkedList<>();
+    final List<PackageLabelInfo> result = new ArrayList<>();
     while (cursor.moveToNext()) {
       final PackageLabelInfo packageLabelInfo = getPackageLabelInfoFromCursor(cursor);
       if (packageLabelInfo != null) {
@@ -716,7 +717,7 @@ public class LabelProviderClient {
    * @param label The label to log.
    */
   private void logResult(Label label) {
-    LogUtils.log(this, Log.VERBOSE, "Query result: %s.", label);
+    LogUtils.v(TAG, "Query result: %s.", label);
   }
 
   /**
@@ -733,7 +734,7 @@ public class LabelProviderClient {
       }
       logMessageBuilder.append("].");
 
-      LogUtils.log(this, Log.VERBOSE, logMessageBuilder.toString());
+      LogUtils.v(TAG, logMessageBuilder.toString());
     }
   }
 
@@ -744,10 +745,7 @@ public class LabelProviderClient {
    */
   private boolean checkClient() {
     if (mClient == null) {
-      LogUtils.log(
-          this,
-          Log.WARN,
-          "Aborting operation: the client failed to initialize or already shut down.");
+      LogUtils.w(TAG, "Aborting operation: the client failed to initialize or already shut down.");
       return false;
     }
 

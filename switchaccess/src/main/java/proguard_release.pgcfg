@@ -1,0 +1,23 @@
+# Assume feature flag values don't have side effects and assume that these value
+# are always the same as these won't change during runtime
+# LINT.IfChange
+-assumenosideeffects class com.google.android.accessibility.switchaccess.FeatureFlags {
+    public static boolean devBuildLogging(...);
+    public static boolean crashOnError(...);
+    public static boolean scrollArrows(...);
+    public static boolean groupSelectionWithAutoScan(...);
+    public static boolean primesDebugIntegration(...);
+    public static boolean clearcutLogging(...);
+    public static boolean screenSwitch(...);
+}
+
+-assumevalues class com.google.android.accessibility.switchaccess.FeatureFlags {
+    public static boolean devBuildLogging(...) return false;
+    public static boolean crashOnError(...) return false;
+    public static boolean scrollArrows(...) return true;
+    public static boolean groupSelectionWithAutoScan(...) return false;
+    public static boolean primesDebugIntegration(...) return false;
+    public static boolean clearcutLogging(...) return true;
+    public static boolean screenSwitch(...) return false;
+}
+# LINT.ThenChange(//depot/google3/java/com/google/android/accessibility/switchaccess/FeatureFlags.java)

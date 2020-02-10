@@ -16,43 +16,41 @@
 
 package com.google.android.accessibility.talkback.menurules;
 
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.Menu;
+import com.google.android.accessibility.compositor.NodeMenuProvider;
+import com.google.android.accessibility.talkback.ActorState;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenu;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem;
 import com.google.android.accessibility.talkback.contextmenu.ContextSubMenu;
-import com.google.android.accessibility.utils.EditTextActionHistory;
-import com.google.android.accessibility.utils.input.TextCursorManager;
+import com.google.android.accessibility.talkback.contextmenu.ListMenu;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /** Rule-based processor for adding items to the local breakout menu. */
-public class NodeMenuRuleProcessor {
-  private final LinkedList<NodeMenuRule> mRules = new LinkedList<>();
-  private final NodeMenuRule mRuleCustomAction;
-  private NodeMenuRule mRuleEditText;
+public class NodeMenuRuleProcessor implements NodeMenuProvider {
+  private final List<NodeMenuRule> rules = new ArrayList<>();
+  private NodeMenuRule ruleCustomAction;
+  private NodeMenuRule ruleEditText;
 
-  private final TalkBackService mService;
+  private final TalkBackService service;
 
   public NodeMenuRuleProcessor(
-      TalkBackService service,
-      EditTextActionHistory editTextActionHistory,
-      TextCursorManager textCursorManager) {
-    mService = service;
+      TalkBackService service, Pipeline.FeedbackReturner pipeline, ActorState actorState) {
+    this.service = service;
     // Rules are matched in the order they are added, but any rule that
     // accepts will be able to modify the menu.
-    mRules.add(new RuleSpannables());
-    mRuleEditText = new RuleEditText(editTextActionHistory, textCursorManager);
-    mRules.add(mRuleEditText);
-    mRules.add(new RuleViewPager());
-    mRules.add(new RuleGranularity());
-    mRules.add(new RuleUnlabeledImage());
-    mRules.add(new RuleSuggestions());
-    mRules.add(new RuleSeekBar());
-    mRuleCustomAction = new RuleCustomAction();
-    mRules.add(mRuleCustomAction);
+    ruleEditText = new RuleEditText(pipeline, actorState);
+    rules.add(ruleEditText);
+    rules.add(new RuleSpannables());
+    rules.add(new RuleUnlabeledImage(pipeline));
+    rules.add(new RuleSeekBar(pipeline));
+    ruleCustomAction = new RuleCustomAction();
+    rules.add(ruleCustomAction);
+    rules.add(new RuleViewPager());
+    rules.add(new RuleGranularity(pipeline, actorState));
   }
 
   /**
@@ -72,9 +70,9 @@ public class NodeMenuRuleProcessor {
     menu.clear();
 
     // Track which rules accept the node.
-    final LinkedList<NodeMenuRule> matchingRules = new LinkedList<>();
-    for (NodeMenuRule rule : mRules) {
-      if (rule.accept(mService, node)) {
+    final List<NodeMenuRule> matchingRules = new ArrayList<>();
+    for (NodeMenuRule rule : rules) {
+      if (rule.accept(service, node)) {
         matchingRules.add(rule);
       }
     }
@@ -84,10 +82,11 @@ public class NodeMenuRuleProcessor {
     boolean canCollapseMenu = false;
     for (NodeMenuRule rule : matchingRules) {
       List<ContextMenuItem> ruleResults =
-          rule.getMenuItemsForNode(mService, menu.getMenuItemBuilder(), node);
+          rule.getMenuItemsForNode(
+              service, menu.getMenuItemBuilder(), node, /* includeAncestors= */ true);
       if (ruleResults != null && ruleResults.size() > 0) {
         menuItems.add(ruleResults);
-        subMenuTitles.add(rule.getUserFriendlyMenuName(mService));
+        subMenuTitles.add(rule.getUserFriendlyMenuName(service));
       }
       canCollapseMenu |= rule.canCollapseMenu();
     }
@@ -95,6 +94,7 @@ public class NodeMenuRuleProcessor {
     boolean needCollapse = canCollapseMenu && menuItems.size() == 1;
     if (needCollapse) {
       for (ContextMenuItem menuItem : menuItems.get(0)) {
+        setNodeMenuDefaultCloseRules(menuItem);
         menu.add(menuItem);
       }
     } else {
@@ -105,6 +105,7 @@ public class NodeMenuRuleProcessor {
         ContextSubMenu subMenu = menu.addSubMenu(0, 0, 0, subMenuName);
         subMenu.getItem().setEnabled(true);
         for (ContextMenuItem menuItem : items) {
+          setNodeMenuDefaultCloseRules(menuItem);
           subMenu.add(menuItem);
         }
       }
@@ -122,17 +123,19 @@ public class NodeMenuRuleProcessor {
     // Always reset the menu since it is based on the current cursor.
     menu.clear();
 
-    if (!mRuleCustomAction.accept(mService, node)) {
+    if (!ruleCustomAction.accept(service, node)) {
       return false;
     }
 
     List<ContextMenuItem> menuItems =
-        mRuleCustomAction.getMenuItemsForNode(mService, menu.getMenuItemBuilder(), node);
+        ruleCustomAction.getMenuItemsForNode(
+            service, menu.getMenuItemBuilder(), node, /* includeAncestors= */ true);
     if (menuItems == null || menuItems.size() == 0) {
       return false;
     }
 
     for (ContextMenuItem menuItem : menuItems) {
+      setNodeMenuDefaultCloseRules(menuItem);
       menu.add(menuItem);
     }
 
@@ -147,20 +150,64 @@ public class NodeMenuRuleProcessor {
     // Always reset the menu since it is based on the current cursor.
     menu.clear();
 
-    if (!mRuleEditText.accept(mService, node)) {
+    if (!ruleEditText.accept(service, node)) {
       return false;
     }
 
     List<ContextMenuItem> menuItems =
-        mRuleEditText.getMenuItemsForNode(mService, menu.getMenuItemBuilder(), node);
+        ruleEditText.getMenuItemsForNode(
+            service, menu.getMenuItemBuilder(), node, /* includeAncestors= */ true);
     if (menuItems == null || menuItems.size() == 0) {
       return false;
     }
 
     for (ContextMenuItem menuItem : menuItems) {
+      setNodeMenuDefaultCloseRules(menuItem);
       menu.add(menuItem);
     }
 
     return menu.size() != 0;
+  }
+
+  /** Apply rules when the item has been clicked and context menu is about to close. */
+  private void setNodeMenuDefaultCloseRules(ContextMenuItem menuItem) {
+    menuItem.setNeedRestoreFocus(true);
+  }
+
+  /**
+   * Returns action types of menu items supported from the node itself except granularity. It uses
+   * {@link NodeMenuRule#getMenuItemsForNode} to find supported menu actions and filter ones may
+   * come from its ancestors.
+   *
+   * @param node The target node to find supported menu action types
+   */
+  @Override
+  public List<String> getSelfNodeMenuActionTypes(AccessibilityNodeInfoCompat node) {
+    List<String> menuTypes = new ArrayList<>();
+    if (node == null) {
+      return menuTypes;
+    }
+
+    // Track which rules accept the node.
+    for (NodeMenuRule rule : rules) {
+      if (rule instanceof RuleGranularity) {
+        continue;
+      }
+      if (!rule.accept(service, node)) {
+        continue;
+      }
+      List<ContextMenuItem> ruleResults =
+          rule.getMenuItemsForNode(
+              service,
+              new ListMenu(service).getMenuItemBuilder(),
+              node,
+              /* includeAncestors= */ false);
+      if (ruleResults == null || ruleResults.size() == 0) {
+        continue;
+      }
+      menuTypes.add(rule.getUserFriendlyMenuName(service).toString());
+    }
+
+    return menuTypes;
   }
 }

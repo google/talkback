@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Knapp</item>
+    <item>Kryssruta</item>
+    <item>Färgväljare</item>
+    <item>Kontroll för datum och tid</item>
+    <item>Kontroll för datum och tid</item>
+    <item>Datumkontroll</item>
+    <item>Fält med redigerbar text för e-postadress</item>
+    <item>Filväljare</item>
+    <item translatable="false"></item>
+    <item>Knapp</item>
+    <item>Månadskontroll</item>
+    <item>Fält med redigerbar text, endast siffror</item>
+    <item>Fält med redigerbar text för lösenord</item>
+    <item>Alternativknapp</item>
+    <item>Skjutreglage</item>
+    <item>Återställ</item>
+    <item>Fält med redigerbar text för sökning</item>
+    <item>Knapp</item>
+    <item>Fält med redigerbar text för telefonnummer</item>
+    <item>Fält med redigerbar text</item>
+    <item>Fält med redigerbar text för webbadress</item>
+    <item>Kontroll för vecka på året</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Varning</item>
+    <item>Varningsruta</item>
+    <item>Knapp</item>
+    <item>Kryssruta</item>
+    <item>Kombinationsruta</item>
+    <item>Dialogruta</item>
+    <item>Rutmönstercell</item>
+    <item>Länk</item>
+    <item>Logg</item>
+    <item>Markeringsram</item>
+    <item>Menyalternativ</item>
+    <item>Menyalternativ med kryssruta</item>
+    <item>Menyalternativ med alternativknapp</item>
+    <item>Alternativ</item>
+    <item>Förloppsindikator</item>
+    <item>Alternativknapp</item>
+    <item>Alternativknappsgrupp</item>
+    <item>Rullningslist</item>
+    <item>Skjutreglage</item>
+    <item>Snurrknapp</item>
+    <item>Status</item>
+    <item>Flik</item>
+    <item>Flikpanel</item>
+    <item>Textruta</item>
+    <item>Timer</item>
+    <item>Verktygsfält</item>
+    <item>Beskrivning</item>
+    <item>Trädobjekt</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Länk</item>
+    <item>Rubrik ett</item>
+    <item>Rubrik två</item>
+    <item>Rubrik tre</item>
+    <item>Rubrik fyra</item>
+    <item>Rubrik fem</item>
+    <item>Rubrik sex</item>
+    <item>Knapp</item>
+    <item>Kombinationsruta</item>
+    <item>Tabell</item>
+    <item>Textområde</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

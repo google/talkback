@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="switch_access_color_entries" translatable="true">
+    <item>ସବୁଜ</item>
+    <item>କମଳା</item>
+    <item>ନାଲି</item>
+    <item>ନୀଳ</item>
+    <item>ଧଳା</item>
+  </string-array>
+  <string-array name="switch_access_weight_entries" translatable="true">
+    <item>ପତଳା ଗାଢ଼ ରେଖା</item>
+    <item>ମଧ୍ୟମ ଗାଢ଼ ରେଖା</item>
+    <item>ମୋଟା ଗାଢ଼ ରେଖା</item>
+  </string-array>
+  <string-array name="switch_access_sound_volume_entries">
+    <item>ମିଡିଆ ଭଲ୍ୟୁମ୍ ସହ ସମାନ</item>
+    <item>ମିଡିଆ ଭଲ୍ୟୁମ୍‌ର 75%</item>
+    <item>ମିଡିଆ ଭଲ୍ୟୁମ୍‌ର 50%</item>
+    <item>ମିଡିଆ ଭଲ୍ୟୁମ୍‌ର 25%</item>
+  </string-array>
+  <string-array name="switch_access_sound_volume_values">
+    <item>100</item>
+    <item>75</item>
+    <item>50</item>
+    <item>25</item>
+  </string-array>
+  <string-array name="switch_access_node_description_order_entries">
+    <item>ଅବସ୍ଥା, ନାମ, ପ୍ରକାର</item>
+    <item>ପ୍ରକାର, ନାମ, ଅବସ୍ଥା</item>
+    <item>ନାମ, ପ୍ରକାର, ଅବସ୍ଥା</item>
+  </string-array>
+</resources>

@@ -16,34 +16,35 @@
 
 package com.google.android.accessibility.talkback.features;
 
-import android.content.Context;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.utils.ProximitySensor;
 import com.google.android.accessibility.utils.ServiceStateListener;
 import com.google.android.accessibility.utils.output.SpeechController;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Watches the proximity sensor, and silences speach when it's triggered. */
 public class ProximitySensorListener implements SpeechController.Observer {
 
-  private final Context mContext;
-  private final SpeechController mSpeechController;
+  private final SpeechController speechController;
 
   /** Proximity sensor for implementing "shut up" functionality. */
-  private ProximitySensor mProximitySensor;
+  @Nullable private ProximitySensor proximitySensor;
 
   /** Whether to use the proximity sensor to silence speech. */
-  private boolean mSilenceOnProximity;
+  private boolean silenceOnProximity;
+
+  private TalkBackService service;
 
   /**
    * Whether or not the screen is on. This is set by RingerModeAndScreenMonitor and used by
    * SpeechControllerImpl to determine if the ProximitySensor should be on or off.
    */
-  private boolean mScreenIsOn;
+  private boolean screenIsOn;
 
   public ProximitySensorListener(TalkBackService service, SpeechController speechController) {
-    mContext = service;
-    mSpeechController = speechController;
-    mSpeechController.addObserver(this);
+    this.service = service;
+    this.speechController = speechController;
+    this.speechController.addObserver(this);
 
     service.addServiceStateListener(
         new ServiceStateListener() {
@@ -57,11 +58,11 @@ public class ProximitySensorListener implements SpeechController.Observer {
           }
         });
 
-    mScreenIsOn = true;
+    screenIsOn = true;
   }
 
   public void shutdown() {
-    mSpeechController.removeObserver(this);
+    speechController.removeObserver(this);
     setProximitySensorState(false);
   }
 
@@ -74,15 +75,21 @@ public class ProximitySensorListener implements SpeechController.Observer {
   @Override
   public void onSpeechCompleted() {
     // If the screen is on, keep the proximity sensor on.
-    setProximitySensorState(mScreenIsOn);
+    setProximitySensorState(screenIsOn);
+  }
+
+  @Override
+  public void onSpeechPaused() {
+    // If the screen is on, keep the proximity sensor on.
+    setProximitySensorState(screenIsOn);
   }
 
   public void setScreenIsOn(boolean screenIsOn) {
-    mScreenIsOn = screenIsOn;
+    this.screenIsOn = screenIsOn;
 
     // The proximity sensor should always be on when the screen is on so
     // that the proximity gesture can be used to silence all apps.
-    if (mScreenIsOn) {
+    if (this.screenIsOn) {
       setProximitySensorState(true);
     }
   }
@@ -94,10 +101,10 @@ public class ProximitySensorListener implements SpeechController.Observer {
    * preference.
    */
   public void setSilenceOnProximity(boolean silenceOnProximity) {
-    mSilenceOnProximity = silenceOnProximity;
+    this.silenceOnProximity = silenceOnProximity;
 
     // Propagate the proximity sensor change.
-    setProximitySensorState(mSilenceOnProximity);
+    setProximitySensorState(this.silenceOnProximity);
   }
 
   /**
@@ -110,45 +117,45 @@ public class ProximitySensorListener implements SpeechController.Observer {
    */
   // TODO: Rewrite for readability.
   private void setProximitySensorState(boolean enabled) {
-    if (mProximitySensor != null) {
+    if (proximitySensor != null) {
       // Should we be using the proximity sensor at all?
-      if (!mSilenceOnProximity) {
-        mProximitySensor.stop();
-        mProximitySensor = null;
+      if (!silenceOnProximity) {
+        proximitySensor.stop();
+        proximitySensor = null;
         return;
       }
 
       if (!TalkBackService.isServiceActive()) {
-        mProximitySensor.stop();
+        proximitySensor.stop();
         return;
       }
     } else {
       // Do we need to initialize the proximity sensor?
-      if (enabled && mSilenceOnProximity) {
-        mProximitySensor = new ProximitySensor(mContext);
-        mProximitySensor.setProximityChangeListener(mProximityChangeListener);
+      if (enabled && silenceOnProximity) {
+        proximitySensor = new ProximitySensor(service);
+        proximitySensor.setProximityChangeListener(proximityChangeListener);
       } else {
-        // Since mProximitySensor is null, we can return here.
+        // Since proximitySensor is null, we can return here.
         return;
       }
     }
 
     // Manage the proximity sensor state.
     if (enabled) {
-      mProximitySensor.start();
+      proximitySensor.start();
     } else {
-      mProximitySensor.stop();
+      proximitySensor.stop();
     }
   }
 
   /** Stops the TTS engine when the proximity sensor is close. */
-  private final ProximitySensor.ProximityChangeListener mProximityChangeListener =
+  private final ProximitySensor.ProximityChangeListener proximityChangeListener =
       new ProximitySensor.ProximityChangeListener() {
         @Override
         public void onProximityChanged(boolean isClose) {
           // Stop feedback if the user is close to the sensor.
           if (isClose) {
-            mSpeechController.interruptAllFeedback(false /* stopTtsSpeechCompletely */);
+            service.interruptAllFeedback(false /* stopTtsSpeechCompletely */);
           }
         }
       };

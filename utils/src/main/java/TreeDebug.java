@@ -17,15 +17,19 @@
 package com.google.android.accessibility.utils;
 
 import android.graphics.Rect;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.accessibility.AccessibilityWindowInfo;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashSet;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Util class to help debug Node trees. */
 public class TreeDebug {
+
+  private static final String TAG = "TreeDebug";
+
   /** Logs the node trees for given list of windows. */
   public static void logNodeTrees(List<AccessibilityWindowInfo> windows) {
     if (windows == null) {
@@ -36,15 +40,16 @@ public class TreeDebug {
         continue;
       }
       // TODO: Filter and print useful window information.
-      LogUtils.log(TreeDebug.class, Log.VERBOSE, "Window: %s", window);
-      AccessibilityNodeInfoCompat root = AccessibilityNodeInfoUtils.toCompat(window.getRoot());
+      LogUtils.v(TAG, "Window: %s", window);
+      AccessibilityNodeInfoCompat root =
+          AccessibilityNodeInfoUtils.toCompat(AccessibilityWindowInfoUtils.getRoot(window));
       logNodeTree(root);
       AccessibilityNodeInfoUtils.recycleNodes(root);
     }
   }
 
   /** Logs the tree using the input node as the root. */
-  public static void logNodeTree(AccessibilityNodeInfoCompat node) {
+  public static void logNodeTree(@Nullable AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return;
     }
@@ -59,26 +64,20 @@ public class TreeDebug {
   private static void logNodeTree(
       AccessibilityNodeInfoCompat node, String indent, HashSet<AccessibilityNodeInfoCompat> seen) {
     if (!seen.add(node)) {
-      LogUtils.log(TreeDebug.class, Log.VERBOSE, "Cycle: %d", node.hashCode());
+      LogUtils.v(TAG, "Cycle: %d", node.hashCode());
       return;
     }
 
     // Include the hash code as a "poor man's" id, knowing that it
     // might not always be unique.
-    LogUtils.log(
-        TreeDebug.class,
-        Log.VERBOSE,
-        "%s(%d)%s",
-        indent,
-        node.hashCode(),
-        nodeDebugDescription(node));
+    LogUtils.v(TAG, "%s(%d)%s", indent, node.hashCode(), nodeDebugDescription(node));
 
     indent += "  ";
     int childCount = node.getChildCount();
     for (int i = 0; i < childCount; ++i) {
       AccessibilityNodeInfoCompat child = node.getChild(i);
       if (child == null) {
-        LogUtils.log(TreeDebug.class, Log.VERBOSE, "%sCouldn't get child %d", indent, i);
+        LogUtils.v(TAG, "%sCouldn't get child %d", indent, i);
         continue;
       }
 
@@ -122,6 +121,12 @@ public class TreeDebug {
         .append(", ")
         .append(rect.bottom)
         .append(")");
+
+    if (!TextUtils.isEmpty(node.getPaneTitle())) {
+      sb.append(":PANE{");
+      sb.append(node.getPaneTitle());
+      sb.append("}");
+    }
 
     if (node.getText() != null) {
       sb.append(":TEXT{");
@@ -214,13 +219,12 @@ public class TreeDebug {
       sb.append(node.getCollectionInfo().getColumnCount());
     }
 
+    if (AccessibilityNodeInfoUtils.isHeading(node)) {
+      sb.append(":heading");
+    } else if (node.getCollectionItemInfo() != null) {
+      sb.append(":item");
+    }
     if (node.getCollectionItemInfo() != null) {
-      if (node.getCollectionItemInfo().isHeading()) {
-        sb.append(":heading");
-      } else {
-        sb.append(":item");
-      }
-
       sb.append("#r");
       sb.append(node.getCollectionItemInfo().getRowIndex());
       sb.append("c");

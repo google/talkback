@@ -1,151 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"TalkBack ဖွင့်ထား"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack ဆိုင်းငံ့ထား"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack ပြန်လည်စတင်"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"TalkBack ပိတ်ထားပါသည်"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"အကြံပြုချက်ကို အသံထွက်ဖတ်ပေးခြင်းအား ဖွင့်ထားပါသည်"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"အကြံပြုချက်ကို အသံထွက်ဖတ်ပေးခြင်းအား ဆိုင်းငံ့ထားပါသည်"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"အကြံပြုချက်ကို အသံထွက်ဖတ်ပေးခြင်းအား ပြန်ဖွင့်လိုက်ပါပြီ"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"အကြံပြုချက်ကို အသံထွက်ဖတ်ပေးခြင်းအား ပိတ်ထားပါသည်"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"ဖြည့်ရန်ပုံစံ၏အစ"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"ဖြည့်ရန်ပုံစံ၏ အဆုံး"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"ရွေးချယ်တဲ့မုဒ်ကို ဖွင့်ထားပါတယ်"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"ရွေးချယ်တဲ့မုဒ်ကို ပိတ်ထားပါတယ်"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"ရွေးထားတဲ့စာတွေကို ပြန်ဖယ်လိုက်ပါပြီ"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"ခေါ်ဆိုရန်"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"မက်ဆေ့ဂျ်"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"အီးမေးလ်"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"ဖြစ်ရပ်"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"ပရိုမိုးရှင်း"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"နှိုးစက်"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"တိုးတက်မှု"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"လူမှုရေးကွန်ရက်"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"အမှားအယွင်း"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"မီဒီယာထိန်းချုပ်မှု"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"စနစ်အခြေအနေ"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"ဝန်ဆောင်မှု"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g> မီနျူး"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> က <xliff:g id="OLD_TEXT">%2$s</xliff:g>ကို အစားထိုးခဲ့သည်"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g>ဖျက်ပြီး"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"<xliff:g id="TEXT">%1$s</xliff:g> ကို ဖြတ်ထားပါတယ်။"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"<xliff:g id="TEXT">%1$s</xliff:g> ကို ကူးထည့်ပြီးပါပြီ။"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g> ကို ရွေးထားပါတယ်။"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"ရွေးထားတဲ့ စာသား − <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g> ကို မရွေးရသေးပါဘူး။"</string>
-    <string name="template_text_error" msgid="153775825635730287">"လက်သင့်မခံနိုင်သော ဖြည့်သွင်းမှု<xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"စာလုံး <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> ကို စာလုံး<xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> ဖြင့် အစားထိုးခဲ့"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> အတွက် <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> ရာခိုင်နှုန်း"</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> အရာ <xliff:g id="COUNT_3">%2$d</xliff:g>ကို ပြနေပါသည်။</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> အရာ <xliff:g id="COUNT_1">%2$d</xliff:g>ကို ပြနေပါသည်။</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"ဂရိ"</string>
-    <string name="value_listview" msgid="7625152822709234439">"စာရင်း"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"တဲဘ် ဘား"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"ဆွဲချစာရင်း"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"ရွှေးချယ်ရန်အကွက်"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"ရေဒီယို ခလုတ်"</string>
-    <string name="value_button" msgid="2459787142940409576">"ခလုတ်"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"ရှာဖွေခြင်း ထိန်းချုပ်မှု"</string>
-    <string name="value_switch" msgid="6946709666466895221">"ခလုတ်"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"တည်းဖြတ်ရန် အကွက်"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"တည်းဖြတ်နေသည်"</string>
-    <string name="value_image" msgid="5114229220871881124">"ပုံ"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"တံဆိပ်မပါ"</string>
-    <string name="value_pager" msgid="7708574424402835461">"စာမျက်နှာတွေကို တစ်ပြိုင်ထဲကြည့်ပါမယ်။"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"စာမျက်နှာ"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"တိုးတက်မှုပြ ဘားတန်း"</string>
-    <string name="value_webview" msgid="291321285400233958">"ဝက်ဘ်မြင်ကွင်း"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"စကားလုံး <xliff:g id="FROM_INDEX">%1$d</xliff:g> ကနေ <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"စာလုံး <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"စကားဝှက်"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"ဆွဲယူအံဆွဲ ဖွင့်ထား"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"ရွေးစရာများ။"</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"ဖျက်ပြီး စာသား"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"အများဆုံး အရှည်အတိုင်းအတာကို ရောက်ရှိပါပြီ"</string>
-    <string name="value_selected" msgid="1307429702194660766">"ရွေးထား"</string>
-    <string name="value_checked" msgid="3006751014125833966">"အမှန်ခြစ်ပြီး"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"ခြစ် မထား"</string>
-    <string name="value_on" msgid="39454338086317219">"ဖွင့်ထားသည်"</string>
-    <string name="value_off" msgid="6700497510945744608">"ပိတ်ထားသည်"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"ပိတ်ရန်"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"တိုးချဲ့ထားပါတယ်"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"ခေါက်သိမ်းထားပါတယ်"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"နှစ်ကြိမ်ပုတ်"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"ပုတ်ရန်"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"ရွေးချယ်ရန်ဆိုတဲ့ ခလုတ်ကို နှိပ်လိုက်ပါ"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"စဖွင့်ရန် <xliff:g id="ACTION">%1$s</xliff:g>"</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"စဖွင့်ရန် <xliff:g id="KEYCOMBO">%1$s</xliff:g> ကို နှိပ်ပါ။"</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> နောက်မှာ ကြာစွာ နှိပ်ထားပါ။"</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"ကြာရှည်စွာဖိထားရန် <xliff:g id="KEYCOMBO">%1$s</xliff:g> ကို နှိပ်ပါ။"</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> လှုပ်ကစားကြည့်ရန်"</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"ခလုတ်ပြောင်းရန် <xliff:g id="KEYCOMBO">%1$s</xliff:g> ကို နှိပ်ပါ။"</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> စာသားကို ထည့်သွင်းရန်"</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"စာရိုက်ရန် <xliff:g id="KEYCOMBO">%1$s</xliff:g> ကို နှိပ်ပါ။"</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"ပြောင်းလဲရန် <xliff:g id="ACTION">%1$s</xliff:g>"</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"ပြောင်းရန် <xliff:g id="KEYCOMBO">%1$s</xliff:g> ကို နှိပ်ပါ။"</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"စာမျက်နှာပြောင်းဖို့ လက်နှစ်ချောင်းနဲ့ ပွတ်ဆွဲလိုက်ပါ။"</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"နောက်ထပ်စာမျက်နှာများ မရှိပါ။"</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"ချိန်ညှိရန် အသံအတိုးအကျယ်ခလုတ်များကို သုံးပါ"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"ပြောင်းဖို့အတွက် <xliff:g id="ACTION">%1$s</xliff:g> ရွေးပါ။"</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"လုပ်ဆောင်ချက်များ−"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> ရင် <xliff:g id="HINT">%2$s</xliff:g>။"</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"<xliff:g id="HINT">%2$s</xliff:g> ရန်အတွက် <xliff:g id="KEYCOMBO">%1$s</xliff:g> ကို နှိပ်ပါ။"</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> ပြီး ဖိထားရင် <xliff:g id="HINT">%2$s</xliff:g>။"</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"စာလုံးကြီး ခလုတ် ဖွင့်ထားသည်။"</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"စာလုံးကြီး ခလုတ် ပိတ်ထားသည်။"</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"နံပါတ် ခလုတ် ဖွင့်ထားသည်။"</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"နံပါတ် ခလုတ် ပိတ်ထားသည်။"</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"လှိမ့်မှု ခလုတ် ဖွင့်ထားသည်။"</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"လှိမ့်မှု ခလုတ် ပိတ်ထားသည်။"</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"ထောင်လိုက်"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"ဘေးတိုက်"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"ပယ်ရန်"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"ချဲ့ကြည့်ရန်"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"လျှော့ပြရန်"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"အတန်း <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"ကော်လံ <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"ခေါင်းစီး"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"အတန်းခေါင်းစဉ်"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"ကော်လံခေါင်းစဉ်"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"<xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g> တစ်ခုပေါ်တစ်ခုထပ်၍ ဖွင့်ခြင်း"</string>
-    <string name="in_list" msgid="444302621514168828">"စာရင်းတွင် <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"စာရင်းထဲရှိနေသည်"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"စာရင်းမှ ထွက်သွားသည် <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"စာရင်းထဲ မပါရှိပါ"</string>
-    <string name="in_grid" msgid="6705387966271590222">"ဇယားကွက်တွင် <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"ဂရစ်ဧရိယာထဲတွင် ရှိနေပါသည်"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"ဇယားကွက်မှ ထွက်သွားသည် <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"ဂရစ်ဧရိယာအပြင်သို့ ရောက်နေပါသည်"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"အဆင့် <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> ခု</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> ခု</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="other">အတန်း <xliff:g id="ROW_COUNT_1">%1$d</xliff:g> တန်း</item>
-      <item quantity="one">အတန်း <xliff:g id="ROW_COUNT_0">%1$d</xliff:g> တန်း</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="other">ကော်လံ <xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> ခု</item>
-      <item quantity="one">ကော်လံ <xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> ခု</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="other">စကားလုံး <xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> လုံး</item>
-      <item quantity="one">စကားလုံး <xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> လုံး</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"<xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%% သို့ ချဲ့ထားပါသည်"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"<xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%% ချဲ့ထားပါသည်"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"ပုံကြီးချဲ့ခြင်းကို ပိတ်ထားပါသည်"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"စကားပြောနှုန်း <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"နောက်ခံသံလျှော့ချခြင်းအား ဖွင့်ထားပါသည်"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"နောက်ခံသံလျှော့ချခြင်းအား ပိတ်ထားပါသည်"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"စကားပြောနှုန်း"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"အကျယ်ချဲ့ရှင်းပြရန်"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"လမ်းညွှန်ချက်"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"နောက်ခံသံလျှော့ချခြင်း"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"နားကြပ်သုံးချိန်မှသာ စကားဝှက်များကို အသံထွက်ဖတ်ပေးရန်"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">TalkBack ဖွင့်ထား</string>
+  <string name="talkback_suspended">TalkBack ဆိုင်းငံ့ထား</string>
+  <string name="talkback_resumed">TalkBack ပြန်လည်စတင်</string>
+  <string name="talkback_disabled">TalkBack ပိတ်ထားပါသည်</string>
+  <string name="spokenfeedback_on">အကြံပြုချက်ကို အသံထွက်ဖတ်ပေးခြင်းအား ဖွင့်ထားပါသည်</string>
+  <string name="spokenfeedback_suspended">အကြံပြုချက်ကို အသံထွက်ဖတ်ပေးခြင်းအား ဆိုင်းငံ့ထားပါသည်</string>
+  <string name="spokenfeedback_resumed">အကြံပြုချက်ကို အသံထွက်ဖတ်ပေးခြင်းအား ပြန်ဖွင့်လိုက်ပါပြီ</string>
+  <string name="spokenfeedback_disabled">အကြံပြုချက်ကို အသံထွက်ဖတ်ပေးခြင်းအား ပိတ်ထားပါသည်</string>
+  <string name="notification_type_beginning_of_field">ဖြည့်ရန်ပုံစံ၏အစ</string>
+  <string name="notification_type_end_of_field">ဖြည့်ရန်ပုံစံ၏ အဆုံး</string>
+  <string name="notification_type_selection_mode_on">ရွေးချယ်တဲ့မုဒ်ကို ဖွင့်ထားပါတယ်</string>
+  <string name="notification_type_selection_mode_off">ရွေးချယ်တဲ့မုဒ်ကို ပိတ်ထားပါတယ်</string>
+  <string name="notification_type_selection_cleared">ရွေးထားတဲ့စာတွေကို ပြန်ဖယ်လိုက်ပါပြီ</string>
+  <string name="notification_category_call">ခေါ်ဆိုရန်</string>
+  <string name="notification_category_msg">မက်ဆေ့ဂျ်</string>
+  <string name="notification_category_email">အီးမေးလ်</string>
+  <string name="notification_category_event">အစီအစဉ်</string>
+  <string name="notification_category_promo">ပရိုမိုးရှင်း</string>
+  <string name="notification_category_alarm">နှိုးစက်</string>
+  <string name="notification_category_progress">တိုးတက်မှု</string>
+  <string name="notification_category_social">လူမှုရေးကွန်ရက်</string>
+  <string name="notification_category_err">အမှားအယွင်း</string>
+  <string name="notification_category_transport">မီဒီယာထိန်းချုပ်မှု</string>
+  <string name="notification_category_sys">စနစ်အခြေအနေ</string>
+  <string name="notification_category_service">ဝန်ဆောင်မှု</string>
+  <string name="template_drawer_opened">%1$s မီနျူး</string>
+  <string name="template_text_replaced">%1$s က %2$sကို အစားထိုးခဲ့သည်</string>
+  <string name="template_text_removed">%1$sဖျက်ပြီး</string>
+  <string name="template_text_cut">%1$s ကို ဖြတ်ထားပါတယ်။</string>
+  <string name="template_text_pasted">%1$s ကို ကူးထည့်ပြီးပါပြီ။</string>
+  <string name="template_text_selected">%1$s ကို ရွေးထားပါတယ်။</string>
+  <string name="template_announce_selected_text">ရွေးထားတဲ့ စာသား − %1$s</string>
+  <string name="template_text_unselected">%1$s ကို မရွေးရသေးပါဘူး။</string>
+  <string name="template_text_error">လက်သင့်မခံနိုင်သော ဖြည့်သွင်းမှု%1$s</string>
+  <string name="template_replaced_characters">စာလုံး %1$s ကို စာလုံး%2$s ဖြင့် အစားထိုးခဲ့</string>
+  <string name="template_labeled_item">%1$s အတွက် %2$s</string>
+  <string name="template_percent">%1$s ရာခိုင်နှုန်း</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s အရာ %2$dကို ပြနေပါသည်။</item>
+    <item quantity="other">%1$s အရာ %2$dကို ပြနေပါသည်။</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">ဂရိ</string>
+  <string name="value_listview">စာရင်း</string>
+  <string name="value_tabwidget">တဲဘ် ဘား</string>
+  <string name="value_spinner">ဆွဲချစာရင်း</string>
+  <string name="value_checkbox">ရွှေးချယ်ရန်အကွက်</string>
+  <string name="value_radio_button">ရေဒီယို ခလုတ်</string>
+  <string name="value_button">ခလုတ်</string>
+  <string name="value_seek_bar">ရှာဖွေခြင်း ထိန်းချုပ်မှု</string>
+  <string name="value_switch">ခလုတ်</string>
+  <string name="value_edit_box">တည်းဖြတ်ရန် အကွက်</string>
+  <string name="value_edit_box_editing">တည်းဖြတ်နေသည်</string>
+  <string name="value_image">ပုံ</string>
+  <string name="value_unlabelled">တံဆိပ်မပါ</string>
+  <string name="value_pager">စာမျက်နှာတွေကို တစ်ပြိုင်ထဲကြည့်ပါမယ်။</string>
+  <string name="value_pager_page">စာမျက်နှာ</string>
+  <string name="value_progress_bar">တိုးတက်မှုပြ ဘားတန်း</string>
+  <string name="value_webview">ဝက်ဘ်မြင်ကွင်း</string>
+  <string name="value_toolbar">ကိရိယာဘား</string>
+  <string name="template_summary_description">%1$s- %2$s</string>
+  <string name="template_password_selected">စကားလုံး %1$d ကနေ %2$d</string>
+  <string name="template_password_traversed">စာလုံး %1$d</string>
+  <string name="value_password">စကားဝှက်</string>
+  <string name="value_sliding_drawer_opened">ဆွဲယူအံဆွဲ ဖွင့်ထား</string>
+  <string name="value_options_menu_open">ရွေးစရာများ။</string>
+  <string name="value_text_cleared">ဖျက်ပြီး စာသား</string>
+  <string name="value_text_max_length">အများဆုံး အရှည်အတိုင်းအတာကို ရောက်ရှိပါပြီ</string>
+  <string name="value_selected">ရွေးထား</string>
+  <string name="value_checked">အမှန်ခြစ်ပြီး</string>
+  <string name="value_not_checked">ခြစ် မထား</string>
+  <string name="value_on">ဖွင့်ထားသည်</string>
+  <string name="value_off">ပိတ်ထားသည်</string>
+  <string name="value_disabled">ပိတ်ရန်</string>
+  <string name="value_expanded">တိုးချဲ့ထားပါတယ်</string>
+  <string name="value_collapsed">ခေါက်သိမ်းထားပါတယ်</string>
+  <string name="value_double_tap">နှစ်ကြိမ်ပုတ်</string>
+  <string name="value_single_tap">ပုတ်ရန်</string>
+  <string name="value_switch_press">ခလုတ်ရွေးချယ်ရန်ကို နှိပ်ပါ</string>
+  <string name="value_press_select">ရွေးချယ်ရန်ဆိုတဲ့ ခလုတ်ကို နှိပ်လိုက်ပါ</string>
+  <string name="template_hint_clickable">စဖွင့်ရန် %1$s</string>
+  <string name="template_hint_clickable_keyboard">စဖွင့်ရန် %1$s ကို နှိပ်ပါ။</string>
+  <string name="template_hint_long_clickable">%1$s နောက်မှာ ကြာစွာ နှိပ်ထားပါ။</string>
+  <string name="template_hint_long_clickable_keyboard">ကြာရှည်စွာဖိထားရန် %1$s ကို နှိပ်ပါ။</string>
+  <string name="template_hint_checkable">%1$s လှုပ်ကစားကြည့်ရန်</string>
+  <string name="template_hint_checkable_keyboard">ခလုတ်ပြောင်းရန် %1$s ကို နှိပ်ပါ။</string>
+  <string name="template_hint_edit_text">စာသားတည်းဖြတ်ရန် %1$s။</string>
+  <string name="template_hint_edit_text_keyboard">စာသားတည်းဖြတ်ရန် %1$s ကို နှိပ်ပါ။</string>
+  <string name="template_hint_spinner">ပြောင်းလဲရန် %1$s</string>
+  <string name="template_hint_spinner_keyboard">ပြောင်းရန် %1$s ကို နှိပ်ပါ။</string>
+  <string name="template_hint_pager">စာမျက်နှာပြောင်းဖို့ လက်နှစ်ချောင်းနဲ့ ပွတ်ဆွဲလိုက်ပါ။</string>
+  <string name="template_hint_pager_single_page">နောက်ထပ်စာမျက်နှာများ မရှိပါ။</string>
+  <string name="template_hint_seek_control">ချိန်ညှိရန် အသံအတိုးအကျယ်ခလုတ်များကို သုံးပါ</string>
+  <string name="template_hint_seek_control_tv">ပြောင်းဖို့အတွက် %1$s ရွေးပါ။</string>
+  <string name="template_hint_custom_actions">လုပ်ဆောင်ချက်များ−</string>
+  <string name="template_custom_hint_for_actions">%1$s ရင် %2$s။</string>
+  <string name="template_custom_hint_for_actions_keyboard">%2$s ရန်အတွက် %1$s ကို နှိပ်ပါ။</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s ပြီး ဖိထားရင် %2$s။</string>
+  <string name="template_sa_custom_hint_scrollable">အပေါ်အောက် ရွှေ့ရန် %1$s။</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">ရနိုင်သည့် လုပ်ဆောင်ချက်များအတွက် %1$s။</string>
+  <string name="template_sa_hint_seek_control">\'ခလုတ်ရွေးရန်\' ကို နှိပ်ပြီး ချိန်ညှိပါ</string>
+  <string name="value_caps_lock_on">စာလုံးကြီး ခလုတ် ဖွင့်ထားသည်။</string>
+  <string name="value_caps_lock_off">စာလုံးကြီး ခလုတ် ပိတ်ထားသည်။</string>
+  <string name="value_num_lock_on">နံပါတ် ခလုတ် ဖွင့်ထားသည်။</string>
+  <string name="value_num_lock_off">နံပါတ် ခလုတ် ပိတ်ထားသည်။</string>
+  <string name="value_scroll_lock_on">လှိမ့်မှု ခလုတ် ဖွင့်ထားသည်။</string>
+  <string name="value_scroll_lock_off">လှိမ့်မှု ခလုတ် ပိတ်ထားသည်။</string>
+  <string name="orientation_portrait">ဒေါင်လိုက်</string>
+  <string name="orientation_landscape">ဘေးတိုက်</string>
+  <string name="title_action_dismiss">ပယ်ရန်</string>
+  <string name="title_action_expand">ချဲ့ကြည့်ရန်</string>
+  <string name="title_action_collapse">လျှော့ပြရန်</string>
+  <string name="row_index_template">အတန်း %1$d</string>
+  <string name="column_index_template">ကော်လံ %1$d</string>
+  <string name="heading_template">ခေါင်းစီး</string>
+  <string name="row_heading_template">အတန်းခေါင်းစဉ်</string>
+  <string name="column_heading_template">ကော်လံခေါင်းစဉ်</string>
+  <string name="in_list">စာရင်းတွင် %1$s</string>
+  <string name="in_list_without_name">စာရင်းထဲရှိနေသည်</string>
+  <string name="out_of_list">စာရင်းမှ ထွက်သွားသည် %1$s</string>
+  <string name="out_of_list_without_name">စာရင်းထဲ မပါရှိပါ</string>
+  <string name="in_grid">ဇယားကွက်တွင် %1$s</string>
+  <string name="in_grid_without_name">ဂရစ်ဧရိယာထဲတွင် ရှိနေပါသည်</string>
+  <string name="out_of_grid">ဇယားကွက်မှ ထွက်သွားသည် %1$s</string>
+  <string name="out_of_grid_without_name">ဂရစ်ဧရိယာအပြင်သို့ ရောက်နေပါသည်</string>
+  <string name="in_pager_with_name">ပေဂျာ %1$s ထဲမှာ ရှိနေပါတယ်</string>
+  <string name="in_pager">ပေဂျာထဲမှာ ရှိနေပါတယ်</string>
+  <string name="out_of_pager_with_name">ပေဂျာ %1$s ရဲ့ အပြင်မှာ ရှိနေပါတယ်</string>
+  <string name="out_of_pager">ပေဂျာအပြင်မှာ ရှိနေပါတယ်</string>
+  <string name="in_vertical_pager_with_name">ထောင်လိုက်ပေဂျာ %1$s ထဲမှာ ရှိနေပါတယ်</string>
+  <string name="in_vertical_pager">ထောင်လိုက်ပေဂျာထဲမှာ ရှိနေပါတယ်</string>
+  <string name="out_of_vertical_pager_with_name">ထောင်လိုက်ပေဂျာ %1$s ရဲ့အပြင်မှာ ရှိနေပါတယ်</string>
+  <string name="out_of_vertical_pager">ထောင်လိုက်ပေဂျာရဲ့ အပြင်မှာ ရှိနေပါတယ်</string>
+  <string name="in_horizontal_pager_with_name">အလျားလိုက်ပေဂျာ %1$s ထဲမှာ ရှိနေပါတယ်</string>
+  <string name="in_horizontal_pager">အလျားလိုက်ပေဂျာထဲမှာ ရှိနေပါတယ်</string>
+  <string name="out_of_horizontal_pager_with_name">အလျားလိုက်ပေဂျာ %1$s ရဲ့ အပြင်မှာ ရှိနေပါတယ်</string>
+  <string name="out_of_horizontal_pager">အလျားလိုက်ပေဂျာရဲ့ အပြင်မှာ ရှိနေပါတယ်</string>
+  <string name="in_grid_pager_with_name">ဇယားကွက် ပေဂျာ %1$s ထဲမှာ ရှိနေပါတယ်</string>
+  <string name="in_grid_pager">ဇယားကွက် ပေဂျာထဲမှာ ရှိနေပါတယ်</string>
+  <string name="out_of_grid_pager_with_name">ဂရစ်ပေဂျာ %1$s ရဲ့ အပြင်မှာ ရှိနေပါတယ်</string>
+  <string name="out_of_grid_pager">ဂရစ်ပေဂျာရဲ့ အပြင်မှာ ရှိနေပါတယ်</string>
+  <string name="template_collection_level">အဆင့် %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d ခု</item>
+    <item quantity="other">%1$d ခု</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">အတန်း %1$d တန်း</item>
+    <item quantity="other">အတန်း %1$d တန်း</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">ကော်လံ %1$d ခု</item>
+    <item quantity="other">ကော်လံ %1$d ခု</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">စကားလုံး %1$d လုံး</item>
+    <item quantity="other">စကားလုံး %1$d လုံး</item>
+  </plurals>
+  <string name="template_screen_magnification_on">%1$d%% သို့ ချဲ့ထားပါသည်</string>
+  <string name="template_screen_magnification_scale_changed">%1$d%% ချဲ့ထားပါသည်</string>
+  <string name="screen_magnification_off">ပုံကြီးချဲ့ခြင်းကို ပိတ်ထားပါသည်</string>
+  <string name="template_speech_rate_change">စကားပြောနှုန်း %1$d%%</string>
+  <string name="audio_focus_on">နောက်ခံသံလျှော့ချခြင်းအား ဖွင့်ထားပါသည်</string>
+  <string name="audio_focus_off">နောက်ခံသံလျှော့ချခြင်းအား ပိတ်ထားပါသည်</string>
+  <string name="selector_speech_rate_output">စကားပြောနှုန်း</string>
+  <string name="selector_verbosity_output">အကျယ်ချဲ့ရှင်းပြရန်</string>
+  <string name="selector_granularity_output">လမ်းညွှန်ချက်</string>
+  <string name="selector_audio_focus_output">နောက်ခံသံလျှော့ချခြင်း</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">နားကြပ်သုံးချိန်မှသာ စကားဝှက်များကို အသံထွက်ဖတ်ပေးရန်</string>
+  <string name="template_hint_menu_type_high_verbosity">%1$s ရနိုင်သည်၊ ကြည့်ရန် %2$s ကို အသုံးပြုပါ။</string>
+  <string name="template_hint_menu_type_low_verbosity">%1$s ရနိုင်သည်။</string>
 </resources>

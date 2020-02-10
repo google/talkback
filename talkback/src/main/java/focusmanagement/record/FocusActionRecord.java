@@ -17,11 +17,10 @@
 package com.google.android.accessibility.talkback.focusmanagement.record;
 
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import java.util.Collection;
+import java.util.Objects;
 
 /**
  * A record of TalkBack performing {@link AccessibilityNodeInfoCompat#ACTION_ACCESSIBILITY_FOCUS}
@@ -32,11 +31,13 @@ public class FocusActionRecord {
    * Time when the accessibility focus action is performed. Initialized with
    * SystemClock.uptimeMillis().
    */
-  private final long mActionTime;
+  private final long actionTime;
   /** Node being accessibility focused. */
-  private final AccessibilityNodeInfoCompat mFocusedNode;
+  private final AccessibilityNodeInfoCompat focusedNode;
+  /** Describes how to find focused node from root node. */
+  private final NodePathDescription nodePathDescription;
   /** Extra information about source focus action. */
-  private final FocusActionInfo mExtraInfo;
+  private final FocusActionInfo extraInfo;
 
   /**
    * Constructs a FocusActionRecord.
@@ -48,12 +49,26 @@ public class FocusActionRecord {
    * @param actionTime Time when focus action happens. Got by {@link SystemClock#uptimeMillis()}.
    */
   public FocusActionRecord(
-      @NonNull AccessibilityNodeInfoCompat focusedNode,
-      @NonNull FocusActionInfo extraInfo,
+      AccessibilityNodeInfoCompat focusedNode, FocusActionInfo extraInfo, long actionTime) {
+    this.focusedNode = AccessibilityNodeInfoUtils.obtain(focusedNode);
+    nodePathDescription = NodePathDescription.obtain(focusedNode);
+    this.extraInfo = extraInfo;
+    this.actionTime = actionTime;
+  }
+
+  /**
+   * Constructs FocusActionRecord. Used internally by {@link #copy(FocusActionRecord)}. Avoid
+   * generating {@link NodePathDescription} from {@code focusedNode}.
+   */
+  private FocusActionRecord(
+      AccessibilityNodeInfoCompat focusedNode,
+      NodePathDescription nodePathDescription,
+      FocusActionInfo extraInfo,
       long actionTime) {
-    mFocusedNode = AccessibilityNodeInfoUtils.obtain(focusedNode);
-    mExtraInfo = extraInfo;
-    mActionTime = actionTime;
+    this.focusedNode = AccessibilityNodeInfoUtils.obtain(focusedNode);
+    this.nodePathDescription = nodePathDescription;
+    this.extraInfo = extraInfo;
+    this.actionTime = actionTime;
   }
 
   /**
@@ -61,15 +76,17 @@ public class FocusActionRecord {
    *
    * <p><strong>Caller is responsible for recycling the node after use.</strong>
    */
-  @Nullable
   public AccessibilityNodeInfoCompat getFocusedNode() {
-    return AccessibilityNodeInfoUtils.obtain(mFocusedNode);
+    return AccessibilityNodeInfoUtils.obtain(focusedNode);
+  }
+
+  public NodePathDescription getNodePathDescription() {
+    return nodePathDescription;
   }
 
   /** Returns extra information of the focus action. */
-  @NonNull
   public FocusActionInfo getExtraInfo() {
-    return mExtraInfo;
+    return extraInfo;
   }
 
   /**
@@ -77,12 +94,12 @@ public class FocusActionRecord {
    * SystemClock#uptimeMillis()}.
    */
   public long getActionTime() {
-    return mActionTime;
+    return actionTime;
   }
 
   /** Returns the instance of focused node back into reuse. */
   public void recycle() {
-    AccessibilityNodeInfoUtils.recycleNodes(mFocusedNode);
+    AccessibilityNodeInfoUtils.recycleNodes(focusedNode);
   }
 
   /** Returns a copied instance of another FocusActionRecord. */
@@ -91,9 +108,10 @@ public class FocusActionRecord {
       return null;
     }
     return new FocusActionRecord(
-        AccessibilityNodeInfoUtils.obtain(record.mFocusedNode),
-        record.mExtraInfo,
-        record.mActionTime);
+        AccessibilityNodeInfoUtils.obtain(record.focusedNode),
+        record.nodePathDescription,
+        record.extraInfo,
+        record.actionTime);
   }
 
   /** Recycles a collection of record instances. */
@@ -110,39 +128,41 @@ public class FocusActionRecord {
 
   @Override
   public int hashCode() {
-    int result = (int) (mActionTime ^ (mActionTime >>> 32));
-    result = 31 * result + mFocusedNode.hashCode();
-    result = 31 * result + mExtraInfo.hashCode();
-    return result;
+    return Objects.hash(actionTime, focusedNode, nodePathDescription, extraInfo);
   }
 
   @Override
   public boolean equals(Object other) {
-    if (other == null) {
-      return false;
-    }
     if (other == this) {
       return true;
     }
-    if (getClass() != other.getClass()) {
+    if (!(other instanceof FocusActionRecord)) {
       return false;
     }
     FocusActionRecord otherRecord = (FocusActionRecord) other;
-    return (mFocusedNode.equals(otherRecord.mFocusedNode))
-        && (mExtraInfo.equals(otherRecord.mExtraInfo))
-        && (mActionTime == otherRecord.mActionTime);
+    return (focusedNode.equals(otherRecord.focusedNode))
+        && (nodePathDescription.equals(otherRecord.nodePathDescription))
+        && (extraInfo.equals(otherRecord.extraInfo))
+        && (actionTime == otherRecord.actionTime);
+  }
+
+  public boolean focusedNodeEquals(AccessibilityNodeInfoCompat targetNode) {
+    if (focusedNode == null || targetNode == null) {
+      return false;
+    }
+    return (focusedNode == targetNode) || focusedNode.equals(targetNode);
   }
 
   @Override
   public String toString() {
     return "FocusActionRecord: \n"
         + "node="
-        + mFocusedNode.toString()
+        + focusedNode.toString()
         + "\n"
         + "time="
-        + mActionTime
+        + actionTime
         + "\n"
         + "extraInfo="
-        + mExtraInfo.toString();
+        + extraInfo.toString();
   }
 }

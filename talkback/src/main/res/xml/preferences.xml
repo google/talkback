@@ -18,21 +18,15 @@
             android:title="@string/tts_preferences_title" />
         <Preference
             android:key="@string/pref_verbosity_key"
-            android:title="@string/pref_verbosity_title" />
+            android:title="@string/pref_verbosity_title" >
+            <intent android:action=".TalkBackVerbosityPreferencesActivity" />
+        </Preference>
         <SwitchPreference
             android:defaultValue="@bool/pref_proximity_default"
             android:key="@string/pref_proximity_key"
             android:summaryOff="@string/summaryOff_pref_proximity"
             android:summaryOn="@string/summaryOn_pref_proximity"
             android:title="@string/title_pref_proximity" />
-        <ListPreference
-            android:defaultValue="@string/pref_shake_to_read_threshold_default"
-            android:dialogTitle="@string/title_pref_shake_to_read_threshold"
-            android:entries="@array/pref_shake_to_read_threshold_entries"
-            android:entryValues="@array/pref_shake_to_read_threshold_values"
-            android:key="@string/pref_shake_to_read_threshold_key"
-            android:summary="%s"
-            android:title="@string/title_pref_shake_to_read_threshold" />
         <SwitchPreference
             android:title="@string/title_pref_speak_passwords_without_headphones"
             android:summaryOff="@string/summaryOff_pref_speak_passwords_without_headphones"
@@ -51,11 +45,6 @@
             android:defaultValue="@bool/pref_soundback_default"
             android:key="@string/pref_soundback_key"
             android:title="@string/title_pref_soundback" />
-        <SwitchPreference
-            android:defaultValue="@bool/pref_use_audio_focus_default"
-            android:key="@string/pref_use_audio_focus_key"
-            android:title="@string/title_pref_use_audio_focus"
-            android:summary="@string/summary_pref_use_audio_focus" />
         <ListPreference
             android:defaultValue="@string/pref_soundback_volume_default"
             android:dependency="@string/pref_soundback_key"
@@ -65,21 +54,17 @@
             android:key="@string/pref_soundback_volume_key"
             android:summary="%s"
             android:title="@string/title_pref_soundback_volume" />
+        <SwitchPreference
+            android:defaultValue="@bool/pref_use_audio_focus_default"
+            android:key="@string/pref_use_audio_focus_key"
+            android:title="@string/title_pref_use_audio_focus"
+            android:summary="@string/summary_pref_use_audio_focus" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/pref_category_touch_exploration_key"
         android:title="@string/title_pref_category_touch_exploration" >
         <SwitchPreference
-            android:defaultValue="@bool/pref_explore_by_touch_default"
-            android:key="@string/pref_explore_by_touch_reflect_key"
-            android:title="@string/title_pref_explore_by_touch" />
-        <SwitchPreference
-            android:defaultValue="@bool/pref_auto_scroll_default"
-            android:key="@string/pref_auto_scroll_key"
-            android:title="@string/title_pref_auto_scroll" />
-        <SwitchPreference
             android:defaultValue="@bool/pref_single_tap_default"
-            android:dependency="@string/pref_explore_by_touch_reflect_key"
             android:key="@string/pref_single_tap_key"
             android:summary="@string/summary_pref_single_tap"
             android:title="@string/title_pref_single_tap" />
@@ -88,62 +73,35 @@
             android:key="@string/pref_show_context_menu_as_list_key"
             android:title="@string/title_pref_show_context_menu_as_list" />
         <Preference
-            android:key="@string/pref_tutorial_key"
-            android:title="@string/title_pref_tutorial"
-            android:dependency="@string/pref_explore_by_touch_reflect_key" />
-        <Preference
             android:key="@string/pref_category_manage_gestures_key"
-            android:title="@string/title_pref_category_manage_gestures" />
+            android:title="@string/title_pref_category_manage_gestures" >
+            <intent android:action=".TalkBackShortcutPreferencesActivity" />
+        </Preference>
         <!-- Selector settings -->
-        <PreferenceScreen
+        <Preference
             android:key="@string/pref_selector_category_settings_key"
-            android:title="@string/title_pref_selector_settings">
-            <SwitchPreference
-                android:defaultValue="@bool/pref_selector_activation_default"
-                android:key="@string/pref_selector_activation_key"
-                android:title="@string/title_pref_selector_activation"
-                android:summary="@string/pref_selector_activation_summary"
-                />
-            <PreferenceCategory
-                android:key="@string/pref_category_selector_settings_configuration_key"
-                android:title="@string/title_pref_category_selector_settings_configuration">
-                <SwitchPreference
-                    android:defaultValue="@bool/pref_selector_speech_rate_default"
-                    android:key="@string/pref_selector_speech_rate_key"
-                    android:title="@string/title_pref_selector_speech_rate"/>
-                <SwitchPreference
-                    android:defaultValue="@bool/pref_selector_verbosity_default"
-                    android:key="@string/pref_selector_verbosity_key"
-                    android:title="@string/title_pref_selector_verbosity"/>
-                <SwitchPreference
-                    android:defaultValue="@bool/pref_selector_granularity_default"
-                    android:key="@string/pref_selector_granularity_key"
-                    android:title="@string/title_pref_selector_granularity"/>
-                <SwitchPreference
-                    android:defaultValue="@bool/pref_selector_audio_focus_default"
-                    android:key="@string/pref_selector_audio_focus_key"
-                    android:title="@string/title_pref_selector_audio_focus"/>
-            </PreferenceCategory>
-        </PreferenceScreen>
+            android:title="@string/title_pref_selector_settings" >
+          <intent android:action=".TalkBackSelectorPreferencesActivity" />
+        </Preference>>
+        <Preference
+            android:key="@string/pref_category_manage_keyboard_shortcut_key"
+            android:title="@string/title_pref_manage_keyboard_shortcuts" >
+          <intent android:action=".TalkBackKeyboardShortcutPreferencesActivity" />
+        </Preference>
         <Preference
             android:key="@string/pref_manage_labels_key"
-            android:title="@string/title_pref_manage_labels" />
+            android:title="@string/title_pref_manage_labels" >
+          <intent android:action=".labeling.TalkBackSelectorPreferencesActivity" />
+        </Preference>
     </PreferenceCategory>
     <PreferenceCategory
         android:key="@string/pref_category_miscellaneous_key"
         android:title="@string/title_pref_category_miscellaneous_settings" >
-        <Preference
-            android:key="@string/pref_category_manage_keyboard_shortcut_key"
-            android:title="@string/title_pref_manage_keyboard_shortcuts" />
         <SwitchPreference
             android:defaultValue="@bool/pref_resume_volume_buttons_long_click_default"
             android:key="@string/pref_two_volume_long_press_key"
             android:summary="@string/value_long_volume_pressed_suspend_talkback"
             android:title="@string/title_pref_two_volume_button_long_click" />
-        <SwitchPreference
-            android:defaultValue="@bool/pref_dim_when_talkback_enabled_default"
-            android:key="@string/pref_dim_when_talkback_enabled_key"
-            android:title="@string/title_dim_screen_when_talkback_enabled" />
         <SwitchPreference
             android:defaultValue="@bool/pref_dim_volume_three_clicks_default"
             android:key="@string/pref_dim_volume_three_clicks_key"
@@ -161,33 +119,14 @@
             android:key="@string/pref_play_store_key"
             android:title="@string/title_pref_play_store">
         </PreferenceScreen>
-        <PreferenceScreen
+        <Preference
             android:key="@string/pref_category_developer_key"
             android:title="@string/title_pref_category_developer_settings" >
-            <ListPreference
-                android:defaultValue="@string/pref_log_level_default"
-                android:dialogTitle="@string/title_pref_log_level"
-                android:entries="@array/pref_log_level_entries"
-                android:entryValues="@array/pref_log_level_values"
-                android:key="@string/pref_log_level_key"
-                android:summary="%s"
-                android:title="@string/title_pref_log_level" />
-            <SwitchPreference
-                android:defaultValue="@bool/pref_tts_overlay_default"
-                android:key="@string/pref_tts_overlay_key"
-                android:title="@string/title_pref_tts_overlay" />
-            <SwitchPreference
-                android:defaultValue="@bool/pref_tree_debug_default"
-                android:key="@string/pref_tree_debug_reflect_key"
-                android:title="@string/title_pref_tree_debug" />
-            <SwitchPreference
-                android:defaultValue="@bool/pref_performance_stats_default"
-                android:key="@string/pref_performance_stats_reflect_key"
-                android:title="@string/title_pref_performance_stats" />
-            <Preference
-                android:key="@string/pref_dump_a11y_event_key"
-                android:title="@string/title_pref_dump_a11y_event" />
-        </PreferenceScreen>
+          <intent android:action=".TalkBackDeveloperPreferencesActivity" />
+        </Preference>>
+        <Preference
+            android:key="@string/pref_tutorial_key"
+            android:title="@string/title_pref_tutorial" />
         <PreferenceScreen
             android:key="@string/pref_help_and_feedback_key">
         </PreferenceScreen>

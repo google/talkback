@@ -17,7 +17,7 @@
 package com.google.android.accessibility.talkback.menurules;
 
 import android.content.Context;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItemBuilder;
@@ -46,12 +46,15 @@ interface NodeMenuRule {
    *
    * @param service The parent service.
    * @param menuItemBuilder builder to create menu items
-   * @param node The node to process.
+   * @param node The node to process
+   * @param includeAncestors sets to {@code false} to find menu items from the node itself only.
+   *     Sets to {@code true} may find menu items from its ancestors.
    */
   public List<ContextMenuItem> getMenuItemsForNode(
       TalkBackService service,
       ContextMenuItemBuilder menuItemBuilder,
-      AccessibilityNodeInfoCompat node);
+      AccessibilityNodeInfoCompat node,
+      boolean includeAncestors);
 
   /**
    * Provides the menu rule processor with a potentially user-visible name for the submenu the
@@ -69,4 +72,5 @@ interface NodeMenuRule {
    *     parent contains no other menus.
    */
   public boolean canCollapseMenu();
+
 }

@@ -17,6 +17,7 @@
 package com.google.android.accessibility.utils.labeling;
 
 import com.google.android.accessibility.utils.LocaleUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** A model class for a custom view label that TalkBack can speak. */
 public class Label {
@@ -251,16 +252,11 @@ public class Label {
   }
 
   @Override
-  public boolean equals(Object obj) {
+  public boolean equals(@Nullable Object obj) {
     if (this == obj) {
       return true;
     }
-
-    if (obj == null) {
-      return false;
-    }
-
-    if (getClass() != obj.getClass()) {
+    if (!(obj instanceof Label)) {
       return false;
     }
 

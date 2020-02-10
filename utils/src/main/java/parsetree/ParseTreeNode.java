@@ -16,29 +16,21 @@
 
 package com.google.android.accessibility.utils.parsetree;
 
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
+import androidx.annotation.Nullable;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 
 abstract class ParseTreeNode {
 
-  private String mNodeName;
-
-  public void setNodeName(String name) {
-    mNodeName = name;
-  }
-
-  public String getNodeName() {
-    return mNodeName;
-  }
+  private static final String TAG = "ParseTreeNode";
 
   // Returns the type of value this node represents.
   public abstract @ParseTree.VariableType int getType();
 
   // Returns the enum type of this node.
   public int getEnumType() {
-    LogUtils.log(this, Log.ERROR, "Cannot coerce " + getClass() + " to Enum");
+    LogUtils.e(TAG, "Cannot coerce " + getClass() + " to Enum");
     return -1;
   }
 
@@ -49,51 +41,51 @@ abstract class ParseTreeNode {
 
   // Resolve the value of this node to a boolean value.
   public boolean resolveToBoolean(ParseTree.VariableDelegate delegate, String logIndent) {
-    LogUtils.log(this, Log.ERROR, "Cannot coerce " + getClass() + " to Boolean");
+    LogUtils.e(TAG, "Cannot coerce " + getClass() + " to Boolean");
     return false;
   }
 
   // Resolve the value of this node to an integer value.
   public int resolveToInteger(ParseTree.VariableDelegate delegate, String logIndent) {
-    LogUtils.log(this, Log.ERROR, "Cannot coerce " + getClass() + " to Integer");
+    LogUtils.e(TAG, "Cannot coerce " + getClass() + " to Integer");
     return 0;
   }
 
   // Resolve the value of this node to a number value.
   public double resolveToNumber(ParseTree.VariableDelegate delegate, String logIndent) {
-    LogUtils.log(this, Log.ERROR, "Cannot coerce " + getClass() + " to Number");
+    LogUtils.e(TAG, "Cannot coerce " + getClass() + " to Number");
     return 0;
   }
 
   // Resolve the value of this node to a string.
   public CharSequence resolveToString(ParseTree.VariableDelegate delegate, String logIndent) {
-    LogUtils.log(this, Log.ERROR, "Cannot coerce " + getClass() + " to String");
+    LogUtils.e(TAG, "Cannot coerce " + getClass() + " to String");
     return "";
   }
 
   // Resolve the value of this node to a reference.
-  public ParseTree.VariableDelegate resolveToReference(
+  public @Nullable ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
-    LogUtils.log(this, Log.ERROR, "Cannot coerce " + getClass() + " to Reference");
+    LogUtils.e(TAG, "Cannot coerce " + getClass() + " to Reference");
     return null;
   }
 
   // Resolve the value of this node to an array.
   public List<CharSequence> resolveToArray(ParseTree.VariableDelegate delegate, String logIndent) {
-    LogUtils.log(this, Log.ERROR, "Cannot coerce " + getClass() + " to Array");
+    LogUtils.e(TAG, "Cannot coerce " + getClass() + " to Array");
     return new ArrayList<>();
   }
 
   // Resolve the value of this node to a child array.
   public List<ParseTree.VariableDelegate> resolveToChildArray(
       ParseTree.VariableDelegate delegate, String logIndent) {
-    LogUtils.log(this, Log.ERROR, "Cannot coerce " + getClass() + " to Child Array");
+    LogUtils.e(TAG, "Cannot coerce " + getClass() + " to Child Array");
     return new ArrayList<>();
   }
 
   // Query the length as an array.
   int getArrayLength(ParseTree.VariableDelegate delegate, String logIndent) {
-    LogUtils.log(this, Log.ERROR, "Cannot query array length of " + getClass());
+    LogUtils.e(TAG, "Cannot query array length of " + getClass());
     return 0;
   }
 }

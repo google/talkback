@@ -16,8 +16,6 @@
 
 package com.google.android.accessibility.talkback.labeling;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -28,9 +26,10 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.content.FileProvider;
+import androidx.core.content.FileProvider;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,25 +44,28 @@ import android.widget.Toast;
 import com.google.android.accessibility.talkback.BuildConfig;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.LocaleUtils;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.labeling.LabelProviderClient;
 import com.google.android.accessibility.utils.labeling.PackageLabelInfo;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.io.File;
 import java.util.List;
 
 /** An activity for displaying a summary of custom labels in TalkBack. */
-public class LabelManagerSummaryActivity extends Activity implements OnClickListener {
-  private static final int SELECT_LABEL_FILE_REQUEST = 0;
+public class LabelManagerSummaryActivity extends AppCompatActivity implements OnClickListener {
+
+  private static final String TAG = "LabelManagerSummaryAct";
+
+  protected static final int SELECT_LABEL_FILE_REQUEST = 0;
 
   /** File provider for custom label share intent. */
   private static final String FILE_AUTHORITY =
       BuildConfig.APPLICATION_ID + ".providers.FileProvider";
 
-  private LabelProviderClient mLabelProviderClient;
-  private ListView mPackageList;
-  private TextView mNoPackagesMessage;
-  private View mRevertButton;
-  private CustomLabelManager mLabelManager;
+  private LabelProviderClient labelProviderClient;
+  private ListView packageList;
+  private TextView noPackagesMessage;
+  private View revertButton;
+  private CustomLabelManager labelManager;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -71,16 +73,16 @@ public class LabelManagerSummaryActivity extends Activity implements OnClickList
 
     setContentView(R.layout.label_manager_packages);
 
-    final ActionBar actionBar = getActionBar();
+    final ActionBar actionBar = getSupportActionBar();
     if (actionBar != null) {
       actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    mPackageList = (ListView) findViewById(R.id.package_list);
-    mNoPackagesMessage = (TextView) findViewById(R.id.no_packages_message);
+    packageList = (ListView) findViewById(R.id.package_list);
+    noPackagesMessage = (TextView) findViewById(R.id.no_packages_message);
 
-    mLabelProviderClient = new LabelProviderClient(this, LabelProvider.AUTHORITY);
-    mLabelManager = new CustomLabelManager(this);
+    labelProviderClient = new LabelProviderClient(this, LabelProvider.AUTHORITY);
+    labelManager = new CustomLabelManager(this);
 
     initializeImportLabelButton();
     initializeExportLabelButton();
@@ -97,8 +99,8 @@ public class LabelManagerSummaryActivity extends Activity implements OnClickList
   @Override
   protected void onDestroy() {
     super.onDestroy();
-    mLabelProviderClient.shutdown();
-    mLabelManager.shutdown();
+    labelProviderClient.shutdown();
+    labelManager.shutdown();
   }
 
   /** Finishes the activity when the up button is pressed on the action bar. */
@@ -144,11 +146,11 @@ public class LabelManagerSummaryActivity extends Activity implements OnClickList
   }
 
   private void onExportLabelButtonClicked() {
-    new CustomLabelMigrationManager(getApplicationContext()).exportLabels(mExportLabelsCallBack);
+    new CustomLabelMigrationManager(getApplicationContext()).exportLabels(exportLabelsCallBack);
   }
 
   private void onRevertImportButtonClicked() {
-    mLabelManager.revertImportedLabels(
+    labelManager.revertImportedLabels(
         new RevertImportedLabelsRequest.OnImportLabelsRevertedListener() {
           @Override
           public void onImportLabelsReverted() {
@@ -176,20 +178,20 @@ public class LabelManagerSummaryActivity extends Activity implements OnClickList
   }
 
   private void initializeRevertImportButton() {
-    mRevertButton = findViewById(R.id.revert_import);
-    mRevertButton.setOnClickListener(this);
+    revertButton = findViewById(R.id.revert_import);
+    revertButton.setOnClickListener(this);
   }
 
   private void checkImportedLabels() {
-    mRevertButton.setEnabled(false);
-    mLabelManager.hasImportedLabels(
+    revertButton.setEnabled(false);
+    labelManager.hasImportedLabels(
         new HasImportedLabelsRequest.OnHasImportedLabelsCompleteListener() {
           @Override
           public void onHasImportedRequestCompleted(boolean hasImportedLabels) {
             if (isDestroyed()) {
               return;
             }
-            mRevertButton.setEnabled(hasImportedLabels);
+            revertButton.setEnabled(hasImportedLabels);
           }
         });
   }
@@ -199,7 +201,7 @@ public class LabelManagerSummaryActivity extends Activity implements OnClickList
     new UpdatePackageSummaryTask().execute();
   }
 
-  private final CustomLabelMigrationManager.SimpleLabelMigrationCallback mExportLabelsCallBack =
+  private final CustomLabelMigrationManager.SimpleLabelMigrationCallback exportLabelsCallBack =
       new CustomLabelMigrationManager.SimpleLabelMigrationCallback() {
         @Override
         public void onLabelsExported(File file) {
@@ -241,19 +243,19 @@ public class LabelManagerSummaryActivity extends Activity implements OnClickList
 
   /** An adapter that processes information about packages and their labels. */
   private class PackageLabelInfoAdapter extends ArrayAdapter<PackageLabelInfo> {
-    private final LayoutInflater mLayoutInflater;
+    private final LayoutInflater layoutInflater;
 
     public PackageLabelInfoAdapter(
         Context context, int textViewResourceId, List<PackageLabelInfo> items) {
       super(context, textViewResourceId, items);
 
-      mLayoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+      layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
       if (view == null) {
-        view = mLayoutInflater.inflate(R.layout.label_manager_package_row, parent, false);
+        view = layoutInflater.inflate(R.layout.label_manager_package_row, parent, false);
       }
 
       final PackageLabelInfo packageLabelInfo = getItem(position);
@@ -271,11 +273,8 @@ public class LabelManagerSummaryActivity extends Activity implements OnClickList
         applicationLabel = packageManager.getApplicationLabel(packageInfo.applicationInfo);
         applicationIcon = packageManager.getApplicationIcon(packageName);
       } catch (NameNotFoundException e) {
-        LogUtils.log(
-            this,
-            Log.INFO,
-            "Could not load package info for package %s.",
-            packageLabelInfo.getPackageName());
+        LogUtils.i(
+            TAG, "Could not load package info for package %s.", packageLabelInfo.getPackageName());
       } finally {
         if (TextUtils.isEmpty(applicationLabel)) {
           applicationLabel = packageName;
@@ -315,42 +314,38 @@ public class LabelManagerSummaryActivity extends Activity implements OnClickList
 
   /** A task for getting a package summary and updating the adapter. */
   private class UpdatePackageSummaryTask extends AsyncTask<Void, Void, List<PackageLabelInfo>> {
-    private String mLocale;
+    private String locale;
 
     @Override
     protected void onPreExecute() {
-      mLocale = LocaleUtils.getDefaultLocale();
+      locale = LocaleUtils.getDefaultLocale();
     }
 
     @Override
     protected List<PackageLabelInfo> doInBackground(Void... params) {
-      LogUtils.log(
-          this,
-          Log.VERBOSE,
-          "Spawning new UpdatePackageSummaryTask(%d) for %s.",
-          hashCode(),
-          mLocale);
+      LogUtils.v(TAG, "Spawning new UpdatePackageSummaryTask(%d) for %s.", hashCode(), locale);
 
-      return mLabelProviderClient.getPackageSummary(mLocale);
+      return labelProviderClient.getPackageSummary(locale);
     }
 
     @Override
     protected void onPostExecute(List<PackageLabelInfo> result) {
       if (result != null && result.size() > 0) {
-        mPackageList.setAdapter(
+        packageList.setAdapter(
             new PackageLabelInfoAdapter(
                 LabelManagerSummaryActivity.this, R.layout.label_manager_package_row, result));
-        mPackageList.setVisibility(View.VISIBLE);
-        mNoPackagesMessage.setVisibility(View.GONE);
+        packageList.setVisibility(View.VISIBLE);
+        noPackagesMessage.setVisibility(View.GONE);
       } else {
-        mPackageList.setVisibility(View.GONE);
-        mNoPackagesMessage.setVisibility(View.VISIBLE);
+        packageList.setVisibility(View.GONE);
+        noPackagesMessage.setVisibility(View.VISIBLE);
       }
     }
   }
 
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
     if (requestCode == SELECT_LABEL_FILE_REQUEST && data != null) {
       Uri selectedFile = data.getData();
       Intent launchImportIntent = new Intent(this, LabelImportActivity.class);

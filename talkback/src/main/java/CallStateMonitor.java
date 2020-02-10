@@ -22,15 +22,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.telephony.TelephonyManager;
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 
 /** {@link BroadcastReceiver} for detecting incoming calls. */
 public class CallStateMonitor extends BroadcastReceiver {
+
+  private static final String TAG = "CallStateMonitor";
 
   /** Interface to be notified when phone call state changes. */
   public interface CallStateChangedListener {
@@ -42,27 +43,26 @@ public class CallStateMonitor extends BroadcastReceiver {
   public static final IntentFilter STATE_CHANGED_FILTER =
       new IntentFilter(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
 
-  private final TalkBackService mService;
-  private final TelephonyManager mTelephonyManager;
-  private final List<CallStateChangedListener> mCallStateChangedListeners = new ArrayList<>();
+  private final TalkBackService service;
+  private final TelephonyManager telephonyManager;
+  private final List<CallStateChangedListener> callStateChangedListeners = new ArrayList<>();
 
-  private int mLastCallState;
-  private boolean mIsStarted;
+  private int lastCallState;
+  private boolean isStarted;
 
   public CallStateMonitor(TalkBackService context) {
-    mService = context;
-    mTelephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+    service = context;
+    telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
   }
 
   @Override
   public void onReceive(Context context, Intent intent) {
     if (!TalkBackService.isServiceActive()) {
-      LogUtils.log(
-          CallStateMonitor.class, Log.WARN, "Service not initialized during " + "broadcast.");
+      LogUtils.w(TAG, "Service not initialized during " + "broadcast.");
       return;
     }
 
-    int oldState = mLastCallState;
+    int oldState = lastCallState;
     int newState;
 
     final String state = intent.getStringExtra(TelephonyManager.EXTRA_STATE);
@@ -76,15 +76,14 @@ public class CallStateMonitor extends BroadcastReceiver {
       return;
     }
     if (newState != oldState) {
-      LogUtils.log(
-          this,
-          Log.VERBOSE,
+      LogUtils.v(
+          TAG,
           "Call state changed: %s -> %s",
-          callStateToString(mLastCallState),
+          callStateToString(lastCallState),
           callStateToString(newState));
 
-      mLastCallState = newState;
-      for (CallStateChangedListener listener : mCallStateChangedListeners) {
+      lastCallState = newState;
+      for (CallStateChangedListener listener : callStateChangedListeners) {
         listener.onCallStateChanged(oldState, newState);
       }
     }
@@ -93,7 +92,7 @@ public class CallStateMonitor extends BroadcastReceiver {
   /** Registers a callback to be invoked when phone call state changes. */
   public void addCallStateChangedListener(CallStateChangedListener listener) {
     if (listener != null) {
-      mCallStateChangedListeners.add(listener);
+      callStateChangedListeners.add(listener);
     }
   }
 
@@ -102,31 +101,30 @@ public class CallStateMonitor extends BroadcastReceiver {
    * ACTION_PHONE_STATE_CHANGED intent. This happens only if READ_PHONE_STATE permission is granted.
    */
   public void startMonitor() {
-    if (mIsStarted) {
+    if (isStarted) {
       return;
     }
     // Starting from M, permission model has changed, so that TalkBack is not granted with
     // READ_PHONE_STATE permission by default. Then there is no need to register the broadcast
     // receiver.
     if (isCallStatePermissionGranted()) {
-      LogUtils.log(this, Log.DEBUG, "Start monitoring call state.");
-      mLastCallState = mTelephonyManager.getCallState();
-      mService.registerReceiver(this, STATE_CHANGED_FILTER);
-      mIsStarted = true;
+      LogUtils.d(TAG, "Start monitoring call state.");
+      lastCallState = telephonyManager.getCallState();
+      service.registerReceiver(this, STATE_CHANGED_FILTER);
+      isStarted = true;
     } else {
-      LogUtils.log(
-          this,
-          Log.WARN,
+      LogUtils.w(
+          TAG,
           "Fail to start monitoring phone state: " + "READ_PHONE_STATE permission is not granted.");
     }
   }
 
   /** Unregisters broadcast receiver and stop monitoring phone call state. */
   public void stopMonitor() {
-    if (mIsStarted) {
-      LogUtils.log(this, Log.DEBUG, "Stop monitoring call state.");
-      mService.unregisterReceiver(this);
-      mIsStarted = false;
+    if (isStarted) {
+      LogUtils.d(TAG, "Stop monitoring call state.");
+      service.unregisterReceiver(this);
+      isStarted = false;
     }
   }
 
@@ -136,7 +134,7 @@ public class CallStateMonitor extends BroadcastReceiver {
    * @return One of the call state constants from {@link TelephonyManager}.
    */
   public int getCurrentCallState() {
-    return mIsStarted ? mLastCallState : mTelephonyManager.getCallState();
+    return isStarted ? lastCallState : telephonyManager.getCallState();
   }
 
   /**
@@ -167,7 +165,7 @@ public class CallStateMonitor extends BroadcastReceiver {
 
   /** @return whether the permission READ_PHONE_STATE is granted to TalkBack. */
   private boolean isCallStatePermissionGranted() {
-    return ContextCompat.checkSelfPermission(mService, Manifest.permission.READ_PHONE_STATE)
+    return ContextCompat.checkSelfPermission(service, Manifest.permission.READ_PHONE_STATE)
         == PackageManager.PERMISSION_GRANTED;
   }
 }

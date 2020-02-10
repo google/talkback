@@ -17,7 +17,7 @@
 package com.google.android.accessibility.utils.traversal;
 
 import android.graphics.Rect;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.Filter;
@@ -28,6 +28,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class DirectionalTraversalStrategy implements TraversalStrategy {
 
@@ -35,10 +36,10 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
   private AccessibilityNodeInfoCompat mRoot;
 
   /** The cached on-screen bounds of the root node. */
-  private Rect mRootRect;
+  private final Rect mRootRect;
 
   /** The bounds of the root node, padded slightly for intersection checks. */
-  private Rect mRootRectPadded;
+  private final Rect mRootRectPadded;
 
   /** A list of all nodes in mRoot's hierarchy. */
   private final List<AccessibilityNodeInfoCompat> mAllNodes = new ArrayList<>();
@@ -65,7 +66,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
     processNodes(mRoot, false /* forceRefresh */);
 
     // Before N, sometimes AccessibilityNodeInfo is not properly updated after transitions
-    // occur. This was fixed in a system framework change for N. (See for context.)
+    // occur. This was fixed in a system framework change for N. (See  for context.)
     // To work-around, manually refresh AccessibilityNodeInfo if it initially
     // looks like there's nothing to focus on.
     if (mFocusables.isEmpty() && !BuildVersionUtils.isAtLeastN()) {
@@ -132,7 +133,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
   }
 
   @Override
-  public AccessibilityNodeInfoCompat findFocus(
+  public @Nullable AccessibilityNodeInfoCompat findFocus(
       AccessibilityNodeInfoCompat startNode, int direction) {
     if (startNode == null) {
       return null;
@@ -146,7 +147,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
     return findFocus(startNode, focusedRect, direction);
   }
 
-  public AccessibilityNodeInfoCompat findFocus(
+  public @Nullable AccessibilityNodeInfoCompat findFocus(
       AccessibilityNodeInfoCompat focused, Rect focusedRect, int direction) {
     // Using roughly the same algorithm as
     // frameworks/base/core/java/android/view/FocusFinder.java#findNextFocusInAbsoluteDirection
@@ -198,7 +199,7 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
    * so, returns that node. Otherwise, returns the item that an OrderedTraversalStrategy would first
    * focus; this has the advantage of working nicely for both LTR and RTL users.
    */
-  private AccessibilityNodeInfoCompat getFirstOrderedFocus() {
+  private @Nullable AccessibilityNodeInfoCompat getFirstOrderedFocus() {
     Filter<AccessibilityNodeInfoCompat> filter =
         new Filter<AccessibilityNodeInfoCompat>() {
           @Override
@@ -234,7 +235,8 @@ public class DirectionalTraversalStrategy implements TraversalStrategy {
   }
 
   @Override
-  public AccessibilityNodeInfoCompat focusInitial(AccessibilityNodeInfoCompat root, int direction) {
+  public @Nullable AccessibilityNodeInfoCompat focusInitial(
+      AccessibilityNodeInfoCompat root, int direction) {
     if (root == null) {
       return null;
     }

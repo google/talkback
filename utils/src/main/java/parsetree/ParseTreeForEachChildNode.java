@@ -16,13 +16,15 @@
 
 package com.google.android.accessibility.utils.parsetree;
 
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 
 /** This class implements a ParseTreeNode that evaluates a node for each entry in a child array. */
 class ParseTreeForEachChildNode extends ParseTreeNode {
+
+  private static final String TAG = "ParseTreeForEachChildNode";
+
   private final ParseTreeNode mChild;
   private ParseTreeNode mFunction;
 
@@ -46,7 +48,7 @@ class ParseTreeForEachChildNode extends ParseTreeNode {
   @Override
   public List<CharSequence> resolveToArray(ParseTree.VariableDelegate delegate, String logIndent) {
     if (mFunction == null) {
-      LogUtils.log(this, Log.ERROR, "Missing function node");
+      LogUtils.e(TAG, "Missing function node");
       return new ArrayList<>();
     }
 

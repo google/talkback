@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Anahtar Erişimi"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Anahtar Erişimi, motor bozuklukları olan kullanıcıların bir veya daha fazla anahtar kullanarak telefonları ve tabletleri kontrol edebilmelerini sağlar. Öğeleri seçmek, görünümü kaydırmak, metin girmek ve daha fazlası için anahtarları kullanın."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Anahtarlı kontrol cihazı"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Yardım ve geri bildirim"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Otomatik tarama"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Otomatik tarama süresi"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Ters otomatik tarama"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f Saniye</item>
-      <item quantity="one">1 Saniye</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Taramayı özelleştirme"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Tarama yöntemi"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"İlk öğede gecikme süresi"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Anahtarları atama"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Anahtarları işlemlere atama"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Tarama için anahtarları atama"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Satır hızı"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Tarama sayısı"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Taramanın kaç kez tekrarlanacağını seçin"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Ardışık tekrar süresi"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Bu süre içinde birden fazla basıldığında tek bir basma olarak işlenir."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"İşlemi gerçekleştirmek için serbest bırak"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Anahtar serbest bırakıldığında işlemi gerçekleştir"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d Döngü</item>
-      <item quantity="one">%d Döngü</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"\"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" anahtarı zaten \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\" komutuna atandı"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">%d anahtar atandı</item>
-      <item quantity="one">%d anahtar atandı</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"%1$d grup seçimi anahtarı"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Sonraki"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Önceki"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Seç"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Uzun basma"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"İleri kaydırma"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Geriye kaydırma"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Kapat"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Genişletme"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Daraltma"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Metin vurgulama"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Kopyalama"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Kesme"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Yapıştırma"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENÜ"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Geri"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Ana ekran"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Genel Bakış"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Bildirimler"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Hızlı Ayarlar"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"İleri kaydırma"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Geriye kaydırma"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Nokta taraması"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Nokta taramasından çık"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Sağa hızlıca kaydırma"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Sola hızlıca kaydırma"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Yukarı hızlıca kaydırma"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Aşağı hızlıca kaydırma"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Hızlıca kaydırma (özel)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Uzaklaştırma"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Yakınlaştırma"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Anahtar Erişimi ayarları"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Listeye eklemek veya listeden kaldırmak için bir anahtar kombinasyonuna basın"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Anahtar atamasını temizle"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"ÜST KARAKTER + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Hiç anahtar atanmadı"</string>
-    <string name="more" msgid="1547670498589416840">"Diğer"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Boşluk"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Sekme"</string>
-    <string name="save" msgid="5398278773451196019">"Kaydet"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Tarama vurgulama stili"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Birincil tarama stili"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Vurgulama rengi"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Vurgulama çizgisi stili"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Gizlilik politikası"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Otomatik seçmeyi etkinleştir"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Otomatik seçmeyi devre dışı bırak"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Sonraki karakter"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Sonraki kelime"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Sonraki satır"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Sonraki paragraf"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Sonraki sayfa"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Önceki karakter"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Önceki kelime"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Önceki satır"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Önceki paragraf"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Önceki sayfa"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Taramayı otomatik olarak başlat"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Anahtara basmadan tarama başlar"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Anahtar Erişim ayarlarını aç"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Anahtar Erişimi Kurulum Sihirbazı"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Bir anahtar"</string>
-    <string name="two_switches" msgid="3082487661638289356">"İki anahtar"</string>
-    <string name="finish" msgid="4267641294267512480">"Son"</string>
-    <string name="exit" msgid="8664597014081860813">"Çık"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Anahtar sayısını seçin"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Öğeler arasında otomatik olarak geçiş yapmaya başlamak için anahtara basın, ardından vurgulanan öğeyi seçmek için tekrar basın."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Öğeler arasında geçiş yapmak için bir anahtara basın. Vurgulanan öğeyi seçmek için diğer anahtara basın."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Tarama hızını seçin"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Vurgunun her öğede ne kadar süreyle kalması gerektiğini seçin"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Hızlı (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> sn. gecikme)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Orta (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> sn. gecikme)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Yavaş (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> sn. gecikme)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Özel"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"gecikme (saniye)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"\"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" anahtarı zaten başka bir işleme atandı"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Satır-sütun tarama"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Grup seçimi"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Doğrusal tarama"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Sözlü geri bildirim"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS ayarları"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Birden çok öğe için"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"İlk ve son öğeyi söyle"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Öğe sayısını söyle"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Vurgulanan tüm öğeleri söyle"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Geçiş yapmadan önce konuşmayı tamamla"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"<xliff:g id="ID_1">%1$s</xliff:g> grubu"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> öğesinden <xliff:g id="ID_2">%2$s</xliff:g> öğesine"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> öğe"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"kaydırmak için seçin"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"bilinmeyen öğe"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Nasıl tarama yapılacağını seçin"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Aynı anda bir satır tarayın. Satır seçildikten sonra, söz konusu listede öğeler arasında geçiş yapın."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Öğeler arasında aynı anda bir öğeye geçiş yapın. Klavyelerin her zaman satıra göre tarama yapacağını unutmayın."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Tüm öğelere bir renk atanır. İstediğiniz öğenin çevresindeki renge karşılık gelen anahtara basın. Seçiminize ulaşıncaya kadar grubun boyutunu daraltın."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"<xliff:g id="ACTION_NAME">%s</xliff:g> işlemine atanan anahtarlar"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Yok"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Atanan anahtarlar temizlensin mi?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Anahtarları zaten atadınız."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Anahtarları temizle"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Anahtarları koru"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Hiç anahtar atanmadı"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Bu işleme hiç anahtar atanmadı. Devam etmek istediğinizden emin misiniz?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> grubu"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> grubunu seçmek üzere atamak için bir anahtara basın."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"\"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\" işlemine atamak için bir anahtara basın."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Taramayı başlatın ve seçin"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Kurulumunuzu Tic-Tac-Toe ile test edin"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Taramayı başlatmak için \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" anahtarına basın. Vurgulanan öğeyi seçmek için anahtara tekrar basın. İlk siz başlayın!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Taramayı başlatmak için \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" anahtarına basın. Vurgulanan satırı seçmek için anahtara tekrar basın. Vurgulanan öğeyi seçmek için bir kez daha basın. İlk siz başlayın!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Öğeler arasında geçiş yapmak için \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" anahtarına basın. Vurgulanan öğeyi seçmek için \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" anahtarına basın. İlk siz başlayın!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Satırlar arasında geçiş yapmak için \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" anahtarına basın. Vurgulanan satırı seçmek için \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" anahtarına basın. Söz konusu satırdaki bir öğeyi seçmek için işlemi tekrarlayın. İlk siz başlayın!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g> renkte vurgulanan öğeleri seçmek için \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" anahtarına, <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> renkte vurgulanan öğeleri seçmek için \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" anahtarına basın. Öğenize ulaşıncaya kadar bunu tekrar edin. İlk siz başlayın!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Henüz tüm işlemlere anahtar atamadınız. Geri gidip anahtar atama işlemini bitirmek için Önceki düğmesini kullanın."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Oyunu sıfırla"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Bu kare daha önce alınmış. Tekrar deneyin!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Kazandınız!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Bir dahaki sefere"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Berabere"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Geçerli ayarınızı koruyabilir veya baştan başlayabilirsiniz."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Ayarı koru"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Baştan başla"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Kurulum tamamlandı"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Artık hazırsınız."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Her zaman için ek ayarları değiştirebilir veya Anahtar Erişimi ayarlarından kurulum sihirbazını tekrar açabilirsiniz."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Anahtar Erişimi</string>
+  <string name="switch_access_service_description">Anahtar Erişimi, motor bozuklukları olan kullanıcıların bir veya daha fazla anahtar kullanarak telefonları ve tabletleri kontrol edebilmelerini sağlar. Öğeleri seçmek, görünümü kaydırmak, metin girmek ve daha fazlası için anahtarları kullanın.</string>
+  <string name="switch_access_service_summary">Anahtarlı kontrol cihazı</string>
+  <string name="title_pref_help_feedback">Yardım ve geri bildirim</string>
+  <string name="title_pref_licenses">Açık kaynak lisansları</string>
+  <string name="title_pref_category_auto_scan">Otomatik tarama</string>
+  <string name="title_pref_auto_scan_disabled">Otomatik tarama (devre dışı)</string>
+  <string name="action_key_summary_auto_scan">Bu anahtara basıldığında öğeler arasındaki vurgu otomatik olarak hareket etmeye başlar. Tekrar basıldığında, vurgulanan öğe seçilir.</string>
+  <string name="title_pref_auto_scan_time_delay">Otomatik tarama süresi</string>
+  <string name="action_name_reverse_auto_scan">Ters otomatik tarama</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Ters otomatik tarama (devre dışı)</string>
+  <string name="action_key_summary_reverse_auto_scan">Bu anahtara basıldığında öğeler arasındaki vurgu ters yönde otomatik olarak hareket etmeye başlar. Tekrar basıldığında, vurgulanan öğe seçilir.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 Saniye</item>
+    <item quantity="other">%.2f Saniye</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Taramayı özelleştirme</string>
+  <string name="title_pref_scanning_methods">Tarama yöntemi</string>
+  <string name="title_pref_start_scan_delay">İlk öğede gecikme süresi</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">İlk öğede harcanan ekstra süreyi seçin. Bu süre otomatik tarama süresine eklenir.\n\nBu ayar hem otomatik taramayı hem de nokta taramasını etkiler.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">İlk öğede harcanan ekstra süreyi seçin. Bu süre sonrasında, dikey veya yatay çizgi hareket etmeye başlar.\n\nBu ayar hem otomatik taramayı hem de nokta taramasını etkiler.</string>
+  <string name="title_pref_category_assign_switches">Anahtarları atama</string>
+  <string name="title_pref_category_key_mappings">Genel işlemlere anahtar atama</string>
+  <string name="summary_pref_category_key_mappings">Genel işlemleri istediğiniz zaman gerçekleştirebilirsiniz</string>
+  <string name="title_pref_category_scan_key_mappings">Tarama için anahtar atama</string>
+  <string name="summary_pref_category_scan_key_mappings">Tarama, vurguyu hareket ettirebilmenizi ve vurgulanan öğeleri seçebilmenizi sağlar</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Hareket ve seçim</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Vurgulanan öğeyle ilgili işlemler</string>
+  <string name="title_pref_point_scan_line_speed">Satır hızı</string>
+  <string name="dialog_message_pref_line_speed">Yatay ve dikey çizgilerin ekranlar arasında ne kadar hızlı hareket edeceğini seçin.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">Saniyede 1 cm</item>
+    <item quantity="other">Saniyede %.2f cm</item>
+  </plurals>
+  <string name="title_pref_loop_count">Tarama sayısı</string>
+  <string name="dialog_message_pref_loop_count">Taramanın kaç kez tekrar edeceğini seçin.\n\nBu ayar hem otomatik taramayı hem de nokta taramasını etkiler.</string>
+  <string name="summary_pref_point_scan">Belirli bir yatay ve dikey konumu seçmek için hareketli çizgileri kullanın. %1$s</string>
+  <string name="point_scan_enable_animations_message">Bu özelliği kullanmak için animasyonları açın.</string>
+  <string name="title_pref_category_switch_accomodation">Anahtar yerleşimi</string>
+  <string name="title_pref_debounce_time">Tekrar basmaları yoksay</string>
+  <string name="dialog_message_pref_debounce_time">Bu süre içinde anahtara birden fazla basıldığında tek bir basma olarak işlenir.</string>
+  <string name="title_pref_press_on_release">İşlemi gerçekleştirmek için serbest bırak</string>
+  <string name="subtitle_pref_press_on_release">Anahtar serbest bırakıldığında işlemi gerçekleştir</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d Döngü</item>
+    <item quantity="other">%d Döngü</item>
+  </plurals>
+  <string name="preference_off">Kapalı</string>
+  <string name="preference_on">Açık</string>
+  <string name="toast_msg_key_already_assigned">\"%1$s\" anahtarı zaten \"%2$s\" komutuna atandı</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d anahtar atandı</item>
+    <item quantity="other">%d anahtar atandı</item>
+  </plurals>
+  <string name="option_scan_switch_format">%1$d grup seçimi anahtarı</string>
+  <string name="option_scan_switch_format_with_color">Grup seçimi anahtarı %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Bu anahtara basıldığında %1$d grubu seçilir.</string>
+  <string name="action_name_next">Sonraki</string>
+  <string name="action_key_summary_next">Bu anahtara basıldığında sonraki öğe vurgulanır.</string>
+  <string name="action_name_previous">Önceki</string>
+  <string name="action_key_summary_previous">Bu anahtara basıldığında önceki öğe vurgulanır.</string>
+  <string name="action_name_click">Seç</string>
+  <string name="action_key_summary_click">Bu anahtara basıldığında vurgulanan öğe seçilir.</string>
+  <string name="action_name_long_click">Dokunup basılı tutma</string>
+  <string name="action_key_summary_long_click">Bu anahtara basıldığında vurgulanan öğeye dokunulup basılı tutulur.</string>
+  <string name="action_name_scroll_forward">İleri kaydır</string>
+  <string name="action_key_summary_scroll_forward">Bu anahtara basıldığında vurgulanan öğe ileri kaydırılır.</string>
+  <string name="action_name_scroll_backward">Geriye kaydırma</string>
+  <string name="action_key_summary_scroll_backward">Bu anahtara basıldığında vurgulanan öğe geri kaydırılır.</string>
+  <string name="action_name_dismiss">Kapat</string>
+  <string name="action_name_expand">Genişletme</string>
+  <string name="action_name_collapse">Daraltma</string>
+  <string name="action_name_highlight_text">Metin vurgulama</string>
+  <string name="action_group_name_highlight">Vurgula...</string>
+  <string name="action_name_highlight_all_text">Tüm metni vurgula</string>
+  <string name="action_name_highlight_granular_text">Şunu vurgula: %1$s</string>
+  <string name="action_name_copy">Kopyalama</string>
+  <string name="action_name_copy_all_text">Tümünü kopyala</string>
+  <string name="action_name_cut">Kesme</string>
+  <string name="action_name_cut_all_text">Tümünü kes</string>
+  <string name="action_name_paste">Yapıştırma</string>
+  <string name="action_name_undo">Geri al</string>
+  <string name="action_name_redo">Yeniden yap</string>
+  <string name="action_group_name_delete">Sil...</string>
+  <string name="action_name_delete">%1$s sil</string>
+  <string name="action_name_delete_highlighted_text">Vurgulanan metni sil</string>
+  <string name="option_scanning_menu_button">MENÜ</string>
+  <string name="option_scanning_menu_button_content_description">Anahtar Erişimi Menüsü</string>
+  <string name="switch_access_global_menu">Anahtar Erişimi Genel Menüs</string>
+  <string name="switch_access_actions_menu">Anahtar Erişimi İşlem Menüsü</string>
+  <string name="switch_access_close_menu">KAPAT</string>
+  <string name="switch_access_back_menu">GERİ</string>
+  <string name="next_arrow_content_description">Sonraki</string>
+  <string name="previous_arrow_content_description">Önceki</string>
+  <string name="global_action_back">Geri</string>
+  <string name="global_action_key_summary_back">Bu anahtara basıldığında önceki ekrana geri dönülür veya görünür durumdaysa klavye gizlenir.</string>
+  <string name="global_action_home">Ana ekran</string>
+  <string name="global_action_key_summary_home">Bu anahtara basıldığında Ana ekrana gidilir.</string>
+  <string name="global_action_overview">Genel Bakış</string>
+  <string name="global_action_key_summary_overview">Bu anahtara basıldığında son olarak açılan uygulamaların bir listesi gösterilir.</string>
+  <string name="global_action_notifications">Bildirimler</string>
+  <string name="global_action_key_summary_notifications">Bu anahtara basıldığında cihazınızla ilgili bildirimler gösterilir.</string>
+  <string name="global_action_quick_settings">Hızlı Ayarlar</string>
+  <string name="global_action_key_summary_quick_settings">Bu anahtara basıldığında cihazınızın Hızlı Ayarlar\'ı gösterilir.</string>
+  <string name="global_action_power_options">Güç seçenekleri</string>
+  <string name="global_menu_volume_heading">Ses düzeyi</string>
+  <string name="volume_menu_media">Medya ses düzeyi</string>
+  <string name="volume_menu_call">Çağrı ses düzeyi</string>
+  <string name="volume_menu_ring">Zil sesi düzeyi</string>
+  <string name="volume_menu_alarm">Alarm sesi düzeyi</string>
+  <string name="volume_menu_accessibility">Erişilebilirlik ses düzeyi</string>
+  <string name="volume_menu_mute">Kapat</string>
+  <string name="volume_menu_unmute">Sesi aç</string>
+  <string name="volume_menu_increase">Artır</string>
+  <string name="volume_settings">Ses düzeyi ayarları</string>
+  <string name="volume_menu_decrease">Azalt</string>
+  <string name="scrollable_forward">İleri kaydır</string>
+  <string name="scrollable_backward">Geriye kaydırma</string>
+  <string name="point_scan">Nokta taraması</string>
+  <string name="box_scan">Nokta taramasından çık</string>
+  <string name="action_name_swipe_right">Sağa hızlıca kaydırma</string>
+  <string name="action_name_swipe_left">Sola hızlıca kaydırma</string>
+  <string name="action_name_swipe_up">Yukarı hızlıca kaydırma</string>
+  <string name="action_name_swipe_down">Aşağı hızlıca kaydırma</string>
+  <string name="action_name_swipe_custom">Hızlıca kaydırma (özel)</string>
+  <string name="action_name_zoom_out">Uzaklaştırma</string>
+  <string name="action_name_zoom_in">Yakınlaştırma</string>
+  <string name="switch_access_preferences_title">Anahtar Erişimi ayarları</string>
+  <string name="key_combo_preference_instructions">Listeye eklemek veya listeden kaldırmak için bir anahtar kombinasyonuna basın</string>
+  <string name="key_combo_preference_reset_button">Anahtar atamasını temizle</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">ÜST KARAKTER + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Hiç anahtar atanmadı</string>
+  <string name="more">Diğer</string>
+  <string name="name_of_space_bar">Boşluk</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">Sekme</string>
+  <string name="save">Kaydet</string>
+  <string name="title_pref_category_display_and_sound">Ekran ve ses</string>
+  <string name="title_pref_highlight_0">Tarama vurgulama stili</string>
+  <string name="title_pref_primary_scan_style">Birincil tarama stili</string>
+  <string name="title_pref_highlight_0_color">Vurgulama rengi</string>
+  <string name="title_pref_highlight_0_weight">Vurgulama çizgisi stili</string>
+  <string name="title_pref_privacy_policy">Gizlilik politikası</string>
+  <string name="title_pref_auto_select">Otomatik seç</string>
+  <string name="summary_pref_auto_select">Vurgulanan öğeyi otomatik olarak seç. Öğe seçilemiyorsa veya bu ayar kapalıysa kullanılabilir işlemlerden oluşan bir menü görürsünüz.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Otomatik seçmeyi etkinleştir</string>
+  <string name="switch_access_global_menu_disable_autoselect">Otomatik seçmeyi devre dışı bırak</string>
+  <string name="switch_access_move_next">Sonraki...</string>
+  <string name="switch_access_move_next_character">Sonraki karakter</string>
+  <string name="switch_access_move_next_word">Sonraki kelime</string>
+  <string name="switch_access_move_next_line">Sonraki satır</string>
+  <string name="switch_access_move_next_paragraph">Sonraki paragraf</string>
+  <string name="switch_access_move_next_page">Sonraki sayfa</string>
+  <string name="switch_access_move_next_sentence">Sonraki cümle</string>
+  <string name="switch_access_move_prev">Önceki...</string>
+  <string name="switch_access_move_prev_character">Önceki karakter</string>
+  <string name="switch_access_move_prev_word">Önceki kelime</string>
+  <string name="switch_access_move_prev_line">Önceki satır</string>
+  <string name="switch_access_move_prev_paragraph">Önceki paragraf</string>
+  <string name="switch_access_move_prev_page">Önceki sayfa</string>
+  <string name="switch_access_move_prev_sentence">Önceki cümle</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Taramayı otomatik olarak başlat</string>
+  <string name="switch_access_auto_start_scan_summary">Anahtara basmadan tarama başlar</string>
+  <string name="pref_begin_switchaccess_setup_title">Kurulum kılavuzunu aç</string>
+  <string name="setup_wizard_heading">Anahtar Erişimi Kurulum Kılavuzu</string>
+  <string name="one_switch">Bir anahtar</string>
+  <string name="two_switches">İki anahtar</string>
+  <string name="finish">Son</string>
+  <string name="exit">Çık</string>
+  <string name="intro_heading">Anahtarı seçin</string>
+  <string name="usb_switch_option_text">USB anahtarı</string>
+  <string name="bluetooth_switch_option_text">Bluetooth anahtarı</string>
+  <string name="usb_switch_description_text">USB aracılığıyla fiziksel olarak bir anahtarı bağlayın</string>
+  <string name="bluetooth_switch_description_text">Bir anahtarı kablosuz olarak Bluetooth aracılığıyle eşleyin</string>
+  <string name="bluetooth_unsupported_description_text">Cihazınız Bluetooth\'u desteklemiyor. Bunun yerine bir fiziksel anahtar kullanmayı deneyin.</string>
+  <string name="connected_usb_devices_header">Bağlı cihazlar</string>
+  <string name="usb_no_devices_connected_message">Herhangi bir USB cihazı bulunamadı. Cihazınızın gerektiği gibi bağlanmış olduğundan emin olun.</string>
+  <string name="connect_usb_heading">USB anahtarı bağlayın</string>
+  <string name="pair_bluetooth_heading">Bluetooth anahtarı eşleme</string>
+  <string name="pair_bluetooth_subheading">Aşağıda Bluetooth anahtarınıza dokunun</string>
+  <string name="bluetooth_not_enabled_message">Bir Bluetooth anahtarını eşlemek için Bluetooth\'u açın</string>
+  <string name="enable_bluetooth_button_title">Bluetooth\'u aç</string>
+  <string name="bluetooth_no_devices_paired">Hiçbir Bluetooth cihazı eşlenmedi</string>
+  <string name="paired_devices_header">Eşlenen Bluetooth cihazlar</string>
+  <string name="available_devices_header">Kullanılabilir Bluetooth cihazları</string>
+  <string name="bluetooth_computer_content_description">Bilgisayar</string>
+  <string name="bluetooth_phone_content_description">Telefon</string>
+  <string name="bluetooth_imaging_content_description">Görüntüleme</string>
+  <string name="bluetooth_headphone_content_description">Kulaklık</string>
+  <string name="bluetooth_peripheral_content_description">Çevre Birim</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Bağlanıyor...</string>
+  <string name="bluetooth_connected_description">Bağlı</string>
+  <string name="bluetooth_device_unavailable_description">Cihaz kullanılamıyor</string>
+  <string name="reconnecting_unsupported_title">Cihaza bağlanılamadı</string>
+  <string name="reconnecting_unsupported_message">Anahtar Erişimi önceden eşlenen cihaza bağlanamadı. Cihazınızın açık ve bağlı olduğundan emin olun.\n\nCihazınız yine de bağlanmazsa Bluetooth ayarlarına gidin ve yeniden bağlanmayı deneyin.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Bluetooth ayarlarına git</string>
+  <string name="number_of_switches_heading">Anahtar sayısını seç</string>
+  <string name="title_assign_scan_key">%1$s düğmesi ata</string>
+  <string name="one_switch_description_text">Öğeler arasında otomatik olarak geçiş yapmaya başlamak için anahtara basın. Vurgulanan öğeyi seçmek için tekrar basın.</string>
+  <string name="two_switches_description_text">Öğeler arasında geçiş yapmak için bir anahtara basın. Vurgulanan öğeyi seçmek için diğer anahtara basın.</string>
+  <string name="step_speed_heading">Tarama hızını seçin</string>
+  <string name="step_speed_subheading">Vurgunun her öğede ne kadar süreyle kalması gerektiğini seçin</string>
+  <string name="fast_radio_button_title">Hızlı (%1$s sn. gecikme)</string>
+  <string name="medium_radio_button_title">Orta (%1$s sn. gecikme)</string>
+  <string name="slow_radio_button_title">Yavaş (%1$s sn. gecikme)</string>
+  <string name="custom_switch">Özel</string>
+  <string name="custom_edit_text">gecikme (saniye)</string>
+  <string name="setup_toast_msg_key_already_assigned">\"%1$s\" anahtarı zaten başka bir işleme atandı</string>
+  <string name="row_column_scanning_title">Satır-sütun tarama</string>
+  <string name="option_scanning_title">Grup seçimi (gelişmiş)</string>
+  <string name="linear_scanning_title">Doğrusal tarama</string>
+  <string name="linear_scanning_except_keyboard_title">Doğrusal tarama (klavye hariç)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Konuşma, ses ve titreşim</string>
+  <string name="title_pref_switch_access_spoken_feedback">Sözlü geri bildirim</string>
+  <string name="title_pref_scan_non_actionable_items">Açıklayıcı metinleri sesli oku</string>
+  <string name="scan_non_actionable_items_summary">Kullanılabilir eylemlere sahip ve açıklayıcı metin içeren öğeler için sesli geri bildirimi dinleyin</string>
+  <string name="title_pref_switch_access_verbosity">Ayrıntı düzeyi</string>
+  <string name="summary_verbosity">Ne kadar bilginin sesli okunacağını seçin</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Ayrıntı düzeyi detayları</string>
+  <string name="title_pref_switch_access_keyboard_echo">Klavye yankısı</string>
+  <string name="keyboard_echo_summary_on">Ekran klavyesinde basılan tuşları sesli oku</string>
+  <string name="keyboard_echo_summary_off">Ekran klavyesinde basılan tuşları sesli okuma</string>
+  <string name="title_pref_enable_hints">Kullanım ipuçlarını sesli oku</string>
+  <string name="enable_hints_summary_on">Gezinme sırasında, kısa bir beklemenin ardından kullanım ipuçları sesli okunur</string>
+  <string name="enable_hints_summary_off">Erişilebilirlik odağı hareket ettirildiğinde, kullanım ipuçları sesli okunmaz</string>
+  <string name="title_pref_speak_container_element_position">Liste ve kılavuz bilgilerini sesli oku</string>
+  <string name="speak_container_element_position_summary_on">Liste ve kılavuz bilgileri sesli okunur</string>
+  <string name="speak_container_element_position_summary_off">Liste ve kılavuz bilgileri sesli okunmaz</string>
+  <string name="title_pref_speak_element_type">Öğe türünü sesli oku</string>
+  <string name="speak_element_type_summary_on">Odaklanılan öğeler için öğe türü sesli okunur</string>
+  <string name="speak_element_type_summary_off">Odaklanılan öğeler için öğe türü sesli okunmaz</string>
+  <string name="title_pref_pitch_change_for_ime">Ses tonu değişikliklerini kullan</string>
+  <string name="pitch_change_for_ime_summary_on">Klavye geri bildirimini daha kalın tonla sesli oku</string>
+  <string name="pitch_change_for_ime_summary_off">Sesli okuma sırasında sesli geri bildirimi değiştirme</string>
+  <string name="title_pref_speak_selected_item_or_group">Seçili öğeyi veya grubu sesli oku</string>
+  <string name="speak_selected_item_or_group_summary">Bir öğenin veya grubun adını seçildikten sonra sesli oku</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Öğe başına maksimum sesli okuma süresi</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Her öğenin sesli okunan açıklaması için maksimum süreyi ayarlayın. Konuşma, ayarlanan süre sonrasında kesilir.\nNot: Ayar açılırsa, ipuçları her zaman sesli okunur.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Çeşitli</string>
+  <string name="title_pref_node_description_order">Öğe açıklaması sırası</string>
+  <string name="title_pref_switch_access_speak_element_ids">Öğe kimliklerini sesli oku</string>
+  <string name="speak_element_ids_summary_on">Etiketi olmayan düğmelerde Öğe Kimlikleri sesli okunur</string>
+  <string name="speak_element_ids_summary_off">Etiketi olmayan düğmelerde Öğe Kimlikleri sesli okunmaz</string>
+  <string name="title_pref_switch_access_tts_settings">TTS ayarları</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Birden çok öğe vurgulandığında</string>
+  <string name="title_pref_switch_access_speak_first_last_item">İlk ve son öğeyi sesli oku</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Öğe sayısını söyle</string>
+  <string name="title_pref_switch_access_speak_all_items">Vurgulanan tüm öğeleri söyle</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Geçiş öncesi konuşmayı tamamla</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Diğer geri bildirim</string>
+  <string name="title_pref_developer_settings">Geliştirici ayarları</string>
+  <string name="title_pref_spoken_feedback_overlay">Konuşma çıktısını görüntüle</string>
+  <string name="title_pref_switch_access_vibration_feedback">Titreşimli geri bildirim</string>
+  <string name="vibration_feedback_summary">Bir şeyin değiştiğini belirtmek için titreştir (ör. ekrandaki içerik değiştiğinde)</string>
+  <string name="title_pref_switch_access_sound_feedback">Sesli geri bildirim</string>
+  <string name="sound_feedback_summary">Bir şeyin değiştiğini belirtmek için sesli uyarı çal (ör. ekrandaki içerik değiştiğinde)</string>
+  <string name="title_pref_switch_access_sound_volume">Ses düzeyi</string>
+  <string name="title_pref_switch_access_audio_ducking">Sesi kısma</string>
+  <string name="audio_ducking_summary">Konuşurken diğer sesleri kıs</string>
+  <string name="switch_access_focus_cleared_no_selection">Ekran değiştirildi</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Lütfen satırı seçmek için anahtara basın</string>
+  <string name="switch_access_spoken_feedback_group">%1$s grubu</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Lütfen grubu seçmek için %1$s grubu anahtarına basın</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Lütfen öğeyi seçmek için %1$s grubu anahtarına basın</string>
+  <string name="switch_access_spoken_feedback_to">%1$s öğesinden %2$s öğesine</string>
+  <string name="switch_access_spoken_feedback_items">%1$s öğe</string>
+  <string name="switch_access_spoken_feedback_group_selected">%1$s grubu seçildi</string>
+  <string name="switch_access_spoken_feedback_row_selected">satır seçildi</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s seçildi</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">kaydırılabilir</string>
+  <string name="switch_access_spoken_feedback_scroll">kaydırmak için seçin</string>
+  <string name="switch_access_spoken_feedback_unknown">bilinmeyen öğe</string>
+  <string name="scanning_method_heading">Nasıl tarama yapılacağını seçin</string>
+  <string name="row_column_scanning_description">Aynı anda bir satır tarayın. Satır seçildikten sonra, söz konusu listede öğeler arasında geçiş yapın.</string>
+  <string name="linear_scanning_description">Satırlar arasında birer birer gidin</string>
+  <string name="linear_scanning_except_keyboard_description">Öğeler arasında her defasında bir öğeye geçiş yapın. Klavyelerin her zaman satıra göre tarama yapacağını unutmayın.</string>
+  <string name="option_scanning_description">Tüm öğelere bir renk atanır. İstediğiniz öğenin çevresindeki renge karşılık gelen anahtara basın. Seçiminize ulaşıncaya kadar grubun boyutunu daraltın.</string>
+  <string name="setup_switch_assignment_heading">%s işlemine atanan anahtarlar</string>
+  <string name="setup_switch_assignment_empty">Yok</string>
+  <string name="clear_keys_dialog_title">Atanan anahtarlar temizlensin mi?</string>
+  <string name="clear_keys_dialog_message">Anahtarları zaten atadınız.</string>
+  <string name="clear_keys_dialog_positive_button">Anahtarları temizle</string>
+  <string name="clear_keys_dialog_negative_button">Anahtarları koru</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Hiç anahtar atanmadı</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Bu işleme hiç anahtar atanmadı. Devam etmek istediğinizden emin misiniz?</string>
+  <string name="option_scan_switch_title">%1$s grubu</string>
+  <string name="option_scan_switch_subtitle">%1$s grubunu seçmek üzere atamak için bir anahtara basın.</string>
+  <string name="assign_switch_subtitle">\"%1$s\" işlemine atamak için bir anahtara basın.</string>
+  <string name="auto_scan_action_description">Taramayı başlatın ve seçin</string>
+  <string name="switch_game_heading">Kurulumunuzu Tic-Tac-Toe ile test edin</string>
+  <string name="switch_game_one_switch_linear_subheading">Taramayı başlatmak için \"%1$s\" anahtarına basın. Vurgulanan öğeyi seçmek için anahtara tekrar basın. İlk siz başlayın!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Taramayı başlatmak için \"%1$s\" anahtarına basın. Vurgulanan satırı seçmek için anahtara tekrar basın. Vurgulanan öğeyi seçmek için bir kez daha basın. İlk siz başlayın!</string>
+  <string name="switch_game_two_switch_linear_subheading">Öğeler arasında geçiş yapmak için \"%1$s\" anahtarına basın. Vurgulanan öğeyi seçmek için \"%2$s\" anahtarına basın. İlk siz başlayın!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Satırlar arasında geçiş yapmak için \"%1$s\" anahtarına basın. Vurgulanan satırı seçmek için \"%2$s\" anahtarına basın. Söz konusu satırdaki bir öğeyi seçmek için işlemi tekrarlayın. İlk siz başlayın!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">%2$s renkte vurgulanan öğeleri seçmek için \"%1$s\" anahtarına, %3$s renkte vurgulanan öğeleri seçmek için \"%4$s\" anahtarına basın. Öğenize ulaşıncaya kadar bunu tekrar edin. İlk siz başlayın!</string>
+  <string name="switch_game_incomplete_switches_subheading">Henüz tüm işlemlere anahtar atamadınız. Geri gidip anahtar atama işlemini bitirmek için Önceki düğmesini kullanın.</string>
+  <string name="game_square_content_description">%2$s, %3$s üzerinde %1$s</string>
+  <string name="game_square_no_marker_content_description">boş</string>
+  <string name="game_reset_button_title">Oyunu sıfırla</string>
+  <string name="game_square_already_taken">Bu kare daha önce alınmış. Tekrar deneyin!</string>
+  <string name="game_win_outcome_title">Kazandınız!</string>
+  <string name="game_loss_outcome_title">Bir dahaki sefere</string>
+  <string name="game_tie_outcome_title">Berabere</string>
+  <string name="game_outcome_body_text">Geçerli ayarınızı koruyabilir veya baştan başlayabilirsiniz.</string>
+  <string name="game_outcome_positive_response">Ayarı koru</string>
+  <string name="game_outcome_negative_response">Baştan başla</string>
+  <string name="setup_completion_heading">Kurulum tamamlandı</string>
+  <string name="setup_completion_message">Artık hazırsınız.</string>
+  <string name="setup_completion_settings_reminder">Her zaman için ek ayarları değiştirebilir veya Anahtar Erişimi ayarlarından kurulum sihirbazını tekrar açabilirsiniz.</string>
+  <string name="dialog_url_list">Bağlantı seçin</string>
+  <string name="dialog_do_not_disturb_permission_title">Anahtar Erişimi\'nin ses düzeyini ayarlamak için izne ihtiyacı var</string>
+  <string name="dialog_do_not_disturb_permission_message">Ses düzeyini Anahtar Erişimi menüsünden ayarlamak için Android Erişilebilirlik Araçları\'nın Rahatsız Etmeyin erişimini açın</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Ayarları aç</string>
 </resources>

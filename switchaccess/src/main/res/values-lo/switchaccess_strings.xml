@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Switch Access"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"ການເຂົ້າເຖິງປຸ່ມຈະເຮັດໃຫ້ຄົນທີ່ມີໂທລະສັບ ຫຼື ແທັບເລັດການຄວບຄຸມສຳລັບຄວາມບົກພ່ອງ ສາມາດໃຊ້ປຸ່ມໜຶ່ງປຸ່ມ ຫຼື ຫຼາຍກວ່ານັ້ນໄດ້. ໃຫ້ໃຊ້ປຸ່ມຕ່າງໆເພື່ອເລືອກລາຍການ, ເລື່ອນ, ພິມຂໍ້ຄວາມ ແລະ ອື່ນໆໄດ້."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"ຄວບຄຸມອຸປະກອນດ້ວຍປຸ່ມ"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"ຊ່ວຍເຫຼືອ ແລະ ຕິຊົມ"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"ສະແກນອັດຕະໂນມັດ"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"ເວລາສະແກນອັດຕະໂນມັດ"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"ປີ້ນຄືນການສະແກນໂດຍອັດຕະໂນມັດ"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f ວິນາທີ</item>
-      <item quantity="one">1 ວິນາທີ</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"ປັບແຕ່ງການສະແກນ"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"ວ​ິ​ທີ​ການ​ສະ​ແກນ"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"ໜ່ວງເວລາໃນລາຍການທຳອິດ"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"ຕັ້ງປຸ່ມ"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"ຕັ້ງປຸ່ໃຫ້ຄຳສັ່ງ"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"ຕັ້ງປຸ່ມສຳລັບການສະແກນ"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"ຄວາມໄວແຖວ"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"ຈຳນວນການສະແກນ"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"ເລືອກວ່າຈະທວນຊ້ຳການສະແກນຈັກເທື່ອ"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"ເວລາທີ່ມີຜົນກັບການເດັ້ງ"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"ການກົດຫຼາຍໆເທື່ອພາຍໃນເວລານີ້ຈະຖືວ່າເປັນການກົດເທື່ອດຽວ."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"ປ່ອຍເພື່ອເຮັດຄຳສັ່ງ"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"ເຮັດຄຳສັ່ງເມື່ອວາງປຸ່ມ"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d ຮອບ</item>
-      <item quantity="one">%d ຮອບ</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"ປຸ່ມ \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' ຖືກກຳນົດໃສ່ \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' ຮຽບຮ້ອຍແລ້ວ"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">ຕັ້ງປຸ່ມ %d ປຸ່ມແລ້ວ</item>
-      <item quantity="one">ຕັ້ງປຸ່ມ %d ປຸ່ມແລ້ວ</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"ປຸ່ມການເລືອກເປັນກຸ່ມ %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"ຕໍ່​ໄປ"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"ຜ່ານ​ມາ"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"ເລືອກ"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"ກົດຄ້າງ"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"ເລື່ອນໄປໜ້າ"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"ເລື່ອນກັບຫຼັງ"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"ປິດໄວ້"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"ຂະຫຍາຍ"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"ຫຍໍ້"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"ໄຮໄລ້ຂໍ້ຄວາມ"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"ສຳເນົາ"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"ຕັດ"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"ວາງ"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"ເມນູ"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"ກັບຄືນ"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"​ໜ້າຫຼັກ"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"​ພາບ​ລວມ"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"ການແຈ້ງເຕືອນ"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"ການ​ຕັ້ງ​ຄ່າ​ດ່ວນ"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"ເລື່ອນໄປໜ້າ"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"ເລື່ອນກັບຫຼັງ"</string>
-    <string name="point_scan" msgid="4514216871544244788">"ສະແກນຈຸດ"</string>
-    <string name="box_scan" msgid="6675486192630209217">"ອອກການສະແກນຈຸດ"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"ປັດຂວາ"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"ປັດຊ້າຍ"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"ປັດຂຶ້ນ"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"ປັດລົງ"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"ປັດ (ກຳນົດເອງ)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"ຊູມອອກ"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"ຊູມເຂົ້າ"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"ການຕັ້ງຄ່າການເຂົ້າເຖິງປຸ່ມ"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"ກົດປຸ່ມຮວມກັນເພື່ອເພີ່ມ ຫຼື ລຶບມັນອອກຈາກລາຍຊື່"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"ລຶບລ້າງການຕັ້ງປຸ່ມ"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"ບໍ່ໄດ້ຕັ້ງປຸ່ມເທື່ອ"</string>
-    <string name="more" msgid="1547670498589416840">"ເພີ່ມເຕີມ"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"ຍະຫວ່າງ"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"ປ້ອນ​ເຂົ້າ"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"​ແຖບ"</string>
-    <string name="save" msgid="5398278773451196019">"ບັນທຶກ"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"ການສະແກນຮູບແບບສີສັນໄຮໄລ້"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"ຮູບ​ແບບ​ການ​ສະ​ແກນ​ຕົ້ນ​ຕໍ"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"ສີໄຮໄລ້"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"ຮູບແບບສີສັນເສັ້ນໄຮໄລ້"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"ເປີດໃຊ້ການເລືອກອັດຕະໂນມັດ"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"ປິດການເລືອກອັດຕະໂນມັດ"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"ຕົວອັກສອນຕໍ່ໄປ"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"ຄຳສັບຕໍ່ໄປ"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"ແຖວຕໍ່ໄປ"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"ຫຍໍ້ໜ້າຕໍ່ໄປ"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"ໜ້າຕໍ່ໄປ"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"ຕົວອັກສອນກ່ອນໜ້າ"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"ຄຳສັບກ່ອນໜ້າ"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"ແຖວກ່ອນໜ້າ"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"ຫຍໍ້ໜ້າກ່ອນໜ້າ"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"ໜ້າກ່ອນໜ້າ"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"ເລີ່ມສະແກນອັດຕະໂນມັດ"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"ສະແກນໂດຍບໍ່ຕ້ອງກົດປຸ່ມປິດເປີດ"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"ເປີດການຕັ້ງຄ່າການເຂົ້າເຖິງປຸ່ມ"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"ຕົວຊ່ວຍການຕັ້ງຄ່າການເຂົ້າເຖິງປຸ່ມ"</string>
-    <string name="one_switch" msgid="5247899666787922810">"ປຸ່ມດຽວ"</string>
-    <string name="two_switches" msgid="3082487661638289356">"ສອງປຸ່ມ"</string>
-    <string name="finish" msgid="4267641294267512480">"ແລ້ວໆ"</string>
-    <string name="exit" msgid="8664597014081860813">"ອອກ"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"ເລືອກຈຳນວນປຸ່ມ"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"ກົດປຸ່ມເພື່ອເລີ່ມຍ້າຍລະຫວ່າງລາຍການໂດຍອັດຕະໂນມັດ, ຈາກນັ້ນກົດອີກຄັ້ງເພື່ອເລືອກລາຍການທີ່ໝາຍໄວ້."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"ກົດປຸ່ມໜຶ່ງເພື່ອເລື່ອນລະຫວ່າງລາຍການ. ກົດອີກປຸ່ມເພື່ອສະລັບໄປເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"ເລືອກຄວາມໄວການສະແກນ"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"ເລືອກຈະໃຫ້ໄຮໄລ້ຢູ່ດົນປານໃດໃນແຕ່ລະລາຍການ"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"ໄວ (ໜ່ວງເວລາ <xliff:g id="DELAY_SPEED">%1$s</xliff:g>ວິ )"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"ປານກາງ (ໜ່ວງເວລາ <xliff:g id="DELAY_SPEED">%1$s</xliff:g>ວິ)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"ຊ້າ (ໜ່ວງເວລາ <xliff:g id="DELAY_SPEED">%1$s</xliff:g>ວິ)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"ກຳນົດເອງ"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"ການໜ່ວງເວລາ (ວິນາທີ)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"ປຸ່ມ \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' ຖືກຕັ້ງໄວ້ສຳລັບຄຳສັ່ງອື່ນຢູ່ກ່ອນແລ້ວ"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"ການສະແກນແຖວ/ຖັນ"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"ການເລືອກກຸ່ມ"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"ການສະແກນຕາມເສັ້ນ"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"ການຕອບສະໜອງດ້ວຍສຽງ"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"ການຕັ້ງຄ່າ TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"ສຳລັບຫຼາຍລາຍການ"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"ເວົ້າອອກສຽງອັນທຳອິດ ແລະ ອັນສຸດທ້າຍ"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"ເວົ້າຈຳນວນລາຍການ"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"ເວົ້າອອກສຽງລາຍການທີ່ໄຮໄລ້ທັງໝົດ"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"ເວົ້າໃຫ້ຈົບກ່ອນຍ້າຍ"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"ກຸ່ມ <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> ຫາ <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> ລາຍການ"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"ເລືອກເພື່ອເລື່ອນ"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"ລາຍການທີ່ບໍ່ຮູ້ຈັກ"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"ເລືອກວິທີສະແກນ"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"ສະແກນເທື່ອລະແຖວ. ຫຼັງຈາກເລືອກແຖວແລ້ວ, ໃຫ້ເລື່ອນຜ່ານລາຍການທີ່ຢູ່ໃນລາຍຊື່ນັ້ນ."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"ຍ້າຍລະຫວ່າງລາຍການເທື່ອລະອັນ. ແປ້ນພິມຈະສະແກນຕາມແຖວສະເໝີ."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"ລາຍການທັງໝົດຈະຖືກຕັ້ງສີໃສ່. ໃຫ້ກົດປຸ່ມທີ່ກົງກັບສີຂອງລາຍການທີ່ທ່ານຕ້ອງການ. ຫຼຸດຂະໜາດຂອງກຸ່ມລົງຈົນກວ່າທ່ານຈະໄດ້ສິ່ງທີ່ທ່ານຕ້ອງການ"</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"ຕັ້ງປຸ່ມເປັນ <xliff:g id="ACTION_NAME">%s</xliff:g> ແລ້ວ"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"ບໍ່ໃຊ້"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"ລຶບລ້າງປຸ່ມທີ່ຕັ້ງໄວ້ບໍ?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"ທ່ານເຄີຍຕັ້ງປຸ່ມໄປກ່ອນໜ້ານີ້ແລ້ວ."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"ລຶບລ້າງປຸ່ມ"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"ໃຊ້ປຸ່ມແບບເກົ່າ"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"ບໍ່ໄດ້ຕັ້ງປຸ່ມເທື່ອ"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"ບໍ່ໄດ້ຕັ້ງປຸ່ມໃຫ້ຄຳສັ່ງນີ້ເທື່ອ. ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການດຳເນີນການຕໍ່?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"ກຸ່ມ<xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"ກົດປຸ່ມໃດໜຶ່ງເພື່ອຕັ້ງມັນໃຫ້ເລືອກກຸ່ມ <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"ກົດໃສ່ປຸ່ມໃດໜຶ່ງເພື່ອຕັ້ງໃຫ້ມັນເປັນຄຳສັ່ງ \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"ເລືອກສະແກນ ແລະ ເລືອກ"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"ທົດສອບການຕັ້ງຄ່າຂອງທ່ານດ້ວຍເກມ Tic-Tac-Toe"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"ກົດ \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ເພື່ອເລີ່ມການສະແກນ. ກົດປຸ່ມອີກຄັ້ງເພື່ອເລືອກລາຍການທີ່ໝາຍໄຮໄລ້ໄວ້. ລອງເຮັດເບິ່ງ!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"ກົດ \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ເພື່ອເລີ່ມການສະແກນ. ກົດປຸ່ມອີກຄັ້ງເພື່ອເລືອກແຖວທີ່ໝາຍໄຮໄລ້ໄວ້. ກົດອີກຄັ້ງເພື່ອເລືອກລາຍການທີ່ໄຮ້ໄລ້ໄວ້. ລອງເຮັດເບິ່ງ!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"ກົດ \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ເພື່ອຍ້າຍລະຫວ່າງລາຍການ. ກົດ \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ເພື່ອເລືອກລາຍການທີ່ໝາຍໄຮໄລ້ໄວ້. ລອງເຮັດເບິ່ງ!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"ກົດ \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ເພື່ອຍ້າຍລະຫວ່າງແຖວ. ກົດ \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ເພື່ອເລືອກແຖວທີ່ໄຮໄລ້ໄວ້. ກົດຊ້ຳໆເພື່ອເລືອກລາຍການທີ່ຢູ່ໃນແຖວນັ້ນ. ລອງເຮັດເບິ່ງ!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"ກົດ \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ເພື່ອເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້ໃນ <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> ຫຼື ກົດ \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" ເພື່ອເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້ໃນ <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. ກົດຊ້ຳໆຈົນກວ່າຈະຮອດລາຍການຂອງທ່ານ. ລອງເຮັດເບິ່ງ!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"ທ່ານບໍ່ໄດ້ຕັ້ງປຸ່ມໃຫ້ທຸກຄຳສັ່ງເທື່ອ. ໃຫ້ໃຊ້ປຸ່ມກ່ອນໜ້ານີ້ເພື່ອກັບໄປກ່ອນໜ້າ ແລ້ວຈາກນັ້ນຕັ້ງຄຳສັ່ງໃຫ້ປຸ່ມຕ່າງໆ."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"ຣີເຊັດເກມ"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"ຈຸດນີ້ຖືກຍຶດໄປແລ້ວ. ກະລຸນາລອງໃໝ່!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"ທ່ານຊະນະແລ້ວ!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"ຂໍໃຫ້ໂຊກດີໃນເທື່ອຕໍ່ໄປ"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"ສະເໝີກັນ"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"ທ່ານສາມາດໃຊ້ການຕັ້ງຄ່າປັດຈຸບັນໄດ້ ຫຼື ເລີ່ມຕົ້ນໃໝ່."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"ເກັບການຕັ້ງຄ່າໄວ້"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"ເລີ່ມຕົ້ນໃຫມ່"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"ຕັ້ງຄ່າສຳເລັດແລ້ວ"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"ທ່ານສຳເລັດໝົດແລ້ວ."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"ທ່ານສາມາດປ່ຽນການຕັ້ງຄ່າເພີ່ມເຕີມໄດ້ສະເໝີ ຫຼື ເປີດຕົວຊ່ວຍການຕັ້ງຄ່າໄດ້ອີກຄັ້ງຈາກການຕັ້ງຄ່າການເຂົ້າເຖິງປຸ່ມ."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Switch Access</string>
+  <string name="switch_access_service_description">ການເຂົ້າເຖິງປຸ່ມຈະເຮັດໃຫ້ຄົນທີ່ມີໂທລະສັບ ຫຼື ແທັບເລັດການຄວບຄຸມສຳລັບຄວາມບົກພ່ອງ ສາມາດໃຊ້ປຸ່ມໜຶ່ງປຸ່ມ ຫຼື ຫຼາຍກວ່ານັ້ນໄດ້. ໃຫ້ໃຊ້ປຸ່ມຕ່າງໆເພື່ອເລືອກລາຍການ, ເລື່ອນ, ພິມຂໍ້ຄວາມ ແລະ ອື່ນໆໄດ້.</string>
+  <string name="switch_access_service_summary">ຄວບຄຸມອຸປະກອນດ້ວຍປຸ່ມ</string>
+  <string name="title_pref_help_feedback">ຊ່ວຍເຫຼືອ ແລະ ຕິຊົມ</string>
+  <string name="title_pref_licenses">ໃບອະນຸຍາດໂອເພນຊອດ</string>
+  <string name="title_pref_category_auto_scan">ສະແກນອັດຕະໂນມັດ</string>
+  <string name="title_pref_auto_scan_disabled">ສະແກນອັດຕະໂນມັດ (ປິດການນຳໃຊ້)</string>
+  <string name="action_key_summary_auto_scan">ການກົດສະວິດນີ້ຈະເປັນການເລີ່ມຍ້າຍຮະໄລ້ລະຫວ່າງລາຍການໂດຍອັດຕະໂນມັດ. ການກົດອີກຄັ້ງຈະເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້.</string>
+  <string name="title_pref_auto_scan_time_delay">ເວລາສະແກນອັດຕະໂນມັດ</string>
+  <string name="action_name_reverse_auto_scan">ປີ້ນຄືນການສະແກນໂດຍອັດຕະໂນມັດ</string>
+  <string name="title_pref_reverse_auto_scan_disabled">ສະແກນອັດຕະໂນມັດແບບກົງກັນຂ້າມ (ປິດການນຳໃຊ້)</string>
+  <string name="action_key_summary_reverse_auto_scan">ການກົດສະວິດນີ້ຈະເປັນການເລີ່ມຍ້າຍຮະໄລ້ລະຫວ່າງລາຍການໂດຍອັດຕະໂນມັດໃນແບບກັບຫຼັງ. ການກົດອີກຄັ້ງຈະເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 ວິນາທີ</item>
+    <item quantity="other">%.2f ວິນາທີ</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">ປັບແຕ່ງການສະແກນ</string>
+  <string name="title_pref_scanning_methods">ວ​ິ​ທີ​ການ​ສະ​ແກນ</string>
+  <string name="title_pref_start_scan_delay">ໜ່ວງເວລາໃນລາຍການທຳອິດ</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">ເລືອກເວລາເພີ່ມເຕີມທີ່ໃຊ້ໃນລາຍການທຳອິດ. ເວລານີ້ຈະຖືກເພີ່ມໃສ່ເວລາສະແກນອັດຕະໂນມັດ..\n\nການຕັ້ງຄ່ານີ້ມີຜົນກັບການສະແກນທັງແບບອັດຕະໂນມັດ ແລະ ແບບຈຸດ.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">ເລືອກເວລາພິເສດທີ່ໃຊ້ໃນລາຍການທຳອິດ. ຫຼັງຈາກເວລານີ້, ເສັ້ນລວງຕັ້ງ ຫຼື ລວງນອນຈະເລີ່ມຍ້າຍ.\n\nການຕັ້ງຄ່ານີ້ມີຜົນກັບທັງການສະແກນແບບອັດຕະໂນມັດ ແລະ ແບບຈຸດ.</string>
+  <string name="title_pref_category_assign_switches">ຕັ້ງປຸ່ມ</string>
+  <string name="title_pref_category_key_mappings">ລະບຸປຸ່ມໃຫ້ຄຳສັ່ງຮວມ</string>
+  <string name="summary_pref_category_key_mappings">ຄຳສັ່ງຮວມສາມາດໃຊ້ໄດ້ຕະຫຼອດເວລາ</string>
+  <string name="title_pref_category_scan_key_mappings">ຕັ້ງປຸ່ມສຳລັບການສະແກນ</string>
+  <string name="summary_pref_category_scan_key_mappings">ການສະແກນຈະເຮັດໃຫ້ທ່ານສາມາດຍ້າຍໄຮໄລ້ ແລະ ເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້ແລ້ວໄດ້</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">ການຍ້າຍ ແລະ ການເລືອກ</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">ຄຳສັ່ງຢູ່ລາຍການທີ່ໄຮໄລ້ໄວ້</string>
+  <string name="title_pref_point_scan_line_speed">ຄວາມໄວແຖວ</string>
+  <string name="dialog_message_pref_line_speed">ເລືອກຄວາມໄວຂອງການຍ້າຍເສັ້ນລວງຕັ້ງ ແລະ ລວງນອນຢູ່ໜ້າຈໍ.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 ຊມ ຕໍ່ວິນາທີ</item>
+    <item quantity="other">%.2f ຊມ ຕໍ່ວິນາທີ</item>
+  </plurals>
+  <string name="title_pref_loop_count">ຈຳນວນການສະແກນ</string>
+  <string name="dialog_message_pref_loop_count">ເລືອກຈຳນວນເທື່ອທີ່ການສະແກນຈະເກີດຂຶ້ນຊ້ຳ.\n\nການຕັ້ງຄ່ານີ້ມີຜົນກັບທັງການສະແກນແບບອັດຕະໂນມັດ ແລະ ແບບຈຸດ.</string>
+  <string name="summary_pref_point_scan">ກະລຸນາໃຊ້ເສັ້ນເຄື່ອນທີ່ເພື່ອເລືອກບ່ອນລວງຕັ້ງ ແລະ ລວງນອນ. %1$s</string>
+  <string name="point_scan_enable_animations_message">ກະລຸນາເປີດໃຊ້ອະນິເມຊັນເພື່ອໃຊ້ຄຸນສົມບັດນີ້.</string>
+  <string name="title_pref_category_switch_accomodation">ການປັບສະວິດ</string>
+  <string name="title_pref_debounce_time">ບໍ່ສົນໃຈການກົດປຸ່ມຊ້ຳ</string>
+  <string name="dialog_message_pref_debounce_time">ການກົດຫຼາຍໆເທື່ອພາຍໃນໄລຍະເວລານີ້ຈະຖືວ່າເປັນການກົດເທື່ອດຽວ.</string>
+  <string name="title_pref_press_on_release">ປ່ອຍເພື່ອເຮັດຄຳສັ່ງ</string>
+  <string name="subtitle_pref_press_on_release">ເຮັດຄຳສັ່ງເມື່ອວາງປຸ່ມ</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d ຮອບ</item>
+    <item quantity="other">%d ຮອບ</item>
+  </plurals>
+  <string name="preference_off">ປິດ</string>
+  <string name="preference_on">ເປີດ</string>
+  <string name="toast_msg_key_already_assigned">ປຸ່ມ \'%1$s\' ຖືກກຳນົດໃສ່ \'%2$s\' ຮຽບຮ້ອຍແລ້ວ</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">ຕັ້ງປຸ່ມ %d ປຸ່ມແລ້ວ</item>
+    <item quantity="other">ຕັ້ງປຸ່ມ %d ປຸ່ມແລ້ວ</item>
+  </plurals>
+  <string name="option_scan_switch_format">ປຸ່ມການເລືອກເປັນກຸ່ມ %1$d</string>
+  <string name="option_scan_switch_format_with_color">ປຸ່ມການເລືອກກຸ່ມ %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">ການກົດປຸ່ມນີ້ຈະເລືອກກຸ່ມ %1$d.</string>
+  <string name="action_name_next">ຕໍ່​ໄປ</string>
+  <string name="action_key_summary_next">ການກົດປຸ່ມນີ້ຈະໄຮໄລ້ລາຍການຖັດໄປ.</string>
+  <string name="action_name_previous">ຜ່ານ​ມາ</string>
+  <string name="action_key_summary_previous">ການກົດປຸ່ມນີ້ຈະໄຮໄລ້ລາຍການກ່ອນໜ້າ.</string>
+  <string name="action_name_click">ເລືອກ</string>
+  <string name="action_key_summary_click">ການກົດປຸ່ມນີ້ຈະເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້.</string>
+  <string name="action_name_long_click">ແຕະຄ້າງໄວ້</string>
+  <string name="action_key_summary_long_click">ການກົດປຸ່ມນີ້ຈະເລືອກຄ້າງໄວ້ທີ່ລາຍການທີ່ໄຮໄລ້ໄວ້.</string>
+  <string name="action_name_scroll_forward">ເລື່ອນໄປໜ້າ</string>
+  <string name="action_key_summary_scroll_forward">ການກົດປຸ່ມນີ້ຈະເລື່ອນລາຍການທີ່ໄຮໄລ້ໄວ້ໄປທາງໜ້າ.</string>
+  <string name="action_name_scroll_backward">ເລື່ອນກັບຫຼັງ</string>
+  <string name="action_key_summary_scroll_backward">ການກົດປຸ່ມນີ້ຈະເລື່ອນລາຍການທີ່ໄຮໄລ້ໄວ້ກັບຫຼັງ.</string>
+  <string name="action_name_dismiss">ປິດໄວ້</string>
+  <string name="action_name_expand">ຂະຫຍາຍ</string>
+  <string name="action_name_collapse">ຫຍໍ້</string>
+  <string name="action_name_highlight_text">ໄຮໄລ້ຂໍ້ຄວາມ</string>
+  <string name="action_group_name_highlight">ໄຮໄລ້ ...</string>
+  <string name="action_name_highlight_all_text">ໄຮໄລ້ຂໍ້ຄວາມທັງໝົດ</string>
+  <string name="action_name_highlight_granular_text">ໄຮໄລ້ %1$s</string>
+  <string name="action_name_copy">ສຳເນົາ</string>
+  <string name="action_name_copy_all_text">ສຳເນົາທັງໝົດ</string>
+  <string name="action_name_cut">ຕັດ</string>
+  <string name="action_name_cut_all_text">ຕັດ​ທັງ​ໝົດ</string>
+  <string name="action_name_paste">ວາງ</string>
+  <string name="action_name_undo">ຍົກເລີກ</string>
+  <string name="action_name_redo">ເຮັດຊໍ້າ</string>
+  <string name="action_group_name_delete">ລຶບ ...</string>
+  <string name="action_name_delete">ລຶບ %1$s</string>
+  <string name="action_name_delete_highlighted_text">ລຶບຂໍ້ຄວາມທີ່ໄຮໄລ້ໄວ້</string>
+  <string name="option_scanning_menu_button">ເມນູ</string>
+  <string name="option_scanning_menu_button_content_description">ເມນູການເຂົ້າເຖິງປຸ່ມ</string>
+  <string name="switch_access_global_menu">ເມນູຮວມ Switch Access</string>
+  <string name="switch_access_actions_menu">ເມນູຄຳສັ່ງ Switch Access</string>
+  <string name="switch_access_close_menu">ປິດ</string>
+  <string name="switch_access_back_menu">ກັບຄືນ</string>
+  <string name="next_arrow_content_description">ຕໍ່ໄປ</string>
+  <string name="previous_arrow_content_description">ກ່ອນໜ້າ</string>
+  <string name="global_action_back">ກັບຄືນ</string>
+  <string name="global_action_key_summary_back">ການກົດປຸ່ມນີ້ຈະກັບໄປໜ້າຈໍກ່ອນໜ້າ ຫຼື ເຊື່ອງແປ້ນພິມ, ຫາກມັນສະແດງຢູ່.</string>
+  <string name="global_action_home">​ໜ້າຫຼັກ</string>
+  <string name="global_action_key_summary_home">ການກົດປຸ່ມນີ້ຈະກັບໄປໜ້າຈໍຫຼັກ.</string>
+  <string name="global_action_overview">​ພາບ​ລວມ</string>
+  <string name="global_action_key_summary_overview">ການກົດປຸ່ມນີ້ຈະສະແດງລາຍຊື່ແອັບທີ່ເປີດຫຼ້າສຸດ.</string>
+  <string name="global_action_notifications">ການແຈ້ງເຕືອນ</string>
+  <string name="global_action_key_summary_notifications">ການກົດປຸ່ມນີ້ຈະຈະສະແດງການແຈ້ງເຕືອນຂອງອຸປະກອນທ່ານ.</string>
+  <string name="global_action_quick_settings">ການ​ຕັ້ງ​ຄ່າ​ດ່ວນ</string>
+  <string name="global_action_key_summary_quick_settings">ການກົດປຸ່ມນີ້ຈະສະແດງການຕັ້ງຄ່າດ່ວນຂອງອຸປະກອນທ່ານ.</string>
+  <string name="global_action_power_options">ຕົວເລືອກພະລັງງານ</string>
+  <string name="global_menu_volume_heading">ລະດັບສຽງ</string>
+  <string name="volume_menu_media">ລະດັບສຽງສື່</string>
+  <string name="volume_menu_call">ລະດັບສຽງການໂທ</string>
+  <string name="volume_menu_ring">ລະດັບສຽງໂທລະສັບ</string>
+  <string name="volume_menu_alarm">ລະດັບສຽງໂມງປຸກ</string>
+  <string name="volume_menu_accessibility">ລະດັບສຽງການຊ່ວຍເຂົ້າເຖິງ</string>
+  <string name="volume_menu_mute">ປິດສຽງ</string>
+  <string name="volume_menu_unmute">ເປີດສຽງ</string>
+  <string name="volume_menu_increase">ເພີ່ມ</string>
+  <string name="volume_settings">ການຕັ້ງຄ່າລະດັບສຽງ</string>
+  <string name="volume_menu_decrease">ປັບລົງ</string>
+  <string name="scrollable_forward">ເລື່ອນໄປໜ້າ</string>
+  <string name="scrollable_backward">ເລື່ອນກັບຫຼັງ</string>
+  <string name="point_scan">ສະແກນຈຸດ</string>
+  <string name="box_scan">ອອກການສະແກນຈຸດ</string>
+  <string name="action_name_swipe_right">ປັດຂວາ</string>
+  <string name="action_name_swipe_left">ປັດຊ້າຍ</string>
+  <string name="action_name_swipe_up">ປັດຂຶ້ນ</string>
+  <string name="action_name_swipe_down">ປັດລົງ</string>
+  <string name="action_name_swipe_custom">ປັດ (ກຳນົດເອງ)</string>
+  <string name="action_name_zoom_out">ຊູມອອກ</string>
+  <string name="action_name_zoom_in">ຊູມເຂົ້າ</string>
+  <string name="switch_access_preferences_title">ການຕັ້ງຄ່າການເຂົ້າເຖິງປຸ່ມ</string>
+  <string name="key_combo_preference_instructions">ກົດປຸ່ມຮວມກັນເພື່ອເພີ່ມ ຫຼື ລຶບມັນອອກຈາກລາຍຊື່</string>
+  <string name="key_combo_preference_reset_button">ລຶບລ້າງການຕັ້ງປຸ່ມ</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">ບໍ່ໄດ້ຕັ້ງປຸ່ມເທື່ອ</string>
+  <string name="more">ເພີ່ມເຕີມ</string>
+  <string name="name_of_space_bar">ຍະຫວ່າງ</string>
+  <string name="name_of_enter_key">ປ້ອນ​ເຂົ້າ</string>
+  <string name="name_of_tab_key">​ແຖບ</string>
+  <string name="save">ບັນທຶກ</string>
+  <string name="title_pref_category_display_and_sound">ການສະແດງຜົນ ແລະ ສຽງ</string>
+  <string name="title_pref_highlight_0">ການສະແກນຮູບແບບສີສັນໄຮໄລ້</string>
+  <string name="title_pref_primary_scan_style">ຮູບ​ແບບ​ການ​ສະ​ແກນ​ຕົ້ນ​ຕໍ</string>
+  <string name="title_pref_highlight_0_color">ສີໄຮໄລ້</string>
+  <string name="title_pref_highlight_0_weight">ຮູບແບບສີສັນເສັ້ນໄຮໄລ້</string>
+  <string name="title_pref_privacy_policy">ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ</string>
+  <string name="title_pref_auto_select">ເລືອກອັດຕະໂນມັດ</string>
+  <string name="summary_pref_auto_select">ເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້ໂດຍອັດຕະໂນມັດ. ຫາກບໍ່ສາມາດເລືອກລາຍການໄດ້ ຫຼື ການຕັ້ງຄ່ານີ້ຖືກປິດໄວ້, ທ່ານຈະເຫັນເມນູຄຳສັ່ງທີ່ສາມາດໃຊ້ໄດ້ແທນ.</string>
+  <string name="switch_access_global_menu_enable_autoselect">ເປີດໃຊ້ການເລືອກອັດຕະໂນມັດ</string>
+  <string name="switch_access_global_menu_disable_autoselect">ປິດການເລືອກອັດຕະໂນມັດ</string>
+  <string name="switch_access_move_next">ຕໍ່ໄປ ...</string>
+  <string name="switch_access_move_next_character">ຕົວອັກສອນຕໍ່ໄປ</string>
+  <string name="switch_access_move_next_word">ຄຳສັບຕໍ່ໄປ</string>
+  <string name="switch_access_move_next_line">ແຖວຕໍ່ໄປ</string>
+  <string name="switch_access_move_next_paragraph">ຫຍໍ້ໜ້າຕໍ່ໄປ</string>
+  <string name="switch_access_move_next_page">ໜ້າຕໍ່ໄປ</string>
+  <string name="switch_access_move_next_sentence">ປະໂຫຍກ​ຕໍ່​ໄປ</string>
+  <string name="switch_access_move_prev">ກ່ອນໜ້າ ...</string>
+  <string name="switch_access_move_prev_character">ຕົວອັກສອນກ່ອນໜ້າ</string>
+  <string name="switch_access_move_prev_word">ຄຳສັບກ່ອນໜ້າ</string>
+  <string name="switch_access_move_prev_line">ແຖວກ່ອນໜ້າ</string>
+  <string name="switch_access_move_prev_paragraph">ຫຍໍ້ໜ້າກ່ອນໜ້າ</string>
+  <string name="switch_access_move_prev_page">ໜ້າກ່ອນໜ້າ</string>
+  <string name="switch_access_move_prev_sentence">ປະໂຫຍກກ່ອນໜ້າ</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">ເລີ່ມສະແກນອັດຕະໂນມັດ</string>
+  <string name="switch_access_auto_start_scan_summary">ສະແກນໂດຍບໍ່ຕ້ອງກົດປຸ່ມປິດເປີດ</string>
+  <string name="pref_begin_switchaccess_setup_title">ເປີດການແນະນຳການຕັ້ງຄ່າ</string>
+  <string name="setup_wizard_heading">ການແນະນຳການຕັ້ງຄ່າການເຂົ້າເຖິງສະວິດ</string>
+  <string name="one_switch">ປຸ່ມດຽວ</string>
+  <string name="two_switches">ສອງປຸ່ມ</string>
+  <string name="finish">ແລ້ວໆ</string>
+  <string name="exit">ອອກ</string>
+  <string name="intro_heading">ເລືອກສະວິດ</string>
+  <string name="usb_switch_option_text">ສະວິດ USB</string>
+  <string name="bluetooth_switch_option_text">ສະວິດ Bluetooth</string>
+  <string name="usb_switch_description_text">ເຊື່ອມຕໍ່ຫາສະວິດຜ່ານທາງ USB</string>
+  <string name="bluetooth_switch_description_text">ຈັບຄູ່ສະວິດແບບໄຮ້ສາຍຜ່ານທາງ Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">ອຸປະກອນຂອງທ່ານບໍ່ຮອງຮັບ Bluetooth. ກະລຸນາລອງໃຊ້ສະວິດແບບພາຍນອກແທນ.</string>
+  <string name="connected_usb_devices_header">ອຸປະກອນທີ່ເຊື່ອມຕໍ່ແລ້ວ</string>
+  <string name="usb_no_devices_connected_message">ບໍ່ພົບອຸປະກອນ USB. ໃຫ້ກວດສອບວ່າທ່ານເຊື່ອມຕໍ່ອຸປະກອນຢ່າງປອດໄພແລ້ວ.</string>
+  <string name="connect_usb_heading">ເຊື່ອມຕໍ່ສະວິດ USB</string>
+  <string name="pair_bluetooth_heading">ຈັບຄູ່ສະວິດ Bluetooth</string>
+  <string name="pair_bluetooth_subheading">ແຕະສະວິດ Bluetooth ຂອງທ່ານດ້ານລຸ່ມ</string>
+  <string name="bluetooth_not_enabled_message">ເພື່ອຈັບຄູ່ສະວິດ Bluetooth, ໃຫ້ເປີດໃຊ້ Bluetooth ກ່ອນ</string>
+  <string name="enable_bluetooth_button_title">ເປີດ Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">ບໍ່ໄດ້ອຸປະກອນ Bluetooth ທີ່ຈັບຄູ່ໄວ້</string>
+  <string name="paired_devices_header">ອຸປະກອນ Bluetooth ທີ່ຈັບຄູ່ແລ້ວ</string>
+  <string name="available_devices_header">ອຸປະກອນ Bluetooth ທີ່ສາມາດໃຊ້ໄດ້</string>
+  <string name="bluetooth_computer_content_description">ຄອມພິວເຕີ</string>
+  <string name="bluetooth_phone_content_description">ໂທລະສັບ</string>
+  <string name="bluetooth_imaging_content_description">ຮູບພາບ</string>
+  <string name="bluetooth_headphone_content_description">ຫູຟັງ</string>
+  <string name="bluetooth_peripheral_content_description">ອຸປະກອນຕໍ່ພ່ວງ</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">ກຳລັງເຊື່ອມຕໍ່...</string>
+  <string name="bluetooth_connected_description">ເຊື່ອມຕໍ່ແລ້ວ</string>
+  <string name="bluetooth_device_unavailable_description">ອຸປະກອນບໍ່ສາມາດໃຊ້ໄດ້</string>
+  <string name="reconnecting_unsupported_title">ບໍ່ສາມາດເຊື່ອມຕໍ່ອຸປະກອນໄດ້</string>
+  <string name="reconnecting_unsupported_message">Switch Access ບໍ່ສາມາດເຊື່ອມຕໍ່ຫາອຸປະກອນທີ່ຈັບຄູ່ກ່ອນໜ້ານີ້ໄດ້. ກະລຸນາກວດສອບວ່າອຸປະກອນຂອງທ່ານເປີດ ແລະ ເຊື່ອມຕໍ່ແລ້ວ.\n\nຫາກອຸປະກອນຂອງທ່ານຍັງຄົງບໍ່ເຊື່ອມຕໍ່, ໃຫ້ໄປທີ່ການຕັ້ງຄ່າ Bluetooth ແລ້ວລອງເຊື່ອມຕໍ່ໃໝ່ອີກຄັ້ງ.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">ໄປທີ່ການຕັ້ງຄ່າ Bluetoot</string>
+  <string name="number_of_switches_heading">ເລືອກຈຳນວນປຸ່ມ</string>
+  <string name="title_assign_scan_key">ມອບໝາຍປຸ່ມ %1$s</string>
+  <string name="one_switch_description_text">ກົດປຸ່ມສະວິດເພື່ອເລີ່ມຍ້າຍລະຫວ່າງລາຍການໂດຍອັດຕະໂນມັດ. ກົດອີກຄັ້ງເພື່ອເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້.</string>
+  <string name="two_switches_description_text">ກົດປຸ່ມໜຶ່ງເພື່ອເລື່ອນລະຫວ່າງລາຍການ. ກົດອີກປຸ່ມເພື່ອສະລັບໄປເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້.</string>
+  <string name="step_speed_heading">ເລືອກຄວາມໄວການສະແກນ</string>
+  <string name="step_speed_subheading">ເລືອກຈະໃຫ້ໄຮໄລ້ຢູ່ດົນປານໃດໃນແຕ່ລະລາຍການ</string>
+  <string name="fast_radio_button_title">ໄວ (ໜ່ວງເວລາ %1$sວິ )</string>
+  <string name="medium_radio_button_title">ປານກາງ (ໜ່ວງເວລາ %1$sວິ)</string>
+  <string name="slow_radio_button_title">ຊ້າ (ໜ່ວງເວລາ %1$sວິ)</string>
+  <string name="custom_switch">ກຳນົດເອງ</string>
+  <string name="custom_edit_text">ການໜ່ວງເວລາ (ວິນາທີ)</string>
+  <string name="setup_toast_msg_key_already_assigned">ປຸ່ມ \'%1$s\' ຖືກຕັ້ງໄວ້ສຳລັບຄຳສັ່ງອື່ນຢູ່ກ່ອນແລ້ວ</string>
+  <string name="row_column_scanning_title">ການສະແກນແຖວ/ຖັນ</string>
+  <string name="option_scanning_title">ການເລືອກກຸ່ມ (ຂັ້ນສູງ)</string>
+  <string name="linear_scanning_title">ການສະແກນຕາມເສັ້ນ</string>
+  <string name="linear_scanning_except_keyboard_title">ການສະແກນແບບເສັ້ນຊື່ (ຍົກເວັ້ນແປ້ນພິມ)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">ການເວົ້າ, ສຽງ ແລະ ການສັ່ນ</string>
+  <string name="title_pref_switch_access_spoken_feedback">ການຕອບສະໜອງດ້ວຍສຽງ</string>
+  <string name="title_pref_scan_non_actionable_items">ເວົ້າຂໍ້ຄວາມອະທິບາຍ</string>
+  <string name="scan_non_actionable_items_summary">ຟັງສຽງລາຍການຕ່າງໆພ້ອມກັບຄຳສັ່ງທີ່ສາມາດໃຊ້ໄດ້ ແລະ ຂໍ້ຄວາມອະທິບາຍ</string>
+  <string name="title_pref_switch_access_verbosity">ການໃຊ້ຄຳຫຼາຍເກີນໄປ</string>
+  <string name="summary_verbosity">ເລືອກວ່າຈະອ່ານຂໍ້ມູນຫຼາຍປານໃດ</string>
+  <string name="title_pref_verbosity_category_verbosity_details">ລາຍລະອຽດການໃຊ້ຄຳຫຼາຍເກີນໄປ</string>
+  <string name="title_pref_switch_access_keyboard_echo">ອອກສຽງແປ້ນພິມ</string>
+  <string name="keyboard_echo_summary_on">ເວົ້າປຸ່ມທີ່ພິມສຳລັບແປ້ນພິມໜ້າຈໍ</string>
+  <string name="keyboard_echo_summary_off">ຢ່າເວົ້າປຸ່ມທີ່ພິມສຳລັບແປ້ນພິມໜ້າຈໍ</string>
+  <string name="title_pref_enable_hints">ເວົ້າຄຳໃບ້ການໃຊ້</string>
+  <string name="enable_hints_summary_on">ຄຳໃບ້ການນຳໃຊ້ແມ່ນຈະເວົ້າໃນລະຫວ່າງການນຳທາງ, ຫຼັງຈາກໄລຍະເວລາສັ້ນໆ</string>
+  <string name="enable_hints_summary_off">ຄຳໃບ້ການນຳໃຊ້ຈະບໍ່ອອກສຽງເວົ້າເມື່ອຍ້າຍໂຟກັສການຊ່ວຍເຂົ້າເຖິງ</string>
+  <string name="title_pref_speak_container_element_position">ລາຍຊື່ການເວົ້າ ແລະ ຂໍ້ມູນຕາໜ່າງ</string>
+  <string name="speak_container_element_position_summary_on">ເວົ້າຂໍ້ມູນລາຍຊື່ ແລະ ຕາຕະລາງ</string>
+  <string name="speak_container_element_position_summary_off">ບໍ່ເວົ້າຂໍ້ມູນລາຍຊື່ ແລະ ຕາຕະລາງ</string>
+  <string name="title_pref_speak_element_type">ປະເພດອົງປະກອບການເວົ້າ</string>
+  <string name="speak_element_type_summary_on">ເວົ້າປະເພດອົງປະກອບສຳລັບລາຍການທີ່ເລືອກແລ້ວ</string>
+  <string name="speak_element_type_summary_off">ບໍ່ໄດ້ເວົ້າປະເພດອົງປະກອບສຳລັບລາຍການທີ່ເລືອກເທື່ອ</string>
+  <string name="title_pref_pitch_change_for_ime">ໃຊ້ການປ່ຽນໂທນສຽງ</string>
+  <string name="pitch_change_for_ime_summary_on">ອ່ານປຸ່ມແປ້ນພິມໃນໂທນສຽງທີ່ຕ່ຳກວ່າເກົ່າ</string>
+  <string name="pitch_change_for_ime_summary_off">ຢ່າປ່ຽນໂທນສຽງໃນເວລາເວົ້າ</string>
+  <string name="title_pref_speak_selected_item_or_group">ອ່ານລາຍການ ຫຼື ກຸ່ມທີ່ເລືອກ</string>
+  <string name="speak_selected_item_or_group_summary">ອ່ານຊື່ລາຍການ ຫຼື ກຸ່ມເມື່ອເລືອກມັນແລ້ວ</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">ຈຳນວນເວົ້າສູງສຸດຕໍ່ລາຍການ</string>
+  <string name="dialog_message_pref_maximum_time_per_item">ຕັ້ງຈຳນວນສູງສຸດຂອງແຕ່ລະລາຍການສຳລັບການອ່ານຄຳອະທິບາຍອອກສຽງ. ການເວົ້າຈະຖືກຕັດອອກຫຼັງຈາກເວລາທີ່ຕັ້ງໄວ້.\nໝາຍເຫດ: ຈະເວົ້າສະເໝີເມື່ອເປີດໃຊ້.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">ອື່ນໆ</string>
+  <string name="title_pref_node_description_order">ລຳດັບຄຳອະທິບາຍອົງປະກອບ</string>
+  <string name="title_pref_switch_access_speak_element_ids">ໄອດີອົງປະກອບການເວົ້າ</string>
+  <string name="speak_element_ids_summary_on">ເວົ້າໄອດີອົງປະກອບສຳລັບປຸ່ມທີ່ບໍ່ໄດ້ຕັ້ງຊື່ໄວ້</string>
+  <string name="speak_element_ids_summary_off">ບໍ່ເວົ້າໄອດີອົງປະກອບສຳລັບປຸ່ມທີ່ບໍ່ໄດ້ຕັ້ງຊື່ໄວ້</string>
+  <string name="title_pref_switch_access_tts_settings">ການຕັ້ງຄ່າ TTS</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">ເມື່ອໄຮໄລ້ຫຼາຍລາຍການ</string>
+  <string name="title_pref_switch_access_speak_first_last_item">ເວົ້າລາຍການທຳອິດ ແລະ ລາຍການສຸດທ້າຍ</string>
+  <string name="title_pref_switch_access_speak_number_of_items">ເວົ້າຈຳນວນລາຍການ</string>
+  <string name="title_pref_switch_access_speak_all_items">ເວົ້າອອກສຽງລາຍການທີ່ໄຮໄລ້ທັງໝົດ</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">ເວົ້າໃຫ້ຈົບກ່ອນຍ້າຍ</string>
+  <string name="title_pref_spoken_feedback_other_feedback">ການຕິຊົມອື່ນໆ</string>
+  <string name="title_pref_developer_settings">ການຕັ້ງຄ່າ​ສຳລັບ​ນັກພັດທະນາ</string>
+  <string name="title_pref_spoken_feedback_overlay">​ສະ​ແດງ​ການ​ເວົ້າ</string>
+  <string name="title_pref_switch_access_vibration_feedback">ການສັ່ນເຕືອນ</string>
+  <string name="vibration_feedback_summary">ສັ່ນເຕືອນເພື່ອແຈ້ງວ່າມີບາງຢ່າງປ່ຽນແປງ (ເຊັ່ນ: ເນື້ອຫາໃນໜ້າຈໍປ່ຽນແປງໄປ)</string>
+  <string name="title_pref_switch_access_sound_feedback">ການຕອບສະໜອງດ້ວຍສຽງ</string>
+  <string name="sound_feedback_summary">ເປີດສຽງເພື່ອແຈ້ງວ່າມີບາງຢ່າງປ່ຽນແປງ (ເຊັ່ນ: ເນື້ອຫາໃນໜ້າຈໍປ່ຽນແປງໄປ)</string>
+  <string name="title_pref_switch_access_sound_volume">ລະດັບສຽງ</string>
+  <string name="title_pref_switch_access_audio_ducking">ການຫຼຸດຜ່ອນສຽງ</string>
+  <string name="audio_ducking_summary">ຫຼຸດຜ່ອນສຽງອື່ນໆລົງໃນຂະນະທີ່ກຳລັງເວົ້າ</string>
+  <string name="switch_access_focus_cleared_no_selection">ປ່ຽນໜ້າຈໍແລ້ວ</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">ກົດເລືອກສະວິດເພື່ອເລືອກແຖວ</string>
+  <string name="switch_access_spoken_feedback_group">ກຸ່ມ %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">ກົດກຸ່ມສະວິດ %1$s ເພື່ອເລືອກກຸ່ມ</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">ກົດກຸ່ມສະວິດ %1$s ເພື່ອເລືອກລາຍການ</string>
+  <string name="switch_access_spoken_feedback_to">%1$s ຫາ %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s ລາຍການ</string>
+  <string name="switch_access_spoken_feedback_group_selected">ເລືອກກຸ່ມ %1$s ແລ້ວ</string>
+  <string name="switch_access_spoken_feedback_row_selected">ເລືອກແຖວແລ້ວ</string>
+  <string name="switch_access_spoken_feedback_item_selected">ເລືອກ %1$s ແລ້ວ</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">ສາມາດເລື່ອນໄດ້</string>
+  <string name="switch_access_spoken_feedback_scroll">ເລືອກເພື່ອເລື່ອນ</string>
+  <string name="switch_access_spoken_feedback_unknown">ລາຍການທີ່ບໍ່ຮູ້ຈັກ</string>
+  <string name="scanning_method_heading">ເລືອກວິທີສະແກນ</string>
+  <string name="row_column_scanning_description">ສະແກນເທື່ອລະແຖວ. ຫຼັງຈາກເລືອກແຖວແລ້ວ, ໃຫ້ເລື່ອນຜ່ານລາຍການທີ່ຢູ່ໃນລາຍຊື່ນັ້ນ.</string>
+  <string name="linear_scanning_description">ຍ້າຍລະຫວ່າງລາຍການເທື່ອລະອັນ</string>
+  <string name="linear_scanning_except_keyboard_description">ຍ້າຍລະຫວ່າງລາຍການເທື່ອລະອັນ. ແປ້ນພິມຈະສະແກນຕາມແຖວ.</string>
+  <string name="option_scanning_description">ລາຍການທັງໝົດຈະຖືກຕັ້ງສີໃສ່. ໃຫ້ກົດປຸ່ມທີ່ກົງກັບສີຂອງລາຍການທີ່ທ່ານຕ້ອງການ. ຫຼຸດຂະໜາດຂອງກຸ່ມລົງຈົນກວ່າທ່ານຈະໄດ້ສິ່ງທີ່ທ່ານຕ້ອງການ</string>
+  <string name="setup_switch_assignment_heading">ຕັ້ງປຸ່ມເປັນ %s ແລ້ວ</string>
+  <string name="setup_switch_assignment_empty">ບໍ່ໃຊ້</string>
+  <string name="clear_keys_dialog_title">ລຶບລ້າງປຸ່ມທີ່ຕັ້ງໄວ້ບໍ?</string>
+  <string name="clear_keys_dialog_message">ທ່ານເຄີຍຕັ້ງປຸ່ມໄປກ່ອນໜ້ານີ້ແລ້ວ.</string>
+  <string name="clear_keys_dialog_positive_button">ລຶບລ້າງປຸ່ມ</string>
+  <string name="clear_keys_dialog_negative_button">ໃຊ້ປຸ່ມແບບເກົ່າ</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">ບໍ່ໄດ້ຕັ້ງປຸ່ມເທື່ອ</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">ບໍ່ໄດ້ຕັ້ງປຸ່ມໃຫ້ຄຳສັ່ງນີ້ເທື່ອ. ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການດຳເນີນການຕໍ່?</string>
+  <string name="option_scan_switch_title">ກຸ່ມ%1$s</string>
+  <string name="option_scan_switch_subtitle">ກົດປຸ່ມໃດໜຶ່ງເພື່ອຕັ້ງມັນໃຫ້ເລືອກກຸ່ມ %1$s.</string>
+  <string name="assign_switch_subtitle">ກົດໃສ່ປຸ່ມໃດໜຶ່ງເພື່ອຕັ້ງໃຫ້ມັນເປັນຄຳສັ່ງ \"%1$s\".</string>
+  <string name="auto_scan_action_description">ເລືອກສະແກນ ແລະ ເລືອກ</string>
+  <string name="switch_game_heading">ທົດສອບການຕັ້ງຄ່າຂອງທ່ານດ້ວຍເກມ Tic-Tac-Toe</string>
+  <string name="switch_game_one_switch_linear_subheading">ກົດ \"%1$s\" ເພື່ອເລີ່ມການສະແກນ. ກົດປຸ່ມອີກຄັ້ງເພື່ອເລືອກລາຍການທີ່ໝາຍໄຮໄລ້ໄວ້. ລອງເຮັດເບິ່ງ!</string>
+  <string name="switch_game_one_switch_row_col_subheading">ກົດ \"%1$s\" ເພື່ອເລີ່ມການສະແກນ. ກົດປຸ່ມອີກຄັ້ງເພື່ອເລືອກແຖວທີ່ໝາຍໄຮໄລ້ໄວ້. ກົດອີກຄັ້ງເພື່ອເລືອກລາຍການທີ່ໄຮ້ໄລ້ໄວ້. ລອງເຮັດເບິ່ງ!</string>
+  <string name="switch_game_two_switch_linear_subheading">ກົດ \"%1$s\" ເພື່ອຍ້າຍລະຫວ່າງລາຍການ. ກົດ \"%2$s\" ເພື່ອເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້. ລອງເຮັດເບິ່ງ!</string>
+  <string name="switch_game_two_switch_row_col_subheading">ກົດ \"%1$s\" ເພື່ອຍ້າຍລະຫວ່າງແຖວ. ກົດ \"%2$s\" ເພື່ອເລືອກແຖວທີ່ໄຮໄລ້ໄວ້. ກົດຊ້ຳເພື່ອເລືອກສິ່ງທີ່ຕ້ອງການໃນແຖວນັ້ນ. ລອງເຮັດເບິ່ງ!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">ກົດ \"%1$s\" ເພື່ອເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້ໃນ %2$s ຫຼື ກົດ \"%4$s\" ເພື່ອເລືອກລາຍການທີ່ໄຮໄລ້ໄວ້ໃນ %3$s. ກົດຊ້ຳເພື່ອໄປຫາລາຍການນັ້ນ. ລອງເຮັດເບິ່ງ!</string>
+  <string name="switch_game_incomplete_switches_subheading">ທ່ານບໍ່ໄດ້ຕັ້ງປຸ່ມໃຫ້ທຸກຄຳສັ່ງເທື່ອ. ໃຫ້ໃຊ້ປຸ່ມກ່ອນໜ້ານີ້ເພື່ອກັບໄປກ່ອນໜ້າ ແລ້ວຈາກນັ້ນຕັ້ງຄຳສັ່ງໃຫ້ປຸ່ມຕ່າງໆ.</string>
+  <string name="game_square_content_description">%1$s ຢູ່ຕຳແໜ່ງ %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">ຫວ່າງເປົ່າ</string>
+  <string name="game_reset_button_title">ຣີເຊັດເກມ</string>
+  <string name="game_square_already_taken">ຈຸດນີ້ຖືກຍຶດໄປແລ້ວ. ກະລຸນາລອງໃໝ່!</string>
+  <string name="game_win_outcome_title">ທ່ານຊະນະແລ້ວ!</string>
+  <string name="game_loss_outcome_title">ຂໍໃຫ້ໂຊກດີໃນເທື່ອຕໍ່ໄປ</string>
+  <string name="game_tie_outcome_title">ສະເໝີກັນ</string>
+  <string name="game_outcome_body_text">ທ່ານສາມາດໃຊ້ການຕັ້ງຄ່າປັດຈຸບັນໄດ້ ຫຼື ເລີ່ມຕົ້ນໃໝ່.</string>
+  <string name="game_outcome_positive_response">ເກັບການຕັ້ງຄ່າໄວ້</string>
+  <string name="game_outcome_negative_response">ເລີ່ມຕົ້ນໃຫມ່</string>
+  <string name="setup_completion_heading">ຕັ້ງຄ່າສຳເລັດແລ້ວ</string>
+  <string name="setup_completion_message">ທ່ານສຳເລັດໝົດແລ້ວ.</string>
+  <string name="setup_completion_settings_reminder">ທ່ານສາມາດປ່ຽນການຕັ້ງຄ່າເພີ່ມເຕີມໄດ້ສະເໝີ ຫຼື ເປີດຕົວຊ່ວຍການຕັ້ງຄ່າໄດ້ອີກຄັ້ງຈາກການຕັ້ງຄ່າການເຂົ້າເຖິງປຸ່ມ.</string>
+  <string name="dialog_url_list">ເລືອກລິ້ງ</string>
+  <string name="dialog_do_not_disturb_permission_title">Switch Access ຕ້ອງການສິດອະນຸຍາດໃນການປັບລະດັບສຽງ</string>
+  <string name="dialog_do_not_disturb_permission_message">ເພື່ອປັບແຕ່ງລະດັບສຽງຈາກເມນູ Switch Access, ກະລຸນາເປີດໃຊ້ການເຂົ້າເຖິງໂໝດຫ້າມລົບກວນສຳລັບຊຸດການຊ່ວຍເຂົ້າເຖິງ Android</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">ເປີດການຕັ້ງຄ່າ</string>
 </resources>

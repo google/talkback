@@ -1,5 +1,19 @@
 {
   "named_nodes": {
+    "get_hint_from_node": {
+      "if": "$global.enableUsageHint && $node.isEnabled",
+      "then": {
+        "switch": "$node.role",
+        "cases": {
+          "drop_down_list": "%hint_rule_drop_down_list",
+          "edit_text": "%hint_rule_edit_text",
+          "seek_control": "%hint_rule_seek_bar",
+          "pager": "%hint_rule_pager"
+        },
+        "default": "%hint_rule_default"
+      }
+    },
+
     "hint_rule_drop_down_list": {
       // get_custom_hint_for_click
       "if": "$global.inputMode == 'keyboard' && $keyCombo.hasKeyForClick",
@@ -9,8 +23,6 @@
 
     "hint_rule_edit_text": {
       "join": [
-        "%get_hint_for_custom_actions",
-        "%get_hint_for_actions",
         {
           "if": "!$node.isFocused",
           "then": {

@@ -16,42 +16,42 @@
 
 package com.google.android.accessibility.talkback.labeling;
 
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.labeling.LabelProviderClient;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 public class LabelUpdateRequest extends LabelClientRequest<Boolean> {
 
-  private Label mLabel;
-  private final CustomLabelManager.OnLabelsInPackageChangeListener mListener;
+  private static final String TAG = "LabelUpdateRequest";
+
+  private Label label;
+  private final CustomLabelManager.OnLabelsInPackageChangeListener listener;
 
   public LabelUpdateRequest(
       LabelProviderClient client,
       Label label,
       CustomLabelManager.OnLabelsInPackageChangeListener listener) {
     super(client);
-    mLabel = label;
-    mListener = listener;
+    this.label = label;
+    this.listener = listener;
   }
 
   @Override
   public Boolean doInBackground() {
-    LogUtils.log(
-        this, Log.VERBOSE, "Spawning new LabelUpdateRequest(%d) for label: %s", hashCode(), mLabel);
+    LogUtils.v(TAG, "Spawning new LabelUpdateRequest(%d) for label: %s", hashCode(), label);
 
-    if (mLabel == null || mLabel.getId() == Label.NO_ID) {
+    if (label == null || label.getId() == Label.NO_ID) {
       return false;
     }
 
-    boolean result = mClient.updateLabel(mLabel, CustomLabelManager.SOURCE_TYPE_USER);
+    boolean result = mClient.updateLabel(label, CustomLabelManager.SOURCE_TYPE_USER);
     if (result) {
       // remove copy of the label from import backup
       mClient.deleteLabel(
-          mLabel.getPackageName(),
-          mLabel.getViewName(),
-          mLabel.getLocale(),
-          mLabel.getPackageVersion(),
+          label.getPackageName(),
+          label.getViewName(),
+          label.getLocale(),
+          label.getPackageVersion(),
           CustomLabelManager.SOURCE_TYPE_BACKUP);
     }
 
@@ -60,11 +60,10 @@ public class LabelUpdateRequest extends LabelClientRequest<Boolean> {
 
   @Override
   public void onPostExecute(Boolean result) {
-    LogUtils.log(
-        this, Log.VERBOSE, "LabelUpdateRequest(%d) complete. Result: %s", hashCode(), result);
+    LogUtils.v(TAG, "LabelUpdateRequest(%d) complete. Result: %s", hashCode(), result);
 
-    if (mListener != null && result) {
-      mListener.onLabelsInPackageChanged(mLabel.getPackageName());
+    if (listener != null && result) {
+      listener.onLabelsInPackageChanged(label.getPackageName());
     }
   }
 }

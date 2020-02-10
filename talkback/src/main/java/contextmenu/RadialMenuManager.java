@@ -16,7 +16,9 @@
 
 package com.google.android.accessibility.talkback.contextmenu;
 
+import static com.google.android.accessibility.talkback.Feedback.Speech.Action.SAVE_LAST;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
+import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_INTERRUPT;
 
 import android.os.Handler;
 import android.util.SparseArray;
@@ -24,18 +26,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.WindowManager;
+import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
-import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.EditTextActionHistory;
+import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
+import com.google.android.accessibility.talkback.menurules.NodeMenuRuleProcessor;
 import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.accessibility.utils.input.TextCursorManager;
-import com.google.android.accessibility.utils.output.FeedbackController;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
+import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
+import com.google.android.accessibility.utils.widget.DialogUtils;
 import com.google.android.accessibility.utils.widget.SimpleOverlay;
 
-/*
+/**
  * Controls radial-style context menus. Uses {@link GlobalMenuProcessor} and {@link MenuTransformer}
  * to configure menus.
  */
@@ -56,36 +60,37 @@ public class RadialMenuManager implements MenuManager {
   };
 
   /** Cached radial menus. */
-  private final SparseArray<RadialMenuOverlay> mCachedRadialMenus = new SparseArray<>();
+  private final SparseArray<RadialMenuOverlay> cachedRadialMenus = new SparseArray<>();
 
-  private final TalkBackService mService;
-  private final SpeechController mSpeechController;
-  private final FeedbackController mFeedbackController;
+  private final TalkBackService service;
 
   /** Client that responds to menu item selection and click. */
-  private RadialMenuClient mClient;
+  private RadialMenuClient client;
 
   /** How many radial menus are showing. */
-  private int mIsRadialMenuShowing;
+  private int isRadialMenuShowing;
 
   /** Whether we have queued hint speech and it has not completed yet. */
-  private boolean mHintSpeechPending;
+  private boolean hintSpeechPending;
 
-  private final boolean mIsTouchScreen;
+  private final boolean isTouchScreen;
 
-  private MenuTransformer mMenuTransformer;
-  private MenuActionInterceptor mMenuActionInterceptor;
+  private MenuTransformer menuTransformer;
+  private MenuActionInterceptor menuActionInterceptor;
+  private final Pipeline.FeedbackReturner pipeline;
 
   public RadialMenuManager(
       boolean isTouchScreen,
-      TalkBackService context,
-      EditTextActionHistory editTextActionHistory,
-      TextCursorManager textCursorManager) {
-    mIsTouchScreen = isTouchScreen;
-    mService = context;
-    mSpeechController = context.getSpeechController();
-    mFeedbackController = context.getFeedbackController();
-    mClient = new TalkBackRadialMenuClient(mService, editTextActionHistory, textCursorManager);
+      TalkBackService service,
+      Pipeline.FeedbackReturner pipeline,
+      AccessibilityFocusMonitor accessibilityFocusMonitor,
+      NodeMenuRuleProcessor nodeMenuRuleProcessor) {
+    this.isTouchScreen = isTouchScreen;
+    this.service = service;
+    this.pipeline = pipeline;
+    client =
+        new TalkBackRadialMenuClient(
+            service, pipeline, accessibilityFocusMonitor, nodeMenuRuleProcessor);
   }
 
   /**
@@ -96,44 +101,44 @@ public class RadialMenuManager implements MenuManager {
    */
   @Override
   public boolean showMenu(int menuId, EventId eventId) {
-    if (!mIsTouchScreen) return false;
+    if (!isTouchScreen) {
+      return false;
+    }
 
-    RadialMenuOverlay overlay = mCachedRadialMenus.get(menuId);
+    pipeline.returnFeedback(eventId, Feedback.speech(SAVE_LAST));
+
+    RadialMenuOverlay overlay = cachedRadialMenus.get(menuId);
 
     if (overlay == null) {
-      overlay = new RadialMenuOverlay(mService, menuId, false);
-      overlay.setListener(mOverlayListener);
+      overlay = new RadialMenuOverlay(service, menuId, false);
+      overlay.setListener(overlayListener);
 
       final WindowManager.LayoutParams params = overlay.getParams();
-      if (BuildVersionUtils.isAtLeastLMR1()) {
-        params.type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
-      } else {
-        params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
-      }
+      params.type = DialogUtils.getDialogType();
       params.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
       overlay.setParams(params);
 
       final RadialMenu menu = overlay.getMenu();
-      menu.setDefaultSelectionListener(mOnSelection);
-      menu.setDefaultListener(mOnClick);
+      menu.setDefaultSelectionListener(onSelection);
+      menu.setDefaultListener(onClick);
 
       final RadialMenuView view = overlay.getView();
       view.setSubMenuMode(RadialMenuView.SubMenuMode.LIFT_TO_ACTIVATE);
 
-      if (mClient != null) {
-        mClient.onCreateRadialMenu(menuId, menu);
+      if (client != null) {
+        client.onCreateRadialMenu(menuId, menu);
       }
 
-      mCachedRadialMenus.put(menuId, overlay);
+      cachedRadialMenus.put(menuId, overlay);
     }
 
-    if ((mClient != null) && !mClient.onPrepareRadialMenu(menuId, overlay.getMenu())) {
-      mFeedbackController.playAuditory(R.raw.complete);
+    if ((client != null) && !client.onPrepareRadialMenu(menuId, overlay.getMenu())) {
+      pipeline.returnFeedback(eventId, Feedback.sound(R.raw.complete));
       return false;
     }
 
-    if (mMenuTransformer != null) {
-      mMenuTransformer.transformMenu(overlay.getMenu(), menuId);
+    if (menuTransformer != null) {
+      menuTransformer.transformMenu(overlay.getMenu(), menuId);
     }
 
     overlay.showWithDot();
@@ -142,7 +147,7 @@ public class RadialMenuManager implements MenuManager {
 
   @Override
   public boolean isMenuShowing() {
-    return (mIsRadialMenuShowing > 0);
+    return (isRadialMenuShowing > 0);
   }
 
   @Override
@@ -152,18 +157,18 @@ public class RadialMenuManager implements MenuManager {
 
   @Override
   public void setMenuTransformer(MenuTransformer transformer) {
-    mMenuTransformer = transformer;
+    menuTransformer = transformer;
   }
 
   @Override
   public void setMenuActionInterceptor(MenuActionInterceptor actionInterceptor) {
-    mMenuActionInterceptor = actionInterceptor;
+    menuActionInterceptor = actionInterceptor;
   }
 
   @Override
   public void dismissAll() {
-    for (int i = 0; i < mCachedRadialMenus.size(); ++i) {
-      final RadialMenuOverlay menu = mCachedRadialMenus.valueAt(i);
+    for (int i = 0; i < cachedRadialMenus.size(); ++i) {
+      final RadialMenuOverlay menu = cachedRadialMenus.valueAt(i);
 
       if (menu.isVisible()) {
         menu.dismiss();
@@ -173,7 +178,7 @@ public class RadialMenuManager implements MenuManager {
 
   @Override
   public void clearCache() {
-    mCachedRadialMenus.clear();
+    cachedRadialMenus.clear();
   }
 
   /**
@@ -188,37 +193,43 @@ public class RadialMenuManager implements MenuManager {
       return;
     }
 
-    mFeedbackController.playAuditory(SCALES[Math.min(size - 1, 7)]);
+    pipeline.returnFeedback(EVENT_ID_UNTRACKED, Feedback.sound(SCALES[Math.min(size - 1, 7)]));
   }
 
   /** Handles selecting menu items. */
-  private final RadialMenuItem.OnMenuItemSelectionListener mOnSelection =
+  private final RadialMenuItem.OnMenuItemSelectionListener onSelection =
       new RadialMenuItem.OnMenuItemSelectionListener() {
         @Override
         public boolean onMenuItemSelection(RadialMenuItem menuItem) {
-          mHandler.removeCallbacks(mRadialMenuHint);
+          handler.removeCallbacks(radialMenuHint);
 
-          mFeedbackController.playHaptic(R.array.view_actionable_pattern);
-          mFeedbackController.playAuditory(R.raw.focus_actionable);
+          EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance of menu events.
+          pipeline.returnFeedback(
+              eventId,
+              Feedback.vibration(R.array.view_actionable_pattern).sound(R.raw.focus_actionable));
 
-          final boolean handled = (mClient != null) && mClient.onMenuItemHovered();
+          final boolean handled = (client != null) && client.onMenuItemHovered();
 
           if (!handled) {
             final CharSequence text;
             if (menuItem == null) {
-              text = mService.getString(android.R.string.cancel);
+              text = service.getString(android.R.string.cancel);
             } else if (menuItem.hasSubMenu()) {
-              text = mService.getString(R.string.template_menu, menuItem.getTitle());
+              text = service.getString(R.string.template_menu, menuItem.getTitle());
             } else {
               text = menuItem.getTitle();
             }
-            EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance of menu events.
-            mSpeechController.speak(
-                text, /* text */
-                SpeechController.QUEUE_MODE_INTERRUPT, /* queueMode */
-                FeedbackItem.FLAG_NO_HISTORY | FeedbackItem.FLAG_FORCED_FEEDBACK, /* flag */
-                null, /* speechParams */
-                eventId);
+            pipeline.returnFeedback(
+                eventId,
+                Feedback.speech(
+                    text,
+                    SpeakOptions.create()
+                        .setQueueMode(QUEUE_MODE_INTERRUPT)
+                        .setFlags(
+                            FeedbackItem.FLAG_NO_HISTORY
+                                | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
+                                | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
+                                | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE)));
           }
 
           return true;
@@ -226,25 +237,26 @@ public class RadialMenuManager implements MenuManager {
       };
 
   /** Handles clicking on menu items. */
-  private final OnMenuItemClickListener mOnClick =
+  private final OnMenuItemClickListener onClick =
       new OnMenuItemClickListener() {
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
-          mHandler.removeCallbacks(mRadialMenuHint);
+          handler.removeCallbacks(radialMenuHint);
 
-          mFeedbackController.playHaptic(R.array.view_clicked_pattern);
-          mFeedbackController.playAuditory(R.raw.tick);
+          EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance of menu events.
+          pipeline.returnFeedback(
+              eventId, Feedback.vibration(R.array.view_clicked_pattern).sound(R.raw.tick));
 
           boolean handled =
-              mMenuActionInterceptor != null
-                  && mMenuActionInterceptor.onInterceptMenuClick(menuItem);
+              menuActionInterceptor != null && menuActionInterceptor.onInterceptMenuClick(menuItem);
 
           if (!handled) {
-            handled = mClient != null && mClient.onMenuItemClicked(menuItem);
+            handled = client != null && client.onMenuItemClicked(menuItem);
           }
 
           if (!handled && (menuItem == null)) {
-            mService.interruptAllFeedback(false /* stopTtsSpeechCompletely */);
+            pipeline.returnFeedback(
+                EVENT_ID_UNTRACKED, Feedback.part().setInterruptAllFeedback(true));
           }
 
           if ((menuItem != null) && menuItem.hasSubMenu()) {
@@ -256,68 +268,69 @@ public class RadialMenuManager implements MenuManager {
       };
 
   /** Handles feedback from showing and hiding radial menus. */
-  private final SimpleOverlay.SimpleOverlayListener mOverlayListener =
+  private final SimpleOverlay.SimpleOverlayListener overlayListener =
       new SimpleOverlay.SimpleOverlayListener() {
         @Override
         public void onShow(SimpleOverlay overlay) {
           final RadialMenu menu = ((RadialMenuOverlay) overlay).getMenu();
 
-          mHandler.postDelayed(mRadialMenuHint, DELAY_RADIAL_MENU_HINT);
+          handler.postDelayed(radialMenuHint, DELAY_RADIAL_MENU_HINT);
 
           // TODO: Find an alternative or just speak the number of items.
           // Play a note in a C major scale for each item in the menu.
           playScaleForMenu(menu);
 
-          mIsRadialMenuShowing++;
+          isRadialMenuShowing++;
         }
 
         @Override
         public void onHide(SimpleOverlay overlay) {
-          mHandler.removeCallbacks(mRadialMenuHint);
+          handler.removeCallbacks(radialMenuHint);
 
-          if (mHintSpeechPending) {
-            mSpeechController.interrupt(false /* stopTtsSpeechCompletely */);
+          if (hintSpeechPending) {
+            pipeline.returnFeedback(
+                EVENT_ID_UNTRACKED, Feedback.part().setInterruptAllFeedback(true));
           }
 
-          mIsRadialMenuShowing--;
+          isRadialMenuShowing--;
         }
       };
 
   /** Runnable that speaks a usage hint for the radial menu. */
-  private final Runnable mRadialMenuHint =
+  private final Runnable radialMenuHint =
       new Runnable() {
         @Override
         public void run() {
-          final String hintText = mService.getString(R.string.hint_radial_menu);
+          final String hintText = service.getString(R.string.hint_radial_menu);
 
-          mHintSpeechPending = true;
+          hintSpeechPending = true;
           EventId eventId = EVENT_ID_UNTRACKED; // Hints occur after other feedback.
-          mSpeechController.speak(
-              hintText, /* text */
-              null, /* earcons*/
-              null, /* haptics */
-              SpeechController.QUEUE_MODE_QUEUE, /* queueMode */
-              FeedbackItem.FLAG_NO_HISTORY | FeedbackItem.FLAG_FORCED_FEEDBACK, /* flags */
-              SpeechController.UTTERANCE_GROUP_DEFAULT, /* utteranceGroup */
-              null, /* speechParams */
-              null, /* nonSpeechParams */
-              null, /* startAction */
-              null, /* rangeStartCallback */
-              mHintSpeechCompleted, /* completeAction */
-              eventId);
+          pipeline.returnFeedback(
+              eventId,
+              Feedback.speech(
+                  hintText,
+                  SpeakOptions.create()
+                      .setQueueMode(SpeechController.QUEUE_MODE_QUEUE)
+                      .setFlags(
+                          FeedbackItem.FLAG_NO_HISTORY
+                              | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
+                              | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
+                              | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE)
+                      .setUtteranceGroup(SpeechController.UTTERANCE_GROUP_DEFAULT)
+                      .setCompletedAction(hintSpeechCompleted)));
         }
       };
 
   /** Runnable that confirms the hint speech has completed. */
-  private final SpeechController.UtteranceCompleteRunnable mHintSpeechCompleted =
+  private final SpeechController.UtteranceCompleteRunnable hintSpeechCompleted =
       new SpeechController.UtteranceCompleteRunnable() {
         @Override
         public void run(int status) {
-          mHintSpeechPending = false;
+          hintSpeechPending = false;
         }
       };
 
-  private final Handler mHandler = new Handler();
+  private final Handler handler = new Handler();
 
   public interface RadialMenuClient {
     public void onCreateRadialMenu(int menuId, RadialMenu menu);

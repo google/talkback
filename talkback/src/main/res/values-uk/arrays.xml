@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Кнопка</item>
+    <item>Прапорець</item>
+    <item>Вибір кольору</item>
+    <item>Елемент керування для вибору дати й часу</item>
+    <item>Елемент керування для вибору дати й часу</item>
+    <item>Елемент керування для вибору дати</item>
+    <item>Редагування тексту для електронного листа</item>
+    <item>Вибір файлу</item>
+    <item translatable="false"></item>
+    <item>Кнопка</item>
+    <item>Елемент керування для вибору місяця</item>
+    <item>Редагування тексту лише для цифр</item>
+    <item>Редагування тексту пароля</item>
+    <item>Перемикач</item>
+    <item>Повзунок</item>
+    <item>Скинути</item>
+    <item>Редагування тексту для пошукового запиту</item>
+    <item>Кнопка</item>
+    <item>Редагування тексту для номера телефону</item>
+    <item>Редагування тексту</item>
+    <item>Редагування тексту для URL-адреси</item>
+    <item>Елемент керування для вибору тижня в році</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Сповіщення</item>
+    <item>Діалогове вікно сповіщення</item>
+    <item>Кнопка</item>
+    <item>Прапорець</item>
+    <item>Комбіноване вікно</item>
+    <item>Діалогове вікно</item>
+    <item>Клітинка сітки</item>
+    <item>Посилання</item>
+    <item>Журнал</item>
+    <item>Область виділення</item>
+    <item>Пункт меню</item>
+    <item>Прапорець пункту меню</item>
+    <item>Перемикач пункту меню</item>
+    <item>Опція</item>
+    <item>Панель перебігу</item>
+    <item>Перемикач</item>
+    <item>Група перемикачів</item>
+    <item>Смуга прокручування</item>
+    <item>Повзунок</item>
+    <item>Лічильник</item>
+    <item>Статус</item>
+    <item>Вкладка</item>
+    <item>Панель вкладок</item>
+    <item>Текстове поле</item>
+    <item>Таймер</item>
+    <item>Панель інструментів</item>
+    <item>Підказка</item>
+    <item>Елемент дерева</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Посилання</item>
+    <item>Заголовок першого рівня</item>
+    <item>Заголовок другого рівня</item>
+    <item>Заголовок третього рівня</item>
+    <item>Заголовок четвертого рівня</item>
+    <item>Заголовок п’ятого рівня</item>
+    <item>Заголовок шостого рівня</item>
+    <item>Кнопка</item>
+    <item>Комбіноване вікно</item>
+    <item>Таблиця</item>
+    <item>Область тексту</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

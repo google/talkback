@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.utils.parsetree;
 
+import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,7 +96,7 @@ class ParseTreeForReferenceNode extends ParseTreeNode {
   }
 
   @Override
-  public ParseTree.VariableDelegate resolveToReference(
+  public @Nullable ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
     ParseTree.VariableDelegate referenceDelegate =
         mReference.resolveToReference(delegate, logIndent);

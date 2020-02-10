@@ -1,151 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"Talkback ενεργό"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"Η λειτουργία του TalkBack ανεστάλη"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"Έγινε συνέχιση του TalkBack"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"Το TalkBack είναι ανενεργό"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"Τα εκφωνημένα σχόλια είναι ενεργά"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"Τα εκφωνημένα σχόλια είναι σε αναστολή"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"Τα εκφωνημένα σχόλια συνεχίζονται"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"Τα εκφωνημένα σχόλια είναι ανενεργά"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Αρχή πεδίου"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Τέλος πεδίου"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Λειτουργία επιλογής ενεργή"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Λειτουργία επιλογής ανενεργή"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Έγινε διαγραφή της επιλογής"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"Κλήση"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"Μήνυμα"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"Ηλεκτρονικό ταχυδρομείο"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"Συμβάν"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"Προώθηση"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"Ξυπνητήρι"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"Πρόοδος"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"Κοινωνικά"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"Σφάλμα"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"Στοιχείο ελέγχου μέσων"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"Κατάσταση συστήματος"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"Υπηρεσία"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"Μενού <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"Το <xliff:g id="NEW_TEXT">%1$s</xliff:g> αντικατέστησε το <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"Το <xliff:g id="TEXT">%1$s</xliff:g> διαγράφηκε"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"έγινε αποκοπή, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"έγινε επικόλληση, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, έγινε επιλογή"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"Επιλεγμένο κείμενο: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, έγινε κατάργηση επιλογής"</string>
-    <string name="template_text_error" msgid="153775825635730287">"Μη έγκυρο στοιχείο εισόδου <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"Αντικαταστάθηκαν <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> χαρακτήρες με <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> χαρακτήρες"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> για <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> τοις εκατό."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> που εμφανίζει <xliff:g id="COUNT_3">%2$d</xliff:g> στοιχεία.</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> που εμφανίζει <xliff:g id="COUNT_1">%2$d</xliff:g> στοιχείο.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"Πλέγμα"</string>
-    <string name="value_listview" msgid="7625152822709234439">"Λίστα"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"Γραμμή καρτελών"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"Αναπτυσσόμενη λίστα"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"Πλαίσιο ελέγχου"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"Κουμπί επιλογής"</string>
-    <string name="value_button" msgid="2459787142940409576">"Κουμπί"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"Στοιχείο ελέγχου αναζήτησης"</string>
-    <string name="value_switch" msgid="6946709666466895221">"Διακόπτης"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"Πλαίσιο επεξεργασίας"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"Επεξεργασία"</string>
-    <string name="value_image" msgid="5114229220871881124">"Εικόνα"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"Χωρίς ετικέτα"</string>
-    <string name="value_pager" msgid="7708574424402835461">"Προβολή πολλών σελίδων"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"Σελίδα"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"Γραμμή προόδου"</string>
-    <string name="value_webview" msgid="291321285400233958">"Προβολή στον ιστό"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"Χαρακτήρες <xliff:g id="FROM_INDEX">%1$d</xliff:g> έως <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"Χαρακτήρας <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"κωδικός πρόσβασης"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Το συρτάρι άνοιξε"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"Επιλογές."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"Το κείμενο διαγράφηκε"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Έχετε φθάσει τη μέγιστη διάρκεια"</string>
-    <string name="value_selected" msgid="1307429702194660766">"επιλεγμένο"</string>
-    <string name="value_checked" msgid="3006751014125833966">"ελέγχθηκε"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"δεν ελέγχθηκε"</string>
-    <string name="value_on" msgid="39454338086317219">"ενεργός"</string>
-    <string name="value_off" msgid="6700497510945744608">"ανενεργός"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"απενεργοποιημένο"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"αναπτύχθηκε"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"συμπτύχθηκε"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"Διπλό πάτημα"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"Πάτημα"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"Πατήστε \"Επιλογή\""</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> για ενεργοποίηση."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Πιέστε <xliff:g id="KEYCOMBO">%1$s</xliff:g> για ενεργοποίηση."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> και πατήστε παρατεταμένα για παρατεταμένο κλικ."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Πιέστε <xliff:g id="KEYCOMBO">%1$s</xliff:g> για παρατεταμένο πάτημα."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> για εναλλαγή."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Πιέστε <xliff:g id="KEYCOMBO">%1$s</xliff:g> για εναλλαγή."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> για εισαγωγή κειμένου."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Πιέστε <xliff:g id="KEYCOMBO">%1$s</xliff:g> για εισαγωγή κειμένου."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> για αλλαγή."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Πιέστε <xliff:g id="KEYCOMBO">%1$s</xliff:g> για αλλαγή."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"Σύρετε με δύο δάχτυλα για να αλλάξετε σελίδες."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"Δεν υπάρχουν άλλες σελίδες."</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"Χρησιμοποιήστε τα πλήκτρα έντασης ήχου για προσαρμογή"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g> για αλλαγή."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"Ενέργειες:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> για <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Πιέστε <xliff:g id="KEYCOMBO">%1$s</xliff:g> για <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> παρατεταμένα για <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock ενεργό."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock ανενεργό."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock ενεργό."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock ανενεργό."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock ενεργό."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock ανενεργό."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"Κατακόρυφα"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"Οριζόντια"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"Παράβλεψη"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"Ανάπτυξη"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"Σύμπτυξη"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"Σειρά <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"Στήλη <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"Κεφαλίδα"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"Κεφαλίδα σειράς"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"Κεφαλίδα στήλης"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"<xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g> picture-in-picture"</string>
-    <string name="in_list" msgid="444302621514168828">"Εντός της λίστας <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"Εντός λίστας"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"Εκτός της λίστας <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"Εκτός λίστας"</string>
-    <string name="in_grid" msgid="6705387966271590222">"Εντός του πλέγματος <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"Εντός πλέγματος"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"Εκτός του πλέγματος <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"Εκτός πλέγματος"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"Επίπεδο <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> στοιχεία</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> στοιχείο</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> σειρές</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> σειρά</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> στήλες</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> στήλη</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> χαρακτήρες</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> χαρακτήρας</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"Μεγιστοποίηση στο <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"Μεγιστοποίηση <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"Απενεργοποίηση μεγιστοποίησης"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"Ρυθμός ομιλίας <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"Η μείωση έντασης ήχου είναι ενεργή"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"Η μείωση έντασης ήχου είναι ανενεργή"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"Ρυθμός ομιλίας"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"Έκταση"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"Πλοήγηση"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"Μείωση έντασης ήχου"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"Οι κωδικοί πρόσβασης εκφωνούνται μόνο όταν χρησιμοποιείτε ακουστικά"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">Talkback ενεργό</string>
+  <string name="talkback_suspended">Η λειτουργία του TalkBack ανεστάλη</string>
+  <string name="talkback_resumed">Έγινε συνέχιση του TalkBack</string>
+  <string name="talkback_disabled">Το TalkBack είναι ανενεργό</string>
+  <string name="spokenfeedback_on">Τα εκφωνημένα σχόλια είναι ενεργά</string>
+  <string name="spokenfeedback_suspended">Τα εκφωνημένα σχόλια είναι σε αναστολή</string>
+  <string name="spokenfeedback_resumed">Τα εκφωνημένα σχόλια συνεχίζονται</string>
+  <string name="spokenfeedback_disabled">Τα εκφωνημένα σχόλια είναι ανενεργά</string>
+  <string name="notification_type_beginning_of_field">Αρχή πεδίου</string>
+  <string name="notification_type_end_of_field">Τέλος πεδίου</string>
+  <string name="notification_type_selection_mode_on">Λειτουργία επιλογής ενεργή</string>
+  <string name="notification_type_selection_mode_off">Λειτουργία επιλογής ανενεργή</string>
+  <string name="notification_type_selection_cleared">Έγινε διαγραφή της επιλογής</string>
+  <string name="notification_category_call">Κλήση</string>
+  <string name="notification_category_msg">Μήνυμα</string>
+  <string name="notification_category_email">Ηλεκτρονικό ταχυδρομείο</string>
+  <string name="notification_category_event">Συμβάν</string>
+  <string name="notification_category_promo">Προώθηση</string>
+  <string name="notification_category_alarm">Ξυπνητήρι</string>
+  <string name="notification_category_progress">Πρόοδος</string>
+  <string name="notification_category_social">Κοινωνικά</string>
+  <string name="notification_category_err">Σφάλμα</string>
+  <string name="notification_category_transport">Στοιχείο ελέγχου μέσων</string>
+  <string name="notification_category_sys">Κατάσταση συστήματος</string>
+  <string name="notification_category_service">Υπηρεσία</string>
+  <string name="template_drawer_opened">Μενού %1$s</string>
+  <string name="template_text_replaced">Το %1$s αντικατέστησε το %2$s</string>
+  <string name="template_text_removed">Το %1$s διαγράφηκε</string>
+  <string name="template_text_cut">έγινε αποκοπή, %1$s</string>
+  <string name="template_text_pasted">έγινε επικόλληση, %1$s</string>
+  <string name="template_text_selected">%1$s, έγινε επιλογή</string>
+  <string name="template_announce_selected_text">Επιλεγμένο κείμενο: %1$s</string>
+  <string name="template_text_unselected">%1$s, έγινε αποεπιλογή</string>
+  <string name="template_text_error">Μη έγκυρο στοιχείο εισόδου %1$s</string>
+  <string name="template_replaced_characters">Αντικαταστάθηκαν %1$s χαρακτήρες με %2$s χαρακτήρες</string>
+  <string name="template_labeled_item">%1$s για %2$s</string>
+  <string name="template_percent">%1$s τοις εκατό.</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s που εμφανίζει %2$d στοιχείο.</item>
+    <item quantity="other">%1$s που εμφανίζει %2$d στοιχεία.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">Πλέγμα</string>
+  <string name="value_listview">Λίστα</string>
+  <string name="value_tabwidget">Γραμμή καρτελών</string>
+  <string name="value_spinner">Αναπτυσσόμενη λίστα</string>
+  <string name="value_checkbox">Πλαίσιο ελέγχου</string>
+  <string name="value_radio_button">Κουμπί επιλογής</string>
+  <string name="value_button">Κουμπί</string>
+  <string name="value_seek_bar">Στοιχείο ελέγχου αναζήτησης</string>
+  <string name="value_switch">Διακόπτης</string>
+  <string name="value_edit_box">Πλαίσιο επεξεργασίας</string>
+  <string name="value_edit_box_editing">Επεξεργασία</string>
+  <string name="value_image">Εικόνα</string>
+  <string name="value_unlabelled">Χωρίς ετικέτα</string>
+  <string name="value_pager">Προβολή πολλών σελίδων</string>
+  <string name="value_pager_page">Σελίδα</string>
+  <string name="value_progress_bar">Γραμμή προόδου</string>
+  <string name="value_webview">Προβολή στον ιστό</string>
+  <string name="value_toolbar">Γραμμή εργαλείων</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">Χαρακτήρες %1$d έως %2$d</string>
+  <string name="template_password_traversed">Χαρακτήρας %1$d</string>
+  <string name="value_password">κωδικός πρόσβασης</string>
+  <string name="value_sliding_drawer_opened">Το συρτάρι άνοιξε</string>
+  <string name="value_options_menu_open">Επιλογές.</string>
+  <string name="value_text_cleared">Το κείμενο διαγράφηκε</string>
+  <string name="value_text_max_length">Έχετε φθάσει τη μέγιστη διάρκεια</string>
+  <string name="value_selected">επιλεγμένο</string>
+  <string name="value_checked">ελέγχθηκε</string>
+  <string name="value_not_checked">δεν ελέγχθηκε</string>
+  <string name="value_on">ενεργός</string>
+  <string name="value_off">ανενεργό</string>
+  <string name="value_disabled">απενεργοποιημένο</string>
+  <string name="value_expanded">αναπτύχθηκε</string>
+  <string name="value_collapsed">συμπτύχθηκε</string>
+  <string name="value_double_tap">Διπλό πάτημα</string>
+  <string name="value_single_tap">Πάτημα</string>
+  <string name="value_switch_press">Πατήστε τον διακόπτη επιλογής</string>
+  <string name="value_press_select">Πατήστε \"Επιλογή\"</string>
+  <string name="template_hint_clickable">%1$s για ενεργοποίηση.</string>
+  <string name="template_hint_clickable_keyboard">Πιέστε %1$s για ενεργοποίηση.</string>
+  <string name="template_hint_long_clickable">%1$s και πατήστε παρατεταμένα για παρατεταμένο κλικ.</string>
+  <string name="template_hint_long_clickable_keyboard">Πιέστε %1$s για παρατεταμένο πάτημα.</string>
+  <string name="template_hint_checkable">%1$s για εναλλαγή.</string>
+  <string name="template_hint_checkable_keyboard">Πιέστε %1$s για εναλλαγή.</string>
+  <string name="template_hint_edit_text">%1$s για να επεξεργαστείτε κείμενο.</string>
+  <string name="template_hint_edit_text_keyboard">Πατήστε %1$s για επεξεργασία κειμένου.</string>
+  <string name="template_hint_spinner">%1$s για αλλαγή.</string>
+  <string name="template_hint_spinner_keyboard">Πιέστε %1$s για αλλαγή.</string>
+  <string name="template_hint_pager">Σύρετε με δύο δάχτυλα για να αλλάξετε σελίδες.</string>
+  <string name="template_hint_pager_single_page">Δεν υπάρχουν άλλες σελίδες.</string>
+  <string name="template_hint_seek_control">Χρησιμοποιήστε τα πλήκτρα έντασης ήχου για προσαρμογή</string>
+  <string name="template_hint_seek_control_tv">%1$s για αλλαγή.</string>
+  <string name="template_hint_custom_actions">Ενέργειες:</string>
+  <string name="template_custom_hint_for_actions">%1$s για %2$s.</string>
+  <string name="template_custom_hint_for_actions_keyboard">Πιέστε %1$s για %2$s.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s παρατεταμένα για %2$s.</string>
+  <string name="template_sa_custom_hint_scrollable">%1$s για κύλιση.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">%1$s για τις διαθέσιμες ενέργειες.</string>
+  <string name="template_sa_hint_seek_control">Πατήστε τον διακόπτη επιλογής για προσαρμογή</string>
+  <string name="value_caps_lock_on">Caps Lock ενεργό.</string>
+  <string name="value_caps_lock_off">Caps Lock ανενεργό.</string>
+  <string name="value_num_lock_on">Num Lock ενεργό.</string>
+  <string name="value_num_lock_off">Num Lock ανενεργό.</string>
+  <string name="value_scroll_lock_on">Scroll Lock ενεργό.</string>
+  <string name="value_scroll_lock_off">Scroll Lock ανενεργό.</string>
+  <string name="orientation_portrait">Κατακόρυφα</string>
+  <string name="orientation_landscape">Οριζόντια</string>
+  <string name="title_action_dismiss">Παράβλεψη</string>
+  <string name="title_action_expand">Ανάπτυξη</string>
+  <string name="title_action_collapse">Σύμπτυξη</string>
+  <string name="row_index_template">Σειρά %1$d</string>
+  <string name="column_index_template">Στήλη %1$d</string>
+  <string name="heading_template">Κεφαλίδα</string>
+  <string name="row_heading_template">Κεφαλίδα σειράς</string>
+  <string name="column_heading_template">Κεφαλίδα στήλης</string>
+  <string name="in_list">Εντός της λίστας %1$s</string>
+  <string name="in_list_without_name">Εντός λίστας</string>
+  <string name="out_of_list">Εκτός της λίστας %1$s</string>
+  <string name="out_of_list_without_name">Εκτός λίστας</string>
+  <string name="in_grid">Εντός του πλέγματος %1$s</string>
+  <string name="in_grid_without_name">Εντός πλέγματος</string>
+  <string name="out_of_grid">Εκτός του πλέγματος %1$s</string>
+  <string name="out_of_grid_without_name">Εκτός πλέγματος</string>
+  <string name="in_pager_with_name">Εντός σελιδοποίησης %1$s</string>
+  <string name="in_pager">Εντός σελιδοποίησης</string>
+  <string name="out_of_pager_with_name">Εκτός σελιδοποίησης %1$s</string>
+  <string name="out_of_pager">Εκτός σελιδοποίησης</string>
+  <string name="in_vertical_pager_with_name">Εντός κατακόρυφης σελιδοποίησης %1$s</string>
+  <string name="in_vertical_pager">Εντός κατακόρυφης σελιδοποίησης</string>
+  <string name="out_of_vertical_pager_with_name">Εκτός κατακόρυφης σελιδοποίησης %1$s</string>
+  <string name="out_of_vertical_pager">Εκτός κατακόρυφης σελιδοποίησης</string>
+  <string name="in_horizontal_pager_with_name">Εντός οριζόντιας σελιδοποίησης %1$s</string>
+  <string name="in_horizontal_pager">Εντός οριζόντιας σελιδοποίησης</string>
+  <string name="out_of_horizontal_pager_with_name">Εκτός οριζόντιας σελιδοποίησης %1$s</string>
+  <string name="out_of_horizontal_pager">Εκτός οριζόντιας σελιδοποίησης</string>
+  <string name="in_grid_pager_with_name">Εντός σελιδοποίησης πλέγματος %1$s</string>
+  <string name="in_grid_pager">Εντός σελιδοποίησης πλέγματος</string>
+  <string name="out_of_grid_pager_with_name">Εκτός σελιδοποίησης πλέγματος %1$s</string>
+  <string name="out_of_grid_pager">Εκτός σελιδοποίησης πλέγματος</string>
+  <string name="template_collection_level">Επίπεδο %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d στοιχείο</item>
+    <item quantity="other">%1$d στοιχεία</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d σειρά</item>
+    <item quantity="other">%1$d σειρές</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d στήλη</item>
+    <item quantity="other">%1$d στήλες</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d χαρακτήρας</item>
+    <item quantity="other">%1$d χαρακτήρες</item>
+  </plurals>
+  <string name="template_screen_magnification_on">Μεγιστοποίηση στο %1$d%%</string>
+  <string name="template_screen_magnification_scale_changed">Μεγιστοποίηση %1$d%%</string>
+  <string name="screen_magnification_off">Απενεργοποίηση μεγιστοποίησης</string>
+  <string name="template_speech_rate_change">Ρυθμός ομιλίας %1$d%%</string>
+  <string name="audio_focus_on">Η μείωση έντασης ήχου είναι ενεργή</string>
+  <string name="audio_focus_off">Η μείωση έντασης ήχου είναι ανενεργή</string>
+  <string name="selector_speech_rate_output">Ρυθμός ομιλίας</string>
+  <string name="selector_verbosity_output">Έκταση</string>
+  <string name="selector_granularity_output">Πλοήγηση</string>
+  <string name="selector_audio_focus_output">Μείωση έντασης ήχου</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">Οι κωδικοί πρόσβασης εκφωνούνται μόνο όταν χρησιμοποιείτε ακουστικά</string>
+  <string name="template_hint_menu_type_high_verbosity">Διατίθεται η επιλογή %1$s, χρησιμοποιήστε την κίνηση %2$s για προβολή.</string>
+  <string name="template_hint_menu_type_low_verbosity">Διατίθεται η επιλογή %1$s.</string>
 </resources>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>버튼</item>
+    <item>체크박스</item>
+    <item>색상 선택기</item>
+    <item>날짜 시간 컨트롤</item>
+    <item>날짜 시간 컨트롤</item>
+    <item>날짜 컨트롤</item>
+    <item>이메일 텍스트 수정</item>
+    <item>파일 선택</item>
+    <item translatable="false"></item>
+    <item>버튼</item>
+    <item>월 컨트롤</item>
+    <item>텍스트 숫자만 수정</item>
+    <item>비밀번호 수정 텍스트</item>
+    <item>라디오 버튼</item>
+    <item>슬라이더</item>
+    <item>재설정</item>
+    <item>검색할 텍스트 수정</item>
+    <item>버튼</item>
+    <item>전화번호에 대한 텍스트 수정</item>
+    <item>텍스트 수정</item>
+    <item>URL에 대한 텍스트 수정</item>
+    <item>해당 연도의 주 컨트롤</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>알림</item>
+    <item>알림 대화상자</item>
+    <item>버튼</item>
+    <item>체크박스</item>
+    <item>콤보 상자</item>
+    <item>대화상자</item>
+    <item>바둑판식 셀</item>
+    <item>링크</item>
+    <item>로그</item>
+    <item>마키</item>
+    <item>메뉴 항목</item>
+    <item>메뉴 항목 체크박스</item>
+    <item>메뉴 항목 라디오 버튼</item>
+    <item>옵션</item>
+    <item>진행률 표시줄</item>
+    <item>라디오 버튼</item>
+    <item>라디오 버튼 그룹</item>
+    <item>스크롤바</item>
+    <item>슬라이더</item>
+    <item>스핀 버튼</item>
+    <item>상태</item>
+    <item>탭</item>
+    <item>탭 패널</item>
+    <item>입력란</item>
+    <item>타이머</item>
+    <item>툴바</item>
+    <item>툴팁</item>
+    <item>트리 항목</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>링크</item>
+    <item>제목 1</item>
+    <item>제목 2</item>
+    <item>제목 3</item>
+    <item>제목 4</item>
+    <item>제목 5</item>
+    <item>제목 6</item>
+    <item>버튼</item>
+    <item>콤보 상자</item>
+    <item>테이블</item>
+    <item>텍스트 영역</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

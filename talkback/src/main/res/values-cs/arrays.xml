@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Tlačítko</item>
+    <item>Zaškrtávací políčko</item>
+    <item>Výběr barev</item>
+    <item>Ovládací prvek času a data</item>
+    <item>Ovládací prvek času a data</item>
+    <item>Ovládací prvek data</item>
+    <item>Upravitelný text – e-mailové adresy</item>
+    <item>Výběr souboru</item>
+    <item translatable="false"></item>
+    <item>Tlačítko</item>
+    <item>Ovládací prvek měsíce</item>
+    <item>Upravitelný text – pouze čísla</item>
+    <item>Upravitelný text – heslo</item>
+    <item>Přepínač</item>
+    <item>Posuvník</item>
+    <item>Resetovat</item>
+    <item>Upravitelný text – vyhledávání</item>
+    <item>Tlačítko</item>
+    <item>Upravitelný text – telefonní číslo</item>
+    <item>Upravitelný text</item>
+    <item>Upravitelný text – adresa URL</item>
+    <item>Ovládací prvek týdne v roce</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Upozornění</item>
+    <item>Dialogové okno upozornění</item>
+    <item>Tlačítko</item>
+    <item>Zaškrtávací políčko</item>
+    <item>Pole se seznamem</item>
+    <item>Dialogové okno</item>
+    <item>Buňka mřížky</item>
+    <item>Odkaz</item>
+    <item>Protokol</item>
+    <item>Běžící text</item>
+    <item>Položka nabídky</item>
+    <item>Zaškrtávací políčko položky nabídky</item>
+    <item>Přepínač položky nabídky</item>
+    <item>Možnost</item>
+    <item>Ukazatel postupu</item>
+    <item>Přepínač</item>
+    <item>Skupina přepínačů</item>
+    <item>Posuvník</item>
+    <item>Posuvník</item>
+    <item>Číselník</item>
+    <item>Stav</item>
+    <item>Karta</item>
+    <item>Panel karty</item>
+    <item>Textové pole</item>
+    <item>Časovač</item>
+    <item>Panel nástrojů</item>
+    <item>Popisek</item>
+    <item>Položka stromu</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Odkaz</item>
+    <item>Nadpis jedna</item>
+    <item>Nadpis dva</item>
+    <item>Nadpis tři</item>
+    <item>Nadpis čtyři</item>
+    <item>Nadpis pět</item>
+    <item>Nadpis šest</item>
+    <item>Tlačítko</item>
+    <item>Pole se seznamem</item>
+    <item>Tabulka</item>
+    <item>Oblast textu</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

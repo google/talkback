@@ -17,6 +17,9 @@
         android:id="@+id/copy_last_utterance_to_clipboard"
         android:title="@string/shortcut_copy_last_utterance_to_clipboard"/>
     <item
+        android:id="@+id/screen_search"
+        android:title="@string/shortcut_perform_screen_search"/>
+    <item
         android:id="@+id/quick_navigation"
         android:title="@string/title_summary">
         <menu>

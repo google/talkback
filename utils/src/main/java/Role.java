@@ -15,15 +15,17 @@
  */
 package com.google.android.accessibility.utils;
 
-import android.support.annotation.IntDef;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityRecordCompat;
+import androidx.annotation.IntDef;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
+import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Utility methods for managing AccessibilityNodeInfo Roles. */
 public class Role {
@@ -58,6 +60,7 @@ public class Role {
     ROLE_SLIDING_DRAWER,
     ROLE_ICON_MENU,
     ROLE_TOAST,
+    ROLE_ALERT_DIALOG,
     ROLE_DATE_PICKER_DIALOG,
     ROLE_TIME_PICKER_DIALOG,
     ROLE_DATE_PICKER,
@@ -66,6 +69,8 @@ public class Role {
     ROLE_SCROLL_VIEW,
     ROLE_HORIZONTAL_SCROLL_VIEW,
     ROLE_KEYBOARD_KEY,
+    ROLE_TALKBACK_EDIT_TEXT_OVERLAY,
+    ROLE_TEXT_ENTRY_KEY,
   })
   @Retention(RetentionPolicy.SOURCE)
   public @interface RoleName {}
@@ -97,15 +102,22 @@ public class Role {
   public static final int ROLE_SLIDING_DRAWER = 21;
   public static final int ROLE_ICON_MENU = 22;
   public static final int ROLE_TOAST = 23;
-  public static final int ROLE_DATE_PICKER_DIALOG = 24;
-  public static final int ROLE_TIME_PICKER_DIALOG = 25;
-  public static final int ROLE_DATE_PICKER = 26;
-  public static final int ROLE_TIME_PICKER = 27;
-  public static final int ROLE_NUMBER_PICKER = 28;
-  public static final int ROLE_SCROLL_VIEW = 29;
-  public static final int ROLE_HORIZONTAL_SCROLL_VIEW = 30;
-  public static final int ROLE_KEYBOARD_KEY = 31;
-  // Number of roles: 32
+  public static final int ROLE_ALERT_DIALOG = 24;
+  public static final int ROLE_DATE_PICKER_DIALOG = 25;
+  public static final int ROLE_TIME_PICKER_DIALOG = 26;
+  public static final int ROLE_DATE_PICKER = 27;
+  public static final int ROLE_TIME_PICKER = 28;
+  public static final int ROLE_NUMBER_PICKER = 29;
+  public static final int ROLE_SCROLL_VIEW = 30;
+  public static final int ROLE_HORIZONTAL_SCROLL_VIEW = 31;
+  public static final int ROLE_KEYBOARD_KEY = 32;
+  public static final int ROLE_TALKBACK_EDIT_TEXT_OVERLAY = 33;
+  public static final int ROLE_TEXT_ENTRY_KEY = 34;
+
+  // Number of roles: 34
+
+  /** Used to identify and ignore a11y overlay windows created by Talkback. */
+  public static final String TALKBACK_EDIT_TEXT_OVERLAY_CLASSNAME = "TalkbackEditTextOverlay";
 
   /**
    * Gets the source {@link Role} from the {@link AccessibilityEvent}.
@@ -162,7 +174,9 @@ public class Role {
 
     // Inheritance: View->ViewGroup->DrawerLayout
     if (ClassLoadingCache.checkInstanceOf(
-        eventClassName, android.support.v4.widget.DrawerLayout.class)) {
+            eventClassName, androidx.drawerlayout.widget.DrawerLayout.class)
+        || ClassLoadingCache.checkInstanceOf(
+            eventClassName, "android.support.v4.widget.DrawerLayout")) {
       return ROLE_DRAWER_LAYOUT;
     }
 
@@ -195,7 +209,6 @@ public class Role {
 
     // //////////////////////////////////////////////////////////////////////////////////////////
     // Subclasses of Dialog.
-
     // Inheritance: Dialog->AlertDialog->DatePickerDialog
     if (ClassLoadingCache.checkInstanceOf(eventClassName, android.app.DatePickerDialog.class)) {
       return ROLE_DATE_PICKER_DIALOG;
@@ -206,21 +219,37 @@ public class Role {
       return ROLE_TIME_PICKER_DIALOG;
     }
 
+    // Inheritance: Dialog->AlertDialog
+    if (ClassLoadingCache.checkInstanceOf(eventClassName, android.app.AlertDialog.class)
+        || ClassLoadingCache.checkInstanceOf(
+            eventClassName, "androidx.appcompat.app.AlertDialog")) {
+      return ROLE_ALERT_DIALOG;
+    }
+
     return ROLE_NONE;
   }
 
   /** Gets {@link Role} for {@link AccessibilityNodeInfoCompat}. */
-  public static @RoleName int getRole(AccessibilityNodeInfoCompat node) {
+  public static @RoleName int getRole(@Nullable AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return ROLE_NONE;
     }
 
+    // We check Text entry key from property instead of class, so it needs to be in the beginning.
+    if (AccessibilityNodeInfoUtils.isTextEntryKey(node)) {
+      return ROLE_TEXT_ENTRY_KEY;
+    }
     CharSequence className = node.getClassName();
 
     // When comparing node.getClassName() to class name of standard widgets, we should take care of
     // the order of the "if" statements: check subclasses before checking superclasses.
     // e.g. RadioButton is a subclass of Button, we should check Role RadioButton first and fall
     // down to check Role Button.
+
+    // Identifies a11y overlay added by Talkback on edit texts.
+    if (ClassLoadingCache.checkInstanceOf(className, TALKBACK_EDIT_TEXT_OVERLAY_CLASSNAME)) {
+      return ROLE_TALKBACK_EDIT_TEXT_OVERLAY;
+    }
 
     // Inheritance: View->ImageView
     if (ClassLoadingCache.checkInstanceOf(className, android.widget.ImageView.class)) {
@@ -308,15 +337,31 @@ public class Role {
     }
 
     // Inheritance: View->ViewGroup->ViewPager
-    if (ClassLoadingCache.checkInstanceOf(className, android.support.v4.view.ViewPager.class)) {
+    if (ClassLoadingCache.checkInstanceOf(className, androidx.viewpager.widget.ViewPager.class)
+        || ClassLoadingCache.checkInstanceOf(className, "android.support.v4.view.ViewPager")) {
       return ROLE_PAGER;
     }
+
+    // Inheritance: View->ViewGroup->ViewPager2
+    if (AccessibilityNodeInfoUtils.supportsAction(
+            node, AccessibilityActionCompat.ACTION_PAGE_UP.getId())
+        || AccessibilityNodeInfoUtils.supportsAction(
+            node, AccessibilityActionCompat.ACTION_PAGE_DOWN.getId())
+        || AccessibilityNodeInfoUtils.supportsAction(
+            node, AccessibilityActionCompat.ACTION_PAGE_LEFT.getId())
+        || AccessibilityNodeInfoUtils.supportsAction(
+            node, AccessibilityActionCompat.ACTION_PAGE_RIGHT.getId())) {
+      return ROLE_PAGER;
+    }
+
     // TODO: Check if we should add Role RecyclerView.
     // By default, RecyclerView node has CollectionInfo, so that it will be classified as a List or
     // Grid.
     // View->ViewGroup->RecyclerView
     /* TODO:
-    if (ClassLoadingCache.checkInstanceOf(className, "android.support.v7.widget.RecyclerView")) {
+    if (ClassLoadingCache.checkInstanceOf(className, "android.support.v7.widget.RecyclerView")
+        || ClassLoadingCache.checkInstanceOf(
+            className, "androidx.recyclerview.widget.RecyclerView")) {
       return ROLE_RECYCLER_VIEW;
     }
     */
@@ -418,6 +463,8 @@ public class Role {
         return "ROLE_ICON_MENU";
       case ROLE_TOAST:
         return "ROLE_TOAST";
+      case ROLE_ALERT_DIALOG:
+        return "ROLE_ALERT_DIALOG";
       case ROLE_DATE_PICKER_DIALOG:
         return "ROLE_DATE_PICKER_DIALOG";
       case ROLE_TIME_PICKER_DIALOG:
@@ -434,8 +481,12 @@ public class Role {
         return "ROLE_HORIZONTAL_SCROLL_VIEW";
       case ROLE_KEYBOARD_KEY:
         return "ROLE_KEYBOARD_KEY";
+      case ROLE_TALKBACK_EDIT_TEXT_OVERLAY:
+        return "ROLE_TALKBACK_EDIT_TEXT_OVERLAY";
+      case ROLE_TEXT_ENTRY_KEY:
+        return "ROLE_TEXT_ENTRY_KEY";
       default:
-        return "";
+        return "(unknown role " + role + ")";
     }
   }
 }

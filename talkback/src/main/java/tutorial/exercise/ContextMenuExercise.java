@@ -28,13 +28,14 @@ import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.contextmenu.MenuActionInterceptor;
 import com.google.android.accessibility.talkback.contextmenu.MenuTransformer;
 import com.google.android.accessibility.utils.output.SpeechController;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public abstract class ContextMenuExercise extends Exercise {
 
-  private SpeechController mSpeechController;
-  private ImageView mImageView;
+  @Nullable private SpeechController speechController;
+  @Nullable private ImageView imageView;
 
-  private MenuTransformer mContextMenuTransformer =
+  private MenuTransformer contextMenuTransformer =
       new MenuTransformer() {
         @Override
         public void transformMenu(Menu menu, int menuId) {
@@ -47,7 +48,7 @@ public abstract class ContextMenuExercise extends Exercise {
         }
       };
 
-  private MenuActionInterceptor mContextMenuActionInterceptor =
+  private MenuActionInterceptor contextMenuActionInterceptor =
       new MenuActionInterceptor() {
         @Override
         public boolean onInterceptMenuClick(MenuItem item) {
@@ -68,21 +69,24 @@ public abstract class ContextMenuExercise extends Exercise {
   public ContextMenuExercise() {
     TalkBackService service = TalkBackService.getInstance();
     if (service != null) {
-      mSpeechController = service.getSpeechController();
+      speechController = service.getSpeechController();
     }
   }
 
   @Override
   public View getContentView(final LayoutInflater inflater, ViewGroup parent) {
     View view = inflater.inflate(R.layout.tutorial_content_image, parent, false);
-    mImageView = (ImageView) view.findViewById(R.id.image);
+    imageView = (ImageView) view.findViewById(R.id.image);
     updateImage();
     return view;
   }
 
   protected void updateImage() {
-    mImageView.setImageResource(getImageResource());
-    mImageView.setContentDescription(getContentDescription(mImageView.getContext()));
+    ImageView view = this.imageView;
+    if (view != null) {
+      view.setImageResource(getImageResource());
+      view.setContentDescription(getContentDescription(view.getContext()));
+    }
   }
 
   public abstract int getImageResource();
@@ -91,15 +95,15 @@ public abstract class ContextMenuExercise extends Exercise {
 
   private void announceLesson() {
     TalkBackService service = TalkBackService.getInstance();
-    if (mSpeechController == null || service == null) {
+    if (speechController == null || service == null) {
       return;
     }
 
-    mSpeechController.speak(
+    speechController.speak(
         service.getString(R.string.tutorial_lesson_3_message),
         null,
         null,
-        SpeechController.QUEUE_MODE_UNINTERRUPTIBLE,
+        SpeechController.QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH,
         0,
         0,
         null,
@@ -108,7 +112,7 @@ public abstract class ContextMenuExercise extends Exercise {
   }
 
   private void announceDisabledMenuItem(CharSequence itemTitle) {
-    if (mSpeechController == null) {
+    if (speechController == null) {
       return;
     }
 
@@ -118,18 +122,26 @@ public abstract class ContextMenuExercise extends Exercise {
     }
 
     String text = service.getString(R.string.tutorial_disabled_item_clicked, itemTitle);
-    mSpeechController.speak(
-        text, null, null, SpeechController.QUEUE_MODE_UNINTERRUPTIBLE, 0, 0, null, null, null);
+    speechController.speak(
+        text,
+        null,
+        null,
+        SpeechController.QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH,
+        0,
+        0,
+        null,
+        null,
+        null);
   }
 
   @Override
   public MenuTransformer getContextMenuTransformer() {
-    return mContextMenuTransformer;
+    return contextMenuTransformer;
   }
 
   @Override
   public MenuActionInterceptor getContextMenuActionInterceptor() {
-    return mContextMenuActionInterceptor;
+    return contextMenuActionInterceptor;
   }
 
   public abstract void onMenuCancelButtonClicked();

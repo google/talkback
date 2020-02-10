@@ -16,16 +16,18 @@
 
 package com.google.android.accessibility.utils.traversal;
 
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class OrderedTraversalController {
 
-  private WorkingTree mTree;
+  private static final String TAG = "OrderedTraversalCont";
+
+  @Nullable private WorkingTree mTree;
   private Map<AccessibilityNodeInfoCompat, WorkingTree> mNodeTreeMap;
   private Map<AccessibilityNodeInfoCompat, Boolean> mSpeakNodesCache;
 
@@ -76,16 +78,13 @@ public class OrderedTraversalController {
    *     Access needs to know about all nodes at the time the tree is being created.
    * @return subtree that reproduces accessibility node hierarchy
    */
-  private WorkingTree createWorkingTree(
+  private @Nullable WorkingTree createWorkingTree(
       AccessibilityNodeInfoCompat rootNode,
-      WorkingTree parent,
+      @Nullable WorkingTree parent,
       NodeCachedBoundsCalculator boundsCalculator,
       boolean includeChildrenOfNodesWithWebActions) {
     if (mNodeTreeMap.containsKey(rootNode)) {
-      LogUtils.log(
-          OrderedTraversalController.class,
-          Log.WARN,
-          "creating node tree with looped nodes - break the loop edge");
+      LogUtils.w(TAG, "creating node tree with looped nodes - break the loop edge");
       return null;
     }
 
@@ -126,35 +125,42 @@ public class OrderedTraversalController {
       if (beforeNode != null) {
         WorkingTree targetTree = mNodeTreeMap.get(beforeNode);
         moveNodeBefore(subtree, targetTree);
+        beforeNode.recycle();
       } else {
         AccessibilityNodeInfoCompat afterNode = node.getTraversalAfter();
         if (afterNode != null) {
           WorkingTree targetTree = mNodeTreeMap.get(afterNode);
           moveNodeAfter(subtree, targetTree);
+          afterNode.recycle();
         }
       }
     }
   }
 
-  private void moveNodeBefore(WorkingTree movingTree, WorkingTree targetTree) {
+  /** Moves movingTree before targetTree. */
+  private void moveNodeBefore(@Nullable WorkingTree movingTree, @Nullable WorkingTree targetTree) {
     if (movingTree == null || targetTree == null) {
       return;
     }
 
-    //noinspection StatementWithEmptyBody
-    if (movingTree.hasNoChild(targetTree)) {
-      moveNodeBeforeNonChild(movingTree, targetTree);
-    } else {
+    if (movingTree.hasDescendant(targetTree)) {
       // no operation if move child before parent
+      return;
     }
-  }
 
-  private void moveNodeBeforeNonChild(WorkingTree movingTree, WorkingTree targetTree) {
+    // Find subtree to move.
     WorkingTree movingTreeRoot = getParentsThatAreMovedBeforeOrSameNode(movingTree);
+
+    // Find destination for movingTreeRoot.
+    WorkingTree parent = targetTree.getParent();
+    if (movingTreeRoot.hasDescendant(parent)) {
+      return; // Moving movingTreeRoot under its own descendant would create a loop.
+    }
+
+    // Unlink moving subtree from tree.
     detachSubtreeFromItsParent(movingTreeRoot);
 
     //swap target node with moving node on targets node parent children list
-    WorkingTree parent = targetTree.getParent();
     if (parent != null) {
       parent.swapChild(targetTree, movingTreeRoot);
     }
@@ -200,30 +206,27 @@ public class OrderedTraversalController {
     subtree.setParent(null);
   }
 
-  private void moveNodeAfter(WorkingTree movingTree, WorkingTree targetTree) {
+  private void moveNodeAfter(@Nullable WorkingTree movingTree, @Nullable WorkingTree targetTree) {
     if (movingTree == null || targetTree == null) {
       return;
     }
 
-    //noinspection StatementWithEmptyBody
-    if (movingTree.hasNoChild(targetTree)) {
-      moveNodeAfterNonChild(movingTree, targetTree);
-    } else {
-      // no operation if move parent after child
+    if (movingTree.hasDescendant(targetTree)) {
+      return; // Moving movingTree under its own descendant would create a loop.
     }
-  }
-
-  private void moveNodeAfterNonChild(WorkingTree movingTree, WorkingTree targetTree) {
     movingTree = getParentsThatAreMovedBeforeOrSameNode(movingTree);
+    if (movingTree.hasDescendant(targetTree)) {
+      return; // Moving movingTree under its own descendant would create a loop.
+    }
     detachSubtreeFromItsParent(movingTree);
     targetTree.addChild(movingTree);
     movingTree.setParent(targetTree);
   }
 
-  public AccessibilityNodeInfoCompat findNext(AccessibilityNodeInfoCompat node) {
+  public @Nullable AccessibilityNodeInfoCompat findNext(AccessibilityNodeInfoCompat node) {
     WorkingTree tree = mNodeTreeMap.get(node);
     if (tree == null) {
-      LogUtils.log(Log.WARN, "findNext(), can't find WorkingTree for AccessibilityNodeInfo");
+      LogUtils.w(TAG, "findNext(), can't find WorkingTree for AccessibilityNodeInfo");
       return null;
     }
 
@@ -235,10 +238,10 @@ public class OrderedTraversalController {
     return null;
   }
 
-  public AccessibilityNodeInfoCompat findPrevious(AccessibilityNodeInfoCompat node) {
+  public @Nullable AccessibilityNodeInfoCompat findPrevious(AccessibilityNodeInfoCompat node) {
     WorkingTree tree = mNodeTreeMap.get(node);
     if (tree == null) {
-      LogUtils.log(Log.WARN, "findPrevious(), can't find WorkingTree for AccessibilityNodeInfo");
+      LogUtils.w(TAG, "findPrevious(), can't find WorkingTree for AccessibilityNodeInfo");
       return null;
     }
 
@@ -251,7 +254,7 @@ public class OrderedTraversalController {
   }
 
   /** Searches first node to be focused */
-  public AccessibilityNodeInfoCompat findFirst() {
+  public @Nullable AccessibilityNodeInfoCompat findFirst() {
     if (mTree == null) {
       return null;
     }
@@ -259,7 +262,7 @@ public class OrderedTraversalController {
     return AccessibilityNodeInfoCompat.obtain(mTree.getRoot().getNode());
   }
 
-  public AccessibilityNodeInfoCompat findFirst(AccessibilityNodeInfoCompat rootNode) {
+  public @Nullable AccessibilityNodeInfoCompat findFirst(AccessibilityNodeInfoCompat rootNode) {
     if (rootNode == null) {
       return null;
     }
@@ -273,7 +276,7 @@ public class OrderedTraversalController {
   }
 
   /** Searches last node to be focused */
-  public AccessibilityNodeInfoCompat findLast() {
+  public @Nullable AccessibilityNodeInfoCompat findLast() {
     if (mTree == null) {
       return null;
     }
@@ -281,7 +284,7 @@ public class OrderedTraversalController {
     return AccessibilityNodeInfoCompat.obtain(mTree.getRoot().getLastNode().getNode());
   }
 
-  public AccessibilityNodeInfoCompat findLast(AccessibilityNodeInfoCompat rootNode) {
+  public @Nullable AccessibilityNodeInfoCompat findLast(AccessibilityNodeInfoCompat rootNode) {
     if (rootNode == null) {
       return null;
     }

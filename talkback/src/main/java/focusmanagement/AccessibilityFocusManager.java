@@ -16,200 +16,186 @@
 
 package com.google.android.accessibility.talkback.focusmanagement;
 
-import android.accessibilityservice.AccessibilityService;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
-import com.google.android.accessibility.talkback.focusmanagement.action.NavigationAction;
+import com.google.android.accessibility.compositor.AccessibilityFocusEventInterpretation;
+import com.google.android.accessibility.compositor.AccessibilityFocusEventInterpreter;
+import com.google.android.accessibility.talkback.ActorState;
+import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Pipeline;
+import com.google.android.accessibility.talkback.PrimesController;
+import com.google.android.accessibility.talkback.ScrollEventInterpreter;
+import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollEventHandler;
+import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollEventInterpretation;
+import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.controller.FullScreenReadController;
 import com.google.android.accessibility.talkback.focusmanagement.action.TouchExplorationAction;
+import com.google.android.accessibility.talkback.focusmanagement.interpreter.InputFocusInterpreter;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;
-import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScrollController;
-import com.google.android.accessibility.talkback.focusmanagement.interpreter.TouchExplorationInterpreter;
-import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
-import com.google.android.accessibility.utils.AccessibilityEventListener;
-import com.google.android.accessibility.utils.AccessibilityEventUtils;
+import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor.ScreenStateChangeListener;
+import com.google.android.accessibility.talkback.focusmanagement.interpreter.TouchExplorationInterpreter.TouchExplorationActionListener;
+import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
+import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionRecord;
+import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.accessibility.utils.output.FeedbackController;
-import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
-import java.util.ArrayList;
-import java.util.List;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * The entry class for TalkBack accessibility focus management. It serves as a centralized dispatch
  * for interpreted user actions and system changes, and provides facilities for other TalkBack
- * modules to query the state of accessibility focus.
+ * modules to query the state of accessibility focus. Currently, it is a mix of event-interpreter
+ * and feedback-mapper.
  *
  * <p><strong>Usage: </strong>
  *
  * <ul>
- *   <li>AccessibilityFocusManager is the only class visible to other TalkBack components. Event
- *       interpreters and focus processors are internal modules.
  *   <li>Event interpreters listen to accessibility events and notify AccessibilityFocusManager of
  *       parsed user actions and system changes.
- *   <li>AccessibilityFocusManager dispatches user actions and systems changes to FocusProcessors.
- *   <li>FocusProcessors reacts to actions/changes, and use FocusManagerInternal to set focus.
+ *   <li>AccessibilityFocusManager dispatches focus-actions from user actions and systems changes
+ *       through Pipeline to FocusActor.
+ *   <li>FocusProcessors interpret actions/changes, and use Pipeline to set focus.
  * </ul>
  */
-public class AccessibilityFocusManager implements AccessibilityEventListener {
-  /** Event types that are handled by A11yFocusManager. */
-  private final int mEventMask;
+public class AccessibilityFocusManager
+    implements AccessibilityFocusEventInterpreter,
+        ScreenStateChangeListener,
+        InputFocusInterpreter.ViewTargetListener,
+        ScrollEventHandler,
+        TouchExplorationActionListener {
 
-  /** The only class in TalkBack who has direct access to accessibility focus from framework. */
-  private final FocusManagerInternal mFocusManagerInternal;
+  public static final String TAG = "FocusManager";
 
-  private final List<AccessibilityEventListener> mAccessibilityEventListeners;
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // Member variables
 
-  // Event interpreters and fundamental components.
-  private final ScreenStateMonitor mScreenStateMonitor;
-  private final ScrollController mScrollController;
-  private final TouchExplorationInterpreter mTouchExplorationInterpreter;
+  private final FocusProcessorForManualScroll focusProcessorForManualScroll;
+  private final FocusProcessorForTapAndTouchExploration focusProcessorForTapAndTouchExploration;
+  private final FocusProcessorForScreenStateChange focusProcessorForScreenStateChange;
 
-  private final FocusProcessorForManualScroll mFocusProcessorForManualScroll;
-  private final FocusProcessorForTapAndTouchExploration mFocusProcessorForTapAndTouchExploration;
+  /** Callback that returns asynchronous focus-feedback to pipeline. */
+  private final Pipeline.FeedbackReturner pipeline;
+
+  private final ActorState actorState;
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // Construction methods
 
   public AccessibilityFocusManager(
-      AccessibilityService service,
-      SpeechController speechController,
-      FeedbackController feedbackController,
-      SpeechController.Delegate speechControllerDelegate) {
-    mFocusManagerInternal = new FocusManagerInternal(service);
+      TalkBackService service,
+      Pipeline.FeedbackReturner pipeline,
+      ActorState actorState,
+      ScreenStateMonitor screenStateMonitor,
+      AccessibilityFocusMonitor accessibilityFocusMonitor,
+      PrimesController primesController) {
 
-    // Initialize interpreters.
-    mScreenStateMonitor = new ScreenStateMonitor(service, this);
-    mScrollController = new ScrollController(this);
-    mTouchExplorationInterpreter = new TouchExplorationInterpreter(this);
+    this.pipeline = pipeline;
+    this.actorState = actorState;
 
-    mEventMask =
-        mScreenStateMonitor.getEventTypes()
-            | mScrollController.getEventTypes()
-            | mTouchExplorationInterpreter.getEventTypes();
-
-    // TODO: Move interpreters up to TalkBack service level to avoid additional event
-    // dispatch.
-    mAccessibilityEventListeners = new ArrayList<>();
-    mAccessibilityEventListeners.add(mScreenStateMonitor);
-    mAccessibilityEventListeners.add(mScrollController);
-    mAccessibilityEventListeners.add(mTouchExplorationInterpreter);
-
-    // TODO: Initialize FocusProcessors.
-    mFocusProcessorForManualScroll = new FocusProcessorForManualScroll(mFocusManagerInternal);
-    mFocusProcessorForTapAndTouchExploration =
+    focusProcessorForManualScroll =
+        new FocusProcessorForManualScroll(pipeline, actorState, accessibilityFocusMonitor);
+    focusProcessorForTapAndTouchExploration =
         new FocusProcessorForTapAndTouchExploration(
-            mFocusManagerInternal, speechControllerDelegate, speechController, feedbackController);
-  }
-
-  @Override
-  public int getEventTypes() {
-    return mEventMask;
-  }
-
-  @Override
-  public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
-    for (AccessibilityEventListener listener : mAccessibilityEventListeners) {
-      if (AccessibilityEventUtils.eventMatchesAnyType(event, listener.getEventTypes())) {
-        listener.onAccessibilityEvent(event, eventId);
-      }
-    }
+            pipeline, actorState, service, accessibilityFocusMonitor);
+    focusProcessorForScreenStateChange =
+        new FocusProcessorForScreenStateChange(
+            pipeline, actorState, service, accessibilityFocusMonitor, primesController);
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Dispatches user actions
 
-  /**
-   * Dispatches {@link NavigationAction} to {@link FocusProcessor}s.
-   *
-   * @param navigationAction The navigation action instance.
-   * @param eventId EventId for performance tracking.
-   */
-  public void sendNavigationAction(NavigationAction navigationAction, final EventId eventId) {
-    // TODO: Implement FocusProcessorForNavigationAction.
-  }
-
-  /**
-   * Dispatches {@link TouchExplorationAction} to {@link FocusProcessor}s.
-   *
-   * @param action The TouchExplorationAction instance.
-   * @param eventId EventId for performance tracking.
-   */
-  public void sendTouchExplorationAction(TouchExplorationAction action, final EventId eventId) {
-    mFocusProcessorForTapAndTouchExploration.onTouchExplorationAction(action, eventId);
+  /** Called by TouchExplorationInterpreter. */
+  @Override
+  public boolean onTouchExplorationAction(TouchExplorationAction action, EventId eventId) {
+    LogUtils.d(TAG, "User action: %s", action);
+    return focusProcessorForTapAndTouchExploration.onTouchExplorationAction(action, eventId);
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Notifies changes from framework
 
-  /**
-   * Notifies when {@link ScreenState} changes.
-   *
-   * @param oldScreenState The last screen state.
-   * @param newScreenState Current screen state.
-   * @param eventId The EventId for performance tracking.
-   */
-  public void notifyScreenStateChanged(
-      @Nullable ScreenState oldScreenState, @NonNull ScreenState newScreenState, EventId eventId) {
-    // TODO: Implement FocusProcessorForScreenStateChanges.
-  }
-
-  /**
-   * Notifies when a view is input focused.
-   *
-   * @param inputFocus The input focused node.
-   * @param eventId EventId for performance tracking.
-   */
-  public void notifyViewInputFocused(AccessibilityNodeInfoCompat inputFocus, EventId eventId) {
-    // TODO: Implement FocusProcessorForSynchronization.
-  }
-
-  /**
-   * Notifies when content changes inside window with the given {@code windowId}.
-   *
-   * @param windowId Id of the window whose content has changed.
-   * @param eventId EventId for performance tracking.
-   */
-  public void notifyWindowContentChanged(int windowId, EventId eventId) {
-    // TODO: Implement FocusProcessorForConsistency.
-  }
-
-  /**
-   * Notifies when a node is scrolled by the user by dragging with two fingers.
-   *
-   * <p>A node can be scrolled by dragging two fingers on screen. In this use case, we cannot
-   * capture nor intercept the user action. We can only react to the result {@link
-   * AccessibilityEvent#TYPE_VIEW_SCROLLED} events.
-   *
-   * @param scrolledNode The node being scrolled.
-   * @param direction The scroll direction.
-   * @param eventId EventId for performance tracking.
-   */
-  public void notifyNodeManuallyScrolled(
-      AccessibilityNodeInfoCompat scrolledNode,
-      @TraversalStrategy.SearchDirection int direction,
+  /** Called by ScreenStateMonitor. */
+  @Override
+  public boolean onScreenStateChanged(
+      @Nullable ScreenState oldScreenState,
+      @NonNull ScreenState newScreenState,
+      long startTime,
       EventId eventId) {
-    mFocusProcessorForManualScroll.onNodeManuallyScrolled(scrolledNode, direction, eventId);
+    LogUtils.d(
+        TAG,
+        "Screen state changed: \nStart time=%s\nDuration=%s\nFrom: %s\nTo: %s",
+        startTime,
+        SystemClock.uptimeMillis() - startTime,
+        oldScreenState,
+        newScreenState);
+    return focusProcessorForScreenStateChange.onScreenStateChanged(
+        oldScreenState, newScreenState, startTime, eventId);
+  }
+
+  /** Called by InputFocusInterpreter. */
+  @Override
+  public boolean onViewTargeted(
+      AccessibilityNodeInfoCompat targetedNode, boolean isInputFocus, EventId eventId) {
+    LogUtils.d(TAG, "View targeted: IsInputFocus=%s; Node=%s", isInputFocus, targetedNode);
+    FocusActionInfo focusActionInfo =
+        FocusActionInfo.builder().setSourceAction(FocusActionInfo.FOCUS_SYNCHRONIZATION).build();
+    return targetedNode.refresh()
+        && pipeline.returnFeedback(eventId, Feedback.focus(targetedNode, focusActionInfo));
+  }
+
+  /** Called by ScrollEventInterpreter. */
+  @Override
+  public void onScrollEvent(
+      AccessibilityEvent event, ScrollEventInterpretation interpretation, EventId eventId) {
+    LogUtils.d(TAG, "On scroll: Interpretation=%s; Event=%s", interpretation, event);
+    if ((interpretation.userAction != ScrollEventInterpreter.ACTION_MANUAL_SCROLL)
+        || (interpretation.scrollDirection == TraversalStrategy.SEARCH_FOCUS_UNKNOWN)) {
+      return;
+    }
+    AccessibilityNodeInfoCompat scrolledNode =
+        AccessibilityNodeInfoUtils.toCompat(event.getSource());
+    if (scrolledNode != null) {
+      focusProcessorForManualScroll.onNodeManuallyScrolled(
+          scrolledNode, interpretation.scrollDirection, eventId);
+      AccessibilityNodeInfoUtils.recycleNodes(scrolledNode);
+    }
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // APIs used by other TalkBack components
 
-  /**
-   * Gets the current accessibility focus on screen. This method is used by other TalkBack modules
-   * to query the current accessibility focus.
-   *
-   * <p><strong>Note: </strong> This method returns a node only when there is a node being
-   * accessibility focused and it's validated with {@link
-   * com.google.android.accessibility.utils.AccessibilityNodeInfoUtils#shouldFocusNode(AccessibilityNodeInfoCompat)}
-   *
-   * @return the valid accessibility focus on screen or null.
-   */
+  /** Called by DirectionNavigationController, ProcessorAccessibilityHints. */
   @Nullable
-  public AccessibilityNodeInfoCompat getAccessibilityFocus() {
-    return mFocusManagerInternal.getAccessibilityFocus(
-        null, /* rootCompat */
-        false, /* returnRootIfA11yFocusIsNull */
-        false /* returnInputFocusedEditableNodeIfA11yFocusIsNull */);
+  public FocusActionInfo getFocusActionInfoFromEvent(AccessibilityEvent event) {
+    FocusActionRecord record = actorState.getFocusHistory().matchFocusActionRecordFromEvent(event);
+    if (record == null) {
+      return null;
+    }
+    return record.getExtraInfo();
+  }
+
+  /** Called by EventFilter. */
+  @Nullable
+  @Override
+  public AccessibilityFocusEventInterpretation interpret(AccessibilityEvent event) {
+    FocusActionInfo info = getFocusActionInfoFromEvent(event);
+    if (info == null) {
+      return null;
+    }
+    AccessibilityFocusEventInterpretation interpretation =
+        new AccessibilityFocusEventInterpretation(event.getEventType());
+    interpretation.setForceFeedbackAudioPlaybackActive(info.isForcedFeedbackAudioPlaybackActive());
+    interpretation.setForceFeedbackMicrophoneActive(info.isForcedFeedbackMicrophoneActive());
+    interpretation.setForceFeedbackSsbActive(info.isForcedFeedbackSsbActive());
+    interpretation.setShouldMuteFeedback(info.forceMuteFeedback);
+    interpretation.setIsInitialFocusAfterScreenStateChange(
+        info.sourceAction == FocusActionInfo.SCREEN_STATE_CHANGE);
+    return interpretation;
   }
 
   /**
@@ -218,7 +204,7 @@ public class AccessibilityFocusManager implements AccessibilityEventListener {
    * @param enabled Whether single-tap activation is enabled.
    */
   public void setSingleTapEnabled(boolean enabled) {
-    mFocusProcessorForTapAndTouchExploration.setSingleTapEnabled(enabled);
+    focusProcessorForTapAndTouchExploration.setSingleTapEnabled(enabled);
   }
 
   /**
@@ -227,35 +213,18 @@ public class AccessibilityFocusManager implements AccessibilityEventListener {
    * @return Whether single-tap activation is enabled.
    */
   public boolean getSingleTapEnabled() {
-    return mFocusProcessorForTapAndTouchExploration.getSingleTapEnabled();
+    return focusProcessorForTapAndTouchExploration.getSingleTapEnabled();
   }
 
+  /** Called by AccessibilityEventProcessor. */
   public boolean isEventFromFocusManagement(AccessibilityEvent event) {
-    return AccessibilityFocusActionHistory.getInstance().matchFocusActionRecordFromEvent(event)
-        != null;
+    return actorState.getFocusHistory().matchFocusActionRecordFromEvent(event) != null;
   }
-
-  //////////////////////////////////////////////////////////////////////////////////////////////////
-  // APIs used by FocusProcessors
 
   /**
-   * Tries to put accessibility focus onto the given {@code node}. It's used by {@link
-   * FocusProcessor} to set a11y focus.
-   *
-   * <p>If the {@code node} does not have accessibility focus or {@code force} is {@code true},
-   * attempts to focus the source node. Returns {@code true} if the node was successfully focused or
-   * already had accessibility focus.
-   *
-   * @param node Node to be focused.
-   * @param force Whether we should perform ACTION_ACCESSIBILITY_FOCUS if the node is already
-   *     a11y-focused.
-   * @param eventId The EventId for performance tracking.
-   * @return Whether the node is already accessibility focused or we successfully put a11y focus on
-   *     the node.
+   * Inject {@link FullScreenReadController} to {@link FocusProcessorForTapAndTouchExploration} .
    */
-  // TODO: Remove this method when FocusProcessors are refactored.
-  boolean tryFocusing(AccessibilityNodeInfoCompat node, boolean force, EventId eventId) {
-    // Unused. Remove this method later.
-    return true;
+  public void setFullScreenReadController(FullScreenReadController fullScreenReadController) {
+    focusProcessorForTapAndTouchExploration.setFullScreenReadController(fullScreenReadController);
   }
 }

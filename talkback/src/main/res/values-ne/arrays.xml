@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>बटन</item>
+    <item>चेक बाकस</item>
+    <item>रङ चयनकर्ता</item>
+    <item>मिति र समय नियन्त्रण</item>
+    <item>मिति र समय नियन्त्रण</item>
+    <item>मिति नियन्त्रण</item>
+    <item>इमेलको लागि पाठ सम्पादन गर्नुहोस्</item>
+    <item>फाइल चयन</item>
+    <item translatable="false"></item>
+    <item>बटन</item>
+    <item>महिना नियन्त्रण</item>
+    <item>पाठ सङ्ख्या मात्र सम्पादन गर्नुहोस्</item>
+    <item>पासवर्ड सम्पादन पाठ</item>
+    <item>रेडियो बटन</item>
+    <item>स्लाइडर</item>
+    <item>पुनःसेट गर्नुहोस्</item>
+    <item>खोजको लागि पाठ सम्पादन गर्नुहोस्</item>
+    <item>बटन</item>
+    <item>टेलिफोन नम्बरको लागि पाठ सम्पादन गर्नुहोस्</item>
+    <item>पाठ सम्पादन गर्नुहोस्</item>
+    <item>URL को लागि पाठ सम्पादन गर्नुहोस्।</item>
+    <item>वर्षको हप्ता नियन्त्रण</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>सतर्कता</item>
+    <item>अलर्ट डायलग</item>
+    <item>बटन</item>
+    <item>चेक बाकस</item>
+    <item>कम्बो बाकस</item>
+    <item>सम्वाद</item>
+    <item>ग्रिड सेल</item>
+    <item>लिङ्क</item>
+    <item>लग</item>
+    <item>मार्क्यु</item>
+    <item>मेनु आइटम</item>
+    <item>मेनु आइटम चेक बाकस</item>
+    <item>मेनु आइटम रेडियो बटन</item>
+    <item>विकल्प</item>
+    <item>प्रगति पट्टि</item>
+    <item>रेडियो बटन</item>
+    <item>रेडियो बटन समूह</item>
+    <item>स्क्रोल बार</item>
+    <item>स्लाइडर</item>
+    <item>स्पिन बटन</item>
+    <item>स्थिति</item>
+    <item>ट्याब</item>
+    <item>ट्याब प्यानल</item>
+    <item>पाठ बाकस</item>
+    <item>टाइमर</item>
+    <item>उपकरण पट्टि</item>
+    <item>टुल टिप</item>
+    <item>वृक्ष आइटम</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>लिङ्क</item>
+    <item>शीर्षक एक</item>
+    <item>शीर्षक दुई</item>
+    <item>शीर्षक तिन</item>
+    <item>शीर्षक चार</item>
+    <item>शीर्षक पाँच</item>
+    <item>शीर्षक छ</item>
+    <item>बटन</item>
+    <item>कम्बो बाकस</item>
+    <item>तालिका</item>
+    <item>पाठ क्षेत्र</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

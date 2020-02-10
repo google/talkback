@@ -18,11 +18,14 @@ package com.google.android.accessibility.utils.compat.media;
 
 import android.media.AudioManager;
 import com.google.android.accessibility.utils.compat.CompatUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.reflect.Method;
 
 public class AudioManagerCompatUtils {
   private static final Method METHOD_forceVolumeControlStream =
       CompatUtils.getMethod(AudioManager.class, "forceVolumeControlStream", int.class);
+
+  private static final String TAG = "AudioManagerCompatUtils";
 
   /**
    * Broadcast intent when the volume for a particular stream type changes. Includes the stream, the
@@ -33,13 +36,6 @@ public class AudioManagerCompatUtils {
    * @see #EXTRA_PREV_VOLUME_STREAM_VALUE
    */
   public static final String VOLUME_CHANGED_ACTION = "android.media.VOLUME_CHANGED_ACTION";
-
-  /**
-   * @see #EXTRA_MASTER_VOLUME_VALUE
-   * @see #EXTRA_PREV_MASTER_VOLUME_VALUE
-   */
-  public static final String MASTER_VOLUME_CHANGED_ACTION =
-      "android.media.MASTER_VOLUME_CHANGED_ACTION";
 
   /** The stream type for the volume changed intent. */
   public static final String EXTRA_VOLUME_STREAM_TYPE = "android.media.EXTRA_VOLUME_STREAM_TYPE";
@@ -55,19 +51,6 @@ public class AudioManagerCompatUtils {
   public static final String EXTRA_PREV_VOLUME_STREAM_VALUE =
       "android.media.EXTRA_PREV_VOLUME_STREAM_VALUE";
 
-  /**
-   * The new master volume value for the master volume changed intent. Value is integer between 0
-   * and 100 inclusive.
-   */
-  public static final String EXTRA_MASTER_VOLUME_VALUE = "android.media.EXTRA_MASTER_VOLUME_VALUE";
-
-  /**
-   * The previous master volume value for the master volume changed intent. Value is integer between
-   * 0 and 100 inclusive.
-   */
-  public static final String EXTRA_PREV_MASTER_VOLUME_VALUE =
-      "android.media.EXTRA_PREV_MASTER_VOLUME_VALUE";
-
   private AudioManagerCompatUtils() {
     // This class is non-instantiable.
   }
@@ -80,5 +63,25 @@ public class AudioManagerCompatUtils {
    */
   public static void forceVolumeControlStream(AudioManager receiver, int streamType) {
     CompatUtils.invoke(receiver, null, METHOD_forceVolumeControlStream, streamType);
+  }
+
+  /**
+   * Wraps {@link AudioManager#adjustStreamVolume(int, int, int)} to handle exception.
+   *
+   * @see AudioManager#adjustStreamVolume(int, int, int).
+   *     <p>Post N, adjustStreamVolume can throw a SecurityException when changing the stream volume
+   *     would change the DnD mode and the caller doesn't have
+   *     android.Manifest.permission.MANAGE_NOTIFICATIONS, which is a signature permission. Hence
+   *     Talkback catches the exception to avoid crashing.
+   */
+  public static void adjustStreamVolume(
+      AudioManager audioManager, int streamType, int direction, int flags, String source) {
+    try {
+      if (audioManager != null) {
+        audioManager.adjustStreamVolume(streamType, direction, flags);
+      }
+    } catch (SecurityException e) {
+      LogUtils.e(TAG, "Error while adjusting stream volume: %s", e);
+    }
   }
 }

@@ -34,7 +34,7 @@
     <color name="gradient_inner">#0000</color>
     <color name="gradient_outer">#C000</color>
 
-    <color name="selection_fill">#FF40A5DA</color>
+    <color name="selection_fill">#1A73E8</color>
     <color name="selection_text_fill">#FFFF</color>
     <color name="selection_shadow">#9FFF</color>
 
@@ -48,14 +48,29 @@
     <color name="light_gray">#DDDDDD</color>
     <!-- end radial menu -->
 
+    <!-- For Screen Search -->
+    <color name="overlay_background">#D000</color>
+    <!-- end Screen Search -->
+
     <color name="tutorial_action_bar_background">#263238</color>
     <color name="tutorial_action_bar_text">#ffffff</color>
     <color name="tutorial_header_text">#B3FFFFFF</color>
     <color name="tutorial_header_background">#37474F</color>
     <color name="tutorial_header_button_background">#FF4DB6AC</color>
+
     <color name="tutorial_footer_background">#EEEEEE</color>
     <color name="tutorial_footer_buttons">#444444</color>
+    <color name="tutorial_footer_chevron_color">@android:color/black</color>
     <color name="tutorial_main_item_title">@android:color/black</color>
     <color name="tutorial_main_item_buttons">#FF009688</color>
+    <color name="tutorial_main_item_background">@android:color/white</color>
+    <color name="tutorial_main_item_stroke">#ddd</color>
     <color name="tutorial_semi_black">#8A000000</color>
+    <color name="tutorial_grid_item">#80CBC4</color>
+    <color name="tutorial_grid_item_selected">#00897B</color>
+    <color name="tutorial_arrow_color">#37474F</color>
+
+    <color name="settings_bg_color">@color/google_white</color>
+    <color name="actionBarTextColorPrimary">@color/google_black</color>
+    <color name="colorAccent">@color/google_blue600</color>
 </resources>

@@ -25,19 +25,19 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.Signature;
 import android.os.Looper;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import com.google.android.accessibility.talkback.BuildConfig;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.LocaleUtils;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.labeling.LabelManager;
 import com.google.android.accessibility.utils.labeling.LabelProviderClient;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Comparator;
@@ -46,6 +46,7 @@ import java.util.Map;
 import java.util.NavigableSet;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Manages logic for prefetching, retrieval, addition, updating, and removal of custom view labels
@@ -59,14 +60,18 @@ import java.util.regex.Pattern;
  * <p>This class also serves as an {@link AccessibilityEventListener} for purposes of automatically
  * prefetching labels into the managed cache.
  */
-// TODO Most public methods in this class should support optional callbacks.
+// TODO: Most public methods in this class should support optional callbacks.
 public class CustomLabelManager implements LabelManager {
+
+  private static final String TAG = "CustomLabelManager";
+
   // Intent values for broadcasts to CustomLabelManager.
   public static final String ACTION_REFRESH_LABEL_CACHE =
       "com.google.android.marvin.talkback.labeling.REFRESH_LABEL_CACHE";
   public static final String EXTRA_STRING_ARRAY_PACKAGES = "EXTRA_STRING_ARRAY_PACKAGES";
 
-  private static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".providers.LabelProvider";
+  @VisibleForTesting
+  static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".providers.LabelProvider";
 
   /**
    * The substring separating a label's package and view ID name in a fully-qualified resource
@@ -86,7 +91,7 @@ public class CustomLabelManager implements LabelManager {
    * @param labelManager The label manager.
    * @return The node text.
    */
-  public static CharSequence getNodeText(
+  public static @Nullable CharSequence getNodeText(
       AccessibilityNodeInfoCompat node, CustomLabelManager labelManager) {
     CharSequence text = AccessibilityNodeInfoUtils.getNodeText(node);
     if (!TextUtils.isEmpty(text)) {
@@ -102,7 +107,7 @@ public class CustomLabelManager implements LabelManager {
     return null;
   }
 
-  private final NavigableSet<Label> mLabelCache =
+  private final NavigableSet<Label> labelCache =
       new TreeSet<>(
           new Comparator<Label>() {
             // Note this comparator is not consistent with equals in Label, we should just implement
@@ -126,52 +131,49 @@ public class CustomLabelManager implements LabelManager {
             }
           });
 
-  private final CacheRefreshReceiver mRefreshReceiver = new CacheRefreshReceiver();
-  private final LocaleChangedReceiver mLocaleChangedReceiver = new LocaleChangedReceiver();
+  private final CacheRefreshReceiver refreshReceiver = new CacheRefreshReceiver();
+  private final LocaleChangedReceiver localeChangedReceiver = new LocaleChangedReceiver();
 
-  private final Context mContext;
-  private final PackageManager mPackageManager;
-  private final LabelProviderClient mClient;
+  private final Context context;
+  private final PackageManager packageManager;
+  private final LabelProviderClient client;
 
   // Used to manage release of resources based on task completion
-  private boolean mShouldShutdownClient;
-  private int mRunningTasks;
+  private boolean shouldShutdownClient;
+  private int runningTasks;
 
-  private LabelTask.TrackedTaskCallback mTaskCallback =
+  private final LabelTask.TrackedTaskCallback taskCallback =
       new LabelTask.TrackedTaskCallback() {
         @Override
-        public void onTaskPreExecute(LabelClientRequest request) {
+        public void onTaskPreExecute(LabelClientRequest<?> request) {
           checkUiThread();
           taskStarting(request);
         }
 
         @Override
-        public void onTaskPostExecute(LabelClientRequest request) {
+        public void onTaskPostExecute(LabelClientRequest<?> request) {
           checkUiThread();
           taskEnding(request);
         }
       };
 
-  private DataConsistencyCheckRequest.OnDataConsistencyCheckCallback mDataConsistencyCheckCallback =
+  private DataConsistencyCheckRequest.OnDataConsistencyCheckCallback dataConsistencyCheckCallback =
       new DataConsistencyCheckRequest.OnDataConsistencyCheckCallback() {
         @Override
-        public void onConsistencyCheckCompleted(List<Label> labelsToRemove) {
+        public void onConsistencyCheckCompleted(@Nullable List<Label> labelsToRemove) {
           if (labelsToRemove == null || labelsToRemove.isEmpty()) {
             return;
           }
 
-          LogUtils.log(
-              this,
-              Log.VERBOSE,
-              "Found %d labels to remove during consistency check",
-              labelsToRemove.size());
+          LogUtils.v(
+              TAG, "Found %d labels to remove during consistency check", labelsToRemove.size());
           for (Label l : labelsToRemove) {
             removeLabel(l);
           }
         }
       };
 
-  private OnLabelsInPackageChangeListener mLabelsInPackageChangeListener =
+  private OnLabelsInPackageChangeListener labelsInPackageChangeListener =
       new OnLabelsInPackageChangeListener() {
         @Override
         public void onLabelsInPackageChanged(String packageName) {
@@ -180,12 +182,12 @@ public class CustomLabelManager implements LabelManager {
       };
 
   public CustomLabelManager(Context context) {
-    mContext = context;
-    mPackageManager = context.getPackageManager();
-    mClient = new LabelProviderClient(context, AUTHORITY);
-    mContext.registerReceiver(mRefreshReceiver, REFRESH_INTENT_FILTER);
-    mContext.registerReceiver(
-        mLocaleChangedReceiver, new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
+    this.context = context;
+    packageManager = context.getPackageManager();
+    client = new LabelProviderClient(context, AUTHORITY);
+    this.context.registerReceiver(refreshReceiver, REFRESH_INTENT_FILTER);
+    this.context.registerReceiver(
+        localeChangedReceiver, new IntentFilter(Intent.ACTION_LOCALE_CHANGED));
     refreshCache();
   }
 
@@ -211,8 +213,8 @@ public class CustomLabelManager implements LabelManager {
     }
 
     DataConsistencyCheckRequest request =
-        new DataConsistencyCheckRequest(mClient, mContext, mDataConsistencyCheckCallback);
-    LabelTask<List<Label>> task = new LabelTask<>(request, mTaskCallback);
+        new DataConsistencyCheckRequest(client, context, dataConsistencyCheckCallback);
+    LabelTask<@Nullable List<Label>> task = new LabelTask<>(request, taskCallback);
     task.execute();
   }
 
@@ -227,7 +229,7 @@ public class CustomLabelManager implements LabelManager {
    *     exists or has not yet been fetched from storage
    */
   @Override
-  public Label getLabelForViewIdFromCache(String resourceName) {
+  public @Nullable Label getLabelForViewIdFromCache(String resourceName) {
     if (!isInitialized()) {
       return null;
     }
@@ -238,7 +240,7 @@ public class CustomLabelManager implements LabelManager {
     }
 
     Label search = new Label(parsedId.first, null, parsedId.second, null, null, 0, null, 0);
-    Label result = mLabelCache.ceiling(search);
+    Label result = labelCache.ceiling(search);
     // TODO: This can be done much simplier with modifying equals in Label but want to wait
     // until BrailleBack is integrate to ensure compatibility
     if (result != null
@@ -268,8 +270,8 @@ public class CustomLabelManager implements LabelManager {
       return;
     }
 
-    DirectLabelFetchRequest request = new DirectLabelFetchRequest(mClient, labelId, callback);
-    LabelTask<Label> task = new LabelTask<>(request, mTaskCallback);
+    DirectLabelFetchRequest request = new DirectLabelFetchRequest(client, labelId, callback);
+    LabelTask<Label> task = new LabelTask<>(request, taskCallback);
     task.execute();
   }
 
@@ -289,8 +291,8 @@ public class CustomLabelManager implements LabelManager {
     }
 
     final PackageLabelsFetchRequest request =
-        new PackageLabelsFetchRequest(mClient, mContext, packageName, callback);
-    LabelTask<Map<String, Label>> task = new LabelTask<>(request, mTaskCallback);
+        new PackageLabelsFetchRequest(client, context, packageName, callback);
+    LabelTask<Map<String, Label>> task = new LabelTask<>(request, taskCallback);
     task.execute();
   }
 
@@ -299,8 +301,8 @@ public class CustomLabelManager implements LabelManager {
       return;
     }
 
-    final LabelsFetchRequest request = new LabelsFetchRequest(mClient, callback);
-    LabelTask<List<Label>> task = new LabelTask<>(request, mTaskCallback);
+    final LabelsFetchRequest request = new LabelsFetchRequest(client, callback);
+    LabelTask<List<Label>> task = new LabelTask<>(request, taskCallback);
     task.execute();
   }
 
@@ -330,16 +332,15 @@ public class CustomLabelManager implements LabelManager {
 
     Pair<String, String> parsedId = splitResourceName(resourceName);
     if (parsedId == null) {
-      LogUtils.log(
-          this, Log.WARN, "Attempted to add a label with an invalid or poorly formed view ID.");
+      LogUtils.w(TAG, "Attempted to add a label with an invalid or poorly formed view ID.");
       return;
     }
 
     final PackageInfo packageInfo;
     try {
-      packageInfo = mPackageManager.getPackageInfo(parsedId.first, PackageManager.GET_SIGNATURES);
+      packageInfo = packageManager.getPackageInfo(parsedId.first, PackageManager.GET_SIGNATURES);
     } catch (NameNotFoundException e) {
-      LogUtils.log(this, Log.WARN, "Attempted to add a label for an unknown package.");
+      LogUtils.w(TAG, "Attempted to add a label for an unknown package.");
       return;
     }
 
@@ -357,7 +358,7 @@ public class CustomLabelManager implements LabelManager {
 
       signatureHash = StringBuilderUtils.bytesToHexString(messageDigest.digest());
     } catch (NoSuchAlgorithmException e) {
-      LogUtils.log(this, Log.WARN, "Unable to create SHA-1 MessageDigest");
+      LogUtils.w(TAG, "Unable to create SHA-1 MessageDigest");
     }
 
     // For the current implementation, screenshots are disabled
@@ -372,8 +373,8 @@ public class CustomLabelManager implements LabelManager {
             "",
             timestamp);
     LabelAddRequest request =
-        new LabelAddRequest(mClient, label, SOURCE_TYPE_USER, mLabelsInPackageChangeListener);
-    LabelTask<Label> task = new LabelTask<>(request, mTaskCallback);
+        new LabelAddRequest(client, label, SOURCE_TYPE_USER, labelsInPackageChangeListener);
+    LabelTask<Label> task = new LabelTask<>(request, taskCallback);
     task.execute();
   }
 
@@ -392,7 +393,7 @@ public class CustomLabelManager implements LabelManager {
     }
 
     if (labels == null || labels.length == 0) {
-      LogUtils.log(this, Log.WARN, "Attempted to update a null or empty array of labels.");
+      LogUtils.w(TAG, "Attempted to update a null or empty array of labels.");
       return;
     }
 
@@ -405,9 +406,8 @@ public class CustomLabelManager implements LabelManager {
         throw new IllegalArgumentException("Attempted to update a label with an empty text value");
       }
 
-      LabelUpdateRequest request =
-          new LabelUpdateRequest(mClient, l, mLabelsInPackageChangeListener);
-      LabelTask<Boolean> task = new LabelTask<>(request, mTaskCallback);
+      LabelUpdateRequest request = new LabelUpdateRequest(client, l, labelsInPackageChangeListener);
+      LabelTask<Boolean> task = new LabelTask<>(request, taskCallback);
       task.execute();
     }
   }
@@ -427,14 +427,13 @@ public class CustomLabelManager implements LabelManager {
     }
 
     if (labels == null || labels.length == 0) {
-      LogUtils.log(this, Log.WARN, "Attempted to delete a null or empty array of labels.");
+      LogUtils.w(TAG, "Attempted to delete a null or empty array of labels.");
       return;
     }
 
     for (Label l : labels) {
-      LabelRemoveRequest request =
-          new LabelRemoveRequest(mClient, l, mLabelsInPackageChangeListener);
-      LabelTask<Boolean> task = new LabelTask<>(request, mTaskCallback);
+      LabelRemoveRequest request = new LabelRemoveRequest(client, l, labelsInPackageChangeListener);
+      LabelTask<Boolean> task = new LabelTask<>(request, taskCallback);
       task.execute();
     }
   }
@@ -445,7 +444,7 @@ public class CustomLabelManager implements LabelManager {
       final CustomLabelMigrationManager.OnLabelMigrationCallback callback) {
     ImportLabelRequest request =
         new ImportLabelRequest(
-            mClient,
+            client,
             labels,
             overrideExistentLabels,
             new ImportLabelRequest.OnImportLabelCallback() {
@@ -457,14 +456,14 @@ public class CustomLabelManager implements LabelManager {
                 }
               }
             });
-    LabelTask<Integer> task = new LabelTask<>(request, mTaskCallback);
+    LabelTask<Integer> task = new LabelTask<>(request, taskCallback);
     task.execute();
   }
 
   public void hasImportedLabels(
       HasImportedLabelsRequest.OnHasImportedLabelsCompleteListener listener) {
-    HasImportedLabelsRequest request = new HasImportedLabelsRequest(mClient, listener);
-    LabelTask<Boolean> task = new LabelTask<>(request, mTaskCallback);
+    HasImportedLabelsRequest request = new HasImportedLabelsRequest(client, listener);
+    LabelTask<Boolean> task = new LabelTask<>(request, taskCallback);
     task.execute();
   }
 
@@ -472,7 +471,7 @@ public class CustomLabelManager implements LabelManager {
       final RevertImportedLabelsRequest.OnImportLabelsRevertedListener listener) {
     RevertImportedLabelsRequest request =
         new RevertImportedLabelsRequest(
-            mClient,
+            client,
             new RevertImportedLabelsRequest.OnImportLabelsRevertedListener() {
               @Override
               public void onImportLabelsReverted() {
@@ -482,7 +481,7 @@ public class CustomLabelManager implements LabelManager {
                 }
               }
             });
-    LabelTask<Boolean> task = new LabelTask<>(request, mTaskCallback);
+    LabelTask<Boolean> task = new LabelTask<>(request, taskCallback);
     task.execute();
   }
 
@@ -492,12 +491,12 @@ public class CustomLabelManager implements LabelManager {
         new LabelsFetchRequest.OnLabelsFetchedListener() {
           @Override
           public void onLabelsFetched(List<Label> results) {
-            mLabelCache.clear();
+            labelCache.clear();
             String currentLocale = LocaleUtils.getDefaultLocale();
             for (Label newLabel : results) {
               String locale = newLabel.getLocale();
               if (locale != null && locale.startsWith(currentLocale)) {
-                mLabelCache.add(newLabel);
+                labelCache.add(newLabel);
               }
             }
           }
@@ -509,7 +508,7 @@ public class CustomLabelManager implements LabelManager {
    * CustomLabelManager instance was constructed), refreshes the labels from the label provider.
    */
   public void ensureLabelsLoaded() {
-    if (mLabelCache.isEmpty()) {
+    if (labelCache.isEmpty()) {
       refreshCache();
     }
   }
@@ -522,7 +521,7 @@ public class CustomLabelManager implements LabelManager {
    *     AccessibilityNodeInfo#getViewIdResourceName()}
    * @return A {@link Pair} where the first value is the package name and second is the id name
    */
-  public static Pair<String, String> splitResourceName(String resourceName) {
+  public static @Nullable Pair<String, String> splitResourceName(String resourceName) {
     if (TextUtils.isEmpty(resourceName)) {
       return null;
     }
@@ -530,8 +529,7 @@ public class CustomLabelManager implements LabelManager {
     final String[] splitId = RESOURCE_NAME_SPLIT_PATTERN.split(resourceName, 2);
     if (splitId.length != 2 || TextUtils.isEmpty(splitId[0]) || TextUtils.isEmpty(splitId[1])) {
       // Invalid input
-      LogUtils.log(
-          CustomLabelManager.class, Log.WARN, "Failed to parse resource: %s", resourceName);
+      LogUtils.w(TAG, "Failed to parse resource: %s", resourceName);
       return null;
     }
 
@@ -540,17 +538,17 @@ public class CustomLabelManager implements LabelManager {
 
   /** Shuts down the manager and releases resources. */
   public void shutdown() {
-    LogUtils.log(this, Log.VERBOSE, "Shutdown requested.");
+    LogUtils.v(TAG, "Shutdown requested.");
 
     // We must immediately destroy registered receivers to prevent a leak,
     // as the context backing this registration is to be invalidated.
-    mContext.unregisterReceiver(mRefreshReceiver);
-    mContext.unregisterReceiver(mLocaleChangedReceiver);
+    context.unregisterReceiver(refreshReceiver);
+    context.unregisterReceiver(localeChangedReceiver);
 
     // We cannot shutdown resources related to the database until all tasks
     // have completed. Flip the flag to indicate a client of this manager
     // requested a shutdown and attempt the operation.
-    mShouldShutdownClient = true;
+    shouldShutdownClient = true;
     maybeShutdownClient();
   }
 
@@ -561,7 +559,7 @@ public class CustomLabelManager implements LabelManager {
    */
   public boolean isInitialized() {
     checkUiThread();
-    return mClient.isInitialized();
+    return client.isInitialized();
   }
 
   /**
@@ -573,10 +571,9 @@ public class CustomLabelManager implements LabelManager {
    */
   private void maybeShutdownClient() {
     checkUiThread();
-    if ((mRunningTasks == 0) && mShouldShutdownClient) {
-      LogUtils.log(
-          this, Log.VERBOSE, "All tasks completed and shutdown requested.  Releasing database.");
-      mClient.shutdown();
+    if ((runningTasks == 0) && shouldShutdownClient) {
+      LogUtils.v(TAG, "All tasks completed and shutdown requested.  Releasing database.");
+      client.shutdown();
     }
   }
 
@@ -586,9 +583,9 @@ public class CustomLabelManager implements LabelManager {
    *
    * @param request The task that's starting
    */
-  private void taskStarting(LabelClientRequest request) {
-    LogUtils.log(this, Log.VERBOSE, "Task %s starting.", request);
-    mRunningTasks++;
+  private void taskStarting(LabelClientRequest<?> request) {
+    LogUtils.v(TAG, "Task %s starting.", request);
+    runningTasks++;
   }
 
   /**
@@ -598,16 +595,16 @@ public class CustomLabelManager implements LabelManager {
    *
    * @param request The request that is ending
    */
-  private void taskEnding(LabelClientRequest request) {
-    LogUtils.log(this, Log.VERBOSE, "Task %s ending.", request);
-    mRunningTasks--;
+  private void taskEnding(LabelClientRequest<?> request) {
+    LogUtils.v(TAG, "Task %s ending.", request);
+    runningTasks--;
     maybeShutdownClient();
   }
 
   private void sendCacheRefreshIntent(String... packageNames) {
     final Intent refreshIntent = new Intent(ACTION_REFRESH_LABEL_CACHE);
     refreshIntent.putExtra(EXTRA_STRING_ARRAY_PACKAGES, packageNames);
-    mContext.sendBroadcast(refreshIntent);
+    context.sendBroadcast(refreshIntent);
   }
 
   private class LocaleChangedReceiver extends BroadcastReceiver {

@@ -18,26 +18,28 @@ package com.google.android.accessibility.talkback.labeling;
 
 import android.os.AsyncTask;
 
-public class LabelTask<Result> extends AsyncTask<Void, Void, Result> {
+/** LabelTask */
+public class LabelTask<T> extends AsyncTask<Void, Void, T> {
 
+  /** TrackedTaskCallback */
   public interface TrackedTaskCallback {
-    public void onTaskPreExecute(LabelClientRequest request);
+    public void onTaskPreExecute(LabelClientRequest<?> request);
 
-    public void onTaskPostExecute(LabelClientRequest request);
+    public void onTaskPostExecute(LabelClientRequest<?> request);
   }
 
-  private LabelClientRequest<Result> mRequest;
-  private TrackedTaskCallback mCallback;
+  private final LabelClientRequest<T> request;
+  private final TrackedTaskCallback callback;
 
-  public LabelTask(LabelClientRequest<Result> request, TrackedTaskCallback callback) {
-    mCallback = callback;
-    mRequest = request;
+  public LabelTask(LabelClientRequest<T> request, TrackedTaskCallback callback) {
+    this.callback = callback;
+    this.request = request;
   }
 
   @Override
   protected void onPreExecute() {
-    if (mCallback != null) {
-      mCallback.onTaskPreExecute(mRequest);
+    if (callback != null) {
+      callback.onTaskPreExecute(request);
     }
     super.onPreExecute();
   }
@@ -50,17 +52,16 @@ public class LabelTask<Result> extends AsyncTask<Void, Void, Result> {
    * or premature release of resources.
    */
   @Override
-  protected void onPostExecute(Result result) {
-    mRequest.onPostExecute(result);
-    if (mCallback != null) {
-      mCallback.onTaskPostExecute(mRequest);
+  protected void onPostExecute(T result) {
+    request.onPostExecute(result);
+    if (callback != null) {
+      callback.onTaskPostExecute(request);
     }
     super.onPostExecute(result);
   }
 
   @Override
-  @SuppressWarnings("unchecked")
-  protected Result doInBackground(Void... params) {
-    return mRequest.doInBackground();
+  protected T doInBackground(Void... params) {
+    return request.doInBackground();
   }
 }

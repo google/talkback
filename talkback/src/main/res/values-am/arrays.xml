@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>አዝራር</item>
+    <item>አመልካች ሳጥን</item>
+    <item>ቀለም መምረጫ</item>
+    <item>የቀን እና ሰዓት መቆጣጠሪያ</item>
+    <item>የቀን እና ሰዓት መቆጣጠሪያ</item>
+    <item>የቀን መቆጣጠሪያ</item>
+    <item>የኢሜይል ጽሑፍ አርትዕ</item>
+    <item>የፋይል ምርጫ</item>
+    <item translatable="false"></item>
+    <item>አዝራር</item>
+    <item>የወር መቆጣጠሪያ</item>
+    <item>ጽሑፍ ቁጥር ብቻ አርትዕ</item>
+    <item>የይለፍ ቃል ጽሑፍ አርትዕ</item>
+    <item>የሬዲዮ አዝራር</item>
+    <item>ተንሸራታች</item>
+    <item>ዳግም አስጀምር</item>
+    <item>ለፍለጋ ጽሑፍ አርትዕ</item>
+    <item>አዝራር</item>
+    <item>ለስልክ ቁጥርጽሑፍ አርትዕ</item>
+    <item>ጽሑፍ አርትዕ</item>
+    <item>የዩአርኤል ጽሑፍ አርትዕ</item>
+    <item>የዓመቱ ሣምንት መቆጣጠሪያ</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>ማንቂያ</item>
+    <item>የማንቂያ መገናኛ</item>
+    <item>አዝራር</item>
+    <item>አመልካች ሳጥን</item>
+    <item>ጥምድ ሳጥን</item>
+    <item>መገናኛ</item>
+    <item>የፍርግርግ ህዋስ</item>
+    <item>አገናኝ</item>
+    <item>ምዝግብ ማስታወሻ</item>
+    <item>መልሶ መልስ</item>
+    <item>የምናሌ ንጥል</item>
+    <item>የምናሌ ንጥል አመልካች ሣጥን</item>
+    <item>የምናሌ ንጥል ሬዲዮ አዝራር</item>
+    <item>አማራጭ</item>
+    <item>የሂደት አሞሌ</item>
+    <item>የሬዲዮ አዝራር</item>
+    <item>የሬዲዮ አዝራር</item>
+    <item>መሸብለያ አሞሌ</item>
+    <item>ተንሸራታች</item>
+    <item>ማዞሪያ አዝራር</item>
+    <item>ሁኔታ</item>
+    <item>ትር</item>
+    <item>የትር ፓነል</item>
+    <item>የጽሑፍ ሳጥን</item>
+    <item>ሰዓት ቆጣሪ</item>
+    <item>የመሣሪያ አሞሌ</item>
+    <item>የመሣሪያ ጠቃሚ ምክር</item>
+    <item>የዛፍ ንጥል</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>አገናኝ</item>
+    <item>ርዕስ አንድ</item>
+    <item>ርዕስ ሁለት</item>
+    <item>ርዕስ ሦስት</item>
+    <item>ርዕስ አራት</item>
+    <item>ርዕስ አምስት</item>
+    <item>ርዕስ ስድስት</item>
+    <item>አዝራር</item>
+    <item>ጥምድ ሳጥን</item>
+    <item>ሠንጠረዥ</item>
+    <item>የጽሑፍ ቦታ</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

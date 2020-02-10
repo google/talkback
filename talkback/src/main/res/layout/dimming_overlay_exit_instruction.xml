@@ -18,12 +18,6 @@
         android:text="@string/screen_dimming_exit_instruction_line2"
         android:layout_marginTop="24dp"/>
 
-    <TextView
-        android:id="@+id/message_line_2"
-        style="@style/DimmingInstructionText"
-        android:layout_marginTop="24dp"
-        android:text="@string/screen_dimming_exit_instruction_line3"/>
-
     <ProgressBar
         android:id="@+id/progress"
         android:layout_width="match_parent"

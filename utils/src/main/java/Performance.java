@@ -18,19 +18,19 @@ package com.google.android.accessibility.utils;
 
 import android.content.res.Configuration;
 import android.os.SystemClock;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
-import com.google.android.accessibility.utils.compat.accessibilityservice.AccessibilityServiceCompatUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Utility class for tracking performance statistic per various event types & processing stages.
@@ -41,6 +41,8 @@ import java.util.concurrent.atomic.AtomicLong;
  * matching is approximate.
  */
 public class Performance {
+
+  private static final String TAG = "Performance";
 
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Constants
@@ -99,7 +101,7 @@ public class Performance {
     "EVENT_TYPE_FINGERPRINT_GESTURE"
   };
 
-  public static final EventId EVENT_ID_UNTRACKED = null;
+  @Nullable public static final EventId EVENT_ID_UNTRACKED = null;
 
   /////////////////////////////////////////////////////////////////////////////////////////////
   // Member data
@@ -158,7 +160,7 @@ public class Performance {
    * @return An event id that can be used to track performance through later stages.
    */
   public EventId onEventReceived(@NonNull AccessibilityEvent event) {
-    EventId eventId = toEventId(event);
+    @NonNull EventId eventId = toEventId(event);
     if (!mEnabled) {
       return eventId;
     }
@@ -166,10 +168,6 @@ public class Performance {
     // Segment events based on type.
     String label = AccessibilityEventUtils.typeToString(event.getEventType());
     String[] labels = {label};
-
-    if (eventId == null) {
-      return null;
-    }
 
     onEventReceived(eventId, labels);
     return eventId;
@@ -183,6 +181,7 @@ public class Performance {
    * @param event Event that has already been tracked by onEventReceived()
    * @return EventId of event
    */
+  @NonNull
   public EventId toEventId(@NonNull AccessibilityEvent event) {
     return new EventId(event.getEventTime(), EVENT_TYPE_ACCESSIBILITY, event.getEventType());
   }
@@ -447,7 +446,9 @@ public class Performance {
   protected void trimRecentEvents(int targetSize) {
     while (getNumRecentEvents() > targetSize) {
       EventData eventData = popOldestRecentEvent();
-      collectMissingLatencies(eventData);
+      if (eventData != null) {
+        collectMissingLatencies(eventData);
+      }
     }
   }
 
@@ -519,7 +520,7 @@ public class Performance {
     }
   }
 
-  protected EventData popOldestRecentEvent() {
+  protected @Nullable EventData popOldestRecentEvent() {
     synchronized (mLockRecentEvents) {
       if (mEventQueue.size() == 0) {
         return null;
@@ -723,7 +724,7 @@ public class Performance {
   }
 
   protected void display(String format, Object... args) {
-    LogUtils.log(Performance.class, Log.INFO, format, args);
+    LogUtils.i(TAG, format, args);
   }
 
   protected static String repeat(String string, int repetitions) {
@@ -770,7 +771,7 @@ public class Performance {
     }
 
     @Override
-    public boolean equals(Object otherObj) {
+    public boolean equals(@Nullable Object otherObj) {
       if (this == otherObj) {
         return true;
       }
@@ -882,7 +883,9 @@ public class Performance {
   // Inner classes for latency statistics
 
   /** Key for looking up Statistics by event label & stage. */
-  public static class StatisticsKey implements Comparable {
+  // see 
+  @SuppressWarnings("ComparableType")
+  public static class StatisticsKey implements Comparable<Object> {
     private final String mLabel;
     private final @StageId int mStage;
 
@@ -918,8 +921,8 @@ public class Performance {
     }
 
     @Override
-    public boolean equals(Object otherObj) {
-      if (otherObj == null || !(otherObj instanceof StatisticsKey)) {
+    public boolean equals(@Nullable Object otherObj) {
+      if (!(otherObj instanceof StatisticsKey)) {
         return false;
       }
       if (this == otherObj) {
@@ -1079,9 +1082,9 @@ public class Performance {
   /** A message object with a corresponding EventId, for use by deferred event handlers. */
   public static class EventIdAnd<T> {
     public final T object;
-    public final EventId eventId;
+    @Nullable public final EventId eventId;
 
-    public EventIdAnd(T objectArg, EventId eventIdArg) {
+    public EventIdAnd(T objectArg, @Nullable EventId eventIdArg) {
       object = objectArg;
       eventId = eventIdArg;
     }

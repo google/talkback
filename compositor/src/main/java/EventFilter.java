@@ -21,21 +21,23 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.SystemClock;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityRecordCompat;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import com.google.android.accessibility.compositor.TextEventInterpreter.SelectionStateReader;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.AudioPlaybackMonitor;
 import com.google.android.accessibility.utils.EditTextActionHistory;
-import com.google.android.accessibility.utils.LogUtils;
-import com.google.android.accessibility.utils.Performance;
-import com.google.android.accessibility.utils.input.CursorController;
+import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.input.TextCursorManager;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Determines whether events should be passed on to the compositor. Also interprets events into more
@@ -43,9 +45,13 @@ import com.google.android.accessibility.utils.input.TextCursorManager;
  */
 public class EventFilter {
 
+  private static final String TAG = "EventFilter";
+
   /** Used to query status of media and microphone actions. */
   public interface VoiceActionDelegate {
     boolean isVoiceRecognitionActive();
+
+    boolean isMicrophoneActive();
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -76,21 +82,28 @@ public class EventFilter {
   private static final int PREF_ECHO_SOFTKEYS = 1;
   private static final int PREF_ECHO_NEVER = 2;
 
-  private int mKeyboardEcho = PREF_ECHO_ALWAYS;
+  private int keyboardEcho = PREF_ECHO_ALWAYS;
 
   ///////////////////////////////////////////////////////////////////////////////////
   // Member variables
 
-  private final Context mContext;
-  private final Compositor mCompositor;
-  private NotificationHistory mNotificationHistory = new NotificationHistory();
-  private VoiceActionDelegate mVoiceActionDelegate;
+  private final Context context;
+  private final Compositor compositor;
+  @Nullable private final AudioPlaybackMonitor audioPlaybackMonitor;
+  private VoiceActionDelegate voiceActionDelegate;
 
-  private final TextEventHistory mTextEventHistory;
-  private final TextEventInterpreter mTextEventInterpreter;
-  private final GlobalVariables mGlobalVariables;
-  private long mLastScrollEventTime = -1;
-  private boolean mIsUserTouchingOnScreen = false;
+  private final TextEventHistory textEventHistory;
+  private final TextEventInterpreter textEventInterpreter;
+  private AccessibilityFocusEventInterpreter accessibilityFocusEventInterpreter;
+  private final GlobalVariables globalVariables;
+
+  /**
+   * Time in milliseconds of last non-dropped scroll event, based on system uptime. A negative value
+   * indicates no previous scroll events have occurred.
+   */
+  private long lastScrollEventTimeInMillis = -1;
+
+  private boolean isUserTouchingOnScreen = false;
 
   // /////////////////////////////////////////////////////////////////////////////////
   // Construction
@@ -98,61 +111,103 @@ public class EventFilter {
   public EventFilter(
       Compositor compositor,
       Context context,
-      TextCursorManager textCursorManager,
-      CursorController cursorController,
+      @Nullable TextCursorManager textCursorManager,
+      @Nullable SelectionStateReader selectionStateReader,
       InputModeManager inputModeManager,
-      EditTextActionHistory editTextActionHistory,
+      @Nullable EditTextActionHistory editTextActionHistory,
       GlobalVariables globalVariables) {
-    mCompositor = compositor;
-    mContext = context;
-    mTextEventHistory = new TextEventHistory(editTextActionHistory);
-    mTextEventInterpreter =
+    this(
+        compositor,
+        context,
+        textCursorManager,
+        selectionStateReader,
+        inputModeManager,
+        editTextActionHistory,
+        /* audioPlaybackMonitor= */ null,
+        globalVariables);
+  }
+
+  public EventFilter(
+      Compositor compositor,
+      Context context,
+      @Nullable TextCursorManager textCursorManager,
+      @Nullable SelectionStateReader selectionStateReader,
+      InputModeManager inputModeManager,
+      @Nullable EditTextActionHistory editTextActionHistory,
+      @Nullable AudioPlaybackMonitor audioPlaybackMonitor,
+      GlobalVariables globalVariables) {
+    this.compositor = compositor;
+    this.context = context;
+    this.textEventHistory = new TextEventHistory(editTextActionHistory);
+    this.textEventInterpreter =
         new TextEventInterpreter(
             context,
             textCursorManager,
-            cursorController,
+            selectionStateReader,
             inputModeManager,
-            mTextEventHistory,
+            textEventHistory,
             globalVariables);
-    mGlobalVariables = globalVariables;
+    this.audioPlaybackMonitor = audioPlaybackMonitor;
+    this.globalVariables = globalVariables;
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
   // Methods
 
   public void setVoiceActionDelegate(VoiceActionDelegate delegate) {
-    mVoiceActionDelegate = delegate;
+    voiceActionDelegate = delegate;
+  }
+
+  public void setAccessibilityFocusEventInterpreter(
+      AccessibilityFocusEventInterpreter interpreter) {
+    accessibilityFocusEventInterpreter = interpreter;
   }
 
   public void setKeyboardEcho(int value) {
-    mKeyboardEcho = value;
+    keyboardEcho = value;
   }
 
-  public void sendEvent(AccessibilityEvent event, Performance.EventId eventId) {
+  public void sendEvent(AccessibilityEvent event, @Nullable EventId eventId) {
     // Update persistent state.
-    mGlobalVariables.updateStateFromEvent(event);
+    globalVariables.updateStateFromEvent(event);
 
     // Interpret event more specifically, and extract data from event.
     // TODO: Run more event interpreters, like WindowEventInterpreter.
     // TODO: Move interpretation forward in the pipeline, to AccessibilityEventProcessor.
     EventInterpretation eventInterpreted = new EventInterpretation(event.getEventType());
-    TextEventInterpretation textEventInterpreted = mTextEventInterpreter.interpret(event);
+    TextEventInterpretation textEventInterpreted = textEventInterpreter.interpret(event);
     if (textEventInterpreted != null) {
       eventInterpreted.setEvent(textEventInterpreted.getEvent());
       eventInterpreted.setTextEventInterpretation(textEventInterpreted);
+      eventInterpreted.setPackageName(event.getPackageName());
     }
+
+    AccessibilityFocusEventInterpretation a11yFocusEventInterpreted =
+        (accessibilityFocusEventInterpreter == null)
+            ? null
+            : accessibilityFocusEventInterpreter.interpret(event);
+    if (a11yFocusEventInterpreted != null) {
+      eventInterpreted.setEvent(a11yFocusEventInterpreted.getEvent());
+      eventInterpreted.setAccessibilityFocusInterpretation(a11yFocusEventInterpreted);
+    }
+
     eventInterpreted.setReadOnly();
 
     switch (eventInterpreted.getEvent()) {
         // Drop accessibility-focus events based on EventState.
       case AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED:
+        // TODO: Remove this when focus management is done.
         {
-          if (mGlobalVariables.checkAndClearRecentFlag(
+          if (globalVariables.checkAndClearRecentFlag(
                   GlobalVariables.EVENT_SKIP_FOCUS_PROCESSING_AFTER_GRANULARITY_MOVE)
-              || mGlobalVariables.checkAndClearRecentFlag(
+              || globalVariables.checkAndClearRecentFlag(
                   GlobalVariables.EVENT_SKIP_FOCUS_PROCESSING_AFTER_CURSOR_CONTROL)
-              || mGlobalVariables.checkAndClearRecentFlag(
+              || globalVariables.checkAndClearRecentFlag(
                   GlobalVariables.EVENT_SKIP_FOCUS_PROCESSING_AFTER_IME_CLOSED)) {
+            return;
+          }
+          if ((a11yFocusEventInterpreted != null)
+              && a11yFocusEventInterpreted.getShouldMuteFeedback()) {
             return;
           }
         }
@@ -168,9 +223,9 @@ public class EventFilter {
               AccessibilityNodeInfoUtils.toCompat(event.getSource());
           if ((source != null)
               && AccessibilityNodeInfoUtils.isEmptyEditTextRegardlessOfHint(source)) {
-            mTextEventHistory.setLastFromIndex(0);
-            mTextEventHistory.setLastToIndex(0);
-            mTextEventHistory.setLastNode(AccessibilityNodeInfoUtils.obtain(source.unwrap()));
+            textEventHistory.setLastFromIndex(0);
+            textEventHistory.setLastToIndex(0);
+            textEventHistory.setLastNode(AccessibilityNodeInfoUtils.obtain(source.unwrap()));
           }
           AccessibilityNodeInfoUtils.recycleNodes(source);
           // fall through
@@ -188,12 +243,15 @@ public class EventFilter {
         // Event notification
       case AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED:
         {
-          // If notification is a duplicate of recent notifications, or if the user is touching on
-          // screen, skip event.
+          // . If the user is touching on screen, skip event.
           // For toast events, the notification parcel is null. (Use event text instead.)
           Notification notification = AccessibilityEventUtils.extractNotification(event);
-          if (notification != null
-              && (mIsUserTouchingOnScreen || mNotificationHistory.isRecent(notification))) {
+          if ((notification != null) && isUserTouchingOnScreen) {
+            return;
+          }
+          if (voiceActionDelegate.isVoiceRecognitionActive()
+              && (Role.getSourceRole(event) == Role.ROLE_TOAST)) {
+            LogUtils.d(TAG, "Do not announce the toast: Voice recognition is active.");
             return;
           }
         }
@@ -213,16 +271,15 @@ public class EventFilter {
             return;
           }
           // Update text change history.
-          mTextEventHistory.setTextChangesAwaitingSelection(1);
-          mTextEventHistory.setLastTextChangeTime(event.getEventTime());
-          mTextEventHistory.setLastTextChangePackageName(event.getPackageName());
+          textEventHistory.setTextChangesAwaitingSelection(1);
+          textEventHistory.setLastTextChangeTime(event.getEventTime());
+          textEventHistory.setLastTextChangePackageName(event.getPackageName());
 
           if (!shouldEchoKeyboard(eventInterpreted.getEvent())) {
             return;
           }
-          if ((mVoiceActionDelegate != null) && mVoiceActionDelegate.isVoiceRecognitionActive()) {
-            LogUtils.log(
-                this, Log.DEBUG, "Drop TYPE_VIEW_TEXT_CHANGED event: Voice recognition is active.");
+          if ((voiceActionDelegate != null) && voiceActionDelegate.isVoiceRecognitionActive()) {
+            LogUtils.d(TAG, "Drop TYPE_VIEW_TEXT_CHANGED event: Voice recognition is active.");
             return;
           }
         }
@@ -251,43 +308,43 @@ public class EventFilter {
             return;
           }
           // Update text selection history.
-          mTextEventHistory.setLastKeptTextSelection(event);
+          textEventHistory.setLastKeptTextSelection(event);
           if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED) {
-            mTextEventHistory.setLastFromIndex(event.getFromIndex());
-            mTextEventHistory.setLastToIndex(event.getToIndex());
+            textEventHistory.setLastFromIndex(event.getFromIndex());
+            textEventHistory.setLastToIndex(event.getToIndex());
           }
-          if ((mVoiceActionDelegate != null) && mVoiceActionDelegate.isVoiceRecognitionActive()) {
-            LogUtils.log(
-                this,
-                Log.DEBUG,
-                "Drop TYPE_VIEW_TEXT_SELECTION_CHANGED event: Voice recognition is active.");
+          if ((event.getEventType() == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED)
+              && (voiceActionDelegate != null)
+              && voiceActionDelegate.isVoiceRecognitionActive()) {
+            LogUtils.d(
+                TAG, "Drop TYPE_VIEW_TEXT_SELECTION_CHANGED event: Voice recognition is active.");
             return;
           }
         }
         break;
       case AccessibilityEvent.TYPE_VIEW_SCROLLED:
         {
-          final long currentTime = SystemClock.uptimeMillis();
-          if (shouldDropScrollEvent(event, currentTime)) {
+          final long currentTimeInMillis = SystemClock.uptimeMillis();
+          if (shouldDropScrollEvent(event, currentTimeInMillis)) {
             return;
           }
-          mLastScrollEventTime = currentTime;
+          lastScrollEventTimeInMillis = currentTimeInMillis;
         }
         break;
       case AccessibilityEvent.TYPE_TOUCH_INTERACTION_START:
         // TODO: When double tapping on screen, touch interaction start/end events might
         // be sent in reversed order. We might need a more reliable way to detect touch start/end
         // actions.
-        mIsUserTouchingOnScreen = true;
+        isUserTouchingOnScreen = true;
         break;
       case AccessibilityEvent.TYPE_TOUCH_INTERACTION_END:
-        mIsUserTouchingOnScreen = false;
+        isUserTouchingOnScreen = false;
         break;
       default:
         /* Do Nothing */
     }
 
-    mCompositor.sendEvent(event, eventId, eventInterpreted);
+    compositor.handleEvent(event, eventId, eventInterpreted);
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////////
@@ -297,25 +354,25 @@ public class EventFilter {
     // Drop text change event if we're still waiting for a select event and
     // the change occurred too soon after the previous change.
     final long eventTime = event.getEventTime();
-    if (mTextEventHistory.getTextChangesAwaitingSelection() > 0) {
+    if (textEventHistory.getTextChangesAwaitingSelection() > 0) {
 
       // If the state is still consistent, update the count and drop
       // the event, except when running on locales that don't support
       // text replacement due to character combination complexity.
       final boolean hasDelayElapsed =
-          ((eventTime - mTextEventHistory.getLastTextChangeTime()) >= TEXT_CHANGED_DELAY);
+          ((eventTime - textEventHistory.getLastTextChangeTime()) >= TEXT_CHANGED_DELAY);
       final boolean hasPackageChanged =
           !TextUtils.equals(
-              event.getPackageName(), mTextEventHistory.getLastTextChangePackageName());
-      boolean canReplace = mContext.getResources().getBoolean(R.bool.supports_text_replacement);
+              event.getPackageName(), textEventHistory.getLastTextChangePackageName());
+      boolean canReplace = context.getResources().getBoolean(R.bool.supports_text_replacement);
       if (!hasDelayElapsed && !hasPackageChanged && canReplace) {
-        mTextEventHistory.incrementTextChangesAwaitingSelection(1);
-        mTextEventHistory.setLastTextChangeTime(eventTime);
+        textEventHistory.incrementTextChangesAwaitingSelection(1);
+        textEventHistory.setLastTextChangeTime(eventTime);
         return true;
       }
 
       // The state became inconsistent, so reset the counter.
-      mTextEventHistory.setTextChangesAwaitingSelection(0);
+      textEventHistory.setTextChangesAwaitingSelection(0);
     }
 
     return false;
@@ -327,9 +384,9 @@ public class EventFilter {
       return true;
     }
 
-    final Resources res = mContext.getResources();
+    final Resources res = context.getResources();
 
-    switch (mKeyboardEcho) {
+    switch (keyboardEcho) {
       case PREF_ECHO_ALWAYS:
         return true;
       case PREF_ECHO_SOFTKEYS:
@@ -339,31 +396,31 @@ public class EventFilter {
       case PREF_ECHO_NEVER:
         return false;
       default:
-        LogUtils.log(this, Log.ERROR, "Invalid keyboard echo preference value: %d", mKeyboardEcho);
+        LogUtils.e(TAG, "Invalid keyboard echo preference value: %d", keyboardEcho);
         return false;
     }
   }
 
   private boolean shouldSkipCursorMovementEvent(AccessibilityEvent event) {
-    if (mTextEventHistory.getLastKeptTextSelection() == null) {
+    AccessibilityEvent lastKeptTextSelection = textEventHistory.getLastKeptTextSelection();
+    if (lastKeptTextSelection == null) {
       return false;
     }
 
     // If event is at least X later than previous event, then keep it.
-    if (event.getEventTime() - mTextEventHistory.getLastKeptTextSelection().getEventTime()
+    if (event.getEventTime() - lastKeptTextSelection.getEventTime()
         > CURSOR_MOVEMENT_EVENTS_DELAY) {
-      mTextEventHistory.setLastKeptTextSelection(null);
+      textEventHistory.setLastKeptTextSelection(null);
       return false;
     }
 
     // If event has the same type as previous, it is from a different action, so keep it.
-    if (event.getEventType() == mTextEventHistory.getLastKeptTextSelection().getEventType()) {
+    if (event.getEventType() == lastKeptTextSelection.getEventType()) {
       return false;
     }
 
     // If text-selection-change is followed by text-move-with-granularity, skip movement.
-    if (mTextEventHistory.getLastKeptTextSelection().getEventType()
-            == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED
+    if (lastKeptTextSelection.getEventType() == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED
         && event.getEventType()
             == AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY) {
       return true;
@@ -382,25 +439,25 @@ public class EventFilter {
     // Drop selected events until we've matched the number of changed
     // events. This prevents TalkBack from speaking automatic cursor
     // movement events that result from typing.
-    if (mTextEventHistory.getTextChangesAwaitingSelection() > 0) {
+    if (textEventHistory.getTextChangesAwaitingSelection() > 0) {
       final boolean hasDelayElapsed =
-          ((event.getEventTime() - mTextEventHistory.getLastTextChangeTime())
+          ((event.getEventTime() - textEventHistory.getLastTextChangeTime())
               >= TEXT_SELECTION_DELAY);
       final boolean hasPackageChanged =
           !TextUtils.equals(
-              event.getPackageName(), mTextEventHistory.getLastTextChangePackageName());
+              event.getPackageName(), textEventHistory.getLastTextChangePackageName());
 
       // If the state is still consistent, update the count and drop the event.
       if (!hasDelayElapsed && !hasPackageChanged) {
-        mTextEventHistory.incrementTextChangesAwaitingSelection(-1);
-        mTextEventHistory.setLastFromIndex(event.getFromIndex());
-        mTextEventHistory.setLastToIndex(event.getToIndex());
-        mTextEventHistory.setLastNode(event.getSource());
+        textEventHistory.incrementTextChangesAwaitingSelection(-1);
+        textEventHistory.setLastFromIndex(event.getFromIndex());
+        textEventHistory.setLastToIndex(event.getToIndex());
+        textEventHistory.setLastNode(event.getSource());
         return true;
       }
 
       // The state became inconsistent, so reset the counter.
-      mTextEventHistory.setTextChangesAwaitingSelection(0);
+      textEventHistory.setTextChangesAwaitingSelection(0);
     }
 
     // Drop selection events from views that don't have input focus.
@@ -409,22 +466,50 @@ public class EventFilter {
     boolean isFocused = source != null && source.isFocused();
     AccessibilityNodeInfoUtils.recycleNodes(source);
     if (!isFocused) {
-      LogUtils.log(this, Log.VERBOSE, "Dropped text-selection event from non-focused field");
+      LogUtils.v(TAG, "Dropped text-selection event from non-focused field");
       return true;
     }
 
     return false;
   }
 
-  private boolean shouldDropScrollEvent(AccessibilityEvent event, long currentTime) {
-    if ((currentTime - mLastScrollEventTime) < MIN_SCROLL_INTERVAL) {
-      // TODO: We shouldn't just reject events, since we'll get weird
-      // rhythms when scrolling, e.g. if we're getting an event every
-      // 300ms and we reject at the 250ms mark.
-      return true;
-    }
+  /**
+   * Whether a scroll event should not be sent to the Compositor.
+   *
+   * <p>TODO: Consider adding a flag to ScrollEventInterpretation for not playing
+   * earcons if dropping the events here causes issues or if more flexibility is needed.
+   */
+  private boolean shouldDropScrollEvent(AccessibilityEvent event, long currentTimeInMillis) {
+    // Dropping events may cause weird rhythms when scrolling, e.g. if we're getting an event every
+    // 300ms and we reject at the 250ms mark.
+    return lastScrollEventWasRecent(currentTimeInMillis)
+        || isAutomaticMediaScrollEvent()
+        || !isValidScrollEvent(event);
+  }
 
-    return !isValidScrollEvent(event);
+  private boolean lastScrollEventWasRecent(long currentTimeInMillis) {
+    // Return false if there are no previous scroll events.
+    if (lastScrollEventTimeInMillis < 0) {
+      return false;
+    }
+    long diff = currentTimeInMillis - lastScrollEventTimeInMillis;
+    return diff < MIN_SCROLL_INTERVAL;
+  }
+
+  /**
+   * Whether the scroll event was probably generated automatically by playing media.
+   *
+   * <p>Particularly for videos with captions enabled, new scroll events fire every second or so.
+   * Earcons should not play for these events because they don't provide useful information and are
+   * distracting.
+   */
+  private boolean isAutomaticMediaScrollEvent() {
+    // TODO: Investigate a more accurate way to determine whether a scroll event was
+    // user initiated or initiated by playing media.
+    return audioPlaybackMonitor != null
+        && audioPlaybackMonitor.isPlaybackSourceActive(
+            AudioPlaybackMonitor.PlaybackSource.USAGE_MEDIA)
+        && !isUserTouchingOnScreen;
   }
 
   private boolean isValidScrollEvent(AccessibilityEvent event) {

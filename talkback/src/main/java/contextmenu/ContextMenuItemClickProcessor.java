@@ -16,11 +16,16 @@
 
 package com.google.android.accessibility.talkback.contextmenu;
 
+import static com.google.android.accessibility.talkback.Feedback.Speech.Action.COPY_SAVED;
+import static com.google.android.accessibility.talkback.Feedback.Speech.Action.REPEAT_SAVED;
+import static com.google.android.accessibility.talkback.Feedback.Speech.Action.SPELL_SAVED;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.content.Intent;
 import android.view.MenuItem;
 import com.android.talkback.TalkBackPreferencesActivity;
+import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.utils.Performance.EventId;
@@ -28,10 +33,13 @@ import com.google.android.accessibility.utils.Performance.EventId;
 /** Class for processing the clicks on menu items */
 public class ContextMenuItemClickProcessor {
 
-  private TalkBackService mService;
+  private final TalkBackService service;
+  private final Pipeline.FeedbackReturner pipeline;
 
-  public ContextMenuItemClickProcessor(TalkBackService service) {
-    mService = service;
+  public ContextMenuItemClickProcessor(
+      TalkBackService service, Pipeline.FeedbackReturner pipeline) {
+    this.service = service;
+    this.pipeline = pipeline;
   }
 
   public boolean onMenuItemClicked(MenuItem menuItem) {
@@ -44,33 +52,40 @@ public class ContextMenuItemClickProcessor {
 
     final int itemId = menuItem.getItemId();
     if (itemId == R.id.read_from_top) {
-      mService.getFullScreenReadController().startReadingFromBeginning(eventId);
+      service
+          .getFullScreenReadController()
+          .startReadingFromBeginning(eventId, /* fromContextMenu= */ true);
     } else if (itemId == R.id.read_from_current) {
-      mService.getFullScreenReadController().startReadingFromNextNode(eventId);
+      service
+          .getFullScreenReadController()
+          .startReadingFromNextNode(eventId, /* fromContextMenu= */ true);
     } else if (itemId == R.id.repeat_last_utterance) {
-      mService.getSpeechController().repeatLastUtterance();
+      pipeline.returnFeedback(
+          eventId, Feedback.part().setSpeech(Feedback.Speech.create(REPEAT_SAVED)));
     } else if (itemId == R.id.spell_last_utterance) {
-      mService.getSpeechController().spellLastUtterance();
+      pipeline.returnFeedback(
+          eventId, Feedback.part().setSpeech(Feedback.Speech.create(SPELL_SAVED)));
     } else if (itemId == R.id.copy_last_utterance_to_clipboard) {
-      mService
-          .getSpeechController()
-          .copyLastUtteranceToClipboard(mService.getSpeechController().getLastUtterance(), eventId);
+      pipeline.returnFeedback(
+          eventId, Feedback.part().setSpeech(Feedback.Speech.create(COPY_SAVED)));
     } else if (itemId == R.id.pause_feedback) {
-      mService.requestSuspendTalkBack(eventId);
+      service.requestSuspendTalkBack(eventId);
     } else if (itemId == R.id.talkback_settings) {
-      final Intent settingsIntent = new Intent(mService, TalkBackPreferencesActivity.class);
+      final Intent settingsIntent = new Intent(service, TalkBackPreferencesActivity.class);
       settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       settingsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-      mService.startActivity(settingsIntent);
+      service.startActivity(settingsIntent);
     } else if (itemId == R.id.tts_settings) {
       Intent intent = new Intent();
       intent.setAction(TalkBackService.INTENT_TTS_SETTINGS);
       intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      mService.startActivity(intent);
+      service.startActivity(intent);
     } else if (itemId == R.id.enable_dimming) {
-      mService.getDimScreenController().showDimScreenDialog();
+      service.getDimScreenController().enableDimmingAndShowConfirmDialog();
     } else if (itemId == R.id.disable_dimming) {
-      mService.getDimScreenController().disableDimming();
+      service.getDimScreenController().disableDimming();
+    } else if (itemId == R.id.screen_search) {
+      service.getUniversalSearchManager().toggleSearch(eventId);
     } else {
       // The menu item was not recognized.
       return false;

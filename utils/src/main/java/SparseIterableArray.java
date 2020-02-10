@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.utils;
 
-import android.support.v4.util.SparseArrayCompat;
+import androidx.collection.SparseArrayCompat;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 

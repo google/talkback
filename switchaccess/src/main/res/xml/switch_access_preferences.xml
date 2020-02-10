@@ -21,152 +21,197 @@
 
         <PreferenceScreen
                 android:key="@string/pref_category_scan_mappings_key"
-                android:title="@string/title_pref_category_scan_key_mappings" >
+                android:title="@string/title_pref_category_scan_key_mappings"
+                android:summary="@string/summary_pref_category_scan_key_mappings" >
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
-                    android:key="@string/pref_key_mapped_to_auto_scan_key"
-                    android:title="@string/title_pref_category_auto_scan" />
+            <PreferenceCategory
+                    android:key="@string/pref_category_mappings_movement_and_selection_key"
+                    android:title="@string/title_pref_category_key_mappings_movement_and_selection">
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
-                    android:key="@string/pref_key_mapped_to_reverse_auto_scan_key"
-                    android:title="@string/action_name_reverse_auto_scan" />
+                <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
+                        android:key="@string/pref_key_mapped_to_auto_scan_key"
+                        android:title="@string/title_pref_category_auto_scan"
+                        android:summary="@string/action_key_summary_auto_scan"/>
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
-                    android:key="@string/pref_key_mapped_to_click_key"
-                    android:title="@string/action_name_click" />
+                <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
+                        android:key="@string/pref_key_mapped_to_reverse_auto_scan_key"
+                        android:title="@string/action_name_reverse_auto_scan"
+                        android:summary="@string/action_key_summary_reverse_auto_scan" />
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
-                    android:key="@string/pref_key_mapped_to_next_key"
-                    android:title="@string/action_name_next" />
+                <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
+                        android:key="@string/pref_key_mapped_to_click_key"
+                        android:title="@string/action_name_click"
+                        android:summary="@string/action_key_summary_click" />
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
-                    android:key="@string/pref_key_mapped_to_switch_3_key" />
+                <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
+                        android:key="@string/pref_key_mapped_to_next_key"
+                        android:title="@string/action_name_next"
+                        android:summary="@string/action_key_summary_next" />
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
-                    android:key="@string/pref_key_mapped_to_switch_4_key" />
+                <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
+                        android:key="@string/pref_key_mapped_to_switch_3_key" />
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
-                    android:key="@string/pref_key_mapped_to_switch_5_key" />
+                <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
+                        android:key="@string/pref_key_mapped_to_switch_4_key" />
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
-                    android:key="@string/pref_key_mapped_to_previous_key"
-                    android:title="@string/action_name_previous" />
+                <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
+                        android:key="@string/pref_key_mapped_to_switch_5_key" />
+
+                <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
+                        android:key="@string/pref_key_mapped_to_previous_key"
+                        android:title="@string/action_name_previous"
+                        android:summary="@string/action_key_summary_previous" />
+            </PreferenceCategory>
+
+            <PreferenceCategory
+                    android:key="@string/pref_category_mappings_highlighted_item_actions_key"
+                    android:title="@string/title_pref_category_key_mappings_highlighted_item_actions">
+
+                <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
+                        android:key="@string/pref_key_mapped_to_long_click_key"
+                        android:title="@string/action_name_long_click"
+                        android:summary="@string/action_key_summary_long_click" />
+
+                <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
+                        android:key="@string/pref_key_mapped_to_scroll_forward_key"
+                        android:title="@string/action_name_scroll_forward"
+                        android:summary="@string/action_key_summary_scroll_forward" />
+
+                <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
+                        android:key="@string/pref_key_mapped_to_scroll_backward_key"
+                        android:title="@string/action_name_scroll_backward"
+                        android:summary="@string/action_key_summary_scroll_backward" />
+            </PreferenceCategory>
         </PreferenceScreen>
 
         <PreferenceScreen
                 android:key="@string/pref_category_action_mappings_key"
-                android:title="@string/title_pref_category_key_mappings" >
+                android:title="@string/title_pref_category_key_mappings"
+                android:summary="@string/summary_pref_category_key_mappings" >
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
-                    android:key="@string/pref_key_mapped_to_long_click_key"
-                    android:title="@string/action_name_long_click" />
-
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
-                    android:key="@string/pref_key_mapped_to_scroll_forward_key"
-                    android:title="@string/action_name_scroll_forward" />
-
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
-                    android:key="@string/pref_key_mapped_to_scroll_backward_key"
-                    android:title="@string/action_name_scroll_backward" />
-
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
+            <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
                     android:key="@string/pref_key_mapped_to_back_key"
-                    android:title="@string/global_action_back" />
+                    android:title="@string/global_action_back"
+                    android:summary="@string/global_action_key_summary_back" />
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
+            <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
                     android:key="@string/pref_key_mapped_to_home_key"
-                    android:title="@string/global_action_home" />
+                    android:title="@string/global_action_home"
+                    android:summary="@string/global_action_key_summary_home" />
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
+            <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
                     android:key="@string/pref_key_mapped_to_notifications_key"
-                    android:title="@string/global_action_notifications" />
+                    android:title="@string/global_action_notifications"
+                    android:summary="@string/global_action_key_summary_notifications" />
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
+            <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
                     android:key="@string/pref_key_mapped_to_quick_settings_key"
-                    android:title="@string/global_action_quick_settings" />
+                    android:title="@string/global_action_quick_settings"
+                    android:summary="@string/global_action_key_summary_quick_settings" />
 
-            <com.google.android.accessibility.switchaccess.KeyComboPreference
+            <com.google.android.accessibility.switchaccess.keyassignment.KeyComboPreference
                     android:key="@string/pref_key_mapped_to_overview_key"
-                    android:title="@string/global_action_overview" />
+                    android:title="@string/global_action_overview"
+                    android:summary="@string/global_action_key_summary_overview" />
         </PreferenceScreen>
-
     </PreferenceCategory>
 
     <PreferenceCategory
             android:key="@string/pref_category_customize_scanning_key"
             android:title="@string/title_pref_category_customize_scanning" >
 
-        <ListPreference
-                android:key="@string/pref_scanning_methods_key"
-                android:title="@string/title_pref_scanning_methods"
-                android:summary="%s"
-                android:entries="@array/switch_access_scanning_methods_entries"
-                android:entryValues="@array/switch_access_scanning_methods_values"
-                android:defaultValue="@string/pref_scanning_methods_default" />
-
         <PreferenceScreen
-                android:key="@string/pref_key_category_switch_access_spoken_feedback"
-                android:title="@string/title_pref_switch_access_spoken_feedback" >
+                android:key="@string/pref_category_auto_scan_key"
+                android:title="@string/title_pref_category_auto_scan" >
 
             <SwitchPreference
-                    android:key="@string/pref_key_switch_access_spoken_feedback"
-                    android:title="@string/title_pref_switch_access_spoken_feedback"
-                    android:defaultValue="false" />
+                    android:key="@string/pref_key_auto_scan_enabled"
+                    android:title="@string/title_pref_category_auto_scan"
+                    android:summary="@string/one_switch_description_text"
+                    android:defaultValue="@string/pref_auto_scan_default_value" />
 
-            <Preference
-                    android:key="@string/pref_key_switch_access_tts_settings"
-                    android:title="@string/title_pref_switch_access_tts_settings"
-                    android:dependency="@string/pref_key_switch_access_spoken_feedback" >
-                    <intent android:action="com.android.settings.TTS_SETTINGS" />
-            </Preference>
+            <EditTextPreference
+                    android:key="@string/pref_key_auto_scan_time_delay"
+                    android:title="@string/title_pref_auto_scan_time_delay"
+                    android:dialogMessage="@string/step_speed_subheading"
+                    android:defaultValue="@string/pref_auto_scan_time_delay_default_value"
+                    android:inputType="numberDecimal"
+                    android:dependency="@string/pref_key_auto_scan_enabled" />
 
-            <PreferenceCategory
-                    android:key="@string/pref_key_category_switch_access_spoken_feedback_multiple_items"
-                    android:title="@string/title_pref_category_switch_access_spoken_feedback_multiple_items" >
+            <EditTextPreference
+                    android:key="@string/pref_key_start_scan_delay"
+                    android:title="@string/title_pref_start_scan_delay"
+                    android:dialogMessage="@string/dialog_message_pref_start_scan_delay_auto_scan"
+                    android:defaultValue="@string/pref_start_scan_delay_default_value"
+                    android:inputType="numberDecimal"
+                    android:dependency="@string/pref_key_auto_scan_enabled" />
 
-                <SwitchPreference
-                        android:key="@string/pref_key_switch_access_speak_first_last_item"
-                        android:title="@string/title_pref_switch_access_speak_first_last_item"
-                        android:defaultValue="true"
-                        android:dependency="@string/pref_key_switch_access_spoken_feedback" />
-
-                <SwitchPreference
-                        android:key="@string/pref_key_switch_access_speak_number_of_items"
-                        android:title="@string/title_pref_switch_access_speak_number_of_items"
-                        android:defaultValue="true"
-                        android:dependency="@string/pref_key_switch_access_spoken_feedback" />
-
-                <SwitchPreference
-                        android:key="@string/pref_key_switch_access_speak_all_items"
-                        android:title="@string/title_pref_switch_access_speak_all_items"
-                        android:defaultValue="true"
-                        android:dependency="@string/pref_key_switch_access_spoken_feedback" />
-            </PreferenceCategory>
-
-            <PreferenceCategory
-                    android:key="@string/pref_key_category_spoken_feedback_auto_scan"
-                    android:title="@string/title_pref_category_auto_scan" >
-
-                <SwitchPreference
-                        android:key="@string/pref_key_switch_access_spoken_feedback_finish_speech"
-                        android:title="@string/title_pref_switch_access_spoken_feedback_finish_speech"
-                        android:defaultValue="true"
-                        android:dependency="@string/pref_key_switch_access_spoken_feedback" />
-            </PreferenceCategory>
-
-          <PreferenceCategory
-                    android:key="@string/pref_key_spoken_feedback_general_settings"
-                    android:title="@string/title_pref_spoken_feedback_general_settings"
-                    android:dependency="@string/pref_key_switch_access_spoken_feedback" >
-
-                <SwitchPreference
-                    android:key="@string/pref_key_scan_non_actionable_items"
-                    android:title="@string/title_pref_scan_non_actionable_items"
-                    android:defaultValue="false"
-                    android:dependency="@string/pref_key_switch_access_spoken_feedback" />
-          </PreferenceCategory>
-
+            <EditTextPreference
+                    android:key="@string/pref_key_point_scan_and_autoscan_loop_count"
+                    android:title="@string/title_pref_loop_count"
+                    android:dialogMessage="@string/dialog_message_pref_loop_count"
+                    android:defaultValue="@string/pref_point_scan_and_autoscan_loop_count_default"
+                    android:inputType="number"
+                    android:dependency="@string/pref_key_auto_scan_enabled" />
         </PreferenceScreen>
+
+        <com.google.android.accessibility.switchaccess.ScanningMethodPreference
+                android:key="@string/pref_scanning_methods_key"
+                android:title="@string/title_pref_scanning_methods" />
+
+        <PreferenceScreen
+                android:key="@string/pref_category_point_scan_key"
+                android:title="@string/point_scan" >
+
+            <SwitchPreference
+                    android:key="@string/pref_key_point_scan_enabled"
+                    android:title="@string/point_scan"
+                    android:summary="@string/summary_pref_point_scan"
+                    android:defaultValue="@bool/pref_point_scan_enabled_default_value"/>
+
+            <EditTextPreference
+                    android:key="@string/pref_key_point_scan_line_speed"
+                    android:title="@string/title_pref_point_scan_line_speed"
+                    android:summary="%s"
+                    android:dialogMessage="@string/dialog_message_pref_line_speed"
+                    android:defaultValue="@string/pref_point_scan_line_speed_default"
+                    android:inputType="numberDecimal"
+                    android:dependency="@string/pref_key_point_scan_enabled" />
+
+            <EditTextPreference
+                    android:key="@string/pref_key_start_scan_delay"
+                    android:title="@string/title_pref_start_scan_delay"
+                    android:summary="%s"
+                    android:dialogMessage="@string/dialog_message_pref_start_scan_delay_point_scan"
+                    android:defaultValue="@string/pref_start_scan_delay_default_value"
+                    android:inputType="numberDecimal"
+                    android:dependency="@string/pref_key_point_scan_enabled" />
+
+            <EditTextPreference
+                    android:key="@string/pref_key_point_scan_and_autoscan_loop_count"
+                    android:title="@string/title_pref_loop_count"
+                    android:dialogMessage="@string/dialog_message_pref_loop_count"
+                    android:defaultValue="@string/pref_point_scan_and_autoscan_loop_count_default"
+                    android:inputType="number"
+                    android:dependency="@string/pref_key_point_scan_enabled" />
+        </PreferenceScreen>
+
+        <SwitchPreference
+                android:key="@string/switch_access_auto_start_scan_key"
+                android:title="@string/switch_access_auto_start_scan_title"
+                android:summary="@string/switch_access_auto_start_scan_summary"
+                android:defaultValue="@bool/switch_access_auto_start_scan_default" />
+
+        <SwitchPreference
+                android:key="@string/switch_access_choose_action_auto_select_key"
+                android:title="@string/title_pref_auto_select"
+                android:summary="@string/summary_pref_auto_select"
+                android:defaultValue="@string/switch_access_pref_choose_action_behavior_default"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:key="@string/pref_category_display_and_sound_key"
+            android:title="@string/title_pref_category_display_and_sound" >
 
         <PreferenceScreen
                 android:key="@string/pref_standard_highlight_key"
@@ -302,54 +347,199 @@
             </PreferenceScreen>
         </PreferenceScreen>
 
-        <SwitchPreference
-                android:key="@string/pref_key_auto_scan_enabled"
-                android:title="@string/title_pref_category_auto_scan"
-                android:defaultValue="@string/pref_auto_scan_default_value" />
+        <PreferenceScreen
+            android:key="@string/pref_key_category_switch_access_speech_sound_vibration"
+            android:title="@string/title_pref_switch_access_speech_sound_vibration" >
 
-        <EditTextPreference
-                android:key="@string/pref_key_auto_scan_time_delay"
-                android:title="@string/title_pref_auto_scan_time_delay"
-                android:defaultValue="@string/pref_auto_scan_time_delay_default_value"
-                android:inputType="numberDecimal"
-                android:dependency="@string/pref_key_auto_scan_enabled" />
+            <PreferenceCategory
+                android:key="@string/pref_key_category_switch_access_spoken_feedback"
+                android:title="@string/title_pref_switch_access_spoken_feedback" >
 
-        <EditTextPreference
-                android:key="@string/pref_key_point_scan_and_autoscan_loop_count"
-                android:title="@string/title_pref_loop_count"
-                android:dialogMessage="@string/dialog_message_pref_loop_count"
-                android:defaultValue="@string/pref_point_scan_and_autoscan_loop_count_default"
-                android:inputType="number" />
+                <SwitchPreference
+                    android:key="@string/pref_key_switch_access_spoken_feedback"
+                    android:title="@string/title_pref_switch_access_spoken_feedback"
+                    android:defaultValue="false" />
 
-        <EditTextPreference
-            android:key="@string/pref_key_nomon_clock_time_delay"
-            android:title="@string/title_pref_nomon_clock_time_delay"
-            android:defaultValue="@string/pref_nomon_clock_time_delay_default_value"
-            android:inputType="numberDecimal" />
+                <SwitchPreference
+                    android:key="@string/pref_key_scan_non_actionable_items"
+                    android:title="@string/title_pref_scan_non_actionable_items"
+                    android:summary="@string/scan_non_actionable_items_summary"
+                    android:defaultValue="@bool/pref_scan_non_actionable_items_default_value"
+                    android:dependency="@string/pref_key_switch_access_spoken_feedback" />
 
-        <EditTextPreference
-            android:key="@string/pref_key_nomon_clock_groups"
-            android:title="@string/title_pref_num_nomon_clock_groups"
-            android:defaultValue="@string/pref_nomon_clock_groups_default_value"
-            android:inputType="numberDecimal" />
+                <PreferenceScreen
+                    android:key="@string/pref_key_verbosity"
+                    android:title="@string/title_pref_switch_access_verbosity"
+                    android:summary="@string/summary_verbosity"
+                    android:dependency="@string/pref_key_switch_access_spoken_feedback" >
 
-        <SwitchPreference
-                android:key="@string/switch_access_auto_start_scan_key"
-                android:title="@string/switch_access_auto_start_scan_title"
-                android:summary="@string/switch_access_auto_start_scan_summary"
-                android:defaultValue="false" />
+                    <!-- Verbosity details -->
+                    <PreferenceCategory
+                        android:key="@string/pref_key_verbosity_category_verbosity_details"
+                        android:title="@string/title_pref_verbosity_category_verbosity_details">
 
-        <EditTextPreference
-                android:key="@string/pref_key_point_scan_line_speed"
-                android:title="@string/title_pref_point_scan_line_speed"
-                android:defaultValue="@string/pref_point_scan_line_speed_default"
-                android:inputType="numberDecimal" />
+                        <!-- Keyboard echo -->
+                        <SwitchPreference
+                            android:defaultValue="@bool/pref_keyboard_echo_default_value"
+                            android:key="@string/pref_key_keyboard_echo"
+                            android:summaryOff="@string/keyboard_echo_summary_off"
+                            android:summaryOn="@string/keyboard_echo_summary_on"
+                            android:title="@string/title_pref_switch_access_keyboard_echo" />
 
-        <EditTextPreference
-                android:key="@string/pref_key_start_scan_delay"
-                android:title="@string/title_pref_start_scan_delay"
-                android:defaultValue="@string/pref_start_scan_delay_default_value"
-                android:inputType="numberDecimal" />
+                        <!-- Usage hints -->
+                        <SwitchPreference
+                            android:key="@string/pref_key_enable_hints"
+                            android:title="@string/title_pref_enable_hints"
+                            android:summaryOff="@string/enable_hints_summary_off"
+                            android:summaryOn="@string/enable_hints_summary_on"
+                            android:defaultValue="@bool/pref_enable_hints_default_value" />
+
+                        <!-- List and grid information -->
+                        <SwitchPreference
+                            android:defaultValue="@bool/pref_speak_container_element_position_default_value"
+                            android:key="@string/pref_key_speak_container_element_position"
+                            android:summaryOff="@string/speak_container_element_position_summary_off"
+                            android:summaryOn="@string/speak_container_element_position_summary_on"
+                            android:title="@string/title_pref_speak_container_element_position" />
+
+                        <!-- Element type -->
+                        <SwitchPreference
+                            android:defaultValue="@bool/pref_speak_element_type_default_value"
+                            android:key="@string/pref_key_speak_element_type"
+                            android:summaryOff="@string/speak_element_type_summary_off"
+                            android:summaryOn="@string/speak_element_type_summary_on"
+                            android:title="@string/title_pref_speak_element_type" />
+
+                        <!-- Selection echo -->
+                        <SwitchPreference
+                            android:defaultValue="@bool/pref_speak_selected_item_or_group_default_value"
+                            android:key="@string/pref_key_speak_selected_item_or_group"
+                            android:summaryOff="@string/speak_selected_item_or_group_summary"
+                            android:summaryOn="@string/speak_selected_item_or_group_summary"
+                            android:title="@string/title_pref_speak_selected_item_or_group" />
+
+                        <!-- Pitch changes -->
+                        <SwitchPreference
+                            android:defaultValue="@bool/pref_pitch_change_for_ime_default_value"
+                            android:key="@string/pref_key_pitch_change_for_ime"
+                            android:summaryOff="@string/pitch_change_for_ime_summary_off"
+                            android:summaryOn="@string/pitch_change_for_ime_summary_on"
+                            android:title="@string/title_pref_pitch_change_for_ime" />
+                    </PreferenceCategory>
+
+                    <!-- For multiple items settings -->
+                    <PreferenceCategory
+                        android:key="@string/pref_key_category_switch_access_spoken_feedback_multiple_items"
+                        android:title="@string/title_pref_category_switch_access_spoken_feedback_multiple_items" >
+
+                        <SwitchPreference
+                            android:key="@string/pref_key_switch_access_speak_first_last_item"
+                            android:title="@string/title_pref_switch_access_speak_first_last_item"
+                            android:defaultValue="@bool/pref_speak_first_last_item_default_value"
+                            android:dependency="@string/pref_key_switch_access_spoken_feedback" />
+
+                        <SwitchPreference
+                            android:key="@string/pref_key_switch_access_speak_number_of_items"
+                            android:title="@string/title_pref_switch_access_speak_number_of_items"
+                            android:defaultValue="true"
+                            android:dependency="@string/pref_key_switch_access_spoken_feedback" />
+
+                        <SwitchPreference
+                            android:key="@string/pref_key_switch_access_speak_all_items"
+                            android:title="@string/title_pref_switch_access_speak_all_items"
+                            android:defaultValue="true"
+                            android:dependency="@string/pref_key_switch_access_spoken_feedback" />
+                    </PreferenceCategory>
+
+                    <!-- Miscellaneous settings -->
+                    <PreferenceCategory
+                        android:key="@string/pref_key_verbosity_category_miscellaneous"
+                        android:title="@string/title_pref_verbosity_category_miscellaneous">
+
+                        <!-- Description order -->
+                        <ListPreference
+                            android:defaultValue="@string/pref_node_description_order_default"
+                            android:dialogTitle="@string/title_pref_node_description_order"
+                            android:entries="@array/switch_access_node_description_order_entries"
+                            android:entryValues="@array/switch_access_node_description_order_values"
+                            android:key="@string/pref_key_node_description_order"
+                            android:summary="%s"
+                            android:title="@string/title_pref_node_description_order" />
+
+                        <!-- Speak element IDs -->
+                        <SwitchPreference
+                            android:defaultValue="@bool/pref_speak_element_ids_default_value"
+                            android:key="@string/pref_key_speak_element_ids"
+                            android:summaryOff="@string/speak_element_ids_summary_off"
+                            android:summaryOn="@string/speak_element_ids_summary_on"
+                            android:title="@string/title_pref_switch_access_speak_element_ids" />
+                    </PreferenceCategory>
+                </PreferenceScreen>
+
+                <Preference
+                    android:key="@string/pref_key_switch_access_tts_settings"
+                    android:title="@string/title_pref_switch_access_tts_settings"
+                    android:dependency="@string/pref_key_switch_access_spoken_feedback" >
+                </Preference>
+            </PreferenceCategory>
+
+            <PreferenceCategory
+                    android:key="@string/pref_key_category_spoken_feedback_auto_scan"
+                    android:title="@string/title_pref_category_auto_scan" >
+
+                <SwitchPreference
+                        android:key="@string/pref_key_switch_access_spoken_feedback_finish_speech"
+                        android:title="@string/title_pref_switch_access_spoken_feedback_finish_speech"
+                        android:defaultValue="true"
+                        android:dependency="@string/pref_key_switch_access_spoken_feedback" />
+
+                <!-- Maximum time per item -->
+                <EditTextPreference
+                    android:key="@string/pref_key_switch_access_spoken_feedback_maximum_time_per_item"
+                    android:title="@string/title_pref_switch_access_spoken_feedback_maximum_time_per_item"
+                    android:dialogMessage="@string/dialog_message_pref_maximum_time_per_item"
+                    android:defaultValue="@integer/pref_maximum_time_per_item_default_value_seconds"
+                    android:inputType="numberDecimal"
+                    android:dependency="@string/pref_key_switch_access_spoken_feedback"/>
+            </PreferenceCategory>
+
+            <PreferenceCategory
+                android:key="@string/pref_key_spoken_feedback_other_feedback"
+                android:title="@string/title_pref_spoken_feedback_other_feedback"
+                android:dependency="@string/pref_key_switch_access_spoken_feedback" >
+
+                <SwitchPreference
+                    android:key="@string/pref_key_vibration_feedback"
+                    android:title="@string/title_pref_switch_access_vibration_feedback"
+                    android:summary="@string/vibration_feedback_summary"
+                    android:defaultValue="@bool/pref_vibration_feedback_default_value"/>
+
+                <SwitchPreference
+                    android:key="@string/pref_key_sound_feedback"
+                    android:title="@string/title_pref_switch_access_sound_feedback"
+                    android:summary="@string/sound_feedback_summary"
+                    android:defaultValue="@bool/pref_sound_feedback_default_value"/>
+
+                <ListPreference
+                    android:key="@string/pref_key_sound_volume"
+                    android:title="@string/title_pref_switch_access_sound_volume"
+                    android:summary="%s"
+                    android:entries="@array/switch_access_sound_volume_entries"
+                    android:entryValues="@array/switch_access_sound_volume_values"
+                    android:defaultValue="@string/pref_switch_access_sound_volume_default"/>
+
+                <SwitchPreference
+                    android:key="@string/pref_key_audio_ducking"
+                    android:title="@string/title_pref_switch_access_audio_ducking"
+                    android:summary="@string/audio_ducking_summary"
+                    android:defaultValue="@bool/pref_audio_ducking_default_value"/>
+            </PreferenceCategory>
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:key="@string/pref_category_switch_accomodation_key"
+            android:title="@string/title_pref_category_switch_accomodation" >
 
         <EditTextPreference
                 android:key="@string/pref_key_debounce_time"
@@ -373,5 +563,18 @@
                 android:key="@string/pref_key_privacy_policy"
                 android:title="@string/title_pref_privacy_policy" />
     </PreferenceCategory>
+
+  <PreferenceCategory
+      android:title="@string/title_pref_developer_settings">
+      <PreferenceScreen
+          android:title="@string/title_pref_developer_settings">
+
+          <SwitchPreference
+              android:key="@string/pref_key_display_speech_output"
+              android:title="@string/title_pref_spoken_feedback_overlay"
+              android:dependency="@string/pref_key_switch_access_spoken_feedback"
+              android:defaultValue="@bool/pref_display_speech_output_default_value"/>
+      </PreferenceScreen>
+  </PreferenceCategory>
 
 </PreferenceScreen>

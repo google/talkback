@@ -34,7 +34,7 @@ public class GestureActionMonitor extends BroadcastReceiver {
   /** The filter for which broadcast events this receiver should monitor. */
   public static final IntentFilter FILTER = new IntentFilter(ACTION_GESTURE_ACTION_PERFORMED);
 
-  private GestureActionListener mListener;
+  private GestureActionListener listener;
 
   /**
    * Sets the {@link GestureActionListener} that will handle received gesture actions.
@@ -43,12 +43,12 @@ public class GestureActionMonitor extends BroadcastReceiver {
    *     actions should not be handled.
    */
   public void setListener(GestureActionListener listener) {
-    mListener = listener;
+    this.listener = listener;
   }
 
   @Override
   public void onReceive(Context context, Intent intent) {
-    if (mListener == null) {
+    if (listener == null) {
       return;
     }
 
@@ -58,7 +58,7 @@ public class GestureActionMonitor extends BroadcastReceiver {
 
     String action = intent.getStringExtra(EXTRA_SHORTCUT_GESTURE_ACTION);
     if (action != null) {
-      mListener.onGestureAction(action);
+      listener.onGestureAction(action);
     }
   }
 

@@ -16,8 +16,9 @@
 
 package com.google.android.accessibility.utils.traversal;
 
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoRef;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class NodeFocusFinder {
   public static final int SEARCH_FORWARD = 1;
@@ -30,10 +31,12 @@ public class NodeFocusFinder {
    * @param direction The direction to travel.
    * @return The next node in the specified direction, or {@code null} if there are no more nodes.
    */
-  public static AccessibilityNodeInfoCompat focusSearch(
+  public static @Nullable AccessibilityNodeInfoCompat focusSearch(
       AccessibilityNodeInfoCompat node, int direction) {
     final AccessibilityNodeInfoRef ref = AccessibilityNodeInfoRef.unOwned(node);
-    if (ref == null) return null;
+    if (ref == null) {
+      return null;
+    }
 
     switch (direction) {
       case SEARCH_FORWARD:

@@ -1,156 +1,179 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"TalkBack je uključen"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack je obustavljen"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack je nastavljen"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"TalkBack je isključen"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"Izgovaranje povratnih informacija je uključeno"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"Izgovaranje povratnih informacija je obustavljeno"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"Izgovaranje povratnih informacija je nastavljeno"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"Izgovaranje povratnih informacija je isključeno"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Početak polja"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Kraj polja"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Način odabira je uključen"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Način odabira je isključen"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Odabir je izbrisan"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"Poziv"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"Poruka"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"E-poruka"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"Događaj"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"Promocija"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"Alarm"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"Napredak"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"Društvena mreža"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"Greška"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"Kontroliranje medija"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"Status sistema"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"Usluga"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"Meni za <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> je zamijenio <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> je izbrisan"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"izrezano, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"zalijepljeno, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, odabrano"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"Odabrani tekst: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, nije odabrano"</string>
-    <string name="template_text_error" msgid="153775825635730287">"Neispravan unos <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> zamijenjen s <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> znakova"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> za <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> posto."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="one"><xliff:g id="TYPE_2">%1$s</xliff:g> pokazuje <xliff:g id="COUNT_3">%2$d</xliff:g> stavku.</item>
-      <item quantity="few"><xliff:g id="TYPE_2">%1$s</xliff:g> pokazuje <xliff:g id="COUNT_3">%2$d</xliff:g> stavke.</item>
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> pokazuje <xliff:g id="COUNT_3">%2$d</xliff:g> stavki.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"Mreža"</string>
-    <string name="value_listview" msgid="7625152822709234439">"Lista"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"Traka tabulatora"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"Padajuća lista"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"Okvir za odabir"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"Dugme za radio"</string>
-    <string name="value_button" msgid="2459787142940409576">"Dugme"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"Kontrola traženja"</string>
-    <string name="value_switch" msgid="6946709666466895221">"Prekidač"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"Okvir za uređivanje"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"Uređivanje"</string>
-    <string name="value_image" msgid="5114229220871881124">"Slika"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"Neobilježeno"</string>
-    <string name="value_pager" msgid="7708574424402835461">"Prikaz više strana"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"Strana"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"Traka napretka"</string>
-    <string name="value_webview" msgid="291321285400233958">"Web prikaz"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"Znakovi od <xliff:g id="FROM_INDEX">%1$d</xliff:g> do <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"Znak <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"lozinka"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Klizni panel je otvoren"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"Opcije"</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"Tekst je obrisan"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Dostignuta je maksimalna dužina"</string>
-    <string name="value_selected" msgid="1307429702194660766">"odabrano"</string>
-    <string name="value_checked" msgid="3006751014125833966">"označeno"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"nije označeno"</string>
-    <string name="value_on" msgid="39454338086317219">"uključeno"</string>
-    <string name="value_off" msgid="6700497510945744608">"isključeno"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"onemogućeno"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"prošireno"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"skupljeno"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"Dodirnite dvaput"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"Dodirni"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"Pritisnite dugme za odabir"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> za aktiviranje."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za aktiviranje."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> i držite za dugi pritisak."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za dugi pritisak."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> za uključivanje"</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za uključivanje."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> za unos teksta."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za unos teksta."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> za promjenu."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za promjenu."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"Prevlačenje s dva prsta za prebacivanje između stranica."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"Nema više stranica."</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"Koristite tipke za podešavanje jačine zvuka da namjestite"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g> za promjenu."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"Radnje:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> za <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Pritisnite <xliff:g id="KEYCOMBO">%1$s</xliff:g> za <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> i drži za <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Velika slova su uključena"</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Velika slova su isključena"</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Numerička tastatura je uključena."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Numerička tastatura je isključena."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Pomicanje je zaključano."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Pomicanje je otključano."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"Uspravno"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"Vodoravno"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"Odbaci"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"Proširi"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"Skupi"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"Red <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"Kolona <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"Naslov"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"Naslov reda"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"Naslov kolone"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"Slika u slici aplikacije <xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g>"</string>
-    <string name="in_list" msgid="444302621514168828">"Na spisku <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"Na listi"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"Izvan liste <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"Van liste"</string>
-    <string name="in_grid" msgid="6705387966271590222">"U mreži <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"U mreži"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"Izvan mreže <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"Van mreže"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"Nivo <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> stavka</item>
-      <item quantity="few"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> stavke</item>
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> stavki</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="one"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> red</item>
-      <item quantity="few"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> reda</item>
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> redova</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> kolona</item>
-      <item quantity="few"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> kolone</item>
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> kolona</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znak</item>
-      <item quantity="few"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znaka</item>
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> znakova</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"Uvećanje je uključeno <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"Uvećanje <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"Uvećanje je isključeno"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"Brzina govora <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"Redukcija jačine zvuka tokom govora je uključena"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"Redukcija jačine zvuka tokom govora je isključena"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"Brzina govora"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"Rječitost"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"Navigacija"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"Redukcija jačine zvuka tokom govora"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"Lozinke se izgovaraju samo kada se koriste slušalice"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">TalkBack je uključen</string>
+  <string name="talkback_suspended">TalkBack je obustavljen</string>
+  <string name="talkback_resumed">TalkBack je nastavljen</string>
+  <string name="talkback_disabled">TalkBack je isključen</string>
+  <string name="spokenfeedback_on">Izgovaranje povratnih informacija je uključeno</string>
+  <string name="spokenfeedback_suspended">Izgovaranje povratnih informacija je obustavljeno</string>
+  <string name="spokenfeedback_resumed">Izgovaranje povratnih informacija je nastavljeno</string>
+  <string name="spokenfeedback_disabled">Izgovaranje povratnih informacija je isključeno</string>
+  <string name="notification_type_beginning_of_field">Početak polja</string>
+  <string name="notification_type_end_of_field">Kraj polja</string>
+  <string name="notification_type_selection_mode_on">Način odabira je uključen</string>
+  <string name="notification_type_selection_mode_off">Način odabira je isključen</string>
+  <string name="notification_type_selection_cleared">Odabir je izbrisan</string>
+  <string name="notification_category_call">Poziv</string>
+  <string name="notification_category_msg">Poruka</string>
+  <string name="notification_category_email">E-poruka</string>
+  <string name="notification_category_event">Događaj</string>
+  <string name="notification_category_promo">Promocija</string>
+  <string name="notification_category_alarm">Alarm</string>
+  <string name="notification_category_progress">Napredak</string>
+  <string name="notification_category_social">Društvena mreža</string>
+  <string name="notification_category_err">Greška</string>
+  <string name="notification_category_transport">Kontroliranje medija</string>
+  <string name="notification_category_sys">Status sistema</string>
+  <string name="notification_category_service">Usluga</string>
+  <string name="template_drawer_opened">Meni za %1$s</string>
+  <string name="template_text_replaced">%1$s je zamijenio %2$s</string>
+  <string name="template_text_removed">%1$s je izbrisan</string>
+  <string name="template_text_cut">izrezano, %1$s</string>
+  <string name="template_text_pasted">zalijepljeno, %1$s</string>
+  <string name="template_text_selected">%1$s, odabrano</string>
+  <string name="template_announce_selected_text">Odabrani tekst: %1$s</string>
+  <string name="template_text_unselected">%1$s, nije odabrano</string>
+  <string name="template_text_error">Neispravan unos %1$s</string>
+  <string name="template_replaced_characters">%1$s zamijenjen s %2$s znakova</string>
+  <string name="template_labeled_item">%1$s za %2$s</string>
+  <string name="template_percent">%1$s posto.</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s pokazuje %2$d stavku.</item>
+    <item quantity="few">%1$s pokazuje %2$d stavke.</item>
+    <item quantity="other">%1$s pokazuje %2$d stavki.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">Mreža</string>
+  <string name="value_listview">Lista</string>
+  <string name="value_tabwidget">Traka tabulatora</string>
+  <string name="value_spinner">Padajuća lista</string>
+  <string name="value_checkbox">Okvir za odabir</string>
+  <string name="value_radio_button">Dugme za izbor</string>
+  <string name="value_button">Dugme</string>
+  <string name="value_seek_bar">Kontrola traženja</string>
+  <string name="value_switch">Prekidač</string>
+  <string name="value_edit_box">Okvir za uređivanje</string>
+  <string name="value_edit_box_editing">Uređivanje</string>
+  <string name="value_image">Slika</string>
+  <string name="value_unlabelled">Neobilježeno</string>
+  <string name="value_pager">Prikaz više strana</string>
+  <string name="value_pager_page">Strana</string>
+  <string name="value_progress_bar">Traka napretka</string>
+  <string name="value_webview">Web prikaz</string>
+  <string name="value_toolbar">Alatna traka</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">Znakovi od %1$d do %2$d</string>
+  <string name="template_password_traversed">Znak %1$d</string>
+  <string name="value_password">lozinka</string>
+  <string name="value_sliding_drawer_opened">Klizna ladica je otvorena</string>
+  <string name="value_options_menu_open">Opcije</string>
+  <string name="value_text_cleared">Tekst je obrisan</string>
+  <string name="value_text_max_length">Dostignuta je maksimalna dužina</string>
+  <string name="value_selected">odabrano</string>
+  <string name="value_checked">označeno</string>
+  <string name="value_not_checked">nije označeno</string>
+  <string name="value_on">uključeno</string>
+  <string name="value_off">isključeno</string>
+  <string name="value_disabled">onemogućeno</string>
+  <string name="value_expanded">prošireno</string>
+  <string name="value_collapsed">skupljeno</string>
+  <string name="value_double_tap">Dodirnite dvaput</string>
+  <string name="value_single_tap">Dodirni</string>
+  <string name="value_switch_press">Pritisnite prekidač za odabir</string>
+  <string name="value_press_select">Pritisnite dugme za odabir</string>
+  <string name="template_hint_clickable">%1$s za aktiviranje.</string>
+  <string name="template_hint_clickable_keyboard">Pritisnite %1$s za aktiviranje.</string>
+  <string name="template_hint_long_clickable">%1$s i držite za dugi pritisak.</string>
+  <string name="template_hint_long_clickable_keyboard">Pritisnite %1$s za dugi pritisak.</string>
+  <string name="template_hint_checkable">%1$s za uključivanje</string>
+  <string name="template_hint_checkable_keyboard">Pritisnite %1$s za uključivanje.</string>
+  <string name="template_hint_edit_text">%1$s da uredite tekst.</string>
+  <string name="template_hint_edit_text_keyboard">Pritisnite %1$s da uredite tekst</string>
+  <string name="template_hint_spinner">%1$s za promjenu.</string>
+  <string name="template_hint_spinner_keyboard">Pritisnite %1$s za promjenu.</string>
+  <string name="template_hint_pager">Prevlačenje s dva prsta za prebacivanje između stranica.</string>
+  <string name="template_hint_pager_single_page">Nema više stranica.</string>
+  <string name="template_hint_seek_control">Koristite tipke za podešavanje jačine zvuka da namjestite</string>
+  <string name="template_hint_seek_control_tv">%1$s za promjenu.</string>
+  <string name="template_hint_custom_actions">Radnje:</string>
+  <string name="template_custom_hint_for_actions">%1$s za %2$s.</string>
+  <string name="template_custom_hint_for_actions_keyboard">Pritisnite %1$s za %2$s.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s i drži za %2$s.</string>
+  <string name="template_sa_custom_hint_scrollable">%1$s za klizanje.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">%1$s za dostupne radnje.</string>
+  <string name="template_sa_hint_seek_control">Pritisnite Odaberi prekidač za podešavanje</string>
+  <string name="value_caps_lock_on">Velika slova su uključena</string>
+  <string name="value_caps_lock_off">Velika slova su isključena</string>
+  <string name="value_num_lock_on">Numerička tastatura je uključena.</string>
+  <string name="value_num_lock_off">Numerička tastatura je isključena.</string>
+  <string name="value_scroll_lock_on">Pomicanje je zaključano.</string>
+  <string name="value_scroll_lock_off">Pomicanje je otključano.</string>
+  <string name="orientation_portrait">Uspravno</string>
+  <string name="orientation_landscape">Vodoravno</string>
+  <string name="title_action_dismiss">Odbaci</string>
+  <string name="title_action_expand">Proširi</string>
+  <string name="title_action_collapse">Suzi</string>
+  <string name="row_index_template">Red %1$d</string>
+  <string name="column_index_template">Kolona %1$d</string>
+  <string name="heading_template">Naslov</string>
+  <string name="row_heading_template">Naslov reda</string>
+  <string name="column_heading_template">Naslov kolone</string>
+  <string name="in_list">Na spisku %1$s</string>
+  <string name="in_list_without_name">Na listi</string>
+  <string name="out_of_list">Izvan liste %1$s</string>
+  <string name="out_of_list_without_name">Van liste</string>
+  <string name="in_grid">U mreži %1$s</string>
+  <string name="in_grid_without_name">U mreži</string>
+  <string name="out_of_grid">Izvan mreže %1$s</string>
+  <string name="out_of_grid_without_name">Van mreže</string>
+  <string name="in_pager_with_name">U alatu za pregled stranica %1$s</string>
+  <string name="in_pager">U alatu za pregled stranica</string>
+  <string name="out_of_pager_with_name">Izvan alata za pregled stranica %1$s</string>
+  <string name="out_of_pager">Izvan alata za pregled stranica</string>
+  <string name="in_vertical_pager_with_name">U alatu za pregled stranica s vertikalnom orijentacijom %1$s</string>
+  <string name="in_vertical_pager">U alatu za pregled stranica s vertikalnom orijentacijom</string>
+  <string name="out_of_vertical_pager_with_name">Izvan alata za pregled stranica s vertikalnom orijentacijom %1$s</string>
+  <string name="out_of_vertical_pager">Izvan alata za pregled stranica s vertikalnom orijentacijom</string>
+  <string name="in_horizontal_pager_with_name">U alatu za pregled stranica s horizontalnom orijentacijom %1$s</string>
+  <string name="in_horizontal_pager">U alatu za pregled stranica s horizontalnom orijentacijom</string>
+  <string name="out_of_horizontal_pager_with_name">Izvan alata za pregled stranica s horizontalnom orijentacijom %1$s</string>
+  <string name="out_of_horizontal_pager">Izvan alata za pregled stranica s horizontalnom orijentacijom</string>
+  <string name="in_grid_pager_with_name">U alatu za pregled stranica s mrežnim prikazom %1$s</string>
+  <string name="in_grid_pager">U alatu za pregled stranica s mrežnim prikazom</string>
+  <string name="out_of_grid_pager_with_name">Izvan alata za pregled stranica s mrežnim prikazom %1$s</string>
+  <string name="out_of_grid_pager">Izvan alata za pregled stranica s mrežnim prikazom</string>
+  <string name="template_collection_level">Nivo %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d stavka</item>
+    <item quantity="few">%1$d stavke</item>
+    <item quantity="other">%1$d stavki</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d red</item>
+    <item quantity="few">%1$d reda</item>
+    <item quantity="other">%1$d redova</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d kolona</item>
+    <item quantity="few">%1$d kolone</item>
+    <item quantity="other">%1$d kolona</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d znak</item>
+    <item quantity="few">%1$d znaka</item>
+    <item quantity="other">%1$d znakova</item>
+  </plurals>
+  <string name="template_screen_magnification_on">Uvećavanje je uključeno %1$d%%</string>
+  <string name="template_screen_magnification_scale_changed">Uvećavanje %1$d%%</string>
+  <string name="screen_magnification_off">Uvećavanje je isključeno</string>
+  <string name="template_speech_rate_change">Brzina govora %1$d%%</string>
+  <string name="audio_focus_on">Redukcija jačine zvuka tokom govora je uključena</string>
+  <string name="audio_focus_off">Redukcija jačine zvuka tokom govora je isključena</string>
+  <string name="selector_speech_rate_output">Brzina govora</string>
+  <string name="selector_verbosity_output">Rječitost</string>
+  <string name="selector_granularity_output">Navigacija</string>
+  <string name="selector_audio_focus_output">Redukcija jačine zvuka tokom govora</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">Lozinke se izgovaraju samo kada se koriste slušalice</string>
+  <string name="template_hint_menu_type_high_verbosity">Radnja %1$s je dostupna, koristite %2$s za prikaz.</string>
+  <string name="template_hint_menu_type_low_verbosity">Radnja %1$s je dostupna.</string>
 </resources>

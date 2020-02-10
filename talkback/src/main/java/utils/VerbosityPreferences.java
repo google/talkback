@@ -18,17 +18,18 @@ package com.google.android.accessibility.talkback.utils;
 
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.support.annotation.NonNull;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /**
  * Utility functions for verbosity preferences. Verbosity preferences should be read through
  * getPreferenceValue() to use preference preset rules.
  */
 public class VerbosityPreferences {
+
+  private static final String TAG = "VerbosityPreferences";
 
   private VerbosityPreferences() {} // Do not instantiate.
 
@@ -88,7 +89,7 @@ public class VerbosityPreferences {
             ? null
             : keyboardEchoValues[0];
       } else {
-        LogUtils.log(VerbosityPreferences.class, Log.ERROR, "Unhandled key \"%s\"", key);
+        LogUtils.e(TAG, "Unhandled key \"%s\"", key);
         return null;
       }
       // If verbosity is low... use rule to select list preference value.
@@ -99,7 +100,7 @@ public class VerbosityPreferences {
             ? null
             : keyboardEchoValues[keyboardEchoValues.length - 1];
       } else {
-        LogUtils.log(VerbosityPreferences.class, Log.ERROR, "Unhandled key \"%s\"", key);
+        LogUtils.e(TAG, "Unhandled key \"%s\"", key);
         return null;
       }
       // If verbosity is custom... retrieve preference value.

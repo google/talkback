@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>ခလုတ်</item>
+    <item>ခြစ်ရန် အကွက်</item>
+    <item>အရောင် ရွေးရန်</item>
+    <item>ရက်စွဲ အချိန် စီမံရန်</item>
+    <item>ရက်စွဲ အချိန် စီမံရန်</item>
+    <item>ရက်စွဲ စီမံရန်</item>
+    <item>အီးမေးလ် စာသား ပြင်ဆင်ရန်</item>
+    <item>ဖိုင် ရွေးချယ်ခြင်း</item>
+    <item translatable="false"></item>
+    <item>ခလုတ်</item>
+    <item>လ ထိန်းချုပ်ရန</item>
+    <item>ကိန်းဂဏန်းစာသားကိုသာ ပြင်ဆင်ရန်</item>
+    <item>စကားဝှက်စာသားကိုသာ ပြင်ဆင်ရန်</item>
+    <item>ရေဒီယို ခလုတ်</item>
+    <item>ဆလိုက်ဒါ</item>
+    <item>ပြင်ဆင်သတ်မှတ်ရန်</item>
+    <item>ရှာဖွေရေး စာသား ပြင်ဆင်ရန်</item>
+    <item>ခလုတ်</item>
+    <item>ဖုန်းနံပါတ် စာသား ပြင်ဆင်ရန်</item>
+    <item>စာသား ပြင်ဆင်ရန်</item>
+    <item>URL စာသား ပြင်ဆင်ရန်</item>
+    <item>နှစ်၏ သီတင်းပတ်ကို စီမံရန်</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>သတိပေးချက်</item>
+    <item>သတိပေး စကားကွက်</item>
+    <item>ခလုတ်</item>
+    <item>ခြစ်ရန် အကွက်</item>
+    <item>ဆွဲချ ရေးကွက်</item>
+    <item>ထပ်ဆင့်ဝင်းဒိုး</item>
+    <item>လေးထောင့် ဆဲလ်ကွက်</item>
+    <item>လင့်</item>
+    <item>မှတ်တမ်း</item>
+    <item>မားကီ</item>
+    <item>မီနူး အချက်အလက်</item>
+    <item>မီနူး အချက်အလက် ခြစ်ရန် အကွက်</item>
+    <item>မီနူး အချက်အလက် ရေဒီယို ခလုတ်</item>
+    <item>ရွေးချယ်ခြင်း</item>
+    <item>တိုးတက်မှု ဘား</item>
+    <item>ရေဒီယို ခလုတ်</item>
+    <item>ရေဒီယို ခလုတ် အစု</item>
+    <item>လှိမ့်ဆင်း ဘား</item>
+    <item>ဆလိုက်ဒါ</item>
+    <item>လည်ရန် ခလုတ်</item>
+    <item>အခြေအနေ</item>
+    <item>တဲဘ်</item>
+    <item>တဲဘ် ဘောင်ကွက်</item>
+    <item>စာသား ပုံး</item>
+    <item>တိုင်မာ</item>
+    <item>တန်ဆာပလာ ဘား</item>
+    <item>အရိပ်အမြွက် စာသား</item>
+    <item>ဇယား အချက်အလက်</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>လင့်</item>
+    <item>ခေါင်းစီး တစ်</item>
+    <item>ခေါင်းစီး နှစ်</item>
+    <item>ခေါင်းစီး သုံး</item>
+    <item>ခေါင်းစီး လေး</item>
+    <item>ခေါင်းစီး ငါး</item>
+    <item>ခေါင်းစီး ခြောက်</item>
+    <item>ခလုတ်</item>
+    <item>ဆွဲချ ရေးကွက်</item>
+    <item>ဇယား</item>
+    <item>စာသား ဧရိယာ</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

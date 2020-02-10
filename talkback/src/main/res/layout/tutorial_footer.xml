@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:background="@color/tutorial_footer_background">
+    android:background="@color/tutorial_footer_background"
+    android:elevation="1dp">
 
     <ImageButton
         android:id="@+id/previous_page"
@@ -16,7 +17,7 @@
         android:paddingBottom="16dp"
         android:paddingLeft="@dimen/tutorial_footer_horizontal_padding"
         android:paddingRight="16dp"
-        android:src="@drawable/ic_chevron_left_black"
+        android:src="@drawable/quantum_ic_chevron_left_vd_theme_24"
         android:background="@null"/>
 
     <TextView
@@ -42,7 +43,7 @@
         android:text="@string/tutorial_next"
         android:textColor="@color/tutorial_footer_buttons"
         android:background="@null"
-        android:drawableRight="@drawable/ic_chevron_right_black"
+        android:drawableRight="@drawable/quantum_ic_chevron_right_vd_theme_24"
         android:drawablePadding="5dp"/>
 </FrameLayout>
 

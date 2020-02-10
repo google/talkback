@@ -1,106 +1,107 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="symbol_apostrophe" msgid="7208629120802819915">"Apostrof"</string>
-    <string name="symbol_ampersand" msgid="2896965192299496498">"Ampersand"</string>
-    <string name="symbol_angle_bracket_left" msgid="7380903071611293121">"Levá lomená závorka"</string>
-    <string name="symbol_angle_bracket_right" msgid="1868235467151646558">"Pravá lomená závorka"</string>
-    <string name="symbol_asterisk" msgid="6817126584493630223">"Hvězdička"</string>
-    <string name="symbol_at_sign" msgid="2065827119717043200">"Zavináč"</string>
-    <string name="symbol_backslash" msgid="1611754081972480510">"Zpětné lomítko"</string>
-    <string name="symbol_bullet" msgid="6780038894279847984">"Odrážka"</string>
-    <string name="symbol_caret" msgid="3928223571254608359">"Stříška"</string>
-    <string name="symbol_cent" msgid="2397683564958310433">"Cent"</string>
-    <string name="symbol_colon" msgid="4099865219187606667">"Dvojtečka"</string>
-    <string name="symbol_comma" msgid="5645826628625828518">"Čárka"</string>
-    <string name="symbol_copyright" msgid="4560734240781916706">"Autorská práva"</string>
-    <string name="symbol_curly_bracket_left" msgid="2875419571455950965">"Levá složená závorka"</string>
-    <string name="symbol_curly_bracket_right" msgid="7223443061586552971">"Pravá složená závorka"</string>
-    <string name="symbol_degree" msgid="2370756516179429371">"Stupeň"</string>
-    <string name="symbol_division" msgid="8469030548234745900">"Symbol děleno"</string>
-    <string name="symbol_dollar_sign" msgid="7172720889757863645">"Dolar"</string>
-    <string name="symbol_ellipsis" msgid="6107023479924320264">"Tři tečky"</string>
-    <string name="symbol_em_dash" msgid="9095293634011901230">"Dlouhá pomlčka"</string>
-    <string name="symbol_en_dash" msgid="7221481427651082891">"Krátká pomlčka"</string>
-    <string name="symbol_euro" msgid="7368999812147737584">"Euro"</string>
-    <string name="symbol_exclamation_mark" msgid="988583649131855220">"Vykřičník"</string>
-    <string name="symbol_grave_accent" msgid="2871187029685072964">"Těžký akcent"</string>
-    <string name="symbol_hyphen_minus" msgid="6395913704731547145">"Spojovník"</string>
-    <string name="symbol_low_double_quote" msgid="1311537029059161496">"Uvozovky dole"</string>
-    <string name="symbol_multiplication" msgid="4500464364344640871">"Symbol krát"</string>
-    <string name="symbol_new_line" msgid="6848635267438885623">"Nový řádek"</string>
-    <string name="symbol_paragraph_mark" msgid="5514376704992468938">"Znak odstavce"</string>
-    <string name="symbol_parenthesis_left" msgid="6800146954886245634">"Levá závorka"</string>
-    <string name="symbol_parenthesis_right" msgid="7215651695123277015">"Pravá závorka"</string>
-    <string name="symbol_percent" msgid="5459242644598387133">"Procento"</string>
-    <string name="symbol_period" msgid="5437120137086222612">"tečka"</string>
-    <string name="symbol_pi" msgid="9110332441949361829">"Pí"</string>
-    <string name="symbol_pound" msgid="93826676999305096">"Křížek"</string>
-    <string name="symbol_pound_sterling" msgid="728725055605726481">"Libra šterlinků"</string>
-    <string name="symbol_question_mark" msgid="8540567415937384964">"Otazník"</string>
-    <string name="symbol_quotation_mark" msgid="1191348665202247948">"Uvozovky"</string>
-    <string name="symbol_registered_trademark" msgid="3258562921626703647">"Registrovaná ochranná známka"</string>
-    <string name="symbol_semicolon" msgid="5125185295573713214">"Středník"</string>
-    <string name="symbol_slash" msgid="7183595255121136380">"Lomítko"</string>
-    <string name="symbol_smiley" msgid="5566592322045991166">"Smajlík"</string>
-    <string name="symbol_space" msgid="5752206151798562920">"Mezerník"</string>
-    <string name="symbol_square_bracket_left" msgid="8272586261793885172">"Levá hranatá závorka"</string>
-    <string name="symbol_square_bracket_right" msgid="5927399844117072754">"Pravá hranatá závorka"</string>
-    <string name="symbol_square_root" msgid="683692620277245490">"Odmocnina"</string>
-    <string name="symbol_trademark" msgid="3263529639090333558">"Ochranná známka"</string>
-    <string name="symbol_underscore" msgid="7192169250700774805">"Podtržítko"</string>
-    <string name="symbol_vertical_bar" msgid="1121156640601168272">"Svislá čára"</string>
-    <string name="symbol_yen" msgid="5956873078564706159">"Jen"</string>
-    <string name="symbol_not_sign" msgid="6673590940229304440">"Znak logického záporu"</string>
-    <string name="symbol_broken_bar" msgid="6813132652561276644">"Přerušená svislá čára"</string>
-    <string name="symbol_micro_sign" msgid="3513065482309329740">"Znak mikro"</string>
-    <string name="symbol_almost_equals" msgid="7456083235616834438">"Téměř rovno"</string>
-    <string name="symbol_not_equals" msgid="5319485097346278422">"Není rovno"</string>
-    <string name="symbol_currency_sign" msgid="3851601116109370799">"Znak měny"</string>
-    <string name="symbol_section_sign" msgid="1425993244831126813">"Znak oddílu"</string>
-    <string name="symbol_upwards_arrow" msgid="6338361764081105639">"Šipka nahoru"</string>
-    <string name="symbol_leftwards_arrow" msgid="2516207072081863313">"Šipka vlevo"</string>
-    <string name="symbol_rupee" msgid="5442584145297714761">"Rupie"</string>
-    <string name="symbol_black_heart" msgid="2472170057113549474">"Černé srdce"</string>
-    <string name="symbol_tilde" msgid="8207841648391314530">"Tilda"</string>
-    <string name="symbol_equal" msgid="5554709359828733331">"Znak rovná se"</string>
-    <string name="symbol_won" msgid="6959844046981982031">"Znak wonu"</string>
-    <string name="symbol_reference" msgid="905951483425189419">"Znak odkazu"</string>
-    <string name="symbol_white_star" msgid="6150436720760853960">"Prázdná hvězda"</string>
-    <string name="symbol_black_star" msgid="6183317822489362024">"Černá hvězda"</string>
-    <string name="symbol_white_heart" msgid="3902539821929296760">"Prázdný symbol srdce"</string>
-    <string name="symbol_white_circle" msgid="246091813103192112">"Prázdný kruh"</string>
-    <string name="symbol_black_circle" msgid="4016846628518042983">"Černá tečka"</string>
-    <string name="symbol_solar" msgid="803832672390677661">"Tečka v kruhu"</string>
-    <string name="symbol_bullseye" msgid="7971468907049474418">"Dva soustředné kruhy"</string>
-    <string name="symbol_white_club_suit" msgid="9023266146462694521">"Prázdný symbol tref"</string>
-    <string name="symbol_white_spade_suit" msgid="364770901730057047">"Prázdný symbol pik"</string>
-    <string name="symbol_white_left_pointing_index" msgid="5774703989927211853">"Prázdný symbol ukazováčku doleva"</string>
-    <string name="symbol_white_right_pointing_index" msgid="6971705818446128861">"Prázdný symbol ukazováčku doprava"</string>
-    <string name="symbol_circle_left_half_black" msgid="3982983201762226254">"Kruh s levou polovinou černou"</string>
-    <string name="symbol_circle_right_half_black" msgid="2702128700103408427">"Kruh s pravou polovinou černou"</string>
-    <string name="symbol_white_square" msgid="6607687155279147668">"Prázdný čtverec"</string>
-    <string name="symbol_black_square" msgid="3400946876721230212">"Černý čtverec"</string>
-    <string name="symbol_white_up_pointing_triangle" msgid="1445685217848949209">"Prázdný trojúhelník šipkou nahoru"</string>
-    <string name="symbol_white_down_pointing_triangle" msgid="2759895601608939558">"Prázdný trojúhelník špičkou dolů"</string>
-    <string name="symbol_white_left_pointing_triangle" msgid="4714391974332267014">"Prázdný trojúhelník špičkou doleva"</string>
-    <string name="symbol_white_right_pointing_triangle" msgid="1147044895009619696">"Prázdný trojúhelník špičkou doprava"</string>
-    <string name="symbol_white_diamond" msgid="148190588729388201">"Prázdný symbol kár"</string>
-    <string name="symbol_quarter_note" msgid="5036555895753560541">"Čtvrtinová nota"</string>
-    <string name="symbol_eighth_note" msgid="7550656761730728669">"Osminová nota"</string>
-    <string name="symbol_beamed_sixteenth_note" msgid="5289487097432366247">"Šestnáctinové noty spojené trámcem"</string>
-    <string name="symbol_female" msgid="2832652212740214355">"Symbol ženy"</string>
-    <string name="symbol_male" msgid="614668218440322904">"Symbol muže"</string>
-    <string name="symbol_left_black_lenticular_bracket" msgid="4461462147632976820">"Levá plná čočkovitá závorka"</string>
-    <string name="symbol_right_black_lenticular_bracket" msgid="3919101748915826659">"Pravá plná čočkovitá závorka"</string>
-    <string name="symbol_left_corner_bracket" msgid="2662006752461479838">"Levá rohová závorka"</string>
-    <string name="symbol_right_corner_bracket" msgid="4305940879297701054">"Pravá rohová závorka"</string>
-    <string name="symbol_rightwards_arrow" msgid="3621071010761086207">"Šipka doprava"</string>
-    <string name="symbol_downwards_arrow" msgid="1093826934627615258">"Šipka dolů"</string>
-    <string name="symbol_plus_minus_sign" msgid="9058945923657357434">"Znaménko plus minus"</string>
-    <string name="symbol_liter" msgid="4485675468642882911">"Litr"</string>
-    <string name="symbol_celsius_degree" msgid="1072933014815535633">"Stupeň Celsia"</string>
-    <string name="symbol_fahrenheit_degree" msgid="7868161106382873456">"Stupeň Fahrenheita"</string>
-    <string name="symbol_approximately_equals" msgid="3850753675865899520">"Přibližně rovno"</string>
-    <string name="symbol_integral" msgid="6535139335710090448">"Integrál"</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="symbol_apostrophe">Apostrof</string>
+  <string name="symbol_ampersand">Ampersand</string>
+  <string name="symbol_angle_bracket_left">Levá lomená závorka</string>
+  <string name="symbol_angle_bracket_right">Pravá lomená závorka</string>
+  <string name="symbol_asterisk">Hvězdička</string>
+  <string name="symbol_at_sign">Zavináč</string>
+  <string name="symbol_backslash">Zpětné lomítko</string>
+  <string name="symbol_bullet">Odrážka</string>
+  <string name="symbol_caret">Stříška</string>
+  <string name="symbol_cent">Cent</string>
+  <string name="symbol_colon">Dvojtečka</string>
+  <string name="symbol_comma">Čárka</string>
+  <string name="symbol_copyright">Autorská práva</string>
+  <string name="symbol_curly_bracket_left">Levá složená závorka</string>
+  <string name="symbol_curly_bracket_right">Pravá složená závorka</string>
+  <string name="symbol_degree">Stupeň</string>
+  <string name="symbol_division">Symbol děleno</string>
+  <string name="symbol_dollar_sign">Dolar</string>
+  <string name="symbol_ellipsis">Tři tečky</string>
+  <string name="symbol_em_dash">Dlouhá pomlčka</string>
+  <string name="symbol_en_dash">Krátká pomlčka</string>
+  <string name="symbol_euro">Euro</string>
+  <string name="symbol_exclamation_mark">Vykřičník</string>
+  <string name="symbol_grave_accent">Těžký akcent</string>
+  <string name="symbol_hyphen_minus">Spojovník</string>
+  <string name="symbol_low_double_quote">Uvozovky dole</string>
+  <string name="symbol_multiplication">Symbol krát</string>
+  <string name="symbol_new_line">Nový řádek</string>
+  <string name="symbol_paragraph_mark">Znak odstavce</string>
+  <string name="symbol_parenthesis_left">Levá závorka</string>
+  <string name="symbol_parenthesis_right">Pravá závorka</string>
+  <string name="symbol_percent">Procento</string>
+  <string name="symbol_period">tečka</string>
+  <string name="symbol_pi">Pí</string>
+  <string name="symbol_pound">Křížek</string>
+  <string name="symbol_pound_sterling">Libra šterlinků</string>
+  <string name="symbol_question_mark">Otazník</string>
+  <string name="symbol_quotation_mark">Uvozovky</string>
+  <string name="symbol_registered_trademark">Registrovaná ochranná známka</string>
+  <string name="symbol_semicolon">Středník</string>
+  <string name="symbol_slash">Lomítko</string>
+  <string name="symbol_smiley">Smajlík</string>
+  <string name="symbol_space">Mezerník</string>
+  <string name="symbol_square_bracket_left">Levá hranatá závorka</string>
+  <string name="symbol_square_bracket_right">Pravá hranatá závorka</string>
+  <string name="symbol_square_root">Odmocnina</string>
+  <string name="symbol_trademark">Ochranná známka</string>
+  <string name="symbol_underscore">Podtržítko</string>
+  <string name="symbol_vertical_bar">Svislá čára</string>
+  <string name="symbol_yen">Jen</string>
+  <string name="symbol_not_sign">Znak logického záporu</string>
+  <string name="symbol_broken_bar">Přerušená svislá čára</string>
+  <string name="symbol_micro_sign">Znak mikro</string>
+  <string name="symbol_almost_equals">Téměř rovno</string>
+  <string name="symbol_not_equals">Není rovno</string>
+  <string name="symbol_currency_sign">Znak měny</string>
+  <string name="symbol_section_sign">Znak oddílu</string>
+  <string name="symbol_upwards_arrow">Šipka nahoru</string>
+  <string name="symbol_leftwards_arrow">Šipka vlevo</string>
+  <string name="symbol_rupee">Rupie</string>
+  <string name="symbol_black_heart">Černé srdce</string>
+  <string name="symbol_tilde">Tilda</string>
+  <string name="symbol_equal">Znak rovná se</string>
+  <string name="symbol_won">Znak wonu</string>
+  <string name="symbol_reference">Znak odkazu</string>
+  <string name="symbol_white_star">Prázdná hvězda</string>
+  <string name="symbol_black_star">Černá hvězda</string>
+  <string name="symbol_white_heart">Prázdný symbol srdce</string>
+  <string name="symbol_white_circle">Prázdný kruh</string>
+  <string name="symbol_black_circle">Černá tečka</string>
+  <string name="symbol_solar">Tečka v kruhu</string>
+  <string name="symbol_bullseye">Dva soustředné kruhy</string>
+  <string name="symbol_white_club_suit">Prázdný symbol tref</string>
+  <string name="symbol_white_spade_suit">Prázdný symbol pik</string>
+  <string name="symbol_white_left_pointing_index">Prázdný symbol ukazováčku doleva</string>
+  <string name="symbol_white_right_pointing_index">Prázdný symbol ukazováčku doprava</string>
+  <string name="symbol_circle_left_half_black">Kruh s levou polovinou černou</string>
+  <string name="symbol_circle_right_half_black">Kruh s pravou polovinou černou</string>
+  <string name="symbol_white_square">Prázdný čtverec</string>
+  <string name="symbol_black_square">Černý čtverec</string>
+  <string name="symbol_white_up_pointing_triangle">Prázdný trojúhelník šipkou nahoru</string>
+  <string name="symbol_white_down_pointing_triangle">Prázdný trojúhelník špičkou dolů</string>
+  <string name="symbol_white_left_pointing_triangle">Prázdný trojúhelník špičkou doleva</string>
+  <string name="symbol_white_right_pointing_triangle">Prázdný trojúhelník špičkou doprava</string>
+  <string name="symbol_white_diamond">Prázdný symbol kár</string>
+  <string name="symbol_quarter_note">Čtvrtinová nota</string>
+  <string name="symbol_eighth_note">Osminová nota</string>
+  <string name="symbol_beamed_sixteenth_note">Šestnáctinové noty spojené trámcem</string>
+  <string name="symbol_female">Symbol ženy</string>
+  <string name="symbol_male">Symbol muže</string>
+  <string name="symbol_left_black_lenticular_bracket">Levá plná čočkovitá závorka</string>
+  <string name="symbol_right_black_lenticular_bracket">Pravá plná čočkovitá závorka</string>
+  <string name="symbol_left_corner_bracket">Levá rohová závorka</string>
+  <string name="symbol_right_corner_bracket">Pravá rohová závorka</string>
+  <string name="symbol_rightwards_arrow">Šipka doprava</string>
+  <string name="symbol_downwards_arrow">Šipka dolů</string>
+  <string name="symbol_plus_minus_sign">Znaménko plus minus</string>
+  <string name="symbol_liter">Litr</string>
+  <string name="symbol_celsius_degree">Stupeň Celsia</string>
+  <string name="symbol_fahrenheit_degree">Stupeň Fahrenheita</string>
+  <string name="symbol_approximately_equals">Přibližně rovno</string>
+  <string name="symbol_integral">Integrál</string>
+  <string name="symbol_mathematical_left_angle_bracket">Matematická levá lomená závorka</string>
+  <string name="symbol_mathematical_right_angle_bracket">Matematická pravá lomená závorka</string>
 </resources>

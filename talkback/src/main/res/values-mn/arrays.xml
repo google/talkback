@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Товч</item>
+    <item>Сонгох нүд</item>
+    <item>Өнгө сонгогч</item>
+    <item>Огноо цаг сонгогч</item>
+    <item>Огноо цаг сонгогч</item>
+    <item>Огноо сонгогч</item>
+    <item>Имэйл оруулах нүд</item>
+    <item>Файл сонгогч</item>
+    <item translatable="false"></item>
+    <item>Товч</item>
+    <item>Сар сонгогч</item>
+    <item>Зөвхөн тоо оруулах нүд</item>
+    <item>Нууц үг оруулах нүд</item>
+    <item>Радио товч</item>
+    <item>Слайдер</item>
+    <item>Дахин шинэчлэх</item>
+    <item>Хайлтын нүд</item>
+    <item>Товч</item>
+    <item>Утасны дугаар оруулах нүд</item>
+    <item>Текст засах</item>
+    <item>URL хаяг оруулах нүд</item>
+    <item>Жил сонгогчийн долоо хоног сонгогч</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Сэрэмжлүүлэг</item>
+    <item>Анхааруулах цонх</item>
+    <item>Товч</item>
+    <item>Сонгох нүд</item>
+    <item>Комбо нүд</item>
+    <item>Цонх</item>
+    <item>Хүснэгтийн нүд</item>
+    <item>Холбоос</item>
+    <item>Лог</item>
+    <item>Тэмдэглэгээ</item>
+    <item>Цэс</item>
+    <item>Сонгох нүдтэй цэс</item>
+    <item>Радио товчтой цэс</item>
+    <item>Сонголт</item>
+    <item>Явц заагч</item>
+    <item>Радио товч</item>
+    <item>Радио товчний грүп</item>
+    <item>Гүйлгэгч</item>
+    <item>Слайдер</item>
+    <item>Спин товч</item>
+    <item>Статус</item>
+    <item>Таб</item>
+    <item>Таб хавтан</item>
+    <item>Текст нүд</item>
+    <item>Цаг хэмжигч</item>
+    <item>Багаж самбар</item>
+    <item>Багаж зөвлөмж</item>
+    <item>Мод</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Холбоос</item>
+    <item>Толгой нэг</item>
+    <item>Толгой хоёр</item>
+    <item>Толгой гурав</item>
+    <item>Толгой дөрөв</item>
+    <item>Толгой тав</item>
+    <item>Толгой зург</item>
+    <item>Товч</item>
+    <item>Комбо нүд</item>
+    <item>Хүснэгт</item>
+    <item>Текст оруулагч</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Akses Tombol"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Pengalih Akses memungkinkan orang yang memiliki gangguan motorik mengontrol ponsel dan tablet menggunakan satu atau beberapa pengalih.Gunakan pengalih untuk memilih item. Gunakan pengalih untuk memilih item, menggulir, memasukkan teks, dan lain sebagainya."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Kontrol perangkat dengan tombol"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Bantuan &amp; masukan"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Pindai otomatis"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Waktu pindai otomatis"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Pemindaian otomatis terbalik"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f Detik</item>
-      <item quantity="one">1 Detik</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Menyesuaikan pemindaian"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Metode pemindaian"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Penundaan pada item pertama"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Menetapkan pengalih"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Menetapkan pengalih untuk tindakan"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Menetapkan pengalih untuk pemindaian"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Kecepatan baris"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Jumlah pemindaian"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Pilih banyaknya pengulangan pemindaian"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Waktu pantul"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Beberapa tekanan dalam batas waktu yang ditentukan akan dianggap sebagai satu tekanan."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Lepaskan untuk melakukan tindakan"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Menjalankan tindakan jika pengalih dilepas"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d kali Pengulangan</item>
-      <item quantity="one">%d kali Pengulangan</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Pengalih \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' sudah ditetapkan untuk \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\'"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">%d pengalih ditetapkan</item>
-      <item quantity="one">%d pengalih ditetapkan</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Pengalih pilihan grup %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Berikutnya"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Sebelumnya"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Pilih"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Tekan lama"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Gulir maju"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Gulir mundur"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Tutup"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Luaskan"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Ciutkan"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Sorot teks"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Salin"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Potong"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Tempel"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENU"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Kembali"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Utama"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Ringkasan"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Notifikasi"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Setelan Cepat"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Gulir maju"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Gulir mundur"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Pemindaian titik"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Pemindaian Titik Keluar"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Geser ke kanan"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Geser ke kiri"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Geser ke atas"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Geser ke bawah"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Geser (khusus)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Perkecil"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Perbesar"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Setelan pengalih Akses"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Tekan kombinasi pengalih untuk menambahkan atau menghapusnya dari daftar"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Hapus penetapan pengalih"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Tidak ada pengalih yang ditetapkan"</string>
-    <string name="more" msgid="1547670498589416840">"Lainnya"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Spasi"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Masukkan"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"Simpan"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Gaya sorotan pemindaian"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Gaya pindaian utama"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Warna sorotan"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Gaya garis sorotan"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Kebijakan privasi"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Aktifkan pilih otomatis"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Nonaktifkan pilih otomatis"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Karakter berikutnya"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Kata berikutnya"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Baris berikutnya"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Paragraf berikutnya"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Halaman berikutnya"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Karakter sebelumnya"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Kata sebelumnya"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Baris sebelumnya"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Paragraf sebelumnya"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Halaman sebelumnya"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Mulai memindai secara otomatis"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Pemindaian dimulai tanpa menekan pengalih"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Buka penyiapan pengalih Akses"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Wizard Penyiapan Pengalih Akses"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Satu pengalih"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Dua pengalih"</string>
-    <string name="finish" msgid="4267641294267512480">"Selesai"</string>
-    <string name="exit" msgid="8664597014081860813">"Keluar"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Pilih jumlah pengalih"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Tekan pengalih untuk mulai memindahkan item secara otomatis, kemudian tekan lagi untuk memilih item yang disorot."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Tekan satu pengalih untuk berpindah antar-item. Tekan pengalih lainnya untuk memilih item yang disorot."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Pilih kecepatan pemindaian"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Pilih seberapa lama sorotan seharusnya tetap berada di item"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Cepat (penundaan <xliff:g id="DELAY_SPEED">%1$s</xliff:g> detik)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Medium (penundaan <xliff:g id="DELAY_SPEED">%1$s</xliff:g> detik)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Lambat (penundaan <xliff:g id="DELAY_SPEED">%1$s</xliff:g> detik)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Khusus"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"penundaan (detik)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Pengalih \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' sudah ditetapkan untuk tindakan lain"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Pemindaian baris/kolom"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Pilihan grup"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Pemindaian linier"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Masukan lisan"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Setelan TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Untuk beberapa item"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Ucapkan item pertama &amp; terkhir"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Udapkan jumlah item"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Ucapkan semua item yang disorot"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Selesaikan ucapan sebelum berpindah"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"grup <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> sampai <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> item"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"pilih untuk menggulir"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"item tidak diketahui"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Pilih cara memindai"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Memindai baris satu per satu. Setelah baris dipilih, berpindah antar-item di daftar."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Memindahkan item satu per satu. Perhatikan bahwa keyboard akan selalu memindai dengan baris."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Semua item akan diberi warna. Tekan pengalih yang sesuai dengan warna di sekitar item yang Anda inginkan. Mempersempit ukuran grup item tersebut sampai sesuai pilihan Anda."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Pengalih ditetapkan untuk <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Tidak ada"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Hapus pengalih yang ditetapkan?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Anda sudah menetapkan pengalih."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Hapus pengalih"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Pertahankan pengalih"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Tidak ada pengalih yang ditetapkan"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Tidak ada pengalih yang ditetapkan untuk tindakan ini. Yakin ingin melanjutkan?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Grup <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Tekan pengalih guna menetapkannya untuk memilih grup <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Tekan pengalih untuk menetapkannya ke tindakan \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Mulai memindai dan memilih"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Uji penyiapan Anda dengan Tic-Tac-Toe"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Tekan \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" untuk mulai memindai. Tekan pengalih lagi untuk memilih item yang disorot. Cobalah!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Tekan \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" untuk mulai memindai. Tekan pengalih lagi untuk memilih baris yang disorot. Tekan sekali lagi untuk memilih item yang disorot. Cobalah!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Tekan \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" untuk berpindah antar-item. Tekan \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" untuk memilih item yang disorot. Cobalah!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Tekan \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" untuk berpindah antar-baris. Tekan \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" untuk memilih baris yang disorot. Ulangi untuk memilih item di baris tersebut. Cobalah!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Tekan \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" untuk memilih item yang disorot di <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> atau tekan \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" untuk memilih item yang disorot di <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Ulangi untukmencapai item Anda. Cobalah!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Anda belum memiliki tombol yang ditetapkan untuk semua tindakan. Gunakan tombol Sebelumnya untuk kembali dan menyelesaikan penetapan pengalih."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Setel ulang game"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Persegi ini sudah dipakai. Coba lagi!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Anda menang!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Semoga beruntung lain kali"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Hasil seri"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Anda dapat mempertahankan penyiapan Anda saat ini, atau memulai dari awal."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Pertahankan penyiapan"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Mulai dari awal"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Penyiapan selesai"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Anda sudah siap."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Anda dapat kapan saja mengubah setelan tambahan atau membuka lagi wizard penyiapan dari setelan pengalih Akses."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Tombol Akses</string>
+  <string name="switch_access_service_description">Tombol Akses memungkinkan orang yang memiliki gangguan motorik mengontrol ponsel dan tablet menggunakan satu atau beberapa tombol. Gunakan tombol untuk memilih item, men-scroll, memasukkan teks, dan lain sebagainya.</string>
+  <string name="switch_access_service_summary">Kontrol perangkat dengan tombol</string>
+  <string name="title_pref_help_feedback">Bantuan &amp; masukan</string>
+  <string name="title_pref_licenses">Lisensi open source</string>
+  <string name="title_pref_category_auto_scan">Pindai otomatis</string>
+  <string name="title_pref_auto_scan_disabled">Pemindaian otomatis (nonaktif)</string>
+  <string name="action_key_summary_auto_scan">Menekan tombol ini akan otomatis memindahkan sorotan ke item lainnya. Menekannya lagi akan memilih item yang disorot.</string>
+  <string name="title_pref_auto_scan_time_delay">Waktu pindai otomatis</string>
+  <string name="action_name_reverse_auto_scan">Pemindaian otomatis terbalik</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Pemindaian balik otomatis (nonaktif)</string>
+  <string name="action_key_summary_reverse_auto_scan">Menekan tombol ini akan otomatis memindahkan sorotan ke item lainnya secara terbalik. Menekannya lagi akan memilih item yang disorot.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 Detik</item>
+    <item quantity="other">%.2f Detik</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Sesuaikan pemindaian</string>
+  <string name="title_pref_scanning_methods">Metode pemindaian</string>
+  <string name="title_pref_start_scan_delay">Penundaan pada item pertama</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Pilih waktu tambahan yang ingin dihabiskan pada item pertama. Waktu ini ditambahkan ke waktu pemindaian otomatis.\n\nSetelan ini memengaruhi pemindaian otomatis dan pemindaian titik.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Pilih waktu tambahan yang ingin dihabiskan pada item pertama. Setelah waktu ini, garis vertikal atau horizontal akan mulai bergerak.\n\nSetelan ini memengaruhi pemindaian otomatis dan pemindaian titik.</string>
+  <string name="title_pref_category_assign_switches">Tetapkan tombol</string>
+  <string name="title_pref_category_key_mappings">Tentukan tombol untuk tindakan global</string>
+  <string name="summary_pref_category_key_mappings">Tindakan global dapat dilakukan kapan saja</string>
+  <string name="title_pref_category_scan_key_mappings">Tetapkan tombol untuk pemindaian</string>
+  <string name="summary_pref_category_scan_key_mappings">Memindai memungkinkan Anda menyoroti dan memilih item yang ditandai</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Gerakan &amp; pemilihan</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Tindakan pada item yang disoroti</string>
+  <string name="title_pref_point_scan_line_speed">Kecepatan baris</string>
+  <string name="dialog_message_pref_line_speed">Pilih seberapa cepat garis horizontal dan vertikel bergerak di layar.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 cm per detik</item>
+    <item quantity="other">%.2f cm per detik</item>
+  </plurals>
+  <string name="title_pref_loop_count">Jumlah pemindaian</string>
+  <string name="dialog_message_pref_loop_count">Pilih berapa kali pengulangan pemindaian.\n\nSetelan ini memengaruhi pemindaian otomatis dan pemindaian titik.</string>
+  <string name="summary_pref_point_scan">Penggunaan garis bergerak untuk memilih lokasi horizontal atau vertikal tertentu. %1$s</string>
+  <string name="point_scan_enable_animations_message">Aktifkan animasi untuk menggunakan fitur ini.</string>
+  <string name="title_pref_category_switch_accomodation">Penyesuaian tombol</string>
+  <string name="title_pref_debounce_time">Abaikan penekanan berulang</string>
+  <string name="dialog_message_pref_debounce_time">Beberapa penekanan tombol dalam batas waktu yang ditentukan akan dianggap sebagai 1 penekanan.</string>
+  <string name="title_pref_press_on_release">Lepaskan untuk melakukan tindakan</string>
+  <string name="subtitle_pref_press_on_release">Jalankan tindakan jika tombol dilepas</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d kali Pengulangan</item>
+    <item quantity="other">%d kali Pengulangan</item>
+  </plurals>
+  <string name="preference_off">Nonaktif</string>
+  <string name="preference_on">Aktif</string>
+  <string name="toast_msg_key_already_assigned">Pengalih \'%1$s\' sudah ditetapkan untuk \'%2$s\'</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d tombol ditetapkan</item>
+    <item quantity="other">%d tombol ditetapkan</item>
+  </plurals>
+  <string name="option_scan_switch_format">Pengalih pilihan grup %1$d</string>
+  <string name="option_scan_switch_format_with_color">Tombol pemilihan grup %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Menekan tombol ini akan memilih grup %1$d.</string>
+  <string name="action_name_next">Berikutnya</string>
+  <string name="action_key_summary_next">Menekan tombol ini akan menyorot item berikutnya.</string>
+  <string name="action_name_previous">Sebelumnya</string>
+  <string name="action_key_summary_previous">Menekan tombol ini akan menyorot item sebelumnya.</string>
+  <string name="action_name_click">Pilih</string>
+  <string name="action_key_summary_click">Menekan tombol ini akan memilih item yang disorot.</string>
+  <string name="action_name_long_click">Klik lama</string>
+  <string name="action_key_summary_long_click">Menekan tombol ini akan mengklik lama item yang disorot.</string>
+  <string name="action_name_scroll_forward">Scroll maju</string>
+  <string name="action_key_summary_scroll_forward">Menekan tombol ini akan men-scroll item yang disorot ke depan.</string>
+  <string name="action_name_scroll_backward">Scroll mundur</string>
+  <string name="action_key_summary_scroll_backward">Menekan tombol ini akan men-scroll item yang disorot ke belakang.</string>
+  <string name="action_name_dismiss">Tutup</string>
+  <string name="action_name_expand">Luaskan</string>
+  <string name="action_name_collapse">Ciutkan</string>
+  <string name="action_name_highlight_text">Sorot teks</string>
+  <string name="action_group_name_highlight">Sorot ...</string>
+  <string name="action_name_highlight_all_text">Sorot semua teks</string>
+  <string name="action_name_highlight_granular_text">Sorot %1$s</string>
+  <string name="action_name_copy">Salin</string>
+  <string name="action_name_copy_all_text">Salin semua</string>
+  <string name="action_name_cut">Potong</string>
+  <string name="action_name_cut_all_text">Potong semua</string>
+  <string name="action_name_paste">Tempel</string>
+  <string name="action_name_undo">Urungkan</string>
+  <string name="action_name_redo">Ulangi</string>
+  <string name="action_group_name_delete">Hapus ...</string>
+  <string name="action_name_delete">Hapus %1$s</string>
+  <string name="action_name_delete_highlighted_text">Hapus teks yang disorot</string>
+  <string name="option_scanning_menu_button">MENU</string>
+  <string name="option_scanning_menu_button_content_description">Menu Tombol Akses</string>
+  <string name="switch_access_global_menu">Menu Global Tombol Akses</string>
+  <string name="switch_access_actions_menu">Menu Tindakan Tombol Akses</string>
+  <string name="switch_access_close_menu">TUTUP</string>
+  <string name="switch_access_back_menu">KEMBALI</string>
+  <string name="next_arrow_content_description">Berikutnya</string>
+  <string name="previous_arrow_content_description">Sebelumnya</string>
+  <string name="global_action_back">Kembali</string>
+  <string name="global_action_key_summary_back">Menekan tombol ini akan mengarahkan Anda kembali ke layar sebelumnya atau menyembunyikan keyboard, jika terlihat.</string>
+  <string name="global_action_home">Layar Utama</string>
+  <string name="global_action_key_summary_home">Menekan tombol ini akan mengarahkan Anda ke layar Utama.</string>
+  <string name="global_action_overview">Ringkasan</string>
+  <string name="global_action_key_summary_overview">Menekan tombol ini akan menampilkan daftar aplikasi yang dibuka baru-baru ini.</string>
+  <string name="global_action_notifications">Notifikasi</string>
+  <string name="global_action_key_summary_notifications">Menekan tombol ini akan menampilkan notifikasi perangkat Anda.</string>
+  <string name="global_action_quick_settings">Setelan Cepat</string>
+  <string name="global_action_key_summary_quick_settings">Menekan tombol ini akan menampilkan Setelan Cepat perangkat.</string>
+  <string name="global_action_power_options">Opsi power</string>
+  <string name="global_menu_volume_heading">Volume</string>
+  <string name="volume_menu_media">Volume media</string>
+  <string name="volume_menu_call">Volume panggilan</string>
+  <string name="volume_menu_ring">Volume dering</string>
+  <string name="volume_menu_alarm">Volume alarm</string>
+  <string name="volume_menu_accessibility">Volume aksesibilitas</string>
+  <string name="volume_menu_mute">Nonaktifkan</string>
+  <string name="volume_menu_unmute">Aktifkan</string>
+  <string name="volume_menu_increase">Tambah</string>
+  <string name="volume_settings">Setelan volume</string>
+  <string name="volume_menu_decrease">Kurangi</string>
+  <string name="scrollable_forward">Scroll maju</string>
+  <string name="scrollable_backward">Scroll mundur</string>
+  <string name="point_scan">Pemindaian titik</string>
+  <string name="box_scan">Pemindaian Titik Keluar</string>
+  <string name="action_name_swipe_right">Geser ke kanan</string>
+  <string name="action_name_swipe_left">Geser ke kiri</string>
+  <string name="action_name_swipe_up">Geser ke atas</string>
+  <string name="action_name_swipe_down">Geser ke bawah</string>
+  <string name="action_name_swipe_custom">Geser (khusus)</string>
+  <string name="action_name_zoom_out">Perkecil</string>
+  <string name="action_name_zoom_in">Perbesar</string>
+  <string name="switch_access_preferences_title">Setelan Tombol Akses</string>
+  <string name="key_combo_preference_instructions">Tekan kombinasi tombol untuk menambahkan atau menghapusnya dari daftar</string>
+  <string name="key_combo_preference_reset_button">Hapus penetapan tombol</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Tidak ada tombol yang ditetapkan</string>
+  <string name="more">Lainnya</string>
+  <string name="name_of_space_bar">Spasi</string>
+  <string name="name_of_enter_key">Masukkan</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">Simpan</string>
+  <string name="title_pref_category_display_and_sound">Tampilan &amp; suara</string>
+  <string name="title_pref_highlight_0">Gaya sorotan pemindaian</string>
+  <string name="title_pref_primary_scan_style">Gaya pindaian utama</string>
+  <string name="title_pref_highlight_0_color">Warna sorotan</string>
+  <string name="title_pref_highlight_0_weight">Gaya garis sorotan</string>
+  <string name="title_pref_privacy_policy">Kebijakan privasi</string>
+  <string name="title_pref_auto_select">Pilih otomatis</string>
+  <string name="summary_pref_auto_select">Pilih otomatis item yang disoroti. Jika item tidak dapat dipilih, atau jika setelan ini dinonaktifkan, Anda akan melihat menu berisi tindakan yang tersedia.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Aktifkan pilih otomatis</string>
+  <string name="switch_access_global_menu_disable_autoselect">Nonaktifkan pilih otomatis</string>
+  <string name="switch_access_move_next">Berikutnya ...</string>
+  <string name="switch_access_move_next_character">Karakter berikutnya</string>
+  <string name="switch_access_move_next_word">Kata berikutnya</string>
+  <string name="switch_access_move_next_line">Baris berikutnya</string>
+  <string name="switch_access_move_next_paragraph">Paragraf berikutnya</string>
+  <string name="switch_access_move_next_page">Halaman berikutnya</string>
+  <string name="switch_access_move_next_sentence">Kalimat berikutnya</string>
+  <string name="switch_access_move_prev">Sebelumnya ...</string>
+  <string name="switch_access_move_prev_character">Karakter sebelumnya</string>
+  <string name="switch_access_move_prev_word">Kata sebelumnya</string>
+  <string name="switch_access_move_prev_line">Baris sebelumnya</string>
+  <string name="switch_access_move_prev_paragraph">Paragraf sebelumnya</string>
+  <string name="switch_access_move_prev_page">Halaman sebelumnya</string>
+  <string name="switch_access_move_prev_sentence">Kalimat sebelumnya</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Mulai memindai secara otomatis</string>
+  <string name="switch_access_auto_start_scan_summary">Pemindaian dimulai tanpa menekan tombol</string>
+  <string name="pref_begin_switchaccess_setup_title">Buka panduan penyiapan</string>
+  <string name="setup_wizard_heading">Panduan Penyiapan Tombol Akses</string>
+  <string name="one_switch">Satu tombol</string>
+  <string name="two_switches">Dua tombol</string>
+  <string name="finish">Selesai</string>
+  <string name="exit">Keluar</string>
+  <string name="intro_heading">Pilih tombol</string>
+  <string name="usb_switch_option_text">Tombol USB</string>
+  <string name="bluetooth_switch_option_text">Tombol Bluetooth</string>
+  <string name="usb_switch_description_text">Hubungkan tombol secara fisik melalui USB</string>
+  <string name="bluetooth_switch_description_text">Sambungkan tombol secara nirkabel melalui Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">Perangkat Anda tidak mendukung Bluetooth. Sebagai gantinya, coba gunakan tombol fisik.</string>
+  <string name="connected_usb_devices_header">Perangkat yang terhubung</string>
+  <string name="usb_no_devices_connected_message">Perangkat USB tidak ditemukan. Pastikan perangkat terhubung dengan aman.</string>
+  <string name="connect_usb_heading">Hubungkan tombol USB</string>
+  <string name="pair_bluetooth_heading">Sambungkan tombol Bluetooth</string>
+  <string name="pair_bluetooth_subheading">Ketuk tombol Bluetooth di bawah</string>
+  <string name="bluetooth_not_enabled_message">Untuk menyambungkan tombol Bluetooth, aktifkan Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Aktifkan Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Tidak ada perangkat Bluetooth yang disambungkan</string>
+  <string name="paired_devices_header">Perangkat Bluetooth yang disambungkan</string>
+  <string name="available_devices_header">Perangkat Bluetooth yang tersedia</string>
+  <string name="bluetooth_computer_content_description">Komputer</string>
+  <string name="bluetooth_phone_content_description">Ponsel</string>
+  <string name="bluetooth_imaging_content_description">Gambar</string>
+  <string name="bluetooth_headphone_content_description">Headphone</string>
+  <string name="bluetooth_peripheral_content_description">Periferal</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Menyambungkan...</string>
+  <string name="bluetooth_connected_description">Tersambung</string>
+  <string name="bluetooth_device_unavailable_description">Perangkat tidak tersedia</string>
+  <string name="reconnecting_unsupported_title">Tidak dapat tersambung ke perangkat</string>
+  <string name="reconnecting_unsupported_message">Tombol Akses tidak dapat tersambung ke perangkat yang Anda sambungkan sebelumnya. Pastikan perangkat Anda aktif dan tersambung.\n\nJika perangkat masih tidak tersambung, buka setelan Bluetooth dan coba sambungkan kembali.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Buka setelan Bluetooth</string>
+  <string name="number_of_switches_heading">Pilih jumlah tombol</string>
+  <string name="title_assign_scan_key">Tentukan Tombol %1$s</string>
+  <string name="one_switch_description_text">Tekan tombol untuk mulai berpindah antar-item secara otomatis. Tekan kembali untuk memilih item yang disoroti.</string>
+  <string name="two_switches_description_text">Tekan satu tombol untuk berpindah antar-item. Tekan tombol lainnya untuk memilih item yang disoroti.</string>
+  <string name="step_speed_heading">Pilih kecepatan pemindaian</string>
+  <string name="step_speed_subheading">Pilih seberapa lama sorotan seharusnya tetap berada di item</string>
+  <string name="fast_radio_button_title">Cepat (penundaan %1$s detik)</string>
+  <string name="medium_radio_button_title">Medium (penundaan %1$s detik)</string>
+  <string name="slow_radio_button_title">Lambat (penundaan %1$s detik)</string>
+  <string name="custom_switch">Khusus</string>
+  <string name="custom_edit_text">penundaan (detik)</string>
+  <string name="setup_toast_msg_key_already_assigned">Pengalih \'%1$s\' sudah ditetapkan untuk tindakan lain</string>
+  <string name="row_column_scanning_title">Pemindaian baris/kolom</string>
+  <string name="option_scanning_title">Pemilihan grup (lanjutan)</string>
+  <string name="linear_scanning_title">Pemindaian linier</string>
+  <string name="linear_scanning_except_keyboard_title">Pemindaian linier (kecuali keyboard)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Ucapan, suara &amp; getaran</string>
+  <string name="title_pref_switch_access_spoken_feedback">Masukan lisan</string>
+  <string name="title_pref_scan_non_actionable_items">Ucapkan teks deskriptif</string>
+  <string name="scan_non_actionable_items_summary">Dengarkan masukan lisan untuk item dengan tindakan yang tersedia dan teks deskriptif</string>
+  <string name="title_pref_switch_access_verbosity">Panjang</string>
+  <string name="summary_verbosity">Pilih seberapa banyak informasi yang diucapkan</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Detail panjang</string>
+  <string name="title_pref_switch_access_keyboard_echo">Gema keyboard</string>
+  <string name="keyboard_echo_summary_on">Ucapkan tombol yang diketik untuk keyboard di layar</string>
+  <string name="keyboard_echo_summary_off">Jangan ucapkan tombol yang diketik untuk keyboard di layar</string>
+  <string name="title_pref_enable_hints">Ucapkan petunjuk penggunaan</string>
+  <string name="enable_hints_summary_on">Petunjuk penggunaan diucapkan selama navigasi, tetapi sedikit terlambat</string>
+  <string name="enable_hints_summary_off">Petunjuk penggunaan tidak diucapkan saat memindahkan fokus aksesibilitas</string>
+  <string name="title_pref_speak_container_element_position">Ucapkan informasi kisi dan daftar</string>
+  <string name="speak_container_element_position_summary_on">Informasi kisi dan daftar diucapkan</string>
+  <string name="speak_container_element_position_summary_off">Informasi kisi dan daftar tidak diucapkan</string>
+  <string name="title_pref_speak_element_type">Ucapkan jenis elemen</string>
+  <string name="speak_element_type_summary_on">Jenis elemen diucapkan untuk item yang difokuskan</string>
+  <string name="speak_element_type_summary_off">Jenis elemen tidak diucapkan untuk item yang difokuskan</string>
+  <string name="title_pref_pitch_change_for_ime">Gunakan perubahan tinggi nada</string>
+  <string name="pitch_change_for_ime_summary_on">Ucapkan masukan keyboard dengan suara bernada rendah</string>
+  <string name="pitch_change_for_ime_summary_off">Jangan ubah masukan suara saat berbicara</string>
+  <string name="title_pref_speak_selected_item_or_group">Ucapkan item atau grup yang dipilih</string>
+  <string name="speak_selected_item_or_group_summary">Ucapkan nama item atau grup setelah dipilih</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Durasi bicara maksimal per item</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Menetapkan durasi maksimum untuk setiap deskripsi item yang diucapkan. Ucapan akan dipotong jika melampaui waktu yang ditetapkan.\nCatatan: Petunjuk akan selalu diucapkan jika diaktifkan.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Lain-lain</string>
+  <string name="title_pref_node_description_order">Urutan deskripsi elemen</string>
+  <string name="title_pref_switch_access_speak_element_ids">Ucapkan ID elemen</string>
+  <string name="speak_element_ids_summary_on">ID elemen diucapkan untuk tombol yang tidak berlabel</string>
+  <string name="speak_element_ids_summary_off">ID elemen tidak diucapkan untuk tombol yang tidak berlabel</string>
+  <string name="title_pref_switch_access_tts_settings">Setelan TTS</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Saat beberapa item disoroti</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Ucapkan item pertama dan terakhir</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Ucapkan jumlah item</string>
+  <string name="title_pref_switch_access_speak_all_items">Ucapkan semua item yang disoroti</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Selesaikan ucapan sebelum berpindah</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Masukan lainnya</string>
+  <string name="title_pref_developer_settings">Setelan developer</string>
+  <string name="title_pref_spoken_feedback_overlay">Tampilkan keluaran ucapan</string>
+  <string name="title_pref_switch_access_vibration_feedback">Masukan getaran</string>
+  <string name="vibration_feedback_summary">Getar untuk mengindikasikan ada sesuatu yang berubah (misalnya, konten di layar berubah)</string>
+  <string name="title_pref_switch_access_sound_feedback">Masukan suara</string>
+  <string name="sound_feedback_summary">Putar earcon untuk mengindikasikan ada sesuatu yang berubah (misalnya, konten di layar berubah)</string>
+  <string name="title_pref_switch_access_sound_volume">Volume suara</string>
+  <string name="title_pref_switch_access_audio_ducking">Pengecilan volume audio</string>
+  <string name="audio_ducking_summary">Volume audio lain dikecilkan saat berbicara</string>
+  <string name="switch_access_focus_cleared_no_selection">Layar diubah</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Tekan tombol pilih untuk memilih baris</string>
+  <string name="switch_access_spoken_feedback_group">grup %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Tekan tombol grup %1$s untuk memilih grup</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Tekan tombol grup %1$s untuk memilih item</string>
+  <string name="switch_access_spoken_feedback_to">%1$s sampai %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s item</string>
+  <string name="switch_access_spoken_feedback_group_selected">grup %1$s dipilih</string>
+  <string name="switch_access_spoken_feedback_row_selected">baris dipilih</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s dipilih</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">dapat di-scroll</string>
+  <string name="switch_access_spoken_feedback_scroll">pilih untuk menggulir</string>
+  <string name="switch_access_spoken_feedback_unknown">item tidak diketahui</string>
+  <string name="scanning_method_heading">Pilih cara memindai</string>
+  <string name="row_column_scanning_description">Memindai baris satu per satu. Setelah baris dipilih, berpindah antar-item di daftar.</string>
+  <string name="linear_scanning_description">Memindahkan item satu per satu</string>
+  <string name="linear_scanning_except_keyboard_description">Berpindah dari satu item ke item lain. Perhatikan bahwa keyboard akan memindai menurut baris.</string>
+  <string name="option_scanning_description">Semua item akan diberi warna. Tekan pengalih yang sesuai dengan warna di sekitar item yang Anda inginkan. Mempersempit ukuran grup item tersebut sampai sesuai pilihan Anda.</string>
+  <string name="setup_switch_assignment_heading">Tombol ditetapkan untuk %s</string>
+  <string name="setup_switch_assignment_empty">Tidak ada</string>
+  <string name="clear_keys_dialog_title">Hapus pengalih yang ditetapkan?</string>
+  <string name="clear_keys_dialog_message">Anda sudah menetapkan tombol.</string>
+  <string name="clear_keys_dialog_positive_button">Hapus pengalih</string>
+  <string name="clear_keys_dialog_negative_button">Pertahankan pengalih</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Tidak ada tombol yang ditetapkan</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Tidak ada tombol yang ditetapkan untuk tindakan ini. Yakin ingin melanjutkan?</string>
+  <string name="option_scan_switch_title">Grup %1$s</string>
+  <string name="option_scan_switch_subtitle">Tekan pengalih guna menetapkannya untuk memilih grup %1$s.</string>
+  <string name="assign_switch_subtitle">Tekan tombol untuk menetapkannya ke tindakan \"%1$s\".</string>
+  <string name="auto_scan_action_description">Mulai memindai dan memilih</string>
+  <string name="switch_game_heading">Uji penyiapan Anda dengan Tic-Tac-Toe</string>
+  <string name="switch_game_one_switch_linear_subheading">Tekan \"%1$s\" untuk mulai memindai. Tekan pengalih lagi untuk memilih item yang disorot. Cobalah!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Tekan \"%1$s\" untuk mulai memindai. Tekan pengalih lagi untuk memilih baris yang disorot. Tekan sekali lagi untuk memilih item yang disorot. Cobalah!</string>
+  <string name="switch_game_two_switch_linear_subheading">Tekan \"%1$s\" untuk berpindah ke item lainnya. Tekan \"%2$s\" untuk memilih item yang disorot. Cobalah.</string>
+  <string name="switch_game_two_switch_row_col_subheading">Tekan \"%1$s\" untuk berpindah ke baris lainnya. Tekan \"%2$s\" untuk memilih baris yang disorot. Ulangi untuk memilih item di baris tersebut. Cobalah.</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Tekan \"%1$s\" untuk memilih item yang disorot dalam warna %2$s atau tekan \"%4$s\" untuk memilih item yang disorot dalam warna %3$s. Ulangi untuk memilih item Anda. Cobalah.</string>
+  <string name="switch_game_incomplete_switches_subheading">Anda belum memiliki tombol yang ditetapkan untuk semua tindakan. Gunakan tombol Sebelumnya untuk kembali dan menyelesaikan penetapan tombol.</string>
+  <string name="game_square_content_description">%1$s pada posisi %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">kosong</string>
+  <string name="game_reset_button_title">Setel ulang game</string>
+  <string name="game_square_already_taken">Persegi ini sudah dipakai. Coba lagi!</string>
+  <string name="game_win_outcome_title">Anda menang!</string>
+  <string name="game_loss_outcome_title">Semoga beruntung lain kali</string>
+  <string name="game_tie_outcome_title">Hasil seri</string>
+  <string name="game_outcome_body_text">Anda dapat mempertahankan penyiapan Anda saat ini, atau memulai dari awal.</string>
+  <string name="game_outcome_positive_response">Pertahankan penyiapan</string>
+  <string name="game_outcome_negative_response">Mulai dari awal</string>
+  <string name="setup_completion_heading">Penyiapan selesai</string>
+  <string name="setup_completion_message">Anda sudah siap.</string>
+  <string name="setup_completion_settings_reminder">Anda dapat kapan saja mengubah setelan tambahan atau membuka lagi wizard penyiapan dari setelan Tombol Akses.</string>
+  <string name="dialog_url_list">Pilih link</string>
+  <string name="dialog_do_not_disturb_permission_title">Tombol Akses memerlukan izin untuk menyesuaikan volume</string>
+  <string name="dialog_do_not_disturb_permission_message">Untuk menyesuaikan volume dari menu Tombo Akses, aktifkan akses Jangan Ganggu untuk Rangkaian Fitur Aksesibilitas Android</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Buka setelan</string>
 </resources>

@@ -16,11 +16,12 @@
 
 package com.google.android.accessibility.utils.traversal;
 
-import android.support.annotation.IntDef;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.IntDef;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Map;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Strategy the is defined an order of traversing through the nodes of AccessibilityNodeInfo
@@ -69,7 +70,7 @@ public interface TraversalStrategy {
    * @return {@link android.support.v4.view.accessibility.AccessibilityNodeInfoCompat} node that has
    *     next focus
    */
-  public AccessibilityNodeInfoCompat findFocus(
+  public @Nullable AccessibilityNodeInfoCompat findFocus(
       AccessibilityNodeInfoCompat startNode, @SearchDirection int direction);
 
   /**
@@ -84,7 +85,7 @@ public interface TraversalStrategy {
    * @param direction - the direction to search from
    * @return returns the first node that could be focused
    */
-  public AccessibilityNodeInfoCompat focusInitial(
+  public @Nullable AccessibilityNodeInfoCompat focusInitial(
       AccessibilityNodeInfoCompat root, @SearchDirection int direction);
 
   /**

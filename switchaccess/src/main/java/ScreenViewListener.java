@@ -16,10 +16,11 @@
 
 package com.google.android.accessibility.switchaccess;
 
-/** A litener to monitor when screens are shown. */
+/** A listener to monitor when screens are shown. */
 public interface ScreenViewListener {
   /**
-   * Called when a screen is shown.
+   * Called when a screen is shown. This can be any types of screen, such as setup screen, Switch
+   * Access menu screen, and settings screen.
    *
    * @param screenName The name of the screen shown
    */

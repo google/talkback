@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Pulsante</item>
+    <item>Casella di controllo</item>
+    <item>Selettore colori</item>
+    <item>Controllo data ora</item>
+    <item>Controllo data ora</item>
+    <item>Controllo data</item>
+    <item>Modifica del testo per email</item>
+    <item>Selezione di file</item>
+    <item translatable="false"></item>
+    <item>Pulsante</item>
+    <item>Controllo mese</item>
+    <item>Modifica solo del testo numerico</item>
+    <item>Testo di modifica della password</item>
+    <item>Pulsante di opzione</item>
+    <item>Dispositivo di scorrimento</item>
+    <item>Reimposta</item>
+    <item>Modifica del testo per ricerca</item>
+    <item>Pulsante</item>
+    <item>Modifica del testo per numero di telefono</item>
+    <item>Modifica del testo</item>
+    <item>Modifica del testo per URL</item>
+    <item>Controllo settimana dell\'anno</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Avviso</item>
+    <item>Finestra di avviso</item>
+    <item>Pulsante</item>
+    <item>Casella di controllo</item>
+    <item>Casella combinata</item>
+    <item>Finestra di dialogo</item>
+    <item>Cella della griglia</item>
+    <item>Link</item>
+    <item>Log</item>
+    <item>Testo scorrevole</item>
+    <item>Voce di menu</item>
+    <item>Casella di controllo di una voce di menu</item>
+    <item>Pulsante di opzione di una voce di menu</item>
+    <item>Opzione</item>
+    <item>Barra di avanzamento</item>
+    <item>Pulsante di opzione</item>
+    <item>Gruppo di pulsanti di opzione</item>
+    <item>Barra di scorrimento</item>
+    <item>Dispositivo di scorrimento</item>
+    <item>Pulsante di selezione</item>
+    <item>Stato</item>
+    <item>Scheda</item>
+    <item>Riquadro schede</item>
+    <item>Casella di testo</item>
+    <item>Timer</item>
+    <item>Barra degli strumenti</item>
+    <item>Descrizione comando</item>
+    <item>Elemento di struttura ad albero</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Link</item>
+    <item>Intestazione uno</item>
+    <item>Intestazione due</item>
+    <item>Intestazione tre</item>
+    <item>Intestazione quattro</item>
+    <item>Intestazione cinque</item>
+    <item>Intestazione sei</item>
+    <item>Pulsante</item>
+    <item>Casella combinata</item>
+    <item>Tabella</item>
+    <item>Area di testo</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

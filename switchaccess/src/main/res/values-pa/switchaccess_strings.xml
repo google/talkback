@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"ਸਵਿੱਚ ਪਹੁੰਚ"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"ਸਵਿੱਚ ਪਹੁੰਚ, ਕੰਮ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ ਲੋਕਾਂ ਨੂੰ ਇੱਕ ਜਾਂ ਇੱਕ ਤੋਂ ਜ਼ਿਆਦਾ ਸਵਿੱਚਾਂ ਦੀ ਵਰਤੋਂ ਨਾਲ ਫ਼ੋਨਾਂ ਅਤੇ ਟੈਬਲੈੱਟਾਂ ਨੂੰ ਕੰਟਰੋਲ ਕਰਨ ਦਿੰਦੀ ਹੈ।ਆਈਟਮਾਂ ਚੁਣਨ, ਸਕ੍ਰੌਲ ਕਰਨ, ਲਿਖਤ ਦਾਖਲ ਕਰਨ ਅਤੇ ਹੋਰ ਕੰਮਾਂ ਲਈ ਸਵਿੱਚਾਂ ਦੀ ਵਰਤੋਂ ਕਰੋ।"</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"ਸਵਿੱਚਾਂ ਨਾਲ ਡੀਵਾਈਸ ਨੂੰ ਕੰਟਰੋਲ ਕਰੋ"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"ਮਦਦ ਅਤੇ ਪ੍ਰਤੀਕਰਮ"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"ਸਵੈ-ਸਕੈਨ"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"ਸਵੈ-ਸਕੈਨ ਸਮਾਂ"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"ਆਟੋ-ਸਕੈਨ ਦੀ ਦਿਸ਼ਾ ਬਦਲੋ"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="one">%.2f ਸਕਿੰਟ</item>
-      <item quantity="other">%.2f ਸਕਿੰਟ</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"ਵਿਉਂਤਬੱਧ ਸਕੈਨਿੰਗ"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"ਸਕੈਨਿੰਗ ਵਿਧੀ"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"ਪਹਿਲੀ ਆਈਟਮ \'ਤੇ ਦੇਰੀ"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਓ"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"ਕਾਰਵਾਈਆਂ ਲਈ ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਓ"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"ਸਕੈਨ ਕਰਨ ਲਈ ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਓ"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"ਲਾਈਨ ਗਤੀ"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"ਸਕੈਨਾਂ ਦੀ ਸੰਖਿਆ"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"ਚੁਣੋ ਕਿ ਸਕੈਨਿੰਗ ਕਿੰਨੀ ਵਾਰ ਦੁਹਰਾਈ ਜਾਂਦੀ ਹੈ"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"ਡੀਬਾਊਂਸ ਸਮਾਂ"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"ਇਸ ਸਮੇਂ ਦੇ ਅੰਦਰ ਇੱਕ ਤੋਂ ਵਧੇਰੇ ਵਾਰ ਦਬਾਉਣ ਨੂੰ ਇੱਕ ਵਾਰ ਦਬਾਉਣਾ ਹੀ ਮੰਨਿਆ ਜਾਵੇਗਾ।"</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"ਕਾਰਵਾਈ ਕਰਨ ਲਈ ਰੀਲੀਜ਼ ਕਰੋ"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"ਸਵਿੱਚ ਦੇ ਰਿਲੀਜ਼ ਕੀਤੇ ਜਾਣ \'ਤੇ ਕਾਰਵਾਈ ਕਰੋ"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="one">%d ਲੂਪ</item>
-      <item quantity="other">%d ਲੂਪ</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"ਸਵਿੱਚ \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' ਪਹਿਲਾਂ ਹੀ \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' ਦੇ ਜ਼ਿੰਮੇ ਲਗਾਈ ਗਈ ਹੈ"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="one">%d ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਈਆਂ ਗਈਆਂ</item>
-      <item quantity="other">%d ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਈਆਂ ਗਈਆਂ</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"ਗਰੁੱਪ ਚੋਣ ਸਵਿੱਚ %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"ਅੱਗੇ"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"ਪਿਛਲਾ"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"ਚੁਣੋ"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"ਲੰਮੇ ਸਮੇਂ ਤੱਕ ਦਬਾਓ"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"ਅੱਗੇ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"ਪਿੱਛੇ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"ਖਾਰਜ ਕਰੋ"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"ਵਿਸਤਾਰ ਕਰੋ"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"ਸੁੰਗੇੜੋ"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"ਲਿਖਤ ਨੂੰ ਉਜਾਗਰ ਕਰੋ"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"ਕਾਪੀ ਕਰੋ"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"ਕੱਟੋ"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"ਪੇਸਟ ਕਰੋ"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"ਮੀਨੂ"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"ਪਿੱਛੇ"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"ਹੋਮ"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"ਰੂਪ-ਰੇਖਾ"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"ਸੂਚਨਾਵਾਂ"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"ਤਤਕਾਲ ਸੈਟਿੰਗਾਂ"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"ਅੱਗੇ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"ਪਿੱਛੇ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ"</string>
-    <string name="point_scan" msgid="4514216871544244788">"ਪੁਆਇੰਟ ਸਕੈਨ"</string>
-    <string name="box_scan" msgid="6675486192630209217">"ਪੁਆਇੰਟ ਸਕੈਨ ਤੋਂ ਬਾਹਰ ਜਾਓ"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"ਸੱਜੇ ਵੱਲ ਸਵਾਈਪ ਕਰੋ"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"ਖੱਬੇ ਵੱਲ ਸਵਾਈਪ ਕਰੋ"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰੋ"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"ਸਵਾਈਪ ਕਰੋ (ਵਿਉਂਤੀ)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"ਜ਼ੂਮ ਘਟਾਓ"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"ਜ਼ੂਮ ਵਧਾਓ"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"ਸਵਿੱਚ ਪਹੁੰਚ ਸੈਟਿੰਗਾਂ"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"ਇੱਕ ਸਵਿੱਚ ਸੁਮੇਲ ਨੂੰ ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰਨ ਜਾਂ ਹਟਾਉਣ ਲਈ ਉਸਨੂੰ ਦਬਾਓ"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"ਸਵਿੱਚ ਜ਼ਿੰਮੇ ਲਗਾਉਣ ਨੂੰ ਕਲੀਅਰ ਕਰੋ"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"ਸ਼ਿਫਟ ਕੁੰਜੀ + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"ਕੋਈ ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਨਹੀਂ ਲਗਾਈਆਂ ਗਈਆਂ"</string>
-    <string name="more" msgid="1547670498589416840">"ਹੋਰ"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"ਸਪੇਸ"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"ਦਾਖਲ ਕਰੋ"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"ਟੈਬ"</string>
-    <string name="save" msgid="5398278773451196019">"ਰੱਖਿਅਤ ਕਰੋ"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"ਉਜਾਗਰ ਸ਼ੈਲੀ ਨੂੰ ਸਕੈਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"ਪ੍ਰਾਈਮਰੀ ਸਕੈਨ ਸਟਾਈਲ"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"ਉਜਾਗਰ ਕਰਨ ਦਾ ਰੰਗ"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"ਲਾਈਨ ਸ਼ੈਲੀ ਉਜਾਗਰ ਕਰੋ"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"ਪਰਦੇਦਾਰੀ ਨੀਤੀ"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"ਸਵੈ-ਚੋਣ ਨੂੰ ਚਾਲੂ ਕਰੋ"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"ਸਵੈ-ਚੋਣ ਨੂੰ ਅਯੋਗ ਬਣਾਓ"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"ਅਗਲਾ ਅੱਖਰ"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"ਅਗਲਾ ਸ਼ਬਦ"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"ਅਗਲੀ ਲਾਈਨ"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"ਅਗਲਾ ਪੈਰ੍ਹਾ"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"ਅਗਲਾ ਪੰਨਾ"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"ਪਿਛਲਾ ਅੱਖਰ"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"ਪਿਛਲਾ ਸ਼ਬਦ"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"ਪਿਛਲੀ ਲਾਈਨ"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"ਪਿਛਲਾ ਪੈਰ੍ਹਾ"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"ਪਿਛਲਾ ਪੰਨਾ"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"ਆਪਣੇ ਆਪ ਸਕੈਨ ਚਾਲੂ ਕਰੋ"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"ਸਵਿੱਚ ਨੂੰ ਦਬਾਏ ਬਿਨਾਂ ਸਕੈਨ ਚਾਲੂ ਹੁੰਦੀ ਹੈ"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"ਸਵਿੱਚ ਪਹੁੰਚ ਸਥਾਪਨਾ ਖੋਲ੍ਹੋ"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"ਸਵਿੱਚ ਪਹੁੰਚ ਸਥਾਪਨਾ ਵਿਜ਼ਾਰਡ"</string>
-    <string name="one_switch" msgid="5247899666787922810">"ਇੱਕ ਸਵਿੱਚ"</string>
-    <string name="two_switches" msgid="3082487661638289356">"ਦੋ ਸਵਿੱਚਾਂ"</string>
-    <string name="finish" msgid="4267641294267512480">"ਪੂਰਾ ਕਰੋ"</string>
-    <string name="exit" msgid="8664597014081860813">"ਬਾਹਰ ਜਾਓ"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"ਸਵਿੱਚਾਂ ਦੀ ਸੰਖਿਆ ਚੁਣੋ"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"ਆਈਟਮਾਂ ਵਿਚਕਾਰ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਅੱਗੇ-ਪਿੱਛੇ ਹੋਣਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਸਵਿੱਚ ਨੂੰ ਦਬਾਓ, ਫਿਰ ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ ਦੁਬਾਰਾ ਦਬਾਓ।"</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"ਆਈਟਮਾਂ ਵਿਚਕਾਰ ਅੱਗੇ-ਪਿੱਛੇ ਜਾਣ ਲਈ ਇੱਕ ਸਵਿੱਚ ਨੂੰ ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ ਦੂਜੀ ਸਵਿੱਚ ਨੂੰ ਦਬਾਓ।"</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"ਸਕੈਨ ਕਰਨ ਦੀ ਗਤੀ ਚੁਣੋ"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"ਚੁਣੋ ਕਿ ਹਰੇਕ ਆਈਟਮ ਨੂੰ ਕਿੰਨੇ ਸਮੇਂ ਤੱਕ ਉਜਾਗਰ ਰਹਿਣਾ ਚਾਹੀਦਾ ਹੈ"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"ਤੇਜ਼ (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> ਦੀ ਦੇਰੀ)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"ਔਸਤ (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> ਦੀ ਦੇਰੀ)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"ਧੀਮਾ (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> ਦੀ ਦੇਰੀ)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"ਵਿਉਂਤੀ"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"ਦੇਰੀ (ਸਕਿੰਟ)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"ਕੁੰਜੀ \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' ਨੂੰ ਪਹਿਲਾਂ ਹੀ ਕਿਸੇ ਹੋਰ ਕਾਰਵਾਈ ਦੇ ਜ਼ਿੰਮੇ ਲਗਾਇਆ ਗਿਆ ਹੈ"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"ਕਤਾਰ-ਕਾਲਮ ਸਕੈਨਿੰਗ"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"ਗਰੁੱਪ ਚੋਣ"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"ਸਰਲਰੇਖੀ ਸਕੈਨਿੰਗ"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"ਬੋਲਿਆ ਗਿਆ ਪ੍ਰਤੀਕਰਮ"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS ਸੈਟਿੰਗਾਂ"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"ਇੱਕ ਤੋਂ ਵਧੇਰੇ ਆਈਟਮਾਂ ਲਈ"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"ਪਹਿਲੀ ਅਤੇ ਆਖਰੀ ਆਈਟਮ ਬੋਲੋ"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"ਆਈਟਮਾਂ ਦੀ ਸੰਖਿਆ ਬੋਲੋ"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"ਸਾਰੀਆਂ ਉਜਾਗਰ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਬੋਲੋ"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"ਅਗਲੀ ਆਈਟਮ \'ਤੇ ਜਾਣ ਤੋਂ ਪਹਿਲਾਂ ਬੋਲਣ ਨੂੰ ਪੂਰਾ ਕਰੋ"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"ਗਰੁੱਪ <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> ਤੋਂ <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> ਆਈਟਮਾਂ"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"ਸਕ੍ਰੋਲ ਕਰਨ ਲਈ ਚੁਣੋ"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"ਅਗਿਆਤ ਆਈਟਮ"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"ਸਕੈਨ ਕਰਨ ਦੇ ਤਰੀਕੇ ਨੂੰ ਚੁਣੋ"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"ਇੱਕ ਸਮੇਂ ਇੱਕ ਕਤਾਰ ਸਕੈਨ ਕਰੋ। ਕਤਾਰ ਦੇ ਚੁਣੇ ਜਾਣ ਤੋਂ ਬਾਅਦ, ਉਸ ਸੂਚੀ ਦੀਆਂ ਆਈਟਮਾਂ ਵਿੱਚੋਂ ਗੁਜ਼ਰੋ।"</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"ਆਈਟਮਾਂ \'ਤੇ ਇੱਕ-ਇੱਕ ਕਰਕੇ ਜਾਓ। ਨੋਟ ਕਰੋ ਕਿ ਕੀ-ਬੋਰਡ ਹਮੇਸ਼ਾ ਕਤਾਰ ਦੁਆਰਾ ਸਕੈਨ ਕੀਤੇ ਜਾਣਗੇ।"</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"ਸਾਰੀਆਂ ਆਈਟਮਾਂ ਦੇ ਜ਼ਿੰਮੇ ਇੱਕ ਰੰਗ ਲਗਾਇਆ ਜਾਵੇਗਾ। ਤੁਹਾਡੀ ਪਸੰਦੀਦਾ ਆਈਟਮ ਦੇ ਦੁਆਲੇ ਦੇ ਰੰਗ ਨਾਲ ਸਬੰਧਿਤ ਸਵਿੱਚ ਨੂੰ ਦਬਾਓ। ਗਰੁੱਪ ਦੇ ਆਕਾਰ ਨੂੰ ਤਦ ਤੱਕ ਛੋਟਾ ਕਰੋ ਜਦ ਤੱਕ ਤੁਸੀਂ ਆਪਣੀ ਪਸੰਦ \'ਤੇ ਨਾ ਪਹੁੰਚ ਜਾਓ।"</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"ਸਵਿੱਚਾਂ <xliff:g id="ACTION_NAME">%s</xliff:g> ਦੇ ਜ਼ਿੰਮੇ ਲਗਾਈਆਂ ਗਈਆਂ"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"ਕੋਈ ਨਹੀਂ"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"ਕੀ ਜ਼ਿੰਮੇ ਲਗਾਈਆਂ ਸਵਿੱਚਾਂ ਨੂੰ ਕਲੀਅਰ ਕਰਨਾ ਹੈ?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"ਤੁਸੀਂ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਈਆਂ ਹੋਈਆਂ ਹਨ।"</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"ਸਵਿੱਚਾਂ ਕਲੀਅਰ ਕਰੋ"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"ਸਵਿੱਚਾਂ ਰੱਖੋ"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"ਕੋਈ ਵੀ ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਨਹੀਂ ਲਗਾਈਆਂ ਗਈਆਂ"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"ਕੋਈ ਵੀ ਸਵਿੱਚਾਂ ਇਸ ਕਾਰਵਾਈ ਦੇ ਜ਼ਿੰਮੇ ਨਹੀਂ ਲਗਾਈਆਂ ਗਈਆਂ। ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> ਗਰੁੱਪ"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"ਕਿਸੇ ਸਵਿੱਚ ਨੂੰ <xliff:g id="OPTION_COLOR">%1$s</xliff:g> ਗਰੁੱਪ ਚੁਣਨ ਦੇ ਜ਼ਿੰਮੇ ਲਗਾਉਣ ਲਈ ਉਸਨੂੰ ਦਬਾਓ।"</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"ਕਿਸੇ ਸਵਿੱਚ ਨੂੰ \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\" ਕਾਰਵਾਈ ਦੇ ਜ਼ਿੰਮੇ ਲਗਾਉਣ ਲਈ ਉਸਨੂੰ ਦਬਾਓ।"</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"ਸਕੈਨ ਸ਼ੁਰੂ ਕਰੋ ਅਤੇ ਚੁਣੋ"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"ਟਿਕ-ਟੈਕ-ਟੋ ਨਾਲ ਆਪਣੀ ਸਥਾਪਨਾ ਦੀ ਜਾਂਚ ਕਰੋ"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"ਸਕੈਨ ਸ਼ੁਰੂ ਕਰਨ ਲਈ \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ ਸਵਿੱਚ ਨੂੰ ਦੁਬਾਰਾ ਦਬਾਓ। ਪਹਿਲਾਂ ਤੁਸੀਂ!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"ਸਕੈਨ ਸ਼ੁਰੂ ਕਰਨ ਲਈ \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਕਤਾਰ ਨੂੰ ਚੁਣਨ ਲਈ ਸਵਿੱਚ ਨੂੰ ਦੁਬਾਰਾ ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ ਇੱਕ ਵਾਰ ਹੋਰ ਦਬਾਓ। ਪਹਿਲਾਂ ਤੁਸੀਂ!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"ਆਈਟਮਾਂ ਦੇ ਵਿੱਚੋਂ ਗੁਜ਼ਰਨ ਲਈ ਲਈ \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ਨੂੰ ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ਨੂੰ ਦਬਾਓ। ਪਹਿਲਾਂ ਤੁਸੀਂ!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"ਕਤਾਰਾਂ ਵਿੱਚੋਂ ਗੁਜ਼ਰਨ ਲਈ \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ਨੂੰ ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਕਤਾਰ ਨੂੰ ਚੁਣਨ ਲਈ \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ਨੂੰ ਦਬਾਓ। ਉਸ ਕਤਾਰ ਵਿੱਚ ਇੱਕ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ ਦੁਹਰਾਓ। ਪਹਿਲਾਂ ਤੁਸੀਂ!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g> ਵਿੱਚ ਉਜਾਗਰ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਨੂੰ ਚੁਣਨ ਲਈ \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ਨੂੰ ਦਬਾਓ ਜਾਂ <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> ਵਿੱਚ ਉਜਾਗਰ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਨੂੰ ਚੁਣਨ ਲਈ \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" ਨੂੰ ਦਬਾਓ। ਆਪਣੀ ਆਈਟਮ \'ਤੇ ਪਹੁੰਚਣ ਲਈ ਦੁਹਰਾਓ। ਪਹਿਲਾਂ ਤੁਸੀਂ!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"ਤੁਹਾਡੇ ਕੋਲ ਫਿਲਹਾਲ ਸਾਰੀਆਂ ਕਾਰਵਾਈਆਂ ਲਈ ਜ਼ਿੰਮੇ ਲਗਾਏ ਸਵਿੱਚ ਨਹੀਂ ਹਨ। ਪਿੱਛੇ ਜਾਣ ਲਈ \"ਪਿੱਛੇ\" ਬਟਨ ਦੀ ਵਰਤੋਂ ਕਰੋ ਅਤੇ ਸਵਿੱਚਾਂ ਨੂੰ ਜ਼ਿੰਮੇ ਲਗਾਉਣਾ ਪੂਰਾ ਕਰੋ।"</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"ਗੇਮ ਰੀਸੈੱਟ ਕਰੋ"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"ਇਹ ਵਰਗ ਪਹਿਲਾਂ ਹੀ ਲਿਆ ਗਿਆ ਹੈ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"ਤੁਸੀਂ ਜਿੱਤ ਗਏ!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"ਅਗਲੀ ਵਾਰ ਲਈ ਸ਼ੁਭ ਕਾਮਨਾਵਾਂ"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"ਚੁਣੌਤੀ ਬਰਾਬਰ ਰਹੀ"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"ਤੁਸੀਂ ਆਪਣੀ ਵਰਤਮਾਨ ਸਥਾਪਨਾ ਨੂੰ ਰੱਖ ਸਕਦੇ ਹੋ ਜਾਂ ਮੁੜ ਸ਼ੁਰੂ ਕਰ ਸਕਦੇ ਹੋ।"</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"ਸਥਾਪਨਾ ਰੱਖੋ"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"ਸਥਾਪਨਾ ਮੁਕੰਮਲ ਹੋਈ"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"ਤੁਸੀਂ ਪੂਰੀ ਤਰ੍ਹਾਂ ਤਿਆਰ ਹੋ।"</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"ਤੁਸੀਂ ਹਮੇਸ਼ਾ ਸਵਿੱਚ ਪਹੁੰਚ ਸੈਟਿੰਗਾਂ ਤੋਂ ਵਧੀਕ ਸੈਟਿੰਗਾਂ ਨੂੰ ਬਦਲ ਸਕਦੇ ਹੋ ਜਾਂ ਸਥਾਪਨਾ ਵਿਜ਼ਾਰਡ ਨੂੰ ਦੁਬਾਰਾ ਖੋਲ੍ਹ ਸਕਦੇ ਹੋ।"</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">ਸਵਿੱਚ ਪਹੁੰਚ</string>
+  <string name="switch_access_service_description">ਸਵਿੱਚ ਪਹੁੰਚ, ਕੰਮ ਕਰਨ ਵਿੱਚ ਅਸਮਰੱਥ ਲੋਕਾਂ ਨੂੰ ਇੱਕ ਜਾਂ ਇੱਕ ਤੋਂ ਜ਼ਿਆਦਾ ਸਵਿੱਚਾਂ ਦੀ ਵਰਤੋਂ ਨਾਲ ਫ਼ੋਨਾਂ ਅਤੇ ਟੈਬਲੈੱਟਾਂ ਨੂੰ ਕੰਟਰੋਲ ਕਰਨ ਦਿੰਦੀ ਹੈ। ਆਈਟਮਾਂ ਚੁਣਨ, ਸਕ੍ਰੌਲ ਕਰਨ, ਲਿਖਤ ਦਾਖਲ ਕਰਨ ਅਤੇ ਹੋਰ ਕੰਮਾਂ ਲਈ ਸਵਿੱਚਾਂ ਦੀ ਵਰਤੋਂ ਕਰੋ।</string>
+  <string name="switch_access_service_summary">ਸਵਿੱਚਾਂ ਨਾਲ ਡੀਵਾਈਸ ਨੂੰ ਕੰਟਰੋਲ ਕਰੋ</string>
+  <string name="title_pref_help_feedback">ਮਦਦ ਅਤੇ ਵਿਚਾਰ</string>
+  <string name="title_pref_licenses">ਖੁੱਲ੍ਹਾ ਸਰੋਤ ਲਾਇਸੰਸ</string>
+  <string name="title_pref_category_auto_scan">ਸਵੈ-ਸਕੈਨ</string>
+  <string name="title_pref_auto_scan_disabled">ਸਵੈਚਲਿਤ-ਸਕੈਨ (ਬੰਦ ਹੈ)</string>
+  <string name="action_key_summary_auto_scan">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਆਈਟਮਾਂ ਵਿਚਕਾਰ ਝਲਕੀ ਅੱਗੇ-ਪਿੱਛੇ ਹੋਣੀ ਸ਼ੁਰੂ ਹੋ ਜਾਵੇਗੀ। ਦੁਬਾਰਾ ਦਬਾਉਣ \'ਤੇ ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਚੁਣੀ ਜਾਵੇਗੀ।</string>
+  <string name="title_pref_auto_scan_time_delay">ਸਵੈ-ਸਕੈਨ ਸਮਾਂ</string>
+  <string name="action_name_reverse_auto_scan">ਆਟੋ-ਸਕੈਨ ਦੀ ਦਿਸ਼ਾ ਬਦਲੋ</string>
+  <string name="title_pref_reverse_auto_scan_disabled">ਪਿੱਛੇ ਤੋਂ ਸਵੈਚਲਿਤ-ਸਕੈਨ (ਬੰਦ ਹੈ)</string>
+  <string name="action_key_summary_reverse_auto_scan">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਆਈਟਮਾਂ ਵਿਚਕਾਰ ਝਲਕੀ ਉਲਟੇ ਰੂਪ ਵਿੱਚ ਅੱਗੇ-ਪਿੱਛੇ ਹੋਣੀ ਸ਼ੁਰੂ ਹੋ ਜਾਵੇਗੀ। ਦੁਬਾਰਾ ਦਬਾਉਣ ਨਾਲ ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਚੁਣੀ ਜਾਵੇਗੀ।</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">%.2f ਸਕਿੰਟ</item>
+    <item quantity="other">%.2f ਸਕਿੰਟ</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">ਵਿਉਂਤਬੱਧ ਸਕੈਨਿੰਗ</string>
+  <string name="title_pref_scanning_methods">ਸਕੈਨਿੰਗ ਵਿਧੀ</string>
+  <string name="title_pref_start_scan_delay">ਪਹਿਲੀ ਆਈਟਮ \'ਤੇ ਦੇਰੀ</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">ਪਹਿਲੀ ਆਈਟਮ \'ਤੇ ਲੱਗੇ ਵਾਧੂ ਸਮੇਂ ਨੂੰ ਚੁਣੋ। ਇਹ ਸਮਾਂ ਸਵੈਚਲਿਤ-ਸਕੈਨ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ।\n\nਇਹ ਸੈਟਿੰਗ ਸਵੈਚਲਿਤ-ਸਕੈਨ ਅਤੇ ਪੁਆਇੰਟ ਸਕੈਨ ਦੋਹਾਂ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੀ ਹੈ।</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">ਪਹਿਲੀ ਆਈਟਮ \'ਤੇ ਲੱਗੇ ਵਾਧੂ ਸਮੇਂ ਨੂੰ ਚੁਣੋ। ਇਸ ਸਮੇਂ ਤੋਂ ਬਾਅਦ, ਖੜ੍ਹਵੀਂ ਜਾਂ ਲੇਟਵੀਂ ਰੇਖਾ ਵਿੱਚ ਹਲਚਲ ਹੋਣੀ ਸ਼ੁਰੂ ਹੋ ਜਾਵੇਗੀ।\n\nਇਹ ਸੈਟਿੰਗ ਸਵੈਚਲਿਤ-ਸਕੈਨ ਅਤੇ ਪੁਆਇੰਟ ਸਕੈਨ ਦੋਹਾਂ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੀ ਹੈ।</string>
+  <string name="title_pref_category_assign_switches">ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਓ</string>
+  <string name="title_pref_category_key_mappings">ਗਲੋਬਲ ਕਾਰਵਾਈਆਂ ਲਈ ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਓ</string>
+  <string name="summary_pref_category_key_mappings">ਗਲੋਬਲ ਕਾਰਵਾਈਆਂ ਕਿਸੇ ਵੇਲੇ ਵੀ ਕੀਤੀਆਂ ਜਾਂ ਸਕਦੀਆਂ ਹਨ</string>
+  <string name="title_pref_category_scan_key_mappings">ਸਕੈਨ ਕਰਨ ਲਈ ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਓ</string>
+  <string name="summary_pref_category_scan_key_mappings">ਸਕੈਨਿੰਗ ਤੁਹਾਨੂੰ ਝਲਕ ਅਤੇ ਉਜਾਗਰ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਨੂੰ ਚੁਣਨ ਦਿੰਦੀ ਹੈ</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">ਗਤੀਵਿਧੀ ਅਤੇ ਚੋਣ</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ \'ਤੇ ਕਾਰਵਾਈਆਂ</string>
+  <string name="title_pref_point_scan_line_speed">ਲਾਈਨ ਦੀ ਗਤੀ</string>
+  <string name="dialog_message_pref_line_speed">ਚੁਣੋ ਕਿ ਸਕ੍ਰੀਨ \'ਤੇ ਲੇਟਵੀਆਂ ਅਤੇ ਖੜ੍ਹਵੀਆਂ ਲਾਈਨਾਂ ਕਿੰਨੀ ਤੇਜ਼ੀ ਨਾਲ ਹਲਚਲ ਕਰਨ।</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">%.2f ਸੈ.ਮੀ. ਪ੍ਰਤੀ ਸਕਿੰਟ</item>
+    <item quantity="other">%.2f ਸੈ.ਮੀ. ਪ੍ਰਤੀ ਸਕਿੰਟ</item>
+  </plurals>
+  <string name="title_pref_loop_count">ਸਕੈਨਾਂ ਦੀ ਸੰਖਿਆ</string>
+  <string name="dialog_message_pref_loop_count">ਚੁਣੋ ਕਿ ਸਕੈਨਿੰਗ ਕਿੰਨੀ ਵਾਰ ਦੁਹਰਾਈ ਜਾਵੇ।\n\nਇਹ ਸੈਟਿੰਗਾਂ ਸਵੈਚਲਿਤ-ਸਕੈਨ ਅਤੇ ਪੁਆਇੰਟ ਸਕੈਨ ਦੋਹਾਂ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੀਆਂ ਹਨ।</string>
+  <string name="summary_pref_point_scan">ਵਿਸ਼ੇਸ਼ ਲੇਟਵੇਂ ਅਤੇ ਖੜ੍ਹਵੇਂ ਟਿਕਾਣੇ ਨੂੰ ਚੁਣਨ ਲਈ ਹਲਚਲ ਵਾਲੀਆਂ ਲਾਈਨਾਂ ਦੀ ਵਰਤੋਂ ਕਰੋ। %1$s</string>
+  <string name="point_scan_enable_animations_message">ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਨੂੰ ਵਰਤਣ ਲਈ ਐਨੀਮੇਸ਼ਨਾਂ ਨੂੰ ਚਾਲੂ ਕਰੋ।</string>
+  <string name="title_pref_category_switch_accomodation">ਥਾਂਵਾਂ ਵਿੱਚ ਅਦਲਾ-ਬਦਲੀ ਕਰੋ</string>
+  <string name="title_pref_debounce_time">ਇੱਕ ਤੋਂ ਵੱਧ ਵਾਰ ਦਬਾਉਣ ਨੂੰ ਅਣਡਿੱਠ ਕਰੋ</string>
+  <string name="dialog_message_pref_debounce_time">ਇਸ ਸਮੇਂ ਦੇ ਅੰਦਰ ਇੱਕ ਤੋਂ ਵੱਧ ਵਾਰ ਦਬਾਉਣ ਨੂੰ ਇੱਕ ਵਾਰ ਦਬਾਉਣਾ ਹੀ ਮੰਨਿਆ ਜਾਵੇਗਾ।</string>
+  <string name="title_pref_press_on_release">ਕਾਰਵਾਈ ਕਰਨ ਲਈ ਰਿਲੀਜ਼ ਕਰੋ</string>
+  <string name="subtitle_pref_press_on_release">ਸਵਿੱਚ ਦੇ ਰਿਲੀਜ਼ ਕੀਤੇ ਜਾਣ \'ਤੇ ਕਾਰਵਾਈ ਕਰੋ</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d ਲੂਪ</item>
+    <item quantity="other">%d ਲੂਪ</item>
+  </plurals>
+  <string name="preference_off">ਬੰਦ</string>
+  <string name="preference_on">ਚਾਲੂ</string>
+  <string name="toast_msg_key_already_assigned">ਸਵਿੱਚ \'%1$s\' ਪਹਿਲਾਂ ਹੀ \'%2$s\' ਦੇ ਜ਼ਿੰਮੇ ਲਗਾਈ ਗਈ ਹੈ</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਈਆਂ ਗਈਆਂ</item>
+    <item quantity="other">%d ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਈਆਂ ਗਈਆਂ</item>
+  </plurals>
+  <string name="option_scan_switch_format">ਗਰੁੱਪ ਚੋਣ ਸਵਿੱਚ %1$d</string>
+  <string name="option_scan_switch_format_with_color">ਗਰੁੱਪ ਚੋਣ ਸਵਿੱਚ %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਗਰੁੱਪ %1$d ਨੂੰ ਚੁਣਿਆ ਜਾਵੇਗਾ।</string>
+  <string name="action_name_next">ਅੱਗੇ</string>
+  <string name="action_key_summary_next">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਅਗਲੀ ਆਈਟਮ ਨੂੰ ਉਜਾਗਰ ਕੀਤਾ ਜਾਵੇਗਾ।</string>
+  <string name="action_name_previous">ਪਿੱਛੇ</string>
+  <string name="action_key_summary_previous">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਪਿਛਲੀ ਆਈਟਮ ਨੂੰ ਉਜਾਗਰ ਕੀਤਾ ਜਾਵੇਗਾ।</string>
+  <string name="action_name_click">ਚੁਣੋ</string>
+  <string name="action_key_summary_click">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਚੁਣਿਆ ਜਾਵੇਗਾ।</string>
+  <string name="action_name_long_click">ਸਪੱਰਸ਼ ਕਰਕੇ ਰੱਖੋ</string>
+  <string name="action_key_summary_long_click">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਸਪੱਰਸ਼ ਕਰਕੇ ਰੱਖਿਆ ਜਾਵੇਗਾ।</string>
+  <string name="action_name_scroll_forward">ਅੱਗੇ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ</string>
+  <string name="action_key_summary_scroll_forward">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਸਕ੍ਰੋਲ ਕਰਕੇ ਅੱਗੇ ਭੇਜਿਆ ਜਾਵੇਗਾ।</string>
+  <string name="action_name_scroll_backward">ਪਿੱਛੇ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ</string>
+  <string name="action_key_summary_scroll_backward">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਸਕ੍ਰੋਲ ਕਰਕੇ ਪਿੱਛੇ ਵੱਲ ਲਿਜਾਇਆ ਜਾਵੇਗਾ।</string>
+  <string name="action_name_dismiss">ਖਾਰਜ ਕਰੋ</string>
+  <string name="action_name_expand">ਵਿਸਤਾਰ ਕਰੋ</string>
+  <string name="action_name_collapse">ਸੁੰਗੇੜੋ</string>
+  <string name="action_name_highlight_text">ਲਿਖਤ ਨੂੰ ਉਜਾਗਰ ਕਰੋ</string>
+  <string name="action_group_name_highlight">ਉਜਾਗਰ ਕਰੋ ...</string>
+  <string name="action_name_highlight_all_text">ਸਾਰੀ ਲਿਖਤ ਨੂੰ ਉਜਾਗਰ ਕਰੋ</string>
+  <string name="action_name_highlight_granular_text">%1$s ਉਜਾਗਰ ਕਰੋ</string>
+  <string name="action_name_copy">ਕਾਪੀ ਕਰੋ</string>
+  <string name="action_name_copy_all_text">ਸਭ ਨੂੰ ਕਾਪੀ ਕਰੋ</string>
+  <string name="action_name_cut">ਕੱਟੋ</string>
+  <string name="action_name_cut_all_text">ਸਭ ਨੂੰ ਕੱਟੋ</string>
+  <string name="action_name_paste">ਪੇਸਟ ਕਰੋ</string>
+  <string name="action_name_undo">ਅਣਕੀਤਾ ਕਰੋ</string>
+  <string name="action_name_redo">ਮੁੜ-ਓਹੀ ਕਰੋ</string>
+  <string name="action_group_name_delete">ਮਿਟਾਓ ...</string>
+  <string name="action_name_delete">%1$s ਨੂੰ ਮਿਟਾਓ</string>
+  <string name="action_name_delete_highlighted_text">ਉਜਾਗਰ ਕੀਤੀ ਲਿਖਤ ਨੂੰ ਮਿਟਾਓ</string>
+  <string name="option_scanning_menu_button">ਮੀਨੂ</string>
+  <string name="option_scanning_menu_button_content_description">ਸਵਿੱਚ ਪਹੁੰਚ ਦਾ ਮੀਨੂ</string>
+  <string name="switch_access_global_menu">ਸਵਿੱਚ ਪਹੁੰਚ ਦਾ ਗਲੋਬਲ ਮੀਨੂ</string>
+  <string name="switch_access_actions_menu">ਸਵਿੱਚ ਪਹੁੰਚ ਦਾ ਕਾਰਵਾਈ ਮੀਨੂ</string>
+  <string name="switch_access_close_menu">ਬੰਦ ਕਰੋ</string>
+  <string name="switch_access_back_menu">ਪਿੱਛੇ</string>
+  <string name="next_arrow_content_description">ਅੱਗੇ</string>
+  <string name="previous_arrow_content_description">ਪਿੱਛੇ</string>
+  <string name="global_action_back">ਪਿੱਛੇ</string>
+  <string name="global_action_key_summary_back">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਪਿਛਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਵਾਪਸ ਜਾਇਆ ਜਾਵੇਗਾ ਜਾਂ ਜੇਕਰ ਕੀ-ਬੋਰਡ ਦਿਖਾਈ ਦਿੰਦਾ ਹੋਵੇ, ਤਾਂ ਉਸਨੂੰ ਲੁਕਾਇਆ ਜਾਵੇਗਾ।</string>
+  <string name="global_action_home">ਹੋਮ</string>
+  <string name="global_action_key_summary_home">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਹੋਮ ਸਕ੍ਰੀਨ \'ਤੇ ਜਾਇਆ ਜਾਵੇਗਾ।</string>
+  <string name="global_action_overview">ਰੂਪ-ਰੇਖਾ</string>
+  <string name="global_action_key_summary_overview">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਹਾਲ ਹੀ ਵਿੱਚ ਖੋਲ੍ਹੀਆਂ ਐਪਾਂ ਦਿਖਾਈ ਦੇਣਗੀਆਂ।</string>
+  <string name="global_action_notifications">ਸੂਚਨਾਵਾਂ</string>
+  <string name="global_action_key_summary_notifications">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਦੀਆਂ ਸੂਚਨਾਵਾਂ ਦਿਖਾਈ ਦੇਣਗੀਆਂ।</string>
+  <string name="global_action_quick_settings">ਤਤਕਾਲ ਸੈਟਿੰਗਾਂ</string>
+  <string name="global_action_key_summary_quick_settings">ਇਸ ਸਵਿੱਚ ਨੂੰ ਦਬਾਉਣ ਨਾਲ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਦੀਆਂ ਤੁਰੰਤ ਸੈਟਿੰਗਾਂ ਦਿਖਾਈ ਦੇਣਗੀਆਂ।</string>
+  <string name="global_action_power_options">ਪਾਵਰ ਵਿਕਲਪ</string>
+  <string name="global_menu_volume_heading">ਅਵਾਜ਼</string>
+  <string name="volume_menu_media">ਮੀਡੀਆ ਅਵਾਜ਼</string>
+  <string name="volume_menu_call">ਕਾਲ ਦੀ ਅਵਾਜ਼</string>
+  <string name="volume_menu_ring">ਘੰਟੀ ਦੀ ਅਵਾਜ਼</string>
+  <string name="volume_menu_alarm">ਅਲਾਰਮ ਦੀ ਅਵਾਜ਼</string>
+  <string name="volume_menu_accessibility">ਪਹੁੰਚਯੋਗਤਾ ਅਵਾਜ਼</string>
+  <string name="volume_menu_mute">ਮਿਊਟ ਕਰੋ</string>
+  <string name="volume_menu_unmute">ਅਣਮਿਊਟ ਕਰੋ</string>
+  <string name="volume_menu_increase">ਵਧਾਓ</string>
+  <string name="volume_settings">ਅਵਾਜ਼ ਦੀਆਂ ਸੈਟਿੰਗਾਂ</string>
+  <string name="volume_menu_decrease">ਘਟਾਓ</string>
+  <string name="scrollable_forward">ਅੱਗੇ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ</string>
+  <string name="scrollable_backward">ਪਿੱਛੇ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ</string>
+  <string name="point_scan">ਪੁਆਇੰਟ ਸਕੈਨ</string>
+  <string name="box_scan">ਪੁਆਇੰਟ ਸਕੈਨ ਤੋਂ ਬਾਹਰ ਜਾਓ</string>
+  <string name="action_name_swipe_right">ਸੱਜੇ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
+  <string name="action_name_swipe_left">ਖੱਬੇ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
+  <string name="action_name_swipe_up">ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
+  <string name="action_name_swipe_down">ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
+  <string name="action_name_swipe_custom">ਸਵਾਈਪ ਕਰੋ (ਵਿਉਂਤੀ)</string>
+  <string name="action_name_zoom_out">ਜ਼ੂਮ ਘਟਾਓ</string>
+  <string name="action_name_zoom_in">ਜ਼ੂਮ ਵਧਾਓ</string>
+  <string name="switch_access_preferences_title">ਸਵਿੱਚ ਪਹੁੰਚ ਸੈਟਿੰਗਾਂ</string>
+  <string name="key_combo_preference_instructions">ਇੱਕ ਸਵਿੱਚ ਸੁਮੇਲ ਨੂੰ ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕਰਨ ਜਾਂ ਹਟਾਉਣ ਲਈ ਉਸਨੂੰ ਦਬਾਓ</string>
+  <string name="key_combo_preference_reset_button">ਸਵਿੱਚ ਜ਼ਿੰਮੇ ਲਗਾਉਣ ਨੂੰ ਕਲੀਅਰ ਕਰੋ</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">ਸ਼ਿਫਟ ਕੁੰਜੀ +</string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">ਕੋਈ ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਨਹੀਂ ਲਗਾਈਆਂ ਗਈਆਂ</string>
+  <string name="more">ਹੋਰ</string>
+  <string name="name_of_space_bar">ਸਪੇਸ</string>
+  <string name="name_of_enter_key">ਦਾਖਲ ਕਰੋ</string>
+  <string name="name_of_tab_key">ਟੈਬ</string>
+  <string name="save">ਰੱਖਿਅਤ ਕਰੋ</string>
+  <string name="title_pref_category_display_and_sound">ਡਿਸਪਲੇ ਅਤੇ ਧੁਨੀ</string>
+  <string name="title_pref_highlight_0">ਉਜਾਗਰ ਸ਼ੈਲੀ ਨੂੰ ਸਕੈਨ ਕਰਨਾ</string>
+  <string name="title_pref_primary_scan_style">ਪ੍ਰਾਈਮਰੀ ਸਕੈਨ ਸਟਾਈਲ</string>
+  <string name="title_pref_highlight_0_color">ਉਜਾਗਰ ਕਰਨ ਦਾ ਰੰਗ</string>
+  <string name="title_pref_highlight_0_weight">ਲਾਈਨ ਉਜਾਗਰ ਕਰਨ ਦੀ ਸ਼ੈਲੀ</string>
+  <string name="title_pref_privacy_policy">ਪਰਦੇਦਾਰੀ ਨੀਤੀ</string>
+  <string name="title_pref_auto_select">ਸਵੈਚਲਿਤ-ਚੋਣ</string>
+  <string name="summary_pref_auto_select">ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਚੁਣੋ। ਜੇਕਰ ਆਈਟਮ ਚੁਣੀ ਨਹੀਂ ਜਾ ਸਕਦੀ, ਜਾਂ ਜੇਕਰ ਇਹ ਸੈਟਿੰਗ ਬੰਦ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਉਪਲਬਧ ਕਾਰਵਾਈਆਂ ਦਾ ਇੱਕ ਮੀਨੂ ਦੇਖੋਗੇ।</string>
+  <string name="switch_access_global_menu_enable_autoselect">ਸਵੈ-ਚੋਣ ਨੂੰ ਚਾਲੂ ਕਰੋ</string>
+  <string name="switch_access_global_menu_disable_autoselect">ਸਵੈ-ਚੋਣ ਨੂੰ ਅਯੋਗ ਬਣਾਓ</string>
+  <string name="switch_access_move_next">ਅੱਗੇ ...</string>
+  <string name="switch_access_move_next_character">ਅਗਲਾ ਅੱਖਰ</string>
+  <string name="switch_access_move_next_word">ਅਗਲਾ ਸ਼ਬਦ</string>
+  <string name="switch_access_move_next_line">ਅਗਲੀ ਲਾਈਨ</string>
+  <string name="switch_access_move_next_paragraph">ਅਗਲਾ ਪੈਰ੍ਹਾ</string>
+  <string name="switch_access_move_next_page">ਅਗਲਾ ਪੰਨਾ</string>
+  <string name="switch_access_move_next_sentence">ਅਗਲਾ ਵਾਕ</string>
+  <string name="switch_access_move_prev">ਪਿੱਛੇ ...</string>
+  <string name="switch_access_move_prev_character">ਪਿਛਲਾ ਅੱਖਰ</string>
+  <string name="switch_access_move_prev_word">ਪਿਛਲਾ ਸ਼ਬਦ</string>
+  <string name="switch_access_move_prev_line">ਪਿਛਲੀ ਲਾਈਨ</string>
+  <string name="switch_access_move_prev_paragraph">ਪਿਛਲਾ ਪੈਰ੍ਹਾ</string>
+  <string name="switch_access_move_prev_page">ਪਿਛਲਾ ਪੰਨਾ</string>
+  <string name="switch_access_move_prev_sentence">ਪਿਛਲਾ ਵਾਕ</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">ਆਪਣੇ ਆਪ ਸਕੈਨ ਚਾਲੂ ਕਰੋ</string>
+  <string name="switch_access_auto_start_scan_summary">ਸਵਿੱਚ ਨੂੰ ਦਬਾਏ ਬਿਨਾਂ ਸਕੈਨ ਚਾਲੂ ਹੁੰਦੀ ਹੈ</string>
+  <string name="pref_begin_switchaccess_setup_title">ਸੈੱਟਅੱਪ ਗਾਈਡ ਖੋਲ੍ਹੋ</string>
+  <string name="setup_wizard_heading">ਸਵਿੱਚ ਪਹੁੰਚ ਦੀ ਸੈੱਟਅੱਪ ਗਾਈਡ</string>
+  <string name="one_switch">ਇੱਕ ਸਵਿੱਚ</string>
+  <string name="two_switches">ਦੋ ਸਵਿੱਚਾਂ</string>
+  <string name="finish">ਪੂਰਾ ਕਰੋ</string>
+  <string name="exit">ਬਾਹਰ ਜਾਓ</string>
+  <string name="intro_heading">ਸਵਿੱਚ ਚੁਣੋ</string>
+  <string name="usb_switch_option_text">USB ਸਵਿੱਚ</string>
+  <string name="bluetooth_switch_option_text">ਬਲੂਟੁੱਥ ਸਵਿੱਚ</string>
+  <string name="usb_switch_description_text">ਭੌਤਿਕ ਰੂਪ ਵਿੱਚ USB ਰਾਹੀਂ ਇੱਕ ਸਵਿੱਚ ਕਨੈਕਟ ਕਰੋ</string>
+  <string name="bluetooth_switch_description_text">ਬਲੂਟੁੱਥ ਰਾਹੀਂ ਵਾਇਰਲੈੱਸ ਤੌਰ \'ਤੇ ਇੱਕ ਸਵਿੱਚ ਜੋੜਾਬੱਧ ਕਰੋ</string>
+  <string name="bluetooth_unsupported_description_text">ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਵਿੱਚ ਬਲੂਟੁੱਥ ਦੀ ਸਹੂਲਤ ਨਹੀਂ ਹੈ। ਇਸਦੀ ਬਜਾਏ ਇੱਕ ਭੌਤਿਕ ਸਵਿੱਚ ਵਰਤ ਕੇ ਦੇਖੋ।</string>
+  <string name="connected_usb_devices_header">ਕਨੈਕਟ ਕੀਤੇ ਡੀਵਾਈਸ</string>
+  <string name="usb_no_devices_connected_message">ਕੋਈ USB ਡੀਵਾਈਸ ਨਹੀਂ ਮਿਲਿਆ। ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਹਾਡਾ ਡੀਵਾਈਸ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਕਨੈਕਟ ਕੀਤਾ ਗਿਆ ਹੈ।</string>
+  <string name="connect_usb_heading">USB ਸਵਿੱਚ ਕਨੈਕਟ ਕਰੋ</string>
+  <string name="pair_bluetooth_heading">ਬਲੂਟੁੱਥ ਸਵਿੱਚ ਜੋੜਾਬੱਧ ਕਰੋ</string>
+  <string name="pair_bluetooth_subheading">ਹੇਠਾਂ ਆਪਣੇ ਬਲੂਟੁੱਥ ਸਵਿੱਚ \'ਤੇ ਟੈਪ ਕਰੋ</string>
+  <string name="bluetooth_not_enabled_message">ਬਲੂਟੁੱਥ ਸਵਿੱਚ ਨੂੰ ਜੋੜਾਬੱਧ ਕਰਨ ਲਈ, ਬਲੂਟੁੱਥ ਚਾਲੂ ਕਰੋ</string>
+  <string name="enable_bluetooth_button_title">ਬਲੂਟੁੱਥ ਚਾਲੂ ਕਰੋ</string>
+  <string name="bluetooth_no_devices_paired">ਕੋਈ ਬਲੂਟੁੱਥ ਡੀਵਾਈਸ ਜੋੜਾਬੱਧ ਨਹੀਂ ਹੈ</string>
+  <string name="paired_devices_header">ਜੋੜਾਬੱਧ ਕੀਤੇ ਬਲੂਟੁੱਥ ਡੀਵਾਈਸ</string>
+  <string name="available_devices_header">ਉਪਲਬਧ ਬਲੂਟੁੱਥ ਡੀਵਾਈਸ</string>
+  <string name="bluetooth_computer_content_description">ਕੰਪਿਊਟਰ</string>
+  <string name="bluetooth_phone_content_description">ਫ਼ੋਨ</string>
+  <string name="bluetooth_imaging_content_description">ਚਿੱਤਰ ਸੰਬੰਧੀ</string>
+  <string name="bluetooth_headphone_content_description">ਹੈੱਡਫ਼ੋਨ</string>
+  <string name="bluetooth_peripheral_content_description">ਪੈਰੀਫੈਰਲ</string>
+  <string name="bluetooth_default_content_description">ਬਲੂਟੁੱਥ</string>
+  <string name="bluetooth_connecting_description">ਕਨੈਕਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...</string>
+  <string name="bluetooth_connected_description">ਕਨੈਕਟ ਕੀਤਾ ਗਿਆ</string>
+  <string name="bluetooth_device_unavailable_description">ਡੀਵਾਈਸ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
+  <string name="reconnecting_unsupported_title">ਡੀਵਾਈਸ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ</string>
+  <string name="reconnecting_unsupported_message">ਸਵਿੱਚ ਪਹੁੰਚ ਤੁਹਾਡੇ ਪਹਿਲਾਂ ਤੋਂ ਜੋੜਾਬੱਧ ਕੀਤੇ ਡੀਵਾਈਸਾਂ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਹਾਡਾ ਡੀਵਾਈਸ ਚਾਲੂ ਹੈ ਅਤੇ ਕਨੈਕਟ ਕੀਤਾ ਹੋਇਆ ਹੈ।\n\nਜੇਕਰ ਤੁਹਾਡਾ ਡੀਵਾਈਸ ਅਜੇ ਵੀ ਕਨੈਕਟ ਨਹੀਂ ਹੈ, ਤਾਂ ਬਲੂਟੁੱਥ ਸੈਟਿੰਗਾਂ \'ਤੇ ਜਾ ਕੇ ਇਸਨੂੰ ਮੁੜ ਕਨੈਕਟ ਕਰਕੇ ਦੇਖੋ।</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">ਬਲੂਟੁੱਥ ਸੈਟਿੰਗਾਂ \'ਤੇ ਜਾਓ</string>
+  <string name="number_of_switches_heading">ਸਵਿੱਚਾਂ ਦੀ ਸੰਖਿਆ ਚੁਣੋ</string>
+  <string name="title_assign_scan_key">%1$s ਸਵਿੱਚ ਜ਼ਿੰਮੇ ਲਾਓ</string>
+  <string name="one_switch_description_text">ਆਈਟਮਾਂ ਵਿਚਕਾਰ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਹਲਚਲ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਸਵਿੱਚ ਨੂੰ ਦਬਾਓ। ਫਿਰ ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ ਦੁਬਾਰਾ ਦਬਾਓ।</string>
+  <string name="two_switches_description_text">ਆਈਟਮਾਂ ਵਿਚਕਾਰ ਅੱਗੇ-ਪਿੱਛੇ ਜਾਣ ਲਈ ਇੱਕ ਸਵਿੱਚ ਨੂੰ ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ ਦੂਜੀ ਸਵਿੱਚ ਨੂੰ ਦਬਾਓ।</string>
+  <string name="step_speed_heading">ਸਕੈਨ ਕਰਨ ਦੀ ਗਤੀ ਚੁਣੋ</string>
+  <string name="step_speed_subheading">ਚੁਣੋ ਕਿ ਹਰੇਕ ਆਈਟਮ ਨੂੰ ਕਿੰਨੇ ਸਮੇਂ ਤੱਕ ਉਜਾਗਰ ਰਹਿਣਾ ਚਾਹੀਦਾ ਹੈ</string>
+  <string name="fast_radio_button_title">ਤੇਜ਼ (%1$sਸਕਿੰਟ ਦੀ ਦੇਰੀ)</string>
+  <string name="medium_radio_button_title">ਔਸਤ (%1$sਸਕਿੰਟ ਦੀ ਦੇਰੀ)</string>
+  <string name="slow_radio_button_title">ਧੀਮਾ (%1$sਸਕਿੰਟ ਦੀ ਦੇਰੀ)</string>
+  <string name="custom_switch">ਵਿਉਂਤੀ</string>
+  <string name="custom_edit_text">ਦੇਰੀ (ਸਕਿੰਟ)</string>
+  <string name="setup_toast_msg_key_already_assigned">ਕੁੰਜੀ \'%1$s\' ਨੂੰ ਪਹਿਲਾਂ ਹੀ ਕਿਸੇ ਹੋਰ ਕਾਰਵਾਈ ਦੇ ਜ਼ਿੰਮੇ ਲਗਾਇਆ ਗਿਆ ਹੈ</string>
+  <string name="row_column_scanning_title">ਕਤਾਰ-ਕਾਲਮ ਸਕੈਨਿੰਗ</string>
+  <string name="option_scanning_title">ਗਰੁੱਪ ਚੋਣ (ਉੱਨਤ)</string>
+  <string name="linear_scanning_title">ਰੇਖੀ ਸਕੈਨਿੰਗ</string>
+  <string name="linear_scanning_except_keyboard_title">ਰੇਖੀ ਸਕੈਨਿੰਗ (ਕੀ-ਬੋਰਡ ਤੋਂ ਬਿਨਾਂ)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">ਬੋਲੀ, ਧੁਨੀ ਅਤੇ ਥਰਥਰਾਹਟ</string>
+  <string name="title_pref_switch_access_spoken_feedback">ਬੋਲਿਆ ਗਿਆ ਵਿਚਾਰ</string>
+  <string name="title_pref_scan_non_actionable_items">ਵਰਣਨਾਤਮਿਕ ਲਿਖਤ ਬੋਲੋ</string>
+  <string name="scan_non_actionable_items_summary">ਉਪਲਬਧ ਕਾਰਵਾਈਆਂ ਅਤੇ ਵਰਣਨਾਤਮਿਕ ਲਿਖਤ ਵਾਲੀਆਂ ਆਈਟਮਾਂ ਲਈ ਬੋਲੀ ਪ੍ਰਤੀਕਰਮ ਸੁਣੋ</string>
+  <string name="title_pref_switch_access_verbosity">ਸ਼ਬਦ-ਵਰਤੋਂ</string>
+  <string name="summary_verbosity">ਚੁਣੋ ਕਿ ਕਿੰਨੀ ਜਾਣਕਾਰੀ ਬੋਲੀ ਜਾਵੇ</string>
+  <string name="title_pref_verbosity_category_verbosity_details">ਸ਼ਬਦ-ਵਰਤੋਂ ਦੇ ਵੇਰਵੇ</string>
+  <string name="title_pref_switch_access_keyboard_echo">ਕੀ-ਬੋਰਡ ਈਕੋ</string>
+  <string name="keyboard_echo_summary_on">ਆਨ-ਸਕ੍ਰੀਨ ਕੀ-ਬੋਰਡ ਦੀਆਂ ਟਾਈਪ ਕੀਤੀਆਂ ਕੁੰਜੀਆਂ ਬੋਲੋ</string>
+  <string name="keyboard_echo_summary_off">ਆਨ-ਸਕ੍ਰੀਨ ਕੀ-ਬੋਰਡ ਦੀਆਂ ਟਾਈਪ ਕੀਤੀਆਂ ਕੁੰਜੀਆਂ ਨਾ ਬੋਲੋ</string>
+  <string name="title_pref_enable_hints">ਵਰਤੋਂ ਦੇ ਸੰਕੇਤ ਬੋਲੋ</string>
+  <string name="enable_hints_summary_on">ਵਰਤੋਂ ਦੇ ਸੰਕੇਤਾਂ ਨੂੰ ਨੈਵੀਗੇਸ਼ਨ ਦੌਰਾਨ ਕੁਝ ਦੇਰੀ ਤੋਂ ਬਾਅਦ ਬੋਲਿਆ ਜਾਂਦਾ ਹੈ</string>
+  <string name="enable_hints_summary_off">ਪਹੁੰਚਯੋਗਤਾ ਫੋਕਸ ਨੂੰ ਅੱਗੇ ਜਾਂ ਪਿੱਛੇ ਲਿਜਾਣ ਵੇਲੇ ਵਰਤੋਂ ਦੇ ਸੰਕੇਤਾਂ ਨੂੰ ਬੋਲਿਆ ਨਹੀਂ ਜਾਂਦਾ ਹੈ</string>
+  <string name="title_pref_speak_container_element_position">ਸੂਚੀ ਅਤੇ ਗ੍ਰਿਡ ਜਾਣਕਾਰੀ ਬੋਲੋ</string>
+  <string name="speak_container_element_position_summary_on">ਸੂਚੀ ਅਤੇ ਗ੍ਰਿਡ ਜਾਣਕਾਰੀ ਨੂੰ ਬੋਲਿਆ ਜਾਂਦਾ ਹੈ</string>
+  <string name="speak_container_element_position_summary_off">ਸੂਚੀ ਅਤੇ ਗ੍ਰਿਡ ਜਾਣਕਾਰੀ ਨੂੰ ਬੋਲਿਆ ਨਹੀਂ ਜਾਂਦਾ ਹੈ</string>
+  <string name="title_pref_speak_element_type">ਅੰਸ਼ ਦੀ ਕਿਸਮ ਬੋਲੋ</string>
+  <string name="speak_element_type_summary_on">ਫੋਕਸ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਲਈ ਅੰਸ਼ ਦੀ ਕਿਸਮ ਨੂੰ ਬੋਲਿਆ ਜਾਂਦਾ ਹੈ</string>
+  <string name="speak_element_type_summary_off">ਫੋਕਸ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਲਈ ਅੰਸ਼ ਦੀ ਕਿਸਮ ਨੂੰ ਨਹੀਂ ਬੋਲਿਆ ਜਾਂਦਾ ਹੈ</string>
+  <string name="title_pref_pitch_change_for_ime">ਪਿਚ ਦੇ ਬਦਲਾਅ ਵਰਤੋ</string>
+  <string name="pitch_change_for_ime_summary_on">ਵਧੇਰੇ ਘੱਟ-ਪਿਚ ਵਾਲੀ ਅਵਾਜ਼ ਵਿੱਚ ਕੀ-ਬੋਰਡ ਪ੍ਰਤੀਕਰਮ ਬੋਲੋ</string>
+  <string name="pitch_change_for_ime_summary_off">ਬੋਲਣ ਵੇਲੇ ਅਵਾਜ਼ੀ ਪ੍ਰਤੀਕਰਮ ਨਾ ਬਦਲੋ</string>
+  <string name="title_pref_speak_selected_item_or_group">ਚੁਣੀ ਗਈ ਆਈਟਮ ਜਾਂ ਗਰੁੱਪ ਬੋਲੋ</string>
+  <string name="speak_selected_item_or_group_summary">ਕਿਸੇ ਆਈਟਮ ਜਾਂ ਗਰੁੱਪ ਨੂੰ ਚੁਣਨ ਤੋਂ ਬਾਅਦ ਉਸਦੇ ਨਾਮ ਨੂੰ ਬੋਲੋ</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">ਹਰ ਆਈਟਮ ਲਈ ਬੋਲਣ ਦਾ ਅਧਿਕਤਮ ਸਮਾਂ</string>
+  <string name="dialog_message_pref_maximum_time_per_item">ਹਰੇਕ ਆਈਟਮ ਦੇ ਬੋਲੇ ਗਏ ਵਰਣਨ ਲਈ ਅਧਿਕਤਮ ਸਮਾਂ ਸੈੱਟ ਕਰੋ। ਨਿਰਧਾਰਤ ਸਮੇਂ ਤੋਂ ਬਾਅਦ ਬੋਲੀ ਵਿਕਲਪ ਬੰਦ ਹੋ ਜਾਵੇਗਾ।\nਨੋਟ: ਚਾਲੂ ਹੋਣ \'ਤੇ ਸੰਕੇਤ ਹਮੇਸ਼ਾਂ ਬੋਲੇ ਜਾਣਗੇ।</string>
+  <string name="title_pref_verbosity_category_miscellaneous">ਫੁਟਕਲ</string>
+  <string name="title_pref_node_description_order">ਅੰਸ਼ ਵਰਣਨ ਕ੍ਰਮ</string>
+  <string name="title_pref_switch_access_speak_element_ids">ਅੰਸ਼ ਦੀਆਂ ਆਈ.ਡੀਆਂ ਬੋਲੋ</string>
+  <string name="speak_element_ids_summary_on">ਗੈਰ-ਲੇਬਲਬੱਧ ਬਟਨਾਂ ਲਈ ਅੰਸ਼ ਦੀਆਂ ਆਈ.ਡੀਆਂ ਬੋਲੀਆਂ ਜਾਂਦੀਆਂ ਹਨ</string>
+  <string name="speak_element_ids_summary_off">ਗੈਰ-ਲੇਬਲਬੱਧ ਬਟਨਾਂ ਲਈ ਅੰਸ਼ ਦੀਆਂ ਆਈ.ਡੀਆਂ ਨਹੀਂ ਬੋਲੀਆਂ ਜਾਂਦੀਆਂ ਹਨ</string>
+  <string name="title_pref_switch_access_tts_settings">TTS ਸੈਟਿੰਗਾਂ</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">ਜਦੋਂ ਇੱਕ ਤੋਂ ਵੱਧ ਆਈਟਮਾਂ ਉਜਾਗਰ ਕੀਤੀਆਂ ਜਾਣ</string>
+  <string name="title_pref_switch_access_speak_first_last_item">ਪਹਿਲੀ ਅਤੇ ਆਖਰੀ ਆਈਟਮ ਬੋਲੋ</string>
+  <string name="title_pref_switch_access_speak_number_of_items">ਆਈਟਮਾਂ ਦੀ ਸੰਖਿਆ ਬੋਲੋ</string>
+  <string name="title_pref_switch_access_speak_all_items">ਸਾਰੀਆਂ ਉਜਾਗਰ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਬੋਲੋ</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">ਅਗਲੀ ਆਈਟਮ \'ਤੇ ਜਾਣ ਤੋਂ ਪਹਿਲਾਂ ਬੋਲਣ ਨੂੰ ਪੂਰਾ ਕਰੋ</string>
+  <string name="title_pref_spoken_feedback_other_feedback">ਹੋਰ ਪ੍ਰਤੀਕਰਮ</string>
+  <string name="title_pref_developer_settings">ਵਿਕਾਸਕਾਰ ਸੈਟਿੰਗਾਂ</string>
+  <string name="title_pref_spoken_feedback_overlay">ਬੋਲੀ ਆਊਟਪੁੱਟ ਪ੍ਰਦਰਸ਼ਿਤ ਕਰੋ</string>
+  <string name="title_pref_switch_access_vibration_feedback">ਥਰਥਰਾਹਟ ਵਾਲਾ ਪ੍ਰਤੀਕਰਮ</string>
+  <string name="vibration_feedback_summary">ਕਿਸੇ ਚੀਜ਼ ਦੇ ਬਦਲਣ ਬਾਰੇ ਦੱਸਣ ਲਈ ਥਰਥਰਾਹਟ ਕਰੋ (ਜਿਵੇਂ ਕਿ, ਸਕ੍ਰੀਨ \'ਤੇ ਦਿੱਤੀ ਗਈ ਸਮੱਗਰੀ ਬਦਲੀ ਗਈ)</string>
+  <string name="title_pref_switch_access_sound_feedback">ਧੁਨੀ ਵਾਲਾ ਪ੍ਰਤੀਕਰਮ</string>
+  <string name="sound_feedback_summary">ਕਿਸੇ ਚੀਜ਼ ਦੇ ਬਦਲਣ ਬਾਰੇ ਦੱਸਣ ਲਈ ਕੋਈ ਇਅਰਕੋਨ ਚਲਾਓ (ਜਿਵੇਂ ਕਿ, ਸਕ੍ਰੀਨ \'ਤੇ ਦਿੱਤੀ ਗਈ ਸਮੱਗਰੀ ਬਦਲੀ ਗਈ)</string>
+  <string name="title_pref_switch_access_sound_volume">ਧੁਨੀ ਦੀ ਅਵਾਜ਼</string>
+  <string name="title_pref_switch_access_audio_ducking">ਆਡੀਓ ਡੱਕਿੰਗ</string>
+  <string name="audio_ducking_summary">ਬੋਲਣ ਵੇਲੇ ਹੋਰ ਆਡੀਓ ਦੀ ਅਵਾਜ਼ ਘਟਾਓ</string>
+  <string name="switch_access_focus_cleared_no_selection">ਸਕ੍ਰੀਨ ਨੂੰ ਬਦਲਿਆ ਗਿਆ</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">ਕਤਾਰ ਚੁਣਨ ਲਈ \'ਸਵਿੱਚ ਚੁਣੋ\' ਨੂੰ ਦਬਾਓ</string>
+  <string name="switch_access_spoken_feedback_group">ਗਰੁੱਪ %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">ਗਰੁੱਪ ਚੁਣਨ ਲਈ ਗਰੁੱਪ %1$s ਦੇ ਸਵਿੱਚ ਨੂੰ ਦਬਾਓ</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">ਆਈਟਮ ਚੁਣਨ ਲਈ ਗਰੁੱਪ %1$s ਦੇ ਸਵਿੱਚ ਨੂੰ ਦਬਾਓ</string>
+  <string name="switch_access_spoken_feedback_to">%1$s ਤੋਂ %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s ਆਈਟਮਾਂ</string>
+  <string name="switch_access_spoken_feedback_group_selected">ਗਰੁੱਪ %1$s ਚੁਣਿਆ ਗਿਆ</string>
+  <string name="switch_access_spoken_feedback_row_selected">ਕਤਾਰ ਚੁਣੀ ਗਈ</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s ਚੁਣੀ ਗਈ</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">ਸਕ੍ਰੋਲ ਕਰਨਯੋਗ</string>
+  <string name="switch_access_spoken_feedback_scroll">ਸਕ੍ਰੋਲ ਕਰਨ ਲਈ ਚੁਣੋ</string>
+  <string name="switch_access_spoken_feedback_unknown">ਅਗਿਆਤ ਆਈਟਮ</string>
+  <string name="scanning_method_heading">ਸਕੈਨ ਕਰਨ ਦੇ ਤਰੀਕੇ ਨੂੰ ਚੁਣੋ</string>
+  <string name="row_column_scanning_description">ਇੱਕ ਸਮੇਂ ਇੱਕ ਕਤਾਰ ਸਕੈਨ ਕਰੋ। ਕਤਾਰ ਦੇ ਚੁਣੇ ਜਾਣ ਤੋਂ ਬਾਅਦ, ਉਸ ਸੂਚੀ ਦੀਆਂ ਆਈਟਮਾਂ ਵਿੱਚੋਂ ਗੁਜ਼ਰੋ।</string>
+  <string name="linear_scanning_description">ਆਈਟਮਾਂ \'ਤੇ ਇੱਕ-ਇੱਕ ਕਰਕੇ ਜਾਓ</string>
+  <string name="linear_scanning_except_keyboard_description">ਆਈਟਮਾਂ \'ਤੇ ਇੱਕ-ਇੱਕ ਕਰਕੇ ਜਾਓ। ਨੋਟ ਕਰੋ ਕਿ ਕੀ-ਬੋਰਡ ਕਤਾਰ ਮੁਤਾਬਕ ਸਕੈਨ ਕੀਤੇ ਜਾਣਗੇ।</string>
+  <string name="option_scanning_description">ਸਾਰੀਆਂ ਆਈਟਮਾਂ ਦੇ ਜ਼ਿੰਮੇ ਇੱਕ ਰੰਗ ਲਗਾਇਆ ਜਾਵੇਗਾ। ਤੁਹਾਡੀ ਪਸੰਦੀਦਾ ਆਈਟਮ ਦੇ ਦੁਆਲੇ ਦੇ ਰੰਗ ਨਾਲ ਸਬੰਧਿਤ ਸਵਿੱਚ ਨੂੰ ਦਬਾਓ। ਗਰੁੱਪ ਦੇ ਆਕਾਰ ਨੂੰ ਤਦ ਤੱਕ ਛੋਟਾ ਕਰੋ ਜਦ ਤੱਕ ਤੁਸੀਂ ਆਪਣੀ ਪਸੰਦ \'ਤੇ ਨਾ ਪਹੁੰਚ ਜਾਓ।</string>
+  <string name="setup_switch_assignment_heading">ਸਵਿੱਚਾਂ %s ਦੇ ਜ਼ਿੰਮੇ ਲਗਾਈਆਂ ਗਈਆਂ</string>
+  <string name="setup_switch_assignment_empty">ਕੋਈ ਨਹੀਂ</string>
+  <string name="clear_keys_dialog_title">ਕੀ ਜ਼ਿੰਮੇ ਲਗਾਈਆਂ ਸਵਿੱਚਾਂ ਨੂੰ ਕਲੀਅਰ ਕਰਨਾ ਹੈ?</string>
+  <string name="clear_keys_dialog_message">ਤੁਸੀਂ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਲਗਾਈਆਂ ਹੋਈਆਂ ਹਨ।</string>
+  <string name="clear_keys_dialog_positive_button">ਸਵਿੱਚਾਂ ਕਲੀਅਰ ਕਰੋ</string>
+  <string name="clear_keys_dialog_negative_button">ਸਵਿੱਚਾਂ ਰੱਖੋ</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">ਕੋਈ ਵੀ ਸਵਿੱਚਾਂ ਜ਼ਿੰਮੇ ਨਹੀਂ ਲਗਾਈਆਂ ਗਈਆਂ</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">ਕੋਈ ਵੀ ਸਵਿੱਚਾਂ ਇਸ ਕਾਰਵਾਈ ਦੇ ਜ਼ਿੰਮੇ ਨਹੀਂ ਲਗਾਈਆਂ ਗਈਆਂ। ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+  <string name="option_scan_switch_title">%1$s ਗਰੁੱਪ</string>
+  <string name="option_scan_switch_subtitle">ਕਿਸੇ ਸਵਿੱਚ ਨੂੰ %1$s ਗਰੁੱਪ ਚੁਣਨ ਦੇ ਜ਼ਿੰਮੇ ਲਗਾਉਣ ਲਈ ਉਸਨੂੰ ਦਬਾਓ।</string>
+  <string name="assign_switch_subtitle">ਕਿਸੇ ਸਵਿੱਚ ਨੂੰ \"%1$s\" ਕਾਰਵਾਈ ਦੇ ਜ਼ਿੰਮੇ ਲਗਾਉਣ ਲਈ ਉਸਨੂੰ ਦਬਾਓ।</string>
+  <string name="auto_scan_action_description">ਸਕੈਨ ਸ਼ੁਰੂ ਕਰੋ ਅਤੇ ਚੁਣੋ</string>
+  <string name="switch_game_heading">ਟਿਕ-ਟੈਕ-ਟੋ ਨਾਲ ਆਪਣੀ ਸਥਾਪਨਾ ਦੀ ਜਾਂਚ ਕਰੋ</string>
+  <string name="switch_game_one_switch_linear_subheading">ਸਕੈਨ ਸ਼ੁਰੂ ਕਰਨ ਲਈ \"%1$s\" ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ ਸਵਿੱਚ ਨੂੰ ਦੁਬਾਰਾ ਦਬਾਓ। ਪਹਿਲਾਂ ਤੁਸੀਂ!</string>
+  <string name="switch_game_one_switch_row_col_subheading">ਸਕੈਨ ਸ਼ੁਰੂ ਕਰਨ ਲਈ \"%1$s\" ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਕਤਾਰ ਨੂੰ ਚੁਣਨ ਲਈ ਸਵਿੱਚ ਨੂੰ ਦੁਬਾਰਾ ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ ਇੱਕ ਵਾਰ ਹੋਰ ਦਬਾਓ। ਪਹਿਲਾਂ ਤੁਸੀਂ!</string>
+  <string name="switch_game_two_switch_linear_subheading">ਆਈਟਮਾਂ ਵਿਚਾਲੇ ਅੱਗੇ-ਪਿੱਛੇ ਜਾਣ ਲਈ \"%1$s\" ਨੂੰ ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ \"%2$s\" ਨੂੰ ਦਬਾਓ। ਪਹਿਲਾਂ ਤੁਸੀਂ!</string>
+  <string name="switch_game_two_switch_row_col_subheading">ਕਤਾਰਾਂ ਵਿਚਾਲੇ ਅੱਗੇ-ਪਿੱਛੇ ਜਾਣ ਲਈ \"%1$s\" ਨੂੰ ਦਬਾਓ। ਉਜਾਗਰ ਕੀਤੀ ਕਤਾਰ ਨੂੰ ਚੁਣਨ ਲਈ \"%2$s\" ਨੂੰ ਦਬਾਓ। ਉਸ ਕਤਾਰ ਵਿੱਚ ਕਿਸੇ ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ ਇਹ ਪ੍ਰਕਿਰਿਆ ਦੁਹਰਾਓ। ਪਹਿਲਾਂ ਤੁਸੀਂ!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">%2$s ਵਿੱਚ ਉਜਾਗਰ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਨੂੰ ਚੁਣਨ ਲਈ \"%1$s\" ਨੂੰ ਦਬਾਓ ਜਾਂ %3$s ਵਿੱਚ ਉਜਾਗਰ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਨੂੰ ਚੁਣਨ ਲਈ \"%4$s\" ਨੂੰ ਦਬਾਓ। ਆਪਣੀ ਆਈਟਮ \'ਤੇ ਪਹੁੰਚਣ ਤੱਕ ਦੁਹਰਾਓ। ਪਹਿਲਾਂ ਤੁਸੀਂ!</string>
+  <string name="switch_game_incomplete_switches_subheading">ਤੁਹਾਡੇ ਕੋਲ ਫਿਲਹਾਲ ਸਾਰੀਆਂ ਕਾਰਵਾਈਆਂ ਲਈ ਜ਼ਿੰਮੇ ਲਗਾਏ ਸਵਿੱਚ ਨਹੀਂ ਹਨ। ਪਿੱਛੇ ਜਾਣ ਲਈ \"ਪਿੱਛੇ\" ਬਟਨ ਦੀ ਵਰਤੋਂ ਕਰੋ ਅਤੇ ਸਵਿੱਚਾਂ ਨੂੰ ਜ਼ਿੰਮੇ ਲਗਾਉਣਾ ਪੂਰਾ ਕਰੋ।</string>
+  <string name="game_square_content_description">%1$s %2$s, %3$s ਸਥਿਤੀ \'ਤੇ ਹੈ</string>
+  <string name="game_square_no_marker_content_description">ਖਾਲੀ</string>
+  <string name="game_reset_button_title">ਗੇਮ ਰੀਸੈੱਟ ਕਰੋ</string>
+  <string name="game_square_already_taken">ਇਹ ਵਰਗ ਪਹਿਲਾਂ ਹੀ ਲਿਆ ਗਿਆ ਹੈ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ!</string>
+  <string name="game_win_outcome_title">ਤੁਸੀਂ ਜਿੱਤ ਗਏ!</string>
+  <string name="game_loss_outcome_title">ਅਗਲੀ ਵਾਰ ਲਈ ਸ਼ੁਭ ਕਾਮਨਾਵਾਂ</string>
+  <string name="game_tie_outcome_title">ਚੁਣੌਤੀ ਬਰਾਬਰ ਰਹੀ</string>
+  <string name="game_outcome_body_text">ਤੁਸੀਂ ਆਪਣੀ ਵਰਤਮਾਨ ਸਥਾਪਨਾ ਨੂੰ ਰੱਖ ਸਕਦੇ ਹੋ ਜਾਂ ਮੁੜ ਸ਼ੁਰੂ ਕਰ ਸਕਦੇ ਹੋ।</string>
+  <string name="game_outcome_positive_response">ਸਥਾਪਨਾ ਰੱਖੋ</string>
+  <string name="game_outcome_negative_response">ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ</string>
+  <string name="setup_completion_heading">ਸੈੱਟਅੱਪ ਪੂਰਾ ਹੋਇਆ</string>
+  <string name="setup_completion_message">ਤੁਸੀਂ ਪੂਰੀ ਤਰ੍ਹਾਂ ਤਿਆਰ ਹੋ।</string>
+  <string name="setup_completion_settings_reminder">ਤੁਸੀਂ ਹਮੇਸ਼ਾਂ ਸਵਿੱਚ ਪਹੁੰਚ ਸੈਟਿੰਗਾਂ ਤੋਂ ਵਧੀਕ ਸੈਟਿੰਗਾਂ ਨੂੰ ਬਦਲ ਸਕਦੇ ਹੋ ਜਾਂ ਸੈੱਟਅੱਪ ਵਿਜ਼ਾਰਡ ਨੂੰ ਦੁਬਾਰਾ ਖੋਲ੍ਹ ਸਕਦੇ ਹੋ।</string>
+  <string name="dialog_url_list">ਕੋਈ ਲਿੰਕ ਚੁਣੋ</string>
+  <string name="dialog_do_not_disturb_permission_title">ਅਵਾਜ਼ ਵਿੱਚ ਵਾਧ-ਘਾਟ ਕਰਨ ਲਈ ਸਵਿੱਚ ਪਹੁੰਚ ਨੂੰ ਇਜਾਜ਼ਤ ਦੀ ਲੋੜ ਹੈ</string>
+  <string name="dialog_do_not_disturb_permission_message">ਸਵਿੱਚ ਪਹੁੰਚ ਮੀਨੂ ਤੋਂ ਅਵਾਜ਼ ਵਿੱਚ ਵਾਧ-ਘਾਟ ਕਰਨ ਲਈ, Android ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾਵਾਂ ਦੇ ਪੈਕ ਲਈ \'ਪਰੇਸ਼ਾਨ ਨਾ ਕਰੋ\' ਤੱਕ ਪਹੁੰਚ ਚਾਲੂ ਕਰੋ</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ</string>
 </resources>

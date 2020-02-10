@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TODO: Finalize the visuals of the screen switch so that they do not decrease
+contrast -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/screen_switch_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/screen_switch_overlay">
+
+    <!--TODO: Create a functional exit button-->
+    <!--NOTE: This button does not currently do anything. However, when it is not in the overlay
+    and screen-as-a-switch is active, the scanning on the parts of the screen below the overlay do
+    not work - the scanning can only make it to the global menu button before exiting.-->
+    <com.google.android.accessibility.switchaccess.ui.ButtonSwitchAccessIgnores
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

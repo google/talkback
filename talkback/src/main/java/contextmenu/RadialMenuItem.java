@@ -21,10 +21,10 @@ import android.view.MenuItem;
 
 public class RadialMenuItem extends ContextMenuItem {
 
-  private boolean mCorner;
-  private RadialSubMenu mSubMenu;
+  private boolean corner;
+  private RadialSubMenu subMenu;
   /* package */ float offset;
-  private OnMenuItemSelectionListener mSelectionListener;
+  private OnMenuItemSelectionListener selectionListener;
 
   /**
    * Creates a new menu item that represents a sub-menu.
@@ -44,7 +44,7 @@ public class RadialMenuItem extends ContextMenuItem {
       CharSequence title,
       RadialSubMenu subMenu) {
     super(context, groupId, itemId, order, title);
-    mSubMenu = subMenu;
+    this.subMenu = subMenu;
   }
 
   public RadialMenuItem(Context context, int groupId, int itemId, int order, CharSequence title) {
@@ -53,17 +53,17 @@ public class RadialMenuItem extends ContextMenuItem {
 
   @Override
   public RadialSubMenu getSubMenu() {
-    return mSubMenu;
+    return subMenu;
   }
 
   @Override
   public boolean hasSubMenu() {
-    return (mSubMenu != null);
+    return (subMenu != null);
   }
 
   /** @return {@code true} if this menu is a corner. */
   public boolean isCorner() {
-    return mCorner;
+    return corner;
   }
 
   /**
@@ -72,7 +72,7 @@ public class RadialMenuItem extends ContextMenuItem {
    * @return {@code true} if this item performs an action
    */
   public boolean onSelectionPerformed() {
-    return mSelectionListener != null && mSelectionListener.onMenuItemSelection(this);
+    return selectionListener != null && selectionListener.onMenuItemSelection(this);
   }
 
   /**
@@ -83,7 +83,7 @@ public class RadialMenuItem extends ContextMenuItem {
    */
   public MenuItem setOnMenuItemSelectionListener(
       OnMenuItemSelectionListener menuItemSelectionListener) {
-    mSelectionListener = menuItemSelectionListener;
+    selectionListener = menuItemSelectionListener;
     return this;
   }
 
@@ -93,7 +93,7 @@ public class RadialMenuItem extends ContextMenuItem {
    * @return This item so additional setters can be called.
    */
   /* package */ MenuItem setCorner() {
-    mCorner = true;
+    corner = true;
     return this;
   }
 

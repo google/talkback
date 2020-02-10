@@ -1,0 +1,41 @@
+// Blueprint file for individual service monitoring (e.g. apk size, coverage) of
+// Switch Access.
+
+include "devtools/blueprint/ncl/blueprint_file.ncl";
+include "releasetools/rapid/ncl/rapid_config.ncl";
+
+blueprint_file = ::blueprint::BlueprintFile(
+  teams_product_id = 6747631829,
+  project_name = "switchaccess",
+  project_grouping = ["Chrome", "ChromeOS"],
+  tech_lead = ["agalusza"],
+  dev_mailing_list = "switchaccess-dev@google.com",
+  buganizer_component_ids = [118075],
+  mdb_groups = ["talkback"],
+  owned_code_depotpaths = [
+    "//depot/google3/java/com/google/android/accessibility/switchaccess/...",
+    "//depot/google3/javatests/com/google/android/accessibility/switchaccess/...",
+  ],
+  golden_changelists = [
+    ::blueprint::GoldenChangelistInfo(tap_build = "android.accessibility.switchaccess"),
+  ],
+  buildable_units = [
+    ::blueprint::BuildableUnit(
+      build_patterns = [
+        "//java/com/google/android/accessibility/switchaccess:switchaccess",
+        "//java/com/google/android/accessibility/switchaccess:switchaccess_aosp",
+      ],
+      test_patterns = [
+        "//java/com/google/android/accessibility/switchaccess:nullability",
+        "//javatests/com/google/android/accessibility/switchaccess:switchaccess",
+      ],
+      build_flags = ["--config=release", "--android_sdk=//third_party/java/android/android_sdk_linux/platforms/experimental:android_sdk_tools"],
+      name = "switchaccess",
+      continuous_build_email = ::blueprint::ContinuousBuildEmailInfo(
+        build_cop_email_addrs = ["switchaccess_dev+build@google.com"]),
+      // enable_release is set to true because some tools don't pick up
+      // blueprints when this is set to false.
+      enable_release = true,
+      enable_continuous_build = true,
+      enable_coverage = true,
+      tap_settings = tap::TapBuildableUnitSettings())]);

@@ -19,24 +19,28 @@ package com.google.android.accessibility.compositor;
 import android.app.Notification;
 import android.content.Context;
 import android.text.TextUtils;
+import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.LocaleUtils;
+import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.parsetree.ParseTree;
+import com.google.android.accessibility.utils.parsetree.ParseTree.VariableDelegate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** A VariableDelegate that maps data from AccessibilityEvent */
-class EventVariables implements ParseTree.VariableDelegate {
+class EventVariables implements VariableDelegate {
   // IDs of enums.
   private static final int ENUM_NOTIFICATION_CATEGORY = 8500;
 
@@ -50,17 +54,9 @@ class EventVariables implements ParseTree.VariableDelegate {
   private static final int EVENT_REMOVED_COUNT = 8007;
   private static final int EVENT_ADDED_COUNT = 8008;
   private static final int EVENT_TEXT_0 = 8009;
-  private static final int EVENT_TEXT_OR_DESCRIPTION = 8010;
   private static final int EVENT_BEFORE_TEXT = 8011;
-  private static final int EVENT_REMOVED_TEXT = 8012;
-  private static final int EVENT_ADDED_TEXT = 8013;
-  private static final int EVENT_TRAVERSED_TEXT = 8014;
-  private static final int EVENT_DESELECTED_TEXT = 8015;
-  private static final int EVENT_SELECTED_TEXT = 8016;
-  private static final int EVENT_LAST_WORD = 8017;
+  private static final int EVENT_FROM_INDEX = 8017;
   private static final int EVENT_TO_INDEX = 8018;
-  private static final int EVENT_IS_CUT = 8019;
-  private static final int EVENT_IS_PASTE = 8020;
   private static final int EVENT_SOURCE_ERROR = 8021;
   private static final int EVENT_SOURCE_MAX_TEXT_LENGTH = 8022;
   private static final int EVENT_SOURCE_ROLE = 8023;
@@ -69,6 +65,9 @@ class EventVariables implements ParseTree.VariableDelegate {
   private static final int EVENT_PROGRESS_PERCENT = 8026;
   private static final int EVENT_NOTIFICATION_CATEGORY = 8027;
   private static final int EVENT_SOURCE_IS_KEYBOARD = 8028;
+  private static final int EVENT_IS_CONTENT_UNDEFINED = 8029;
+  private static final int EVENT_IS_WINDOW_CONTENT_CHANGED = 8030;
+  private static final int EVENT_SOURCE_IS_LIVE_REGION = 8031;
 
   // Constants used for ENUM_NOTIFICATION_CATEGORY.
   private static final int NOTIFICATION_CATEGORY_NONE = -1;
@@ -86,12 +85,11 @@ class EventVariables implements ParseTree.VariableDelegate {
   private static final int NOTIFICATION_CATEGORY_SERVICE = 8512;
 
   private final Context mContext;
-  private final ParseTree.VariableDelegate mParent;
+  private final VariableDelegate mParent;
   private final AccessibilityEvent mEvent;
-  private final EventInterpretation mEventInterpretation;
   private final AccessibilityNodeInfo mSource; // Recycled by cleanup()
   // Stores the user preferred locale changed using language switcher.
-  private Locale mUserPreferredLocale;
+  private @Nullable final Locale mUserPreferredLocale;
 
   /**
    * Constructs an EventVariables, which contains context variables to help generate feedback for an
@@ -102,20 +100,15 @@ class EventVariables implements ParseTree.VariableDelegate {
    */
   EventVariables(
       Context context,
-      ParseTree.VariableDelegate parent,
+      VariableDelegate parent,
       AccessibilityEvent event,
       AccessibilityNodeInfo source,
-      EventInterpretation eventInterpreted,
-      Locale userPreferredLocale) {
-    if (event == null) {
-      throw new IllegalArgumentException("event cannot be null");
-    }
+      @Nullable Locale userPreferredLocale) {
     mUserPreferredLocale = userPreferredLocale;
     mContext = context;
     mParent = parent;
     mEvent = event;
     mSource = source;
-    mEventInterpretation = eventInterpreted;
   }
 
   @Override
@@ -133,14 +126,17 @@ class EventVariables implements ParseTree.VariableDelegate {
         return (mEvent.getContentChangeTypes()
                 & AccessibilityEvent.CONTENT_CHANGE_TYPE_CONTENT_DESCRIPTION)
             != 0;
-      case EVENT_IS_CUT:
-        return hasText(mEventInterpretation) && mEventInterpretation.getText().getIsCutAction();
-      case EVENT_IS_PASTE:
-        return hasText(mEventInterpretation) && mEventInterpretation.getText().getIsPasteAction();
+      case EVENT_IS_CONTENT_UNDEFINED:
+        return (mEvent.getContentChangeTypes() == AccessibilityEvent.CONTENT_CHANGE_TYPE_UNDEFINED);
       case EVENT_SOURCE_IS_NULL:
         return (mSource == null);
       case EVENT_SOURCE_IS_KEYBOARD:
         return AccessibilityNodeInfoUtils.isKeyboard(mEvent, mSource);
+      case EVENT_IS_WINDOW_CONTENT_CHANGED:
+        return mEvent.getEventType() == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED;
+      case EVENT_SOURCE_IS_LIVE_REGION:
+        return (mSource != null)
+            && (mSource.getLiveRegion() != View.ACCESSIBILITY_LIVE_REGION_NONE);
       default:
         return mParent.getBoolean(variableId);
     }
@@ -157,6 +153,8 @@ class EventVariables implements ParseTree.VariableDelegate {
         return mEvent.getRemovedCount();
       case EVENT_ADDED_COUNT:
         return mEvent.getAddedCount();
+      case EVENT_FROM_INDEX:
+        return mEvent.getFromIndex();
       case EVENT_TO_INDEX:
         return mEvent.getToIndex();
       case EVENT_SOURCE_MAX_TEXT_LENGTH:
@@ -179,12 +177,12 @@ class EventVariables implements ParseTree.VariableDelegate {
   }
 
   @Override
-  public CharSequence getString(int variableId) {
-    // TODO: Remove collapseRepeatedCharactersAndCleanUp() from VariableDelegate classes. Instead,
-    // apply collapseRepeatedCharactersAndCleanUp() to Compositor ttsOutput result whenever
+  public @Nullable CharSequence getString(int variableId) {
+    // TODO: Remove collapseRepeatedCharactersAndCleanUp() from VariableDelegate classes.
+    // Instead, apply collapseRepeatedCharactersAndCleanUp() to Compositor ttsOutput result whenever
     // Compositor output ttsOutputClean returns true (default is true).
-    // TODO: Use spans to mark which parts of composed text are already clean (or should never be
-    // cleaned).
+    // TODO: Use spans to mark which parts of composed text are already clean (or should
+    // never be cleaned).
     AtomicBoolean textIsClean = new AtomicBoolean(false);
     CharSequence text = getStringInternal(variableId, textIsClean);
     if (!textIsClean.get()) {
@@ -194,7 +192,7 @@ class EventVariables implements ParseTree.VariableDelegate {
   }
 
   /** Modifies parameter clean, to indicate which results need cleaning by getString(). */
-  private CharSequence getStringInternal(int variableId, AtomicBoolean clean) {
+  private @Nullable CharSequence getStringInternal(int variableId, AtomicBoolean clean) {
     clean.set(false);
     switch (variableId) {
       case EVENT_CONTENT_DESCRIPTION:
@@ -204,7 +202,7 @@ class EventVariables implements ParseTree.VariableDelegate {
            * exception for all talkback created events. As talkback text is always in the system
            * language.
            */
-          if (Compositor.isTalkBackUi(mEvent.getPackageName())) {
+          if (PackageManagerUtils.isTalkBackPackage(mEvent.getPackageName())) {
             return mEvent.getContentDescription();
           }
           // Note: mUserPreferredLocale will not override any LocaleSpan that is already attached
@@ -224,49 +222,15 @@ class EventVariables implements ParseTree.VariableDelegate {
            * exception for all talkback created events. As talkback text is always in the system
            * language.
            */
-          if (!Compositor.isTalkBackUi(mEvent.getPackageName())) {
+          if (!PackageManagerUtils.isTalkBackPackage(mEvent.getPackageName())) {
             // Note: mUserPreferredLocale will not override any LocaleSpan that is already attached
             // to the text. The text will have just one LocaleSpan.
             text = LocaleUtils.wrapWithLocaleSpan(text, mUserPreferredLocale);
           }
           return (text == null) ? "" : text;
         }
-      case EVENT_TEXT_OR_DESCRIPTION:
-        return hasText(mEventInterpretation)
-            ? mEventInterpretation.getText().getTextOrDescription()
-            : "";
       case EVENT_BEFORE_TEXT:
         return mEvent.getBeforeText();
-      case EVENT_REMOVED_TEXT:
-        return hasText(mEventInterpretation) ? mEventInterpretation.getText().getRemovedText() : "";
-      case EVENT_ADDED_TEXT:
-        return hasText(mEventInterpretation) ? mEventInterpretation.getText().getAddedText() : "";
-      case EVENT_TRAVERSED_TEXT:
-        {
-          if (!hasText(mEventInterpretation)) {
-            return "";
-          }
-          CharSequence traversedText = mEventInterpretation.getText().getTraversedText();
-          /**
-           * Wrap the text with user preferred locale changed using language switcher, with an
-           * exception for all talkback created events. As talkback text is always in the system
-           * language.
-           */
-          if (Compositor.isTalkBackUi(mEvent.getPackageName())) {
-            return traversedText;
-          }
-          return LocaleUtils.wrapWithLocaleSpan(traversedText, mUserPreferredLocale);
-        }
-      case EVENT_DESELECTED_TEXT:
-        return hasText(mEventInterpretation)
-            ? mEventInterpretation.getText().getDeselectedText()
-            : "";
-      case EVENT_SELECTED_TEXT:
-        return hasText(mEventInterpretation)
-            ? mEventInterpretation.getText().getSelectedText()
-            : "";
-      case EVENT_LAST_WORD:
-        return hasText(mEventInterpretation) ? mEventInterpretation.getText().getInitialWord() : "";
       case EVENT_SOURCE_ERROR:
         return (mSource == null) ? "" : mSource.getError();
       default:
@@ -288,7 +252,7 @@ class EventVariables implements ParseTree.VariableDelegate {
   }
 
   @Override
-  public ParseTree.VariableDelegate getReference(int variableId) {
+  public @Nullable VariableDelegate getReference(int variableId) {
     return mParent.getReference(variableId);
   }
 
@@ -303,7 +267,7 @@ class EventVariables implements ParseTree.VariableDelegate {
   }
 
   @Override
-  public CharSequence getArrayStringElement(int variableId, int index) {
+  public @Nullable CharSequence getArrayStringElement(int variableId, int index) {
     switch (variableId) {
       case EVENT_TEXT:
         {
@@ -313,7 +277,7 @@ class EventVariables implements ParseTree.VariableDelegate {
            * exception for all talkback created events. As talkback text is always in the system
            * language.
            */
-          if (Compositor.isTalkBackUi(mEvent.getPackageName())) {
+          if (PackageManagerUtils.isTalkBackPackage(mEvent.getPackageName())) {
             return eventText;
           }
           return LocaleUtils.wrapWithLocaleSpan(eventText, mUserPreferredLocale);
@@ -325,12 +289,8 @@ class EventVariables implements ParseTree.VariableDelegate {
 
   /** Caller must call VariableDelegate.cleanup() on returned instance. */
   @Override
-  public ParseTree.VariableDelegate getArrayChildElement(int variableId, int index) {
+  public @Nullable VariableDelegate getArrayChildElement(int variableId, int index) {
     return mParent.getArrayChildElement(variableId, index);
-  }
-
-  private static boolean hasText(EventInterpretation interpretation) {
-    return (interpretation != null) && (interpretation.getText() != null);
   }
 
   static void declareVariables(ParseTree parseTree) {
@@ -360,22 +320,15 @@ class EventVariables implements ParseTree.VariableDelegate {
     parseTree.addStringVariable("event.notificationDetails", EVENT_NOTIFICATION_DETAILS);
     parseTree.addBooleanVariable(
         "event.isContentDescriptionChanged", EVENT_IS_CONTENT_DESCRIPTION_CHANGED);
+    parseTree.addBooleanVariable("event.isContentUndefined", EVENT_IS_CONTENT_UNDEFINED);
     parseTree.addIntegerVariable("event.itemCount", EVENT_ITEM_COUNT);
     parseTree.addIntegerVariable("event.currentItemIndex", EVENT_CURRENT_ITEM_INDEX);
     parseTree.addIntegerVariable("event.removedCount", EVENT_REMOVED_COUNT);
     parseTree.addIntegerVariable("event.addedCount", EVENT_ADDED_COUNT);
     parseTree.addStringVariable("event.text0", EVENT_TEXT_0);
-    parseTree.addStringVariable("event.textOrDescription", EVENT_TEXT_OR_DESCRIPTION);
     parseTree.addStringVariable("event.beforeText", EVENT_BEFORE_TEXT);
-    parseTree.addStringVariable("event.removedText", EVENT_REMOVED_TEXT);
-    parseTree.addStringVariable("event.addedText", EVENT_ADDED_TEXT);
-    parseTree.addStringVariable("event.traversedText", EVENT_TRAVERSED_TEXT);
-    parseTree.addStringVariable("event.deselectedText", EVENT_DESELECTED_TEXT);
-    parseTree.addStringVariable("event.selectedText", EVENT_SELECTED_TEXT);
-    parseTree.addStringVariable("event.initialWord", EVENT_LAST_WORD);
+    parseTree.addIntegerVariable("event.fromIndex", EVENT_FROM_INDEX);
     parseTree.addIntegerVariable("event.toIndex", EVENT_TO_INDEX);
-    parseTree.addBooleanVariable("event.isCut", EVENT_IS_CUT);
-    parseTree.addBooleanVariable("event.isPaste", EVENT_IS_PASTE);
     parseTree.addStringVariable("event.sourceError", EVENT_SOURCE_ERROR);
     parseTree.addIntegerVariable("event.sourceMaxTextLength", EVENT_SOURCE_MAX_TEXT_LENGTH);
     parseTree.addEnumVariable("event.sourceRole", EVENT_SOURCE_ROLE, Compositor.ENUM_ROLE);
@@ -383,9 +336,11 @@ class EventVariables implements ParseTree.VariableDelegate {
     parseTree.addNumberVariable("event.scrollPercent", EVENT_SCROLL_PERCENT);
     parseTree.addNumberVariable("event.progressPercent", EVENT_PROGRESS_PERCENT);
     parseTree.addBooleanVariable("event.sourceIsKeyboard", EVENT_SOURCE_IS_KEYBOARD);
+    parseTree.addBooleanVariable("event.isWindowContentChanged", EVENT_IS_WINDOW_CONTENT_CHANGED);
+    parseTree.addBooleanVariable("event.sourceIsLiveRegion", EVENT_SOURCE_IS_LIVE_REGION);
   }
 
-  private static int getNotificationCategory(Notification notification) {
+  private static int getNotificationCategory(@Nullable Notification notification) {
     if (notification == null || notification.category == null) {
       return NOTIFICATION_CATEGORY_NONE;
     }
@@ -419,7 +374,7 @@ class EventVariables implements ParseTree.VariableDelegate {
     }
   }
 
-  private static CharSequence getNotificationDetails(Notification notification) {
+  private static CharSequence getNotificationDetails(@Nullable Notification notification) {
     if (notification == null) {
       return "";
     }
@@ -443,8 +398,10 @@ class EventVariables implements ParseTree.VariableDelegate {
       }
     }
 
-    return !notificationDetails.isEmpty()
-        ? StringBuilderUtils.getAggregateText(notificationDetails)
-        : "";
+    CharSequence text =
+        notificationDetails.isEmpty()
+            ? null
+            : StringBuilderUtils.getAggregateText(notificationDetails);
+    return (text == null) ? "" : text;
   }
 }

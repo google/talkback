@@ -16,9 +16,9 @@
 
 package com.google.android.accessibility.utils.traversal;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -118,8 +118,7 @@ public class SpannableTraversalUtils {
     boolean containsSpannableDescendents = false;
     while (iterator.hasNext()) {
       AccessibilityNodeInfoCompat child = iterator.next();
-      if (AccessibilityNodeInfoUtils.isVisible(child)
-          && !AccessibilityNodeInfoUtils.isAccessibilityFocusable(child)) {
+      if (AccessibilityNodeInfoUtils.FILTER_NON_FOCUSABLE_VISIBLE_NODE.accept(child)) {
         containsSpannableDescendents |=
             searchSpannableStringsInNodeTree(child, visitedNodes, result, targetSpanClass);
       } else {

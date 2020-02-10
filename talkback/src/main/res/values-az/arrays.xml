@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Düymə</item>
+    <item>Qeyd xanası</item>
+    <item>Rəng seçici</item>
+    <item>Ayın tarixinə və saata nəzarət</item>
+    <item>Ayın tarixinə və saata nəzarət</item>
+    <item>Ayın tarixinə nəzarət</item>
+    <item>E-poçt üçün mətni redaktə edin</item>
+    <item>Fayl seçimi</item>
+    <item translatable="false"></item>
+    <item>Düymə</item>
+    <item>Aylıq nəzarət</item>
+    <item>Yalnız rəqəmli mətni redaktə edin</item>
+    <item>Parola düzəliş mətni</item>
+    <item>Radio düyməsi</item>
+    <item>Slayder</item>
+    <item>Sıfırlayın</item>
+    <item>Axtarış üçün mətni redaktə edin</item>
+    <item>Düymə</item>
+    <item>Telefon nömrəsi üçün mətni redaktə edin</item>
+    <item>Mətni redaktə edin</item>
+    <item>URL üçün mətni redaktə edin</item>
+    <item>İlkin həftəsinə nəzarət</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Xəbərdarlıq</item>
+    <item>Xəbərdarlıq dialoqu</item>
+    <item>Düymə</item>
+    <item>Qeyd xanası</item>
+    <item>Kombo xanası</item>
+    <item>Dialoq</item>
+    <item>Dama xanası</item>
+    <item>Link</item>
+    <item>Giriş</item>
+    <item>Marki</item>
+    <item>Menyu elementi</item>
+    <item>Menyu elementi seçim xanası</item>
+    <item>Menyu elementi radio düyməsi</item>
+    <item>Seçim</item>
+    <item>Proqres paneli</item>
+    <item>Radio düyməsi</item>
+    <item>Radio düyməsi qrupu</item>
+    <item>Sürüşdürmə paneli</item>
+    <item>Slayder</item>
+    <item>Fırlatma düyməsi</item>
+    <item>Status</item>
+    <item>Tab</item>
+    <item>Tab paneli</item>
+    <item>Mətn xanası</item>
+    <item>Taymer</item>
+    <item>Alətlər paneli</item>
+    <item>Alətlər məsləhəti</item>
+    <item>Ağac elementi</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Link</item>
+    <item>Başlıq bir</item>
+    <item>Başlıq iki</item>
+    <item>Başlıq üç</item>
+    <item>Başlıq dörd</item>
+    <item>Başlıq beş</item>
+    <item>Başlıq altı</item>
+    <item>Düymə</item>
+    <item>Kombo xanası</item>
+    <item>Cədvəl</item>
+    <item>Mətn sahəsi</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

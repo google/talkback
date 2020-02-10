@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Копче</item>
+    <item>Поле за избор</item>
+    <item>Избирач на бои</item>
+    <item>Контрола на датум и време</item>
+    <item>Контрола на датум и време</item>
+    <item>Контрола на датум</item>
+    <item>Уредете го текстот за е-пошта</item>
+    <item>Избор на датотека</item>
+    <item translatable="false"></item>
+    <item>Копче</item>
+    <item>Месечна контрола</item>
+    <item>Уредете го само нумеричкиот текст</item>
+    <item>Уредете го текстот за лозинка</item>
+    <item>Радиокопче</item>
+    <item>Лизгач</item>
+    <item>Ресетирај</item>
+    <item>Уредете го текстот за пребарување</item>
+    <item>Копче</item>
+    <item>Уредете го текстот за телефонски број</item>
+    <item>Уредете го текстот</item>
+    <item>Уредете го текстот за URL</item>
+    <item>Седмица на годишната контрола</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Предупредување</item>
+    <item>Дијалог на предупредување</item>
+    <item>Копче</item>
+    <item>Поле за избор</item>
+    <item>Комбинирано поле</item>
+    <item>Дијалог</item>
+    <item>Ќелија во мрежа</item>
+    <item>Врска</item>
+    <item>Дневник</item>
+    <item>Подвижен текст</item>
+    <item>Ставка од мени</item>
+    <item>Поле за избор на ставка од мени</item>
+    <item>Копче за радио на ставка од мени</item>
+    <item>Опција</item>
+    <item>Лента за напредок</item>
+    <item>Радиокопче</item>
+    <item>Група радиокопчиња</item>
+    <item>Лента за лизгање</item>
+    <item>Лизгач</item>
+    <item>Копче за вртење</item>
+    <item>Статус</item>
+    <item>Картичка</item>
+    <item>Табла со картички</item>
+    <item>Текстуално поле</item>
+    <item>Тајмер</item>
+    <item>Алатник</item>
+    <item>Помошни информации</item>
+    <item>Ставка на дрво</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Врска</item>
+    <item>Прв наслов</item>
+    <item>Втор наслов</item>
+    <item>Трет наслов</item>
+    <item>Четврт наслов</item>
+    <item>Петти наслов</item>
+    <item>Шести наслов</item>
+    <item>Копче</item>
+    <item>Комбинирано поле</item>
+    <item>Табела</item>
+    <item>Област со текст</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

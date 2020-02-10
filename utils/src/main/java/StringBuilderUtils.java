@@ -16,15 +16,19 @@
 
 package com.google.android.accessibility.utils;
 
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
-import android.text.Spanned;
 import android.text.TextUtils;
-import android.util.Log;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
+/** Frequently used functions for concatenating text. */
 public class StringBuilderUtils {
+
+  private static final String TAG = "StringBuildingUtils";
+
+  ////////////////////////////////////////////////////////////////////////////////////////
+  // Constants
+
   /**
    * Breaking separator inserted between text, intended to make TTS pause an appropriate amount.
    * Using a period breaks pronunciation of street abbreviations, and using a new line doesn't work
@@ -41,26 +45,67 @@ public class StringBuilderUtils {
   /** The hex alphabet. */
   private static final char[] HEX_ALPHABET = "0123456789abcdef".toCharArray();
 
+  ////////////////////////////////////////////////////////////////////////////////////////
+  // Methods
+
+  /** Return labeled field-value, only if field-value is not null. */
+  public static String optionalField(String fieldName, @Nullable Object fieldValue) {
+    return (fieldValue == null) ? "" : String.format("%s=%s", fieldName, fieldValue.toString());
+  }
+
+  /** Return labeled delimited field-value, only if field-value is not null. */
+  public static String optionalSubObj(String fieldName, @Nullable Object fieldValue) {
+    return (fieldValue == null) ? "" : String.format("%s= %s", fieldName, fieldValue.toString());
+  }
+
+  /** Return labeled quoted field-value, only if field-value is not null. */
+  public static String optionalText(String fieldName, @Nullable CharSequence fieldValue) {
+    return (fieldValue == null) ? "" : String.format("%s=\"%s\"", fieldName, fieldValue);
+  }
+
+  /** Return labeled field-value, only if field-value is not default. */
+  public static String optionalInt(String fieldName, int fieldValue, int defaultValue) {
+    return (fieldValue == defaultValue) ? "" : String.format("%s=%s", fieldName, fieldValue);
+  }
+
+  /** Return labeled field-value, only if field-value is not default. */
+  public static String optionalInt(String fieldName, long fieldValue, long defaultValue) {
+    return (fieldValue == defaultValue) ? "" : String.format("%s=%s", fieldName, fieldValue);
+  }
+
+  /** Return field-tag, only if field-value is true. */
+  public static String optionalTag(String tagName, boolean tagValue) {
+    return tagValue ? tagName : "";
+  }
+
+  public static String joinFields(String... strings) {
+    StringBuilder builder = new StringBuilder();
+    for (String s : strings) {
+      if (s != null && !s.equals("")) {
+        builder.append(s);
+        builder.append(" ");
+      }
+    }
+    return builder.toString();
+  }
+
   /**
    * Generates the aggregate text from a list of {@link CharSequence}s, separating as necessary.
    *
    * @param textList The list of text to process.
    * @return The separated aggregate text, or null if no text was appended.
    */
-  public static CharSequence getAggregateText(List<CharSequence> textList) {
-    final CharSequence aggregateText;
+  public static @Nullable CharSequence getAggregateText(List<CharSequence> textList) {
     if (textList == null || textList.isEmpty()) {
-      aggregateText = null;
+      return null;
     } else {
-      final SpannableStringBuilder builder = new SpannableStringBuilder();
+      SpannableStringBuilder builder = new SpannableStringBuilder();
       for (CharSequence text : textList) {
         appendWithSeparator(builder, text);
       }
 
-      aggregateText = builder;
+      return builder;
     }
-
-    return aggregateText;
   }
 
   /**
@@ -143,59 +188,6 @@ public class StringBuilderUtils {
   }
 
   /**
-   * Create spannable from text that includes some CharSequence. If the CharSequence has any spans
-   * they would be copied to result spannable
-   *
-   * @param text - some text that potentially contains CharSequence template
-   * @param innerTemplate - CharSequence that is supposed but not necessary to be Spanned. If it is
-   *     Spanned the spans are copied to result Spannable
-   * @return Spannable object that contains incoming text and spans from innerTemplate
-   */
-  public static Spannable createSpannableFromTextWithTemplate(
-      String text, CharSequence innerTemplate) {
-    SpannableString result = new SpannableString(text);
-    if (innerTemplate instanceof Spanned) {
-      int index = text.indexOf(innerTemplate.toString());
-      if (index >= 0) {
-        copySpans(result, (Spanned) innerTemplate, index);
-      }
-    }
-
-    return result;
-  }
-
-  /**
-   * Utility that copies spans from fromSpan to toSpan
-   *
-   * @param toSpan - Spannable that is supposed to contain fromSpan.
-   * @param fromSpan - Spannable that could contain spans that would be copied to toSpan
-   * @param startIndex - Starting index of occurrence fromSpan in toSpan
-   */
-  private static void copySpans(Spannable toSpan, Spanned fromSpan, int startIndex) {
-    if (startIndex < 0 || startIndex >= toSpan.length()) {
-      LogUtils.log(
-          StringBuilderUtils.class,
-          Log.ERROR,
-          "startIndex parameter (" + startIndex + ") is out of toSpan length " + toSpan.length());
-      return;
-    }
-
-    Object[] spans = fromSpan.getSpans(0, fromSpan.length(), Object.class);
-    if (spans != null && spans.length > 0) {
-      for (Object span : spans) {
-        int spanStartIndex = fromSpan.getSpanStart(span);
-        int spanEndIndex = fromSpan.getSpanEnd(span);
-        if (spanStartIndex >= spanEndIndex) {
-          continue;
-        }
-
-        int spanFlags = fromSpan.getSpanFlags(span);
-        toSpan.setSpan(span, startIndex + spanStartIndex, startIndex + spanEndIndex, spanFlags);
-      }
-    }
-  }
-
-  /**
    * Returns whether the text needs a breaking separator (e.g. a period followed by a space)
    * appended before more text is appended.
    *
@@ -212,7 +204,7 @@ public class StringBuilderUtils {
    * @param bytes The byte array of data to convert
    * @return The hex encoding of {@code bytes}, or null if {@code bytes} was null
    */
-  public static String bytesToHexString(byte[] bytes) {
+  public static @Nullable String bytesToHexString(byte[] bytes) {
     if (bytes == null) {
       return null;
     }

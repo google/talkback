@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.utils.parsetree;
 
+import androidx.annotation.Nullable;
 import java.util.List;
 
 class ParseTreeIfNode extends ParseTreeNode {
@@ -24,19 +25,18 @@ class ParseTreeIfNode extends ParseTreeNode {
   private final ParseTreeNode mOnFalse;
   private final ParseTreeNode mTypeDelegate;
 
-  ParseTreeIfNode(ParseTreeNode condition, ParseTreeNode onTrue, ParseTreeNode onFalse) {
-    if (onTrue == null && onFalse == null) {
+  ParseTreeIfNode(
+      ParseTreeNode condition, @Nullable ParseTreeNode onTrue, @Nullable ParseTreeNode onFalse) {
+    if (onTrue != null) {
+      mTypeDelegate = onTrue;
+    } else if (onFalse != null) {
+      mTypeDelegate = onFalse;
+    } else {
       throw new IllegalStateException("\"if\" requires at least one output condition");
     }
     mCondition = condition;
     mOnTrue = new ParseTreeCommentNode(onTrue, "if (true)", false);
     mOnFalse = new ParseTreeCommentNode(onFalse, "if (false)", false);
-
-    if (onTrue != null) {
-      mTypeDelegate = onTrue;
-    } else {
-      mTypeDelegate = onFalse;
-    }
   }
 
   @Override
@@ -91,7 +91,7 @@ class ParseTreeIfNode extends ParseTreeNode {
   }
 
   @Override
-  public ParseTree.VariableDelegate resolveToReference(
+  public @Nullable ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
     if (mCondition.resolveToBoolean(delegate, logIndent)) {
       return mOnTrue.resolveToReference(delegate, logIndent);

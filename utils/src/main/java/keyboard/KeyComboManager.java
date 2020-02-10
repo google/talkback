@@ -19,15 +19,15 @@ package com.google.android.accessibility.utils.keyboard;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.KeyEvent;
-import com.google.android.accessibility.utils.FormFactorUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.R;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
 import com.google.android.accessibility.utils.ServiceStateListener;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -206,7 +206,10 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
   private long mPreviousKeyComboTime = 0;
 
   /** The listener that receives callbacks when a combo is recognized. */
-  private final List<KeyComboListener> mListeners = new LinkedList<>();
+  private final List<KeyComboListener> mListeners = new ArrayList<>();
+
+  /** The listener that receives callbacks when key up is performed. */
+  private KeyUpListener keyUpLister;
 
   private Context mContext;
   private boolean mMatchKeyCombo = true;
@@ -220,7 +223,7 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
 
   private KeyComboManager(Context context) {
     mContext = context;
-    mIsArc = FormFactorUtils.getInstance(context).isArc();
+    mIsArc = FeatureSupport.isArc();
     mKeyComboModel = createKeyComboModelFor(getKeymap());
 
     initializeDefaultPreferenceValues();
@@ -596,6 +599,15 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
     mListeners.add(listener);
   }
 
+  /**
+   * Sets the listener that receives callbacks when the key up action is performed.
+   *
+   * @param listener The listener that receives callbacks.
+   */
+  public void setKeyUpListener(KeyUpListener listener) {
+    keyUpLister = listener;
+  }
+
   /** Set whether to process keycombo */
   public void setMatchKeyCombo(boolean value) {
     mMatchKeyCombo = value;
@@ -782,6 +794,10 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
       if (match == EXACT_MATCH) {
         int comboId = getActionIdFromKey(entry.getKey());
         EventId eventId = Performance.getInstance().onKeyComboEventReceived(comboId);
+        // Checks interrupt events if matches key combos. To prevent interrupting actions generated
+        // by key combos, we should send interrupt events
+        // before performing key combos.
+        interrupt(comboId);
 
         for (KeyComboListener listener : mListeners) {
           if (listener.onComboPerformed(comboId, eventId)) {
@@ -849,6 +865,26 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
     return NO_MATCH;
   }
 
+  /**
+   * Notifies the {@link KeyUpListener} whether should interrupt or not by checking the ActionId.
+   *
+   * @param performedActionId the ActionId generating from key combos.
+   */
+  void interrupt(int performedActionId) {
+    boolean shouldInterrupt = true;
+    // TODO : Move this talkback-specific logic into TalkBackService.KeyUpListener.
+    if (performedActionId == ACTION_NAVIGATE_NEXT_DEFAULT /* default keymap */
+        || performedActionId == ACTION_NAVIGATE_PREVIOUS_DEFAULT /* default keymap */
+        || performedActionId == ACTION_NAVIGATE_NEXT /* classic keymap */
+        || performedActionId == ACTION_NAVIGATE_PREVIOUS /* classic keymap */) {
+      shouldInterrupt = false;
+    }
+
+    if (keyUpLister != null) {
+      keyUpLister.onKeyUpShouldInterrupt(shouldInterrupt);
+    }
+  }
+
   private boolean onKeyUp(KeyEvent event) {
     if (mIsArc) {
       event = convertKeyEventInArc(event);
@@ -858,6 +894,10 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
     boolean passed = mPassedKeys.remove(event.getKeyCode());
 
     if (mCurrentKeysDown.isEmpty()) {
+      // Checks interrupt events if no key combos performed in the interaction.
+      if (!mPerformedCombo) {
+        interrupt(ACTION_UNKNOWN);
+      }
       // The interaction is over, reset the state.
       mPerformedCombo = false;
       mHasPartialMatch = false;
@@ -884,5 +924,15 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
 
   public interface KeyComboListener {
     public boolean onComboPerformed(int id, EventId eventId);
+  }
+
+  /** Component used to control key up action. */
+  public interface KeyUpListener {
+    /**
+     * Check if need to interrupt when on key up
+     *
+     * @param interrupt The flag to notify if need to interrupt
+     */
+    public void onKeyUpShouldInterrupt(boolean interrupt);
   }
 }

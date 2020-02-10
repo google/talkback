@@ -29,12 +29,12 @@ public class Lesson1Part1Exercise extends GridItemExercise {
 
   private static final int ITEMS_TO_EXPLORE = 5;
 
-  private Set<Integer> mExploredItems = new HashSet<>();
+  private Set<Integer> exploredItems = new HashSet<>();
 
   @Override
   public void onAccessibilityFocused(int index) {
-    mExploredItems.add(index);
-    if (mExploredItems.size() == ITEMS_TO_EXPLORE) {
+    exploredItems.add(index);
+    if (exploredItems.size() == ITEMS_TO_EXPLORE) {
       View view = getView();
       setViewsNotImportantForAccessibilityCompat(view);
       notifyExerciseCompleted(true, R.string.tutorial_exercise_completed_auto);
@@ -58,6 +58,6 @@ public class Lesson1Part1Exercise extends GridItemExercise {
 
   @Override
   public void clear() {
-    mExploredItems.clear();
+    exploredItems.clear();
   }
 }

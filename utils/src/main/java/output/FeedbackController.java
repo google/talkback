@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.utils.output;
 
+import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
@@ -24,15 +26,19 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.media.SoundPool.OnLoadCompleteListener;
 import android.os.Vibrator;
-import android.util.Log;
 import android.util.SparseIntArray;
 import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.R;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashSet;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** A feedback controller that caches sounds for quicker playback. */
 public class FeedbackController {
+
+  private static final String TAG = "FeedbackController";
 
   /** Default stream for audio feedback. */
   public static final int DEFAULT_STREAM =
@@ -67,10 +73,14 @@ public class FeedbackController {
   private final Set<HapticFeedbackListener> mHapticFeedbackListeners = new HashSet<>();
 
   public FeedbackController(Context context) {
+    this(context, createSoundPool(), (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE));
+  }
+
+  public FeedbackController(Context context, SoundPool soundPool, Vibrator vibrator) {
     mContext = context;
     mResources = context.getResources();
-    mSoundPool = createSoundPool();
-    mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+    mSoundPool = soundPool;
+    mVibrator = vibrator;
   }
 
   /**
@@ -79,16 +89,17 @@ public class FeedbackController {
    * @param resId The vibration pattern's resource identifier.
    * @return {@code true} if successful.
    */
-  public boolean playHaptic(int resId) {
+  public boolean playHaptic(int resId, @Nullable EventId eventId) {
     if (!mHapticEnabled || resId == 0) {
       return false;
     }
+    LogUtils.v(TAG, "playHaptic() resId=%d eventId=%s", resId, eventId);
 
     final int[] patternArray;
     try {
       patternArray = mResources.getIntArray(resId);
     } catch (NotFoundException e) {
-      LogUtils.log(this, Log.ERROR, "Failed to load pattern %d", resId);
+      LogUtils.e(TAG, "Failed to load pattern %d", resId);
       return false;
     }
 
@@ -129,8 +140,8 @@ public class FeedbackController {
    *
    * @param resId The auditory feedback's resource identifier.
    */
-  public void playAuditory(int resId) {
-    playAuditory(resId, 1.0f /* rate */, 1.0f /* volume */);
+  public void playAuditory(int resId, @Nullable EventId eventId) {
+    playAuditory(resId, 1.0f /* rate */, 1.0f /* volume */, eventId);
   }
 
   /**
@@ -141,10 +152,11 @@ public class FeedbackController {
    * @param rate The playback rate adjustment, from 0.5 (half speed) to 2.0 (double speed).
    * @param volume The volume adjustment, from 0.0 (mute) to 1.0 (original volume).
    */
-  public void playAuditory(int resId, final float rate, float volume) {
+  public void playAuditory(int resId, final float rate, float volume, @Nullable EventId eventId) {
     if (!mAuditoryEnabled || resId == 0) {
       return;
     }
+    LogUtils.v(TAG, "playAuditory() resId=%d eventId=%s", resId, eventId);
 
     final float adjustedVolume = volume * mVolumeAdjustment;
     int soundId = mSoundIds.get(resId);
@@ -211,7 +223,16 @@ public class FeedbackController {
     mVolumeAdjustment = adjustment;
   }
 
-  private SoundPool createSoundPool() {
+  /**
+   * Provides vibration and sound feedback to acknowledge the completion of an action (e.g. item
+   * selection in Switch Access, gesture completion in TalkBack, etc.).
+   */
+  public void playActionCompletionFeedback() {
+    playHaptic(R.array.window_state_pattern, EVENT_ID_UNTRACKED);
+    playAuditory(R.raw.window_state, EVENT_ID_UNTRACKED);
+  }
+
+  private static SoundPool createSoundPool() {
     AudioAttributes aa =
         new AudioAttributes.Builder()
             .setUsage(AudioAttributes.USAGE_ASSISTANCE_ACCESSIBILITY)

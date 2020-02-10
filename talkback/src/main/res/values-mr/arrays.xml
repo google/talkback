@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>बटण</item>
+    <item>चेक बॉक्स</item>
+    <item>रंग निवडक</item>
+    <item>तारीख वेळ नियंत्रण</item>
+    <item>तारीख वेळ नियंत्रण</item>
+    <item>तारीख नियंत्रण</item>
+    <item>ईमेलसाठी मजकूर संपादित करा</item>
+    <item>फाईल निवड</item>
+    <item translatable="false"></item>
+    <item>बटण</item>
+    <item>महिना नियंत्रण</item>
+    <item>फक्त संख्यात्मक मजकूर संपादित करा</item>
+    <item>मजकूर संपादन पासवर्ड</item>
+    <item>रेडिओ बटण</item>
+    <item>स्लाईडर</item>
+    <item>रीसेट करा</item>
+    <item>शोधासाठी मजकूर संपादित करा</item>
+    <item>बटण</item>
+    <item>टेलिफोन नंबरसाठी मजकूर संपादित करा</item>
+    <item>मजकूर संपादित करा</item>
+    <item>URL साठी मजकूर संपादित करा</item>
+    <item>वर्ष नियंत्रणाचा आठवडा</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>सूचना</item>
+    <item>सूचना संवाद</item>
+    <item>बटण</item>
+    <item>चेक बॉक्स</item>
+    <item>काँबो बॉक्स</item>
+    <item>संवाद</item>
+    <item>ग्रिड सेल</item>
+    <item>लिंक करा</item>
+    <item>लॉग</item>
+    <item>मार्की</item>
+    <item>मेनू आयटम</item>
+    <item>मेनू आयटम चेक बॉक्स</item>
+    <item>मेनू आयटम रेडिओ बटण</item>
+    <item>पर्याय</item>
+    <item>प्रगती बार</item>
+    <item>रेडिओ बटण</item>
+    <item>रेडिओ बटण गट</item>
+    <item>स्क्रोल बार</item>
+    <item>स्लाईडर</item>
+    <item>परिवलन बटण</item>
+    <item>स्थिती</item>
+    <item>टॅब</item>
+    <item>टॅब पॅनेल</item>
+    <item>मजकूर बॉक्स</item>
+    <item>टायमर</item>
+    <item>टूल बार</item>
+    <item>साधन टीप</item>
+    <item>ट्री आयटम</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>लिंक करा</item>
+    <item>पहिले शीर्षक</item>
+    <item>दुसरे शीर्षक</item>
+    <item>तिसरे शीर्षक</item>
+    <item>चौथे शीर्षक</item>
+    <item>पाचवे शीर्षक</item>
+    <item>सहावे शीर्षक</item>
+    <item>बटण</item>
+    <item>काँबो बॉक्स</item>
+    <item>सारणी</item>
+    <item>मजकूर क्षेत्र</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

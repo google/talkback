@@ -38,9 +38,9 @@ public class EventState extends TimedFlags {
 
   public static final int EVENT_HINT_FOR_SYNCED_ACCESSIBILITY_FOCUS = 15;
 
-  private static EventState sInstance = new EventState();
+  private static EventState instance = new EventState();
 
   public static EventState getInstance() {
-    return sInstance;
+    return instance;
   }
 }

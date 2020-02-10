@@ -20,13 +20,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.talkback.controller.TelevisionNavigationController;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
+import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.Performance;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -67,11 +68,12 @@ public class TelevisionDPadManager extends BroadcastReceiver implements Accessib
   @interface State {}
 
   private static final boolean DEBUG = false;
-  private static final String LOG_TAG = "DPadManager";
-  private static final String TALKBACK_PKG_NAME = "com.google.android.marvin.talkback";
+  private static final String TAG = "DPadManager";
 
   /** The list of apps who can request for control over D-pad KeyEvents. */
-  private static final String[] WHITE_LIST = {TALKBACK_PKG_NAME, "com.netflix.ninja"};
+  private static final String[] WHITE_LIST = {
+    PackageManagerUtils.TALBACK_PACKAGE, "com.netflix.ninja"
+  };
 
   private static final IntentFilter INTENT_FILTER = new IntentFilter();
 
@@ -80,47 +82,46 @@ public class TelevisionDPadManager extends BroadcastReceiver implements Accessib
     INTENT_FILTER.addAction(TalkBackService.ACTION_SUSPEND_DPAD_CONTROL);
   }
 
-  private final TelevisionNavigationController mTvNavigationController;
+  private final TelevisionNavigationController tvNavigationController;
 
   /** Package name of current activity window on screen. */
-  private String mCurrentWindowPackageName = "";
+  private String currentWindowPackageName = "";
 
-  @State private int mState = STATE_RESUMED; // TalkBack consumes D-pad events by default.
+  @State private int state = STATE_RESUMED; // TalkBack consumes D-pad events by default.
 
   public TelevisionDPadManager(TelevisionNavigationController tvNavigationController) {
     if (tvNavigationController == null) {
       throw new IllegalArgumentException();
     }
-    mTvNavigationController = tvNavigationController;
+    this.tvNavigationController = tvNavigationController;
   }
 
   @Override
   public void onReceive(Context context, Intent intent) {
-    final String currentWindow = mCurrentWindowPackageName;
+    final String currentWindow = currentWindowPackageName;
     final String action = intent.getAction();
     if (DEBUG) {
-      Log.d(
-          LOG_TAG,
-          "Request received: " + action + "; Current control state: " + stateToString(mState));
+      LogUtils.d(
+          TAG, "Request received: " + action + "; Current control state: " + stateToString(state));
     }
     if (TalkBackService.ACTION_SUSPEND_DPAD_CONTROL.equals(action)) {
-      switch (mState) {
+      switch (state) {
         case STATE_RESUMED:
           if (suspendDPadControl(currentWindow)) {
             if (DEBUG) {
-              Log.d(LOG_TAG, "D-pad control suspended for " + currentWindow);
+              LogUtils.d(TAG, "D-pad control suspended for " + currentWindow);
             }
             setState(STATE_SUSPENDED);
           } else {
             if (DEBUG) {
-              Log.d(LOG_TAG, "Pending request: suspend D-pad control.");
+              LogUtils.d(TAG, "Pending request: suspend D-pad control.");
             }
             setState(STATE_RESUMED_PENDING);
           }
           break;
         case STATE_SUSPENDED:
           if (DEBUG) {
-            Log.d(LOG_TAG, "Pending request: suspend D-pad control.");
+            LogUtils.d(TAG, "Pending request: suspend D-pad control.");
           }
           setState(STATE_SUSPENDED_PENDING);
           break;
@@ -129,13 +130,13 @@ public class TelevisionDPadManager extends BroadcastReceiver implements Accessib
         default:
           // Do nothing
           if (DEBUG) {
-            Log.d(LOG_TAG, "Request unhandled.");
+            LogUtils.d(TAG, "Request unhandled.");
           }
           break;
       }
     } else if (TalkBackService.ACTION_RESUME_DPAD_CONTROL.equals(action)) {
       if (DEBUG) {
-        Log.d(LOG_TAG, "Request to resume D-pad control. D-pad control resumed.");
+        LogUtils.d(TAG, "Request to resume D-pad control. D-pad control resumed.");
       }
       resumeDPadControl();
       setState(STATE_RESUMED);
@@ -155,13 +156,12 @@ public class TelevisionDPadManager extends BroadcastReceiver implements Accessib
     final String packageName =
         event.getPackageName() == null ? "" : event.getPackageName().toString();
 
-    if (!TextUtils.equals(mCurrentWindowPackageName, packageName)) {
+    if (!TextUtils.equals(currentWindowPackageName, packageName)) {
       if (DEBUG) {
-        Log.d(
-            LOG_TAG,
-            "Window changed. " + "From: " + mCurrentWindowPackageName + "; To: " + packageName);
+        LogUtils.d(
+            TAG, "Window changed. " + "From: " + currentWindowPackageName + "; To: " + packageName);
       }
-      mCurrentWindowPackageName = packageName;
+      currentWindowPackageName = packageName;
       onWindowChanged();
     }
   }
@@ -171,34 +171,34 @@ public class TelevisionDPadManager extends BroadcastReceiver implements Accessib
   }
 
   private void setState(@State int state) {
-    if (mState != state) {
+    if (this.state != state) {
       if (DEBUG) {
-        Log.d(
-            LOG_TAG, "State changed from " + stateToString(mState) + " to " + stateToString(state));
+        LogUtils.d(
+            TAG, "State changed from " + stateToString(this.state) + " to " + stateToString(state));
       }
-      mState = state;
+      this.state = state;
     }
   }
 
   private void onWindowChanged() {
-    final String currentWindow = mCurrentWindowPackageName;
-    switch (mState) {
+    final String currentWindow = currentWindowPackageName;
+    switch (state) {
       case STATE_RESUMED_PENDING:
         if (suspendDPadControl(currentWindow)) {
           if (DEBUG) {
-            Log.d(LOG_TAG, "D-pad control suspended for " + currentWindow);
+            LogUtils.d(TAG, "D-pad control suspended for " + currentWindow);
           }
           setState(STATE_SUSPENDED);
         } else {
           if (DEBUG) {
-            Log.d(LOG_TAG, "Resume D-pad control for unverified requester.");
+            LogUtils.d(TAG, "Resume D-pad control for unverified requester.");
           }
           setState(STATE_RESUMED);
         }
         break;
       case STATE_SUSPENDED:
         if (DEBUG) {
-          Log.d(LOG_TAG, "Resume D-pad control for the window change.");
+          LogUtils.d(TAG, "Resume D-pad control for the window change.");
         }
         resumeDPadControl();
         setState(STATE_RESUMED);
@@ -206,12 +206,12 @@ public class TelevisionDPadManager extends BroadcastReceiver implements Accessib
       case STATE_SUSPENDED_PENDING:
         if (validatePackageName(currentWindow)) {
           if (DEBUG) {
-            Log.d(LOG_TAG, "D-pad control suspended for " + currentWindow);
+            LogUtils.d(TAG, "D-pad control suspended for " + currentWindow);
           }
           setState(STATE_SUSPENDED);
         } else {
           if (DEBUG) {
-            Log.d(LOG_TAG, "Resume D-pad control for the window change.");
+            LogUtils.d(TAG, "Resume D-pad control for the window change.");
           }
           resumeDPadControl();
           setState(STATE_RESUMED);
@@ -235,13 +235,13 @@ public class TelevisionDPadManager extends BroadcastReceiver implements Accessib
       return false;
     }
 
-    mTvNavigationController.setShouldProcessDPadEvent(false);
+    tvNavigationController.setShouldProcessDPadEvent(false);
     return true;
   }
 
   /** Resumes TalkBack's control over D-pad KeyEvents. */
   private void resumeDPadControl() {
-    mTvNavigationController.setShouldProcessDPadEvent(true);
+    tvNavigationController.setShouldProcessDPadEvent(true);
   }
 
   /**

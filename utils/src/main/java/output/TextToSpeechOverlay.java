@@ -24,28 +24,36 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.WindowManager.BadTokenException;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.R;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
+import com.google.android.accessibility.utils.widget.DialogUtils;
 import com.google.android.accessibility.utils.widget.SimpleOverlay;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
-/** Displays text-to-speech text on the screen. */
+/**
+ * Displays text on the screen. The class currently is used by {@link SpeechControllerImpl} and
+ * AccessibilityMenuService.
+ */
 public class TextToSpeechOverlay extends SimpleOverlay {
+
+  private static final String LOG_TAG = "TextToSpeechOverlay";
+
   private static final int MSG_CLEAR_TEXT = 1;
 
   private TextView mText;
 
   public TextToSpeechOverlay(Context context) {
-    super(context);
+    this(context, /* id= */ 0, /* sendsAccessibilityEvents= */ false);
+  }
+
+  public TextToSpeechOverlay(Context context, int id, final boolean sendsAccessibilityEvents) {
+    super(context, id, sendsAccessibilityEvents);
 
     final WindowManager.LayoutParams params = getParams();
-    if (BuildVersionUtils.isAtLeastLMR1()) {
-      params.type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
-    } else {
-      params.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
-    }
+    params.type = DialogUtils.getDialogType();
     params.format = PixelFormat.TRANSPARENT;
     params.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
     params.flags |= WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE;
@@ -74,13 +82,17 @@ public class TextToSpeechOverlay extends SimpleOverlay {
     setContentView(layout);
   }
 
-  public void speak(CharSequence text) {
+  public void displayText(CharSequence text) {
     if (TextUtils.isEmpty(text)) {
       hide();
       return;
     }
 
-    show();
+    try {
+      show();
+    } catch (BadTokenException e) {
+      LogUtils.e(LOG_TAG, e, "Caught WindowManager.BadTokenException while displaying text.");
+    }
 
     final long displayTime = Math.max(2000, text.length() * 100);
 

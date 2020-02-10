@@ -16,32 +16,29 @@
 
 package com.google.android.accessibility.switchaccess.treebuilding;
 
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.os.Build;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import android.accessibilityservice.AccessibilityService;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
-import com.google.android.accessibility.switchaccess.ButtonSwitchAccessIgnores;
-import com.google.android.accessibility.switchaccess.NonActionableItemNode;
-import com.google.android.accessibility.switchaccess.ShowActionsMenuNode;
 import com.google.android.accessibility.switchaccess.SwitchAccessNodeCompat;
-import com.google.android.accessibility.switchaccess.SwitchAccessWindowInfo;
-import com.google.android.accessibility.switchaccess.TreeScanNode;
-import com.google.android.accessibility.switchaccess.TreeScanSystemProvidedNode;
+import com.google.android.accessibility.switchaccess.treenodes.NonActionableItemNode;
+import com.google.android.accessibility.switchaccess.treenodes.ShowActionsMenuNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanSystemProvidedNode;
+import com.google.android.accessibility.switchaccess.ui.ButtonSwitchAccessIgnores;
 import com.google.android.accessibility.utils.traversal.OrderedTraversalController;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Base class for tree building. Includes some common utility methods. */
-@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public abstract class TreeBuilder {
 
-  protected final Context mContext;
+  final AccessibilityService service;
 
-  public TreeBuilder(Context context) {
-    mContext = context;
+  TreeBuilder(AccessibilityService service) {
+    this.service = service;
   }
 
   /**
@@ -58,31 +55,13 @@ public abstract class TreeBuilder {
       SwitchAccessNodeCompat node, TreeScanNode treeToBuildOn, boolean includeNonActionableItems);
 
   /**
-   * Adds view hierarchies from several windows to the tree.
-   *
-   * @param windowList The windows whose hierarchies should be added to the tree
-   * @param treeToBuildOn The tree to which the hierarchies from windowList should be added
-   * @param shouldPlaceTreeFirst Whether the treeToBuildOn should be placed first in the tree; if it
-   *     should not be placed first, it will be placed last
-   * @param includeNonActionableItems Whether non-actionable items should be scanned and added to
-   *     the tree
-   * @return An updated tree that includes {@code treeToBuildOn}
-   */
-  public abstract TreeScanNode addWindowListToTree(
-      List<SwitchAccessWindowInfo> windowList,
-      TreeScanNode treeToBuildOn,
-      boolean shouldPlaceTreeFirst,
-      boolean includeNonActionableItems);
-
-  /**
    * Obtains a list of nodes in the order TalkBack would traverse them.
    *
    * @param root The root of the tree to traverse
    * @return The nodes in {@code root}'s subtree (including root) in the order TalkBack would
    *     traverse them.
    */
-  protected static LinkedList<SwitchAccessNodeCompat> getNodesInTalkBackOrder(
-      SwitchAccessNodeCompat root) {
+  static LinkedList<SwitchAccessNodeCompat> getNodesInTalkBackOrder(SwitchAccessNodeCompat root) {
     // Compute windows above this one. Used for cropping node bounds. Filter out any windows
     // that have ButtonSwitchAccessIgnores as the only child of a root view. Any windows that
     // contain only these buttons should not be considered when creating the visible views.
@@ -94,7 +73,8 @@ public abstract class TreeBuilder {
         AccessibilityNodeInfo firstChild = windowRoot.getChild(0);
         if (firstChild != null) {
           CharSequence className = firstChild.getClassName();
-          if (ButtonSwitchAccessIgnores.class.getName().equals(className)) {
+          if ((className != null)
+              && ButtonSwitchAccessIgnores.class.getName().contentEquals(className)) {
             continue;
           }
         }
@@ -109,15 +89,14 @@ public abstract class TreeBuilder {
     AccessibilityNodeInfoCompat node = traversalController.findFirst();
     while (node != null) {
       // Ignore buttons that Switch Access shouldn't cache. This includes the "cancel" button
-      // as we need special handling for it during option scanning (so that it is always the
+      // as we need special handling for it during group selection (so that it is always the
       // last item in a given branch). Ignoring it here avoids creating duplicate nodes. The
       // menu button that appears at the top of the screen is also ignored for similar
       // reasons.
       CharSequence className = node.getClassName();
-      if (ButtonSwitchAccessIgnores.class.getName().equals(className)) {
-        // Ignore the node
-      } else {
-        outList.add(new SwitchAccessNodeCompat(node.getInfo(), windowsAboveFiltered));
+      if ((className == null)
+          || !ButtonSwitchAccessIgnores.class.getName().contentEquals(className)) {
+        outList.add(new SwitchAccessNodeCompat(node.unwrap(), windowsAboveFiltered));
       }
       node = traversalController.findNext(node);
     }
@@ -136,12 +115,13 @@ public abstract class TreeBuilder {
    *     {@link ShowActionsMenuNode} or a {@link NonActionableItemNode}. Returns {@code null}
    *     otherwise.
    */
-  protected TreeScanSystemProvidedNode createNodeIfImportant(
+  @Nullable
+  TreeScanSystemProvidedNode createNodeIfImportant(
       SwitchAccessNodeCompat compat, boolean includeNonActionableItems) {
-    TreeScanSystemProvidedNode node = ShowActionsMenuNode.createNodeIfHasActions(mContext, compat);
+    TreeScanSystemProvidedNode node = ShowActionsMenuNode.createNodeIfHasActions(service, compat);
 
     if (node == null && includeNonActionableItems) {
-      node = NonActionableItemNode.createNodeIfHasText(mContext, compat);
+      node = NonActionableItemNode.createNodeIfHasText(compat);
     }
     return node;
   }

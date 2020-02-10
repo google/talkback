@@ -1,35 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="untitled_window" msgid="7017590766394623328">"χωρίς τίτλο"</string>
-    <string name="template_alert_dialog_template" msgid="5493715708649314332">"Προειδοποίηση <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
-    <string name="template_text_copied" msgid="1059175355898959427">"έγινε αντιγραφή, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_capital_letter" msgid="4920626008395727629">"κεφαλαίο <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
-    <string name="template_current_tts_engine" msgid="3963364867159704159">"Χρήση <xliff:g id="ENGINE_NAME">%1$s</xliff:g>"</string>
-    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"Πατήστε το συνδυασμό πλήκτρων για να ορίσετε μια νέα συντόμευση. Πρέπει να περιέχει τουλάχιστον το πλήκτρο ALT ή Control."</string>
-    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"Πατήστε τον συνδυασμό πλήκτρων με το πλήκτρο τροποποίησης <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> για να ορίσετε νέα συντόμευση."</string>
-    <string name="keycombo_unassigned" msgid="5817151372114230015">"Χωρίς αντιστοιχία"</string>
-    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"Shift"</string>
-    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
-    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
-    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Αναζήτηση"</string>
-    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"Δεξί βέλος"</string>
-    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"Αριστερό βέλος"</string>
-    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"Επάνω βέλος"</string>
-    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"Κάτω βέλος"</string>
-    <string name="granularity_default" msgid="4948042687369948597">"Προεπιλογή"</string>
-    <string name="granularity_character" msgid="2036726841460203840">"Χαρακτήρες"</string>
-    <string name="granularity_word" msgid="2653776823920279013">"Λέξεις"</string>
-    <string name="granularity_line" msgid="727359260064093782">"Γραμμές"</string>
-    <string name="granularity_paragraph" msgid="3760401274833105422">"Παράγραφοι"</string>
-    <string name="granularity_page" msgid="2739238666516816581">"Σελίδες"</string>
-    <string name="granularity_web_section" msgid="8219174463230029732">"Επικεφαλίδες και σημεία αναφοράς"</string>
-    <string name="granularity_web_list" msgid="4386991044245560102">"Λίστες"</string>
-    <string name="granularity_web_link" msgid="7817726975417542626">"Σύνδεσμοι"</string>
-    <string name="granularity_web_control" msgid="1885138772895126953">"Στοιχεία ελέγχου"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"Ειδικό περιεχόμενο"</string>
-    <string name="granularity_native_heading" msgid="4197974986104812378">"Επικεφαλίδες"</string>
-    <string name="granularity_native_control" msgid="2179123672532783038">"Στοιχεία ελέγχου"</string>
-    <string name="granularity_native_link" msgid="5811543234687687607">"Σύνδεσμοι"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="untitled_window">χωρίς τίτλο</string>
+  <string name="template_alert_dialog_template">Προειδοποίηση %1$s</string>
+  <string name="template_text_copied">έγινε αντιγραφή, %1$s</string>
+  <string name="template_capital_letter">κεφαλαίο %1$s</string>
+  <string name="character_collapse_template"> %1$d %2$s﻿</string>
+  <string name="template_current_tts_engine">Χρήση %1$s</string>
+  <string name="keycombo_assign_dialog_instruction">Πατήστε το συνδυασμό πλήκτρων για να ορίσετε μια νέα συντόμευση. Πρέπει να περιέχει τουλάχιστον το πλήκτρο ALT ή Control.</string>
+  <string name="keycombo_assign_dialog_default_keymap_instruction">Πατήστε τον συνδυασμό πλήκτρων με το πλήκτρο τροποποίησης %1$s για να ορίσετε νέα συντόμευση.</string>
+  <string name="keycombo_unassigned">Χωρίς αντιστοιχία</string>
+  <string name="keycombo_key_modifier_shift">Shift</string>
+  <string name="keycombo_key_modifier_alt">Alt</string>
+  <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+  <string name="keycombo_key_modifier_meta">Αναζήτηση</string>
+  <string name="keycombo_key_arrow_right">Δεξί βέλος</string>
+  <string name="keycombo_key_arrow_left">Αριστερό βέλος</string>
+  <string name="keycombo_key_arrow_up">Επάνω βέλος</string>
+  <string name="keycombo_key_arrow_down">Κάτω βέλος</string>
+  <string name="granularity_default">Προεπιλογή</string>
+  <string name="granularity_character">Χαρακτήρες</string>
+  <string name="granularity_word">Λέξεις</string>
+  <string name="granularity_line">Γραμμές</string>
+  <string name="granularity_paragraph">Παράγραφοι</string>
+  <string name="granularity_page">Σελίδες</string>
+  <string name="granularity_web_landmark">Ορόσημα</string>
+  <string name="granularity_web_heading">Επικεφαλίδες</string>
+  <string name="granularity_web_list">Λίστες</string>
+  <string name="granularity_web_link">Σύνδεσμοι</string>
+  <string name="granularity_web_control">Στοιχεία ελέγχου</string>
+  <string name="granularity_pseudo_web_special_content">Ειδικό περιεχόμενο</string>
+  <string name="granularity_native_heading">Επικεφαλίδες</string>
+  <string name="granularity_native_control">Στοιχεία ελέγχου</string>
+  <string name="granularity_native_link">Σύνδεσμοι</string>
+  <string name="template_overlay_window">%1$s picture-in-picture</string>
+  <string name="template_split_screen_mode_portrait">%1$s επάνω, %2$s κάτω</string>
+  <string name="template_split_screen_mode_landscape_ltr">%1$s αριστερά, %2$s δεξιά</string>
+  <string name="template_split_screen_mode_landscape_rtl">%1$s δεξιά, %2$s αριστερά</string>
+  <string name="template_scroll_from_to_count">Εμφάνιση στοιχείων %1$d έως %2$d από %3$d.</string>
+  <string name="template_scroll_from_count">Εμφάνιση στοιχείου %1$d από %2$d.</string>
+  <string name="template_viewpager_index_count">Σελίδα %1$d από %2$d</string>
+  <string name="template_viewpager_index_count_short">%1$d από %2$d</string>
+  <string name="url_dialog_table">%1$s (%2$s)</string>
 </resources>

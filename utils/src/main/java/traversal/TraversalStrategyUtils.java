@@ -1,31 +1,33 @@
 package com.google.android.accessibility.utils.traversal;
 
 import android.graphics.Rect;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.util.Log;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.Filter;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.accessibility.utils.NodeActionFilter;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
-import com.google.android.accessibility.utils.compat.CompatUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashSet;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class TraversalStrategyUtils {
 
-  /**
-   * Class for Samsung's TouchWiz implementation of AbsListView. May be {@code null} on non-Samsung
-   * devices.
-   */
-  private static final Class<?> CLASS_TOUCHWIZ_TWABSLISTVIEW =
-      CompatUtils.getClass("com.sec.android.touchwiz.widget.TwAbsListView");
+  private static final String TAG = "TraversalStrategyUtils";
 
   private TraversalStrategyUtils() {
     // Prevent utility class from being instantiated.
+  }
+
+  /** Recycles the given traversal strategy. */
+  public static void recycle(@Nullable TraversalStrategy traversalStrategy) {
+    if (traversalStrategy != null) {
+      traversalStrategy.recycle();
+    }
   }
 
   /**
@@ -47,6 +49,27 @@ public class TraversalStrategyUtils {
     }
 
     throw new IllegalArgumentException("direction must be a SearchDirection");
+  }
+
+  /** Converts {@link TraversalStrategy.SearchDirection} to view focus direction. */
+  public static int nodeSearchDirectionToViewSearchDirection(
+      @TraversalStrategy.SearchDirection int direction) {
+    switch (direction) {
+      case TraversalStrategy.SEARCH_FOCUS_FORWARD:
+        return View.FOCUS_FORWARD;
+      case TraversalStrategy.SEARCH_FOCUS_BACKWARD:
+        return View.FOCUS_BACKWARD;
+      case TraversalStrategy.SEARCH_FOCUS_LEFT:
+        return View.FOCUS_LEFT;
+      case TraversalStrategy.SEARCH_FOCUS_RIGHT:
+        return View.FOCUS_RIGHT;
+      case TraversalStrategy.SEARCH_FOCUS_UP:
+        return View.FOCUS_UP;
+      case TraversalStrategy.SEARCH_FOCUS_DOWN:
+        return View.FOCUS_DOWN;
+      default:
+        throw new IllegalArgumentException("Direction must be a SearchDirection");
+    }
   }
 
   /**
@@ -108,13 +131,11 @@ public class TraversalStrategyUtils {
    */
   public static int convertSearchDirectionToScrollAction(
       @TraversalStrategy.SearchDirection int direction) {
-    boolean supportsDirectional = BuildVersionUtils.isAtLeastM();
-
     if (direction == TraversalStrategy.SEARCH_FOCUS_FORWARD) {
       return AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD;
     } else if (direction == TraversalStrategy.SEARCH_FOCUS_BACKWARD) {
       return AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD;
-    } else if (supportsDirectional) {
+    } else {
       if (direction == TraversalStrategy.SEARCH_FOCUS_LEFT) {
         return AccessibilityAction.ACTION_SCROLL_LEFT.getId();
       } else if (direction == TraversalStrategy.SEARCH_FOCUS_RIGHT) {
@@ -136,13 +157,11 @@ public class TraversalStrategyUtils {
    */
   public static @TraversalStrategy.SearchDirectionOrUnknown int
       convertScrollActionToSearchDirection(int scrollAction) {
-    boolean supportsDirectional = BuildVersionUtils.isAtLeastM();
-
     if (scrollAction == AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
       return TraversalStrategy.SEARCH_FOCUS_FORWARD;
     } else if (scrollAction == AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
       return TraversalStrategy.SEARCH_FOCUS_BACKWARD;
-    } else if (supportsDirectional) {
+    } else {
       if (scrollAction == AccessibilityAction.ACTION_SCROLL_LEFT.getId()) {
         return TraversalStrategy.SEARCH_FOCUS_LEFT;
       } else if (scrollAction == AccessibilityAction.ACTION_SCROLL_RIGHT.getId()) {
@@ -167,26 +186,39 @@ public class TraversalStrategyUtils {
    */
   public static boolean isEdgeListItem(
       AccessibilityNodeInfoCompat node, TraversalStrategy traversalStrategy) {
-    return isEdgeListItem(node, TraversalStrategy.SEARCH_FOCUS_BACKWARD, null, traversalStrategy)
-        || isEdgeListItem(node, TraversalStrategy.SEARCH_FOCUS_FORWARD, null, traversalStrategy);
+    return isEdgeListItem(
+            node,
+            /* ignoreDescendantsOfPivot= */ false,
+            TraversalStrategy.SEARCH_FOCUS_BACKWARD,
+            null,
+            traversalStrategy)
+        || isEdgeListItem(
+            node,
+            /* ignoreDescendantsOfPivot= */ false,
+            TraversalStrategy.SEARCH_FOCUS_FORWARD,
+            null,
+            traversalStrategy);
   }
 
   /**
    * Determines if the current item is at the edge of a list by checking the scrollable predecessors
    * of the items in a relative or absolute direction.
    *
-   * @param node The node to check.
+   * @param pivot The node to check.
+   * @param ignoreDescendantsOfPivot Whether to ignore descendants of pivot when searching down the
+   *     node tree.
    * @param direction The direction in which to check.
    * @param filter (Optional) Filter used to validate list-type ancestors.
    * @param traversalStrategy - traversal strategy that is used to define order of node
    * @return true if the current item is at the edge of a list.
    */
   private static boolean isEdgeListItem(
-      AccessibilityNodeInfoCompat node,
+      AccessibilityNodeInfoCompat pivot,
+      boolean ignoreDescendantsOfPivot,
       @TraversalStrategy.SearchDirection int direction,
-      Filter<AccessibilityNodeInfoCompat> filter,
+      @Nullable Filter<AccessibilityNodeInfoCompat> filter,
       TraversalStrategy traversalStrategy) {
-    if (node == null) {
+    if (pivot == null) {
       return false;
     }
 
@@ -194,7 +226,8 @@ public class TraversalStrategyUtils {
     if (scrollAction != 0) {
       NodeActionFilter scrollableFilter = new NodeActionFilter(scrollAction);
       Filter<AccessibilityNodeInfoCompat> comboFilter = scrollableFilter.and(filter);
-      return isMatchingEdgeListItem(node, direction, comboFilter, traversalStrategy);
+      return isMatchingEdgeListItem(
+          pivot, ignoreDescendantsOfPivot, direction, comboFilter, traversalStrategy);
     }
 
     return false;
@@ -204,7 +237,9 @@ public class TraversalStrategyUtils {
    * Convenience method determining if the current item is at the edge of a list and suitable
    * autoscroll. Calls {@code isEdgeListItem} with {@code FILTER_AUTO_SCROLL}.
    *
-   * @param node The node to check.
+   * @param pivot The node to check.
+   * @param ignoreDescendantsOfPivot Whether to ignore descendants of pivot when search down the
+   *     node tree.
    * @param direction The direction in which to check, one of:
    *     <ul>
    *       <li>{@code -1} to check backward
@@ -216,8 +251,16 @@ public class TraversalStrategyUtils {
    * @return true if the current item is at the edge of a list.
    */
   public static boolean isAutoScrollEdgeListItem(
-      AccessibilityNodeInfoCompat node, int direction, TraversalStrategy traversalStrategy) {
-    return isEdgeListItem(node, direction, FILTER_AUTO_SCROLL, traversalStrategy);
+      AccessibilityNodeInfoCompat pivot,
+      boolean ignoreDescendantsOfPivot,
+      int direction,
+      TraversalStrategy traversalStrategy) {
+    return isEdgeListItem(
+        pivot,
+        ignoreDescendantsOfPivot,
+        direction,
+        AccessibilityNodeInfoUtils.FILTER_AUTO_SCROLL,
+        traversalStrategy);
   }
 
   /**
@@ -225,6 +268,8 @@ public class TraversalStrategyUtils {
    * a scrollable container.
    *
    * @param cursor Node to check.
+   * @param ignoreDescendantsOfCursor Whether to ignore descendants of cursor when search down the
+   *     node tree.
    * @param direction The direction in which to move from the cursor.
    * @param filter Filter used to validate list-type ancestors.
    * @param traversalStrategy - traversal strategy that is used to define order of node
@@ -232,13 +277,15 @@ public class TraversalStrategyUtils {
    *     the container.
    */
   private static boolean isMatchingEdgeListItem(
-      AccessibilityNodeInfoCompat cursor,
+      final AccessibilityNodeInfoCompat cursor,
+      boolean ignoreDescendantsOfCursor,
       @TraversalStrategy.SearchDirection int direction,
       Filter<AccessibilityNodeInfoCompat> filter,
       TraversalStrategy traversalStrategy) {
     AccessibilityNodeInfoCompat ancestor = null;
     AccessibilityNodeInfoCompat nextFocusNode = null;
     AccessibilityNodeInfoCompat searchedAncestor = null;
+    AccessibilityNodeInfoCompat webViewNode = null;
 
     try {
       ancestor = AccessibilityNodeInfoUtils.getMatchingAncestor(cursor, filter);
@@ -246,10 +293,19 @@ public class TraversalStrategyUtils {
         // Not contained in a scrollable list.
         return false;
       }
-
-      nextFocusNode =
-          searchFocus(
-              traversalStrategy, cursor, direction, AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS);
+      Filter<AccessibilityNodeInfoCompat> focusNodeFilter =
+          AccessibilityNodeInfoUtils.FILTER_SHOULD_FOCUS;
+      if (ignoreDescendantsOfCursor) {
+        focusNodeFilter =
+            focusNodeFilter.and(
+                new Filter<AccessibilityNodeInfoCompat>() {
+                  @Override
+                  public boolean accept(AccessibilityNodeInfoCompat obj) {
+                    return !AccessibilityNodeInfoUtils.hasAncestor(obj, cursor);
+                  }
+                });
+      }
+      nextFocusNode = searchFocus(traversalStrategy, cursor, direction, focusNodeFilter);
       if ((nextFocusNode == null) || nextFocusNode.equals(ancestor)) {
         // Can't move from this position.
         return true;
@@ -263,7 +319,7 @@ public class TraversalStrategyUtils {
       // with nextFocusNode inside it to the screen bounds.
       if (!nextFocusNode.isVisibleToUser()
           && WebInterfaceUtils.hasNativeWebContent(nextFocusNode)) {
-        AccessibilityNodeInfoCompat webViewNode =
+        webViewNode =
             AccessibilityNodeInfoUtils.getMatchingAncestor(
                 nextFocusNode,
                 new Filter<AccessibilityNodeInfoCompat>() {
@@ -292,7 +348,8 @@ public class TraversalStrategyUtils {
       // Moves outside of the scrollable container.
       return true;
     } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(ancestor, nextFocusNode, searchedAncestor);
+      AccessibilityNodeInfoUtils.recycleNodes(
+          ancestor, nextFocusNode, searchedAncestor, webViewNode);
     }
   }
 
@@ -306,7 +363,7 @@ public class TraversalStrategyUtils {
    * @param filter - filters focused node candidate
    * @return node that could be focused next
    */
-  public static AccessibilityNodeInfoCompat searchFocus(
+  public static @Nullable AccessibilityNodeInfoCompat searchFocus(
       TraversalStrategy traversal,
       AccessibilityNodeInfoCompat currentFocus,
       @TraversalStrategy.SearchDirection int direction,
@@ -327,11 +384,7 @@ public class TraversalStrategyUtils {
         targetNode = traversal.findFocus(targetNode, direction);
 
         if (seenNodes.contains(targetNode)) {
-          LogUtils.log(
-              AccessibilityNodeInfoUtils.class,
-              Log.ERROR,
-              "Found duplicate during traversal: %s",
-              targetNode.getInfo());
+          LogUtils.e(TAG, "Found duplicate during traversal: %s", targetNode);
           return null;
         }
       } while (targetNode != null && !filter.accept(targetNode));
@@ -340,6 +393,29 @@ public class TraversalStrategyUtils {
     }
 
     return targetNode;
+  }
+
+  @Nullable
+  public static AccessibilityNodeInfoCompat findInitialFocusInNodeTree(
+      TraversalStrategy traversalStrategy,
+      AccessibilityNodeInfoCompat root,
+      @TraversalStrategy.SearchDirection int direction,
+      Filter<AccessibilityNodeInfoCompat> nodeFilter) {
+    if (root == null) {
+      return null;
+    }
+    AccessibilityNodeInfoCompat initialNode = null;
+    try {
+      initialNode = traversalStrategy.focusInitial(root, direction);
+
+      if (nodeFilter.accept(initialNode)) {
+        return AccessibilityNodeInfoUtils.obtain(initialNode);
+      }
+      return TraversalStrategyUtils.searchFocus(
+          traversalStrategy, initialNode, direction, nodeFilter);
+    } finally {
+      AccessibilityNodeInfoUtils.recycleNodes(initialNode);
+    }
   }
 
   private static boolean isNodeInBoundsOfOther(
@@ -370,67 +446,6 @@ public class TraversalStrategyUtils {
         @Override
         public boolean accept(AccessibilityNodeInfoCompat node) {
           return node != null;
-        }
-      };
-
-  /**
-   * Convenience class for a {@link Filter<AccessibilityNodeInfoCompat>} that checks whether nodes
-   * support a specific action.
-   */
-  private static class NodeActionFilter extends Filter<AccessibilityNodeInfoCompat> {
-    private final int mAction;
-
-    /**
-     * Creates a new action filter with the specified action mask.
-     *
-     * @param action The ID of the action to accept.
-     */
-    public NodeActionFilter(int action) {
-      mAction = action;
-    }
-
-    @Override
-    public boolean accept(AccessibilityNodeInfoCompat node) {
-      return AccessibilityNodeInfoUtils.supportsAction(node, mAction);
-    }
-  }
-
-  /**
-   * Filter that defines which types of views should be auto-scrolled. Generally speaking, only
-   * accepts views that are capable of showing partially-visible data.
-   *
-   * <p>Accepts the following classes (and sub-classes thereof):
-   *
-   * <ul>
-   *   <li>{@link android.support.v7.widget.RecyclerView} (Should be classified as a List or Grid.)
-   *   <li>{@link android.widget.AbsListView} (including both ListView and GridView)
-   *   <li>{@link android.widget.AbsSpinner}
-   *   <li>{@link android.widget.ScrollView}
-   *   <li>{@link android.widget.HorizontalScrollView}
-   *   <li>{@code com.sec.android.touchwiz.widget.TwAbsListView}
-   * </ul>
-   *
-   * <p>Specifically excludes {@link android.widget.AdapterViewAnimator} and sub-classes, since they
-   * represent overlapping views. Also excludes {@link android.support.v4.view.ViewPager} since it
-   * exclusively represents off-screen views.
-   */
-  private static final Filter<AccessibilityNodeInfoCompat> FILTER_AUTO_SCROLL =
-      new Filter<AccessibilityNodeInfoCompat>() {
-        @Override
-        public boolean accept(AccessibilityNodeInfoCompat node) {
-          if (node.isScrollable()) {
-            @Role.RoleName int role = Role.getRole(node);
-            // TODO: Check if we should include ROLE_ADAPTER_VIEW as a target Role.
-            return role == Role.ROLE_DROP_DOWN_LIST
-                || role == Role.ROLE_LIST
-                || role == Role.ROLE_GRID
-                || role == Role.ROLE_SCROLL_VIEW
-                || role == Role.ROLE_HORIZONTAL_SCROLL_VIEW
-                || AccessibilityNodeInfoUtils.nodeMatchesAnyClassByType(
-                    node, CLASS_TOUCHWIZ_TWABSLISTVIEW);
-          }
-
-          return false;
         }
       };
 

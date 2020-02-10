@@ -16,9 +16,7 @@
 
 package com.google.android.accessibility.talkback;
 
-import android.annotation.TargetApi;
 import android.app.backup.BackupAgentHelper;
 
 /** Persists TalkBack preferences to the cloud. */
-@TargetApi(8)
 public class TalkBackBackupAgent extends BackupAgentHelper {}

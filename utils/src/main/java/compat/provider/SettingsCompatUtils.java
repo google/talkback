@@ -19,11 +19,13 @@ package com.google.android.accessibility.utils.compat.provider;
 import android.content.Context;
 import android.provider.Settings;
 
+/** TODO: Figure out why this is separate from SecureSettingsUtils, or merge them. */
 public class SettingsCompatUtils {
   private SettingsCompatUtils() {
     // This class is non-instantiable.
   }
 
+  /** TODO: Figure out why this inner class is needed, or merge it with outer class. */
   public static class SecureCompatUtils {
     private SecureCompatUtils() {
       // This class is non-instantiable.

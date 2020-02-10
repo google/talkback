@@ -37,7 +37,7 @@
         android:layout_marginEnd="10dp"
         android:accessibilityLiveRegion="assertive"
         android:textSize="16sp"
-        style="@style/KeyboardShortcutTextDescription"
+
         android:focusableInTouchMode="true"
         android:layout_alignTop="@id/clear"
         android:layout_alignBottom="@id/clear"
@@ -62,7 +62,7 @@
         android:id="@+id/instruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/KeyboardShortcutTextDescription"
+
         android:layout_below="@id/divider"
         android:layout_marginRight="24dp"
         android:layout_marginLeft="24dp"
@@ -72,7 +72,7 @@
         android:id="@+id/navigation_reminder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/KeyboardShortcutTextDescription"
+
         android:layout_below="@id/instruction"
         android:layout_marginRight="24dp"
         android:layout_marginLeft="24dp"

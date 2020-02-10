@@ -17,23 +17,25 @@
 package com.google.android.accessibility.talkback.eventprocessor;
 
 import android.os.Message;
-import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.compositor.EventFilter;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /**
  * Manages the event feedback queue. Queued events are run through the {@link Compositor} to
  * generate spoken, haptic, and audible feedback.
  */
 public class ProcessorEventQueue implements AccessibilityEventListener {
+
+  private static final String TAG = "ProcessorEventQueue";
+
   /** Manages pending speech events. */
-  private final ProcessorEventHandler mHandler = new ProcessorEventHandler(this);
+  private final ProcessorEventHandler handler = new ProcessorEventHandler(this);
 
   /** Event types that are handled by ProcessorEventQueue. */
   private static final int MASK_EVENTS_HANDLED_BY_PROCESSOR_EVENT_QUEUE =
@@ -45,12 +47,12 @@ public class ProcessorEventQueue implements AccessibilityEventListener {
    * queue are processed while we speak and this occurs after a certain timeout since the last
    * received event.
    */
-  private final EventQueue mEventQueue = new EventQueue();
+  private final EventQueue eventQueue = new EventQueue();
 
-  private EventFilter mEventFilter;
+  private EventFilter eventFilter;
 
   public ProcessorEventQueue(EventFilter eventFilter) {
-    mEventFilter = eventFilter;
+    this.eventFilter = eventFilter;
   }
 
   @Override
@@ -61,10 +63,14 @@ public class ProcessorEventQueue implements AccessibilityEventListener {
   @Override
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
 
-    synchronized (mEventQueue) {
-      mEventQueue.enqueue(event);
-      mHandler.postSpeak();
+    synchronized (eventQueue) {
+      eventQueue.enqueue(event);
+      handler.postSpeak();
     }
+  }
+
+  public void clearQueue() {
+    handler.removeMessages(WHAT_SPEAK);
   }
 
   /**
@@ -78,16 +84,17 @@ public class ProcessorEventQueue implements AccessibilityEventListener {
     if (event == null) {
       return;
     }
-    LogUtils.log(this, Log.DEBUG, "Processing event: %s", event);
+    LogUtils.d(TAG, "Processing event: %s", event);
 
-    mEventFilter.sendEvent(event, eventId);
+    eventFilter.sendEvent(event, eventId);
 
     event.recycle();
   }
 
+  private static final int WHAT_SPEAK = 1;
+
   private static class ProcessorEventHandler extends WeakReferenceHandler<ProcessorEventQueue> {
     /** Speak action. */
-    private static final int WHAT_SPEAK = 1;
 
     public ProcessorEventHandler(ProcessorEventQueue parent) {
       super(parent);
@@ -108,12 +115,12 @@ public class ProcessorEventQueue implements AccessibilityEventListener {
       while (true) {
         final AccessibilityEvent event;
 
-        synchronized (parent.mEventQueue) {
-          if (parent.mEventQueue.isEmpty()) {
+        synchronized (parent.eventQueue) {
+          if (parent.eventQueue.isEmpty()) {
             return;
           }
 
-          event = parent.mEventQueue.dequeue();
+          event = parent.eventQueue.dequeue();
         }
 
         // Re-generate event id -- slower than passing event id, but avoids modifying

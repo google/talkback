@@ -16,7 +16,6 @@
 
 package com.google.android.accessibility.talkback.contextmenu;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -38,10 +37,9 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.GradientDrawable.Orientation;
-import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -50,10 +48,16 @@ import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.ExploreByTouchObjectHelper;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
+/** RadialMenuView class */
 public class RadialMenuView extends SurfaceView {
+
+  private static final String TAG = "RadialMenuView";
+
+  /** SubMenuMode enum class */
   public enum SubMenuMode {
     /** Activate sub-menus by touching them for an extended time. */
     LONG_PRESS,
@@ -65,120 +69,120 @@ public class RadialMenuView extends SurfaceView {
   private static final String ELLIPSIS = "…";
 
   /** The point at which the user started touching the menu. */
-  private final PointF mEntryPoint = new PointF();
+  private final PointF entryPoint = new PointF();
 
   /** Temporary matrix used for calculations. */
-  private final Matrix mTempMatrix = new Matrix();
+  private final Matrix tempMatrix = new Matrix();
 
   // Cached bounds.
-  private final RectF mCachedOuterBound = new RectF();
-  private final RectF mCachedCornerBound = new RectF();
-  private final RectF mCachedExtremeBound = new RectF();
+  private final RectF cachedOuterBound = new RectF();
+  private final RectF cachedCornerBound = new RectF();
+  private final RectF cachedExtremeBound = new RectF();
 
   // Cached paths representing a single item.
-  private final Path mCachedOuterPath = new Path();
-  private final Path mCachedOuterPathReverse = new Path();
-  private final Path mCachedCornerPath = new Path();
-  private final Path mCachedCornerPathReverse = new Path();
+  private final Path cachedOuterPath = new Path();
+  private final Path cachedOuterPathReverse = new Path();
+  private final Path cachedCornerPath = new Path();
+  private final Path cachedCornerPathReverse = new Path();
 
   // Cached widths for rendering text on paths.
-  private float mCachedOuterPathWidth;
-  private float mCachedCornerPathWidth;
+  private float cachedOuterPathWidth;
+  private float cachedCornerPathWidth;
 
   /** The root menu represented by this view. */
-  private final RadialMenu mRootMenu;
+  private final RadialMenu rootMenu;
 
   /** The paint used to draw this view. */
-  private final Paint mPaint;
+  private final Paint paint;
 
   /** The long-press handler for this view. */
-  private final LongPressHandler mHandler;
+  private final LongPressHandler handler;
 
   /** The background drawn below the radial menu. */
-  private GradientDrawable mGradientBackground;
+  private GradientDrawable gradientBackground;
 
   /** The maximum radius allowable for a single-tap gesture. */
-  private final int mSingleTapRadiusSq;
+  private final int singleTapRadiusSq;
 
   // Dimensions loaded from context.
-  private final int mInnerRadius;
-  private final int mOuterRadius;
-  private final int mCornerRadius;
-  private final int mExtremeRadius;
-  private final int mSpacing;
-  private final int mTextSize;
-  private final int mTextShadowRadius;
-  private final int mShadowRadius;
+  private final int innerRadius;
+  private final int outerRadius;
+  private final int cornerRadius;
+  private final int extremeRadius;
+  private final int spacing;
+  private final int textSize;
+  private final int textShadowRadius;
+  private final int shadowRadius;
 
   // Generated from dimensions.
-  private final int mInnerRadiusSq;
-  private final int mExtremeRadiusSq;
+  private final int innerRadiusSq;
+  private final int extremeRadiusSq;
 
   // Colors loaded from context.
-  private final int mOuterFillColor;
-  private final int mTextFillColor;
-  private final int mCornerFillColor;
-  private final int mCornerTextFillColor;
-  private final int mDotFillColor;
-  private final int mDotStrokeColor;
-  private final int mSelectionColor;
-  private final int mSelectionTextFillColor;
-  private final int mSelectionShadowColor;
-  private final int mCenterFillColor;
-  private final int mCenterTextFillColor;
-  private final int mTextShadowColor;
+  private final int outerFillColor;
+  private final int textFillColor;
+  private final int cornerFillColor;
+  private final int cornerTextFillColor;
+  private final int dotFillColor;
+  private final int dotStrokeColor;
+  private final int selectionColor;
+  private final int selectionTextFillColor;
+  private final int selectionShadowColor;
+  private final int centerFillColor;
+  private final int centerTextFillColor;
+  private final int textShadowColor;
 
-  private final DashPathEffect mDotPathEffect = new DashPathEffect(new float[] {20, 20}, 0);
+  private final DashPathEffect dotPathEffect = new DashPathEffect(new float[] {20, 20}, 0);
 
   private static final float DOT_STROKE_WIDTH = 5;
 
   // Color filters for modal content.
-  private final ColorFilter mSubMenuFilter;
+  private final ColorFilter subMenuFilter;
 
   /**
    * Whether to use a node provider. If set to {@code false}, converts hover events to touch events
    * and does not send any accessibility events.
    */
-  private final boolean mUseNodeProvider;
+  private final boolean useNodeProvider;
 
   /** The current interaction mode for activating elements. */
-  private SubMenuMode mSubMenuMode = SubMenuMode.LIFT_TO_ACTIVATE;
+  private SubMenuMode subMenuMode = SubMenuMode.LIFT_TO_ACTIVATE;
 
   /** The surface holder onto which the view is drawn. */
-  private SurfaceHolder mHolder;
+  @Nullable private SurfaceHolder holder;
 
   /** The currently focused item. */
-  private RadialMenuItem mFocusedItem;
+  @Nullable private RadialMenuItem focusedItem;
 
   /** The currently displayed sub-menu, if any. */
-  private RadialSubMenu mSubMenu;
+  @Nullable private RadialSubMenu subMenu;
 
   /**
    * The offset of the current sub-menu, in degrees. Used to align the sub-menu with its parent menu
    * item.
    */
-  private float mSubMenuOffset;
+  private float subMenuOffset;
 
   /**
    * The offset of the root menu, in degrees. Used to align the first menu item at the top or right
    * of the radial menu.
    */
-  private float mRootMenuOffset = 0;
+  private float rootMenuOffset = 0;
 
   /** The center point of the radial menu. */
-  private PointF mCenter = new PointF();
+  private PointF center = new PointF();
 
   /** Whether to display the "carrot" dot. */
-  private boolean mDisplayWedges;
+  private boolean displayWedges;
 
   /** Whether the current touch might be a single tap gesture. */
-  private boolean mMaybeSingleTap;
+  private boolean maybeSingleTap;
 
   public RadialMenuView(Context context, RadialMenu menu, boolean useNodeProvider) {
     super(context);
 
-    mRootMenu = menu;
-    mRootMenu.setLayoutListener(
+    rootMenu = menu;
+    rootMenu.setLayoutListener(
         new RadialMenu.MenuLayoutListener() {
           @Override
           public void onLayoutChanged() {
@@ -186,15 +190,15 @@ public class RadialMenuView extends SurfaceView {
           }
         });
 
-    mPaint = new Paint();
-    mPaint.setAntiAlias(true);
+    paint = new Paint();
+    paint.setAntiAlias(true);
 
-    mHandler = new LongPressHandler(context);
-    mHandler.setListener(
+    handler = new LongPressHandler(context);
+    handler.setListener(
         new LongPressHandler.LongPressListener() {
           @Override
           public void onLongPress() {
-            onItemLongPressed(mFocusedItem);
+            onItemLongPressed(focusedItem);
           }
         });
 
@@ -204,12 +208,12 @@ public class RadialMenuView extends SurfaceView {
         new SurfaceHolder.Callback() {
           @Override
           public void surfaceCreated(SurfaceHolder holder) {
-            mHolder = holder;
+            RadialMenuView.this.holder = holder;
           }
 
           @Override
           public void surfaceDestroyed(SurfaceHolder holder) {
-            mHolder = null;
+            RadialMenuView.this.holder = null;
           }
 
           @Override
@@ -221,51 +225,51 @@ public class RadialMenuView extends SurfaceView {
     final Resources res = context.getResources();
     final ViewConfiguration config = ViewConfiguration.get(context);
 
-    mSingleTapRadiusSq = config.getScaledTouchSlop();
+    singleTapRadiusSq = config.getScaledTouchSlop();
 
     // Dimensions.
-    mInnerRadius = res.getDimensionPixelSize(R.dimen.inner_radius);
-    mOuterRadius = res.getDimensionPixelSize(R.dimen.outer_radius);
-    mCornerRadius = res.getDimensionPixelSize(R.dimen.corner_radius);
-    mExtremeRadius = res.getDimensionPixelSize(R.dimen.extreme_radius);
-    mSpacing = res.getDimensionPixelOffset(R.dimen.spacing);
-    mTextSize = res.getDimensionPixelSize(R.dimen.text_size);
-    mTextShadowRadius = res.getDimensionPixelSize(R.dimen.text_shadow_radius);
-    mShadowRadius = res.getDimensionPixelSize(R.dimen.shadow_radius);
+    innerRadius = res.getDimensionPixelSize(R.dimen.inner_radius);
+    outerRadius = res.getDimensionPixelSize(R.dimen.outer_radius);
+    cornerRadius = res.getDimensionPixelSize(R.dimen.corner_radius);
+    extremeRadius = res.getDimensionPixelSize(R.dimen.extreme_radius);
+    spacing = res.getDimensionPixelOffset(R.dimen.spacing);
+    textSize = res.getDimensionPixelSize(R.dimen.text_size);
+    textShadowRadius = res.getDimensionPixelSize(R.dimen.text_shadow_radius);
+    shadowRadius = res.getDimensionPixelSize(R.dimen.shadow_radius);
 
     // Colors.
-    mOuterFillColor = res.getColor(R.color.outer_fill);
-    mTextFillColor = res.getColor(R.color.text_fill);
-    mCornerFillColor = res.getColor(R.color.corner_fill);
-    mCornerTextFillColor = res.getColor(R.color.corner_text_fill);
-    mDotFillColor = res.getColor(R.color.dot_fill);
-    mDotStrokeColor = res.getColor(R.color.dot_stroke);
-    mSelectionColor = res.getColor(R.color.selection_fill);
-    mSelectionTextFillColor = res.getColor(R.color.selection_text_fill);
-    mSelectionShadowColor = res.getColor(R.color.selection_shadow);
-    mCenterFillColor = res.getColor(R.color.center_fill);
-    mCenterTextFillColor = res.getColor(R.color.center_text_fill);
-    mTextShadowColor = res.getColor(R.color.text_shadow);
+    outerFillColor = res.getColor(R.color.outer_fill);
+    textFillColor = res.getColor(R.color.text_fill);
+    cornerFillColor = res.getColor(R.color.corner_fill);
+    cornerTextFillColor = res.getColor(R.color.corner_text_fill);
+    dotFillColor = res.getColor(R.color.dot_fill);
+    dotStrokeColor = res.getColor(R.color.dot_stroke);
+    selectionColor = res.getColor(R.color.selection_fill);
+    selectionTextFillColor = res.getColor(R.color.selection_text_fill);
+    selectionShadowColor = res.getColor(R.color.selection_shadow);
+    centerFillColor = res.getColor(R.color.center_fill);
+    centerTextFillColor = res.getColor(R.color.center_text_fill);
+    textShadowColor = res.getColor(R.color.text_shadow);
 
     // Gradient colors.
     final int gradientInnerColor = res.getColor(R.color.gradient_inner);
     final int gradientOuterColor = res.getColor(R.color.gradient_outer);
     final int[] colors = new int[] {gradientInnerColor, gradientOuterColor};
-    mGradientBackground = new GradientDrawable(Orientation.TOP_BOTTOM, colors);
-    mGradientBackground.setGradientType(GradientDrawable.RADIAL_GRADIENT);
-    mGradientBackground.setGradientRadius(mExtremeRadius * 2.0f);
+    gradientBackground = new GradientDrawable(Orientation.TOP_BOTTOM, colors);
+    gradientBackground.setGradientType(GradientDrawable.RADIAL_GRADIENT);
+    gradientBackground.setGradientRadius(extremeRadius * 2.0f);
 
     final int subMenuOverlayColor = res.getColor(R.color.submenu_overlay);
 
     // Lighting filters generated from colors.
-    mSubMenuFilter = new PorterDuffColorFilter(subMenuOverlayColor, PorterDuff.Mode.SCREEN);
+    subMenuFilter = new PorterDuffColorFilter(subMenuOverlayColor, PorterDuff.Mode.SCREEN);
 
-    mInnerRadiusSq = (mInnerRadius * mInnerRadius);
-    mExtremeRadiusSq = (mExtremeRadius * mExtremeRadius);
+    innerRadiusSq = (innerRadius * innerRadius);
+    extremeRadiusSq = (extremeRadius * extremeRadius);
 
-    mUseNodeProvider = useNodeProvider;
+    this.useNodeProvider = useNodeProvider;
 
-    if (mUseNodeProvider) {
+    if (this.useNodeProvider) {
       // Lazily-constructed node provider helper.
       ViewCompat.setAccessibilityDelegate(this, new RadialMenuHelper(this));
     }
@@ -280,14 +284,14 @@ public class RadialMenuView extends SurfaceView {
    * @param subMenuMode A sub-menu activation mode.
    */
   public void setSubMenuMode(SubMenuMode subMenuMode) {
-    mSubMenuMode = subMenuMode;
+    this.subMenuMode = subMenuMode;
   }
 
   /** Displays a dot at the center of the screen and draws the corner menu items. */
   public void displayDot() {
-    mDisplayWedges = false;
-    mSubMenu = null;
-    mFocusedItem = null;
+    displayWedges = false;
+    subMenu = null;
+    focusedItem = null;
 
     invalidate();
   }
@@ -299,19 +303,19 @@ public class RadialMenuView extends SurfaceView {
    * @param centerY The center Y coordinate.
    */
   public void displayAt(float centerX, float centerY) {
-    mCenter.x = centerX;
-    mCenter.y = centerY;
+    center.x = centerX;
+    center.y = centerY;
 
-    mDisplayWedges = true;
-    mSubMenu = null;
-    mFocusedItem = null;
+    displayWedges = true;
+    subMenu = null;
+    focusedItem = null;
 
     invalidate();
   }
 
   /** Re-draw cached wedge bitmaps. */
   private void invalidateCachedWedgeShapes() {
-    final RadialMenu menu = mSubMenu != null ? mSubMenu : mRootMenu;
+    final RadialMenu menu = subMenu != null ? subMenu : rootMenu;
     final int menuSize = menu.size();
     if (menuSize <= 0) {
       return;
@@ -319,26 +323,26 @@ public class RadialMenuView extends SurfaceView {
 
     final float wedgeArc = (360.0f / menuSize);
     final float offsetArc = ((wedgeArc / 2.0f) + 90.0f);
-    final float spacingArc = (float) Math.toDegrees(Math.tan(mSpacing / (double) mOuterRadius));
+    final float spacingArc = (float) Math.toDegrees(Math.tan(spacing / (double) outerRadius));
     final float left = (wedgeArc - spacingArc - offsetArc);
     final float center = ((wedgeArc / 2.0f) - offsetArc);
     final float right = (spacingArc - offsetArc);
 
     // Outer wedge.
-    mCachedOuterPath.rewind();
-    mCachedOuterPath.arcTo(mCachedOuterBound, center, (left - center));
-    mCachedOuterPath.arcTo(mCachedExtremeBound, left, (right - left));
-    mCachedOuterPath.arcTo(mCachedOuterBound, right, (center - right));
-    mCachedOuterPath.close();
+    cachedOuterPath.rewind();
+    cachedOuterPath.arcTo(cachedOuterBound, center, (left - center));
+    cachedOuterPath.arcTo(cachedExtremeBound, left, (right - left));
+    cachedOuterPath.arcTo(cachedOuterBound, right, (center - right));
+    cachedOuterPath.close();
 
-    mCachedOuterPathWidth = arcLength((left - right), mExtremeRadius);
+    cachedOuterPathWidth = arcLength((left - right), extremeRadius);
 
     // Outer wedge in reverse, for rendering text.
-    mCachedOuterPathReverse.rewind();
-    mCachedOuterPathReverse.arcTo(mCachedOuterBound, center, (right - center));
-    mCachedOuterPathReverse.arcTo(mCachedExtremeBound, right, (left - right));
-    mCachedOuterPathReverse.arcTo(mCachedOuterBound, left, (center - left));
-    mCachedOuterPathReverse.close();
+    cachedOuterPathReverse.rewind();
+    cachedOuterPathReverse.arcTo(cachedOuterBound, center, (right - center));
+    cachedOuterPathReverse.arcTo(cachedExtremeBound, right, (left - right));
+    cachedOuterPathReverse.arcTo(cachedOuterBound, left, (center - left));
+    cachedOuterPathReverse.close();
   }
 
   /**
@@ -348,11 +352,11 @@ public class RadialMenuView extends SurfaceView {
    * before any calls are made to {@link #invalidateCachedWedgeShapes()}.
    */
   private void initializeCachedShapes() {
-    final int diameter = (mExtremeRadius * 2);
+    final int diameter = (extremeRadius * 2);
 
-    createBounds(mCachedOuterBound, diameter, mOuterRadius);
-    createBounds(mCachedCornerBound, diameter, mCornerRadius);
-    createBounds(mCachedExtremeBound, diameter, mExtremeRadius);
+    createBounds(cachedOuterBound, diameter, outerRadius);
+    createBounds(cachedCornerBound, diameter, cornerRadius);
+    createBounds(cachedExtremeBound, diameter, extremeRadius);
 
     final float cornerWedgeArc = 90.0f;
     final float cornerOffsetArc = ((cornerWedgeArc / 2.0f) + 90.0f);
@@ -361,27 +365,27 @@ public class RadialMenuView extends SurfaceView {
     final float cornerRight = -cornerOffsetArc;
 
     // Corner wedge.
-    mCachedCornerPath.rewind();
-    mCachedCornerPath.arcTo(mCachedCornerBound, cornerCenter, (cornerLeft - cornerCenter));
-    mCachedCornerPath.arcTo(mCachedExtremeBound, cornerLeft, (cornerRight - cornerLeft));
-    mCachedCornerPath.arcTo(mCachedCornerBound, cornerRight, (cornerCenter - cornerRight));
-    mCachedCornerPath.close();
+    cachedCornerPath.rewind();
+    cachedCornerPath.arcTo(cachedCornerBound, cornerCenter, (cornerLeft - cornerCenter));
+    cachedCornerPath.arcTo(cachedExtremeBound, cornerLeft, (cornerRight - cornerLeft));
+    cachedCornerPath.arcTo(cachedCornerBound, cornerRight, (cornerCenter - cornerRight));
+    cachedCornerPath.close();
 
-    mCachedCornerPathWidth = arcLength((cornerLeft - cornerRight), mExtremeRadius);
+    cachedCornerPathWidth = arcLength((cornerLeft - cornerRight), extremeRadius);
 
     // Corner wedge in reverse, for rendering text.
-    mCachedCornerPathReverse.rewind();
-    mCachedCornerPathReverse.arcTo(mCachedCornerBound, cornerCenter, (cornerRight - cornerCenter));
-    mCachedCornerPathReverse.arcTo(mCachedExtremeBound, cornerRight, (cornerLeft - cornerRight));
-    mCachedCornerPathReverse.arcTo(mCachedCornerBound, cornerLeft, (cornerCenter - cornerLeft));
-    mCachedCornerPathReverse.close();
+    cachedCornerPathReverse.rewind();
+    cachedCornerPathReverse.arcTo(cachedCornerBound, cornerCenter, (cornerRight - cornerCenter));
+    cachedCornerPathReverse.arcTo(cachedExtremeBound, cornerRight, (cornerLeft - cornerRight));
+    cachedCornerPathReverse.arcTo(cachedCornerBound, cornerLeft, (cornerCenter - cornerLeft));
+    cachedCornerPathReverse.close();
   }
 
   @Override
   public void invalidate() {
     super.invalidate();
 
-    final SurfaceHolder holder = mHolder;
+    final SurfaceHolder holder = this.holder;
     if (holder == null) {
       return;
     }
@@ -402,20 +406,20 @@ public class RadialMenuView extends SurfaceView {
     final int width = getWidth();
     final int height = getHeight();
 
-    if (!mDisplayWedges) {
-      mCenter.x = (width / 2.0f);
-      mCenter.y = (height / 2.0f);
+    if (!displayWedges) {
+      this.center.x = (width / 2.0f);
+      this.center.y = (height / 2.0f);
     }
 
     // Draw the pretty gradient background.
-    mGradientBackground.setGradientCenter((mCenter.x / width), (mCenter.y / height));
-    mGradientBackground.setBounds(0, 0, width, height);
-    mGradientBackground.draw(canvas);
+    gradientBackground.setGradientCenter((this.center.x / width), (this.center.y / height));
+    gradientBackground.setBounds(0, 0, width, height);
+    gradientBackground.draw(canvas);
 
-    final RadialMenu menu = (mSubMenu != null) ? mSubMenu : mRootMenu;
-    final float center = mExtremeRadius;
+    final RadialMenu menu = (subMenu != null) ? subMenu : rootMenu;
+    final float center = extremeRadius;
 
-    if (mDisplayWedges) {
+    if (displayWedges) {
       final int wedges = menu.size();
       final float degrees = 360.0f / wedges;
 
@@ -447,162 +451,161 @@ public class RadialMenuView extends SurfaceView {
   private void drawCenterDot(Canvas canvas, int width, int height) {
     final float centerX = (width / 2.0f);
     final float centerY = (height / 2.0f);
-    final float radius = mInnerRadius;
+    final float radius = innerRadius;
     final RectF dotBounds =
         new RectF((centerX - radius), (centerY - radius), (centerX + radius), (centerY + radius));
 
-    mPaint.setStyle(Style.FILL);
-    mPaint.setColor(mDotFillColor);
-    mPaint.setShadowLayer(mTextShadowRadius, 0, 0, mTextShadowColor);
-    canvas.drawOval(dotBounds, mPaint);
-    mPaint.setShadowLayer(0, 0, 0, 0);
+    paint.setStyle(Style.FILL);
+    paint.setColor(dotFillColor);
+    paint.setShadowLayer(textShadowRadius, 0, 0, textShadowColor);
+    canvas.drawOval(dotBounds, paint);
+    paint.setShadowLayer(0, 0, 0, 0);
 
     contractBounds(dotBounds, (DOT_STROKE_WIDTH / 2));
-    mPaint.setStrokeWidth(DOT_STROKE_WIDTH);
-    mPaint.setStyle(Style.STROKE);
-    mPaint.setColor(mDotStrokeColor);
-    mPaint.setPathEffect(mDotPathEffect);
-    canvas.drawOval(dotBounds, mPaint);
-    mPaint.setPathEffect(null);
+    paint.setStrokeWidth(DOT_STROKE_WIDTH);
+    paint.setStyle(Style.STROKE);
+    paint.setColor(dotStrokeColor);
+    paint.setPathEffect(dotPathEffect);
+    canvas.drawOval(dotBounds, paint);
+    paint.setPathEffect(null);
   }
 
   private void drawCancel(Canvas canvas) {
-    final float centerX = mCenter.x;
-    final float centerY = mCenter.y;
-    final float radius = mInnerRadius;
+    final float centerX = center.x;
+    final float centerY = center.y;
+    final float radius = innerRadius;
     final float iconRadius = (radius / 4.0f);
 
     final RectF dotBounds =
         new RectF((centerX - radius), (centerY - radius), (centerX + radius), (centerY + radius));
 
     // Apply the appropriate color filters.
-    final boolean selected = (mFocusedItem == null);
+    final boolean selected = (focusedItem == null);
 
-    mPaint.setStyle(Style.FILL);
-    mPaint.setColor(selected ? mSelectionColor : mCenterFillColor);
-    mPaint.setShadowLayer(
-        mShadowRadius, 0, 0, (selected ? mSelectionShadowColor : mTextShadowColor));
-    canvas.drawOval(dotBounds, mPaint);
-    mPaint.setShadowLayer(0, 0, 0, 0);
+    paint.setStyle(Style.FILL);
+    paint.setColor(selected ? selectionColor : centerFillColor);
+    paint.setShadowLayer(shadowRadius, 0, 0, (selected ? selectionShadowColor : textShadowColor));
+    canvas.drawOval(dotBounds, paint);
+    paint.setShadowLayer(0, 0, 0, 0);
 
-    mPaint.setStyle(Style.STROKE);
-    mPaint.setColor(selected ? mSelectionTextFillColor : mCenterTextFillColor);
-    mPaint.setStrokeCap(Cap.SQUARE);
-    mPaint.setStrokeWidth(10.0f);
+    paint.setStyle(Style.STROKE);
+    paint.setColor(selected ? selectionTextFillColor : centerTextFillColor);
+    paint.setStrokeCap(Cap.SQUARE);
+    paint.setStrokeWidth(10.0f);
     canvas.drawLine(
         (centerX - iconRadius),
         (centerY - iconRadius),
         (centerX + iconRadius),
         (centerY + iconRadius),
-        mPaint);
+        paint);
     canvas.drawLine(
         (centerX + iconRadius),
         (centerY - iconRadius),
         (centerX - iconRadius),
         (centerY + iconRadius),
-        mPaint);
+        paint);
   }
 
   private void drawWedge(Canvas canvas, float center, int i, RadialMenu menu, float degrees) {
-    final float offset = mSubMenu != null ? mSubMenuOffset : mRootMenuOffset;
+    final float offset = subMenu != null ? subMenuOffset : rootMenuOffset;
 
     final RadialMenuItem wedge = menu.getItem(i);
     final String title = wedge.getTitle().toString();
     final float rotation = ((degrees * i) + offset);
-    final boolean selected = wedge.equals(mFocusedItem);
+    final boolean selected = wedge.equals(focusedItem);
 
     // Apply the appropriate color filters.
     if (wedge.hasSubMenu()) {
-      mPaint.setColorFilter(mSubMenuFilter);
+      paint.setColorFilter(subMenuFilter);
     } else {
-      mPaint.setColorFilter(null);
+      paint.setColorFilter(null);
     }
 
     wedge.offset = rotation;
 
-    mTempMatrix.reset();
-    mTempMatrix.setRotate(rotation, center, center);
-    mTempMatrix.postTranslate((mCenter.x - center), (mCenter.y - center));
-    canvas.setMatrix(mTempMatrix);
+    tempMatrix.reset();
+    tempMatrix.setRotate(rotation, center, center);
+    tempMatrix.postTranslate((this.center.x - center), (this.center.y - center));
+    canvas.setMatrix(tempMatrix);
 
-    mPaint.setStyle(Style.FILL);
-    mPaint.setColor(selected ? mSelectionColor : mOuterFillColor);
-    mPaint.setShadowLayer(
-        mShadowRadius, 0, 0, (selected ? mSelectionShadowColor : mTextShadowColor));
-    canvas.drawPath(mCachedOuterPath, mPaint);
-    mPaint.setShadowLayer(0, 0, 0, 0);
+    paint.setStyle(Style.FILL);
+    paint.setColor(selected ? selectionColor : outerFillColor);
+    paint.setShadowLayer(shadowRadius, 0, 0, (selected ? selectionShadowColor : textShadowColor));
+    canvas.drawPath(cachedOuterPath, paint);
+    paint.setShadowLayer(0, 0, 0, 0);
 
-    mPaint.setStyle(Style.FILL);
-    mPaint.setColor(selected ? mSelectionTextFillColor : mTextFillColor);
-    mPaint.setTextAlign(Align.CENTER);
-    mPaint.setTextSize(mTextSize);
-    mPaint.setShadowLayer(mTextShadowRadius, 0, 0, mTextShadowColor);
+    paint.setStyle(Style.FILL);
+    paint.setColor(selected ? selectionTextFillColor : textFillColor);
+    paint.setTextAlign(Align.CENTER);
+    paint.setTextSize(textSize);
+    paint.setShadowLayer(textShadowRadius, 0, 0, textShadowColor);
 
-    final String renderText = getEllipsizedText(mPaint, title, mCachedOuterPathWidth);
+    final String renderText = getEllipsizedText(paint, title, cachedOuterPathWidth);
 
     // Orient text differently depending on the angle.
     if ((rotation < 90) || (rotation > 270)) {
-      canvas.drawTextOnPath(renderText, mCachedOuterPathReverse, 0, (2 * mTextSize), mPaint);
+      canvas.drawTextOnPath(renderText, cachedOuterPathReverse, 0, (2 * textSize), paint);
     } else {
-      canvas.drawTextOnPath(renderText, mCachedOuterPath, 0, -mTextSize, mPaint);
+      canvas.drawTextOnPath(renderText, cachedOuterPath, 0, -textSize, paint);
     }
 
-    mPaint.setShadowLayer(0, 0, 0, 0);
-    mPaint.setColorFilter(null);
+    paint.setShadowLayer(0, 0, 0, 0);
+    paint.setColorFilter(null);
   }
 
   private void drawCorner(Canvas canvas, int width, int height, float center, int i) {
-    final RadialMenuItem wedge = mRootMenu.getCorner(i);
+    final RadialMenuItem wedge = rootMenu.getCorner(i);
     if (wedge == null || !wedge.isVisible()) {
       return;
     }
 
     final float rotation = RadialMenu.getCornerRotation(i);
     final PointF cornerLocation = RadialMenu.getCornerLocation(i);
-    if (cornerLocation == null) return;
+    if (cornerLocation == null) {
+      return;
+    }
     final float cornerX = (cornerLocation.x * width);
     final float cornerY = (cornerLocation.y * height);
     final String title = wedge.getTitle().toString();
-    final boolean selected = wedge.equals(mFocusedItem);
+    final boolean selected = wedge.equals(focusedItem);
 
     // Apply the appropriate color filters.
     if (wedge.hasSubMenu()) {
-      mPaint.setColorFilter(mSubMenuFilter);
+      paint.setColorFilter(subMenuFilter);
     } else {
-      mPaint.setColorFilter(null);
+      paint.setColorFilter(null);
     }
 
     wedge.offset = rotation;
 
-    mTempMatrix.reset();
-    mTempMatrix.setRotate(rotation, center, center);
-    mTempMatrix.postTranslate((cornerX - center), (cornerY - center));
-    canvas.setMatrix(mTempMatrix);
+    tempMatrix.reset();
+    tempMatrix.setRotate(rotation, center, center);
+    tempMatrix.postTranslate((cornerX - center), (cornerY - center));
+    canvas.setMatrix(tempMatrix);
 
-    mPaint.setStyle(Style.FILL);
-    mPaint.setColor(selected ? mSelectionColor : mCornerFillColor);
-    mPaint.setShadowLayer(
-        mShadowRadius, 0, 0, (selected ? mSelectionShadowColor : mTextShadowColor));
-    canvas.drawPath(mCachedCornerPath, mPaint);
-    mPaint.setShadowLayer(0, 0, 0, 0);
+    paint.setStyle(Style.FILL);
+    paint.setColor(selected ? selectionColor : cornerFillColor);
+    paint.setShadowLayer(shadowRadius, 0, 0, (selected ? selectionShadowColor : textShadowColor));
+    canvas.drawPath(cachedCornerPath, paint);
+    paint.setShadowLayer(0, 0, 0, 0);
 
-    mPaint.setStyle(Style.FILL);
-    mPaint.setColor(selected ? mSelectionTextFillColor : mCornerTextFillColor);
-    mPaint.setTextAlign(Align.CENTER);
-    mPaint.setTextSize(mTextSize);
-    mPaint.setShadowLayer(mTextShadowRadius, 0, 0, mTextShadowColor);
+    paint.setStyle(Style.FILL);
+    paint.setColor(selected ? selectionTextFillColor : cornerTextFillColor);
+    paint.setTextAlign(Align.CENTER);
+    paint.setTextSize(textSize);
+    paint.setShadowLayer(textShadowRadius, 0, 0, textShadowColor);
 
-    final String renderText = getEllipsizedText(mPaint, title, mCachedCornerPathWidth);
+    final String renderText = getEllipsizedText(paint, title, cachedCornerPathWidth);
 
     // Orient text differently depending on the angle.
     if (((rotation < 90) && (rotation > -90)) || (rotation > 270)) {
-      canvas.drawTextOnPath(renderText, mCachedCornerPathReverse, 0, (2 * mTextSize), mPaint);
+      canvas.drawTextOnPath(renderText, cachedCornerPathReverse, 0, (2 * textSize), paint);
     } else {
-      canvas.drawTextOnPath(renderText, mCachedCornerPath, 0, -mTextSize, mPaint);
+      canvas.drawTextOnPath(renderText, cachedCornerPath, 0, -textSize, paint);
     }
 
-    mPaint.setShadowLayer(0, 0, 0, 0);
-    mPaint.setColorFilter(null);
+    paint.setShadowLayer(0, 0, 0, 0);
+    paint.setColorFilter(null);
   }
 
   @Override
@@ -617,10 +620,9 @@ public class RadialMenuView extends SurfaceView {
     setMeasuredDimension(measuredWidth, measuredHeight);
   }
 
-  @TargetApi(14)
   @Override
   public boolean onHoverEvent(@NonNull MotionEvent event) {
-    if (mUseNodeProvider) {
+    if (useNodeProvider) {
       return super.onHoverEvent(event);
     } else {
       return onTouchEvent(event);
@@ -647,7 +649,7 @@ public class RadialMenuView extends SurfaceView {
         return false;
     }
 
-    mHandler.onTouch(this, event);
+    handler.onTouch(this, event);
 
     return true;
   }
@@ -662,13 +664,13 @@ public class RadialMenuView extends SurfaceView {
    */
   private TouchedMenuItem getTouchedMenuItem(float x, float y) {
     final TouchedMenuItem result = new TouchedMenuItem();
-    final float dX = (x - mCenter.x);
-    final float dY = (y - mCenter.y);
+    final float dX = (x - center.x);
+    final float dY = (y - center.y);
     final float touchDistSq = (dX * dX) + (dY * dY);
 
     if (getClosestTouchedCorner(x, y, result)) {
       // First preference goes to corners.
-    } else if (mDisplayWedges && getClosestTouchedWedge(dX, dY, touchDistSq, result)) {
+    } else if (displayWedges && getClosestTouchedWedge(dX, dY, touchDistSq, result)) {
       // Second preference goes to wedges, if displayed.
     }
 
@@ -681,20 +683,22 @@ public class RadialMenuView extends SurfaceView {
 
     // How close is the user to a corner?
     for (int groupId = 0; groupId < 4; groupId++) {
-      final RadialMenuItem corner = mRootMenu.getCorner(groupId);
+      final RadialMenuItem corner = rootMenu.getCorner(groupId);
       if (corner == null || !corner.isVisible()) {
         continue;
       }
 
       final PointF cornerLocation = RadialMenu.getCornerLocation(groupId);
-      if (cornerLocation == null) continue;
+      if (cornerLocation == null) {
+        continue;
+      }
       final float cornerDX = (x - (cornerLocation.x * width));
       final float cornerDY = (y - (cornerLocation.y * height));
       final float cornerTouchDistSq = (cornerDX * cornerDX) + (cornerDY * cornerDY);
 
       // If the user is touching within a corner's outer radius, consider
       // it a direct touch.
-      if (cornerTouchDistSq < mExtremeRadiusSq) {
+      if (cornerTouchDistSq < extremeRadiusSq) {
         result.item = corner;
         result.isDirectTouch = true;
         return true;
@@ -706,15 +710,17 @@ public class RadialMenuView extends SurfaceView {
 
   private boolean getClosestTouchedWedge(
       float dX, float dY, float touchDistSq, TouchedMenuItem result) {
-    if (touchDistSq <= mInnerRadiusSq) {
+    if (touchDistSq <= innerRadiusSq) {
       // The user is touching the center dot.
       return false;
     }
 
-    final RadialMenu menu = (mSubMenu != null) ? mSubMenu : mRootMenu;
+    final RadialMenu menu = (subMenu != null) ? subMenu : rootMenu;
     int menuSize = menu.size();
-    if (menuSize == 0) return false;
-    final float offset = (mSubMenu != null) ? mSubMenuOffset : mRootMenuOffset;
+    if (menuSize == 0) {
+      return false;
+    }
+    final float offset = (subMenu != null) ? subMenuOffset : rootMenuOffset;
 
     // Which wedge is the user touching?
     final double angle = Math.atan2(dX, dY);
@@ -729,12 +735,12 @@ public class RadialMenuView extends SurfaceView {
 
     final int wedgeNum = (int) (touchArc / wedgeArc);
     if ((wedgeNum < 0) || (wedgeNum >= menuSize)) {
-      LogUtils.log(this, Log.ERROR, "Invalid wedge index: %d", wedgeNum);
+      LogUtils.e(TAG, "Invalid wedge index: %d", wedgeNum);
       return false;
     }
 
     result.item = menu.getItem(wedgeNum);
-    result.isDirectTouch = (touchDistSq < mExtremeRadiusSq);
+    result.isDirectTouch = (touchDistSq < extremeRadiusSq);
     return true;
   }
 
@@ -745,8 +751,8 @@ public class RadialMenuView extends SurfaceView {
    * @param y The touch Y coordinate.
    */
   private void onEnter(float x, float y) {
-    mEntryPoint.set(x, y);
-    mMaybeSingleTap = true;
+    entryPoint.set(x, y);
+    maybeSingleTap = true;
   }
 
   /**
@@ -756,21 +762,21 @@ public class RadialMenuView extends SurfaceView {
    * @param y The touch Y coordinate.
    */
   private void onMove(float x, float y) {
-    if (mMaybeSingleTap && (distSq(mEntryPoint, x, y) >= mSingleTapRadiusSq)) {
-      mMaybeSingleTap = false;
+    if (maybeSingleTap && (distSq(entryPoint, x, y) >= singleTapRadiusSq)) {
+      maybeSingleTap = false;
     }
 
     final TouchedMenuItem touchedItem = getTouchedMenuItem(x, y);
 
     // Only focus the item if this is definitely not a single tap or the
     // user is directly touching a menu item.
-    if (!mMaybeSingleTap || (touchedItem.item == null) || touchedItem.isDirectTouch) {
+    if (!maybeSingleTap || (touchedItem.item == null) || touchedItem.isDirectTouch) {
       onItemFocused(touchedItem.item);
     }
 
     // Only display the wedges if we didn't just place focus on an item.
-    if ((touchedItem.item == null) && !mDisplayWedges) {
-      mDisplayWedges = true;
+    if ((touchedItem.item == null) && !displayWedges) {
+      displayWedges = true;
       displayAt(x, y);
     }
   }
@@ -786,7 +792,7 @@ public class RadialMenuView extends SurfaceView {
 
     // Only select the item if this is definitely not a single tap or the
     // user is directly touching a menu item.
-    if (!mMaybeSingleTap || (touchedItem.item == null) || touchedItem.isDirectTouch) {
+    if (!maybeSingleTap || (touchedItem.item == null) || touchedItem.isDirectTouch) {
       onItemSelected(touchedItem.item);
     }
   }
@@ -798,14 +804,14 @@ public class RadialMenuView extends SurfaceView {
    * @param offset The offset of the sub-menu's menu item.
    */
   private void setSubMenu(RadialSubMenu subMenu, float offset) {
-    mSubMenu = subMenu;
-    mSubMenuOffset = offset;
+    this.subMenu = subMenu;
+    subMenuOffset = offset;
 
     invalidateCachedWedgeShapes();
     invalidate();
     subMenu.onShow();
 
-    if ((subMenu != null) && (subMenu.size() > 0) && (mSubMenuMode == SubMenuMode.LONG_PRESS)) {
+    if ((subMenu != null) && (subMenu.size() > 0) && (subMenuMode == SubMenuMode.LONG_PRESS)) {
       onItemFocused(subMenu.getItem(0));
     }
   }
@@ -818,13 +824,13 @@ public class RadialMenuView extends SurfaceView {
    * @param item The item that the user focused.
    */
   private void onItemFocused(RadialMenuItem item) {
-    if (mFocusedItem == item) {
+    if (focusedItem == item) {
       return;
     }
 
-    final RadialMenu menu = (mSubMenu != null) ? mSubMenu : mRootMenu;
+    final RadialMenu menu = (subMenu != null) ? subMenu : rootMenu;
 
-    mFocusedItem = item;
+    focusedItem = item;
 
     invalidate();
 
@@ -832,7 +838,7 @@ public class RadialMenuView extends SurfaceView {
       menu.clearSelection(0);
     } else if (item.isCorner()) {
       // Currently only the root menu is allowed to have corners.
-      mRootMenu.selectMenuItem(item, 0);
+      rootMenu.selectMenuItem(item, 0);
     } else {
       menu.selectMenuItem(item, 0);
     }
@@ -848,12 +854,12 @@ public class RadialMenuView extends SurfaceView {
    * @param item The menu item that the user stopped over.
    */
   private void onItemLongPressed(RadialMenuItem item) {
-    if (mSubMenuMode == SubMenuMode.LONG_PRESS) {
+    if (subMenuMode == SubMenuMode.LONG_PRESS) {
       if (item != null) {
         if (item.hasSubMenu()) {
           setSubMenu(item.getSubMenu(), item.offset);
         }
-      } else if (mSubMenu != null) {
+      } else if (subMenu != null) {
         // Switch back to the root menu.
         setSubMenu(null, 0);
       }
@@ -867,9 +873,9 @@ public class RadialMenuView extends SurfaceView {
    * @param item The item that the used selected.
    */
   private void onItemSelected(RadialMenuItem item) {
-    final RadialMenu menu = (mSubMenu != null) ? mSubMenu : mRootMenu;
+    final RadialMenu menu = (subMenu != null) ? subMenu : rootMenu;
 
-    mFocusedItem = item;
+    focusedItem = item;
 
     invalidate();
 
@@ -882,14 +888,14 @@ public class RadialMenuView extends SurfaceView {
       // (this class) can manipulate sub-menus.
       if (item.isCorner()) {
         // Currently only the root menu is allowed to have corners.
-        mRootMenu.performMenuItem(item, RadialMenu.FLAG_PERFORM_NO_CLOSE);
+        rootMenu.performMenuItem(item, RadialMenu.FLAG_PERFORM_NO_CLOSE);
       } else {
         menu.performMenuItem(item, RadialMenu.FLAG_PERFORM_NO_CLOSE);
       }
     } else {
       if (item.isCorner()) {
         // Currently only the root menu is allowed to have corners.
-        mRootMenu.performMenuItem(item, 0);
+        rootMenu.performMenuItem(item, 0);
       } else {
         menu.performMenuItem(item, 0);
       }
@@ -961,12 +967,12 @@ public class RadialMenuView extends SurfaceView {
   }
 
   private static class TouchedMenuItem {
-    private RadialMenuItem item = null;
+    @Nullable private RadialMenuItem item = null;
     private boolean isDirectTouch = false;
   }
 
   private class RadialMenuHelper extends ExploreByTouchObjectHelper<RadialMenuItem> {
-    private final Rect mTempRect = new Rect();
+    private final Rect tempRect = new Rect();
 
     public RadialMenuHelper(View parentView) {
       super(parentView);
@@ -981,11 +987,11 @@ public class RadialMenuView extends SurfaceView {
       node.setEnabled(item.isEnabled());
       node.setClickable(true);
 
-      getLocalVisibleRect(mTempRect);
-      node.setBoundsInParent(mTempRect);
+      getLocalVisibleRect(tempRect);
+      node.setBoundsInParent(tempRect);
 
-      getGlobalVisibleRect(mTempRect);
-      node.setBoundsInScreen(mTempRect);
+      getGlobalVisibleRect(tempRect);
+      node.setBoundsInScreen(tempRect);
     }
 
     @Override
@@ -1008,12 +1014,12 @@ public class RadialMenuView extends SurfaceView {
 
     @Override
     protected RadialMenuItem getItemForVirtualViewId(int id) {
-      return mRootMenu.getItem(id);
+      return rootMenu.getItem(id);
     }
 
     @Override
     protected int getVirtualViewIdForItem(RadialMenuItem item) {
-      return mRootMenu.indexOf(item);
+      return rootMenu.indexOf(item);
     }
 
     @Override
@@ -1023,8 +1029,8 @@ public class RadialMenuView extends SurfaceView {
 
     @Override
     protected void getVisibleItems(List<RadialMenuItem> items) {
-      for (int i = 0; i < mRootMenu.size(); i++) {
-        final RadialMenuItem item = mRootMenu.getItem(i);
+      for (int i = 0; i < rootMenu.size(); i++) {
+        final RadialMenuItem item = rootMenu.getItem(i);
         items.add(item);
       }
     }

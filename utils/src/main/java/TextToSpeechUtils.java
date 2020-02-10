@@ -28,6 +28,7 @@ import android.speech.tts.TextToSpeech;
 import android.text.TextUtils;
 import com.google.android.accessibility.utils.compat.provider.SettingsCompatUtils;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 class TextToSpeechUtils {
 
@@ -38,7 +39,8 @@ class TextToSpeechUtils {
    * @param results The list to populate with installed TTS engines.
    * @return The package for the system default TTS.
    */
-  public static String reloadInstalledTtsEngines(PackageManager pm, List<String> results) {
+  public static @Nullable String reloadInstalledTtsEngines(
+      PackageManager pm, List<String> results) {
     final Intent intent = new Intent(TextToSpeech.Engine.INTENT_ACTION_TTS_SERVICE);
     final List<ResolveInfo> resolveInfos =
         pm.queryIntentServices(intent, PackageManager.GET_SERVICES);
@@ -81,7 +83,7 @@ class TextToSpeechUtils {
    * @param enginePackage The package name of the TTS engine.
    * @return The localized name of the TTS engine.
    */
-  static CharSequence getLabelForEngine(Context context, String enginePackage) {
+  static @Nullable CharSequence getLabelForEngine(Context context, String enginePackage) {
     if (enginePackage == null) {
       return null;
     }
@@ -107,7 +109,7 @@ class TextToSpeechUtils {
     return serviceInfo.loadLabel(pm);
   }
 
-  static String getDefaultLocaleForEngine(ContentResolver cr, String engineName) {
+  static @Nullable String getDefaultLocaleForEngine(ContentResolver cr, String engineName) {
     final String defaultLocales =
         Secure.getString(cr, SettingsCompatUtils.SecureCompatUtils.TTS_DEFAULT_LOCALE);
     return parseEnginePrefFromList(defaultLocales, engineName);
@@ -118,7 +120,7 @@ class TextToSpeechUtils {
    * "engine_name_1:locale_1,engine_name_2:locale2"} and so on and so forth. Returns null if the
    * list is empty, malformed or if there is no engine specific preference in the list.
    */
-  private static String parseEnginePrefFromList(String prefValue, String engineName) {
+  private static @Nullable String parseEnginePrefFromList(String prefValue, String engineName) {
     if (TextUtils.isEmpty(prefValue)) {
       return null;
     }

@@ -17,18 +17,24 @@
 package com.google.android.accessibility.utils.output;
 
 import android.os.Bundle;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import com.google.android.accessibility.utils.FailoverTextToSpeech;
 import com.google.android.accessibility.utils.FailoverTextToSpeech.SpeechParam;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a fragment of feedback included within a {@link FeedbackItem}. It must contain speech
  * with optional earcons and haptic feedback.
  */
 public class FeedbackFragment {
+
+  private static final String TAG = "FeedbackFragment";
 
   /** Text to be spoken when processing this fragment */
   private CharSequence mText;
@@ -65,18 +71,34 @@ public class FeedbackFragment {
    * @see Utterance#KEY_METADATA_EARCON_VOLUME
    */
   private Bundle mNonSpeechParams;
+  /**
+   * The start index of {@link #mText}, which is a substring in {@link FeedbackItem}.
+   *
+   * <p>Assume the speech of {@link FeedbackItem} is "first Chinese.second English.". "second
+   * Chinese" is saved in {@link #mText}, and we also save the index of 's' in this field.
+   */
+  private int startIndexInFeedbackItem = 0;
 
-  public FeedbackFragment(CharSequence text, Bundle speechParams) {
+  /**
+   * The start index that {@link #mText} is going to be spoken from.
+   *
+   * <p>When {@link #mText} is spoken, we know where is going to be started by {@link
+   * FailoverTextToSpeech.FailoverTtsListener#onUtteranceRangeStarted(String, int, int)} we save the
+   * start index here.
+   */
+  public int fragmentStartIndex = 0;
+
+  public FeedbackFragment(CharSequence text, @Nullable Bundle speechParams) {
     this(text, null, null, speechParams, null);
   }
 
   public FeedbackFragment(
       CharSequence text,
-      Set<Integer> earcons,
-      Set<Integer> haptics,
-      Bundle speechParams,
-      Bundle nonSpeechParams) {
-    mText = text;
+      @Nullable Set<Integer> earcons,
+      @Nullable Set<Integer> haptics,
+      @Nullable Bundle speechParams,
+      @Nullable Bundle nonSpeechParams) {
+    mText = new SpannableString(text);
 
     mEarcons = new HashSet<>();
     if (earcons != null) {
@@ -97,6 +119,16 @@ public class FeedbackFragment {
     if (nonSpeechParams != null) {
       mNonSpeechParams.putAll(nonSpeechParams);
     }
+  }
+
+  /** Creates a new fragment by deep copying the data from the specified fragment. */
+  public FeedbackFragment(FeedbackFragment fragment) {
+    this(
+        fragment.getText(),
+        fragment.getEarcons(),
+        fragment.getHaptics(),
+        fragment.getSpeechParams(),
+        fragment.getNonSpeechParams());
   }
 
   /** @return The text of this fragment */
@@ -179,6 +211,41 @@ public class FeedbackFragment {
     mNonSpeechParams = nonSpeechParams;
   }
 
+  /**
+   * Records the beginning of {@link #mText} in the original text of {@link FeedbackItem}.
+   *
+   * @param startIndexInFeedbackItem the start index of {@link #mText} in {@link FeedbackItem}.
+   */
+  void setStartIndexInFeedbackItem(int startIndexInFeedbackItem) {
+    if (startIndexInFeedbackItem >= 0) {
+      this.startIndexInFeedbackItem = startIndexInFeedbackItem;
+    }
+  }
+
+  /** @return the start index (see {@link #startIndexInFeedbackItem} for more details) * */
+  int getStartIndexInFeedbackItem() {
+    return startIndexInFeedbackItem;
+  }
+
+  /** @param utteranceStartIndex the index of utterance that TextToSpeech is going to read from. */
+  void recordFragmentStartIndex(int utteranceStartIndex) {
+    this.fragmentStartIndex = utteranceStartIndex;
+  }
+
+  /** Update {@link #mText} and {@link #startIndexInFeedbackItem} by {@link #fragmentStartIndex}. */
+  void updateContentByFragmentStartIndex() {
+    if (fragmentStartIndex < mText.length()) {
+      CharSequence remainingSequence = mText.subSequence(fragmentStartIndex, mText.length());
+      mText = remainingSequence;
+      startIndexInFeedbackItem += fragmentStartIndex;
+      fragmentStartIndex = 0;
+    } else {
+      LogUtils.w(
+          TAG, "updateContentByFragmentStartIndex, fragmentStartIndex is out of mText bound", "");
+    }
+    LogUtils.v(TAG, "updateContentByFragmentStartIndex ,  remaining utterance = %s", mText);
+  }
+
   @Override
   public String toString() {
     return "{text:"
@@ -191,6 +258,8 @@ public class FeedbackFragment {
         + mSpeechParams
         + "nonSpeechParams:"
         + mNonSpeechParams
+        + "fragmentStartIndex:"
+        + fragmentStartIndex
         + "}";
   }
 
@@ -220,8 +289,11 @@ public class FeedbackFragment {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (obj == null || !(obj instanceof FeedbackFragment)) {
+  public boolean equals(@Nullable Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (!(obj instanceof FeedbackFragment)) {
       return false;
     }
 

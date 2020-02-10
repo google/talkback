@@ -1,0 +1,18 @@
+/* For building open-source release of accessibility services.  */
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion "android-28"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:22.0'
+    implementation 'androidx.core:core:1.2.0-rc01'
+    implementation 'org.checkerframework:checker-qual:2.5.8'
+    implementation project(':utils')
+}

@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.utils.parsetree;
 
+import androidx.annotation.Nullable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import com.google.android.accessibility.utils.SpannableUtils;
@@ -24,10 +25,10 @@ import java.util.List;
 /** This class implements a ParseTreeNode that joins a child array into a single string. */
 class ParseTreeJoinNode extends ParseTreeNode {
   private final ParseTreeNode mChild;
-  private final CharSequence mSeparator;
+  private final @Nullable CharSequence mSeparator;
   private final boolean mPruneEmpty;
 
-  ParseTreeJoinNode(ParseTreeNode child, CharSequence separator, boolean pruneEmpty) {
+  ParseTreeJoinNode(ParseTreeNode child, @Nullable CharSequence separator, boolean pruneEmpty) {
     if (!child.canCoerceTo(ParseTree.VARIABLE_ARRAY)) {
       throw new IllegalStateException("Only arrays can be children of joins.");
     }

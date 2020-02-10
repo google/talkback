@@ -25,7 +25,7 @@ public class TicTacToeComputerMoveGenerator {
   /**
    * Return a random space from the list of spaces left on the board.
    *
-   * @param spacesLeft List of the integer indicies of the free spaces left on the board
+   * @param spacesLeft List of the integer indices of the free spaces left on the board
    * @return a random index from the list
    */
   public int generateRandomMove(List<Integer> spacesLeft) {

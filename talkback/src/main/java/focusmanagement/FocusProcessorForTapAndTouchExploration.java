@@ -16,57 +16,71 @@
 
 package com.google.android.accessibility.talkback.focusmanagement;
 
+import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK;
+import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_FOCUS;
+import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_LONG_CLICK;
+
+import android.accessibilityservice.AccessibilityService;
 import android.os.Message;
 import android.os.SystemClock;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.ViewConfiguration;
-import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
+import com.google.android.accessibility.talkback.ActorState;
+import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.controller.FullScreenReadController;
 import com.google.android.accessibility.talkback.focusmanagement.action.TouchExplorationAction;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
 import com.google.android.accessibility.talkback.tutorial.AccessibilityTutorialActivity;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.PerformActionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
-import com.google.android.accessibility.utils.output.FeedbackController;
 import com.google.android.accessibility.utils.output.SpeechController;
 
 /** The {@link FocusProcessor} to handle accessibility focus during touch interaction. */
-public class FocusProcessorForTapAndTouchExploration extends FocusProcessor {
+public class FocusProcessorForTapAndTouchExploration {
 
   /** The timeout after which an event is no longer considered a tap. */
   private static final long TAP_TIMEOUT_MS = ViewConfiguration.getJumpTapTimeout();
 
-  private static final FocusActionInfo REFOCUS_ACTION_INFO =
+  // It is copied from  Gboard's code.
+  private static final long LIFT_TO_TYPE_LONG_PRESS_DELAY_MS = 3000;
+
+  @VisibleForTesting
+  protected static final FocusActionInfo REFOCUS_ACTION_INFO =
       new FocusActionInfo.Builder()
           .setSourceAction(FocusActionInfo.TOUCH_EXPLORATION)
           .setIsFromRefocusAction(true)
           .build();
 
-  private static final FocusActionInfo NON_REFOCUS_ACTION_INFO =
+  @VisibleForTesting
+  protected static final FocusActionInfo NON_REFOCUS_ACTION_INFO =
       new FocusActionInfo.Builder()
           .setSourceAction(FocusActionInfo.TOUCH_EXPLORATION)
           .setIsFromRefocusAction(false)
           .build();
 
-  private FocusManagerInternal mFocusManagerInternal;
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+  // Member variables
 
-  // TODO: Consider to break dependency between this class and other TalkBack components.
-  private SpeechController.Delegate mSpeechControllerDelegate;
-  private SpeechController mSpeechController;
-  private FeedbackController mFeedbackController;
+  private final Pipeline.FeedbackReturner pipeline;
+  private final ActorState actorState;
+  private final AccessibilityFocusMonitor accessibilityFocusMonitor;
 
-  private PostDelayHandler mPostDelayHandler;
+  private PostDelayHandler postDelayHandler;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Settings
 
-  private boolean mIsSingleTapEnabled = false;
-  private boolean mIsLiftToTypeEnabled = false;
+  private boolean isSingleTapEnabled = false;
+
+  /** This feature doesn't need UI option. We enable/disable it by the flag */
+  private boolean isLiftToTypeEnabled = true;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Boolean values representing states in the state machine.
@@ -82,7 +96,7 @@ public class FocusProcessorForTapAndTouchExploration extends FocusProcessor {
    *   <li>When the first non-null focusable node is touched, the node is not accessibility focused.
    * </ul>
    */
-  private boolean mMayBeRefocusAction = true;
+  private boolean mayBeRefocusAction = true;
 
   /**
    * Whether the interaction might lead to single tap(click) action.
@@ -94,100 +108,116 @@ public class FocusProcessorForTapAndTouchExploration extends FocusProcessor {
    *   <li>The user touches on more than on focusable node during the interaction.
    * </ul>
    */
-  private boolean mMayBeSingleTap = true;
+  private boolean mayBeSingleTap = true;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Important nodes during the touch interaction.
 
-  // The first non-null focusable node being touched.
-  private AccessibilityNodeInfoCompat mFirstFocusableNodeBeingTouched;
-  // The last non-null focusable node being touched.
-  private AccessibilityNodeInfoCompat mLastFocusableNodeBeingTouched;
+  // Whether the user hovers enter any node during touch exploration.
+  private boolean hasHoveredEnterNode = false;
 
-  private long mTouchInteractionStartTime;
+  // The first focusable node being touched.
+  @Nullable private AccessibilityNodeInfoCompat firstFocusableNodeBeingTouched;
+  // The last focusable node being touched.
+  @Nullable private AccessibilityNodeInfoCompat lastFocusableNodeBeingTouched;
+
+  /**
+   * Whether the interaction might lead to a click action.
+   *
+   * <p>It's initially set to {@code true}. It's set to {@code false} if the last touched node
+   * performs a long click action:
+   */
+  private boolean mayBeLiftToType = true;
+
+  private long touchInteractionStartTime;
+  private FullScreenReadController fullScreenReadController;
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+  // Contstructor methods
 
   FocusProcessorForTapAndTouchExploration(
-      FocusManagerInternal focusManagerInternal,
-      SpeechController.Delegate speechControllerDelegate,
-      SpeechController speechController,
-      FeedbackController feedbackController) {
-    mFocusManagerInternal = focusManagerInternal;
-    mSpeechControllerDelegate = speechControllerDelegate;
-    mSpeechController = speechController;
-    mFeedbackController = feedbackController;
-    mPostDelayHandler = new PostDelayHandler(this);
+      Pipeline.FeedbackReturner pipeline,
+      ActorState actorState,
+      AccessibilityService service,
+      AccessibilityFocusMonitor accessibilityFocusMonitor) {
+    this.pipeline = pipeline;
+    this.actorState = actorState;
+    this.accessibilityFocusMonitor = accessibilityFocusMonitor;
+    postDelayHandler = new PostDelayHandler(this, LIFT_TO_TYPE_LONG_PRESS_DELAY_MS);
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Setters and getters for Setting values.
 
   public void setSingleTapEnabled(boolean enabled) {
-    mIsSingleTapEnabled = enabled;
+    isSingleTapEnabled = enabled;
   }
 
   public boolean getSingleTapEnabled() {
-    return mIsSingleTapEnabled;
+    return isSingleTapEnabled;
   }
 
   public void setLiftToTypeEnabled(boolean enabled) {
-    mIsLiftToTypeEnabled = enabled;
+    isLiftToTypeEnabled = enabled;
   }
 
   public boolean getLiftToTypeEnabled() {
-    return mIsLiftToTypeEnabled;
+    return isLiftToTypeEnabled;
   }
 
-  /** Called when the user performs a {@link TouchExplorationAction}. */
-  @Override
-  public void onTouchExplorationAction(
+  public boolean onTouchExplorationAction(
       TouchExplorationAction touchExplorationAction, EventId eventId) {
     switch (touchExplorationAction.type) {
       case TouchExplorationAction.TOUCH_INTERACTION_START:
-        handleTouchInteractionStart();
-        break;
+        return handleTouchInteractionStart(eventId);
       case TouchExplorationAction.HOVER_ENTER:
-        handleHoverEnterNode(touchExplorationAction.touchedNode, eventId);
-        break;
+        return handleHoverEnterNode(touchExplorationAction.touchedFocusableNode, eventId);
       case TouchExplorationAction.TOUCH_INTERACTION_END:
-        handleTouchInteractionEnd(eventId);
-        break;
+        return handleTouchInteractionEnd(eventId);
       default:
         // Do nothing.
-        break;
+        return false;
     }
   }
 
   /**
    * Handles the beginning of a new touch interaction event. It cancels the ongoing speech and reset
    * variables.
+   *
+   * @return {@code true} if successfully performs an accessibility action.
    */
-  private void handleTouchInteractionStart() {
+  private boolean handleTouchInteractionStart(EventId eventId) {
     // Reset cached information at the beginning of a new touch interaction cycle.
     reset();
 
-    mTouchInteractionStartTime = SystemClock.uptimeMillis();
+    touchInteractionStartTime = SystemClock.uptimeMillis();
 
-    if (mSpeechController.isSpeaking()) {
+    if (actorState.getSpeechState().isSpeaking()) {
       // We'll not refocus nor re-announce a node if TalkBack is currently speaking.
-      mMayBeRefocusAction = false;
-      legacyInterruptTalkBackFeedback();
+      mayBeRefocusAction = false;
+      legacyInterruptTalkBackFeedback(eventId);
     }
+    // Always return false because no accessibility action is performed.
+    return false;
   }
 
   /** Resets the cached information of the current touch interaction. */
   private void reset() {
     AccessibilityNodeInfoUtils.recycleNodes(
-        mFirstFocusableNodeBeingTouched, mLastFocusableNodeBeingTouched);
-    mFirstFocusableNodeBeingTouched = null;
-    mLastFocusableNodeBeingTouched = null;
+        firstFocusableNodeBeingTouched, lastFocusableNodeBeingTouched);
+    firstFocusableNodeBeingTouched = null;
+    lastFocusableNodeBeingTouched = null;
+
+    hasHoveredEnterNode = false;
 
     // Everything is possible at the beginning.
-    mMayBeRefocusAction = true;
-    mMayBeSingleTap = true;
+    mayBeRefocusAction = true;
+    mayBeSingleTap = true;
+    mayBeLiftToType = true;
   }
 
   // TODO: This logic is irrelevant to focus. Think about to move it somewhere else.
-  private void legacyInterruptTalkBackFeedback() {
+  private void legacyInterruptTalkBackFeedback(EventId eventId) {
     // If TalkBack is talking, interrupt the ongoing feedback when the user touches down on the
     // screen.
     // Except for:
@@ -196,118 +226,149 @@ public class FocusProcessorForTapAndTouchExploration extends FocusProcessor {
     // This works around an issue where the IME is unintentionally dismissed by WebView's
     // performAction implementation.
 
-    final AccessibilityNodeInfoCompat currentFocus = mFocusManagerInternal.getAccessibilityFocus();
+    final AccessibilityNodeInfoCompat currentFocus =
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
     // Don't silence speech on first touch if the tutorial is active
     // or if a WebView is active. This works around an issue where
     // the IME is unintentionally dismissed by WebView's
     // performAction implementation.
     if (!AccessibilityTutorialActivity.isTutorialActive()
         && Role.getRole(currentFocus) != Role.ROLE_WEB_VIEW) {
-      mSpeechControllerDelegate.interruptAllFeedback(false /* stopTtsSpeechCompletely */);
+      if (fullScreenReadController != null && fullScreenReadController.isActive()) {
+        pipeline.returnFeedback(eventId, Feedback.part().setInterruptSoundAndVibration(true));
+      } else {
+        pipeline.returnFeedback(eventId, Feedback.part().setInterruptAllFeedback(true));
+      }
     }
     AccessibilityNodeInfoUtils.recycleNodes(currentFocus);
   }
 
-  /** Handles hover enter events. */
-  private void handleHoverEnterNode(AccessibilityNodeInfoCompat touchedNode, EventId eventId) {
-    if (touchedNode == null) {
-      // Invalid hover enter event.
-      return;
-    }
+  /**
+   * Handles hover enter events.
+   *
+   * @return {@code true} if successfully performs an accessibility action.
+   */
+  private boolean handleHoverEnterNode(
+      @Nullable AccessibilityNodeInfoCompat touchedFocusableNode, EventId eventId) {
+    postDelayHandler.cancelLongPress();
+    postDelayHandler.cancelRefocusTimeout();
 
-    AccessibilityNodeInfoCompat focusableNode =
-        AccessibilityNodeInfoUtils.findFocusFromHover(touchedNode);
-    if (focusableNode == null) {
-      // When focusableNode is null, there could be two cases:
-      // 1. The user is touching on a non-focusable area.
-      // 2. The user is touching on a focusable area, but framework sends redundant HOVER_ENTER
-      // event from the container node, from witch the calculated focusableNode is null.
-      // It's hard to distinguish between the two cases, we don't do anything if the focusableNode
-      // is null.
-
-      // TODO: Move the this delay into TouchExplorationInterpreter. Don't send this hover
-      // enter action if it's flushed by other actions.
-      mPostDelayHandler.playEmptyTouchFeedbackAfterTimeout();
-      return;
+    boolean result;
+    if (!hasHoveredEnterNode) {
+      firstFocusableNodeBeingTouched = AccessibilityNodeInfoUtils.obtain(touchedFocusableNode);
+      hasHoveredEnterNode = true;
+      // Handle the first node being touched.
+      result = onHoverEnterFirstNode(touchedFocusableNode, eventId);
     } else {
-      mPostDelayHandler.cancelEmptyTouchFeedback();
+      result = onHoverEnterGeneralNode(touchedFocusableNode, eventId);
     }
 
-    mPostDelayHandler.cancelLongPress();
-    mPostDelayHandler.cancelRefocusTimeout();
-
-    if (mFirstFocusableNodeBeingTouched == null) {
-      mFirstFocusableNodeBeingTouched = AccessibilityNodeInfoUtils.obtain(focusableNode);
-      // Handle the first focusable node being touched.
-      onHoverEnterFirstFocusableNode(focusableNode, eventId);
-    } else {
-      onHoverEnterGeneralFocusableNode(focusableNode, eventId);
-    }
-    mLastFocusableNodeBeingTouched = AccessibilityNodeInfoUtils.obtain(focusableNode);
-    AccessibilityNodeInfoUtils.recycleNodes(focusableNode);
+    // Reset it when last touched node is changed.
+    mayBeLiftToType = true;
+    lastFocusableNodeBeingTouched = AccessibilityNodeInfoUtils.obtain(touchedFocusableNode);
+    return result;
   }
 
-  private void onHoverEnterFirstFocusableNode(AccessibilityNodeInfoCompat node, EventId eventId) {
-    if (!node.isAccessibilityFocused()) {
-      onHoverEnterGeneralFocusableNode(node, eventId);
-      return;
+  /**
+   * Handles the first node being touched during touch exploration.
+   *
+   * @return {@code true} if successfully performs an accessibility action.
+   */
+  private boolean onHoverEnterFirstNode(
+      @Nullable AccessibilityNodeInfoCompat touchedFocusableNode, EventId eventId) {
+    if (touchedFocusableNode == null || !touchedFocusableNode.isAccessibilityFocused()) {
+      return onHoverEnterGeneralNode(touchedFocusableNode, eventId);
     }
 
-    if (mIsSingleTapEnabled) {
+    if (!mayBeRefocusAction) {
+      // If the first node is already a11y focused and we'll not refocus on that, schedule
+      // long press action if it's a keyboard key.
+      if (isLiftToTypeEnabled
+          && supportsLiftToType(touchedFocusableNode)
+          && AccessibilityNodeInfoUtils.isLongClickable(touchedFocusableNode)) {
+        postDelayHandler.longPressAfterTimeout();
+      }
+      return false;
+    }
+
+    if (isSingleTapEnabled) {
       // Post delay to refocus on it.
       // If user hovers enter another node before timeout, cancel refocus action.
       // If user lifts finger before timeout, cancel refocus action and click(single-tap) on the
       // node.
-      mPostDelayHandler.refocusAfterTimeout();
-    } else if (mMayBeRefocusAction) {
-      attemptRefocusNode(node, eventId);
+      postDelayHandler.refocusAfterTimeout();
+    } else {
+      return attemptRefocusNode(touchedFocusableNode, eventId);
     }
+    return false;
   }
 
-  private void onHoverEnterGeneralFocusableNode(AccessibilityNodeInfoCompat node, EventId eventId) {
-    // We'll try to focus on some node, it must not be a single tap action, nor a refocus action.
-    mMayBeSingleTap = false;
-    mMayBeRefocusAction = false;
+  /** @return {@code true} if the role of node support lift-to-type functionality. */
+  private boolean supportsLiftToType(AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+    return (Role.getRole(accessibilityNodeInfoCompat) == Role.ROLE_TEXT_ENTRY_KEY);
+  }
 
-    setAccessibilityFocus(node, /* forceRefocusIfAlreadyFocused= */ false, eventId);
+  /** @return {@code true} if successfully performs an accessibility action. */
+  private boolean onHoverEnterGeneralNode(
+      AccessibilityNodeInfoCompat touchedFocusableNode, EventId eventId) {
+    // We'll try to focus on some node, it must not be a single tap action, nor a refocus action.
+    mayBeSingleTap = false;
+    mayBeRefocusAction = false;
+    if (touchedFocusableNode == null) {
+      pipeline.returnFeedback(
+          eventId, Feedback.sound(R.raw.view_entered).vibration(R.array.view_hovered_pattern));
+      return false;
+    } else {
+      // Fix . Force focus the node if it is not the last focused node. The accessibility
+      // focus may not update immediately after {@link
+      // AccessibilityNodeInfoCompat#performAction(int)}, this may easily happened when receiving
+      // multiple hover events in a short time. so we check last focused node is equal to current
+      // touched node by calling {@link
+      // FocusManagerInternal#lastAccessibilityFocusedNodeEquals(AccessibilityNodeInfoCompat)}.
+      boolean forceRefocusIfAlreadyFocused =
+          !actorState.getFocusHistory().lastAccessibilityFocusedNodeEquals(touchedFocusableNode);
+      return setAccessibilityFocus(touchedFocusableNode, forceRefocusIfAlreadyFocused, eventId);
+    }
   }
 
   /**
    * Handles the end of an ongoing touch interaction event. Tries to perform click action in
    * single-tap mode or lift-to-type mode.
+   *
+   * @return {@code true} if successfully performs an accessibility action.
    */
-  private void handleTouchInteractionEnd(EventId eventId) {
+  private boolean handleTouchInteractionEnd(EventId eventId) {
     // Touch interaction end, clear all the post-delayed actions.
     // TODO: Shall we also cancel empty touch feedback?
-    mPostDelayHandler.cancelRefocusTimeout();
-    mPostDelayHandler.cancelLongPress();
+    postDelayHandler.cancelRefocusTimeout();
+    postDelayHandler.cancelLongPress();
 
     long currentTime = SystemClock.uptimeMillis();
 
-    if (mIsSingleTapEnabled
-        && mMayBeSingleTap
-        && (currentTime - mTouchInteractionStartTime < TAP_TIMEOUT_MS)) {
+    boolean result = false;
+    if (isSingleTapEnabled
+        && mayBeSingleTap
+        && (currentTime - touchInteractionStartTime < TAP_TIMEOUT_MS)) {
       // Perform click for single-tap mode.
-      performClick(mLastFocusableNodeBeingTouched, eventId);
-    } else if (mIsLiftToTypeEnabled
-        && (Role.getRole(mLastFocusableNodeBeingTouched) == Role.ROLE_KEYBOARD_KEY)) {
+      result = performClick(lastFocusableNodeBeingTouched, eventId);
+    } else if (isLiftToTypeEnabled
+        && supportsLiftToType(lastFocusableNodeBeingTouched)
+        && mayBeLiftToType) {
       // Perform click action for lift-to-type mode.
-      performClick(mLastFocusableNodeBeingTouched, eventId);
+      result = performClick(lastFocusableNodeBeingTouched, eventId);
     }
 
     reset();
+    return result;
   }
 
   private boolean attemptLongPress(AccessibilityNodeInfoCompat node, EventId eventId) {
-    return PerformActionUtils.performAction(node, AccessibilityNodeInfo.ACTION_LONG_CLICK, eventId);
+    return pipeline.returnFeedback(eventId, Feedback.nodeAction(node, ACTION_LONG_CLICK.getId()));
   }
 
   private boolean attemptRefocusNode(AccessibilityNodeInfoCompat node, EventId eventId) {
-    if (!mMayBeRefocusAction || node == null) {
-      return false;
-    }
-
-    return mFocusManagerInternal.clearAccessibilityFocus(node, eventId)
+    return mayBeRefocusAction
+        && (node != null)
         && setAccessibilityFocus(node, /* forceRefocusIfAlreadyFocused= */ true, eventId);
   }
 
@@ -316,22 +377,23 @@ public class FocusProcessorForTapAndTouchExploration extends FocusProcessor {
     final FocusActionInfo info =
         forceRefocusIfAlreadyFocused ? REFOCUS_ACTION_INFO : NON_REFOCUS_ACTION_INFO;
     boolean result =
-        mFocusManagerInternal.setAccessibilityFocus(
-            node, forceRefocusIfAlreadyFocused, info, eventId);
-
-    if (result && mIsLiftToTypeEnabled && (Role.getRole(node) == Role.ROLE_KEYBOARD_KEY)) {
-      mPostDelayHandler.longPressAfterTimeout();
+        pipeline.returnFeedback(
+            eventId, Feedback.focus(node, info).setForceRefocus(forceRefocusIfAlreadyFocused));
+    if (result
+        && isLiftToTypeEnabled
+        && supportsLiftToType(node)
+        && AccessibilityNodeInfoUtils.isLongClickable(node)) {
+      postDelayHandler.longPressAfterTimeout();
     }
     return result;
   }
 
-  private void performClick(AccessibilityNodeInfoCompat node, EventId eventId) {
+  private boolean performClick(AccessibilityNodeInfoCompat node, EventId eventId) {
     // Performing a click on an EditText does not show the IME, so we need
     // to place input focus on it. If the IME was already connected and is
     // hidden, there is nothing we can do.
     if (Role.getRole(node) == Role.ROLE_EDIT_TEXT) {
-      PerformActionUtils.performAction(node, AccessibilityNodeInfoCompat.ACTION_FOCUS, eventId);
-      return;
+      return pipeline.returnFeedback(eventId, Feedback.nodeAction(node, ACTION_FOCUS.getId()));
     }
 
     // If a user quickly touch explores in web content (event stream <
@@ -339,27 +401,27 @@ public class FocusProcessorForTapAndTouchExploration extends FocusProcessor {
     // off clicking on web content for now.
     // TODO: Verify if it's a legacy feature.
     if (WebInterfaceUtils.supportsWebActions(node)) {
-      return;
+      return false;
     }
 
-    PerformActionUtils.performAction(node, AccessibilityNodeInfoCompat.ACTION_CLICK, eventId);
+    return pipeline.returnFeedback(eventId, Feedback.nodeAction(node, ACTION_CLICK.getId()));
+  }
+
+  public void setFullScreenReadController(FullScreenReadController fullScreenReadController) {
+    this.fullScreenReadController = fullScreenReadController;
   }
 
   private static class PostDelayHandler
       extends WeakReferenceHandler<FocusProcessorForTapAndTouchExploration> {
     private static final int MSG_REFOCUS = 1;
-    private static final int MSG_FEEDBACK_EMPTY_TOUCH_AREA = 2;
-    private static final int MSG_LONG_CLICK_LAST_NODE = 3;
+    private static final int MSG_LONG_CLICK_LAST_NODE = 2;
 
-    /** Delay for indicating the user has explored into an un-focusable area. */
-    private static final long EMPTY_TOUCH_AREA_DELAY_MS = 100;
+    private long longPressDelayMs;
 
-    // TODO: ViewConfiguration.getLongPressTimeout() is too short in this case, we need to
-    // manually extend the timeout.
-    private static final long LONG_CLICK_DELAY_MS = 1000;
-
-    private PostDelayHandler(FocusProcessorForTapAndTouchExploration parent) {
+    private PostDelayHandler(
+        FocusProcessorForTapAndTouchExploration parent, long longPressDelayMs) {
       super(parent);
+      this.longPressDelayMs = longPressDelayMs;
     }
 
     @Override
@@ -369,18 +431,12 @@ public class FocusProcessorForTapAndTouchExploration extends FocusProcessor {
       }
       switch (msg.what) {
         case MSG_REFOCUS:
-          parent.attemptRefocusNode(parent.mLastFocusableNodeBeingTouched, null);
-
-          break;
-        case MSG_FEEDBACK_EMPTY_TOUCH_AREA:
-          // TODO: We should provide this feedback by sending Compositor event, and break
-          // dependency on FeedbackController.
-          parent.mFeedbackController.playHaptic(R.array.view_hovered_pattern);
-          parent.mFeedbackController.playAuditory(R.raw.view_entered, 1.3f, 1);
+          parent.attemptRefocusNode(parent.lastFocusableNodeBeingTouched, null);
           break;
         case MSG_LONG_CLICK_LAST_NODE:
-          if (Role.getRole(parent.mLastFocusableNodeBeingTouched) == Role.ROLE_KEYBOARD_KEY) {
-            parent.attemptLongPress(parent.mLastFocusableNodeBeingTouched, /* eventId= */ null);
+          if (parent.supportsLiftToType(parent.lastFocusableNodeBeingTouched)) {
+            parent.attemptLongPress(parent.lastFocusableNodeBeingTouched, /* eventId= */ null);
+            parent.mayBeLiftToType = false;
           }
           break;
         default:
@@ -390,7 +446,7 @@ public class FocusProcessorForTapAndTouchExploration extends FocusProcessor {
 
     private void longPressAfterTimeout() {
       removeMessages(MSG_LONG_CLICK_LAST_NODE);
-      sendEmptyMessageDelayed(MSG_LONG_CLICK_LAST_NODE, LONG_CLICK_DELAY_MS);
+      sendEmptyMessageDelayed(MSG_LONG_CLICK_LAST_NODE, longPressDelayMs);
     }
 
     private void cancelLongPress() {
@@ -407,30 +463,5 @@ public class FocusProcessorForTapAndTouchExploration extends FocusProcessor {
     private void cancelRefocusTimeout() {
       removeMessages(MSG_REFOCUS);
     }
-
-    /** Provides feedback indicating an empty or unfocusable area after a delay. */
-    private void playEmptyTouchFeedbackAfterTimeout() {
-      cancelEmptyTouchFeedback();
-
-      final Message msg = obtainMessage(MSG_FEEDBACK_EMPTY_TOUCH_AREA);
-      sendMessageDelayed(msg, EMPTY_TOUCH_AREA_DELAY_MS);
-    }
-
-    /**
-     * Cancel any pending messages for delivering feedback indicating an empty or unfocusable area.
-     */
-    private void cancelEmptyTouchFeedback() {
-      removeMessages(MSG_FEEDBACK_EMPTY_TOUCH_AREA);
-    }
   }
-
-  // TODO: Remove the legacy implementation of AccessibilityEventListener.
-  @Override
-  public int getEventTypes() {
-    return 0;
-  }
-
-  // TODO: Remove the legacy implementation of AccessibilityEventListener.
-  @Override
-  public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {}
 }

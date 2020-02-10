@@ -18,17 +18,18 @@ package com.google.android.accessibility.switchaccess.setupwizard;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import com.google.android.accessibility.switchaccess.R;
-import com.google.android.accessibility.switchaccess.setupwizard.SetupWizardConfigureSwitch.Action;
+import com.google.android.accessibility.switchaccess.setupwizard.SetupWizardConfigureSwitchFragment.Action;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashMap;
 import java.util.Map;
+import org.checkerframework.checker.nullness.qual.KeyFor;
 
 /**
- * Provides setup wizard text that depends on the {@link SetupWizardConfigureSwitch.Action} that is
- * currently being configured as well as color setting information that is relevant within the Setup
- * Wizard.
+ * Provides setup wizard text that depends on the {@link SetupWizardConfigureSwitchFragment.Action}
+ * that is currently being configured as well as color setting information that is relevant within
+ * the Setup Wizard.
  */
 public class SwitchActionInformationUtils {
 
@@ -36,22 +37,22 @@ public class SwitchActionInformationUtils {
 
   /* Map of actions to heading and subheading resource ids. */
   private static final Map<Action, Integer> KEY_PREFERENCE_KEYS;
-  private static final Map<Action, Integer> HEADING_KEYS;
+  private static final Map<Action, Integer> SWITCH_NAME_KEYS;
 
   static {
     KEY_PREFERENCE_KEYS = new HashMap<>();
     KEY_PREFERENCE_KEYS.put(Action.AUTO_SCAN, R.string.pref_key_mapped_to_auto_scan_key);
     KEY_PREFERENCE_KEYS.put(Action.SELECT, R.string.pref_key_mapped_to_click_key);
     KEY_PREFERENCE_KEYS.put(Action.NEXT, R.string.pref_key_mapped_to_next_key);
-    KEY_PREFERENCE_KEYS.put(Action.OPTION_ONE, R.string.pref_key_mapped_to_click_key);
-    KEY_PREFERENCE_KEYS.put(Action.OPTION_TWO, R.string.pref_key_mapped_to_next_key);
+    KEY_PREFERENCE_KEYS.put(Action.GROUP_ONE, R.string.pref_key_mapped_to_click_key);
+    KEY_PREFERENCE_KEYS.put(Action.GROUP_TWO, R.string.pref_key_mapped_to_next_key);
 
-    HEADING_KEYS = new HashMap<>();
-    HEADING_KEYS.put(Action.AUTO_SCAN, R.string.title_pref_category_auto_scan);
-    HEADING_KEYS.put(Action.SELECT, R.string.action_name_click);
-    HEADING_KEYS.put(Action.NEXT, R.string.action_name_next);
-    HEADING_KEYS.put(Action.OPTION_ONE, R.string.option_scan_switch_title);
-    HEADING_KEYS.put(Action.OPTION_TWO, R.string.option_scan_switch_title);
+    SWITCH_NAME_KEYS = new HashMap<>();
+    SWITCH_NAME_KEYS.put(Action.AUTO_SCAN, R.string.title_pref_category_auto_scan);
+    SWITCH_NAME_KEYS.put(Action.SELECT, R.string.action_name_click);
+    SWITCH_NAME_KEYS.put(Action.NEXT, R.string.action_name_next);
+    SWITCH_NAME_KEYS.put(Action.GROUP_ONE, R.string.option_scan_switch_title);
+    SWITCH_NAME_KEYS.put(Action.GROUP_TWO, R.string.option_scan_switch_title);
   }
 
   private SwitchActionInformationUtils() {
@@ -65,7 +66,8 @@ public class SwitchActionInformationUtils {
    * @param action Action for which the name should be retrieved
    * @return string name of the action
    */
-  public static String getActionName(Context context, Action action) {
+  public static String getActionName(
+      Context context, @KeyFor("KEY_PREFERENCE_KEYS") Action action) {
     return context.getString(KEY_PREFERENCE_KEYS.get(action));
   }
 
@@ -77,27 +79,7 @@ public class SwitchActionInformationUtils {
    * @return heading text formatted for the current action
    */
   public static String getHeading(Context context, Action action) {
-    if (action == Action.OPTION_ONE) {
-      String optionOneColorString =
-          hexToColorString(
-              getHexFromSharedPreferences(
-                  R.string.pref_highlight_0_color_key,
-                  R.string.pref_highlight_0_color_default,
-                  context),
-              context);
-      return context.getString(HEADING_KEYS.get(action), optionOneColorString);
-    } else if (action == Action.OPTION_TWO) {
-      String optionTwoColorString =
-          hexToColorString(
-              getHexFromSharedPreferences(
-                  R.string.pref_highlight_1_color_key,
-                  R.string.pref_highlight_1_color_default,
-                  context),
-              context);
-      return context.getString(HEADING_KEYS.get(action), optionTwoColorString);
-    } else {
-      return context.getString(HEADING_KEYS.get(action));
-    }
+    return context.getString(R.string.title_assign_scan_key, getSwitchName(context, action));
   }
 
   /**
@@ -107,58 +89,93 @@ public class SwitchActionInformationUtils {
    * @param action Action for which the subheading should be retrieved
    * @return subheading text formatted for the current action
    */
-  public static String getSubheading(Context context, Action action) {
-    if (action == Action.OPTION_ONE) {
-      String optionOneColorString =
-          hexToColorString(
-              getHexFromSharedPreferences(
-                  R.string.pref_highlight_0_color_key,
-                  R.string.pref_highlight_0_color_default,
-                  context),
+  public static String getSubheading(Context context, @KeyFor("SWITCH_NAME_KEYS") Action action) {
+    if (action == Action.GROUP_ONE) {
+      String groupOneColorString =
+          getColorStringFromSharedPreferences(
+              R.string.pref_highlight_0_color_key,
+              R.string.pref_highlight_0_color_default,
               context);
-      return context.getString(R.string.option_scan_switch_subtitle, optionOneColorString);
-    } else if (action == Action.OPTION_TWO) {
-      String optionTwoColorString =
-          hexToColorString(
-              getHexFromSharedPreferences(
-                  R.string.pref_highlight_1_color_key,
-                  R.string.pref_highlight_1_color_default,
-                  context),
+      return context.getString(R.string.option_scan_switch_subtitle, groupOneColorString);
+    } else if (action == Action.GROUP_TWO) {
+      String groupTwoColorString =
+          getColorStringFromSharedPreferences(
+              R.string.pref_highlight_1_color_key,
+              R.string.pref_highlight_1_color_default,
               context);
-      return context.getString(R.string.option_scan_switch_subtitle, optionTwoColorString);
+      return context.getString(R.string.option_scan_switch_subtitle, groupTwoColorString);
     } else if (action == Action.AUTO_SCAN) {
       return context.getString(
           R.string.assign_switch_subtitle,
           context.getString(R.string.auto_scan_action_description));
     } else {
       return context.getString(
-          R.string.assign_switch_subtitle, context.getString(HEADING_KEYS.get(action)));
+          R.string.assign_switch_subtitle, context.getString(SWITCH_NAME_KEYS.get(action)));
     }
   }
 
   /**
-   * Finds the hex value of a preference highlight color from shared preferences.
+   * Gets the name for the switches assigned to a given action. For example, the name for the
+   * switches assigned to the select action is "Select".
+   *
+   * @param context Current application context
+   * @param action Action for which the switches are assigned to
+   * @return name for the assigned switches
+   */
+  public static String getSwitchName(Context context, @KeyFor("SWITCH_NAME_KEYS") Action action) {
+    if (action == Action.GROUP_ONE) {
+      String groupOneColorString =
+          getColorStringFromGroupSelectionSwitchNumber(context, 0 /* switchNumber */);
+      return context.getString(SWITCH_NAME_KEYS.get(action), groupOneColorString);
+    } else if (action == Action.GROUP_TWO) {
+      String groupTwoColorString =
+          getColorStringFromGroupSelectionSwitchNumber(context, 1 /* switchNumber */);
+      return context.getString(SWITCH_NAME_KEYS.get(action), groupTwoColorString);
+    } else {
+      return context.getString(SWITCH_NAME_KEYS.get(action));
+    }
+  }
+
+  /**
+   * Returns the color string of the group selection group highlight color given the group selection
+   * switch number.
+   *
+   * @param context Current application context
+   * @param switchNumber The group selection switch number for which to get the color string
+   * @return String representing the proper color name
+   */
+  public static String getColorStringFromGroupSelectionSwitchNumber(
+      Context context, int switchNumber) {
+    String preferenceKey =
+        context.getResources()
+            .getStringArray(R.array.switch_access_highlight_color_pref_keys)[switchNumber];
+    String preferenceDefault =
+        context.getResources()
+            .getStringArray(R.array.switch_access_highlight_color_defaults)[switchNumber];
+
+    return getColorStringFromSharedPreferences(preferenceKey, preferenceDefault, context);
+  }
+
+  /**
+   * Returns the color string of the highlight color given the key of the highlight color
+   * preference.
    *
    * @param preferenceKey Key of the highlight color preference
    * @param preferenceDefault Default value of the preference to be found
    * @param context Current application context
-   * @return string representing the hex value of the color
+   * @return String representing the proper color name
    */
-  public static String getHexFromSharedPreferences(
+  public static String getColorStringFromSharedPreferences(
       int preferenceKey, int preferenceDefault, Context context) {
-    SharedPreferences sharedPreferences = SharedPreferencesUtils.getSharedPreferences(context);
-    return sharedPreferences.getString(
-        context.getString(preferenceKey), context.getString(preferenceDefault));
+    return getColorStringFromSharedPreferences(
+        context.getString(preferenceKey), context.getString(preferenceDefault), context);
   }
 
-  /**
-   * Converts the hex color value to a proper color string using prepared resource arrays.
-   *
-   * @param hexString The string value of the hex representation of the color
-   * @param context The current application context
-   * @return string representing the proper color name
-   */
-  public static String hexToColorString(String hexString, Context context) {
+  private static String getColorStringFromSharedPreferences(
+      String preferenceKey, String preferenceDefault, Context context) {
+    SharedPreferences sharedPreferences = SharedPreferencesUtils.getSharedPreferences(context);
+    String hexString = sharedPreferences.getString(preferenceKey, preferenceDefault);
+
     String[] preferenceColorHex =
         context.getResources().getStringArray(R.array.switch_access_color_values);
     String[] preferenceColorName =
@@ -169,7 +186,7 @@ public class SwitchActionInformationUtils {
       }
     }
     /* This should never be reached */
-    Log.e(TAG, "Hex value could not be matched to a string");
+    LogUtils.e(TAG, "Hex value could not be matched to a string");
     return "";
   }
 }

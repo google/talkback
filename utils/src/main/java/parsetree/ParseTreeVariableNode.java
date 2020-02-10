@@ -16,13 +16,16 @@
 
 package com.google.android.accessibility.utils.parsetree;
 
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 
 class ParseTreeVariableNode extends ParseTreeNode {
+
+  private static final String TAG = "ParseTreeVariableNode";
+
   private final String mName;
   private final @ParseTree.VariableType int mType;
   private final int mId;
@@ -104,9 +107,8 @@ class ParseTreeVariableNode extends ParseTreeNode {
       case ParseTree.VARIABLE_REFERENCE:
       case ParseTree.VARIABLE_ARRAY:
       case ParseTree.VARIABLE_CHILD_ARRAY:
-        LogUtils.log(
-            this,
-            Log.ERROR,
+        LogUtils.e(
+            TAG,
             "Cannot coerce variable to boolean: %s %s",
             ParseTree.variableTypeToString(mType),
             mName);
@@ -114,13 +116,12 @@ class ParseTreeVariableNode extends ParseTreeNode {
         break;
       default:
         // This should never happen.
-        LogUtils.log(this, Log.ERROR, "Unknown variable type: %d", mType);
+        LogUtils.e(TAG, "Unknown variable type: %d", mType);
         return false;
     }
 
-    LogUtils.log(
-        ParseTree.class,
-        Log.VERBOSE,
+    LogUtils.v(
+        TAG,
         "%sParseTreeVariableNode.resolveToBoolean() name=%s value=%s",
         logIndent,
         mName,
@@ -134,9 +135,8 @@ class ParseTreeVariableNode extends ParseTreeNode {
       case ParseTree.VARIABLE_INTEGER:
         {
           int value = delegate.getInteger(mId);
-          LogUtils.log(
-              ParseTree.class,
-              Log.VERBOSE,
+          LogUtils.v(
+              TAG,
               "%sParseTreeVariableNode.resolveToInteger() name=%s value=%s",
               logIndent,
               mName,
@@ -146,9 +146,8 @@ class ParseTreeVariableNode extends ParseTreeNode {
       case ParseTree.VARIABLE_ENUM:
         {
           int value = delegate.getEnum(mId);
-          LogUtils.log(
-              ParseTree.class,
-              Log.VERBOSE,
+          LogUtils.v(
+              TAG,
               "%sParseTreeVariableNode.resolveToInteger() name=%s value=%s",
               logIndent,
               mName,
@@ -161,17 +160,17 @@ class ParseTreeVariableNode extends ParseTreeNode {
       case ParseTree.VARIABLE_REFERENCE:
       case ParseTree.VARIABLE_ARRAY:
       case ParseTree.VARIABLE_CHILD_ARRAY:
-        LogUtils.log(
-            this,
-            Log.ERROR,
+        LogUtils.e(
+            TAG,
             "Cannot coerce variable to integer: %s %s",
             ParseTree.variableTypeToString(mType),
             mName);
         return 0;
+      default: // fall out
     }
 
     // This should never happen.
-    LogUtils.log(this, Log.ERROR, "Unknown variable type: %d", mType);
+    LogUtils.e(TAG, "Unknown variable type: %d", mType);
     return 0;
   }
 
@@ -181,9 +180,8 @@ class ParseTreeVariableNode extends ParseTreeNode {
       case ParseTree.VARIABLE_INTEGER:
         {
           int value = delegate.getInteger(mId);
-          LogUtils.log(
-              ParseTree.class,
-              Log.VERBOSE,
+          LogUtils.v(
+              TAG,
               "%sParseTreeVariableNode.resolveToNumber() name=%s value=%s",
               logIndent,
               mName,
@@ -193,9 +191,8 @@ class ParseTreeVariableNode extends ParseTreeNode {
       case ParseTree.VARIABLE_NUMBER:
         {
           double value = delegate.getNumber(mId);
-          LogUtils.log(
-              ParseTree.class,
-              Log.VERBOSE,
+          LogUtils.v(
+              TAG,
               "%sParseTreeVariableNode.resolveToNumber() name=%s value=%s",
               logIndent,
               mName,
@@ -208,17 +205,17 @@ class ParseTreeVariableNode extends ParseTreeNode {
       case ParseTree.VARIABLE_REFERENCE:
       case ParseTree.VARIABLE_ARRAY:
       case ParseTree.VARIABLE_CHILD_ARRAY:
-        LogUtils.log(
-            this,
-            Log.ERROR,
+        LogUtils.e(
+            TAG,
             "Cannot coerce variable to number: %s %s",
             ParseTree.variableTypeToString(mType),
             mName);
         return 0;
+      default: // fall out
     }
 
     // This should never happen.
-    LogUtils.log(this, Log.ERROR, "Unknown variable type: %d", mType);
+    LogUtils.e(TAG, "Unknown variable type: %d", mType);
     return 0;
   }
 
@@ -228,14 +225,16 @@ class ParseTreeVariableNode extends ParseTreeNode {
       case ParseTree.VARIABLE_STRING:
         {
           CharSequence value = delegate.getString(mId);
-          LogUtils.log(
-              ParseTree.class,
-              Log.VERBOSE,
+          if (value == null) {
+            value = "";
+          }
+          LogUtils.v(
+              TAG,
               "%sParseTreeVariableNode.resolveToString() name=%s value=%s",
               logIndent,
               mName,
               value);
-          return value != null ? value : "";
+          return value;
         }
       case ParseTree.VARIABLE_BOOL:
       case ParseTree.VARIABLE_INTEGER:
@@ -244,22 +243,22 @@ class ParseTreeVariableNode extends ParseTreeNode {
       case ParseTree.VARIABLE_REFERENCE:
       case ParseTree.VARIABLE_ARRAY:
       case ParseTree.VARIABLE_CHILD_ARRAY:
-        LogUtils.log(
-            this,
-            Log.ERROR,
+        LogUtils.e(
+            TAG,
             "Cannot coerce variable to string: %s %s",
             ParseTree.variableTypeToString(mType),
             mName);
         return "";
+      default: // fall out
     }
 
     // This should never happen.
-    LogUtils.log(this, Log.ERROR, "Unknown variable type: %d", mType);
+    LogUtils.e(TAG, "Unknown variable type: %d", mType);
     return "";
   }
 
   @Override
-  public ParseTree.VariableDelegate resolveToReference(
+  public @Nullable ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
     if (mType == ParseTree.VARIABLE_REFERENCE) {
       return delegate.getReference(mId);
@@ -274,19 +273,20 @@ class ParseTreeVariableNode extends ParseTreeNode {
       int length = delegate.getArrayLength(mId);
       for (int i = 0; i < length; i++) {
         CharSequence value = delegate.getArrayStringElement(mId, i);
-        LogUtils.log(
-            ParseTree.class,
-            Log.VERBOSE,
+        if (value == null) {
+          value = "";
+        }
+        LogUtils.v(
+            TAG,
             "%sParseTreeVariableNode.resolveToArray() name=%s value=%s",
             logIndent,
             mName,
             value);
-        result.add(value != null ? value : "");
+        result.add(value);
       }
     } else {
-      LogUtils.log(
-          this,
-          Log.ERROR,
+      LogUtils.e(
+          TAG,
           "Cannot coerce variable to array: %s %s",
           ParseTree.variableTypeToString(mType),
           mName);
@@ -307,9 +307,8 @@ class ParseTreeVariableNode extends ParseTreeNode {
         }
       }
     } else {
-      LogUtils.log(
-          this,
-          Log.ERROR,
+      LogUtils.e(
+          TAG,
           "Cannot coerce variable to child array: %s %s",
           ParseTree.variableTypeToString(mType),
           mName);

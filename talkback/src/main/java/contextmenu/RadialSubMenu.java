@@ -19,14 +19,14 @@ package com.google.android.accessibility.talkback.contextmenu;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.SubMenu;
 import android.view.View;
 
 /** Implements a radial sub-menu. */
 public class RadialSubMenu extends RadialMenu implements ContextSubMenu {
-  private final RadialMenu mParentMenu;
-  private final RadialMenuItem mMenuItem;
+  private final RadialMenu parentMenu;
+  private final RadialMenuItem menuItem;
 
   /**
    * Creates a new radial sub-menu and associated radial menu item.
@@ -47,14 +47,14 @@ public class RadialSubMenu extends RadialMenu implements ContextSubMenu {
       CharSequence title) {
     super(context, parent);
 
-    mParentMenu = parentMenu;
-    mMenuItem = new RadialMenuItem(context, groupId, itemId, order, title, this);
+    this.parentMenu = parentMenu;
+    menuItem = new RadialMenuItem(context, groupId, itemId, order, title, this);
   }
 
   @Override
   public boolean selectMenuItem(RadialMenuItem item, int flags) {
     return super.selectMenuItem(item, flags)
-        || ((mParentMenu != null) && mParentMenu.selectMenuItem(item, flags));
+        || ((parentMenu != null) && parentMenu.selectMenuItem(item, flags));
   }
 
   @Override
@@ -64,33 +64,33 @@ public class RadialSubMenu extends RadialMenu implements ContextSubMenu {
 
   @Override
   public RadialMenuItem getItem() {
-    return mMenuItem;
+    return menuItem;
   }
 
   @Override
   public @NonNull SubMenu setHeaderIcon(int iconRes) {
-    mMenuItem.setIcon(iconRes);
+    menuItem.setIcon(iconRes);
 
     return this;
   }
 
   @Override
   public @NonNull SubMenu setHeaderIcon(Drawable icon) {
-    mMenuItem.setIcon(icon);
+    menuItem.setIcon(icon);
 
     return this;
   }
 
   @Override
   public @NonNull SubMenu setHeaderTitle(int titleRes) {
-    mMenuItem.setTitle(titleRes);
+    menuItem.setTitle(titleRes);
 
     return this;
   }
 
   @Override
   public @NonNull SubMenu setHeaderTitle(CharSequence title) {
-    mMenuItem.setTitle(title);
+    menuItem.setTitle(title);
 
     return this;
   }
@@ -102,14 +102,14 @@ public class RadialSubMenu extends RadialMenu implements ContextSubMenu {
 
   @Override
   public @NonNull SubMenu setIcon(int iconRes) {
-    mMenuItem.setIcon(iconRes);
+    menuItem.setIcon(iconRes);
 
     return this;
   }
 
   @Override
   public @NonNull SubMenu setIcon(Drawable icon) {
-    mMenuItem.setIcon(icon);
+    menuItem.setIcon(icon);
 
     return this;
   }

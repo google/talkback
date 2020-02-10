@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"دسترسی سوئیچ"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"«دسترسی سوئیچ» به افراد دچار اختلالات حرکتی اجازه می‌دهد با استفاده از یک یا چند سوئیچ، تلفن و رایانه لوحی را کنترل کنند. از سوئیچ‌ها برای انتخاب موارد، پیمایش، وارد کردن نوشتار و کارهای بیشتر استفاده کنید."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"کنترل دستگاه با سوئیچ‌ها"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"راهنما و بازخورد"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"اسکن خودکار"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"زمان اسکن خودکار"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"معکوس اسکن خودکار"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="one">‏%.2f ثانیه</item>
-      <item quantity="other">‏%.2f ثانیه</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"سفارشی کردن اسکن"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"روش اسکن"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"تأخیر در مورد اول"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"اختصاص دادن سوئیچ‌ها"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"اختصاص دادن سوئیچ به کنش"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"اختصاص دادن سوئیچ‌ها برای اسکن"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"سرعت خطی"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"تعداد اسکن"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"انتخاب کنید چند بار اسکن تکرار شود"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"زمان تعبیر فشار سوئیچ"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"اگر در این مدت چند بار فشار داده شود، به‌عنوان یک بار فشار داده شدن در نظر گرفته می‌شود."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"رها کردن برای انجام اقدام"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"وقتی سوئیچ رها می‌شود، اقدام انجام شود"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="one">‏%d حلقه</item>
-      <item quantity="other">‏%d حلقه</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"سوئیچ «<xliff:g id="KEY_NAME">%1$s</xliff:g>» قبلاً به «<xliff:g id="ACTION_NAME">%2$s</xliff:g>» اختصاص داده شده است"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="one">‏%d سوئیچ اختصاص داده شد</item>
-      <item quantity="other">‏%d سوئیچ اختصاص داده شد</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"‏سوئیچ انتخاب گروهی %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"بعدی"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"قبلی"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"انتخاب"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"فشار طولانی"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"پیمایش به جلو"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"پیمایش به عقب"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"نپذیرفتن"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"بزرگ کردن"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"کوچک کردن"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"برجسته کردن نوشتار"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"کپی"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"برش"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"جای‌گذاری"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"منو"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"برگشت"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"صفحه اصلی"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"نمای کلی"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"اعلان‌ها"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"تنظیمات سریع"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"پیمایش به جلو"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"پیمایش به عقب"</string>
-    <string name="point_scan" msgid="4514216871544244788">"اسکن نقطه‌ای"</string>
-    <string name="box_scan" msgid="6675486192630209217">"خروج از اسکن نقطه‌ای"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"تند کشیدن صفحه به راست"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"تند کشیدن صفحه به چپ"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"تند کشیدن صفحه به بالا"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"تند کشیدن صفحه به پایین"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"تند کشیدن (سفارشی)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"کوچک کردن"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"بزر‌گ کردن"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"تنظیمات دسترسی سوئیچ"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"ترکیب سوئیچی را برای اضافه کردن به فهرست یا پاک کردن از آن، فشار دهید"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"پاک کردن اختصاص سوئیچ"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL +‎ "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT +‎ "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT +‎ "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"سوئیچی اختصاص داده نشده است"</string>
-    <string name="more" msgid="1547670498589416840">"بیشتر"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"کلید فاصله"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"کلید ذخیره"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"سبک برجسته کردن اسکن"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"سبک اسکن اولیه"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"رنگ برجسته کردن"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"سبک خط برجسته کردن"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"خط‌مشی رازداری"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"فعال کردن انتخاب خودکار"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"غیرفعال کردن انتخاب خودکار"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"نویسه بعدی"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"کلمه بعدی"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"خط بعدی"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"پاراگراف بعدی"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"صفحه بعدی"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"نویسه قبلی"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"کلمه قبلی"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"خط قبلی"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"پاراگراف قبلی"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"صفحه قبلی"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)‎"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"شروع خودکار اسکن"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"اسکن بدون فشار دادن کلید شروع می‌شود"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"باز کردن راه‌اندازی «دسترسی سوئیچ»"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"برنامه راه‌اندازی «دسترسی سوئیچ»"</string>
-    <string name="one_switch" msgid="5247899666787922810">"یک سوئیچ"</string>
-    <string name="two_switches" msgid="3082487661638289356">"دو سوئیچ"</string>
-    <string name="finish" msgid="4267641294267512480">"پایان"</string>
-    <string name="exit" msgid="8664597014081860813">"خروج"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"تعداد سوئیچ‌ها را انتخاب کنید"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"برای حرکت خودکار بین موارد، سوئیچ را فشار دهید، سپس دوباره آن را فشار دهید تا مورد برجسته شود."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"برای حرکت بین موارد، یک سوئیچ را فشار دهید. با فشار دادن سوئیچ دیگر، مورد برجسته‌شده را انتخاب کنید."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"سرعت اسکن را انتخاب کنید"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"انتخاب کنید هر مورد چه مدت برجسته بماند"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"سریع (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> ثانیه تأخیر)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"متوسط (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> ثانیه تأخیر)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"آهسته (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> ثانیه تأخیر)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"سفارشی"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"تأخیر (ثانیه)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"کلید «<xliff:g id="KEY_NAME">%1$s</xliff:g>» قبلاً به عمل دیگری اختصاص داده شده است"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"اسکن ردیف-ستون"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"انتخاب گروه"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"اسکن خطی"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"بازخورد گفتاری"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"‏تنظیمات TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"برای چند مورد"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"مورد اول و آخر بیان شوند"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"تعدادی از موارد بیان شوند"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"همه موارد برجسته‌شده بیان شوند"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"قبل از جابه‌جا شدن صحبت تمام شود"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"گروه <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> به <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> مورد"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"برای پیمایش انتخاب کنید"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"مورد نامشخص"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"نحوه اسکن را انتخاب کنید"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"هر بار یک ردیف اسکن می‌شود. وقتی ردیفی انتخاب می‌شود، بین موارد در آن فهرست حرکت می‌کنید."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"یکی یکی بین موارد جابه‌جا می‌شوید. توجه داشته باشید که صفحه‌کلیدها همیشه به‌صورت ردیفی اسکن می‌شوند."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"به همه موارد، رنگی اختصاص داده می‌شود. سوئیچ مربوط به رنگ اطراف مورد مدنظرتان را فشار دهید. اندازه گروه را کاهش دهید تا به گزینه موردنظرتان برسید."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"سوئیچ‌های اختصاص داده‌شده به <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"هیچ‌کدام"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"سوئیچ‌های اختصاص داده‌شده پاک شوند؟"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"از قبل سوئیچ‌ها را اختصاص داده‌اید."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"پاک کردن سوئیچ‌ها"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"سوئیچ‌ها حفظ شوند"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"سوئیچی اختصاص داده نشده است"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"هیچ سوئیچی به این عمل اختصاص داده نشده است. مطمئنید می‌خواهید ادامه دهید؟"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"گروه <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"سوئیچی را فشار دهید تا آن را به انتخاب گروه <xliff:g id="OPTION_COLOR">%1$s</xliff:g> اختصاص دهید."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"سوئیچی را فشار دهید تا آن را به عمل «<xliff:g id="ACTION_NAME">%1$s</xliff:g>» اختصاص دهید."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"شروع اسکن و انتخاب"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"‏با Tic-Tac-Toe، راه‌اندازی‌تان را آزمایش کنید"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"برای شروع اسکن، «<xliff:g id="SWITCH_NAME">%1$s</xliff:g>» را فشار دهید. برای برجسته کردن مورد، دوباره سوئیچ را فشار دهید. اول شما!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"برای شروع اسکن، «<xliff:g id="SWITCH_NAME">%1$s</xliff:g>» را فشار دهید. برای برجسته کردن مورد، دوباره سوئیچ را فشار دهید. برای انتخاب مورد برجسته‌شده، یک بار دیگر سوئیچ را فشار دهید. اول شما!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"برای حرکت میان موارد، «<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>» را فشار دهید. برای انتخاب موارد برجسته‌شده، «<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>» را فشار دهید. اول شما!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"برای حرکت میان ردیف‌ها، «<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>» را فشار دهید. برای انتخاب ردیف برجسته‌شده، «<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>» را فشار دهید. اول شما!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"برای انتخاب موارد برجسته‌شده در <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> «<xliff:g id="COLOR_NAME_1">%2$s</xliff:g>» را فشار دهید یا برای انتخاب موارد برجسته‌شده در <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> «<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>» را فشار دهید. با تکرار کردن به مورد مدنظرتان برسید. اول شما!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"هنوز برای همه کنش‌ها، سوئیچ اختصاص داده نشده است. با دکمه «قبلی» به عقب برگردید و اختصاص دادن سوئیچ‌ها را کامل کنید."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"بازنشانی بازی"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"این مربع قبلاً گرفته شده است. دوباره امتحان کنید!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"برنده شدید!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"به امید خوش‌شانسی بیشتر در دفعه بعد"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"مساوی شدید"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"می‌توانید تنظیم فعلی‌تان را حفظ کنید یا از نو شروع کنید."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"تنظیم حفظ شود"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"شروع مجدد"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"راه‌اندازی تمام شد"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"شما آماده‌اید."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"همواره می‌توانید در تنظیمات «دسترسی سوئیچ» تنظیمات اضافی را تغییر دهید یا دوباره برنامه راه‌اندازی را باز کنید."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">دسترسی سوئیچ</string>
+  <string name="switch_access_service_description">«دسترسی سوئیچ» به افراد دچار اختلالات حرکتی اجازه می‌دهد با استفاده از یک یا چند سوئیچ، تلفن و رایانه لوحی را کنترل کنند. از سوئیچ‌ها برای انتخاب موارد، پیمایش، وارد کردن نوشتار و کارهای بیشتر استفاده کنید.</string>
+  <string name="switch_access_service_summary">کنترل دستگاه با سوئیچ‌ها</string>
+  <string name="title_pref_help_feedback">راهنما و بازخورد</string>
+  <string name="title_pref_licenses">مجوزهای متن‌باز</string>
+  <string name="title_pref_category_auto_scan">اسکن خودکار</string>
+  <string name="title_pref_auto_scan_disabled">اسکن خودکار (غیرفعال)</string>
+  <string name="action_key_summary_auto_scan">با فشار دادن این سوئیچ، برجسته‌سازی به‌طور خودکار شروع به حرکت بین موارد می‌کند. با دوباره فشار دادن، مورد برجسته‌شده انتخاب می‌شود.</string>
+  <string name="title_pref_auto_scan_time_delay">زمان اسکن خودکار</string>
+  <string name="action_name_reverse_auto_scan">معکوس اسکن خودکار</string>
+  <string name="title_pref_reverse_auto_scan_disabled">اسکن خودکار معکوس (غیرفعال)</string>
+  <string name="action_key_summary_reverse_auto_scan">با فشار دادن این سوئیچ، برجسته‌سازی به‌طور خودکار شروع به حرکت معکوس بین موارد می‌کند. با دوباره فشار دادن، مورد برجسته‌شده انتخاب می‌شود.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">%.2f ثانیه</item>
+    <item quantity="other">%.2f ثانیه</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">سفارشی کردن اسکن</string>
+  <string name="title_pref_scanning_methods">روش اسکن</string>
+  <string name="title_pref_start_scan_delay">تأخیر در مورد اول</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">‏زمان اضافی را که روی اولین مورد صرف می‌شود انتخاب کنید. این زمان به زمان اسکن خودکار اضافه می‌شود.\n\n این تنظیم هم روی اسکن خودکار و هم اسکن نقطه‌ای تأثیر می‌گذارد.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">‏زمان اضافی را که روی اولین مورد صرف می‌شود انتخاب کنید. بعد از این زمان، خط عمودی یا افقی شروع به حرکت می‌کند.\n\nاین تنظیم هم روی اسکن خودکار و هم اسکن نقطه‌ای تأثیر می‌گذارد.</string>
+  <string name="title_pref_category_assign_switches">اختصاص دادن سوئیچ‌ها</string>
+  <string name="title_pref_category_key_mappings">اختصاص دادن سوئیچ‌ها به کنش‌های عمومی</string>
+  <string name="summary_pref_category_key_mappings">کنش‌های عمومی می‌توانند در هرزمانی اجرا شوند</string>
+  <string name="title_pref_category_scan_key_mappings">اختصاص دادن سوئیچ‌ها برای اسکن</string>
+  <string name="summary_pref_category_scan_key_mappings">اسکن کردن به شما امکان می‌دهد ناحیه برجسته کردن را جابه‌جا کنید و موارد برجسته‌شده را انتخاب کنید</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">حرکت و انتخاب</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">کنش‌های روی مورد انتخاب‌شده</string>
+  <string name="title_pref_point_scan_line_speed">سرعت خطی</string>
+  <string name="dialog_message_pref_line_speed">انتخاب کنید خطوط افقی و عمودی با چه سرعتی در صفحه حرکت کنند.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">%.2f سانتی‌متر در ثانیه</item>
+    <item quantity="other">%.2f سانتی‌متر در ثانیه</item>
+  </plurals>
+  <string name="title_pref_loop_count">تعداد اسکن</string>
+  <string name="dialog_message_pref_loop_count">‏انتخاب کنید اسکن کردن چند بار تکرار شود.\n\nاین تنظیم هم بر اسکن خودکار و هم اسکن نقطه‌ای تأثیر می‌گذارد.</string>
+  <string name="summary_pref_point_scan">از خطوط متحرک برای انتخاب یک مکان افقی یا عمودی مشخص استفاده کنید. %1$s</string>
+  <string name="point_scan_enable_animations_message">برای استفاده از این ویژگی، پویانمایی را روشن کنید.</string>
+  <string name="title_pref_category_switch_accomodation">تطبیق سوئیچ</string>
+  <string name="title_pref_debounce_time">نادیده گرفتن فشارهای تکراری</string>
+  <string name="dialog_message_pref_debounce_time">اگر در این مدت سوئیچ چند بار فشار داده شود، به‌عنوان یک‌بار فشار دادن در نظر گرفته می‌شود.</string>
+  <string name="title_pref_press_on_release">رها کردن برای انجام اقدام</string>
+  <string name="subtitle_pref_press_on_release">وقتی سوئیچ رها می‌شود، اقدام انجام شود</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d دور</item>
+    <item quantity="other">%d دور</item>
+  </plurals>
+  <string name="preference_off">خاموش</string>
+  <string name="preference_on">روشن</string>
+  <string name="toast_msg_key_already_assigned">سوئیچ «%1$s» قبلاً به «%2$s» اختصاص داده شده است</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d سوئیچ اختصاص داده شد</item>
+    <item quantity="other">%d سوئیچ اختصاص داده شد</item>
+  </plurals>
+  <string name="option_scan_switch_format">سوئیچ انتخاب گروهی %1$d</string>
+  <string name="option_scan_switch_format_with_color">تغییر وضعیت انتخاب گروهی %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">با فشار دادن این سوئیچ، گروه %1$d انتخاب می‌شود.</string>
+  <string name="action_name_next">بعدی</string>
+  <string name="action_key_summary_next">با فشار دادن این سوئیچ، مورد بعدی برجسته می‌شود.</string>
+  <string name="action_name_previous">قبلی</string>
+  <string name="action_key_summary_previous">با فشار دادن این سوئیچ، مورد قبلی برجسته می‌شود.</string>
+  <string name="action_name_click">انتخاب</string>
+  <string name="action_key_summary_click">با فشار دادن این سوئیچ، مورد برجسته‌شده انتخاب می‌شود.</string>
+  <string name="action_name_long_click">لمس کردن و نگه داشتن</string>
+  <string name="action_key_summary_long_click">با فشار دادن این سوئیچ، مورد برجسته‌شده لمس و نگه داشته می‌شود.</string>
+  <string name="action_name_scroll_forward">پیمایش به جلو</string>
+  <string name="action_key_summary_scroll_forward">با فشار دادن این سوئیچ، مورد برجسته‌شده به جلو پیمایش می‌شود.</string>
+  <string name="action_name_scroll_backward">پیمایش به عقب</string>
+  <string name="action_key_summary_scroll_backward">با فشار دادن این سوئیچ، مورد برجسته‌شده به عقب پیمایش می‌شود.</string>
+  <string name="action_name_dismiss">رد کردن</string>
+  <string name="action_name_expand">بزرگ کردن</string>
+  <string name="action_name_collapse">کوچک کردن</string>
+  <string name="action_name_highlight_text">برجسته کردن نوشتار</string>
+  <string name="action_group_name_highlight">برجسته کردن…</string>
+  <string name="action_name_highlight_all_text">برجسته کردن همه نوشتار</string>
+  <string name="action_name_highlight_granular_text">برجسته کردن %1$s</string>
+  <string name="action_name_copy">کپی</string>
+  <string name="action_name_copy_all_text">کپی همهٔ موارد</string>
+  <string name="action_name_cut">برش</string>
+  <string name="action_name_cut_all_text">برش همه</string>
+  <string name="action_name_paste">جای‌گذاری</string>
+  <string name="action_name_undo">لغو</string>
+  <string name="action_name_redo">انجام مجدد</string>
+  <string name="action_group_name_delete">حذف…</string>
+  <string name="action_name_delete">حذف %1$s</string>
+  <string name="action_name_delete_highlighted_text">حذف نوشتار برجسته‌شده</string>
+  <string name="option_scanning_menu_button">منو</string>
+  <string name="option_scanning_menu_button_content_description">منوی دسترسی سوئیچ</string>
+  <string name="switch_access_global_menu">منوی جهانی دسترسی سوئیچ</string>
+  <string name="switch_access_actions_menu">منوی کنش‌های دسترسی سوئیچ</string>
+  <string name="switch_access_close_menu">بستن</string>
+  <string name="switch_access_back_menu">برگشت</string>
+  <string name="next_arrow_content_description">بعدی</string>
+  <string name="previous_arrow_content_description">قبلی</string>
+  <string name="global_action_back">برگشت</string>
+  <string name="global_action_key_summary_back">با فشار دادن این سوئیچ به صفحه‌نمایش قبلی برمی‌گردید یا اگر صفحه‌کلید نمایان باشد پنهان می‌شود.</string>
+  <string name="global_action_home">صفحه اصلی</string>
+  <string name="global_action_key_summary_home">با فشار دادن این سوئیچ به «صفحه اصلی» می‌روید.</string>
+  <string name="global_action_overview">نمای کلی</string>
+  <string name="global_action_key_summary_overview">با فشار دادن این سوئیچ، فهرستی از برنامه‌های اخیراً بازشده نشان داده می‌شود.</string>
+  <string name="global_action_notifications">اعلان‌ها</string>
+  <string name="global_action_key_summary_notifications">با فشار دادن این سوئیچ، اعلان‌های دستگاه نشان داده می‌شود.</string>
+  <string name="global_action_quick_settings">تنظیمات سریع</string>
+  <string name="global_action_key_summary_quick_settings">با فشار دادن این سوئیچ، «تنظیمات سریع» دستگاه نشان داده می‌شود.</string>
+  <string name="global_action_power_options">گزینه‌های روشن/خاموش</string>
+  <string name="global_menu_volume_heading">میزان صدا</string>
+  <string name="volume_menu_media">میزان صدای رسانه</string>
+  <string name="volume_menu_call">میزان صدای تماس</string>
+  <string name="volume_menu_ring">میزان صدای زنگ</string>
+  <string name="volume_menu_alarm">میزان صدای زنگ</string>
+  <string name="volume_menu_accessibility">میزان دسترس‌پذیری</string>
+  <string name="volume_menu_mute">صامت</string>
+  <string name="volume_menu_unmute">باصدا کردن</string>
+  <string name="volume_menu_increase">افزایش</string>
+  <string name="volume_settings">تنظیمات میزان صدا</string>
+  <string name="volume_menu_decrease">کاهش</string>
+  <string name="scrollable_forward">پیمایش به جلو</string>
+  <string name="scrollable_backward">پیمایش به عقب</string>
+  <string name="point_scan">اسکن نقطه‌ای</string>
+  <string name="box_scan">خروج از اسکن نقطه‌ای</string>
+  <string name="action_name_swipe_right">تند کشیدن صفحه به راست</string>
+  <string name="action_name_swipe_left">تند کشیدن صفحه به چپ</string>
+  <string name="action_name_swipe_up">تند کشیدن صفحه به بالا</string>
+  <string name="action_name_swipe_down">تند کشیدن صفحه به پایین</string>
+  <string name="action_name_swipe_custom">تند کشیدن (سفارشی)</string>
+  <string name="action_name_zoom_out">دورنمایی کردن</string>
+  <string name="action_name_zoom_in">نزدیک‌نمایی کردن</string>
+  <string name="switch_access_preferences_title">تنظیمات دسترسی سوئیچ</string>
+  <string name="key_combo_preference_instructions">ترکیب سوئیچی را برای اضافه کردن به فهرست یا پاک کردن از آن، فشار دهید</string>
+  <string name="key_combo_preference_reset_button">پاک کردن اختصاص سوئیچ</string>
+  <string name="key_combo_preference_control_plus">CTRL +‎ </string>
+  <string name="key_combo_preference_shift_plus">SHIFT +‎ </string>
+  <string name="key_combo_preference_alt_plus">ALT +‎ </string>
+  <string name="no_key_assigned">سوئیچی اختصاص داده نشده است</string>
+  <string name="more">بیشتر</string>
+  <string name="name_of_space_bar">کلید فاصله</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">کلید ذخیره</string>
+  <string name="title_pref_category_display_and_sound">نمایشگر و صدا</string>
+  <string name="title_pref_highlight_0">سبک برجسته کردن اسکن</string>
+  <string name="title_pref_primary_scan_style">سبک اسکن اولیه</string>
+  <string name="title_pref_highlight_0_color">رنگ برجسته کردن</string>
+  <string name="title_pref_highlight_0_weight">سبک خط برجسته کردن</string>
+  <string name="title_pref_privacy_policy">خط‌مشی رازداری</string>
+  <string name="title_pref_auto_select">انتخاب خودکار</string>
+  <string name="summary_pref_auto_select">مورد برجسته‌شده به‌طور خودکار انتخاب می‌شود. اگر مورد قابل انتخاب شدن نباشد یا اگر این تنظیم خاموش باشد، منویی از کنش‌های دردسترس را خواهید دید.</string>
+  <string name="switch_access_global_menu_enable_autoselect">فعال کردن انتخاب خودکار</string>
+  <string name="switch_access_global_menu_disable_autoselect">غیرفعال کردن انتخاب خودکار</string>
+  <string name="switch_access_move_next">بعدی…</string>
+  <string name="switch_access_move_next_character">نویسه بعدی</string>
+  <string name="switch_access_move_next_word">کلمه بعدی</string>
+  <string name="switch_access_move_next_line">خط بعدی</string>
+  <string name="switch_access_move_next_paragraph">پاراگراف بعدی</string>
+  <string name="switch_access_move_next_page">صفحه بعدی</string>
+  <string name="switch_access_move_next_sentence">جمله بعدی</string>
+  <string name="switch_access_move_prev">قبلی…</string>
+  <string name="switch_access_move_prev_character">نویسه قبلی</string>
+  <string name="switch_access_move_prev_word">کلمه قبلی</string>
+  <string name="switch_access_move_prev_line">خط قبلی</string>
+  <string name="switch_access_move_prev_paragraph">پاراگراف قبلی</string>
+  <string name="switch_access_move_prev_page">صفحه قبلی</string>
+  <string name="switch_access_move_prev_sentence">جمله قبلی</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)‎</string>
+  <string name="switch_access_auto_start_scan_title">شروع خودکار اسکن</string>
+  <string name="switch_access_auto_start_scan_summary">اسکن بدون فشار دادن کلید شروع می‌شود</string>
+  <string name="pref_begin_switchaccess_setup_title">باز کردن راهنمای راه‌اندازی</string>
+  <string name="setup_wizard_heading">راهنمای راه‌اندازی دسترسی سوئیچ</string>
+  <string name="one_switch">یک سوئیچ</string>
+  <string name="two_switches">دو سوئیچ</string>
+  <string name="finish">پایان</string>
+  <string name="exit">خروج</string>
+  <string name="intro_heading">انتخاب سوئیچ</string>
+  <string name="usb_switch_option_text">‏سوئیچ USB</string>
+  <string name="bluetooth_switch_option_text">سوئیچ بلوتوث</string>
+  <string name="usb_switch_description_text">‏وصل کردن فیزیکی سوئیچ ازطریق USB</string>
+  <string name="bluetooth_switch_description_text">مرتبط‌سازی سوئیچ بی‌سیم ازطریق بلوتوث</string>
+  <string name="bluetooth_unsupported_description_text">دستگاهتان از بلوتوث پشتیبانی نمی‌کند. از سوئیچ فیزیکی استفاده کنید.</string>
+  <string name="connected_usb_devices_header">دستگاه‌های متصل</string>
+  <string name="usb_no_devices_connected_message">‏هیچ دستگاه USB پیدا نشد. مطمئن شوید دستگاهتان به‌طور ایمن متصل شده باشد.</string>
+  <string name="connect_usb_heading">‏اتصال سوئیچ USB</string>
+  <string name="pair_bluetooth_heading">مرتبط‌سازی سوئیچ بلوتوث</string>
+  <string name="pair_bluetooth_subheading">روی سوئیچ بلوتوث در زیر ضربه بزنید</string>
+  <string name="bluetooth_not_enabled_message">برای مرتبط کردن سوئیچ، بلوتوث را روشن کنید</string>
+  <string name="enable_bluetooth_button_title">روشن کردن بلوتوث</string>
+  <string name="bluetooth_no_devices_paired">هیچ دستگاه بلوتوثی مرتبط نشده است</string>
+  <string name="paired_devices_header">دستگاه‌های بلوتوث مرتبط‌شده</string>
+  <string name="available_devices_header">دستگاه‌های بلوتوث دردسترس</string>
+  <string name="bluetooth_computer_content_description">رایانه</string>
+  <string name="bluetooth_phone_content_description">تلفن</string>
+  <string name="bluetooth_imaging_content_description">تصویربرداری</string>
+  <string name="bluetooth_headphone_content_description">هدفون</string>
+  <string name="bluetooth_peripheral_content_description">محیطی</string>
+  <string name="bluetooth_default_content_description">بلوتوث</string>
+  <string name="bluetooth_connecting_description">درحال اتصال…</string>
+  <string name="bluetooth_connected_description">متصل</string>
+  <string name="bluetooth_device_unavailable_description">دستگاه دردسترس نیست</string>
+  <string name="reconnecting_unsupported_title">به دستگاه متصل نشد</string>
+  <string name="reconnecting_unsupported_message">‏دسترسی سوئیچ به دستگاه شما که قبلاً مرتبط شده است متصل نشد. مطمئن شوید دستگاهتان روشن و متصل باشد.\n\nاگر دستگاهتان همچنان متصل نمی‌شود، به تنظیمات «بلوتوث» بروید و دوباره متصل شوید.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">رفتن به تنظیمات بلوتوث</string>
+  <string name="number_of_switches_heading">تعداد سوئیچ‌ها را انتخاب کنید</string>
+  <string name="title_assign_scan_key">اختصاص دادن کلید %1$s</string>
+  <string name="one_switch_description_text">سوئیچ را فشار دهید تا حرکت خودکار بین موارد شروع شود. برای انتخاب مورد برجسته‌شده دوباره فشار دهید.</string>
+  <string name="two_switches_description_text">برای حرکت بین موارد، یک سوئیچ را فشار دهید. با فشار دادن سوئیچ دیگر، مورد برجسته‌شده را انتخاب کنید.</string>
+  <string name="step_speed_heading">سرعت اسکن را انتخاب کنید</string>
+  <string name="step_speed_subheading">انتخاب کنید هر مورد چه مدت برجسته بماند</string>
+  <string name="fast_radio_button_title">سریع (%1$s ثانیه تأخیر)</string>
+  <string name="medium_radio_button_title">متوسط (%1$s ثانیه تأخیر)</string>
+  <string name="slow_radio_button_title">آهسته (%1$s ثانیه تأخیر)</string>
+  <string name="custom_switch">سفارشی</string>
+  <string name="custom_edit_text">تأخیر (ثانیه)</string>
+  <string name="setup_toast_msg_key_already_assigned">کلید «%1$s» قبلاً به عمل دیگری اختصاص داده شده است</string>
+  <string name="row_column_scanning_title">اسکن ردیف-ستون</string>
+  <string name="option_scanning_title">انتخاب گروه (پیشرفته)</string>
+  <string name="linear_scanning_title">اسکن خطی</string>
+  <string name="linear_scanning_except_keyboard_title">اسکن خطی (به‌جز صفحه‌کلید)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">گفتار، صدا و لرزش</string>
+  <string name="title_pref_switch_access_spoken_feedback">بازخورد گفتاری</string>
+  <string name="title_pref_scan_non_actionable_items">بلند خواندن نوشتار توصیفی</string>
+  <string name="scan_non_actionable_items_summary">شنیدن بازخورد گفتاری برای مواردی که کنش‌های دردسترس و نوشتار توصیفی دارند</string>
+  <string name="title_pref_switch_access_verbosity">سطح جزئیات</string>
+  <string name="summary_verbosity">انتخاب میزان اطلاعاتی که خوانده می‌شود</string>
+  <string name="title_pref_verbosity_category_verbosity_details">اطلاعات «سطح جزئیات»</string>
+  <string name="title_pref_switch_access_keyboard_echo">صدای صفحه‌کلید</string>
+  <string name="keyboard_echo_summary_on">کلیدهای تایپ‌شده برای صفحه‌کلید روی صفحه بلند خوانده شوند</string>
+  <string name="keyboard_echo_summary_off">کلیدهای تایپ‌شده برای صفحه‌کلید روی صفحه بلند خوانده نشوند</string>
+  <string name="title_pref_enable_hints">بلند خواندن نکته‌های استفاده</string>
+  <string name="enable_hints_summary_on">درحین پیمایش، نکته‌های استفاده پس از تأخیر کوتاهی خوانده شوند</string>
+  <string name="enable_hints_summary_off">هنگام جابه‌جا کردن کانونی کردن دسترس‌پذیری، نکته‌های استفاده خوانده نشوند</string>
+  <string name="title_pref_speak_container_element_position">خواندن اطلاعات فهرست و جدول</string>
+  <string name="speak_container_element_position_summary_on">اطلاعات فهرست و جدول خوانده شود</string>
+  <string name="speak_container_element_position_summary_off">اطلاعات فهرست و جدول خوانده نشود</string>
+  <string name="title_pref_speak_element_type">خواندن نوع عنصر</string>
+  <string name="speak_element_type_summary_on">نوع عنصر برای موارد کانونی‌شده خوانده شود</string>
+  <string name="speak_element_type_summary_off">نوع عنصر برای موارد کانونی‌شده خوانده نشود</string>
+  <string name="title_pref_pitch_change_for_ime">استفاده از تغییرات تن صدا</string>
+  <string name="pitch_change_for_ime_summary_on">بازخورد صفحه‌کلید با صدای بم خوانده شود</string>
+  <string name="pitch_change_for_ime_summary_off">هنگام خواندن بارخورد صدا تغییر داده نشود</string>
+  <string name="title_pref_speak_selected_item_or_group">بلند خواندن مورد یا گروه انتخاب‌شده</string>
+  <string name="speak_selected_item_or_group_summary">نام مورد یا گروه بعد از انتخاب شدن بلند خوانده شود</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">بیشترین مدت‌زمان صحبت کردن برای هر مورد</string>
+  <string name="dialog_message_pref_maximum_time_per_item">‏بیشترین مدت‌زمان را برای خواندن هر شرح تنظیم کنید. بعداز زمان تنظیم‌شده، گفتار قطع می‌شود.\nتوجه: اگر این مورد روشن شده باشد، نکته‌ها همیشه خوانده می‌شود.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">متفرقه</string>
+  <string name="title_pref_node_description_order">ترتیب شرح عنصر</string>
+  <string name="title_pref_switch_access_speak_element_ids">بلند خواندن شناسه‌های عنصر</string>
+  <string name="speak_element_ids_summary_on">شناسه‌های عنصر برای دکمه‌های بدون برچسب خوانده شوند</string>
+  <string name="speak_element_ids_summary_off">شناسه‌های عنصر برای دکمه‌های بدون برچسب خوانده نشوند</string>
+  <string name="title_pref_switch_access_tts_settings">‏تنظیمات TTS</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">وقتی چند مورد برجسته شده‌اند</string>
+  <string name="title_pref_switch_access_speak_first_last_item">بلند خواندن موارد ابتدایی و انتهایی</string>
+  <string name="title_pref_switch_access_speak_number_of_items">تعداد موارد بلند خوانده شود</string>
+  <string name="title_pref_switch_access_speak_all_items">همه موارد برجسته‌شده بلند خوانده شوند</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">قبل از جابه‌جا شدن صحبت تمام شود</string>
+  <string name="title_pref_spoken_feedback_other_feedback">بازخورد دیگر</string>
+  <string name="title_pref_developer_settings">تنظیمات برنامه‌نویس</string>
+  <string name="title_pref_spoken_feedback_overlay">نمایش خروجی گفتار</string>
+  <string name="title_pref_switch_access_vibration_feedback">بازخورد لرزشی</string>
+  <string name="vibration_feedback_summary">برای نشان دادن اینکه چیزی تغییر کرده است بلرزد (برای نمونه، محتوای روی صفحه تغییر کرده باشد)</string>
+  <string name="title_pref_switch_access_sound_feedback">بازخورد صدا</string>
+  <string name="sound_feedback_summary">برای نشان دادن اینکه چیزی تغییر کرده است، صدای نمادی پخش شود (برای نمونه، محتوای روی صفحه تغییر کرده باشد)</string>
+  <string name="title_pref_switch_access_sound_volume">میزان صدا</string>
+  <string name="title_pref_switch_access_audio_ducking">کاهش صدای پس‌زمینه</string>
+  <string name="audio_ducking_summary">هنگام صحبت، صداهای دیگر را کم کنید</string>
+  <string name="switch_access_focus_cleared_no_selection">صفحه تغییر کرد</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">برای انتخاب ردیف، سوئیچ انتخاب را فشار دهید</string>
+  <string name="switch_access_spoken_feedback_group">گروه %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">برای انتخاب گروه، سوئیچ گروه %1$s را فشار دهید</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">برای انتخاب مورد، سوئیچ گروه %1$s را فشار دهید</string>
+  <string name="switch_access_spoken_feedback_to">%1$s به %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s مورد</string>
+  <string name="switch_access_spoken_feedback_group_selected">گروه %1$s انتخاب شد</string>
+  <string name="switch_access_spoken_feedback_row_selected">ردیف انتخاب شد</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s انتخاب شد</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">قابل پیمایش</string>
+  <string name="switch_access_spoken_feedback_scroll">برای پیمایش انتخاب کنید</string>
+  <string name="switch_access_spoken_feedback_unknown">مورد نامشخص</string>
+  <string name="scanning_method_heading">نحوه اسکن را انتخاب کنید</string>
+  <string name="row_column_scanning_description">هر بار یک ردیف اسکن می‌شود. وقتی ردیفی انتخاب می‌شود، بین موارد در آن فهرست حرکت می‌کنید.</string>
+  <string name="linear_scanning_description">یکی‌یکی جابه‌جا شدن بین موارد</string>
+  <string name="linear_scanning_except_keyboard_description">یکی‌یکی بین موارد جابه‌جا شوید. توجه داشته باشید صفحه‌کلیدها همیشه به‌صورت ردیفی اسکن می‌شوند.</string>
+  <string name="option_scanning_description">به همه موارد، رنگی اختصاص داده می‌شود. سوئیچ مربوط به رنگ اطراف مورد مدنظرتان را فشار دهید. اندازه گروه را کاهش دهید تا به گزینه موردنظرتان برسید.</string>
+  <string name="setup_switch_assignment_heading">سوئیچ‌های اختصاص داده‌شده به %s</string>
+  <string name="setup_switch_assignment_empty">هیچ‌کدام</string>
+  <string name="clear_keys_dialog_title">سوئیچ‌های اختصاص داده‌شده پاک شوند؟</string>
+  <string name="clear_keys_dialog_message">از قبل سوئیچ‌ها را اختصاص داده‌اید.</string>
+  <string name="clear_keys_dialog_positive_button">پاک کردن سوئیچ‌ها</string>
+  <string name="clear_keys_dialog_negative_button">سوئیچ‌ها حفظ شوند</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">سوئیچی اختصاص داده نشده است</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">هیچ سوئیچی به این عمل اختصاص داده نشده است. مطمئنید می‌خواهید ادامه دهید؟</string>
+  <string name="option_scan_switch_title">گروه %1$s</string>
+  <string name="option_scan_switch_subtitle">سوئیچی را فشار دهید تا آن را به انتخاب گروه %1$s اختصاص دهید.</string>
+  <string name="assign_switch_subtitle">سوئیچی را فشار دهید تا آن را به عمل «%1$s» اختصاص دهید.</string>
+  <string name="auto_scan_action_description">شروع اسکن و انتخاب</string>
+  <string name="switch_game_heading">‏با Tic-Tac-Toe، راه‌اندازی‌تان را آزمایش کنید</string>
+  <string name="switch_game_one_switch_linear_subheading">برای شروع اسکن، «%1$s» را فشار دهید. برای برجسته کردن مورد، دوباره سوئیچ را فشار دهید. اول شما!</string>
+  <string name="switch_game_one_switch_row_col_subheading">برای شروع اسکن، «%1$s» را فشار دهید. برای برجسته کردن مورد، دوباره سوئیچ را فشار دهید. برای انتخاب مورد برجسته‌شده، یک بار دیگر سوئیچ را فشار دهید. اول شما!</string>
+  <string name="switch_game_two_switch_linear_subheading">برای حرکت بین موارد، «%1$s» را فشار دهید. برای انتخاب مورد برجسته‌شده، «%2$s» را فشار دهید. اول شما!</string>
+  <string name="switch_game_two_switch_row_col_subheading">برای حرکت میان ردیف‌ها، «%1$s» را فشار دهید. برای انتخاب ردیف برجسته‌شده، «%2$s» را فشار دهید. برای انتخاب موردی در آن ردیف، این کار را تکرار کنید. اول شما!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">برای انتخاب موارد برجسته‌شده به رنگ %2$s، سوئیچ «%1$s» را فشار دهید یا برای انتخاب موارد برجسته‌شده به رنگ %3$s، سوئیچ «%4$s» را فشار دهید. این کار را تا رسیدن به مورد مدنظرتان تکرار کنید. اول شما!</string>
+  <string name="switch_game_incomplete_switches_subheading">هنوز برای همه کنش‌ها، سوئیچ اختصاص داده نشده است. با دکمه «قبلی» به عقب برگردید و اختصاص دادن سوئیچ‌ها را کامل کنید.</string>
+  <string name="game_square_content_description">%1$s در موقعیت %2$s، %3$s</string>
+  <string name="game_square_no_marker_content_description">خالی</string>
+  <string name="game_reset_button_title">بازنشانی بازی</string>
+  <string name="game_square_already_taken">این مربع قبلاً گرفته شده است. دوباره امتحان کنید!</string>
+  <string name="game_win_outcome_title">برنده شدید!</string>
+  <string name="game_loss_outcome_title">به امید خوش‌شانسی بیشتر در دفعه بعد</string>
+  <string name="game_tie_outcome_title">مساوی شدید</string>
+  <string name="game_outcome_body_text">می‌توانید تنظیم فعلی‌تان را حفظ کنید یا از نو شروع کنید.</string>
+  <string name="game_outcome_positive_response">تنظیم حفظ شود</string>
+  <string name="game_outcome_negative_response">شروع مجدد</string>
+  <string name="setup_completion_heading">راه‌اندازی تمام شد</string>
+  <string name="setup_completion_message">همه چیز مرتب است.</string>
+  <string name="setup_completion_settings_reminder">همواره می‌توانید در تنظیمات «دسترسی سوئیچ» تنظیمات اضافی را تغییر دهید یا دوباره برنامه راه‌اندازی را باز کنید.</string>
+  <string name="dialog_url_list">انتخاب پیوند</string>
+  <string name="dialog_do_not_disturb_permission_title">دسترسی سوئیچ برای تنظیم میزان صدا به مجوز نیاز دارد</string>
+  <string name="dialog_do_not_disturb_permission_message">‏برای تنظیم میزان صدا از منوی «دسترسی سوئیچ»، دسترسی «مزاحم نشوید» را برای «مجموعه دسترس‌پذیری Android» روشن کنید</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">باز کردن تنظیمات</string>
 </resources>

@@ -1,172 +1,327 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Switch Access"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Funkcja Switch Access umożliwia osobom niepełnosprawnym ruchowo obsługę telefonów i tabletów za pomocą jednego lub kilku przełączników. Przełącznik pozwala wybrać element, przewijać, wpisać tekst i wykonać wiele innych czynności."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Steruj urządzeniem, używając przełączników"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Pomoc i opinie"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Automatyczne skanowanie"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Czas automatycznego skanowania"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Wsteczne skanowanie automatyczne"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="few">%.2f sekundy</item>
-      <item quantity="many">%.2f sekund</item>
-      <item quantity="other">%.2f sekundy</item>
-      <item quantity="one">1 sekunda</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Dostosowywanie skanowania"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Metoda skanowania"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Opóźnienie przy pierwszym elemencie"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Przypisywanie przełączników"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Przypisywanie przełączników do czynności"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Przypisywane przełączników do skanowania"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Szybkość linii"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Liczba skanowań"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Wybierz liczbę powtórzeń skanowania"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Czas odbicia"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Wszystkie naciśnięcia w tym czasie będą traktowane jako jedno naciśnięcie."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Zwolnij, by wykonać czynność"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Wykonaj czynność po zwolnieniu przełącznika"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="few">%d pętle</item>
-      <item quantity="many">%d pętli</item>
-      <item quantity="other">%d pętli</item>
-      <item quantity="one">%d pętla</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Klawisz „<xliff:g id="KEY_NAME">%1$s</xliff:g>” jest już przypisany do czynności „<xliff:g id="ACTION_NAME">%2$s</xliff:g>”"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="few">%d przypisane przełączniki</item>
-      <item quantity="many">%d przypisanych przełączników</item>
-      <item quantity="other">%d przypisanego przełącznika</item>
-      <item quantity="one">%d przypisany przełącznik</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Przełącznik wyboru grupy %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Dalej"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Wstecz"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Wybierz"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Długie naciśnięcie"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Przewiń do przodu"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Przewijanie do tyłu"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Zamknij"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Rozwiń"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Zwiń"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Zaznaczanie tekstu"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Kopiuj"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Wytnij"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Wklej"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENU"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Wstecz"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Ekran główny"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Przegląd"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Powiadomienia"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Szybkie ustawienia"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Przewiń do przodu"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Przewijanie do tyłu"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Skanowanie punktowe"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Zakończ skanowanie punktowe"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Przesuń w prawo"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Przesuń w lewo"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Przesuń w górę"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Przesuń w dół"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Przesunięcie (niestandardowe)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Pomniejsz"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Powiększ"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Ustawienia funkcji Switch Access"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Naciśnij kombinację przełączników, by dodać lub usunąć z listy"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Wyczyść przypisanie przełącznika"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Brak przypisanych przełączników"</string>
-    <string name="more" msgid="1547670498589416840">"Więcej"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Spacja"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"Zapisz"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Styl zaznaczenia podczas skanowania"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Podstawowy styl skanowania"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Kolor zaznaczenia"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Styl linii zaznaczenia"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Polityka prywatności"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Włącz automatyczne wybieranie"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Wyłącz automatyczne wybieranie"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Następny znak"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Następne słowo"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Następny wiersz"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Następny akapit"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Następna strona"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Poprzedni znak"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Poprzednie słowo"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Poprzedni wiersz"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Poprzedni akapit"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Poprzednia strona"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Rozpocznij skanowanie automatycznie"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Skanowanie rozpocznie się bez naciskania przełącznika"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Otwórz konfigurację funkcji Switch Access"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Kreator ustawień funkcji Switch Access"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Jeden przełącznik"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Dwa przełączniki"</string>
-    <string name="finish" msgid="4267641294267512480">"Zakończ"</string>
-    <string name="exit" msgid="8664597014081860813">"Zamknij"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Wybierz liczbę przełączników"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Naciśnij przełącznik, by zacząć automatyczne przechodzenie między elementami, a następnie naciśnij ponownie i wybierz wyróżniony element."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Naciśnij jeden przełącznik, by przechodzić między elementami. Naciśnij drugi, by wybrać wyróżniony element."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Wybierz szybkość skanowania"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Wybierz czas wyróżnienia poszczególnych elementów"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Szybko (opóźnienie <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Średnio (opóźnienie <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Wolno (opóźnienie <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Niestandardowe"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"opóźnienie (w sekundach)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Klawisz „<xliff:g id="KEY_NAME">%1$s</xliff:g>” jest już przypisany do innej czynności"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Skanowanie wg wierszy/kolumn"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Wybór grupy"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Skanowanie liniowe"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Komunikat głosowy"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Ustawienia TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Wiele elementów"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Wypowiadaj nazwę pierwszego i ostatniego elementu"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Wypowiadaj liczbę elementów"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Wypowiadaj nazwy wszystkich wyróżnionych elementów"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Zakończ komunikat głosowy przed przesunięciem"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"grupa <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"Od <xliff:g id="ID_1">%1$s</xliff:g> do <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"Elementy: <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"wybierz, by przewinąć"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"nieznany element"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Wybierz sposób skanowania"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Skanowanie pojedynczych wierszy. Po wybraniu wiersza przechodź do kolejnych elementów na liście."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Przesuwanie po pojedynczych elementach. Pamiętaj, że klawiatura zawsze skanuje według wiersza."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Do wszystkich elementów zostaną przypisane kolory. Naciśnij przełącznik odpowiadający kolorowi wokół wybranego elementu. Zawężaj grupę, aż zdołasz wskazać wybrany element."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Przełączniki przypisane do czynności <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Brak"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Wyczyścić przypisane przełączniki?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Przełączniki są już przypisane."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Wyczyść przełączniki"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Zachowaj przełączniki"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Brak przypisanych przełączników"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Do tej czynności nie przypisano przełączników. Czy na pewno chcesz kontynuować?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Grupa <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Naciśnij przełącznik, by przypisać go do wyboru grupy <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Naciśnij przełącznik, by przypisać go do czynności „<xliff:g id="ACTION_NAME">%1$s</xliff:g>”."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Rozpoczęcie skanowania i wybór"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Sprawdź konfigurację, grając w kółko i krzyżyk"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Naciśnij „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>”, by rozpocząć skanowanie. Naciśnij przełącznik ponownie, by wybrać wyróżniony element. Twoja kolej."</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Naciśnij „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>”, by rozpocząć skanowanie. Naciśnij przełącznik ponownie, by wybrać wyróżniony wiersz. Twoja kolej."</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Naciśnij „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>”, by przechodzić między elementami. Naciśnij „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>”, wy wybrać wyróżniony element. Twoja kolej."</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Naciśnij „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>”, by przechodzić między wierszami. Naciśnij „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>”, by wybrać wyróżniony wiersz. Powtórz czynność, by wybrać element w tym wierszu. Twoja kolej."</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Naciśnij „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>”, by wybrać wyróżnione elementy w kolorze: <xliff:g id="COLOR_NAME_1">%2$s</xliff:g>, lub „<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>”, by wybrać wyróżnione elementy w kolorze: <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Powtarzaj czynność, aż dotrzesz do swojego elementu. Twoja kolej."</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Nie masz jeszcze wszystkich czynności przypisanych do przełączników. Użyj przycisku Wstecz i dokończ przypisywanie."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Zresetuj grę"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"To pole jest już zajęte. Spróbuj jeszcze raz."</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Wygrywasz"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Następnym razem się uda"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Remis"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Możesz zachować bieżącą konfigurację lub zacząć jeszcze raz."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Zachowaj konfigurację"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Jeszcze raz"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Konfigurowanie ukończone"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Wszystko gotowe."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Zawsze możesz zmienić dodatkowe ustawienia lub ponownie otworzyć kreator w ustawieniach funkcji Switch Access."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Switch Access</string>
+  <string name="switch_access_service_description">Funkcja Switch Access umożliwia osobom niepełnosprawnym ruchowo obsługę telefonów i tabletów za pomocą jednego lub kilku przełączników. Przełącznik pozwala wybrać element, przewijać, wpisać tekst i wykonać wiele innych czynności.</string>
+  <string name="switch_access_service_summary">Steruj urządzeniem, używając przełączników</string>
+  <string name="title_pref_help_feedback">Pomoc i opinie</string>
+  <string name="title_pref_licenses">Licencje open source</string>
+  <string name="title_pref_category_auto_scan">Automatyczne skanowanie</string>
+  <string name="title_pref_auto_scan_disabled">Automatyczne skanowanie (wyłączone)</string>
+  <string name="action_key_summary_auto_scan">Naciśnięcie tego przełącznika spowoduje rozpoczęcie automatycznego przechodzenia między elementami. Ponowne naciśnięcie spowoduje wybranie zaznaczonego elementu.</string>
+  <string name="title_pref_auto_scan_time_delay">Czas automatycznego skanowania</string>
+  <string name="action_name_reverse_auto_scan">Wsteczne skanowanie automatyczne</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Wsteczne skanowanie automatyczne (wyłączone)</string>
+  <string name="action_key_summary_reverse_auto_scan">Naciśnięcie tego przełącznika spowoduje rozpoczęcie automatycznego przechodzenia wstecz między elementami. Ponowne naciśnięcie spowoduje wybranie zaznaczonego elementu.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 sekunda</item>
+    <item quantity="few">%.2f sekundy</item>
+    <item quantity="many">%.2f sekund</item>
+    <item quantity="other">%.2f sekundy</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Dostosowywanie skanowania</string>
+  <string name="title_pref_scanning_methods">Metoda skanowania</string>
+  <string name="title_pref_start_scan_delay">Opóźnienie przy pierwszym elemencie</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Określ dodatkowy czas przy pierwszym zaznaczonym elemencie. Zostanie on dodany do czasu automatycznego skanowania.\n\nTo ustawienie ma wpływ zarówno na skanowanie automatyczne, jak i na skanowanie punktowe.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Określ dodatkowy czas przy pierwszym zaznaczonym elemencie. Po jego upływie pionowa lub pozioma linia zacznie się przemieszczać.\n\nTo ustawienie ma wpływ zarówno na skanowanie automatyczne, jak i na skanowanie punktowe.</string>
+  <string name="title_pref_category_assign_switches">Przypisywanie przełączników</string>
+  <string name="title_pref_category_key_mappings">Przypisywanie przełączników do czynności globalnych</string>
+  <string name="summary_pref_category_key_mappings">Czynności globalne mogą być wykonywane w dowolnym momencie</string>
+  <string name="title_pref_category_scan_key_mappings">Przypisywane przełączników do skanowania</string>
+  <string name="summary_pref_category_scan_key_mappings">Skanowanie pozwala przesuwać zaznaczenie i wybierać zaznaczone elementy</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Przesuwanie i wybór</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Czynności dostępne dla zaznaczonego elementu</string>
+  <string name="title_pref_point_scan_line_speed">Szybkość linii</string>
+  <string name="dialog_message_pref_line_speed">Wybierz szybkość, z jaką linie (pionowa i pozioma) mają się przesuwać po ekranie.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 cm na sekundę</item>
+    <item quantity="few">%.2f cm na sekundę</item>
+    <item quantity="many">%.2f cm na sekundę</item>
+    <item quantity="other">%.2f cm na sekundę</item>
+  </plurals>
+  <string name="title_pref_loop_count">Liczba skanowań</string>
+  <string name="dialog_message_pref_loop_count">Wybierz liczbę powtórzeń skanowania punktowego.\n\nTo ustawienie ma wpływ zarówno na skanowanie automatyczne, jak i na skanowanie punktowe.</string>
+  <string name="summary_pref_point_scan">Wybierz konkretną lokalizację w pionie i w poziomie, posługując się przesuwającymi się liniami. %1$s</string>
+  <string name="point_scan_enable_animations_message">Włącz animacje, by użyć tej funkcji.</string>
+  <string name="title_pref_category_switch_accomodation">Dostosowywanie działania przełącznika</string>
+  <string name="title_pref_debounce_time">Ignoruj powtórzone naciśnięcia</string>
+  <string name="dialog_message_pref_debounce_time">Wszystkie naciśnięcia przełącznika w tym czasie będą traktowane jako jedno naciśnięcie.</string>
+  <string name="title_pref_press_on_release">Zwolnij, by wykonać czynność</string>
+  <string name="subtitle_pref_press_on_release">Wykonaj czynność po zwolnieniu przełącznika</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d pętla</item>
+    <item quantity="few">%d pętle</item>
+    <item quantity="many">%d pętli</item>
+    <item quantity="other">%d pętli</item>
+  </plurals>
+  <string name="preference_off">Wyłączone</string>
+  <string name="preference_on">Wł.</string>
+  <string name="toast_msg_key_already_assigned">Klawisz „%1$s” jest już przypisany do czynności „%2$s”</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d przypisany przełącznik</item>
+    <item quantity="few">%d przypisane przełączniki</item>
+    <item quantity="many">%d przypisanych przełączników</item>
+    <item quantity="other">%d przypisanego przełącznika</item>
+  </plurals>
+  <string name="option_scan_switch_format">Przełącznik wyboru grupy %1$d</string>
+  <string name="option_scan_switch_format_with_color">Przełącznik wyboru grupy %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Naciśnięcie tego przełącznika spowoduje wybór grupy %1$d.</string>
+  <string name="action_name_next">Dalej</string>
+  <string name="action_key_summary_next">Naciśnięcie tego przełącznika spowoduje zaznaczenie kolejnego elementu.</string>
+  <string name="action_name_previous">Wstecz</string>
+  <string name="action_key_summary_previous">Naciśnięcie tego przełącznika spowoduje zaznaczenie poprzedniego elementu.</string>
+  <string name="action_name_click">Wybierz</string>
+  <string name="action_key_summary_click">Naciśnięcie tego przełącznika spowoduje wybór zaznaczonego elementu.</string>
+  <string name="action_name_long_click">Dotknij i przytrzymaj</string>
+  <string name="action_key_summary_long_click">Naciśnięcie tego przełącznika spowoduje dotknięcie i przytrzymanie zaznaczonego elementu.</string>
+  <string name="action_name_scroll_forward">Przewiń do przodu</string>
+  <string name="action_key_summary_scroll_forward">Naciśnięcie tego przełącznika spowoduje przewinięcie zaznaczonego elementu do przodu.</string>
+  <string name="action_name_scroll_backward">Przewiń do tyłu</string>
+  <string name="action_key_summary_scroll_backward">Naciśnięcie tego przełącznika spowoduje przewinięcie zaznaczonego elementu do tyłu.</string>
+  <string name="action_name_dismiss">Zamknij</string>
+  <string name="action_name_expand">Rozwiń</string>
+  <string name="action_name_collapse">Zwiń</string>
+  <string name="action_name_highlight_text">Zaznaczanie tekstu</string>
+  <string name="action_group_name_highlight">Zaznaczenie...</string>
+  <string name="action_name_highlight_all_text">Zaznacz cały tekst</string>
+  <string name="action_name_highlight_granular_text">Zaznacz: %1$s</string>
+  <string name="action_name_copy">Kopiuj</string>
+  <string name="action_name_copy_all_text">Kopiuj wszystko</string>
+  <string name="action_name_cut">Wytnij</string>
+  <string name="action_name_cut_all_text">Wytnij wszystko</string>
+  <string name="action_name_paste">Wklej</string>
+  <string name="action_name_undo">Cofnij</string>
+  <string name="action_name_redo">Ponów</string>
+  <string name="action_group_name_delete">Usuń...</string>
+  <string name="action_name_delete">Usuń: %1$s</string>
+  <string name="action_name_delete_highlighted_text">Usuń zaznaczony tekst</string>
+  <string name="option_scanning_menu_button">MENU</string>
+  <string name="option_scanning_menu_button_content_description">Menu funkcji Switch Access</string>
+  <string name="switch_access_global_menu">Menu ustawień globalnych Switch Access</string>
+  <string name="switch_access_actions_menu">Menu czynności Switch Access</string>
+  <string name="switch_access_close_menu">ZAMKNIJ</string>
+  <string name="switch_access_back_menu">WSTECZ</string>
+  <string name="next_arrow_content_description">Dalej</string>
+  <string name="previous_arrow_content_description">Wstecz</string>
+  <string name="global_action_back">Wstecz</string>
+  <string name="global_action_key_summary_back">Naciśnięcie tego przełącznika spowoduje powrót do poprzedniego ekranu lub ukrycie klawiatury, jeśli jest widoczna.</string>
+  <string name="global_action_home">Ekran główny</string>
+  <string name="global_action_key_summary_home">Naciśnięcie tego przełącznika spowoduje powrót do ekranu głównego.</string>
+  <string name="global_action_overview">Przegląd</string>
+  <string name="global_action_key_summary_overview">Naciśnięcie tego przełącznika spowoduje wyświetlenie listy ostatnio otwieranych aplikacji.</string>
+  <string name="global_action_notifications">Powiadomienia</string>
+  <string name="global_action_key_summary_notifications">Naciśnięcie tego przełącznika spowoduje wyświetlenie powiadomień urządzenia.</string>
+  <string name="global_action_quick_settings">Szybkie ustawienia</string>
+  <string name="global_action_key_summary_quick_settings">Naciśnięcie tego przełącznika spowoduje wyświetlenie Szybkich ustawień urządzenia.</string>
+  <string name="global_action_power_options">Opcje przycisku zasilania</string>
+  <string name="global_menu_volume_heading">Głośność</string>
+  <string name="volume_menu_media">Głośność multimediów</string>
+  <string name="volume_menu_call">Głośność połączenia</string>
+  <string name="volume_menu_ring">Głośność dzwonka</string>
+  <string name="volume_menu_alarm">Głośność alarmu</string>
+  <string name="volume_menu_accessibility">Głośność przy ułatwieniach dostępu</string>
+  <string name="volume_menu_mute">Wycisz</string>
+  <string name="volume_menu_unmute">Wyłącz wyciszenie</string>
+  <string name="volume_menu_increase">Zwiększ</string>
+  <string name="volume_settings">Ustawienia głośności</string>
+  <string name="volume_menu_decrease">Zmniejsz</string>
+  <string name="scrollable_forward">Przewiń do przodu</string>
+  <string name="scrollable_backward">Przewiń do tyłu</string>
+  <string name="point_scan">Skanowanie punktowe</string>
+  <string name="box_scan">Zakończ skanowanie punktowe</string>
+  <string name="action_name_swipe_right">Przesuń w prawo</string>
+  <string name="action_name_swipe_left">Przesuń w lewo</string>
+  <string name="action_name_swipe_up">Przesuń w górę</string>
+  <string name="action_name_swipe_down">Przesuń w dół</string>
+  <string name="action_name_swipe_custom">Przesunięcie (niestandardowe)</string>
+  <string name="action_name_zoom_out">Pomniejsz</string>
+  <string name="action_name_zoom_in">Powiększ</string>
+  <string name="switch_access_preferences_title">Ustawienia funkcji Switch Access</string>
+  <string name="key_combo_preference_instructions">Naciśnij kombinację przełączników, by dodać lub usunąć z listy</string>
+  <string name="key_combo_preference_reset_button">Wyczyść przypisanie przełącznika</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Brak przypisanych przełączników</string>
+  <string name="more">Więcej</string>
+  <string name="name_of_space_bar">Spacja</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">Zapisz</string>
+  <string name="title_pref_category_display_and_sound">Wyświetlacz i dźwięk</string>
+  <string name="title_pref_highlight_0">Styl zaznaczenia podczas skanowania</string>
+  <string name="title_pref_primary_scan_style">Podstawowy styl skanowania</string>
+  <string name="title_pref_highlight_0_color">Kolor zaznaczenia</string>
+  <string name="title_pref_highlight_0_weight">Styl linii zaznaczenia</string>
+  <string name="title_pref_privacy_policy">Polityka prywatności</string>
+  <string name="title_pref_auto_select">Wybór automatyczny</string>
+  <string name="summary_pref_auto_select">Automatycznie wybierz zaznaczony element. Jeśli nie można go zaznaczyć lub to ustawienie jest wyłączone, zobaczysz menu z dostępnymi czynnościami.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Włącz automatyczne wybieranie</string>
+  <string name="switch_access_global_menu_disable_autoselect">Wyłącz automatyczne wybieranie</string>
+  <string name="switch_access_move_next">Dalej...</string>
+  <string name="switch_access_move_next_character">Następny znak</string>
+  <string name="switch_access_move_next_word">Następne słowo</string>
+  <string name="switch_access_move_next_line">Następny wiersz</string>
+  <string name="switch_access_move_next_paragraph">Następny akapit</string>
+  <string name="switch_access_move_next_page">Następna strona</string>
+  <string name="switch_access_move_next_sentence">Następne zdanie</string>
+  <string name="switch_access_move_prev">Wstecz...</string>
+  <string name="switch_access_move_prev_character">Poprzedni znak</string>
+  <string name="switch_access_move_prev_word">Poprzednie słowo</string>
+  <string name="switch_access_move_prev_line">Poprzedni wiersz</string>
+  <string name="switch_access_move_prev_paragraph">Poprzedni akapit</string>
+  <string name="switch_access_move_prev_page">Poprzednia strona</string>
+  <string name="switch_access_move_prev_sentence">Poprzednie zdanie</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Rozpocznij skanowanie automatycznie</string>
+  <string name="switch_access_auto_start_scan_summary">Skanowanie rozpocznie się bez naciskania przełącznika</string>
+  <string name="pref_begin_switchaccess_setup_title">Otwórz przewodnik po konfiguracji</string>
+  <string name="setup_wizard_heading">Przewodnik po konfiguracji Switch Access</string>
+  <string name="one_switch">Jeden przełącznik</string>
+  <string name="two_switches">Dwa przełączniki</string>
+  <string name="finish">Zakończ</string>
+  <string name="exit">Zamknij</string>
+  <string name="intro_heading">Wybierz przełącznik</string>
+  <string name="usb_switch_option_text">Przełącznik USB</string>
+  <string name="bluetooth_switch_option_text">Przełącznik Bluetooth</string>
+  <string name="usb_switch_description_text">Podłącz przewodnik fizycznie przez USB</string>
+  <string name="bluetooth_switch_description_text">Sparuj przełącznik bezprzewodowo przez Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">Twoje urządzenie nie obsługuje Bluetootha. Spróbuj użyć przełącznika podłączanego fizycznie.</string>
+  <string name="connected_usb_devices_header">Podłączone urządzenia</string>
+  <string name="usb_no_devices_connected_message">Nie znaleziono urządzenia USB. Upewnij się, że urządzenie jest prawidłowo podłączone.</string>
+  <string name="connect_usb_heading">Podłącz przełącznik USB</string>
+  <string name="pair_bluetooth_heading">Parowanie przełącznika Bluetooth</string>
+  <string name="pair_bluetooth_subheading">Kliknij przełącznik Bluetooth poniżej</string>
+  <string name="bluetooth_not_enabled_message">Aby sparować przełącznik Bluetooth, włącz Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Włącz Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Brak sparowanych urządzeń Bluetooth</string>
+  <string name="paired_devices_header">Sparowane urządzenia Bluetooth</string>
+  <string name="available_devices_header">Dostępne urządzenia Bluetooth</string>
+  <string name="bluetooth_computer_content_description">Komputer</string>
+  <string name="bluetooth_phone_content_description">Telefon</string>
+  <string name="bluetooth_imaging_content_description">Obrazowanie</string>
+  <string name="bluetooth_headphone_content_description">Słuchawki</string>
+  <string name="bluetooth_peripheral_content_description">Peryferyjne</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Łączę…</string>
+  <string name="bluetooth_connected_description">Połączono</string>
+  <string name="bluetooth_device_unavailable_description">Urządzenie niedostępne</string>
+  <string name="reconnecting_unsupported_title">Nie udało się połączyć z urządzeniem</string>
+  <string name="reconnecting_unsupported_message">Nie udało się połączyć sparowanego urządzenia z funkcją Switch Access. Upewnij się, że urządzenie jest włączone i podłączone.\n\nJeśli urządzenia nie uda się podłączyć, otwórz ustawienia Bluetootha i spróbuj połączyć ponownie.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Otwórz ustawienia Bluetootha</string>
+  <string name="number_of_switches_heading">Wybierz liczbę przełączników</string>
+  <string name="title_assign_scan_key">Przypisywanie przełącznika: %1$s</string>
+  <string name="one_switch_description_text">Naciśnij przełącznik, by zacząć automatyczne przechodzenie między elementami. Naciśnij ponownie, by wybrać zaznaczony element.</string>
+  <string name="two_switches_description_text">Naciśnij jeden przełącznik, by przechodzić między elementami. Naciśnij drugi, by wybrać wyróżniony element.</string>
+  <string name="step_speed_heading">Wybierz szybkość skanowania</string>
+  <string name="step_speed_subheading">Wybierz czas wyróżnienia poszczególnych elementów</string>
+  <string name="fast_radio_button_title">Szybko (opóźnienie %1$s s)</string>
+  <string name="medium_radio_button_title">Średnio (opóźnienie %1$s s)</string>
+  <string name="slow_radio_button_title">Wolno (opóźnienie %1$s s)</string>
+  <string name="custom_switch">Niestandardowe</string>
+  <string name="custom_edit_text">opóźnienie (w sekundach)</string>
+  <string name="setup_toast_msg_key_already_assigned">Klawisz „%1$s” jest już przypisany do innej czynności</string>
+  <string name="row_column_scanning_title">Skanowanie wg wierszy/kolumn</string>
+  <string name="option_scanning_title">Wybór grupy (zaawansowane)</string>
+  <string name="linear_scanning_title">Skanowanie liniowe</string>
+  <string name="linear_scanning_except_keyboard_title">Skanowanie liniowe (oprócz klawiatury)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Mowa, dźwięki i wibracje</string>
+  <string name="title_pref_switch_access_spoken_feedback">Komunikat głosowy</string>
+  <string name="title_pref_scan_non_actionable_items">Odczytuj opisy</string>
+  <string name="scan_non_actionable_items_summary">Włącz komunikaty głosowe z omówieniem elementów, dla których są dostępne czynności, oraz elementów z opisem</string>
+  <string name="title_pref_switch_access_verbosity">Szczegółowość</string>
+  <string name="summary_verbosity">Określ szczegółowość podawanych informacji</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Informacje o szczegółowości</string>
+  <string name="title_pref_switch_access_keyboard_echo">Echo klawiatury</string>
+  <string name="keyboard_echo_summary_on">Odczytuj nazwy klawiszy naciskanych na klawiaturze ekranowej</string>
+  <string name="keyboard_echo_summary_off">Nazwy klawiszy naciskanych na klawiaturze ekranowej nie będą odczytywane</string>
+  <string name="title_pref_enable_hints">Odczytuj wskazówki użytkowania</string>
+  <string name="enable_hints_summary_on">Wskazówki dotyczące użytkowania będą odczytywane podczas nawigowania po krótkim opóźnieniu</string>
+  <string name="enable_hints_summary_off">Wskazówki dotyczące użytkowania nie będą odczytywane po przeniesieniu fokusu</string>
+  <string name="title_pref_speak_container_element_position">Odczytuj informacje o listach i siatkach</string>
+  <string name="speak_container_element_position_summary_on">Informacje o listach i siatkach będą odczytywane</string>
+  <string name="speak_container_element_position_summary_off">Informacje o listach i siatkach nie będą odczytywane</string>
+  <string name="title_pref_speak_element_type">Odczytuj typ elementu</string>
+  <string name="speak_element_type_summary_on">Typ aktywnego elementu będzie odczytywany</string>
+  <string name="speak_element_type_summary_off">Typ aktywnego elementu nie będzie odczytywany</string>
+  <string name="title_pref_pitch_change_for_ime">Użyj zmian tonu</string>
+  <string name="pitch_change_for_ime_summary_on">Wypowiadaj wpisywany tekst niższym tonem</string>
+  <string name="pitch_change_for_ime_summary_off">Nie zmieniaj komunikatu głosowego podczas odczytywania</string>
+  <string name="title_pref_speak_selected_item_or_group">Odczytaj wybrany element/grupę</string>
+  <string name="speak_selected_item_or_group_summary">Odczytaj nazwę elementu lub grupy po zaznaczeniu</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Maksymalny czas odczytywania elementu</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Ustaw maksymalny czas odczytywania opisu poszczególnych elementów. Po upływie tego czasu komunikat zostanie ucięty.\nUwaga: po włączeniu tego ustawienia instrukcje zawsze będą odczytywane.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Inne</string>
+  <string name="title_pref_node_description_order">Kolejność opisów elementów</string>
+  <string name="title_pref_switch_access_speak_element_ids">Odczytuj identyfikatory elementów</string>
+  <string name="speak_element_ids_summary_on">Identyfikatory przycisków bez etykiet będą odczytywane</string>
+  <string name="speak_element_ids_summary_off">Identyfikatory przycisków bez etykiet nie będą odczytywane</string>
+  <string name="title_pref_switch_access_tts_settings">Ustawienia TTS</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Po zaznaczeniu wielu elementów</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Odczytuj pierwszy i ostatni element</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Wypowiadaj liczbę elementów</string>
+  <string name="title_pref_switch_access_speak_all_items">Wypowiadaj wszystkie wyróżnione elementy</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Zakończ mowę przed przesunięciem</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Inne powiadomienia</string>
+  <string name="title_pref_developer_settings">Ustawienia programisty</string>
+  <string name="title_pref_spoken_feedback_overlay">Pokaż urządzenie wyjściowe mowy</string>
+  <string name="title_pref_switch_access_vibration_feedback">Sygnał wibracyjny</string>
+  <string name="vibration_feedback_summary">Włącz wibracje, by poinformować o zmianach (np. zawartości ekranu)</string>
+  <string name="title_pref_switch_access_sound_feedback">Sygnał dźwiękowy</string>
+  <string name="sound_feedback_summary">Odtwórz ikonę audio, by poinformować o zmianach (np. zawartości ekranu)</string>
+  <string name="title_pref_switch_access_sound_volume">Głośność dźwięku</string>
+  <string name="title_pref_switch_access_audio_ducking">Wyciszanie dźwięku</string>
+  <string name="audio_ducking_summary">Zmniejsz głośność innych dźwięków podczas odczytywania</string>
+  <string name="switch_access_focus_cleared_no_selection">Ekran się zmienił</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Naciśnij przełącznik wyboru, by wybrać wiersz</string>
+  <string name="switch_access_spoken_feedback_group">grupa %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Naciśnij przełącznik grupy %1$s, by wybrać grupę</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Naciśnij przełącznik grupy %1$s, by wybrać element</string>
+  <string name="switch_access_spoken_feedback_to">Od %1$s do %2$s</string>
+  <string name="switch_access_spoken_feedback_items">Elementy: %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selected">wybrano grupę %1$s</string>
+  <string name="switch_access_spoken_feedback_row_selected">wybrano wiersz</string>
+  <string name="switch_access_spoken_feedback_item_selected">wybrano element %1$s</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">można przewijać</string>
+  <string name="switch_access_spoken_feedback_scroll">wybierz, by przewinąć</string>
+  <string name="switch_access_spoken_feedback_unknown">nieznany element</string>
+  <string name="scanning_method_heading">Wybierz sposób skanowania</string>
+  <string name="row_column_scanning_description">Skanowanie pojedynczych wierszy. Po wybraniu wiersza przechodź do kolejnych elementów na liście.</string>
+  <string name="linear_scanning_description">Przechodź pomiędzy kolejnymi elementami</string>
+  <string name="linear_scanning_except_keyboard_description">Przesuwanie po pojedynczych elementach. Pamiętaj, że klawiatura skanuje według wiersza.</string>
+  <string name="option_scanning_description">Do wszystkich elementów zostaną przypisane kolory. Naciśnij przełącznik odpowiadający kolorowi wokół wybranego elementu. Zawężaj grupę, aż zdołasz wskazać wybrany element.</string>
+  <string name="setup_switch_assignment_heading">Przełączniki przypisane do czynności %s</string>
+  <string name="setup_switch_assignment_empty">Brak</string>
+  <string name="clear_keys_dialog_title">Wyczyścić przypisane przełączniki?</string>
+  <string name="clear_keys_dialog_message">Przełączniki są już przypisane.</string>
+  <string name="clear_keys_dialog_positive_button">Wyczyść przełączniki</string>
+  <string name="clear_keys_dialog_negative_button">Zachowaj przełączniki</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Brak przypisanych przełączników</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Do tej czynności nie przypisano przełączników. Czy na pewno chcesz kontynuować?</string>
+  <string name="option_scan_switch_title">Grupa %1$s</string>
+  <string name="option_scan_switch_subtitle">Naciśnij przełącznik, by przypisać go do wyboru grupy %1$s.</string>
+  <string name="assign_switch_subtitle">Naciśnij przełącznik, by przypisać go do czynności „%1$s”.</string>
+  <string name="auto_scan_action_description">Rozpoczęcie skanowania i wybór</string>
+  <string name="switch_game_heading">Sprawdź konfigurację, grając w kółko i krzyżyk</string>
+  <string name="switch_game_one_switch_linear_subheading">Naciśnij „%1$s”, by rozpocząć skanowanie. Naciśnij przełącznik ponownie, by wybrać wyróżniony element. Twoja kolej.</string>
+  <string name="switch_game_one_switch_row_col_subheading">Naciśnij „%1$s”, by rozpocząć skanowanie. Naciśnij przełącznik ponownie, by wybrać wyróżniony wiersz. Twoja kolej.</string>
+  <string name="switch_game_two_switch_linear_subheading">Naciskaj „%1$s”, by przechodzić między elementami. Naciśnij „%2$s”, by wybrać zaznaczony element. Twoja kolej.</string>
+  <string name="switch_game_two_switch_row_col_subheading">Naciskaj „%1$s”, by przechodzić między wierszami. Naciśnij „%2$s”, by wybrać zaznaczony wiersz. Zrób to jeszcze raz, by wybrać element w tym wierszu. Twoja kolej.</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Naciśnij „%1$s”, by wybrać zaznaczone elementy w kolorze: %2$s, lub „%4$s”, by wybrać zaznaczone elementy w kolorze: %3$s. Powtarzaj czynność, aż dotrzesz do elementu, o który Ci chodzi. Twoja kolej.</string>
+  <string name="switch_game_incomplete_switches_subheading">Nie masz jeszcze wszystkich czynności przypisanych do przełączników. Użyj przycisku Wstecz i dokończ przypisywanie.</string>
+  <string name="game_square_content_description">%1$s w pozycji %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">pusto</string>
+  <string name="game_reset_button_title">Zresetuj grę</string>
+  <string name="game_square_already_taken">To pole jest już zajęte. Spróbuj jeszcze raz.</string>
+  <string name="game_win_outcome_title">Wygrywasz</string>
+  <string name="game_loss_outcome_title">Następnym razem się uda</string>
+  <string name="game_tie_outcome_title">Remis</string>
+  <string name="game_outcome_body_text">Możesz zachować bieżącą konfigurację lub zacząć jeszcze raz.</string>
+  <string name="game_outcome_positive_response">Zachowaj konfigurację</string>
+  <string name="game_outcome_negative_response">Jeszcze raz</string>
+  <string name="setup_completion_heading">Konfigurowanie ukończone</string>
+  <string name="setup_completion_message">Wszystko gotowe.</string>
+  <string name="setup_completion_settings_reminder">Zawsze możesz zmienić dodatkowe ustawienia lub ponownie otworzyć kreator w ustawieniach funkcji Switch Access.</string>
+  <string name="dialog_url_list">Wybierz link</string>
+  <string name="dialog_do_not_disturb_permission_title">Switch Access wymaga uprawnień do regulacji głośności</string>
+  <string name="dialog_do_not_disturb_permission_message">Aby regulować głośność w menu Switch Access, włącz dostęp do trybu Nie przeszkadzać dla Pakietu ułatwień dostępu na Androida</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Otwórz ustawienia</string>
 </resources>

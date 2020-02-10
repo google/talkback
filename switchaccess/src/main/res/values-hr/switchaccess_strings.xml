@@ -1,169 +1,323 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Prekidač za pristup"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Uz prekidač za pristup osobe s motoričkim poteškoćama mogu upravljati telefonima i tabletima pomoću jednog ili više prekidača. Prekidači omogućuju odabir stavki, pomicanje, unos teksta i još mnogo toga."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Kontrola uređaja prekidačima"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Pomoć i povratne informacije"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Automatsko traženje"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Vrijeme automatskog traženja"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Obrnuto automatsko skeniranje"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="one">%.2f sekunda</item>
-      <item quantity="few">%.2f sekunde</item>
-      <item quantity="other">%.2f sekundi</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Prilagodba traženja"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Način traženja"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Odgoda na prvoj stavki"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Dodjela prekidača"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Dodjela prekidača radnjama"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Dodjela prekidača za traženje"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Brzina linije"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Broj traženja"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Odaberite broj ponavljanja traženja"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Vrijeme istitravanja"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Više pritisaka u tom vremenu smatrat će se jednim pritiskom."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Izvrši radnju nakon otpuštanja"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Izvrši radnju kada se otpusti prekidač"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="one">%d petlja</item>
-      <item quantity="few">%d petlje</item>
-      <item quantity="other">%d petlji</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Prekidač \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" već je dodijeljen radnji \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\""</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="one">Dodijeljen je %d prekidač</item>
-      <item quantity="few">Dodijeljena su %d prekidača</item>
-      <item quantity="other">Dodijeljeno je %d prekidača</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"%1$d. prekidač za odabir grupe"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Sljedeće"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Prethodno"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Odaberi"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Dugi pritisak"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Pomicanje unaprijed"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Pomicanje unatrag"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Odbaci"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Proširivanje"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Sažimanje"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Isticanje teksta"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Kopiranje"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Izrezivanje"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Lijepljenje"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"IZBORNIK"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Natrag"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Početna"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Pregled"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Obavijesti"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Brze postavke"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Pomicanje unaprijed"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Pomicanje unatrag"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Traženje po točkama"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Izlaz iz traženja po točkama"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Prelazak prstom udesno"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Prelazak prstom ulijevo"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Prelazak prstom prema gore"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Prelazak prstom prema dolje"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Prelazak prstom (prilagođeno)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Smanjivanje"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Povećavanje"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Postavke prekidača za pristup"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Pritisnite kombinaciju prekidača da biste je dodali ili uklonili s popisa"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Izbriši dodijeljeni prekidač"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Nema dodijeljenih prekidača"</string>
-    <string name="more" msgid="1547670498589416840">"Više"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Razmaknica"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Unos"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tabulator"</string>
-    <string name="save" msgid="5398278773451196019">"Spremi"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Stil isticanja tijekom traženja"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Primarni stil traženja"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Boja isticanja"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Stil linije isticanja"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Pravila o privatnosti"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Omogući automatski odabir"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Onemogući automatski odabir"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Sljedeći znak"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Sljedeća riječ"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Sljedeći redak"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Sljedeći odlomak"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Sljedeća stranica"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Prethodni znak"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Prethodna riječ"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Prethodni redak"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Prethodni odlomak"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Prethodna stranica"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Automatski pokreni traženje"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Traženje počinje bez pritiska na prekidač"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Otvori postavke prekidača za pristup"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Čarobnjak za postavljanje prekidača za pristup"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Jedan prekidač"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Dva prekidača"</string>
-    <string name="finish" msgid="4267641294267512480">"Završi"</string>
-    <string name="exit" msgid="8664597014081860813">"Izlaz"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Odaberite broj prekidača"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Pritisnite prekidač da biste se počeli automatski pomicati među stavkama, a zatim ga pritisnite ponovo da biste odabrali istaknutu stavku."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Pritisnite jedan prekidač da biste se pomicali među stavkama. Pritisnite drugi prekidač da biste odabrali istaknutu stavku."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Odaberite brzinu traženja"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Odaberite trajanje isticanja pojedine stavke"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Brzo (odgoda od <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Srednje (odgoda od <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Sporo (odgoda od <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Prilagođeno"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"odgoda (u sekundama)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Tipka \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" već je dodijeljena drugoj radnji"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Traženje po retku/stupcu"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Odabir grupe"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Linearno traženje"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Govorne povratne informacije"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Postavke pretvaranja teksta u govor"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Za više stavki"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Izgovori prvu i zadnju stavku"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Izgovori broj stavki"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Izgovori sve označene stavke"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Završi izgovaranje prije pomicanja"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"grupa <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> do <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"Broj stavki: <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"odaberite za pomicanje"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"nepoznata stavka"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Odaberite način traženja"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Tražite po jednom retku. Nakon odabira retka pomičite se po stavkama na tom popisu."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Pomičite se jednu po jednu stavku. Napominjemo da tipkovnice uvijek traže po retku."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Svakoj stavki dodijelit će se boja. Pritisnite prekidač koji odgovara boji oko željene stavke. Veličinu grupe zatim možete smanjivati dok ne dođete do željene stavke."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Prekidači dodijeljeni radnji <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Nema"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Želite li izbrisati dodijeljene prekidače?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Već ste dodijelili prekidače."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Izbriši prekidače"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Zadrži prekidače"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Nema dodijeljenih prekidača"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Toj radnji niste dodijelili nijedan prekidač. Jeste li sigurni da želite nastaviti?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Grupa <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Pritisnite prekidač da biste ga dodijelili za odabir grupe <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Pritisnite prekidač da biste ga dodijeli radnji \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Pokretanje traženja i odabir"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Testirajte postavke uz Križić-kružić"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Pritisnite prekidač \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" da biste pokrenuli traženje. Pritisnite prekidač ponovo da biste odabrali istaknutu stavku. Prvi ste na redu!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Pritisnite prekidač \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" da biste pokrenuli traženje. Pritisnite prekdač ponovo da biste odabrali istaknuti redak. Pritisnite još jednom da biste odabrali istaknutu stavku. Prvi ste na redu!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Pritisnite prekidač \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" da biste se pomicali među stavkama. Pritisnite prekidač \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" da biste odabrali istaknutu stavku. Prvi ste na redu!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Pritisnite prekidač \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" da biste se pomicali među recima. Pritisnite prekidač \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" da biste odabrali istaknuti redak. Ponovite radnju da biste odabrali stavku u tom retku. Prvi ste na redu!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Pritisnite prekidač \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" da biste odabrali stavke čija je boja isticanja <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> ili pritisnite prekidač \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" da biste odabrali stavke čija je boja isticanja <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Ponovite da biste stigli do željene stavke. Prvi ste na redu!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Još niste dodijelili prekidače svim radnjama. Vratite se pomoću gumba Prethodno i dovršite dodjelu prekidača."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Poništi igru"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Taj je polje već zauzeto. Pokušajte ponovo!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Pobijedili ste!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Više sreće drugi put"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Neriješeno"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Možete zadržati trenutačne postavke ili početi ispočetka."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Zadrži postavke"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Počni ispočetka"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Postavljanje je završeno"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Spremni ste za rad."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Uvijek možete promijeniti dodatne postavke ili ponovo otvoriti čarobnjak za postavljanje u postavkama prekidača za pristup."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Prekidač za pristup</string>
+  <string name="switch_access_service_description">Uz prekidač za pristup osobe s motoričkim poteškoćama mogu upravljati telefonima i tabletima pomoću jednog ili više prekidača. Prekidači omogućuju odabir stavki, pomicanje, unos teksta i još mnogo toga.</string>
+  <string name="switch_access_service_summary">Kontrola uređaja prekidačima</string>
+  <string name="title_pref_help_feedback">Pomoć i povratne informacije</string>
+  <string name="title_pref_licenses">Licence otvorenog izvornog koda</string>
+  <string name="title_pref_category_auto_scan">Automatsko traženje</string>
+  <string name="title_pref_auto_scan_disabled">Automatsko traženje (onemogućeno)</string>
+  <string name="action_key_summary_auto_scan">Pritiskom tog prekidača automatski će se pokrenuti pomicanje isticanja među stavkama. Ponovnim će se pritiskom odabrati istaknuta stavka.</string>
+  <string name="title_pref_auto_scan_time_delay">Vrijeme automatskog traženja</string>
+  <string name="action_name_reverse_auto_scan">Obrnuto automatsko skeniranje</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Obrnuto automatsko traženje (onemogućeno)</string>
+  <string name="action_key_summary_reverse_auto_scan">Pritiskom tog prekidača automatski će se pokrenuti pomicanje isticanja među stavkama u suprotnom smjeru. Ponovnim će se pritiskom odabrati istaknuta stavka.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">%.2f sekunda</item>
+    <item quantity="few">%.2f sekunde</item>
+    <item quantity="other">%.2f sekundi</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Prilagodba traženja</string>
+  <string name="title_pref_scanning_methods">Način traženja</string>
+  <string name="title_pref_start_scan_delay">Odgoda na prvoj stavki</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Odaberite dodatno vrijeme zadržavanja na prvoj stavci. To će se vrijeme dodati vremenu automatskog traženja.\n\nTa postavka utječe na automatsko traženje i na traženje po točkama.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Odaberite dodatno vrijeme zadržavanja na prvoj stavci. Nakon tog vremena okomita ili vodoravna linija počet će se pomicati.\n\nTa postavka utječe na automatsko traženje i na traženje po točkama.</string>
+  <string name="title_pref_category_assign_switches">Dodjela prekidača</string>
+  <string name="title_pref_category_key_mappings">Dodjela prekidača globalnim radnjama</string>
+  <string name="summary_pref_category_key_mappings">Globalne radnje mogu se izvršiti u bilo kojem trenutku</string>
+  <string name="title_pref_category_scan_key_mappings">Dodjela prekidača za traženje</string>
+  <string name="summary_pref_category_scan_key_mappings">Traženjem možete pomicati isticanje i odabirati istaknute stavke</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Kretanje i odabir</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Radnje na istaknutoj stavci</string>
+  <string name="title_pref_point_scan_line_speed">Brzina linije</string>
+  <string name="dialog_message_pref_line_speed">Odaberite brzinu kojom će se vodoravne i okomite linije pomicati po zaslonu.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">%.2f cm u sekundi</item>
+    <item quantity="few">%.2f cm u sekundi</item>
+    <item quantity="other">%.2f cm u sekundi</item>
+  </plurals>
+  <string name="title_pref_loop_count">Broj traženja</string>
+  <string name="dialog_message_pref_loop_count">Odaberite broj ponavljanja traženja.\n\nTa postavka utječe na automatsko traženje i na traženje po točkama.</string>
+  <string name="summary_pref_point_scan">Pomoću pomičnih linija odaberite određeni vodoravni ili okomiti položaj. %1$s</string>
+  <string name="point_scan_enable_animations_message">Uključite animacije da biste upotrebljavali tu značajku.</string>
+  <string name="title_pref_category_switch_accomodation">Prilagođavanje prekidača</string>
+  <string name="title_pref_debounce_time">Zanemari ponovljene pritiske</string>
+  <string name="dialog_message_pref_debounce_time">Više pritisaka prekidača u tom vremenu smatrat će se jednim pritiskom.</string>
+  <string name="title_pref_press_on_release">Izvrši radnju nakon otpuštanja</string>
+  <string name="subtitle_pref_press_on_release">Izvrši radnju kada se otpusti prekidač</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d petlja</item>
+    <item quantity="few">%d petlje</item>
+    <item quantity="other">%d petlji</item>
+  </plurals>
+  <string name="preference_off">Isključeno</string>
+  <string name="preference_on">Uključeno</string>
+  <string name="toast_msg_key_already_assigned">Prekidač \"%1$s\" već je dodijeljen radnji \"%2$s\"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">Dodijeljen je %d prekidač</item>
+    <item quantity="few">Dodijeljena su %d prekidača</item>
+    <item quantity="other">Dodijeljeno je %d prekidača</item>
+  </plurals>
+  <string name="option_scan_switch_format">%1$d. prekidač za odabir grupe</string>
+  <string name="option_scan_switch_format_with_color">Prekidač za odabir grupe %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Pritiskom tog prekidača odabrat će se grupa %1$d.</string>
+  <string name="action_name_next">Sljedeće</string>
+  <string name="action_key_summary_next">Pritiskom tog prekidača istaknut će se sljedeća stavka.</string>
+  <string name="action_name_previous">Prethodno</string>
+  <string name="action_key_summary_previous">Pritiskom tog prekidača istaknut će se prethodna stavka.</string>
+  <string name="action_name_click">Odaberi</string>
+  <string name="action_key_summary_click">Pritiskom tog prekidača odabrat će se istaknuta stavka.</string>
+  <string name="action_name_long_click">Dodirivanje i držanje</string>
+  <string name="action_key_summary_long_click">Pritiskom tog prekidača istaknuta će se stavka dodirnuti i zadržati.</string>
+  <string name="action_name_scroll_forward">Pomicanje naprijed</string>
+  <string name="action_key_summary_scroll_forward">Pritiskom tog prekidača istaknuta će se stavka pomaknuti prema naprijed.</string>
+  <string name="action_name_scroll_backward">Pomicanje unatrag</string>
+  <string name="action_key_summary_scroll_backward">Pritiskom tog prekidača istaknuta će se stavka pomaknuti prema natrag.</string>
+  <string name="action_name_dismiss">Odbaci</string>
+  <string name="action_name_expand">Proširivanje</string>
+  <string name="action_name_collapse">Sažimanje</string>
+  <string name="action_name_highlight_text">Isticanje teksta</string>
+  <string name="action_group_name_highlight">Istakni...</string>
+  <string name="action_name_highlight_all_text">Istakni sav tekst</string>
+  <string name="action_name_highlight_granular_text">Istakni %1$s</string>
+  <string name="action_name_copy">Kopiranje</string>
+  <string name="action_name_copy_all_text">Kopiraj sve</string>
+  <string name="action_name_cut">Izrezivanje</string>
+  <string name="action_name_cut_all_text">Izreži sve</string>
+  <string name="action_name_paste">Lijepljenje</string>
+  <string name="action_name_undo">Poništi</string>
+  <string name="action_name_redo">Ponovi</string>
+  <string name="action_group_name_delete">Izbriši...</string>
+  <string name="action_name_delete">Izbriši %1$s</string>
+  <string name="action_name_delete_highlighted_text">Izbriši istaknuti tekst</string>
+  <string name="option_scanning_menu_button">IZBORNIK</string>
+  <string name="option_scanning_menu_button_content_description">Izbornik prekidača za pristup</string>
+  <string name="switch_access_global_menu">Globalni izbornik prekidača za pristup</string>
+  <string name="switch_access_actions_menu">Izbornik aktivnosti prekidača za pristup</string>
+  <string name="switch_access_close_menu">ZATVORI</string>
+  <string name="switch_access_back_menu">NATRAG</string>
+  <string name="next_arrow_content_description">Sljedeće</string>
+  <string name="previous_arrow_content_description">Prethodno</string>
+  <string name="global_action_back">Natrag</string>
+  <string name="global_action_key_summary_back">Pritiskom tog prekidača vratit ćete se na prethodni zaslon ili će se sakriti tipkovnica ako je vidljiva.</string>
+  <string name="global_action_home">Početna</string>
+  <string name="global_action_key_summary_home">Pritiskom tog prekidača otvorit će se početni zaslon.</string>
+  <string name="global_action_overview">Pregled</string>
+  <string name="global_action_key_summary_overview">Pritiskom tog prekidača prikazat će se popis nedavno otvorenih aplikacija.</string>
+  <string name="global_action_notifications">Obavijesti</string>
+  <string name="global_action_key_summary_notifications">Pritiskom tog prekidača prikazat će se obavijesti uređaja.</string>
+  <string name="global_action_quick_settings">Brze postavke</string>
+  <string name="global_action_key_summary_quick_settings">Pritiskom tog prekidača prikazat će se brze postavke uređaja.</string>
+  <string name="global_action_power_options">Opcije napajanja</string>
+  <string name="global_menu_volume_heading">Glasnoća</string>
+  <string name="volume_menu_media">Glasnoća medija</string>
+  <string name="volume_menu_call">Glasnoća poziva</string>
+  <string name="volume_menu_ring">Glasnoća zvona</string>
+  <string name="volume_menu_alarm">Glasnoća alarma</string>
+  <string name="volume_menu_accessibility">Glasnoća pristupačnosti</string>
+  <string name="volume_menu_mute">Isključi zvuk</string>
+  <string name="volume_menu_unmute">Uključi zvuk</string>
+  <string name="volume_menu_increase">Pojačaj</string>
+  <string name="volume_settings">Postavke glasnoće</string>
+  <string name="volume_menu_decrease">Stišaj</string>
+  <string name="scrollable_forward">Pomicanje naprijed</string>
+  <string name="scrollable_backward">Pomicanje unatrag</string>
+  <string name="point_scan">Traženje po točkama</string>
+  <string name="box_scan">Izlaz iz traženja po točkama</string>
+  <string name="action_name_swipe_right">Prelazak prstom udesno</string>
+  <string name="action_name_swipe_left">Prelazak prstom ulijevo</string>
+  <string name="action_name_swipe_up">Prelazak prstom prema gore</string>
+  <string name="action_name_swipe_down">Prelazak prstom prema dolje</string>
+  <string name="action_name_swipe_custom">Prelazak prstom (prilagođeno)</string>
+  <string name="action_name_zoom_out">Smanjivanje</string>
+  <string name="action_name_zoom_in">Povećavanje</string>
+  <string name="switch_access_preferences_title">Postavke prekidača za pristup</string>
+  <string name="key_combo_preference_instructions">Pritisnite kombinaciju prekidača da biste je dodali ili uklonili s popisa</string>
+  <string name="key_combo_preference_reset_button">Poništi dodijeljeni prekidač</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Nema dodijeljenih prekidača</string>
+  <string name="more">Više</string>
+  <string name="name_of_space_bar">Razmaknica</string>
+  <string name="name_of_enter_key">Unos</string>
+  <string name="name_of_tab_key">Tabulator</string>
+  <string name="save">Spremi</string>
+  <string name="title_pref_category_display_and_sound">Prikaz i zvuk</string>
+  <string name="title_pref_highlight_0">Stil isticanja tijekom traženja</string>
+  <string name="title_pref_primary_scan_style">Primarni stil traženja</string>
+  <string name="title_pref_highlight_0_color">Boja isticanja</string>
+  <string name="title_pref_highlight_0_weight">Stil linije isticanja</string>
+  <string name="title_pref_privacy_policy">Pravila o privatnosti</string>
+  <string name="title_pref_auto_select">Automatski odabir</string>
+  <string name="summary_pref_auto_select">Automatski odaberite istaknutu stavku. Ako se stavka ne može odabrati, odnosno ako je postavka isključena, prikazat će se izbornik s dostupnim radnjama.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Omogući automatski odabir</string>
+  <string name="switch_access_global_menu_disable_autoselect">Onemogući automatski odabir</string>
+  <string name="switch_access_move_next">Sljedeće...</string>
+  <string name="switch_access_move_next_character">Sljedeći znak</string>
+  <string name="switch_access_move_next_word">Sljedeća riječ</string>
+  <string name="switch_access_move_next_line">Sljedeći redak</string>
+  <string name="switch_access_move_next_paragraph">Sljedeći odlomak</string>
+  <string name="switch_access_move_next_page">Sljedeća stranica</string>
+  <string name="switch_access_move_next_sentence">Sljedeća rečenica</string>
+  <string name="switch_access_move_prev">Prethodno...</string>
+  <string name="switch_access_move_prev_character">Prethodni znak</string>
+  <string name="switch_access_move_prev_word">Prethodna riječ</string>
+  <string name="switch_access_move_prev_line">Prethodni redak</string>
+  <string name="switch_access_move_prev_paragraph">Prethodni odlomak</string>
+  <string name="switch_access_move_prev_page">Prethodna stranica</string>
+  <string name="switch_access_move_prev_sentence">Prethodna rečenica</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Automatski pokreni traženje</string>
+  <string name="switch_access_auto_start_scan_summary">Traženje počinje bez pritiska na prekidač</string>
+  <string name="pref_begin_switchaccess_setup_title">Otvori vodič za postavljanje</string>
+  <string name="setup_wizard_heading">Vodič za postavljanje prekidača za pristup</string>
+  <string name="one_switch">Jedan prekidač</string>
+  <string name="two_switches">Dva prekidača</string>
+  <string name="finish">Završi</string>
+  <string name="exit">Izlaz</string>
+  <string name="intro_heading">Odabir prekidača</string>
+  <string name="usb_switch_option_text">USB prekidač</string>
+  <string name="bluetooth_switch_option_text">Bluetooth prekidač</string>
+  <string name="usb_switch_description_text">Fizički povežite prekidač putem USB-a</string>
+  <string name="bluetooth_switch_description_text">Uparite prekidač bežično putem Bluetootha</string>
+  <string name="bluetooth_unsupported_description_text">Vaš uređaj ne podržava Bluetooth. Pokušajte s fizičkim prekidačem.</string>
+  <string name="connected_usb_devices_header">Povezani uređaji</string>
+  <string name="usb_no_devices_connected_message">Nije pronađen nijedan USB uređaj. Provjerite je li uređaj sigurno povezan.</string>
+  <string name="connect_usb_heading">Povežite USB prekidač</string>
+  <string name="pair_bluetooth_heading">Uparivanje Bluetooth prekidača</string>
+  <string name="pair_bluetooth_subheading">Dodirnite Bluetooth prekidač u nastavku</string>
+  <string name="bluetooth_not_enabled_message">Da biste uparili Bluetooth prekidač, uključite Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Uključi Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Nijedan Bluetooth uređaj nije uparen</string>
+  <string name="paired_devices_header">Upareni Bluetooth uređaji</string>
+  <string name="available_devices_header">Dostupni Bluetooth uređaji</string>
+  <string name="bluetooth_computer_content_description">Računalo</string>
+  <string name="bluetooth_phone_content_description">Telefon</string>
+  <string name="bluetooth_imaging_content_description">Za izradu slika</string>
+  <string name="bluetooth_headphone_content_description">Slušalice</string>
+  <string name="bluetooth_peripheral_content_description">Periferni</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Povezivanje...</string>
+  <string name="bluetooth_connected_description">Povezan</string>
+  <string name="bluetooth_device_unavailable_description">Uređaj nije dostupan</string>
+  <string name="reconnecting_unsupported_title">Povezivanje s uređajem nije uspjelo</string>
+  <string name="reconnecting_unsupported_message">Povezivanje prekidača za pristup s prethodno povezanim uređajem nije uspjelo. Provjerite je li uređaj uključen i povezan.\n\nAko se uređaj i dalje ne povezuje, otvorite postavke Bluetootha i pokušajte se povezati ponovo.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Otvori postavke Bluetootha</string>
+  <string name="number_of_switches_heading">Odaberite broj prekidača</string>
+  <string name="title_assign_scan_key">Dodjeljivanje prekidača %1$s</string>
+  <string name="one_switch_description_text">Pritisnite prekidač da biste se počeli automatski pomicati među stavkama. Pritisnite ponovo da biste odabrali istaknutu stavku.</string>
+  <string name="two_switches_description_text">Pritisnite jedan prekidač da biste se pomicali među stavkama. Pritisnite drugi prekidač da biste odabrali istaknutu stavku.</string>
+  <string name="step_speed_heading">Odabir brzine traženja</string>
+  <string name="step_speed_subheading">Odaberite trajanje isticanja pojedine stavke</string>
+  <string name="fast_radio_button_title">Brzo (odgoda od %1$s s)</string>
+  <string name="medium_radio_button_title">Srednje (odgoda od %1$s s)</string>
+  <string name="slow_radio_button_title">Sporo (odgoda od %1$s s)</string>
+  <string name="custom_switch">Prilagođeno</string>
+  <string name="custom_edit_text">odgoda (u sekundama)</string>
+  <string name="setup_toast_msg_key_already_assigned">Tipka \"%1$s\" već je dodijeljena drugoj radnji</string>
+  <string name="row_column_scanning_title">Traženje po retku/stupcu</string>
+  <string name="option_scanning_title">Odabir grupe (napredno)</string>
+  <string name="linear_scanning_title">Linearno traženje</string>
+  <string name="linear_scanning_except_keyboard_title">Linearno traženje (osim tipkovnice)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Govor, zvuk i vibracije</string>
+  <string name="title_pref_switch_access_spoken_feedback">Govorne povratne informacije</string>
+  <string name="title_pref_scan_non_actionable_items">Izgovori opisni tekst</string>
+  <string name="scan_non_actionable_items_summary">Uključite govorne povratne informacije za stavke s dostupnim radnjama i za stavke s opisnim tekstom</string>
+  <string name="title_pref_switch_access_verbosity">Opširnost govora</string>
+  <string name="summary_verbosity">Odaberite količinu informacija koje se izgovaraju</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Pojedinosti o opširnosti govora</string>
+  <string name="title_pref_switch_access_keyboard_echo">Odjek tipkovnice</string>
+  <string name="keyboard_echo_summary_on">Izgovaraju se pritisnute tipke za tipkovnicu na zaslonu</string>
+  <string name="keyboard_echo_summary_off">Ne izgovaraju se pritisnute tipke za tipkovnicu na zaslonu</string>
+  <string name="title_pref_enable_hints">Izgovaraj savjete za upotrebu</string>
+  <string name="enable_hints_summary_on">Savjeti za upotrebu izgovaraju se tijekom kretanja, nakon kratke odgode</string>
+  <string name="enable_hints_summary_off">Savjeti za upotrebu ne izgovaraju se prilikom premještanja fokusa pristupačnosti</string>
+  <string name="title_pref_speak_container_element_position">Izgovori podatke o popisima i rešetkama</string>
+  <string name="speak_container_element_position_summary_on">Izgovaraju se podaci o popisima i rešetkama</string>
+  <string name="speak_container_element_position_summary_off">Ne izgovaraju se podaci o popisima i rešetkama</string>
+  <string name="title_pref_speak_element_type">Izgovori vrstu elementa</string>
+  <string name="speak_element_type_summary_on">Za fokusirane stavke izgovara se vrsta elementa</string>
+  <string name="speak_element_type_summary_off">Za fokusirane stavke ne izgovara se vrsta elementa</string>
+  <string name="title_pref_pitch_change_for_ime">Upotrijebi promjene tona</string>
+  <string name="pitch_change_for_ime_summary_on">Izgovaranje povratnih informacija tipkovnice nižim tonom glasa</string>
+  <string name="pitch_change_for_ime_summary_off">Visina glasa za povratne informacije ne mijenja se tijekom govora</string>
+  <string name="title_pref_speak_selected_item_or_group">Izgovori odabranu stavku ili grupu</string>
+  <string name="speak_selected_item_or_group_summary">Naziv stavke ili grupe izgovaraju se nakon što se odaberu</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Maksimalno vrijeme govora po stavci</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Postavite maksimalno vrijeme za govorni opis svake stavke. Govor će se prekinuti nakon postavljenog vremena.\nNapominjemo da će se savjeti uvijek izgovarati ako su uključeni.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Razno</string>
+  <string name="title_pref_node_description_order">Poredak opisa elemenata</string>
+  <string name="title_pref_switch_access_speak_element_ids">Izgovori ID-jeve elemenata</string>
+  <string name="speak_element_ids_summary_on">ID-ovi elemenata izgovaraju se za gumbe bez oznaka</string>
+  <string name="speak_element_ids_summary_off">ID-ovi elemenata ne izgovaraju se za gumbe bez oznaka</string>
+  <string name="title_pref_switch_access_tts_settings">Postavke pretvaranja teksta u govor</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Kada je označeno više stavki</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Izgovori prvu i zadnju stavku</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Izgovori broj stavki</string>
+  <string name="title_pref_switch_access_speak_all_items">Izgovori sve označene stavke</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Završi izgovaranje prije pomicanja</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Ostale povratne informacije</string>
+  <string name="title_pref_developer_settings">Postavke razvojnog programera</string>
+  <string name="title_pref_spoken_feedback_overlay">Prikaz govornog izlaza</string>
+  <string name="title_pref_switch_access_vibration_feedback">Obavijest vibracijom</string>
+  <string name="vibration_feedback_summary">Označavanje promjene vibracijom (na primjer promjene sadržaja na zaslonu)</string>
+  <string name="title_pref_switch_access_sound_feedback">Obavijest zvukom</string>
+  <string name="sound_feedback_summary">Označavanje promjene reprodukcijom zvučne ikone (na primjer promjene sadržaja na zaslonu)</string>
+  <string name="title_pref_switch_access_sound_volume">Glasnoća zvuka</string>
+  <string name="title_pref_switch_access_audio_ducking">Automatsko stišavanje zvuka</string>
+  <string name="audio_ducking_summary">Smanjenje glasnoće drugih zvukova tijekom govora</string>
+  <string name="switch_access_focus_cleared_no_selection">Zaslon je promijenjen</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Pritisnite prekidač za odabir da biste odabrali redak</string>
+  <string name="switch_access_spoken_feedback_group">grupa %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Pritisnite prekidač za grupu %1$s da biste odabrali grupu</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Pritisnite prekidač za grupu %1$s da biste odabrali stavku</string>
+  <string name="switch_access_spoken_feedback_to">%1$s do %2$s</string>
+  <string name="switch_access_spoken_feedback_items">Broj stavki: %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selected">odabrana je grupa %1$s</string>
+  <string name="switch_access_spoken_feedback_row_selected">odabran je redak</string>
+  <string name="switch_access_spoken_feedback_item_selected">odabrana je stavka %1$s</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">pomicanje je dostupno</string>
+  <string name="switch_access_spoken_feedback_scroll">odaberite za pomicanje</string>
+  <string name="switch_access_spoken_feedback_unknown">nepoznata stavka</string>
+  <string name="scanning_method_heading">Odaberite način traženja</string>
+  <string name="row_column_scanning_description">Tražite po jednom retku. Nakon odabira retka pomičite se po stavkama na tom popisu.</string>
+  <string name="linear_scanning_description">Pomicanje jednu po jednu stavku</string>
+  <string name="linear_scanning_except_keyboard_description">Pomičite se jednu po jednu stavku. Napominjemo da tipkovnice pretražuju po retku.</string>
+  <string name="option_scanning_description">Svakoj stavki dodijelit će se boja. Pritisnite prekidač koji odgovara boji oko željene stavke. Veličinu grupe zatim možete smanjivati dok ne dođete do željene stavke.</string>
+  <string name="setup_switch_assignment_heading">Prekidači dodijeljeni radnji %s</string>
+  <string name="setup_switch_assignment_empty">Nema</string>
+  <string name="clear_keys_dialog_title">Želite li izbrisati dodijeljene prekidače?</string>
+  <string name="clear_keys_dialog_message">Već ste dodijelili prekidače.</string>
+  <string name="clear_keys_dialog_positive_button">Izbriši prekidače</string>
+  <string name="clear_keys_dialog_negative_button">Zadrži prekidače</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Nema dodijeljenih prekidača</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Toj radnji niste dodijelili nijedan prekidač. Jeste li sigurni da želite nastaviti?</string>
+  <string name="option_scan_switch_title">Grupa %1$s</string>
+  <string name="option_scan_switch_subtitle">Pritisnite prekidač da biste ga dodijelili za odabir grupe %1$s.</string>
+  <string name="assign_switch_subtitle">Pritisnite prekidač da biste ga dodijelili radnji \"%1$s\".</string>
+  <string name="auto_scan_action_description">Pokretanje traženja i odabir</string>
+  <string name="switch_game_heading">Testirajte postavke uz Križić-kružić</string>
+  <string name="switch_game_one_switch_linear_subheading">Pritisnite prekidač \"%1$s\" da biste pokrenuli traženje. Pritisnite prekidač ponovo da biste odabrali istaknutu stavku. Prvi ste na redu!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Pritisnite prekidač \"%1$s\" da biste pokrenuli traženje. Pritisnite prekdač ponovo da biste odabrali istaknuti redak. Pritisnite još jednom da biste odabrali istaknutu stavku. Prvi ste na redu!</string>
+  <string name="switch_game_two_switch_linear_subheading">Pritisnite prekidač \"%1$s\" da biste se pomicali među stavkama. Pritisnite prekidač \"%2$s\" da biste odabrali istaknutu stavku. Prvi ste na redu!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Pritisnite prekidač \"%1$s\" da biste se pomicali među recima. Pritisnite prekidač \"%2$s\" da biste odabrali istaknuti redak. Ponovite radnju da biste odabrali stavku u tom retku. Prvi ste na redu!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Pritisnite prekidač \"%1$s\" da biste odabrali stavke čija je boja isticanja %2$s ili pritisnite prekidač \"%4$s\" da biste odabrali stavke čija je boja isticanja %3$s. Ponovite da biste stigli do željene stavke. Prvi ste na redu!</string>
+  <string name="switch_game_incomplete_switches_subheading">Još niste dodijelili prekidače svim radnjama. Vratite se pomoću gumba Prethodno i dovršite dodjelu prekidača.</string>
+  <string name="game_square_content_description">%1$s na položaju %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">prazno</string>
+  <string name="game_reset_button_title">Poništi igru</string>
+  <string name="game_square_already_taken">Taj je polje već zauzeto. Pokušajte ponovo!</string>
+  <string name="game_win_outcome_title">Pobijedili ste!</string>
+  <string name="game_loss_outcome_title">Više sreće drugi put</string>
+  <string name="game_tie_outcome_title">Neriješeno</string>
+  <string name="game_outcome_body_text">Možete zadržati trenutačne postavke ili početi ispočetka.</string>
+  <string name="game_outcome_positive_response">Zadrži postavke</string>
+  <string name="game_outcome_negative_response">Počni ispočetka</string>
+  <string name="setup_completion_heading">Postavljanje je završeno</string>
+  <string name="setup_completion_message">Spremni ste za rad.</string>
+  <string name="setup_completion_settings_reminder">Uvijek možete promijeniti dodatne postavke ili ponovo otvoriti čarobnjak za postavljanje u postavkama prekidača za pristup.</string>
+  <string name="dialog_url_list">Odaberite vezu</string>
+  <string name="dialog_do_not_disturb_permission_title">Prekidač za pristup treba dopuštenje za prilagodbu zvuka</string>
+  <string name="dialog_do_not_disturb_permission_message">Da biste prilagodili zvuk putem izbornika Prekidača za pristup, uključite pristup za značajku Ne uznemiravaj za Značajke pristupačnosti za Android</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Otvori postavke</string>
 </resources>

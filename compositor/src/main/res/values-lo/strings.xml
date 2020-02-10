@@ -1,151 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"TalkBack ເປີດ"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack ຖືກລະງັບໄວ້ແລ້ວ"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack ເລີ່ມ​ຕໍ່​ແລ້ວ"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"TalkBack ປິດ"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"ການຕອບສະໜອງເປັນສຽງເວົ້າ ເປີດ"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"ການຕອບສະໜອງເປັນສຽງເວົ້າ ລະງັບແລ້ວ"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"ການຕອບສະໜອງເປັນສຽງເວົ້າ ສືບຕໍ່ແລ້ວ"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"ການຕອບສະໜອງເປັນສຽງເວົ້າ ປິດ"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"ຈຸດເລີ່ມຕົ້ນຂອງຊ່ອງຂໍ້ມູນ"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"ຈຸດສິ້ນສຸດຂອງຊ່ອງຂໍ້ມູນ"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"ເປີດໂໝດການເລືອກແລ້ວ"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"ປິດໂໝດການເລືອກແລ້ວ"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"ລຶບລ້າງການເລືອກແລ້ວ"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"ໂທ"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"ຂໍ້ຄວາມ"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"ອີເມວ"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"ເຫດການ"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"ໂປຣໂມຊັນ"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"ໂມງປຸກ"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"ຄວາມຄືບໜ້າ"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"ສັງຄົມ"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"ຜິດພາດ"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"ຄວບຄຸມມີເດຍ"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"ສະຖານະລະບົບ"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"ບໍລິການ"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g> ເມນູ"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> ​ແທນ​ທີ່ <xliff:g id="OLD_TEXT">%2$s</xliff:g> ແລ້ວ"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"​ລຶບ <xliff:g id="TEXT">%1$s</xliff:g> ແລ້ວ"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"ຕັດແລ້ວ, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"ວາງແລ້ວ, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, ເລືອກແລ້ວ"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"ຂໍ້ຄວາມທີ່ເລືອກແມ່ນ: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, ບໍ່ເລືອກແລ້ວ"</string>
-    <string name="template_text_error" msgid="153775825635730287">"ການ​ປ້ອນ​ຂໍ້​ມູນ​ໃຊ້​ບໍ່​ໄດ້ <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"ແທນ​ທີ່ <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> ໂຕ​ອັກ​ສອນ​ດ້ວຍ <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> ໂຕ​ອັກ​ສອນ​ແລ້ວ"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> ສຳ​ລັບ <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> ເປີ​ເຊັນ."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> ກຳລັງສະແດງ <xliff:g id="COUNT_3">%2$d</xliff:g> ລາຍການ.</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> ກຳລັງສະແດງ <xliff:g id="COUNT_1">%2$d</xliff:g> ລາຍການ.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"ຕາໜ່າງ"</string>
-    <string name="value_listview" msgid="7625152822709234439">"​ລາຍ​ຊື່"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"ແຖບ"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"ລາຍຊື່ແບບເລື່ອນລົງ"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"ປ່ອງໝາຍ"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"ປຸ່ມເຄື່ອງໝາຍເລືອກ"</string>
-    <string name="value_button" msgid="2459787142940409576">"ປຸ່ມ"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"ຕົວຄວບຄຸມການຫຼິ້ນ"</string>
-    <string name="value_switch" msgid="6946709666466895221">"ສະລັບ"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"ແກ້ໄຂປ່ອງ"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"ກຳລັງແກ້ໄຂ"</string>
-    <string name="value_image" msgid="5114229220871881124">"ຮູບ"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"ບໍ່ມີປ້າຍກຳຊື່"</string>
-    <string name="value_pager" msgid="7708574424402835461">"ມຸມມອງແບບຫຼາຍໜ້າ"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"ໜ້າ"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"ແຖບຄວາມຄືບໜ້າ"</string>
-    <string name="value_webview" msgid="291321285400233958">"ມຸມມອງເວັບ"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"ຕົວອັກສອນຈາກ <xliff:g id="FROM_INDEX">%1$d</xliff:g> ຫາ <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"ຕົວອັກສອນ <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"​ລະ​ຫັດ​ຜ່ານ"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"​ເປີດ​ແຜງ​ເລື່ອນ​ແລ້ວ"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"ໂຕເລືອກ."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"​ລຶບລ້າງ​ຂໍ້ຄວາມແລ້ວ"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"ຮອດ​ຄວາມ​ຍາວ​ສູງ​ສຸດ​ແລ້ວ"</string>
-    <string name="value_selected" msgid="1307429702194660766">"ເລືອກແລ້ວ"</string>
-    <string name="value_checked" msgid="3006751014125833966">"ເລືອກ​ແລ້ວ"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"ບໍ່ໄດ້ເລືອກ"</string>
-    <string name="value_on" msgid="39454338086317219">"ເປີດ"</string>
-    <string name="value_off" msgid="6700497510945744608">"ປິດ"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"ປິດການນຳໃຊ້"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"ຂະຫຍາຍແລ້ວ"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"ຫຍໍ້ແລ້ວ"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"ແຕະສອງເທື່ອ"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"​ແຕະ"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"ກົດເລືອກ"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> ເພື່ອເປີດໃຊ້."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"ກົດ <xliff:g id="KEYCOMBO">%1$s</xliff:g> ເພື່ອເປີດໃຊ້."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> ແລະ​ກົດ​ຄ້າງ​ໄວ້."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"ກົດ <xliff:g id="KEYCOMBO">%1$s</xliff:g> ເພື່ອກົດຄ້າງໄວ້."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> ເພື່ອ​ສະ​ລັບ."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"ກົດ <xliff:g id="KEYCOMBO">%1$s</xliff:g> ເພື່ອເປີດ/ປິດ."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> ເພື່ອ​ໃສ່​ຂໍ້​ຄວາມ."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"ກົດ <xliff:g id="KEYCOMBO">%1$s</xliff:g> ເພື່ອລະບຸຂໍ້ຄວາມ."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> ເພື່ອ​ປ່ຽນ​ແປງ."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"ກົດ <xliff:g id="KEYCOMBO">%1$s</xliff:g> ເພື່ອປ່ຽນ."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"ປັດອອກຂ້າງດ້ວຍສອງນິ້ວເພື່ອສະລັບໜ້າ."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"ບໍ່ມີໜ້າເພີ່ມເຕີມແລ້ວ."</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"ໃຊ້ປຸ່ມສຽງເພື່ອປັບ"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g> ເພື່ອປ່ຽນແປງ."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"ຄຳສັ່ງ:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> ເພື່ອ <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"ກົດ <xliff:g id="KEYCOMBO">%1$s</xliff:g> ເພື່ອ <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> ຄ້າງໄວ້ເພື່ອ <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock ເປີດ."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock ປິດ."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock ເປີດ."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock ປິດ."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock ເປີດ."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock ປິດ."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"ລວງຕັ້ງ"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"ລວງນອນ"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"ປິດໄວ້"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"ຂະຫຍາຍ"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"ຫຍໍ້ເຂົ້າ"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"ແຖວ <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"ຖັນ <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"ຫົວເລື່ອງ"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"ຫົວຂໍ້ແຖວ"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"ສ່ວນຫົວຖັນ"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"<xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g> ຮູບພາບຊ້ອນຮູບພາບ"</string>
-    <string name="in_list" msgid="444302621514168828">"ໃນລາຍຊື່ <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"ໃນລາຍຊື່"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"ນອກລາຍຊື່ <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"ນອກລາຍຊື່"</string>
-    <string name="in_grid" msgid="6705387966271590222">"ໃນຊ່ອງ <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"ໃນຊ່ອງ"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"ນອກຊ່ອງ <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"ນອກຊ່ອງ"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"ລະດັບ <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> ລາຍການ</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> ລາຍການ</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> ແຖວ</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> ແຖວ</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> ຖັນ</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> ຖັນ</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> ຕົວອັກສອນ</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> ຕົວອັກສອນ</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"ການຂະຫຍາຍຢູ່ <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"ການຂະຫຍາຍ <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"ປິດການຂະຫຍາຍແລ້ວ"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"ຄວາມໄວການເວົ້າ <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"ການຫຼຸດຜ່ອນສຽງ ເປີດ"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"ການຫຼຸດຜ່ອນສຽງ ປິດ"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"ຄວາມໄວການເວົ້າ"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"ການໃຊ້ຄຳຫຼາຍເກີນໄປ"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"ການນຳທາງ"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"ການຫຼຸດຜ່ອນສຽງ"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"ເວົ້າລະຫັດຜ່ານສະເພາະເມື່ອໃຊ້ຫູຟັງຢູ່ເທົ່ານັ້ນ"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">TalkBack ເປີດ</string>
+  <string name="talkback_suspended">TalkBack ຖືກລະງັບໄວ້ແລ້ວ</string>
+  <string name="talkback_resumed">TalkBack ເລີ່ມ​ຕໍ່​ແລ້ວ</string>
+  <string name="talkback_disabled">TalkBack ປິດ</string>
+  <string name="spokenfeedback_on">ການຕອບສະໜອງເປັນສຽງເວົ້າ ເປີດ</string>
+  <string name="spokenfeedback_suspended">ການຕອບສະໜອງເປັນສຽງເວົ້າ ລະງັບແລ້ວ</string>
+  <string name="spokenfeedback_resumed">ການຕອບສະໜອງເປັນສຽງເວົ້າ ສືບຕໍ່ແລ້ວ</string>
+  <string name="spokenfeedback_disabled">ການຕອບສະໜອງເປັນສຽງເວົ້າ ປິດ</string>
+  <string name="notification_type_beginning_of_field">ຈຸດເລີ່ມຕົ້ນຂອງຊ່ອງຂໍ້ມູນ</string>
+  <string name="notification_type_end_of_field">ຈຸດສິ້ນສຸດຂອງຊ່ອງຂໍ້ມູນ</string>
+  <string name="notification_type_selection_mode_on">ເປີດໂໝດການເລືອກແລ້ວ</string>
+  <string name="notification_type_selection_mode_off">ປິດໂໝດການເລືອກແລ້ວ</string>
+  <string name="notification_type_selection_cleared">ລຶບລ້າງການເລືອກແລ້ວ</string>
+  <string name="notification_category_call">ໂທ</string>
+  <string name="notification_category_msg">ຂໍ້ຄວາມ</string>
+  <string name="notification_category_email">ອີເມວ</string>
+  <string name="notification_category_event">ເຫດການ</string>
+  <string name="notification_category_promo">ໂປຣໂມຊັນ</string>
+  <string name="notification_category_alarm">ໂມງປຸກ</string>
+  <string name="notification_category_progress">ຄວາມຄືບໜ້າ</string>
+  <string name="notification_category_social">ສັງຄົມ</string>
+  <string name="notification_category_err">ຜິດພາດ</string>
+  <string name="notification_category_transport">ຄວບຄຸມມີເດຍ</string>
+  <string name="notification_category_sys">ສະຖານະລະບົບ</string>
+  <string name="notification_category_service">ບໍລິການ</string>
+  <string name="template_drawer_opened">%1$s ເມນູ</string>
+  <string name="template_text_replaced">%1$s ​ແທນ​ທີ່ %2$s ແລ້ວ</string>
+  <string name="template_text_removed">​ລຶບ %1$s ແລ້ວ</string>
+  <string name="template_text_cut">ຕັດແລ້ວ, %1$s</string>
+  <string name="template_text_pasted">ວາງແລ້ວ, %1$s</string>
+  <string name="template_text_selected">%1$s, ເລືອກແລ້ວ</string>
+  <string name="template_announce_selected_text">ຂໍ້ຄວາມທີ່ເລືອກແມ່ນ: %1$s</string>
+  <string name="template_text_unselected">%1$s, ບໍ່ເລືອກແລ້ວ</string>
+  <string name="template_text_error">ການ​ປ້ອນ​ຂໍ້​ມູນ​ໃຊ້​ບໍ່​ໄດ້ %1$s</string>
+  <string name="template_replaced_characters">ແທນ​ທີ່ %1$s ໂຕ​ອັກ​ສອນ​ດ້ວຍ %2$s ໂຕ​ອັກ​ສອນ​ແລ້ວ</string>
+  <string name="template_labeled_item">%1$s ສຳ​ລັບ %2$s</string>
+  <string name="template_percent">%1$s ເປີ​ເຊັນ.</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s ກຳລັງສະແດງ %2$d ລາຍການ.</item>
+    <item quantity="other">%1$s ກຳລັງສະແດງ %2$d ລາຍການ.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">ຕາໜ່າງ</string>
+  <string name="value_listview">​ລາຍ​ຊື່</string>
+  <string name="value_tabwidget">ແຖບ</string>
+  <string name="value_spinner">ລາຍຊື່ແບບເລື່ອນລົງ</string>
+  <string name="value_checkbox">ປ່ອງໝາຍ</string>
+  <string name="value_radio_button">ປຸ່ມເຄື່ອງໝາຍເລືອກ</string>
+  <string name="value_button">ປຸ່ມ</string>
+  <string name="value_seek_bar">ຕົວຄວບຄຸມການຫຼິ້ນ</string>
+  <string name="value_switch">ສະລັບ</string>
+  <string name="value_edit_box">ແກ້ໄຂປ່ອງ</string>
+  <string name="value_edit_box_editing">ກຳລັງແກ້ໄຂ</string>
+  <string name="value_image">ຮູບ</string>
+  <string name="value_unlabelled">ບໍ່ມີປ້າຍກຳຊື່</string>
+  <string name="value_pager">ມຸມມອງແບບຫຼາຍໜ້າ</string>
+  <string name="value_pager_page">ໜ້າ</string>
+  <string name="value_progress_bar">ແຖບຄວາມຄືບໜ້າ</string>
+  <string name="value_webview">ມຸມມອງເວັບ</string>
+  <string name="value_toolbar">ແຖບເຄື່ອງມື</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">ຕົວອັກສອນຈາກ %1$d ຫາ %2$d</string>
+  <string name="template_password_traversed">ຕົວອັກສອນ %1$d</string>
+  <string name="value_password">​ລະ​ຫັດ​ຜ່ານ</string>
+  <string name="value_sliding_drawer_opened">​ເປີດ​ແຜງ​ເລື່ອນ​ແລ້ວ</string>
+  <string name="value_options_menu_open">ໂຕເລືອກ.</string>
+  <string name="value_text_cleared">​ລຶບລ້າງ​ຂໍ້ຄວາມແລ້ວ</string>
+  <string name="value_text_max_length">ຮອດ​ຄວາມ​ຍາວ​ສູງ​ສຸດ​ແລ້ວ</string>
+  <string name="value_selected">ເລືອກແລ້ວ</string>
+  <string name="value_checked">ເລືອກ​ແລ້ວ</string>
+  <string name="value_not_checked">ບໍ່ໄດ້ເລືອກ</string>
+  <string name="value_on">ເປີດ</string>
+  <string name="value_off">ປິດ</string>
+  <string name="value_disabled">ປິດການນຳໃຊ້</string>
+  <string name="value_expanded">ຂະຫຍາຍແລ້ວ</string>
+  <string name="value_collapsed">ຫຍໍ້ແລ້ວ</string>
+  <string name="value_double_tap">ແຕະສອງເທື່ອ</string>
+  <string name="value_single_tap">​ແຕະ</string>
+  <string name="value_switch_press">ກົດເລືອກສະວິດ</string>
+  <string name="value_press_select">ກົດເລືອກ</string>
+  <string name="template_hint_clickable">%1$s ເພື່ອເປີດໃຊ້.</string>
+  <string name="template_hint_clickable_keyboard">ກົດ %1$s ເພື່ອເປີດໃຊ້.</string>
+  <string name="template_hint_long_clickable">%1$s ແລະ​ກົດ​ຄ້າງ​ໄວ້.</string>
+  <string name="template_hint_long_clickable_keyboard">ກົດ %1$s ເພື່ອກົດຄ້າງໄວ້.</string>
+  <string name="template_hint_checkable">%1$s ເພື່ອ​ສະ​ລັບ.</string>
+  <string name="template_hint_checkable_keyboard">ກົດ %1$s ເພື່ອເປີດ/ປິດ.</string>
+  <string name="template_hint_edit_text">%1$s ເພື່ອແກ້ໄຂຂໍ້ຄວາມ.</string>
+  <string name="template_hint_edit_text_keyboard">ກົດ %1$s ເພື່ອແກ້ໄຂຂໍ້ຄວາມ.</string>
+  <string name="template_hint_spinner">%1$s ເພື່ອ​ປ່ຽນ​ແປງ.</string>
+  <string name="template_hint_spinner_keyboard">ກົດ %1$s ເພື່ອປ່ຽນ.</string>
+  <string name="template_hint_pager">ປັດອອກຂ້າງດ້ວຍສອງນິ້ວເພື່ອສະລັບໜ້າ.</string>
+  <string name="template_hint_pager_single_page">ບໍ່ມີໜ້າເພີ່ມເຕີມແລ້ວ.</string>
+  <string name="template_hint_seek_control">ໃຊ້ປຸ່ມສຽງເພື່ອປັບ</string>
+  <string name="template_hint_seek_control_tv">%1$s ເພື່ອປ່ຽນແປງ.</string>
+  <string name="template_hint_custom_actions">ຄຳສັ່ງ:</string>
+  <string name="template_custom_hint_for_actions">%1$s ເພື່ອ %2$s.</string>
+  <string name="template_custom_hint_for_actions_keyboard">ກົດ %1$s ເພື່ອ %2$s.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s ຄ້າງໄວ້ເພື່ອ %2$s.</string>
+  <string name="template_sa_custom_hint_scrollable">%1$s ເພື່ອເລື່ອນ.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">%1$s ສຳລັບຄຳສັ່ງທີ່ໃຊ້ໄດ້.</string>
+  <string name="template_sa_hint_seek_control">ກົດເລືອກປຸ່ມເພື່ອປັບແຕ່ງ</string>
+  <string name="value_caps_lock_on">Caps Lock ເປີດ.</string>
+  <string name="value_caps_lock_off">Caps Lock ປິດ.</string>
+  <string name="value_num_lock_on">Num Lock ເປີດ.</string>
+  <string name="value_num_lock_off">Num Lock ປິດ.</string>
+  <string name="value_scroll_lock_on">Scroll Lock ເປີດ.</string>
+  <string name="value_scroll_lock_off">Scroll Lock ປິດ.</string>
+  <string name="orientation_portrait">ລວງຕັ້ງ</string>
+  <string name="orientation_landscape">ລວງນອນ</string>
+  <string name="title_action_dismiss">ປິດໄວ້</string>
+  <string name="title_action_expand">ຂະຫຍາຍ</string>
+  <string name="title_action_collapse">ຫຍໍ້ເຂົ້າ</string>
+  <string name="row_index_template">ແຖວ %1$d</string>
+  <string name="column_index_template">ຖັນ %1$d</string>
+  <string name="heading_template">ຫົວເລື່ອງ</string>
+  <string name="row_heading_template">ຫົວຂໍ້ແຖວ</string>
+  <string name="column_heading_template">ສ່ວນຫົວຖັນ</string>
+  <string name="in_list">ໃນລາຍຊື່ %1$s</string>
+  <string name="in_list_without_name">ໃນລາຍຊື່</string>
+  <string name="out_of_list">ນອກລາຍຊື່ %1$s</string>
+  <string name="out_of_list_without_name">ນອກລາຍຊື່</string>
+  <string name="in_grid">ໃນຊ່ອງ %1$s</string>
+  <string name="in_grid_without_name">ໃນຊ່ອງ</string>
+  <string name="out_of_grid">ນອກຊ່ອງ %1$s</string>
+  <string name="out_of_grid_without_name">ນອກຊ່ອງ</string>
+  <string name="in_pager_with_name">ໃນເພດເຈີ %1$s</string>
+  <string name="in_pager">ໃນເພດເຈີ</string>
+  <string name="out_of_pager_with_name">ນອກເພດເຈີ %1$s</string>
+  <string name="out_of_pager">ນອກເພດເຈີ</string>
+  <string name="in_vertical_pager_with_name">ໃນເພດເຈີລວງຕັ້ງ %1$s</string>
+  <string name="in_vertical_pager">ໃນເພດເຈີລວງຕັ້ງ</string>
+  <string name="out_of_vertical_pager_with_name">ນອກເພດເຈີລວງຕັ້ງ %1$s</string>
+  <string name="out_of_vertical_pager">ນອກເພດເຈີລວງຕັ້ງ</string>
+  <string name="in_horizontal_pager_with_name">ໃນເພດເຈີລວງນອນ %1$s</string>
+  <string name="in_horizontal_pager">ໃນເພດເຈີລວງນອນ</string>
+  <string name="out_of_horizontal_pager_with_name">ນອກເພດເຈີລວງນອນ %1$s</string>
+  <string name="out_of_horizontal_pager">ນອກເພດເຈີລວງນອນ</string>
+  <string name="in_grid_pager_with_name">ໃນເພດເຈີຕາຕະລາງ %1$s</string>
+  <string name="in_grid_pager">ໃນເພດເຈີຕາຕະລາງ</string>
+  <string name="out_of_grid_pager_with_name">ນອກເພດເຈີຕາຕະລາງ %1$s</string>
+  <string name="out_of_grid_pager">ນອກເພດເຈີຕາຕະລາງ</string>
+  <string name="template_collection_level">ລະດັບ %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d ລາຍການ</item>
+    <item quantity="other">%1$d ລາຍການ</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d ແຖວ</item>
+    <item quantity="other">%1$d ແຖວ</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d ຖັນ</item>
+    <item quantity="other">%1$d ຖັນ</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d ຕົວອັກສອນ</item>
+    <item quantity="other">%1$d ຕົວອັກສອນ</item>
+  </plurals>
+  <string name="template_screen_magnification_on">ການຂະຫຍາຍຢູ່ %1$d%%</string>
+  <string name="template_screen_magnification_scale_changed">ການຂະຫຍາຍ %1$d%%</string>
+  <string name="screen_magnification_off">ປິດການຂະຫຍາຍແລ້ວ</string>
+  <string name="template_speech_rate_change">ຄວາມໄວການເວົ້າ %1$d%%</string>
+  <string name="audio_focus_on">ການຫຼຸດຜ່ອນສຽງ ເປີດ</string>
+  <string name="audio_focus_off">ການຫຼຸດຜ່ອນສຽງ ປິດ</string>
+  <string name="selector_speech_rate_output">ຄວາມໄວການເວົ້າ</string>
+  <string name="selector_verbosity_output">ການໃຊ້ຄຳຫຼາຍເກີນໄປ</string>
+  <string name="selector_granularity_output">ການນຳທາງ</string>
+  <string name="selector_audio_focus_output">ການຫຼຸດຜ່ອນສຽງ</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">ເວົ້າລະຫັດຜ່ານສະເພາະເມື່ອໃຊ້ຫູຟັງຢູ່ເທົ່ານັ້ນ</string>
+  <string name="template_hint_menu_type_high_verbosity">%1$s ສາມາດໃຊ້ໄດ້, ໃຊ້ %2$s ເພື່ອເບິ່ງ.</string>
+  <string name="template_hint_menu_type_low_verbosity">%1$s ສາມາດໃຊ້ໄດ້.</string>
 </resources>

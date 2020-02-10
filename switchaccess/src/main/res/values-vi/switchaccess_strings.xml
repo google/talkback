@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Truy cập bằng nút chuyển"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Truy cập bằng nút chuyển cho phép những người bị suy giảm chức năng vận động điều khiển điện thoại hoặc máy tính bảng bằng một hoặc nhiều nút chuyển. Sử dụng các nút chuyển để chọn mục, cuộn, nhập văn bản và các tác vụ khác."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Điều khiển thiết bị bằng nút chuyển"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Trợ giúp và phản hồi"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Tự động quét"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Thời gian tự động quét"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Tự động quét ngược"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f giây</item>
-      <item quantity="one">1 giây</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Tùy chỉnh quét"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Phương pháp quét"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Độ trễ trên mục đầu tiên"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Gán các nút chuyển"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Gán các nút chuyển cho tác vụ"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Gán các nút chuyển để quét"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Tốc độ dòng"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Số lần quét"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Chọn số lần lặp lại thao tác quét"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Thời gian hãm"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Nhiều lần nhấn trong khoảng thời gian này sẽ được coi là một lần nhấn."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Nhả để thực hiện tác vụ"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Thực hiện tác vụ khi nhả nút chuyển"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d vòng lặp</item>
-      <item quantity="one">%d vòng lặp</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Phím \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' đã được gán cho \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\'"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">Đã gán %d nút chuyển</item>
-      <item quantity="one">Đã gán %d nút chuyển</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Nút chuyển để chọn nhóm %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Tiếp theo"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Trước"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Chọn"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Nhấn và giữ"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Cuộn tiến"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Cuộn lùi"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Loại bỏ"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Mở rộng"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Thu gọn"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Đánh dấu văn bản"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Sao chép"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Cắt"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Dán"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENU"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Quay lại"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Màn hình chính"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Tổng quan"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Thông báo"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Cài đặt nhanh"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Cuộn tiến"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Cuộn lùi"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Quét điểm"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Thoát quét điểm"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Vuốt sang phải"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Vuốt sang trái"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Vuốt lên"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Vuốt xuống"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Vuốt (tùy chỉnh)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Thu nhỏ"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Phóng to"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Cài đặt Truy cập bằng nút chuyển"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Nhấn một tổ hợp nút chuyển để thêm hoặc xóa tổ hợp đó khỏi danh sách"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Xóa gán nút chuyển"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Không có nút chuyển nào được gán"</string>
-    <string name="more" msgid="1547670498589416840">"Thêm"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Dấu cách"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"Lưu"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Kiểu đánh dấu quét"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Kiểu quét chính"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Màu đánh dấu"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Kiểu dòng đánh dấu"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Chính sách bảo mật"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Bật tính năng tự động chọn"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Tắt tính năng tự động chọn"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Ký tự tiếp theo"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Từ tiếp theo"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Dòng tiếp theo"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Đoạn tiếp theo"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Trang tiếp theo"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Ký tự trước"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Từ trước"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Dòng trước"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Đoạn trước"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Trang trước"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Tự động bắt đầu quét"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Bắt đầu quá trình quét mà không cần nhấn nút chuyển"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Mở thiết lập Truy cập bằng nút chuyển"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Trình hướng dẫn thiết lập Truy cập bằng nút chuyển"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Một nút chuyển"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Hai nút chuyển"</string>
-    <string name="finish" msgid="4267641294267512480">"Hoàn tất"</string>
-    <string name="exit" msgid="8664597014081860813">"Thoát"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Chọn số lượng nút chuyển"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Nhấn nút chuyển để bắt đầu tự động di chuyển giữa các mục, rồi nhấn lại để chọn mục được đánh dấu."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Nhấn một nút chuyển để di chuyển giữa các mục. Nhấn một nút chuyển khác để chọn mục được đánh dấu."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Chọn tốc độ quét"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Chọn thời lượng đánh dấu từng mục"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Nhanh (độ trễ <xliff:g id="DELAY_SPEED">%1$s</xliff:g> giây)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Trung bình (độ trễ <xliff:g id="DELAY_SPEED">%1$s</xliff:g> giây)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Chậm (độ trễ <xliff:g id="DELAY_SPEED">%1$s</xliff:g> giây)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Tùy chỉnh"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"độ trễ (giây)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Phím \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' đã được gán cho tác vụ khác"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Quét hàng-cột"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Chọn nhóm"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Quét tuyến tính"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Phản hồi bằng giọng nói"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Cài đặt TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Cho nhiều mục"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Nói mục đầu tiên và cuối cùng"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Nói số lượng mục"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Nói tất cả mục được đánh dấu"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Hoàn tất bài nói trước khi di chuyển"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"nhóm <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> đến <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> mục"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"chọn để cuộn"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"mục không xác định"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Chọn cách quét"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Quét từng hàng một. Sau khi chọn hàng, di chuyển qua các mục trong danh sách đó."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Di chuyển lần lượt giữa các mục. Lưu ý rằng bàn phím sẽ luôn quét theo hàng."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Tất cả các mục sẽ được gán màu. Nhấn nút chuyển tương ứng với màu xung quanh mục mà bạn muốn. Thu hẹp kích thước của nhóm cho đến khi đạt được kích thước bạn chọn."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Các nút chuyển được gán cho <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Không có"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Xóa các nút chuyển đã gán?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Bạn đã gán các nút chuyển."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Xóa các nút chuyển"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Giữ các nút chuyển"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Không có nút chuyển nào được gán"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Không có nút chuyển nào được gán cho tác vụ này. Bạn có chắc chắn muốn tiếp tục không?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Nhóm <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Nhấn nút chuyển để gán nút đó cho việc chọn nhóm <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Nhấn nút chuyển để gán nút đó cho tác vụ \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Bắt đầu quét và chọn"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Kiểm tra thiết lập của bạn với Tic-Tac-Toe"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Nhấn \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" để bắt đầu quét. Nhấn lại nút chuyển này để chọn mục được đánh dấu. Bạn thực hiện trước đi!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Nhấn \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" để bắt đầu quét. Nhấn lại nút chuyển này để chọn hàng được đánh dấu. Nhấn thêm một lần nữa để chọn mục được đánh dấu. Bạn thực hiện trước đi!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Nhấn \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" để di chuyển giữa các mục. Nhấn \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" để chọn mục được đánh dấu. Bạn thực hiện trước đi!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Nhấn \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" để di chuyển giữa các hàng. Nhấn \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" để chọn hàng được đánh dấu. Lặp lại để chọn một mục trong hàng đó. Bạn thực hiện trước đi!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Nhấn \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" để chọn các mục được đánh dấu bằng <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> hoặc nhấn \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" để chọn các mục được đánh dấu bằng <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Lặp lại để đi đến mục của bạn. Bạn thực hiện trước đi!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Bạn chưa gán nút chuyển cho tất cả tác vụ. Sử dụng nút Trước để quay lại và hoàn tất việc gán nút chuyển."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Đặt lại trò chơi"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Hình vuông này đã được sử dụng. Hãy thử lại!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Bạn đã thắng!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Chúc bạn may mắn lần sau"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Hòa"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Bạn có thể giữ thiết lập hiện tại của mình hoặc bắt đầu lại."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Giữ thiết lập"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Bắt đầu lại"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Thiết lập hoàn tất"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Bạn đã hoàn tất."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Bạn luôn có thể thay đổi cài đặt bổ sung hoặc mở lại trình hướng dẫn thiết lập từ cài đặt Truy cập bằng nút chuyển."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Tiếp cận bằng công tắc</string>
+  <string name="switch_access_service_description">Tính năng Tiếp cận bằng công tắc cho phép những người bị suy giảm chức năng vận động điều khiển điện thoại hoặc máy tính bảng bằng một hoặc nhiều công tắc. Sử dụng các công tắc để chọn mục, cuộn, nhập văn bản và các thao tác khác.</string>
+  <string name="switch_access_service_summary">Điều khiển thiết bị bằng công tắc</string>
+  <string name="title_pref_help_feedback">Trợ giúp và phản hồi</string>
+  <string name="title_pref_licenses">Giấy phép nguồn mở</string>
+  <string name="title_pref_category_auto_scan">Tự động quét</string>
+  <string name="title_pref_auto_scan_disabled">Tự động quét (đã tắt)</string>
+  <string name="action_key_summary_auto_scan">Thao tác nhấn công tắc này sẽ tự động bắt đầu di chuyển phần nổi bật giữa các mục. Nhấn lại sẽ chọn mục được làm nổi bật.</string>
+  <string name="title_pref_auto_scan_time_delay">Thời gian tự động quét</string>
+  <string name="action_name_reverse_auto_scan">Tự động quét ngược</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Tự động quét ngược (đã tắt)</string>
+  <string name="action_key_summary_reverse_auto_scan">Thao tác nhấn công tắc này sẽ tự động bắt đầu di chuyển phần nổi bật giữa các mục theo chiều ngược lại. Nhấn lại sẽ chọn mục được làm nổi bật.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 giây</item>
+    <item quantity="other">%.2f giây</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Tùy chỉnh quét</string>
+  <string name="title_pref_scanning_methods">Phương pháp quét</string>
+  <string name="title_pref_start_scan_delay">Độ trễ trên mục đầu tiên</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Chọn thêm thời gian dành cho mục đầu tiên. Thời gian này được thêm vào thời gian tự động quét.\n\nCài đặt này sẽ ảnh hưởng đến cả tự động quét và quét điểm.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Chọn thêm thời gian dành cho mục đầu tiên. Sau thời gian này, đường dọc hoặc đường ngang sẽ bắt đầu di chuyển.\n\nMục cài đặt này ảnh hưởng đến cả tùy chọn tự động quét lẫn quét điểm.</string>
+  <string name="title_pref_category_assign_switches">Gán các nút chuyển</string>
+  <string name="title_pref_category_key_mappings">Gán công tắc cho các hành động chung</string>
+  <string name="summary_pref_category_key_mappings">Bạn có thể thực hiện các hành động chung bất kỳ lúc nào</string>
+  <string name="title_pref_category_scan_key_mappings">Gán công tắc để quét</string>
+  <string name="summary_pref_category_scan_key_mappings">Hành động quét cho phép bạn di chuyển đánh dấu và chọn mục được đánh dấu</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Di chuyển và chọn</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Các hành động đối với mục được đánh dấu</string>
+  <string name="title_pref_point_scan_line_speed">Tốc độ dòng</string>
+  <string name="dialog_message_pref_line_speed">Chọn tốc độ di chuyển của đường dọc và đường ngang trên toàn màn hình.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 cm/giây</item>
+    <item quantity="other">%.2f cm/giây</item>
+  </plurals>
+  <string name="title_pref_loop_count">Số lần quét</string>
+  <string name="dialog_message_pref_loop_count">Chọn số lần lặp lại hoạt động quét.\n\nMục cài đặt này ảnh hưởng đến cả hoạt động tự động quét lẫn quét điểm.</string>
+  <string name="summary_pref_point_scan">Sử dụng các đường di chuyển để chọn một vị trí ngang và dọc cụ thể. %1$s</string>
+  <string name="point_scan_enable_animations_message">Bật ảnh động để sử dụng tính năng này.</string>
+  <string name="title_pref_category_switch_accomodation">Cách điều chỉnh công tắc</string>
+  <string name="title_pref_debounce_time">Bỏ qua các lần nhấn liên tiếp</string>
+  <string name="dialog_message_pref_debounce_time">Nhấn công tắc nhiều lần trong khoảng thời gian này sẽ được coi là một lần nhấn.</string>
+  <string name="title_pref_press_on_release">Thả ra để thực hiện thao tác</string>
+  <string name="subtitle_pref_press_on_release">Thực hiện thao tác khi thả công tắc</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d vòng lặp</item>
+    <item quantity="other">%d vòng lặp</item>
+  </plurals>
+  <string name="preference_off">Đang tắt</string>
+  <string name="preference_on">Đang bật</string>
+  <string name="toast_msg_key_already_assigned">Phím \'%1$s\' đã được gán cho \'%2$s\'</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">Đã gán %d công tắc</item>
+    <item quantity="other">Đã gán %d công tắc</item>
+  </plurals>
+  <string name="option_scan_switch_format">Nút chuyển để chọn nhóm %1$d</string>
+  <string name="option_scan_switch_format_with_color">Nút chuyển để chọn nhóm %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Thao tác nhấn công tắc này sẽ chọn nhóm %1$d.</string>
+  <string name="action_name_next">Tiếp theo</string>
+  <string name="action_key_summary_next">Thao tác nhấn công tắc này sẽ làm nổi bật mục tiếp theo.</string>
+  <string name="action_name_previous">Trước</string>
+  <string name="action_key_summary_previous">Thao tác nhấn công tắc này sẽ làm nổi bật mục trước đó.</string>
+  <string name="action_name_click">Chọn</string>
+  <string name="action_key_summary_click">Thao tác nhấn công tắc này sẽ chọn mục được làm nổi bật.</string>
+  <string name="action_name_long_click">Chạm và giữ</string>
+  <string name="action_key_summary_long_click">Thao tác nhấn công tắc này sẽ chạm và giữ mục được làm nổi bật.</string>
+  <string name="action_name_scroll_forward">Cuộn tiến</string>
+  <string name="action_key_summary_scroll_forward">Thao tác nhấn công tắc này sẽ chuyển mục được làm nổi bật về phía trước.</string>
+  <string name="action_name_scroll_backward">Cuộn lùi</string>
+  <string name="action_key_summary_scroll_backward">Thao tác nhấn công tắc này sẽ chuyển mục được làm nổi bật về phía sau.</string>
+  <string name="action_name_dismiss">Loại bỏ</string>
+  <string name="action_name_expand">Mở rộng</string>
+  <string name="action_name_collapse">Thu gọn</string>
+  <string name="action_name_highlight_text">Đánh dấu văn bản</string>
+  <string name="action_group_name_highlight">Đánh dấu...</string>
+  <string name="action_name_highlight_all_text">Đánh dấu toàn bộ văn bản</string>
+  <string name="action_name_highlight_granular_text">Đánh dấu %1$s</string>
+  <string name="action_name_copy">Sao chép</string>
+  <string name="action_name_copy_all_text">Sao chép toàn bộ</string>
+  <string name="action_name_cut">Cắt</string>
+  <string name="action_name_cut_all_text">Cắt toàn bộ</string>
+  <string name="action_name_paste">Dán</string>
+  <string name="action_name_undo">Hoàn tác</string>
+  <string name="action_name_redo">Làm lại</string>
+  <string name="action_group_name_delete">Xóa...</string>
+  <string name="action_name_delete">Xóa %1$s</string>
+  <string name="action_name_delete_highlighted_text">Xóa văn bản đã đánh dấu</string>
+  <string name="option_scanning_menu_button">MENU</string>
+  <string name="option_scanning_menu_button_content_description">Menu tiếp cận bằng công tắc</string>
+  <string name="switch_access_global_menu">Menu chung của tiếp cận bằng công tắc</string>
+  <string name="switch_access_actions_menu">Menu hành động của tiếp cận bằng công tắc</string>
+  <string name="switch_access_close_menu">ĐÓNG</string>
+  <string name="switch_access_back_menu">QUAY LẠI</string>
+  <string name="next_arrow_content_description">Tiếp</string>
+  <string name="previous_arrow_content_description">Trước</string>
+  <string name="global_action_back">Quay lại</string>
+  <string name="global_action_key_summary_back">Thao tác nhấn công tắc này sẽ quay lại màn hình trước hoặc ẩn bàn phím nếu hiển thị.</string>
+  <string name="global_action_home">Màn hình chính</string>
+  <string name="global_action_key_summary_home">Thao tác nhấn công tắc này sẽ chuyển tới Màn hình chính.</string>
+  <string name="global_action_overview">Tổng quan</string>
+  <string name="global_action_key_summary_overview">Thao tác nhấn công tắc này sẽ hiển thị danh sách các ứng dụng đã mở gần đây.</string>
+  <string name="global_action_notifications">Thông báo</string>
+  <string name="global_action_key_summary_notifications">Thao tác nhấn công tắc này sẽ hiển thị thông báo trên thiết bị của bạn.</string>
+  <string name="global_action_quick_settings">Cài đặt nhanh</string>
+  <string name="global_action_key_summary_quick_settings">Thao tác nhấn công tắc này sẽ hiển thị phần Cài đặt nhanh trên thiết bị của bạn.</string>
+  <string name="global_action_power_options">Tùy chọn nút Nguồn</string>
+  <string name="global_menu_volume_heading">Âm lượng</string>
+  <string name="volume_menu_media">Âm lượng phương tiện</string>
+  <string name="volume_menu_call">Âm lượng cuộc gọi</string>
+  <string name="volume_menu_ring">Âm lượng chuông</string>
+  <string name="volume_menu_alarm">Âm lượng báo thức</string>
+  <string name="volume_menu_accessibility">Âm lượng hỗ trợ tiếp cận</string>
+  <string name="volume_menu_mute">Tắt tiếng</string>
+  <string name="volume_menu_unmute">Bật tiếng</string>
+  <string name="volume_menu_increase">Tăng</string>
+  <string name="volume_settings">Cài đặt âm lượng</string>
+  <string name="volume_menu_decrease">Giảm</string>
+  <string name="scrollable_forward">Cuộn tiến</string>
+  <string name="scrollable_backward">Cuộn lùi</string>
+  <string name="point_scan">Quét điểm</string>
+  <string name="box_scan">Thoát quét điểm</string>
+  <string name="action_name_swipe_right">Vuốt sang phải</string>
+  <string name="action_name_swipe_left">Vuốt sang trái</string>
+  <string name="action_name_swipe_up">Vuốt lên</string>
+  <string name="action_name_swipe_down">Vuốt xuống</string>
+  <string name="action_name_swipe_custom">Vuốt (tùy chỉnh)</string>
+  <string name="action_name_zoom_out">Thu nhỏ</string>
+  <string name="action_name_zoom_in">Phóng to</string>
+  <string name="switch_access_preferences_title">Cài đặt Tiếp cận bằng công tắc</string>
+  <string name="key_combo_preference_instructions">Nhấn một tổ hợp công tắc để thêm hoặc xóa tổ hợp đó khỏi danh sách</string>
+  <string name="key_combo_preference_reset_button">Xóa việc gán công tắc</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Chưa gán công tắc nào</string>
+  <string name="more">Thêm</string>
+  <string name="name_of_space_bar">Dấu cách</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">Lưu</string>
+  <string name="title_pref_category_display_and_sound">Hiển thị và âm thanh</string>
+  <string name="title_pref_highlight_0">Kiểu làm nổi bật khi quét</string>
+  <string name="title_pref_primary_scan_style">Kiểu quét chính</string>
+  <string name="title_pref_highlight_0_color">Màu đánh dấu</string>
+  <string name="title_pref_highlight_0_weight">Kiểu dòng đánh dấu</string>
+  <string name="title_pref_privacy_policy">Chính sách bảo mật</string>
+  <string name="title_pref_auto_select">Tự động chọn</string>
+  <string name="summary_pref_auto_select">Tự động chọn mục được làm nổi bật. Nếu không thể chọn mục đó hoặc nếu mục cài đặt này bị tắt, thì bạn sẽ thấy một menu gồm các hành động có thể thực hiện.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Bật tính năng tự động chọn</string>
+  <string name="switch_access_global_menu_disable_autoselect">Tắt tính năng tự động chọn</string>
+  <string name="switch_access_move_next">Tiếp theo...</string>
+  <string name="switch_access_move_next_character">Ký tự tiếp theo</string>
+  <string name="switch_access_move_next_word">Từ tiếp theo</string>
+  <string name="switch_access_move_next_line">Dòng tiếp theo</string>
+  <string name="switch_access_move_next_paragraph">Đoạn tiếp theo</string>
+  <string name="switch_access_move_next_page">Trang tiếp theo</string>
+  <string name="switch_access_move_next_sentence">Câu tiếp theo</string>
+  <string name="switch_access_move_prev">Trước đó...</string>
+  <string name="switch_access_move_prev_character">Ký tự trước</string>
+  <string name="switch_access_move_prev_word">Từ trước</string>
+  <string name="switch_access_move_prev_line">Dòng trước</string>
+  <string name="switch_access_move_prev_paragraph">Đoạn trước</string>
+  <string name="switch_access_move_prev_page">Trang trước</string>
+  <string name="switch_access_move_prev_sentence">Câu trước đó</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Tự động bắt đầu quét</string>
+  <string name="switch_access_auto_start_scan_summary">Bắt đầu quá trình quét mà không cần nhấn công tắc</string>
+  <string name="pref_begin_switchaccess_setup_title">Mở hướng dẫn thiết lập</string>
+  <string name="setup_wizard_heading">Hướng dẫn thiết lập Tiếp cận bằng công tắc</string>
+  <string name="one_switch">Một công tắc</string>
+  <string name="two_switches">Hai công tắc</string>
+  <string name="finish">Hoàn tất</string>
+  <string name="exit">Thoát</string>
+  <string name="intro_heading">Chọn công tắc</string>
+  <string name="usb_switch_option_text">Công tắc USB</string>
+  <string name="bluetooth_switch_option_text">Công tắc Bluetooth</string>
+  <string name="usb_switch_description_text">Kết nối một công tắc vật lý qua USB</string>
+  <string name="bluetooth_switch_description_text">Ghép nối một công tắc không dây qua Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">Thiết bị của bạn không hỗ trợ Bluetooth. Hãy thử sử dụng một công tắc vật lý để thay thế.</string>
+  <string name="connected_usb_devices_header">Thiết bị đã kết nối</string>
+  <string name="usb_no_devices_connected_message">Không tìm thấy thiết bị USB nào. Đảm bảo thiết bị của bạn được kết nối an toàn.</string>
+  <string name="connect_usb_heading">Kết nối công tắc USB</string>
+  <string name="pair_bluetooth_heading">Ghép nối công tắc Bluetooth</string>
+  <string name="pair_bluetooth_subheading">Nhấn vào công tắc Bluetooth của bạn bên dưới</string>
+  <string name="bluetooth_not_enabled_message">Để ghép nối một công tắc Bluetooth, hãy bật Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Bật Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Chưa ghép nối thiết bị Bluetooth nào</string>
+  <string name="paired_devices_header">Thiết bị Bluetooth đã ghép nối</string>
+  <string name="available_devices_header">Các thiết bị Bluetooth hiện có</string>
+  <string name="bluetooth_computer_content_description">Máy tính</string>
+  <string name="bluetooth_phone_content_description">Điện thoại</string>
+  <string name="bluetooth_imaging_content_description">Tạo ảnh</string>
+  <string name="bluetooth_headphone_content_description">Tai nghe</string>
+  <string name="bluetooth_peripheral_content_description">Ngoại vi</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Đang kết nối...</string>
+  <string name="bluetooth_connected_description">Đã kết nối</string>
+  <string name="bluetooth_device_unavailable_description">Không kết nối được với thiết bị</string>
+  <string name="reconnecting_unsupported_title">Không thể kết nối với thiết bị</string>
+  <string name="reconnecting_unsupported_message">Tiếp cận bằng công tắc không thể kết nối với thiết bị đã ghép nối trước đó. Đảm bảo rằng thiết bị của bạn được bật và kết nối.\n\nNếu thiết bị của bạn vẫn chưa kết nối, hãy chuyển tới mục cài đặt Bluetooth và thử kết nối lại.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Chuyển tới mục cài đặt Bluetooth</string>
+  <string name="number_of_switches_heading">Chọn số lượng nút chuyển</string>
+  <string name="title_assign_scan_key">Gán công tắc %1$s</string>
+  <string name="one_switch_description_text">Nhấn công tắc để bắt đầu tự động di chuyển giữa các mục. Sau đó, nhấn lại công tắc để chọn mục được đánh dấu.</string>
+  <string name="two_switches_description_text">Nhấn một công tắc để di chuyển giữa các mục. Nhấn một công tắc khác để chọn mục được đánh dấu.</string>
+  <string name="step_speed_heading">Chọn tốc độ quét</string>
+  <string name="step_speed_subheading">Chọn thời lượng đánh dấu từng mục</string>
+  <string name="fast_radio_button_title">Nhanh (độ trễ %1$s giây)</string>
+  <string name="medium_radio_button_title">Trung bình (độ trễ %1$s giây)</string>
+  <string name="slow_radio_button_title">Chậm (độ trễ %1$s giây)</string>
+  <string name="custom_switch">Tùy chỉnh</string>
+  <string name="custom_edit_text">độ trễ (giây)</string>
+  <string name="setup_toast_msg_key_already_assigned">Phím \'%1$s\' đã được gán cho tác vụ khác</string>
+  <string name="row_column_scanning_title">Quét hàng-cột</string>
+  <string name="option_scanning_title">Chọn nhóm (nâng cao)</string>
+  <string name="linear_scanning_title">Quét tuyến tính</string>
+  <string name="linear_scanning_except_keyboard_title">Quét theo đường thẳng (ngoại trừ bàn phím)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Lời nói, âm thanh và rung</string>
+  <string name="title_pref_switch_access_spoken_feedback">Phản hồi bằng giọng nói</string>
+  <string name="title_pref_scan_non_actionable_items">Đọc nội dung mô tả</string>
+  <string name="scan_non_actionable_items_summary">Nghe phản hồi bằng giọng nói cho các mục có sẵn hành động và nội dung mô tả</string>
+  <string name="title_pref_switch_access_verbosity">Độ chi tiết</string>
+  <string name="summary_verbosity">Chọn lượng thông tin cần nói</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Thông tin độ chi tiết</string>
+  <string name="title_pref_switch_access_keyboard_echo">Đọc to ký tự bàn phím</string>
+  <string name="keyboard_echo_summary_on">Đọc các phím đã nhập cho bàn phím ảo</string>
+  <string name="keyboard_echo_summary_off">Không đọc các phím đã nhập cho bàn phím ảo</string>
+  <string name="title_pref_enable_hints">Đọc gợi ý sử dụng</string>
+  <string name="enable_hints_summary_on">Gợi ý sử dụng được nói trong quá trình di chuyển, sau một khoảng thời gian chờ ngắn</string>
+  <string name="enable_hints_summary_off">Gợi ý sử dụng không được nói khi di chuyển tiêu điểm hỗ trợ truy cập</string>
+  <string name="title_pref_speak_container_element_position">Đọc thông tin danh sách và lưới</string>
+  <string name="speak_container_element_position_summary_on">Thông tin danh sách và lưới được đọc</string>
+  <string name="speak_container_element_position_summary_off">Thông tin danh sách và lưới không được đọc</string>
+  <string name="title_pref_speak_element_type">Đọc to loại thành phần</string>
+  <string name="speak_element_type_summary_on">Đọc to loại thành phần cho các mục có tiêu điểm</string>
+  <string name="speak_element_type_summary_off">Loại thành phần không được đọc cho các mục có tiêu điểm</string>
+  <string name="title_pref_pitch_change_for_ime">Sử dụng các thay đổi độ cao</string>
+  <string name="pitch_change_for_ime_summary_on">Đọc to phản hồi của bàn phím bằng giọng nói có độ cao thấp</string>
+  <string name="pitch_change_for_ime_summary_off">Không thay đổi phản hồi bằng giọng nói khi đọc</string>
+  <string name="title_pref_speak_selected_item_or_group">Đọc to mục hoặc nhóm được chọn</string>
+  <string name="speak_selected_item_or_group_summary">Đọc tên của một mục hoặc nhóm sau khi mục hoặc nhóm đó được chọn</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Thời gian đọc tối đa cho mỗi mục</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Đặt khoảng thời gian tối đa khi hệ thống đọc to phần mô tả của mỗi mục. Lời nói sẽ bị cắt sau thời gian đã đặt.\nLưu ý: Hệ thống luôn đọc to gợi ý nếu bạn bật tính năng này.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Khác</string>
+  <string name="title_pref_node_description_order">Thứ tự mô tả thành phần</string>
+  <string name="title_pref_switch_access_speak_element_ids">Đọc to tên thành phần</string>
+  <string name="speak_element_ids_summary_on">Đọc to tên thành phần cho các nút không được gắn nhãn</string>
+  <string name="speak_element_ids_summary_off">Không đọc ID Thành phần cho các nút không được gắn nhãn</string>
+  <string name="title_pref_switch_access_tts_settings">Cài đặt văn bản sang lời nói</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Khi nhiều mục được làm nổi bật</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Đọc to mục đầu tiên và cuối cùng</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Đọc to số lượng mục</string>
+  <string name="title_pref_switch_access_speak_all_items">Đọc to tất cả mục được làm nổi bật</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Đợi cho đọc xong rồi mới di chuyển</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Phản hồi khác</string>
+  <string name="title_pref_developer_settings">Cài đặt của nhà phát triển</string>
+  <string name="title_pref_spoken_feedback_overlay">Hiển thị đầu ra bằng giọng nói</string>
+  <string name="title_pref_switch_access_vibration_feedback">Phản hồi rung</string>
+  <string name="vibration_feedback_summary">Rung để cho biết rằng nội dung nào đó đã thay đổi (ví dụ: nội dung trên màn hình đã thay đổi)</string>
+  <string name="title_pref_switch_access_sound_feedback">Phản hồi bằng âm thanh</string>
+  <string name="sound_feedback_summary">Phát âm báo để cho biết rằng nội dung nào đó đã thay đổi (ví dụ: nội dung trên màn hình đã thay đổi)</string>
+  <string name="title_pref_switch_access_sound_volume">Âm lượng</string>
+  <string name="title_pref_switch_access_audio_ducking">Giảm âm thanh</string>
+  <string name="audio_ducking_summary">Giảm âm lượng của âm thanh khác trong khi đọc</string>
+  <string name="switch_access_focus_cleared_no_selection">Đã thay đổi màn hình</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Nhấn công tắc chọn để chọn hàng</string>
+  <string name="switch_access_spoken_feedback_group">nhóm %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Nhấn công tắc nhóm %1$s để chọn nhóm</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Nhấn công tắc nhóm %1$s để chọn mục</string>
+  <string name="switch_access_spoken_feedback_to">%1$s đến %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s mục</string>
+  <string name="switch_access_spoken_feedback_group_selected">đã chọn nhóm %1$s</string>
+  <string name="switch_access_spoken_feedback_row_selected">đã chọn hàng</string>
+  <string name="switch_access_spoken_feedback_item_selected">đã chọn %1$s</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">có thể cuộn</string>
+  <string name="switch_access_spoken_feedback_scroll">chọn để cuộn</string>
+  <string name="switch_access_spoken_feedback_unknown">mục không xác định</string>
+  <string name="scanning_method_heading">Chọn cách quét</string>
+  <string name="row_column_scanning_description">Quét từng hàng một. Sau khi chọn hàng, di chuyển qua các mục trong danh sách đó.</string>
+  <string name="linear_scanning_description">Chuyển lần lượt giữa các mục</string>
+  <string name="linear_scanning_except_keyboard_description">Di chuyển lần lượt giữa các mục. Lưu ý rằng bàn phím sẽ quét theo hàng.</string>
+  <string name="option_scanning_description">Tất cả các mục sẽ được gán màu. Nhấn công tắc tương ứng với màu xung quanh mục mà bạn muốn. Thu hẹp kích thước của nhóm cho đến khi đạt được kích thước bạn chọn.</string>
+  <string name="setup_switch_assignment_heading">Các công tắc gán cho %s</string>
+  <string name="setup_switch_assignment_empty">Không có</string>
+  <string name="clear_keys_dialog_title">Xóa các nút chuyển đã gán?</string>
+  <string name="clear_keys_dialog_message">Bạn đã gán các nút chuyển.</string>
+  <string name="clear_keys_dialog_positive_button">Xóa các nút chuyển</string>
+  <string name="clear_keys_dialog_negative_button">Giữ các nút chuyển</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Chưa gán công tắc nào</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Bạn chưa gán công tắc nào cho thao tác này. Bạn có chắc chắn muốn tiếp tục không?</string>
+  <string name="option_scan_switch_title">Nhóm %1$s</string>
+  <string name="option_scan_switch_subtitle">Nhấn một công tắc để gán công tắc đó cho thao tác chọn nhóm %1$s.</string>
+  <string name="assign_switch_subtitle">Nhấn một công tắc để gán công tắc đó cho thao tác \"%1$s\".</string>
+  <string name="auto_scan_action_description">Bắt đầu quét và chọn</string>
+  <string name="switch_game_heading">Kiểm tra thiết lập của bạn với Tic-Tac-Toe</string>
+  <string name="switch_game_one_switch_linear_subheading">Nhấn \"%1$s\" để bắt đầu quét. Nhấn lại công tắc này để chọn mục được đánh dấu. Bạn thực hiện trước đi!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Nhấn \"%1$s\" để bắt đầu quét. Nhấn lại công tắc này để chọn hàng được đánh dấu. Nhấn thêm một lần nữa để chọn mục được đánh dấu. Bạn thực hiện trước đi!</string>
+  <string name="switch_game_two_switch_linear_subheading">Nhấn \"%1$s\" để di chuyển giữa các mục. Nhấn \"%2$s\" để chọn mục đã tô sáng. Bạn thực hiện trước đi!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Nhấn \"%1$s\" để di chuyển giữa các hàng. Nhấn \"%2$s\" để chọn hàng đã tô sáng. Lặp lại thao tác trên để chọn mục trong hàng đó. Bạn thực hiện trước đi!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Nhấn \"%1$s\" để chọn các mục đã tô sáng trong %2$s hoặc nhấn \"%4$s\" để chọn các mục đã tô sáng trong %3$s. Lặp lại thao tác trên để chuyển đến mục của bạn. Bạn thực hiện trước đi!</string>
+  <string name="switch_game_incomplete_switches_subheading">Bạn chưa gán công tắc cho tất cả thao tác. Nhấn vào nút Trước để quay lại và hoàn tất việc gán công tắc.</string>
+  <string name="game_square_content_description">%1$s tại vị trí %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">trống</string>
+  <string name="game_reset_button_title">Đặt lại trò chơi</string>
+  <string name="game_square_already_taken">Hình vuông này đã được sử dụng. Hãy thử lại!</string>
+  <string name="game_win_outcome_title">Bạn đã thắng!</string>
+  <string name="game_loss_outcome_title">Chúc bạn may mắn lần sau</string>
+  <string name="game_tie_outcome_title">Hòa</string>
+  <string name="game_outcome_body_text">Bạn có thể giữ thiết lập hiện tại của mình hoặc bắt đầu lại.</string>
+  <string name="game_outcome_positive_response">Giữ thiết lập</string>
+  <string name="game_outcome_negative_response">Bắt đầu lại</string>
+  <string name="setup_completion_heading">Thiết lập hoàn tất</string>
+  <string name="setup_completion_message">Bạn đã hoàn tất.</string>
+  <string name="setup_completion_settings_reminder">Bạn luôn có thể thay đổi cài đặt bổ sung hoặc mở lại trình hướng dẫn thiết lập từ phần cài đặt Tiếp cận bằng công tắc.</string>
+  <string name="dialog_url_list">Chọn một đường dẫn liên kết</string>
+  <string name="dialog_do_not_disturb_permission_title">Tính năng Tiếp cận bằng công tắc cần có quyền để điều chỉnh âm lượng</string>
+  <string name="dialog_do_not_disturb_permission_message">Để điều chỉnh âm lượng từ trình đơn Tiếp cận bằng công tắc, hãy cấp cho Gói Hỗ trợ Android quyền truy cập khi chế độ Không làm phiền đang bật</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Mở phần cài đặt</string>
 </resources>

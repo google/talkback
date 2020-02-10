@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"การเข้าถึงด้วยสวิตช์"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"การเข้าถึงด้วยสวิตช์ช่วยให้ผู้ที่มีความบกพร่องทางการเคลื่อนไหวสามารถควบคุมโทรศัพท์และแท็บเล็ตโดยใช้สวิตช์ 1 รายการหรือมากกว่า ใช้สวิตช์เพื่อเลือกรายการ เลื่อน ป้อนข้อความ และอื่นๆ"</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"ควบคุมอุปกรณ์ด้วยสวิตช์"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"ความช่วยเหลือและความคิดเห็น"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"สแกนอัตโนมัติ"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"เวลาในการสแกนอัตโนมัติ"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"สแกนอัตโนมัติแบบถอยหลัง"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f วินาที</item>
-      <item quantity="one">1 วินาที</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"ปรับแต่งการสแกน"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"วิธีการสแกน"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"ความล่าช้าในรายการแรก"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"กําหนดสวิตช์"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"กำหนดสวิตช์เป็นการทำงาน"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"กําหนดสวิตช์สำหรับการสแกน"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"ความเร็วของบรรทัด"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"จำนวนการสแกน"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"เลือกจำนวนครั้งที่จะสแกนซ้ำ"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"เวลาดีเบานซ์"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"ระบบจะถือว่าการกดหลายครั้งภายในเวลานี้เป็นการกดครั้งเดียว"</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"ปล่อยเพื่อทำงาน"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"ทำงานเมื่อปล่อยสวิตช์"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">วนซ้ำ %d รอบ</item>
-      <item quantity="one">วนซ้ำ %d รอบ</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"กำหนดสวิตช์ \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" ให้ \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\" แล้ว"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">กำหนดแล้ว %d สวิตช์</item>
-      <item quantity="one">กำหนดแล้ว %d สวิตช์</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"สวิตช์การเลือกกลุ่ม %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"ถัดไป"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"ก่อนหน้า"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"เลือก"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"กดค้าง"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"เลื่อนไปข้างหน้า"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"เลื่อนไปข้างหลัง"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"ปิด"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"ขยาย"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"ยุบ"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"ไฮไลต์ข้อความ"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"คัดลอก"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"ตัด"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"วาง"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"เมนู"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"กลับ"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"หน้าแรก"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"ภาพรวม"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"การแจ้งเตือน"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"การตั้งค่าด่วน"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"เลื่อนไปข้างหน้า"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"เลื่อนไปข้างหลัง"</string>
-    <string name="point_scan" msgid="4514216871544244788">"การสแกนจุด"</string>
-    <string name="box_scan" msgid="6675486192630209217">"ออกจากการสแกนจุด"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"เลื่อนไปทางขวา"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"เลื่อนไปทางซ้าย"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"เลื่อนขึ้น"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"เลื่อนลง"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"เลื่อน (กำหนดเอง)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"ซูมออก"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"ซูมเข้า"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"เปลี่ยนการตั้งค่าการเข้าถึงด้วยสวิตช์"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"กดสวิตช์ร่วมกันเพื่อเพิ่มหรือนำออกจากรายการ"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"ล้างการกำหนดสวิตช์"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"ไม่ได้กำหนดสวิตช์"</string>
-    <string name="more" msgid="1547670498589416840">"เพิ่มเติม"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"เว้นวรรค"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"แท็บ"</string>
-    <string name="save" msgid="5398278773451196019">"บันทึก"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"กำลังสแกนรูปแบบไฮไลต์"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"รูปแบบการสแกนหลัก"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"สีไฮไลต์"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"รูปแบบเส้นไฮไลต์"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"นโยบายความเป็นส่วนตัว"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"เปิดใช้การเลือกอัตโนมัติ"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"ปิดใช้การเลือกอัตโนมัติ"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"อักขระถัดไป"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"คำถัดไป"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"บรรทัดถัดไป"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"ย่อหน้าถัดไป"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"หน้าถัดไป"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"อักขระก่อนหน้า"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"คำก่อนหน้า"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"บรรทัดก่อนหน้า"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"ย่อหน้าก่อนหน้า"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"หน้าก่อนหน้า"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"เริ่มการสแกนอัตโนมัติ"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"เริ่มการสแกนโดยไม่ต้องกดสวิตช์"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"เปิดการตั้งค่าการเข้าถึงด้วยสวิตช์"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"วิซาร์ดการตั้งค่าการเข้าถึงด้วยสวิตช์"</string>
-    <string name="one_switch" msgid="5247899666787922810">"1 สวิตช์"</string>
-    <string name="two_switches" msgid="3082487661638289356">"2 สวิตช์"</string>
-    <string name="finish" msgid="4267641294267512480">"เสร็จสิ้น"</string>
-    <string name="exit" msgid="8664597014081860813">"ออก"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"เลือกจำนวนสวิตช์"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"กดสวิตช์เพื่อเริ่มย้ายไปมาระหว่างรายการโดยอัตโนมัติ จากนั้นกดอีกครั้งเพื่อเลือกรายการที่ไฮไลต์"</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"กดสวิตช์หนึ่งเพื่อย้ายไปมาระหว่างรายการ กดอีกสวิตช์หนึ่งเพื่อเลือกรายการที่ไฮไลต์"</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"เลือกความเร็วในการสแกน"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"เลือกระยะเวลาการไฮไลต์แต่ละรายการ"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"เร็ว (ล่าช้า <xliff:g id="DELAY_SPEED">%1$s</xliff:g> วินาที)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"ปานกลาง (ล่าช้า <xliff:g id="DELAY_SPEED">%1$s</xliff:g> วินาที)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"ช้า (ล่าช้า <xliff:g id="DELAY_SPEED">%1$s</xliff:g> วินาที)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"กำหนดเอง"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"ล่าช้า (วินาที)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"กำหนดแป้น \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" ให้ทำงานอีกอย่างหนึ่งแล้ว"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"การสแกนแถว-คอลัมน์"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"การเลือกกลุ่ม"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"การสแกนเชิงเส้น"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"อธิบายและอ่านออกเสียง"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"การตั้งค่า TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"สำหรับหลายรายการ"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"พูดรายการแรกและรายการสุดท้าย"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"พูดจำนวนรายการ"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"พูดรายการที่ไฮไลต์ทั้งหมด"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"พูดให้จบก่อนเคลื่อนย้าย"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"กลุ่ม <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> ถึง <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> รายการ"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"เลือกเพื่อเลื่อน"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"รายการที่ไม่รู้จัก"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"เลือกวิธีการสแกน"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"สแกนทีละ 1 แถว เมื่อเลือกแถวแล้ว ให้เลื่อนผ่านรายการต่างๆ ในรายชื่อนั้น"</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"ย้ายไปมาระหว่างรายการทีละ 1 รายการ โปรดทราบว่าแป้นพิมพ์จะสแกนตามแถวทุกครั้ง"</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"จะมีการกำหนดสีให้กับรายการทั้งหมด กดสวิตช์ที่ตรงกับสีรอบๆ รายการที่ต้องการ ลดขนาดของกลุ่มลงจนกว่าจะไปถึงตัวเลือกที่ต้องการ"</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"กำหนดให้สวิตช์<xliff:g id="ACTION_NAME">%s</xliff:g>แล้ว"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"ไม่มี"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"ล้างสวิตช์ที่กำหนดไว้ไหม"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"คุณกำหนดสวิตช์แล้ว"</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"ล้างสวิตช์"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"เก็บสวิตช์ไว้"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"ไม่ได้กำหนดสวิตช์"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"ไม่ได้กำหนดสวิตช์ใดให้ทำงานนี้ คุณแน่ใจไหมว่าต้องการดำเนินการต่อ"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"กลุ่ม<xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"กดสวิตช์เพื่อกำหนดให้สวิตช์เลือกกลุ่ม<xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"กดสวิตช์เพื่อกำหนดการทำงาน \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\""</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"เริ่มสแกนและเลือก"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"ทดสอบการตั้งค่าด้วยเกมโอเอ็กซ์"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"กด \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" เพื่อเริ่มสแกน กดสวิตช์อีกครั้งเพื่อเลือกรายการที่ไฮไลต์ คุณเริ่มก่อนเลย"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"กด \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" เพื่อเริ่มสแกน กดสวิตช์อีกครั้งเพื่อเลือกแถวที่ไฮไลต์ กดอีกครั้งเพื่อเลือกรายการที่ไฮไลต์ คุณเริ่มก่อนเลย"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"กด \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" เพื่อย้ายไปมาระหว่างรายการ กด \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" เพื่อเลือกรายการที่ไฮไลต์ คุณเริ่มก่อนเลย"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"กด \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" เพื่อย้ายไปมาระหว่างแถว กด \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" เพื่อเลือกแถวที่ไฮไลต์ ทำซ้ำเพื่อเลือกรายการในแถวนั้น คุณเริ่มก่อนเลย"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"กด \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" เพื่อเลือกรายการที่ไฮไลต์<xliff:g id="COLOR_NAME_1">%2$s</xliff:g> หรือกด \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" เพื่อเลือกรายการที่ไฮไลต์<xliff:g id="COLOR_NAME_3">%3$s</xliff:g> ทำซ้ำเพื่อไปยังรายการของคุณ คุณเริ่มก่อนเลย"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"คุณยังไม่ได้กำหนดสวิตช์สำหรับการทำงานบางอย่าง ใช้ปุ่มก่อนหน้าเพื่อกลับไปกำหนดปุ่มให้เสร็จ"</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"รีเซ็ตเกม"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"ช่องนี้เล่นไปแล้ว ลองอีกครั้ง"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"คุณชนะ"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"คราวหน้าลองใหม่นะ"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"เสมอกัน"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"คุณสามารถใช้การตั้งค่าปัจจุบันต่อไปหรือเริ่มต้นใหม่"</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"เก็บการตั้งค่าไว้"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"เริ่มต้นใหม่"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"ตั้งค่าเสร็จแล้ว"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"คุณพร้อมแล้ว"</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"คุณสามารถเปลี่ยนการตั้งค่าเพิ่มเติมหรือเปิดวิซาร์ดการตั้งค่าจากการตั้งค่าการเข้าถึงด้วยสวิตช์"</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">การเข้าถึงด้วยสวิตช์</string>
+  <string name="switch_access_service_description">การเข้าถึงด้วยสวิตช์ช่วยให้ผู้ที่มีความบกพร่องทางการเคลื่อนไหวสามารถควบคุมโทรศัพท์และแท็บเล็ตโดยใช้สวิตช์อย่างน้อย 1 รายการ ใช้สวิตช์เพื่อเลือกรายการ เลื่อน ป้อนข้อความ และอื่นๆ</string>
+  <string name="switch_access_service_summary">ควบคุมอุปกรณ์ด้วยสวิตช์</string>
+  <string name="title_pref_help_feedback">ความช่วยเหลือและความคิดเห็น</string>
+  <string name="title_pref_licenses">ใบอนุญาตโอเพนซอร์ส</string>
+  <string name="title_pref_category_auto_scan">สแกนอัตโนมัติ</string>
+  <string name="title_pref_auto_scan_disabled">การสแกนอัตโนมัติ (ปิดใช้อยู่)</string>
+  <string name="action_key_summary_auto_scan">การกดสวิตช์นี้จะเริ่มย้ายการไฮไลต์ระหว่างรายการต่างๆ โดยอัตโนมัติ การกดอีกครั้งจะเป็นการเลือกรายการที่ไฮไลต์</string>
+  <string name="title_pref_auto_scan_time_delay">เวลาในการสแกนอัตโนมัติ</string>
+  <string name="action_name_reverse_auto_scan">สแกนอัตโนมัติแบบถอยหลัง</string>
+  <string name="title_pref_reverse_auto_scan_disabled">การสแกนอัตโนมัติแบบถอยหลัง (ปิดใช้อยู่)</string>
+  <string name="action_key_summary_reverse_auto_scan">การกดสวิตช์นี้จะเริ่มย้ายการไฮไลต์ระหว่างรายการต่างๆ ในแบบย้อนหลังโดยอัตโนมัติ การกดอีกครั้งจะเป็นการเลือกรายการที่ไฮไลต์</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 วินาที</item>
+    <item quantity="other">%.2f วินาที</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">ปรับแต่งการสแกน</string>
+  <string name="title_pref_scanning_methods">วิธีการสแกน</string>
+  <string name="title_pref_start_scan_delay">การหน่วงเวลารายการแรก</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">เลือกเวลาเพิ่มเติมที่จะใช้กับรายการแรก เวลานี้จะเพิ่มไปยังเวลาในการสแกนอัตโนมัติ\n\nการตั้งค่านี้มีผลกับการสแกนอัตโนมัติและการสแกนจุด</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">เลือกเวลาเพิ่มเติมที่จะใช้กับรายการแรก หลังเวลาดังกล่าว เส้นแนวตั้งหรือแนวนอนจะเริ่มเคลื่อน\n\nการตั้งค่านี้มีผลกับการสแกนอัตโนมัติและการสแกนจุด</string>
+  <string name="title_pref_category_assign_switches">กําหนดสวิตช์</string>
+  <string name="title_pref_category_key_mappings">กำหนดสวิตช์ให้การทำงานส่วนกลาง</string>
+  <string name="summary_pref_category_key_mappings">คุณทำงานส่วนกลางได้ทุกเมื่อ</string>
+  <string name="title_pref_category_scan_key_mappings">กําหนดสวิตช์สำหรับการสแกน</string>
+  <string name="summary_pref_category_scan_key_mappings">การสแกนช่วยให้คุณเลื่อนไฮไลต์และเลือกรายการที่ไฮไลต์อยู่ได้</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">การเคลื่อนไหวและการเลือก</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">การทำงานกับรายการที่ไฮไลต์</string>
+  <string name="title_pref_point_scan_line_speed">ความเร็วของบรรทัด</string>
+  <string name="dialog_message_pref_line_speed">เลือกความเร็วของการเลื่อนเส้นแนวนอนและแนวตั้งบนหน้าจอ</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 ซม. ต่อวินาที</item>
+    <item quantity="other">%.2f ซม. ต่อวินาที</item>
+  </plurals>
+  <string name="title_pref_loop_count">จำนวนการสแกน</string>
+  <string name="dialog_message_pref_loop_count">เลือกจำนวนครั้งที่จะสแกนซ้ำ\n\nการตั้งค่านี้มีผลกับการสแกนอัตโนมัติและการสแกนจุด</string>
+  <string name="summary_pref_point_scan">ใช้เส้นที่เคลื่อนไหวเพื่อเลือกตำแหน่งแนวตั้งหรือแนวนอนที่เจาะจง %1$s</string>
+  <string name="point_scan_enable_animations_message">เปิดภาพเคลื่อนไหวเพื่อใช้ฟีเจอร์นี้</string>
+  <string name="title_pref_category_switch_accomodation">การปรับสวิตช์ให้เหมาะสม</string>
+  <string name="title_pref_debounce_time">เพิกเฉยต่อการกดซ้ำ</string>
+  <string name="dialog_message_pref_debounce_time">ระบบจะถือว่าการกดสวิตช์หลายครั้งภายในระยะเวลานี้เป็นการกดครั้งเดียว</string>
+  <string name="title_pref_press_on_release">ปล่อยเพื่อทำงาน</string>
+  <string name="subtitle_pref_press_on_release">ทำงานเมื่อปล่อยสวิตช์</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">วนซ้ำ %d รอบ</item>
+    <item quantity="other">วนซ้ำ %d รอบ</item>
+  </plurals>
+  <string name="preference_off">ปิด</string>
+  <string name="preference_on">เปิด</string>
+  <string name="toast_msg_key_already_assigned">กำหนดสวิตช์ \"%1$s\" ให้ \"%2$s\" แล้ว</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">กำหนดแล้ว %d สวิตช์</item>
+    <item quantity="other">กำหนดแล้ว %d สวิตช์</item>
+  </plurals>
+  <string name="option_scan_switch_format">สวิตช์การเลือกกลุ่ม %1$d</string>
+  <string name="option_scan_switch_format_with_color">สวิตช์การเลือกกลุ่ม %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">การกดสวิตช์นี้จะเลือกกลุ่ม %1$d</string>
+  <string name="action_name_next">ถัดไป</string>
+  <string name="action_key_summary_next">การกดสวิตช์นี้จะไฮไลต์รายการถัดไป</string>
+  <string name="action_name_previous">ก่อนหน้า</string>
+  <string name="action_key_summary_previous">การกดสวิตช์นี้จะไฮไลต์รายการก่อนหน้า</string>
+  <string name="action_name_click">เลือก</string>
+  <string name="action_key_summary_click">การกดสวิตช์นี้จะเลือกรายการที่ไฮไลต์</string>
+  <string name="action_name_long_click">แตะค้างไว้</string>
+  <string name="action_key_summary_long_click">การกดสวิตช์นี้จะแตะรายการที่ไฮไลต์ค้างไว้</string>
+  <string name="action_name_scroll_forward">เลื่อนไปข้างหน้า</string>
+  <string name="action_key_summary_scroll_forward">การกดสวิตช์นี้จะเลื่อนรายการที่ไฮไลต์ไปข้างหน้า</string>
+  <string name="action_name_scroll_backward">เลื่อนไปข้างหลัง</string>
+  <string name="action_key_summary_scroll_backward">การกดสวิตช์นี้จะเลื่อนรายการที่ไฮไลต์ไปข้างหลัง</string>
+  <string name="action_name_dismiss">ปิด</string>
+  <string name="action_name_expand">ขยาย</string>
+  <string name="action_name_collapse">ยุบ</string>
+  <string name="action_name_highlight_text">ไฮไลต์ข้อความ</string>
+  <string name="action_group_name_highlight">ไฮไลต์ ...</string>
+  <string name="action_name_highlight_all_text">ไฮไลต์ข้อความทั้งหมด</string>
+  <string name="action_name_highlight_granular_text">ไฮไลต์%1$s</string>
+  <string name="action_name_copy">คัดลอก</string>
+  <string name="action_name_copy_all_text">คัดลอกทั้งหมด</string>
+  <string name="action_name_cut">ตัด</string>
+  <string name="action_name_cut_all_text">ตัดทั้งหมด</string>
+  <string name="action_name_paste">วาง</string>
+  <string name="action_name_undo">เลิกทำ</string>
+  <string name="action_name_redo">ทำซ้ำ</string>
+  <string name="action_group_name_delete">ลบ ...</string>
+  <string name="action_name_delete">ลบ%1$s</string>
+  <string name="action_name_delete_highlighted_text">ลบข้อความที่ไฮไลต์</string>
+  <string name="option_scanning_menu_button">เมนู</string>
+  <string name="option_scanning_menu_button_content_description">เมนูการเข้าถึงด้วยสวิตช์</string>
+  <string name="switch_access_global_menu">เมนูทั่วไปของการเข้าถึงด้วยสวิตช์</string>
+  <string name="switch_access_actions_menu">เมนูการทำงานของการเข้าถึงด้วยสวิตช์</string>
+  <string name="switch_access_close_menu">ปิด</string>
+  <string name="switch_access_back_menu">กลับ</string>
+  <string name="next_arrow_content_description">ถัดไป</string>
+  <string name="previous_arrow_content_description">ก่อนหน้า</string>
+  <string name="global_action_back">กลับ</string>
+  <string name="global_action_key_summary_back">การกดสวิตช์นี้จะกลับไปที่หน้าจอก่อนหน้าหรือซ่อนแป้นพิมพ์ (ถ้าแสดงอยู่)</string>
+  <string name="global_action_home">หน้าแรก</string>
+  <string name="global_action_key_summary_home">การกดสวิตช์นี้จะไปที่หน้าจอหลัก</string>
+  <string name="global_action_overview">ภาพรวม</string>
+  <string name="global_action_key_summary_overview">การกดสวิตช์นี้จะแสดงรายการแอปที่เพิ่งเปิด</string>
+  <string name="global_action_notifications">การแจ้งเตือน</string>
+  <string name="global_action_key_summary_notifications">การกดสวิตช์นี้จะแสดงการแจ้งเตือนของอุปกรณ์</string>
+  <string name="global_action_quick_settings">การตั้งค่าด่วน</string>
+  <string name="global_action_key_summary_quick_settings">การกดสวิตช์นี้จะแสดงการตั้งค่าด่วนของอุปกรณ์</string>
+  <string name="global_action_power_options">ตัวเลือกสำหรับการเปิด/ปิด</string>
+  <string name="global_menu_volume_heading">ระดับเสียง</string>
+  <string name="volume_menu_media">ระดับเสียงของสื่อ</string>
+  <string name="volume_menu_call">ระดับเสียงการโทร</string>
+  <string name="volume_menu_ring">ระดับเสียงเรียกเข้า</string>
+  <string name="volume_menu_alarm">ระดับเสียงปลุก</string>
+  <string name="volume_menu_accessibility">ระดับเสียงการช่วยเหลือพิเศษ</string>
+  <string name="volume_menu_mute">ปิดเสียง</string>
+  <string name="volume_menu_unmute">เปิดเสียง</string>
+  <string name="volume_menu_increase">เพิ่ม</string>
+  <string name="volume_settings">การตั้งค่าระดับเสียง</string>
+  <string name="volume_menu_decrease">ลด</string>
+  <string name="scrollable_forward">เลื่อนไปข้างหน้า</string>
+  <string name="scrollable_backward">เลื่อนไปข้างหลัง</string>
+  <string name="point_scan">การสแกนจุด</string>
+  <string name="box_scan">ออกจากการสแกนจุด</string>
+  <string name="action_name_swipe_right">เลื่อนไปทางขวา</string>
+  <string name="action_name_swipe_left">เลื่อนไปทางซ้าย</string>
+  <string name="action_name_swipe_up">เลื่อนขึ้น</string>
+  <string name="action_name_swipe_down">เลื่อนลง</string>
+  <string name="action_name_swipe_custom">เลื่อน (กำหนดเอง)</string>
+  <string name="action_name_zoom_out">ซูมออก</string>
+  <string name="action_name_zoom_in">ซูมเข้า</string>
+  <string name="switch_access_preferences_title">เปลี่ยนการตั้งค่าการเข้าถึงด้วยสวิตช์</string>
+  <string name="key_combo_preference_instructions">กดสวิตช์ร่วมกันเพื่อเพิ่มหรือนำออกจากรายการ</string>
+  <string name="key_combo_preference_reset_button">ล้างการกำหนดสวิตช์</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">ไม่ได้กำหนดสวิตช์</string>
+  <string name="more">เพิ่มเติม</string>
+  <string name="name_of_space_bar">เว้นวรรค</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">แท็บ</string>
+  <string name="save">บันทึก</string>
+  <string name="title_pref_category_display_and_sound">การแสดงผลและเสียง</string>
+  <string name="title_pref_highlight_0">รูปแบบไฮไลต์การสแกน</string>
+  <string name="title_pref_primary_scan_style">รูปแบบการสแกนหลัก</string>
+  <string name="title_pref_highlight_0_color">สีไฮไลต์</string>
+  <string name="title_pref_highlight_0_weight">รูปแบบเส้นไฮไลต์</string>
+  <string name="title_pref_privacy_policy">นโยบายความเป็นส่วนตัว</string>
+  <string name="title_pref_auto_select">การเลือกอัตโนมัติ</string>
+  <string name="summary_pref_auto_select">เลือกรายการที่ไฮไลต์โดยอัตโนมัติ หากเลือกรายการไม่ได้ หรือหากการตั้งค่าปิดอยู่ คุณจะเห็นเมนูของการทำงานที่ใช้ได้</string>
+  <string name="switch_access_global_menu_enable_autoselect">เปิดใช้การเลือกอัตโนมัติ</string>
+  <string name="switch_access_global_menu_disable_autoselect">ปิดใช้การเลือกอัตโนมัติ</string>
+  <string name="switch_access_move_next">ถัดไป ...</string>
+  <string name="switch_access_move_next_character">อักขระถัดไป</string>
+  <string name="switch_access_move_next_word">คำถัดไป</string>
+  <string name="switch_access_move_next_line">บรรทัดถัดไป</string>
+  <string name="switch_access_move_next_paragraph">ย่อหน้าถัดไป</string>
+  <string name="switch_access_move_next_page">หน้าถัดไป</string>
+  <string name="switch_access_move_next_sentence">ประโยคถัดไป</string>
+  <string name="switch_access_move_prev">ก่อนหน้า ...</string>
+  <string name="switch_access_move_prev_character">อักขระก่อนหน้า</string>
+  <string name="switch_access_move_prev_word">คำก่อนหน้า</string>
+  <string name="switch_access_move_prev_line">บรรทัดก่อนหน้า</string>
+  <string name="switch_access_move_prev_paragraph">ย่อหน้าก่อนหน้า</string>
+  <string name="switch_access_move_prev_page">หน้าก่อนหน้า</string>
+  <string name="switch_access_move_prev_sentence">ประโยคก่อนหน้า</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">เริ่มการสแกนอัตโนมัติ</string>
+  <string name="switch_access_auto_start_scan_summary">เริ่มการสแกนโดยไม่ต้องกดสวิตช์</string>
+  <string name="pref_begin_switchaccess_setup_title">เปิดคู่มือการตั้งค่า</string>
+  <string name="setup_wizard_heading">คู่มือการตั้งค่าการเข้าถึงด้วยสวิตช์</string>
+  <string name="one_switch">1 สวิตช์</string>
+  <string name="two_switches">2 สวิตช์</string>
+  <string name="finish">เสร็จสิ้น</string>
+  <string name="exit">ออก</string>
+  <string name="intro_heading">เลือกสวิตช์</string>
+  <string name="usb_switch_option_text">สวิตช์ USB</string>
+  <string name="bluetooth_switch_option_text">สวิตช์บลูทูธ</string>
+  <string name="usb_switch_description_text">เชื่อมต่อสวิตช์ผ่าน USB โดยใช้สาย</string>
+  <string name="bluetooth_switch_description_text">จับคู่สวิตช์แบบไร้สายผ่านบลูทูธ</string>
+  <string name="bluetooth_unsupported_description_text">อุปกรณ์ที่ใช้ไม่รองรับบลูทูธ ลองใช้อุปกรณ์สวิตช์จริงๆ แทน</string>
+  <string name="connected_usb_devices_header">อุปกรณ์ที่เชื่อมต่อ</string>
+  <string name="usb_no_devices_connected_message">ไม่พบอุปกรณ์ USB ตรวจสอบว่าเสียบอุปกรณ์ไว้แน่นแล้ว</string>
+  <string name="connect_usb_heading">เชื่อมต่อสวิตช์ USB</string>
+  <string name="pair_bluetooth_heading">จับคู่สวิตช์บลูทูธ</string>
+  <string name="pair_bluetooth_subheading">แตะสวิตช์บลูทูธด้านล่าง</string>
+  <string name="bluetooth_not_enabled_message">เปิดบลูทูธเพื่อจับคู่สวิตช์บลูทูธ</string>
+  <string name="enable_bluetooth_button_title">เปิดบลูทูธ</string>
+  <string name="bluetooth_no_devices_paired">ยังไม่มีการจับคู่อุปกรณ์บลูทูธ</string>
+  <string name="paired_devices_header">อุปกรณ์บลูทูธที่จับคู่</string>
+  <string name="available_devices_header">อุปกรณ์บลูทูธที่ใช้ได้</string>
+  <string name="bluetooth_computer_content_description">คอมพิวเตอร์</string>
+  <string name="bluetooth_phone_content_description">โทรศัพท์</string>
+  <string name="bluetooth_imaging_content_description">การถ่ายภาพ</string>
+  <string name="bluetooth_headphone_content_description">หูฟัง</string>
+  <string name="bluetooth_peripheral_content_description">อุปกรณ์ต่อพ่วง</string>
+  <string name="bluetooth_default_content_description">บลูทูธ</string>
+  <string name="bluetooth_connecting_description">กำลังเชื่อมต่อ...</string>
+  <string name="bluetooth_connected_description">เชื่อมต่อแล้ว</string>
+  <string name="bluetooth_device_unavailable_description">อุปกรณ์ไม่พร้อมใช้งาน</string>
+  <string name="reconnecting_unsupported_title">เชื่อมต่ออุปกรณ์ไม่ได้</string>
+  <string name="reconnecting_unsupported_message">การเข้าถึงด้วยสวิตช์เชื่อมต่ออุปกรณ์ที่จับคู่ก่อนหน้านี้ไม่ได้ ตรวจสอบว่าอุปกรณ์เปิดและเชื่อมต่ออยู่\n\nถ้าอุปกรณ์ยังคงไม่เชื่อมต่อ ให้ไปที่การตั้งค่าบลูทูธแล้วลองเชื่อมต่อใหม่</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">ไปที่การตั้งค่าบลูทูธ</string>
+  <string name="number_of_switches_heading">เลือกจำนวนสวิตช์</string>
+  <string name="title_assign_scan_key">กำหนดสวิตช์%1$s</string>
+  <string name="one_switch_description_text">กดสวิตช์เพื่อเริ่มย้ายไปมาระหว่างรายการโดยอัตโนมัติ จากนั้นกดอีกครั้งเพื่อเลือกรายการที่ไฮไลต์</string>
+  <string name="two_switches_description_text">กดสวิตช์หนึ่งเพื่อย้ายไปมาระหว่างรายการ กดอีกสวิตช์หนึ่งเพื่อเลือกรายการที่ไฮไลต์</string>
+  <string name="step_speed_heading">เลือกความเร็วในการสแกน</string>
+  <string name="step_speed_subheading">เลือกระยะเวลาการไฮไลต์แต่ละรายการ</string>
+  <string name="fast_radio_button_title">เร็ว (ล่าช้า %1$s วินาที)</string>
+  <string name="medium_radio_button_title">ปานกลาง (ล่าช้า %1$s วินาที)</string>
+  <string name="slow_radio_button_title">ช้า (ล่าช้า %1$s วินาที)</string>
+  <string name="custom_switch">กำหนดเอง</string>
+  <string name="custom_edit_text">ล่าช้า (วินาที)</string>
+  <string name="setup_toast_msg_key_already_assigned">กำหนดแป้น \"%1$s\" ให้ทำงานอีกอย่างหนึ่งแล้ว</string>
+  <string name="row_column_scanning_title">การสแกนแถว-คอลัมน์</string>
+  <string name="option_scanning_title">การเลือกกลุ่ม (ขั้นสูง)</string>
+  <string name="linear_scanning_title">การสแกนเชิงเส้น</string>
+  <string name="linear_scanning_except_keyboard_title">การสแกนเชิงเส้น (ยกเว้นแป้นพิมพ์)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">การพูด เสียง และการสั่น</string>
+  <string name="title_pref_switch_access_spoken_feedback">อธิบายและอ่านออกเสียง</string>
+  <string name="title_pref_scan_non_actionable_items">พูดข้อความอธิบาย</string>
+  <string name="scan_non_actionable_items_summary">ฟังการอธิบายและอ่านออกเสียงสำหรับรายการที่มีการกระทำที่พร้อมใช้งานและข้อความอธิบาย</string>
+  <string name="title_pref_switch_access_verbosity">การพูดรายละเอียด</string>
+  <string name="summary_verbosity">เลือกว่าจะฟังการอธิบายข้อมูลมากน้อยเพียงใด</string>
+  <string name="title_pref_verbosity_category_verbosity_details">ข้อมูลการพูดรายละเอียด</string>
+  <string name="title_pref_switch_access_keyboard_echo">เสียงสะท้อนของแป้นพิมพ์</string>
+  <string name="keyboard_echo_summary_on">พูดปุ่มที่พิมพ์สำหรับแป้นพิมพ์บนหน้าจอ</string>
+  <string name="keyboard_echo_summary_off">ไม่พูดปุ่มที่พิมพ์สำหรับแป้นพิมพ์บนหน้าจอ</string>
+  <string name="title_pref_enable_hints">พูดคำแนะนำการใช้งาน</string>
+  <string name="enable_hints_summary_on">พูดออกเสียงคำแนะนำการใช้งานขณะนำทาง หลังจากการหน่วงเวลาสั้นๆ</string>
+  <string name="enable_hints_summary_off">ไม่พูดออกเสียงคำแนะนำการใช้งานเมื่อย้ายโฟกัสการช่วยเหลือพิเศษ</string>
+  <string name="title_pref_speak_container_element_position">พูดข้อมูลรายการและตาราง</string>
+  <string name="speak_container_element_position_summary_on">พูดออกเสียงข้อมูลรายการและตาราง</string>
+  <string name="speak_container_element_position_summary_off">ไม่พูดออกเสียงข้อมูลรายการและตาราง</string>
+  <string name="title_pref_speak_element_type">พูดประเภทองค์ประกอบ</string>
+  <string name="speak_element_type_summary_on">พูดประเภทองค์ประกอบของรายการที่โฟกัส</string>
+  <string name="speak_element_type_summary_off">ไม่พูดประเภทองค์ประกอบของรายการที่โฟกัส</string>
+  <string name="title_pref_pitch_change_for_ime">ใช้การเปลี่ยนแปลงระดับเสียงสูงต่ำ</string>
+  <string name="pitch_change_for_ime_summary_on">พูดตอบรับผ่านทางแป้นพิมพ์โดยใช้ระดับเสียงต่ำ</string>
+  <string name="pitch_change_for_ime_summary_off">ไม่เปลี่ยนระดับเสียงการตอบรับในขณะพูด</string>
+  <string name="title_pref_speak_selected_item_or_group">พูดรายการหรือกลุ่มที่เลือก</string>
+  <string name="speak_selected_item_or_group_summary">พูดชื่อรายการหรือกลุ่มที่เลือกหลังจากเลือกแล้ว</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">เวลาการพูดสูงสุดต่อรายการ</string>
+  <string name="dialog_message_pref_maximum_time_per_item">ตั้งระยะเวลาสูงสุดสำหรับคำอธิบายแบบพูดของแต่ละรายการ การพูดจะถูกตัดเมื่อหมดเวลาที่ตั้งไว้\nหมายเหตุ: จะมีการพูดคำแนะนำทุกครั้งถ้าเปิดใช้</string>
+  <string name="title_pref_verbosity_category_miscellaneous">เบ็ดเตล็ด</string>
+  <string name="title_pref_node_description_order">ลำดับคำอธิบายองค์ประกอบ</string>
+  <string name="title_pref_switch_access_speak_element_ids">พูดรหัสองค์ประกอบ</string>
+  <string name="speak_element_ids_summary_on">พูดรหัสองค์ประกอบของปุ่มที่ไม่มีป้ายกำกับ</string>
+  <string name="speak_element_ids_summary_off">ไม่พูดรหัสองค์ประกอบของปุ่มที่ไม่มีป้ายกำกับ</string>
+  <string name="title_pref_switch_access_tts_settings">การตั้งค่า TTS</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">เมื่อไฮไลต์ไว้หลายรายการ</string>
+  <string name="title_pref_switch_access_speak_first_last_item">พูดรายการแรกและรายการสุดท้าย</string>
+  <string name="title_pref_switch_access_speak_number_of_items">พูดจำนวนรายการ</string>
+  <string name="title_pref_switch_access_speak_all_items">พูดรายการที่ไฮไลต์ทั้งหมด</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">พูดให้จบก่อนเคลื่อนย้าย</string>
+  <string name="title_pref_spoken_feedback_other_feedback">การตอบสนองอื่นๆ</string>
+  <string name="title_pref_developer_settings">การตั้งค่าสำหรับนักพัฒนาซอฟต์แวร์</string>
+  <string name="title_pref_spoken_feedback_overlay">แสดงเอาต์พุตของการพูด</string>
+  <string name="title_pref_switch_access_vibration_feedback">การสั่นเตือน</string>
+  <string name="vibration_feedback_summary">สั่นเพื่อแจ้งว่ามีการเปลี่ยนแปลงบางอย่าง (เช่น มีการเปลี่ยนแปลงเนื้อหาบนหน้าจอ)</string>
+  <string name="title_pref_switch_access_sound_feedback">เสียงเตือน</string>
+  <string name="sound_feedback_summary">เล่นไอคอนเสียงเพื่อแจ้งว่ามีการเปลี่ยนแปลงบางอย่าง (เช่น มีการเปลี่ยนแปลงเนื้อหาบนหน้าจอ)</string>
+  <string name="title_pref_switch_access_sound_volume">ระดับเสียง</string>
+  <string name="title_pref_switch_access_audio_ducking">การลดเสียง</string>
+  <string name="audio_ducking_summary">ลดระดับเสียงอื่นๆ ขณะพูด</string>
+  <string name="switch_access_focus_cleared_no_selection">เปลี่ยนหน้าจอแล้ว</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">กดเลือกสวิตช์เพื่อเลือกแถว</string>
+  <string name="switch_access_spoken_feedback_group">กลุ่ม %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">กดสวิตช์ %1$s ของกลุ่มเพื่อเลือกกลุ่ม</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">กดสวิตช์ %1$s ของกลุ่มเพื่อเลือกรายการ</string>
+  <string name="switch_access_spoken_feedback_to">%1$s ถึง %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s รายการ</string>
+  <string name="switch_access_spoken_feedback_group_selected">เลือกกลุ่ม %1$s แล้ว</string>
+  <string name="switch_access_spoken_feedback_row_selected">เลือกแถวแล้ว</string>
+  <string name="switch_access_spoken_feedback_item_selected">เลือก%1$sแล้ว</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">เลื่อนได้</string>
+  <string name="switch_access_spoken_feedback_scroll">เลือกเพื่อเลื่อน</string>
+  <string name="switch_access_spoken_feedback_unknown">รายการที่ไม่รู้จัก</string>
+  <string name="scanning_method_heading">เลือกวิธีการสแกน</string>
+  <string name="row_column_scanning_description">สแกนทีละแถว เมื่อเลือกแถวแล้ว จะเป็นการเลื่อนผ่านรายการในลิสต์</string>
+  <string name="linear_scanning_description">เลื่อนไปมาระหว่างรายการทีละรายการ</string>
+  <string name="linear_scanning_except_keyboard_description">ย้ายไปมาระหว่างรายการทีละ 1 รายการ โปรดทราบว่าแป้นพิมพ์จะสแกนตามแถว</string>
+  <string name="option_scanning_description">จะมีการกำหนดสีให้กับรายการทั้งหมด กดสวิตช์ที่ตรงกับสีรอบๆ รายการที่ต้องการ ลดขนาดของกลุ่มลงจนกว่าจะไปถึงตัวเลือกที่ต้องการ</string>
+  <string name="setup_switch_assignment_heading">กำหนดให้สวิตช์เป็น \"%s\" แล้ว</string>
+  <string name="setup_switch_assignment_empty">ไม่มี</string>
+  <string name="clear_keys_dialog_title">ล้างสวิตช์ที่กำหนดไว้ไหม</string>
+  <string name="clear_keys_dialog_message">คุณกำหนดสวิตช์แล้ว</string>
+  <string name="clear_keys_dialog_positive_button">ล้างสวิตช์</string>
+  <string name="clear_keys_dialog_negative_button">เก็บสวิตช์ไว้</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">ไม่ได้กำหนดสวิตช์</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">ไม่ได้กำหนดสวิตช์ใดให้ทำงานนี้ คุณแน่ใจไหมว่าต้องการดำเนินการต่อ</string>
+  <string name="option_scan_switch_title">กลุ่ม%1$s</string>
+  <string name="option_scan_switch_subtitle">กดสวิตช์เพื่อกำหนดให้สวิตช์เลือกกลุ่ม%1$s</string>
+  <string name="assign_switch_subtitle">กดสวิตช์เพื่อกำหนดการทำงาน \"%1$s\"</string>
+  <string name="auto_scan_action_description">เริ่มสแกนและเลือก</string>
+  <string name="switch_game_heading">ทดสอบการตั้งค่าด้วยเกมโอเอ็กซ์</string>
+  <string name="switch_game_one_switch_linear_subheading">กด \"%1$s\" เพื่อเริ่มสแกน กดสวิตช์อีกครั้งเพื่อเลือกรายการที่ไฮไลต์ คุณเริ่มก่อนเลย</string>
+  <string name="switch_game_one_switch_row_col_subheading">กด \"%1$s\" เพื่อเริ่มสแกน กดสวิตช์อีกครั้งเพื่อเลือกแถวที่ไฮไลต์ กดอีกครั้งเพื่อเลือกรายการที่ไฮไลต์ คุณเริ่มก่อนเลย</string>
+  <string name="switch_game_two_switch_linear_subheading">กด \"%1$s\" เพื่อย้ายไปมาระหว่างรายการ กด \"%2$s\" เพื่อเลือกรายการที่ไฮไลต์ คุณเริ่มก่อนเลย</string>
+  <string name="switch_game_two_switch_row_col_subheading">กด \"%1$s\" เพื่อย้ายไปมาระหว่างแถว กด \"%2$s\" เพื่อเลือกแถวที่ไฮไลต์ ทำซ้ำเพื่อเลือกรายการในแถวนั้น คุณเริ่มก่อนเลย</string>
+  <string name="switch_game_two_switch_option_scan_subheading">กด \"%1$s\" เพื่อเลือกรายการที่ไฮไลต์%2$s หรือกด \"%4$s\" เพื่อเลือกรายการที่ไฮไลต์%3$s ทำซ้ำเพื่อไปยังรายการที่ต้องการ คุณเริ่มก่อนเลย</string>
+  <string name="switch_game_incomplete_switches_subheading">คุณยังไม่ได้กำหนดสวิตช์สำหรับการทำงานบางอย่าง ใช้ปุ่มก่อนหน้าเพื่อกลับไปกำหนดปุ่มให้เสร็จ</string>
+  <string name="game_square_content_description">%1$s ที่ตำแหน่ง %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">ว่างเปล่า</string>
+  <string name="game_reset_button_title">รีเซ็ตเกม</string>
+  <string name="game_square_already_taken">ช่องนี้เล่นไปแล้ว ลองอีกครั้ง</string>
+  <string name="game_win_outcome_title">คุณชนะ</string>
+  <string name="game_loss_outcome_title">คราวหน้าลองใหม่นะ</string>
+  <string name="game_tie_outcome_title">เสมอกัน</string>
+  <string name="game_outcome_body_text">คุณสามารถใช้การตั้งค่าปัจจุบันต่อไปหรือเริ่มต้นใหม่</string>
+  <string name="game_outcome_positive_response">เก็บการตั้งค่าไว้</string>
+  <string name="game_outcome_negative_response">เริ่มต้นใหม่</string>
+  <string name="setup_completion_heading">ตั้งค่าเสร็จแล้ว</string>
+  <string name="setup_completion_message">คุณพร้อมแล้ว</string>
+  <string name="setup_completion_settings_reminder">คุณสามารถเปลี่ยนการตั้งค่าเพิ่มเติม หรือเปิดวิซาร์ดการตั้งค่าได้อีกครั้งจากการตั้งค่าการเข้าถึงด้วยสวิตช์</string>
+  <string name="dialog_url_list">เลือกลิงก์</string>
+  <string name="dialog_do_not_disturb_permission_title">การเข้าถึงด้วยสวิตช์ต้องใช้สิทธิ์ในการปรับระดับเสียง</string>
+  <string name="dialog_do_not_disturb_permission_message">หากต้องการปรับระดับเสียงเมนูการเข้าถึงด้วยสวิตช์ ให้เปิดการเข้าถึง \"ห้ามรบกวน\" สำหรับชุดเครื่องมือช่วยเหลือพิเศษใน Android</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">เปิดการตั้งค่า</string>
 </resources>

@@ -17,6 +17,7 @@
 package com.google.android.accessibility.utils;
 
 import java.util.LinkedList;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Filters objects of type T. */
 public abstract class Filter<T> {
@@ -35,7 +36,7 @@ public abstract class Filter<T> {
    * @return A filter where calling <code>accept()</code> returns the result of <code>
    *     (this.accept() &amp;&amp; filter.accept())</code>.
    */
-  public Filter<T> and(Filter<T> filter) {
+  public Filter<T> and(@Nullable Filter<T> filter) {
     if (filter == null) {
       return this;
     }
@@ -50,7 +51,7 @@ public abstract class Filter<T> {
    * @return A filter where calling <code>accept()</code> returns the result of <code>
    *     (this.accept() || filter.accept())</code>.
    */
-  public Filter<T> or(Filter<T> filter) {
+  public Filter<T> or(@Nullable Filter<T> filter) {
     if (filter == null) {
       return this;
     }
@@ -78,8 +79,10 @@ public abstract class Filter<T> {
     }
 
     @Override
-    public Filter<T> and(Filter<T> filter) {
-      mFilters.add(filter);
+    public FilterAnd<T> and(@Nullable Filter<T> filter) {
+      if (filter != null) {
+        mFilters.add(filter);
+      }
 
       return this;
     }
@@ -105,8 +108,10 @@ public abstract class Filter<T> {
     }
 
     @Override
-    public Filter<T> or(Filter<T> filter) {
-      mFilters.add(filter);
+    public FilterOr<T> or(@Nullable Filter<T> filter) {
+      if (filter != null) {
+        mFilters.add(filter);
+      }
 
       return this;
     }

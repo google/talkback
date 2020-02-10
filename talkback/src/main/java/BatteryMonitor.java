@@ -30,21 +30,21 @@ import com.google.android.accessibility.utils.output.SpeechController;
 
 /** Monitor battery charging status changes. Start charging Stop changing */
 public class BatteryMonitor extends BroadcastReceiver {
-  private SpeechController mSpeechController;
+  private SpeechController speechController;
 
-  private TelephonyManager mTelephonyManager;
+  private TelephonyManager telephonyManager;
 
-  private Context mContext;
+  private Context context;
 
-  private int mBatteryLevel = -1;
+  private int batteryLevel = -1;
 
   public BatteryMonitor(
       Context context, SpeechController speechController, TelephonyManager telephonyManager) {
     if (speechController == null) throw new IllegalStateException();
 
-    mContext = context;
-    mSpeechController = speechController;
-    mTelephonyManager = telephonyManager;
+    this.context = context;
+    this.speechController = speechController;
+    this.telephonyManager = telephonyManager;
   }
 
   public IntentFilter getFilter() {
@@ -57,8 +57,8 @@ public class BatteryMonitor extends BroadcastReceiver {
 
   @Override
   public void onReceive(Context context, Intent intent) {
-    if ((mTelephonyManager != null)
-        && (mTelephonyManager.getCallState() != TelephonyManager.CALL_STATE_IDLE)) {
+    if ((telephonyManager != null)
+        && (telephonyManager.getCallState() != TelephonyManager.CALL_STATE_IDLE)) {
       return;
     }
     final String action = intent.getAction();
@@ -71,44 +71,46 @@ public class BatteryMonitor extends BroadcastReceiver {
       case Intent.ACTION_BATTERY_CHANGED:
         int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
         int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, 100);
-        mBatteryLevel = (scale > 0 ? Math.round(level / (float) scale * 100) : -1);
+        batteryLevel = (scale > 0 ? Math.round(level / (float) scale * 100) : -1);
         break;
       case Intent.ACTION_POWER_DISCONNECTED:
         // Announces the battery level only when we have updated battery level information.
-        if (mBatteryLevel == -1) {
+        if (batteryLevel == -1) {
           announcement =
-              mContext.getString(
+              this.context.getString(
                   R.string.template_charging_lite,
-                  mContext.getString(R.string.notification_type_status_stopped));
+                  this.context.getString(R.string.notification_type_status_stopped));
         } else {
           announcement =
-              mContext.getString(
+              this.context.getString(
                   R.string.template_charging,
-                  mContext.getString(R.string.notification_type_status_stopped),
-                  String.valueOf(mBatteryLevel));
+                  this.context.getString(R.string.notification_type_status_stopped),
+                  String.valueOf(batteryLevel));
         }
         break;
       case Intent.ACTION_POWER_CONNECTED:
-        if (mBatteryLevel == -1) {
+        if (batteryLevel == -1) {
           announcement =
-              mContext.getString(
+              this.context.getString(
                   R.string.template_charging_lite,
-                  mContext.getString(R.string.notification_type_status_started));
+                  this.context.getString(R.string.notification_type_status_started));
         } else {
           announcement =
-              mContext.getString(
+              this.context.getString(
                   R.string.template_charging,
-                  mContext.getString(R.string.notification_type_status_started),
-                  String.valueOf(mBatteryLevel));
+                  this.context.getString(R.string.notification_type_status_started),
+                  String.valueOf(batteryLevel));
         }
         break;
     }
     if (announcement != null) {
       EventId eventId = EVENT_ID_UNTRACKED; // Not a user-initiated event.
-      mSpeechController.speak(
+      speechController.speak(
           announcement, /* Text */
           SpeechController.QUEUE_MODE_INTERRUPT, /* QueueMode */
-          FeedbackItem.FLAG_NO_HISTORY | FeedbackItem.FLAG_FORCED_FEEDBACK, /* Flags */
+          FeedbackItem.FLAG_NO_HISTORY
+              | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
+              | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE, /* Flags */
           null, /* SpeechParams */
           eventId);
     }

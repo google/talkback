@@ -27,8 +27,27 @@ public interface FullScreenReadController {
   /** Starts linearly reading from the node with accessibility focus. */
   void startReadingFromNextNode(EventId eventId);
 
+  /**
+   * Starts linearly reading from the node with accessibility focus.
+   *
+   * @param eventId EventId for tracking performance.
+   * @param fromContextMenu Flag to check if Reading is triggered from Context menu.
+   */
+  void startReadingFromNextNode(EventId eventId, boolean fromContextMenu);
+
   /** Starts linearly reading from the top of the view hierarchy. */
   void startReadingFromBeginning(EventId eventId);
+
+  /**
+   * Starts linearly reading from the top of the view hierarchy.
+   *
+   * @param eventId EventId for tracking performance.
+   * @param fromContextMenu Flag to check if Reading is triggered from Context menu.
+   */
+  void startReadingFromBeginning(EventId eventId, boolean fromContextMenu);
+
+  /** Starts linearly reading without showing dialog */
+  void startReadingWithoutDialog(EventId eventId, int state);
 
   /** Stops speech output and view traversal at the current position. */
   void interrupt();
@@ -40,4 +59,12 @@ public interface FullScreenReadController {
    * @return Whether full-screen reading is currently active.
    */
   boolean isActive();
+
+  /**
+   * Gets dialog for continuous reading mode.
+   *
+   * @return FullScreenReadDialog for other class to access {@link
+   *     FullScreenReadDialog#getShouldShowDialogPref()}
+   */
+  FullScreenReadDialog getFullScreenReadDialog();
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- Vibration pattern for haptic feedback when window state changes. -->
+  <integer-array name="window_state_pattern">
+    <item>0</item>
+    <item>10</item>
+    <item>20</item>
+    <item>20</item>
+    <item>10</item>
+    <item>40</item>
+  </integer-array>
+</resources>
+

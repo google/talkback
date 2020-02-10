@@ -20,14 +20,14 @@ import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Rect;
-import android.support.annotation.Nullable;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class WindowManager {
 
@@ -69,7 +69,7 @@ public class WindowManager {
 
   public WindowManager(AccessibilityService service) {
     mIsInRTL = isScreenLayoutRTL(service);
-    setWindows(service.getWindows());
+    setWindows(AccessibilityServiceCompatUtils.getWindows(service));
   }
 
   public static boolean isScreenLayoutRTL(Context context) {
@@ -154,7 +154,7 @@ public class WindowManager {
    *     window it returns first window that has TYPE_APPLICATION or null if there is no window with
    *     TYPE_APPLICATION type
    */
-  public AccessibilityWindowInfo getCurrentWindow(boolean useInputFocus) {
+  public @Nullable AccessibilityWindowInfo getCurrentWindow(boolean useInputFocus) {
     int currentWindowIndex =
         getFocusedWindowIndex(mWindows, AccessibilityNodeInfo.FOCUS_ACCESSIBILITY);
     if (currentWindowIndex != WRONG_INDEX) {
@@ -178,12 +178,12 @@ public class WindowManager {
    *     no accessibility focused window it returns first window that has TYPE_APPLICATION or null
    *     if there is no window with TYPE_APPLICATION type
    */
-  public AccessibilityWindowInfo getPreviousWindow(AccessibilityWindowInfo pivotWindow) {
+  public @Nullable AccessibilityWindowInfo getPreviousWindow(AccessibilityWindowInfo pivotWindow) {
     return getWindow(pivotWindow, PREVIOUS);
   }
 
   /** Gets the window whose anchor equals the given node. */
-  public AccessibilityWindowInfo getAnchoredWindow(
+  public @Nullable AccessibilityWindowInfo getAnchoredWindow(
       @Nullable AccessibilityNodeInfoCompat targetAnchor) {
     if (!BuildVersionUtils.isAtLeastN() || targetAnchor == null) {
       return null;
@@ -196,7 +196,7 @@ public class WindowManager {
         AccessibilityNodeInfo anchor = window.getAnchor();
         if (anchor != null) {
           try {
-            if (anchor.equals(targetAnchor.getInfo())) {
+            if (anchor.equals(targetAnchor.unwrap())) {
               return window;
             }
           } finally {
@@ -259,11 +259,12 @@ public class WindowManager {
    *     accessibility focused window it returns first window that has TYPE_APPLICATION or null if
    *     there is no window with TYPE_APPLICATION type
    */
-  public AccessibilityWindowInfo getNextWindow(AccessibilityWindowInfo pivotWindow) {
+  public @Nullable AccessibilityWindowInfo getNextWindow(AccessibilityWindowInfo pivotWindow) {
     return getWindow(pivotWindow, NEXT);
   }
 
-  private AccessibilityWindowInfo getWindow(AccessibilityWindowInfo pivotWindow, int direction) {
+  private @Nullable AccessibilityWindowInfo getWindow(
+      AccessibilityWindowInfo pivotWindow, int direction) {
     if (mWindows == null || pivotWindow == null || (direction != NEXT && direction != PREVIOUS)) {
       return null;
     }

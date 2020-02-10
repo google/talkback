@@ -28,27 +28,38 @@ import android.widget.TextView;
 
 public class DimmingOverlayView extends LinearLayout {
 
-  private View mContent;
-  private TextView mTimerView;
-  private ProgressBar mProgress;
-  private int mTimerLimit;
+  private View content;
+  private TextView timerView;
+  private ProgressBar progress;
+  private int timerLimit;
 
   public DimmingOverlayView(Context context) {
     super(context);
-    init();
+    init(context);
   }
 
-  private void init() {
+  private void init(Context context) {
     setOrientation(VERTICAL);
     setGravity(Gravity.CENTER);
     setBackgroundColor(Color.BLACK);
 
     LayoutInflater inflater = LayoutInflater.from(getContext());
     inflater.inflate(R.layout.dimming_overlay_exit_instruction, this, true);
-    mContent = findViewById(R.id.content);
+    content = findViewById(R.id.content);
 
-    mTimerView = (TextView) findViewById(R.id.timer);
-    mProgress = (ProgressBar) findViewById(R.id.progress);
+    timerView = (TextView) findViewById(R.id.timer);
+    progress = (ProgressBar) findViewById(R.id.progress);
+
+    // Set dim-screen instructions to use context-menu to exit, because some users do not have
+    // dim-screen volume-key shortcut.
+    // TODO: Add gesture-finding code to a function in GestureController.
+    CharSequence instructionText =
+        context.getString(
+            R.string.screen_dimming_exit_instruction_line2,
+            context.getString(R.string.value_direction_down_and_right),
+            context.getString(R.string.shortcut_disable_dimming));
+    TextView instruction2 = (TextView) findViewById(R.id.message_line_1);
+    instruction2.setText(instructionText);
 
     setAccessibilityDelegate(
         new View.AccessibilityDelegate() {
@@ -65,15 +76,15 @@ public class DimmingOverlayView extends LinearLayout {
   }
 
   public void setTimerLimit(int seconds) {
-    mTimerLimit = seconds;
-    mProgress.setMax(seconds);
+    timerLimit = seconds;
+    progress.setMax(seconds);
   }
 
   public void updateSecondsText(int seconds) {
     String text =
         getContext().getString(R.string.dim_screen_timer, getMinutes(seconds), getSeconds(seconds));
-    mTimerView.setText(text);
-    mProgress.setProgress(mTimerLimit - seconds);
+    timerView.setText(text);
+    progress.setProgress(timerLimit - seconds);
   }
 
   private int getMinutes(int seconds) {
@@ -98,6 +109,6 @@ public class DimmingOverlayView extends LinearLayout {
   }
 
   private void setContentVisibility(int visibility) {
-    mContent.setVisibility(visibility);
+    content.setVisibility(visibility);
   }
 }

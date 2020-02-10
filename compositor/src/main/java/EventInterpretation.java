@@ -16,7 +16,9 @@
 
 package com.google.android.accessibility.compositor;
 
+import androidx.annotation.Nullable;
 import com.google.android.accessibility.utils.ReadOnly;
+import com.google.android.accessibility.utils.StringBuilderUtils;
 
 /**
  * Data structure containing a more specific event type, along with extracted data from the event.
@@ -28,15 +30,22 @@ public class EventInterpretation extends ReadOnly {
   // Member data
 
   private @Compositor.Event int mEvent;
-  private TextEventInterpretation mText;
-  private SelectorEventInterpretation mSelector;
-  private ScrollEventInterpretation mScroll;
+  private @Nullable CharSequence mPackageName;
+  private @Nullable TextEventInterpretation mText;
+  private @Nullable AccessibilityFocusEventInterpretation mAccessibilityFocus;
+  private @Nullable SelectorEventInterpretation mSelector;
+  private @Nullable ScrollEventInterpretation mScroll;
+  private @Nullable HintEventInterpretation mHint;
+  // Whether the node associated with the event has multiple Switch Access actions. This variable
+  // is only used when the event was generated from Switch Access.
+  private boolean hasMultipleSwitchAccessActions;
 
   ////////////////////////////////////////////////////////////////////////////////////
   // Construction
 
   public EventInterpretation(@Compositor.Event int compositorEvent) {
     mEvent = compositorEvent;
+    hasMultipleSwitchAccessActions = false;
   }
 
   ////////////////////////////////////////////////////////////////////////////////////
@@ -51,13 +60,31 @@ public class EventInterpretation extends ReadOnly {
     return mEvent;
   }
 
+  public void setPackageName(CharSequence name) {
+    checkIsWritable();
+    mPackageName = name;
+  }
+
+  public @Nullable CharSequence getPackageName() {
+    return mPackageName;
+  }
+
   public void setTextEventInterpretation(TextEventInterpretation text) {
     checkIsWritable();
     mText = text;
   }
 
-  public TextEventInterpretation getText() {
+  public @Nullable TextEventInterpretation getText() {
     return mText;
+  }
+
+  public void setAccessibilityFocusInterpretation(
+      AccessibilityFocusEventInterpretation interpretation) {
+    mAccessibilityFocus = interpretation;
+  }
+
+  public @Nullable AccessibilityFocusEventInterpretation getAccessibilityFocusInterpretation() {
+    return mAccessibilityFocus;
   }
 
   public void setSelector(SelectorEventInterpretation selector) {
@@ -65,7 +92,7 @@ public class EventInterpretation extends ReadOnly {
     mSelector = selector;
   }
 
-  public SelectorEventInterpretation getSelector() {
+  public @Nullable SelectorEventInterpretation getSelector() {
     return mSelector;
   }
 
@@ -74,8 +101,26 @@ public class EventInterpretation extends ReadOnly {
     mScroll = scroll;
   }
 
-  public ScrollEventInterpretation getScroll() {
+  public @Nullable ScrollEventInterpretation getScroll() {
     return mScroll;
+  }
+
+  public void setHint(HintEventInterpretation hint) {
+    checkIsWritable();
+    mHint = hint;
+  }
+
+  public @Nullable HintEventInterpretation getHint() {
+    return mHint;
+  }
+
+  public void setHasMultipleSwitchAccessActions(boolean hasMultipleSwitchAccessActions) {
+    checkIsWritable();
+    this.hasMultipleSwitchAccessActions = hasMultipleSwitchAccessActions;
+  }
+
+  public boolean getHasMultipleSwitchAccessActions() {
+    return hasMultipleSwitchAccessActions;
   }
 
   ////////////////////////////////////////////////////////////////////////////////////
@@ -84,15 +129,14 @@ public class EventInterpretation extends ReadOnly {
   /** Show only non-default data values. */
   @Override
   public String toString() {
-    StringBuilder string = new StringBuilder();
-    string.append(String.format(" event=%s", Compositor.eventTypeToString(mEvent)));
-    string.append(optionalMemberString("text", mText));
-    string.append(optionalMemberString("selector", mSelector));
-    string.append(optionalMemberString("scroll", mScroll));
-    return string.toString();
-  }
-
-  public static String optionalMemberString(String name, Object member) {
-    return (member == null) ? "" : String.format(" %s=%s", name, member);
+    return StringBuilderUtils.joinFields(
+        Compositor.eventTypeToString(mEvent),
+        StringBuilderUtils.optionalText("Package", mPackageName),
+        StringBuilderUtils.optionalSubObj("Text", mText),
+        StringBuilderUtils.optionalSubObj("Selector", mSelector),
+        StringBuilderUtils.optionalSubObj("Scroll", mScroll),
+        StringBuilderUtils.optionalSubObj("Hint", mHint),
+        StringBuilderUtils.optionalTag(
+            "HasMultipleSwitchAccessActions", hasMultipleSwitchAccessActions));
   }
 }

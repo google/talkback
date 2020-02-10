@@ -16,14 +16,15 @@
 
 package com.google.android.accessibility.utils.traversal;
 
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoRef;
 import java.util.Map;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class SimpleTraversalStrategy implements TraversalStrategy {
 
   @Override
-  public AccessibilityNodeInfoCompat findFocus(
+  public @Nullable AccessibilityNodeInfoCompat findFocus(
       AccessibilityNodeInfoCompat startNode, @SearchDirection int direction) {
     if (startNode == null) {
       return null;
@@ -43,7 +44,7 @@ public class SimpleTraversalStrategy implements TraversalStrategy {
   }
 
   @Override
-  public AccessibilityNodeInfoCompat focusInitial(
+  public @Nullable AccessibilityNodeInfoCompat focusInitial(
       AccessibilityNodeInfoCompat root, @SearchDirection int direction) {
     if (root == null) {
       return null;

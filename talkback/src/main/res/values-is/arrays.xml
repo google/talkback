@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Hnappur</item>
+    <item>Gátreitur</item>
+    <item>Litaval</item>
+    <item>Stýring fyrir dagsetningu og tíma</item>
+    <item>Stýring fyrir dagsetningu og tíma</item>
+    <item>Dagsetningarstýring</item>
+    <item>Textareitur fyrir netfang</item>
+    <item>Skráaval</item>
+    <item translatable="false"></item>
+    <item>Hnappur</item>
+    <item>Mánaðarstýring</item>
+    <item>Textareitur aðeins fyrir tölur</item>
+    <item>Textareitur fyrir aðgangsorð</item>
+    <item>Valhnappur</item>
+    <item>Sleði</item>
+    <item>Endurstilla</item>
+    <item>Textareitur fyrir leit</item>
+    <item>Hnappur</item>
+    <item>Textareitur fyrir símanúmer</item>
+    <item>Textareitur</item>
+    <item>Textareitur fyrir vefslóð</item>
+    <item>Stýring fyrir viku ársins</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Viðvörun</item>
+    <item>Viðvörunargluggi</item>
+    <item>Hnappur</item>
+    <item>Gátreitur</item>
+    <item>Fellivalmynd</item>
+    <item>Gluggi</item>
+    <item>Töfluhólf</item>
+    <item>Tengill</item>
+    <item>Annáll</item>
+    <item>Renningur</item>
+    <item>Valmyndaratriði</item>
+    <item>Gátreitur valmyndaratriðis</item>
+    <item>Valhnappur valmyndaratriðis</item>
+    <item>Val</item>
+    <item>Framvindustika</item>
+    <item>Valhnappur</item>
+    <item>Hópur valhnappa</item>
+    <item>Flettistika</item>
+    <item>Sleði</item>
+    <item>Snúningshnappur</item>
+    <item>Staða</item>
+    <item>Flipi</item>
+    <item>Flipasvæði</item>
+    <item>Textarammi</item>
+    <item>Teljari</item>
+    <item>Tækjastika</item>
+    <item>Ábending</item>
+    <item>Atriði í tré</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Tengill</item>
+    <item>Fyrirsögn eitt</item>
+    <item>Fyrirsögn tvö</item>
+    <item>Fyrirsögn þrjú</item>
+    <item>Fyrirsögn fjögur</item>
+    <item>Fyrirsögn fimm</item>
+    <item>Fyrirsögn sex</item>
+    <item>Hnappur</item>
+    <item>Fellivalmynd</item>
+    <item>Tafla</item>
+    <item>Textasvæði</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

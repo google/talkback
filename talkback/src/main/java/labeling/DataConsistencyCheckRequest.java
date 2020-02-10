@@ -21,38 +21,41 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.text.TextUtils;
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.labeling.LabelProviderClient;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
-public class DataConsistencyCheckRequest extends LabelClientRequest<List<Label>> {
+/** Filters a group of labels, removing labels with valid package name & hash. */
+public class DataConsistencyCheckRequest extends LabelClientRequest<@Nullable List<Label>> {
 
-  private Context mContext;
-  private OnDataConsistencyCheckCallback mCallback;
+  private static final String TAG = "DataConsistencyCheckReq";
+
+  private Context context;
+  private OnDataConsistencyCheckCallback callback;
 
   public DataConsistencyCheckRequest(
       LabelProviderClient client, Context context, OnDataConsistencyCheckCallback callback) {
     super(client);
-    mContext = context;
-    mCallback = callback;
+    this.context = context;
+    this.callback = callback;
   }
 
   @Override
-  public List<Label> doInBackground() {
+  public @Nullable List<Label> doInBackground() {
     final List<Label> allLabels = mClient.getCurrentLabels();
 
     if ((allLabels == null) || allLabels.isEmpty()) {
       return null;
     }
 
-    final PackageManager pm = mContext.getPackageManager();
+    final PackageManager pm = context.getPackageManager();
 
     final List<Label> candidates = new ArrayList<>(allLabels);
     ListIterator<Label> i = candidates.listIterator();
@@ -70,11 +73,7 @@ public class DataConsistencyCheckRequest extends LabelClientRequest<List<Label>>
       } catch (PackageManager.NameNotFoundException e) {
         // If there's no installed package, leave the label in the
         // list for removal.
-        LogUtils.log(
-            DataConsistencyCheckRequest.class,
-            Log.VERBOSE,
-            "Consistency check removing label for unknown package %s.",
-            packageName);
+        LogUtils.v(TAG, "Consistency check removing label for unknown package %s.", packageName);
         continue;
       }
 
@@ -88,9 +87,8 @@ public class DataConsistencyCheckRequest extends LabelClientRequest<List<Label>>
         // If the expected or actual signature hashes aren't
         // valid, or they don't match, leave the label in the list
         // for removal.
-        LogUtils.log(
-            DataConsistencyCheckRequest.class,
-            Log.WARN,
+        LogUtils.w(
+            TAG,
             "Consistency check removing label due to signature mismatch " + "for package %s.",
             packageName);
         continue;
@@ -105,9 +103,9 @@ public class DataConsistencyCheckRequest extends LabelClientRequest<List<Label>>
   }
 
   @Override
-  public void onPostExecute(List<Label> labelsToRemove) {
-    if (mCallback != null) {
-      mCallback.onConsistencyCheckCompleted(labelsToRemove);
+  public void onPostExecute(@Nullable List<Label> labelsToRemove) {
+    if (callback != null) {
+      callback.onConsistencyCheckCompleted(labelsToRemove);
     }
   }
 
@@ -123,14 +121,13 @@ public class DataConsistencyCheckRequest extends LabelClientRequest<List<Label>>
 
       signatureHash = StringBuilderUtils.bytesToHexString(messageDigest.digest());
     } catch (NoSuchAlgorithmException e) {
-      LogUtils.log(
-          DataConsistencyCheckRequest.class, Log.WARN, "Unable to create SHA-1 MessageDigest");
+      LogUtils.w(TAG, "Unable to create SHA-1 MessageDigest");
     }
 
     return signatureHash;
   }
 
   public interface OnDataConsistencyCheckCallback {
-    public void onConsistencyCheckCompleted(List<Label> labelsToRemove);
+    public void onConsistencyCheckCompleted(@Nullable List<Label> labelsToRemove);
   }
 }

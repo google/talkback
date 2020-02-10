@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>બટન</item>
+    <item>ચેક બૉક્સ</item>
+    <item>રંગ પીકર</item>
+    <item>તારીખ સમય નિયંત્રણ</item>
+    <item>તારીખ સમય નિયંત્રણ</item>
+    <item>તારીખ નિયંત્રણ</item>
+    <item>ઇમેઇલ માટે ટેક્સ્ટ સંપાદિત કરો</item>
+    <item>ફાઇલ પસંદગી</item>
+    <item translatable="false"></item>
+    <item>બટન</item>
+    <item>મહિના નિયંત્રણ</item>
+    <item>ફક્ત આંકડાકીય ટેક્સ્ટ સંપાદિત કરો</item>
+    <item>પાસવર્ડ સંપાદન ટેક્સ્ટ</item>
+    <item>રેડિઓ બટન</item>
+    <item>સ્લાઇડર</item>
+    <item>ફરીથી સેટ કરો</item>
+    <item>શોધ માટે ટેક્સ્ટ સંપાદિત કરો</item>
+    <item>બટન</item>
+    <item>ટેલિફોન નંબર માટે ટેક્સ્ટ સંપાદિત કરો</item>
+    <item>ટેક્સ્ટ સંપાદિત કરો</item>
+    <item>URL માટે ટેક્સ્ટ સંપાદિત કરો</item>
+    <item>વર્ષનું અઠવાડિયાનું નિયંત્રણ</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>ચેતવણી</item>
+    <item>ચેતવણી સંવાદ</item>
+    <item>બટન</item>
+    <item>ચેક બૉક્સ</item>
+    <item>કૉમ્બો બૉક્સ</item>
+    <item>સંવાદ</item>
+    <item>ગ્રિડ કોષ</item>
+    <item>લિંક કરો</item>
+    <item>લૉગ</item>
+    <item>માર્કી</item>
+    <item>મેનૂ આઇટમ</item>
+    <item>મેનૂ આઇટમ ચેક બૉક્સ</item>
+    <item>મેનૂ આઇટમ રેડિઓ બટન</item>
+    <item>વિકલ્પ</item>
+    <item>પ્રગતિ બાર</item>
+    <item>રેડિઓ બટન</item>
+    <item>રેડિઓ બટન જૂથ</item>
+    <item>સ્ક્રોલ બાર</item>
+    <item>સ્લાઇડર</item>
+    <item>સ્પિન બટન</item>
+    <item>સ્થિતિ</item>
+    <item>ટૅબ</item>
+    <item>ટૅબ પૅનલ</item>
+    <item>ટેક્સ્ટ બૉક્સ</item>
+    <item>ટાઇમર</item>
+    <item>ટુલ બાર</item>
+    <item>સાધન ટિપ</item>
+    <item>ટ્રી આઇટમ</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>લિંક કરો</item>
+    <item>મથાળું એક</item>
+    <item>મથાળું બે</item>
+    <item>મથાળું ત્રણ</item>
+    <item>મથાળું ચાર</item>
+    <item>મથાળું પાંચ</item>
+    <item>મથાળું છ</item>
+    <item>બટન</item>
+    <item>કૉમ્બો બૉક્સ</item>
+    <item>કોષ્ટક</item>
+    <item>ટેક્સ્ટ ક્ષેત્ર</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

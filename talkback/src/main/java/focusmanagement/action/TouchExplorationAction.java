@@ -16,9 +16,9 @@
 
 package com.google.android.accessibility.talkback.focusmanagement.action;
 
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -35,17 +35,45 @@ public class TouchExplorationAction {
 
   @ActionType public final int type;
   /**
-   * Node being touched.
+   * Accessibility focusable node being touched.
    *
    * <p><strong>Note: </strong> It must be null if {@link #type}=={@link #TOUCH_INTERACTION_START}
-   * or {@link #TOUCH_INTERACTION_END}. It must be non-null if {@link #type} == {@link
-   * #HOVER_ENTER}.
+   * or {@link #TOUCH_INTERACTION_END}.
    */
-  public final AccessibilityNodeInfoCompat touchedNode;
+  public final AccessibilityNodeInfoCompat touchedFocusableNode;
 
   public TouchExplorationAction(
-      @ActionType int type, @Nullable AccessibilityNodeInfoCompat touchedNode) {
+      @ActionType int type, @Nullable AccessibilityNodeInfoCompat touchedFocusableNode) {
     this.type = type;
-    this.touchedNode = touchedNode;
+    this.touchedFocusableNode = touchedFocusableNode;
+  }
+
+  public void recycle() {
+    if (touchedFocusableNode != null) {
+      touchedFocusableNode.recycle();
+    }
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("TouchExplorationAction{");
+    sb.append("actionType=").append(actionTypeToString(type));
+    sb.append(", touchedFocusableNode=").append(touchedFocusableNode);
+    sb.append('}');
+    return sb.toString();
+  }
+
+  private static String actionTypeToString(@ActionType int actionType) {
+    switch (actionType) {
+      case TOUCH_INTERACTION_START:
+        return "TOUCH_INTERACTION_START";
+      case TOUCH_INTERACTION_END:
+        return "TOUCH_INTERACTION_END";
+      case HOVER_ENTER:
+        return "HOVER_ENTER";
+      default:
+        return "(unhandled)";
+    }
   }
 }

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="6dp"
             android:paddingBottom="6dp"
-            android:textColor="@android:color/white"
+            android:textColor="@color/tutorial_action_bar_text"
             android:focusable="true"
             android:focusableInTouchMode="true"/>
 

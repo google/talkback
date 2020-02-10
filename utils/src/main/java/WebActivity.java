@@ -24,6 +24,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class WebActivity extends Activity {
 
@@ -52,15 +53,17 @@ public class WebActivity extends Activity {
 
   private static class WhitelistWebViewClient extends WebViewClient {
     @Override
-    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+    public @Nullable WebResourceResponse shouldInterceptRequest(
+        WebView view, WebResourceRequest request) {
       final String host = request.getUrl().getHost();
       // Allow URLs from Google for the TOS and Privacy Policy.
-      if (host.matches("[a-z]*.google.com")
-          || host.matches("[a-z]*.google.[a-z][a-z]")
-          || host.matches("[a-z]*.google.co.[a-z][a-z]")
-          || host.matches("[a-z]*.google.com.[a-z][a-z]")
-          || host.matches("[a-z]*.gstatic.com")
-          || host.equals("fonts.googleapis.com")) {
+      if ((host != null)
+          && (host.matches("[a-z]*.google.com")
+              || host.matches("[a-z]*.google.[a-z][a-z]")
+              || host.matches("[a-z]*.google.co.[a-z][a-z]")
+              || host.matches("[a-z]*.google.com.[a-z][a-z]")
+              || host.matches("[a-z]*.gstatic.com")
+              || host.equals("fonts.googleapis.com"))) {
         return super.shouldInterceptRequest(view, request);
       }
       return new WebResourceResponse("", "", 403, "Denied", null, null);

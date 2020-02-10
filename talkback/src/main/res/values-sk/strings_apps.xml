@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_stream_volume_set">%1$s: hlasitosť je nastavená na %2$d percent.</string>
+  <string name="value_stream_master">Celková hlasitosť</string>
+  <string name="value_stream_voice_call">Telefonický hovor</string>
+  <string name="value_stream_system">Systémové zvuky</string>
+  <string name="value_stream_ring">Tón zvonenia</string>
+  <string name="value_stream_music">Hudba</string>
+  <string name="value_stream_alarm">Budík</string>
+  <string name="value_stream_notification">Upozornenie</string>
+  <string name="value_stream_dtmf">Vytáčanie pomocou tónovej voľby</string>
+  <string name="value_stream_accessibility">Dostupnosť</string>
+  <string name="value_googletv_screen_saver">Šetrič obrazovky</string>
+</resources>

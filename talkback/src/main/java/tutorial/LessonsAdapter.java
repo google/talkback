@@ -26,24 +26,24 @@ import com.google.android.accessibility.talkback.R;
 
 public class LessonsAdapter extends BaseAdapter {
 
-  private Context mContext;
-  private Tutorial mTutorial;
-  private TutorialNavigationCallback mCallback;
+  private Context context;
+  private Tutorial tutorial;
+  private TutorialNavigationCallback callback;
 
   public LessonsAdapter(Context context, Tutorial tutorial, TutorialNavigationCallback callback) {
-    mContext = context;
-    mTutorial = tutorial;
-    mCallback = callback;
+    this.context = context;
+    this.tutorial = tutorial;
+    this.callback = callback;
   }
 
   @Override
   public int getCount() {
-    return mTutorial.getLessonsCount();
+    return tutorial.getLessonsCount();
   }
 
   @Override
   public Object getItem(int position) {
-    return mTutorial.getLesson(position);
+    return tutorial.getLesson(position);
   }
 
   @Override
@@ -55,7 +55,7 @@ public class LessonsAdapter extends BaseAdapter {
   public View getView(int position, View convertView, ViewGroup parent) {
     if (convertView == null) {
       convertView =
-          LayoutInflater.from(mContext).inflate(R.layout.tutorial_main_lesson_item, parent, false);
+          LayoutInflater.from(context).inflate(R.layout.tutorial_main_lesson_item, parent, false);
 
       ViewHolder holder = new ViewHolder();
       holder.title = (TextView) convertView.findViewById(R.id.lesson_title);
@@ -66,27 +66,27 @@ public class LessonsAdapter extends BaseAdapter {
       convertView.setTag(holder);
     }
 
-    final TutorialLesson lesson = mTutorial.getLesson(position);
+    final TutorialLesson lesson = tutorial.getLesson(position);
     ViewHolder holder = (ViewHolder) convertView.getTag();
     holder.title.setText(lesson.getTitle());
     holder.description.setText(lesson.getShortDescription());
 
     holder.practice.setContentDescription(
-        mContext.getString(R.string.tutorial_practice_content, position + 1));
+        context.getString(R.string.tutorial_practice_content, position + 1));
     holder.startLesson.setContentDescription(
-        mContext.getString(R.string.tutorial_start_lesson_content, position + 1));
+        context.getString(R.string.tutorial_start_lesson_content, position + 1));
     holder.practice.setOnClickListener(
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            mCallback.onLessonPracticeSelected(lesson);
+            callback.onLessonPracticeSelected(lesson);
           }
         });
     holder.startLesson.setOnClickListener(
         new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-            mCallback.onLessonSelected(lesson);
+            callback.onLessonSelected(lesson);
           }
         });
 

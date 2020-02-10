@@ -16,11 +16,7 @@
 
 package com.google.android.accessibility.talkback.controller;
 
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
@@ -28,20 +24,19 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.provider.Settings;
-import android.view.LayoutInflater;
+import androidx.annotation.Nullable;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
-import android.widget.CheckBox;
-import android.widget.ScrollView;
+import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.talkback.DimmingOverlayView;
 import com.google.android.accessibility.talkback.OrientationMonitor;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
-import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.FormFactorUtils;
+import com.google.android.accessibility.utils.ScreenMonitor;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.utils.widget.DialogUtils;
 import java.util.concurrent.TimeUnit;
 
 /** Manages UI and state related to dimming the screen */
@@ -57,29 +52,29 @@ public class DimScreenControllerApp
 
   private static final int INSTRUCTION_VISIBLE_SECONDS = 180;
 
-  private SharedPreferences mPrefs;
-  private Context mContext;
-  private boolean mIsDimmed;
-  private WindowManager mWindowManager;
-  private LayoutParams mViewParams;
-  private DimmingOverlayView mView;
-  private Dialog mDimDialog;
-  private int mCurrentInstructionVisibleTime;
-  private boolean mIsInstructionDisplayed;
-  private final Handler mDimmingHandler =
+  private TalkBackService service;
+  private SharedPreferences prefs;
+  private boolean isDimmed;
+  private WindowManager windowManager;
+  @Nullable private LayoutParams viewParams;
+  @Nullable private DimmingOverlayView view;
+  @Nullable private DimScreenDialog dimScreenDialog;
+  private int currentInstructionVisibleTime;
+  private boolean isInstructionDisplayed;
+  private final Handler dimmingHandler =
       new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message message) {
           switch (message.what) {
             case START_DIMMING_MESSAGE:
-              mCurrentInstructionVisibleTime = INSTRUCTION_VISIBLE_SECONDS;
-              mIsInstructionDisplayed = true;
+              currentInstructionVisibleTime = INSTRUCTION_VISIBLE_SECONDS;
+              isInstructionDisplayed = true;
               sendEmptyMessage(UPDATE_TIMER_MESSAGE);
               break;
             case UPDATE_TIMER_MESSAGE:
-              mCurrentInstructionVisibleTime--;
-              if (mCurrentInstructionVisibleTime > 0) {
-                updateText(mCurrentInstructionVisibleTime);
+              currentInstructionVisibleTime--;
+              if (currentInstructionVisibleTime > 0) {
+                updateText(currentInstructionVisibleTime);
                 sendEmptyMessageDelayed(UPDATE_TIMER_MESSAGE, TimeUnit.SECONDS.toMillis(1));
               } else {
                 hideInstructionAndTurnOnDimming();
@@ -90,59 +85,82 @@ public class DimScreenControllerApp
         }
       };
 
-  public static boolean isSupported(Context context) {
-    return !FormFactorUtils.getInstance(context).isArc();
+  /**
+   * Checks if dim/brighten screen is supported by the platform.
+   *
+   * <p>Note: This function just checks API restrictions. Availability of dim/brighten screen is
+   * also dependent on the current device lock state.
+   *
+   * @see #isSupported(TalkBackService).
+   */
+  public static boolean isSupportedbyPlatform(TalkBackService service) {
+    // Screen dimming is disabled on Jasper because there is no easy way to exit this mode since
+    // Talkback cannot capture volume button key presses on this platform.
+    @Compositor.Flavor int compositorFlavor = service.getCompositorFlavor();
+    return compositorFlavor != Compositor.FLAVOR_ARC
+        && compositorFlavor != Compositor.FLAVOR_JASPER;
   }
 
-  public DimScreenControllerApp(Context context) {
-    mContext = context;
-    mPrefs = SharedPreferencesUtils.getSharedPreferences(context);
+  /**
+   * Decides whether to support dim and brighten screen functionality. Dim/brighten screen support
+   * depends on API level and current device lock state.
+   */
+  public static boolean isSupported(TalkBackService service) {
+    if (!isSupportedbyPlatform(service)) {
+      return false;
+    }
+    return !ScreenMonitor.isDeviceLocked(service);
+  }
+
+  public DimScreenControllerApp(TalkBackService service) {
+    this.service = service;
+    prefs = SharedPreferencesUtils.getSharedPreferences(service);
+
+    dimScreenDialog = new DimScreenDialog(service, this);
   }
 
   @Override
   public boolean isDimmingEnabled() {
     return SharedPreferencesUtils.getBooleanPref(
-        mPrefs,
-        mContext.getResources(),
+        prefs,
+        service.getResources(),
         R.string.pref_dim_when_talkback_enabled_key,
         R.bool.pref_dim_when_talkback_enabled_default);
   }
 
-  /** Turn on screen dimming without setting the shared preference. */
-  private void makeScreenDim() {
-    if (mIsDimmed) {
-      return;
+  /**
+   * Turn on screen dimming without setting the shared preference. Used by {@link #resume()} and
+   * {@link DimScreenDialog}
+   */
+  @Override
+  public void makeScreenDim() {
+    if (!isDimmed) {
+      isDimmed = true;
+
+      initView();
+      addExitInstructionView();
+      startDimmingCount();
     }
-
-    mIsDimmed = !mIsDimmed;
-
-    initView();
-    addExitInstructionView();
-    startDimmingCount();
 
     announceScreenDimChanged(R.string.screen_dimmed);
   }
 
   private void initView() {
-    if (mViewParams == null || mView == null) {
-      mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+    if (viewParams == null || view == null) {
+      windowManager = (WindowManager) service.getSystemService(Context.WINDOW_SERVICE);
 
-      mViewParams = new LayoutParams();
-      if (BuildVersionUtils.isAtLeastLMR1()) {
-        mViewParams.type = WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY;
-      } else {
-        mViewParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
-      }
-      mViewParams.flags |= LayoutParams.FLAG_DIM_BEHIND;
-      mViewParams.flags |= LayoutParams.FLAG_NOT_FOCUSABLE;
-      mViewParams.flags |= LayoutParams.FLAG_NOT_TOUCHABLE;
-      mViewParams.flags |= LayoutParams.FLAG_FULLSCREEN;
-      mViewParams.flags &= ~LayoutParams.FLAG_TURN_SCREEN_ON;
-      mViewParams.flags &= ~LayoutParams.FLAG_KEEP_SCREEN_ON;
-      mViewParams.format = PixelFormat.OPAQUE;
+      viewParams = new LayoutParams();
+      viewParams.type = DialogUtils.getDialogType();
+      viewParams.flags |= LayoutParams.FLAG_DIM_BEHIND;
+      viewParams.flags |= LayoutParams.FLAG_NOT_FOCUSABLE;
+      viewParams.flags |= LayoutParams.FLAG_NOT_TOUCHABLE;
+      viewParams.flags |= LayoutParams.FLAG_FULLSCREEN;
+      viewParams.flags &= ~LayoutParams.FLAG_TURN_SCREEN_ON;
+      viewParams.flags &= ~LayoutParams.FLAG_KEEP_SCREEN_ON;
+      viewParams.format = PixelFormat.OPAQUE;
 
-      mView = new DimmingOverlayView(mContext);
-      mView.setTimerLimit(INSTRUCTION_VISIBLE_SECONDS);
+      view = new DimmingOverlayView(service);
+      view.setTimerLimit(INSTRUCTION_VISIBLE_SECONDS);
     }
 
     initCurtainSize();
@@ -150,55 +168,55 @@ public class DimScreenControllerApp
 
   private void initCurtainSize() {
     Point point = new Point();
-    mWindowManager.getDefaultDisplay().getRealSize(point);
+    windowManager.getDefaultDisplay().getRealSize(point);
 
-    mViewParams.width = point.x;
-    mViewParams.height = point.y;
+    viewParams.width = point.x;
+    viewParams.height = point.y;
   }
 
   private void addExitInstructionView() {
-    mViewParams.dimAmount = MAX_DIM_AMOUNT;
-    mViewParams.screenBrightness = getDeviceBrightness();
-    mViewParams.buttonBrightness = MIN_BRIGHTNESS;
-    mWindowManager.addView(mView, mViewParams);
-    mView.showText();
+    viewParams.dimAmount = MAX_DIM_AMOUNT;
+    viewParams.screenBrightness = getDeviceBrightness();
+    viewParams.buttonBrightness = MIN_BRIGHTNESS;
+    windowManager.addView(view, viewParams);
+    view.showText();
   }
 
   private float getDeviceBrightness() {
     try {
       return android.provider.Settings.System.getInt(
-          mContext.getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
+          service.getContentResolver(), android.provider.Settings.System.SCREEN_BRIGHTNESS);
     } catch (Settings.SettingNotFoundException e) {
       return MAX_BRIGHTNESS;
     }
   }
 
   private void startDimmingCount() {
-    mDimmingHandler.sendEmptyMessage(START_DIMMING_MESSAGE);
+    dimmingHandler.sendEmptyMessage(START_DIMMING_MESSAGE);
   }
 
   private void updateText(int secondsLeft) {
-    mView.updateSecondsText(secondsLeft);
+    view.updateSecondsText(secondsLeft);
   }
 
   private void hideInstructionAndTurnOnDimming() {
-    mViewParams.dimAmount = MAX_DIM_AMOUNT;
-    mViewParams.screenBrightness = MIN_BRIGHTNESS;
-    mViewParams.buttonBrightness = mViewParams.screenBrightness;
-    mIsInstructionDisplayed = false;
-    mView.hideText();
+    viewParams.dimAmount = MAX_DIM_AMOUNT;
+    viewParams.screenBrightness = MIN_BRIGHTNESS;
+    viewParams.buttonBrightness = viewParams.screenBrightness;
+    isInstructionDisplayed = false;
+    view.hideText();
     updateView();
   }
 
   @Override
   public boolean isInstructionDisplayed() {
-    return mIsInstructionDisplayed;
+    return isInstructionDisplayed;
   }
 
   private void updateView() {
-    if (mIsDimmed) {
-      mWindowManager.removeViewImmediate(mView);
-      mWindowManager.addView(mView, mViewParams);
+    if (isDimmed) {
+      windowManager.removeViewImmediate(view);
+      windowManager.addView(view, viewParams);
     }
   }
 
@@ -212,133 +230,80 @@ public class DimScreenControllerApp
   @Override
   public void suspend() {
     makeScreenBright();
-    if (mDimDialog != null && mDimDialog.isShowing()) {
-      mDimDialog.cancel();
+    if (dimScreenDialog != null) {
+      dimScreenDialog.cancelDialog();
     }
   }
 
   @Override
   public void shutdown() {
     suspend();
-    mViewParams = null;
-    mView = null;
+    viewParams = null;
+    view = null;
   }
 
   /** Turns off screen dimming without setting the shared preference. */
   private void makeScreenBright() {
-    if (!mIsDimmed) {
-      return;
+    if (isDimmed) {
+      isDimmed = false;
+      isInstructionDisplayed = false;
+
+      windowManager.removeViewImmediate(view);
+      dimmingHandler.removeMessages(START_DIMMING_MESSAGE);
+      dimmingHandler.removeMessages(UPDATE_TIMER_MESSAGE);
     }
-
-    mIsDimmed = !mIsDimmed;
-    mIsInstructionDisplayed = false;
-
-    mWindowManager.removeViewImmediate(mView);
     announceScreenDimChanged(R.string.screen_brightness_restored);
-    mDimmingHandler.removeMessages(START_DIMMING_MESSAGE);
-    mDimmingHandler.removeMessages(UPDATE_TIMER_MESSAGE);
   }
 
   @Override
   public void disableDimming() {
     makeScreenBright();
     SharedPreferencesUtils.putBooleanPref(
-        mPrefs, mContext.getResources(), R.string.pref_dim_when_talkback_enabled_key, false);
+        prefs, service.getResources(), R.string.pref_dim_when_talkback_enabled_key, false);
   }
 
   @Override
-  public void showDimScreenDialog() {
-    // Only show one dim screen dialog at a time.
-    if (mDimDialog != null && mDimDialog.isShowing()) {
-      return;
-    }
-
-    boolean showConfirmDialog =
-        mPrefs.getBoolean(
-            mContext.getString(R.string.pref_show_dim_screen_confirmation_dialog), true);
-    if (!showConfirmDialog) {
-      makeScreenDim();
-      SharedPreferencesUtils.putBooleanPref(
-          mPrefs, mContext.getResources(), R.string.pref_dim_when_talkback_enabled_key, true);
-      return;
-    }
-
-    LayoutInflater inflater = LayoutInflater.from(mContext);
-    @SuppressLint("InflateParams")
-    final ScrollView root =
-        (ScrollView) inflater.inflate(R.layout.dim_screen_confirmation_dialog, null);
-    final CheckBox confirmCheckBox = (CheckBox) root.findViewById(R.id.show_warning_checkbox);
-
-    final DialogInterface.OnClickListener okayClick =
-        new DialogInterface.OnClickListener() {
-          @Override
-          public void onClick(DialogInterface dialog, int which) {
-            if (which == DialogInterface.BUTTON_POSITIVE) {
-              if (!confirmCheckBox.isChecked()) {
-                SharedPreferencesUtils.putBooleanPref(
-                    mPrefs,
-                    mContext.getResources(),
-                    R.string.pref_show_dim_screen_confirmation_dialog,
-                    false);
-              }
-
-              // TalkBack should be active here, but let's check just in case.
-              if (TalkBackService.isServiceActive()) {
-                makeScreenDim();
-                SharedPreferencesUtils.putBooleanPref(
-                    mPrefs,
-                    mContext.getResources(),
-                    R.string.pref_dim_when_talkback_enabled_key,
-                    true);
-              }
-              mDimDialog = null;
-            }
-          }
-        };
-
-    mDimDialog =
-        new AlertDialog.Builder(TalkBackService.getInstance())
-            .setTitle(R.string.dialog_title_dim_screen)
-            .setView(root)
-            .setNegativeButton(android.R.string.cancel, null)
-            .setPositiveButton(android.R.string.ok, okayClick)
-            .create();
-
-    if (BuildVersionUtils.isAtLeastLMR1()) {
-      mDimDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY);
-    } else {
-      mDimDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ERROR);
-    }
-
-    mDimDialog.show();
+  public boolean getShouldShowDialogPref() {
+    return (dimScreenDialog == null) ? true : dimScreenDialog.getShouldShowDialogPref();
   }
 
+  @Override
+  public boolean enableDimmingAndShowConfirmDialog() {
+    if (isDimmingEnabled()) {
+      announceScreenDimChanged(R.string.screen_dimmed);
+      return false;
+    }
+
+    return (dimScreenDialog == null) ? false : dimScreenDialog.showDialogThenDimScreen();
+  }
+
+  // TODO: Use compositor to make announcement.
   private void announceScreenDimChanged(int announcementTextResId) {
     AccessibilityManager manager =
-        (AccessibilityManager) mContext.getSystemService(Context.ACCESSIBILITY_SERVICE);
+        (AccessibilityManager) service.getSystemService(Context.ACCESSIBILITY_SERVICE);
     if (manager.isEnabled()) {
       AccessibilityEvent event = AccessibilityEvent.obtain();
       event.setEventType(AccessibilityEvent.TYPE_ANNOUNCEMENT);
       event.setClassName(getClass().getName());
-      event.setPackageName(mContext.getPackageName());
-      event.getText().add(mContext.getString(announcementTextResId));
+      event.setPackageName(service.getPackageName());
+      event.getText().add(service.getString(announcementTextResId));
       manager.sendAccessibilityEvent(event);
     }
   }
 
   @Override
   public void onOrientationChanged(int newOrientation) {
-    if (mIsDimmed) {
+    if (isDimmed) {
       initCurtainSize();
-      mWindowManager.removeViewImmediate(mView);
-      mView = new DimmingOverlayView(mContext);
-      mView.setTimerLimit(INSTRUCTION_VISIBLE_SECONDS);
-      if (mIsInstructionDisplayed) {
-        mView.showText();
+      windowManager.removeViewImmediate(view);
+      view = new DimmingOverlayView(service);
+      view.setTimerLimit(INSTRUCTION_VISIBLE_SECONDS);
+      if (isInstructionDisplayed) {
+        view.showText();
       } else {
-        mView.hideText();
+        view.hideText();
       }
-      mWindowManager.addView(mView, mViewParams);
+      windowManager.addView(view, viewParams);
     }
   }
 }

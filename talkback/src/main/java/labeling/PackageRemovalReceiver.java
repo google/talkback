@@ -20,9 +20,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.labeling.Label;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Collection;
 import java.util.Map;
 
@@ -31,6 +30,9 @@ import java.util.Map;
  * removed from the system.
  */
 public class PackageRemovalReceiver extends BroadcastReceiver {
+
+  private static final String TAG = "PackageRemovalReceiver";
+
   private static final IntentFilter INTENT_FILTER = new IntentFilter(Intent.ACTION_PACKAGE_REMOVED);
 
   static {
@@ -45,8 +47,7 @@ public class PackageRemovalReceiver extends BroadcastReceiver {
         final CustomLabelManager labelManager = new CustomLabelManager(ctx);
         final String packageName =
             intent.getData() == null ? "" : intent.getData().toString().replace("package:", "");
-        LogUtils.log(
-            this, Log.VERBOSE, "Package %s removed.  Discarding associated labels.", packageName);
+        LogUtils.v(TAG, "Package %s removed.  Discarding associated labels.", packageName);
 
         final PackageLabelsFetchRequest.OnLabelsFetchedListener callback =
             new PackageLabelsFetchRequest.OnLabelsFetchedListener() {
@@ -56,7 +57,7 @@ public class PackageRemovalReceiver extends BroadcastReceiver {
                 // from the label database.
                 if ((results != null) && !results.isEmpty()) {
                   final Collection<Label> labels = results.values();
-                  LogUtils.log(this, Log.VERBOSE, "Removing %d labels.", labels.size());
+                  LogUtils.v(TAG, "Removing %d labels.", labels.size());
                   for (Label l : labels) {
                     labelManager.removeLabel(l);
                   }

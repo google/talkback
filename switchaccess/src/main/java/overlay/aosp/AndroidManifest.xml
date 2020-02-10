@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.google.android.accessibility.switchaccess">
+
+    <application>
+        <service
+            android:label="@string/switch_service_name"
+            android:name="com.android.switchaccess.SwitchAccessService"
+            android:icon="@drawable/ic_switch_access"
+            android:exported="true"
+            android:directBootAware="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+
+                <category android:name="android.accessibilityservice.category.FEEDBACK_GENERIC" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/switch_access_accessibilityservice" />
+        </service>
+
+        <activity
+            android:name="com.google.android.accessibility.switchaccess.SwitchAccessPreferenceActivity"
+            android:exported="false"
+            android:label="@string/switch_access_preferences_title"
+            android:theme="@style/SwitchAccessSettings"
+            tools:replace="android:theme"
+            android:directBootAware="true" >
+        </activity>
+
+        <!-- Some bluetooth devices change keyboard and navigation configuration when connected, so
+             we want to handle keyboard and navigation configuration changes to prevent the activity
+             restarting whenever a bluetooth device is paired. -->
+        <activity
+            android:name="com.google.android.accessibility.switchaccess.setupwizard.SetupWizardActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false">
+        </activity>
+    </application>
+</manifest>

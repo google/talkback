@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.utils.parsetree;
 
+import androidx.annotation.Nullable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +27,9 @@ class ParseTreeSwitchNode extends ParseTreeNode {
   private final ParseTreeNode mDefault;
 
   ParseTreeSwitchNode(
-      ParseTreeNode condition, Map<Integer, ParseTreeNode> cases, ParseTreeNode defaultCase) {
+      ParseTreeNode condition,
+      Map<Integer, ParseTreeNode> cases,
+      @Nullable ParseTreeNode defaultCase) {
     if (cases.isEmpty()) {
       throw new IllegalStateException("'switch' requires at least one output condition");
     }
@@ -49,8 +52,9 @@ class ParseTreeSwitchNode extends ParseTreeNode {
   @Override
   public boolean resolveToBoolean(ParseTree.VariableDelegate delegate, String logIndent) {
     int value = mCondition.resolveToInteger(delegate, logIndent);
-    if (mCases.containsKey(value)) {
-      return mCases.get(value).resolveToBoolean(delegate, logIndent);
+    ParseTreeNode node = mCases.get(value);
+    if (node != null) {
+      return node.resolveToBoolean(delegate, logIndent);
     } else {
       return mDefault.resolveToBoolean(delegate, logIndent);
     }
@@ -59,8 +63,9 @@ class ParseTreeSwitchNode extends ParseTreeNode {
   @Override
   public int resolveToInteger(ParseTree.VariableDelegate delegate, String logIndent) {
     int value = mCondition.resolveToInteger(delegate, logIndent);
-    if (mCases.containsKey(value)) {
-      return mCases.get(value).resolveToInteger(delegate, logIndent);
+    ParseTreeNode node = mCases.get(value);
+    if (node != null) {
+      return node.resolveToInteger(delegate, logIndent);
     } else {
       return mDefault.resolveToInteger(delegate, logIndent);
     }
@@ -69,8 +74,9 @@ class ParseTreeSwitchNode extends ParseTreeNode {
   @Override
   public double resolveToNumber(ParseTree.VariableDelegate delegate, String logIndent) {
     int value = mCondition.resolveToInteger(delegate, logIndent);
-    if (mCases.containsKey(value)) {
-      return mCases.get(value).resolveToNumber(delegate, logIndent);
+    ParseTreeNode node = mCases.get(value);
+    if (node != null) {
+      return node.resolveToNumber(delegate, logIndent);
     } else {
       return mDefault.resolveToNumber(delegate, logIndent);
     }
@@ -79,19 +85,21 @@ class ParseTreeSwitchNode extends ParseTreeNode {
   @Override
   public CharSequence resolveToString(ParseTree.VariableDelegate delegate, String logIndent) {
     int value = mCondition.resolveToInteger(delegate, logIndent);
-    if (mCases.containsKey(value)) {
-      return mCases.get(value).resolveToString(delegate, logIndent);
+    ParseTreeNode node = mCases.get(value);
+    if (node != null) {
+      return node.resolveToString(delegate, logIndent);
     } else {
       return mDefault.resolveToString(delegate, logIndent);
     }
   }
 
   @Override
-  public ParseTree.VariableDelegate resolveToReference(
+  public @Nullable ParseTree.VariableDelegate resolveToReference(
       ParseTree.VariableDelegate delegate, String logIndent) {
     int value = mCondition.resolveToInteger(delegate, logIndent);
-    if (mCases.containsKey(value)) {
-      return mCases.get(value).resolveToReference(delegate, logIndent);
+    ParseTreeNode node = mCases.get(value);
+    if (node != null) {
+      return node.resolveToReference(delegate, logIndent);
     } else {
       return mDefault.resolveToReference(delegate, logIndent);
     }
@@ -100,8 +108,9 @@ class ParseTreeSwitchNode extends ParseTreeNode {
   @Override
   public List<CharSequence> resolveToArray(ParseTree.VariableDelegate delegate, String logIndent) {
     int value = mCondition.resolveToInteger(delegate, logIndent);
-    if (mCases.containsKey(value)) {
-      return mCases.get(value).resolveToArray(delegate, logIndent);
+    ParseTreeNode node = mCases.get(value);
+    if (node != null) {
+      return node.resolveToArray(delegate, logIndent);
     } else {
       return mDefault.resolveToArray(delegate, logIndent);
     }

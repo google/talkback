@@ -17,7 +17,6 @@
             android:id="@+id/setup_completion_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="@dimen/setup_wizard_completion_text_padding_top"
             android:textAlignment="viewStart"
             android:textSize="@dimen/setup_wizard_text_size"
             android:text="@string/setup_completion_message" />

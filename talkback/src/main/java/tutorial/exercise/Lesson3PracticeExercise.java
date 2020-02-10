@@ -25,7 +25,7 @@ import com.google.android.apps.common.proguard.UsedByReflection;
 @UsedByReflection("tutorial.json")
 public class Lesson3PracticeExercise extends ContextMenuExercise {
 
-  private boolean mGlobalContextMenuOpened;
+  private boolean globalContextMenuOpened;
 
   @Override
   public void onAction(Context context, String action) {
@@ -35,17 +35,17 @@ public class Lesson3PracticeExercise extends ContextMenuExercise {
     }
 
     if (context.getString(R.string.shortcut_value_talkback_breakout).equals(action)) {
-      mGlobalContextMenuOpened = true;
+      globalContextMenuOpened = true;
       updateImage();
     }
   }
 
   @Override
   public int getImageResource() {
-    if (mGlobalContextMenuOpened) {
-      return R.drawable.up_right_arrow;
+    if (globalContextMenuOpened) {
+      return R.drawable.ic_up_right_arrow;
     }
-    return R.drawable.down_right_arrow;
+    return R.drawable.ic_down_right_arrow;
   }
 
   @Override

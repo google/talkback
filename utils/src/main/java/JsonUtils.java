@@ -16,11 +16,14 @@
 
 package com.google.android.accessibility.utils;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 import android.content.Context;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,29 +32,18 @@ public class JsonUtils {
 
   public static JSONObject readFromRawFile(Context context, int rawFileResId)
       throws IOException, JSONException {
-    InputStream stream = context.getResources().openRawResource(rawFileResId);
-    BufferedReader reader = null;
-    try {
-      reader = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
+    try (InputStream stream = context.getResources().openRawResource(rawFileResId);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(stream, UTF_8))) {
       StringBuilder stringBuilder = new StringBuilder();
       String input;
       while ((input = reader.readLine()) != null) {
         stringBuilder.append(input).append("\n");
       }
-
       return new JSONObject(stringBuilder.toString());
-    } finally {
-      if (reader != null) {
-        try {
-          reader.close();
-        } catch (IOException e) {
-          // It's acceptable for the close to fail.
-        }
-      }
     }
   }
 
-  public static String getString(JSONObject jsonObject, String key) throws JSONException {
+  public static @Nullable String getString(JSONObject jsonObject, String key) throws JSONException {
     if (jsonObject != null && jsonObject.has(key)) {
       return jsonObject.getString(key);
     }
@@ -67,7 +59,8 @@ public class JsonUtils {
     return -1;
   }
 
-  public static JSONArray getJsonArray(JSONObject jsonObject, String key) throws JSONException {
+  public static @Nullable JSONArray getJsonArray(JSONObject jsonObject, String key)
+      throws JSONException {
     if (jsonObject != null && jsonObject.has(key)) {
       return jsonObject.getJSONArray(key);
     }
@@ -75,7 +68,8 @@ public class JsonUtils {
     return null;
   }
 
-  public static JSONObject getJsonObject(JSONObject jsonObject, String key) throws JSONException {
+  public static @Nullable JSONObject getJsonObject(JSONObject jsonObject, String key)
+      throws JSONException {
     if (jsonObject != null && jsonObject.has(key)) {
       return jsonObject.getJSONObject(key);
     }

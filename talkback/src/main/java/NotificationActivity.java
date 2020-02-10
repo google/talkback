@@ -24,10 +24,11 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 public class NotificationActivity extends Activity {
+
+  private static final String TAG = "NotificationActivity";
 
   /**
    * An optional extra key that references the string resource ID of the title to show in the
@@ -53,7 +54,7 @@ public class NotificationActivity extends Activity {
    */
   public static final String EXTRA_INT_NOTIFICATION_ID = "notificationId";
 
-  private int mNotificationId = Integer.MIN_VALUE;
+  private int notificationId = Integer.MIN_VALUE;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -61,12 +62,12 @@ public class NotificationActivity extends Activity {
 
     final Bundle extras = getIntent().getExtras();
     if (extras == null) {
-      LogUtils.log(this, Log.WARN, "NotificationActivity received an empty extras bundle.");
+      LogUtils.w(TAG, "NotificationActivity received an empty extras bundle.");
       finish();
       return;
     }
 
-    mNotificationId = extras.getInt(EXTRA_INT_NOTIFICATION_ID, Integer.MIN_VALUE);
+    notificationId = extras.getInt(EXTRA_INT_NOTIFICATION_ID, Integer.MIN_VALUE);
 
     final int titleRes = extras.getInt(EXTRA_INT_DIALOG_TITLE, -1);
     final int messageRes = extras.getInt(EXTRA_INT_DIALOG_MESSAGE, -1);
@@ -88,7 +89,7 @@ public class NotificationActivity extends Activity {
         new OnClickListener() {
           @Override
           public void onClick(DialogInterface dialog, int which) {
-            if (mNotificationId != Integer.MIN_VALUE) {
+            if (notificationId != Integer.MIN_VALUE) {
               dismissNotification();
             }
             dialog.dismiss();
@@ -107,6 +108,6 @@ public class NotificationActivity extends Activity {
 
   private void dismissNotification() {
     final NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-    nm.cancel(mNotificationId);
+    nm.cancel(notificationId);
   }
 }

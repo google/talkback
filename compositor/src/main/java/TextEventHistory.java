@@ -16,19 +16,21 @@
 
 package com.google.android.accessibility.compositor;
 
-import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.EditTextActionHistory;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Wrapper around text event history data. This wrapper helps share data between EventFilter and
  * TextEventInterpreter.
  */
 public class TextEventHistory {
+
+  private static final String TAG = "TextEventHistory";
 
   ////////////////////////////////////////////////////////////////////////////////////
   // Constants
@@ -40,25 +42,25 @@ public class TextEventHistory {
 
   public boolean trace = false;
 
-  private EditTextActionHistory mEditTextHistory;
+  private final @Nullable EditTextActionHistory editTextHistory;
 
   // Event history used by text change events
   private int mTextChangesAwaitingSelection = 0;
   private long mLastTextChangeTime = -1;
-  private CharSequence mLastTextChangePackageName = null;
-  private AccessibilityEvent mLastKeptTextSelection = null;
+  private @Nullable CharSequence mLastTextChangePackageName;
+  private @Nullable AccessibilityEvent mLastKeptTextSelection;
 
   // Event history used by selection change events
   private AccessibilityEvent mLastProcessedEvent;
   private int mLastFromIndex = NO_INDEX;
   private int mLastToIndex = NO_INDEX;
-  private AccessibilityNodeInfo mLastNode;
+  private @Nullable AccessibilityNodeInfo mLastNode;
 
   // //////////////////////////////////////////////////////////////////////////////////
   // Construction
 
-  public TextEventHistory(EditTextActionHistory editTextActionHistory) {
-    mEditTextHistory = editTextActionHistory;
+  public TextEventHistory(@Nullable EditTextActionHistory editTextActionHistory) {
+    editTextHistory = editTextActionHistory;
   }
 
   ////////////////////////////////////////////////////////////////////////////////////
@@ -92,30 +94,30 @@ public class TextEventHistory {
     traceSet("LastTextChangePackageName", name);
   }
 
-  public CharSequence getLastTextChangePackageName() {
+  public @Nullable CharSequence getLastTextChangePackageName() {
     return mLastTextChangePackageName;
   }
 
   /** Caller must recycle event. */
-  public void setLastKeptTextSelection(AccessibilityEvent event) {
-    mLastKeptTextSelection = AccessibilityEventUtils.replace(mLastKeptTextSelection, event);
+  public void setLastKeptTextSelection(@Nullable AccessibilityEvent event) {
+    mLastKeptTextSelection = AccessibilityEventUtils.replaceWithCopy(mLastKeptTextSelection, event);
     traceSet("LastKeptTextSelection", "(object)");
   }
 
-  public AccessibilityEvent getLastKeptTextSelection() {
+  public @Nullable AccessibilityEvent getLastKeptTextSelection() {
     return mLastKeptTextSelection;
   }
 
   public boolean hasPasteActionAtTime(long eventTime) {
-    return mEditTextHistory.hasPasteActionAtTime(eventTime);
+    return (editTextHistory != null) && editTextHistory.hasPasteActionAtTime(eventTime);
   }
 
   public boolean hasCutActionAtTime(long eventTime) {
-    return mEditTextHistory.hasCutActionAtTime(eventTime);
+    return (editTextHistory != null) && editTextHistory.hasCutActionAtTime(eventTime);
   }
 
   public boolean hasSelectAllActionAtTime(long eventTime) {
-    return mEditTextHistory.hasSelectAllActionAtTime(eventTime);
+    return (editTextHistory != null) && editTextHistory.hasSelectAllActionAtTime(eventTime);
   }
 
   public void setLastFromIndex(int index) {
@@ -137,7 +139,7 @@ public class TextEventHistory {
   }
 
   /** TextEventHistory will recycle newNode. */
-  public void setLastNode(AccessibilityNodeInfo newNode) {
+  public void setLastNode(@Nullable AccessibilityNodeInfo newNode) {
     try {
       AccessibilityNodeInfoUtils.recycleNodes(mLastNode);
       mLastNode = newNode;
@@ -148,13 +150,13 @@ public class TextEventHistory {
     }
   }
 
-  public AccessibilityNodeInfo getLastNode() {
+  public @Nullable AccessibilityNodeInfo getLastNode() {
     return mLastNode;
   }
 
   /** Caller must recycle newEvent. */
   public void setLastProcessedEvent(AccessibilityEvent newEvent) {
-    mLastProcessedEvent = AccessibilityEventUtils.replace(mLastProcessedEvent, newEvent);
+    mLastProcessedEvent = AccessibilityEventUtils.replaceWithCopy(mLastProcessedEvent, newEvent);
     traceSet("LastProcessedEvent", "(object)");
   }
 
@@ -165,6 +167,6 @@ public class TextEventHistory {
     if (!trace) {
       return;
     }
-    LogUtils.log(this, Log.VERBOSE, "set %s = %s", member, value);
+    LogUtils.v(TAG, "set %s = %s", member, value == null ? "" : value.toString());
   }
 }

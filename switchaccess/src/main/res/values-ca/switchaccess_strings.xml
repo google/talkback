@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Accés amb interruptors"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"L\'accés amb interruptors permet que les persones amb discapacitats motores puguin controlar els telèfons i les tauletes amb un interruptor o bé amb més d\'un. Fes servir els interruptors per seleccionar elements, desplaçar-te, introduir text i molt més."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Controla el dispositiu amb interruptors"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Ajuda i suggeriments"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Cerca automàtica"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Temps de la cerca automàtica"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Inverteix la cerca automàtica"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f segons</item>
-      <item quantity="one">1 segon</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Personalitza la cerca"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Mètode de cerca"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Retard en el primer element"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Assigna interruptors"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Assigna interruptors a accions"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Assigna interruptors per a la cerca"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Velocitat de la línia"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Nombre d\'escanejos"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Tria quants cops vols que es repeteixi la cerca"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Temps de rebot"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Més d\'un toc durant aquest període es tractaran com un de sol."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Deixa anar per dur a terme una acció"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Duu a terme l\'acció en deixar anar l\'interruptor"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d bucles</item>
-      <item quantity="one">%d bucle</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"L\'interruptor <xliff:g id="KEY_NAME">%1$s</xliff:g> ja s\'ha assignat a l\'acció <xliff:g id="ACTION_NAME">%2$s</xliff:g>"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">%d interruptors assignats</item>
-      <item quantity="one">%d interruptor assignat</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Interruptor de selecció de grup %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Següent"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Anterior"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Selecciona"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Mantén premut"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Desplaça cap endavant"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Desplaça cap enrere"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Ignora"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Desplega"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Replega"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Destaca el text"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Copia"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Retalla"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Enganxa"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENÚ"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Enrere"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Inici"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Aplicacions recents"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Notificacions"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Configuració ràpida"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Desplaça cap endavant"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Desplaça cap enrere"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Cerca per punt"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Surt de la cerca per punt"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Llisca cap a la dreta"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Llisca cap a l\'esquerra"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Llisca cap amunt"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Llisca cap avall"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Llisca (personalitzat)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Allunya"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Apropa"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Configuració de l\'accés amb interruptors"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Prem una combinació d\'interruptors per afegir-la o suprimir-la de la llista"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Esborra l\'assignació d\'interruptors"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"MAJ + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"No s\'han assignat interruptors"</string>
-    <string name="more" msgid="1547670498589416840">"Més"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Espai"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Retorn"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tabulador"</string>
-    <string name="save" msgid="5398278773451196019">"Desa"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Estil del ressaltat de la cerca"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Estil de cerca principal"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Color de ressaltat"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Estil de la línia del ressaltat"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Política de privadesa"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Activa la selecció automàtica"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Desactiva la selecció automàtica"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Caràcter següent"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Paraula següent"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Línia següent"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Paràgraf següent"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Pàgina següent"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Caràcter anterior"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Paraula anterior"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Línia anterior"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Paràgraf anterior"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Pàgina anterior"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Inicia la cerca automàticament"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"La cerca s\'inicia sense prémer l\'interruptor"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Obre la configuració de l\'accés amb interruptors"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Auxiliar de configuració de l\'accés amb interruptors"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Un interruptor"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Dos interruptors"</string>
-    <string name="finish" msgid="4267641294267512480">"Finalitza"</string>
-    <string name="exit" msgid="8664597014081860813">"Surt"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Tria el nombre de interruptors"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Prem l\'interruptor per començar a desplaçar-te pels elements de manera automàtica i, a continuació, torna a prémer per seleccionar l\'element destacat."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Prem un interruptor per desplaçar-te entre els elements. Prem-ne un altre per seleccionar l\'element ressaltat."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Tria la velocitat de la cerca"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Tria durant quanta estona ha d\'estar destacat cada element"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Ràpid (retard de <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Mitjà (retard de <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Lent (retard de <xliff:g id="DELAY_SPEED">%1$s</xliff:g>)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Personalitzat"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"retard (segons)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"La tecla <xliff:g id="KEY_NAME">%1$s</xliff:g> ja s\'ha assignat a una altra acció"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Cerca per fila/columna"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Selecció de grup"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Cerca lineal"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Comentaris de veu"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Configuració TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Per a diversos elements"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Anomena el primer i l\'últim element"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Anomena el nombre d\'elements"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Anomena tots els elements ressaltats"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Deixar que acabi la veu abans de desplaçar-te"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"grup <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> a <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> elements"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"selecciona per desplaçar-te"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"element desconegut"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Tria el mètode de cerca"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Cerca fila per fila. Després de seleccionar-ne una, desplaça\'t pels elements de la llista."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Mou-te pels elements d\'un en un. Tingues en compte que els teclats sempre fan la cerca per files."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"S\'assignarà un color a tots els elements. Prem l\'interruptor que correspongui al color que hi hagi al voltant de l\'element que vulguis. Restringeix la mida del grup segons les teves preferències."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Commutadors assignats a <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Cap"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Vols esborrar els interruptors assignats?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Ja has assignat interruptors."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Esborra els interruptors"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Mantén els interruptors"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"No hi ha interruptors assignats"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"No hi ha interruptors assignats a aquesta acció. Confirmes que vols continuar?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"grup <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Prem un interruptor per assignar-hi el grup <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Prem un interruptor per assignar-lo a l\'acció <xliff:g id="ACTION_NAME">%1$s</xliff:g>."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Comença a cercar i a seleccionar elements"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Comprova la configuració amb Tic-Tac-Toe"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Prem <xliff:g id="SWITCH_NAME">%1$s</xliff:g> per començar la cerca. Torna a prémer l\'interruptor per seleccionar l\'element destacat. Comences tu!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Prem <xliff:g id="SWITCH_NAME">%1$s</xliff:g> per iniciar la cerca. Torna a prémer l\'interruptor per seleccionar la fila destacada. L\'has de tornar a prémer per seleccionar l\'element destacat. Comences tu!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Prem <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> per desplaçar-te entre els elements. Prem \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" per seleccionar l\'element destacat. Comences tu!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Prem <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> per desplaçar-te entre les files. Prem <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g> per seleccionar la fila destacada. Repeteix el procés per triar un element de la fila. Comences tu!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Prem <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> per seleccionar elements destacats en <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> o prem <xliff:g id="SWITCH_NAME_2">%4$s</xliff:g> per seleccionar elements en <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Repeteix el procés fins a arribar al teu element. Comences tu!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Encara no has assignat interruptors per a totes les accions. Fes servir el botó Anterior per tornar enrere i acabar-ho de fer."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Restableix el joc"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Aquest quadrat ja està agafat. Prova-ho amb un altre."</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Has guanyat!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Més sort el proper cop!"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Empat"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Pots mantenir la configuració actual o bé tornar a començar."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Mantén la configuració"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Torna a començar"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Configuració completada"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Ja estàs a punt."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Pots modificar la configuració addicional o obrir l\'auxiliar de configuració des de la configuració de l\'accés amb interruptors sempre que vulguis."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Accés amb interruptors</string>
+  <string name="switch_access_service_description">L\'accés amb interruptors permet que les persones amb discapacitats motores puguin controlar els telèfons i les tauletes amb un interruptor o bé amb més d\'un. Fes servir els interruptors per seleccionar elements, desplaçar-te, introduir text i molt més.</string>
+  <string name="switch_access_service_summary">Controla el dispositiu amb interruptors</string>
+  <string name="title_pref_help_feedback">Ajuda i suggeriments</string>
+  <string name="title_pref_licenses">Llicències de programari lliure</string>
+  <string name="title_pref_category_auto_scan">Cerca automàtica</string>
+  <string name="title_pref_auto_scan_disabled">Cerca automàtica (desactivada)</string>
+  <string name="action_key_summary_auto_scan">En prémer aquest interruptor, començaràs a desplaçar la marca pels elements de manera automàtica. En tornar-lo a prémer, seleccionaràs l\'element marcat.</string>
+  <string name="title_pref_auto_scan_time_delay">Temps de la cerca automàtica</string>
+  <string name="action_name_reverse_auto_scan">Cerca automàtica inversa</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Cerca automàtica inversa (desactivada)</string>
+  <string name="action_key_summary_reverse_auto_scan">En prémer aquest interruptor, començaràs a desplaçar la marca pels elements de manera automàtica en ordre invers. En tornar-lo a prémer, seleccionaràs l\'element marcat.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 segon</item>
+    <item quantity="other">%.2f segons</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Personalitza la cerca</string>
+  <string name="title_pref_scanning_methods">Mètode de cerca</string>
+  <string name="title_pref_start_scan_delay">Retard en el primer element</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Tria el temps addicional per al primer element. Aquest temps s\'afegeix al de la cerca automàtica.\n\nAquesta opció de configuració afecta tant la cerca automàtica com la cerca per punt.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Tria el temps addicional per al primer element. Un cop transcorregut, la línia vertical o horitzontal començarà a moure\'s.\n\nAquesta opció de configuració afecta tant la cerca automàtica com la cerca per punt.</string>
+  <string name="title_pref_category_assign_switches">Assigna interruptors</string>
+  <string name="title_pref_category_key_mappings">Assigna interruptors a accions globals</string>
+  <string name="summary_pref_category_key_mappings">Les accions globals es poden dur a terme en qualsevol moment</string>
+  <string name="title_pref_category_scan_key_mappings">Assigna interruptors per a la cerca</string>
+  <string name="summary_pref_category_scan_key_mappings">La cerca et permet desplaçar la marca i seleccionar elements marcats</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Moviment i selecció</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Accions sobre l\'element marcat</string>
+  <string name="title_pref_point_scan_line_speed">Velocitat de la línia</string>
+  <string name="dialog_message_pref_line_speed">Tria la velocitat a què es mouen per la pantalla les línies verticals i horitzontals.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 cm per segon</item>
+    <item quantity="other">%.2f cm per segon</item>
+  </plurals>
+  <string name="title_pref_loop_count">Nombre de cerques</string>
+  <string name="dialog_message_pref_loop_count">Tria les vegades que es repeteix la cerca.\n\nAquesta opció de configuració afecta tant la cerca automàtica com la cerca per punt.</string>
+  <string name="summary_pref_point_scan">Utilitza les línies que es mouen per seleccionar una ubicació vertical i horitzontal específica. %1$s</string>
+  <string name="point_scan_enable_animations_message">Activa les animacions per fer servir aquesta funció.</string>
+  <string name="title_pref_category_switch_accomodation">Ajustament dels interruptors</string>
+  <string name="title_pref_debounce_time">Ignora tocs repetits</string>
+  <string name="dialog_message_pref_debounce_time">Més d\'un toc durant aquest període de temps es tractaran com un de sol.</string>
+  <string name="title_pref_press_on_release">Deixa anar per dur a terme una acció</string>
+  <string name="subtitle_pref_press_on_release">Duu a terme l\'acció en deixar anar l\'interruptor</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d bucle</item>
+    <item quantity="other">%d bucles</item>
+  </plurals>
+  <string name="preference_off">Desactivat</string>
+  <string name="preference_on">Activat</string>
+  <string name="toast_msg_key_already_assigned">L\'interruptor %1$s ja s\'ha assignat a l\'acció %2$s</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d interruptor assignat</item>
+    <item quantity="other">%d interruptors assignats</item>
+  </plurals>
+  <string name="option_scan_switch_format">Interruptor de selecció de grup %1$d</string>
+  <string name="option_scan_switch_format_with_color">Botó de selecció de grup %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">En prémer aquest interruptor, seleccionaràs el grup %1$d.</string>
+  <string name="action_name_next">Següent</string>
+  <string name="action_key_summary_next">En prémer aquest interruptor, marcaràs l\'element següent.</string>
+  <string name="action_name_previous">Anterior</string>
+  <string name="action_key_summary_previous">En prémer aquest interruptor, marcaràs l\'element anterior.</string>
+  <string name="action_name_click">Selecciona</string>
+  <string name="action_key_summary_click">En prémer aquest interruptor, seleccionaràs l\'element marcat.</string>
+  <string name="action_name_long_click">Mantén premut</string>
+  <string name="action_key_summary_long_click">En prémer aquest interruptor, mantindràs premut l\'element marcat.</string>
+  <string name="action_name_scroll_forward">Desplaça cap endavant</string>
+  <string name="action_key_summary_scroll_forward">En prémer aquest interruptor, desplaçaràs l\'element marcat cap endavant.</string>
+  <string name="action_name_scroll_backward">Desplaça cap enrere</string>
+  <string name="action_key_summary_scroll_backward">En prémer aquest interruptor, desplaçaràs l\'element marcat cap enrere.</string>
+  <string name="action_name_dismiss">Ignora</string>
+  <string name="action_name_expand">Desplega</string>
+  <string name="action_name_collapse">Replega</string>
+  <string name="action_name_highlight_text">Marca el text</string>
+  <string name="action_group_name_highlight">Marca...</string>
+  <string name="action_name_highlight_all_text">Marca tot el text</string>
+  <string name="action_name_highlight_granular_text">Marca %1$s</string>
+  <string name="action_name_copy">Copia</string>
+  <string name="action_name_copy_all_text">Copia-ho tot</string>
+  <string name="action_name_cut">Retalla</string>
+  <string name="action_name_cut_all_text">Retalla-ho tot</string>
+  <string name="action_name_paste">Enganxa</string>
+  <string name="action_name_undo">Desfés</string>
+  <string name="action_name_redo">Refés</string>
+  <string name="action_group_name_delete">Suprimeix...</string>
+  <string name="action_name_delete">Suprimeix %1$s</string>
+  <string name="action_name_delete_highlighted_text">Suprimeix el text marcat</string>
+  <string name="option_scanning_menu_button">MENÚ</string>
+  <string name="option_scanning_menu_button_content_description">Menú d\'accés amb interruptors</string>
+  <string name="switch_access_global_menu">Menú global de l\'accés amb interruptors</string>
+  <string name="switch_access_actions_menu">Menú d\'accions de l\'accés amb interruptors</string>
+  <string name="switch_access_close_menu">TANCA</string>
+  <string name="switch_access_back_menu">ENRERE</string>
+  <string name="next_arrow_content_description">Següent</string>
+  <string name="previous_arrow_content_description">Anterior</string>
+  <string name="global_action_back">Enrere</string>
+  <string name="global_action_key_summary_back">En prémer aquest interruptor, tornaràs a la pantalla anterior o amagaràs el teclat, si n\'hi ha un de visible.</string>
+  <string name="global_action_home">Inici</string>
+  <string name="global_action_key_summary_home">En prémer aquest interruptor, aniràs a la pantalla d\'inici.</string>
+  <string name="global_action_overview">Aplicacions recents</string>
+  <string name="global_action_key_summary_overview">En prémer aquest interruptor, es mostrarà una llista de les aplicacions obertes recentment.</string>
+  <string name="global_action_notifications">Notificacions</string>
+  <string name="global_action_key_summary_notifications">En prémer aquest interruptor, es mostraran les notificacions del dispositiu.</string>
+  <string name="global_action_quick_settings">Configuració ràpida</string>
+  <string name="global_action_key_summary_quick_settings">En prémer aquest interruptor, es mostrarà la configuració ràpida del dispositiu.</string>
+  <string name="global_action_power_options">Opcions d\'engegada</string>
+  <string name="global_menu_volume_heading">Volum</string>
+  <string name="volume_menu_media">Volum de multimèdia</string>
+  <string name="volume_menu_call">Volum de trucada</string>
+  <string name="volume_menu_ring">Volum del to</string>
+  <string name="volume_menu_alarm">Volum de l\'alarma</string>
+  <string name="volume_menu_accessibility">Volum d\'accessibilitat</string>
+  <string name="volume_menu_mute">Silencia</string>
+  <string name="volume_menu_unmute">Deixa de silenciar</string>
+  <string name="volume_menu_increase">Apuja</string>
+  <string name="volume_settings">Configuració del volum</string>
+  <string name="volume_menu_decrease">Abaixa</string>
+  <string name="scrollable_forward">Desplaça cap endavant</string>
+  <string name="scrollable_backward">Desplaça cap enrere</string>
+  <string name="point_scan">Cerca per punt</string>
+  <string name="box_scan">Surt de la cerca per punt</string>
+  <string name="action_name_swipe_right">Llisca cap a la dreta</string>
+  <string name="action_name_swipe_left">Llisca cap a l\'esquerra</string>
+  <string name="action_name_swipe_up">Llisca cap amunt</string>
+  <string name="action_name_swipe_down">Llisca cap avall</string>
+  <string name="action_name_swipe_custom">Llisca (personalitzat)</string>
+  <string name="action_name_zoom_out">Allunya</string>
+  <string name="action_name_zoom_in">Apropa</string>
+  <string name="switch_access_preferences_title">Configuració d\'accés amb interruptors</string>
+  <string name="key_combo_preference_instructions">Prem una combinació d\'interruptors per afegir-la o suprimir-la de la llista</string>
+  <string name="key_combo_preference_reset_button">Esborra l\'assignació d\'interruptors</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">MAJ + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">No s\'han assignat interruptors</string>
+  <string name="more">Més</string>
+  <string name="name_of_space_bar">Espai</string>
+  <string name="name_of_enter_key">Retorn</string>
+  <string name="name_of_tab_key">Tabulador</string>
+  <string name="save">Desa</string>
+  <string name="title_pref_category_display_and_sound">Visualització i so</string>
+  <string name="title_pref_highlight_0">Estil de la marca de la cerca</string>
+  <string name="title_pref_primary_scan_style">Estil de cerca principal</string>
+  <string name="title_pref_highlight_0_color">Color de marca</string>
+  <string name="title_pref_highlight_0_weight">Estil de la línia de la marca</string>
+  <string name="title_pref_privacy_policy">Política de privadesa</string>
+  <string name="title_pref_auto_select">Selecció automàtica</string>
+  <string name="summary_pref_auto_select">Selecciona automàticament l\'element marcat. Si l\'element no es pot seleccionar o aquesta opció de configuració està desactivada, veuràs un menú amb les accions disponibles.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Activa la selecció automàtica</string>
+  <string name="switch_access_global_menu_disable_autoselect">Desactiva la selecció automàtica</string>
+  <string name="switch_access_move_next">Següent...</string>
+  <string name="switch_access_move_next_character">Caràcter següent</string>
+  <string name="switch_access_move_next_word">Paraula següent</string>
+  <string name="switch_access_move_next_line">Línia següent</string>
+  <string name="switch_access_move_next_paragraph">Paràgraf següent</string>
+  <string name="switch_access_move_next_page">Pàgina següent</string>
+  <string name="switch_access_move_next_sentence">Frase següent</string>
+  <string name="switch_access_move_prev">Anterior...</string>
+  <string name="switch_access_move_prev_character">Caràcter anterior</string>
+  <string name="switch_access_move_prev_word">Paraula anterior</string>
+  <string name="switch_access_move_prev_line">Línia anterior</string>
+  <string name="switch_access_move_prev_paragraph">Paràgraf anterior</string>
+  <string name="switch_access_move_prev_page">Pàgina anterior</string>
+  <string name="switch_access_move_prev_sentence">Frase anterior</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Inicia la cerca automàticament</string>
+  <string name="switch_access_auto_start_scan_summary">La cerca s\'inicia sense prémer l\'interruptor</string>
+  <string name="pref_begin_switchaccess_setup_title">Obre la guia de configuració</string>
+  <string name="setup_wizard_heading">Guia de configuració d\'accés amb interruptors</string>
+  <string name="one_switch">Un interruptor</string>
+  <string name="two_switches">Dos interruptors</string>
+  <string name="finish">Finalitza</string>
+  <string name="exit">Surt</string>
+  <string name="intro_heading">Tria un interruptor</string>
+  <string name="usb_switch_option_text">Interruptor USB</string>
+  <string name="bluetooth_switch_option_text">Interruptor Bluetooth</string>
+  <string name="usb_switch_description_text">Connecta físicament un interruptor per USB</string>
+  <string name="bluetooth_switch_description_text">Vincula un interruptor per Bluetooth sense fil</string>
+  <string name="bluetooth_unsupported_description_text">El dispositiu no és compatible amb Bluetooth. Prova d\'utilitzar un interruptor físic.</string>
+  <string name="connected_usb_devices_header">Dispositius connectats</string>
+  <string name="usb_no_devices_connected_message">No s\'ha trobat cap dispositiu USB. Comprova que el dispositiu estigui ben connectat.</string>
+  <string name="connect_usb_heading">Connecta l\'interruptor USB</string>
+  <string name="pair_bluetooth_heading">Vincula un interruptor Bluetooth</string>
+  <string name="pair_bluetooth_subheading">Toca l\'interruptor Bluetooth més avall</string>
+  <string name="bluetooth_not_enabled_message">Per vincular un interruptor Bluetooth, activa el Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Activa el Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">No hi ha cap dispositiu Bluetooth vinculat</string>
+  <string name="paired_devices_header">Dispositius Bluetooth vinculats</string>
+  <string name="available_devices_header">Dispositius Bluetooth disponibles</string>
+  <string name="bluetooth_computer_content_description">Ordinador</string>
+  <string name="bluetooth_phone_content_description">Telèfon</string>
+  <string name="bluetooth_imaging_content_description">Dispositiu d\'imatge</string>
+  <string name="bluetooth_headphone_content_description">Auricular</string>
+  <string name="bluetooth_peripheral_content_description">Perifèric</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">S\'està connectant...</string>
+  <string name="bluetooth_connected_description">Connectat</string>
+  <string name="bluetooth_device_unavailable_description">El dispositiu no està disponible</string>
+  <string name="reconnecting_unsupported_title">No s\'ha pogut connectar al dispositiu</string>
+  <string name="reconnecting_unsupported_message">L\'accés amb interruptors no s\'ha pogut connectar al dispositiu vinculat prèviament. Comprova que el dispositiu estigui encès i connectat.\n\nSi continua sense connectar-se, ves a la configuració del Bluetooth i prova de tornar-lo a connectar.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Ves a la configuració del Bluetooth</string>
+  <string name="number_of_switches_heading">Tria el nombre de interruptors</string>
+  <string name="title_assign_scan_key">Assigna l\'interruptor per a %1$s</string>
+  <string name="one_switch_description_text">Prem l\'interruptor per començar a moure\'t pels elements de manera automàtica i, a continuació, torna a prémer-lo per seleccionar l\'element marcat.</string>
+  <string name="two_switches_description_text">Prem un interruptor per moure\'t entre els elements. Prem l\'altre per seleccionar l\'element marcat.</string>
+  <string name="step_speed_heading">Tria la velocitat de la cerca</string>
+  <string name="step_speed_subheading">Tria durant quant de temps ha d\'estar marcat cada element</string>
+  <string name="fast_radio_button_title">Ràpid (retard: %1$s s)</string>
+  <string name="medium_radio_button_title">Mitjà (retard: %1$s s)</string>
+  <string name="slow_radio_button_title">Lent (retard: %1$s s)</string>
+  <string name="custom_switch">Personalitzat</string>
+  <string name="custom_edit_text">retard (segons)</string>
+  <string name="setup_toast_msg_key_already_assigned">La tecla %1$s ja s\'ha assignat a una altra acció</string>
+  <string name="row_column_scanning_title">Cerca per fila/columna</string>
+  <string name="option_scanning_title">Selecció de grup (avançada)</string>
+  <string name="linear_scanning_title">Cerca lineal</string>
+  <string name="linear_scanning_except_keyboard_title">Cerca lineal (excepte el teclat)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Veu, so i vibració</string>
+  <string name="title_pref_switch_access_spoken_feedback">Avisos de veu</string>
+  <string name="title_pref_scan_non_actionable_items">Enuncia el text descriptiu</string>
+  <string name="scan_non_actionable_items_summary">Escolta avisos de veu dels elements amb accions disponibles i text descriptiu</string>
+  <string name="title_pref_switch_access_verbosity">Exhaustivitat</string>
+  <string name="summary_verbosity">Tria quanta informació s\'enuncia</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Grau d\'exhaustivitat</string>
+  <string name="title_pref_switch_access_keyboard_echo">Eco del teclat</string>
+  <string name="keyboard_echo_summary_on">Enuncia les tecles premudes del teclat en pantalla</string>
+  <string name="keyboard_echo_summary_off">No enunciïs les tecles premudes del teclat en pantalla</string>
+  <string name="title_pref_enable_hints">Enuncia els consells d\'ús</string>
+  <string name="enable_hints_summary_on">S\'enuncien els consells d\'ús durant la navegació amb un breu retard</string>
+  <string name="enable_hints_summary_off">Els consells d\'ús no es llegeixen en moure la selecció d\'accessibilitat</string>
+  <string name="title_pref_speak_container_element_position">Enuncia la informació de llistes i quadrícules</string>
+  <string name="speak_container_element_position_summary_on">S\'enuncia la informació de llistes i quadrícules</string>
+  <string name="speak_container_element_position_summary_off">No es llegeix la informació de llistes i quadrícules</string>
+  <string name="title_pref_speak_element_type">Enuncia el tipus d\'element</string>
+  <string name="speak_element_type_summary_on">S\'enuncia el tipus d\'element per als elements focalitzats</string>
+  <string name="speak_element_type_summary_off">No es llegeix el tipus dels elements seleccionats</string>
+  <string name="title_pref_pitch_change_for_ime">Utilitza canvis de to</string>
+  <string name="pitch_change_for_ime_summary_on">Enuncia la tecla premuda en un to més baix</string>
+  <string name="pitch_change_for_ime_summary_off">No canviïs el to dels avisos de veu durant l\'enunciació</string>
+  <string name="title_pref_speak_selected_item_or_group">Enuncia l\'element o el grup seleccionat</string>
+  <string name="speak_selected_item_or_group_summary">Enuncia el nom d\'un element o grup després de seleccionar-lo</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Temps màxim d\'enunciació per element</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Configura el temps màxim de la descripció enunciada de cada element. Passat aquest temps, la parla es tallarà. \nNota: els consells sempre s\'enuncien si estan activats.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Altres</string>
+  <string name="title_pref_node_description_order">Ordre de descripció dels elements</string>
+  <string name="title_pref_switch_access_speak_element_ids">Enuncia els identificadors dels elements</string>
+  <string name="speak_element_ids_summary_on">S\'enuncien els identificadors dels elements dels botons sense etiquetar</string>
+  <string name="speak_element_ids_summary_off">No es llegeixen els identificadors dels elements dels botons sense etiquetar</string>
+  <string name="title_pref_switch_access_tts_settings">Configuració de text a parla</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Quan hi ha diversos elements marcats</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Enuncia el primer i l\'últim element</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Enuncia el nombre d\'elements</string>
+  <string name="title_pref_switch_access_speak_all_items">Enuncia tots els elements marcats</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Espera que acabi l\'enunciació abans de continuar</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Altres avisos</string>
+  <string name="title_pref_developer_settings">Configuració del desenvolupador</string>
+  <string name="title_pref_spoken_feedback_overlay">Mostra la sortida de parla</string>
+  <string name="title_pref_switch_access_vibration_feedback">Avisos amb vibració</string>
+  <string name="vibration_feedback_summary">Vibra per indicar que alguna cosa ha canviat (per exemple, el contingut de la pantalla)</string>
+  <string name="title_pref_switch_access_sound_feedback">Avisos sonors</string>
+  <string name="sound_feedback_summary">Reprodueix un so per indicar que alguna cosa ha canviat (per exemple, el contingut de la pantalla)</string>
+  <string name="title_pref_switch_access_sound_volume">Volum del so</string>
+  <string name="title_pref_switch_access_audio_ducking">Reducció del volum de l\'àudio</string>
+  <string name="audio_ducking_summary">Redueix el volum de la resta d\'àudio durant l\'enunciació</string>
+  <string name="switch_access_focus_cleared_no_selection">La pantalla ha canviat</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Prem l\'interruptor de selecció per triar una fila</string>
+  <string name="switch_access_spoken_feedback_group">grup %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Prem l\'interruptor del grup %1$s per seleccionar el grup</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Prem l\'interruptor del grup %1$s per seleccionar l\'element</string>
+  <string name="switch_access_spoken_feedback_to">%1$s a %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s elements</string>
+  <string name="switch_access_spoken_feedback_group_selected">s\'ha seleccionat el grup %1$s</string>
+  <string name="switch_access_spoken_feedback_row_selected">s\'ha seleccionat una fila</string>
+  <string name="switch_access_spoken_feedback_item_selected">s\'ha seleccionat %1$s</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">desplaçable</string>
+  <string name="switch_access_spoken_feedback_scroll">selecciona per desplaçar-te</string>
+  <string name="switch_access_spoken_feedback_unknown">element desconegut</string>
+  <string name="scanning_method_heading">Tria el mètode de cerca</string>
+  <string name="row_column_scanning_description">Cerca fila per fila. Després de seleccionar-ne una, mou-te pels elements de la llista.</string>
+  <string name="linear_scanning_description">Mou-te pels elements d\'un en un</string>
+  <string name="linear_scanning_except_keyboard_description">Mou-te pels elements d\'un en un. Tingues en compte que els teclats fan la cerca per files.</string>
+  <string name="option_scanning_description">S\'assignarà un color a tots els elements. Prem l\'interruptor que correspongui al color que hi hagi al voltant de l\'element que vulguis. Restringeix la mida del grup segons les teves preferències.</string>
+  <string name="setup_switch_assignment_heading">Interruptors assignats a %s</string>
+  <string name="setup_switch_assignment_empty">Cap</string>
+  <string name="clear_keys_dialog_title">Vols esborrar els interruptors assignats?</string>
+  <string name="clear_keys_dialog_message">Ja has assignat interruptors.</string>
+  <string name="clear_keys_dialog_positive_button">Esborra els interruptors</string>
+  <string name="clear_keys_dialog_negative_button">Mantén els interruptors</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">No hi ha interruptors assignats</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">No hi ha interruptors assignats a aquesta acció. Confirmes que vols continuar?</string>
+  <string name="option_scan_switch_title">grup %1$s</string>
+  <string name="option_scan_switch_subtitle">Prem un interruptor per assignar-hi el grup %1$s.</string>
+  <string name="assign_switch_subtitle">Prem un interruptor per assignar-lo a l\'acció %1$s.</string>
+  <string name="auto_scan_action_description">Comença a cercar i a seleccionar</string>
+  <string name="switch_game_heading">Prova la configuració amb el tres en ratlla</string>
+  <string name="switch_game_one_switch_linear_subheading">Prem %1$s per començar la cerca. Torna a prémer l\'interruptor per seleccionar l\'element marcat. Comences tu!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Prem %1$s per iniciar la cerca. Torna a prémer l\'interruptor per seleccionar la fila marcada. L\'has de tornar a prémer per seleccionar l\'element marcat. Comences tu!</string>
+  <string name="switch_game_two_switch_linear_subheading">Prem %1$s per desplaçar-te entre els elements. Prem %2$s per seleccionar l\'element marcat. Comences tu!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Prem %1$s per desplaçar-te entre les files. Prem %2$s per seleccionar la fila marcada. Repeteix el procés per triar un element de la fila. Comences tu!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Prem %1$s per seleccionar els elements marcats en %2$s o prem %4$s per seleccionar els elements marcats en %3$s. Repeteix el procés fins a arribar al teu element. Comences tu!</string>
+  <string name="switch_game_incomplete_switches_subheading">Encara no has assignat interruptors per a totes les accions. Fes servir el botó Anterior per tornar enrere i acabar l\'assignació d\'interruptors.</string>
+  <string name="game_square_content_description">%1$s a la posició %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">buit</string>
+  <string name="game_reset_button_title">Restableix el joc</string>
+  <string name="game_square_already_taken">Aquest quadrat ja està agafat. Prova-ho amb un altre.</string>
+  <string name="game_win_outcome_title">Has guanyat!</string>
+  <string name="game_loss_outcome_title">Més sort el proper cop!</string>
+  <string name="game_tie_outcome_title">Empat</string>
+  <string name="game_outcome_body_text">Pots mantenir la configuració actual o bé tornar a començar.</string>
+  <string name="game_outcome_positive_response">Mantén la configuració</string>
+  <string name="game_outcome_negative_response">Torna a començar</string>
+  <string name="setup_completion_heading">Configuració completada</string>
+  <string name="setup_completion_message">Ja estàs a punt.</string>
+  <string name="setup_completion_settings_reminder">Pots modificar la configuració addicional o obrir l\'auxiliar de configuració des de la configuració de l\'accés amb interruptors sempre que vulguis.</string>
+  <string name="dialog_url_list">Tria un enllaç</string>
+  <string name="dialog_do_not_disturb_permission_title">L\'accés amb interruptors necessita permís per ajustar el volum</string>
+  <string name="dialog_do_not_disturb_permission_message">Per ajustar el volum des del menú d\'accés amb interruptors, activa l\'accés de la Suite d\'accessibilitat d\'Android al mode No molestis</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Obre la configuració</string>
 </resources>

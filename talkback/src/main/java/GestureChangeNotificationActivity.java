@@ -29,13 +29,13 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils;
 
 public class GestureChangeNotificationActivity extends Activity {
 
-  private SharedPreferences mPrefs;
+  private SharedPreferences prefs;
 
   /**
    * The available shortcut gestures and their default actions. The default action for the gesture
-   * specified by mGestureNameRes[i] is the action specified by mActionNameRes[i].
+   * specified by gestureNameRes[i] is the action specified by actionNameRes[i].
    */
-  private final int[] mGestureNameRes = {
+  private final int[] gestureNameRes = {
     R.string.title_pref_shortcut_down_and_left,
     R.string.title_pref_shortcut_up_and_left,
     R.string.title_pref_shortcut_down_and_right,
@@ -46,7 +46,7 @@ public class GestureChangeNotificationActivity extends Activity {
     R.string.title_pref_shortcut_left_and_up
   };
 
-  private final int[] mActionNameRes = {
+  private final int[] actionNameRes = {
     R.string.shortcut_back,
     R.string.shortcut_home,
     R.string.shortcut_talkback_breakout,
@@ -61,14 +61,14 @@ public class GestureChangeNotificationActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    mPrefs = SharedPreferencesUtils.getSharedPreferences(this);
+    prefs = SharedPreferencesUtils.getSharedPreferences(this);
 
     final CharSequence dialogTitle =
         getString(R.string.notification_title_talkback_gestures_changed);
     final CharSequence dialogMessage =
         getString(
             R.string.talkback_gesture_change_details,
-            getMappingDescription(mGestureNameRes, mActionNameRes));
+            getMappingDescription(gestureNameRes, actionNameRes));
     final CharSequence acceptButtonText =
         getString(R.string.button_accept_changed_gesture_mappings);
     final OnClickListener acceptButtonListener =
@@ -107,7 +107,7 @@ public class GestureChangeNotificationActivity extends Activity {
   }
 
   private void clearPreviouslyConfiguredMappings() {
-    final SharedPreferences.Editor editor = mPrefs.edit();
+    final SharedPreferences.Editor editor = prefs.edit();
 
     editor.remove(getString(R.string.pref_shortcut_down_and_left_key));
     editor.remove(getString(R.string.pref_shortcut_down_and_right_key));
@@ -137,7 +137,7 @@ public class GestureChangeNotificationActivity extends Activity {
     nm.cancel(notificationId);
 
     // Clear the flag signaling TalkBack to display the notification again
-    final SharedPreferences.Editor editor = mPrefs.edit();
+    final SharedPreferences.Editor editor = prefs.edit();
     editor.remove(getString(R.string.pref_must_accept_gesture_change_notification));
     editor.apply();
   }

@@ -17,14 +17,14 @@
 package com.google.android.accessibility.utils.traversal;
 
 import android.graphics.Rect;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.util.Log;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Calculates the utility bounds of the node. If node is not supposed to get accessibility focus the
@@ -34,6 +34,8 @@ import java.util.Set;
  * calculator could get wrong results
  */
 public class NodeCachedBoundsCalculator {
+
+  private static final String TAG = "NodeCachedBoundsCalculator";
 
   private static final Rect EMPTY_RECT = new Rect();
 
@@ -46,7 +48,7 @@ public class NodeCachedBoundsCalculator {
     mSpeakNodesCache = speakNodeCache;
   }
 
-  public Rect getBounds(AccessibilityNodeInfoCompat node) {
+  public @Nullable Rect getBounds(AccessibilityNodeInfoCompat node) {
     Rect bounds = getBoundsInternal(node);
     if (bounds.equals(EMPTY_RECT)) {
       return null;
@@ -61,7 +63,7 @@ public class NodeCachedBoundsCalculator {
     }
 
     if (mCalculatingNodes.contains(node)) {
-      LogUtils.log(Log.WARN, "node tree loop detected while calculating node bounds");
+      LogUtils.w(TAG, "node tree loop detected while calculating node bounds");
       return EMPTY_RECT;
     }
 

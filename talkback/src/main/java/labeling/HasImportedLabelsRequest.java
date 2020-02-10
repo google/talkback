@@ -20,12 +20,12 @@ import com.google.android.accessibility.utils.labeling.LabelProviderClient;
 
 public class HasImportedLabelsRequest extends LabelClientRequest<Boolean> {
 
-  private OnHasImportedLabelsCompleteListener mListener;
+  private OnHasImportedLabelsCompleteListener listener;
 
   public HasImportedLabelsRequest(
       LabelProviderClient client, OnHasImportedLabelsCompleteListener listener) {
     super(client);
-    mListener = listener;
+    this.listener = listener;
   }
 
   @Override
@@ -35,8 +35,8 @@ public class HasImportedLabelsRequest extends LabelClientRequest<Boolean> {
 
   @Override
   public void onPostExecute(Boolean result) {
-    if (mListener != null && result != null) {
-      mListener.onHasImportedRequestCompleted(result);
+    if (listener != null && result != null) {
+      listener.onHasImportedRequestCompleted(result);
     }
   }
 

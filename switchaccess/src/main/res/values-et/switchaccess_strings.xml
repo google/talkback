@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Lülitiga juurdepääs"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Lülitiga juurdepääs võimaldab motoorikahäiretega inimestel juhtida mobiiltelefone ja tahvelarvuteid, kasutades ühte või mitut lülitit. Lüliteid saab kasutada üksuste valimiseks, kerimiseks, teksti sisestamiseks ja muuks."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Seadme juhtimine lülititega"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Abi ja tagasiside"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Automaatne otsimine"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Automaatse otsimise aeg"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Automaatne pöördskannimine"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f sekundit</item>
-      <item quantity="one">1 sekund</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Skannimise kohandamine"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Skannimisviis"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Viivitus esimesel üksusel"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Lülitite määramine"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Lülitite määramine toimingutele"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Lülitite määramine skannimiseks"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Rea kiirus"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Skannimiste arv"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Valige, kui mitu korda skannimine kordub"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Kordusaeg"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Mitut vajutust selle aja jooksul käsitletakse ühe vajutusena."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Toimingu tegemiseks vabastamine"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Toiming tehakse lüliti vabastamisel"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d kordust</item>
-      <item quantity="one">%d kordus</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Lüliti „<xliff:g id="KEY_NAME">%1$s</xliff:g>” on juba määratud toimingule „<xliff:g id="ACTION_NAME">%2$s</xliff:g>”"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">%d lülitit on määratud</item>
-      <item quantity="one">%d lüliti on määratud</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Grupi valimise lüliti %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Järgmine"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Eelmine"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Vali"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Pikk vajutus"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Edasikerimine"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Tagasikerimine"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Loobu"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Laiendamine"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Ahendamine"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Teksti esiletõstmine"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Kopeerimine"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Lõikamine"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Kleepimine"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENÜÜ"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Tagasi"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Avaekraan"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Ülevaade"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Märguanded"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Kiirseaded"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Keri edasi"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Keri tagasi"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Punkti skannimine"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Väljumispunkti skannimine"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Pühkige paremale"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Pühkige vasakule"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Pühkige üles"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Pühkige alla"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Pühkimine (kohandatud)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Suumige välja"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Suumige sisse"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Lülitiga juurdepääsu seaded"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Selle loendisse lisamiseks või sealt eemaldamiseks vajutage lülitite kombinatsiooni"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Kustuta määratud lüliti"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"TÕSTUKLAHV + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Ühtegi lülitit pole määratud"</string>
-    <string name="more" msgid="1547670498589416840">"Rohkem"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Tühik"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Sisestusklahv"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tabulaator"</string>
-    <string name="save" msgid="5398278773451196019">"Salvesta"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Esiletõstu stiil otsimisel"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Esmane skannimislaad"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Esiletõstu värv"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Joone stiili esiletõstmine"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Privaatsuseeskirjad"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Luba automaatne valimine"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Keela automaatne valimine"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Järgmine tähemärk"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Järgmine sõna"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Järgmine rida"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Järgmine lõik"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Järgmine leht"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Eelmine tähemärk"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Eelmine sõna"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Eelmine rida"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Eelmine lõik"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Eelmine leht"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Otsimise automaatne alustamine"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Otsimine algab ilma lülitit vajutamata"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Ava funktsiooni Lülitiga juurdepääs seadistus"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Lülitiga juurdepääsu seadistusviisard"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Üks lüliti"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Kaks lülitit"</string>
-    <string name="finish" msgid="4267641294267512480">"Lõpetamine"</string>
-    <string name="exit" msgid="8664597014081860813">"Väljumine"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Valige lülitite arv"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Vajutage lülitit, et üksuste vahel automaatselt liikuda, seejärel vajutage uuesti, et esiletõstetud üksus valida."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Vajutage ühte lülitit üksuste vahel liikumiseks. Teist lülitit vajutage esiletõstetud üksuse valimiseks."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Valige skannimise kiirus"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Valige, kui kaua iga üksus on esile tõstetud"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Kiire (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> s viivitus)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Keskmine (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> s viivitus)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Aeglane (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> s viivitus)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Kohandatud"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"viivitus (sekundid)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Klahv „<xliff:g id="KEY_NAME">%1$s</xliff:g>” on juba määratud teisele toimingule"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Rea/veeru skannimine"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Grupi valimine"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Lineaarne skannimine"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Suuline tagasiside"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Kõnesünteesi seaded"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Mitme üksuse jaoks"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Esimene ja viimane üksus loetakse ette"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Üksuste arv loetakse ette"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Kõik esiletõstetud üksused loetakse ette"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Enne teisaldamist tuleb kõne lõpetada"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"grupp <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> kuni <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> üksust"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"valige kerimiseks"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"tundmatu üksus"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Valige, kuidas skannida"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Skannige reahaaval. Kui rida on valitud, liikuge loendis olevate üksuste vahel."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Üksuste vahel liigutakse ükshaaval. Pange tähele, et klaviatuurid skannivad alati reakaupa."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Kõigile üksustele määratakse värv. Vajutage lülitit vastavalt soovitud üksuse ümber olevale värvile. Ahendage grupi suurust, kuni jõuate oma valikuni."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Toimingule <xliff:g id="ACTION_NAME">%s</xliff:g> määratud lülitid"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Mitte ükski"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Kas kustutada määratud lülitid?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Olete lülitid juba määranud."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Kustuta lülitid"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Jäta lülitid alles"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Ühtegi lülitit pole määratud"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Toimingule pole määratud ühtegi lülitit. Kas soovite kindlasti jätkata?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> grupp"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Vajutage lülitit, et see määrata ja <xliff:g id="OPTION_COLOR">%1$s</xliff:g> grupp valida."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Vajutage lülitit, et määrata see toimingule „<xliff:g id="ACTION_NAME">%1$s</xliff:g>”."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Skannimise alustamine ja valimine"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Kontrollige oma seadistust trips-traps-trulliga"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Skannimise alustamiseks vajutage lülitit „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>”. Vajutage uuesti lülitit, et valida esiletõstetud üksus. Olete esimene!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Skannimise alustamiseks vajutage lülitit „<xliff:g id="SWITCH_NAME">%1$s</xliff:g>”. Vajutage uuesti lülitit, et valida esiletõstetud rida. Vajutage veel kord, et valida esiletõstetud üksus. Olete esimene!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Üksuste vahel liikumiseks vajutage lülitit „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>”. Esiletõstetud üksuse valimiseks vajutage lülitit „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>”. Olete esimene!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Ridade vahel liikumiseks vajutage lülitit „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>”. Esiletõstetud rea valimiseks vajutage lülitit „<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>”. Real oleva üksuse valimiseks korrake toimingut. Olete esimene!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Värviga <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> esiletõstetud üksuste valimiseks vajutage lülitit „<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>” või värviga <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> esiletõstetud üksuste valimiseks vajutage lülitit „<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>”. Õige üksuseni jõudmiseks korrake toimingut. Olete esimene!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Kõigile toimingutele pole veel üksuseid määratud. Tagasiminemiseks ja lülitite määramise lõpetamiseks kasutage nuppu Eelmine."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Lähtesta mäng"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"See ruut on juba täidetud. Proovige uuesti."</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Võitsite!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Järgmine kord läheb paremini"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Viik"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Võite praeguse seadistuse alles jätta või uuesti alustada."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Jäta seadistus alles"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Alusta uuesti"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Seadistamine on lõpetatud"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Kõik on valmis."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Funktsiooni Lülitiga juurdepääs seadetes saate alati muuta lisaseadeid või avada uuesti seadistusviisardi."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Lülitiga juurdepääs</string>
+  <string name="switch_access_service_description">Lülitiga juurdepääs võimaldab motoorikahäiretega inimestel juhtida mobiiltelefone ja tahvelarvuteid, kasutades ühte või mitut lülitit. Lüliteid saab kasutada üksuste valimiseks, kerimiseks, teksti sisestamiseks ja muuks.</string>
+  <string name="switch_access_service_summary">Seadme juhtimine lülititega</string>
+  <string name="title_pref_help_feedback">Abi ja tagasiside</string>
+  <string name="title_pref_licenses">Avatud lähtekoodi litsentsid</string>
+  <string name="title_pref_category_auto_scan">Automaatne skannimine</string>
+  <string name="title_pref_auto_scan_disabled">Automaatne skannimine (keelatud)</string>
+  <string name="action_key_summary_auto_scan">Selle lüliti vajutamisel hakkab esiletõst automaatselt üksuste vahel liikuma. Kui vajutate seda uuesti, valitakse esiletõstetud üksus.</string>
+  <string name="title_pref_auto_scan_time_delay">Automaatse skannimise aeg</string>
+  <string name="action_name_reverse_auto_scan">Automaatne pöördskannimine</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Automaatne pöördskannimine (keelatud)</string>
+  <string name="action_key_summary_reverse_auto_scan">Selle lüliti vajutamisel hakkab esiletõst automaatselt üksuste vahel tagurpidi liikuma. Kui vajutate seda uuesti, valitakse esiletõstetud üksus.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 sekund</item>
+    <item quantity="other">%.2f sekundit</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Skannimise kohandamine</string>
+  <string name="title_pref_scanning_methods">Skannimisviis</string>
+  <string name="title_pref_start_scan_delay">Viivitus esimesel üksusel</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Valige lisaaeg, mis esimesel üksusel veedetakse. See aeg lisatakse automaatse skannimise ajale.\n\nSee seade mõjutab nii automaatset skannimist kui ka punktskannimist.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Valige lisaaeg, mis esimesel üksusel veedetakse. Pärast seda hakkab vertikaalne või horisontaalne joon liikuma.\n\nSee seade mõjutab nii automaatset skannimist kui ka punktskannimist.</string>
+  <string name="title_pref_category_assign_switches">Lülitite määramine</string>
+  <string name="title_pref_category_key_mappings">Lülitite määramine üldistele toimingutele</string>
+  <string name="summary_pref_category_key_mappings">Üldiseid toiminguid saab alati teha</string>
+  <string name="title_pref_category_scan_key_mappings">Lülitite määramine skannimiseks</string>
+  <string name="summary_pref_category_scan_key_mappings">Skannimine võimaldab teil esiletõstu liigutada ja valida esiletõstetud üksusi</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Liikumine ja valimine</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Toimingud esiletõstetud üksustel</string>
+  <string name="title_pref_point_scan_line_speed">Reakiirus</string>
+  <string name="dialog_message_pref_line_speed">Valige, kui kiiresti horisontaalsed ja vertikaalsed jooned ekraanikuval liiguvad.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 cm sekundis</item>
+    <item quantity="other">%.2f cm sekundis</item>
+  </plurals>
+  <string name="title_pref_loop_count">Skannimiste arv</string>
+  <string name="dialog_message_pref_loop_count">Valige, mitu korda skannimist korratakse.\n\nSee mõjutab nii automaatset kui ka punktskannimist.</string>
+  <string name="summary_pref_point_scan">Kasuta horisontaal- ja vertikaalteljel konkreetse asukoha valimiseks liikuvaid jooni. %1$s</string>
+  <string name="point_scan_enable_animations_message">Selle funktsiooni kasutamiseks lülitage animatsioonid sisse.</string>
+  <string name="title_pref_category_switch_accomodation">Lülitite kohandamine</string>
+  <string name="title_pref_debounce_time">Korduvate vajutuste eiramine</string>
+  <string name="dialog_message_pref_debounce_time">Mitut lüliti vajutust selle aja jooksul käsitletakse ühe vajutusena.</string>
+  <string name="title_pref_press_on_release">Toimingu tegemiseks vabastamine</string>
+  <string name="subtitle_pref_press_on_release">Toiming tehakse lüliti vabastamisel</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d kordus</item>
+    <item quantity="other">%d kordust</item>
+  </plurals>
+  <string name="preference_off">Väljas</string>
+  <string name="preference_on">Sees</string>
+  <string name="toast_msg_key_already_assigned">Lüliti „%1$s” on juba määratud toimingule „%2$s”</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d lüliti on määratud</item>
+    <item quantity="other">%d lülitit on määratud</item>
+  </plurals>
+  <string name="option_scan_switch_format">Grupi valimise lüliti %1$d</string>
+  <string name="option_scan_switch_format_with_color">Grupi valimise lüliti %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Selle lüliti vajutamisel valitakse grupp %1$d.</string>
+  <string name="action_name_next">Järgmine</string>
+  <string name="action_key_summary_next">Selle lüliti vajutamisel tõstetakse esile järgmine üksus.</string>
+  <string name="action_name_previous">Eelmine</string>
+  <string name="action_key_summary_previous">Selle lüliti vajutamisel tõstetakse esile eelmine üksus.</string>
+  <string name="action_name_click">Vali</string>
+  <string name="action_key_summary_click">Selle lüliti vajutamisel valitakse esiletõstetud üksus.</string>
+  <string name="action_name_long_click">Pikalt puudutamine</string>
+  <string name="action_key_summary_long_click">Selle lüliti vajutamisel puudutatakse esiletõstetud üksust pikalt.</string>
+  <string name="action_name_scroll_forward">Edasikerimine</string>
+  <string name="action_key_summary_scroll_forward">Selle lüliti vajutamisel keritakse esiletõstetud üksust edasi.</string>
+  <string name="action_name_scroll_backward">Tagasikerimine</string>
+  <string name="action_key_summary_scroll_backward">Selle lüliti vajutamisel keritakse esiletõstetud üksust tagasi.</string>
+  <string name="action_name_dismiss">Loobu</string>
+  <string name="action_name_expand">Laiendamine</string>
+  <string name="action_name_collapse">Ahendamine</string>
+  <string name="action_name_highlight_text">Teksti esiletõstmine</string>
+  <string name="action_group_name_highlight">Tõsta esile …</string>
+  <string name="action_name_highlight_all_text">Tõsta kogu tekst esile</string>
+  <string name="action_name_highlight_granular_text">Tõsta esile %1$s</string>
+  <string name="action_name_copy">Kopeeri</string>
+  <string name="action_name_copy_all_text">Kopeeri kõik</string>
+  <string name="action_name_cut">Lõikamine</string>
+  <string name="action_name_cut_all_text">Lõika kõik</string>
+  <string name="action_name_paste">Kleepimine</string>
+  <string name="action_name_undo">Võta tagasi</string>
+  <string name="action_name_redo">Tee uuesti</string>
+  <string name="action_group_name_delete">Kustutamine …</string>
+  <string name="action_name_delete">Kustuta %1$s</string>
+  <string name="action_name_delete_highlighted_text">Kustuta esiletõstetud tekst</string>
+  <string name="option_scanning_menu_button">MENÜÜ</string>
+  <string name="option_scanning_menu_button_content_description">Lülitiga juurdepääsu menüü</string>
+  <string name="switch_access_global_menu">Lülitiga juurdepääsu üldmenüü</string>
+  <string name="switch_access_actions_menu">Lülitiga juurdepääsu toimingute menüü</string>
+  <string name="switch_access_close_menu">SULE</string>
+  <string name="switch_access_back_menu">TAGASI</string>
+  <string name="next_arrow_content_description">Järgmine</string>
+  <string name="previous_arrow_content_description">Eelmine</string>
+  <string name="global_action_back">Tagasi</string>
+  <string name="global_action_key_summary_back">Selle lüliti vajutamisel liigutakse tagasi eelmisele ekraanikuvale või peidetakse klaviatuur, kui see on nähtaval.</string>
+  <string name="global_action_home">Avakuva</string>
+  <string name="global_action_key_summary_home">Selle lüliti vajutamisel liigutakse avakuvasse.</string>
+  <string name="global_action_overview">Ülevaade</string>
+  <string name="global_action_key_summary_overview">Selle lüliti vajutamisel kuvatakse hiljuti avatud rakenduste loend.</string>
+  <string name="global_action_notifications">Märguanded</string>
+  <string name="global_action_key_summary_notifications">Selle lüliti vajutamisel kuvatakse seadme märguanded.</string>
+  <string name="global_action_quick_settings">Kiirseaded</string>
+  <string name="global_action_key_summary_quick_settings">Selle lüliti vajutamisel kuvatakse seadme kiirseaded.</string>
+  <string name="global_action_power_options">Toitevalikud</string>
+  <string name="global_menu_volume_heading">Helitugevus</string>
+  <string name="volume_menu_media">Meedia helitugevus</string>
+  <string name="volume_menu_call">Kõne helitugevus</string>
+  <string name="volume_menu_ring">Helina helitugevus</string>
+  <string name="volume_menu_alarm">Alarmi helitugevus</string>
+  <string name="volume_menu_accessibility">Juurdepääsetavuse helitugevus</string>
+  <string name="volume_menu_mute">Vaigista</string>
+  <string name="volume_menu_unmute">Tühista vaigistus</string>
+  <string name="volume_menu_increase">Suurenda</string>
+  <string name="volume_settings">Helitugevuse seaded</string>
+  <string name="volume_menu_decrease">Vähenda</string>
+  <string name="scrollable_forward">Keri edasi</string>
+  <string name="scrollable_backward">Keri tagasi</string>
+  <string name="point_scan">Punktskannimine</string>
+  <string name="box_scan">Väljumispunkti skannimine</string>
+  <string name="action_name_swipe_right">Paremale pühkimine</string>
+  <string name="action_name_swipe_left">Vasakule pühkimine</string>
+  <string name="action_name_swipe_up">Üles pühkimine</string>
+  <string name="action_name_swipe_down">Alla pühkimine</string>
+  <string name="action_name_swipe_custom">Pühkimine (kohandatud)</string>
+  <string name="action_name_zoom_out">Suumige välja</string>
+  <string name="action_name_zoom_in">Suumige sisse</string>
+  <string name="switch_access_preferences_title">Lülitiga juurdepääsu seaded</string>
+  <string name="key_combo_preference_instructions">Selle loendisse lisamiseks või sealt eemaldamiseks vajutage lülitite kombinatsiooni</string>
+  <string name="key_combo_preference_reset_button">Kustuta määratud lüliti</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">TÕSTUKLAHV + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Ühtegi lülitit pole määratud</string>
+  <string name="more">Rohkem</string>
+  <string name="name_of_space_bar">Tühik</string>
+  <string name="name_of_enter_key">Sisestusklahv</string>
+  <string name="name_of_tab_key">Tabulaator</string>
+  <string name="save">Salvesta</string>
+  <string name="title_pref_category_display_and_sound">Kuva ja heli</string>
+  <string name="title_pref_highlight_0">Skannimise estiletõstu stiil</string>
+  <string name="title_pref_primary_scan_style">Esmane skannimislaad</string>
+  <string name="title_pref_highlight_0_color">Esiletõstu värv</string>
+  <string name="title_pref_highlight_0_weight">Esiletõstu joonestiil</string>
+  <string name="title_pref_privacy_policy">Privaatsuseeskirjad</string>
+  <string name="title_pref_auto_select">Automaatne valimine</string>
+  <string name="summary_pref_auto_select">Esiletõstetud üksus valitakse automaatselt. Kui üksust ei saa valida või see seade on väljas, näete menüüd saadaolevate valikutega.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Luba automaatne valimine</string>
+  <string name="switch_access_global_menu_disable_autoselect">Keela automaatne valimine</string>
+  <string name="switch_access_move_next">Järgmine …</string>
+  <string name="switch_access_move_next_character">Järgmine tähemärk</string>
+  <string name="switch_access_move_next_word">Järgmine sõna</string>
+  <string name="switch_access_move_next_line">Järgmine rida</string>
+  <string name="switch_access_move_next_paragraph">Järgmine lõik</string>
+  <string name="switch_access_move_next_page">Järgmine leht</string>
+  <string name="switch_access_move_next_sentence">Järgmine lause</string>
+  <string name="switch_access_move_prev">Eelmine …</string>
+  <string name="switch_access_move_prev_character">Eelmine tähemärk</string>
+  <string name="switch_access_move_prev_word">Eelmine sõna</string>
+  <string name="switch_access_move_prev_line">Eelmine rida</string>
+  <string name="switch_access_move_prev_paragraph">Eelmine lõik</string>
+  <string name="switch_access_move_prev_page">Eelmine leht</string>
+  <string name="switch_access_move_prev_sentence">Eelmine lause</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Skannimise automaatne alustamine</string>
+  <string name="switch_access_auto_start_scan_summary">Otsimine algab ilma lülitit vajutamata</string>
+  <string name="pref_begin_switchaccess_setup_title">Seadistusjuhendi avamine</string>
+  <string name="setup_wizard_heading">Lülitiga juurdepääsu seadistamine</string>
+  <string name="one_switch">Üks lüliti</string>
+  <string name="two_switches">Kaks lülitit</string>
+  <string name="finish">Lõpeta</string>
+  <string name="exit">Väljumine</string>
+  <string name="intro_heading">Lüliti valimine</string>
+  <string name="usb_switch_option_text">USB-lüliti</string>
+  <string name="bluetooth_switch_option_text">Bluetoothi lüliti</string>
+  <string name="usb_switch_description_text">Lüliti füüsiline ühendamine USB kaudu</string>
+  <string name="bluetooth_switch_description_text">Lüliti sidumine juhtmevabalt Bluetoothi kaudu</string>
+  <string name="bluetooth_unsupported_description_text">Teie seade ei toeta Bluetoothi. Proovige selle asemel kasutada füüsilist lülitit.</string>
+  <string name="connected_usb_devices_header">Ühendatud seadmed</string>
+  <string name="usb_no_devices_connected_message">USB-seadet ei leitud. Veenduge, et teie seade oleks turvaliselt ühendatud.</string>
+  <string name="connect_usb_heading">USB-lüliti ühendamine</string>
+  <string name="pair_bluetooth_heading">Bluetoothi lüliti sidumine</string>
+  <string name="pair_bluetooth_subheading">Puudutage allpool Bluetoothi lülitit</string>
+  <string name="bluetooth_not_enabled_message">Bluetoothi lüliti sidumiseks lülitage Bluetooth sisse</string>
+  <string name="enable_bluetooth_button_title">Lülita Bluetooth sisse</string>
+  <string name="bluetooth_no_devices_paired">Bluetoothi seadmeid pole seotud</string>
+  <string name="paired_devices_header">Seotud Bluetoothi seadmed</string>
+  <string name="available_devices_header">Saadaolevad Bluetoothi seaded</string>
+  <string name="bluetooth_computer_content_description">Arvuti</string>
+  <string name="bluetooth_phone_content_description">Telefon</string>
+  <string name="bluetooth_imaging_content_description">Pildindus</string>
+  <string name="bluetooth_headphone_content_description">Kõrvaklapid</string>
+  <string name="bluetooth_peripheral_content_description">Välisseade</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Ühendamine …</string>
+  <string name="bluetooth_connected_description">Ühendatud</string>
+  <string name="bluetooth_device_unavailable_description">Seade pole saadaval</string>
+  <string name="reconnecting_unsupported_title">Seadmega ei õnnestunud ühendada</string>
+  <string name="reconnecting_unsupported_message">Lülitiga juurdepääsul ei õnnestunud varem seotud seadmega ühendust luua. Veenduge, et teie seade oleks sisse lülitatud ja ühendatud.\n\nKui seadet ei saa endiselt ühendada, avage Bluetoothi seaded ja proovige uuesti ühendada.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Ava Bluetoothi seaded</string>
+  <string name="number_of_switches_heading">Valige lülitite arv</string>
+  <string name="title_assign_scan_key">Toimingu %1$s lüliti määramine</string>
+  <string name="one_switch_description_text">Vajutage lülitit, et üksuste vahel automaatselt liikuda. Vajutage uuesti, et esiletõstetud üksus valida.</string>
+  <string name="two_switches_description_text">Vajutage ühte lülitit üksuste vahel liikumiseks. Teist lülitit vajutage esiletõstetud üksuse valimiseks.</string>
+  <string name="step_speed_heading">Valige skannimise kiirus</string>
+  <string name="step_speed_subheading">Valige, kui kaua iga üksus on esile tõstetud</string>
+  <string name="fast_radio_button_title">Kiire (%1$s s viivitus)</string>
+  <string name="medium_radio_button_title">Keskmine (%1$s s viivitus)</string>
+  <string name="slow_radio_button_title">Aeglane (%1$s s viivitus)</string>
+  <string name="custom_switch">Kohandatud</string>
+  <string name="custom_edit_text">viivitus (sekundid)</string>
+  <string name="setup_toast_msg_key_already_assigned">Klahv „%1$s” on juba määratud teisele toimingule</string>
+  <string name="row_column_scanning_title">Rea/veeru skannimine</string>
+  <string name="option_scanning_title">Grupi valimine (täpsemad)</string>
+  <string name="linear_scanning_title">Lineaarne skannimine</string>
+  <string name="linear_scanning_except_keyboard_title">Lineaarne skannimine (v.a klaviatuur)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Kõne, heli ja vibreerimine</string>
+  <string name="title_pref_switch_access_spoken_feedback">Suuline tagasiside</string>
+  <string name="title_pref_scan_non_actionable_items">Kirjeldava teksti ettelugemine</string>
+  <string name="scan_non_actionable_items_summary">Kuulete suulist tagasisidet üksuste kohta, mille puhul on saadaval toimingud ja kirjeldav tekst</string>
+  <string name="title_pref_switch_access_verbosity">Sõnaohtrus</string>
+  <string name="summary_verbosity">Valige, kui palju teavet ette loetakse</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Paljusõnalisuse üksikasjad</string>
+  <string name="title_pref_switch_access_keyboard_echo">Klaviatuuri kaja</string>
+  <string name="keyboard_echo_summary_on">Ekraanil kuvatud klaviatuuril sisestatud klahvid loetakse ette</string>
+  <string name="keyboard_echo_summary_off">Ekraanil kuvatud klaviatuuril sisestatud klahve ei loeta ette</string>
+  <string name="title_pref_enable_hints">Kasutamisvihjete ettelugemine</string>
+  <string name="enable_hints_summary_on">Navigeerimisel loetakse kasutamisvihjed ette pärast lühikest viivitust</string>
+  <string name="enable_hints_summary_off">Juurdepääsetavuse fookuse liigutamisel ei loeta kasutamisvihjeid ette</string>
+  <string name="title_pref_speak_container_element_position">Loendi- ja ruudustikuteabe ettelugemine</string>
+  <string name="speak_container_element_position_summary_on">Loendi ja ruudustiku teave loetakse ette</string>
+  <string name="speak_container_element_position_summary_off">Loendi ja ruudustiku teavet ei loeta ette</string>
+  <string name="title_pref_speak_element_type">Elemendi tüübi ettelugemine</string>
+  <string name="speak_element_type_summary_on">Fokuseeritud üksuste elemendi tüüp loetakse ette</string>
+  <string name="speak_element_type_summary_off">Fokuseeritud üksuste elemendi tüüpi ei loeta ette</string>
+  <string name="title_pref_pitch_change_for_ime">Helikõrguse muutuste kasutamine</string>
+  <string name="pitch_change_for_ime_summary_on">Klaviatuuri tagasiside esitamine madalama häälega</string>
+  <string name="pitch_change_for_ime_summary_off">Kõne ajal ei muudeta helikõrgust</string>
+  <string name="title_pref_speak_selected_item_or_group">Valitud üksuse või grupi ettelugemine</string>
+  <string name="speak_selected_item_or_group_summary">Üksuse või grupi nimi loetakse pärast valimist ette</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Maksimaalne ettelugemise aeg üksuse kohta</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Määrake maksimaalne aeg, mis iga üksuse suuliseks kirjelduseks kulutatakse. Pärast selle aja möödumist kõne katkeb.\nMärkus. Vihjed loetakse alati ette, kui need on sisse lülitatud.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Mitmesugust</string>
+  <string name="title_pref_node_description_order">Elemendi kirjelduse järjestus</string>
+  <string name="title_pref_switch_access_speak_element_ids">Kõneelemendi ID-d</string>
+  <string name="speak_element_ids_summary_on">Elemendi ID-d siltideta nuppude kohta loetakse ette</string>
+  <string name="speak_element_ids_summary_off">Elemendi ID-sid siltideta nuppude kohta ette ei loeta</string>
+  <string name="title_pref_switch_access_tts_settings">Kõnesünteesi seaded</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Kui mitu üksust on esile tõstetud</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Esimese ja viimase üksuse ettelugemine</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Üksuste arv loetakse ette</string>
+  <string name="title_pref_switch_access_speak_all_items">Kõik esiletõstetud üksused loetakse ette</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Enne edasi liikumist lõpeta kõne</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Muu tagasiside</string>
+  <string name="title_pref_developer_settings">Arendaja seaded</string>
+  <string name="title_pref_spoken_feedback_overlay">Kõne väljundi kuvamine</string>
+  <string name="title_pref_switch_access_vibration_feedback">Vibreerimisega tagasiside</string>
+  <string name="vibration_feedback_summary">Vibreerib, et teada anda, kui midagi muutub (nt ekraanil kuvatud sisu on muutunud)</string>
+  <string name="title_pref_switch_access_sound_feedback">Helitagasiside</string>
+  <string name="sound_feedback_summary">Esitatakse helisignaal, et teada anda, kui midagi muutub (nt ekraanil kuvatud sisu on muutunud)</string>
+  <string name="title_pref_switch_access_sound_volume">Helitugevus</string>
+  <string name="title_pref_switch_access_audio_ducking">Heli vaigistamine</string>
+  <string name="audio_ducking_summary">Helitugevuse vähendamine rääkimise ajal</string>
+  <string name="switch_access_focus_cleared_no_selection">Ekraanikuva muudeti</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Rea valimiseks vajutage valimislülitit</string>
+  <string name="switch_access_spoken_feedback_group">grupp %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Grupi valimiseks vajutage grupi %1$s lülitit</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Üksuse valimiseks vajutage grupi %1$s lülitit</string>
+  <string name="switch_access_spoken_feedback_to">%1$s kuni %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s üksust</string>
+  <string name="switch_access_spoken_feedback_group_selected">grupp %1$s on valitud</string>
+  <string name="switch_access_spoken_feedback_row_selected">rida on valitud</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s on valitud</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">keritav</string>
+  <string name="switch_access_spoken_feedback_scroll">valige kerimiseks</string>
+  <string name="switch_access_spoken_feedback_unknown">tundmatu üksus</string>
+  <string name="scanning_method_heading">Valige, kuidas skannida</string>
+  <string name="row_column_scanning_description">Reahaaval skannimine. Pärast rea valimist saab liikuda selles loendis olevate üksuste vahel.</string>
+  <string name="linear_scanning_description">Üksuste vahel liigutakse ükshaaval</string>
+  <string name="linear_scanning_except_keyboard_description">Üksuste vahel liigutakse ükshaaval. Arvestage, et klaviatuure skannitakse reakaupa.</string>
+  <string name="option_scanning_description">Kõigile üksustele määratakse värv. Vajutage lülitit vastavalt soovitud üksuse ümber olevale värvile. Ahendage grupi suurust, kuni jõuate oma valikuni.</string>
+  <string name="setup_switch_assignment_heading">Toimingule %s määratud lülitid</string>
+  <string name="setup_switch_assignment_empty">Mitte ükski</string>
+  <string name="clear_keys_dialog_title">Kas kustutada määratud lülitid?</string>
+  <string name="clear_keys_dialog_message">Olete lülitid juba määranud.</string>
+  <string name="clear_keys_dialog_positive_button">Kustuta lülitid</string>
+  <string name="clear_keys_dialog_negative_button">Jäta lülitid alles</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Ühtegi lülitit pole määratud</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Toimingule pole määratud ühtegi lülitit. Kas soovite kindlasti jätkata?</string>
+  <string name="option_scan_switch_title">%1$s grupp</string>
+  <string name="option_scan_switch_subtitle">Vajutage lülitit, et see määrata ja %1$s grupp valida.</string>
+  <string name="assign_switch_subtitle">Vajutage lülitit, et määrata see toimingule „%1$s”.</string>
+  <string name="auto_scan_action_description">Skannimise alustamine ja valimine</string>
+  <string name="switch_game_heading">Kontrollige oma seadistust trips-traps-trulliga</string>
+  <string name="switch_game_one_switch_linear_subheading">Skannimise alustamiseks vajutage lülitit „%1$s”. Vajutage uuesti lülitit, et valida esiletõstetud üksus. Olete esimene!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Skannimise alustamiseks vajutage lülitit „%1$s”. Vajutage uuesti lülitit, et valida esiletõstetud rida. Vajutage veel kord, et valida esiletõstetud üksus. Olete esimene!</string>
+  <string name="switch_game_two_switch_linear_subheading">Üksuste vahel liikumiseks vajutage lülitit „%1$s”. Esiletõstetud üksuse valimiseks vajutage lülitit „%2$s”. Proovige esimesena!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Üksuste vahel liikumiseks vajutage lülitit „%1$s”. Esiletõstetud rea valimiseks vajutage lülitit „%2$s”. Selles reas oleva üksuse valimiseks korrake toimingut. Proovige esimesena!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Värviga %2$s esiletõstetud üksuste valimiseks vajutage lülitit „%1$s” või värviga %3$s esiletõstetud üksuste valimiseks vajutage lülitit „%4$s”. Õige üksuseni jõudmiseks korrake toimingut. Proovige esimesena!</string>
+  <string name="switch_game_incomplete_switches_subheading">Kõigile toimingutele pole veel üksuseid määratud. Tagasiminemiseks ja lülitite määramise lõpetamiseks kasutage nuppu Eelmine.</string>
+  <string name="game_square_content_description">%1$s positsioonis %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">tühi</string>
+  <string name="game_reset_button_title">Lähtesta mäng</string>
+  <string name="game_square_already_taken">See ruut on juba täidetud. Proovige uuesti.</string>
+  <string name="game_win_outcome_title">Võitsite!</string>
+  <string name="game_loss_outcome_title">Järgmine kord läheb paremini</string>
+  <string name="game_tie_outcome_title">Viik</string>
+  <string name="game_outcome_body_text">Võite praeguse seadistuse alles jätta või uuesti alustada.</string>
+  <string name="game_outcome_positive_response">Jäta seadistus alles</string>
+  <string name="game_outcome_negative_response">Alusta uuesti</string>
+  <string name="setup_completion_heading">Seadistamine on lõpetatud</string>
+  <string name="setup_completion_message">Kõik on valmis.</string>
+  <string name="setup_completion_settings_reminder">Lülitiga juurdepääsu seadetes on alati võimalik muuta rohkemaid seadeid või avada uuesti seadistusviisardi.</string>
+  <string name="dialog_url_list">Lingi valimine</string>
+  <string name="dialog_do_not_disturb_permission_title">Lülitiga juurdepääsu funktsioon vajab helitugevuse kohandamiseks luba</string>
+  <string name="dialog_do_not_disturb_permission_message">Lülitiga juurdepääsu menüüs helitugevuse kohandamiseks lülitage Android Accessibility Suite\'i jaoks sisse juurdepääs funktsioonile Mitte segada</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Ava seaded</string>
 </resources>

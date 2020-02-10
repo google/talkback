@@ -26,11 +26,12 @@ import com.google.android.accessibility.talkback.contextmenu.MenuTransformer;
 import com.google.android.accessibility.talkback.tutorial.TutorialLessonPage;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.Performance.EventId;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public abstract class Exercise implements AccessibilityEventListener {
 
-  private ExerciseCallback mCallback;
-  protected TutorialLessonPage mPage;
+  @Nullable private ExerciseCallback callback;
+  @Nullable protected TutorialLessonPage mPage;
 
   public void setTutorialLessonPage(TutorialLessonPage page) {
     mPage = page;
@@ -48,7 +49,7 @@ public abstract class Exercise implements AccessibilityEventListener {
   public void clear() {}
 
   public void setExerciseCallBack(ExerciseCallback callback) {
-    mCallback = callback;
+    this.callback = callback;
   }
 
   public boolean needScrollableContainer() {
@@ -56,11 +57,11 @@ public abstract class Exercise implements AccessibilityEventListener {
   }
 
   protected boolean notifyExerciseCompleted(boolean autoSwitchLesson, int completeMessageResId) {
-    if (mCallback == null) {
+    if (callback == null) {
       return false;
     }
 
-    mCallback.onExerciseCompleted(autoSwitchLesson, completeMessageResId);
+    callback.onExerciseCompleted(autoSwitchLesson, completeMessageResId);
     return true;
   }
 
@@ -68,11 +69,11 @@ public abstract class Exercise implements AccessibilityEventListener {
     public void onExerciseCompleted(boolean autoSwitchLesson, int completeMessageResId);
   }
 
-  public MenuTransformer getContextMenuTransformer() {
+  public @Nullable MenuTransformer getContextMenuTransformer() {
     return null;
   }
 
-  public MenuActionInterceptor getContextMenuActionInterceptor() {
+  public @Nullable MenuActionInterceptor getContextMenuActionInterceptor() {
     return null;
   }
 }

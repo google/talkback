@@ -24,10 +24,10 @@ import com.google.android.accessibility.utils.ServiceKeyEventListener;
 /** Watches for changes in the keyboard lock state, such as Caps Lock or Num Lock. */
 public class KeyboardLockMonitor implements ServiceKeyEventListener {
 
-  private final Compositor mCompositor;
+  private final Compositor compositor;
 
   public KeyboardLockMonitor(Compositor compositor) {
-    mCompositor = compositor;
+    this.compositor = compositor;
   }
 
   @Override
@@ -38,21 +38,21 @@ public class KeyboardLockMonitor implements ServiceKeyEventListener {
     if (event.getAction() == KeyEvent.ACTION_UP) {
       if (event.getKeyCode() == KeyEvent.KEYCODE_CAPS_LOCK) {
         if (event.isCapsLockOn()) {
-          mCompositor.sendEvent(Compositor.EVENT_CAPS_LOCK_ON, eventId);
+          compositor.handleEvent(Compositor.EVENT_CAPS_LOCK_ON, eventId);
         } else {
-          mCompositor.sendEvent(Compositor.EVENT_CAPS_LOCK_OFF, eventId);
+          compositor.handleEvent(Compositor.EVENT_CAPS_LOCK_OFF, eventId);
         }
       } else if (event.getKeyCode() == KeyEvent.KEYCODE_NUM_LOCK) {
         if (event.isNumLockOn()) {
-          mCompositor.sendEvent(Compositor.EVENT_NUM_LOCK_ON, eventId);
+          compositor.handleEvent(Compositor.EVENT_NUM_LOCK_ON, eventId);
         } else {
-          mCompositor.sendEvent(Compositor.EVENT_NUM_LOCK_OFF, eventId);
+          compositor.handleEvent(Compositor.EVENT_NUM_LOCK_OFF, eventId);
         }
       } else if (event.getKeyCode() == KeyEvent.KEYCODE_SCROLL_LOCK) {
         if (event.isScrollLockOn()) {
-          mCompositor.sendEvent(Compositor.EVENT_SCROLL_LOCK_ON, eventId);
+          compositor.handleEvent(Compositor.EVENT_SCROLL_LOCK_ON, eventId);
         } else {
-          mCompositor.sendEvent(Compositor.EVENT_SCROLL_LOCK_OFF, eventId);
+          compositor.handleEvent(Compositor.EVENT_SCROLL_LOCK_OFF, eventId);
         }
       }
     }

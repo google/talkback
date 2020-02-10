@@ -1,151 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"TalkBack bekapcsolva"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack felfüggesztve"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack folytatása"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"TalkBack kikapcsolva"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"Hangos visszajelzés bekapcsolva"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"Hangos visszajelzés szüneteltetve"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"Hangos visszajelzés folytatva"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"Hangos visszajelzés kikapcsolva"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Mező eleje"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Mező vége"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Kiválasztás mód bekapcsolva"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Kiválasztás mód kikapcsolva"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Kiválasztás törölve"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"Hívás"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"Üzenet"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"E-mail"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"Esemény"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"Promóció"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"Ébresztés"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"Folyamat"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"Közösségi"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"Hiba"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"Médiavezérlés"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"A rendszer állapota"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"Szolgáltatás"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g> menü"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> a következő helyett: <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> törölve"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"kivágva, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"beillesztve, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, kijelölve"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"Kijelölt szöveg: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, nincs kijelölve"</string>
-    <string name="template_text_error" msgid="153775825635730287">"Érvénytelen bevitel: <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> karakter le lett cserélve <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> karakterre"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> a következőhöz: <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> százalék."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="other"><xliff:g id="COUNT_3">%2$d</xliff:g> elem látható itt: <xliff:g id="TYPE_2">%1$s</xliff:g>.</item>
-      <item quantity="one"><xliff:g id="COUNT_1">%2$d</xliff:g> elem látható itt: <xliff:g id="TYPE_0">%1$s</xliff:g>.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"Rács"</string>
-    <string name="value_listview" msgid="7625152822709234439">"Lista"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"Fülsáv"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"Legördülő lista"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"Jelölőnégyzet"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"Választógomb"</string>
-    <string name="value_button" msgid="2459787142940409576">"Gomb"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"Keresősáv"</string>
-    <string name="value_switch" msgid="6946709666466895221">"Váltás"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"Szerkesztőmező"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"Szerkesztés"</string>
-    <string name="value_image" msgid="5114229220871881124">"Kép"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"Jelöletlen"</string>
-    <string name="value_pager" msgid="7708574424402835461">"Többoldalas nézet"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"Oldal"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"Folyamatjelző"</string>
-    <string name="value_webview" msgid="291321285400233958">"Webes nézet"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"Karakterek <xliff:g id="FROM_INDEX">%1$d</xliff:g> és <xliff:g id="TO_INDEX">%2$d</xliff:g> között"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"Karakter: <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"jelszó"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"A csúszka nyitva van"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"Lehetőségek."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"Szöveg törölve"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Elérte a maximális hosszúságot"</string>
-    <string name="value_selected" msgid="1307429702194660766">"bejelölve"</string>
-    <string name="value_checked" msgid="3006751014125833966">"bejelölve"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"nincs bejelölve"</string>
-    <string name="value_on" msgid="39454338086317219">"be"</string>
-    <string name="value_off" msgid="6700497510945744608">"ki"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"kikapcsolva"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"kibontva"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"összecsukva"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"Dupla koppintás"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"Érintse meg"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"Nyomja meg a kiválasztás gombot"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> az aktiváláshoz."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Nyomja meg a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket az aktiváláshoz."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"Hosszú kattintáshoz tegye a következőt: <xliff:g id="ACTION">%1$s</xliff:g>, és tartsa lenyomva."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Nyomja meg a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket a hosszú kattintáshoz."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> a váltáshoz."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Nyomja le a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket a váltáshoz."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> szöveg beírásához."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Nyomja meg a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket szöveg beírásához."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"A módosításhoz tegye a következőt: <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Nyomja meg a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket a módosításhoz."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"Csúsztassa két ujját az oldalak közötti váltáshoz."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"Nincs több oldal."</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"Módosításhoz használja a hangerőgombokat"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"A módosításhoz tegye a következőt: <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"Műveletek:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> a következőhöz: <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"Nyomja meg a(z) <xliff:g id="KEYCOMBO">%1$s</xliff:g> billentyűket a következőhöz: <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> és tartsa lenyomva a következőhöz: <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock bekapcsolva."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock kikapcsolva."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock bekapcsolva."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock kikapcsolva."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock bekapcsolva."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock kikapcsolva."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"Álló"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"Fekvő"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"Elvetés"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"Kibontás"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"Összecsukás"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"<xliff:g id="ROW">%1$d</xliff:g>. sor"</string>
-    <string name="column_index_template" msgid="258393957626754806">"<xliff:g id="COL">%1$d</xliff:g>. oszlop"</string>
-    <string name="heading_template" msgid="3585514481777782183">"Címsor"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"Sor címsora"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"Oszlop címsora"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"<xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g> kép a képben"</string>
-    <string name="in_list" msgid="444302621514168828">"Ezen a listán van: <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"Belépett a listába"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"Ezen a listán kívül van: <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"Kilépett a listából"</string>
-    <string name="in_grid" msgid="6705387966271590222">"Ebben a rácsban van: <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"Belépett a rácsba"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"Ezen a rácson kívül van: <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"Kilépett a rácsból"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"<xliff:g id="LEVEL">%1$s</xliff:g>. szint"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> elem</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> elem</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> sor</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> sor</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> oszlop</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> oszlop</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> karakter</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> karakter</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"Nagyítás bekapcsolva, mértéke: <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"Nagyítás mértéke: <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"Nagyítás kikapcsolva"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"Beszédsebesség <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"Hang automatikus halkítása bekapcsolva"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"Hang automatikus halkítása kikapcsolva"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"Beszéd sebessége"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"Részletesség"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"Navigáció"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"Hang automatikus halkítása"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"Jelszavak felolvasása csak fejhallgatónál"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">TalkBack bekapcsolva</string>
+  <string name="talkback_suspended">TalkBack felfüggesztve</string>
+  <string name="talkback_resumed">TalkBack folytatása</string>
+  <string name="talkback_disabled">TalkBack kikapcsolva</string>
+  <string name="spokenfeedback_on">Hangos visszajelzés bekapcsolva</string>
+  <string name="spokenfeedback_suspended">Hangos visszajelzés szüneteltetve</string>
+  <string name="spokenfeedback_resumed">Hangos visszajelzés folytatva</string>
+  <string name="spokenfeedback_disabled">Hangos visszajelzés kikapcsolva</string>
+  <string name="notification_type_beginning_of_field">Mező eleje</string>
+  <string name="notification_type_end_of_field">Mező vége</string>
+  <string name="notification_type_selection_mode_on">Kiválasztás mód bekapcsolva</string>
+  <string name="notification_type_selection_mode_off">Kiválasztás mód kikapcsolva</string>
+  <string name="notification_type_selection_cleared">Kiválasztás törölve</string>
+  <string name="notification_category_call">Hívás</string>
+  <string name="notification_category_msg">Üzenet</string>
+  <string name="notification_category_email">E-mail</string>
+  <string name="notification_category_event">Esemény</string>
+  <string name="notification_category_promo">Promóció</string>
+  <string name="notification_category_alarm">Ébresztés</string>
+  <string name="notification_category_progress">Folyamat</string>
+  <string name="notification_category_social">Közösségi</string>
+  <string name="notification_category_err">Hiba</string>
+  <string name="notification_category_transport">Médiavezérlés</string>
+  <string name="notification_category_sys">A rendszer állapota</string>
+  <string name="notification_category_service">Szolgáltatás</string>
+  <string name="template_drawer_opened">%1$s menü</string>
+  <string name="template_text_replaced">%1$s a következő helyett: %2$s</string>
+  <string name="template_text_removed">%1$s törölve</string>
+  <string name="template_text_cut">kivágva, %1$s</string>
+  <string name="template_text_pasted">beillesztve, %1$s</string>
+  <string name="template_text_selected">%1$s, kijelölve</string>
+  <string name="template_announce_selected_text">Kijelölt szöveg: %1$s</string>
+  <string name="template_text_unselected">%1$s, nincs kijelölve</string>
+  <string name="template_text_error">Érvénytelen bevitel: %1$s</string>
+  <string name="template_replaced_characters">%1$s karakter le lett cserélve %2$s karakterre</string>
+  <string name="template_labeled_item">%1$s a következőhöz: %2$s</string>
+  <string name="template_percent">%1$s százalék.</string>
+  <plurals name="template_containers">
+    <item quantity="one">%2$d elem látható itt: %1$s.</item>
+    <item quantity="other">%2$d elem látható itt: %1$s.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">Rács</string>
+  <string name="value_listview">Lista</string>
+  <string name="value_tabwidget">Fülsáv</string>
+  <string name="value_spinner">Legördülő lista</string>
+  <string name="value_checkbox">Jelölőnégyzet</string>
+  <string name="value_radio_button">Választógomb</string>
+  <string name="value_button">Gomb</string>
+  <string name="value_seek_bar">Keresősáv</string>
+  <string name="value_switch">Váltás</string>
+  <string name="value_edit_box">Szerkesztőmező</string>
+  <string name="value_edit_box_editing">Szerkesztés</string>
+  <string name="value_image">Kép</string>
+  <string name="value_unlabelled">Jelöletlen</string>
+  <string name="value_pager">Többoldalas nézet</string>
+  <string name="value_pager_page">Oldal</string>
+  <string name="value_progress_bar">Folyamatjelző</string>
+  <string name="value_webview">Webes nézet</string>
+  <string name="value_toolbar">Eszköztár</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">Karakterek %1$d és %2$d között</string>
+  <string name="template_password_traversed">Karakter: %1$d</string>
+  <string name="value_password">jelszó</string>
+  <string name="value_sliding_drawer_opened">A csúszka nyitva van</string>
+  <string name="value_options_menu_open">Lehetőségek.</string>
+  <string name="value_text_cleared">Szöveg törölve</string>
+  <string name="value_text_max_length">Elérte a maximális hosszúságot</string>
+  <string name="value_selected">bejelölve</string>
+  <string name="value_checked">bejelölve</string>
+  <string name="value_not_checked">nincs bejelölve</string>
+  <string name="value_on">be</string>
+  <string name="value_off">ki</string>
+  <string name="value_disabled">kikapcsolva</string>
+  <string name="value_expanded">kibontva</string>
+  <string name="value_collapsed">összecsukva</string>
+  <string name="value_double_tap">Dupla koppintás</string>
+  <string name="value_single_tap">Érintse meg</string>
+  <string name="value_switch_press">Nyomja meg a kiválasztás kapcsolót</string>
+  <string name="value_press_select">Nyomja meg a kiválasztás gombot</string>
+  <string name="template_hint_clickable">%1$s az aktiváláshoz.</string>
+  <string name="template_hint_clickable_keyboard">Nyomja meg a(z) %1$s billentyűket az aktiváláshoz.</string>
+  <string name="template_hint_long_clickable">Hosszú kattintáshoz tegye a következőt: %1$s, és tartsa lenyomva.</string>
+  <string name="template_hint_long_clickable_keyboard">Nyomja meg a(z) %1$s billentyűket a hosszú kattintáshoz.</string>
+  <string name="template_hint_checkable">%1$s a váltáshoz.</string>
+  <string name="template_hint_checkable_keyboard">Nyomja le a(z) %1$s billentyűket a váltáshoz.</string>
+  <string name="template_hint_edit_text">Szöveg szerkesztéséhez tegye ezt: %1$s.</string>
+  <string name="template_hint_edit_text_keyboard">Szövegszerkesztéshez nyomja le: %1$s.</string>
+  <string name="template_hint_spinner">A módosításhoz tegye a következőt: %1$s.</string>
+  <string name="template_hint_spinner_keyboard">Nyomja meg a(z) %1$s billentyűket a módosításhoz.</string>
+  <string name="template_hint_pager">Csúsztassa két ujját az oldalak közötti váltáshoz.</string>
+  <string name="template_hint_pager_single_page">Nincs több oldal.</string>
+  <string name="template_hint_seek_control">Módosításhoz használja a hangerőgombokat</string>
+  <string name="template_hint_seek_control_tv">A módosításhoz tegye a következőt: %1$s.</string>
+  <string name="template_hint_custom_actions">Műveletek:</string>
+  <string name="template_custom_hint_for_actions">%1$s a következőhöz: %2$s.</string>
+  <string name="template_custom_hint_for_actions_keyboard">Nyomja meg a(z) %1$s billentyűket a következőhöz: %2$s.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s és tartsa lenyomva a következőhöz: %2$s.</string>
+  <string name="template_sa_custom_hint_scrollable">%1$s a görgetéshez.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">%1$s a rendelkezésre álló műveletekhez.</string>
+  <string name="template_sa_hint_seek_control">Módosításhoz nyomja meg a kiválasztás kapcsolót</string>
+  <string name="value_caps_lock_on">Caps Lock bekapcsolva.</string>
+  <string name="value_caps_lock_off">Caps Lock kikapcsolva.</string>
+  <string name="value_num_lock_on">Num Lock bekapcsolva.</string>
+  <string name="value_num_lock_off">Num Lock kikapcsolva.</string>
+  <string name="value_scroll_lock_on">Scroll Lock bekapcsolva.</string>
+  <string name="value_scroll_lock_off">Scroll Lock kikapcsolva.</string>
+  <string name="orientation_portrait">Álló</string>
+  <string name="orientation_landscape">Fekvő</string>
+  <string name="title_action_dismiss">Elvetés</string>
+  <string name="title_action_expand">Kibontás</string>
+  <string name="title_action_collapse">Összecsukás</string>
+  <string name="row_index_template">%1$d. sor</string>
+  <string name="column_index_template">%1$d. oszlop</string>
+  <string name="heading_template">Címsor</string>
+  <string name="row_heading_template">Sor címsora</string>
+  <string name="column_heading_template">Oszlop címsora</string>
+  <string name="in_list">Ezen a listán van: %1$s</string>
+  <string name="in_list_without_name">Belépett a listába</string>
+  <string name="out_of_list">Ezen a listán kívül van: %1$s</string>
+  <string name="out_of_list_without_name">Kilépett a listából</string>
+  <string name="in_grid">Ebben a rácsban van: %1$s</string>
+  <string name="in_grid_without_name">Belépett a rácsba</string>
+  <string name="out_of_grid">Ezen a rácson kívül van: %1$s</string>
+  <string name="out_of_grid_without_name">Kilépett a rácsból</string>
+  <string name="in_pager_with_name">%1$s nevű oldalon belül</string>
+  <string name="in_pager">Oldalon belül</string>
+  <string name="out_of_pager_with_name">%1$s nevű oldalon kívül</string>
+  <string name="out_of_pager">Oldalon kívül</string>
+  <string name="in_vertical_pager_with_name">%1$s nevű függőleges oldalon belül</string>
+  <string name="in_vertical_pager">Függőleges oldalon belül</string>
+  <string name="out_of_vertical_pager_with_name">%1$s nevű függőleges oldalon kívül</string>
+  <string name="out_of_vertical_pager">Függőleges oldalon kívül</string>
+  <string name="in_horizontal_pager_with_name">%1$s nevű vízszintes oldalon belül</string>
+  <string name="in_horizontal_pager">Vízszintes oldalon belül</string>
+  <string name="out_of_horizontal_pager_with_name">%1$s nevű vízszintes oldalon kívül</string>
+  <string name="out_of_horizontal_pager">Vízszintes oldalon kívül</string>
+  <string name="in_grid_pager_with_name">%1$s nevű rácselrendezésű oldalon belül</string>
+  <string name="in_grid_pager">Rácselrendezésű oldalon belül</string>
+  <string name="out_of_grid_pager_with_name">%1$s nevű rácselrendezésű oldalon kívül</string>
+  <string name="out_of_grid_pager">űRácselrendezés oldalon kívül</string>
+  <string name="template_collection_level">%1$s. szint</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d elem</item>
+    <item quantity="other">%1$d elem</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d sor</item>
+    <item quantity="other">%1$d sor</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d oszlop</item>
+    <item quantity="other">%1$d oszlop</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d karakter</item>
+    <item quantity="other">%1$d karakter</item>
+  </plurals>
+  <string name="template_screen_magnification_on">Nagyítás bekapcsolva, mértéke: %1$d%%</string>
+  <string name="template_screen_magnification_scale_changed">Nagyítás mértéke: %1$d%%</string>
+  <string name="screen_magnification_off">Nagyítás kikapcsolva</string>
+  <string name="template_speech_rate_change">Beszédsebesség %1$d%%</string>
+  <string name="audio_focus_on">Hang automatikus halkítása bekapcsolva</string>
+  <string name="audio_focus_off">Hang automatikus halkítása kikapcsolva</string>
+  <string name="selector_speech_rate_output">Beszéd sebessége</string>
+  <string name="selector_verbosity_output">Részletesség</string>
+  <string name="selector_granularity_output">Navigáció</string>
+  <string name="selector_audio_focus_output">Hang automatikus halkítása</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">Jelszavak felolvasása csak fejhallgatónál</string>
+  <string name="template_hint_menu_type_high_verbosity">A(z) %1$s rendelkezésre áll. A megtekintéshez használja a(z) %2$s kézmozdulatot.</string>
+  <string name="template_hint_menu_type_low_verbosity">A(z) %1$s rendelkezésre áll.</string>
 </resources>

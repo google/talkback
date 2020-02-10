@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.google.android.accessibility.talkback"
     android:installLocation="internalOnly"
-    android:sharedUserId="com.google.android.marvin.feedback"
-    android:versionCode="50200001">
+    android:sharedUserId="com.google.android.marvin.feedback">
 
     <!-- Permission used to restrict sending gestures and resuming feedback. -->
     <permission
@@ -58,8 +57,6 @@
         android:required="false" />
 
     <application
-        android:icon="@drawable/icon"
-        android:label="@string/talkback_title"
         android:supportsRtl="true">
 
         <receiver android:name=".BootReceiver"
@@ -74,8 +71,10 @@
 
         <!-- TalkBack -->
         <service
+            android:icon="@drawable/icon"
             android:name="com.google.android.marvin.talkback.TalkBackService"
             android:exported="true"
+            android:label="@string/talkback_title"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:settingsActivity="com.android.talkback.TalkBackPreferencesActivity"
             android:directBootAware="true">
@@ -112,7 +111,7 @@
         <activity
             android:name=".TalkBackShortcutPreferencesActivity"
             android:exported="true"
-            android:label="@string/talkback_preferences_title"
+            android:label="@string/title_pref_category_manage_gestures"
             android:launchMode="singleTop"
             android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
             android:theme="@style/TalkBackSettings"
@@ -125,8 +124,22 @@
         <!-- TalkBack Keyboard Shortcut Preferences -->
         <activity
             android:name=".TalkBackKeyboardShortcutPreferencesActivity"
-            android:exported="true"
-            android:label="@string/talkback_preferences_title"
+            android:exported="false"
+            android:label="@string/title_pref_manage_keyboard_shortcuts"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- TalkBack Verbosity Preferences -->
+        <activity
+            android:name="com.google.android.accessibility.talkback.TalkBackVerbosityPreferencesActivity"
+            android:exported="false"
+            android:label="@string/pref_verbosity_title"
             android:launchMode="singleTop"
             android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
             android:theme="@style/TalkBackSettings"
@@ -140,7 +153,7 @@
         <activity
             android:name=".TalkBackDumpAccessibilityEventActivity"
             android:exported="false"
-            android:label="@string/talkback_preferences_title"
+            android:label="@string/title_activity_dump_a11y_event"
             android:launchMode="singleTop"
             android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
             android:theme="@style/TalkBackSettings">
@@ -206,16 +219,11 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="com.google.android.accessibility.utils.WebActivity"
-            android:exported="false">
-        </activity>
-
         <!-- Content provider for custom label data -->
         <provider
             android:name=".labeling.LabelProvider"
             android:authorities="${applicationId}.providers.LabelProvider"
-            tools:replace="android:authorities"
+            tools:replace="android:authorities,android:readPermission,android:writePermission"
             android:exported="true"
             android:readPermission="com.google.android.marvin.talkback.permission.LABELING"
             android:writePermission="com.google.android.marvin.talkback.permission.LABELING"
@@ -231,38 +239,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-        <service
-            android:label="@string/switch_service_name"
-            android:name="com.android.switchaccess.SwitchAccessService"
-            android:exported="true"
-            android:directBootAware="true"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-
-                <category android:name="android.accessibilityservice.category.FEEDBACK_GENERIC" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.accessibilityservice"
-                android:resource="@xml/switch_access_accessibilityservice" />
-        </service>
-
-        <activity
-            android:name="com.google.android.accessibility.switchaccess.SwitchAccessPreferenceActivity"
-            android:exported="false"
-            android:label="@string/switch_access_preferences_title"
-            android:theme="@style/TalkBackSettings"
-            tools:replace="android:theme"
-            android:directBootAware="true" >
-        </activity>
-
-        <activity
-            android:name="com.google.android.accessibility.switchaccess.setupwizard.SetupWizardActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize" >
-        </activity>
-
     </application>
 
 </manifest>

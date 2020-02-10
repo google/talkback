@@ -16,16 +16,14 @@
 
 package com.google.android.accessibility.switchaccess.treebuilding;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import com.google.android.accessibility.switchaccess.ClearFocusNode;
+import android.accessibilityservice.AccessibilityService;
 import com.google.android.accessibility.switchaccess.SwitchAccessNodeCompat;
-import com.google.android.accessibility.switchaccess.SwitchAccessPreferenceActivity;
+import com.google.android.accessibility.switchaccess.SwitchAccessPreferenceUtils;
 import com.google.android.accessibility.switchaccess.SwitchAccessWindowInfo;
-import com.google.android.accessibility.switchaccess.TreeScanNode;
-import com.google.android.accessibility.switchaccess.TreeScanSelectionNode;
-import com.google.android.accessibility.switchaccess.TreeScanSystemProvidedNode;
-import com.google.android.accessibility.utils.SharedPreferencesUtils;
+import com.google.android.accessibility.switchaccess.treenodes.ClearFocusNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanSelectionNode;
+import com.google.android.accessibility.switchaccess.treenodes.TreeScanSystemProvidedNode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,25 +35,20 @@ import java.util.List;
 public class TalkBackOrderNDegreeTreeBuilder extends TreeBuilder {
   private static final int MIN_DEGREE = 2;
 
-  private int mDegree;
-
-  public TalkBackOrderNDegreeTreeBuilder(Context context) {
-    super(context);
-    updatePrefs(SharedPreferencesUtils.getSharedPreferences(mContext));
+  public TalkBackOrderNDegreeTreeBuilder(AccessibilityService service) {
+    super(service);
   }
 
   @Override
   public TreeScanNode addViewHierarchyToTree(
       SwitchAccessNodeCompat node, TreeScanNode treeToBuildOn, boolean includeNonActionableItems) {
     /* Not currently used */
-    return null;
+    return treeToBuildOn;
   }
 
-  @Override
   public TreeScanNode addWindowListToTree(
       List<SwitchAccessWindowInfo> windowList,
       TreeScanNode treeToBuildOn,
-      boolean shouldPlaceTreeFirst,
       boolean includeNonActionableItems) {
     treeToBuildOn = (treeToBuildOn == null) ? new ClearFocusNode() : treeToBuildOn;
     if (windowList == null || windowList.isEmpty()) {
@@ -72,16 +65,8 @@ public class TalkBackOrderNDegreeTreeBuilder extends TreeBuilder {
     return buildTreeFromNodeList(treeNodes, treeToBuildOn);
   }
 
-  public void updatePrefs(SharedPreferences prefs) {
-    // Update degree to match the number of (A) consecutively configured option scan switches or
-    // (B) nomon clock groups, depending on the current scanning method.
-    int requestedDegree;
-    if (SwitchAccessPreferenceActivity.areNomonClocksEnabled(mContext)) {
-      requestedDegree = SwitchAccessPreferenceActivity.getNumNomonClockGroups(mContext);
-    } else {
-      requestedDegree = SwitchAccessPreferenceActivity.getNumSwitches(mContext);
-    }
-    mDegree = Math.max(requestedDegree, MIN_DEGREE);
+  public int getDegree() {
+    return Math.max(SwitchAccessPreferenceUtils.getNumSwitches(service), MIN_DEGREE);
   }
 
   /**
@@ -122,7 +107,8 @@ public class TalkBackOrderNDegreeTreeBuilder extends TreeBuilder {
    */
   private TreeScanNode buildTreeFromNodeList(
       List<TreeScanNode> nodeList, TreeScanNode lastTreeScanNode) {
-    if (nodeList.size() == mDegree) {
+    int degree = getDegree();
+    if (nodeList.size() == degree) {
       // The {@code nodeList} contains degree action nodes, however the
       // {@code lastTreeScanNode} would increase the degree of the node to degree + 1. Hence
       // the first degree-1 options are kept as children of the parent node while a new node
@@ -133,7 +119,7 @@ public class TalkBackOrderNDegreeTreeBuilder extends TreeBuilder {
       TreeScanNode lastChild = createTree(nodeList.subList(nodeList.size() - 2, nodeList.size()));
       children.add(lastChild);
       return createTree(children);
-    } else if (nodeList.size() < mDegree) {
+    } else if (nodeList.size() < degree) {
       // Regardless of the path the user chooses, the last option presented to the user
       // will be the contextMenu. The last scan node of a context menu itself is a
       // ClearFocusNode.
@@ -142,12 +128,12 @@ public class TalkBackOrderNDegreeTreeBuilder extends TreeBuilder {
     } else {
       List<TreeScanNode> subtrees = new ArrayList<>();
       // The number of elements that each subtree will contain
-      int elemNum = nodeList.size() / mDegree;
+      int elemNum = nodeList.size() / degree;
       // If the number of elements was not divisible by the degree specified, the remaining
       // elements, which will be less than the number of subtrees, will be distributed among
       // the first k-subtrees. Hence some subtrees will have at most one more element than
       // other subtrees.
-      int elemRemainder = nodeList.size() % mDegree;
+      int elemRemainder = nodeList.size() % degree;
       int startIndex = 0;
       int endIndex = 0;
       List<TreeScanNode> subtreeNodes;
@@ -176,9 +162,7 @@ public class TalkBackOrderNDegreeTreeBuilder extends TreeBuilder {
    * @return A parent node whose children are all the nodes in the {@code treeNodes} list.
    */
   private TreeScanNode createTree(List<TreeScanNode> treeNodes) {
-    if (treeNodes == null || treeNodes.isEmpty()) {
-      return null;
-    } else if (treeNodes.size() == 1) {
+    if (treeNodes.size() == 1) {
       return treeNodes.get(0);
     } else {
       List<TreeScanNode> otherChildren = treeNodes.subList(2, treeNodes.size());

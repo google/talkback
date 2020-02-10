@@ -42,6 +42,14 @@
         android:summaryOn="@string/pref_speak_container_element_positions_summaryOn"
         android:title="@string/pref_speak_container_element_positions_title" />
 
+    <!-- Scroll announcement verbosity -->
+    <SwitchPreference
+        android:defaultValue="@bool/pref_verbose_scroll_announcement_default"
+        android:key="@string/pref_verbose_scroll_announcement_key"
+        android:summaryOff="@string/summaryOff_pref_verbose_scroll_announcement"
+        android:summaryOn="@string/summaryOn_pref_verbose_scroll_announcement"
+        android:title="@string/title_pref_verbose_scroll_announcement" />
+
     <!-- Role -->
     <SwitchPreference
         android:defaultValue="@bool/pref_speak_roles_default"

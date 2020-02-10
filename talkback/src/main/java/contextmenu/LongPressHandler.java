@@ -22,18 +22,19 @@ import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Detects long presses. */
 class LongPressHandler extends Handler implements View.OnTouchListener {
   private static final long LONG_PRESS_TIMEOUT = ViewConfiguration.getLongPressTimeout();
   private static final int MSG_LONG_PRESS = 1;
 
-  private final int mTouchSlopSquared;
+  private final int touchSlopSquared;
 
-  private LongPressListener mListener;
-  private MotionEvent mPreviousEvent;
+  private LongPressListener listener;
+  @Nullable private MotionEvent previousEvent;
 
-  private float mMoved;
+  private float moved;
 
   /**
    * Creates a new long press handler.
@@ -45,7 +46,7 @@ class LongPressHandler extends Handler implements View.OnTouchListener {
 
     final int touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
 
-    mTouchSlopSquared = touchSlop * touchSlop;
+    touchSlopSquared = touchSlop * touchSlop;
   }
 
   /**
@@ -54,7 +55,7 @@ class LongPressHandler extends Handler implements View.OnTouchListener {
    * @param listener The listener to set.
    */
   public void setListener(LongPressListener listener) {
-    mListener = listener;
+    this.listener = listener;
   }
 
   @Override
@@ -62,28 +63,28 @@ class LongPressHandler extends Handler implements View.OnTouchListener {
     switch (event.getAction()) {
       case MotionEvent.ACTION_DOWN:
       case MotionEvent.ACTION_HOVER_ENTER:
-        mMoved = 0;
+        this.moved = 0;
         //$FALL-THROUGH$
       case MotionEvent.ACTION_MOVE:
       case MotionEvent.ACTION_HOVER_MOVE:
-        if (mPreviousEvent != null) {
-          final float dX = event.getX() - mPreviousEvent.getX();
-          final float dY = event.getY() - mPreviousEvent.getY();
+        if (previousEvent != null) {
+          final float dX = event.getX() - previousEvent.getX();
+          final float dY = event.getY() - previousEvent.getY();
           final float moved = (dX * dX) + (dY * dY);
 
-          mMoved += moved;
+          this.moved += moved;
         }
 
-        if (mMoved > mTouchSlopSquared) {
-          mMoved = 0;
+        if (this.moved > touchSlopSquared) {
+          this.moved = 0;
 
           removeMessages(MSG_LONG_PRESS);
 
-          final Message msg = obtainMessage(MSG_LONG_PRESS, mPreviousEvent);
+          final Message msg = obtainMessage(MSG_LONG_PRESS, previousEvent);
           sendMessageDelayed(msg, LONG_PRESS_TIMEOUT);
         }
 
-        mPreviousEvent = MotionEvent.obtain(event);
+        previousEvent = MotionEvent.obtain(event);
 
         break;
       case MotionEvent.ACTION_UP:
@@ -91,9 +92,9 @@ class LongPressHandler extends Handler implements View.OnTouchListener {
       case MotionEvent.ACTION_HOVER_EXIT:
         removeMessages(MSG_LONG_PRESS);
 
-        if (mPreviousEvent != null) {
-          mPreviousEvent.recycle();
-          mPreviousEvent = null;
+        if (previousEvent != null) {
+          previousEvent.recycle();
+          previousEvent = null;
         }
 
         break;
@@ -106,8 +107,8 @@ class LongPressHandler extends Handler implements View.OnTouchListener {
   public void handleMessage(Message msg) {
     switch (msg.what) {
       case MSG_LONG_PRESS:
-        if (mListener != null) {
-          mListener.onLongPress();
+        if (listener != null) {
+          listener.onLongPress();
         }
         break;
     }

@@ -18,10 +18,10 @@ package com.google.android.accessibility.utils;
 
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityRecordCompat;
-import android.support.v4.widget.ExploreByTouchHelper;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityRecordCompat;
+import androidx.customview.widget.ExploreByTouchHelper;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import java.util.LinkedList;

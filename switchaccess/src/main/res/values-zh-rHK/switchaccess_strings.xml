@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"按掣功能"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"「按掣功能」讓行動不便人士使用一個或多個按掣控制手機和平板電腦。按掣即可選取項目、捲動和輸入文字等。"</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"透過開關控制裝置"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"說明和意見反映"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"自動掃描"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"自動掃描時間"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"反向自動掃描"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f 秒</item>
-      <item quantity="one">1 秒</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"自訂掃描"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"掃描方法"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"在第一個項目延遲"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"指派按掣"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"將按掣指派至操作"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"為掃描指派按掣"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"線移動速度"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"掃描次數"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"選擇掃描重覆次數"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"防重按時間"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"在此時段按下多次將被視為一次。"</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"放手即執行操作"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"放開按擎時執行操作"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d 次</item>
-      <item quantity="one">%d 次</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"「<xliff:g id="KEY_NAME">%1$s</xliff:g>」按掣已指派至「<xliff:g id="ACTION_NAME">%2$s</xliff:g>」"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">已指派 %d 個按擎</item>
-      <item quantity="one">已指派 %d 個按擎</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"群組選取按擎 %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"下一項"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"返回"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"選取"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"長按"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"向前捲動"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"向後捲動"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"關閉"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"展開"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"收合"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"反白顯示文字"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"複製"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"剪下"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"貼上"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"選單"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"返回"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"主頁"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"概覽"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"通知"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"快速設定"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"向前捲動"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"向後捲動"</string>
-    <string name="point_scan" msgid="4514216871544244788">"點掃描"</string>
-    <string name="box_scan" msgid="6675486192630209217">"退出「點掃描」"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"向右快速滑動"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"向左快速滑動"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"向上快速滑動"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"向下快速滑動"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"快速滑動 (自訂)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"縮小"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"放大"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"「按掣功能」設定"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"按下按鍵組合即可將它加入清單或從清單中移除"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"清除指派按鍵"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"沒有指派按擎"</string>
-    <string name="more" msgid="1547670498589416840">"更多"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"空白"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"輸入"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"儲存"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"掃描反白顯示樣式"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"主要掃描樣式"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"反白顯示顏色"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"反白顯示線條樣式"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"私隱權政策"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"啟用自動選取功能"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"停用自動選取功能"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"下一個字元"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"下一個字詞"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"下一行文字"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"下一段文字"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"下一頁"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"上一個字元"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"上一個字詞"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"上一行文字"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"上一段文字"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"上一頁"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"自動開始掃描"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"開始掃描，無需按下切換按鈕"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"開啟「按掣功能」設定"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"「按掣功能」設定精靈"</string>
-    <string name="one_switch" msgid="5247899666787922810">"一個按擎"</string>
-    <string name="two_switches" msgid="3082487661638289356">"兩個按掣"</string>
-    <string name="finish" msgid="4267641294267512480">"完成"</string>
-    <string name="exit" msgid="8664597014081860813">"退出"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"選擇按擎數量"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"按下按擎，即可在項目之間自動移動，再按一下以選取反白顯示的項目。"</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"按下一個按擎，即可在項目之間移動，再按下另一個按掣以選取反白顯示的項目。"</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"選擇掃描速度"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"選擇每個項目反白顯示的時間"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"快 (延遲 <xliff:g id="DELAY_SPEED">%1$s</xliff:g> 秒)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"中 (延遲 <xliff:g id="DELAY_SPEED">%1$s</xliff:g> 秒)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"慢 (延遲 <xliff:g id="DELAY_SPEED">%1$s</xliff:g> 秒)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"自訂"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"延遲 (秒)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"「<xliff:g id="KEY_NAME">%1$s</xliff:g>」鍵已指派至另一項操作"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"列/欄掃描"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"群組選取"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"直線掃描"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"朗讀功能"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"文字轉語音設定"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"適用於多個項目"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"朗讀第一個和最後一個項目"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"朗讀項目數量"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"朗讀所有反白顯示的項目"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"移動前先完成朗讀"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"群組<xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g>至<xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g>個項目"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"選取就可以捲動"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"不明項目"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"選擇掃描方法"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"每次掃描一列。選取列後，在該清單上的項目移動。"</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"在項目之間逐個移動。請注意，鍵盤一律按列掃描。"</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"所有項目會獲分配一種顏色。按下與項目四周顏色相應的按擎。收窄群組大小，直至選擇完成。"</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"已將按擎指派至「<xliff:g id="ACTION_NAME">%s</xliff:g>」"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"沒有"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"要清除已指派的按擎嗎？"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"您已指派按擎。"</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"清除按擎"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"保留按擎"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"沒有指派按擎"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"沒有指派按擎至此操作。您確定要繼續嗎？"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g>群組"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"按下按擎，即可將按擎指派至<xliff:g id="OPTION_COLOR">%1$s</xliff:g>群組。"</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"按下按擎即可將按掣指派至「<xliff:g id="ACTION_NAME">%1$s</xliff:g>」操作。"</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"開始掃描並選取"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"透過「過三關」測試您的設定"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"按下「<xliff:g id="SWITCH_NAME">%1$s</xliff:g>」即可開始掃描。再次按下按掣以選取反白顯示的項目。您先開始！"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"按下「<xliff:g id="SWITCH_NAME">%1$s</xliff:g>」即可開始掃描。再次按下按掣以選取反白顯示的列。再按一次即可選取反白顯示的項目。您先開始！"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"按下「<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>」即可在項目之間移動。按下「<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>」以選取反白顯示的項目。您先開始！"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"按下「<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>」即可在列之間移動。按下「<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>」以選取反白顯示的列。您可以在該列重覆選取項目。您先開始！"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"按下「<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>」即可選取突顯為<xliff:g id="COLOR_NAME_1">%2$s</xliff:g>的項目，或按下「<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>」以選取突顯為<xliff:g id="COLOR_NAME_3">%3$s</xliff:g>的項目。可重覆選取項目。您先開始！"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"您尚未將按掣指派至所有操作。請使用「返回」按鈕返回並完成指派按掣。"</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"重設遊戲"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"此方格已選取，請再試一次！"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"您贏了！"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"再接再勵"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"打和"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"您可以保留目前設定，或重新開始。"</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"保留設定"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"重新開始"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"已完成設定"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"大功告成！"</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"您可以隨時變更其他設定，或在「按掣功能」設定中再次開啟設定精靈。"</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">按鈕控制</string>
+  <string name="switch_access_service_description">「按鈕控制」讓行動不便人士使用一個或多個按掣控制手機和平板電腦。按掣即可選取項目、捲動和輸入文字等。</string>
+  <string name="switch_access_service_summary">用開關控制裝置</string>
+  <string name="title_pref_help_feedback">說明和意見反映</string>
+  <string name="title_pref_licenses">開放原始碼授權</string>
+  <string name="title_pref_category_auto_scan">自動掃瞄</string>
+  <string name="title_pref_auto_scan_disabled">自動掃瞄 (已停用)</string>
+  <string name="action_key_summary_auto_scan">按下此開關後，突顯範圍就會自動開始在各項目之間移動。再按一下即可選取突顯的項目。</string>
+  <string name="title_pref_auto_scan_time_delay">自動掃瞄時間</string>
+  <string name="action_name_reverse_auto_scan">反向自動掃瞄</string>
+  <string name="title_pref_reverse_auto_scan_disabled">反方向自動掃瞄 (已停用)</string>
+  <string name="action_key_summary_reverse_auto_scan">按下此開關後，突顯範圍就會自動開始在各項目之間反方向移動。再按一下即可選取突顯的項目。</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 秒</item>
+    <item quantity="other">%.2f 秒</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">自訂掃瞄</string>
+  <string name="title_pref_scanning_methods">掃瞄方法</string>
+  <string name="title_pref_start_scan_delay">第一個項目的延遲時間</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">選擇要在第一個項目停留的額外時間。這個時間會新增至自動掃瞄時間。\n\n此設定會影響自動掃瞄和點掃瞄。</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">選擇要在第一個項目停留的額外時間。過了這段時間後，垂直或水平線就會開始移動。\n\n此設定會影響自動掃瞄和點掃瞄。</string>
+  <string name="title_pref_category_assign_switches">指派按掣</string>
+  <string name="title_pref_category_key_mappings">為通用操作指定開關</string>
+  <string name="summary_pref_category_key_mappings">您可以隨時執行通用操作</string>
+  <string name="title_pref_category_scan_key_mappings">為掃瞄指派按掣</string>
+  <string name="summary_pref_category_scan_key_mappings">掃瞄功能可讓您移動突顯範圍及選取突顯的項目</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">移動及選取</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">可對突顯項目執行的操作</string>
+  <string name="title_pref_point_scan_line_speed">線條移動速度</string>
+  <string name="dialog_message_pref_line_speed">選擇水平和垂直線在畫面上的移動速度。</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">每秒 1 厘米</item>
+    <item quantity="other">每秒 %.2f 厘米</item>
+  </plurals>
+  <string name="title_pref_loop_count">掃瞄次數</string>
+  <string name="dialog_message_pref_loop_count">選擇掃瞄的重複次數。\n\n此設定會影響自動掃瞄和點掃瞄。</string>
+  <string name="summary_pref_point_scan">透過正在移動的線條選取特定的水平和垂直位置。%1$s</string>
+  <string name="point_scan_enable_animations_message">開啟動畫以使用此功能。</string>
+  <string name="title_pref_category_switch_accomodation">開關調節</string>
+  <string name="title_pref_debounce_time">忽略重複按下的動作</string>
+  <string name="dialog_message_pref_debounce_time">按掣次數如果在以下次數以內只會計作一次</string>
+  <string name="title_pref_press_on_release">放手即執行操作</string>
+  <string name="subtitle_pref_press_on_release">放開按擎時執行操作</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d 次</item>
+    <item quantity="other">%d 次</item>
+  </plurals>
+  <string name="preference_off">關閉</string>
+  <string name="preference_on">開啟</string>
+  <string name="toast_msg_key_already_assigned">「%1$s」按掣已指派至「%2$s」</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">已指派 %d 個按擎</item>
+    <item quantity="other">已指派 %d 個按擎</item>
+  </plurals>
+  <string name="option_scan_switch_format">群組選取按擎 %1$d</string>
+  <string name="option_scan_switch_format_with_color">群組選取開關 %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">按下此開關即可選取「%1$d」群組。</string>
+  <string name="action_name_next">繼續</string>
+  <string name="action_key_summary_next">按下此開關即可突顯下一個項目。</string>
+  <string name="action_name_previous">返回</string>
+  <string name="action_key_summary_previous">按下此開關即可突顯上一個項目。</string>
+  <string name="action_name_click">選取</string>
+  <string name="action_key_summary_click">按下此開關即可選取突顯的項目。</string>
+  <string name="action_name_long_click">輕觸並按住</string>
+  <string name="action_key_summary_long_click">按下此開關即可輕觸並按住突顯的項目。</string>
+  <string name="action_name_scroll_forward">向前捲動</string>
+  <string name="action_key_summary_scroll_forward">按下此開關即可向前捲動突顯的項目。</string>
+  <string name="action_name_scroll_backward">向後捲動</string>
+  <string name="action_key_summary_scroll_backward">按下此開關即可向後捲動突顯的項目。</string>
+  <string name="action_name_dismiss">關閉</string>
+  <string name="action_name_expand">展開</string>
+  <string name="action_name_collapse">收合</string>
+  <string name="action_name_highlight_text">突顯文字</string>
+  <string name="action_group_name_highlight">突顯…</string>
+  <string name="action_name_highlight_all_text">突顯所有文字</string>
+  <string name="action_name_highlight_granular_text">突顯%1$s</string>
+  <string name="action_name_copy">複製</string>
+  <string name="action_name_copy_all_text">全部複製</string>
+  <string name="action_name_cut">剪下</string>
+  <string name="action_name_cut_all_text">全部剪下</string>
+  <string name="action_name_paste">貼上</string>
+  <string name="action_name_undo">復原</string>
+  <string name="action_name_redo">重做</string>
+  <string name="action_group_name_delete">刪除…</string>
+  <string name="action_name_delete">刪除%1$s</string>
+  <string name="action_name_delete_highlighted_text">刪除突顯的文字</string>
+  <string name="option_scanning_menu_button">選單</string>
+  <string name="option_scanning_menu_button_content_description">按鈕控制選單</string>
+  <string name="switch_access_global_menu">「按鈕控制」全域選單</string>
+  <string name="switch_access_actions_menu">「按鈕控制」操作選單</string>
+  <string name="switch_access_close_menu">關閉</string>
+  <string name="switch_access_back_menu">返回</string>
+  <string name="next_arrow_content_description">下一個</string>
+  <string name="previous_arrow_content_description">上一個</string>
+  <string name="global_action_back">返回</string>
+  <string name="global_action_key_summary_back">按下此開關即可回到上一個畫面或隱藏鍵盤 (如果畫面顯示鍵盤)。</string>
+  <string name="global_action_home">主頁</string>
+  <string name="global_action_key_summary_home">按下此開關即可前往主畫面。</string>
+  <string name="global_action_overview">概覽</string>
+  <string name="global_action_key_summary_overview">按下此開關即可顯示最近開啟的應用程式清單。</string>
+  <string name="global_action_notifications">通知</string>
+  <string name="global_action_key_summary_notifications">按下此開關即可顯示裝置的通知。</string>
+  <string name="global_action_quick_settings">快速設定</string>
+  <string name="global_action_key_summary_quick_settings">按下此開關即可顯示裝置的「快速設定」。</string>
+  <string name="global_action_power_options">電源選項</string>
+  <string name="global_menu_volume_heading">音量</string>
+  <string name="volume_menu_media">媒體音量</string>
+  <string name="volume_menu_call">通話音量</string>
+  <string name="volume_menu_ring">鈴聲音量</string>
+  <string name="volume_menu_alarm">鬧鐘音量</string>
+  <string name="volume_menu_accessibility">無障礙功能音量</string>
+  <string name="volume_menu_mute">靜音</string>
+  <string name="volume_menu_unmute">取消靜音</string>
+  <string name="volume_menu_increase">增加</string>
+  <string name="volume_settings">音量設定</string>
+  <string name="volume_menu_decrease">減少</string>
+  <string name="scrollable_forward">向前捲動</string>
+  <string name="scrollable_backward">向後捲動</string>
+  <string name="point_scan">點掃瞄</string>
+  <string name="box_scan">退出「點掃瞄」</string>
+  <string name="action_name_swipe_right">向右滑動</string>
+  <string name="action_name_swipe_left">向左滑動</string>
+  <string name="action_name_swipe_up">向上滑動</string>
+  <string name="action_name_swipe_down">向下滑動</string>
+  <string name="action_name_swipe_custom">滑動 (自訂)</string>
+  <string name="action_name_zoom_out">縮小</string>
+  <string name="action_name_zoom_in">放大</string>
+  <string name="switch_access_preferences_title">「按鈕控制」設定</string>
+  <string name="key_combo_preference_instructions">按下按鍵組合即可將它加入清單或從清單中移除</string>
+  <string name="key_combo_preference_reset_button">清除按鍵指派設定</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">尚未指派按擎</string>
+  <string name="more">更多</string>
+  <string name="name_of_space_bar">空白</string>
+  <string name="name_of_enter_key">輸入</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">儲存</string>
+  <string name="title_pref_category_display_and_sound">顯示和音效</string>
+  <string name="title_pref_highlight_0">掃瞄突顯樣式</string>
+  <string name="title_pref_primary_scan_style">主要掃瞄樣式</string>
+  <string name="title_pref_highlight_0_color">突顯顏色</string>
+  <string name="title_pref_highlight_0_weight">突顯線條樣式</string>
+  <string name="title_pref_privacy_policy">私隱權政策</string>
+  <string name="title_pref_auto_select">自動選取</string>
+  <string name="summary_pref_auto_select">自動選取突顯的項目。如果您無法選取該項目或已停用此設定，畫面將顯示可用操作選單。</string>
+  <string name="switch_access_global_menu_enable_autoselect">啟用自動選取功能</string>
+  <string name="switch_access_global_menu_disable_autoselect">停用自動選取功能</string>
+  <string name="switch_access_move_next">下一個…</string>
+  <string name="switch_access_move_next_character">下一個字元</string>
+  <string name="switch_access_move_next_word">下一個字詞</string>
+  <string name="switch_access_move_next_line">下一行文字</string>
+  <string name="switch_access_move_next_paragraph">下一段文字</string>
+  <string name="switch_access_move_next_page">下一頁</string>
+  <string name="switch_access_move_next_sentence">下一句</string>
+  <string name="switch_access_move_prev">上一個…</string>
+  <string name="switch_access_move_prev_character">上一個字元</string>
+  <string name="switch_access_move_prev_word">上一個字詞</string>
+  <string name="switch_access_move_prev_line">上一行文字</string>
+  <string name="switch_access_move_prev_paragraph">上一段文字</string>
+  <string name="switch_access_move_prev_page">上一頁</string>
+  <string name="switch_access_move_prev_sentence">上一句</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">自動開始掃瞄</string>
+  <string name="switch_access_auto_start_scan_summary">不用按掣即可開始掃瞄</string>
+  <string name="pref_begin_switchaccess_setup_title">開啟設定指南</string>
+  <string name="setup_wizard_heading">按鈕控制設定指南</string>
+  <string name="one_switch">一個按擎</string>
+  <string name="two_switches">兩個按掣</string>
+  <string name="finish">完成</string>
+  <string name="exit">退出</string>
+  <string name="intro_heading">選取開關</string>
+  <string name="usb_switch_option_text">USB 開關</string>
+  <string name="bluetooth_switch_option_text">藍牙開關</string>
+  <string name="usb_switch_description_text">透過 USB 連接實體開關</string>
+  <string name="bluetooth_switch_description_text">透過藍牙以無線的方式配對開關</string>
+  <string name="bluetooth_unsupported_description_text">您的裝置不支援藍牙，請改用實體開關。</string>
+  <string name="connected_usb_devices_header">已連接的裝置</string>
+  <string name="usb_no_devices_connected_message">找不到任何 USB 裝置，請確保您已安全連接裝置。</string>
+  <string name="connect_usb_heading">連接 USB 開關</string>
+  <string name="pair_bluetooth_heading">與藍牙開關配對</string>
+  <string name="pair_bluetooth_subheading">在下方輕按藍牙開關</string>
+  <string name="bluetooth_not_enabled_message">如要與藍牙開關配對，請開啟藍牙</string>
+  <string name="enable_bluetooth_button_title">開啟藍牙</string>
+  <string name="bluetooth_no_devices_paired">目前未與藍牙裝置配對</string>
+  <string name="paired_devices_header">已配對的藍牙裝置</string>
+  <string name="available_devices_header">可配對的藍牙裝置</string>
+  <string name="bluetooth_computer_content_description">電腦</string>
+  <string name="bluetooth_phone_content_description">手機</string>
+  <string name="bluetooth_imaging_content_description">映像裝置</string>
+  <string name="bluetooth_headphone_content_description">耳機</string>
+  <string name="bluetooth_peripheral_content_description">周邊裝置</string>
+  <string name="bluetooth_default_content_description">藍牙</string>
+  <string name="bluetooth_connecting_description">正在連接…</string>
+  <string name="bluetooth_connected_description">已連接</string>
+  <string name="bluetooth_device_unavailable_description">無法連接裝置</string>
+  <string name="reconnecting_unsupported_title">無法連接裝置</string>
+  <string name="reconnecting_unsupported_message">「按鈕控制」無法連接之前配對的裝置。請確保裝置已開啟並處於已連接狀態。\n\n如果您的裝置仍無法連接，請前往「藍牙設定」並嘗試重新連接。</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">前往「藍牙設定」</string>
+  <string name="number_of_switches_heading">選擇按擎數量</string>
+  <string name="title_assign_scan_key">指派「%1$s」開關</string>
+  <string name="one_switch_description_text">按下開關即可自動開始在項目之間移動，再按一下則可選取突顯的項目。</string>
+  <string name="two_switches_description_text">按下一個按擎，即可在項目之間移動。另一個按掣用來選取突顯的項目。</string>
+  <string name="step_speed_heading">選擇掃瞄速度</string>
+  <string name="step_speed_subheading">選擇每個項目突顯的時間</string>
+  <string name="fast_radio_button_title">快 (延遲 %1$s 秒)</string>
+  <string name="medium_radio_button_title">中 (延遲 %1$s 秒)</string>
+  <string name="slow_radio_button_title">慢 (延遲 %1$s 秒)</string>
+  <string name="custom_switch">自訂</string>
+  <string name="custom_edit_text">延遲 (秒)</string>
+  <string name="setup_toast_msg_key_already_assigned">「%1$s」鍵已指派至另一項操作</string>
+  <string name="row_column_scanning_title">列/欄掃瞄</string>
+  <string name="option_scanning_title">群組選取 (進階)</string>
+  <string name="linear_scanning_title">直線掃瞄</string>
+  <string name="linear_scanning_except_keyboard_title">線性掃瞄 (不掃瞄鍵盤)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">語音、音效和震動</string>
+  <string name="title_pref_switch_access_spoken_feedback">朗讀功能</string>
+  <string name="title_pref_scan_non_actionable_items">讀出說明文字</string>
+  <string name="scan_non_actionable_items_summary">聆聽包含可執行操作和提供說明文字的項目</string>
+  <string name="title_pref_switch_access_verbosity">詳細程度</string>
+  <string name="summary_verbosity">選擇系統應該讀出多少資料</string>
+  <string name="title_pref_verbosity_category_verbosity_details">詳細程度詳情</string>
+  <string name="title_pref_switch_access_keyboard_echo">鍵盤回音</string>
+  <string name="keyboard_echo_summary_on">讀出屏幕鍵盤上輸入的鍵</string>
+  <string name="keyboard_echo_summary_off">不要讀出屏幕鍵盤上輸入的鍵</string>
+  <string name="title_pref_enable_hints">讀出使用提示</string>
+  <string name="enable_hints_summary_on">導覽期間，系統會在短暫延誤後讀出使用提示</string>
+  <string name="enable_hints_summary_off">無障礙功能的焦點移動時，系統不會讀出使用提示</string>
+  <string name="title_pref_speak_container_element_position">讀出清單同網格資料</string>
+  <string name="speak_container_element_position_summary_on">系統會讀出清單同網格資料</string>
+  <string name="speak_container_element_position_summary_off">系統唔會讀出清單同網格資料</string>
+  <string name="title_pref_speak_element_type">讀出元素類型</string>
+  <string name="speak_element_type_summary_on">系統會讀出焦點項目的元素類型</string>
+  <string name="speak_element_type_summary_off">系統不會讀出焦點項目的元素類型</string>
+  <string name="title_pref_pitch_change_for_ime">使用音調變化</string>
+  <string name="pitch_change_for_ime_summary_on">以較低的音調讀出鍵盤語音回應</string>
+  <string name="pitch_change_for_ime_summary_off">讀出語音時不要改變音調</string>
+  <string name="title_pref_speak_selected_item_or_group">讀出所選項目或群組</string>
+  <string name="speak_selected_item_or_group_summary">讀出所選項目或群組的名稱</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">每個項目的朗讀時間上限</string>
+  <string name="dialog_message_pref_maximum_time_per_item">設定每個項目的朗讀說明時間上限。系統會在設定的時間過後中斷朗讀語音。\n請注意：啟用此設定後，系統一律會讀出提示。</string>
+  <string name="title_pref_verbosity_category_miscellaneous">其他</string>
+  <string name="title_pref_node_description_order">元素說明次序</string>
+  <string name="title_pref_switch_access_speak_element_ids">讀出元素 ID</string>
+  <string name="speak_element_ids_summary_on">讀出無標籤按鈕的元素 ID</string>
+  <string name="speak_element_ids_summary_off">不讀出無標籤按鈕的元素 ID</string>
+  <string name="title_pref_switch_access_tts_settings">文字轉語音設定</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">突顯多個項目時</string>
+  <string name="title_pref_switch_access_speak_first_last_item">讀出第一個和最後一個項目</string>
+  <string name="title_pref_switch_access_speak_number_of_items">朗讀項目數量</string>
+  <string name="title_pref_switch_access_speak_all_items">朗讀所有突顯的項目</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">朗讀完畢才繼續掃瞄</string>
+  <string name="title_pref_spoken_feedback_other_feedback">其他回應</string>
+  <string name="title_pref_developer_settings">開發人員設定</string>
+  <string name="title_pref_spoken_feedback_overlay">顯示語音輸出</string>
+  <string name="title_pref_switch_access_vibration_feedback">震動回應</string>
+  <string name="vibration_feedback_summary">以震動方式表示內容有所變更 (例如畫面上的內容有所變更)</string>
+  <string name="title_pref_switch_access_sound_feedback">聲音回應</string>
+  <string name="sound_feedback_summary">播放 earcon 以表示內容有所變更 (例如畫面上的內容有所變更)</string>
+  <string name="title_pref_switch_access_sound_volume">音量</string>
+  <string name="title_pref_switch_access_audio_ducking">降低其他應用程式音量</string>
+  <string name="audio_ducking_summary">讀出時調低其他應用程式的音量</string>
+  <string name="switch_access_focus_cleared_no_selection">改咗畫面</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">㩒 [選取開關] 就可以揀選需要嘅列</string>
+  <string name="switch_access_spoken_feedback_group">群組%1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">㩒「%1$s」群組開關就可以揀選群組</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">㩒「%1$s」群組開關就可以揀選項目</string>
+  <string name="switch_access_spoken_feedback_to">%1$s至%2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s個項目</string>
+  <string name="switch_access_spoken_feedback_group_selected">揀咗「%1$s」群組</string>
+  <string name="switch_access_spoken_feedback_row_selected">揀咗列</string>
+  <string name="switch_access_spoken_feedback_item_selected">揀咗%1$s</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">可捲動</string>
+  <string name="switch_access_spoken_feedback_scroll">選取就可以捲動</string>
+  <string name="switch_access_spoken_feedback_unknown">不明項目</string>
+  <string name="scanning_method_heading">選擇掃瞄方法</string>
+  <string name="row_column_scanning_description">每次掃瞄一列。選取列後，在該列上逐個項目移動。</string>
+  <string name="linear_scanning_description">每次在項目之間逐一移動</string>
+  <string name="linear_scanning_except_keyboard_description">每次逐個項目移動。請留意，鍵盤是逐列掃瞄的。</string>
+  <string name="option_scanning_description">所有項目將獲分配一種顏色。按下與項目四邊顏色相應的按擎。收窄群組範圍來選取所需項目。</string>
+  <string name="setup_switch_assignment_heading">按擎已指派至「%s」</string>
+  <string name="setup_switch_assignment_empty">無</string>
+  <string name="clear_keys_dialog_title">要清除已指派的按擎嗎？</string>
+  <string name="clear_keys_dialog_message">您已指派按擎。</string>
+  <string name="clear_keys_dialog_positive_button">清除按擎</string>
+  <string name="clear_keys_dialog_negative_button">保留按擎</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">尚未指派按擎</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">沒有按擎指派至此操作。您確定要繼續嗎？</string>
+  <string name="option_scan_switch_title">%1$s群組</string>
+  <string name="option_scan_switch_subtitle">按下按擎，即可將按擎指派至%1$s群組。</string>
+  <string name="assign_switch_subtitle">按下按擎即可指派按掣至「%1$s」操作。</string>
+  <string name="auto_scan_action_description">開始掃瞄並選取</string>
+  <string name="switch_game_heading">用「過三關」來測試您的設定</string>
+  <string name="switch_game_one_switch_linear_subheading">按下「%1$s」即可開始掃瞄。再按一下來選取突顯的項目。您先開始！</string>
+  <string name="switch_game_one_switch_row_col_subheading">按下「%1$s」即可開始掃瞄。再次按下按掣以選取反白顯示的列。再按一次即可選取反白顯示的項目。您先開始！</string>
+  <string name="switch_game_two_switch_linear_subheading">按下 [%1$s] 即可在項目之間移動，按下 [%2$s] 即可選取突顯的項目。您先開始！</string>
+  <string name="switch_game_two_switch_row_col_subheading">按下 [%1$s] 即可在列之間移動，按下 [%2$s] 即可選取突顯的列。重複按下這些開關即可在該列中選擇一個項目。您先開始！</string>
+  <string name="switch_game_two_switch_option_scan_subheading">按下 [%1$s] 即可選取以%2$s突顯的項目，按下 [%4$s] 即可選取以%3$s突顯的項目。按下這些開關，直至找到所需項目為止。您先開始！</string>
+  <string name="switch_game_incomplete_switches_subheading">您尚未指派按掣至所有操作。請使用 [返回] 按鈕完成。</string>
+  <string name="game_square_content_description">%1$s 的位置：%2$s，%3$s</string>
+  <string name="game_square_no_marker_content_description">空白</string>
+  <string name="game_reset_button_title">重設遊戲</string>
+  <string name="game_square_already_taken">此方格已選取，請再試一次！</string>
+  <string name="game_win_outcome_title">您贏了！</string>
+  <string name="game_loss_outcome_title">再接再勵</string>
+  <string name="game_tie_outcome_title">打和</string>
+  <string name="game_outcome_body_text">您可以保留目前設定，或重新開始。</string>
+  <string name="game_outcome_positive_response">保留設定</string>
+  <string name="game_outcome_negative_response">重新開始</string>
+  <string name="setup_completion_heading">已完成設定</string>
+  <string name="setup_completion_message">大功告成！</string>
+  <string name="setup_completion_settings_reminder">您可以隨時變更其他設定，或在「按鈕控制」設定中再次開啟設定精靈。</string>
+  <string name="dialog_url_list">選擇連結</string>
+  <string name="dialog_do_not_disturb_permission_title">「按鈕控制」需要權限以調整音量</string>
+  <string name="dialog_do_not_disturb_permission_message">如要從「按鈕控制」選單調整音量，請開啟「Android 無障礙套件」的「請勿騷擾」存取權</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">開啟設定</string>
 </resources>

@@ -20,12 +20,12 @@ import com.google.android.accessibility.utils.labeling.LabelProviderClient;
 
 public class RevertImportedLabelsRequest extends LabelClientRequest<Boolean> {
 
-  private OnImportLabelsRevertedListener mListener;
+  private OnImportLabelsRevertedListener listener;
 
   public RevertImportedLabelsRequest(
       LabelProviderClient client, OnImportLabelsRevertedListener listener) {
     super(client);
-    mListener = listener;
+    this.listener = listener;
   }
 
   @Override
@@ -41,8 +41,8 @@ public class RevertImportedLabelsRequest extends LabelClientRequest<Boolean> {
 
   @Override
   public void onPostExecute(Boolean result) {
-    if (mListener != null && result != null && result) {
-      mListener.onImportLabelsReverted();
+    if (listener != null && result != null && result) {
+      listener.onImportLabelsReverted();
     }
   }
 

@@ -4,7 +4,7 @@
     <string name="pref_category_help_feedback_key">pref_category_help_feedback</string>
     <string name="pref_help_feedback_key">pref_help_feedback</string>
 
-    <string name="pref_category_key_auto_scan">pref_category_key_auto_scan</string>
+    <string name="pref_category_auto_scan_key">pref_category_sa_auto_scan_key</string>
     <string name="pref_key_auto_scan_enabled">pref_key_auto_scan_enabled</string>
     <string name="pref_key_auto_scan_time_delay">pref_key_auto_scan_time_delay</string>
     <string name="pref_key_mapped_to_auto_scan_key">pref_key_mapped_to_auto_scan</string>
@@ -17,6 +17,8 @@
 
     <string name="pref_category_assign_switches_key">pref_category_assign_switches</string>
     <string name="pref_category_scan_mappings_key">pref_category_scan_mappings</string>
+    <string name="pref_category_mappings_movement_and_selection_key">pref_category_sa_mappings_movement_and_selection_key</string>
+    <string name="pref_category_mappings_highlighted_item_actions_key">pref_category_sa_mappings_highlighted_item_actions_key</string>
     <string name="pref_category_action_mappings_key">pref_category_action_mappings</string>
     <string name="pref_key_mapped_to_next_key">pref_key_mapped_to_next</string>
     <string name="pref_key_mapped_to_previous_key">pref_key_mapped_to_previous</string>
@@ -46,6 +48,8 @@
     <string name="pref_auto_scan_time_delay_medium_value">1</string>
     <string name="pref_auto_scan_time_delay_fast_value">0.75</string>
     <string name="pref_rowcol_scan_default_value">false</string>
+
+    <string name="pref_category_display_and_sound_key">pref_category_sa_display_and_sound_key</string>
 
     <string name="pref_highlights_key">pref_highlights_key</string>
     <string name="pref_standard_highlight_key">pref_standard_highlight_key</string>
@@ -88,10 +92,10 @@
     <string name="thickness_16_dp">16</string>
 
     <!-- Scanning methods -->
+    <string name="linear_scanning_key">linear_scanning_key</string>
     <string name="views_linear_ime_row_col_key">views_linear_ime_row_col_key</string>
     <string name="row_col_scanning_key">row_col_scanning_key</string>
-    <string name="option_scanning_key">option_scanning_key</string>
-    <string name="nomon_clocks_key">nomon_clocks_key</string>
+    <string name="group_selection_key">option_scanning_key</string>
 
     <!-- Supporting multiple actions -->
     <string name="switch_access_choose_action_global_menu_behavior_key">switch_access_choose_action_global_menu_behavior</string>
@@ -99,42 +103,87 @@
     <string name="switch_access_choose_action_show_menu_key">choose_action_show_menu</string>
     <string name="switch_access_pref_choose_action_behavior_default">@string/switch_access_choose_action_auto_select_key</string>
 
+    <!-- Speech, sound & vibration -->
+    <string name="pref_key_category_switch_access_speech_sound_vibration">category_speech_sound_vibration</string>
+
     <!-- Spoken feedback -->
     <string name="pref_key_category_switch_access_spoken_feedback">category_spoken_feedback</string>
     <string name="pref_key_switch_access_spoken_feedback">spoken_feedback</string>
+    <string name="pref_key_scan_non_actionable_items">scan_non_actionable_items</string>
+    <string name="pref_key_verbosity">pref_key_sa_verbosity</string>
     <string name="pref_key_switch_access_tts_settings">tts_settings</string>
+
+    <bool name="pref_scan_non_actionable_items_default_value">true</bool>
+
+    <!-- Verbosity -->
+    <string name="pref_key_verbosity_category_verbosity_details">pref_key_sa_verbosity_details</string>
+    <string name="pref_key_keyboard_echo">pref_key_sa_keyboard_echo</string>
+    <string name="pref_key_enable_hints">pref_key_sa_enable_hints</string>
+    <string name="pref_key_speak_container_element_position">pref_key_sa_speak_container_element_position</string>
+    <string name="pref_key_speak_element_type">pref_key_sa_speak_element_type</string>
+    <string name="pref_key_pitch_change_for_ime">pref_key_sa_pitch_change_for_ime</string>
+    <string name="pref_key_speak_selected_item_or_group">pref_key_sa_speak_selected_item_or_group</string>
+    <string name="pref_key_switch_access_spoken_feedback_maximum_time_per_item">pref_key_sa_maximum_time_per_item</string>
+
+    <bool name="pref_keyboard_echo_default_value">true</bool>
+    <bool name="pref_enable_hints_default_value">true</bool>
+    <bool name="pref_speak_container_element_position_default_value">true</bool>
+    <bool name="pref_speak_element_type_default_value">true</bool>
+    <bool name="pref_pitch_change_for_ime_default_value">true</bool>
+    <bool name="pref_speak_selected_item_or_group_default_value">true</bool>
+    <integer name="pref_maximum_time_per_item_default_value_seconds">30</integer>
 
     <string name="pref_key_category_switch_access_spoken_feedback_multiple_items">category_spoken_feedback_multiple_items</string>
     <string name="pref_key_switch_access_speak_first_last_item">speak_first_last_item</string>
     <string name="pref_key_switch_access_speak_number_of_items">speak_number_of_items</string>
     <string name="pref_key_switch_access_speak_all_items">speak_all_items</string>
+    <bool name="pref_speak_first_last_item_default_value">false</bool>
+
+    <string name="pref_key_verbosity_category_miscellaneous">pref_key_sa_verbosity_miscellaneous</string>
+    <string name="pref_key_node_description_order">pref_key_sa_node_description_order</string>
+    <string name="pref_key_speak_element_ids">pref_key_sa_element_ids</string>
+    <bool name="pref_speak_element_ids_default_value">true</bool>
+
+    <!-- Element description order -->
+    <string name="state_name_type_key">state_name_type_key</string>
+    <string name="type_name_state_key">type_name_state_key</string>
+    <string name="name_type_state_key">name_type_state_key</string>
+    <string name="pref_node_description_order_default">@string/state_name_type_key</string>
 
     <string name="pref_key_category_spoken_feedback_auto_scan">category_spoken_feedback_auto_scan</string>
     <string name="pref_key_switch_access_spoken_feedback_finish_speech">finish_speech</string>
 
-    <string name="pref_key_spoken_feedback_general_settings">general_settings</string>
-    <string name="pref_key_scan_non_actionable_items">scan_non_actionable_items</string>
+    <!-- Other feedback -->
+    <string name="pref_key_spoken_feedback_other_feedback">pref_key_sa_spoken_feedback_other_feedback</string>
+    <string name="pref_key_vibration_feedback">pref_key_sa_vibration_feedback</string>
+    <string name="pref_key_sound_feedback">pref_key_sa_sound_feedback</string>
+    <string name="pref_key_audio_ducking">pref_key_sa_audio_ducking</string>
+    <string name="pref_key_sound_volume">pref_key_sa_sound_volume</string>
+    <string name="pref_switch_access_sound_volume_default">50</string>
+    <string name ="pref_key_display_speech_output">pref_key_sa_display_speech_output</string>
+
+    <bool name="pref_vibration_feedback_default_value">true</bool>
+    <bool name="pref_sound_feedback_default_value">true</bool>
+    <bool name="pref_audio_ducking_default_value">true</bool>
+    <bool name="pref_display_speech_output_default_value">false</bool>
 
     <!-- Control automatic scanning start -->
     <string name="switch_access_auto_start_scan_key">switch_access_auto_start_scan_key</string>
     <bool name="switch_access_auto_start_scan_default">false</bool>
 
     <!-- Point scanning -->
+    <string name="pref_category_point_scan_key">pref_category_sa_point_scan_key</string>
     <string name="pref_key_point_scan_enabled">pref_key_point_scan_enabled</string>
     <bool name="pref_point_scan_enabled_default_value">false</bool>
     <string name="pref_key_point_scan_line_speed">pref_key_point_scan_line_speed</string>
-    <string name="pref_point_scan_line_speed_default">0.2</string>
+    <string name="pref_point_scan_line_speed_default">.9</string>
 
     <!-- Scanning loop count -->
     <string name="pref_key_point_scan_and_autoscan_loop_count">pref_key_point_scan_and_autoscan_loop_count</string>
     <string name="pref_point_scan_and_autoscan_loop_count_default">2</string>
 
-    <!-- Nomon clock selection -->
-    <string name="pref_key_nomon_clocks_enabled">pref_key_nomon_clocks_enabled</string>
-    <string name="pref_key_nomon_clock_time_delay">pref_key_nomon_clock_time_delay</string>
-    <string name="pref_nomon_clock_time_delay_default_value">2</string>
-    <string name="pref_key_nomon_clock_groups">pref_key_nomon_clock_groups</string>
-    <string name="pref_nomon_clock_groups_default_value">5</string>
+    <!-- Category for preferences that deal with how switch presses are interpreted -->
+    <string name="pref_category_switch_accomodation_key">pref_category_sa_switch_accomodation_key</string>
 
     <!-- Control de-bouncing of keys (keys pressed within a specified time after the first key will
          be ignored) -->
@@ -143,4 +192,8 @@
 
     <!-- Press on release -->
     <string name="pref_key_switch_access_press_on_release">pref_key_press_on_release</string>
+
+    <!-- Setup guide request count -->
+    <string name="key_setup_request_count">key_setup_request_count</string>
+    <string name="setup_request_count_default">0</string>
 </resources>

@@ -16,12 +16,9 @@
 
 package com.android.talkback;
 
-import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
@@ -31,88 +28,85 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.database.ContentObserver;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Vibrator;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceGroup;
-import android.preference.SwitchPreference;
-import android.preference.TwoStatePreference;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.util.Log;
+import androidx.appcompat.app.ActionBar;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceGroup;
+import androidx.preference.TwoStatePreference;
+import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.talkback.HelpAndFeedbackUtils;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.TalkBackDumpAccessibilityEventActivity;
-import com.google.android.accessibility.talkback.TalkBackKeyboardShortcutPreferencesActivity;
 import com.google.android.accessibility.talkback.TalkBackService;
-import com.google.android.accessibility.talkback.TalkBackShortcutPreferencesActivity;
-import com.google.android.accessibility.talkback.TalkBackVerbosityPreferencesActivity;
 import com.google.android.accessibility.talkback.controller.DimScreenControllerApp;
-import com.google.android.accessibility.talkback.labeling.LabelManagerSummaryActivity;
 import com.google.android.accessibility.talkback.speech.SpeakPasswordsManager;
 import com.google.android.accessibility.talkback.tutorial.AccessibilityTutorialActivity;
-import com.google.android.accessibility.utils.AccessibilityEventUtils;
-import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.FormFactorUtils;
-import com.google.android.accessibility.utils.HardwareUtils;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.accessibility.utils.BasePreferencesActivity;
+import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
+import com.google.android.accessibility.utils.RemoteIntentUtils;
 import com.google.android.accessibility.utils.ServiceStateListener;
+import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.WebActivity;
-import com.google.android.clockwork.remoteintent.RemoteIntent;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
-/** Activity used to set TalkBack's service preferences. */
-public class TalkBackPreferencesActivity extends Activity {
+/**
+ * Activity used to set TalkBack's service preferences.
+ *
+ * <p>Never change preference types. This is because of AndroidManifest.xml setting
+ * android:restoreAnyVersion="true", which supports restoring preferences from a new play-store
+ * installed talkback onto a clean device with older bundled talkback. See
+ * 
+ */
+public class TalkBackPreferencesActivity extends BasePreferencesActivity {
+
+  private static final String TAG = "PreferencesActivity";
 
   public static final String TUTORIAL_SRC = "preference";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
     // Shows TalkBack's abbreviated version number in the action bar,
-    ActionBar actionBar = getActionBar();
+    ActionBar actionBar = getSupportActionBar();
     PackageInfo packageInfo = TalkBackPreferenceFragment.getPackageInfo(this);
     if (actionBar != null && packageInfo != null) {
       actionBar.setSubtitle(
           getString(R.string.talkback_preferences_subtitle, packageInfo.versionName));
     }
+  }
 
-    getFragmentManager()
-        .beginTransaction()
-        .replace(android.R.id.content, new TalkBackPreferenceFragment())
-        .commit();
+  @Override
+  protected PreferenceFragmentCompat createPreferenceFragment() {
+    return new TalkBackPreferenceFragment();
   }
 
   /** Fragment that holds the preference user interface controls. */
-  public static class TalkBackPreferenceFragment extends PreferenceFragment {
+  public static class TalkBackPreferenceFragment extends PreferenceFragmentCompat {
 
     public static final int[] HIDDEN_PREFERENCE_KEY_IDS_IN_ARC = {
       R.string.pref_screenoff_key,
       R.string.pref_proximity_key,
-      R.string.pref_shake_to_read_threshold_key,
       R.string.pref_vibration_key,
       R.string.pref_use_audio_focus_key,
       R.string.pref_explore_by_touch_reflect_key,
-      R.string.pref_auto_scroll_key,
       R.string.pref_single_tap_key,
       R.string.pref_show_context_menu_as_list_key,
       R.string.pref_tutorial_key,
       R.string.pref_two_volume_long_press_key,
-      R.string.pref_dim_when_talkback_enabled_key,
       R.string.pref_dim_volume_three_clicks_key,
       R.string.pref_resume_talkback_key
     };
@@ -121,6 +115,21 @@ public class TalkBackPreferencesActivity extends Activity {
       R.string.pref_tts_settings_key,
       R.string.pref_manage_labels_key,
       R.string.pref_category_manage_keyboard_shortcut_key
+    };
+
+    public static final int[] HIDDEN_PREFERENCE_KEY_IDS_ON_JASPER = {
+      // No tutorial because it has a button for disabling Talkback which does not interact well
+      // with the Talkback setting stored in libassistant. Also a lot of the content in the tutorial
+      // is not relevant on Jasper since it has such a simple GUI.
+      R.string.pref_tutorial_key,
+      // Dim with three clicks disabled because the volume keys on Jasper don't work like Talkback
+      // expects.
+      R.string.pref_dim_volume_three_clicks_key,
+      // Disabled because the suspend and resume shortcut is disabled.
+      R.string.pref_resume_talkback_key,
+      // Suspend and resume shortcut disabled because the volume keys on Jasper don't work like
+      // Talkback expects.
+      R.string.pref_two_volume_long_press_key,
     };
 
     public static final int[] HIDDEN_PREFERENCE_KEY_IDS_WHEN_A11Y_SHORTCUT = {
@@ -132,124 +141,101 @@ public class TalkBackPreferencesActivity extends Activity {
     };
 
     /** Preferences managed by this activity. */
-    private SharedPreferences mPrefs;
-
-    /** AlertDialog to ask if user really wants to disable explore by touch. */
-    private AlertDialog mExploreByTouchDialog;
-
-    /** AlertDialog to ask if user really wants to enable node tree debugging. */
-    private AlertDialog mTreeDebugDialog;
-
-    /** AlertDialog to ask if user really wants to enable performance statistics. */
-    private AlertDialog mPerformanceStatsDialog;
-
-    private boolean mContentObserverRegistered = false;
-
-    /** Id for seeing if the Explore by touch dialog was active when restoring state. */
-    private static final String EXPLORE_BY_TOUCH_DIALOG_ACTIVE = "exploreDialogActive";
-
-    /** Id for seeing if the tree debug dialog was active when restoring state. */
-    private static final String TREE_DEBUG_DIALOG_ACTIVE = "treeDebugDialogActive";
-
-    /** Id for seeing if the performance statistics dialog was active when restoring state. */
-    private static final String PERFORMANCE_STATS_DIALOG_ACTIVE = "performanceStatsDialogActive";
+    private SharedPreferences prefs;
 
     private static final String HELP_URL =
         "https://support.google.com/accessibility/" + "android/answer/6283677";
 
-    private boolean mIsWatch = false;
+    private boolean isWatch = false;
 
-    private Context mContext;
+    private Context context;
 
     /**
      * Loads the preferences from the XML preference definition and defines an
      * onPreferenceChangeListener
      */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
-
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
       Activity activity = getActivity();
       if (activity == null) {
         return;
       }
 
-      // Set preferences to use device-protected storage.
-      if (BuildVersionUtils.isAtLeastN()) {
-        getPreferenceManager().setStorageDeviceProtected();
-      }
+      PreferenceSettingsUtils.setPreferencesFromResource(this, R.xml.preferences, rootKey);
 
-      mPrefs = SharedPreferencesUtils.getSharedPreferences(activity);
-      addPreferencesFromResource(R.xml.preferences);
-
-      final TwoStatePreference prefTreeDebug =
-          (TwoStatePreference) findPreferenceByResId(R.string.pref_tree_debug_reflect_key);
-      prefTreeDebug.setOnPreferenceChangeListener(mTreeDebugChangeListener);
-
-      final TwoStatePreference prefPerformanceStats =
-          (TwoStatePreference) findPreferenceByResId(R.string.pref_performance_stats_reflect_key);
-      prefPerformanceStats.setOnPreferenceChangeListener(mPerformanceStatsChangeListener);
+      prefs = SharedPreferencesUtils.getSharedPreferences(activity);
 
       fixListSummaries(getPreferenceScreen());
 
-      final SwitchPreference selectorActivation =
-          (SwitchPreference) findPreferenceByResId(R.string.pref_selector_activation_key);
-      selectorActivation.setOnPreferenceChangeListener(mSelectorActivationChangeListener);
-
-      if (selectorActivation != null) {
-        enableOrDisableSelectorSettings(selectorActivation.isChecked());
-      }
-
-      mIsWatch = FormFactorUtils.getInstance(activity).isWatch();
+      isWatch = FeatureSupport.isWatch(activity);
 
       // Calling getContext() in fragment crashes on L, so use
       // getActivity().getApplicationContext() instead.
-      mContext = getActivity().getApplicationContext();
+      context = getActivity().getApplicationContext();
 
-      assignTtsSettingsIntent();
       assignTutorialIntent();
-      assignLabelManagerIntent();
-      assignKeyboardShortcutIntent();
-      assignVerbosityIntent();
-      assignDumpA11yEventIntent();
 
       updateSpeakPasswordsPreference();
 
       // Remove preferences for features that are not supported by device.
       checkTelevision();
       maybeUpdatePreferencesForWatch();
-      checkTouchExplorationSupport();
-      checkWebScriptsSupport();
+      maybeUpdatePreferencesForJasper();
+      updateTouchExplorationState();
       checkVibrationSupport();
-      maybeUpdatePreferencesForSelectorSupport();
       checkProximitySupport();
-      checkAccelerometerSupport();
+      checkDimScreenShortcutSupport();
       showTalkBackVersion();
       updateTalkBackShortcutStatus();
 
-      // We should never try to open the play store in WebActivity.
-      assignPlayStoreIntentToPreference(
-          R.string.pref_play_store_key, "com.google.android.marvin.talkback");
+      if (SettingsUtils.allowLinksOutOfSettings(context)) {
+        assignTtsSettingsIntent();
 
-      assignWebIntentToPreference(
-          R.string.pref_policy_key, "http://www.google.com/policies/privacy/");
-      assignWebIntentToPreference(
-          R.string.pref_show_tos_key, "http://www.google.com/mobile/toscountry");
+        // We should never try to open the play store in WebActivity.
+        assignPlayStoreIntentToPreference(
+            R.string.pref_play_store_key, PackageManagerUtils.TALBACK_PACKAGE);
 
-      assignFeedbackIntentToPreference(R.string.pref_help_and_feedback_key);
+        // Link preferences to web-viewer.
+        assignWebIntentToPreference(
+            R.string.pref_policy_key, "http://www.google.com/policies/privacy/");
+        assignWebIntentToPreference(
+            R.string.pref_show_tos_key, "http://www.google.com/mobile/toscountry");
+        assignFeedbackIntentToPreference(R.string.pref_help_and_feedback_key);
+      } else {
+        // During setup, do not allow access to web.
+        removePreference(R.string.pref_category_miscellaneous_key, R.string.pref_play_store_key);
+        removePreference(R.string.pref_category_miscellaneous_key, R.string.pref_policy_key);
+        removePreference(R.string.pref_category_miscellaneous_key, R.string.pref_show_tos_key);
+        removePreference(
+            R.string.pref_category_miscellaneous_key, R.string.pref_help_and_feedback_key);
 
-      if (FormFactorUtils.getInstance(activity).isArc()) {
-        PreferenceSettingsUtils.hidePreferences(
-            mContext, getPreferenceScreen(), HIDDEN_PREFERENCE_KEY_IDS_IN_ARC);
+        // During setup, do not allow access to other apps via custom-labeling.
+        removePreference(
+            R.string.pref_category_touch_exploration_key, R.string.pref_manage_labels_key);
+
+        // During setup, do not allow access to main settings via text-to-speech settings.
+        removePreference(R.string.pref_category_when_to_speak_key, R.string.pref_tts_settings_key);
       }
-      if (FormFactorUtils.getInstance(activity).hasAccessibilityShortcut()) {
+
+      if (FeatureSupport.isArc()) {
         PreferenceSettingsUtils.hidePreferences(
-            mContext, getPreferenceScreen(), HIDDEN_PREFERENCE_KEY_IDS_WHEN_A11Y_SHORTCUT);
+            context, getPreferenceScreen(), HIDDEN_PREFERENCE_KEY_IDS_IN_ARC);
+      }
+      if (FeatureSupport.hasAccessibilityShortcut(activity)) {
+        PreferenceSettingsUtils.hidePreferences(
+            context, getPreferenceScreen(), HIDDEN_PREFERENCE_KEY_IDS_WHEN_A11Y_SHORTCUT);
       }
       // Hiding the speech volume preference for devices which have separate audio a11y stream.
-      if (FormFactorUtils.hasAcessibilityAudioStream(activity)) {
+      if (FeatureSupport.hasAcessibilityAudioStream(activity)) {
         PreferenceSettingsUtils.hidePreferences(
-            mContext, getPreferenceScreen(), HIDDEN_PREF_KEY_IDS_WHEN_A11Y_AUDIO_STREAM);
+            context, getPreferenceScreen(), HIDDEN_PREF_KEY_IDS_WHEN_A11Y_AUDIO_STREAM);
+      }
+    }
+
+    private void removePreference(int categoryKeyId, int preferenceKeyId) {
+      final PreferenceGroup category = (PreferenceGroup) findPreferenceByResId(categoryKeyId);
+      if (category != null) {
+        PreferenceSettingsUtils.hidePreference(context, category, preferenceKeyId);
       }
     }
 
@@ -260,17 +246,19 @@ public class TalkBackPreferencesActivity extends Activity {
      * continue to be spoken. In M and below, hide this preference.
      */
     private void updateSpeakPasswordsPreference() {
-      if (FormFactorUtils.useSpeakPasswordsServicePref()) {
+      if (FeatureSupport.useSpeakPasswordsServicePref()) {
         // Read talkback speak-passwords preference, with default to system preference.
-        boolean speakPassValue = SpeakPasswordsManager.getAlwaysSpeakPasswordsPref(mContext);
+        boolean speakPassValue = SpeakPasswordsManager.getAlwaysSpeakPasswordsPref(context);
         // Update talkback preference display to match read value.
-        SwitchPreference prefSpeakPasswords =
-            (SwitchPreference)
+        TwoStatePreference prefSpeakPasswords =
+            (TwoStatePreference)
                 findPreferenceByResId(R.string.pref_speak_passwords_without_headphones);
-        prefSpeakPasswords.setChecked(speakPassValue);
+        if (prefSpeakPasswords != null) {
+          prefSpeakPasswords.setChecked(speakPassValue);
+        }
       } else {
         PreferenceSettingsUtils.hidePreference(
-            mContext, getPreferenceScreen(), R.string.pref_speak_passwords_without_headphones);
+            context, getPreferenceScreen(), R.string.pref_speak_passwords_without_headphones);
       }
     }
 
@@ -287,7 +275,7 @@ public class TalkBackPreferencesActivity extends Activity {
       Intent intent;
       // Only for watches, try the "market://" URL first. If there is a Play Store on the
       // device, this should succeed. Only for LE devices, there will be no Play Store.
-      if (mIsWatch) {
+      if (isWatch) {
         intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details" + path));
         if (canHandleIntent(intent)) {
           pref.setIntent(intent);
@@ -297,10 +285,10 @@ public class TalkBackPreferencesActivity extends Activity {
 
       Uri uri = Uri.parse("https://play.google.com/store/apps/details" + path);
       intent = new Intent(Intent.ACTION_VIEW, uri);
-      if (mIsWatch) {
+      if (isWatch) {
         // The play.google.com URL goes to ClockworkHome which needs an extra permission,
-        // just redirect to the the phone.
-        intent = RemoteIntent.intentToOpenUriOnPhone(uri);
+        // just redirect to the phone.
+        intent = RemoteIntentUtils.intentToOpenUriOnPhone(uri);
       } else if (!canHandleIntent(intent)) {
         category.removePreference(pref);
         return;
@@ -310,6 +298,11 @@ public class TalkBackPreferencesActivity extends Activity {
     }
 
     private void assignWebIntentToPreference(int preferenceId, String url) {
+
+      if (!SettingsUtils.allowLinksOutOfSettings(context)) {
+        return;
+      }
+
       Preference pref = findPreferenceByResId(preferenceId);
       if (pref == null) {
         return;
@@ -319,8 +312,8 @@ public class TalkBackPreferencesActivity extends Activity {
       Intent intent = new Intent(Intent.ACTION_VIEW, uri);
       Activity activity = getActivity();
       if (activity != null) {
-        if (mIsWatch) {
-          intent = RemoteIntent.intentToOpenUriOnPhone(uri);
+        if (isWatch) {
+          intent = RemoteIntentUtils.intentToOpenUriOnPhone(uri);
         } else if (!canHandleIntent(intent)) {
           intent = new Intent(activity, WebActivity.class);
           intent.setData(uri);
@@ -337,7 +330,7 @@ public class TalkBackPreferencesActivity extends Activity {
       }
       // We are not supporting feedback on the Wear device itself for initial launch of
       // TalkBack on Wear.
-      if (!mIsWatch
+      if (!isWatch
           && HelpAndFeedbackUtils.supportsHelpAndFeedback(getActivity().getApplicationContext())) {
         pref.setTitle(R.string.title_pref_help_and_feedback);
         pref.setOnPreferenceClickListener(
@@ -370,97 +363,26 @@ public class TalkBackPreferencesActivity extends Activity {
       super.onResume();
       TalkBackService talkBackService = TalkBackService.getInstance();
       if (talkBackService != null) {
-        talkBackService.addServiceStateListener(mServiceStateListener);
-        if (talkBackService.supportsTouchScreen()) {
-          registerTouchSettingObserver();
-        }
+        talkBackService.addServiceStateListener(serviceStateListener);
       }
 
-      if (mExploreByTouchDialog != null) {
-        mExploreByTouchDialog.show();
-      }
-
-      if (mTreeDebugDialog != null) {
-        mTreeDebugDialog.show();
-      }
-
-      if (mPerformanceStatsDialog != null) {
-        mPerformanceStatsDialog.show();
-      }
-
-      mPrefs.registerOnSharedPreferenceChangeListener(mSharedPreferenceChangeListener);
+      prefs.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
 
       updateTalkBackShortcutStatus();
       updateDimingPreferenceStatus();
-      updateDumpA11yEventPreferenceSummary();
       updateAudioFocusPreference();
+      updateTouchExplorationState(); // Developer-preferences sub-activity may set touch-explore.
     }
 
     @Override
     public void onPause() {
-      super.onPause();
       TalkBackService talkBackService = TalkBackService.getInstance();
       if (talkBackService != null) {
-        talkBackService.removeServiceStateListener(mServiceStateListener);
-      }
-      Activity activity = getActivity();
-      if (activity != null && mContentObserverRegistered) {
-        activity.getContentResolver().unregisterContentObserver(mTouchExploreObserver);
+        talkBackService.removeServiceStateListener(serviceStateListener);
       }
 
-      if (mExploreByTouchDialog != null) {
-        mExploreByTouchDialog.dismiss();
-      }
-
-      if (mTreeDebugDialog != null) {
-        mTreeDebugDialog.dismiss();
-      }
-
-      if (mPerformanceStatsDialog != null) {
-        mPerformanceStatsDialog.dismiss();
-      }
-      mPrefs.unregisterOnSharedPreferenceChangeListener(mSharedPreferenceChangeListener);
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
-      savedInstanceState.putBoolean(EXPLORE_BY_TOUCH_DIALOG_ACTIVE, mExploreByTouchDialog != null);
-      savedInstanceState.putBoolean(TREE_DEBUG_DIALOG_ACTIVE, mTreeDebugDialog != null);
-      savedInstanceState.putBoolean(
-          PERFORMANCE_STATS_DIALOG_ACTIVE, mPerformanceStatsDialog != null);
-      super.onSaveInstanceState(savedInstanceState);
-    }
-
-    @Override
-    public void onViewStateRestored(Bundle savedInstanceState) {
-      super.onViewStateRestored(savedInstanceState);
-
-      if (savedInstanceState == null) {
-        return;
-      }
-
-      if (savedInstanceState.getBoolean(EXPLORE_BY_TOUCH_DIALOG_ACTIVE)) {
-        mExploreByTouchDialog = createDisableExploreByTouchDialog();
-      }
-
-      if (savedInstanceState.getBoolean(TREE_DEBUG_DIALOG_ACTIVE)) {
-        mTreeDebugDialog = createEnableTreeDebugDialog();
-      }
-
-      if (savedInstanceState.getBoolean(PERFORMANCE_STATS_DIALOG_ACTIVE)) {
-        mPerformanceStatsDialog = createEnablePerfStatsDialog();
-      }
-    }
-
-    private void registerTouchSettingObserver() {
-      Activity activity = getActivity();
-      if (activity == null) {
-        return;
-      }
-
-      Uri uri = Settings.Secure.getUriFor(Settings.Secure.TOUCH_EXPLORATION_ENABLED);
-      activity.getContentResolver().registerContentObserver(uri, false, mTouchExploreObserver);
-      mContentObserverRegistered = true;
+      prefs.unregisterOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
+      super.onPause();
     }
 
     /** Assigns the intent to open text-to-speech settings. */
@@ -509,120 +431,6 @@ public class TalkBackPreferencesActivity extends Activity {
       }
     }
 
-    /** Assigns the appropriate intent to the label manager preference. */
-    private void assignLabelManagerIntent() {
-      final PreferenceGroup category =
-          (PreferenceGroup) findPreferenceByResId(R.string.pref_category_touch_exploration_key);
-      final Preference prefManageLabels = findPreferenceByResId(R.string.pref_manage_labels_key);
-
-      if ((category == null) || (prefManageLabels == null)) {
-        return;
-      }
-
-      Activity activity = getActivity();
-      if (activity != null) {
-        final Intent labelManagerIntent = new Intent(activity, LabelManagerSummaryActivity.class);
-        labelManagerIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        prefManageLabels.setIntent(labelManagerIntent);
-      }
-    }
-
-    /** Assigns the appropriate intent to the dump accessibility event preference. */
-    private void assignDumpA11yEventIntent() {
-      final Preference prefDumpA11yEvent = findPreferenceByResId(R.string.pref_dump_a11y_event_key);
-
-      if (prefDumpA11yEvent == null) {
-        return;
-      }
-
-      Activity activity = getActivity();
-      if (activity != null) {
-        final Intent filterA11yEventIntent =
-            new Intent(activity, TalkBackDumpAccessibilityEventActivity.class);
-        prefDumpA11yEvent.setIntent(filterA11yEventIntent);
-      }
-    }
-
-    /** Assigns the appropriate intent to the keyboard shortcut preference. */
-    private void assignKeyboardShortcutIntent() {
-      final PreferenceGroup category =
-          (PreferenceGroup) findPreferenceByResId(R.string.pref_category_miscellaneous_key);
-      final Preference keyboardShortcutPref =
-          findPreferenceByResId(R.string.pref_category_manage_keyboard_shortcut_key);
-
-      if ((category == null) || (keyboardShortcutPref == null)) {
-        return;
-      }
-
-      Activity activity = getActivity();
-      if (activity != null) {
-        final Intent keyboardShortcutIntent =
-            new Intent(activity, TalkBackKeyboardShortcutPreferencesActivity.class);
-        keyboardShortcutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        keyboardShortcutPref.setIntent(keyboardShortcutIntent);
-      }
-    }
-
-    /** Assigns verbosity preference item to verbosity activity intent. */
-    private void assignVerbosityIntent() {
-      // Find preference item for verbosity.
-      final PreferenceGroup category =
-          (PreferenceGroup) findPreferenceByResId(R.string.pref_category_when_to_speak_key);
-      final Preference preference = findPreferenceByResId(R.string.pref_verbosity_key);
-      if ((category == null) || (preference == null)) {
-        return;
-      }
-
-      // Assign intent that opens verbosity preferences activity.
-      Activity activity = getActivity();
-      if (activity != null) {
-        final Intent intent = new Intent(activity, TalkBackVerbosityPreferencesActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        preference.setIntent(intent);
-      }
-    }
-
-    /** Assigns the appropriate intent to the touch exploration preference. */
-    private void checkTouchExplorationSupport() {
-      final PreferenceGroup category =
-          (PreferenceGroup) findPreferenceByResId(R.string.pref_category_touch_exploration_key);
-      if (category == null) {
-        return;
-      }
-
-      checkTouchExplorationSupportInner();
-    }
-
-    /** Touch exploration preference management code */
-    private void checkTouchExplorationSupportInner() {
-      final TwoStatePreference prefTouchExploration =
-          (TwoStatePreference) findPreferenceByResId(R.string.pref_explore_by_touch_reflect_key);
-      if (prefTouchExploration == null) {
-        return;
-      }
-
-      // Ensure that changes to the reflected preference's checked state never
-      // trigger content observers.
-      prefTouchExploration.setPersistent(false);
-
-      // Synchronize the reflected state.
-      updateTouchExplorationState();
-
-      // Set up listeners that will keep the state synchronized.
-      prefTouchExploration.setOnPreferenceChangeListener(mTouchExplorationChangeListener);
-
-      // Hook in the external PreferenceActivity for gesture management
-      final Preference shortcutsScreen =
-          findPreferenceByResId(R.string.pref_category_manage_gestures_key);
-
-      Activity activity = getActivity();
-      if (activity != null) {
-        final Intent shortcutsIntent =
-            new Intent(activity, TalkBackShortcutPreferencesActivity.class);
-        shortcutsScreen.setIntent(shortcutsIntent);
-      }
-    }
-
     private void updateTalkBackShortcutStatus() {
       final TwoStatePreference preference =
           (TwoStatePreference) findPreferenceByResId(R.string.pref_two_volume_long_press_key);
@@ -633,90 +441,30 @@ public class TalkBackPreferencesActivity extends Activity {
     }
 
     private void updateDimingPreferenceStatus() {
-      final TwoStatePreference dimPreference =
-          (TwoStatePreference) findPreferenceByResId(R.string.pref_dim_when_talkback_enabled_key);
+      // Log an error if the device supports volume key shortcuts (i.e. those running Android N or
+      // earlier) but the dim screen shortcut switch is not available. Don't exit the function
+      // because we still want to set up the other switch.
       final TwoStatePreference dimShortcutPreference =
           (TwoStatePreference) findPreferenceByResId(R.string.pref_dim_volume_three_clicks_key);
-      if (dimPreference == null || dimShortcutPreference == null) {
-        return;
+      if (FeatureSupport.supportsVolumeKeyShortcuts() && dimShortcutPreference == null) {
+        LogUtils.e(TAG, "Expected switch for dim screen shortcut, but switch is not present.");
       }
+
       final TalkBackService talkBack = TalkBackService.getInstance();
-      if (talkBack == null || !DimScreenControllerApp.isSupported(talkBack)) {
+      if (talkBack == null || !DimScreenControllerApp.isSupportedbyPlatform(talkBack)) {
+        LogUtils.i(
+            TAG,
+            "Either TalkBack could not be found, or the platform does not support screen dimming.");
         final PreferenceGroup category =
             (PreferenceGroup) findPreferenceByResId(R.string.pref_category_miscellaneous_key);
         if (category == null) {
           return;
         }
-        category.removePreference(dimPreference);
-        category.removePreference(dimShortcutPreference);
-        return;
-      }
-
-      // Make sure that we have the latest value of the dim preference before continuing.
-      boolean dimEnabled =
-          SharedPreferencesUtils.getBooleanPref(
-              mPrefs,
-              getResources(),
-              R.string.pref_dim_when_talkback_enabled_key,
-              R.bool.pref_dim_when_talkback_enabled_default);
-      dimPreference.setChecked(dimEnabled);
-
-      dimPreference.setEnabled(TalkBackService.isServiceActive() || dimPreference.isChecked());
-      dimPreference.setOnPreferenceChangeListener(
-          new OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-              if (newValue == null || !(newValue instanceof Boolean)) {
-                return true;
-              }
-
-              boolean dimPreferenceOn = (Boolean) newValue;
-
-              if (dimPreferenceOn) {
-                if (talkBack != null) {
-                  // A TalkBack instance should be available if you can check the box,
-                  // but let's err on the side of safety here.
-                  talkBack.getDimScreenController().showDimScreenDialog();
-                }
-                return false; // The DimScreenController will take care of any pref changes.
-              } else {
-                if (talkBack != null) {
-                  // We allow turning off screen dimming when TalkBack is off, so we
-                  // definitely do need to check if a TalkBack instance is available.
-                  talkBack.getDimScreenController().disableDimming();
-                }
-                if (!TalkBackService.isServiceActive()) {
-                  dimPreference.setEnabled(false);
-                }
-                return true; // Let the preferences system turn the preference off.
-              }
-            }
-          });
-    }
-
-    private void updateDumpA11yEventPreferenceSummary() {
-      final Preference prefDumpA11yEvent = findPreferenceByResId(R.string.pref_dump_a11y_event_key);
-
-      if (prefDumpA11yEvent == null || mPrefs == null) {
-        return;
-      }
-
-      int count = 0;
-      int[] eventTypes = AccessibilityEventUtils.getAllEventTypes();
-
-      for (int id : eventTypes) {
-        String prefKey = getString(R.string.pref_dump_event_key_prefix, id);
-        if (mPrefs.getBoolean(prefKey, false)) {
-          count++;
+        if (dimShortcutPreference != null) {
+          category.removePreference(dimShortcutPreference);
         }
+        return;
       }
-
-      prefDumpA11yEvent.setSummary(
-          getResources()
-              .getQuantityString(
-                  R.plurals.template_dump_event_count, /* id */
-                  count, /* quantity */
-                  count /* formatArgs */));
     }
 
     /**
@@ -725,12 +473,6 @@ public class TalkBackPreferencesActivity extends Activity {
      * exploration changes.
      */
     private void updateTouchExplorationState() {
-      final TwoStatePreference prefTouchExploration =
-          (TwoStatePreference) findPreferenceByResId(R.string.pref_explore_by_touch_reflect_key);
-
-      if (prefTouchExploration == null) {
-        return;
-      }
 
       Activity activity = getActivity();
       if (activity == null) {
@@ -743,7 +485,6 @@ public class TalkBackPreferencesActivity extends Activity {
       final boolean requestedState =
           SharedPreferencesUtils.getBooleanPref(
               prefs, res, R.string.pref_explore_by_touch_key, R.bool.pref_explore_by_touch_default);
-      final boolean reflectedState = prefTouchExploration.isChecked();
       final boolean actualState;
 
       // If accessibility is disabled then touch exploration is always
@@ -754,30 +495,23 @@ public class TalkBackPreferencesActivity extends Activity {
         actualState = requestedState;
       }
 
-      // If touch exploration is actually off and we requested it on, the user
-      // must have declined the "Enable touch exploration" dialog. Update the
-      // requested value to reflect this.
-      if (requestedState != actualState) {
-        LogUtils.log(
-            this,
-            Log.DEBUG,
-            "Set touch exploration preference to reflect actual state %b",
-            actualState);
-        SharedPreferencesUtils.putBooleanPref(
-            prefs, res, R.string.pref_explore_by_touch_key, actualState);
+      // Enable/disable preferences that depend on explore-by-touch.
+      // Cannot use "dependency" attribute in preferences XML file, because touch-explore-preference
+      // is in a different preference-activity (developer preferences).
+      Preference singleTapPref = findPreferenceByResId(R.string.pref_single_tap_key);
+      if (singleTapPref != null) {
+        singleTapPref.setEnabled(actualState);
       }
-
-      // Ensure that the check box preference reflects the requested state,
-      // which was just synchronized to match the actual state.
-      if (reflectedState != actualState) {
-        prefTouchExploration.setChecked(actualState);
+      Preference tutorialPref = findPreferenceByResId(R.string.pref_tutorial_key);
+      if (tutorialPref != null) {
+        tutorialPref.setEnabled(actualState);
       }
     }
 
     /** Update the audio focus if the activity is visible and the selector has changed the state. */
     private void updateAudioFocusPreference() {
-      final SwitchPreference audioFocusPreference =
-          (SwitchPreference) findPreferenceByResId(R.string.pref_use_audio_focus_key);
+      final TwoStatePreference audioFocusPreference =
+          (TwoStatePreference) findPreferenceByResId(R.string.pref_use_audio_focus_key);
       if (audioFocusPreference == null) {
         return;
       }
@@ -786,7 +520,7 @@ public class TalkBackPreferencesActivity extends Activity {
       // continuing.
       boolean focusEnabled =
           SharedPreferencesUtils.getBooleanPref(
-              mPrefs,
+              prefs,
               getResources(),
               R.string.pref_use_audio_focus_key,
               R.bool.pref_use_audio_focus_default);
@@ -800,7 +534,7 @@ public class TalkBackPreferencesActivity extends Activity {
      *
      * <p>TODO: Move this method to TalkBackService.
      */
-    public static boolean isTouchExplorationEnabled(ContentResolver resolver) {
+    private static boolean isTouchExplorationEnabled(ContentResolver resolver) {
       return Settings.Secure.getInt(resolver, Settings.Secure.TOUCH_EXPLORATION_ENABLED, 0) == 1;
     }
 
@@ -824,26 +558,11 @@ public class TalkBackPreferencesActivity extends Activity {
           // First make sure the current summary is correct, then set the
           // listener. This is necessary for summaries to show correctly
           // on SDKs < 14.
-          mPreferenceChangeListener.onPreferenceChange(
+          preferenceChangeListener.onPreferenceChange(
               preference, ((ListPreference) preference).getValue());
 
-          preference.setOnPreferenceChangeListener(mPreferenceChangeListener);
+          preference.setOnPreferenceChangeListener(preferenceChangeListener);
         }
-      }
-    }
-
-    /**
-     * Ensure that web script injection settings do not appear on devices before user-customization
-     * of web-scripts were available in the framework.
-     */
-    private void checkWebScriptsSupport() {
-      // TalkBack can control web script injection on API 18+ only.
-      final PreferenceGroup category =
-          (PreferenceGroup) findPreferenceByResId(R.string.pref_category_developer_key);
-      final Preference prefWebScripts = findPreferenceByResId(R.string.pref_web_scripts_key);
-
-      if (prefWebScripts != null) {
-        category.removePreference(prefWebScripts);
       }
     }
 
@@ -868,28 +587,6 @@ public class TalkBackPreferencesActivity extends Activity {
       if (prefVibration != null) {
         prefVibration.setChecked(false);
         category.removePreference(prefVibration);
-      }
-    }
-
-    /** Ensure selector setting does not appear on devices without fingerprint sensor. */
-    private void maybeUpdatePreferencesForSelectorSupport() {
-      boolean hasFingerprintSensor = HardwareUtils.isFingerprintSupported(getActivity());
-      boolean androidAtLeastO = BuildVersionUtils.isAtLeastO();
-      // If selector not supported...
-      if (!hasFingerprintSensor || !androidAtLeastO) {
-        // Find selector preferences.
-        PreferenceGroup enclosingPrefGroup =
-            (PreferenceGroup) findPreferenceByResId(R.string.pref_category_touch_exploration_key);
-        PreferenceGroup selectorPrefs =
-            (PreferenceGroup) findPreferenceByResId(R.string.pref_selector_category_settings_key);
-        final TwoStatePreference prefSelectorOn =
-            (TwoStatePreference) findPreferenceByResId(R.string.pref_selector_activation_key);
-
-        // Turn off selector and remove selector preference group.
-        if (prefSelectorOn != null) {
-          prefSelectorOn.setChecked(false);
-          enclosingPrefGroup.removePreference(selectorPrefs);
-        }
       }
     }
 
@@ -922,60 +619,39 @@ public class TalkBackPreferencesActivity extends Activity {
     }
 
     /**
-     * Ensure that the shake to start continuous reading setting does not appear on devices without
-     * a proximity sensor.
+     * Ensure that dim-screen volume-key shortcut does not appear on android where volume-key
+     * shortcuts do not work.
      */
-    private void checkAccelerometerSupport() {
-      Activity activity = getActivity();
-      if (activity == null) {
-        return;
-      }
-
-      final SensorManager manager = (SensorManager) activity.getSystemService(SENSOR_SERVICE);
-      final Sensor accel = manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-
-      if (accel != null) {
-        return;
-      }
-
-      final PreferenceGroup category =
-          (PreferenceGroup) findPreferenceByResId(R.string.pref_category_when_to_speak_key);
-      final ListPreference prefShake =
-          (ListPreference) findPreferenceByResId(R.string.pref_shake_to_read_threshold_key);
-
-      if (prefShake != null) {
-        category.removePreference(prefShake);
+    private void checkDimScreenShortcutSupport() {
+      if (!FeatureSupport.supportsVolumeKeyShortcuts()) {
+        removePreference(
+            R.string.pref_category_miscellaneous_key, R.string.pref_dim_volume_three_clicks_key);
       }
     }
+
 
     /**
      * Checks if the device is Android TV and removes preferences that shouldn't be set when on
      * Android TV.
      */
     private void checkTelevision() {
-      if (FormFactorUtils.isContextTelevision(getActivity())) {
+      if (FeatureSupport.isTv(getActivity())) {
         final PreferenceGroup touchCategory =
             (PreferenceGroup) findPreferenceByResId(R.string.pref_category_touch_exploration_key);
         final PreferenceGroup miscCategory =
             (PreferenceGroup) findPreferenceByResId(R.string.pref_category_miscellaneous_key);
 
-        final Preference dimPreference =
-            findPreferenceByResId(R.string.pref_dim_when_talkback_enabled_key);
         final Preference dimShortcutPreference =
             findPreferenceByResId(R.string.pref_dim_volume_three_clicks_key);
         final Preference suspendShortcutPreference =
             findPreferenceByResId(R.string.pref_two_volume_long_press_key);
         final Preference resumePreference =
             findPreferenceByResId(R.string.pref_resume_talkback_key);
-        final Preference treeDebugPreference =
-            findPreferenceByResId(R.string.pref_tree_debug_reflect_key);
 
         getPreferenceScreen().removePreference(touchCategory);
-        miscCategory.removePreference(dimPreference);
         miscCategory.removePreference(dimShortcutPreference);
         miscCategory.removePreference(suspendShortcutPreference);
         miscCategory.removePreference(resumePreference);
-        treeDebugPreference.setSummary(getString(R.string.summary_pref_tree_debug_tv));
       }
     }
 
@@ -984,13 +660,25 @@ public class TalkBackPreferencesActivity extends Activity {
      * Wear.
      */
     private void maybeUpdatePreferencesForWatch() {
-      if (mIsWatch) {
+      if (isWatch) {
         PreferenceSettingsUtils.hidePreferences(
-            mContext, getPreferenceScreen(), HIDDEN_PREFERENCE_KEY_IDS_ON_WATCH);
+            context, getPreferenceScreen(), HIDDEN_PREFERENCE_KEY_IDS_ON_WATCH);
       }
     }
 
-    private static PackageInfo getPackageInfo(Activity activity) {
+    /**
+     * Checks if the device is a Jasper Assistant with a screen and removes preferences that
+     * shouldn't be set there.
+     */
+    private void maybeUpdatePreferencesForJasper() {
+      TalkBackService service = TalkBackService.getInstance();
+      if (service != null && service.getCompositorFlavor() == Compositor.FLAVOR_JASPER) {
+        PreferenceSettingsUtils.hidePreferences(
+            context, getPreferenceScreen(), HIDDEN_PREFERENCE_KEY_IDS_ON_JASPER);
+      }
+    }
+
+    private static @Nullable PackageInfo getPackageInfo(Activity activity) {
       try {
         return activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
       } catch (NameNotFoundException e) {
@@ -1056,495 +744,11 @@ public class TalkBackPreferencesActivity extends Activity {
     }
 
     /**
-     * Updates the preference that controls whether TalkBack will attempt to request Explore by
-     * Touch.
-     *
-     * @param requestedState The state requested by the user.
-     * @return Whether to update the reflected state.
-     */
-    private boolean setTouchExplorationRequested(boolean requestedState) {
-      Activity activity = getActivity();
-      if (activity == null) {
-        return false;
-      }
-
-      final SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(activity);
-
-      // Update the "requested" state. This will trigger a listener in
-      // TalkBack that changes the "actual" state.
-      SharedPreferencesUtils.putBooleanPref(
-          prefs, getResources(), R.string.pref_explore_by_touch_key, requestedState);
-
-      // If TalkBack is inactive, we should immediately reflect the change in
-      // "requested" state.
-      if (!TalkBackService.isServiceActive()) {
-        return true;
-      }
-      if (requestedState && TalkBackService.getInstance() != null) {
-        TalkBackService.getInstance().showTutorialIfNecessary();
-      }
-
-      // If accessibility is on, we should wait for the "actual" state to
-      // change, then reflect that change. If the user declines the system's
-      // touch exploration dialog, the "actual" state will not change and
-      // nothing needs to happen.
-      LogUtils.log(this, Log.DEBUG, "TalkBack active, waiting for EBT request to take effect");
-      return false;
-    }
-
-    private AlertDialog createDisableExploreByTouchDialog() {
-      Activity activity = getActivity();
-      if (activity == null) {
-        return null;
-      }
-
-      final DialogInterface.OnCancelListener cancel =
-          new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-              mExploreByTouchDialog = null;
-            }
-          };
-
-      final DialogInterface.OnClickListener cancelClick =
-          new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-              mExploreByTouchDialog = null;
-            }
-          };
-
-      final DialogInterface.OnClickListener okClick =
-          new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-              mExploreByTouchDialog = null;
-              if (setTouchExplorationRequested(false)) {
-                // Manually tick the check box since we're not returning to
-                // the preference change listener.
-                final TwoStatePreference prefTouchExploration =
-                    (TwoStatePreference)
-                        findPreferenceByResId(R.string.pref_explore_by_touch_reflect_key);
-                prefTouchExploration.setChecked(false);
-              }
-            }
-          };
-
-      return new AlertDialog.Builder(activity)
-          .setTitle(R.string.dialog_title_disable_exploration)
-          .setMessage(R.string.dialog_message_disable_exploration)
-          .setNegativeButton(android.R.string.cancel, cancelClick)
-          .setPositiveButton(android.R.string.ok, okClick)
-          .setOnCancelListener(cancel)
-          .create();
-    }
-
-    private AlertDialog createEnableTreeDebugDialog() {
-      Activity activity = getActivity();
-      if (activity == null) {
-        return null;
-      }
-
-      final DialogInterface.OnCancelListener cancel =
-          new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-              mTreeDebugDialog = null;
-            }
-          };
-
-      final DialogInterface.OnClickListener cancelClick =
-          new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-              mTreeDebugDialog = null;
-            }
-          };
-
-      final DialogInterface.OnClickListener okClick =
-          new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-              mTreeDebugDialog = null;
-
-              Activity innerActivity = getActivity();
-              if (innerActivity == null) {
-                return;
-              }
-
-              final SharedPreferences prefs =
-                  SharedPreferencesUtils.getSharedPreferences(innerActivity);
-              SharedPreferencesUtils.putBooleanPref(
-                  prefs, getResources(), R.string.pref_tree_debug_key, true);
-
-              // Manually tick the check box since we're not returning to
-              // the preference change listener.
-              final TwoStatePreference prefTreeDebug =
-                  (TwoStatePreference) findPreferenceByResId(R.string.pref_tree_debug_reflect_key);
-              prefTreeDebug.setChecked(true);
-            }
-          };
-
-      return new AlertDialog.Builder(activity)
-          .setTitle(R.string.dialog_title_enable_tree_debug)
-          .setMessage(R.string.dialog_message_enable_tree_debug)
-          .setNegativeButton(android.R.string.cancel, cancelClick)
-          .setPositiveButton(android.R.string.ok, okClick)
-          .setOnCancelListener(cancel)
-          .create();
-    }
-
-    private AlertDialog createEnablePerfStatsDialog() {
-      Activity activity = getActivity();
-      if (activity == null) {
-        return null;
-      }
-
-      final DialogInterface.OnCancelListener cancel =
-          new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-              mPerformanceStatsDialog = null;
-            }
-          };
-
-      final DialogInterface.OnClickListener cancelClick =
-          new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-              mPerformanceStatsDialog = null;
-            }
-          };
-
-      final DialogInterface.OnClickListener okClick =
-          new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-              mPerformanceStatsDialog = null;
-
-              Activity innerActivity = getActivity();
-              if (innerActivity == null) {
-                return;
-              }
-
-              final SharedPreferences prefs =
-                  SharedPreferencesUtils.getSharedPreferences(innerActivity);
-              SharedPreferencesUtils.putBooleanPref(
-                  prefs, getResources(), R.string.pref_performance_stats_key, true);
-
-              // Manually tick the check box since we're not returning to
-              // the preference change listener.
-              final TwoStatePreference prefPerformanceStats =
-                  (TwoStatePreference)
-                      findPreferenceByResId(R.string.pref_performance_stats_reflect_key);
-              prefPerformanceStats.setChecked(true);
-            }
-          };
-
-      return new AlertDialog.Builder(activity)
-          .setTitle(R.string.dialog_title_enable_performance_stats)
-          .setMessage(R.string.dialog_message_enable_performance_stats)
-          .setNegativeButton(android.R.string.cancel, cancelClick)
-          .setPositiveButton(android.R.string.ok, okClick)
-          .setOnCancelListener(cancel)
-          .create();
-    }
-
-    private final Handler mHandler = new Handler();
-
-    private final ContentObserver mTouchExploreObserver =
-        new ContentObserver(mHandler) {
-          @Override
-          public void onChange(boolean selfChange) {
-            if (selfChange) {
-              return;
-            }
-
-            // The actual state of touch exploration has changed.
-            updateTouchExplorationState();
-          }
-        };
-
-    private final OnPreferenceChangeListener mTouchExplorationChangeListener =
-        new OnPreferenceChangeListener() {
-          @Override
-          public boolean onPreferenceChange(Preference preference, Object newValue) {
-            final boolean requestedState = Boolean.TRUE.equals(newValue);
-
-            // If the user is trying to turn touch exploration off, show
-            // a confirmation dialog and don't change anything.
-            if (!requestedState) {
-              (mExploreByTouchDialog = createDisableExploreByTouchDialog()).show();
-              return false;
-            }
-
-            return setTouchExplorationRequested(true); // requestedState
-          }
-        };
-
-    private final OnPreferenceChangeListener mTreeDebugChangeListener =
-        new OnPreferenceChangeListener() {
-          @Override
-          public boolean onPreferenceChange(Preference preference, Object newValue) {
-            Activity activity = getActivity();
-            if (activity == null) {
-              return false;
-            }
-
-            // If the user is trying to turn node tree debugging on, show
-            // a confirmation dialog and don't change anything.
-            if (Boolean.TRUE.equals(newValue)) {
-              (mTreeDebugDialog = createEnableTreeDebugDialog()).show();
-              return false;
-            }
-
-            // If the user is turning node tree debugging off, then any
-            // gestures currently set to print the node tree should be
-            // made unassigned.
-            disableAndRemoveGesture(
-                activity, R.string.pref_tree_debug_key, R.string.shortcut_value_print_node_tree);
-
-            return true;
-          }
-        };
-
-    private final OnPreferenceChangeListener mSelectorActivationChangeListener =
-        new OnPreferenceChangeListener() {
-          @Override
-          public boolean onPreferenceChange(Preference preference, Object newValue) {
-            if (Boolean.TRUE.equals(newValue)) {
-              // Assign selector shortcuts.
-              assignSelectorShortcuts();
-              enableOrDisableSelectorSettings(true); // Enable preferences for settings.
-            } else {
-              // Remove all selector assignments and restore pre-selector assignments.
-              removeSelectorShortcuts();
-              enableOrDisableSelectorSettings(false);
-            }
-            return true;
-          }
-        };
-
-    /**
-     * Initialize gestures with selector shortcuts, or restore any previous selector assignments.
-     */
-    private void assignSelectorShortcuts() {
-      String selectorSavedKeySuffix = getString(R.string.pref_selector_saved_gesture_suffix);
-
-      // If a device has a fingerprint sensor, assign gestures to the selector shortcut values
-      // If not, it is up to the user to assign gestures.
-      if (HardwareUtils.isFingerprintSupported(getActivity())) {
-        // If this is the first time the selector is turned on, assign selector shortcuts to
-        // specific gestures.
-        if (mPrefs.getBoolean(getString(R.string.pref_selector_first_time_activation_key), true)) {
-          setInitialSelectorShortcuts(selectorSavedKeySuffix);
-        } else {
-          // Reassign saved selector assignments.
-          restoreSelectorShortcuts(selectorSavedKeySuffix);
-        }
-      } else {
-        // In case of first time activation, do nothing. Otherwise reassign.
-        restoreSelectorShortcuts(selectorSavedKeySuffix);
-      }
-    }
-
-    /** Set the initial selector assignments for first time activation. */
-    private void setInitialSelectorShortcuts(String selectorSavedKeySuffix) {
-      String[] initialSelectorGestures =
-          mContext.getResources().getStringArray(R.array.initial_selector_gestures);
-      String[] selectorShortcutValues =
-          mContext.getResources().getStringArray(R.array.selector_shortcut_values);
-      String notSelectorSavedKeySuffix = getString(R.string.pref_not_selector_saved_gesture_suffix);
-
-      if (initialSelectorGestures.length != selectorShortcutValues.length) {
-        return;
-      }
-
-      for (int i = 0; i < initialSelectorGestures.length; i++) {
-        if (mPrefs.contains(initialSelectorGestures[i])) {
-          // Save the current assignments for initial gestures.
-          mPrefs
-              .edit()
-              .putString(
-                  initialSelectorGestures[i] + notSelectorSavedKeySuffix,
-                  mPrefs.getString(initialSelectorGestures[i], null)) // Will never return null.
-              .apply();
-        }
-
-        // Save the selector assignments for initial gestures.
-        mPrefs
-            .edit()
-            .putString(
-                initialSelectorGestures[i] + selectorSavedKeySuffix, selectorShortcutValues[i])
-            .apply();
-
-        // Assign selector shortcuts to gestures.
-        mPrefs.edit().putString(initialSelectorGestures[i], selectorShortcutValues[i]).apply();
-      }
-      mPrefs
-          .edit()
-          .putBoolean(getString(R.string.pref_selector_first_time_activation_key), false)
-          .apply();
-    }
-
-    /** Reassign any saved selector assignments. */
-    private void restoreSelectorShortcuts(String selectorSavedKeySuffix) {
-      String[] gestureShortcutKeys =
-          mContext.getResources().getStringArray(R.array.pref_shortcut_keys);
-
-      for (String gestureShortcutKey : gestureShortcutKeys) {
-        // Assign the gesture to its saved selector shortcut. There is no need to backup the
-        // non-selector value here, since it gets backed up in the preference change listener for
-        // the gesture in TalkBackPreferencesActivity, where we make sure the old value
-        // (the value to save) of the preference is non-selector and the new value is selector.
-        setPrefWithBackup(gestureShortcutKey, selectorSavedKeySuffix);
-      }
-    }
-
-    /** Reassign the gestures with selector shortcut assignments to their pre-selector shortcuts. */
-    private void removeSelectorShortcuts() {
-      String[] gestureShortcutKeys =
-          mContext.getResources().getStringArray(R.array.pref_shortcut_keys);
-
-      // Iterate through all the gestures and their shortcut assignments.
-      for (String gestureShortcutKey : gestureShortcutKeys) {
-        if (mPrefs.contains(gestureShortcutKey)) {
-          String gestureAction =
-              mPrefs.getString(gestureShortcutKey, null); // Null will never be used.
-          // Check if assigned action for a gesture is a selector shortcut. If it is,
-          // replace with the saved non-selector preference and save the selector assignment.
-          if (isSelectorAction(gestureAction)) {
-            handleSelectorShortcutRemoval(gestureShortcutKey, gestureAction);
-          }
-        }
-      }
-    }
-
-    /**
-     * Handle the backup and restoration of a gesture assigned to a selector shortcut. Backup the
-     * selector action, and restore the non-selector action.
-     */
-    private void handleSelectorShortcutRemoval(String prefKey, String selectorAction) {
-      String notSelectorSavedKeySuffix = getString(R.string.pref_not_selector_saved_gesture_suffix);
-      String selectorSavedKeySuffix = getString(R.string.pref_selector_saved_gesture_suffix);
-
-      // If the non-selector backup exists, use this backup.
-      if (setPrefWithBackup(prefKey, notSelectorSavedKeySuffix)) {
-        // Backup the selector value of this gesture.
-        mPrefs.edit().putString(prefKey + selectorSavedKeySuffix, selectorAction).apply();
-      } else {
-        // Non-selector backup doesn't exist, so gesture was never initially assigned before being
-        // assigned to a selector shortcut. Remove the key from preferences, so the default value
-        // of the gesture is used.
-        mPrefs.edit().remove(prefKey).apply();
-      }
-    }
-
-    /**
-     * Assign to a preference its backup value.
-     *
-     * @param prefKey the key of the preference to restore.
-     * @param newBackupSuffix the string to append to the preference key for retrieving the backup
-     *     value.
-     * @return {@code true} if the backup value exists and the preference is assigned to this value.
-     */
-    private boolean setPrefWithBackup(String prefKey, String newBackupSuffix) {
-      if (mPrefs.contains(prefKey + newBackupSuffix)) {
-        String newValue =
-            mPrefs.getString(prefKey + newBackupSuffix, null); // Will never return null.
-        mPrefs.edit().putString(prefKey, newValue).apply();
-        return true;
-      }
-      return false;
-    }
-
-    /** Check if assigned action for a gesture is a selector shortcut. */
-    private boolean isSelectorAction(String gestureAction) {
-      String[] selectorShortcutValues =
-          mContext.getResources().getStringArray(R.array.selector_shortcut_values);
-      // Iterate through the selector shortcut values.
-      for (String selectorShortcutValue : selectorShortcutValues) {
-        if (gestureAction.equals(selectorShortcutValue)) {
-          return true;
-        }
-      }
-      return false;
-    }
-
-    /**
-     * Enables or disables the setting configuration preference category, depending on the on/off
-     * state of the selector.
-     */
-    private void enableOrDisableSelectorSettings(boolean enable) {
-      PreferenceCategory settingsCategory =
-          (PreferenceCategory)
-              findPreferenceByResId(R.string.pref_category_selector_settings_configuration_key);
-      if (settingsCategory == null) {
-        return;
-      }
-
-      final int count = settingsCategory.getPreferenceCount();
-
-      for (int i = 0; i < count; i++) {
-        final Preference preference = settingsCategory.getPreference(i);
-
-        if (preference instanceof SwitchPreference) {
-          SwitchPreference switchPreference = (SwitchPreference) preference;
-          switchPreference.setEnabled(enable);
-        }
-      }
-    }
-
-    private final OnPreferenceChangeListener mPerformanceStatsChangeListener =
-        new OnPreferenceChangeListener() {
-          @Override
-          public boolean onPreferenceChange(Preference preference, Object newValue) {
-            Activity activity = getActivity();
-            if (activity == null) {
-              return false;
-            }
-
-            // If the user is enabling performance statistics... show confirmation dialog.
-            if (Boolean.TRUE.equals(newValue)) {
-              (mPerformanceStatsDialog = createEnablePerfStatsDialog()).show();
-              return false;
-            }
-
-            // If the user is disabling performance statistics... disable & unassign gesture.
-            disableAndRemoveGesture(
-                activity,
-                R.string.pref_performance_stats_key,
-                R.string.shortcut_value_print_performance_stats);
-
-            return true;
-          }
-        };
-
-    protected void disableAndRemoveGesture(Activity activity, int prefKeyRes, int shortcutRes) {
-      // Set preference to false
-      final SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(activity);
-      final SharedPreferences.Editor prefEditor = prefs.edit();
-      prefEditor.putBoolean(getString(prefKeyRes), false);
-      // Gesstures may need to be reassigned if disabling developer options, like node tree
-      // debugging and performance tracking.
-      final String[] gesturePrefKeys = getResources().getStringArray(R.array.pref_shortcut_keys);
-
-      // For each gesture that matches shortcut... unassign gesture.
-      for (String prefKey : gesturePrefKeys) {
-        final String currentValue = prefs.getString(prefKey, null);
-        if (getString(shortcutRes).equals(currentValue)) {
-          prefEditor.putString(prefKey, getString(R.string.shortcut_value_unassigned));
-        }
-      }
-      prefEditor.apply();
-    }
-
-    /**
      * Listens for preference changes and updates the summary to reflect the current setting. This
      * shouldn't be necessary, since preferences are supposed to automatically do this when the
      * summary is set to "%s".
      */
-    private final OnPreferenceChangeListener mPreferenceChangeListener =
+    private final OnPreferenceChangeListener preferenceChangeListener =
         new OnPreferenceChangeListener() {
           @Override
           public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -1564,7 +768,7 @@ public class TalkBackPreferencesActivity extends Activity {
             if (getString(R.string.pref_resume_talkback_key).equals(key)) {
               final String oldValue =
                   SharedPreferencesUtils.getStringPref(
-                      mPrefs,
+                      prefs,
                       getResources(),
                       R.string.pref_resume_talkback_key,
                       R.string.pref_resume_talkback_default);
@@ -1572,10 +776,7 @@ public class TalkBackPreferencesActivity extends Activity {
                 // Reset the suspend warning dialog when the resume
                 // preference changes.
                 SharedPreferencesUtils.putBooleanPref(
-                    mPrefs,
-                    getResources(),
-                    R.string.pref_show_suspension_confirmation_dialog,
-                    true);
+                    prefs, getResources(), R.string.pref_show_suspension_confirmation_dialog, true);
               }
             }
 
@@ -1584,15 +785,12 @@ public class TalkBackPreferencesActivity extends Activity {
         };
 
     /** Listens to shared preference changes and updates the preference items accordingly. */
-    private final OnSharedPreferenceChangeListener mSharedPreferenceChangeListener =
+    private final OnSharedPreferenceChangeListener sharedPreferenceChangeListener =
         new OnSharedPreferenceChangeListener() {
           @Override
           public void onSharedPreferenceChanged(SharedPreferences sharedPrefs, String key) {
-            String dimKey = getString(R.string.pref_dim_when_talkback_enabled_key);
-            String audioFocusKey = mContext.getString(R.string.pref_use_audio_focus_key);
-            if (key != null && key.equals(dimKey)) {
-              updateDimingPreferenceStatus();
-            } else if (key != null && key.equals(audioFocusKey)) {
+            String audioFocusKey = context.getString(R.string.pref_use_audio_focus_key);
+            if (key != null && key.equals(audioFocusKey)) {
               updateAudioFocusPreference();
             }
           }
@@ -1602,7 +800,7 @@ public class TalkBackPreferencesActivity extends Activity {
      * Listens to changes in the TalkBack state to determine which preference items should be enable
      * or disabled.
      */
-    private final ServiceStateListener mServiceStateListener =
+    private final ServiceStateListener serviceStateListener =
         new ServiceStateListener() {
           @Override
           public void onServiceStateChanged(int newState) {

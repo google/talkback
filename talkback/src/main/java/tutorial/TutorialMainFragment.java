@@ -17,9 +17,9 @@
 package com.google.android.accessibility.talkback.tutorial;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,20 +43,20 @@ public class TutorialMainFragment extends Fragment implements AccessibilityEvent
           | AccessibilityEvent.TYPE_TOUCH_INTERACTION_END
           | AccessibilityEvent.TYPE_VIEW_HOVER_ENTER;
 
-  private TutorialNavigationCallback mLessonSelectedCallback;
-  private TutorialController mTutorialController;
-  private HoverTrackingButton mOffButton;
-  private HoverTrackingLinearLayout mParentLayout;
-  private boolean mOtherViewHovered;
+  private TutorialNavigationCallback lessonSelectedCallback;
+  private TutorialController tutorialController;
+  private HoverTrackingButton offButton;
+  private HoverTrackingLinearLayout parentLayout;
+  private boolean otherViewHovered;
   /** Flag to indicate presence of navigation up button. */
-  private boolean mNavigationUpFlag;
+  private boolean navigationUpFlag;
 
   public void setOnLessonSelectedCallback(TutorialNavigationCallback callback) {
-    mLessonSelectedCallback = callback;
+    lessonSelectedCallback = callback;
   }
 
   public void setTutorialController(TutorialController controller) {
-    mTutorialController = controller;
+    tutorialController = controller;
   }
 
   /**
@@ -67,11 +67,11 @@ public class TutorialMainFragment extends Fragment implements AccessibilityEvent
    */
   public void setIfBackNavigationReq(String source) {
     if (TextUtils.equals(source, TalkBackService.TUTORIAL_SRC)) {
-      mNavigationUpFlag = false;
+      navigationUpFlag = false;
     } else if (TextUtils.equals(source, TalkBackPreferencesActivity.TUTORIAL_SRC)) {
-      mNavigationUpFlag = true;
+      navigationUpFlag = true;
     } else {
-      mNavigationUpFlag = false;
+      navigationUpFlag = false;
     }
   }
 
@@ -89,13 +89,13 @@ public class TutorialMainFragment extends Fragment implements AccessibilityEvent
     ActionBar actionBar = (activity == null) ? null : activity.getSupportActionBar();
     if (actionBar != null) {
       actionBar.setTitle(R.string.tutorial_title);
-      actionBar.setDisplayHomeAsUpEnabled(mNavigationUpFlag);
+      actionBar.setDisplayHomeAsUpEnabled(navigationUpFlag);
     }
   }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
-    if (mTutorialController == null || mLessonSelectedCallback == null) {
+    if (tutorialController == null || lessonSelectedCallback == null) {
       return null;
     }
 
@@ -103,16 +103,15 @@ public class TutorialMainFragment extends Fragment implements AccessibilityEvent
 
     ListView lessonListView = (ListView) view.findViewById(R.id.list);
     LessonsAdapter adapter =
-        new LessonsAdapter(
-            getActivity(), mTutorialController.getTutorial(), mLessonSelectedCallback);
+        new LessonsAdapter(getActivity(), tutorialController.getTutorial(), lessonSelectedCallback);
     lessonListView.setAdapter(adapter);
-    mOffButton = (HoverTrackingButton) view.findViewById(R.id.offButton);
-    mParentLayout = (HoverTrackingLinearLayout) view.findViewById(R.id.parentLayout);
+    offButton = (HoverTrackingButton) view.findViewById(R.id.offButton);
+    parentLayout = (HoverTrackingLinearLayout) view.findViewById(R.id.parentLayout);
 
     if (BuildVersionUtils.isAtLeastN() && TalkBackService.getInstance() != null) {
       TalkBackService.getInstance().addEventListener(this);
-    } else if (mOffButton != null) {
-      mOffButton.setVisibility(View.GONE);
+    } else if (offButton != null) {
+      offButton.setVisibility(View.GONE);
     }
 
     return view;
@@ -125,7 +124,7 @@ public class TutorialMainFragment extends Fragment implements AccessibilityEvent
 
   @Override
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
-    if (mOffButton == null || mParentLayout == null) {
+    if (offButton == null || parentLayout == null) {
       return;
     }
 
@@ -139,12 +138,12 @@ public class TutorialMainFragment extends Fragment implements AccessibilityEvent
 
     switch (event.getEventType()) {
       case AccessibilityEvent.TYPE_TOUCH_INTERACTION_START:
-        mOtherViewHovered = false;
-        mOffButton.clearTracking();
-        mParentLayout.clearTracking();
+        otherViewHovered = false;
+        offButton.clearTracking();
+        parentLayout.clearTracking();
         break;
       case AccessibilityEvent.TYPE_TOUCH_INTERACTION_END:
-        if (mOffButton.didHoverEnter() && !mParentLayout.didHoverEnter() && !mOtherViewHovered) {
+        if (offButton.didHoverEnter() && !parentLayout.didHoverEnter() && !otherViewHovered) {
           if (TalkBackService.getInstance() != null) {
             TalkBackService.getInstance().disableTalkBackFromTutorial((EventId) null);
           }
@@ -155,7 +154,7 @@ public class TutorialMainFragment extends Fragment implements AccessibilityEvent
         // Hovering over the button gives an event with TUTORIAL_CLASS_NAME class.
         // But empty areas of the activity should be tracked by HoverTrackingLinearLayout.
         if (className == null || !className.equals(TUTORIAL_CLASS_NAME)) {
-          mOtherViewHovered = true;
+          otherViewHovered = true;
         }
         break;
       default: // fall out

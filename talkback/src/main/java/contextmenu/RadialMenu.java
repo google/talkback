@@ -34,12 +34,12 @@ public class RadialMenu extends ContextMenu {
   private static final int ORDER_SW = 2;
   private static final int ORDER_SE = 3;
 
-  private final DialogInterface mParent;
-  private final SparseIterableArray<RadialMenuItem> mCorners;
+  private final DialogInterface parent;
+  private final SparseIterableArray<RadialMenuItem> corners;
 
-  private RadialMenuItem.OnMenuItemSelectionListener mSelectionListener;
-  private OnMenuVisibilityChangedListener mVisibilityListener;
-  private MenuLayoutListener mLayoutListener;
+  private RadialMenuItem.OnMenuItemSelectionListener selectionListener;
+  private OnMenuVisibilityChangedListener visibilityListener;
+  private MenuLayoutListener layoutListener;
 
   /**
    * Creates a new radial menu with the specified parent dialog interface.
@@ -49,12 +49,12 @@ public class RadialMenu extends ContextMenu {
    */
   public RadialMenu(Context context, DialogInterface parent) {
     super(context);
-    mParent = parent;
-    mCorners = new SparseIterableArray<>();
+    this.parent = parent;
+    corners = new SparseIterableArray<>();
   }
 
   public void setLayoutListener(MenuLayoutListener layoutListener) {
-    mLayoutListener = layoutListener;
+    this.layoutListener = layoutListener;
   }
 
   /**
@@ -65,11 +65,11 @@ public class RadialMenu extends ContextMenu {
    */
   public void setDefaultSelectionListener(
       RadialMenuItem.OnMenuItemSelectionListener selectionListener) {
-    mSelectionListener = selectionListener;
+    this.selectionListener = selectionListener;
   }
 
   public void setOnMenuVisibilityChangedListener(OnMenuVisibilityChangedListener listener) {
-    mVisibilityListener = listener;
+    visibilityListener = listener;
   }
 
   @Override
@@ -86,13 +86,13 @@ public class RadialMenu extends ContextMenu {
   private RadialMenuItem addItem(RadialMenuItem item) {
     // If this is a sub-menu, add the default selection and click listeners.
     if (item.hasSubMenu()) {
-      item.setOnMenuItemSelectionListener(mSelectionListener);
+      item.setOnMenuItemSelectionListener(selectionListener);
       item.setOnMenuItemClickListener(getDefaultListener());
     }
 
     if (item.getGroupId() == R.id.group_corners) {
       item.setCorner();
-      mCorners.put(item.getOrder(), item);
+      corners.put(item.getOrder(), item);
     } else {
       add(item);
     }
@@ -105,7 +105,7 @@ public class RadialMenu extends ContextMenu {
   @Override
   public RadialSubMenu addSubMenu(int groupId, int itemId, int order, CharSequence title) {
     final RadialSubMenu submenu =
-        new RadialSubMenu(getContext(), mParent, this, groupId, itemId, order, title);
+        new RadialSubMenu(getContext(), parent, this, groupId, itemId, order, title);
 
     addItem(submenu.getItem());
 
@@ -113,21 +113,21 @@ public class RadialMenu extends ContextMenu {
   }
 
   /*package*/ void onShow() {
-    if (mVisibilityListener != null) {
-      mVisibilityListener.onMenuShown();
+    if (visibilityListener != null) {
+      visibilityListener.onMenuShown();
     }
   }
 
   /*package*/ void onDismiss() {
-    if (mVisibilityListener != null) {
-      mVisibilityListener.onMenuDismissed();
+    if (visibilityListener != null) {
+      visibilityListener.onMenuDismissed();
     }
   }
 
   @Override
   public void close() {
     onDismiss();
-    mParent.dismiss();
+    parent.dismiss();
   }
 
   @Override
@@ -160,7 +160,7 @@ public class RadialMenu extends ContextMenu {
    * @return The corner menu item.
    */
   public RadialMenuItem getCorner(int groupId) {
-    return mCorners.get(groupId);
+    return corners.get(groupId);
   }
 
   /**
@@ -256,7 +256,7 @@ public class RadialMenu extends ContextMenu {
    */
   public boolean selectMenuItem(RadialMenuItem item, int flags) {
     return ((item != null) && item.onSelectionPerformed())
-        || ((mSelectionListener != null) && mSelectionListener.onMenuItemSelection(item));
+        || ((selectionListener != null) && selectionListener.onMenuItemSelection(item));
   }
 
   public boolean clearSelection(int flags) {
@@ -291,7 +291,7 @@ public class RadialMenu extends ContextMenu {
   public RadialMenuItem findItem(int id) {
     RadialMenuItem menuItem = (RadialMenuItem) super.findItem(id);
     if (menuItem == null) {
-      for (RadialMenuItem item : mCorners) {
+      for (RadialMenuItem item : corners) {
         if (item.getItemId() == id) {
           return item;
         }
@@ -301,9 +301,20 @@ public class RadialMenu extends ContextMenu {
     return menuItem;
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * <p>For radial menu, dismissing the menu just hides it and does not clear it. Hence we need to
+   * toggle visibility each time we reopen radial menu.
+   */
+  @Override
+  public void updateItemAvailability(boolean shouldBeAvailable, int itemId) {
+    findItem(itemId).setVisible(shouldBeAvailable);
+  }
+
   void onLayoutChanged() {
-    if (mLayoutListener != null) {
-      mLayoutListener.onLayoutChanged();
+    if (layoutListener != null) {
+      layoutListener.onLayoutChanged();
     }
   }
 

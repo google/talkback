@@ -16,13 +16,21 @@
 
 package com.google.android.accessibility.utils;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.traversal.TraversalStrategy;
+import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirectionOrUnknown;
+import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
 import java.util.HashSet;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Utility class for sending commands to ChromeVox. */
 public class WebInterfaceUtils {
+
+  private static final String KEY_WEB_IMAGE = "AccessibilityNodeInfo.hasImage";
+  private static final String VALUE_HAS_WEB_IMAGE = "true";
 
   private static final String ACTION_ARGUMENT_HTML_ELEMENT_STRING_VALUES =
       "ACTION_ARGUMENT_HTML_ELEMENT_STRING_VALUES";
@@ -46,9 +54,16 @@ public class WebInterfaceUtils {
   /**
    * HTML element argument to use with {@link
    * #performNavigationToHtmlElementAction(AccessibilityNodeInfoCompat, int, String, EventId)} to
+   * instruct ChromeVox to move to the next or previous page heading.
+   */
+  public static final String HTML_ELEMENT_MOVE_BY_HEADING = "HEADING";
+
+  /**
+   * HTML element argument to use with {@link
+   * #performNavigationToHtmlElementAction(AccessibilityNodeInfoCompat, int, String, EventId)} to
    * instruct ChromeVox to move to the next or previous page section.
    */
-  public static final String HTML_ELEMENT_MOVE_BY_SECTION = "SECTION";
+  public static final String HTML_ELEMENT_MOVE_BY_LANDMARK = "LANDMARK";
 
   /**
    * HTML element argument to use with {@link
@@ -101,6 +116,20 @@ public class WebInterfaceUtils {
         }
       };
 
+  public static int searchDirectionToWebNavigationDirection(
+      Context context, @SearchDirectionOrUnknown int searchDirection) {
+    if (searchDirection == TraversalStrategy.SEARCH_FOCUS_UNKNOWN) {
+      return 0;
+    }
+    @SearchDirectionOrUnknown
+    int logicalDirection =
+        TraversalStrategyUtils.getLogicalDirection(
+            searchDirection, WindowManager.isScreenLayoutRTL(context));
+    return logicalDirection == TraversalStrategy.SEARCH_FOCUS_FORWARD
+        ? WebInterfaceUtils.DIRECTION_FORWARD
+        : WebInterfaceUtils.DIRECTION_BACKWARD;
+  }
+
   /**
    * Sends an instruction to ChromeVox to read the specified HTML element in the given direction
    * within a node.
@@ -124,7 +153,7 @@ public class WebInterfaceUtils {
     return PerformActionUtils.performAction(node, action, args, eventId);
   }
 
-  public static String[] getSupportedHtmlElements(AccessibilityNodeInfoCompat node) {
+  public static String @Nullable [] getSupportedHtmlElements(AccessibilityNodeInfoCompat node) {
     HashSet<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<AccessibilityNodeInfoCompat>();
 
     while (node != null) {
@@ -222,7 +251,7 @@ public class WebInterfaceUtils {
    * WebView container, we prefer the root node instead of the second level node, because attributes
    * like isVisibleToUser() sometimes are not correctly exposed at second level WebView node.
    */
-  public static AccessibilityNodeInfoCompat ascendToWebViewContainer(
+  public static @Nullable AccessibilityNodeInfoCompat ascendToWebViewContainer(
       AccessibilityNodeInfoCompat node) {
     if (!WebInterfaceUtils.supportsWebActions(node)) {
       return null;
@@ -231,7 +260,8 @@ public class WebInterfaceUtils {
   }
 
   /** Returns the closest ancestor(inclusive) WebView node if the {@code node} is a web element. */
-  public static AccessibilityNodeInfoCompat ascendToWebView(AccessibilityNodeInfoCompat node) {
+  public static @Nullable AccessibilityNodeInfoCompat ascendToWebView(
+      AccessibilityNodeInfoCompat node) {
     if (!WebInterfaceUtils.supportsWebActions(node)) {
       return null;
     }
@@ -273,11 +303,20 @@ public class WebInterfaceUtils {
   }
 
   /** Check if node is web container */
-  public static boolean isWebContainer(AccessibilityNodeInfoCompat node) {
+  public static boolean isWebContainer(@Nullable AccessibilityNodeInfoCompat node) {
     if (node == null) {
       return false;
     }
     return hasNativeWebContent(node) || isNodeFromFirefox(node);
+  }
+
+  /** Returns {@code true} if the {@code node} or its descendant contains image. */
+  public static boolean containsImage(AccessibilityNodeInfoCompat node) {
+    if (node == null) {
+      return false;
+    }
+    Bundle extras = node.getExtras();
+    return (extras != null) && VALUE_HAS_WEB_IMAGE.equals(extras.getString(KEY_WEB_IMAGE));
   }
 
   private static boolean isNodeFromFirefox(AccessibilityNodeInfoCompat node) {

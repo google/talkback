@@ -25,12 +25,11 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
@@ -38,40 +37,44 @@ import android.widget.TextView;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceStateListener;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.output.SpeechController;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class AccessibilityTutorialActivity extends AppCompatActivity
     implements TutorialNavigationCallback, AccessibilityEventListener {
+
+  private static final String TAG = "A11yTutorialActivity";
+
   //timeout is 10s to auto-navigate from tutorial home page to lesson 1.
   private static final int AUTO_NAVIGATION_TIMEOUT = 10000;
 
   private static final String MAIN_FRAGMENT_NAME = "MAIN_FRAGMENT_NAME";
-  private static AccessibilityTutorialActivity sActiveTutorial;
+  @Nullable private static AccessibilityTutorialActivity activeTutorial;
 
   /** Event types that are handled by AccessibilityTutorialActivity. */
   private static final int MASK_EVENTS_HANDLED_BY_A11Y_TUTORIAL_ACTIVITY =
       AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
 
-  private final Handler mHandler = new Handler();
-  private Runnable mRunnable;
+  private final Handler handler = new Handler();
+  @Nullable private Runnable runnable;
 
   private static final String UNKNOWN_TUTORIAL_INTENT_SRC = "unkownSrc";
 
   public static boolean isTutorialActive() {
-    return sActiveTutorial != null;
+    return activeTutorial != null;
   }
 
   public static void stopActiveTutorial() {
-    if (sActiveTutorial != null) {
-      sActiveTutorial.finish();
+    if (activeTutorial != null) {
+      activeTutorial.finish();
     }
   }
 
-  private TutorialController mTutorialController;
+  private TutorialController tutorialController;
 
   /**
    * Processes the extra data tagged along with the intent to start the tutorial
@@ -97,9 +100,9 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
 
     setContentView(R.layout.tutorial_activity);
     try {
-      mTutorialController = new TutorialController(this);
+      tutorialController = new TutorialController(this);
     } catch (Exception e) {
-      LogUtils.log(Log.ERROR, "failed to create tutorial");
+      LogUtils.e(TAG, "failed to create tutorial");
       finish();
       return;
     }
@@ -122,7 +125,7 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
 
     TutorialMainFragment mainFragment = new TutorialMainFragment();
     mainFragment.setOnLessonSelectedCallback(this);
-    mainFragment.setTutorialController(mTutorialController);
+    mainFragment.setTutorialController(tutorialController);
     Intent tutorialIntent = getIntent();
     String tutorialSrc = processExtraData(tutorialIntent);
     mainFragment.setIfBackNavigationReq(tutorialSrc);
@@ -147,7 +150,7 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
   @Override
   public void onStart() {
     super.onStart();
-    sActiveTutorial = this;
+    activeTutorial = this;
 
     /*
      * Handle the cases where the tutorial was started with TalkBack in an
@@ -194,17 +197,17 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
   @Override
   public void onStop() {
     super.onStop();
-    sActiveTutorial = null;
+    activeTutorial = null;
     TalkBackService service = TalkBackService.getInstance();
     if (service != null) {
       service.updateMenuManagerFromPreferences();
     }
-    if (mRunnable != null) {
-      mHandler.removeCallbacks(mRunnable);
+    if (runnable != null) {
+      handler.removeCallbacks(runnable);
       if (service != null) {
         service.postRemoveEventListener(this);
       }
-      mRunnable = null;
+      runnable = null;
     }
   }
 
@@ -247,7 +250,7 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
 
   private void postSwitchToFirstLesson() {
     final TalkBackService service = TalkBackService.getInstance();
-    mRunnable =
+    runnable =
         new Runnable() {
           @Override
           public void run() {
@@ -261,7 +264,7 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
             // and 3 being violated: Another activity or alert dialog pops up automatically (The
             // announcement of window title is queued up, thus announcement in 2 will not be
             // interrupted). In that case we should not open lesson 1 to avoid crash.
-            if (sActiveTutorial != null) {
+            if (activeTutorial != null) {
               service.postRemoveEventListener(AccessibilityTutorialActivity.this);
               service
                   .getSpeechController()
@@ -270,17 +273,17 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
                       // After navigating to lesson 1, the announcement of the lesson title
                       // and subtitle will interrupt the content in speech queue. Thus we
                       // should make this notification uninterruptible.
-                      SpeechController.QUEUE_MODE_UNINTERRUPTIBLE,
+                      SpeechController.QUEUE_MODE_UNINTERRUPTIBLE_BY_NEW_SPEECH,
                       0, /* flags */
                       null, /* SpeechParams */
                       (EventId) null);
-              showLesson(mTutorialController.getTutorial().getLesson(0), 0);
-              mRunnable = null;
+              showLesson(tutorialController.getTutorial().getLesson(0), 0);
+              runnable = null;
             }
           }
         };
     service.addEventListener(AccessibilityTutorialActivity.this);
-    mHandler.postDelayed(mRunnable, AUTO_NAVIGATION_TIMEOUT);
+    handler.postDelayed(runnable, AUTO_NAVIGATION_TIMEOUT);
   }
 
   private void switchFragment(Fragment fragment, String name) {
@@ -306,7 +309,7 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
     if (lesson.getPagesCount() > nextPage) {
       showLesson(lesson, nextPage);
     } else {
-      TutorialLesson nextLesson = mTutorialController.getNextLesson(lesson);
+      TutorialLesson nextLesson = tutorialController.getNextLesson(lesson);
       if (nextLesson != null) {
         onLessonSelected(nextLesson);
       } else {
@@ -333,7 +336,7 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
   private void showLesson(TutorialLesson lesson, int pageNumber) {
     TutorialLessonFragment lessonFragment = new TutorialLessonFragment();
     lessonFragment.setLesson(lesson, pageNumber);
-    lessonFragment.setTutorialController(mTutorialController);
+    lessonFragment.setTutorialController(tutorialController);
     lessonFragment.setTutorialNavigationCallback(this);
     switchFragment(lessonFragment, null);
   }
@@ -343,7 +346,7 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
     getWindow().getDecorView().announceForAccessibility(getTitle());
   }
 
-  private final OnCancelListener mFinishActivityOnCancelListener =
+  private final OnCancelListener finishActivityOnCancelListener =
       new OnCancelListener() {
         @Override
         public void onCancel(DialogInterface dialog) {
@@ -351,7 +354,7 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
         }
       };
 
-  private final OnClickListener mFinishActivityOnClickListener =
+  private final OnClickListener finishActivityOnClickListener =
       new OnClickListener() {
         @Override
         public void onClick(DialogInterface dialog, int which) {
@@ -370,8 +373,8 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
         .setTitle(title)
         .setMessage(message)
         .setCancelable(true)
-        .setOnCancelListener(mFinishActivityOnCancelListener)
-        .setPositiveButton(R.string.tutorial_alert_dialog_exit, mFinishActivityOnClickListener)
+        .setOnCancelListener(finishActivityOnCancelListener)
+        .setPositiveButton(R.string.tutorial_alert_dialog_exit, finishActivityOnClickListener)
         .create()
         .show();
   }
@@ -384,13 +387,13 @@ public class AccessibilityTutorialActivity extends AppCompatActivity
   @Override
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
     if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
-      if (mRunnable != null) {
-        mHandler.removeCallbacks(mRunnable);
+      if (runnable != null) {
+        handler.removeCallbacks(runnable);
         TalkBackService service = TalkBackService.getInstance();
         if (service != null) {
           service.postRemoveEventListener(this);
         }
-        mRunnable = null;
+        runnable = null;
       }
     }
   }

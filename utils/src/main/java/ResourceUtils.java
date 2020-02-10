@@ -18,7 +18,11 @@ package com.google.android.accessibility.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
+/** Utility methods for resources. */
 public class ResourceUtils {
 
   public static int getResourceIdFromString(Context context, String resourceIdString) {
@@ -39,12 +43,21 @@ public class ResourceUtils {
     return res.getIdentifier(pair[1], pair[0], context.getPackageName());
   }
 
-  public static String readStringByResourceIdFromString(Context context, String resourceIdString) {
+  public static @Nullable String readStringByResourceIdFromString(
+      Context context, String resourceIdString) {
     int resourceId = getResourceIdFromString(context, resourceIdString);
     if (resourceId != 0) {
       return context.getString(resourceId);
     }
 
     return null;
+  }
+
+  /** Returns the @colorInt associated with a particular resource ID {@code colorResId}. */
+  @ColorInt
+  public static int getColor(@ColorRes int colorResId, Context context) {
+    // Resources.getColor(int) is deprecated M onwards and
+    // Context.getColor(int) is added from M onwards.
+    return context.getColor(colorResId);
   }
 }

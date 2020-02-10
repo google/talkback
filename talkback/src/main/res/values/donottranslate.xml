@@ -24,20 +24,23 @@
     <string name="pref_speak_element_ids_key">pref_element_ids_key</string>
     <string name="pref_tts_overlay_key">pref_tts_overlay</string>
     <string name="pref_tree_debug_key">pref_tree_debug</string>
+    <string name="pref_reduce_window_delay_key">pref_reduce_window_delay_key</string>
     <string name="pref_tree_debug_reflect_key">pref_tree_debug_reflect</string>
     <string name="pref_performance_stats_key">pref_performance_stats</string>
     <string name="pref_performance_stats_reflect_key">pref_performance_stats_reflect</string>
     <string name="pref_web_scripts_key">pref_web_scripts</string>
+    <!-- Deprecated. Use pref_dump_event_mask_key instead. -->
     <string name="pref_dump_event_key_prefix">pref_dump_event_<xliff:g example="1" id="eventType">%1$d</xliff:g></string>
+    <string name="pref_dump_event_mask_key">pref_dump_event_mask</string>
     <string name="pref_dump_a11y_event_key">pref_dump_a11y_event</string>
     <string name="pref_resume_talkback_key">pref_resume_talkback</string>
     <string name="pref_phonetic_letters_key">pref_phonetic_letters</string>
     <string name="pref_a11y_hints_key">pref_a11y_hints</string>
     <string name="pref_speak_container_element_positions_key">pref_speak_container_element_positions_key</string>
     <string name="pref_speak_roles_key">pref_speak_roles_key</string>
+    <string name="pref_verbose_scroll_announcement_key">pref_verbose_scroll_announcement_key</string>
     <string name="pref_explore_by_touch_key">pref_explore_by_touch</string>
     <string name="pref_explore_by_touch_reflect_key">pref_explore_by_touch_reflect</string>
-    <string name="pref_auto_scroll_key">pref_auto_scroll</string>
     <string name="pref_single_tap_key">pref_single_tap</string>
     <string name="pref_show_context_menu_as_list_key">pref_show_context_menu_as_list_pref_key</string>
     <string name="pref_dim_when_talkback_enabled_key">pref_dim_when_talkback_enabled_key</string>
@@ -150,18 +153,13 @@
       <item>@string/pref_shortcut_fingerprint_down_key</item>
       <item>@string/pref_shortcut_fingerprint_left_key</item>
       <item>@string/pref_shortcut_fingerprint_right_key</item>
-      <!-- Tap-on-side gestures-->
-      <item>@string/pref_shortcut_single_tap_key</item>
-      <item>@string/pref_shortcut_double_tap_key</item>
     </string-array>
 
   <string name="pref_category_built_in_gestures_key">pref_category_built_in_gestures</string>
     <string name="pref_two_part_vertical_gestures_key">pref_two_part_vertical_gestures</string>
 
-    <string name="pref_category_side_tap_shortcuts_key">pref_category_side_taps</string>
     <string name="pref_shortcut_single_tap_key">pref_shortcut_side_tap_single</string>
     <string name="pref_shortcut_double_tap_key">pref_shortcut_side_tap_double</string>
-    <string name="pref_tap_sensitivity_key">pref_side_tap_sensitivity</string>
 
     <string name="pref_must_accept_gesture_change_notification">pref_must_accept_gesture_change_notification</string>
 
@@ -169,6 +167,9 @@
     <string name="pref_show_dim_screen_confirmation_dialog">pref_show_dim_screen_confirmation_dialog</string>
     <string name="pref_vendor_overrides_processed">pref_vendor_overrides_processed</string>
     <string name="pref_suspended">pref_suspended</string>
+
+    <string name="pref_show_continuous_reading_mode_dialog">pref_show_continuous_reading_mode_dialog</string>
+    <string name="pref_show_voice_command_dialog">pref_show_voice_command_dialog</string>
 
     <string-array name="pref_select_keymap_entries">
         <item>@string/value_classic_keymap</item>
@@ -373,6 +374,8 @@
     <string name="shortcut_value_next">NEXT</string>
     <string name="shortcut_value_back">BACK</string>
     <string name="shortcut_value_first_in_screen">FIRST_IN_SCREEN</string>
+    <string name="shortcut_value_summary">SUMMARY</string>
+    <string name="shortcut_value_voice_commands">VOICE_COMMANDS</string>
     <string name="shortcut_value_last_in_screen">LAST_IN_SCREEN</string>
     <string name="shortcut_value_next_granularity">NEXT_GRANULARITY</string>
     <string name="shortcut_value_previous_granularity">PREVIOUS_GRANULARITY</string>
@@ -397,6 +400,9 @@
     <!-- TODO: add selector shortcuts to perform next and previous actions specific to the selected setting. add shortcuts to string-array pref_shortcut_values-->
     <string name="shortcut_value_selected_setting_next_action">SELECTED_SETTING_NEXT_ACTION</string>
     <string name="shortcut_value_selected_setting_previous_action">SELECTED_SETTING_PREVIOUS_ACTION</string>
+    <string name="shortcut_value_screen_search">SCREEN SEARCH</string>
+    <string name="shortcut_value_headphone_navigation">HEADPHONE NAVIGATION</string>
+
 
     <!-- Array of selector gestures-->
     <string-array name="initial_selector_gestures">
@@ -422,28 +428,6 @@
       <item>@string/shortcut_value_select_previous_setting</item>
     </string-array>
 
-  <!--  Tap sensitivity entries -->
-    <string-array name="pref_tap_sensitivity_entries">
-        <item>@string/tap_sensitivity_high</item>
-        <item>@string/tap_sensitivity_medium</item>
-        <item>@string/tap_sensitivity_low</item>
-        <item>@string/tap_sensitivity_lowest</item>
-    </string-array>
-
-    <!--  Tap sensitivity values -->
-    <string-array name="pref_tap_sensitivity_values">
-        <item>@string/tap_sensitivity_value_high</item>
-        <item>@string/tap_sensitivity_value_medium</item>
-        <item>@string/tap_sensitivity_value_low</item>
-        <item>@string/tap_sensitivity_value_lowest</item>
-    </string-array>
-
-    <!--  Assignable tap sensitivities -->
-    <string name="tap_sensitivity_value_high">HIGH</string>
-    <string name="tap_sensitivity_value_medium">MEDIUM</string>
-    <string name="tap_sensitivity_value_low">LOW</string>
-    <string name="tap_sensitivity_value_lowest">LOWEST</string>
-
     <!-- Assignable actions to the up-then-down and down-then-up gestures -->
     <!-- Assignable action for jumping to the first or last item on-screen -->
     <string name="value_two_part_vertical_gestures_jump">JUMP</string>
@@ -455,6 +439,7 @@
     <string name="pref_speech_pitch_default">1.0</string>
     <string name="pref_speech_volume_default">100</string>
     <bool name="pref_screenoff_default">false</bool>
+    <bool name="pref_verbose_scroll_announcement_default">false</bool>
     <bool name="pref_proximity_default">true</bool>
     <bool name="pref_vibration_default">true</bool>
     <bool name="pref_soundback_default">true</bool>
@@ -466,6 +451,7 @@
     <string name="pref_node_desc_order_default">pref_node_desc_order_value_state_name_role_pos</string>
     <bool name="pref_speak_element_ids_default">false</bool>
     <bool name="pref_tts_overlay_default">false</bool>
+    <bool name="pref_reduce_window_delay_default">false</bool>
     <bool name="pref_tree_debug_default">false</bool>
     <bool name="pref_performance_stats_default">false</bool>
     <bool name="pref_web_scripts_default">true</bool>
@@ -475,7 +461,6 @@
     <bool name="pref_speak_container_element_positions_default">true</bool>
     <bool name="pref_speak_roles_default">true</bool>
     <bool name="pref_explore_by_touch_default">true</bool>
-    <bool name="pref_auto_scroll_default">true</bool>
     <bool name="pref_single_tap_default">false</bool>
     <bool name="pref_show_menu_as_list">true</bool>
     <bool name="pref_resume_volume_buttons_long_click_default">true</bool>
@@ -509,7 +494,7 @@
     <string name="pref_shortcut_down_and_right_default">@string/shortcut_value_talkback_breakout</string>
     <string name="pref_shortcut_right_and_down_default">@string/shortcut_value_notifications</string>
     <string name="pref_shortcut_right_and_up_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_left_and_down_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_left_and_down_default">@string/shortcut_value_screen_search</string>
     <string name="pref_shortcut_left_and_up_default">@string/shortcut_value_overview</string>
 
     <!-- Fingerprint gesture shortcut default values -->
@@ -520,9 +505,8 @@
 
     <string name="pref_shortcut_single_tap_default">@string/shortcut_value_unassigned</string>
     <string name="pref_shortcut_double_tap_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_tap_sensitivity_default">@string/tap_sensitivity_value_medium</string>
 
-    <!-- Old Defaults for shortcut preferences - Unused as of verison 74 -->
+    <!-- Old Defaults for shortcut preferences - Unused as of version 74 -->
     <string name="pref_deprecated_shortcut_up_and_left_default">@string/shortcut_value_home</string>
     <string name="pref_deprecated_shortcut_up_and_right_default">@string/shortcut_value_notifications</string>
     <string name="pref_deprecated_shortcut_down_and_left_default">@string/shortcut_value_back</string>
@@ -551,6 +535,10 @@
     <item type="id" name="hear_lesson" />
     <item type="id" name="viewpager_breakout_prev_page" />
     <item type="id" name="viewpager_breakout_next_page" />
+    <item type="id" name="viewpager_breakout_page_down" />
+    <item type="id" name="viewpager_breakout_page_up" />
+    <item type="id" name="viewpager_breakout_page_left" />
+    <item type="id" name="viewpager_breakout_page_right" />
     <item type="id" name="suggestions_breakout_suggestions" />
     <item type="id" name="suggestions_breakout_anchor" />
     <item type="id" name="seekbar_breakout_set_level" />
@@ -573,15 +561,13 @@
     <item name="line" type="id"/>
     <item name="paragraph" type="id"/>
     <item name="page" type="id"/>
-    <item name="web_section" type="id"/>
+    <item name="web_heading" type="id"/>
     <item name="web_list" type="id"/>
     <item name="web_control" type="id"/>
+    <item name="web_landmark" type="id"/>
 
     <!-- Pseudo navigation granularity ID for specialized web content -->
     <item name="pseudo_web_special_content" type="id" />
-
-    <!-- Defines whether support for speaking text replacements is enabled.  Overridden in some locales -->
-    <bool name="supports_text_replacement">true</bool>
 
     <!-- List of settings available in selector -->
     <string-array name="selector">
@@ -596,5 +582,7 @@
     <string name="selector_speech_rate">SPEECH RATE</string>
     <string name="selector_granularity">GRANULARITY</string>
     <string name="selector_audio_focus">AUDIO-DUCKING</string>
+
+    <string name="pref_key_last_log_time_key">pref_key_last_log_time_key</string>
 
 </resources>

@@ -20,7 +20,7 @@ import android.content.Context;
 
 public class ListMenu extends ContextMenu {
 
-  private String mTitle;
+  private String title;
 
   public ListMenu(Context context) {
     super(context);
@@ -58,16 +58,30 @@ public class ListMenu extends ContextMenu {
     };
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * <p>For list views, dismissing the list menu, clears the menu. Hence we don't need to add items
+   * if we removed them once. Also just setting the item visibility to false does not work for list
+   * menu. Remove the item if not required every time list menu is opened.
+   */
+  @Override
+  public void updateItemAvailability(boolean shouldBeAvailable, int itemId) {
+    if (!shouldBeAvailable) {
+      removeItem(itemId);
+    }
+  }
+
   @Override
   public void close() {
     //NoOp
   }
 
   public void setTitle(String title) {
-    mTitle = title;
+    this.title = title;
   }
 
   public String getTitle() {
-    return mTitle;
+    return title;
   }
 }

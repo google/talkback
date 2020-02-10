@@ -1,0 +1,14 @@
+// This file controls how the review assignmnet bot routes Voice Access CLs for
+// review. See go/gwsq for details.
+
+send_cls_to('switchaccess-dev+reviews');
+
+define Main {
+  if (file('^java(tests)?/com/google/android/accessibility/switchaccess/')) {
+    // If the author did not specify which reviewers need to LGTM the CL before
+    // the CL can be submitted, assume all reviewers need to LGTM the CL.
+    if (!has_tag('WANT_LGTM')) {
+      set_tag('WANT_LGTM', 'all');
+    }
+  }
+}

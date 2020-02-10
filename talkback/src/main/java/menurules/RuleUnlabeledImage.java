@@ -20,12 +20,14 @@ import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRAC
 
 import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.contextmenu.ContextMenuItem;
@@ -33,16 +35,21 @@ import com.google.android.accessibility.talkback.contextmenu.ContextMenuItemBuil
 import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
 import com.google.android.accessibility.talkback.labeling.LabelDialogManager;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /** Processes {@link ImageView} nodes without text. */
 class RuleUnlabeledImage implements NodeMenuRule {
+
+  private final Pipeline.FeedbackReturner pipeline;
+
+  public RuleUnlabeledImage(Pipeline.FeedbackReturner pipeline) {
+    this.pipeline = pipeline;
+  }
 
   @Override
   public boolean accept(TalkBackService service, AccessibilityNodeInfoCompat node) {
@@ -57,8 +64,9 @@ class RuleUnlabeledImage implements NodeMenuRule {
   public List<ContextMenuItem> getMenuItemsForNode(
       TalkBackService service,
       ContextMenuItemBuilder menuItemBuilder,
-      AccessibilityNodeInfoCompat node) {
-    List<ContextMenuItem> items = new LinkedList<>();
+      AccessibilityNodeInfoCompat node,
+      boolean includeAncestors) {
+    List<ContextMenuItem> items = new ArrayList<>();
     CustomLabelManager labelManager = service.getLabelManager();
     if (labelManager == null) {
       return items;
@@ -96,10 +104,8 @@ class RuleUnlabeledImage implements NodeMenuRule {
 
     for (ContextMenuItem item : items) {
       item.setOnMenuItemClickListener(
-          new UnlabeledImageMenuItemClickListener(service, nodeCopy, viewLabel));
-
-      // Prevent re-speaking the node description right before showing the dialog.
-      item.setSkipRefocusEvents(true);
+          new UnlabeledImageMenuItemClickListener(service, nodeCopy, viewLabel, pipeline));
+      item.setShowsAlertDialog(true);
     }
 
     return items;
@@ -117,55 +123,63 @@ class RuleUnlabeledImage implements NodeMenuRule {
 
   private static class UnlabeledImageMenuItemClickListener
       implements MenuItem.OnMenuItemClickListener {
-    private final TalkBackService mContext;
-    private final AccessibilityNodeInfoCompat mNode;
-    private final Label mExistingLabel;
+    private final TalkBackService service;
+    private final AccessibilityNodeInfoCompat node;
+    private final Label existingLabel;
+    private final Pipeline.FeedbackReturner pipeline;
 
     public UnlabeledImageMenuItemClickListener(
-        TalkBackService service, AccessibilityNodeInfoCompat node, Label label) {
-      mContext = service;
-      mNode = node;
-      mExistingLabel = label;
+        TalkBackService service,
+        AccessibilityNodeInfoCompat node,
+        Label label,
+        Pipeline.FeedbackReturner pipeline) {
+      this.service = service;
+      this.pipeline = pipeline;
+      this.node = node;
+      existingLabel = label;
     }
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
       if (item == null) {
-        mNode.recycle();
+        node.recycle();
         return true;
       }
-
-      mContext.saveFocusedNode();
       final int itemId = item.getItemId();
 
       if (itemId == R.id.labeling_breakout_add_label) {
         if (!canAddLabel()) {
-          EventId eventId = EVENT_ID_UNTRACKED; // Not tracking menu events performance.
-          mContext
-              .getSpeechController()
-              .speak(
-                  mContext.getString(R.string.cannot_add_label),
-                  SpeechController.QUEUE_MODE_FLUSH_ALL,
-                  FeedbackItem.FLAG_NO_HISTORY | FeedbackItem.FLAG_FORCED_FEEDBACK,
-                  null,
-                  eventId);
+          SpeechController.SpeakOptions speakOptions =
+              SpeechController.SpeakOptions.create()
+                  .setQueueMode(SpeechController.QUEUE_MODE_FLUSH_ALL)
+                  .setFlags(
+                      FeedbackItem.FLAG_NO_HISTORY
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE);
+          pipeline.returnFeedback(
+              EVENT_ID_UNTRACKED,
+              Feedback.speech(service.getString(R.string.cannot_add_label), speakOptions));
           return false;
         }
 
-        return LabelDialogManager.addLabel(mContext, mNode, true /* overlay */);
+        return LabelDialogManager.addLabel(
+            service, node, /* isFromLocalContextMenu= */ true, pipeline);
       } else if (itemId == R.id.labeling_breakout_edit_label) {
-        return LabelDialogManager.editLabel(mContext, mExistingLabel, true /* overlay */);
+        return LabelDialogManager.editLabel(
+            service, existingLabel, /* isFromLocalContextMenu= */ true, pipeline);
       } else if (itemId == R.id.labeling_breakout_remove_label) {
-        return LabelDialogManager.removeLabel(mContext, mExistingLabel, true /* overlay */);
+        return LabelDialogManager.removeLabel(
+            service, existingLabel, /* isFromLocalContextMenu= */ true, pipeline);
       }
 
-      mNode.recycle();
+      node.recycle();
       return true;
     }
 
     private boolean canAddLabel() {
       final Pair<String, String> parsedId =
-          CustomLabelManager.splitResourceName(mNode.getViewIdResourceName());
+          CustomLabelManager.splitResourceName(node.getViewIdResourceName());
       final boolean hasParseableId = (parsedId != null);
 
       // TODO: There are a number of views that have a
@@ -176,7 +190,7 @@ class RuleUnlabeledImage implements NodeMenuRule {
       boolean isFromKnownApp = false;
       if (hasParseableId) {
         try {
-          mContext.getPackageManager().getPackageInfo(parsedId.first, 0);
+          service.getPackageManager().getPackageInfo(parsedId.first, 0);
           isFromKnownApp = true;
         } catch (NameNotFoundException e) {
           // Do nothing.

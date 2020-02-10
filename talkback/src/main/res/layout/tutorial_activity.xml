@@ -19,7 +19,8 @@
     <FrameLayout
       android:id="@+id/fragment_holder"
       android:layout_width="match_parent" android:layout_height="match_parent"
-        android:background="@android:color/white">
+        android:background="@color/tutorial_main_item_background"
+      >
     </FrameLayout>
 
 </android.support.v7.widget.LinearLayoutCompat>

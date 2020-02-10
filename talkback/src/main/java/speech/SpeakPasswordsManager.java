@@ -18,7 +18,7 @@ package com.google.android.accessibility.talkback.speech;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.HeadphoneStateMonitor;
@@ -33,34 +33,34 @@ import com.google.android.accessibility.utils.compat.provider.SettingsCompatUtil
  */
 public class SpeakPasswordsManager {
 
-  private final Context mContext;
-  private final HeadphoneStateMonitor mHeadphoneStateMonitor;
-  private final GlobalVariables mGlobalVariables;
+  private final Context context;
+  private final HeadphoneStateMonitor headphoneStateMonitor;
+  private final GlobalVariables globalVariables;
 
-  private boolean mHeadphonesConnected;
+  private boolean headphonesConnected;
 
   public SpeakPasswordsManager(
       Context context,
       HeadphoneStateMonitor headphoneStateMonitor,
       GlobalVariables globalVariables) {
-    mContext = context;
-    mHeadphoneStateMonitor = headphoneStateMonitor;
-    mGlobalVariables = globalVariables;
+    this.context = context;
+    this.headphoneStateMonitor = headphoneStateMonitor;
+    this.globalVariables = globalVariables;
 
-    mHeadphonesConnected = HeadphoneStateMonitor.isHeadphoneOn(context);
+    headphonesConnected = HeadphoneStateMonitor.isHeadphoneOn(context);
 
     // Register a listener with the headphone state to keep global variables updated with changes.
-    mHeadphoneStateMonitor.setHeadphoneListener(mHeadphoneChangeListener);
+    this.headphoneStateMonitor.setHeadphoneListener(headphoneChangeListener);
   }
 
   /** Handles headphone connection state changes, by updating speak policy in global variables. */
   @VisibleForTesting
-  HeadphoneStateMonitor.Listener mHeadphoneChangeListener =
+  HeadphoneStateMonitor.Listener headphoneChangeListener =
       new Listener() {
         @Override
         public void onHeadphoneStateChanged(boolean isConnected) {
-          mHeadphonesConnected = isConnected;
-          mGlobalVariables.setSpeakPasswords(shouldSpeakPasswords());
+          headphonesConnected = isConnected;
+          globalVariables.setSpeakPasswords(shouldSpeakPasswords());
         }
       };
 
@@ -69,20 +69,20 @@ public class SpeakPasswordsManager {
    * headphone state if applicable.
    */
   private boolean shouldSpeakPasswords() {
-    if (getAlwaysSpeakPasswordsPref(mContext)) {
+    if (getAlwaysSpeakPasswordsPref(context)) {
       // If the setting is on then the user has selected speaking passwords even without headphones.
       return true;
     } else {
       // Only speak if headphones are present
-      return mHeadphonesConnected;
+      return headphonesConnected;
     }
   }
 
   /** Notify this class that preferences have changed. */
   public void onPreferencesChanged() {
-    mHeadphonesConnected = mHeadphoneStateMonitor.hasHeadphones();
+    headphonesConnected = headphoneStateMonitor.hasHeadphones();
     boolean shouldSpeakPasswords = shouldSpeakPasswords();
-    mGlobalVariables.setSpeakPasswords(shouldSpeakPasswords);
+    globalVariables.setSpeakPasswords(shouldSpeakPasswords);
   }
   /**
    * Gets the current value of the Should Speak Passwords Always (or only with headphones) setting.

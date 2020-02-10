@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Botão</item>
+    <item>Caixa de verificação</item>
+    <item>Seletor de cores</item>
+    <item>Controlo de data e hora</item>
+    <item>Controlo de data e hora</item>
+    <item>Controlo de data</item>
+    <item>Editar texto de email</item>
+    <item>Seleção de ficheiros</item>
+    <item translatable="false"></item>
+    <item>Botão</item>
+    <item>Controlo do mês</item>
+    <item>Editar apenas texto numérico</item>
+    <item>Texto de edição da palavra-passe</item>
+    <item>Botão de opção</item>
+    <item>Controlo de deslize</item>
+    <item>Repor</item>
+    <item>Editar texto da pesquisa</item>
+    <item>Botão</item>
+    <item>Editar texto do número de telefone</item>
+    <item>Editar texto</item>
+    <item>Editar texto do URL</item>
+    <item>Controlo de semana do ano</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Alerta</item>
+    <item>Caixa de diálogo de alerta</item>
+    <item>Botão</item>
+    <item>Caixa de verificação</item>
+    <item>Caixa de combinação</item>
+    <item>Caixa de diálogo</item>
+    <item>Célula da grelha</item>
+    <item>Link</item>
+    <item>Registo</item>
+    <item>Painel rolante</item>
+    <item>Item de menu</item>
+    <item>Caixa de verificação do item de menu</item>
+    <item>Botão de opção do item de menu</item>
+    <item>Opção</item>
+    <item>Barra de progresso</item>
+    <item>Botão de opção</item>
+    <item>Grupo de botões de opção</item>
+    <item>Barra de deslocamento</item>
+    <item>Controlo de deslize</item>
+    <item>Botão giratório</item>
+    <item>Estado</item>
+    <item>Separador</item>
+    <item>Painel de separadores</item>
+    <item>Caixa de texto</item>
+    <item>Temporizador</item>
+    <item>Barra de ferramentas</item>
+    <item>Sugestão</item>
+    <item>Item da árvore</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Link</item>
+    <item>Cabeçalho um</item>
+    <item>Cabeçalho dois</item>
+    <item>Cabeçalho três</item>
+    <item>Cabeçalho quatro</item>
+    <item>Cabeçalho cinco</item>
+    <item>Cabeçalho seis</item>
+    <item>Botão</item>
+    <item>Caixa de combinação</item>
+    <item>Tabela</item>
+    <item>Área de texto</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

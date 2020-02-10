@@ -1,151 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"ટૉકબૅક ચાલુ"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"ટૉકબૅક સસ્પેન્ડ કર્યું"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"ટૉકબૅક ફરી શરૂ કર્યું"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"ટૉકબૅક બંધ છે"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"બોલાયેલ પ્રતિસાદ ચાલુ છે"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"બોલાયેલ પ્રતિસાદને સસ્પેન્ડ કર્યો છે"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"બોલાયેલ પ્રતિસાદ ફરી શરૂ કર્યો"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"બોલાયેલ પ્રતિસાદ બંધ છે"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"ફીલ્ડની શરૂઆતમાં"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"ફીલ્ડના અંત પર"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"પસંદગી મોડ ચાલુ છે"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"પસંદગી મોડ બંધ છે"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"પસંદગી સાફ કરી"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"કૉલ"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"સંદેશ"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"ઇમેઇલ"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"ઇવેન્ટ"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"પ્રમો"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"અલાર્મ"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"પ્રગતિ"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"સામાજિક"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"ભૂલ"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"મીડિયા નિયંત્રણ"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"સિસ્ટમની સ્થિતિ"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"સેવા"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g> મેનૂ"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="NEW_TEXT">%1$s</xliff:g> એ <xliff:g id="OLD_TEXT">%2$s</xliff:g> ને બદલ્યું"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> કાઢી નાખી"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"<xliff:g id="TEXT">%1$s</xliff:g>, કટ કરો"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"<xliff:g id="TEXT">%1$s</xliff:g>, પેસ્ટ કર્યું"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, પસંદ કર્યું"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"પસંદ કરેલ ટેક્સ્ટ: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, પસંદગીમાંથી દૂર કર્યું"</string>
-    <string name="template_text_error" msgid="153775825635730287">"અમાન્ય ઇનપુટ <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> અક્ષરો <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> અ‍ક્ષર સાથે બદલાયા"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="LABEL">%2$s</xliff:g> માટે <xliff:g id="ITEM">%1$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> ટકા."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="one"><xliff:g id="TYPE_2">%1$s</xliff:g> <xliff:g id="COUNT_3">%2$d</xliff:g> આઇટમ બતાવી રહ્યાં છે.</item>
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> <xliff:g id="COUNT_3">%2$d</xliff:g> આઇટમ બતાવી રહ્યાં છે.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"ગ્રિડ"</string>
-    <string name="value_listview" msgid="7625152822709234439">"સૂચિ"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"ટેબ બાર"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"ડ્રોપ ડાઉન સૂચિ"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"ચેક બૉક્સ"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"રેડિઓ બટન"</string>
-    <string name="value_button" msgid="2459787142940409576">"બટન"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"નિયંત્રણ લો"</string>
-    <string name="value_switch" msgid="6946709666466895221">"સ્વિચ કરો"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"સંપાદન બૉક્સ"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"સંપાદિત કરી રહ્યું છે"</string>
-    <string name="value_image" msgid="5114229220871881124">"છબી"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"લેબલ વિનાની"</string>
-    <string name="value_pager" msgid="7708574424402835461">"બહુવિધ-પૃષ્ઠ દૃશ્ય"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"પૃષ્ઠ"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"પ્રગતિ બાર"</string>
-    <string name="value_webview" msgid="291321285400233958">"વેબવ્યૂ"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"<xliff:g id="FROM_INDEX">%1$d</xliff:g> થી <xliff:g id="TO_INDEX">%2$d</xliff:g> સુધીના અક્ષર"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"અક્ષર <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"પાસવર્ડ"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"સ્લાઇડિંગ ડ્રોઅર ખોલ્યું"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"વિકલ્પો."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"સાફ કરેલ ટેક્સ્ટ"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"મહત્તમ લંબાઈ સુધી પહોંચ્યાં"</string>
-    <string name="value_selected" msgid="1307429702194660766">"પસંદ કરેલ"</string>
-    <string name="value_checked" msgid="3006751014125833966">"તપાસાયેલું"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"તપાસાયેલ નથી"</string>
-    <string name="value_on" msgid="39454338086317219">"ચાલુ"</string>
-    <string name="value_off" msgid="6700497510945744608">"બંધ"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"અક્ષમ કર્યું"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"વિસ્તૃત કર્યું"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"સંકુચિત કર્યું"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"બે વાર ટેપ કરો"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"ટેપ કરો"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"પસંદ કરો દબાવો"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"સક્રિય કરવા માટે <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"સક્રિય કરવા માટે <xliff:g id="KEYCOMBO">%1$s</xliff:g> દબાવો."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> અને લાંબા દબાણ માટે પકડો."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"વધુ દબાવી રાખવા માટે <xliff:g id="KEYCOMBO">%1$s</xliff:g> દબાવો."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"ટૉગલ કરવા માટે <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"ટૉગલ કરવા માટે <xliff:g id="KEYCOMBO">%1$s</xliff:g> દબાવો."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"ટેક્સ્ટ દાખલ કરવા માટે <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"ટેક્સ્ટ દાખલ કરવા માટે <xliff:g id="KEYCOMBO">%1$s</xliff:g> દબાવો."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"બદલવા માટે <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"બદલવા માટે <xliff:g id="KEYCOMBO">%1$s</xliff:g> દબાવો."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"પૃષ્ઠોને સ્વિચ કરવા માટે બે આંગળી વડે સ્વાઇપ કરો."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"કોઈ વધુ પૃષ્ઠ નથી."</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"સમાયોજન કરવા માટે વૉલ્યૂમ કીનો ઉપયોગ કરો"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"બદલવા માટે <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"ક્રિયાઓ:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="HINT">%2$s</xliff:g> માટે <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"<xliff:g id="HINT">%2$s</xliff:g> માટે <xliff:g id="KEYCOMBO">%1$s</xliff:g> દબાવો."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> અને <xliff:g id="HINT">%2$s</xliff:g> માટે પકડી રાખો."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock ચાલુ છે."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock બંધ છે."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock ચાલુ છે."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock બંધ છે."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock ચાલુ છે."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock બંધ છે."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"પોર્ટ્રેટ"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"લેન્ડસ્કેપ"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"છોડી દો"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"વિસ્તાર કરો"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"સંકુચિત કરો"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"પંક્તિ <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"કૉલમ <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"મથાળું"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"પંક્તિનું મથાળું"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"કૉલમનું મથાળું"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"<xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g> ચિત્રમાં ચિત્ર"</string>
-    <string name="in_list" msgid="444302621514168828">"<xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g> સૂચિમાં"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"સૂચિમાં છે"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"<xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g> સૂચિની બહાર"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"સૂચિમાં નથી"</string>
-    <string name="in_grid" msgid="6705387966271590222">"<xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g> ગ્રિડમાં"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"ગ્રિડમાં છે"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"<xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g> ગ્રિડની બહાર"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"ગ્રિડમાં નથી"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"સ્તર <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> આઇટમ</item>
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> આઇટમ</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="one"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> પંક્તિ</item>
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> પંક્તિ</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> કૉલમ</item>
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> કૉલમ</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> અક્ષર</item>
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> અક્ષર</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"વિસ્તૃતીકરણ ચાલુ <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"વિસ્તૃતીકરણ <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"વિસ્તૃતીકરણ બંધ"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"બોલવાની ઝડપ <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"ઑડિઓ ઘટાડવો ચાલુ છે"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"ઑડિઓ ઘટાડવો બંધ છે"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"બોલવાની ઝડપ"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"શબ્દબહુલતા"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"નૅવિગેશન"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"ઑડિઓ ઘટાડવો"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"જ્યારે હૅડફોનનો ઉપયોગ કરાતો હોય ત્યારે જ માત્ર પાસવર્ડ બોલવામાં આવે છે"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">ટૉકબૅક ચાલુ</string>
+  <string name="talkback_suspended">ટૉકબૅક સસ્પેન્ડ કર્યું</string>
+  <string name="talkback_resumed">ટૉકબૅક ફરી શરૂ કર્યું</string>
+  <string name="talkback_disabled">ટૉકબૅક બંધ છે</string>
+  <string name="spokenfeedback_on">બોલાયેલ પ્રતિસાદ ચાલુ છે</string>
+  <string name="spokenfeedback_suspended">બોલાયેલ પ્રતિસાદને સસ્પેન્ડ કર્યો છે</string>
+  <string name="spokenfeedback_resumed">બોલાયેલ પ્રતિસાદ ફરી શરૂ કર્યો</string>
+  <string name="spokenfeedback_disabled">બોલાયેલ પ્રતિસાદ બંધ છે</string>
+  <string name="notification_type_beginning_of_field">ફીલ્ડની શરૂઆતમાં</string>
+  <string name="notification_type_end_of_field">ફીલ્ડના અંત પર</string>
+  <string name="notification_type_selection_mode_on">પસંદગી મોડ ચાલુ છે</string>
+  <string name="notification_type_selection_mode_off">પસંદગી મોડ બંધ છે</string>
+  <string name="notification_type_selection_cleared">પસંદગી સાફ કરી</string>
+  <string name="notification_category_call">કૉલ</string>
+  <string name="notification_category_msg">સંદેશ</string>
+  <string name="notification_category_email">ઇમેઇલ</string>
+  <string name="notification_category_event">ઇવેન્ટ</string>
+  <string name="notification_category_promo">પ્રમો</string>
+  <string name="notification_category_alarm">અલાર્મ</string>
+  <string name="notification_category_progress">પ્રગતિ</string>
+  <string name="notification_category_social">સામાજિક</string>
+  <string name="notification_category_err">ભૂલ</string>
+  <string name="notification_category_transport">મીડિયા નિયંત્રણ</string>
+  <string name="notification_category_sys">સિસ્ટમની સ્થિતિ</string>
+  <string name="notification_category_service">સેવા</string>
+  <string name="template_drawer_opened">%1$s મેનૂ</string>
+  <string name="template_text_replaced">%1$s એ %2$s ને બદલ્યું</string>
+  <string name="template_text_removed">%1$s કાઢી નાખી</string>
+  <string name="template_text_cut">%1$s, કટ કરો</string>
+  <string name="template_text_pasted">%1$s, પેસ્ટ કર્યું</string>
+  <string name="template_text_selected">%1$s, પસંદ કર્યું</string>
+  <string name="template_announce_selected_text">પસંદ કરેલ ટેક્સ્ટ: %1$s</string>
+  <string name="template_text_unselected">%1$s, પસંદગીમાંથી દૂર કર્યું</string>
+  <string name="template_text_error">અમાન્ય ઇનપુટ %1$s</string>
+  <string name="template_replaced_characters">%1$s અક્ષરો %2$s અ‍ક્ષર સાથે બદલાયા</string>
+  <string name="template_labeled_item">%2$s માટે %1$s</string>
+  <string name="template_percent">%1$s ટકા.</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s %2$d આઇટમ બતાવી રહ્યાં છે.</item>
+    <item quantity="other">%1$s %2$d આઇટમ બતાવી રહ્યાં છે.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">ગ્રિડ</string>
+  <string name="value_listview">સૂચિ</string>
+  <string name="value_tabwidget">ટેબ બાર</string>
+  <string name="value_spinner">ડ્રોપ ડાઉન સૂચિ</string>
+  <string name="value_checkbox">ચેક બૉક્સ</string>
+  <string name="value_radio_button">રેડિઓ બટન</string>
+  <string name="value_button">બટન</string>
+  <string name="value_seek_bar">નિયંત્રણ લો</string>
+  <string name="value_switch">સ્વિચ કરો</string>
+  <string name="value_edit_box">સંપાદન બૉક્સ</string>
+  <string name="value_edit_box_editing">સંપાદિત કરી રહ્યું છે</string>
+  <string name="value_image">છબી</string>
+  <string name="value_unlabelled">લેબલ વિનાની</string>
+  <string name="value_pager">બહુવિધ-પૃષ્ઠ દૃશ્ય</string>
+  <string name="value_pager_page">પૃષ્ઠ</string>
+  <string name="value_progress_bar">પ્રગતિ બાર</string>
+  <string name="value_webview">વેબવ્યૂ</string>
+  <string name="value_toolbar">ટૂલબાર</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">%1$d થી %2$d સુધીના અક્ષર</string>
+  <string name="template_password_traversed">અક્ષર %1$d</string>
+  <string name="value_password">પાસવર્ડ</string>
+  <string name="value_sliding_drawer_opened">સ્લાઇડિંગ ડ્રોઅર ખોલ્યું</string>
+  <string name="value_options_menu_open">વિકલ્પો.</string>
+  <string name="value_text_cleared">સાફ કરેલ ટેક્સ્ટ</string>
+  <string name="value_text_max_length">મહત્તમ લંબાઈ સુધી પહોંચ્યાં</string>
+  <string name="value_selected">પસંદ કરેલ</string>
+  <string name="value_checked">તપાસાયેલું</string>
+  <string name="value_not_checked">તપાસાયેલ નથી</string>
+  <string name="value_on">ચાલુ</string>
+  <string name="value_off">બંધ</string>
+  <string name="value_disabled">અક્ષમ કર્યું</string>
+  <string name="value_expanded">વિસ્તૃત કર્યું</string>
+  <string name="value_collapsed">સંકુચિત કર્યું</string>
+  <string name="value_double_tap">બે વાર ટેપ કરો</string>
+  <string name="value_single_tap">ટેપ કરો</string>
+  <string name="value_switch_press">પસંદ કરો સ્વિચ દબાવો</string>
+  <string name="value_press_select">પસંદ કરો દબાવો</string>
+  <string name="template_hint_clickable">સક્રિય કરવા માટે %1$s.</string>
+  <string name="template_hint_clickable_keyboard">સક્રિય કરવા માટે %1$s દબાવો.</string>
+  <string name="template_hint_long_clickable">%1$s અને લાંબા દબાણ માટે પકડો.</string>
+  <string name="template_hint_long_clickable_keyboard">વધુ દબાવી રાખવા માટે %1$s દબાવો.</string>
+  <string name="template_hint_checkable">ટૉગલ કરવા માટે %1$s.</string>
+  <string name="template_hint_checkable_keyboard">ટૉગલ કરવા માટે %1$s દબાવો.</string>
+  <string name="template_hint_edit_text">ટેક્સ્ટમાં ફેરફાર કરવા માટે %1$s.</string>
+  <string name="template_hint_edit_text_keyboard">ટેક્સ્ટમાં ફેરફાર કરવા માટે %1$s દબાવો.</string>
+  <string name="template_hint_spinner">બદલવા માટે %1$s.</string>
+  <string name="template_hint_spinner_keyboard">બદલવા માટે %1$s દબાવો.</string>
+  <string name="template_hint_pager">પૃષ્ઠોને સ્વિચ કરવા માટે બે આંગળી વડે સ્વાઇપ કરો.</string>
+  <string name="template_hint_pager_single_page">કોઈ વધુ પૃષ્ઠ નથી.</string>
+  <string name="template_hint_seek_control">સમાયોજન કરવા માટે વૉલ્યૂમ કીનો ઉપયોગ કરો</string>
+  <string name="template_hint_seek_control_tv">બદલવા માટે %1$s.</string>
+  <string name="template_hint_custom_actions">ક્રિયાઓ:</string>
+  <string name="template_custom_hint_for_actions">%2$s માટે %1$s.</string>
+  <string name="template_custom_hint_for_actions_keyboard">%2$s માટે %1$s દબાવો.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s અને %2$s માટે પકડી રાખો.</string>
+  <string name="template_sa_custom_hint_scrollable">સ્ક્રોલ કરવા માટે %1$s.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">ઉપલબ્ધ ક્રિયાઓ માટે %1$s.</string>
+  <string name="template_sa_hint_seek_control">વધતુ-ઓછું કરવા માટે સ્વિચ કરવાનું પસંદ કરો દબાવો</string>
+  <string name="value_caps_lock_on">Caps Lock ચાલુ છે.</string>
+  <string name="value_caps_lock_off">Caps Lock બંધ છે.</string>
+  <string name="value_num_lock_on">Num Lock ચાલુ છે.</string>
+  <string name="value_num_lock_off">Num Lock બંધ છે.</string>
+  <string name="value_scroll_lock_on">Scroll Lock ચાલુ છે.</string>
+  <string name="value_scroll_lock_off">Scroll Lock બંધ છે.</string>
+  <string name="orientation_portrait">પોર્ટ્રેટ</string>
+  <string name="orientation_landscape">લેન્ડસ્કેપ</string>
+  <string name="title_action_dismiss">છોડી દો</string>
+  <string name="title_action_expand">વિસ્તાર કરો</string>
+  <string name="title_action_collapse">સંકુચિત કરો</string>
+  <string name="row_index_template">પંક્તિ %1$d</string>
+  <string name="column_index_template">કૉલમ %1$d</string>
+  <string name="heading_template">મથાળું</string>
+  <string name="row_heading_template">પંક્તિનું મથાળું</string>
+  <string name="column_heading_template">કૉલમનું મથાળું</string>
+  <string name="in_list">%1$s સૂચિમાં</string>
+  <string name="in_list_without_name">સૂચિમાં છે</string>
+  <string name="out_of_list">%1$s સૂચિની બહાર</string>
+  <string name="out_of_list_without_name">સૂચિમાં નથી</string>
+  <string name="in_grid">%1$s ગ્રિડમાં</string>
+  <string name="in_grid_without_name">ગ્રિડમાં છે</string>
+  <string name="out_of_grid">%1$s ગ્રિડની બહાર</string>
+  <string name="out_of_grid_without_name">ગ્રિડમાં નથી</string>
+  <string name="in_pager_with_name">પેજર %1$sમાં છે</string>
+  <string name="in_pager">પેજરમાં છે</string>
+  <string name="out_of_pager_with_name">પેજર %1$sની બહાર છે</string>
+  <string name="out_of_pager">પેજરની બહાર છે</string>
+  <string name="in_vertical_pager_with_name">ઊભા પેજર %1$sમાં છે</string>
+  <string name="in_vertical_pager">ઊભા પેજરમાં છે</string>
+  <string name="out_of_vertical_pager_with_name">ઊભા પેજર %1$sની બહાર છે</string>
+  <string name="out_of_vertical_pager">ઊભા પેજરની બહાર છે</string>
+  <string name="in_horizontal_pager_with_name">આડા પેજર %1$sમાં છે</string>
+  <string name="in_horizontal_pager">આડા પેજરમાં છે</string>
+  <string name="out_of_horizontal_pager_with_name">આડા પેજર %1$sની બહાર છે</string>
+  <string name="out_of_horizontal_pager">આડા પેજરની બહાર છે</string>
+  <string name="in_grid_pager_with_name">ગ્રિડ પેજર %1$sમાં છે</string>
+  <string name="in_grid_pager">ગ્રિડ પેજરમાં છે</string>
+  <string name="out_of_grid_pager_with_name">ગ્રિડ પેજર %1$sની બહાર છે</string>
+  <string name="out_of_grid_pager">ગ્રિડ પેજરની બહાર છે</string>
+  <string name="template_collection_level">સ્તર %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d આઇટમ</item>
+    <item quantity="other">%1$d આઇટમ</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d પંક્તિ</item>
+    <item quantity="other">%1$d પંક્તિ</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d કૉલમ</item>
+    <item quantity="other">%1$d કૉલમ</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d અક્ષર</item>
+    <item quantity="other">%1$d અક્ષર</item>
+  </plurals>
+  <string name="template_screen_magnification_on">વિસ્તૃતીકરણ ચાલુ %1$d%%</string>
+  <string name="template_screen_magnification_scale_changed">વિસ્તૃતીકરણ %1$d%%</string>
+  <string name="screen_magnification_off">વિસ્તૃતીકરણ બંધ</string>
+  <string name="template_speech_rate_change">બોલવાની ઝડપ %1$d%%</string>
+  <string name="audio_focus_on">ઑડિઓ ઘટાડવો ચાલુ છે</string>
+  <string name="audio_focus_off">ઑડિઓ ઘટાડવો બંધ છે</string>
+  <string name="selector_speech_rate_output">બોલવાની ઝડપ</string>
+  <string name="selector_verbosity_output">શબ્દબહુલતા</string>
+  <string name="selector_granularity_output">નૅવિગેશન</string>
+  <string name="selector_audio_focus_output">ઑડિયો ઘટાડવો</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">જ્યારે હૅડફોનનો ઉપયોગ કરાતો હોય ત્યારે જ માત્ર પાસવર્ડ બોલવામાં આવે છે</string>
+  <string name="template_hint_menu_type_high_verbosity">%1$s ઉપલબ્ધ છે, જોવા માટે %2$s સંકેતનો ઉપયોગ કરો.</string>
+  <string name="template_hint_menu_type_low_verbosity">%1$s ઉપલબ્ધ છે.</string>
 </resources>

@@ -17,10 +17,10 @@
 package com.google.android.accessibility.utils.output;
 
 import android.os.Bundle;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -52,7 +52,7 @@ public class Utterance {
   private final Bundle mMetadata = new Bundle();
 
   /** The list of text to speak. */
-  private final List<CharSequence> mSpokenFeedback = new LinkedList<>();
+  private final List<CharSequence> mSpokenFeedback = new ArrayList<>();
 
   /** The list of auditory feedback identifiers to play. */
   private final Set<Integer> mAuditoryFeedback = new HashSet<>();

@@ -22,13 +22,15 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
-import android.util.Log;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /**
  * Convenience class for working with the ProximitySensor. Also uses the ambient light sensor in its
  * place, when available.
  */
 public class ProximitySensor {
+
+  private static final String TAG = "ProximitySensor";
 
   /**
    * Number of milliseconds to wait before reporting onSensorChanged events to the listener. Used to
@@ -91,7 +93,7 @@ public class ProximitySensor {
       return;
     }
 
-    LogUtils.log(this, Log.VERBOSE, "Proximity sensor stopped at %d.", System.currentTimeMillis());
+    LogUtils.v(TAG, "Proximity sensor stopped at %d.", System.currentTimeMillis());
     mIsActive = false;
     mSensorManager.unregisterListener(mListener);
   }
@@ -105,8 +107,7 @@ public class ProximitySensor {
     mIsActive = true;
     mShouldDropEvents = true;
     mSensorManager.registerListener(mListener, mProxSensor, SensorManager.SENSOR_DELAY_UI);
-    LogUtils.log(
-        this, Log.VERBOSE, "Proximity sensor registered at %d.", System.currentTimeMillis());
+    LogUtils.v(TAG, "Proximity sensor registered at %d.", System.currentTimeMillis());
     mHandler.postDelayed(mFilterRunnable, REGISTRATION_EVENT_FILTER_TIMEOUT);
   }
 
@@ -114,11 +115,7 @@ public class ProximitySensor {
       new SensorEventListener() {
         @Override
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
-          LogUtils.log(
-              this,
-              Log.VERBOSE,
-              "Processing onAccuracyChanged event at %d.",
-              System.currentTimeMillis());
+          LogUtils.v(TAG, "Processing onAccuracyChanged event at %d.", System.currentTimeMillis());
           mShouldDropEvents = true;
           mHandler.removeCallbacks(mFilterRunnable);
           mHandler.postDelayed(mFilterRunnable, REGISTRATION_EVENT_FILTER_TIMEOUT);
@@ -127,19 +124,11 @@ public class ProximitySensor {
         @Override
         public void onSensorChanged(SensorEvent event) {
           if (mShouldDropEvents) {
-            LogUtils.log(
-                this,
-                Log.VERBOSE,
-                "Dropping onSensorChanged event at %d.",
-                System.currentTimeMillis());
+            LogUtils.v(TAG, "Dropping onSensorChanged event at %d.", System.currentTimeMillis());
             return;
           }
 
-          LogUtils.log(
-              this,
-              Log.VERBOSE,
-              "Processing onSensorChanged event at %d.",
-              System.currentTimeMillis());
+          LogUtils.v(TAG, "Processing onSensorChanged event at %d.", System.currentTimeMillis());
           mIsClose = (event.values[0] < mFarValue);
           mCallback.onProximityChanged(mIsClose);
         }
@@ -151,11 +140,7 @@ public class ProximitySensor {
         @Override
         public void run() {
           mShouldDropEvents = false;
-          LogUtils.log(
-              this,
-              Log.VERBOSE,
-              "Stopped filtering proximity events at %d.",
-              System.currentTimeMillis());
+          LogUtils.v(TAG, "Stopped filtering proximity events at %d.", System.currentTimeMillis());
         }
       };
 

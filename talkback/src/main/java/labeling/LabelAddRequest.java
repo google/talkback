@@ -21,9 +21,9 @@ import com.google.android.accessibility.utils.labeling.LabelProviderClient;
 
 public class LabelAddRequest extends LabelClientRequest<Label> {
 
-  private final Label mLabel;
-  private final int mSourceType;
-  private final CustomLabelManager.OnLabelsInPackageChangeListener mListener;
+  private final Label label;
+  private final int sourceType;
+  private final CustomLabelManager.OnLabelsInPackageChangeListener listener;
 
   public LabelAddRequest(
       LabelProviderClient client,
@@ -31,20 +31,20 @@ public class LabelAddRequest extends LabelClientRequest<Label> {
       int sourceType,
       CustomLabelManager.OnLabelsInPackageChangeListener listener) {
     super(client);
-    mLabel = label;
-    mListener = listener;
-    mSourceType = sourceType;
+    this.label = label;
+    this.listener = listener;
+    this.sourceType = sourceType;
   }
 
   @Override
   public Label doInBackground() {
-    return mClient.insertLabel(mLabel, mSourceType);
+    return mClient.insertLabel(label, sourceType);
   }
 
   @Override
   public void onPostExecute(Label result) {
-    if (mListener != null && result != null) {
-      mListener.onLabelsInPackageChanged(result.getPackageName());
+    if (listener != null && result != null) {
+      listener.onLabelsInPackageChanged(result.getPackageName());
     }
   }
 }

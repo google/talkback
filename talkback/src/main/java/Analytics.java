@@ -17,7 +17,7 @@
 package com.google.android.accessibility.talkback;
 
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 import com.google.android.accessibility.utils.input.CursorGranularity;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -36,10 +36,10 @@ public abstract class Analytics implements OnSharedPreferenceChangeListener {
   public @interface UserActionType {}
 
   /** The {@link com.google.android.accessibility.talkback.TalkBackService} instance. */
-  protected TalkBackService mService;
+  protected TalkBackService service;
 
   public Analytics(TalkBackService service) {
-    mService = service;
+    this.service = service;
   }
 
   /** To be called when TalkBack service has started. */

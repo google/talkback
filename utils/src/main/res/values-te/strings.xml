@@ -1,35 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="untitled_window" msgid="7017590766394623328">"శీర్షిక లేనిది"</string>
-    <string name="template_alert_dialog_template" msgid="5493715708649314332">"హెచ్చరిక <xliff:g id="MESSAGE">%1$s</xliff:g>"</string>
-    <string name="template_text_copied" msgid="1059175355898959427">"<xliff:g id="TEXT">%1$s</xliff:g>, కాపీ చేయబడింది"</string>
-    <string name="template_capital_letter" msgid="4920626008395727629">"క్యాపిటల్ <xliff:g id="UPPERCASE_CHARACTER">%1$s</xliff:g>"</string>
-    <string name="character_collapse_template" msgid="3556846822411648601">" <xliff:g id="NUMBER">%1$d</xliff:g> <xliff:g id="CHARACTER">%2$s</xliff:g>"</string>
-    <string name="template_current_tts_engine" msgid="3963364867159704159">"<xliff:g id="ENGINE_NAME">%1$s</xliff:g>ని ఉపయోగిస్తోంది"</string>
-    <string name="keycombo_assign_dialog_instruction" msgid="7298194792465449819">"కొత్త సత్వరమార్గాన్ని సెట్ చేయడానికి కీ కాంబినేషన్‌ను నొక్కండి. అది తప్పనిసరిగా ALT లేదా Control కీని కలిగి ఉండాలి."</string>
-    <string name="keycombo_assign_dialog_default_keymap_instruction" msgid="8675660213696360536">"కొత్త సత్వరమార్గాన్ని సెట్ చేయడానికి <xliff:g id="TRIGGER_MODIFIER_NAME">%1$s</xliff:g> మాడిఫైయర్ కీతో కీ కాంబినేషన్‌ను నొక్కండి."</string>
-    <string name="keycombo_unassigned" msgid="5817151372114230015">"కేటాయించలేదు"</string>
-    <string name="keycombo_key_modifier_shift" msgid="5635477035615538497">"షిఫ్ట్"</string>
-    <string name="keycombo_key_modifier_alt" msgid="5899747265287524712">"Alt"</string>
-    <string name="keycombo_key_modifier_ctrl" msgid="7834452577952298995">"Ctrl"</string>
-    <string name="keycombo_key_modifier_meta" msgid="4552213738130479993">"Search"</string>
-    <string name="keycombo_key_arrow_right" msgid="3021807777617903460">"కుడివైపు సూచించే బాణం"</string>
-    <string name="keycombo_key_arrow_left" msgid="7617113973940474625">"ఎడమవైపు సూచించే బాణం"</string>
-    <string name="keycombo_key_arrow_up" msgid="3428552869533106939">"పైకి సూచించే బాణం"</string>
-    <string name="keycombo_key_arrow_down" msgid="2088979197242112118">"క్రిందికి సూచించే బాణం"</string>
-    <string name="granularity_default" msgid="4948042687369948597">"డిఫాల్ట్"</string>
-    <string name="granularity_character" msgid="2036726841460203840">"పాత్రలు"</string>
-    <string name="granularity_word" msgid="2653776823920279013">"పదాలు"</string>
-    <string name="granularity_line" msgid="727359260064093782">"గీతలు"</string>
-    <string name="granularity_paragraph" msgid="3760401274833105422">"పేరాలు"</string>
-    <string name="granularity_page" msgid="2739238666516816581">"పేజీలు"</string>
-    <string name="granularity_web_section" msgid="8219174463230029732">"ముఖ్యశీర్షికలు మరియు ప్రముఖ విభాగాలు"</string>
-    <string name="granularity_web_list" msgid="4386991044245560102">"జాబితాలు"</string>
-    <string name="granularity_web_link" msgid="7817726975417542626">"లింక్‌లు"</string>
-    <string name="granularity_web_control" msgid="1885138772895126953">"నియంత్రణలు"</string>
-    <string name="granularity_pseudo_web_special_content" msgid="437761042603242585">"ప్రత్యేక కంటెంట్"</string>
-    <string name="granularity_native_heading" msgid="4197974986104812378">"ముఖ్య శీర్షికలు"</string>
-    <string name="granularity_native_control" msgid="2179123672532783038">"నియంత్రణలు"</string>
-    <string name="granularity_native_link" msgid="5811543234687687607">"లింక్‌లు"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="untitled_window">శీర్షిక లేనిది</string>
+  <string name="template_alert_dialog_template">హెచ్చరిక %1$s</string>
+  <string name="template_text_copied">%1$s, కాపీ చేయబడింది</string>
+  <string name="template_capital_letter">క్యాపిటల్ %1$s</string>
+  <string name="character_collapse_template"> %1$d %2$s﻿</string>
+  <string name="template_current_tts_engine">%1$sని ఉపయోగిస్తోంది</string>
+  <string name="keycombo_assign_dialog_instruction">కొత్త సత్వరమార్గాన్ని సెట్ చేయడానికి కీ కాంబినేషన్‌ను నొక్కండి. అది తప్పనిసరిగా ALT లేదా Control కీని కలిగి ఉండాలి.</string>
+  <string name="keycombo_assign_dialog_default_keymap_instruction">కొత్త సత్వరమార్గాన్ని సెట్ చేయడానికి %1$s మాడిఫైయర్ కీతో కీ కాంబినేషన్‌ను నొక్కండి.</string>
+  <string name="keycombo_unassigned">కేటాయించలేదు</string>
+  <string name="keycombo_key_modifier_shift">షిఫ్ట్</string>
+  <string name="keycombo_key_modifier_alt">Alt</string>
+  <string name="keycombo_key_modifier_ctrl">Ctrl</string>
+  <string name="keycombo_key_modifier_meta">Search</string>
+  <string name="keycombo_key_arrow_right">కుడివైపు సూచించే బాణం</string>
+  <string name="keycombo_key_arrow_left">ఎడమవైపు సూచించే బాణం</string>
+  <string name="keycombo_key_arrow_up">పైకి సూచించే బాణం</string>
+  <string name="keycombo_key_arrow_down">క్రిందికి సూచించే బాణం</string>
+  <string name="granularity_default">డిఫాల్ట్</string>
+  <string name="granularity_character">పాత్రలు</string>
+  <string name="granularity_word">పదాలు</string>
+  <string name="granularity_line">గీతలు</string>
+  <string name="granularity_paragraph">పేరాలు</string>
+  <string name="granularity_page">పేజీలు</string>
+  <string name="granularity_web_landmark">ల్యాండ్‌మార్క్‌లు</string>
+  <string name="granularity_web_heading">ముఖ్య శీర్షికలు</string>
+  <string name="granularity_web_list">జాబితాలు</string>
+  <string name="granularity_web_link">లింక్‌లు</string>
+  <string name="granularity_web_control">నియంత్రణలు</string>
+  <string name="granularity_pseudo_web_special_content">ప్రత్యేక కంటెంట్</string>
+  <string name="granularity_native_heading">ముఖ్య శీర్షికలు</string>
+  <string name="granularity_native_control">నియంత్రణలు</string>
+  <string name="granularity_native_link">లింక్‌లు</string>
+  <string name="template_overlay_window">%1$s చిత్రంలో చిత్రం</string>
+  <string name="template_split_screen_mode_portrait">పైన %1$s, దిగువ %2$s</string>
+  <string name="template_split_screen_mode_landscape_ltr">ఎడమవైపు %1$s, కుడివైపు %2$s</string>
+  <string name="template_split_screen_mode_landscape_rtl">కుడివైపు %1$s, ఎడమవైపు %2$s</string>
+  <string name="template_scroll_from_to_count">%3$dలో %1$d నుండి %2$d అంశాలను చూపుతోంది.</string>
+  <string name="template_scroll_from_count">%2$dలో %1$dవ అంశాన్ని చూపుతోంది..</string>
+  <string name="template_viewpager_index_count">%2$dలో %1$dవ పేజీ</string>
+  <string name="template_viewpager_index_count_short">%2$dలో %1$d</string>
+  <string name="url_dialog_table">%1$s (%2$s)</string>
 </resources>

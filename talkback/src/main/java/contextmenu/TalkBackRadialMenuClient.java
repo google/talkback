@@ -17,23 +17,26 @@
 package com.google.android.accessibility.talkback.contextmenu;
 
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
+import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TOUCH;
+import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_FLUSH_ALL;
+import static com.google.android.accessibility.utils.output.SpeechController.QUEUE_MODE_QUEUE;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_BACKWARD;
+import static com.google.android.accessibility.utils.traversal.TraversalStrategy.SEARCH_FOCUS_FORWARD;
 
 import android.content.Context;
 import android.os.Handler;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
+import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.menurules.NodeMenuRuleProcessor;
-import com.google.android.accessibility.utils.EditTextActionHistory;
 import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.accessibility.utils.input.CursorController;
-import com.google.android.accessibility.utils.input.InputModeManager;
-import com.google.android.accessibility.utils.input.TextCursorManager;
-import com.google.android.accessibility.utils.output.FeedbackController;
 import com.google.android.accessibility.utils.output.FeedbackItem;
-import com.google.android.accessibility.utils.output.SpeechController;
+import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 
 /**
  * TalkBack-specific implementation of {@link
@@ -44,29 +47,34 @@ import com.google.android.accessibility.utils.output.SpeechController;
  */
 public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuClient {
   /** The parent service. */
-  private final TalkBackService mService;
+  private final TalkBackService service;
 
   /** Menu inflater, used for constructing menus on-demand. */
-  private final MenuInflater mMenuInflater;
+  private final MenuInflater menuInflater;
 
   /** Menu rule processor, used to generate local context menus. */
-  private final NodeMenuRuleProcessor mMenuRuleProcessor;
+  private final NodeMenuRuleProcessor nodeMenuRuleProcessor;
 
   /** Global menu processor, used to generate items depending on current TalkBack state. */
-  private final GlobalMenuProcessor mGlobalMenuProcessor;
+  private final GlobalMenuProcessor globalMenuProcessor;
 
-  private ContextMenuItemClickProcessor mMenuClickProcessor;
+  private ContextMenuItemClickProcessor menuClickProcessor;
+
+  private final Pipeline.FeedbackReturner pipeline;
+  private final AccessibilityFocusMonitor accessibilityFocusMonitor;
 
   public TalkBackRadialMenuClient(
       TalkBackService service,
-      EditTextActionHistory editTextActionHistory,
-      TextCursorManager textCursorManager) {
-    mService = service;
-    mMenuInflater = new MenuInflater(mService);
-    mMenuRuleProcessor =
-        new NodeMenuRuleProcessor(mService, editTextActionHistory, textCursorManager);
-    mGlobalMenuProcessor = new GlobalMenuProcessor(mService);
-    mMenuClickProcessor = new ContextMenuItemClickProcessor(mService);
+      Pipeline.FeedbackReturner pipeline,
+      AccessibilityFocusMonitor accessibilityFocusMonitor,
+      NodeMenuRuleProcessor nodeMenuRuleProcessor) {
+    this.service = service;
+    this.pipeline = pipeline;
+    this.accessibilityFocusMonitor = accessibilityFocusMonitor;
+    menuInflater = new MenuInflater(this.service);
+    this.nodeMenuRuleProcessor = nodeMenuRuleProcessor;
+    globalMenuProcessor = new GlobalMenuProcessor(this.service);
+    menuClickProcessor = new ContextMenuItemClickProcessor(this.service, pipeline);
   }
 
   @Override
@@ -100,7 +108,7 @@ public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuCli
    */
   @Override
   public boolean onMenuItemClicked(MenuItem menuItem) {
-    return mMenuClickProcessor.onMenuItemClicked(menuItem);
+    return menuClickProcessor.onMenuItemClicked(menuItem);
   }
 
   @Override
@@ -110,16 +118,13 @@ public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuCli
   }
 
   private void onCreateGlobalContextMenu(RadialMenu menu) {
-    mMenuInflater.inflate(R.menu.global_context_menu, menu);
+    menuInflater.inflate(R.menu.global_context_menu, menu);
     onCreateQuickNavigationMenuItem(menu.findItem(R.id.quick_navigation));
-
-    // Only show "Repeat last utterance" on useful platforms.
-    menu.removeItem(R.id.repeat_last_utterance);
   }
 
   private void onCreateQuickNavigationMenuItem(RadialMenuItem quickNavigationItem) {
     final RadialSubMenu quickNavigationSubMenu = quickNavigationItem.getSubMenu();
-    final QuickNavigationJogDial quickNav = new QuickNavigationJogDial(mService);
+    final QuickNavigationJogDial quickNav = new QuickNavigationJogDial(service, pipeline);
 
     // TODO: This doesn't seem like a very clean OOP implementation.
     quickNav.populateMenu(quickNavigationSubMenu);
@@ -129,54 +134,60 @@ public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuCli
   }
 
   private boolean onPrepareGlobalContextMenu(RadialMenu menu) {
-    return mGlobalMenuProcessor.prepareMenu(menu);
+    return globalMenuProcessor.prepareMenu(menu);
   }
 
   private boolean onPrepareLocalContextMenu(RadialMenu menu) {
     final AccessibilityNodeInfoCompat currentNode =
-        mService.getCursorController().getCursorOrInputCursor();
-    if (mMenuRuleProcessor == null || currentNode == null) {
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
+    if (nodeMenuRuleProcessor == null || currentNode == null) {
       return false;
     }
 
-    final boolean result = mMenuRuleProcessor.prepareMenuForNode(menu, currentNode);
+    final boolean result = nodeMenuRuleProcessor.prepareMenuForNode(menu, currentNode);
     if (!result && menu.size() == 0) {
       EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance of menu events.
-      mService
-          .getSpeechController()
-          .speak(
-              mService.getString(R.string.title_local_breakout_no_items), /* Text */
-              SpeechController.QUEUE_MODE_FLUSH_ALL, /* QueueMode */
-              FeedbackItem.FLAG_NO_HISTORY | FeedbackItem.FLAG_FORCED_FEEDBACK, /* Flags */
-              null, /* SpeechParams */
-              eventId);
+      pipeline.returnFeedback(
+          eventId,
+          Feedback.speech(
+              service.getString(R.string.title_local_breakout_no_items),
+              SpeakOptions.create()
+                  .setQueueMode(QUEUE_MODE_FLUSH_ALL)
+                  .setFlags(
+                      FeedbackItem.FLAG_NO_HISTORY
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE)));
     }
     currentNode.recycle();
     return result;
   }
 
   private boolean onPrepareLanguageMenu(RadialMenu menu) {
-    return LanguageMenuProcessor.prepareLanguageMenu(mService, menu);
+    return LanguageMenuProcessor.prepareLanguageMenu(service, menu);
   }
 
   private boolean onPrepareCustomActionMenu(RadialMenu menu) {
     final AccessibilityNodeInfoCompat currentNode =
-        mService.getCursorController().getCursorOrInputCursor();
-    if (mMenuRuleProcessor == null || currentNode == null) {
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
+    if (nodeMenuRuleProcessor == null || currentNode == null) {
       return false;
     }
 
-    final boolean result = mMenuRuleProcessor.prepareCustomActionMenuForNode(menu, currentNode);
+    final boolean result = nodeMenuRuleProcessor.prepareCustomActionMenuForNode(menu, currentNode);
     if (!result && menu.size() == 0) {
       EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance of menu events.
-      mService
-          .getSpeechController()
-          .speak(
-              mService.getString(R.string.title_local_breakout_no_items), /* Text */
-              SpeechController.QUEUE_MODE_FLUSH_ALL, /* QueueMode */
-              FeedbackItem.FLAG_NO_HISTORY, /* Flags */
-              null, /* SpeechParams */
-              eventId);
+      pipeline.returnFeedback(
+          eventId,
+          Feedback.speech(
+              service.getString(R.string.title_local_breakout_no_items),
+              SpeakOptions.create()
+                  .setQueueMode(QUEUE_MODE_FLUSH_ALL)
+                  .setFlags(
+                      FeedbackItem.FLAG_NO_HISTORY
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE)));
     }
     currentNode.recycle();
     return result;
@@ -184,22 +195,25 @@ public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuCli
 
   private boolean onPrepareEditingMenu(RadialMenu menu) {
     final AccessibilityNodeInfoCompat currentNode =
-        mService.getCursorController().getCursorOrInputCursor();
-    if (mMenuRuleProcessor == null || currentNode == null) {
+        accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ true);
+    if (nodeMenuRuleProcessor == null || currentNode == null) {
       return false;
     }
 
-    final boolean result = mMenuRuleProcessor.prepareEditingMenuForNode(menu, currentNode);
+    final boolean result = nodeMenuRuleProcessor.prepareEditingMenuForNode(menu, currentNode);
     if (!result && menu.size() == 0) {
       EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance of menu events.
-      mService
-          .getSpeechController()
-          .speak(
-              mService.getString(R.string.title_local_breakout_no_items), /* Text */
-              SpeechController.QUEUE_MODE_FLUSH_ALL, /* QueueMode */
-              FeedbackItem.FLAG_NO_HISTORY, /* Flags */
-              null, /* SpeechParams */
-              eventId);
+      pipeline.returnFeedback(
+          eventId,
+          Feedback.speech(
+              service.getString(R.string.title_local_breakout_no_items),
+              SpeakOptions.create()
+                  .setQueueMode(QUEUE_MODE_FLUSH_ALL)
+                  .setFlags(
+                      FeedbackItem.FLAG_NO_HISTORY
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE)));
     }
     currentNode.recycle();
     return result;
@@ -211,64 +225,59 @@ public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuCli
 
     private static final int SEGMENT_COUNT = 16;
 
-    private final Handler mHandler = new Handler();
+    private final Handler handler = new Handler();
 
-    private final Context mContext;
-    private final SpeechController mSpeechController;
-    private final CursorController mCursorController;
-    private final FeedbackController mFeedbackController;
+    private final Context context;
+    private final Pipeline.FeedbackReturner pipeline;
 
-    public QuickNavigationJogDial(TalkBackService service) {
+    public QuickNavigationJogDial(TalkBackService service, Pipeline.FeedbackReturner pipeline) {
       super(SEGMENT_COUNT);
 
-      mContext = service;
-      mSpeechController = service.getSpeechController();
-      mCursorController = service.getCursorController();
-      mFeedbackController = service.getFeedbackController();
+      context = service;
+      this.pipeline = pipeline;
     }
 
     @Override
     public void onFirstTouch() {
       EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance for menu events.
-      if (!mCursorController.refocus(eventId)) {
-        mCursorController.next(
-            false /* shouldWrap */,
-            true /* shouldScroll */,
-            false /*useInputFocusAsPivotIfEmpty*/,
-            InputModeManager.INPUT_MODE_TOUCH,
-            eventId);
-      }
+      pipeline.returnFeedback(
+          eventId,
+          Feedback.focusDirection(SEARCH_FOCUS_FORWARD)
+              .setInputMode(INPUT_MODE_TOUCH)
+              .setScroll(true));
     }
 
     @Override
     public void onPrevious() {
       EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance for menu events.
-      if (!mCursorController.previous(
-          false /* shouldWrap */,
-          true /* shouldScroll */,
-          false /*useInputFocusAsPivotIfEmpty*/,
-          InputModeManager.INPUT_MODE_TOUCH,
-          eventId)) {
-        mFeedbackController.playAuditory(R.raw.complete);
+      boolean navSuccess =
+          pipeline.returnFeedback(
+              eventId,
+              Feedback.focusDirection(SEARCH_FOCUS_BACKWARD)
+                  .setInputMode(INPUT_MODE_TOUCH)
+                  .setScroll(true));
+      if (!navSuccess) {
+        pipeline.returnFeedback(eventId, Feedback.sound(R.raw.complete));
       }
     }
 
     @Override
     public void onNext() {
       EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance for menu events.
-      if (!mCursorController.next(
-          false /* shouldWrap */,
-          true /* shouldScroll */,
-          false /*useInputFocusAsPivotIfEmpty*/,
-          InputModeManager.INPUT_MODE_TOUCH,
-          eventId)) {
-        mFeedbackController.playAuditory(R.raw.complete);
+      boolean navSuccess =
+          pipeline.returnFeedback(
+              eventId,
+              Feedback.focusDirection(SEARCH_FOCUS_FORWARD)
+                  .setInputMode(INPUT_MODE_TOUCH)
+                  .setScroll(true));
+      if (!navSuccess) {
+        pipeline.returnFeedback(eventId, Feedback.sound(R.raw.complete));
       }
     }
 
     @Override
     public boolean onMenuItemSelection(RadialMenuItem item) {
-      mHandler.removeCallbacks(mHintRunnable);
+      handler.removeCallbacks(hintRunnable);
 
       if (item == null) {
         // Let the manager handle cancellations.
@@ -281,28 +290,27 @@ public class TalkBackRadialMenuClient implements RadialMenuManager.RadialMenuCli
 
     @Override
     public void onMenuShown() {
-      mHandler.postDelayed(mHintRunnable, RadialMenuManager.DELAY_RADIAL_MENU_HINT);
+      handler.postDelayed(hintRunnable, RadialMenuManager.DELAY_RADIAL_MENU_HINT);
     }
 
     @Override
     public void onMenuDismissed() {
-      mHandler.removeCallbacks(mHintRunnable);
-      EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance for menu events.
-      mCursorController.refocus(eventId);
+      handler.removeCallbacks(hintRunnable);
     }
 
-    private final Runnable mHintRunnable =
+    private final Runnable hintRunnable =
         new Runnable() {
           @Override
           public void run() {
-            final String hintText = mContext.getString(R.string.hint_summary_jog_dial);
+            final String hintText = context.getString(R.string.hint_summary_jog_dial);
             EventId eventId = EVENT_ID_UNTRACKED; // Hints occur after other feedback.
-            mSpeechController.speak(
-                hintText,
-                SpeechController.QUEUE_MODE_QUEUE,
-                FeedbackItem.FLAG_NO_HISTORY,
-                null,
-                eventId);
+            pipeline.returnFeedback(
+                eventId,
+                Feedback.speech(
+                    hintText,
+                    SpeakOptions.create()
+                        .setQueueMode(QUEUE_MODE_QUEUE)
+                        .setFlags(FeedbackItem.FLAG_NO_HISTORY)));
           }
         };
   }

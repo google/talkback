@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>לחצן</item>
+    <item>תיבת סימון</item>
+    <item>בוחר צבעים</item>
+    <item>פקד תאריך ושעה</item>
+    <item>פקד תאריך ושעה</item>
+    <item>פקד תאריך</item>
+    <item>ערוך טקסט עבור אימייל</item>
+    <item>בחירת קובץ</item>
+    <item translatable="false"></item>
+    <item>לחצן</item>
+    <item>פקד תצוגה חודשית</item>
+    <item>ערוך ספרות טקסט בלבד</item>
+    <item>טקסט עריכת סיסמה</item>
+    <item>לחצן בחירה</item>
+    <item>מחוון</item>
+    <item>איפוס</item>
+    <item>ערוך טקסט עבור חיפוש</item>
+    <item>לחצן</item>
+    <item>ערוך טקסט עבור מספר טלפון</item>
+    <item>ערוך טקסט</item>
+    <item>ערוך טקסט עבור כתובת אתר</item>
+    <item>פקד תצוגת שבוע בשנה</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>התראה</item>
+    <item>חלון התראה</item>
+    <item>לחצן</item>
+    <item>תיבת סימון</item>
+    <item>תיבה משולבת</item>
+    <item>תיבת דו-שיח</item>
+    <item>תא רשת</item>
+    <item>קישור</item>
+    <item>יומן</item>
+    <item>מודעה</item>
+    <item>פריט תפריט</item>
+    <item>תיבת סימון של פריט בתפריט</item>
+    <item>לחצן בחירה של פריט בתפריט</item>
+    <item>אפשרות</item>
+    <item>סרגל התקדמות</item>
+    <item>לחצן בחירה</item>
+    <item>קבוצה של לחצני בחירה</item>
+    <item>סרגל גלילה</item>
+    <item>מחוון</item>
+    <item>לחצן סיבוב</item>
+    <item>סטטוס</item>
+    <item>כרטיסייה</item>
+    <item>לוח כרטיסייה</item>
+    <item>תיבת טקסט</item>
+    <item>טיימר</item>
+    <item>סרגל כלים</item>
+    <item>הסבר קצר</item>
+    <item>פריט עץ</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>קישור</item>
+    <item>כותרת ברמה אחת</item>
+    <item>כותרת ברמה שתיים</item>
+    <item>כותרת ברמה שלוש</item>
+    <item>כותרת ברמה ארבע</item>
+    <item>כותרת ברמה חמש</item>
+    <item>כותרת ברמה שש</item>
+    <item>לחצן</item>
+    <item>תיבה משולבת</item>
+    <item>טבלה</item>
+    <item>אזור טקסט</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

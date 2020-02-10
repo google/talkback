@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Knop</item>
+    <item>Selectievakje</item>
+    <item>Kleurenkiezer</item>
+    <item>Bedieningselement voor datum/tijd</item>
+    <item>Bedieningselement voor datum/tijd</item>
+    <item>Bedieningselement voor datum</item>
+    <item>Tekst voor e-mail bewerken</item>
+    <item>Bestandsselectie</item>
+    <item translatable="false"></item>
+    <item>Knop</item>
+    <item>Bedieningselement voor maand</item>
+    <item>Tekst bewerken, alleen cijfers</item>
+    <item>Tekst voor wachtwoord bewerken</item>
+    <item>Keuzerondje</item>
+    <item>Schuifregelaar</item>
+    <item>Resetten</item>
+    <item>Tekst bewerken voor zoeken</item>
+    <item>Knop</item>
+    <item>Tekst voor telefoonnummer bewerken</item>
+    <item>Tekst bewerken</item>
+    <item>Tekst voor URL bewerken</item>
+    <item>Bedieningselement voor week van het jaar</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Waarschuwing</item>
+    <item>Dialoogvenster voor meldingen</item>
+    <item>Knop</item>
+    <item>Selectievakje</item>
+    <item>Keuzelijst met invoervak</item>
+    <item>Dialoogvenster</item>
+    <item>Rastercel</item>
+    <item>Koppelen</item>
+    <item>Log</item>
+    <item>Marquee</item>
+    <item>Menu-item</item>
+    <item>Selectievakje voor menu-item</item>
+    <item>Keuzerondje voor menu-item</item>
+    <item>Optie</item>
+    <item>Voortgangsbalk</item>
+    <item>Keuzerondje</item>
+    <item>Keuzerondje voor groep</item>
+    <item>Scrollbar</item>
+    <item>Schuifregelaar</item>
+    <item>Draaiknop</item>
+    <item>Status</item>
+    <item>Tab</item>
+    <item>Tabblad</item>
+    <item>Tekstvak</item>
+    <item>Timer</item>
+    <item>Werkbalk</item>
+    <item>Knopinfo</item>
+    <item>Item in structuurweergave</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Koppelen</item>
+    <item>Kop één</item>
+    <item>Kop twee</item>
+    <item>Kop drie</item>
+    <item>Kop vier</item>
+    <item>Kop vijf</item>
+    <item>Kop zes</item>
+    <item>Knop</item>
+    <item>Keuzelijst met invoervak</item>
+    <item>Tabel</item>
+    <item>Tekstgebied</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

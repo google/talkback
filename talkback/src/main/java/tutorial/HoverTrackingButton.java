@@ -23,7 +23,7 @@ import android.widget.Button;
 
 public class HoverTrackingButton extends Button {
 
-  private boolean mDidHoverEnter;
+  private boolean didHoverEnter;
 
   public HoverTrackingButton(Context context) {
     super(context);
@@ -40,16 +40,16 @@ public class HoverTrackingButton extends Button {
   @Override
   public boolean onHoverEvent(MotionEvent event) {
     if (event.getAction() == MotionEvent.ACTION_HOVER_ENTER) {
-      mDidHoverEnter = true;
+      didHoverEnter = true;
     }
     return super.onHoverEvent(event);
   }
 
   public void clearTracking() {
-    mDidHoverEnter = false;
+    didHoverEnter = false;
   }
 
   public boolean didHoverEnter() {
-    return mDidHoverEnter;
+    return didHoverEnter;
   }
 }

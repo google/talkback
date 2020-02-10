@@ -18,6 +18,7 @@ package com.google.android.accessibility.utils.widget;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
+import androidx.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -33,17 +34,17 @@ import android.widget.FrameLayout;
 
 /** Provides a simple full-screen overlay. Behaves like a {@link android.app.Dialog} but simpler. */
 public class SimpleOverlay {
-  private final Context mContext;
-  private final WindowManager mWindowManager;
-  private final ViewGroup mContentView;
-  private final LayoutParams mParams;
-  private final int mId;
+  private final Context context;
+  private final WindowManager windowManager;
+  private final ViewGroup contentView;
+  private final LayoutParams params;
+  private final int id;
 
-  private SimpleOverlayListener mListener;
-  private OnTouchListener mTouchListener;
-  private OnKeyListener mKeyListener;
-  private boolean mVisible;
-  private CharSequence mRootViewClassName = null;
+  private SimpleOverlayListener listener;
+  private OnTouchListener touchListener;
+  private OnKeyListener keyListener;
+  private boolean isVisible;
+  @Nullable private CharSequence rootViewClassName = null;
 
   /**
    * Creates a new simple overlay that does not send {@link AccessibilityEvent}s.
@@ -73,14 +74,13 @@ public class SimpleOverlay {
    *     AccessibilityEvent}s.
    */
   public SimpleOverlay(Context context, int id, final boolean sendsAccessibilityEvents) {
-    mContext = context;
-    mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-    mContentView =
+    this.context = context;
+    windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+    contentView =
         new FrameLayout(context) {
           @Override
           public boolean dispatchKeyEvent(KeyEvent event) {
-            if ((mKeyListener != null)
-                && mKeyListener.onKey(mContentView, event.getKeyCode(), event)) {
+            if ((keyListener != null) && keyListener.onKey(this, event.getKeyCode(), event)) {
               return true;
             }
 
@@ -91,7 +91,7 @@ public class SimpleOverlay {
           public boolean dispatchTouchEvent(MotionEvent event) {
             // TODO: Check if we should adjust position after notifying touch listener.
             event.offsetLocation(-getTranslationX(), -getTranslationY());
-            if ((mTouchListener != null) && mTouchListener.onTouch(mContentView, event)) {
+            if ((touchListener != null) && touchListener.onTouch(this, event)) {
               return true;
             }
 
@@ -121,30 +121,30 @@ public class SimpleOverlay {
           @Override
           public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
             super.onInitializeAccessibilityNodeInfo(info);
-            if (mRootViewClassName != null) {
-              info.setClassName(mRootViewClassName);
+            if (rootViewClassName != null) {
+              info.setClassName(rootViewClassName);
             }
           }
         };
 
-    mParams = new WindowManager.LayoutParams();
-    mParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
-    mParams.format = PixelFormat.TRANSLUCENT;
-    mParams.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+    params = new WindowManager.LayoutParams();
+    params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+    params.format = PixelFormat.TRANSLUCENT;
+    params.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
 
-    mId = id;
+    this.id = id;
 
-    mVisible = false;
+    isVisible = false;
   }
 
   /** @return The overlay context. */
   public Context getContext() {
-    return mContext;
+    return context;
   }
 
   /** @return The overlay identifier, or {@code 0} if no identifier was provided at construction. */
   public int getId() {
-    return mId;
+    return id;
   }
 
   /**
@@ -153,7 +153,7 @@ public class SimpleOverlay {
    * AccessibilityDelegate.
    */
   public void setRootViewClassName(CharSequence className) {
-    mRootViewClassName = className;
+    rootViewClassName = className;
   }
 
   /**
@@ -162,7 +162,7 @@ public class SimpleOverlay {
    * @param keyListener
    */
   public void setOnKeyListener(OnKeyListener keyListener) {
-    mKeyListener = keyListener;
+    this.keyListener = keyListener;
   }
 
   /**
@@ -171,7 +171,7 @@ public class SimpleOverlay {
    * @param touchListener
    */
   public void setOnTouchListener(OnTouchListener touchListener) {
-    mTouchListener = touchListener;
+    this.touchListener = touchListener;
   }
 
   /**
@@ -180,7 +180,7 @@ public class SimpleOverlay {
    * @param listener
    */
   public void setListener(SimpleOverlayListener listener) {
-    mListener = listener;
+    this.listener = listener;
   }
 
   /**
@@ -188,15 +188,15 @@ public class SimpleOverlay {
    * available.
    */
   public void show() {
-    if (mVisible) {
+    if (isVisible) {
       return;
     }
 
-    mWindowManager.addView(mContentView, mParams);
-    mVisible = true;
+    windowManager.addView(contentView, params);
+    isVisible = true;
 
-    if (mListener != null) {
-      mListener.onShow(this);
+    if (listener != null) {
+      listener.onShow(this);
     }
 
     onShow();
@@ -207,15 +207,15 @@ public class SimpleOverlay {
    * available.
    */
   public void hide() {
-    if (!mVisible) {
+    if (!isVisible) {
       return;
     }
 
-    mWindowManager.removeViewImmediate(mContentView);
-    mVisible = false;
+    windowManager.removeViewImmediate(contentView);
+    isVisible = false;
 
-    if (mListener != null) {
-      mListener.onHide(this);
+    if (listener != null) {
+      listener.onHide(this);
     }
 
     onHide();
@@ -234,7 +234,7 @@ public class SimpleOverlay {
   /** @return A copy of the current layout parameters. */
   public LayoutParams getParams() {
     final LayoutParams copy = new LayoutParams();
-    copy.copyFrom(mParams);
+    copy.copyFrom(params);
     return copy;
   }
 
@@ -244,16 +244,16 @@ public class SimpleOverlay {
    * @param params The layout parameters to use.
    */
   public void setParams(LayoutParams params) {
-    mParams.copyFrom(params);
+    this.params.copyFrom(params);
 
-    if (mVisible) {
-      mWindowManager.updateViewLayout(mContentView, mParams);
+    if (isVisible) {
+      windowManager.updateViewLayout(contentView, this.params);
     }
   }
 
   /** @return {@code true} if this overlay is visible. */
   public boolean isVisible() {
-    return mVisible;
+    return isVisible;
   }
 
   /**
@@ -262,9 +262,9 @@ public class SimpleOverlay {
    * @param layoutResId The layout ID of the view to set as the content view.
    */
   public void setContentView(int layoutResId) {
-    mContentView.removeAllViews();
-    final LayoutInflater inflater = LayoutInflater.from(mContext);
-    inflater.inflate(layoutResId, mContentView);
+    contentView.removeAllViews();
+    final LayoutInflater inflater = LayoutInflater.from(context);
+    inflater.inflate(layoutResId, contentView);
   }
 
   /**
@@ -273,15 +273,15 @@ public class SimpleOverlay {
    * @param content The view to set as the content view.
    */
   public void setContentView(View content) {
-    mContentView.removeAllViews();
-    mContentView.addView(content);
+    contentView.removeAllViews();
+    contentView.addView(content);
   }
 
   /**
    * Returns the root {@link View} for this overlay. This is <strong>not</strong> the content view.
    */
   public View getRootView() {
-    return mContentView;
+    return contentView;
   }
 
   /**
@@ -291,7 +291,7 @@ public class SimpleOverlay {
    * @return The view with the specified ID, or {@code null} if not found.
    */
   public View findViewById(int id) {
-    return mContentView.findViewById(id);
+    return contentView.findViewById(id);
   }
 
   /** Handles overlay visibility change callbacks. */

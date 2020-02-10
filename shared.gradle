@@ -4,12 +4,33 @@
  */
 
 android {
-    compileSdkVersion "android-27"
+    compileSdkVersion 'android-29'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig{
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+        minSdkVersion 23
+    }
 }
 
 dependencies {
-    compile 'com.google.guava:guava:22.0'
-    compile 'com.google.android.gms:play-services:8.4.0'
-    compile 'com.android.support:support-v4:27.0.0'
-    compile 'com.android.support:appcompat-v7:27.0.0'
+    implementation 'com.google.guava:guava:22.0'
+    implementation 'com.google.android.gms:play-services:8.4.0'
+    implementation 'org.checkerframework:checker-qual:2.5.8'
+    implementation 'com.google.android:flexbox:1.0.0'
+
+    api 'com.google.auto.value:auto-value-annotations:1.7'
+    annotationProcessor 'com.google.auto.value:auto-value:1.7'
+
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.collection:collection:1.1.0'
+    implementation 'androidx.core:core:1.2.0-rc01'
+    implementation 'androidx.fragment:fragment:1.2.0-rc03'
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
 }

@@ -18,55 +18,55 @@ package com.google.android.accessibility.talkback.contextmenu;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.SubMenu;
 import android.view.View;
 
 public class ListSubMenu extends ListMenu implements ContextSubMenu {
 
-  private final ContextMenuItem mMenuItem;
+  private final ContextMenuItem menuItem;
 
   public ListSubMenu(Context context, int groupId, int itemId, int order, CharSequence title) {
     super(context);
-    mMenuItem = new ListMenuItem(context, groupId, itemId, order, title, this);
+    menuItem = new ListMenuItem(context, groupId, itemId, order, title, this);
   }
 
   @Override
   public void setTitle(String title) {
-    mMenuItem.setTitle(title);
+    menuItem.setTitle(title);
   }
 
   @Override
   public String getTitle() {
-    CharSequence title = mMenuItem.getTitle();
+    CharSequence title = menuItem.getTitle();
     return title == null ? null : title.toString();
   }
 
   @NonNull
   @Override
   public SubMenu setHeaderTitle(int titleRes) {
-    mMenuItem.setTitle(titleRes);
+    menuItem.setTitle(titleRes);
     return this;
   }
 
   @NonNull
   @Override
   public SubMenu setHeaderTitle(CharSequence title) {
-    mMenuItem.setTitle(title);
+    menuItem.setTitle(title);
     return this;
   }
 
   @NonNull
   @Override
   public SubMenu setHeaderIcon(int iconRes) {
-    mMenuItem.setIcon(iconRes);
+    menuItem.setIcon(iconRes);
     return this;
   }
 
   @NonNull
   @Override
   public SubMenu setHeaderIcon(Drawable icon) {
-    mMenuItem.setIcon(icon);
+    menuItem.setIcon(icon);
     return this;
   }
 
@@ -84,19 +84,19 @@ public class ListSubMenu extends ListMenu implements ContextSubMenu {
   @NonNull
   @Override
   public SubMenu setIcon(int iconRes) {
-    mMenuItem.setIcon(iconRes);
+    menuItem.setIcon(iconRes);
     return this;
   }
 
   @NonNull
   @Override
   public SubMenu setIcon(Drawable icon) {
-    mMenuItem.setIcon(icon);
+    menuItem.setIcon(icon);
     return this;
   }
 
   @Override
   public ContextMenuItem getItem() {
-    return mMenuItem;
+    return menuItem;
   }
 }

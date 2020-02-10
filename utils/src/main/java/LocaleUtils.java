@@ -16,18 +16,18 @@
 
 package com.google.android.accessibility.utils;
 
-import android.support.annotation.Nullable;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.LocaleSpan;
 import java.util.Locale;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Manages parsing for the locale. */
 public class LocaleUtils {
 
   // Extracts the locale. Keeps language and country but drops the variant.
   // Returns null on failure.
-  public static Locale parseLocaleString(String localeString) {
+  public static @Nullable Locale parseLocaleString(String localeString) {
     if (TextUtils.isEmpty(localeString)) {
       return null;
     }

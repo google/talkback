@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Knoppie</item>
+    <item>Merkblokkie</item>
+    <item>Kleurkieser</item>
+    <item>Datum-en-tydbeheer</item>
+    <item>Datum-en-tydbeheer</item>
+    <item>Datumbeheer</item>
+    <item>Wysig teks vir e-pos</item>
+    <item>Lêerkeuse</item>
+    <item translatable="false"></item>
+    <item>Knoppie</item>
+    <item>Maandbeheer</item>
+    <item>Wysig teks, net numeries</item>
+    <item>Wysig teks vir wagwoord</item>
+    <item>Radioknoppie</item>
+    <item>Glyer</item>
+    <item>Stel terug</item>
+    <item>Wysig teks vir soektog</item>
+    <item>Knoppie</item>
+    <item>Wysig teks vir foonnommer</item>
+    <item>Wysig teks</item>
+    <item>Wysig teks vir URL</item>
+    <item>Week-van-die-jaar-beheer</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Opletberig</item>
+    <item>Opletberigdialoog</item>
+    <item>Knoppie</item>
+    <item>Merkblokkie</item>
+    <item>Kombinasiekassie</item>
+    <item>Dialoog</item>
+    <item>Roostersel</item>
+    <item>Skakel</item>
+    <item>Loglêer</item>
+    <item>Rolteks</item>
+    <item>Kieslysitem</item>
+    <item>Merkblokkie vir kieslysitem</item>
+    <item>Radioknoppie vir kieslysitem</item>
+    <item>Opsie</item>
+    <item>Vorderingsbalk</item>
+    <item>Radioknoppie</item>
+    <item>Radioknoppiegroep</item>
+    <item>Rolbalk</item>
+    <item>Glyer</item>
+    <item>Draaiknoppie</item>
+    <item>Status</item>
+    <item>Oortjie</item>
+    <item>Oortjiepaneel</item>
+    <item>Tekskassie</item>
+    <item>Tydhouer</item>
+    <item>Nutsbalk</item>
+    <item>Nutswenk</item>
+    <item>Boomitem</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Skakel</item>
+    <item>Opskrif een</item>
+    <item>Opskrif twee</item>
+    <item>Opskrif drie</item>
+    <item>Opskrif vier</item>
+    <item>Opskrif vyf</item>
+    <item>Opskrif ses</item>
+    <item>Knoppie</item>
+    <item>Kombinasiekassie</item>
+    <item>Tabel</item>
+    <item>Teksarea</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

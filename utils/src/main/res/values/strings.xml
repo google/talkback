@@ -64,7 +64,9 @@
     <!-- Announced when the user changes reading mode to read a single page at a time. -->
     <string name="granularity_page">Pages</string>
     <!-- Announced when the user changes reading mode in web content to read a single section at a time. -->
-    <string name="granularity_web_section">Headings and Landmarks</string>
+    <string name="granularity_web_landmark">Landmarks</string>
+    <!-- Announced when the user changes reading mode in web content to read a single section header at a time. -->
+    <string name="granularity_web_heading">Headings</string>
     <!-- Announced when the user changes reading mode in web content to read a single list at a time. -->
     <string name="granularity_web_list">Lists</string>
     <!-- Announced when the user changes reading mode in web content to read a single link at a time. -->
@@ -84,4 +86,48 @@
     <string name="granularity_native_control">Controls</string>
     <!-- Announced when the user changes navigation mode in native views to navigating a single link at a time. -->
     <string name="granularity_native_link">Links</string>
+
+    <!-- Announced for overlay window, example: picture-in-picture video. -->
+    <string name="template_overlay_window"><xliff:g id="application_window_title" example="Application A">%1$s</xliff:g> picture in picture</string>
+    <!-- Announced for the split screen mode in portrait screen. -->
+    <string name="template_split_screen_mode_portrait"><xliff:g name="window_title_a" example="Application A">%1$s</xliff:g> on top, <xliff:g name="window_title_b" example="Application B">%2$s</xliff:g> on bottom</string>
+    <!-- Announced for split screen mode in Left-to-Right landscape screen. -->
+    <string name="template_split_screen_mode_landscape_ltr"><xliff:g name="window_title_a" example="Application A">%1$s</xliff:g> on left, <xliff:g name="window_title_b" example="Application B">%2$s</xliff:g> on right</string>
+    <!-- Announced for split screen mode in Right-to-Left landscape screen. -->
+    <string name="template_split_screen_mode_landscape_rtl"><xliff:g name="window_title_a" example="Application A">%1$s</xliff:g> on right, <xliff:g name="window_title_b" example="Application B">%2$s</xliff:g> on left</string>
+
+    <!--
+        Source: An utterance template for announcing the visible range of items within a list view.
+        Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <!-- TODO: This template is used by both ScrollFeedbackManager and Compositor, clean up dependency if we move this string. -->
+    <string name="template_scroll_from_to_count">Showing items <xliff:g id="from_index">%1$d</xliff:g> to <xliff:g id="to_index">%2$d</xliff:g> of <xliff:g id="total_count">%3$d</xliff:g>.</string>
+    <!--
+        Source: An utterance template for announcing the visible item within a list view.
+        Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <!-- TODO: This template is used by both ScrollFeedbackManager and Compositor, clean up dependency if we move this string. -->
+    <string name="template_scroll_from_count">Showing item <xliff:g id="from_index">%1$d</xliff:g> of <xliff:g id="total_count">%2$d</xliff:g>.</string>
+    <!--
+        Source: An utterance template for announcing the visible page inside a view pager.
+        This is used if the view pager's current page does not have a content description.
+        Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <!-- TODO: This template is used by both ScrollFeedbackManager and Compositor, clean up dependency if we move this string. -->
+    <string name="template_viewpager_index_count">Page <xliff:g id="page_index">%1$d</xliff:g> of <xliff:g id="total_count">%2$d</xliff:g></string>
+    <!--
+        Source: A shorter utterance template for announcing the visible page inside a view pager.
+        This is used if the view pager's current page has a content description.
+        Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    -->
+    <!-- TODO: This template is used by both ScrollFeedbackManager and Compositor, clean up dependency if we move this string. -->
+    <string name="template_viewpager_index_count_short"><xliff:g id="page_index">%1$d</xliff:g> of <xliff:g id="total_count">%2$d</xliff:g></string>
+
+    <!--
+        Template for a row in a dialog containing information on a URL. The dialog_text is the
+        hyperlinked text visible to the user before the dialog is opened, and dialog_url is the URL
+        pathway. This string should not be used if dialog_text equals dialog_url. The text will be
+        truncated if the text exceeds more than one line on the dialog.
+    -->
+    <string name="url_dialog_table"><xliff:g id="dialog_text" example="Google">%1$s</xliff:g> (<xliff:g id="dialog_url" example="www.google.com">%2$s</xliff:g>)</string>
 </resources>

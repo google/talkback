@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/title"
         style="@style/MaterialTextBody1"
-        android:textColor="@android:color/black"
+        android:textColor="@color/tutorial_main_item_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"

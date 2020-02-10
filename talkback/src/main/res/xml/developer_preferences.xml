@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/pref_category_developer_key">
+  <ListPreference
+      android:defaultValue="@string/pref_log_level_default"
+      android:dialogTitle="@string/title_pref_log_level"
+      android:entries="@array/pref_log_level_entries"
+      android:entryValues="@array/pref_log_level_values"
+      android:key="@string/pref_log_level_key"
+      android:summary="%s"
+      android:title="@string/title_pref_log_level"/>
+  <SwitchPreference
+      android:defaultValue="@bool/pref_tts_overlay_default"
+      android:key="@string/pref_tts_overlay_key"
+      android:title="@string/title_pref_tts_overlay"/>
+  <SwitchPreference
+      android:defaultValue="@bool/pref_reduce_window_delay_default"
+      android:key="@string/pref_reduce_window_delay_key"
+      android:title="@string/pref_reduce_window_delay_title"/>
+  <SwitchPreference
+      android:defaultValue="@bool/pref_tree_debug_default"
+      android:key="@string/pref_tree_debug_reflect_key"
+      android:title="@string/title_pref_tree_debug"/>
+  <SwitchPreference
+      android:defaultValue="@bool/pref_performance_stats_default"
+      android:key="@string/pref_performance_stats_reflect_key"
+      android:title="@string/title_pref_performance_stats"/>
+  <Preference
+      android:key="@string/pref_dump_a11y_event_key"
+      android:title="@string/title_pref_dump_a11y_event">
+    <intent android:action=".TalkBackDumpAccessibilityEventActivity"/>
+  </Preference>
+  <SwitchPreference
+      android:defaultValue="@bool/pref_explore_by_touch_default"
+      android:key="@string/pref_explore_by_touch_reflect_key"
+      android:title="@string/title_pref_explore_by_touch" />
+</PreferenceScreen>

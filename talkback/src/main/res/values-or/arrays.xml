@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>ବଟନ୍‌</item>
+    <item>ଚେକ୍ ବକ୍ସ</item>
+    <item>କଲର୍‌ ପିକର୍‌</item>
+    <item>ତାରିଖ ସମୟ ନିୟନ୍ତ୍ରଣ</item>
+    <item>ତାରିଖ ସମୟ ନିୟନ୍ତ୍ରଣ</item>
+    <item>ତାରିଖ ନିୟନ୍ତ୍ରଣ</item>
+    <item>ଇମେଲ୍‌ ପାଇଁ ଟେକ୍ସଟ୍‌ ଏଡିଟ୍ କରିବା</item>
+    <item>ଫାଇଲ୍‌ ଚୟନ କରିବା</item>
+    <item translatable="false"></item>
+    <item>ବଟନ୍‌</item>
+    <item>ମାସ ନିୟନ୍ତ୍ରଣ</item>
+    <item>କେବଳ ସଂଖ୍ୟା ଟେକ୍ସଟ୍‌ ଏଡିଟ୍ କରିବା</item>
+    <item>ପାସ୍‌ୱର୍ଡ ଟେକ୍ସଟ୍‌ ଏଡିଟ୍ କରିବା</item>
+    <item>ରେଡିଓ ବଟନ୍‌</item>
+    <item>ସ୍ଲାଇଡର୍‌</item>
+    <item>ରିସେଟ୍‌ କରନ୍ତୁ</item>
+    <item>ଖୋଜିବା ପାଇଁ ଟେକ୍ସଟ୍‌ ଏଡିଟ୍ କରିବା</item>
+    <item>ବଟନ୍‌</item>
+    <item>ଟେଲିଫୋନ୍‌ ନମ୍ୱର ପାଇଁ ଟେକ୍ସଟ୍‌ ଏଡିଟ୍ କରିବା</item>
+    <item>ଟେକ୍ସଟ୍‌ ଏଡିଟ୍ କରନ୍ତୁ</item>
+    <item>URL ପାଇଁ ଟେକ୍ସଟ୍‌ ଏଡିଟ୍ କରିବା</item>
+    <item>ବର୍ଷର ସପ୍ତାହ ନିୟନ୍ତ୍ରଣ</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>ଆଲର୍ଟ</item>
+    <item>ଆଲର୍ଟ ଡାୟଲଗ୍‌</item>
+    <item>ବଟନ୍‌</item>
+    <item>ଚେକ୍ ବକ୍ସ</item>
+    <item>କମ୍ୱୋ ବକ୍ସ</item>
+    <item>ଡାୟଲଗ୍‌</item>
+    <item>ଗ୍ରୀଡ୍‌ ସେଲ୍‌</item>
+    <item>ଲିଙ୍କ୍</item>
+    <item>ଲଗ୍‌</item>
+    <item>ମାର୍କୀ</item>
+    <item>ମେନୁ ଆଇଟମ୍‌</item>
+    <item>ମେନୁ ଆଇଟମ୍‌ ଚେକ୍‌ ବକ୍ସ</item>
+    <item>ରେଡିଓ ବଟନ୍‌ ମେନୁ ଆଇଟମ୍‌</item>
+    <item>ବିକଳ୍ପ</item>
+    <item>ପ୍ରୋଗ୍ରେସ୍‌ ବାର୍‌</item>
+    <item>ରେଡିଓ ବଟନ୍‌</item>
+    <item>ରେଡିଓ ବଟନ୍‌ ଗ୍ରୁପ୍</item>
+    <item>ସ୍କ୍ରୋଲ ବାର୍‌</item>
+    <item>ସ୍ଲାଇଡର୍‌</item>
+    <item>ସ୍ପିନ୍‌ ବଟନ୍‌</item>
+    <item>ଷ୍ଟାଟସ୍</item>
+    <item>ଟାବ୍‌</item>
+    <item>ଟାବ୍‌ ପ୍ୟାନେଲ୍‌</item>
+    <item>ଟେକ୍ସଟ୍‌ ବକ୍ସ</item>
+    <item>ଟାଇମର୍‌</item>
+    <item>ଟୁଲ୍‌ ବାର୍‌</item>
+    <item>ଟୁଲ୍‌ ଟିପ୍‌</item>
+    <item>ଟ୍ରୀ ଆଇଟମ୍‌</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>ଲିଙ୍କ୍</item>
+    <item>ପ୍ରଥମ ଶୀର୍ଷକ</item>
+    <item>ଦ୍ୱିତୀୟ ଶୀର୍ଷକ</item>
+    <item>ତୃତୀୟ ଶୀର୍ଷକ</item>
+    <item>ଚତୁର୍ଥ ଶୀର୍ଷକ</item>
+    <item>ପଞ୍ଚମ ଶୀର୍ଷକ</item>
+    <item>ଷଷ୍ଠ ଶୀର୍ଷକ</item>
+    <item>ବଟନ୍‌</item>
+    <item>କମ୍ୱୋ ବକ୍ସ</item>
+    <item>ଟେବଲ୍</item>
+    <item>ଟେକ୍ସଟ୍‌ କ୍ଷେତ୍ର</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

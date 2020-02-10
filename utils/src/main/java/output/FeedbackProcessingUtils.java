@@ -16,6 +16,8 @@
 
 package com.google.android.accessibility.utils.output;
 
+import static com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.TARGET_SPAN_CLASS;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -25,12 +27,12 @@ import android.text.style.CharacterStyle;
 import android.text.style.ClickableSpan;
 import android.text.style.LocaleSpan;
 import android.text.style.URLSpan;
-import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.FailoverTextToSpeech.SpeechParam;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.R;
 import com.google.android.accessibility.utils.SpannableUtils;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Utilities for generating {@link FeedbackItem}s populated with {@link FeedbackFragment}s created
@@ -65,13 +67,13 @@ public class FeedbackProcessingUtils {
   public static FeedbackItem generateFeedbackItemFromInput(
       Context context,
       CharSequence text,
-      Set<Integer> earcons,
-      Set<Integer> haptics,
+      @Nullable Set<Integer> earcons,
+      @Nullable Set<Integer> haptics,
       int flags,
       int utteranceGroup,
-      Bundle speechParams,
-      Bundle nonSpeechParams,
-      EventId eventId) {
+      @Nullable Bundle speechParams,
+      @Nullable Bundle nonSpeechParams,
+      @Nullable EventId eventId) {
     final FeedbackItem feedbackItem = new FeedbackItem(eventId);
     final FeedbackFragment initialFragment =
         new FeedbackFragment(text, earcons, haptics, speechParams, nonSpeechParams);
@@ -154,15 +156,11 @@ public class FeedbackProcessingUtils {
 
       Spannable spannable = (Spannable) fragmentText;
 
-      boolean useClickableSpan = BuildVersionUtils.isAtLeastO();
-      Class<?> targetActionableSpanClass = useClickableSpan ? ClickableSpan.class : URLSpan.class;
-
       int len = spannable.length();
       int next;
       boolean isFirstFragment = true;
       for (int begin = 0; begin < len; begin = next) {
-        next =
-            nextSpanTransition(spannable, begin, len, LocaleSpan.class, targetActionableSpanClass);
+        next = nextSpanTransition(spannable, begin, len, LocaleSpan.class, TARGET_SPAN_CLASS);
 
         // CharacterStyle is a superclass of both ClickableSpan(including URLSpan) and LocaleSpan;
         // we want to split by only ClickableSpan and LocaleSpan, but it is OK if we request any
@@ -176,8 +174,7 @@ public class FeedbackProcessingUtils {
             // LocaleSpans are attached to the text, first LocaleSpan is given preference.
             chosenSpan = span;
             break;
-          } else if ((useClickableSpan && span instanceof ClickableSpan)
-              || (span instanceof URLSpan)) {
+          } else if ((span instanceof ClickableSpan) || (span instanceof URLSpan)) {
             chosenSpan = span;
           }
           // Ignore other CharacterStyle.
@@ -200,10 +197,11 @@ public class FeedbackProcessingUtils {
           // Otherwise, add after the last fragment processed/added.
           newFragment = new FeedbackFragment(subString, /* speechParams= */ null);
           ++i;
+          newFragment.setStartIndexInFeedbackItem(begin);
           item.addFragmentAtPosition(newFragment, i);
         }
         if (chosenSpan instanceof LocaleSpan) { // LocaleSpan
-          fragment.setLocale(((LocaleSpan) chosenSpan).getLocale());
+          newFragment.setLocale(((LocaleSpan) chosenSpan).getLocale());
         } else if (chosenSpan != null) { // ClickableSpan (including UrlSpan)
           handleClickableSpan(newFragment);
         }

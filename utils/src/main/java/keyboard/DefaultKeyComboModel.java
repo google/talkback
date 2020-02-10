@@ -19,7 +19,7 @@ package com.google.android.accessibility.utils.keyboard;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.KeyEvent;
-import com.google.android.accessibility.utils.FormFactorUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.R;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import java.util.Map;
@@ -38,7 +38,7 @@ public class DefaultKeyComboModel implements KeyComboModel {
 
   public DefaultKeyComboModel(Context context) {
     mContext = context;
-    mIsArc = FormFactorUtils.getInstance(context).isArc();
+    mIsArc = FeatureSupport.isArc();
     mPersister = new KeyComboPersister(context, PREF_KEY_PREFIX);
 
     loadTriggerModifierFromPreferences();

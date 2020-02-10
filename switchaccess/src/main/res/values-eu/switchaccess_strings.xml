@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Erabilerraztasun-etengailuak"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Erabilerraztasun-etengailuekin, mugimendu-arazoak dituzten pertsonek telefonoak eta tabletak kontrola ditzakete, etengailu bat edo gehiago erabilita. Erabili etengailuak elementuak hautatzeko, gora eta behera egiteko, idazteko eta beste hainbat gauzatarako."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Kontrolatu gailua etengailuekin"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Laguntza eta iritziak"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Pantailan automatikoki mugitzea"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Pantailan automatikoki mugitzeko ekintzaren iraupena"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Alderantzikatu pantailako mugimendu automatikoa"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f segundo</item>
-      <item quantity="one">1 segundo</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Pertsonalizatu pantailan mugitzeko modua"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Pantailan mugitzeko metodoa"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Eman denbora gehixeago lehenengo elementuan"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Esleitu etengailuak"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Esleitu etengailuak ekintzei"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Esleitu pantailan mugitzeko etengailuak"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Lerroen abiadura"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Itzuli kopurua"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Hautatu zenbat aldiz mugituko den pantailako elementu batetik bestera"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Sakatze-iraupena"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Denbora-tarte honetan egindako sakatzeak sakatze bakar bat bezala hartuko dira."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Askatu ekintza gauzatzeko"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Gauzatu ekintza etengailua askatzean"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d errepikapen</item>
-      <item quantity="one">%d errepikapen</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"\"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\" ekintzari dagokio \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" etengailua"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">%d etengailu esleitu dira</item>
-      <item quantity="one">%d etengailu esleitu da</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Taldea hautatzeko etengailua: %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Hurrengoa"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Aurrekoa"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Hautatu"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Sakatu luze"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Egin aurrera"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Egin atzera"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Baztertu"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Zabaldu"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Tolestu"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Nabarmendu testua"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Kopiatu"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Ebaki"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Itsatsi"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENUA"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Atzera"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Orri nagusia"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Ikuspegi orokorra"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Jakinarazpenak"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Ezarpen bizkorrak"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Egin aurrera"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Egin atzera"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Pantailako puntukako mugimendua"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Irteera-puntuaren pantailako mugimendua"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Pasatu hatza eskuinera"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Pasatu hatza ezkerrera"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Pasatu hatza gora"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Pasatu hatza behera"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Pasatu hatza (pertsonalizatua)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Txikitu"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Handitu"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Erabilerraztasun-etengailuaren ezarpenak"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Sakatu zerrendan gehitu edo bertatik kendu nahi duzun etengailu-konbinazioa"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Garbitu etengailuen esleipena"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"KTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"MAIUS + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Ez da esleitu etengailurik"</string>
-    <string name="more" msgid="1547670498589416840">"Gehiago"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Zuriunea"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Sartu"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tabuladorea"</string>
-    <string name="save" msgid="5398278773451196019">"Gorde"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Nabarmentze-estiloa"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Bilatzeko estilo nagusia"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Nabarmentze-kolorea"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Nabarmendutako lerroen estiloa"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Pribatutasun-gidalerroak"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Gaitu hautapen automatikoa"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Desgaitu hautapen automatikoa"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Hurrengo karakterea"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Hurrengo hitza"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Hurrengo lerroa"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Hurrengo paragrafoa"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Hurrengo orria"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Aurreko karakterea"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Aurreko hitza"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Aurreko lerroa"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Aurreko paragrafoa"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Aurreko orria"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Hasi automatikoki pantailan mugitzen"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Erabilerraztasun-osagarria sakatu gabe hasten da eskaneatzen"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Ireki Erabilerraztasun-etengailuaren konfigurazioa"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Erabilerraztasun-osagarrien konfigurazio-morroia"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Etengailu bat"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Bi etengailu"</string>
-    <string name="finish" msgid="4267641294267512480">"Amaitu"</string>
-    <string name="exit" msgid="8664597014081860813">"Irten"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Aukeratu etengailu kopurua"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Sakatu etengailua elementu batetik bestera automatikoki joateko, eta sakatu berriro nabarmendutako elementua hautatzeko."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Sakatu etengailu bat elementu batetik bestera joateko, eta sakatu beste etengailua nabarmendutako elementua hautatzeko."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Aukeratu pantailan mugitzeko abiadura"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Hautatu zenbat denboran egon behar duen nabarmenduta elementu bakoitzak"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Bizkorra (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> segundoko atzerapena)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Ertaina (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> segundoko atzerapena)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Motela (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> segundoko atzerapena)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Pertsonalizatua"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"atzerapena (segundotan)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Beste ekintza bati dagokio \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" tekla"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Pantailako errenkada eta zutabeetako mugimendua"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Taldeen hautapena"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Pantailako mugimendu lineala"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Ahozko argibideak"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS ezarpenak"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Elementu bat baino gehiagorako"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Irakurri ozen lehenengo eta azkeneko elementuak"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Irakurri ozen elementu kopurua"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Irakurri ozen nabarmendutako elementu guztiak"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Amaitu hitz egiten aurrera egin aurretik"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"<xliff:g id="ID_1">%1$s</xliff:g> taldea"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"Hasiera: <xliff:g id="ID_1">%1$s</xliff:g>. Amaiera: <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> elementu"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"hautatu gora eta behera egiteko"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"elementu ezezaguna"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Aukeratu pantailan nola mugitu"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Mugitu pantailan errenkadaz errenkada. Hautatu errenkada bat, eta joan zerrenda horretako elementu batetik bestera."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Joan elementu batetik bestera. Kontuan izan teklatuak beti errenkadaka egingo dituela eskaneatzeak."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Kolore bere esleituko zaie elementu guztiei. Sakatu erabili nahi duzun elementuaren inguruko koloreari dagokion etengailua. Mugatu taldearen tamaina, nahi duzun elementura iritsi arte."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"\"<xliff:g id="ACTION_NAME">%s</xliff:g>\" ekintzari esleitutako etengailuak"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Bat ere ez"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Esleitutako etengailuak garbitu nahi dituzu?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Esleitu dituzu etengailuak."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Garbitu etengailuak"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Utzi etengailuak dauden bezala"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Ez da esleitu etengailurik"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Ekintza honi ez zaio esleitu etengailurik. Ziur aurrera egin nahi duzula?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"\"<xliff:g id="OPTION_COLOR">%1$s</xliff:g>\" taldea"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Sakatu \"<xliff:g id="OPTION_COLOR">%1$s</xliff:g>\" taldeari esleitu nahi diozun etengailua."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Sakatu \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\" ekintzari esleitu nahi diozun etengailua."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Hasi pantailan mugitzen eta hautatu"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Probatu konfigurazioa artzain-jokora jolastuta"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Sakatu \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" pantailan mugitzen hasteko. Nabarmendutako elementua hautatzeko, sakatu etengailua berriro. Zure txanda!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Sakatu \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" eskaneatzen hasteko. Nabarmendutako errenkada hautatzeko, sakatu etengailua berriro eta, elementu jakin bat hautatzeko, sakatu etengailua beste behin. Zure txanda!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Sakatu \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" elementu batetik bestera joateko. Sakatu \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" nabarmendutako elementua hautatzeko. Zure txanda!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Sakatu \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" errenkada batetik bestera joateko. Sakatu \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" nabarmendutako errenkada hautatzeko. Errepikatu ekintza errenkadako elementu jakin bat hautatzeko. Zure txanda!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Sakatu \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" \"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g>\" kolorez nabarmendutako elementuak hautatzeko eta sakatu \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" \"<xliff:g id="COLOR_NAME_3">%3$s</xliff:g>\" kolorez nabarmendutakoak hautatzeko. Errepikatu ekintza nahi duzun elementuraino iritsi arte. Zure txanda!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Oraindik ez dizkiezu esleitu etengailuak ekintza guztiei. Erabili Aurrekoa botoia atzera egiteko eta etengailuak esleitzen amaitzeko."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Berrekin jokoari"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Karratu hau hartuta dago. Saiatu berriro!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Zuk irabazi duzu!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Ea hurrengoan!"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Berdinketa izan da"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Uneko konfigurazioa gorde dezakezu edo berriro has zaitezke zerotik konfiguratzen."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Gorde konfigurazioa"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Hasi berriro"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Konfiguratu da dena"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Prest zaude."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Ezarpen gehigarriak aldatzeko edo konfigurazio-morroia berriro irekitzeko, zoaz Erabilerraztasun-etengailuaren ezarpenetara."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Erabilerraztasun-osagarria</string>
+  <string name="switch_access_service_description">Erabilerraztasun-osagarriarekin, mugimendu-arazoak dituzten pertsonek telefonoak eta tabletak kontrola ditzakete, etengailu bat edo gehiago erabilita. Erabili etengailuak elementuak hautatzeko, gora eta behera egiteko, idazteko eta beste hainbat gauzatarako.</string>
+  <string name="switch_access_service_summary">Kontrolatu gailua etengailuekin</string>
+  <string name="title_pref_help_feedback">Laguntza eta iritziak</string>
+  <string name="title_pref_licenses">Kode irekiko lizentziak</string>
+  <string name="title_pref_category_auto_scan">Pantailan automatikoki mugitzea</string>
+  <string name="title_pref_auto_scan_disabled">Pantailan automatikoki mugitzea (desgaituta)</string>
+  <string name="action_key_summary_auto_scan">Etengailu hau sakatuz gero, bata bestearen ondoren nabarmenduko dira elementuak automatikoki. Sakatu berriro nabarmendutako elementua hautatzeko.</string>
+  <string name="title_pref_auto_scan_time_delay">Pantailan automatikoki mugitzeko ekintzaren iraupena</string>
+  <string name="action_name_reverse_auto_scan">Alderantzikatu pantailako mugimendu automatikoa</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Pantailan alderantzizko ordenan automatikoki mugitzea (desgaituta)</string>
+  <string name="action_key_summary_reverse_auto_scan">Etengailu hau sakatuz gero, alderantzizko ordenan eta bata bestearen ondoren nabarmenduko dira elementuak automatikoki. Sakatu berriro nabarmendutako elementua hautatzeko.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 segundo</item>
+    <item quantity="other">%.2f segundo</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Pertsonalizatu pantailan mugitzeko modua</string>
+  <string name="title_pref_scanning_methods">Pantailan mugitzeko metodoa</string>
+  <string name="title_pref_start_scan_delay">Lehenengo elementuaren atzerapena</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Aukeratu lehen elementuan igaro behar den denbora gehigarria. Denbora hori mugimendu automatikoaren denborari gehituko zaio.\n\nEzarpen honek mugimendu automatikoari eta puntukako mugimenduari eragiten die.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Aukeratu lehen elementuan igaro behar den denbora gehigarria. Denbora hori igarotzean, lerro horizontal edo bertikala mugitzen hasiko da.\n\nMugimendu automatikoari eta puntukako mugimenduari eragiten die ezarpen honek.</string>
+  <string name="title_pref_category_assign_switches">Esleitu etengailuak</string>
+  <string name="title_pref_category_key_mappings">Esleitu etengailuak ekintza orokorrei</string>
+  <string name="summary_pref_category_key_mappings">Ekintza orokorrak edozein unetan gauza daitezke</string>
+  <string name="title_pref_category_scan_key_mappings">Esleitu pantailan mugitzeko etengailuak</string>
+  <string name="summary_pref_category_scan_key_mappings">Pantailan mugitzeko aukerari esker, nabarmentzea elementu batetik bestera pasa dezakezu, eta nabarmendutakoa hautatu</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Mugimendua eta hautapena</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Nabarmendutako elementuetako ekintzak</string>
+  <string name="title_pref_point_scan_line_speed">Lerroen abiadura</string>
+  <string name="dialog_message_pref_line_speed">Hautatu zein abiaduratan mugitzen diren lerro horizontalak eta bertikalak pantailan zehar.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 cm segundoko</item>
+    <item quantity="other">%.2f cm segundoko</item>
+  </plurals>
+  <string name="title_pref_loop_count">Itzuli kopurua</string>
+  <string name="dialog_message_pref_loop_count">Hautatu zenbat aldiz errepikatuko den mugimendua pantaila osoan zehar.\n\nMugimendu automatikoari eta puntukako mugimenduari eragiten die ezarpen honek.</string>
+  <string name="summary_pref_point_scan">Erabili lerro mugikariak kokapen horizontal eta bertikal zehatz bat hautatzeko. %1$s</string>
+  <string name="point_scan_enable_animations_message">Aktibatu animazioak eginbide hau erabiltzeko.</string>
+  <string name="title_pref_category_switch_accomodation">Etengailuaren moldaera</string>
+  <string name="title_pref_debounce_time">Egin ez ikusi sakatze errepikariei</string>
+  <string name="dialog_message_pref_debounce_time">Denbora tarte honetan etengailuan egindako sakatzeak sakatze bakartzat hartuko dira.</string>
+  <string name="title_pref_press_on_release">Askatu ekintza gauzatzeko</string>
+  <string name="subtitle_pref_press_on_release">Gauzatu ekintza etengailua askatzean</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d errepikapen</item>
+    <item quantity="other">%d errepikapen</item>
+  </plurals>
+  <string name="preference_off">Desaktibatuta</string>
+  <string name="preference_on">Aktibatuta</string>
+  <string name="toast_msg_key_already_assigned">\"%2$s\" ekintzari dagokio \"%1$s\" etengailua</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d etengailu esleitu da</item>
+    <item quantity="other">%d etengailu esleitu dira</item>
+  </plurals>
+  <string name="option_scan_switch_format">Taldea hautatzeko etengailua: %1$d</string>
+  <string name="option_scan_switch_format_with_color">Taldea hautatzeko etengailua: %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Etengailu hau sakatuz gero, %1$d taldea hautatuko da.</string>
+  <string name="action_name_next">Hurrengoa</string>
+  <string name="action_key_summary_next">Etengailu hau sakatuz gero, hurrengo elementua nabarmenduko da.</string>
+  <string name="action_name_previous">Aurrekoa</string>
+  <string name="action_key_summary_previous">Etengailu hau sakatuz gero, aurreko elementua nabarmenduko da.</string>
+  <string name="action_name_click">Hautatu</string>
+  <string name="action_key_summary_click">Etengailu hau sakatuz gero, nabarmendutako elementua hautatuko da.</string>
+  <string name="action_name_long_click">Sakatuta edukitzea</string>
+  <string name="action_key_summary_long_click">Etengailu hau sakatuz gero, nabarmendutako elementua sakatuta edukiko da.</string>
+  <string name="action_name_scroll_forward">Egin aurrera</string>
+  <string name="action_key_summary_scroll_forward">Etengailu hau sakatuz gero, nabarmendutako elementuak aurrera egingo du.</string>
+  <string name="action_name_scroll_backward">Egin atzera</string>
+  <string name="action_key_summary_scroll_backward">Etengailu hau sakatuz gero, nabarmendutako elementuak atzera egingo du.</string>
+  <string name="action_name_dismiss">Baztertu</string>
+  <string name="action_name_expand">Zabaldu</string>
+  <string name="action_name_collapse">Tolestu</string>
+  <string name="action_name_highlight_text">Nabarmendu testua</string>
+  <string name="action_group_name_highlight">Nabarmentzea…</string>
+  <string name="action_name_highlight_all_text">Nabarmendu testu guztia</string>
+  <string name="action_name_highlight_granular_text">Nabarmendu %1$s</string>
+  <string name="action_name_copy">Kopiatu</string>
+  <string name="action_name_copy_all_text">Kopiatu dena</string>
+  <string name="action_name_cut">Ebaki</string>
+  <string name="action_name_cut_all_text">Ebaki dena</string>
+  <string name="action_name_paste">Itsatsi</string>
+  <string name="action_name_undo">Desegin</string>
+  <string name="action_name_redo">Berregin</string>
+  <string name="action_group_name_delete">Ezabatu…</string>
+  <string name="action_name_delete">Ezabatu %1$s</string>
+  <string name="action_name_delete_highlighted_text">Ezabatu testu nabarmendua</string>
+  <string name="option_scanning_menu_button">MENUA</string>
+  <string name="option_scanning_menu_button_content_description">Erabilerraztasun-osagarriaren menua</string>
+  <string name="switch_access_global_menu">Erabilerraztasun-osagarrien menu orokorra</string>
+  <string name="switch_access_actions_menu">Erabilerraztasun-osagarrien ekintza-menua</string>
+  <string name="switch_access_close_menu">ITXI</string>
+  <string name="switch_access_back_menu">ATZERA</string>
+  <string name="next_arrow_content_description">Hurrengoa</string>
+  <string name="previous_arrow_content_description">Aurrekoa</string>
+  <string name="global_action_back">Atzera</string>
+  <string name="global_action_key_summary_back">Etengailu hau sakatuz gero, aurreko pantailara joango zara edo teklatua ezkutatuko da, ikusgai bazegoen.</string>
+  <string name="global_action_home">Hasierako pantaila</string>
+  <string name="global_action_key_summary_home">Etengailu hau sakatuz gero, hasierako pantailara joango zara.</string>
+  <string name="global_action_overview">Ikuspegi orokorra</string>
+  <string name="global_action_key_summary_overview">Etengailu hau sakatuz gero, azkenaldian irekitako aplikazioen zerrenda agertuko da.</string>
+  <string name="global_action_notifications">Jakinarazpenak</string>
+  <string name="global_action_key_summary_notifications">Etengailu hau sakatuz gero, gailuaren jakinarazpenak erakutsiko dira.</string>
+  <string name="global_action_quick_settings">Ezarpen bizkorrak</string>
+  <string name="global_action_key_summary_quick_settings">Etengailu hau sakatuz gero, gailuaren Ezarpen bizkorrak agertuko dira.</string>
+  <string name="global_action_power_options">Bateria kontrolatzeko aukerak</string>
+  <string name="global_menu_volume_heading">Bolumena</string>
+  <string name="volume_menu_media">Multimedia-edukiaren bolumena</string>
+  <string name="volume_menu_call">Deien bolumena</string>
+  <string name="volume_menu_ring">Tonuaren bolumena</string>
+  <string name="volume_menu_alarm">Alarmaren bolumena</string>
+  <string name="volume_menu_accessibility">Erabilerraztasun-eginbideen bolumena</string>
+  <string name="volume_menu_mute">Desaktibatu audioa</string>
+  <string name="volume_menu_unmute">Aktibatu audioa</string>
+  <string name="volume_menu_increase">Igo</string>
+  <string name="volume_settings">Bolumenaren ezarpenak</string>
+  <string name="volume_menu_decrease">Jaitsi</string>
+  <string name="scrollable_forward">Egin aurrera</string>
+  <string name="scrollable_backward">Egin atzera</string>
+  <string name="point_scan">Pantailako puntukako mugimendua</string>
+  <string name="box_scan">Irteera-puntuaren pantailako mugimendua</string>
+  <string name="action_name_swipe_right">Pasatu hatza eskuinera</string>
+  <string name="action_name_swipe_left">Pasatu hatza ezkerrera</string>
+  <string name="action_name_swipe_up">Pasatu hatza gora</string>
+  <string name="action_name_swipe_down">Pasatu hatza behera</string>
+  <string name="action_name_swipe_custom">Pasatu hatza (pertsonalizatua)</string>
+  <string name="action_name_zoom_out">Txikitu</string>
+  <string name="action_name_zoom_in">Handitu</string>
+  <string name="switch_access_preferences_title">Erabilerraztasun-osagarriaren ezarpenak</string>
+  <string name="key_combo_preference_instructions">Sakatu zerrendan gehitu edo bertatik kendu nahi duzun etengailu-konbinazioa.</string>
+  <string name="key_combo_preference_reset_button">Garbitu etengailuen esleipena</string>
+  <string name="key_combo_preference_control_plus">KTRL + </string>
+  <string name="key_combo_preference_shift_plus">MAIUS + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Ez da esleitu etengailurik</string>
+  <string name="more">Gehiago</string>
+  <string name="name_of_space_bar">Zuriunea</string>
+  <string name="name_of_enter_key">Sartu</string>
+  <string name="name_of_tab_key">Tabuladorea</string>
+  <string name="save">Gorde</string>
+  <string name="title_pref_category_display_and_sound">Bistaratzea eta soinua</string>
+  <string name="title_pref_highlight_0">Nabarmentze-estiloa</string>
+  <string name="title_pref_primary_scan_style">Bilatzeko estilo nagusia</string>
+  <string name="title_pref_highlight_0_color">Nabarmentze-kolorea</string>
+  <string name="title_pref_highlight_0_weight">Nabarmendutako lerroen estiloa</string>
+  <string name="title_pref_privacy_policy">Pribatutasun-gidalerroak</string>
+  <string name="title_pref_auto_select">Hautapen automatikoa</string>
+  <string name="summary_pref_auto_select">Nabarmendutako elementua automatikoki hautatzen du. Ezin bada hautatu elementua edo ezarpen hau desaktibatuta badago, gauza daitezkeen ekintzen menua ikusiko duzu.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Gaitu hautapen automatikoa</string>
+  <string name="switch_access_global_menu_disable_autoselect">Desgaitu hautapen automatikoa</string>
+  <string name="switch_access_move_next">Hurrengoa…</string>
+  <string name="switch_access_move_next_character">Hurrengo karakterea</string>
+  <string name="switch_access_move_next_word">Hurrengo hitza</string>
+  <string name="switch_access_move_next_line">Hurrengo lerroa</string>
+  <string name="switch_access_move_next_paragraph">Hurrengo paragrafoa</string>
+  <string name="switch_access_move_next_page">Hurrengo orria</string>
+  <string name="switch_access_move_next_sentence">Hurrengo esaldia</string>
+  <string name="switch_access_move_prev">Aurrekoa…</string>
+  <string name="switch_access_move_prev_character">Aurreko karakterea</string>
+  <string name="switch_access_move_prev_word">Aurreko hitza</string>
+  <string name="switch_access_move_prev_line">Aurreko lerroa</string>
+  <string name="switch_access_move_prev_paragraph">Aurreko paragrafoa</string>
+  <string name="switch_access_move_prev_page">Aurreko orria</string>
+  <string name="switch_access_move_prev_sentence">Aurreko esaldia</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Hasi automatikoki pantailan mugitzen</string>
+  <string name="switch_access_auto_start_scan_summary">Erabilerraztasun-osagarria sakatu gabe hasten da eskaneatzen</string>
+  <string name="pref_begin_switchaccess_setup_title">Ireki konfigurazio-gida</string>
+  <string name="setup_wizard_heading">Erabilerraztasun-osagarrien konfigurazio-gida</string>
+  <string name="one_switch">Etengailu bat</string>
+  <string name="two_switches">Bi etengailu</string>
+  <string name="finish">Amaitu</string>
+  <string name="exit">Irten</string>
+  <string name="intro_heading">Aukeratu etengailua</string>
+  <string name="usb_switch_option_text">USB bidezko etengailua</string>
+  <string name="bluetooth_switch_option_text">Bluetooth bidezko etengailua</string>
+  <string name="usb_switch_description_text">Konektatu etengailu bat fisikoki USB konexioaren bidez</string>
+  <string name="bluetooth_switch_description_text">Parekatu etengailua haririk gabe, Bluetooth konexioaren bidez</string>
+  <string name="bluetooth_unsupported_description_text">Gailuak ez du onartzen Bluetooth konexioa. Haren ordez, saiatu etengailu fisiko bat erabiltzen.</string>
+  <string name="connected_usb_devices_header">Konektatutako gailuak</string>
+  <string name="usb_no_devices_connected_message">Ez da aurkitu USB bidezko gailurik. Ziurtatu gailua modu seguruan konektatuta dagoela.</string>
+  <string name="connect_usb_heading">Konektatu USB bidezko etengailua</string>
+  <string name="pair_bluetooth_heading">Parekatu Bluetooth bidezko etengailua</string>
+  <string name="pair_bluetooth_subheading">Sakatu behean agertzen den Bluetooth bidezko etengailua</string>
+  <string name="bluetooth_not_enabled_message">Bluetooth bidezko etengailu bat parekatzeko, aktibatu Bluetooth konexioa</string>
+  <string name="enable_bluetooth_button_title">Aktibatu Bluetooth konexioa</string>
+  <string name="bluetooth_no_devices_paired">Ez dago Bluetooth gailurik parekatuta</string>
+  <string name="paired_devices_header">Parekatutako Bluetooth gailuak</string>
+  <string name="available_devices_header">Erabilgarri dauden Bluetooth gailuak</string>
+  <string name="bluetooth_computer_content_description">Ordenagailua</string>
+  <string name="bluetooth_phone_content_description">Telefonoa</string>
+  <string name="bluetooth_imaging_content_description">Irudietarako gailua</string>
+  <string name="bluetooth_headphone_content_description">Aurikularra</string>
+  <string name="bluetooth_peripheral_content_description">Gailu periferikoa</string>
+  <string name="bluetooth_default_content_description">Bluetooth gailua</string>
+  <string name="bluetooth_connecting_description">Konektatzen…</string>
+  <string name="bluetooth_connected_description">Konektatuta</string>
+  <string name="bluetooth_device_unavailable_description">Gailua ez dago erabilgarri</string>
+  <string name="reconnecting_unsupported_title">Ezin izan da konektatu gailura</string>
+  <string name="reconnecting_unsupported_message">Erabilerraztasun-osagarria ezin izan da konektatu aurretik parekatutako gailura. Ziurtatu piztuta eta konektatuta dagoela gailua.\n\nHala ere ez bada konektatzen, joan Bluetooth ezarpenetara eta saiatu berriro konektatzen.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Joan Bluetooth ezarpenetara</string>
+  <string name="number_of_switches_heading">Aukeratu etengailu kopurua</string>
+  <string name="title_assign_scan_key">Esleitu \"%1$s\" ekintzaren etengailua</string>
+  <string name="one_switch_description_text">Sakatu etengailua elementu batetik bestera automatikoki joateko. Sakatu berriro nabarmendutako elementua hautatzeko.</string>
+  <string name="two_switches_description_text">Sakatu etengailu bat elementu batetik bestera joateko, eta sakatu beste etengailua nabarmendutako elementua hautatzeko.</string>
+  <string name="step_speed_heading">Aukeratu pantailan mugitzeko abiadura</string>
+  <string name="step_speed_subheading">Hautatu zenbat denboraz egon behar duen nabarmenduta elementu bakoitzak</string>
+  <string name="fast_radio_button_title">Bizkorra (%1$s segundoko atzerapena)</string>
+  <string name="medium_radio_button_title">Ertaina (%1$s segundoko atzerapena)</string>
+  <string name="slow_radio_button_title">Motela (%1$s segundoko atzerapena)</string>
+  <string name="custom_switch">Pertsonalizatua</string>
+  <string name="custom_edit_text">atzerapena (segundotan)</string>
+  <string name="setup_toast_msg_key_already_assigned">Beste ekintza bati dagokio \"%1$s\" tekla</string>
+  <string name="row_column_scanning_title">Pantailako errenkada eta zutabeetako mugimendua</string>
+  <string name="option_scanning_title">Taldeen hautapena (aurreratua)</string>
+  <string name="linear_scanning_title">Pantailako mugimendu lineala</string>
+  <string name="linear_scanning_except_keyboard_title">Pantailako mugimendu lineala (teklatua izan ezik)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Ahotsa, soinua eta dardara</string>
+  <string name="title_pref_switch_access_spoken_feedback">Ahozko argibideak</string>
+  <string name="title_pref_scan_non_actionable_items">Irakurri ozen testu deskribatzailea</string>
+  <string name="scan_non_actionable_items_summary">Entzun ahozko argibideak testu deskribatzailea eta ekintza erabilgarriak dituzten elementuei buruz</string>
+  <string name="title_pref_switch_access_verbosity">Adierazgarritasuna</string>
+  <string name="summary_verbosity">Aukeratu zenbat informazio irakurtzen den ozen</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Adierazgarritasunaren xehetasunak</string>
+  <string name="title_pref_switch_access_keyboard_echo">Entzun tekla bakoitza</string>
+  <string name="keyboard_echo_summary_on">Irakurri ozen pantailako teklatuan sakatutako teklak</string>
+  <string name="keyboard_echo_summary_off">Ez irakurri ozen pantailako teklatuan sakatutako teklak</string>
+  <string name="title_pref_enable_hints">Irakurri ozen erabilera-argibideak</string>
+  <string name="enable_hints_summary_on">Erabilera-argibideak nabigatu ahala irakurtzen dira ozen, tarte labur baten ondoren</string>
+  <string name="enable_hints_summary_off">Erabilera-argibideak ez dira irakurtzen ozen erabilerraztasun-kurtsorea mugitzean</string>
+  <string name="title_pref_speak_container_element_position">Irakurri ozen zerrenda eta saretetako informazioa</string>
+  <string name="speak_container_element_position_summary_on">Zerrendetako eta saretetako informazioa ozen irakurtzen da</string>
+  <string name="speak_container_element_position_summary_off">Zerrendetako eta saretetako informazioa ez da irakurtzen ozen</string>
+  <string name="title_pref_speak_element_type">Irakurri ozen elementu mota</string>
+  <string name="speak_element_type_summary_on">Fokuratuta dauden elementuen mota ozen irakurtzen da</string>
+  <string name="speak_element_type_summary_off">Fokuratuta dauden elementuen mota ez da irakurtzen ozen</string>
+  <string name="title_pref_pitch_change_for_ime">Erabili ahots-tonuaren aldaketak</string>
+  <string name="pitch_change_for_ime_summary_on">Irakurri tonu baxuagoan teklatuaren ahozko argibideak</string>
+  <string name="pitch_change_for_ime_summary_off">Ez aldatu ahozko argibideak hitz egiterakoan</string>
+  <string name="title_pref_speak_selected_item_or_group">Irakurri ozen hautatutakoa</string>
+  <string name="speak_selected_item_or_group_summary">Irakurri ozen elementu edo taldearen izena hura hautatu eta gero</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Elementu bakoitza ozen irakurtzeko gehieneko denbora</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Ezarri zenbat denbora erabil daitekeen elementu bakoitzaren ahozko azalpena emateko. Ahozko argibideak eten egingo dira denbora tarte horren ondoren. \n Oharra: aktibatuta badago, beti irakurriko dira ozen argibideak.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Askotarikoak</string>
+  <string name="title_pref_node_description_order">Elementuak azaltzeko ordena</string>
+  <string name="title_pref_switch_access_speak_element_ids">Irakurri ozen elementuen IDak</string>
+  <string name="speak_element_ids_summary_on">Elementuen IDak ozen irakurtzen dira etiketarik gabeko botoien kasuan</string>
+  <string name="speak_element_ids_summary_off">Elementuen IDak ez dira ozen irakurtzen etiketarik gabeko botoien kasuan</string>
+  <string name="title_pref_switch_access_tts_settings">Testua ahots bihurtzeko eginbidearen ezarpenak</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Elementu bat baino gehiago nabarmentzean</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Irakurri ozen lehen eta azken elementuak</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Irakurri ozen elementu kopurua</string>
+  <string name="title_pref_switch_access_speak_all_items">Irakurri ozen nabarmendutako guztiak</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Amaitu hitz egiten aurrera egin aurretik</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Bestelako azalpenak</string>
+  <string name="title_pref_developer_settings">Garatzaileen ezarpenak</string>
+  <string name="title_pref_spoken_feedback_overlay">Bistaratu ahots-irteera</string>
+  <string name="title_pref_switch_access_vibration_feedback">Dardara bidezko erantzuna</string>
+  <string name="vibration_feedback_summary">Egin dar-dar zerbait aldatu dela adierazteko (adibidez, pantailako edukia aldatu denean)</string>
+  <string name="title_pref_switch_access_sound_feedback">Audio-azalpenak</string>
+  <string name="sound_feedback_summary">Erreproduzitu tonu bat zerbait aldatu dela adierazteko (adibidez, pantailako edukia aldatu denean)</string>
+  <string name="title_pref_switch_access_sound_volume">Soinuaren bolumena</string>
+  <string name="title_pref_switch_access_audio_ducking">Atzeko planoko bolumena jaistea</string>
+  <string name="audio_ducking_summary">Hitz egin bitartean, jaitsi beste aplikazioen bolumena</string>
+  <string name="switch_access_focus_cleared_no_selection">Aldatu egin da pantaila</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Sakatu hautatzeko etengailua errenkada hautatzeko</string>
+  <string name="switch_access_spoken_feedback_group">%1$s taldea</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Sakatu %1$s taldeko etengailua taldea hautatzeko</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Sakatu %1$s taldeko etengailua elementua hautatzeko</string>
+  <string name="switch_access_spoken_feedback_to">Hasiera: %1$s. Amaiera: %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s elementu</string>
+  <string name="switch_access_spoken_feedback_group_selected">hautatu da %1$s taldea</string>
+  <string name="switch_access_spoken_feedback_row_selected">hautatu da errenkada</string>
+  <string name="switch_access_spoken_feedback_item_selected">hautatu da %1$s</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">gora/behera egin daiteke</string>
+  <string name="switch_access_spoken_feedback_scroll">hautatu gora eta behera egiteko</string>
+  <string name="switch_access_spoken_feedback_unknown">elementu ezezaguna</string>
+  <string name="scanning_method_heading">Aukeratu pantailan mugitzeko modua</string>
+  <string name="row_column_scanning_description">Mugitu pantailan errenkadaz errenkada. Hautatu errenkada bat, eta joan zerrenda horretako elementu batetik bestera.</string>
+  <string name="linear_scanning_description">Joan elementu batetik bestera, banan-banan</string>
+  <string name="linear_scanning_except_keyboard_description">Joan elementu batetik bestera. Kontuan izan teklatuek errenkadaka mugitzen dutela fokua.</string>
+  <string name="option_scanning_description">Kolore bere esleituko zaie elementu guztiei. Sakatu erabili nahi duzun elementuaren inguruko koloreari dagokion etengailua. Mugatu taldearen tamaina, nahi duzun elementura iritsi arte.</string>
+  <string name="setup_switch_assignment_heading">\"%s\" ekintzari esleitutako etengailuak</string>
+  <string name="setup_switch_assignment_empty">Bat ere ez</string>
+  <string name="clear_keys_dialog_title">Esleitutako etengailuak garbitu nahi dituzu?</string>
+  <string name="clear_keys_dialog_message">Esleitu dituzu etengailuak.</string>
+  <string name="clear_keys_dialog_positive_button">Garbitu etengailuak</string>
+  <string name="clear_keys_dialog_negative_button">Utzi etengailuak dauden bezala</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Ez da esleitu etengailurik</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Ekintza honi ez zaio esleitu etengailurik. Ziur aurrera egin nahi duzula?</string>
+  <string name="option_scan_switch_title">\"%1$s\" taldea</string>
+  <string name="option_scan_switch_subtitle">Sakatu \"%1$s\" taldeari esleitu nahi diozun etengailua.</string>
+  <string name="assign_switch_subtitle">Sakatu \"%1$s\" ekintzari esleitu nahi diozun etengailua.</string>
+  <string name="auto_scan_action_description">Hasi pantailan mugitzen eta hautatu</string>
+  <string name="switch_game_heading">Probatu konfigurazioa artzain-jokora jolastuta</string>
+  <string name="switch_game_one_switch_linear_subheading">Sakatu \"%1$s\" pantailan mugitzen hasteko. Nabarmendutako elementua hautatzeko, sakatu etengailua berriro. Zure txanda!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Sakatu \"%1$s\" eskaneatzen hasteko. Nabarmendutako errenkada hautatzeko, sakatu etengailua berriro eta, elementu jakin bat hautatzeko, sakatu etengailua beste behin. Zure txanda!</string>
+  <string name="switch_game_two_switch_linear_subheading">Sakatu \"%1$s\" elementu batetik bestera joateko. Sakatu \"%2$s\" nabarmendutako elementua hautatzeko. Zure txanda!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Sakatu \"%1$s\" errenkada batetik bestera joateko. Sakatu \"%2$s\" nabarmendutako errenkada hautatzeko. Errepikatu ekintza errenkadako elementu jakin bat hautatzeko. Zure txanda!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Sakatu \"%1$s\" kolore honekin nabarmendutako elementuak hautatzeko: %2$s. Bestela, sakatu \"%4$s\" kolore honekin nabarmendutako elementuak hautatzeko: %3$s. Errepikatu ekintza nahi duzun elementuraino iritsi arte. Zure txanda!</string>
+  <string name="switch_game_incomplete_switches_subheading">Oraindik ez dizkiezu esleitu etengailuak ekintza guztiei. Erabili Aurrekoa botoia atzera egiteko eta etengailuak esleitzen amaitzeko.</string>
+  <string name="game_square_content_description">%1$s %2$s, %3$s posizioan</string>
+  <string name="game_square_no_marker_content_description">hutsik</string>
+  <string name="game_reset_button_title">Berrekin jokoari</string>
+  <string name="game_square_already_taken">Karratu hau hartuta dago. Saiatu berriro!</string>
+  <string name="game_win_outcome_title">Zuk irabazi duzu!</string>
+  <string name="game_loss_outcome_title">Ea hurrengoan!</string>
+  <string name="game_tie_outcome_title">Berdinketa izan da</string>
+  <string name="game_outcome_body_text">Uneko konfigurazioa gorde dezakezu edo berriro has zaitezke zerotik konfiguratzen.</string>
+  <string name="game_outcome_positive_response">Gorde konfigurazioa</string>
+  <string name="game_outcome_negative_response">Hasi berriro</string>
+  <string name="setup_completion_heading">Konfiguratu da dena</string>
+  <string name="setup_completion_message">Prest zaude.</string>
+  <string name="setup_completion_settings_reminder">Ezarpen gehigarriak aldatzeko edo konfigurazio-morroia berriro irekitzeko, zoaz Erabilerraztasun-osagarriaren ezarpenetara.</string>
+  <string name="dialog_url_list">Aukeratu esteka bat</string>
+  <string name="dialog_do_not_disturb_permission_title">Erabilerraztasun-osagarriak bolumena doitzeko baimena behar du</string>
+  <string name="dialog_do_not_disturb_permission_message">Erabilerraztasun-osagarriaren menutik bolumena doitzeko, eman \"Ez molestatu\" modua atzitzeko baimena Android-en Erabilerraztasun-tresnak aplikaziori</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Ireki ezarpenak</string>
 </resources>

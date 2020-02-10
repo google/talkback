@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/pref_selector_category_settings_key">
+  <SwitchPreference
+      android:defaultValue="@bool/pref_selector_activation_default"
+      android:key="@string/pref_selector_activation_key"
+      android:summary="@string/pref_selector_activation_summary"
+      android:title="@string/title_pref_selector_activation"
+      />
+  <PreferenceCategory
+      android:key="@string/pref_category_selector_settings_configuration_key"
+      android:title="@string/title_pref_category_selector_settings_configuration">
+    <SwitchPreference
+        android:defaultValue="@bool/pref_selector_speech_rate_default"
+        android:key="@string/pref_selector_speech_rate_key"
+        android:title="@string/title_pref_selector_speech_rate"/>
+    <SwitchPreference
+        android:defaultValue="@bool/pref_selector_verbosity_default"
+        android:key="@string/pref_selector_verbosity_key"
+        android:title="@string/title_pref_selector_verbosity"/>
+    <SwitchPreference
+        android:defaultValue="@bool/pref_selector_granularity_default"
+        android:key="@string/pref_selector_granularity_key"
+        android:title="@string/title_pref_selector_granularity"/>
+    <SwitchPreference
+        android:defaultValue="@bool/pref_selector_audio_focus_default"
+        android:key="@string/pref_selector_audio_focus_key"
+        android:title="@string/title_pref_selector_audio_focus"/>
+  </PreferenceCategory>
+</PreferenceScreen>

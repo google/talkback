@@ -20,9 +20,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.telephony.TelephonyManager;
 import com.google.android.accessibility.compositor.EventFilter;
+import com.google.android.accessibility.utils.AudioPlaybackMonitor;
 import com.google.android.accessibility.utils.HeadphoneStateMonitor;
 
 /**
@@ -30,24 +31,23 @@ import com.google.android.accessibility.utils.HeadphoneStateMonitor;
  * interfering with voice assist applications.
  */
 public class VoiceActionMonitor implements EventFilter.VoiceActionDelegate {
-  private final TalkBackService mService;
-  private final MediaRecorderMonitor mMediaRecorderMonitor;
-  private final AudioPlaybackMonitor mAudioPlaybackMonitor;
-  @Nullable private final CallStateMonitor mCallStateMonitor;
+  private final TalkBackService service;
+  private final MediaRecorderMonitor mediaRecorderMonitor;
+  private final AudioPlaybackMonitor audioPlaybackMonitor;
+  @Nullable private final CallStateMonitor callStateMonitor;
 
-  private final MediaRecorderMonitor.MicrophoneStateChangedListener
-      mMicrophoneStateChangedListener =
-          new MediaRecorderMonitor.MicrophoneStateChangedListener() {
-            @Override
-            public void onMicrophoneActivated() {
-              if (!isHeadphoneOn()) {
-                interruptTalkBackAudio();
-              }
-            }
-          };
+  private final MediaRecorderMonitor.MicrophoneStateChangedListener microphoneStateChangedListener =
+      new MediaRecorderMonitor.MicrophoneStateChangedListener() {
+        @Override
+        public void onMicrophoneActivated() {
+          if (!isHeadphoneOn()) {
+            interruptTalkBackAudio();
+          }
+        }
+      };
 
   private final AudioPlaybackMonitor.AudioPlaybackStateChangedListener
-      mAudioPlaybackStateChangedListener =
+      audioPlaybackStateChangedListener =
           new AudioPlaybackMonitor.AudioPlaybackStateChangedListener() {
             @Override
             public void onAudioPlaybackActivated() {
@@ -55,44 +55,39 @@ public class VoiceActionMonitor implements EventFilter.VoiceActionDelegate {
             }
           };
 
-  private final CallStateMonitor.CallStateChangedListener mCallStateChangedListener =
+  private final CallStateMonitor.CallStateChangedListener callStateChangedListener =
       new CallStateMonitor.CallStateChangedListener() {
         @Override
         public void onCallStateChanged(int oldState, int newState) {
-          // TODO: ShakeDetector is irrelevant to voice action/feedback. Consider to move it
-          // somewhere else.
           if (newState == TelephonyManager.CALL_STATE_OFFHOOK) {
             interruptTalkBackAudio();
-            mService.getShakeDetector().setEnabled(false);
-          } else if (newState == TelephonyManager.CALL_STATE_IDLE) {
-            mService.getShakeDetector().setEnabled(true);
           }
         }
       };
 
   public VoiceActionMonitor(TalkBackService service) {
-    mService = service;
+    this.service = service;
 
-    mMediaRecorderMonitor = new MediaRecorderMonitor(service);
-    mMediaRecorderMonitor.setMicrophoneStateChangedListener(mMicrophoneStateChangedListener);
+    mediaRecorderMonitor = new MediaRecorderMonitor(service);
+    mediaRecorderMonitor.setMicrophoneStateChangedListener(microphoneStateChangedListener);
 
-    mAudioPlaybackMonitor = new AudioPlaybackMonitor(service);
-    mAudioPlaybackMonitor.setAudioPlaybackStateChangedListener(mAudioPlaybackStateChangedListener);
+    audioPlaybackMonitor = new AudioPlaybackMonitor(service);
+    audioPlaybackMonitor.setAudioPlaybackStateChangedListener(audioPlaybackStateChangedListener);
 
     if (service.getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
-      mCallStateMonitor = new CallStateMonitor(service);
-      mCallStateMonitor.addCallStateChangedListener(mCallStateChangedListener);
+      callStateMonitor = new CallStateMonitor(service);
+      callStateMonitor.addCallStateChangedListener(callStateChangedListener);
     } else {
-      mCallStateMonitor = null;
+      callStateMonitor = null;
     }
   }
 
   /** Used for test only. Updates phone call state in instrumentation test. */
   // TODO: Revisit this method when instrumentation test is settled down.
   public void onReceivePhoneStateChangedIntent(Context context, Intent intent) {
-    if (mCallStateMonitor != null
+    if (callStateMonitor != null
         && CallStateMonitor.STATE_CHANGED_FILTER.hasAction(intent.getAction())) {
-      mCallStateMonitor.onReceive(context, intent);
+      callStateMonitor.onReceive(context, intent);
     } else {
       throw new RuntimeException("Unable to send intent.");
     }
@@ -102,23 +97,27 @@ public class VoiceActionMonitor implements EventFilter.VoiceActionDelegate {
     interruptOtherAudio();
   }
 
+  /** Returns {@code true} if audio play back is active. */
+  public boolean isAudioPlaybackActive() {
+    return audioPlaybackMonitor.isAudioPlaybackActive();
+  }
+
+  /** Returns {@code true} if microphone is active and the user is not using a headset. */
+  public boolean isMicrophoneActiveAndHeadphoneOff() {
+    return mediaRecorderMonitor.isMicrophoneActive() && !isHeadphoneOn();
+  }
+
   /**
-   * Returns {@code true} if we should suppress passive feedback. Paassive feedback is the TalkBack
-   * utterance feedback introduced from any approach other than ExploreByTouch.
-   *
-   * <p>Suppresses passive feedback in the following cases:
-   *
-   * <ul>
-   *   <li>Microphone is active and the user is not using a headset.
-   *   <li>Some other special voice assist app is playing speech audio.
-   * </ul>
+   * Returns {@code true} if voice recognition/dictation is active and the user is not using a
+   * headset.
    */
-  public boolean shouldSuppressPassiveFeedback() {
-    boolean result =
-        (mMediaRecorderMonitor.isMicrophoneActive() && !isHeadphoneOn())
-            || mAudioPlaybackMonitor.isAudioPlaybackActive()
-            || (mCallStateMonitor != null && mCallStateMonitor.isPhoneCallActive());
-    return result;
+  public boolean isSsbActiveAndHeadphoneOff() {
+    return false;
+  }
+
+  /** Returns {@code true} if phone call is active. */
+  public boolean isPhoneCallActive() {
+    return callStateMonitor != null && callStateMonitor.isPhoneCallActive();
   }
 
   /**
@@ -126,44 +125,49 @@ public class VoiceActionMonitor implements EventFilter.VoiceActionDelegate {
    * device doesn't support telephony feature.
    */
   public int getCurrentCallState() {
-    if (mCallStateMonitor == null) {
+    if (callStateMonitor == null) {
       return TelephonyManager.CALL_STATE_IDLE;
     } else {
-      return mCallStateMonitor.getCurrentCallState();
+      return callStateMonitor.getCurrentCallState();
     }
   }
 
   public void onResumeInfrastructure() {
-    mMediaRecorderMonitor.onResumeInfrastructure();
+    mediaRecorderMonitor.onResumeInfrastructure();
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-      mAudioPlaybackMonitor.onResumeInfrastructure();
+      audioPlaybackMonitor.onResumeInfrastructure();
     }
-    if (mCallStateMonitor != null) {
-      mCallStateMonitor.startMonitor();
+    if (callStateMonitor != null) {
+      callStateMonitor.startMonitor();
     }
   }
 
   public void onSuspendInfrastructure() {
-    mMediaRecorderMonitor.onSuspendInfrastructure();
+    mediaRecorderMonitor.onSuspendInfrastructure();
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-      mAudioPlaybackMonitor.onSuspendInfrastructure();
+      audioPlaybackMonitor.onSuspendInfrastructure();
     }
-    if (mCallStateMonitor != null) {
-      mCallStateMonitor.stopMonitor();
+    if (callStateMonitor != null) {
+      callStateMonitor.stopMonitor();
     }
   }
 
   public boolean isHeadphoneOn() {
-    return HeadphoneStateMonitor.isHeadphoneOn(mService);
+    return HeadphoneStateMonitor.isHeadphoneOn(service);
   }
 
   @Override
   public boolean isVoiceRecognitionActive() {
-    return mMediaRecorderMonitor.isVoiceRecognitionActive();
+    return mediaRecorderMonitor.isVoiceRecognitionActive();
+  }
+
+  @Override
+  public boolean isMicrophoneActive() {
+    return mediaRecorderMonitor.isMicrophoneActive();
   }
 
   private void interruptTalkBackAudio() {
-    mService.interruptAllFeedback(false /* stopTtsSpeechCompletely */);
+    service.interruptAllFeedback(false /* stopTtsSpeechCompletely */);
   }
 
   private void interruptOtherAudio() {}

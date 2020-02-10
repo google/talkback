@@ -1,151 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"TalkBack päällä"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"TalkBackin käyttö keskeytetty"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack jälleen käytössä"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"TalkBack poistettu käytöstä"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"Äänipalaute käytössä"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"Äänipalaute jäädytetty"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"Äänipalaute palautettu käyttöön"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"Äänipalaute poistettu käytöstä"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Kentän alku"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Kentän loppu"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Valintatila käytössä."</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Valintatila pois käytöstä."</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Valinta poistettu."</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"Puhelu"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"Viesti"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"Sähköposti"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"Tapahtuma"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"Tarjous"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"Herätys"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"Edistyminen"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"Sosiaalinen"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"Virhe"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"Mediasäätimet"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"Järjestelmän tila"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"Palvelu"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"Valikko <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="OLD_TEXT">%2$s</xliff:g> korvattiin tekstillä <xliff:g id="NEW_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> poistettiin"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"leikattu, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"liitetty, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"valittu, <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"Valittu teksti: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"valinta poistettu, <xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_error" msgid="153775825635730287">"Virheellinen sisältö <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"Merkit <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> korvattiin merkeillä <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g>"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"kohteen <xliff:g id="LABEL">%2$s</xliff:g> <xliff:g id="ITEM">%1$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> prosenttia"</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> näyttää <xliff:g id="COUNT_3">%2$d</xliff:g> kohdetta.</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> näyttää <xliff:g id="COUNT_1">%2$d</xliff:g> kohteen.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"Ruudukko"</string>
-    <string name="value_listview" msgid="7625152822709234439">"Luettelo"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"Välilehtirivi"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"Avattava luettelo"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"Valintaruutu"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"Valintanappi"</string>
-    <string name="value_button" msgid="2459787142940409576">"Painike"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"Liukuvalitsin"</string>
-    <string name="value_switch" msgid="6946709666466895221">"Kytkin"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"Muokkauskenttä"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"Muokkaus"</string>
-    <string name="value_image" msgid="5114229220871881124">"Kuva"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"Nimetön"</string>
-    <string name="value_pager" msgid="7708574424402835461">"Monisivuinen näkymä"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"Sivu"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"Etenemispalkki"</string>
-    <string name="value_webview" msgid="291321285400233958">"Verkkonäkymä"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"Merkistä <xliff:g id="FROM_INDEX">%1$d</xliff:g> merkkiin <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"Merkki <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"salasana"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Liu\'utettava laatikko avattu"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"Asetukset."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"Teksti tyhjennetty"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Enimmäispituus saavutettu"</string>
-    <string name="value_selected" msgid="1307429702194660766">"valittu"</string>
-    <string name="value_checked" msgid="3006751014125833966">"valittu"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"ei tarkistettu"</string>
-    <string name="value_on" msgid="39454338086317219">"Käytössä"</string>
-    <string name="value_off" msgid="6700497510945744608">"Ei käytössä"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"ei käytössä"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"laajennettu"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"tiivistetty"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"Kaksoisnapauta"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"Napauta"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"Paina Valitse"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> aktivoidaksesi."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Aktivoi painamalla <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> pitkään tehdäksesi pitkän klikkauksen."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Paina pitkään painamalla <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"Vaihda tekemällä toiminto <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Vaihda päälle/pois painamalla <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> kirjoittaaksesi tekstiä."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Kirjoita tekstiä painamalla <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"Vaihda tekemällä toiminto <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Muuta painamalla <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"Vaihda sivua pyyhkäisemällä kahdella sormella."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"Ei enempää sivuja"</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"Säädä äänenvoimakkuusnäppäimillä"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g>, jos haluat vaihtaa."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"Toiminnot:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g>, niin toiminto on <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"<xliff:g id="HINT">%2$s</xliff:g> painamalla <xliff:g id="KEYCOMBO">%1$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> ja kosketa pitkään, niin toiminto on <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Caps Lock on käytössä."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Caps Lock on poistettu käytöstä."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Num Lock on käytössä."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Num Lock on poistettu käytöstä."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Scroll Lock on käytössä."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Scroll Lock on poistettu käytöstä."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"Pysty"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"Vaaka"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"Ohita"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"Laajenna"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"Tiivistä"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"Rivi <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"Sarake <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"Otsikko"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"Rivin otsikko"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"Sarakkeen otsikko"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"<xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g> kuva kuvassa"</string>
-    <string name="in_list" msgid="444302621514168828">"Luettelossa <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"Listassa"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"Luettelon <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g> ulkopuolella"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"Listan ulkopuolella"</string>
-    <string name="in_grid" msgid="6705387966271590222">"Ruudukossa <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"Ruudukossa"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"Ruudukon <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g> ulkopuolella"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"Ruudukon ulkopuolella"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"Taso <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> kohdetta</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> kohde</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> riviä</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> rivi</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> saraketta</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> sarake</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> merkkiä</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> merkki</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"Suurennus käytössä: <xliff:g id="SCALEINPERCENT">%1$d</xliff:g> %%"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"Suurennus: <xliff:g id="SCALEINPERCENT">%1$d</xliff:g> %%"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"Suurennus pois käytöstä"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"Puheen nopeus: <xliff:g id="SCALEINPERCENT">%1$d</xliff:g> %%"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"Äänen vaimennus käytössä"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"Äänen vaimennus poistettu käytöstä"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"Puheen nopeus"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"Puheen määrä"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"Navigointi"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"Äänen vaimennus"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"Salasanat sanotaan ääneen vain kuulokkeita käytettäessä."</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">TalkBack päällä</string>
+  <string name="talkback_suspended">TalkBackin käyttö keskeytetty</string>
+  <string name="talkback_resumed">TalkBack jälleen käytössä</string>
+  <string name="talkback_disabled">TalkBack poistettu käytöstä</string>
+  <string name="spokenfeedback_on">Äänipalaute käytössä</string>
+  <string name="spokenfeedback_suspended">Äänipalaute jäädytetty</string>
+  <string name="spokenfeedback_resumed">Äänipalaute palautettu käyttöön</string>
+  <string name="spokenfeedback_disabled">Äänipalaute poistettu käytöstä</string>
+  <string name="notification_type_beginning_of_field">Kentän alku</string>
+  <string name="notification_type_end_of_field">Kentän loppu</string>
+  <string name="notification_type_selection_mode_on">Valintatila käytössä.</string>
+  <string name="notification_type_selection_mode_off">Valintatila pois käytöstä.</string>
+  <string name="notification_type_selection_cleared">Valinta poistettu.</string>
+  <string name="notification_category_call">Puhelu</string>
+  <string name="notification_category_msg">Viesti</string>
+  <string name="notification_category_email">Sähköposti</string>
+  <string name="notification_category_event">Tapahtuma</string>
+  <string name="notification_category_promo">Tarjous</string>
+  <string name="notification_category_alarm">Herätys</string>
+  <string name="notification_category_progress">Edistyminen</string>
+  <string name="notification_category_social">Sosiaalinen</string>
+  <string name="notification_category_err">Virhe</string>
+  <string name="notification_category_transport">Mediasäätimet</string>
+  <string name="notification_category_sys">Järjestelmän tila</string>
+  <string name="notification_category_service">Palvelu</string>
+  <string name="template_drawer_opened">Valikko %1$s</string>
+  <string name="template_text_replaced">%2$s korvattiin tekstillä %1$s</string>
+  <string name="template_text_removed">%1$s poistettiin</string>
+  <string name="template_text_cut">leikattu, %1$s</string>
+  <string name="template_text_pasted">liitetty, %1$s</string>
+  <string name="template_text_selected">valittu, %1$s</string>
+  <string name="template_announce_selected_text">Valittu teksti: %1$s</string>
+  <string name="template_text_unselected">valinta poistettu, %1$s</string>
+  <string name="template_text_error">Virheellinen sisältö %1$s</string>
+  <string name="template_replaced_characters">Merkit %1$s korvattiin merkeillä %2$s</string>
+  <string name="template_labeled_item">kohteen %2$s %1$s</string>
+  <string name="template_percent">%1$s prosenttia</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s näyttää %2$d kohteen.</item>
+    <item quantity="other">%1$s näyttää %2$d kohdetta.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">Ruudukko</string>
+  <string name="value_listview">Lista</string>
+  <string name="value_tabwidget">Välilehtirivi</string>
+  <string name="value_spinner">Avattava luettelo</string>
+  <string name="value_checkbox">Valintaruutu</string>
+  <string name="value_radio_button">Valintanappi</string>
+  <string name="value_button">Painike</string>
+  <string name="value_seek_bar">Liukuvalitsin</string>
+  <string name="value_switch">Valitsin</string>
+  <string name="value_edit_box">Muokkauskenttä</string>
+  <string name="value_edit_box_editing">Muokkaus</string>
+  <string name="value_image">Kuva</string>
+  <string name="value_unlabelled">Nimetön</string>
+  <string name="value_pager">Monisivuinen näkymä</string>
+  <string name="value_pager_page">Sivu</string>
+  <string name="value_progress_bar">Etenemispalkki</string>
+  <string name="value_webview">Verkkonäkymä</string>
+  <string name="value_toolbar">Työkalupalkki</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">Merkistä %1$d merkkiin %2$d</string>
+  <string name="template_password_traversed">Merkki %1$d</string>
+  <string name="value_password">salasana</string>
+  <string name="value_sliding_drawer_opened">Liu\'utettava laatikko avattu</string>
+  <string name="value_options_menu_open">Asetukset.</string>
+  <string name="value_text_cleared">Teksti tyhjennetty</string>
+  <string name="value_text_max_length">Enimmäispituus saavutettu</string>
+  <string name="value_selected">valittu</string>
+  <string name="value_checked">valittu</string>
+  <string name="value_not_checked">ei tarkistettu</string>
+  <string name="value_on">Käytössä</string>
+  <string name="value_off">Ei käytössä</string>
+  <string name="value_disabled">ei käytössä</string>
+  <string name="value_expanded">laajennettu</string>
+  <string name="value_collapsed">tiivistetty</string>
+  <string name="value_double_tap">Kaksoisnapauta</string>
+  <string name="value_single_tap">Napauta</string>
+  <string name="value_switch_press">Paina Valitse-kytkintä</string>
+  <string name="value_press_select">Paina Valitse</string>
+  <string name="template_hint_clickable">%1$s aktivoidaksesi.</string>
+  <string name="template_hint_clickable_keyboard">Aktivoi painamalla %1$s.</string>
+  <string name="template_hint_long_clickable">%1$s pitkään tehdäksesi pitkän klikkauksen.</string>
+  <string name="template_hint_long_clickable_keyboard">Paina pitkään painamalla %1$s.</string>
+  <string name="template_hint_checkable">Vaihda tekemällä toiminto %1$s.</string>
+  <string name="template_hint_checkable_keyboard">Vaihda päälle/pois painamalla %1$s.</string>
+  <string name="template_hint_edit_text">%1$s muokataksesi tekstiä.</string>
+  <string name="template_hint_edit_text_keyboard">Muokkaa tekstiä painamalla ensin %1$s.</string>
+  <string name="template_hint_spinner">Vaihda tekemällä toiminto %1$s.</string>
+  <string name="template_hint_spinner_keyboard">Muuta painamalla %1$s.</string>
+  <string name="template_hint_pager">Vaihda sivua pyyhkäisemällä kahdella sormella.</string>
+  <string name="template_hint_pager_single_page">Ei enempää sivuja</string>
+  <string name="template_hint_seek_control">Säädä äänenvoimakkuusnäppäimillä</string>
+  <string name="template_hint_seek_control_tv">%1$s, jos haluat vaihtaa.</string>
+  <string name="template_hint_custom_actions">Toiminnot:</string>
+  <string name="template_custom_hint_for_actions">%1$s, niin toiminto on %2$s.</string>
+  <string name="template_custom_hint_for_actions_keyboard">%2$s painamalla %1$s.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s ja kosketa pitkään, niin toiminto on %2$s.</string>
+  <string name="template_sa_custom_hint_scrollable">%1$s vierittääksesi.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">%1$s, niin näet käytettävissä olevat toiminnot.</string>
+  <string name="template_sa_hint_seek_control">Säädä painamalla Valitse-kytkintä.</string>
+  <string name="value_caps_lock_on">Caps Lock on käytössä.</string>
+  <string name="value_caps_lock_off">Caps Lock on poistettu käytöstä.</string>
+  <string name="value_num_lock_on">Num Lock on käytössä.</string>
+  <string name="value_num_lock_off">Num Lock on poistettu käytöstä.</string>
+  <string name="value_scroll_lock_on">Scroll Lock on käytössä.</string>
+  <string name="value_scroll_lock_off">Scroll Lock on poistettu käytöstä.</string>
+  <string name="orientation_portrait">Pysty</string>
+  <string name="orientation_landscape">Vaaka</string>
+  <string name="title_action_dismiss">Ohita</string>
+  <string name="title_action_expand">Laajenna</string>
+  <string name="title_action_collapse">Tiivistä</string>
+  <string name="row_index_template">Rivi %1$d</string>
+  <string name="column_index_template">Sarake %1$d</string>
+  <string name="heading_template">Otsikko</string>
+  <string name="row_heading_template">Rivin otsikko</string>
+  <string name="column_heading_template">Sarakkeen otsikko</string>
+  <string name="in_list">Luettelossa %1$s</string>
+  <string name="in_list_without_name">Listassa</string>
+  <string name="out_of_list">Luettelon %1$s ulkopuolella</string>
+  <string name="out_of_list_without_name">Listan ulkopuolella</string>
+  <string name="in_grid">Ruudukossa %1$s</string>
+  <string name="in_grid_without_name">Ruudukossa</string>
+  <string name="out_of_grid">Ruudukon %1$s ulkopuolella</string>
+  <string name="out_of_grid_without_name">Ruudukon ulkopuolella</string>
+  <string name="in_pager_with_name">Sivulla %1$s</string>
+  <string name="in_pager">Sivulla</string>
+  <string name="out_of_pager_with_name">Sivun %1$s ulkopuolella</string>
+  <string name="out_of_pager">Sivun ulkopuolella</string>
+  <string name="in_vertical_pager_with_name">Pystysuuntaisella sivulla %1$s</string>
+  <string name="in_vertical_pager">Pystysuuntaisella sivulla</string>
+  <string name="out_of_vertical_pager_with_name">Pystysuuntaisen sivun %1$s ulkopuolella</string>
+  <string name="out_of_vertical_pager">Pystysuuntaisen sivun ulkopuolella</string>
+  <string name="in_horizontal_pager_with_name">Vaakasuuntaisella sivulla %1$s</string>
+  <string name="in_horizontal_pager">Vaakasuuntaisella sivulla</string>
+  <string name="out_of_horizontal_pager_with_name">Vaakasuuntaisen sivun %1$s ulkopuolella</string>
+  <string name="out_of_horizontal_pager">Vaakasuuntaisen sivun ulkopuolella</string>
+  <string name="in_grid_pager_with_name">Ruudukkomuotoisella sivulla %1$s</string>
+  <string name="in_grid_pager">Ruudukkomuotoisella sivulla</string>
+  <string name="out_of_grid_pager_with_name">Ruudukkomuotoisen sivun %1$s ulkopuolella</string>
+  <string name="out_of_grid_pager">Ruudukkomuotoisen sivun ulkopuolella</string>
+  <string name="template_collection_level">Taso %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d kohde</item>
+    <item quantity="other">%1$d kohdetta</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d rivi</item>
+    <item quantity="other">%1$d riviä</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d sarake</item>
+    <item quantity="other">%1$d saraketta</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d merkki</item>
+    <item quantity="other">%1$d merkkiä</item>
+  </plurals>
+  <string name="template_screen_magnification_on">Suurennus käytössä: %1$d %%</string>
+  <string name="template_screen_magnification_scale_changed">Suurennus: %1$d %%</string>
+  <string name="screen_magnification_off">Suurennus pois käytöstä</string>
+  <string name="template_speech_rate_change">Puheen nopeus: %1$d %%</string>
+  <string name="audio_focus_on">Äänen vaimennus käytössä</string>
+  <string name="audio_focus_off">Äänen vaimennus poistettu käytöstä</string>
+  <string name="selector_speech_rate_output">Puheen nopeus</string>
+  <string name="selector_verbosity_output">Puheen määrä</string>
+  <string name="selector_granularity_output">Navigointi</string>
+  <string name="selector_audio_focus_output">Äänen vaimennus</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">Salasanat sanotaan ääneen vain kuulokkeita käytettäessä.</string>
+  <string name="template_hint_menu_type_high_verbosity">%1$s käytettävissä, %2$s avaa</string>
+  <string name="template_hint_menu_type_low_verbosity">%1$s käytettävissä</string>
 </resources>

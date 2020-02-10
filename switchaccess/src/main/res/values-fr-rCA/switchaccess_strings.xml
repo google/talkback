@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Switch Access"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"La fonctionnalité Switch Access permet aux personnes souffrant de troubles moteurs de contrôler leurs téléphones et tablettes à l\'aide d\'un ou de plusieurs commutateurs qui servent à sélectionner des éléments, à faire défiler l\'écran, à entrer du texte et bien plus."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Command. appar. avec commutateurs"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Aide et commentaires"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Analyse automatique"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Durée de l\'analyse automatique"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Analyser automatiquement en sens inverse"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="one">%.2f seconde</item>
-      <item quantity="other">%.2f secondes</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Personnaliser la recherche"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Méthode de recherche"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Délai d\'affichage du premier élément en surbrillance"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Attribuer des commutateurs"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Attribuer des commutateurs à des actions"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Attribuer des commutateurs aux actions de recherche"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Vitesse de déplacement de la ligne"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Nombre de recherches"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Sélectionner le nombre de recherches"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Délai de réponse"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Si de multiples pressions sont appliquées durant cette période, elles sont considérées comme une pression unique."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Relâcher pour effectuer l\'action"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Effectuer l\'action lorsque le commutateur est relâché"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="one">%d boucle</item>
-      <item quantity="other">%d boucles</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Le commutateur « <xliff:g id="KEY_NAME">%1$s</xliff:g> » est déjà attribué à la fonction « <xliff:g id="ACTION_NAME">%2$s</xliff:g> »"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="one">%d commutateur attribué</item>
-      <item quantity="other">%d commutateurs attribués</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Commutateur de sélection de groupe %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Suivant"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Précédent"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Sélectionner"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Maintenir le doigt"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Faire défiler vers l\'avant"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Faire défiler vers l\'arrière"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Fermer"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Développer"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Réduire"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Mettre le texte en surbrillance"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Copier"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Couper"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Coller"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENU"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Précédent"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Accueil"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Aperçu"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Notifications"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Paramètres rapides"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Faire défiler vers l\'avant"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Faire défiler vers l\'arrière"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Recherche par point"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Quitter la recherche par point"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Balayer l\'écran vers la droite"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Balayer l\'écran vers la gauche"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Balayer l\'écran vers le haut"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Balayer l\'écran vers le bas"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Balayer (personnalisé)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Faire un zoom arrière"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Faire un zoom avant"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Paramètres de Switch Access"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Appuyez sur une combinaison de commutateurs pour l\'ajouter à la liste ou pour l\'en supprimer"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Effacer l\'attribution du commutateur"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"MAJ + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Aucun commutateur attribué"</string>
-    <string name="more" msgid="1547670498589416840">"Plus"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Espace"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Entrée"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tabulation"</string>
-    <string name="save" msgid="5398278773451196019">"Enregistrer"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Style de mise en surbrillance de l\'analyse"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Style de recherche principal"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Couleur de surbrillance"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Style de ligne de surbrillance"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Politique de confidentialité"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Activer la sélection automatique"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Désactiver la sélection automatique"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Caractère suivant"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Mot suivant"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Ligne suivante"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Paragraphe suivant"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Page suivante"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Caractère précédent"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Mot précédent"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Ligne précédente"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Paragraphe précédent"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Page précédente"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Lancer automatiquement l\'analyse"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"L\'analyse commence sans toucher le commutateur"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Ouvrir la configuration de Switch Access"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Assistant de configuration de Switch Access"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Un commutateur"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Deux commutateurs"</string>
-    <string name="finish" msgid="4267641294267512480">"Terminer"</string>
-    <string name="exit" msgid="8664597014081860813">"Quitter"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Choisissez le nombre de commutateurs"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Appuyez sur le commutateur pour passer automatiquement d\'un élément à un autre, puis appuyez à nouveau dessus pour sélectionner l\'élément en surbrillance."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Appuyez sur un commutateur pour passer d\'un élément à l\'autre. Appuyez sur l\'autre commutateur pour sélectionner l\'élément en surbrillance."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Sélectionnez la vitesse de recherche"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Sélectionnez la durée d\'affichage de l\'élément en surbrillance"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Rapide (délai de <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Moyenne (délai de <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Lente (délai de <xliff:g id="DELAY_SPEED">%1$s</xliff:g> s)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Personnalisé"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"délai (secondes)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"La touche « <xliff:g id="KEY_NAME">%1$s</xliff:g> » est déjà attribuée à une autre action"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Recherche par ligne ou colonne"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Sélection de groupe"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Recherche linéaire"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Rétroaction vocale"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Paramètres de synthèse vocale"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Pour plusieurs éléments"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Énoncer les premier et dernier éléments en surbrillance"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Énoncer le nombre d\'éléments"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Énoncer tous les éléments en surbrillance"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Attendre la fin de l\'énonciation avant de passer à un autre élément"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"groupe <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> à <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> éléments"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"sélectionner pour faire défiler"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"élément inconnu"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Sélectionnez la méthode de recherche"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Effectuez une recherche par ligne. Une fois la ligne sélectionnée, passez d\'un élément à l\'autre dans cette liste."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Passez d\'un élément à l\'autre. Notez que la recherche est toujours linéaire pour les claviers."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"Une couleur sera attribuée à tous les éléments. Appuyez sur le commutateur correspondant à la couleur de l\'élément voulu. Réduisez ensuite la taille du groupe jusqu\'à l\'obtention de l\'option voulue."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Commutateurs attribués à l\'action « <xliff:g id="ACTION_NAME">%s</xliff:g> »"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Aucun"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Supprimer les commutateurs attribués?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Vous avez déjà attribué des commutateurs à des actions."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Supprimer les commutateurs"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Conserver les commutateurs"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Aucun commutateur attribué"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Aucun commutateur n\'est attribué à cette action. Voulez-vous vraiment continuer?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Groupe <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Appuyez sur un commutateur pour l\'attribuer à la sélection du groupe <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Appuyez sur un commutateur pour l\'affecter à l\'action « <xliff:g id="ACTION_NAME">%1$s</xliff:g> »."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Lancer l\'analyse et sélectionner"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Tester la configuration avec Tic-Tac-Toe"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Appuyez sur « <xliff:g id="SWITCH_NAME">%1$s</xliff:g> » pour lancer la recherche. Appuyez de nouveau sur le commutateur pour sélectionner l\'élément en surbrillance. À vous de jouer!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Appuyez sur « <xliff:g id="SWITCH_NAME">%1$s</xliff:g> » pour lancer la recherche. Appuyez de nouveau sur le commutateur pour sélectionner la ligne mise en surbrillance, puis une fois de plus pour sélectionner l\'élément en surbrillance. À vous de jouer!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Appuyez sur « <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> » pour passer d\'un élément à l\'autre. Appuyez sur « <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g> » pour sélectionner l\'élément en surbrillance. À vous de jouer!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Appuyez sur « <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> » pour passer d\'une ligne à l\'autre. Appuyez sur « <xliff:g id="SWITCH_NAME_1">%2$s</xliff:g> » pour sélectionner la ligne en surbrillance. Répétez l\'opération pour sélectionner un élément de cette ligne. À vous de jouer!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Appuyez sur « <xliff:g id="SWITCH_NAME_0">%1$s</xliff:g> » pour sélectionner les éléments mis en surbrillance en « <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> » ou appuyez sur « <xliff:g id="SWITCH_NAME_2">%4$s</xliff:g> » pour sélectionner les éléments mis en surbrillance en « <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> ». Répétez l\'opération pour atteindre l\'élément voulu. À vous de jouer!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Vous n\'avez pas encore attribué un commutateur à toutes les actions. Utilisez le bouton Précédent pour revenir en arrière et finir d\'attribuer les commutateurs."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Réinitialiser le jeu"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Cette case est déjà prise. Réessayez!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Vous avez gagné!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Meilleure chance la prochaine fois"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"Égalité"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Vous pouvez conserver votre configuration actuelle, ou recommencer."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Conserver la configuration"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Recommencer"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Configuration terminée"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Tout est en ordre."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Vous pouvez toujours modifier des paramètres supplémentaires ou rouvrir l\'assistant de configuration à partir des paramètres de Switch Access."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Switch Access</string>
+  <string name="switch_access_service_description">La fonctionnalité Switch Access permet aux personnes souffrant de troubles moteurs de contrôler leurs téléphones et tablettes à l\'aide d\'un ou de plusieurs commutateurs qui servent à sélectionner des éléments, à faire défiler l\'écran, à entrer du texte et bien plus.</string>
+  <string name="switch_access_service_summary">Contrôler les appareils avec des commutateurs</string>
+  <string name="title_pref_help_feedback">Aide et commentaires</string>
+  <string name="title_pref_licenses">Licences de logiciels libres</string>
+  <string name="title_pref_category_auto_scan">Analyse automatique</string>
+  <string name="title_pref_auto_scan_disabled">Analyse automatique (désactivée)</string>
+  <string name="action_key_summary_auto_scan">Appuyez sur ce commutateur pour commencer à déplacer la mise en surbrillance entre les éléments. Appuyez une fois de plus pour sélectionner l\'élément en surbrillance.</string>
+  <string name="title_pref_auto_scan_time_delay">Durée de l\'analyse automatique</string>
+  <string name="action_name_reverse_auto_scan">Analyse automatique en sens inverse</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Analyser automatiquement en sens inverse (désactivé)</string>
+  <string name="action_key_summary_reverse_auto_scan">Appuyez sur ce commutateur pour commencer à déplacer la mise en surbrillance entre les éléments en sens inverse. Appuyez une fois de plus pour sélectionner l\'élément en surbrillance.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">%.2f seconde</item>
+    <item quantity="other">%.2f secondes</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Personnaliser la recherche</string>
+  <string name="title_pref_scanning_methods">Méthode de recherche</string>
+  <string name="title_pref_start_scan_delay">Délai d\'affichage du premier élément en surbrillance</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Choisissez le temps supplémentaire consacré au premier élément. Celui-ci sera ajouté à la durée de l\'analyse automatique.\n\nCe paramètre touche à la fois l\'analyse automatique et la recherche par points.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Choisissez le temps supplémentaire consacré au premier élément. Après ce temps, la ligne verticale ou horizontale commencera à se déplacer.\n\nCe paramètre touche à la fois l\'analyse automatique et l\'analyse par points.</string>
+  <string name="title_pref_category_assign_switches">Attribuer des commutateurs</string>
+  <string name="title_pref_category_key_mappings">Attribuer des commutateurs à des actions</string>
+  <string name="summary_pref_category_key_mappings">Vous pouvez effectuer des actions globales en tout temps</string>
+  <string name="title_pref_category_scan_key_mappings">Attribuer des commutateurs aux actions de recherche</string>
+  <string name="summary_pref_category_scan_key_mappings">L\'analyse vous permet de déplacer la mise en surbrillance et de sélectionner les éléments en surbrillance</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Mouvement et sélection</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Actions sur l\'élément en surbrillance</string>
+  <string name="title_pref_point_scan_line_speed">Vitesse de déplacement de la ligne</string>
+  <string name="dialog_message_pref_line_speed">Choisissez à quelle vitesse les lignes horizontales et verticales se déplacent sur l\'écran.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">%.2f cm par seconde</item>
+    <item quantity="other">%.2f cm par seconde</item>
+  </plurals>
+  <string name="title_pref_loop_count">Nombre de recherches</string>
+  <string name="dialog_message_pref_loop_count">Choisissez le nombre d\'analyses.\n\nCe paramètre touche à la fois l\'analyse automatique et l\'analyse par points.</string>
+  <string name="summary_pref_point_scan">Utiliser les lignes en mouvement pour sélectionner une zone horizontale et verticale précise. %1$s</string>
+  <string name="point_scan_enable_animations_message">Activez les animations pour utiliser cette fonctionnalité.</string>
+  <string name="title_pref_category_switch_accomodation">Changer d\'hébergement</string>
+  <string name="title_pref_debounce_time">Ignorer l\'appui répété sur les touches</string>
+  <string name="dialog_message_pref_debounce_time">Si de multiples pressions sont appliquées sur le commutateur durant cette période, elles sont considérées comme une pression unique.</string>
+  <string name="title_pref_press_on_release">Relâcher pour effectuer l\'action</string>
+  <string name="subtitle_pref_press_on_release">Effectuer l\'action lorsque le commutateur est relâché</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d boucle</item>
+    <item quantity="other">%d boucles</item>
+  </plurals>
+  <string name="preference_off">Désactivé</string>
+  <string name="preference_on">Activé</string>
+  <string name="toast_msg_key_already_assigned">Le commutateur « %1$s » est déjà attribué à la fonction « %2$s »</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d commutateur attribué</item>
+    <item quantity="other">%d commutateurs attribués</item>
+  </plurals>
+  <string name="option_scan_switch_format">Commutateur de sélection de groupe %1$d</string>
+  <string name="option_scan_switch_format_with_color">Commutateur de sélection de groupe %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Appuyez sur ce commutateur pour sélectionner le groupe %1$d.</string>
+  <string name="action_name_next">Suivant</string>
+  <string name="action_key_summary_next">Appuyez sur ce commutateur pour mettre en surbrillance l\'élément suivant.</string>
+  <string name="action_name_previous">Précédent</string>
+  <string name="action_key_summary_previous">Appuyez sur ce commutateur pour mettre en surbrillance l\'élément précédent.</string>
+  <string name="action_name_click">Sélectionner</string>
+  <string name="action_key_summary_click">Appuyez sur ce commutateur pour sélectionner l\'élément en surbrillance.</string>
+  <string name="action_name_long_click">Maintenir le doigt</string>
+  <string name="action_key_summary_long_click">Appuyez sur ce commutateur pour maintenir le doigt sur l\'élément en surbrillance.</string>
+  <string name="action_name_scroll_forward">Faire défiler vers l\'avant</string>
+  <string name="action_key_summary_scroll_forward">Appuyez sur ce commutateur pour faire défiler l\'élément en surbrillance vers l\'avant.</string>
+  <string name="action_name_scroll_backward">Faire défiler vers l\'arrière</string>
+  <string name="action_key_summary_scroll_backward">Appuyez sur ce commutateur pour faire défiler l\'élément en surbrillance vers l\'arrière.</string>
+  <string name="action_name_dismiss">Fermer</string>
+  <string name="action_name_expand">Développer</string>
+  <string name="action_name_collapse">Réduire</string>
+  <string name="action_name_highlight_text">Mettre le texte en surbrillance</string>
+  <string name="action_group_name_highlight">Mettre en surbrillance…</string>
+  <string name="action_name_highlight_all_text">Mettre tout le texte en surbrillance</string>
+  <string name="action_name_highlight_granular_text">Mettre en surbrillance %1$s</string>
+  <string name="action_name_copy">Copier</string>
+  <string name="action_name_copy_all_text">Tout copier</string>
+  <string name="action_name_cut">Couper</string>
+  <string name="action_name_cut_all_text">Tout couper</string>
+  <string name="action_name_paste">Coller</string>
+  <string name="action_name_undo">Annuler</string>
+  <string name="action_name_redo">Répéter</string>
+  <string name="action_group_name_delete">Supprimer…</string>
+  <string name="action_name_delete">Supprimer %1$s</string>
+  <string name="action_name_delete_highlighted_text">Supprimer le texte en surbrillance</string>
+  <string name="option_scanning_menu_button">MENU</string>
+  <string name="option_scanning_menu_button_content_description">Menu de Switch Access</string>
+  <string name="switch_access_global_menu">Menu global de Switch Access</string>
+  <string name="switch_access_actions_menu">Menu d\'actions de Switch Access</string>
+  <string name="switch_access_close_menu">FERMER</string>
+  <string name="switch_access_back_menu">RETOUR</string>
+  <string name="next_arrow_content_description">Suivant</string>
+  <string name="previous_arrow_content_description">Précédent</string>
+  <string name="global_action_back">Précédent</string>
+  <string name="global_action_key_summary_back">Appuyez sur ce commutateur pour revenir à l\'écran précédent ou pour masquer le clavier, s\'il est visible.</string>
+  <string name="global_action_home">Accueil</string>
+  <string name="global_action_key_summary_home">Appuyez sur ce commutateur pour accéder à l\'écran d\'accueil.</string>
+  <string name="global_action_overview">Aperçu</string>
+  <string name="global_action_key_summary_overview">Appuyez sur ce commutateur pour afficher la liste des applications récemment ouvertes.</string>
+  <string name="global_action_notifications">Notifications</string>
+  <string name="global_action_key_summary_notifications">Appuyez sur ce commutateur pour afficher les notifications de votre appareil.</string>
+  <string name="global_action_quick_settings">Paramètres rapides</string>
+  <string name="global_action_key_summary_quick_settings">Appuyez sur ce commutateur pour afficher les paramètres rapides de votre appareil.</string>
+  <string name="global_action_power_options">Options d\'alimentation</string>
+  <string name="global_menu_volume_heading">Volume</string>
+  <string name="volume_menu_media">Volume des médias</string>
+  <string name="volume_menu_call">Volume des appels</string>
+  <string name="volume_menu_ring">Volume de la sonnerie</string>
+  <string name="volume_menu_alarm">Volume de l\'alarme</string>
+  <string name="volume_menu_accessibility">Volume d\'accessibilité</string>
+  <string name="volume_menu_mute">Désactiver le son</string>
+  <string name="volume_menu_unmute">Réactiver le son</string>
+  <string name="volume_menu_increase">Augmenter</string>
+  <string name="volume_settings">Paramètres de volume</string>
+  <string name="volume_menu_decrease">Diminuer</string>
+  <string name="scrollable_forward">Faire défiler vers l\'avant</string>
+  <string name="scrollable_backward">Faire défiler vers l\'arrière</string>
+  <string name="point_scan">Recherche par point</string>
+  <string name="box_scan">Quitter la recherche par point</string>
+  <string name="action_name_swipe_right">Balayer l\'écran vers la droite</string>
+  <string name="action_name_swipe_left">Balayer l\'écran vers la gauche</string>
+  <string name="action_name_swipe_up">Balayer l\'écran vers le haut</string>
+  <string name="action_name_swipe_down">Balayer l\'écran vers le bas</string>
+  <string name="action_name_swipe_custom">Balayer (personnalisé)</string>
+  <string name="action_name_zoom_out">Faire un zoom arrière</string>
+  <string name="action_name_zoom_in">Faire un zoom avant</string>
+  <string name="switch_access_preferences_title">Paramètres de Switch Access</string>
+  <string name="key_combo_preference_instructions">Appuyez sur une combinaison de commutateurs pour l\'ajouter à la liste ou pour l\'en supprimer.</string>
+  <string name="key_combo_preference_reset_button">Effacer l\'attribution du commutateur</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">MAJ + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Aucun commutateur attribué</string>
+  <string name="more">Plus</string>
+  <string name="name_of_space_bar">Espace</string>
+  <string name="name_of_enter_key">Entrée</string>
+  <string name="name_of_tab_key">Tabulation</string>
+  <string name="save">Enregistrer</string>
+  <string name="title_pref_category_display_and_sound">Affichage et son</string>
+  <string name="title_pref_highlight_0">Style de surbrillance de l\'analyse</string>
+  <string name="title_pref_primary_scan_style">Style de recherche principal</string>
+  <string name="title_pref_highlight_0_color">Couleur de surbrillance</string>
+  <string name="title_pref_highlight_0_weight">Style de ligne de surbrillance</string>
+  <string name="title_pref_privacy_policy">Politique de confidentialité</string>
+  <string name="title_pref_auto_select">Sélection automatique</string>
+  <string name="summary_pref_auto_select">Sélectionner automatiquement l\'élément en surbrillance. Si l\'élément ne peut pas être sélectionné, ou si ce paramètre est désactivé, vous verrez un menu d\'actions.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Activer la sélection automatique</string>
+  <string name="switch_access_global_menu_disable_autoselect">Désactiver la sélection automatique</string>
+  <string name="switch_access_move_next">Suivant…</string>
+  <string name="switch_access_move_next_character">Caractère suivant</string>
+  <string name="switch_access_move_next_word">Mot suivant</string>
+  <string name="switch_access_move_next_line">Ligne suivante</string>
+  <string name="switch_access_move_next_paragraph">Paragraphe suivant</string>
+  <string name="switch_access_move_next_page">Page suivante</string>
+  <string name="switch_access_move_next_sentence">Phrase suivante</string>
+  <string name="switch_access_move_prev">Précédent…</string>
+  <string name="switch_access_move_prev_character">Caractère précédent</string>
+  <string name="switch_access_move_prev_word">Mot précédent</string>
+  <string name="switch_access_move_prev_line">Ligne précédente</string>
+  <string name="switch_access_move_prev_paragraph">Paragraphe précédent</string>
+  <string name="switch_access_move_prev_page">Page précédente</string>
+  <string name="switch_access_move_prev_sentence">Phrase précédente</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Lancer automatiquement l\'analyse</string>
+  <string name="switch_access_auto_start_scan_summary">L\'analyse commence sans toucher le commutateur</string>
+  <string name="pref_begin_switchaccess_setup_title">Ouvrir le guide de configuration</string>
+  <string name="setup_wizard_heading">Guide de configuration de Switch Access</string>
+  <string name="one_switch">Un commutateur</string>
+  <string name="two_switches">Deux commutateurs</string>
+  <string name="finish">Terminer</string>
+  <string name="exit">Quitter</string>
+  <string name="intro_heading">Choisissez un commutateur</string>
+  <string name="usb_switch_option_text">Commutateur USB</string>
+  <string name="bluetooth_switch_option_text">Commutateur Bluetooth</string>
+  <string name="usb_switch_description_text">Brancher un commutateur par USB</string>
+  <string name="bluetooth_switch_description_text">Associer un commutateur par Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">Votre appareil ne prend pas en charge la technologie Bluetooth. Essayez d\'utiliser un commutateur à connexion filaire à la place.</string>
+  <string name="connected_usb_devices_header">Appareils connectés</string>
+  <string name="usb_no_devices_connected_message">Aucun appareil USB n\'a été trouvé. Assurez-vous que votre appareil est connecté de manière sécuritaire.</string>
+  <string name="connect_usb_heading">Connecter un commutateur USB</string>
+  <string name="pair_bluetooth_heading">Associer un commutateur Bluetooth</string>
+  <string name="pair_bluetooth_subheading">Touchez votre commutateur Bluetooth ci-dessous</string>
+  <string name="bluetooth_not_enabled_message">Pour associer un commutateur Bluetooth, activez la connectivité Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Activer le Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Aucun appareil Bluetooth n\'est associé</string>
+  <string name="paired_devices_header">Appareils Bluetooth associés</string>
+  <string name="available_devices_header">Appareils Bluetooth disponibles</string>
+  <string name="bluetooth_computer_content_description">Ordinateur</string>
+  <string name="bluetooth_phone_content_description">Téléphone</string>
+  <string name="bluetooth_imaging_content_description">Imagerie</string>
+  <string name="bluetooth_headphone_content_description">Écouteurs</string>
+  <string name="bluetooth_peripheral_content_description">Périphérique</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Connexion en cours…</string>
+  <string name="bluetooth_connected_description">Connecté</string>
+  <string name="bluetooth_device_unavailable_description">Appareil non accessible</string>
+  <string name="reconnecting_unsupported_title">Impossible de se connecter à l\'appareil</string>
+  <string name="reconnecting_unsupported_message">Switch Access n\'a pas réussi à se connecter à l\'appareil précédemment associé. Assurez-vous que votre appareil est allumé et connecté.\n\nSi votre appareil n\'arrive toujours pas à se connecter, accédez aux paramètres Bluetooth et tentez de vous reconnecter.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Accéder aux paramètres Bluetooth</string>
+  <string name="number_of_switches_heading">Choisir le nombre de commutateurs</string>
+  <string name="title_assign_scan_key">Attribuer le commutateur %1$s</string>
+  <string name="one_switch_description_text">Appuyer sur le commutateur pour passer automatiquement d\'un élément à un autre, puis appuyer à nouveau dessus pour sélectionner l\'élément en surbrillance.</string>
+  <string name="two_switches_description_text">Appuyez sur un commutateur pour passer d\'un élément à l\'autre. Appuyez sur l\'autre commutateur pour sélectionner l\'élément en surbrillance.</string>
+  <string name="step_speed_heading">Sélectionner la vitesse de recherche</string>
+  <string name="step_speed_subheading">Sélectionnez la durée d\'affichage de l\'élément en surbrillance</string>
+  <string name="fast_radio_button_title">Rapide (délai de %1$s s)</string>
+  <string name="medium_radio_button_title">Moyenne (délai de %1$s s)</string>
+  <string name="slow_radio_button_title">Lente (délai de %1$s s)</string>
+  <string name="custom_switch">Personnalisée</string>
+  <string name="custom_edit_text">délai (secondes)</string>
+  <string name="setup_toast_msg_key_already_assigned">La touche « %1$s » est déjà attribuée à une autre action</string>
+  <string name="row_column_scanning_title">Recherche par ligne ou colonne</string>
+  <string name="option_scanning_title">Sélection de groupe (avancé)</string>
+  <string name="linear_scanning_title">Recherche linéaire</string>
+  <string name="linear_scanning_except_keyboard_title">Recherche linéaire (sauf le clavier)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Parole, sons et vibrations</string>
+  <string name="title_pref_switch_access_spoken_feedback">Rétroaction vocale</string>
+  <string name="title_pref_scan_non_actionable_items">Énoncer le texte descriptif</string>
+  <string name="scan_non_actionable_items_summary">Entendre les commentaires vocaux pour les éléments qui proposent des actions et du texte descriptif</string>
+  <string name="title_pref_switch_access_verbosity">Verbosité</string>
+  <string name="summary_verbosity">Choisir la quantité d\'information énoncée</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Détails de verbosité</string>
+  <string name="title_pref_switch_access_keyboard_echo">Écho du clavier</string>
+  <string name="keyboard_echo_summary_on">Énoncer les touches utilisées pour le clavier à l\'écran</string>
+  <string name="keyboard_echo_summary_off">Ne pas énoncer les touches utilisées pour le clavier à l\'écran</string>
+  <string name="title_pref_enable_hints">Énoncer les astuces d\'utilisation</string>
+  <string name="enable_hints_summary_on">Les astuces d\'utilisation sont énoncées durant la navigation après un bref délai</string>
+  <string name="enable_hints_summary_off">Les astuces d\'utilisation ne sont pas énoncées durant le déplacement dans le zoom d\'accessibilité</string>
+  <string name="title_pref_speak_container_element_position">Énoncer détails de liste et de grille</string>
+  <string name="speak_container_element_position_summary_on">Les détails de la liste et de la grille sont énoncés</string>
+  <string name="speak_container_element_position_summary_off">Les détails de la liste et de la grille ne sont pas énoncés</string>
+  <string name="title_pref_speak_element_type">Énoncer le type d\'élément</string>
+  <string name="speak_element_type_summary_on">Le type d\'élément est énoncé pour les éléments mis en évidence</string>
+  <string name="speak_element_type_summary_off">Le type d\'élément n\'est pas énoncé pour les éléments mis en évidence</string>
+  <string name="title_pref_pitch_change_for_ime">Modification du ton</string>
+  <string name="pitch_change_for_ime_summary_on">Prononcer le texte entré dans une tonalité plus basse</string>
+  <string name="pitch_change_for_ime_summary_off">Ne pas changer la voix pour les commentaires énoncés</string>
+  <string name="title_pref_speak_selected_item_or_group">Énoncer élément ou groupe sélectionné</string>
+  <string name="speak_selected_item_or_group_summary">Énoncer le nom d\'un article ou d\'un groupe après sa sélection</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Durée d\'énonciation maximale par élément</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Définissez la durée maximale d\'énonciation pour la description de chaque élément. La parole sera interrompue après la durée définie.\nRemarque : Si cette action est activée, les astuces seront toujours énoncées.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Divers</string>
+  <string name="title_pref_node_description_order">Ordre de description des éléments</string>
+  <string name="title_pref_switch_access_speak_element_ids">Énoncer les identifiants des éléments</string>
+  <string name="speak_element_ids_summary_on">Les identifiants des éléments sont énoncés pour les boutons non étiquettés</string>
+  <string name="speak_element_ids_summary_off">Les identifiants des éléments ne sont pas énoncés pour les boutons non étiquettés</string>
+  <string name="title_pref_switch_access_tts_settings">Paramètres de synthèse vocale</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Lorsque plusieurs éléments sont mis en surbrillance</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Énoncer les premier et dernier éléments</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Énoncer le nombre d\'éléments</string>
+  <string name="title_pref_switch_access_speak_all_items">Énoncer tous les éléments en surbrillance</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Attendre fin énonciation pour continuer</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Autres commentaires</string>
+  <string name="title_pref_developer_settings">Paramètres pour concepteurs</string>
+  <string name="title_pref_spoken_feedback_overlay">Afficher la sortie vocale</string>
+  <string name="title_pref_switch_access_vibration_feedback">Vibrations</string>
+  <string name="vibration_feedback_summary">Vibrer pour indiquer que quelque chose a changé (p. ex. : le contenu de l\'écran a changé)</string>
+  <string name="title_pref_switch_access_sound_feedback">Sons</string>
+  <string name="sound_feedback_summary">Faire jouer une icône sonore pour indiquer que quelque chose a changé (p. ex. : le contenu de l\'écran a changé)</string>
+  <string name="title_pref_switch_access_sound_volume">Volume sonore</string>
+  <string name="title_pref_switch_access_audio_ducking">Atténuation audio</string>
+  <string name="audio_ducking_summary">Diminuer le volume des autres sources audio lors des énoncés</string>
+  <string name="switch_access_focus_cleared_no_selection">Écran changé</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Appuyez sur le commutateur de sélection pour sélectionner la rangée</string>
+  <string name="switch_access_spoken_feedback_group">groupe %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Appuyez sur le commutateur du groupe %1$s pour sélectionner le groupe</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Appuyez sur le commutateur du groupe %1$s pour sélectionner l\'élément</string>
+  <string name="switch_access_spoken_feedback_to">%1$s à %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s éléments</string>
+  <string name="switch_access_spoken_feedback_group_selected">groupe %1$s sélectionné</string>
+  <string name="switch_access_spoken_feedback_row_selected">ligne sélectionnée</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s sélectionné</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">défilable</string>
+  <string name="switch_access_spoken_feedback_scroll">sélectionner pour faire défiler</string>
+  <string name="switch_access_spoken_feedback_unknown">élément inconnu</string>
+  <string name="scanning_method_heading">Sélectionner la méthode de recherche</string>
+  <string name="row_column_scanning_description">Effectuez une recherche par ligne. Une fois la ligne sélectionnée, passez d\'un élément à l\'autre dans cette liste.</string>
+  <string name="linear_scanning_description">Passer d\'un élément à l\'autre</string>
+  <string name="linear_scanning_except_keyboard_description">Passez d\'un élément à l\'autre. Notez que la recherche est linéaire pour les claviers.</string>
+  <string name="option_scanning_description">Une couleur sera attribuée à tous les éléments. Appuyez sur le commutateur correspondant à la couleur de l\'élément voulu. Réduisez ensuite la taille du groupe jusqu\'à l\'obtention de l\'option voulue.</string>
+  <string name="setup_switch_assignment_heading">Commutateurs attribués à l\'action « %s »</string>
+  <string name="setup_switch_assignment_empty">Aucun</string>
+  <string name="clear_keys_dialog_title">Supprimer les commutateurs attribués?</string>
+  <string name="clear_keys_dialog_message">Vous avez déjà attribué des commutateurs à des actions.</string>
+  <string name="clear_keys_dialog_positive_button">Supprimer les commutateurs</string>
+  <string name="clear_keys_dialog_negative_button">Conserver les commutateurs</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Aucun commutateur attribué</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Aucun commutateur n\'est attribué à cette action. Voulez-vous vraiment continuer?</string>
+  <string name="option_scan_switch_title">Groupe %1$s</string>
+  <string name="option_scan_switch_subtitle">Appuyez sur un commutateur pour l\'attribuer à la sélection du groupe %1$s.</string>
+  <string name="assign_switch_subtitle">Appuyez sur un commutateur pour l\'affecter à l\'action « %1$s ».</string>
+  <string name="auto_scan_action_description">Lancer l\'analyse et sélectionner</string>
+  <string name="switch_game_heading">Tester la configuration avec Tic-Tac-Toe</string>
+  <string name="switch_game_one_switch_linear_subheading">Appuyez sur « %1$s » pour lancer la recherche. Appuyez de nouveau sur le commutateur pour sélectionner l\'élément en surbrillance. À vous de jouer!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Appuyez sur « %1$s » pour lancer la recherche. Appuyez de nouveau sur le commutateur pour sélectionner la ligne mise en surbrillance, puis une fois de plus pour sélectionner l\'élément en surbrillance. À vous de jouer!</string>
+  <string name="switch_game_two_switch_linear_subheading">Appuyez sur « %1$s » pour passer d\'un élément à l\'autre. Appuyez sur « %2$s » pour sélectionner l\'élément en surbrillance. À vous de jouer!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Appuyez sur « %1$s » pour passer d\'une ligne à l\'autre. Appuyez sur « %2$s » pour sélectionner la ligne en surbrillance. Répétez l\'opération pour sélectionner un élément de cette ligne. À vous de jouer!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Appuyez sur « %1$s » pour sélectionner les éléments mis en surbrillance en %2$s ou appuyez sur « %4$s » pour sélectionner les éléments mis en surbrillance en %3$s. Répétez l\'opération pour atteindre l\'élément voulu. À vous de jouer!</string>
+  <string name="switch_game_incomplete_switches_subheading">Vous n\'avez pas encore attribué un commutateur à toutes les actions. Utilisez le bouton Précédent pour revenir en arrière et finir d\'attribuer les commutateurs.</string>
+  <string name="game_square_content_description">%1$s à la position %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">vide</string>
+  <string name="game_reset_button_title">Réinitialiser le jeu</string>
+  <string name="game_square_already_taken">Cette case est déjà prise. Réessayez!</string>
+  <string name="game_win_outcome_title">Vous avez gagné!</string>
+  <string name="game_loss_outcome_title">Meilleure chance la prochaine fois</string>
+  <string name="game_tie_outcome_title">Égalité</string>
+  <string name="game_outcome_body_text">Vous pouvez conserver votre configuration actuelle, ou recommencer.</string>
+  <string name="game_outcome_positive_response">Conserver la configuration</string>
+  <string name="game_outcome_negative_response">Recommencer</string>
+  <string name="setup_completion_heading">Configuration terminée</string>
+  <string name="setup_completion_message">Tout est en ordre.</string>
+  <string name="setup_completion_settings_reminder">Vous pouvez toujours modifier des paramètres supplémentaires ou rouvrir l\'assistant de configuration à partir des paramètres de Switch Access.</string>
+  <string name="dialog_url_list">Choisissez un lien</string>
+  <string name="dialog_do_not_disturb_permission_title">Switch Access a besoin d\'une autorisation pour ajuster le volume</string>
+  <string name="dialog_do_not_disturb_permission_message">Pour ajuster le volume à partir du menu Switch Access, activez l\'accès au mode Ne pas déranger pour Outils d\'accessibilité Android</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Ouvrir les paramètres</string>
 </resources>

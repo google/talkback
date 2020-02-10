@@ -22,24 +22,31 @@ public interface DimScreenController {
    * @return Whether the dim-screen setting is enabled in shared preferences. This corresponds to
    *     the actual dimming state except when TalkBack is suspended or off.
    */
-  public boolean isDimmingEnabled();
+  boolean isDimmingEnabled();
 
   /** @return whether exit dim screen instruction is displayed on screen */
-  public boolean isInstructionDisplayed();
+  boolean isInstructionDisplayed();
 
   /** Turns dimming off and sets the shared preference off as well. */
-  public void disableDimming();
+  void disableDimming();
+
+  /** Turn on screen dimming without setting the shared preference. */
+  void makeScreenDim();
 
   /**
-   * By default, shows a dialog warning the user before dimming the screen. If the user has elected
-   * to not show the dialog, or the user selects "OK" from the warning dialog, this method will turn
-   * dimming on and set the shared preference on as well.
+   * Dims the screen and also sets the dim screen shared preference.
+   *
+   * @return {@code true} if it shows dialog depending on users pref. {@code false} does not mean
+   *     that dimming was failed, it just means that the dialog was not shown.
    */
-  public void showDimScreenDialog();
+  boolean enableDimmingAndShowConfirmDialog();
 
-  public void resume();
+  /** @return the user pref to show the dim screen dialog. */
+  boolean getShouldShowDialogPref();
 
-  public void suspend();
+  void resume();
 
-  public void shutdown();
+  void suspend();
+
+  void shutdown();
 }

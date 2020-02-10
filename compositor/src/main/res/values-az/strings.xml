@@ -1,151 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"Talkback aktivdir"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"TalkBack dayandırıldı"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"TalkBack davam edir"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"TalkBack deaktivdir"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"Səsli Rəy aktivdir"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"Səsli Rəy dayandırıldı"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"Səsli Rəy davam edir"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"Səsli Rəy deaktivdir"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"Sahənin əvvəli"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"Sahənin sonu"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"Seçim rejimi aktivdir"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"Seçim rejimi deaktivdir"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"Seçim təmizləndi"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"Zəng edin"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"Mesaj"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"E-poçt"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"Tədbir"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"Promo"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"Zəngli saat"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"Gedişat"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"Sosial"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"Xəta"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"Media nəzarəti"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"Sistem statusu"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"Xidmət"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g> menyu"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="OLD_TEXT">%2$s</xliff:g> <xliff:g id="NEW_TEXT">%1$s</xliff:g> ilə əvəzləndi"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> silinib"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"kəsildi, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"yerləşdirildi, <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>, seçilib"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"Seçilmiş mətn: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>, seçilməyib"</string>
-    <string name="template_text_error" msgid="153775825635730287">"Yanlış daxiletmə <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> simvol <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> simvol ilə əvəzləndi"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="LABEL">%2$s</xliff:g> üçün <xliff:g id="ITEM">%1$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> faiz."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> <xliff:g id="COUNT_3">%2$d</xliff:g> element göstərir.</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> <xliff:g id="COUNT_1">%2$d</xliff:g> element göstərir.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"Tor"</string>
-    <string name="value_listview" msgid="7625152822709234439">"Siyahı"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"Tab paneli"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"Aşağı açılan siyahı"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"Qeyd xanası"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"Radio düymə"</string>
-    <string name="value_button" msgid="2459787142940409576">"Düymə"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"Axtarış kontrolu"</string>
-    <string name="value_switch" msgid="6946709666466895221">"Keçid"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"Redaktə qutusu"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"Redaktəetmə"</string>
-    <string name="value_image" msgid="5114229220871881124">"Təsvir"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"Etiketsiz"</string>
-    <string name="value_pager" msgid="7708574424402835461">"Çox saylı səhifə görünüşü"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"Səhifə"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"Gediş paneli"</string>
-    <string name="value_webview" msgid="291321285400233958">"Veb görünüşü"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"<xliff:g id="FROM_INDEX">%1$d</xliff:g> səhifədən <xliff:g id="TO_INDEX">%2$d</xliff:g> səhifəyə simvollar"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"Simvol <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"parol"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"Siyirtmə açıldı"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"Seçimlər."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"Silinmiş mətn"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"Maksimum uzunluğa çatıb"</string>
-    <string name="value_selected" msgid="1307429702194660766">"seçilib"</string>
-    <string name="value_checked" msgid="3006751014125833966">"yoxlanılıb"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"yoxlanılmayıb"</string>
-    <string name="value_on" msgid="39454338086317219">"aktiv"</string>
-    <string name="value_off" msgid="6700497510945744608">"deaktiv"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"deaktiv"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"genişləndirilib"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"yığcamlaşdırılıb"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"İkili tıklama"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"Tıkla"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"Seçin düyməsini basın"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"Aktivləşdirmək üçün <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"Aktivləşdirmək üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> və davamlı basın."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"Uzun basım üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> keçid üçün."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"Keçid üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> mətni daxil etmək üçün."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"Mətn daxil etmək üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> dəyişmək üçün."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"Dəyişdirmək üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"Səhifədən səhifəyə keçmək üçün iki barmaqla sürüşdürün."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"Səhifə yoxdur."</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"Tənzimləmək üçün səs düymələrindən istifadə edin"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"Dəyişdirmək üçün <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"Əməliyyatlar:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="HINT">%2$s</xliff:g> üçün <xliff:g id="ACTION">%1$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"<xliff:g id="HINT">%2$s</xliff:g> üçün <xliff:g id="KEYCOMBO">%1$s</xliff:g> basın."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="HINT">%2$s</xliff:g> üçün <xliff:g id="ACTION">%1$s</xliff:g> və saxlayın."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"Böyük hərflər aktivdir."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"Böyük hərflər deaktivdir."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"Nömrələr aktivdir."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"Nömrələr aktivdir."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"Sürüşdürmə aktivdir."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"Sürüşdürmə deaktivdir."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"Portret"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"Peyzaj"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"Rədd edin"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"Genişləndirin"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"Yığcamlaşdırın"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"Sıra <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"Sütun <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"Başlıq"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"Cərgə başlığı"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"Sütun başlığı"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"<xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g> şəkil içində şəkil"</string>
-    <string name="in_list" msgid="444302621514168828">"Siyahıda <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"Siyahıda"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"Siyahıdan kənar <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"Siyahının xaricində"</string>
-    <string name="in_grid" msgid="6705387966271590222">"Dama daxilində <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"Cədvəldə"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"Dama xaricində <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"Cədvəlin xaricində"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"Səviyyə <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> element</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> element</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> cərgə</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> cərgə</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> sütun</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> sütun</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> simvol</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> simvol</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"<xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%% böyütmə aktivdir"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"<xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%% böyütmə"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"Böyütmə deaktivdir"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"<xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%% nitq sürəti"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"Audio effekt aktivdir"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"Audio effekt deaktivdir"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"Nitq diapazonu"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"Söz yığını"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"Naviqasiya"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"Audio effekt"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"Yalnız qulaqlıq istifadə edilən zaman səslədirilən parollar"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">Talkback aktivdir</string>
+  <string name="talkback_suspended">TalkBack dayandırıldı</string>
+  <string name="talkback_resumed">TalkBack davam edir</string>
+  <string name="talkback_disabled">TalkBack deaktivdir</string>
+  <string name="spokenfeedback_on">Səsli Rəy aktivdir</string>
+  <string name="spokenfeedback_suspended">Səsli Rəy dayandırıldı</string>
+  <string name="spokenfeedback_resumed">Səsli Rəy davam edir</string>
+  <string name="spokenfeedback_disabled">Səsli Rəy deaktivdir</string>
+  <string name="notification_type_beginning_of_field">Sahənin əvvəli</string>
+  <string name="notification_type_end_of_field">Sahənin sonu</string>
+  <string name="notification_type_selection_mode_on">Seçim rejimi aktivdir</string>
+  <string name="notification_type_selection_mode_off">Seçim rejimi deaktivdir</string>
+  <string name="notification_type_selection_cleared">Seçim təmizləndi</string>
+  <string name="notification_category_call">Zəng edin</string>
+  <string name="notification_category_msg">Mesaj</string>
+  <string name="notification_category_email">E-poçt</string>
+  <string name="notification_category_event">Tədbir</string>
+  <string name="notification_category_promo">Promo</string>
+  <string name="notification_category_alarm">Zəngli saat</string>
+  <string name="notification_category_progress">Gedişat</string>
+  <string name="notification_category_social">Sosial</string>
+  <string name="notification_category_err">Xəta</string>
+  <string name="notification_category_transport">Media nəzarəti</string>
+  <string name="notification_category_sys">Sistem statusu</string>
+  <string name="notification_category_service">Xidmət</string>
+  <string name="template_drawer_opened">%1$s menyu</string>
+  <string name="template_text_replaced">%2$s %1$s ilə əvəzləndi</string>
+  <string name="template_text_removed">%1$s silinib</string>
+  <string name="template_text_cut">kəsildi, %1$s</string>
+  <string name="template_text_pasted">yerləşdirildi, %1$s</string>
+  <string name="template_text_selected">%1$s, seçilib</string>
+  <string name="template_announce_selected_text">Seçilmiş mətn: %1$s</string>
+  <string name="template_text_unselected">%1$s, seçilməyib</string>
+  <string name="template_text_error">Yanlış daxiletmə %1$s</string>
+  <string name="template_replaced_characters">%1$s simvol %2$s simvol ilə əvəzləndi</string>
+  <string name="template_labeled_item">%2$s üçün %1$s</string>
+  <string name="template_percent">%1$s faiz.</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s %2$d element göstərir.</item>
+    <item quantity="other">%1$s %2$d element göstərir.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">Tor</string>
+  <string name="value_listview">Siyahı</string>
+  <string name="value_tabwidget">Tab paneli</string>
+  <string name="value_spinner">Aşağı açılan siyahı</string>
+  <string name="value_checkbox">Qeyd xanası</string>
+  <string name="value_radio_button">Radio düymə</string>
+  <string name="value_button">Düymə</string>
+  <string name="value_seek_bar">Axtarış kontrolu</string>
+  <string name="value_switch">Keçid</string>
+  <string name="value_edit_box">Redaktə qutusu</string>
+  <string name="value_edit_box_editing">Redaktəetmə</string>
+  <string name="value_image">Təsvir</string>
+  <string name="value_unlabelled">Etiketsiz</string>
+  <string name="value_pager">Çox saylı səhifə görünüşü</string>
+  <string name="value_pager_page">Səhifə</string>
+  <string name="value_progress_bar">Gediş paneli</string>
+  <string name="value_webview">Veb görünüşü</string>
+  <string name="value_toolbar">Alətlər paneli</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">%1$d səhifədən %2$d səhifəyə simvollar</string>
+  <string name="template_password_traversed">Simvol %1$d</string>
+  <string name="value_password">parol</string>
+  <string name="value_sliding_drawer_opened">Siyirtmə açıldı</string>
+  <string name="value_options_menu_open">Seçimlər.</string>
+  <string name="value_text_cleared">Silinmiş mətn</string>
+  <string name="value_text_max_length">Maksimum uzunluğa çatıb</string>
+  <string name="value_selected">seçilib</string>
+  <string name="value_checked">yoxlanılıb</string>
+  <string name="value_not_checked">yoxlanılmayıb</string>
+  <string name="value_on">aktiv</string>
+  <string name="value_off">deaktiv</string>
+  <string name="value_disabled">deaktiv</string>
+  <string name="value_expanded">genişləndirilib</string>
+  <string name="value_collapsed">yığcamlaşdırılıb</string>
+  <string name="value_double_tap">İkili tıklama</string>
+  <string name="value_single_tap">Tıkla</string>
+  <string name="value_switch_press">Seçim Açarına Basın</string>
+  <string name="value_press_select">Seçin düyməsini basın</string>
+  <string name="template_hint_clickable">Aktivləşdirmək üçün %1$s.</string>
+  <string name="template_hint_clickable_keyboard">Aktivləşdirmək üçün %1$s basın.</string>
+  <string name="template_hint_long_clickable">%1$s və davamlı basın.</string>
+  <string name="template_hint_long_clickable_keyboard">Uzun basım üçün %1$s basın.</string>
+  <string name="template_hint_checkable">%1$s keçid üçün.</string>
+  <string name="template_hint_checkable_keyboard">Keçid üçün %1$s basın.</string>
+  <string name="template_hint_edit_text">Mətni redaktə etmək üçün %1$s.</string>
+  <string name="template_hint_edit_text_keyboard">Mətni redaktə etmək üçün %1$s düyməsinə basın.</string>
+  <string name="template_hint_spinner">%1$s dəyişmək üçün.</string>
+  <string name="template_hint_spinner_keyboard">Dəyişdirmək üçün %1$s basın.</string>
+  <string name="template_hint_pager">Səhifədən səhifəyə keçmək üçün iki barmaqla sürüşdürün.</string>
+  <string name="template_hint_pager_single_page">Səhifə yoxdur.</string>
+  <string name="template_hint_seek_control">Tənzimləmək üçün səs düymələrindən istifadə edin</string>
+  <string name="template_hint_seek_control_tv">Dəyişdirmək üçün %1$s.</string>
+  <string name="template_hint_custom_actions">Əməliyyatlar:</string>
+  <string name="template_custom_hint_for_actions">%2$s üçün %1$s.</string>
+  <string name="template_custom_hint_for_actions_keyboard">%2$s üçün %1$s basın.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%2$s üçün %1$s və saxlayın.</string>
+  <string name="template_sa_custom_hint_scrollable">Sürüşdürmək üçün %1$s.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">Əlçatan əməliyyatlar üçün %1$s.</string>
+  <string name="template_sa_hint_seek_control">Tənzimləmək üçün Dəyişin seçimini edin</string>
+  <string name="value_caps_lock_on">Böyük hərflər aktivdir.</string>
+  <string name="value_caps_lock_off">Böyük hərflər deaktivdir.</string>
+  <string name="value_num_lock_on">Nömrələr aktivdir.</string>
+  <string name="value_num_lock_off">Nömrələr aktivdir.</string>
+  <string name="value_scroll_lock_on">Sürüşdürmə aktivdir.</string>
+  <string name="value_scroll_lock_off">Sürüşdürmə deaktivdir.</string>
+  <string name="orientation_portrait">Portret</string>
+  <string name="orientation_landscape">Peyzaj</string>
+  <string name="title_action_dismiss">Rədd edin</string>
+  <string name="title_action_expand">Genişləndirin</string>
+  <string name="title_action_collapse">Yığcamlaşdırın</string>
+  <string name="row_index_template">Sıra %1$d</string>
+  <string name="column_index_template">Sütun %1$d</string>
+  <string name="heading_template">Başlıq</string>
+  <string name="row_heading_template">Cərgə başlığı</string>
+  <string name="column_heading_template">Sütun başlığı</string>
+  <string name="in_list">Siyahıda %1$s</string>
+  <string name="in_list_without_name">Siyahıda</string>
+  <string name="out_of_list">Siyahıdan kənar %1$s</string>
+  <string name="out_of_list_without_name">Siyahının xaricində</string>
+  <string name="in_grid">Dama daxilində %1$s</string>
+  <string name="in_grid_without_name">Cədvəldə</string>
+  <string name="out_of_grid">Dama xaricində %1$s</string>
+  <string name="out_of_grid_without_name">Cədvəlin xaricində</string>
+  <string name="in_pager_with_name">%1$s adlı peycerdəsiniz</string>
+  <string name="in_pager">Peycerdəsiniz</string>
+  <string name="out_of_pager_with_name">%1$s adlı peycerdə deyilsiniz</string>
+  <string name="out_of_pager">Peycerdə deyilsiniz</string>
+  <string name="in_vertical_pager_with_name">Vertikal peycerdəsiniz %1$s</string>
+  <string name="in_vertical_pager">Vertikal peycerdəsiniz</string>
+  <string name="out_of_vertical_pager_with_name">%1$s adlı vertikal peycerdə deyilsiniz</string>
+  <string name="out_of_vertical_pager">Vertikal peycerdə deyilsiniz</string>
+  <string name="in_horizontal_pager_with_name">%1$s adlı horizontal peycerdəsiniz</string>
+  <string name="in_horizontal_pager">Horizontal peycerdəsiniz</string>
+  <string name="out_of_horizontal_pager_with_name">%1$s adlı horizontal peycerdə deyilsiniz</string>
+  <string name="out_of_horizontal_pager">Horizontal peycerdə deyilsiniz</string>
+  <string name="in_grid_pager_with_name">%1$s adlı cədvəl peycerindəsiniz</string>
+  <string name="in_grid_pager">Cədvəl peycerindəsiniz</string>
+  <string name="out_of_grid_pager_with_name">%1$s adlı cədvəl peycerində deyilsiniz</string>
+  <string name="out_of_grid_pager">Cədvəl peycerində deyilsiniz</string>
+  <string name="template_collection_level">Səviyyə %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d element</item>
+    <item quantity="other">%1$d element</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d cərgə</item>
+    <item quantity="other">%1$d cərgə</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d sütun</item>
+    <item quantity="other">%1$d sütun</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d simvol</item>
+    <item quantity="other">%1$d simvol</item>
+  </plurals>
+  <string name="template_screen_magnification_on">%1$d%% böyütmə aktivdir</string>
+  <string name="template_screen_magnification_scale_changed">%1$d%% böyütmə</string>
+  <string name="screen_magnification_off">Böyütmə deaktivdir</string>
+  <string name="template_speech_rate_change">%1$d%% nitq sürəti</string>
+  <string name="audio_focus_on">Audio effekt aktivdir</string>
+  <string name="audio_focus_off">Audio effekt deaktivdir</string>
+  <string name="selector_speech_rate_output">Nitq diapazonu</string>
+  <string name="selector_verbosity_output">Söz yığını</string>
+  <string name="selector_granularity_output">Naviqasiya</string>
+  <string name="selector_audio_focus_output">Audio effekt</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">Yalnız qulaqlıq istifadə edilən zaman səslədirilən parollar</string>
+  <string name="template_hint_menu_type_high_verbosity">%1$s əlçatandır, baxmaq üçün %2$s istifadə edin.</string>
+  <string name="template_hint_menu_type_low_verbosity">%1$s əlçatandır.</string>
 </resources>

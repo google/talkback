@@ -31,18 +31,18 @@ public class TutorialLesson {
   private static final String JSON_KEY_PRACTICE = "practice";
   private static final String JSON_KEY_INDEX = "lesson_index";
 
-  private String mTitle;
-  private String mShortDescription;
-  private TutorialLessonPage[] mPages;
-  private int mLessonIndex;
+  private String title;
+  private String shortDescription;
+  private TutorialLessonPage[] pages;
+  private int lessonIndex;
 
   public TutorialLesson(Context context, JSONObject lesson) throws JSONException {
     String titleResourceName = JsonUtils.getString(lesson, JSON_KEY_TITLE);
-    mTitle = ResourceUtils.readStringByResourceIdFromString(context, titleResourceName);
+    title = ResourceUtils.readStringByResourceIdFromString(context, titleResourceName);
     String descriptionResourceName = JsonUtils.getString(lesson, JSON_KEY_SHORT_DESCRIPTION);
-    mShortDescription =
+    shortDescription =
         ResourceUtils.readStringByResourceIdFromString(context, descriptionResourceName);
-    mLessonIndex = JsonUtils.getInt(lesson, JSON_KEY_INDEX);
+    lessonIndex = JsonUtils.getInt(lesson, JSON_KEY_INDEX);
 
     JSONArray pagesArray = JsonUtils.getJsonArray(lesson, JSON_KEY_PAGES);
     JSONObject practice = JsonUtils.getJsonObject(lesson, JSON_KEY_PRACTICE);
@@ -55,54 +55,54 @@ public class TutorialLesson {
       pageCount++;
     }
 
-    mPages = new TutorialLessonPage[pageCount];
+    pages = new TutorialLessonPage[pageCount];
 
     if (pagesArray != null) {
       int lessonPagesCount = pagesArray.length();
       for (int i = 0; i < lessonPagesCount; i++) {
         JSONObject pageJson = pagesArray.getJSONObject(i);
-        mPages[i] = new TutorialLessonPage(context, pageJson);
+        pages[i] = new TutorialLessonPage(context, pageJson);
       }
     }
 
     if (practice != null) {
-      mPages[pageCount - 1] = new TutorialLessonPage(context, practice);
+      pages[pageCount - 1] = new TutorialLessonPage(context, practice);
     }
   }
 
   public void setTitle(String title) {
-    mTitle = title;
+    this.title = title;
   }
 
   public String getTitle() {
-    return mTitle;
+    return title;
   }
 
   public void setShortDescription(String description) {
-    mShortDescription = description;
+    shortDescription = description;
   }
 
   public String getShortDescription() {
-    return mShortDescription;
+    return shortDescription;
   }
 
   public void setTutorialLessonPages(TutorialLessonPage[] pages) {
-    mPages = pages;
+    this.pages = pages;
   }
 
   public TutorialLessonPage getLessonPage(int pageIndex) {
-    return mPages[pageIndex];
+    return pages[pageIndex];
   }
 
   public int getPracticePage() {
-    return Math.max(0, mPages.length - 1);
+    return Math.max(0, pages.length - 1);
   }
 
   public int getPagesCount() {
-    return mPages.length;
+    return pages.length;
   }
 
   public int getLessonIndex() {
-    return mLessonIndex;
+    return lessonIndex;
   }
 }

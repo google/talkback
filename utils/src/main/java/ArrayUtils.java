@@ -17,6 +17,7 @@
 package com.google.android.accessibility.utils;
 
 import java.util.Arrays;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Utility class containing operations on arrays. */
 public final class ArrayUtils {
@@ -31,12 +32,12 @@ public final class ArrayUtils {
    * @return an array containing all the elements.
    */
   public static <T> T[] concat(T[] array, T... rest) {
-    T[] result = Arrays.copyOf(array, array.length + rest.length);
+    @Nullable T[] result = Arrays.copyOf(array, array.length + rest.length);
     int offset = array.length;
     for (T item : rest) {
       result[offset++] = item;
     }
-    return result;
+    return (T[]) result;
   }
 
   /**
@@ -57,7 +58,9 @@ public final class ArrayUtils {
     int lo = 0;
     int hi = array.length - 1;
     while (lo + 1 < hi) {
-      int mid = (hi + lo) / 2;
+      // Avoid integer overflow on midpoint calculation. hi + lo can result in overflow if
+      // array.length > INT_MAX / 2
+      int mid = lo + ((hi - lo) / 2);
       if (target < array[mid]) {
         hi = mid;
       } else if (target > array[mid]) {

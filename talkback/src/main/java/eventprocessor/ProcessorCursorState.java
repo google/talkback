@@ -16,21 +16,23 @@
 
 package com.google.android.accessibility.talkback.eventprocessor;
 
+import static com.google.android.accessibility.talkback.Feedback.CURSOR_STATE;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.view.accessibility.AccessibilityEventCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityRecordCompat;
-import android.support.v4.view.accessibility.AccessibilityWindowInfoCompat;
+import androidx.core.view.accessibility.AccessibilityEventCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityRecordCompat;
+import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.compositor.GlobalVariables;
+import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.NodeBlockingOverlay;
 import com.google.android.accessibility.talkback.NodeBlockingOverlay.OnDoubleTapListener;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
@@ -39,7 +41,9 @@ import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.PerformActionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
+import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Works around an issue with explore-by-touch where the cursor position snaps to the middle of the
@@ -60,7 +64,7 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
    * long, but it is OK if the delay is slightly noticeable. Mostly, we just want to avoid
    * preempting more important feedback.
    */
-  private static final long SPEECH_DELAY = 150;
+  protected static final int SPEECH_DELAY = 150;
 
   /** Event types that are handled by ProcessorCursorState. */
   private static final int MASK_EVENTS_HANDLED_BY_PROCESSOR_CURSOR_STATE =
@@ -70,19 +74,23 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
           | AccessibilityEvent.TYPE_TOUCH_INTERACTION_START
           | AccessibilityEvent.TYPE_TOUCH_INTERACTION_END;
 
-  private final Context mContext;
-  private final SpeechController mSpeechController;
-  private final NodeBlockingOverlay mOverlay;
-  private final GlobalVariables mGlobalVariables;
-  private AccessibilityNodeInfoCompat mFocusedNode = null;
-  private Handler mHandler = new Handler();
-  private boolean mRegistered = false;
+  private final Context context;
+  private final Pipeline.FeedbackReturner pipeline;
+  private final NodeBlockingOverlay overlay;
+  private final GlobalVariables globalVariables;
+  @Nullable private AccessibilityNodeInfoCompat focusedNode = null;
+  private boolean registered = false;
 
-  public ProcessorCursorState(TalkBackService service, GlobalVariables globalVariables) {
-    mContext = service;
-    mSpeechController = service.getSpeechController();
-    mOverlay = new NodeBlockingOverlay(service, this);
-    mGlobalVariables = globalVariables;
+  public ProcessorCursorState(
+      TalkBackService service,
+      Pipeline.FeedbackReturner pipeline,
+      GlobalVariables globalVariables) {
+    context = service;
+    this.pipeline = pipeline;
+    overlay = new NodeBlockingOverlay(service, this);
+    // Set an identifier to the overlay so that we know its added by Talkback.
+    overlay.setRootViewClassName(Role.TALKBACK_EDIT_TEXT_OVERLAY_CLASSNAME);
+    this.globalVariables = globalVariables;
   }
 
   @Override
@@ -95,16 +103,22 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
     switch (event.getEventType()) {
       case AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED:
         // Keep track of the accessibility focused EditText.
-        mOverlay.hide();
+        overlay.hide();
         saveFocusedNode(AccessibilityEventCompat.asRecord(event));
         break;
       case AccessibilityEvent.TYPE_VIEW_FOCUSED:
-        // Reset the EditText cursor because focusing will snap it to the middle.
-        resetNodeCursor(AccessibilityEventCompat.asRecord(event), eventId);
+        // On pre Android O devices, double-tap on screen will interpreted as touch down and up
+        // action at the center of the focused node, which might set cursor to the middle of text if
+        // the text is long enough. TalkBack overrides the cursor position to be the end of the
+        // field to avoid the confusion of cursor movement. See  for details.
+        if (SHOULD_HANDLE_TOUCH_EVENT) {
+          // Reset the EditText cursor because focusing will snap it to the middle.
+          resetNodeCursor(AccessibilityEventCompat.asRecord(event), eventId);
+        }
         break;
       case AccessibilityEvent.TYPE_VIEW_SCROLLED:
         // Hide the overlay so it doesn't interfere with scrolling.
-        mOverlay.hide();
+        overlay.hide();
         break;
       case AccessibilityEvent.TYPE_TOUCH_INTERACTION_START:
         if (SHOULD_HANDLE_TOUCH_EVENT) {
@@ -124,60 +138,56 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
 
   public void onReloadPreferences(TalkBackService service) {
     boolean supported = NodeBlockingOverlay.isSupported(service);
-    if (mRegistered && !supported) {
+    if (registered && !supported) {
       service.postRemoveEventListener(this);
       reset();
-      mRegistered = false;
-    } else if (!mRegistered && supported) {
+      registered = false;
+    } else if (!registered && supported) {
       service.addEventListener(this);
-      mRegistered = true;
+      registered = true;
     }
   }
 
   private void reset() {
-    mHandler.removeCallbacksAndMessages(null);
-    mFocusedNode = null;
-    mOverlay.hide();
+    pipeline.returnFeedback(
+        EVENT_ID_UNTRACKED,
+        Feedback.Part.builder().setInterruptGroup(CURSOR_STATE).setInterruptLevel(1));
+    focusedNode = null;
+    overlay.hide();
   }
 
   private void touchStart(AccessibilityEvent event, EventId eventId) {
     // Detect if the node is visible and editing; if so, then show the overlay with a delay.
-    AccessibilityNodeInfoCompat refreshedNode =
-        AccessibilityNodeInfoUtils.refreshNode(mFocusedNode);
+    AccessibilityNodeInfoCompat refreshedNode = AccessibilityNodeInfoUtils.refreshNode(focusedNode);
     if (refreshedNode != null) {
       boolean focused;
-      if (BuildVersionUtils.isAtLeastLMR1()) {
-        AccessibilityWindowInfoCompat window = refreshedNode.getWindow();
-        focused =
-            refreshedNode.isVisibleToUser()
-                && refreshedNode.isFocused()
-                && window != null
-                && window.isFocused();
-      } else {
-        focused = refreshedNode.isVisibleToUser() && refreshedNode.isFocused();
-      }
+      AccessibilityWindowInfoCompat window = AccessibilityNodeInfoUtils.getWindow(refreshedNode);
+      focused =
+          refreshedNode.isVisibleToUser()
+              && refreshedNode.isFocused()
+              && window != null
+              && window.isFocused();
       if (focused) {
         Rect r = new Rect();
         refreshedNode.getBoundsInScreen(r);
-        mOverlay.showDelayed(r);
+        overlay.showDelayed(r);
       }
       refreshedNode.recycle();
 
-      mOverlay.onAccessibilityEvent(event, eventId);
+      overlay.onAccessibilityEvent(event, eventId);
     }
   }
 
   private void touchEnd(AccessibilityEvent event, EventId eventId) {
-    AccessibilityNodeInfoCompat refreshedNode =
-        AccessibilityNodeInfoUtils.refreshNode(mFocusedNode);
+    AccessibilityNodeInfoCompat refreshedNode = AccessibilityNodeInfoUtils.refreshNode(focusedNode);
     if (refreshedNode != null) {
       refreshedNode.recycle();
-      mOverlay.onAccessibilityEvent(event, eventId);
+      overlay.onAccessibilityEvent(event, eventId);
     }
 
     // Hide the overlay with a delay if it is visible or is pending visibility.
-    if (mOverlay.isVisibleOrShowPending()) {
-      mOverlay.hideDelayed();
+    if (overlay.isVisibleOrShowPending()) {
+      overlay.hideDelayed();
     }
   }
 
@@ -189,30 +199,30 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
     // not displayed on screen, in which case a11y framework will handle the action and we should
     // not manually perform click action.
 
-    // Logically in this case, mOverlay.isVisibleOrShowPending() is equivalent to
-    // (mFocusedNode.isVisibleToUser() && mFocusedNode.isFocused()). The latter one is used in
+    // Logically in this case, overlay.isVisibleOrShowPending() is equivalent to
+    // (focusedNode.isVisibleToUser() && focusedNode.isFocused()). The latter one is used in
     // touchStart() to show overlay.
-    if (mFocusedNode != null && mOverlay.isVisibleOrShowPending()) {
+    if (focusedNode != null && overlay.isVisibleOrShowPending()) {
       // All of the benefits of clicking without the pain of resetting the cursor!
       PerformActionUtils.performAction(
-          mFocusedNode, AccessibilityNodeInfoCompat.ACTION_CLICK, eventId);
+          focusedNode, AccessibilityNodeInfoCompat.ACTION_CLICK, eventId);
       PerformActionUtils.performAction(
-          mFocusedNode, // Needed for Chrome browser.
+          focusedNode, // Needed for Chrome browser.
           AccessibilityNodeInfoCompat.ACTION_FOCUS,
           eventId);
     }
   }
 
   private void saveFocusedNode(AccessibilityRecordCompat record) {
-    if (mFocusedNode != null) {
-      mFocusedNode.recycle();
-      mFocusedNode = null;
+    if (focusedNode != null) {
+      focusedNode.recycle();
+      focusedNode = null;
     }
 
     AccessibilityNodeInfoCompat source = record.getSource();
     if (source != null) {
       if (Role.getRole(source) == Role.ROLE_EDIT_TEXT) {
-        mFocusedNode = source;
+        focusedNode = source;
       } else {
         source.recycle();
       }
@@ -222,7 +232,7 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
   private void resetNodeCursor(AccessibilityRecordCompat record, EventId eventId) {
     AccessibilityNodeInfoCompat source = record.getSource();
     if (source != null) {
-      if (source.equals(mFocusedNode)) {
+      if (source.equals(focusedNode)) {
         // Reset cursor to end if there's text.
         if (!TextUtils.isEmpty(source.getText())) {
           int end = source.getText().length();
@@ -231,29 +241,27 @@ public class ProcessorCursorState implements AccessibilityEventListener, OnDoubl
           bundle.putInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_START_INT, end);
           bundle.putInt(AccessibilityNodeInfoCompat.ACTION_ARGUMENT_SELECTION_END_INT, end);
 
-          mGlobalVariables.setFlag(GlobalVariables.EVENT_SKIP_SELECTION_CHANGED_AFTER_FOCUSED);
-          mGlobalVariables.setFlag(GlobalVariables.EVENT_SKIP_SELECTION_CHANGED_AFTER_CURSOR_RESET);
+          globalVariables.setFlag(GlobalVariables.EVENT_SKIP_SELECTION_CHANGED_AFTER_FOCUSED);
+          globalVariables.setFlag(GlobalVariables.EVENT_SKIP_SELECTION_CHANGED_AFTER_CURSOR_RESET);
           PerformActionUtils.performAction(
               source, AccessibilityNodeInfoCompat.ACTION_SET_SELECTION, bundle, eventId);
 
-          mHandler.postDelayed(
-              new Runnable() {
-                @Override
-                public void run() {
-
-                  // Not tracking performance because field feedback should already be
-                  // provided when field is focused.
-                  EventId eventId = EVENT_ID_UNTRACKED;
-
-                  mSpeechController.speak(
-                      mContext.getString(R.string.notification_type_end_of_field),
-                      SpeechController.QUEUE_MODE_QUEUE,
-                      0 /* flags */,
-                      null /* bundle */,
-                      eventId);
-                }
-              },
-              SPEECH_DELAY);
+          SpeechController.SpeakOptions speakOptions =
+              SpeechController.SpeakOptions.create()
+                  .setQueueMode(SpeechController.QUEUE_MODE_QUEUE)
+                  .setFlags(
+                      FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE
+                          | FeedbackItem.FLAG_FORCED_FEEDBACK_SSB_ACTIVE);
+          Feedback.Part.Builder part =
+              Feedback.Part.builder()
+                  .speech(context.getString(R.string.notification_type_end_of_field), speakOptions)
+                  .setDelayMs(SPEECH_DELAY)
+                  .setInterruptGroup(CURSOR_STATE)
+                  .setInterruptLevel(1);
+          // Not tracking performance because field feedback should already be
+          // provided when field is focused.
+          pipeline.returnFeedback(EVENT_ID_UNTRACKED, part);
         }
       }
 

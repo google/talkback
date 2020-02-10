@@ -3,23 +3,43 @@
     // Changes to SwitchAccess state.
     "SpokenFeedbackOn": {
       "ttsOutput": "@string/spokenfeedback_on",
-      "ttsQueueMode": "uninterruptible",
+      "ttsQueueMode": "uninterruptibleAndIgnoreInterrupts",
       "ttsForceFeedback": true
     },
     "SpokenFeedbackSuspended": {
       "ttsOutput": "@string/spokenfeedback_suspended",
-      "ttsQueueMode": "uninterruptible",
+      "ttsQueueMode": "uninterruptibleAndIgnoreInterrupts",
       "ttsForceFeedback": true
     },
     "SpokenFeedbackResumed": {
       "ttsOutput": "@string/spokenfeedback_resumed",
-      "ttsQueueMode": "uninterruptible",
+      "ttsQueueMode": "uninterruptibleAndIgnoreInterrupts",
       "ttsForceFeedback": true
     },
     "SpokenFeedbackDisabled": {
       "ttsOutput": "@string/spokenfeedback_disabled",
-      "ttsQueueMode": "uninterruptible",
+      "ttsQueueMode": "uninterruptibleAndIgnoreInterrupts",
       "ttsForceFeedback": true
+    },
+
+    // These hint events deal with focus-event hints, not window-event hints.
+    "Hint": {
+      "ttsOutput": {
+        "if": "$global.enableUsageHint",
+        "then": {
+          "switch": "$event.hintType",
+          "cases": {
+            "access_focus": "%get_hint_from_node",
+            "input_focus": "%get_input_focus_hint_from_node",
+            "screen": "$event.hintText"
+          }
+        }
+      },
+      "refreshSourceNode": false,
+      "ttsQueueMode": "queue",
+      "ttsForceFeedbackAudioPlaybackActive": "$event.hintForceAudioPlaybackActive",
+      "ttsForceFeedbackMicrophoneActive": "$event.hintForceMicrophoneActive",
+      "ttsForceFeedbackSsbActive": false
     }
   },
 
@@ -27,16 +47,39 @@
     "get_hint_from_node": {
       "if": "$node.isEnabled",
       "then": {
-        "if": "$node.role == 'pager'",
-        "then": "%hint_rule_pager",
-        "else": "%hint_rule_default"
+        "switch": "$node.role",
+        "cases": {
+          "drop_down_list": "%hint_rule_drop_down_list",
+          "seek_control": "%hint_rule_seek_bar",
+          "pager": "%hint_rule_pager"
+        },
+        "default": {
+          "if": "$global.useAutoSelect",
+          "then": "%hint_rule_default_auto_select",
+          "else": "%hint_rule_default"
+        }
       }
+    },
+
+    // Instance of RuleSimpleHintTemplate
+    "hint_rule_drop_down_list": "@string/template_hint_spinner(@string/value_switch_press)",
+
+    "hint_rule_seek_bar": {
+      "if": "$node.supportsActionScrollForward || $node.supportsActionScrollBackward",
+      "then": "@string/template_sa_hint_seek_control",
+      "else": "%hint_rule_default"
     },
 
     "hint_rule_pager": {
       "if": "$node.supportsActionScrollForward || $node.supportsActionScrollBackward",
-      "then": "@string/template_custom_hint_scrollable(@string/value_switch_press)",
+      "then": "@string/template_sa_custom_hint_scrollable(@string/value_switch_press)",
       "else": "@string/template_hint_pager_single_page"
+    },
+
+    "hint_rule_default_auto_select": {
+      "join": [
+        "%get_hint_for_click"
+      ]
     },
 
     "hint_rule_default": {
@@ -92,34 +135,38 @@
           "evaluate": {
             "if": "$action.label",
             "then": {
-              "if": "$node.isLongClickable && !$global.useAutoSelect",
-              "then": "@string/template_custom_hint_for_multiple_actions(@string/value_switch_press)",
+              "if": "$event.hasMultipleSwitchAccessActions",
+              "then": "@string/template_sa_custom_hint_for_multiple_actions(@string/value_switch_press)",
               "else": "@string/template_custom_hint_for_actions(@string/value_switch_press, $action.label)"
             }
           }
         },
         {
-          "if": "$node.isScrollable",
-          "then": {
-            "if": "$node.isLongClickable && !$global.useAutoSelect",
-            "then": "@string/template_custom_hint_for_multiple_actions(@string/value_switch_press)",
-            "else": "@string/template_custom_hint_scrollable(@string/value_switch_press)"
-          }
-        },
-        {
           "if": "$node.isCheckable",
           "then": {
-            "if": "$node.isLongClickable && !$global.useAutoSelect",
-            "then": "@string/template_custom_hint_for_multiple_actions(@string/value_switch_press)",
+            "if": "$event.hasMultipleSwitchAccessActions",
+            "then": "@string/template_sa_custom_hint_for_multiple_actions(@string/value_switch_press)",
             "else": "@string/template_hint_checkable(@string/value_switch_press)"
           }
         },
         {
           "if": "$node.isClickable",
           "then": {
-            "if": "$node.isLongClickable && !$global.useAutoSelect",
-            "then": "@string/template_custom_hint_for_multiple_actions(@string/value_switch_press)",
-            "else": "@string/template_hint_clickable(@string/value_switch_press)"
+            "if": "$event.hasMultipleSwitchAccessActions",
+            "then": "@string/template_sa_custom_hint_for_multiple_actions(@string/value_switch_press)",
+            "else": {
+              "if": "$node.role == 'edit_text'",
+              "then": "@string/template_hint_edit_text(@string/value_switch_press)",
+              "else": "@string/template_hint_clickable(@string/value_switch_press)"
+            }
+          }
+        },
+        {
+          "if": "$node.isScrollable",
+          "then": {
+            "if": "$event.hasMultipleSwitchAccessActions",
+            "then": "@string/template_sa_custom_hint_for_multiple_actions(@string/value_switch_press)",
+            "else": "@string/template_sa_custom_hint_scrollable(@string/value_switch_press)"
           }
         }
       ]

@@ -9,11 +9,14 @@ project(':switchaccess').projectDir = new File(rootDir, 'switchaccess')
 include ':compositor'
 project(':compositor').projectDir = new File(rootDir, 'compositor')
 
+include ':lib_utils_misc'
+project(':lib_utils_misc').projectDir = new File(rootDir, 'lib_utils_misc')
+
 include ':utils'
 project(':utils').projectDir = new File(rootDir, 'utils')
 
-include ':accessibility_utils'
-project(':accessibility_utils').projectDir = new File(rootDir, 'accessibility_utils')
+include ':lib_utils_log'
+project(':lib_utils_log').projectDir = new File(rootDir, 'lib_utils_log')
 
 include ':proguard'
 project(':proguard').projectDir = new File(rootDir, 'proguard')

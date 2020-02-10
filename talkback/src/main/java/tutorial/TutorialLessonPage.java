@@ -22,9 +22,11 @@ import com.google.android.accessibility.utils.JsonUtils;
 import com.google.android.accessibility.utils.ResourceUtils;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,30 +38,30 @@ public class TutorialLessonPage {
   private static final String JSON_KEY_EXERCISE = "exercise";
   private static final String JSON_KEY_EXTRAS = "extras";
 
-  private String mTitle;
-  private String mSubtitle;
-  private String mDescription;
-  private Exercise mExercise;
-  private Map<String, Object> mExtras;
+  private String title;
+  private String subtitle;
+  private String description;
+  private Exercise exercise;
+  private @NonNull Map<String, Object> extras;
 
   public TutorialLessonPage(Context context, JSONObject page) throws JSONException {
     String descriptionResourceName = JsonUtils.getString(page, JSON_KEY_DESCRIPTION);
-    mDescription = ResourceUtils.readStringByResourceIdFromString(context, descriptionResourceName);
+    description = ResourceUtils.readStringByResourceIdFromString(context, descriptionResourceName);
     String titleResourceName = JsonUtils.getString(page, JSON_KEY_TITLE);
-    mTitle = ResourceUtils.readStringByResourceIdFromString(context, titleResourceName);
+    title = ResourceUtils.readStringByResourceIdFromString(context, titleResourceName);
     String subtitleResourceName = JsonUtils.getString(page, JSON_KEY_SUBTITLE);
-    mSubtitle = ResourceUtils.readStringByResourceIdFromString(context, subtitleResourceName);
-    mExtras = getExtras(page);
+    subtitle = ResourceUtils.readStringByResourceIdFromString(context, subtitleResourceName);
+    extras = getExtras(page);
     String exerciseClassName = JsonUtils.getString(page, JSON_KEY_EXERCISE);
     try {
-      mExercise = createExercise(exerciseClassName);
-      mExercise.setTutorialLessonPage(this);
-    } catch (Exception e) {
+      exercise = createExercise(exerciseClassName);
+    } catch (ReflectiveOperationException e) {
       throw new IllegalStateException("Failed to create exercise object");
     }
+    exercise.setTutorialLessonPage(this);
   }
 
-  private Exercise createExercise(String className)
+  private static Exercise createExercise(String className)
       throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException,
           InvocationTargetException, InstantiationException {
     Class<?> clazz = Class.forName(className);
@@ -67,7 +69,7 @@ public class TutorialLessonPage {
     return (Exercise) ctor.newInstance();
   }
 
-  private Map<String, Object> getExtras(JSONObject page) throws JSONException {
+  private static @NonNull Map<String, Object> getExtras(JSONObject page) throws JSONException {
     JSONObject extrasJson = JsonUtils.getJsonObject(page, JSON_KEY_EXTRAS);
     if (extrasJson != null) {
       Map<String, Object> extras = new HashMap<>();
@@ -78,34 +80,34 @@ public class TutorialLessonPage {
       }
       return extras;
     }
-    return null;
+    return Collections.emptyMap();
   }
 
   public void setDescription(String description) {
-    mDescription = description;
+    this.description = description;
   }
 
   public String getDescription() {
-    return mDescription;
+    return description;
   }
 
   public String getTitle() {
-    return mTitle;
+    return title;
   }
 
   public String getSubtitle() {
-    return mSubtitle;
+    return subtitle;
   }
 
   public Exercise getExercise() {
-    return mExercise;
+    return exercise;
   }
 
   public boolean hasExtras() {
-    return mExtras != null && mExtras.size() > 0;
+    return !extras.isEmpty();
   }
 
   public Map<String, Object> getExtras() {
-    return mExtras;
+    return extras;
   }
 }

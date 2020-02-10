@@ -20,6 +20,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import java.lang.ref.WeakReference;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Convenience class for making a static inner {@link Handler} class that keeps a {@link
@@ -75,7 +76,7 @@ public abstract class WeakReferenceHandler<T> extends Handler {
   }
 
   /** @return The parent class, or {@code null} if the reference has been cleared. */
-  protected T getParent() {
+  protected @Nullable T getParent() {
     return mParentRef.get();
   }
 

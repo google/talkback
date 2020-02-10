@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>بٹن</item>
+    <item>چیک باکس</item>
+    <item>رنگ کا منتخب کنندہ</item>
+    <item>تاریخ وقت کا کنٹرول</item>
+    <item>تاریخ وقت کا کنٹرول</item>
+    <item>تاریخ کا کنٹرول</item>
+    <item>ای میل کیلئے متن میں ترمیم کریں</item>
+    <item>فائل کا انتخاب</item>
+    <item translatable="false"></item>
+    <item>بٹن</item>
+    <item>مہینہ کا کنٹرول</item>
+    <item>صرف عددی متن میں ترمیم کریں</item>
+    <item>پاس ورڈ میں ترمیم کرنے کا متن</item>
+    <item>ریڈیو بٹن</item>
+    <item>سلائیڈر</item>
+    <item>ری سیٹ کریں</item>
+    <item>تلاش کیلئے متن میں ترمیم کریں</item>
+    <item>بٹن</item>
+    <item>ٹیلی فون نمبر کیلئے متن میں ترمیم کریں</item>
+    <item>متن میں ترمیم کریں</item>
+    <item>‏URL کیلئے متن میں ترمیم کریں</item>
+    <item>سال کے ہفتے کا کنٹرول</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>الرٹ</item>
+    <item>الرٹ ڈائلاگ</item>
+    <item>بٹن</item>
+    <item>چیک باکس</item>
+    <item>کومبو باکس</item>
+    <item>ڈائلاگ</item>
+    <item>گرڈ سیل</item>
+    <item>لنک</item>
+    <item>لاگ</item>
+    <item>Marquee</item>
+    <item>مینو آئٹم</item>
+    <item>مینو آئٹم کا چیک باکس</item>
+    <item>مینو آئٹم کا ریڈیو بٹن</item>
+    <item>اختیار</item>
+    <item>پیشرفت کا بار</item>
+    <item>ریڈیو بٹن</item>
+    <item>ریڈیو بٹن کا گروپ</item>
+    <item>اسکرول بار</item>
+    <item>سلائیڈر</item>
+    <item>سپن بٹن</item>
+    <item>صورتحال</item>
+    <item>ٹیب</item>
+    <item>ٹیب پینل</item>
+    <item>متنی باکس</item>
+    <item>ٹائمر</item>
+    <item>ٹول بار</item>
+    <item>تجویز</item>
+    <item>ٹری آئٹم</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>لنک</item>
+    <item>سرخی ایک</item>
+    <item>سرخی دو</item>
+    <item>سرخی تین</item>
+    <item>سرخی چار</item>
+    <item>سرخی پانچ</item>
+    <item>سرخی چھ</item>
+    <item>بٹن</item>
+    <item>کومبو باکس</item>
+    <item>ٹیبل</item>
+    <item>متن کا علاقہ</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

@@ -16,25 +16,30 @@
 
 package com.google.android.accessibility.utils;
 
+import static com.google.android.accessibility.utils.AccessibilityEventUtils.WINDOW_ID_NONE;
+
 import android.accessibilityservice.AccessibilityService;
+import android.annotation.TargetApi;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.support.v4.view.accessibility.AccessibilityWindowInfoCompat;
+import android.os.Build;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Performance.EventIdAnd;
 import com.google.android.accessibility.utils.Role.RoleName;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Translates Accessibility Window Events into more usable event description.
@@ -42,26 +47,45 @@ import java.util.List;
  * <p>The main difficulties are floods of transitional window state events, many of which have to be
  * composed before we know the net window-state change. To solve for this, when a transitional
  * window event is received, interpretation is delayed, and window changes are buffered in
- * mPendingWindowRoles until the delayed interpretation is complete.
+ * pendingWindowRoles until the delayed interpretation is complete.
+ *
+ * <p>Android P changes:
+ *
+ * <ul>
+ *   <li>No longer get TYPE_WINDOW_STATE_CHANGED announcement when volume controls are hidden.
+ *   <li>More windows returned by getWindows(), including multiple system windows.
+ * </ul>
+ *
+ * TODO: Starting from Android P, collect all windows into WindowRoles, regardless of
+ * window type, and announce all new windows?
  */
 public class WindowEventInterpreter {
 
-  public static final int WINDOW_ID_NONE = -1;
+  private static final String TAG = "WindowEventInterpreter";
+
   private static final int WINDOW_TYPE_NONE = -1;
   private static final int PIC_IN_PIC_DELAY_MS = 300;
-  private static final int WINDOW_CHANGE_DELAY_MS = 500;
+  public static final int WINDOW_CHANGE_DELAY_MS = 550;
+  public static final int WINDOW_CHANGE_DELAY_NO_ANIMATION_MS = 200;
   private static final int ACCESSIBILITY_OVERLAY_DELAY_MS = 150;
+  // TODO: Shorten delay if animations are off.
 
-  private final AccessibilityService mService;
-  private final boolean mIsSplitScreenModeAvailable;
+  private static final int WINDOWS_CHANGE_TYPES_USED =
+      AccessibilityEvent.WINDOWS_CHANGE_ADDED
+          | AccessibilityEvent.WINDOWS_CHANGE_TITLE
+          | AccessibilityEvent.WINDOWS_CHANGE_REMOVED
+          | AccessibilityEvent.WINDOWS_CHANGE_PIP;
+
+  private final AccessibilityService service;
+  private final boolean isSplitScreenModeAvailable;
 
   // TODO: Extract this to another class, and merge with the same logic in
   // TouchExplorationFormatter.
-  private HashMap<Integer, CharSequence> mWindowTitlesMap = new HashMap<>();
-  private HashMap<Integer, CharSequence> mWindowToClassName = new HashMap<>();
-  private HashMap<Integer, CharSequence> mWindowToPackageName = new HashMap<>();
+  private final HashMap<Integer, CharSequence> windowTitlesMap = new HashMap<>();
+  private final HashMap<Integer, Integer> windowToRole = new HashMap<>();
+  private final HashMap<Integer, CharSequence> windowToPackageName = new HashMap<>();
 
-  private HashSet<Integer> mSystemWindowIdsSet = new HashSet<>();
+  private final HashSet<Integer> systemWindowIdsSet = new HashSet<>();
 
   /**
    * Assignment of windows to roles. Encapsulated in a data-struct, to allow temporary assignment of
@@ -70,82 +94,89 @@ public class WindowEventInterpreter {
   public static class WindowRoles {
     // Window A: In split screen mode, left (right in RTL) or top window. In full screen mode, the
     // current window.
-    public int mWindowIdA = WINDOW_ID_NONE;
-    public CharSequence mWindowTitleA;
+    public int windowIdA = WINDOW_ID_NONE;
+    public CharSequence windowTitleA;
 
     // Window B: In split screen mode, right (left in RTL) or bottom window. This must be
     // WINDOW_ID_NONE in full screen mode.
-    public int mWindowIdB = WINDOW_ID_NONE;
-    public CharSequence mWindowTitleB;
+    public int windowIdB = WINDOW_ID_NONE;
+    public CharSequence windowTitleB;
 
     // Accessibility overlay window
-    public int mAccessibilityOverlayWindowId = WINDOW_ID_NONE;
-    public CharSequence mAccessibilityOverlayWindowTitle;
+    public int accessibilityOverlayWindowId = WINDOW_ID_NONE;
+    public CharSequence accessibilityOverlayWindowTitle;
 
     // Picture-in-picture window history.
-    public int mPicInPicWindowId = WINDOW_ID_NONE;
-    public CharSequence mPicInPicWindowTitle;
+    public int picInPicWindowId = WINDOW_ID_NONE;
+    public CharSequence picInPicWindowTitle;
 
     public WindowRoles() {}
 
     public WindowRoles(WindowRoles oldRoles) {
-      mWindowIdA = oldRoles.mWindowIdA;
-      mWindowTitleA = oldRoles.mWindowTitleA;
-      mWindowIdB = oldRoles.mWindowIdB;
-      mWindowTitleB = oldRoles.mWindowTitleB;
-      mAccessibilityOverlayWindowId = oldRoles.mAccessibilityOverlayWindowId;
-      mAccessibilityOverlayWindowTitle = oldRoles.mAccessibilityOverlayWindowTitle;
-      mPicInPicWindowId = oldRoles.mPicInPicWindowId;
-      mPicInPicWindowTitle = oldRoles.mPicInPicWindowTitle;
+      windowIdA = oldRoles.windowIdA;
+      windowTitleA = oldRoles.windowTitleA;
+      windowIdB = oldRoles.windowIdB;
+      windowTitleB = oldRoles.windowTitleB;
+      accessibilityOverlayWindowId = oldRoles.accessibilityOverlayWindowId;
+      accessibilityOverlayWindowTitle = oldRoles.accessibilityOverlayWindowTitle;
+      picInPicWindowId = oldRoles.picInPicWindowId;
+      picInPicWindowTitle = oldRoles.picInPicWindowTitle;
     }
 
     public void clear() {
-      mWindowIdA = WINDOW_ID_NONE;
-      mWindowTitleA = null;
-      mWindowIdB = WINDOW_ID_NONE;
-      mWindowTitleB = null;
-      mAccessibilityOverlayWindowId = WINDOW_ID_NONE;
-      mAccessibilityOverlayWindowTitle = null;
-      mPicInPicWindowId = WINDOW_ID_NONE;
-      mPicInPicWindowTitle = null;
+      windowIdA = WINDOW_ID_NONE;
+      windowTitleA = null;
+      windowIdB = WINDOW_ID_NONE;
+      windowTitleB = null;
+      accessibilityOverlayWindowId = WINDOW_ID_NONE;
+      accessibilityOverlayWindowTitle = null;
+      picInPicWindowId = WINDOW_ID_NONE;
+      picInPicWindowTitle = null;
     }
 
     @Override
     public String toString() {
       return String.format(
-          "a:%s:%s b:%s:%s accesOverlay:%s:%s picInPic:%s:%s",
-          mWindowIdA,
-          mWindowTitleA,
-          mWindowIdB,
-          mWindowTitleB,
-          mAccessibilityOverlayWindowId,
-          mAccessibilityOverlayWindowTitle,
-          mPicInPicWindowId,
-          mPicInPicWindowTitle);
+          "a:%s:%s b:%s:%s accessOverlay:%s:%s picInPic:%s:%s",
+          windowIdA,
+          windowTitleA,
+          windowIdB,
+          windowTitleB,
+          accessibilityOverlayWindowId,
+          accessibilityOverlayWindowTitle,
+          picInPicWindowId,
+          picInPicWindowTitle);
     }
   }
 
-  private WindowRoles mWindowRoles = new WindowRoles();
-  private WindowRoles mPendingWindowRoles;
-  private int mPicInPicLastShownId = WINDOW_ID_NONE; // Last pic-in-pic window that was shown.
-  private long mPicInPicDisappearTime = 0; // Last time pic-in-pic was hidden.
+  private WindowRoles windowRoles = new WindowRoles();
+  private WindowRoles pendingWindowRoles;
+  private int picInPicLastShownId = WINDOW_ID_NONE; // Last pic-in-pic window that was shown.
+  private long picInPicDisappearTime = 0; // Last time pic-in-pic was hidden.
+
+  /** Preference to reduce delay before considering windows stable. */
+  private boolean reduceDelayPref = false;
 
   public WindowEventInterpreter(AccessibilityService service) {
-    mService = service;
-    boolean isArc = FormFactorUtils.getInstance(service).isArc();
-    mIsSplitScreenModeAvailable =
-        BuildVersionUtils.isAtLeastN() && !FormFactorUtils.getInstance(service).isTv() && !isArc;
+    this.service = service;
+    boolean isArc = FeatureSupport.isArc();
+    isSplitScreenModeAvailable =
+        BuildVersionUtils.isAtLeastN() && !FeatureSupport.isTv(service) && !isArc;
+  }
+
+  public void setReduceDelayPref(boolean reduceDelayPref) {
+    this.reduceDelayPref = reduceDelayPref;
   }
 
   public void clearScreenState() {
-    mWindowRoles.clear();
-    mPicInPicLastShownId = WINDOW_ID_NONE;
-    mPicInPicDisappearTime = 0;
+    windowRoles.clear();
+    picInPicLastShownId = WINDOW_ID_NONE;
+    picInPicDisappearTime = 0;
   }
 
   public CharSequence getWindowTitle(int windowId) {
     // Try to get window title from the map.
-    CharSequence windowTitle = mWindowTitlesMap.get(windowId);
+    CharSequence windowTitle = windowTitlesMap.get(windowId);
     if (windowTitle != null) {
       return windowTitle;
     }
@@ -161,7 +192,7 @@ public class WindowEventInterpreter {
     }
 
     // Try to get window title from AccessibilityWindowInfo.
-    for (AccessibilityWindowInfo window : mService.getWindows()) {
+    for (AccessibilityWindowInfo window : AccessibilityServiceCompatUtils.getWindows(service)) {
       if (window.getId() == windowId) {
         return window.getTitle();
       }
@@ -171,16 +202,16 @@ public class WindowEventInterpreter {
   }
 
   public boolean isSplitScreenModeAvailable() {
-    return mIsSplitScreenModeAvailable;
+    return isSplitScreenModeAvailable;
   }
 
   public boolean isSplitScreenMode() {
-    if (!mIsSplitScreenModeAvailable) {
+    if (!isSplitScreenModeAvailable) {
       return false;
     }
 
     // TODO: Update this state when receiving a TYPE_WINDOWS_CHANGED event if possible.
-    List<AccessibilityWindowInfo> windows = mService.getWindows();
+    List<AccessibilityWindowInfo> windows = AccessibilityServiceCompatUtils.getWindows(service);
     List<AccessibilityWindowInfo> applicationWindows = new ArrayList<>();
     for (AccessibilityWindowInfo window : windows) {
       if (window.getType() == AccessibilityWindowInfo.TYPE_APPLICATION) {
@@ -198,58 +229,86 @@ public class WindowEventInterpreter {
 
   /** Step 1: Define listener for delayed window events. */
   public interface WindowEventHandler {
-    void handle(EventInterpretation interpretation, EventId eventId);
+    void handle(EventInterpretation interpretation, @Nullable EventId eventId);
   }
 
   /** Step 2: Add window event listener. */
   public void addListener(WindowEventHandler listener) {
-    mListeners.add(listener);
+    listeners.add(listener);
   }
 
-  private List<WindowEventHandler> mListeners = new ArrayList<>();
+  private final List<WindowEventHandler> listeners = new ArrayList<>();
 
   /** Step 3: Extract data from window event and related APIs. */
-  public void interpret(AccessibilityEvent event, EventId eventId) {
+  @TargetApi(Build.VERSION_CODES.P)
+  public void interpret(AccessibilityEvent event, @Nullable EventId eventId) {
+    interpret(event, eventId, true);
+  }
+
+  @TargetApi(Build.VERSION_CODES.P)
+  public void interpret(AccessibilityEvent event, @Nullable EventId eventId, boolean allowEvent) {
     int eventType = event.getEventType();
     if (eventType != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED
         && eventType != AccessibilityEvent.TYPE_WINDOWS_CHANGED) {
       return;
     }
+    // On android P, only use window events with change-types that set window title or announce.
+    if (BuildVersionUtils.isAtLeastP()) {
+      if (event.getEventType() == AccessibilityEvent.TYPE_WINDOWS_CHANGED
+          && (event.getWindowChanges() & WINDOWS_CHANGE_TYPES_USED) == 0) {
+        return;
+      }
+      if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
+        int changeTypes = event.getContentChangeTypes();
+        if ((changeTypes & AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_DISAPPEARED) != 0) {
+          return;
+        }
+      }
+    }
 
     log(
-        "interpret() event type=%s time=%s",
-        AccessibilityEventUtils.typeToString(event.getEventType()), event.getEventTime());
-    log("interpret() mWindowRoles=%s", mWindowRoles);
+        "interpret() event type=%s time=%s allowEvent=%s",
+        AccessibilityEventUtils.typeToString(event.getEventType()),
+        event.getEventTime(),
+        allowEvent);
+    log("interpret() windowRoles=%s", windowRoles);
 
     // Create event interpretation.
     EventInterpretation interpretation = new EventInterpretation();
     interpretation.setEventType(event.getEventType());
     interpretation.setOriginalEvent(true);
     if (event.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
-      interpretation.setWindowIdFromEvent(getWindowId(event));
+      interpretation.setWindowIdFromEvent(AccessibilityEventUtils.getWindowId(event));
+      if (BuildVersionUtils.isAtLeastP()) {
+        interpretation.setChangeTypes(event.getContentChangeTypes());
+      }
+    } else if (event.getEventType() == AccessibilityEvent.TYPE_WINDOWS_CHANGED) {
+      if (BuildVersionUtils.isAtLeastP()) {
+        interpretation.setChangeTypes(event.getWindowChanges());
+      }
     }
 
     // Collect old window information into interpretation.
     setOldWindowInterpretation(
-        mWindowRoles.mWindowIdA, mWindowRoles.mWindowTitleA, interpretation.getWindowA());
+        windowRoles.windowIdA, windowRoles.windowTitleA, interpretation.getWindowA());
     setOldWindowInterpretation(
-        mWindowRoles.mWindowIdB, mWindowRoles.mWindowTitleB, interpretation.getWindowB());
+        windowRoles.windowIdB, windowRoles.windowTitleB, interpretation.getWindowB());
     setOldWindowInterpretation(
-        mWindowRoles.mAccessibilityOverlayWindowId,
-        mWindowRoles.mAccessibilityOverlayWindowTitle,
+        windowRoles.accessibilityOverlayWindowId,
+        windowRoles.accessibilityOverlayWindowTitle,
         interpretation.getAccessibilityOverlay());
     setOldWindowInterpretation(
-        mWindowRoles.mPicInPicWindowId,
-        mWindowRoles.mPicInPicWindowTitle,
+        windowRoles.picInPicWindowId,
+        windowRoles.picInPicWindowTitle,
         interpretation.getPicInPic());
 
     // Update stored windows.
     updateWindowTitlesMap(event, interpretation);
 
     // Map windows to roles, detect window role changes.
-    WindowRoles latestRoles = (mPendingWindowRoles == null) ? mWindowRoles : mPendingWindowRoles;
+    WindowRoles latestRoles = (pendingWindowRoles == null) ? windowRoles : pendingWindowRoles;
     WindowRoles newWindowRoles = new WindowRoles(latestRoles);
-    updateScreenState(interpretation, mService, mIsSplitScreenModeAvailable, newWindowRoles);
+    updateWindowRoles(interpretation, service, newWindowRoles);
     setWindowTitles(newWindowRoles);
     detectWindowChanges(newWindowRoles, interpretation);
 
@@ -257,18 +316,18 @@ public class WindowEventInterpreter {
     // TODO: If picture-in-picture does even more transitional behavior than temporarily
     // disappearing, then delay pic-in-pic change detection.
     boolean picInPicDisappearedRecently =
-        (event.getEventTime() < (mPicInPicDisappearTime + PIC_IN_PIC_DELAY_MS));
+        (event.getEventTime() < (picInPicDisappearTime + PIC_IN_PIC_DELAY_MS));
     boolean picInPicTemporarilyHidden =
-        (mPicInPicLastShownId == newWindowRoles.mPicInPicWindowId && picInPicDisappearedRecently);
+        (picInPicLastShownId == newWindowRoles.picInPicWindowId && picInPicDisappearedRecently);
     boolean picInPicChanged =
         (!picInPicTemporarilyHidden && interpretation.getPicInPic().idOrTitleChanged());
     // Update picture-in-picture history.
-    if (newWindowRoles.mPicInPicWindowId == WINDOW_ID_NONE) {
+    if (newWindowRoles.picInPicWindowId == WINDOW_ID_NONE) {
       if (interpretation.getPicInPic().getOldId() != WINDOW_ID_NONE) {
-        mPicInPicDisappearTime = event.getEventTime();
+        picInPicDisappearTime = event.getEventTime();
       }
     } else {
-      mPicInPicLastShownId = newWindowRoles.mPicInPicWindowId;
+      picInPicLastShownId = newWindowRoles.picInPicWindowId;
     }
     interpretation.setPicInPicChanged(picInPicChanged);
 
@@ -281,7 +340,7 @@ public class WindowEventInterpreter {
         // Single window.  Stable if null title, or alert dialog, or split-screen unavailable.
         if (interpretation.getWindowA().getTitle() != null) {
           if (isSplitScreenModeAvailable() && !interpretation.getWindowA().isAlertDialog()) {
-            delayMs = WINDOW_CHANGE_DELAY_MS;
+            delayMs = getWindowTransitionDelayMs();
           }
         }
       } else {
@@ -289,24 +348,25 @@ public class WindowEventInterpreter {
         if (isSplitScreenModeAvailable()
             && !interpretation.getWindowA().isAlertDialog()
             && !interpretation.getWindowB().isAlertDialog()) {
-          delayMs = WINDOW_CHANGE_DELAY_MS;
+          delayMs = getWindowTransitionDelayMs();
         }
       }
     }
     interpretation.setWindowsStable(delayMs == 0);
     log("interpret() delayMs=%s interpretation=%s", delayMs, interpretation);
+    interpretation.setAllowAnnounce(allowEvent);
 
     // Stop delayed interpretation efforts, since new non-empty interpretation is coming.
-    mWindowEventDelayer.removeMessages();
+    windowEventDelayer.removeMessages();
     // Send an immediate window event interpretation, possibly with unstable windows.
     notifyInterpretationListeners(interpretation, eventId);
     if (delayMs == 0) {
       // If no delay needed to stablize windows... keep stable window role assignments.
-      mWindowRoles = newWindowRoles;
-      mPendingWindowRoles = null;
+      windowRoles = newWindowRoles;
+      pendingWindowRoles = null;
     } else {
       // Delay updating window roles, to find non-transitional role changes. But accumulate delayed
-      // role information in mPendingWindowRoles, to allow delayed interpretation to have up-to-date
+      // role information in pendingWindowRoles, to allow delayed interpretation to have up-to-date
       // window info.
       //
       // Saving all role updates breaks announcing "settings" and "home", because 2nd
@@ -314,17 +374,26 @@ public class WindowEventInterpreter {
       // announcing home screen, because WINDOWS_CHANGED then WINDOW_STATE_CHANGED never updates
       // roles. Base new role updates on pending roles, to allow WINDOW_STATE_CHANGED to know that
       // window id changed in preceding WINDOWS_CHANGED.
-      mPendingWindowRoles = newWindowRoles;
+      pendingWindowRoles = newWindowRoles;
 
-      // Delay and re-interpret window event later.
       EventIdAnd<EventInterpretation> interpretationAndEventId =
           new EventIdAnd<>(interpretation, eventId);
-      mWindowEventDelayer.delay(delayMs, interpretationAndEventId);
+      windowEventDelayer.delay(delayMs, interpretationAndEventId);
     }
   }
 
+  /** Returns the current window-transition delay in milliseconds. */
+  public long getWindowTransitionDelayMs() {
+    long delayMs = WINDOW_CHANGE_DELAY_MS;
+    if (reduceDelayPref && SettingsUtils.isAnimationDisabled(service)) {
+      delayMs = WINDOW_CHANGE_DELAY_NO_ANIMATION_MS;
+    }
+    log("getWindowTransitionDelayMs() delayMs=%d", delayMs);
+    return delayMs;
+  }
+
   /** Step 4: Delay event interpretation. */
-  private DelayHandler<EventIdAnd<EventInterpretation>> mWindowEventDelayer =
+  private final DelayHandler<EventIdAnd<EventInterpretation>> windowEventDelayer =
       new DelayHandler<EventIdAnd<EventInterpretation>>() {
         @Override
         public void handle(EventIdAnd<EventInterpretation> eventIdAndInterpretation) {
@@ -332,29 +401,37 @@ public class WindowEventInterpreter {
         }
       };
 
+  public void clearQueue() {
+    windowEventDelayer.removeMessages();
+  }
+
   /** Step 5: After delay from "unstable" window events, re-run window interpretation. */
-  public void delayedInterpret(EventInterpretation interpretation, EventId eventId) {
+  public void delayedInterpret(EventInterpretation interpretation, @Nullable EventId eventId) {
+
+    log("delayedInterpret()");
+
     interpretation.setOriginalEvent(false);
     interpretation.setWindowsStable(true);
 
     // Map windows to roles, detect window role changes.
-    WindowRoles latestRoles = (mPendingWindowRoles == null) ? mWindowRoles : mPendingWindowRoles;
+    WindowRoles latestRoles = (pendingWindowRoles == null) ? windowRoles : pendingWindowRoles;
     WindowRoles newWindowRoles = new WindowRoles(latestRoles);
-    updateScreenState(interpretation, mService, mIsSplitScreenModeAvailable, newWindowRoles);
+    updateWindowRoles(interpretation, service, newWindowRoles);
     setWindowTitles(newWindowRoles);
     detectWindowChanges(newWindowRoles, interpretation);
-    log("delayedInterpret() interpretation=" + interpretation);
+    log("delayedInterpret() interpretation=%s", interpretation);
 
     // Keep stable window role assignments.
-    mWindowRoles = newWindowRoles;
-    mPendingWindowRoles = null;
+    windowRoles = newWindowRoles;
+    pendingWindowRoles = null;
 
     notifyInterpretationListeners(interpretation, eventId);
   }
 
   /** Send event interpretation to each listener. */
-  private void notifyInterpretationListeners(EventInterpretation interpretation, EventId eventId) {
-    for (WindowEventHandler listener : mListeners) {
+  private void notifyInterpretationListeners(
+      EventInterpretation interpretation, @Nullable EventId eventId) {
+    for (WindowEventHandler listener : listeners) {
       listener.handle(interpretation, eventId);
     }
   }
@@ -374,8 +451,8 @@ public class WindowEventInterpreter {
   }
 
   private boolean isAlertDialog(int windowId) {
-    CharSequence className = mWindowToClassName.get(windowId);
-    return className != null && className.equals("android.app.AlertDialog");
+    Integer role = windowToRole.get(windowId);
+    return (role != null) && (role.intValue() == Role.ROLE_ALERT_DIALOG);
   }
 
   private void updateWindowTitlesMap(AccessibilityEvent event, EventInterpretation interpretation) {
@@ -384,69 +461,83 @@ public class WindowEventInterpreter {
       case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
         {
           // If split screen mode is NOT available, we only need to care single window.
-          if (!mIsSplitScreenModeAvailable) {
-            mWindowTitlesMap.clear();
+          if (!isSplitScreenModeAvailable) {
+            windowTitlesMap.clear();
           }
 
-          int windowId = getWindowId(event);
-          boolean shouldAnnounceEvent = shouldAnnounceEvent(event, windowId);
+          int windowId = AccessibilityEventUtils.getWindowId(event);
+          boolean shouldAnnounceEvent = shouldAnnounceWindowStateChange(event, windowId);
           CharSequence title =
-              getWindowTitleFromEvent(event, shouldAnnounceEvent /* useContentDescription */);
-          if (title != null) {
+              getWindowTitleFromWindowStateChange(
+                  event, /* useContentDescription= */ shouldAnnounceEvent);
+          log(
+              "updateWindowTitlesMap() window id=%s title=%s shouldAnnounceEvent=%s",
+              windowId, title, shouldAnnounceEvent);
+          if (!TextUtils.isEmpty(title)) {
             if (shouldAnnounceEvent) {
               // When software keyboard is shown or hidden, TYPE_WINDOW_STATE_CHANGED
               // is dispatched with text describing the visibility of the keyboard.
+              // Volume control shade/dialog also files TYPE_WINDOW_STATE_CHANGED event when it's
+              // shown.
               interpretation.setAnnouncement(title);
+              interpretation.setIsFromVolumeControlPanel(
+                  AccessibilityEventUtils.isFromVolumeControlPanel(event));
+              interpretation.setIsFromInputMethodEditor(
+                  getWindowType(event) == AccessibilityWindowInfo.TYPE_INPUT_METHOD);
             } else {
-              mWindowTitlesMap.put(windowId, title);
+              windowTitlesMap.put(windowId, title);
 
               if (getWindowType(event) == AccessibilityWindowInfo.TYPE_SYSTEM) {
-                mSystemWindowIdsSet.add(windowId);
+                systemWindowIdsSet.add(windowId);
               }
 
-              CharSequence eventWindowClassName = event.getClassName();
-              mWindowToClassName.put(windowId, eventWindowClassName);
-              mWindowToPackageName.put(windowId, event.getPackageName());
+              int role = Role.getSourceRole(event);
+              windowToRole.put(windowId, role);
+              windowToPackageName.put(windowId, event.getPackageName());
             }
           }
         }
         break;
       case AccessibilityEvent.TYPE_WINDOWS_CHANGED:
         {
-          HashSet<Integer> windowIdsToBeRemoved = new HashSet<Integer>(mWindowTitlesMap.keySet());
-          List<AccessibilityWindowInfo> windows = mService.getWindows();
+          HashSet<Integer> windowIdsToBeRemoved = new HashSet<>(windowTitlesMap.keySet());
+          List<AccessibilityWindowInfo> windows =
+              AccessibilityServiceCompatUtils.getWindows(service);
           for (AccessibilityWindowInfo window : windows) {
             int windowId = window.getId();
             if (BuildVersionUtils.isAtLeastN()) {
               CharSequence title = window.getTitle();
-              if (title != null) {
-                mWindowTitlesMap.put(windowId, title);
+              log(
+                  "updateWindowTitlesMap() window id=%s title=%s type=%s",
+                  windowId, title, windowTypeToString(window.getType()));
+              if (!TextUtils.isEmpty(title)) {
+                windowTitlesMap.put(windowId, title);
               }
             }
             windowIdsToBeRemoved.remove(windowId);
           }
           for (Integer windowId : windowIdsToBeRemoved) {
-            mWindowTitlesMap.remove(windowId);
-            mSystemWindowIdsSet.remove(windowId);
-            mWindowToClassName.remove(windowId);
-            mWindowToPackageName.remove(windowId);
+            windowTitlesMap.remove(windowId);
+            systemWindowIdsSet.remove(windowId);
+            windowToRole.remove(windowId);
+            windowToPackageName.remove(windowId);
           }
         }
         break;
       default: // fall out
     }
 
-    log("updateWindowTitlesMap() mWindowTitlesMap=" + mWindowTitlesMap);
+    log("updateWindowTitlesMap() windowTitlesMap=%s", windowTitlesMap);
   }
 
-  private CharSequence getWindowTitleFromEvent(
+  private CharSequence getWindowTitleFromWindowStateChange(
       AccessibilityEvent event, boolean useContentDescription) {
     if (useContentDescription && !TextUtils.isEmpty(event.getContentDescription())) {
       return event.getContentDescription();
     }
 
     List<CharSequence> titles = event.getText();
-    if (titles.size() > 0) {
+    if (!titles.isEmpty()) {
       return titles.get(0);
     }
 
@@ -457,9 +548,15 @@ public class WindowEventInterpreter {
    * Uses a heuristic to guess whether an event should be announced. Any event that comes from an
    * IME, or an invisible window is considered an announcement.
    */
-  private boolean shouldAnnounceEvent(AccessibilityEvent event, int windowId) {
+  @TargetApi(Build.VERSION_CODES.O)
+  private boolean shouldAnnounceWindowStateChange(AccessibilityEvent event, int windowId) {
+    if (event.getEventType() != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
+      throw new IllegalStateException();
+    }
+
     // Assume window ID of -1 is the keyboard.
     if (windowId == WINDOW_ID_NONE) {
+      log("shouldAnnounceWindowStateChange() windowId=WINDOW_ID_NONE");
       return true;
     }
     // TODO This needs to be revisited and should be handled in a better way.
@@ -476,156 +573,181 @@ public class WindowEventInterpreter {
         return true;
       }
     }
-    return AccessibilityEventUtils.isNonMainWindowEvent(event);
+
+    boolean isNonMainWindow = AccessibilityEventUtils.isNonMainWindowEvent(event);
+    log("shouldAnnounceWindowStateChange() isNonMainWindow=%s", isNonMainWindow);
+    return isNonMainWindow;
   }
 
   /** Modifies window IDs in windowRoles. */
-  private static void updateScreenState(
-      EventInterpretation interpretation,
-      AccessibilityService service,
-      boolean splitScreenModeAvailable,
-      WindowRoles windowRoles) {
+  @TargetApi(Build.VERSION_CODES.P)
+  private static void updateWindowRoles(
+      EventInterpretation interpretation, AccessibilityService service, WindowRoles windowRoles) {
 
-    log("updateScreenState() interpretation=" + interpretation);
+    log("updateWindowRoles() interpretation=%s", interpretation);
 
-    switch (interpretation.getEventType()) {
-      case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
-        // Do nothing if split screen mode is available since it can be covered by
-        // TYPE_WINDOWS_CHANGED events.
-        // TODO: Stop treating TYPE_WINDOW_STATE_CHANGED and TYPE_WINDOWS_CHANGED
-        // differently, for simplicity and reliability.  Incrementally update all roles for all
-        // events, based on AccessibilityService.getWindows()
-        if (splitScreenModeAvailable) {
+    if (interpretation.getEventType() == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED) {
+      if (BuildVersionUtils.isAtLeastP()) {
+        // For simplicity and reliability, update roles for both TYPE_WINDOW_STATE_CHANGED and
+        // TYPE_WINDOWS_CHANGED, using AccessibilityService.getWindows()
+        // TODO: Do the same for older android versions.
+
+        // If non-empty unhandled change-type... skip updating window roles.
+        int changeTypesUsed =
+            AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_TITLE
+                | AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_APPEARED
+                | AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_DISAPPEARED;
+        int changeTypes = interpretation.getChangeTypes();
+        if ((changeTypes != 0) && (changeTypes & changeTypesUsed) == 0) {
           return;
         }
-        windowRoles.mWindowIdA = interpretation.getWindowIdFromEvent();
-        break;
-      case AccessibilityEvent.TYPE_WINDOWS_CHANGED:
-        // Do nothing if split screen mode is NOT available since it can be covered by
-        // TYPE_WINDOW_STATE_CHANGED events.
-        if (!splitScreenModeAvailable) {
+      }
+    }
+
+    ArrayList<AccessibilityWindowInfo> applicationWindows = new ArrayList<>();
+    ArrayList<AccessibilityWindowInfo> systemWindows = new ArrayList<>();
+    ArrayList<AccessibilityWindowInfo> accessibilityOverlayWindows = new ArrayList<>();
+    ArrayList<AccessibilityWindowInfo> picInPicWindows = new ArrayList<>();
+    List<AccessibilityWindowInfo> windows = AccessibilityServiceCompatUtils.getWindows(service);
+
+    // If there are no windows available, clear the cached IDs.
+    if (windows.isEmpty()) {
+      log("updateWindowRoles() windows.isEmpty()=true returning");
+      windowRoles.clear();
+      return;
+    }
+
+    for (int i = 0; i < windows.size(); i++) {
+      AccessibilityWindowInfo window = windows.get(i);
+      log("updateWindowRoles() window id=%d", window.getId());
+      if (AccessibilityWindowInfoUtils.isPictureInPicture(window)) {
+        picInPicWindows.add(window);
+        continue;
+      }
+      switch (window.getType()) {
+        case AccessibilityWindowInfo.TYPE_APPLICATION:
+          if (window.getParent() == null) {
+            applicationWindows.add(window);
+          }
+          break;
+        case AccessibilityWindowInfo.TYPE_SYSTEM:
+          systemWindows.add(window);
+          break;
+        case AccessibilityWindowInfo.TYPE_ACCESSIBILITY_OVERLAY:
+          // From LMR1 to N, for Talkback we create a transparent a11y overlay on edit text when
+          // double click is performed. That is done so that we can adjust the cursor position to
+          // the end of the edit text instead of the center, which is the default behavior. This
+          // overlay should be ignored while detecting window changes.
+          boolean isOverlayOnEditTextSupported = !BuildVersionUtils.isAtLeastO();
+          AccessibilityNodeInfo root = AccessibilityWindowInfoUtils.getRoot(window);
+          boolean isTalkbackOverlay = (Role.getRole(root) == Role.ROLE_TALKBACK_EDIT_TEXT_OVERLAY);
+          AccessibilityNodeInfoUtils.recycleNodes(root);
+          // Only add overlay window not shown by talkback.
+          if (!isOverlayOnEditTextSupported || !isTalkbackOverlay) {
+            accessibilityOverlayWindows.add(window);
+          }
+          break;
+        default: // fall out
+      }
+    }
+
+    log(
+        "updateWindowRoles() accessibilityOverlayWindows.size()=%d",
+        accessibilityOverlayWindows.size());
+    log("updateWindowRoles() applicationWindows.size()=%d", applicationWindows.size());
+
+    // If an accessibility-overlay exists, only update overlay role.
+    if (accessibilityOverlayWindows.size() >= 1) {
+      // TODO: Figure out how to choose between multiple overlays.
+      // Use title from TYPE_WINDOW_STATE_CHANGED via windowTitlesMap to check overlay titles and
+      // decide which of many accessibility-overlays should take the role here.
+      log("updateWindowRoles() Updating overlay role only");
+      // Take the last overlay to check, so we could know if there is any new added overlay.
+      windowRoles.accessibilityOverlayWindowId =
+          accessibilityOverlayWindows.get(accessibilityOverlayWindows.size() - 1).getId();
+
+      // Prefer to choose an overlay window with the focused and active state.()
+      for (AccessibilityWindowInfo windowInfo : accessibilityOverlayWindows) {
+        if (windowInfo.isFocused() && windowInfo.isActive()) {
+          windowRoles.accessibilityOverlayWindowId = windowInfo.getId();
+          break;
+        }
+      }
+    } else {
+      windowRoles.accessibilityOverlayWindowId = WINDOW_ID_NONE;
+    }
+
+    windowRoles.picInPicWindowId =
+        picInPicWindows.isEmpty() ? WINDOW_ID_NONE : picInPicWindows.get(0).getId();
+
+    if (applicationWindows.isEmpty()) {
+      log("updateWindowRoles() Zero application windows case");
+      windowRoles.windowIdA = WINDOW_ID_NONE;
+      windowRoles.windowIdB = WINDOW_ID_NONE;
+
+      // If there is no application window but a system window, consider it as a current window.
+      // This logic handles notification shade and lock screen.
+      if (!systemWindows.isEmpty()) {
+        Collections.sort(
+            systemWindows,
+            new WindowManager.WindowPositionComparator(WindowManager.isScreenLayoutRTL(service)));
+
+        windowRoles.windowIdA = systemWindows.get(0).getId();
+      }
+    } else if (applicationWindows.size() == 1) {
+      log("updateWindowRoles() One application window case");
+      windowRoles.windowIdA = applicationWindows.get(0).getId();
+      windowRoles.windowIdB = WINDOW_ID_NONE;
+    } else if (applicationWindows.size() == 2
+        && !hasOverlap(applicationWindows.get(0), applicationWindows.get(1))) {
+      log("updateWindowRoles() Two application windows case");
+      Collections.sort(
+          applicationWindows,
+          new WindowManager.WindowPositionComparator(WindowManager.isScreenLayoutRTL(service)));
+
+      windowRoles.windowIdA = applicationWindows.get(0).getId();
+      windowRoles.windowIdB = applicationWindows.get(1).getId();
+    } else {
+      log("updateWindowRoles() Default number of application windows case");
+      // If there are more than 2 windows, report the active window as the current window.
+      for (AccessibilityWindowInfo applicationWindow : applicationWindows) {
+        if (applicationWindow.isActive()) {
+          windowRoles.windowIdA = applicationWindow.getId();
+          windowRoles.windowIdB = WINDOW_ID_NONE;
           return;
         }
-
-        ArrayList<AccessibilityWindowInfo> applicationWindows = new ArrayList<>();
-        ArrayList<AccessibilityWindowInfo> systemWindows = new ArrayList<>();
-        ArrayList<AccessibilityWindowInfo> accessibilityOverlayWindows = new ArrayList<>();
-        ArrayList<AccessibilityWindowInfo> picInPicWindows = new ArrayList<>();
-        List<AccessibilityWindowInfo> windows = service.getWindows();
-
-        // If there are no windows available, clear the cached IDs.
-        if (windows.isEmpty()) {
-          windowRoles.clear();
-          return;
-        }
-
-        for (int i = 0; i < windows.size(); i++) {
-          AccessibilityWindowInfo window = windows.get(i);
-          if (AccessibilityWindowInfoUtils.isPictureInPicture(window)) {
-            picInPicWindows.add(window);
-            continue;
-          }
-          switch (window.getType()) {
-            case AccessibilityWindowInfo.TYPE_APPLICATION:
-              if (window.getParent() == null) {
-                applicationWindows.add(window);
-              }
-              break;
-            case AccessibilityWindowInfo.TYPE_SYSTEM:
-              systemWindows.add(window);
-              break;
-            case AccessibilityWindowInfo.TYPE_ACCESSIBILITY_OVERLAY:
-              accessibilityOverlayWindows.add(window);
-              break;
-            default: // fall out
-          }
-        }
-
-        if (accessibilityOverlayWindows.size() == windows.size()) {
-          // TODO: investigate whether there is a case where we have more than one
-          // accessibility overlay, and add a logic for it if there is.
-          windowRoles.mAccessibilityOverlayWindowId = accessibilityOverlayWindows.get(0).getId();
-          return;
-        }
-
-        windowRoles.mPicInPicWindowId =
-            (picInPicWindows.size() == 0) ? WINDOW_ID_NONE : picInPicWindows.get(0).getId();
-
-        windowRoles.mAccessibilityOverlayWindowId = WINDOW_ID_NONE;
-
-        if (applicationWindows.size() == 0) {
-          windowRoles.mWindowIdA = WINDOW_ID_NONE;
-          windowRoles.mWindowIdB = WINDOW_ID_NONE;
-
-          // If there is no application window but a system window, consider it as a
-          // current window. This logic handles notification shade and lock screen.
-          if (systemWindows.size() > 0) {
-            Collections.sort(
-                systemWindows,
-                new WindowManager.WindowPositionComparator(
-                    WindowManager.isScreenLayoutRTL(service)));
-
-            windowRoles.mWindowIdA = systemWindows.get(0).getId();
-          }
-        } else if (applicationWindows.size() == 1) {
-          windowRoles.mWindowIdA = applicationWindows.get(0).getId();
-          windowRoles.mWindowIdB = WINDOW_ID_NONE;
-        } else if (applicationWindows.size() == 2
-            && !hasOverlap(applicationWindows.get(0), applicationWindows.get(1))) {
-          Collections.sort(
-              applicationWindows,
-              new WindowManager.WindowPositionComparator(WindowManager.isScreenLayoutRTL(service)));
-
-          windowRoles.mWindowIdA = applicationWindows.get(0).getId();
-          windowRoles.mWindowIdB = applicationWindows.get(1).getId();
-        } else {
-          // If there are more than 2 windows, report the active window as the current
-          // window.
-          for (AccessibilityWindowInfo applicationWindow : applicationWindows) {
-            if (applicationWindow.isActive()) {
-              windowRoles.mWindowIdA = applicationWindow.getId();
-              windowRoles.mWindowIdB = WINDOW_ID_NONE;
-              return;
-            }
-          }
-        }
-        break;
-      default: // fall out
+      }
     }
   }
 
   private static boolean hasOverlap(
       AccessibilityWindowInfo windowA, AccessibilityWindowInfo windowB) {
-    AccessibilityNodeInfo rootA = windowA.getRoot();
-    AccessibilityNodeInfo rootB = windowB.getRoot();
 
-    if (rootA == null || rootB == null) {
-      AccessibilityNodeInfoUtils.recycleNodes(rootA, rootB);
+    Rect rectA = AccessibilityWindowInfoUtils.getBounds(windowA);
+    log("hasOverlap() windowA=%s rectA=%s", windowA, rectA);
+    if (rectA == null) {
       return false;
     }
 
-    // Use root nodes to get bounds of windows. AccessibilityWindowInfo.getBoundsInScreen sometimes
-    // returns incorrect bounds.
-    Rect rectA = new Rect();
-    Rect rectB = new Rect();
-    rootA.getBoundsInScreen(rectA);
-    rootB.getBoundsInScreen(rectB);
-
-    AccessibilityNodeInfoUtils.recycleNodes(rootA, rootB);
+    Rect rectB = AccessibilityWindowInfoUtils.getBounds(windowB);
+    log("hasOverlap() windowB=%s rectB=%s", windowB, rectB);
+    if (rectB == null) {
+      return false;
+    }
 
     return Rect.intersects(rectA, rectB);
   }
 
   private boolean isSystemWindow(int windowId) {
-    if (mSystemWindowIdsSet.contains(windowId)) {
+    if (systemWindowIdsSet.contains(windowId)) {
       return true;
     }
 
-    if (!mIsSplitScreenModeAvailable) {
+    if (!isSplitScreenModeAvailable) {
       return false;
     }
 
-    for (AccessibilityWindowInfo window : mService.getWindows()) {
+    for (AccessibilityWindowInfo window : AccessibilityServiceCompatUtils.getWindows(service)) {
       if (window.getId() == windowId && window.getType() == AccessibilityWindowInfo.TYPE_SYSTEM) {
         return true;
       }
@@ -636,23 +758,23 @@ public class WindowEventInterpreter {
 
   /** Updates window titles in windowRoles. */
   private void setWindowTitles(WindowRoles windowRoles) {
-    windowRoles.mWindowTitleA = getWindowTitle(windowRoles.mWindowIdA);
-    windowRoles.mWindowTitleB = getWindowTitle(windowRoles.mWindowIdB);
-    windowRoles.mAccessibilityOverlayWindowTitle =
-        getWindowTitle(windowRoles.mAccessibilityOverlayWindowId);
-    windowRoles.mPicInPicWindowTitle = getWindowTitle(windowRoles.mPicInPicWindowId);
+    windowRoles.windowTitleA = getWindowTitle(windowRoles.windowIdA);
+    windowRoles.windowTitleB = getWindowTitle(windowRoles.windowIdB);
+    windowRoles.accessibilityOverlayWindowTitle =
+        getWindowTitle(windowRoles.accessibilityOverlayWindowId);
+    windowRoles.picInPicWindowTitle = getWindowTitle(windowRoles.picInPicWindowId);
   }
 
   /** Detect window role changes, and turn on flags in interpretation. */
   private void detectWindowChanges(WindowRoles roles, EventInterpretation interpretation) {
-    log("detectWindowChanges() roles=" + roles);
+    log("detectWindowChanges() roles=%s", roles);
 
     // Collect new window information into interpretation.
-    setNewWindowInterpretation(roles.mWindowIdA, interpretation.getWindowA());
-    setNewWindowInterpretation(roles.mWindowIdB, interpretation.getWindowB());
+    setNewWindowInterpretation(roles.windowIdA, interpretation.getWindowA());
+    setNewWindowInterpretation(roles.windowIdB, interpretation.getWindowB());
     setNewWindowInterpretation(
-        roles.mAccessibilityOverlayWindowId, interpretation.getAccessibilityOverlay());
-    setNewWindowInterpretation(roles.mPicInPicWindowId, interpretation.getPicInPic());
+        roles.accessibilityOverlayWindowId, interpretation.getAccessibilityOverlay());
+    setNewWindowInterpretation(roles.picInPicWindowId, interpretation.getPicInPic());
 
     // If there is no screen update, do not provide spoken feedback.
     boolean mainWindowsChanged =
@@ -665,15 +787,25 @@ public class WindowEventInterpreter {
   private CharSequence getWindowTitleForFeedback(int windowId) {
     CharSequence title = getWindowTitle(windowId);
 
-    // Try to fall back to application label if window title is not available.
     if (title == null) {
-      CharSequence packageName = mWindowToPackageName.get(windowId);
+      // , Do not announce application label for accessibility overlay.
+      // TODO: Do not announce application label for any types of window in single
+      // window mode.
+      for (AccessibilityWindowInfo window : AccessibilityServiceCompatUtils.getWindows(service)) {
+        if ((window.getId() == windowId)
+            && (window.getType() == AccessibilityWindowInfo.TYPE_ACCESSIBILITY_OVERLAY)) {
+          // Return empty title directly without attaching the "Alert" prefix.
+          return "";
+        }
+      }
 
+      // Try to fall back to application label if window title is not available.
+      CharSequence packageName = windowToPackageName.get(windowId);
       // Try to get package name from accessibility window info if it's not in the map.
       if (packageName == null) {
-        for (AccessibilityWindowInfo window : mService.getWindows()) {
+        for (AccessibilityWindowInfo window : AccessibilityServiceCompatUtils.getWindows(service)) {
           if (window.getId() == windowId) {
-            AccessibilityNodeInfo rootNode = window.getRoot();
+            AccessibilityNodeInfo rootNode = AccessibilityWindowInfoUtils.getRoot(window);
             if (rootNode != null) {
               packageName = rootNode.getPackageName();
               rootNode.recycle();
@@ -683,34 +815,23 @@ public class WindowEventInterpreter {
       }
 
       if (packageName != null) {
-        getApplicationLabel(packageName);
+        title = getApplicationLabel(packageName);
       }
-    }
 
-    // TODO: Do not announce "untitled" for any types of window in single window mode.
-    if (title == null) {
-      for (AccessibilityWindowInfo window : mService.getWindows()) {
-        if ((window.getId() == windowId)
-            && (window.getType() == AccessibilityWindowInfo.TYPE_ACCESSIBILITY_OVERLAY)) {
-          // Return empty title directly without attaching the "Alert" prefix.
-          return "";
-        }
+      if (title == null) {
+        title = service.getString(R.string.untitled_window);
       }
-    }
-
-    if (title == null) {
-      title = mService.getString(R.string.untitled_window);
     }
 
     if (isAlertDialog(windowId)) {
-      title = mService.getString(R.string.template_alert_dialog_template, title);
+      title = service.getString(R.string.template_alert_dialog_template, title);
     }
 
     return title;
   }
 
   private CharSequence getApplicationLabel(CharSequence packageName) {
-    PackageManager packageManager = mService.getPackageManager();
+    PackageManager packageManager = service.getPackageManager();
     if (packageManager == null) {
       return null;
     }
@@ -725,17 +846,6 @@ public class WindowEventInterpreter {
     return packageManager.getApplicationLabel(applicationInfo);
   }
 
-  private static int getWindowId(AccessibilityEvent event) {
-    AccessibilityNodeInfo node = event.getSource();
-    if (node == null) {
-      return WINDOW_ID_NONE;
-    }
-
-    int windowId = node.getWindowId();
-    node.recycle();
-    return windowId;
-  }
-
   private static int getWindowType(AccessibilityEvent event) {
     if (event == null) {
       return WINDOW_TYPE_NONE;
@@ -747,7 +857,8 @@ public class WindowEventInterpreter {
     }
 
     AccessibilityNodeInfoCompat nodeInfoCompat = AccessibilityNodeInfoUtils.toCompat(nodeInfo);
-    AccessibilityWindowInfoCompat windowInfoCompat = nodeInfoCompat.getWindow();
+    AccessibilityWindowInfoCompat windowInfoCompat =
+        AccessibilityNodeInfoUtils.getWindow(nodeInfoCompat);
     if (windowInfoCompat == null) {
       nodeInfoCompat.recycle();
       return WINDOW_TYPE_NONE;
@@ -765,211 +876,311 @@ public class WindowEventInterpreter {
 
   /** Fully interpreted and analyzed window-change event description. */
   public static class EventInterpretation extends ReadOnly {
-    private int mWindowIdFromEvent = WINDOW_ID_NONE;
-    private CharSequence mAnnouncement;
-    private WindowInterpretation mWindowA = new WindowInterpretation();
-    private WindowInterpretation mWindowB = new WindowInterpretation();
-    private WindowInterpretation mAccessibilityOverlay = new WindowInterpretation();
-    private WindowInterpretation mPicInPic = new WindowInterpretation();
-    private boolean mMainWindowsChanged = false;
-    private boolean mPicInPicChanged = false;
-    private boolean mWindowsStable = false;
-    private boolean mOriginalEvent = false;
-    private int mEventType = 0;
+    private int windowIdFromEvent = WINDOW_ID_NONE;
+    private CharSequence announcement;
+    private final WindowInterpretation windowA = new WindowInterpretation();
+    private final WindowInterpretation windowB = new WindowInterpretation();
+    private final WindowInterpretation accessibilityOverlay = new WindowInterpretation();
+    private final WindowInterpretation picInPic = new WindowInterpretation();
+    private boolean mainWindowsChanged = false;
+    private boolean picInPicChanged = false;
+    private boolean windowsStable = false;
+    private boolean originalEvent = false;
+    private boolean isFromVolumeControlPanel = false;
+    private boolean isFromInputMethodEditor = false;
+    private boolean allowAnnounce = true;
+    private int eventType = 0;
+
+    /** Bitmask from getContentChangeTypes() or getWindowChanges(), depending on eventType. */
+    private int changeTypes = 0;
 
     @Override
     public void setReadOnly() {
       super.setReadOnly();
-      mWindowA.setReadOnly();
-      mWindowB.setReadOnly();
-      mAccessibilityOverlay.setReadOnly();
-      mPicInPic.setReadOnly();
+      windowA.setReadOnly();
+      windowB.setReadOnly();
+      accessibilityOverlay.setReadOnly();
+      picInPic.setReadOnly();
     }
 
     public void setWindowIdFromEvent(int id) {
       checkIsWritable();
-      mWindowIdFromEvent = id;
+      windowIdFromEvent = id;
     }
 
     public int getWindowIdFromEvent() {
-      return mWindowIdFromEvent;
+      return windowIdFromEvent;
     }
 
     public void setAnnouncement(CharSequence announcement) {
       checkIsWritable();
-      mAnnouncement = announcement;
+      this.announcement = announcement;
     }
 
     public CharSequence getAnnouncement() {
-      return mAnnouncement;
+      return announcement;
     }
 
     public WindowInterpretation getWindowA() {
-      return mWindowA;
+      return windowA;
     }
 
     public WindowInterpretation getWindowB() {
-      return mWindowB;
+      return windowB;
     }
 
     public WindowInterpretation getAccessibilityOverlay() {
-      return mAccessibilityOverlay;
+      return accessibilityOverlay;
     }
 
     public WindowInterpretation getPicInPic() {
-      return mPicInPic;
+      return picInPic;
     }
 
     public void setMainWindowsChanged(boolean changed) {
       checkIsWritable();
-      mMainWindowsChanged = changed;
+      mainWindowsChanged = changed;
     }
 
     public boolean getMainWindowsChanged() {
-      return mMainWindowsChanged;
+      return mainWindowsChanged;
     }
 
     public void setPicInPicChanged(boolean changed) {
       checkIsWritable();
-      mPicInPicChanged = changed;
+      picInPicChanged = changed;
     }
 
     public boolean getPicInPicChanged() {
-      return mPicInPicChanged;
+      return picInPicChanged;
     }
 
     public void setWindowsStable(boolean stable) {
       checkIsWritable();
-      mWindowsStable = stable;
+      windowsStable = stable;
     }
 
     public boolean areWindowsStable() {
-      return mWindowsStable;
+      return windowsStable;
     }
 
     public void setOriginalEvent(boolean original) {
       checkIsWritable();
-      mOriginalEvent = original;
+      originalEvent = original;
     }
 
     public boolean isOriginalEvent() {
-      return mOriginalEvent;
+      return originalEvent;
+    }
+
+    public void setIsFromVolumeControlPanel(boolean isFromVolumeControlPanel) {
+      checkIsWritable();
+      this.isFromVolumeControlPanel = isFromVolumeControlPanel;
+    }
+
+    public boolean isFromVolumeControlPanel() {
+      return isFromVolumeControlPanel;
+    }
+
+    public void setIsFromInputMethodEditor(boolean isFromInputMethodEditor) {
+      checkIsWritable();
+      this.isFromInputMethodEditor = isFromInputMethodEditor;
+    }
+
+    public boolean isFromInputMethodEditor() {
+      return isFromInputMethodEditor;
+    }
+
+    public void setAllowAnnounce(boolean allowAnnounce) {
+      checkIsWritable();
+      this.allowAnnounce = allowAnnounce;
+    }
+
+    public boolean isAllowAnnounce() {
+      return allowAnnounce;
     }
 
     public void setEventType(int eventType) {
       checkIsWritable();
-      mEventType = eventType;
+      this.eventType = eventType;
     }
 
     public int getEventType() {
-      return mEventType;
+      return eventType;
     }
 
-    // TODO: Use standard field logging functions in StringBuilderUtils.
+    public void setChangeTypes(int changeTypes) {
+      checkIsWritable();
+      this.changeTypes = changeTypes;
+    }
+
+    public int getChangeTypes() {
+      return changeTypes;
+    }
+
     @Override
     public String toString() {
-      return String.format(
-              "window A:%s, window B:%s, a11y overlay:%s, pic-in-pic:%s",
-              mWindowA, mWindowB, mAccessibilityOverlay, mPicInPic)
-          + (mWindowIdFromEvent == WINDOW_ID_NONE
-              ? ""
-              : ", WindowIdFromEvent " + mWindowIdFromEvent)
-          + (mMainWindowsChanged ? ", MainWindowsChanged" : "")
-          + (mPicInPicChanged ? ", PicInPicChanged" : "")
-          + (mWindowsStable ? ", WindowsStable" : "")
-          + (mOriginalEvent ? ", OriginalEvent" : "")
-          + (mEventType == 0 ? "" : ", " + AccessibilityEventUtils.typeToString(mEventType))
-          + (mAnnouncement == null ? "" : ", Annoucement " + formatString(mAnnouncement));
+      return StringBuilderUtils.joinFields(
+          StringBuilderUtils.optionalSubObj("WindowA", windowA),
+          StringBuilderUtils.optionalSubObj("WindowB", windowB),
+          StringBuilderUtils.optionalSubObj("A11yOverlay", accessibilityOverlay),
+          StringBuilderUtils.optionalSubObj("PicInPic", picInPic),
+          StringBuilderUtils.optionalInt("WindowIdFromEvent", windowIdFromEvent, WINDOW_ID_NONE),
+          StringBuilderUtils.optionalTag("MainWindowsChanged", mainWindowsChanged),
+          StringBuilderUtils.optionalTag("PicInPicChanged", picInPicChanged),
+          StringBuilderUtils.optionalTag("WindowsStable", windowsStable),
+          StringBuilderUtils.optionalTag("OriginalEvent", originalEvent),
+          StringBuilderUtils.optionalTag("IsFromVolumeControlPanel", isFromVolumeControlPanel),
+          StringBuilderUtils.optionalTag("isFromInputMethodEditor", isFromInputMethodEditor),
+          StringBuilderUtils.optionalTag("allowAnnounce", allowAnnounce),
+          StringBuilderUtils.optionalField(
+              "EventType", eventType == 0 ? null : AccessibilityEventUtils.typeToString(eventType)),
+          StringBuilderUtils.optionalField("ChangeTypes", stateChangesToString()),
+          StringBuilderUtils.optionalText("Announcement", announcement));
+    }
+
+    private String stateChangesToString() {
+      switch (eventType) {
+        case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
+          return contentChangeTypesToString(changeTypes);
+        case AccessibilityEvent.TYPE_WINDOWS_CHANGED:
+          return windowChangeTypesToString(changeTypes);
+        default:
+          return null;
+      }
     }
   }
 
   /** Fully interpreted and analyzed window-change event description about one window. */
   public static class WindowInterpretation extends ReadOnly {
-    private int mId = WINDOW_ID_NONE;
-    private CharSequence mTitle;
-    private CharSequence mTitleForFeedback;
-    private boolean mIsAlertDialog = false;
-    private int mOldId = WINDOW_ID_NONE;
-    private CharSequence mOldTitle;
+    private int id = WINDOW_ID_NONE;
+    private CharSequence title;
+    private CharSequence titleForFeedback;
+    private boolean isAlertDialog = false;
+    private int oldId = WINDOW_ID_NONE;
+    private CharSequence oldTitle;
 
     public void setId(int id) {
       checkIsWritable();
-      mId = id;
+      this.id = id;
     }
 
     public boolean idOrTitleChanged() {
-      return (mOldId != mId) || !TextUtils.equals(mOldTitle, mTitle);
+      return (oldId != id) || !TextUtils.equals(oldTitle, title);
     }
 
     public int getId() {
-      return mId;
+      return id;
     }
 
     public void setTitle(CharSequence title) {
       checkIsWritable();
-      mTitle = title;
+      this.title = title;
     }
 
     public CharSequence getTitle() {
-      return mTitle;
+      return title;
     }
 
     public void setTitleForFeedback(CharSequence title) {
       checkIsWritable();
-      mTitleForFeedback = title;
+      titleForFeedback = title;
     }
 
     public CharSequence getTitleForFeedback() {
-      return mTitleForFeedback;
+      return titleForFeedback;
     }
 
     public void setAlertDialog(boolean isAlert) {
       checkIsWritable();
-      mIsAlertDialog = isAlert;
+      isAlertDialog = isAlert;
     }
 
     public boolean isAlertDialog() {
-      return mIsAlertDialog;
+      return isAlertDialog;
     }
 
     public void setOldId(int oldId) {
       checkIsWritable();
-      mOldId = oldId;
+      this.oldId = oldId;
     }
 
     public int getOldId() {
-      return mOldId;
+      return oldId;
     }
 
     public void setOldTitle(CharSequence oldTitle) {
       checkIsWritable();
-      mOldTitle = oldTitle;
+      this.oldTitle = oldTitle;
     }
 
     public CharSequence getOldTitle() {
-      return mOldTitle;
+      return oldTitle;
     }
 
     @Override
     public String toString() {
-      return (mId == WINDOW_ID_NONE ? "" : "" + mId)
-          + (mTitle == null ? "" : " " + formatString(mTitle))
-          + (mTitleForFeedback == null ? "" : " " + formatString(mTitleForFeedback))
-          + (mIsAlertDialog ? " alert" : "")
-          + (mOldId == WINDOW_ID_NONE && mOldTitle == null ? "" : " old")
-          + (mOldId == WINDOW_ID_NONE ? "" : " " + mOldId)
-          + (mOldTitle == null ? "" : " " + formatString(mOldTitle));
+      return StringBuilderUtils.joinFields(
+          StringBuilderUtils.optionalInt("ID", id, WINDOW_ID_NONE),
+          StringBuilderUtils.optionalText("Title", title),
+          StringBuilderUtils.optionalText("TitleForFeedback", titleForFeedback),
+          StringBuilderUtils.optionalTag("Alert", isAlertDialog),
+          StringBuilderUtils.optionalInt("OldID", oldId, WINDOW_ID_NONE),
+          StringBuilderUtils.optionalText("OldTitle", oldTitle));
     }
   }
 
   // /////////////////////////////////////////////////////////////////////////////////////
   // Logging functions
 
-  private static CharSequence formatString(CharSequence text) {
-    return (text == null) ? "null" : String.format("\"%s\"", text);
+  private static void log(String format, Object... args) {
+    LogUtils.v(TAG, format, args);
   }
 
-  private static void log(String format, Object... args) {
-    LogUtils.log(WindowEventInterpreter.class, Log.VERBOSE, format, args);
+  private static String windowTypeToString(int type) {
+    switch (type) {
+      case AccessibilityWindowInfo.TYPE_APPLICATION:
+        return "TYPE_APPLICATION";
+      case AccessibilityWindowInfo.TYPE_INPUT_METHOD:
+        return "TYPE_INPUT_METHOD";
+      case AccessibilityWindowInfo.TYPE_SYSTEM:
+        return "TYPE_SYSTEM";
+      case AccessibilityWindowInfo.TYPE_ACCESSIBILITY_OVERLAY:
+        return "TYPE_ACCESSIBILITY_OVERLAY";
+      case AccessibilityWindowInfo.TYPE_SPLIT_SCREEN_DIVIDER:
+        return "TYPE_SPLIT_SCREEN_DIVIDER";
+      default:
+        return "UNKNOWN";
+    }
+  }
+
+  @TargetApi(Build.VERSION_CODES.P)
+  private static String contentChangeTypesToString(int typesBitmask) {
+    StringBuilder strings = new StringBuilder();
+    if ((typesBitmask & AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_TITLE) != 0) {
+      strings.append("CONTENT_CHANGE_TYPE_PANE_TITLE");
+    }
+    if ((typesBitmask & AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_APPEARED) != 0) {
+      strings.append("CONTENT_CHANGE_TYPE_PANE_APPEARED");
+    }
+    if ((typesBitmask & AccessibilityEvent.CONTENT_CHANGE_TYPE_PANE_DISAPPEARED) != 0) {
+      strings.append("CONTENT_CHANGE_TYPE_PANE_DISAPPEARED");
+    }
+    return (strings.length() == 0) ? null : strings.toString();
+  }
+
+  @TargetApi(Build.VERSION_CODES.P)
+  private static String windowChangeTypesToString(int typesBitmask) {
+    StringBuilder strings = new StringBuilder();
+    if ((typesBitmask & AccessibilityEvent.WINDOWS_CHANGE_ADDED) != 0) {
+      strings.append("WINDOWS_CHANGE_ADDED");
+    }
+    if ((typesBitmask & AccessibilityEvent.WINDOWS_CHANGE_REMOVED) != 0) {
+      strings.append("WINDOWS_CHANGE_REMOVED");
+    }
+    if ((typesBitmask & AccessibilityEvent.WINDOWS_CHANGE_TITLE) != 0) {
+      strings.append("WINDOWS_CHANGE_TITLE");
+    }
+    return (strings.length() == 0) ? null : strings.toString();
   }
 }

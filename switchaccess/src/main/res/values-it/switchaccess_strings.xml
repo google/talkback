@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Switch Access"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Switch Access consente agli utenti con disabilità motorie di controllare telefoni e tablet utilizzando uno o più sensori. Utilizza i sensori per selezionare elementi, scorrere, inserire testo e altro ancora."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Controlla dispos. con sensori"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Guida e feedback"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Scansione automatica"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Tempo scansione automatica"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Scansione automatica inversa"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f secondi</item>
-      <item quantity="one">1 secondo</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Personalizza la scansione"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Metodo di scansione"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Ritardo sul primo elemento"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Assegna i sensori"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Assegna i sensori alle azioni"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Assegna i sensori per la scansione"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Velocità linea"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Numero di scansioni"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Scegli il numero di ripetizioni della scansione"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Tempo debounce"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Più pressioni effettuate nel tempo indicato vengono considerate un\'unica pressione."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Esegui l\'azione al rilascio"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Esegui l\'azione al rilascio del sensore"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d cicli</item>
-      <item quantity="one">%d ciclo</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"Il sensore \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" è già assegnato all\'azione \"<xliff:g id="ACTION_NAME">%2$s</xliff:g>\""</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">%d sensori assegnati</item>
-      <item quantity="one">%d sensore assegnato</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Sensore per la selezione del gruppo %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Avanti"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Precedente"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Seleziona"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Pressione lunga"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Scorri in avanti"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Scorri all\'indietro"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Ignora"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Espandi"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Comprimi"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Evidenzia il testo"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Copia"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Taglia"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Incolla"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENU"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Indietro"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Home"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Panoramica"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Notifiche"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Impostazioni rapide"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Scorri in avanti"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Scorri all\'indietro"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Scansione per punto"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Esci da scansione per punto"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Scorri verso destra"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Scorri verso sinistra"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Scorri verso l\'alto"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Scorri verso il basso"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Fai scorrere (personalizzata)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Diminuisci lo zoom"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Aumenta lo zoom"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Impostazioni Switch Access"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Premi una combinazione di sensori per aggiungerla o rimuoverla dall\'elenco"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Cancella assegnazione sensori"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"MAIUSC + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"Nessun sensore assegnato"</string>
-    <string name="more" msgid="1547670498589416840">"Altro"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Spazio"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Invio"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"Salva"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Stile di evidenziazione scansione"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Stile di scansione principale"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Colore evidenziazione"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Stile linea evidenziazione"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Norme sulla privacy"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Attiva la selezione automatica"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Disattiva la selezione automatica"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Carattere successivo"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Parola successiva"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Riga successiva"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Paragrafo successivo"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Pagina successiva"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Carattere precedente"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Parola precedente"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Riga precedente"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Paragrafo precedente"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Pagina precedente"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Avvia automaticamente la scansione"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"La scansione inizia senza la pressione dell\'opzione"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Apri la configurazione di Switch Access"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Configurazione guidata di Switch Access"</string>
-    <string name="one_switch" msgid="5247899666787922810">"Un sensore"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Due sensori"</string>
-    <string name="finish" msgid="4267641294267512480">"Fine"</string>
-    <string name="exit" msgid="8664597014081860813">"Esci"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Seleziona il numero di sensori"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Premi il sensore per iniziare a spostarti automaticamente tra gli elementi, quindi premilo di nuovo per selezionare l\'elemento evidenziato."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Premi un sensore per spostarti tra gli elementi e premi l\'altro per selezionare l\'elemento evidenziato."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Seleziona la velocità di scansione"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Scegli la durata dell\'evidenziazione di ogni elemento"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Veloce (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> s di ritardo)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Media (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> s di ritardo)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Lenta (<xliff:g id="DELAY_SPEED">%1$s</xliff:g> s di ritardo)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Personalizzato"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"ritardo (s)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"Il tasto \"<xliff:g id="KEY_NAME">%1$s</xliff:g>\" è già assegnato a un\'altra azione"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Scansione per riga-colonna"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Selezione del gruppo"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Scansione lineare"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Funzione di lettura vocale"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"Impostazioni TTS"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"Per più elementi"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Pronuncia il primo e l\'ultimo elemento"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Pronuncia il numero di elementi"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Pronuncia tutti gli elementi evidenziati"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Termina la lettura vocale prima dello spostamento"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"gruppo <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"dal <xliff:g id="ID_1">%1$s</xliff:g> al <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> elementi"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"seleziona per scorrere"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"elemento sconosciuto"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Seleziona la modalità di scansione"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Esegui la scansione di una riga alla volta. Dopo la selezione della riga, spostati tra gli elementi nell\'elenco."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Spostati di un elemento alla volta. Tieni presente che le tastiere eseguono sempre la scansione per riga."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"A tutti gli elementi verrà assegnato un colore. Premi il sensore corrispondente al colore intorno all\'elemento desiderato. Restringi le dimensioni del gruppo fino a raggiungere l\'opzione desiderata."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Sensori assegnati all\'azione <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"Nessuno"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Cancellare i sensori assegnati?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"Hai già assegnato i sensori."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Cancella i sensori"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Mantieni i sensori"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"Nessun sensore assegnato"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"Nessun sensore assegnato a questa azione. Vuoi continuare?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"Gruppo <xliff:g id="OPTION_COLOR">%1$s</xliff:g>"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Premi un sensore per assegnarlo all\'azione di selezione del gruppo <xliff:g id="OPTION_COLOR">%1$s</xliff:g>."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Premi un sensore per assegnarlo all\'azione \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\"."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Avvia la scansione e seleziona"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Testa la tua configurazione giocando a tris"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Premi il sensore \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" per avviare la scansione, quindi premilo di nuovo per selezionare l\'elemento evidenziato. Tocca a te per primo!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Premi il sensore \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" per avviare la scansione, quindi premilo di nuovo per selezionare la riga evidenziata. Premi ancora una volta il sensore per selezionare l\'elemento evidenziato. Tocca a te per primo!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Premi \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" per spostarti tra gli elementi. Premi \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" per selezionare l\'elemento evidenziato. Tocca a te per primo!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Premi \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" per spostarti tra le righe. Premi \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" per selezionare la riga evidenziata. Ripeti l\'operazione per scegliere un elemento della riga. Tocca a te per primo!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Premi \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" per selezionare gli elementi evidenziati in <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> oppure premi \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" per selezionare gli elementi evidenziati in <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Ripeti l\'operazione per arrivare all\'elemento desiderato. Tocca a te per primo!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"Non hai ancora assegnato i sensori per tutte le azioni. Utilizza il pulsante Indietro per tornare indietro e terminare l\'assegnazione dei sensori."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Reimposta il gioco"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"Questo quadrato è già stato scelto. Riprova."</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"Hai vinto!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Avrai più fortuna la prossima volta"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"La partita è finita in pareggio"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"Puoi mantenere la configurazione corrente o ricominciare da capo."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Mantieni la configurazione"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Ricomincia"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Configurazione terminata"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"Ecco fatto."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"Puoi modificare impostazioni aggiuntive o riaprire la configurazione guidata in qualsiasi momento dalle impostazioni di Switch Access."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Switch Access</string>
+  <string name="switch_access_service_description">Switch Access consente agli utenti con disabilità motorie di controllare telefoni e tablet utilizzando uno o più sensori. Utilizza i sensori per selezionare elementi, scorrere, inserire testo e altro ancora.</string>
+  <string name="switch_access_service_summary">Controlla tramite sensori</string>
+  <string name="title_pref_help_feedback">Guida e feedback</string>
+  <string name="title_pref_licenses">Licenze open source</string>
+  <string name="title_pref_category_auto_scan">Scansione automatica</string>
+  <string name="title_pref_auto_scan_disabled">Scansione automatica (disattivata)</string>
+  <string name="action_key_summary_auto_scan">Se premi questo sensore, l\'evidenziazione inizierà a spostarsi automaticamente tra gli elementi. Premi di nuovo per selezionare l\'elemento evidenziato.</string>
+  <string name="title_pref_auto_scan_time_delay">Tempo scansione automatica</string>
+  <string name="action_name_reverse_auto_scan">Scansione automatica inversa</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Scansione automatica inversa (disattivata)</string>
+  <string name="action_key_summary_reverse_auto_scan">Se premi questo sensore, l\'evidenziazione inizierà a spostarsi automaticamente tra gli elementi a ritroso. Premi di nuovo per selezionare l\'elemento evidenziato.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 secondo</item>
+    <item quantity="other">%.2f secondi</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Personalizza la scansione</string>
+  <string name="title_pref_scanning_methods">Metodo di scansione</string>
+  <string name="title_pref_start_scan_delay">Ritardo sul primo elemento</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Scegli il tempo extra da dedicare al primo elemento. Questo verrà aggiunto al tempo della scansione automatica.\n\nQuesta impostazione influisce sia sulla scansione automatica sia sulla scansione per punto.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Scegli il tempo extra da dedicare al primo elemento. Una volta trascorso il tempo aggiuntivo, la linea orizzontale o quella verticale inizieranno a muoversi.\n\nQuesta impostazione influisce sia sulla scansione automatica sia sulla scansione per punto.</string>
+  <string name="title_pref_category_assign_switches">Assegna i sensori</string>
+  <string name="title_pref_category_key_mappings">Assegna i sensori alle azioni globali</string>
+  <string name="summary_pref_category_key_mappings">Le azioni globali possono essere eseguite in qualsiasi momento</string>
+  <string name="title_pref_category_scan_key_mappings">Assegna i sensori per la scansione</string>
+  <string name="summary_pref_category_scan_key_mappings">La scansione ti consente di spostare l\'evidenziazione e selezionare gli elementi evidenziati</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Movimento e selezione</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Azioni sull\'elemento evidenziato</string>
+  <string name="title_pref_point_scan_line_speed">Velocità linea</string>
+  <string name="dialog_message_pref_line_speed">Scegli la velocità di movimento delle linee orizzontali e verticali sullo schermo.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 cm al secondo</item>
+    <item quantity="other">%.2f cm al secondo</item>
+  </plurals>
+  <string name="title_pref_loop_count">Numero di scansioni</string>
+  <string name="dialog_message_pref_loop_count">Scegli il numero di ripetizioni della scansione.\n\nQuesta impostazione influisce sia sulla scansione automatica sia sulla scansione per punto.</string>
+  <string name="summary_pref_point_scan">Utilizza le linee mobili per selezionare una posizione orizzontale e verticale specifica. %1$s</string>
+  <string name="point_scan_enable_animations_message">Attiva le animazioni per utilizzare questa funzione.</string>
+  <string name="title_pref_category_switch_accomodation">Regolazione sensori</string>
+  <string name="title_pref_debounce_time">Ignora le pressioni ripetute</string>
+  <string name="dialog_message_pref_debounce_time">Più pressioni del sensore effettuate nel tempo indicato vengono considerate come un\'unica pressione.</string>
+  <string name="title_pref_press_on_release">Esegui l\'azione al rilascio</string>
+  <string name="subtitle_pref_press_on_release">Esegui l\'azione al rilascio del sensore</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d ciclo</item>
+    <item quantity="other">%d cicli</item>
+  </plurals>
+  <string name="preference_off">Disattivata</string>
+  <string name="preference_on">On</string>
+  <string name="toast_msg_key_already_assigned">Il sensore \"%1$s\" è già assegnato all\'azione \"%2$s\"</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d sensore assegnato</item>
+    <item quantity="other">%d sensori assegnati</item>
+  </plurals>
+  <string name="option_scan_switch_format">Sensore per la selezione del gruppo %1$d</string>
+  <string name="option_scan_switch_format_with_color">Sensore per la selezione del gruppo %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Se premi questo sensore, verrà selezionato il gruppo %1$d.</string>
+  <string name="action_name_next">Avanti</string>
+  <string name="action_key_summary_next">Se premi questo sensore, verrà evidenziato l\'elemento successivo.</string>
+  <string name="action_name_previous">Indietro</string>
+  <string name="action_key_summary_previous">Se premi questo sensore, verrà evidenziato l\'elemento precedente.</string>
+  <string name="action_name_click">Seleziona</string>
+  <string name="action_key_summary_click">Se premi questo sensore, verrà selezionato l\'elemento evidenziato.</string>
+  <string name="action_name_long_click">Tocca e tieni premuto</string>
+  <string name="action_key_summary_long_click">Se premi questo sensore, verrà toccato e tenuto premuto l\'elemento evidenziato.</string>
+  <string name="action_name_scroll_forward">Scorri in avanti</string>
+  <string name="action_key_summary_scroll_forward">Se premi questo sensore, l\'elemento evidenziato scorrerà in avanti.</string>
+  <string name="action_name_scroll_backward">Scorri all\'indietro</string>
+  <string name="action_key_summary_scroll_backward">Se premi questo sensore, l\'elemento evidenziato scorrerà all\'indietro.</string>
+  <string name="action_name_dismiss">Ignora</string>
+  <string name="action_name_expand">Espandi</string>
+  <string name="action_name_collapse">Comprimi</string>
+  <string name="action_name_highlight_text">Evidenzia il testo</string>
+  <string name="action_group_name_highlight">Evidenzia…</string>
+  <string name="action_name_highlight_all_text">Evidenzia tutto il testo</string>
+  <string name="action_name_highlight_granular_text">Evidenzia %1$s</string>
+  <string name="action_name_copy">Copia</string>
+  <string name="action_name_copy_all_text">Copia tutto</string>
+  <string name="action_name_cut">Taglia</string>
+  <string name="action_name_cut_all_text">Taglia tutto</string>
+  <string name="action_name_paste">Incolla</string>
+  <string name="action_name_undo">Annulla</string>
+  <string name="action_name_redo">Ripeti</string>
+  <string name="action_group_name_delete">Elimina…</string>
+  <string name="action_name_delete">Elimina %1$s</string>
+  <string name="action_name_delete_highlighted_text">Elimina il testo evidenziato</string>
+  <string name="option_scanning_menu_button">MENU</string>
+  <string name="option_scanning_menu_button_content_description">Menu di Switch Access</string>
+  <string name="switch_access_global_menu">Menu globale di Switch Access</string>
+  <string name="switch_access_actions_menu">Menu Azioni di Switch Access</string>
+  <string name="switch_access_close_menu">CHIUDI</string>
+  <string name="switch_access_back_menu">INDIETRO</string>
+  <string name="next_arrow_content_description">Avanti</string>
+  <string name="previous_arrow_content_description">Indietro</string>
+  <string name="global_action_back">Indietro</string>
+  <string name="global_action_key_summary_back">Se premi questo sensore, tornerai alla schermata precedente o verrà nascosta la tastiera, se visibile.</string>
+  <string name="global_action_home">Home</string>
+  <string name="global_action_key_summary_home">Se premi questo sensore tornerai alla schermata Home.</string>
+  <string name="global_action_overview">Panoramica</string>
+  <string name="global_action_key_summary_overview">Se premi questo sensore, verrà mostrato un elenco di app aperte di recente.</string>
+  <string name="global_action_notifications">Notifiche</string>
+  <string name="global_action_key_summary_notifications">Se premi questo sensore, verranno mostrate le notifiche del dispositivo.</string>
+  <string name="global_action_quick_settings">Impostazioni rapide</string>
+  <string name="global_action_key_summary_quick_settings">Se premi questo sensore, verranno mostrate le Impostazioni rapide del dispositivo.</string>
+  <string name="global_action_power_options">Opzioni di accensione</string>
+  <string name="global_menu_volume_heading">Volume</string>
+  <string name="volume_menu_media">Volume contenuti multimediali</string>
+  <string name="volume_menu_call">Volume chiamate</string>
+  <string name="volume_menu_ring">Volume suoneria</string>
+  <string name="volume_menu_alarm">Volume sveglia</string>
+  <string name="volume_menu_accessibility">Volume accessibilità</string>
+  <string name="volume_menu_mute">Disattiva audio</string>
+  <string name="volume_menu_unmute">Riattiva audio</string>
+  <string name="volume_menu_increase">Aumenta</string>
+  <string name="volume_settings">Impostazioni relative al volume</string>
+  <string name="volume_menu_decrease">Riduci</string>
+  <string name="scrollable_forward">Scorri in avanti</string>
+  <string name="scrollable_backward">Scorri all\'indietro</string>
+  <string name="point_scan">Scansione per punto</string>
+  <string name="box_scan">Esci da scansione per punto</string>
+  <string name="action_name_swipe_right">Scorri verso destra</string>
+  <string name="action_name_swipe_left">Scorri verso sinistra</string>
+  <string name="action_name_swipe_up">Scorri verso l\'alto</string>
+  <string name="action_name_swipe_down">Scorri verso il basso</string>
+  <string name="action_name_swipe_custom">Fai scorrere (personalizzata)</string>
+  <string name="action_name_zoom_out">Diminuisci lo zoom</string>
+  <string name="action_name_zoom_in">Aumenta lo zoom</string>
+  <string name="switch_access_preferences_title">Impostazioni Switch Access</string>
+  <string name="key_combo_preference_instructions">Premi una combinazione di sensori per aggiungerla o rimuoverla dall\'elenco</string>
+  <string name="key_combo_preference_reset_button">Cancella assegnazione sensore</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">MAIUSC + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">Nessun sensore assegnato</string>
+  <string name="more">Altro</string>
+  <string name="name_of_space_bar">Spazio</string>
+  <string name="name_of_enter_key">Invio</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">Salva</string>
+  <string name="title_pref_category_display_and_sound">Display e audio</string>
+  <string name="title_pref_highlight_0">Stile di evidenziazione scansione</string>
+  <string name="title_pref_primary_scan_style">Stile di scansione principale</string>
+  <string name="title_pref_highlight_0_color">Colore evidenziazione</string>
+  <string name="title_pref_highlight_0_weight">Stile linea evidenziazione</string>
+  <string name="title_pref_privacy_policy">Norme sulla privacy</string>
+  <string name="title_pref_auto_select">Selezione automatica</string>
+  <string name="summary_pref_auto_select">Seleziona automaticamente l\'elemento evidenziato. Se quest\'ultimo non può essere selezionato o se l\'impostazione è disattivata, verrà visualizzato un menu di azioni disponibili.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Attiva la selezione automatica</string>
+  <string name="switch_access_global_menu_disable_autoselect">Disattiva la selezione automatica</string>
+  <string name="switch_access_move_next">Successivo…</string>
+  <string name="switch_access_move_next_character">Carattere successivo</string>
+  <string name="switch_access_move_next_word">Parola successiva</string>
+  <string name="switch_access_move_next_line">Riga successiva</string>
+  <string name="switch_access_move_next_paragraph">Paragrafo successivo</string>
+  <string name="switch_access_move_next_page">Pagina successiva</string>
+  <string name="switch_access_move_next_sentence">Frase successiva</string>
+  <string name="switch_access_move_prev">Precedente…</string>
+  <string name="switch_access_move_prev_character">Carattere precedente</string>
+  <string name="switch_access_move_prev_word">Parola precedente</string>
+  <string name="switch_access_move_prev_line">Riga precedente</string>
+  <string name="switch_access_move_prev_paragraph">Paragrafo precedente</string>
+  <string name="switch_access_move_prev_page">Pagina precedente</string>
+  <string name="switch_access_move_prev_sentence">Frase precedente</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Avvia automaticamente la scansione</string>
+  <string name="switch_access_auto_start_scan_summary">La scansione inizia senza la pressione dell\'opzione</string>
+  <string name="pref_begin_switchaccess_setup_title">Apri la guida alla configurazione</string>
+  <string name="setup_wizard_heading">Guida alla configurazione di Switch Access</string>
+  <string name="one_switch">Un sensore</string>
+  <string name="two_switches">Due sensori</string>
+  <string name="finish">Fine</string>
+  <string name="exit">Esci</string>
+  <string name="intro_heading">Scegli il sensore</string>
+  <string name="usb_switch_option_text">Sensore USB</string>
+  <string name="bluetooth_switch_option_text">Sensore Bluetooth</string>
+  <string name="usb_switch_description_text">Collega fisicamente un sensore tramite USB</string>
+  <string name="bluetooth_switch_description_text">Accoppia un sensore tramite Bluetooth grazie alla tecnologia wireless</string>
+  <string name="bluetooth_unsupported_description_text">Il tuo dispositivo non supporta il Bluetooth. Prova a utilizzare un sensore fisico.</string>
+  <string name="connected_usb_devices_header">Dispositivi collegati</string>
+  <string name="usb_no_devices_connected_message">Nessun dispositivo USB trovato. Verifica che il dispositivo sia ben collegato.</string>
+  <string name="connect_usb_heading">Collega sensore USB</string>
+  <string name="pair_bluetooth_heading">Accoppia un sensore Bluetooth</string>
+  <string name="pair_bluetooth_subheading">Tocca il tuo sensore Bluetooth sotto</string>
+  <string name="bluetooth_not_enabled_message">Per accoppiare un sensore Bluetooth, attiva il Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Attiva il Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">Nessun dispositivo Bluetooth accoppiato</string>
+  <string name="paired_devices_header">Dispositivi Bluetooth accoppiati</string>
+  <string name="available_devices_header">Dispositivi Bluetooth disponibili</string>
+  <string name="bluetooth_computer_content_description">Computer</string>
+  <string name="bluetooth_phone_content_description">Telefono</string>
+  <string name="bluetooth_imaging_content_description">Dispositivo per immagini</string>
+  <string name="bluetooth_headphone_content_description">Cuffie</string>
+  <string name="bluetooth_peripheral_content_description">Periferica</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Connessione…</string>
+  <string name="bluetooth_connected_description">Connesso</string>
+  <string name="bluetooth_device_unavailable_description">Dispositivo non disponibile</string>
+  <string name="reconnecting_unsupported_title">Impossibile connettersi al dispositivo</string>
+  <string name="reconnecting_unsupported_message">Switch Access non è connesso al tuo dispositivo precedentemente accoppiato. Assicurati che il dispositivo sia accesso e collegato.\n\nSe il dispositivo continua a non connettersi, vai alle impostazioni Bluetooth e prova a ricollegarlo.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Vai alle impostazioni Bluetooth</string>
+  <string name="number_of_switches_heading">Seleziona il numero di sensori</string>
+  <string name="title_assign_scan_key">Assegna il sensore %1$s</string>
+  <string name="one_switch_description_text">Premi il sensore per iniziare a spostarti automaticamente tra gli elementi. Premilo di nuovo per selezionare l\'elemento evidenziato.</string>
+  <string name="two_switches_description_text">Premi un sensore per spostarti tra gli elementi e premi l\'altro per selezionare l\'elemento evidenziato.</string>
+  <string name="step_speed_heading">Seleziona la velocità di scansione</string>
+  <string name="step_speed_subheading">Scegli la durata dell\'evidenziazione di ogni elemento</string>
+  <string name="fast_radio_button_title">Veloce (%1$s s di ritardo)</string>
+  <string name="medium_radio_button_title">Media (%1$s s di ritardo)</string>
+  <string name="slow_radio_button_title">Lenta (%1$s s di ritardo)</string>
+  <string name="custom_switch">Personalizzata</string>
+  <string name="custom_edit_text">ritardo (s)</string>
+  <string name="setup_toast_msg_key_already_assigned">Il tasto \"%1$s\" è già assegnato a un\'altra azione</string>
+  <string name="row_column_scanning_title">Scansione per riga-colonna</string>
+  <string name="option_scanning_title">Selezione del gruppo (avanzato)</string>
+  <string name="linear_scanning_title">Scansione lineare</string>
+  <string name="linear_scanning_except_keyboard_title">Scansione lineare (eccetto la tastiera)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Voce, suoni e vibrazione</string>
+  <string name="title_pref_switch_access_spoken_feedback">Funzione di lettura vocale</string>
+  <string name="title_pref_scan_non_actionable_items">Leggi il testo descrittivo</string>
+  <string name="scan_non_actionable_items_summary">Ascolta la funzione di lettura vocale per gli elementi con le azioni disponibili e testo descrittivo</string>
+  <string name="title_pref_switch_access_verbosity">Preferenze di lettura</string>
+  <string name="summary_verbosity">Scegli quante informazioni vengono lette</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Preferenze di lettura - Dettagli</string>
+  <string name="title_pref_switch_access_keyboard_echo">Eco tastiera</string>
+  <string name="keyboard_echo_summary_on">Leggi i tasti premuti nella tastiera sullo schermo</string>
+  <string name="keyboard_echo_summary_off">Non leggere i tasti premuti nella tastiera sullo schermo</string>
+  <string name="title_pref_enable_hints">Suggerimenti vocali sull\'utilizzo</string>
+  <string name="enable_hints_summary_on">I suggerimenti vocali sull\'utilizzo vengono forniti durante la navigazione, con un breve ritardo</string>
+  <string name="enable_hints_summary_off">I suggerimenti vocali sull\'utilizzo non vengono forniti durante lo spostamento dello stato attivo di accessibilità</string>
+  <string name="title_pref_speak_container_element_position">Leggi le informazioni su elenchi e griglie</string>
+  <string name="speak_container_element_position_summary_on">Le informazioni di elenchi e griglie vengono lette</string>
+  <string name="speak_container_element_position_summary_off">Le informazioni di elenchi e griglie non vengono lette</string>
+  <string name="title_pref_speak_element_type">Leggi il tipo di elemento</string>
+  <string name="speak_element_type_summary_on">Il tipo degli elementi attivi viene letto</string>
+  <string name="speak_element_type_summary_off">Il tipo degli elementi attivi non viene letto</string>
+  <string name="title_pref_pitch_change_for_ime">Usa variazioni di tono</string>
+  <string name="pitch_change_for_ime_summary_on">Feedback vocale della tastiera con tono di voce più basso</string>
+  <string name="pitch_change_for_ime_summary_off">Non cambiare il feedback vocale durante la lettura</string>
+  <string name="title_pref_speak_selected_item_or_group">Leggi elemento o gruppo selezionato</string>
+  <string name="speak_selected_item_or_group_summary">Pronuncia il nome di un elemento o di un gruppo dopo che è stato selezionato</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Tempo massimo di lettura per elemento</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Consente di impostare il tempo massimo in cui leggere la descrizione di ciascun elemento. Una volta raggiunto il tempo impostato, la lettura verrà interrotta.\nNota: i suggerimenti vengono letti sempre, se la funzione è attiva.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Varie</string>
+  <string name="title_pref_node_description_order">Ordine di descrizione degli elementi</string>
+  <string name="title_pref_switch_access_speak_element_ids">Leggi ID elementi</string>
+  <string name="speak_element_ids_summary_on">Gli ID degli elementi vengono letti per i pulsanti senza etichetta</string>
+  <string name="speak_element_ids_summary_off">Gli ID degli elementi non vengono letti per i pulsanti senza etichetta</string>
+  <string name="title_pref_switch_access_tts_settings">Impostazioni sintesi vocale</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">Quando più elementi sono evidenziati</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Leggi primo e ultimo elemento</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Leggi il numero di elementi</string>
+  <string name="title_pref_switch_access_speak_all_items">Leggi tutti gli elementi evidenziati</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Finisci lettura prima dello spostamento</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Altri feedback</string>
+  <string name="title_pref_developer_settings">Impostazioni sviluppatore</string>
+  <string name="title_pref_spoken_feedback_overlay">Visualizza uscita vocale</string>
+  <string name="title_pref_switch_access_vibration_feedback">Feedback con vibrazione</string>
+  <string name="vibration_feedback_summary">Vibra per segnalare che qualcosa è cambiato (ad esempio i contenuti della schermata)</string>
+  <string name="title_pref_switch_access_sound_feedback">Feedback audio</string>
+  <string name="sound_feedback_summary">Riproduci una earcon per indicare che qualcosa è cambiato (ad es., i contenuti della schermata)</string>
+  <string name="title_pref_switch_access_sound_volume">Volume audio</string>
+  <string name="title_pref_switch_access_audio_ducking">Attenuazione automatica audio</string>
+  <string name="audio_ducking_summary">Abbassa volume degli altri suoni durante l\'output vocale</string>
+  <string name="switch_access_focus_cleared_no_selection">Schermo modificato</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Premi il sensore Seleziona per selezionare la riga</string>
+  <string name="switch_access_spoken_feedback_group">gruppo %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Premi il sensore del gruppo %1$s per selezionare il gruppo</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Premi il sensore del gruppo %1$s per selezionare l\'elemento</string>
+  <string name="switch_access_spoken_feedback_to">dal %1$s al %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s elementi</string>
+  <string name="switch_access_spoken_feedback_group_selected">gruppo %1$s selezionato</string>
+  <string name="switch_access_spoken_feedback_row_selected">riga selezionata</string>
+  <string name="switch_access_spoken_feedback_item_selected">Elemento %1$s selezionato</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">scorrevole</string>
+  <string name="switch_access_spoken_feedback_scroll">seleziona per scorrere</string>
+  <string name="switch_access_spoken_feedback_unknown">elemento sconosciuto</string>
+  <string name="scanning_method_heading">Seleziona la modalità di scansione</string>
+  <string name="row_column_scanning_description">Esegui la scansione di una riga alla volta. Dopo la selezione della riga, spostati tra gli elementi nell\'elenco.</string>
+  <string name="linear_scanning_description">Spostati di un elemento alla volta</string>
+  <string name="linear_scanning_except_keyboard_description">Spostati di un elemento alla volta. Tieni presente che le tastiere eseguono la scansione per riga.</string>
+  <string name="option_scanning_description">A tutti gli elementi verrà assegnato un colore. Premi il sensore corrispondente al colore intorno all\'elemento desiderato. Restringi le dimensioni del gruppo fino a raggiungere l\'opzione desiderata.</string>
+  <string name="setup_switch_assignment_heading">Sensori assegnati all\'azione %s</string>
+  <string name="setup_switch_assignment_empty">Nessuno</string>
+  <string name="clear_keys_dialog_title">Cancellare i sensori assegnati?</string>
+  <string name="clear_keys_dialog_message">Hai già assegnato i sensori.</string>
+  <string name="clear_keys_dialog_positive_button">Cancella i sensori</string>
+  <string name="clear_keys_dialog_negative_button">Mantieni i sensori</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">Nessun sensore assegnato</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">Nessun sensore assegnato a questa azione. Vuoi continuare?</string>
+  <string name="option_scan_switch_title">Gruppo %1$s</string>
+  <string name="option_scan_switch_subtitle">Premi un sensore per assegnarlo all\'azione di selezione del gruppo %1$s.</string>
+  <string name="assign_switch_subtitle">Premi un sensore per assegnarlo all\'azione \"%1$s\".</string>
+  <string name="auto_scan_action_description">Avvia la scansione e seleziona</string>
+  <string name="switch_game_heading">Testa la tua configurazione giocando a tris</string>
+  <string name="switch_game_one_switch_linear_subheading">Premi il sensore \"%1$s\" per avviare la scansione, quindi premilo di nuovo per selezionare l\'elemento evidenziato. Tocca a te per primo!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Premi il sensore \"%1$s\" per avviare la scansione, quindi premilo di nuovo per selezionare la riga evidenziata. Premi ancora una volta il sensore per selezionare l\'elemento evidenziato. Tocca a te per primo!</string>
+  <string name="switch_game_two_switch_linear_subheading">Premi \"%1$s\" per spostarti tra gli elementi. Premi \"%2$s\" per selezionare l\'elemento evidenziato. Tocca a te!</string>
+  <string name="switch_game_two_switch_row_col_subheading">Premi %1$s per spostarti tra le righe. Premi %2$s per selezionare la riga evidenziata. Ripeti l\'operazione per scegliere un elemento della riga. Tocca a te!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Premi %1$s per selezionare gli elementi evidenziati in %2$s oppure premi %4$s per selezionare gli elementi evidenziati in %3$s. Ripeti l\'operazione per arrivare all\'elemento desiderato. Tocca a te!</string>
+  <string name="switch_game_incomplete_switches_subheading">Non hai ancora assegnato i sensori per tutte le azioni. Utilizza il pulsante Indietro per tornare indietro e terminare l\'assegnazione dei sensori.</string>
+  <string name="game_square_content_description">%1$s in posizione %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">vuoto</string>
+  <string name="game_reset_button_title">Reimposta il gioco</string>
+  <string name="game_square_already_taken">Questo quadrato è già stato scelto. Riprova.</string>
+  <string name="game_win_outcome_title">Hai vinto!</string>
+  <string name="game_loss_outcome_title">Avrai più fortuna la prossima volta</string>
+  <string name="game_tie_outcome_title">La partita è finita in pareggio</string>
+  <string name="game_outcome_body_text">Puoi mantenere la configurazione corrente o ricominciare da capo.</string>
+  <string name="game_outcome_positive_response">Mantieni la configurazione</string>
+  <string name="game_outcome_negative_response">Ricomincia</string>
+  <string name="setup_completion_heading">Configurazione terminata</string>
+  <string name="setup_completion_message">Ecco fatto.</string>
+  <string name="setup_completion_settings_reminder">Puoi modificare impostazioni aggiuntive o riaprire la configurazione guidata in qualsiasi momento dalle impostazioni di Switch Access.</string>
+  <string name="dialog_url_list">Scegli un link</string>
+  <string name="dialog_do_not_disturb_permission_title">Switch Access richiede l\'autorizzazione per regolare il volume</string>
+  <string name="dialog_do_not_disturb_permission_message">Per regolare il volume dal menu di Switch Access, attiva l\'accesso alla funzionalità Non disturbare per l\'app Strumenti per l\'accessibilità Android.</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Apri impostazioni</string>
 </resources>

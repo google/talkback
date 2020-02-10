@@ -17,6 +17,7 @@
 package com.google.android.accessibility.talkback.tutorial;
 
 import android.content.Context;
+import androidx.core.view.ViewCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import com.google.android.accessibility.talkback.R;
@@ -30,19 +31,19 @@ public class GridView extends ViewGroup {
   private static final int DEFAULT_COLUMNS = 4;
   private static final int DEFAULT_ROWS = 3;
 
-  private ItemProvider mItemProvider;
-  private int mCellWidth;
-  private int mCellHeight;
-  private int mColumns;
-  private int mRows;
-  private int mHorizontalOffset;
-  private int mVerticalOffset;
+  private ItemProvider itemProvider;
+  private int cellWidth;
+  private int cellHeight;
+  private int columns;
+  private int rows;
+  private int horizontalOffset;
+  private int verticalOffset;
 
   public GridView(Context context, ItemProvider provider) {
     super(context);
-    mItemProvider = provider;
-    mCellWidth = context.getResources().getDimensionPixelSize(R.dimen.tutorial_grid_item_width);
-    mCellHeight = context.getResources().getDimensionPixelSize(R.dimen.tutorial_grid_item_height);
+    itemProvider = provider;
+    cellWidth = context.getResources().getDimensionPixelSize(R.dimen.tutorial_grid_item_width);
+    cellHeight = context.getResources().getDimensionPixelSize(R.dimen.tutorial_grid_item_height);
   }
 
   @Override
@@ -56,48 +57,62 @@ public class GridView extends ViewGroup {
     int height;
 
     if (widthMode == MeasureSpec.UNSPECIFIED) {
-      width = DEFAULT_COLUMNS * mCellWidth + getPaddingLeft() + getPaddingRight();
+      width = DEFAULT_COLUMNS * cellWidth + getPaddingLeft() + getPaddingRight();
     } else {
       width = widthSize;
     }
 
     if (heightMode == MeasureSpec.UNSPECIFIED) {
-      height = DEFAULT_ROWS * mCellHeight + getPaddingTop() + getPaddingBottom();
+      height = DEFAULT_ROWS * cellHeight + getPaddingTop() + getPaddingBottom();
     } else {
       height = heightSize;
     }
 
     int contentWidth = width - getPaddingLeft() - getPaddingRight();
     int contentHeight = height - getPaddingTop() - getPaddingBottom();
-    mColumns = contentWidth / mCellWidth;
-    mRows = contentHeight / mCellHeight;
-    mHorizontalOffset = (contentWidth - (mCellWidth * mColumns)) / 2;
-    mVerticalOffset = (contentHeight - (mCellHeight * mRows)) / 2;
+    columns = contentWidth / cellWidth;
+    rows = contentHeight / cellHeight;
+    horizontalOffset = (contentWidth - (cellWidth * columns)) / 2;
+    verticalOffset = (contentHeight - (cellHeight * rows)) / 2;
 
     setMeasuredDimension(width, height);
   }
 
   @Override
   protected void onLayout(boolean changed, int l, int t, int r, int b) {
-    int childToLayout = mColumns * mRows;
+    int childToLayout = columns * rows;
     removeAllViews();
     inflateViews(childToLayout);
 
     int rowIndex = 0;
     int colIndex = 0;
     int childIndex = 0;
+    boolean isRTL = ViewCompat.getLayoutDirection(this) == LAYOUT_DIRECTION_RTL;
     while (childIndex < childToLayout) {
-      int cellLeft = getPaddingLeft() + mHorizontalOffset + colIndex * mCellWidth;
-      int cellTop = getPaddingTop() + mVerticalOffset + rowIndex * mCellHeight;
-      View view = getChildAt(childIndex);
-      int viewWidth = view.getMeasuredWidth();
-      int viewHeight = view.getMeasuredHeight();
-      int left = cellLeft + (mCellWidth - viewWidth) / 2;
-      int top = cellTop + (mCellHeight - viewHeight) / 2;
-      view.layout(left, top, left + viewWidth, top + viewHeight);
+      int cellLeft = getPaddingLeft() + horizontalOffset + colIndex * cellWidth;
+      int cellTop = getPaddingTop() + verticalOffset + rowIndex * cellHeight;
+      // Assume the columns is 4, when layout direction is LTR
+      // the layout position is calculated according to child index 0, 1, 2, 3 in 1st row,
+      // 4, 5, 6, 7 in the 2nd row, and so forth.
+      // On the other hand, when the layout direction is RTL, (views are flipped horizontally)
+      // the layout position is calculated according to child index 3, 2, 1, 0 in 1st row,
+      // 7, 6, 5, 4 in the 2nd row, and so forth
+      int cellIndex = isRTL ? ((rowIndex + 1) * columns) - colIndex - 1 : childIndex;
+
+      // If layout direction is RTL, it's possible the grid view is not fully deployed.
+      // In this case, when we count the view layout position backward, we have to confirm the view
+      // exists.
+      if (cellIndex < childToLayout) {
+        View view = getChildAt(cellIndex);
+        int viewWidth = view.getMeasuredWidth();
+        int viewHeight = view.getMeasuredHeight();
+        int left = cellLeft + (cellWidth - viewWidth) / 2;
+        int top = cellTop + (cellHeight - viewHeight) / 2;
+        view.layout(left, top, left + viewWidth, top + viewHeight);
+      }
       childIndex++;
       colIndex++;
-      if (colIndex >= mColumns) {
+      if (colIndex >= columns) {
         colIndex = 0;
         rowIndex++;
       }
@@ -105,15 +120,15 @@ public class GridView extends ViewGroup {
   }
 
   private void inflateViews(int count) {
-    if (mItemProvider == null) {
+    if (itemProvider == null) {
       return;
     }
 
-    int cellWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mCellWidth, MeasureSpec.EXACTLY);
-    int cellHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mCellHeight, MeasureSpec.EXACTLY);
+    int cellWidthMeasureSpec = MeasureSpec.makeMeasureSpec(cellWidth, MeasureSpec.EXACTLY);
+    int cellHeightMeasureSpec = MeasureSpec.makeMeasureSpec(cellHeight, MeasureSpec.EXACTLY);
 
     for (int i = 0; i < count; i++) {
-      View view = mItemProvider.getView(this, i);
+      View view = itemProvider.getView(this, i);
       addView(view);
       view.measure(cellWidthMeasureSpec, cellHeightMeasureSpec);
     }

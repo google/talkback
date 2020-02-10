@@ -1,171 +1,194 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"‏تشغيل TalkBack"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"‏تم تعليق TalkBack"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"‏تم استئناف TalkBack"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"‏إيقاف TalkBack"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"تشغيل التعليقات والملاحظات المنطوقة"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"تم تعليق التعليقات والملاحظات المنطوقة"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"تم استئناف التعليقات والملاحظات المنطوقة"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"إيقاف التعليقات والملاحظات المنطوقة"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"بداية الحقل"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"نهاية الحقل"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"تشغيل وضع التحديد"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"إيقاف وضع التحديد"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"تم محو التحديد"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"مكالمة"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"رسالة"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"رسالة إلكترونية"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"حدث"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"عرض ترويجي"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"تنبيه"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"التقدم"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"شبكات اجتماعية"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"خطأ"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"التحكم في الوسائط"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"حالة النظام"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"خدمة"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"قائمة <xliff:g id="TITLE">%1$s</xliff:g>"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"تم استبدال <xliff:g id="NEW_TEXT">%1$s</xliff:g> بـ <xliff:g id="OLD_TEXT">%2$s</xliff:g>"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"تم حذف <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"تم قطع <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"تم لصق <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"تم تحديد <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"النص المحدد: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"تم إلغاء تحديد <xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_error" msgid="153775825635730287">"إدخال غير صالح <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"تم استبدال <xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> من الأحرف بعدد <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> من الأحرف"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> للتصنيف <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> في المئة."</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="zero"><xliff:g id="TYPE_2">%1$s</xliff:g> يعرض <xliff:g id="COUNT_3">%2$d</xliff:g> عنصر.</item>
-      <item quantity="two"><xliff:g id="TYPE_2">%1$s</xliff:g> يعرض عنصرين (<xliff:g id="COUNT_3">%2$d</xliff:g>).</item>
-      <item quantity="few"><xliff:g id="TYPE_2">%1$s</xliff:g> يعرض <xliff:g id="COUNT_3">%2$d</xliff:g> عناصر.</item>
-      <item quantity="many"><xliff:g id="TYPE_2">%1$s</xliff:g> يعرض <xliff:g id="COUNT_3">%2$d</xliff:g> عنصرًا.</item>
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> يعرض <xliff:g id="COUNT_3">%2$d</xliff:g> عنصر.</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> يعرض <xliff:g id="COUNT_1">%2$d</xliff:g> عنصر.</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"شبكة"</string>
-    <string name="value_listview" msgid="7625152822709234439">"قائمة"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"شريط علامات التبويب"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"قائمة منسدلة"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"مربّع اختيار"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"زر اختيار"</string>
-    <string name="value_button" msgid="2459787142940409576">"زر"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"شريط تمرير"</string>
-    <string name="value_switch" msgid="6946709666466895221">"مفتاح تحويل"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"مربع تعديل"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"جارٍ التعديل"</string>
-    <string name="value_image" msgid="5114229220871881124">"صورة"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"بدون تصنيف"</string>
-    <string name="value_pager" msgid="7708574424402835461">"عرض متعدد الصفحات"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"صفحة"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"شريط التقدم"</string>
-    <string name="value_webview" msgid="291321285400233958">"عرض الويب"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"الأحرف <xliff:g id="FROM_INDEX">%1$d</xliff:g> إلى <xliff:g id="TO_INDEX">%2$d</xliff:g>"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"الرمز <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"كلمة المرور"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"تم فتح درج التمرير"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"الخيارات."</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"تم محو النص"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"تم بلوغ الحد الأقصى للطول"</string>
-    <string name="value_selected" msgid="1307429702194660766">"محدد"</string>
-    <string name="value_checked" msgid="3006751014125833966">"تم التحديد"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"لم يتم التحديد"</string>
-    <string name="value_on" msgid="39454338086317219">"تم التشغيل"</string>
-    <string name="value_off" msgid="6700497510945744608">"تم الإيقاف"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"معطّل"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"تم التوسيع"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"تم التصغير"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"النقر المزدوج"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"النقر"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"اضغط على تحديد"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"<xliff:g id="ACTION">%1$s</xliff:g> للتنشيط."</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> للتنشيط."</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"<xliff:g id="ACTION">%1$s</xliff:g> مع الاستمرار لإجراء ضغط مطول."</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> للضغط مع الاستمرار."</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"<xliff:g id="ACTION">%1$s</xliff:g> للتبديل."</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> للتبديل."</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"<xliff:g id="ACTION">%1$s</xliff:g> لإدخال النص."</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> لإدخال نص."</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"<xliff:g id="ACTION">%1$s</xliff:g> للتغيير."</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> للتغيير."</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"مرر سريعًا بإصبعين لتبديل الصفحات."</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"لا تتوفر صفحات أخرى."</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"يمكنك استخدم مفتاحي مستوى الصوت للضبط"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"<xliff:g id="ACTION">%1$s</xliff:g> للتغيير."</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"الإجراءات:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> لـ <xliff:g id="HINT">%2$s</xliff:g> ."</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"اضغط على <xliff:g id="KEYCOMBO">%1$s</xliff:g> من أجل <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> مع الاستمرار لـ <xliff:g id="HINT">%2$s</xliff:g>."</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"‏تم تشغيل Caps Lock."</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"‏تم تعطيل Caps Lock."</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"‏تم تشغيل Num."</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"‏تم تعطيل Num."</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"‏تم تشغيل Scroll Lock."</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"‏تم تعطيل Scroll Lock."</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"عمودي"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"أفقي"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"تجاهل"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"توسيع"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"تصغير"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"الصف <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"العمود <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"عنوان"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"عنوان الصف"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"عنوان العمود"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"صورة <xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g> داخل صورة"</string>
-    <string name="in_list" msgid="444302621514168828">"في القائمة <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"داخل القائمة"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"خارج القائمة <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"خارج القائمة"</string>
-    <string name="in_grid" msgid="6705387966271590222">"في الشبكة <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"داخل الشبكة"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"خارج الشبكة <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"خارج الشبكة"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"المستوى <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="zero"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> عنصر</item>
-      <item quantity="two">عنصران (<xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g>)</item>
-      <item quantity="few"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> عناصر</item>
-      <item quantity="many"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> عنصرًا</item>
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> عنصر</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> عنصر</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="zero"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> صف</item>
-      <item quantity="two">صفان (<xliff:g id="ROW_COUNT_1">%1$d</xliff:g>)</item>
-      <item quantity="few"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> صفوف</item>
-      <item quantity="many"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> صفًا</item>
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> صف</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> صف</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="zero"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> عمود</item>
-      <item quantity="two">عمودان (<xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g>)</item>
-      <item quantity="few"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> أعمدة</item>
-      <item quantity="many"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> عمودًا</item>
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> عمود</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> عمود</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="zero"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> characters</item>
-      <item quantity="two">حرفان (<xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g>)</item>
-      <item quantity="few"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> أحرف</item>
-      <item quantity="many"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> حرفًا</item>
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> حرف</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> حرف واحد</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"التكبير بنسبة <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"التكبير <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"تم إيقاف التكبير"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"معدل سرعة الكلام <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"تشغيل تجنب التداخل مع أصوات أخرى"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"إيقاف تجنب التداخل مع أصوات أخرى"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"معدل سرعة الكلام"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"الإسهاب"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"التنقل"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"تجنب التداخل مع أصوات أخرى"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"لا يتم نطق كلمات المرور إلا عند استخدام سماعات الرأس"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">‏تشغيل TalkBack</string>
+  <string name="talkback_suspended">‏تم تعليق TalkBack</string>
+  <string name="talkback_resumed">‏تم استئناف TalkBack</string>
+  <string name="talkback_disabled">‏إيقاف TalkBack</string>
+  <string name="spokenfeedback_on">تشغيل التعليقات والملاحظات المنطوقة</string>
+  <string name="spokenfeedback_suspended">تم تعليق التعليقات والملاحظات المنطوقة</string>
+  <string name="spokenfeedback_resumed">تم استئناف التعليقات والملاحظات المنطوقة</string>
+  <string name="spokenfeedback_disabled">إيقاف التعليقات والملاحظات المنطوقة</string>
+  <string name="notification_type_beginning_of_field">بداية الحقل</string>
+  <string name="notification_type_end_of_field">نهاية الحقل</string>
+  <string name="notification_type_selection_mode_on">تشغيل وضع التحديد</string>
+  <string name="notification_type_selection_mode_off">إيقاف وضع التحديد</string>
+  <string name="notification_type_selection_cleared">تم محو التحديد</string>
+  <string name="notification_category_call">مكالمة</string>
+  <string name="notification_category_msg">رسالة</string>
+  <string name="notification_category_email">رسالة إلكترونية</string>
+  <string name="notification_category_event">حدث</string>
+  <string name="notification_category_promo">عرض ترويجي</string>
+  <string name="notification_category_alarm">تنبيه</string>
+  <string name="notification_category_progress">التقدم</string>
+  <string name="notification_category_social">شبكات اجتماعية</string>
+  <string name="notification_category_err">خطأ</string>
+  <string name="notification_category_transport">التحكم في الوسائط</string>
+  <string name="notification_category_sys">حالة النظام</string>
+  <string name="notification_category_service">خدمة</string>
+  <string name="template_drawer_opened">قائمة %1$s</string>
+  <string name="template_text_replaced">تم استبدال %1$s بـ %2$s</string>
+  <string name="template_text_removed">تم حذف %1$s</string>
+  <string name="template_text_cut">تم قطع %1$s</string>
+  <string name="template_text_pasted">تم لصق %1$s</string>
+  <string name="template_text_selected">تم تحديد %1$s</string>
+  <string name="template_announce_selected_text">النص المحدد: %1$s</string>
+  <string name="template_text_unselected">تم إلغاء تحديد %1$s</string>
+  <string name="template_text_error">إدخال غير صالح %1$s</string>
+  <string name="template_replaced_characters">تم استبدال %1$s من الأحرف بعدد %2$s من الأحرف</string>
+  <string name="template_labeled_item">%1$s للتصنيف %2$s</string>
+  <string name="template_percent">%1$s في المئة.</string>
+  <plurals name="template_containers">
+    <item quantity="zero">%1$s يعرض %2$d عنصر.</item>
+    <item quantity="one">%1$s يعرض %2$d عنصر.</item>
+    <item quantity="two">%1$s يعرض عنصرين (%2$d).</item>
+    <item quantity="few">%1$s يعرض %2$d عناصر.</item>
+    <item quantity="many">%1$s يعرض %2$d عنصرًا.</item>
+    <item quantity="other">%1$s يعرض %2$d عنصر.</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">شبكة</string>
+  <string name="value_listview">قائمة</string>
+  <string name="value_tabwidget">شريط علامات التبويب</string>
+  <string name="value_spinner">قائمة منسدلة</string>
+  <string name="value_checkbox">مربّع اختيار</string>
+  <string name="value_radio_button">زر اختيار</string>
+  <string name="value_button">زر</string>
+  <string name="value_seek_bar">شريط تمرير</string>
+  <string name="value_switch">مفتاح تحويل</string>
+  <string name="value_edit_box">مربع تعديل</string>
+  <string name="value_edit_box_editing">جارٍ التعديل</string>
+  <string name="value_image">صورة</string>
+  <string name="value_unlabelled">بدون تصنيف</string>
+  <string name="value_pager">عرض متعدد الصفحات</string>
+  <string name="value_pager_page">صفحة</string>
+  <string name="value_progress_bar">شريط التقدم</string>
+  <string name="value_webview">عرض الويب</string>
+  <string name="value_toolbar">شريط الأدوات</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">الأحرف %1$d إلى %2$d</string>
+  <string name="template_password_traversed">الرمز %1$d</string>
+  <string name="value_password">كلمة المرور</string>
+  <string name="value_sliding_drawer_opened">تم فتح درج التمرير</string>
+  <string name="value_options_menu_open">الخيارات.</string>
+  <string name="value_text_cleared">تم محو النص</string>
+  <string name="value_text_max_length">تم بلوغ الحد الأقصى للطول</string>
+  <string name="value_selected">محدد</string>
+  <string name="value_checked">تم التحديد</string>
+  <string name="value_not_checked">لم يتم التحديد</string>
+  <string name="value_on">تم التشغيل</string>
+  <string name="value_off">تم الإيقاف</string>
+  <string name="value_disabled">غير مفعّل</string>
+  <string name="value_expanded">تم التوسيع</string>
+  <string name="value_collapsed">تم التصغير</string>
+  <string name="value_double_tap">النقر مرّتين</string>
+  <string name="value_single_tap">النقر</string>
+  <string name="value_switch_press">اضغط على مفتاح التبديل المُختار</string>
+  <string name="value_press_select">اضغط على تحديد</string>
+  <string name="template_hint_clickable">%1$s للتفعيل.</string>
+  <string name="template_hint_clickable_keyboard">اضغط على %1$s للتفعيل.</string>
+  <string name="template_hint_long_clickable">%1$s مع الاستمرار لإجراء ضغط مطول.</string>
+  <string name="template_hint_long_clickable_keyboard">اضغط على %1$s للضغط مع الاستمرار.</string>
+  <string name="template_hint_checkable">%1$s للتبديل.</string>
+  <string name="template_hint_checkable_keyboard">اضغط على %1$s للتبديل.</string>
+  <string name="template_hint_edit_text">%1$s لتعديل النص.</string>
+  <string name="template_hint_edit_text_keyboard">يمكنك الضغط على %1$s لتعديل النص.</string>
+  <string name="template_hint_spinner">%1$s للتغيير.</string>
+  <string name="template_hint_spinner_keyboard">اضغط على %1$s للتغيير.</string>
+  <string name="template_hint_pager">مرر سريعًا بإصبعين لتبديل الصفحات.</string>
+  <string name="template_hint_pager_single_page">لا تتوفر صفحات أخرى.</string>
+  <string name="template_hint_seek_control">يمكنك استخدم مفتاحي مستوى الصوت للضبط</string>
+  <string name="template_hint_seek_control_tv">%1$s للتغيير.</string>
+  <string name="template_hint_custom_actions">الإجراءات:</string>
+  <string name="template_custom_hint_for_actions">%1$s لـ %2$s .</string>
+  <string name="template_custom_hint_for_actions_keyboard">اضغط على %1$s من أجل %2$s.</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s مع الاستمرار لـ %2$s.</string>
+  <string name="template_sa_custom_hint_scrollable">%1$s للتمرير.</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">%1$s للاطّلاع على الإجراءات المتوفرة.</string>
+  <string name="template_sa_hint_seek_control">اضغط على \"اختيار مفتاح التبديل\" لضبطه.</string>
+  <string name="value_caps_lock_on">‏تم تشغيل Caps Lock.</string>
+  <string name="value_caps_lock_off">‏تم إيقاف Caps Lock.</string>
+  <string name="value_num_lock_on">‏تم تشغيل Num.</string>
+  <string name="value_num_lock_off">‏تم إيقاف Num.</string>
+  <string name="value_scroll_lock_on">‏تم تشغيل Scroll Lock.</string>
+  <string name="value_scroll_lock_off">‏تم إيقاف Scroll Lock.</string>
+  <string name="orientation_portrait">عمودي</string>
+  <string name="orientation_landscape">أفقي</string>
+  <string name="title_action_dismiss">تجاهل</string>
+  <string name="title_action_expand">توسيع</string>
+  <string name="title_action_collapse">تصغير</string>
+  <string name="row_index_template">الصف %1$d</string>
+  <string name="column_index_template">العمود %1$d</string>
+  <string name="heading_template">عنوان</string>
+  <string name="row_heading_template">عنوان الصف</string>
+  <string name="column_heading_template">عنوان العمود</string>
+  <string name="in_list">في القائمة %1$s</string>
+  <string name="in_list_without_name">داخل القائمة</string>
+  <string name="out_of_list">خارج القائمة %1$s</string>
+  <string name="out_of_list_without_name">خارج القائمة</string>
+  <string name="in_grid">في الشبكة %1$s</string>
+  <string name="in_grid_without_name">داخل الشبكة</string>
+  <string name="out_of_grid">خارج الشبكة %1$s</string>
+  <string name="out_of_grid_without_name">خارج الشبكة</string>
+  <string name="in_pager_with_name">في الصفحة %1$s</string>
+  <string name="in_pager">في الصفحة</string>
+  <string name="out_of_pager_with_name">خارج الصفحة %1$s</string>
+  <string name="out_of_pager">خارج الصفحة</string>
+  <string name="in_vertical_pager_with_name">في الصفحة الرأسية %1$s</string>
+  <string name="in_vertical_pager">في الصفحة الرأسية</string>
+  <string name="out_of_vertical_pager_with_name">خارج الصفحة الرأسية %1$s</string>
+  <string name="out_of_vertical_pager">خارج الصفحة الرأسية</string>
+  <string name="in_horizontal_pager_with_name">في الصفحة الأفقية %1$s</string>
+  <string name="in_horizontal_pager">في الصفحة الأفقية</string>
+  <string name="out_of_horizontal_pager_with_name">خارج الصفحة الأفقية %1$s</string>
+  <string name="out_of_horizontal_pager">خارج الصفحة الأفقية</string>
+  <string name="in_grid_pager_with_name">في الصفحة الشبكية %1$s</string>
+  <string name="in_grid_pager">في الصفحة الشبكية</string>
+  <string name="out_of_grid_pager_with_name">خارج الصفحة الشبكية %1$s</string>
+  <string name="out_of_grid_pager">خارج الصفحة الشبكية</string>
+  <string name="template_collection_level">المستوى %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="zero">%1$d عنصر</item>
+    <item quantity="one">%1$d عنصر</item>
+    <item quantity="two">عنصران (%1$d)</item>
+    <item quantity="few">%1$d عناصر</item>
+    <item quantity="many">%1$d عنصرًا</item>
+    <item quantity="other">%1$d عنصر</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="zero">%1$d صف</item>
+    <item quantity="one">%1$d صف</item>
+    <item quantity="two">صفان (%1$d)</item>
+    <item quantity="few">%1$d صفوف</item>
+    <item quantity="many">%1$d صفًا</item>
+    <item quantity="other">%1$d صف</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="zero">%1$d عمود</item>
+    <item quantity="one">%1$d عمود</item>
+    <item quantity="two">عمودان (%1$d)</item>
+    <item quantity="few">%1$d أعمدة</item>
+    <item quantity="many">%1$d عمودًا</item>
+    <item quantity="other">%1$d عمود</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="zero">%1$d characters</item>
+    <item quantity="one">%1$d حرف واحد</item>
+    <item quantity="two">حرفان (%1$d)</item>
+    <item quantity="few">%1$d أحرف</item>
+    <item quantity="many">%1$d حرفًا</item>
+    <item quantity="other">%1$d حرف</item>
+  </plurals>
+  <string name="template_screen_magnification_on">التكبير بنسبة %1$d%%</string>
+  <string name="template_screen_magnification_scale_changed">التكبير %1$d%%</string>
+  <string name="screen_magnification_off">تم إيقاف التكبير</string>
+  <string name="template_speech_rate_change">معدل سرعة الكلام %1$d%%</string>
+  <string name="audio_focus_on">تشغيل تجنب التداخل مع أصوات أخرى</string>
+  <string name="audio_focus_off">إيقاف تجنب التداخل مع أصوات أخرى</string>
+  <string name="selector_speech_rate_output">معدل سرعة الكلام</string>
+  <string name="selector_verbosity_output">الإسهاب</string>
+  <string name="selector_granularity_output">التنقل</string>
+  <string name="selector_audio_focus_output">تجنب التداخل مع أصوات أخرى</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">لا يتم نطق كلمات المرور إلا عند استخدام سماعات الرأس</string>
+  <string name="template_hint_menu_type_high_verbosity">%1$s متاح، استخدِم %2$s لعرضه.</string>
+  <string name="template_hint_menu_type_low_verbosity">%1$s متاح.</string>
 </resources>

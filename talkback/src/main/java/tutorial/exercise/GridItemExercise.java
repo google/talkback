@@ -31,11 +31,11 @@ import com.google.android.apps.common.proguard.UsedByReflection;
 public class GridItemExercise extends Exercise implements View.OnClickListener {
 
   protected View mView;
-  private GridView mGridView;
+  private GridView gridView;
 
   @Override
   public View getContentView(final LayoutInflater inflater, ViewGroup parent) {
-    mGridView =
+    gridView =
         new GridView(
             inflater.getContext(),
             new GridView.ItemProvider() {
@@ -57,8 +57,8 @@ public class GridItemExercise extends Exercise implements View.OnClickListener {
             .getContext()
             .getResources()
             .getDimensionPixelSize(R.dimen.tutorial_grid_horizontal_offset);
-    mGridView.setPadding(horizontalPadding, 0, horizontalPadding, 0);
-    mView = mGridView;
+    gridView.setPadding(horizontalPadding, 0, horizontalPadding, 0);
+    mView = gridView;
     return mView;
   }
 
@@ -69,9 +69,9 @@ public class GridItemExercise extends Exercise implements View.OnClickListener {
   }
 
   private void clearSelection() {
-    int childrenCount = mGridView.getChildCount();
+    int childrenCount = gridView.getChildCount();
     for (int i = 0; i < childrenCount; i++) {
-      View view = mGridView.getChildAt(i);
+      View view = gridView.getChildAt(i);
       if (view != null) {
         view.findViewById(R.id.circle).setSelected(false);
       }
@@ -92,11 +92,11 @@ public class GridItemExercise extends Exercise implements View.OnClickListener {
   }
 
   private class GridItemAccessibilityDelegate extends AccessibilityDelegate {
-    private final int mIndex;
+    private final int index;
 
     /** @param index the index the user sees; use 1-based indexing, not 0-based indexing */
     GridItemAccessibilityDelegate(int index) {
-      mIndex = index;
+      this.index = index;
     }
 
     @Override
@@ -104,9 +104,9 @@ public class GridItemExercise extends Exercise implements View.OnClickListener {
       super.sendAccessibilityEvent(host, eventType);
 
       if (eventType == AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
-        onAccessibilityFocused(mIndex);
+        onAccessibilityFocused(index);
       } else if (eventType == AccessibilityEvent.TYPE_VIEW_CLICKED) {
-        onAccessibilityClicked(mIndex);
+        onAccessibilityClicked(index);
       }
     }
   }

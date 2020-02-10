@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Gomb</item>
+    <item>Jelölőnégyzet</item>
+    <item>Színválasztó</item>
+    <item>Dátum és idő beállítása</item>
+    <item>Dátum és idő beállítása</item>
+    <item>Dátum beállítása</item>
+    <item>Szöveg szerkesztése e-mailhez</item>
+    <item>Fájl kiválasztása</item>
+    <item translatable="false"></item>
+    <item>Gomb</item>
+    <item>Havi szintű vezérlés</item>
+    <item>Szövegszerkesztés – csak numerikus</item>
+    <item>Jelszó szövegének szerkesztése</item>
+    <item>Választógomb</item>
+    <item>Csúszka</item>
+    <item>Visszaállítás</item>
+    <item>Szöveg szerkesztése kereséshez</item>
+    <item>Gomb</item>
+    <item>Szöveg szerkesztése telefonszámhoz</item>
+    <item>Szöveg szerkesztése</item>
+    <item>Szöveg szerkesztése URL-hez</item>
+    <item>Az év hetének beállítása</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Értesítés</item>
+    <item>Értesítés párbeszédpanele</item>
+    <item>Gomb</item>
+    <item>Jelölőnégyzet</item>
+    <item>Kombinált lista</item>
+    <item>Párbeszédpanel</item>
+    <item>Rácscella</item>
+    <item>Link</item>
+    <item>Napló</item>
+    <item>Fényújság</item>
+    <item>Menüelem</item>
+    <item>Menüelem – jelölőnégyzet</item>
+    <item>Menüelem – választógomb</item>
+    <item>Lehetőség</item>
+    <item>Folyamatjelző</item>
+    <item>Választógomb</item>
+    <item>Választógombcsoport</item>
+    <item>Görgetősáv</item>
+    <item>Csúszka</item>
+    <item>Léptető nyíl</item>
+    <item>Állapot</item>
+    <item>Lap</item>
+    <item>Lap párbeszédpanele</item>
+    <item>Szövegmező</item>
+    <item>Időzítő</item>
+    <item>Eszköztár</item>
+    <item>Eszközleírás</item>
+    <item>Faelem</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Link</item>
+    <item>Egyes szintű címsor</item>
+    <item>Kettes szintű címsor</item>
+    <item>Hármas szintű címsor</item>
+    <item>Négyes szintű címsor</item>
+    <item>Ötös szintű címsor</item>
+    <item>Hatos szintű címsor</item>
+    <item>Gomb</item>
+    <item>Kombinált lista</item>
+    <item>Táblázat</item>
+    <item>Szöveges terület</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

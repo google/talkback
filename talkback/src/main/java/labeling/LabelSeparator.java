@@ -25,9 +25,9 @@ import java.util.Map;
 
 public class LabelSeparator {
 
-  private List<Label> mImportedNewLabels = new ArrayList<>();
-  private List<Label> mImportedConflictLabels = new ArrayList<>();
-  private List<Label> mExistingConflictLabels = new ArrayList<>();
+  private List<Label> importedNewLabels = new ArrayList<>();
+  private List<Label> importedConflictLabels = new ArrayList<>();
+  private List<Label> existingConflictLabels = new ArrayList<>();
 
   public LabelSeparator(List<Label> currentLabels, List<Label> newLabels) {
     separate(currentLabels, newLabels);
@@ -36,7 +36,7 @@ public class LabelSeparator {
   private void separate(List<Label> currentLabels, List<Label> importedLabels) {
     if (currentLabels == null || currentLabels.size() == 0) {
       if (importedLabels != null) {
-        mImportedNewLabels.addAll(importedLabels);
+        importedNewLabels.addAll(importedLabels);
       }
       return;
     }
@@ -54,10 +54,10 @@ public class LabelSeparator {
       LabelWrapper wrapper = new LabelWrapper(importedLabel);
       Label existingLabel = labelMap.get(wrapper);
       if (existingLabel != null) {
-        mExistingConflictLabels.add(existingLabel);
-        mImportedConflictLabels.add(importedLabel);
+        existingConflictLabels.add(existingLabel);
+        importedConflictLabels.add(importedLabel);
       } else {
-        mImportedNewLabels.add(importedLabel);
+        importedNewLabels.add(importedLabel);
       }
     }
   }
@@ -79,38 +79,38 @@ public class LabelSeparator {
   }
 
   public List<Label> getImportedNewLabels() {
-    return mImportedNewLabels;
+    return importedNewLabels;
   }
 
   public List<Label> getImportedConflictLabels() {
-    return mImportedConflictLabels;
+    return importedConflictLabels;
   }
 
   public List<Label> getExistingConflictLabels() {
-    return mExistingConflictLabels;
+    return existingConflictLabels;
   }
 
   /** Wrapper class to have separate hashCode/equals logic for HashMap */
   // public visibility for testing
   public static class LabelWrapper {
 
-    private Label mLabel;
+    private Label label;
 
     public LabelWrapper(Label label) {
-      mLabel = label;
+      this.label = label;
     }
 
     @Override
     public int hashCode() {
       int hash = 17;
-      hash += mLabel.getPackageName() != null ? mLabel.getPackageName().hashCode() : 0;
+      hash += label.getPackageName() != null ? label.getPackageName().hashCode() : 0;
       hash +=
-          31 * hash + mLabel.getPackageSignature() != null
-              ? mLabel.getPackageSignature().hashCode()
+          31 * hash + label.getPackageSignature() != null
+              ? label.getPackageSignature().hashCode()
               : 0;
-      hash += 31 * hash + mLabel.getViewName() != null ? mLabel.getViewName().hashCode() : 0;
-      hash += 31 * hash + mLabel.getLocale() != null ? mLabel.getLocale().hashCode() : 0;
-      hash += 31 * hash + mLabel.getPackageVersion();
+      hash += 31 * hash + label.getViewName() != null ? label.getViewName().hashCode() : 0;
+      hash += 31 * hash + label.getLocale() != null ? label.getLocale().hashCode() : 0;
+      hash += 31 * hash + label.getPackageVersion();
       return hash;
     }
 
@@ -121,11 +121,11 @@ public class LabelSeparator {
       }
 
       LabelWrapper wrapper = (LabelWrapper) obj;
-      return TextUtils.equals(mLabel.getPackageName(), wrapper.mLabel.getPackageName())
-          && TextUtils.equals(mLabel.getPackageSignature(), wrapper.mLabel.getPackageSignature())
-          && TextUtils.equals(mLabel.getViewName(), wrapper.mLabel.getViewName())
-          && TextUtils.equals(mLabel.getLocale(), wrapper.mLabel.getLocale())
-          && mLabel.getPackageVersion() == wrapper.mLabel.getPackageVersion();
+      return TextUtils.equals(label.getPackageName(), wrapper.label.getPackageName())
+          && TextUtils.equals(label.getPackageSignature(), wrapper.label.getPackageSignature())
+          && TextUtils.equals(label.getViewName(), wrapper.label.getViewName())
+          && TextUtils.equals(label.getLocale(), wrapper.label.getLocale())
+          && label.getPackageVersion() == wrapper.label.getPackageVersion();
     }
   }
 }

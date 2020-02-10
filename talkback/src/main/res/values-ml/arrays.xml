@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>ബട്ടൺ</item>
+    <item>ചെക്ക് ബോക്‌സ്</item>
+    <item>വർണ്ണ പിക്കർ</item>
+    <item>തീയതി, സമയ നിയന്ത്രണം</item>
+    <item>തീയതി, സമയ നിയന്ത്രണം</item>
+    <item>തീയതി നിയന്ത്രണം</item>
+    <item>ഇമെയിലിനായി ടെക്‌സ്‌റ്റ് എഡിറ്റുചെയ്യുക</item>
+    <item>ഫയൽ തിരഞ്ഞെടുക്കൽ</item>
+    <item translatable="false"></item>
+    <item>ബട്ടൺ</item>
+    <item>മാസ നിയന്ത്രണം</item>
+    <item>സംഖ്യാ ടെക്‌സ്‌റ്റ് മാത്രം എഡിറ്റുചെയ്യുക</item>
+    <item>പാസ്‌വേഡ് എഡിറ്റ് ചെയ്യാനുള്ള ടെക്‌സ്റ്റ് ബോക്‌സ്</item>
+    <item>റേഡിയോ ബട്ടൺ</item>
+    <item>സ്ലൈഡർ</item>
+    <item>പുനഃസജ്ജമാക്കുക</item>
+    <item>തിരയലിനായി ടെക്‌സ്റ്റ് എഡിറ്റുചെയ്യുക</item>
+    <item>ബട്ടൺ</item>
+    <item>ടെലിഫോൺ നമ്പറിനായി ടെക്‌സ്റ്റ് എഡിറ്റുചെയ്യുക</item>
+    <item>ടെക്‌സ്റ്റ് എഡിറ്റുചെയ്യുക</item>
+    <item>URL-നായി ടെക്‌സ്റ്റ് എഡിറ്റുചെയ്യുക</item>
+    <item>വർഷ നിയന്ത്രണത്തിലെ ആഴ്‌ച</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>അലേർട്ട്</item>
+    <item>അലേർട്ട് ഡയലോഗ്</item>
+    <item>ബട്ടൺ</item>
+    <item>ചെക്ക് ബോക്‌സ്</item>
+    <item>കോമ്പോ ബോക്‌സ്</item>
+    <item>ഡയലോഗ്</item>
+    <item>ഗ്രിഡ് സെൽ</item>
+    <item>ലിങ്ക്</item>
+    <item>ലോഗ്</item>
+    <item>മാർക്കി</item>
+    <item>മെനു ഇനം</item>
+    <item>മെനു ഇന ചെക്ക് ബോക്‌സ്</item>
+    <item>മെനു ഇന റേഡിയോ ബട്ടൺ</item>
+    <item>ഓപ്‌ഷൻ</item>
+    <item>പ്രോഗ്രസ്സ് ബാർ</item>
+    <item>റേഡിയോ ബട്ടൺ</item>
+    <item>റേഡിയോ ബട്ടൺ ഗ്രൂപ്പ്</item>
+    <item>സ്‌ക്രോൾ ബാർ</item>
+    <item>സ്ലൈഡർ</item>
+    <item>സ്‌പിൻ ബട്ടൺ</item>
+    <item>നില</item>
+    <item>ടാബ്</item>
+    <item>ടാബ് പാനൽ</item>
+    <item>ടെക്‌സ്റ്റ് ബോക്സ്</item>
+    <item>ടൈമർ</item>
+    <item>ടൂൾ ബാർ</item>
+    <item>ടൂൾ ടിപ്പ്</item>
+    <item>ട്രീ ഇനം</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>ലിങ്ക്</item>
+    <item>ഒന്നാമത്തെ തലക്കെട്ട്</item>
+    <item>രണ്ടാമത്തെ തലക്കെട്ട്</item>
+    <item>മൂന്നാമത്തെ തലക്കെട്ട്</item>
+    <item>നാലാമത്തെ തലക്കെട്ട്</item>
+    <item>അഞ്ചാമത്തെ തലക്കെട്ട്</item>
+    <item>ആറാമത്തെ തലക്കെട്ട്</item>
+    <item>ബട്ടൺ</item>
+    <item>കോമ്പോ ബോക്‌സ്</item>
+    <item>പട്ടിക</item>
+    <item>ടെക്‌സ്റ്റ് ഏരിയ</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

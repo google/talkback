@@ -17,12 +17,14 @@
 package com.google.android.accessibility.utils.labeling;
 
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-import com.google.android.accessibility.utils.LogUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.Locale;
 
 /** A table for storing custom TalkBack labels. */
 public class LabelsTable {
+
+  private static final String TAG = "LabelsTable";
+
   public static final String TABLE_NAME = "labels";
 
   public static final String KEY_ID = "_id";
@@ -62,7 +64,7 @@ public class LabelsTable {
       };
 
   public static void onCreate(SQLiteDatabase database) {
-    LogUtils.log(LabelsTable.class, Log.INFO, "Creating table: %s.", TABLE_NAME);
+    LogUtils.i(TAG, "Creating table: %s.", TABLE_NAME);
 
     new SQLiteTableBuilder(database, TABLE_NAME)
         .addColumn(KEY_ID, SQLiteTableBuilder.TYPE_INTEGER, true)
@@ -82,9 +84,8 @@ public class LabelsTable {
     // DB version 2 adds KEY_PACKAGE_SIGNATURE column. Since this was added
     // prior to release, we'll just clear the table.
     if (oldVersion < 2) {
-      LogUtils.log(
-          LabelsTable.class,
-          Log.INFO,
+      LogUtils.i(
+          TAG,
           "Dropping table %s to upgrade from version %d to version %d.",
           TABLE_NAME,
           oldVersion,

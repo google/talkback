@@ -1,166 +1,320 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"ප්‍රවේශය මාරු කරන්න"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"ස්විච ප්‍රවේශය චාලක ක්‍රියාවල දුබලතා ඇති පුද්ගලයන්ට ස්විච එකක් හෝ කිහිපයක් භාවිතයෙන් දුරකථන සහ ටැබ්ලට් පාලනය කිරීමට ඉඩ දෙයි. අයිතම තේරීමට, අනුචලනය කිරීමට, පෙළ ඇතුළු කිරීමට, සහ තවත් දේ සඳහා ස්විච භාවිත කරන්න."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"ස්විච සහිත පාලන උපාංගය"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"උදවු සහ ප්‍රතිපෝෂණ"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"ස්වයංක්‍රිය ස්කෑන් කිරීම"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"ස්වයංක්‍රිය ස්කෑන් කිරීමේ වේලාව"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"ප්‍රතිලෝම ස්වයං ස්කෑන් කිරීම"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="one">තත්පර %.2f</item>
-      <item quantity="other">තත්පර %.2f</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"අභිරුචි ස්කෑන් කිරීම"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"පරිලෝකන ක්‍රමය"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"පළමු අයිතමය මත ප්‍රමාදය"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"ස්විච පවරන්න"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"ක්‍රියාවලට ස්විච පවරන්න"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"ස්කෑන් කිරීම සඳහා ස්විච පවරන්න"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"රේඛාවේ වේගය"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"ස්කෑන් කිරීම් ගණන"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"ස්කෑන් කිරීම පුනරාවර්තනය කරන වාර ගණන තෝරන්න"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"නැවත පොළා පැනීමේ කාලය"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"මෙම කාලය තුළ බහුවිධ ක්‍රියාවලි එක් ක්‍රියාවලියක් ලෙස සලකනු ඇත."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"ක්‍රියාව සිදු කිරීමට මුදා හරින්න"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"ස්විචය මුදා හැරිය විට ක්‍රියාව සිදු කරන්න"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="one">ලූප %d</item>
-      <item quantity="other">ලූප %d</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' යතුර දැනටමත් \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\' වෙත පවරා ඇත"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="one">ස්විච %dක් පවරන ලදී</item>
-      <item quantity="other">ස්විච %dක් පවරන ලදී</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"සමූහ තේරීම් ස්විචය %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"ඊළඟ"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"පෙර"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"තෝරන්න"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"දිගු එබීම"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"ඉදිරියට අනුචලනය කරන්න"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"පසුපසට අනුචලනය කරන්න"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"අස් කරන්න"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"දිග හරින්න"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"හකුළන්න"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"පෙළ උද්දීපනය කරන්න"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"පිටපත් කරන්න"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"කපන්න"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"අලවන්න"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"මෙනුව"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"ආපසු"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"මුල් පිටුව"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"දළ විශ්ලේෂණය"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"දැනුම්දීම්"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"ක්ෂණික සැකසීම්"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"ඉදිරියට අනුචලනය කරන්න"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"පසුපසට අනුචලනය කරන්න"</string>
-    <string name="point_scan" msgid="4514216871544244788">"ලක්ෂ්‍ය ස්කෑන් කිරීම"</string>
-    <string name="box_scan" msgid="6675486192630209217">"පිටවීම් ලක්ෂ්‍ය ස්කෑන්"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"දකුණට ස්වයිප් කරන්න"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"වමට ස්වයිප් කරන්න"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"ඉහළට ස්වයිප් කරන්න"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"පහළට ස්වයිප් කරන්න"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"ස්වයිප් කරන්න (අභිරුචි)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"විශාලනය අඩු කරන්න"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"විශාලනය කරන්න"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"ස්විච ප්‍රවේශ සැකසීම්"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"එය ලැයිස්තුවට එක් කිරීමට හෝ එයින් ඉවත් කිරීමට ස්විච සංයෝජනයක් ඔබන්න"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"ස්විච පැවරීම හිස් කරන්න"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"ස්විච පවරා නැත"</string>
-    <string name="more" msgid="1547670498589416840">"තව"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"ඉඩ යතුර"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"පටිත්ත"</string>
-    <string name="save" msgid="5398278773451196019">"සුරකින්න"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"ස්කෑන් කිරීම් උද්දීපන විලාසය"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"ප්‍රාථමික පරිලෝකන විලාසය"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"උද්දීපන වර්ණය"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"උද්දීපන පේළි විලාසය"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"රහස්‍යතා ප්‍රතිපත්තිය"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"ස්වයං-තේරීම සබල කරන්න"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"ස්වයං-තේරීම අබල කරන්න"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"ඊළඟ අනුලකුණ"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"ඊළඟ වචනය"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"ඊළඟ පේළිය"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"ඊළඟ ඡේදය"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"ඊළඟ පිටුව"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"පෙර අනුලකුණ"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"පෙර වචනය"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"පෙර පේළිය"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"පෙර ඡේදය"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"පෙර පිටුව"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"ස්කෑන් කිරීම ස්වයංක්‍රියව ආරම්භ වේ"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"මාරු කිරීම එබීමෙන් තොරව ස්කෑන් කිරීම ආරම්භ වේ"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"ස්විච ප්‍රවේශය පිහිටුවීම විවෘත කරන්න"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"ස්විච ප්‍රවේශ පිහිටුවීම් විශාරද"</string>
-    <string name="one_switch" msgid="5247899666787922810">"එක් ස්විචයක්"</string>
-    <string name="two_switches" msgid="3082487661638289356">"ස්විච දෙකක්"</string>
-    <string name="finish" msgid="4267641294267512480">"අවසන් කරන්න"</string>
-    <string name="exit" msgid="8664597014081860813">"පිටවන්න"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"ස්විච සංඛ්‍යාව තෝරන්න"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"අයිතම අතර ස්වයංක්‍රියව ගෙන යාමට ස්විචය ඔබා, අනතුරුව උද්දීපනය කළ අයිතමය තේරීමට නැවත ඔබන්න."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"අයිතම අතර ස්වයංක්‍රියව ගෙන යාමට එක් ස්විචයක් ඔබන්න. උද්දීපනය කළ අයිතමය තේරීමට අනෙක් ස්විචය ඔබන්න."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"ස්කෑන් කිරීමේ වේගය තෝරන්න"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"එක් එක් අයිතමය තුළ උද්දීපනය පවතින කාලය තෝරන්න"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"ඉක්මන් (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>ක ප්‍රමාදය)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"මධ්‍යම (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>ක ප්‍රමාදය)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"මන්දගාමී (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>ක ප්‍රමාදය)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"අභිරුචි"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"ප්‍රමාදය (තත්පර)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"\'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' යතුර දැනටමත් වෙනත් ක්‍රියාවකට පවරා ඇත"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"පේළි/තීරු ස්කෑන් කිරීම"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"සමූහ තේරීම"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"රේඛීය ස්කෑන් කිරීම"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"කථන ප්‍රතිපෝෂණ"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS සැකසීම්"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"බහුවිධ අයිතම සඳහා"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"පළමු සහ අවසන් අයිතමය කථනය"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"අයිතම ගණන කථනය"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"සියලු උද්දීපනය කළ අයිතම කථනය"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"ගෙන යාමට පෙර කථාව අවසන් කරන්න"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"<xliff:g id="ID_1">%1$s</xliff:g> සමූහය"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> සිට <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> අයිතම"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"අනුචලනය කිරීමට තෝරන්න"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"නොදන්නා අයිතමය"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"ස්කෑන් කරන ආකාරය තෝරන්න"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"වරකට එක් පේළියක් ස්කෑන් කරන්න. පේළිය තෝරා ගත් පසුව, එම ලැයිස්තුවේ අයිතම හරහා ගෙන යන්න."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"වරකට අයිතම එකක් අතර ගෙන යන්න. යතුරු පුවරු සැම විටම පේළිය අනුව ස්කෑන් කරන බව සටහන් කර ගන්න."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"සියලු අයිතමවලට වර්ණ පවරනු ලැබේ. ඔබට අවශ්‍ය අයිතමය වටා ඇති වර්ණයට අනුරූප ස්විචය ඔබන්න. ඔබ ඔබේ තේරීමට ළඟා වන තෙක් සමූහයේ තරම අඩු කරන්න."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"<xliff:g id="ACTION_NAME">%s</xliff:g> වෙත පවරන ලද ස්විච"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"කිසිවක් නැත"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"පවරන ලද ස්විච ඉවත් කරන්නද?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"ඔබ මේ වන විටත් ස්විච පවරා ඇත."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"ස්විච හිස් කරන්න"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"ස්විච තබා ගන්න"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"ස්විච පවරා නැත"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"මෙම ක්‍රියාවට ස්විච පවරා නැත. ඔබට දිගටම කරගෙන යාමට අවශ්‍ය බව සහතිකද?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> සමූහය"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"ස්විචයක් <xliff:g id="OPTION_COLOR">%1$s</xliff:g> සමූහය තේරීමට පැවරීමට එය ඔබන්න."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"ස්විචයක් \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\" ක්‍රියාව වෙත පැවරීමට එය ඔබන්න."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"ස්කෑන් කිරීම සහ තේරීම අරඹන්න"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"ටික්-ටැක්-ටෝ සමග ඔබගේ පිහිටුවීම පරීක්ෂා කරන්න"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"ස්කෑන් කිරීම ආරම්භ කිරීමට \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ඔබන්න. උද්දීපනය කළ අයිතමය තේරීමට ස්විචය නැවත ඔබන්න. ඔබ පළමුව යයි!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"ස්කෑන් කිරීම ආරම්භ කිරීමට \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" ඔබන්න. උද්දීපනය කළ පේළිය තේරීමට ස්විචය නැවත ඔබන්න. උද්දීපනය කළ අයිතමය තේරීමට තවත් එක් වරක් ඔබන්න. ඔබ පළමුව යයි!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"අයිතම අතර ගෙන යාමට \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ඔබන්න. උද්දීපනය කළ අයිතමය තේරීමට \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ඔබන්න. ඔබ පළමුව යයි!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"පේළි අතර ගෙන යාමට \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ඔබන්න. උද්දීපනය කළ පේළිය තේරීමට \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" ඔබන්න. එම පේළියෙහි ඇති අයිතමයක් තේරීමට පුනරාවර්තනය කරන්න. ඔබ පළමුව යයි!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"<xliff:g id="COLOR_NAME_1">%2$s</xliff:g> තුළ උද්දීපනය කර ඇති අයිතම තේරීමට \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" ඔබන්න නැතහොත් <xliff:g id="COLOR_NAME_3">%3$s</xliff:g> තුළ උද්දීපනය කර ඇති අයිතම තේරීමට \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" ඔබන්න. ඔබේ අයිතමයට ළඟා වීමට පුනරාවර්තනය කරන්න. ඔබ පළමුව යයි!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"ඔබ තවම සියලු ක්‍රියා සඳහා ස්විච පවරා නැත. ආපසු ගොස් ස්විච පැවරීම අවසන් කිරීමට පෙර බොත්තම භාවිත කරන්න."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"ක්‍රීඩාව යළි සකසන්න"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"මෙම සමචතුරස්‍රය දැනටමත් ගෙන ඇත. නැවත උත්සාහ කරන්න!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"ඔබ දිනුම්!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"ඊළඟ අවස්ථාව වඩාත් යහපත් වෙයි"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"එය සම වීමකි"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"ඔබට ඔබේ වත්මන් පිහිටුවීම තබා ගැනීමට, හෝ යළි මුල සිට ඇරඹීමට හැකිය."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"පිහිටුවීම තබා ගන්න"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"යළි මුල සිට අරඹන්න"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"පිහිටුවීම නිමයි"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"ඔබ සියල්ල සකසා ඇත."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"ඔබට අමතර සැකසිම් සැම විටම වෙනස් කිරීමට හෝ ස්විච ප්‍රවේශ සැකසීම් වෙතින් පිහිටුවීම් විශාරද නැවත විවෘත කිරීමට හැකිය."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">ප්‍රවේශය මාරු කරන්න</string>
+  <string name="switch_access_service_description">ස්විච ප්‍රවේශය චාලක ක්‍රියාවල දුබලතා ඇති පුද්ගලයන්ට ස්විච එකක් හෝ කිහිපයක් භාවිතයෙන් දුරකථන සහ ටැබ්ලට් පාලනය කිරීමට ඉඩ දෙයි. අයිතම තේරීමට, අනුචලනය කිරීමට, පෙළ ඇතුළු කිරීමට, සහ තවත් දේ සඳහා ස්විච භාවිත කරන්න.</string>
+  <string name="switch_access_service_summary">ස්විච සහිත පාලන උපාංගය</string>
+  <string name="title_pref_help_feedback">උදවු සහ ප්‍රතිපෝෂණ</string>
+  <string name="title_pref_licenses">විවෘත මූලාශ්‍ර බලපත්‍ර</string>
+  <string name="title_pref_category_auto_scan">ස්වයංක්‍රිය ස්කෑන් කිරීම</string>
+  <string name="title_pref_auto_scan_disabled">ස්වයංක්‍රිය-පරිලෝකනය (අක්‍රිය)</string>
+  <string name="action_key_summary_auto_scan">මෙම ස්විට්චය එබීම මඟින් උද්දීපන ස්වයංක්‍රියව අයිතම අතර ගෙන යයි. නැවත එබීම මඟින් උද්දීපනය කරන ලද අයිතමය නැවත තෝරාගනු ඇත.</string>
+  <string name="title_pref_auto_scan_time_delay">ස්වයංක්‍රිය ස්කෑන් කිරීමේ වේලාව</string>
+  <string name="action_name_reverse_auto_scan">ප්‍රතිලෝම ස්වයං ස්කෑන් කිරීම</string>
+  <string name="title_pref_reverse_auto_scan_disabled">ප්‍රතිලෝම ස්වයංක්‍රිය-පරිලෝකනය (අක්‍රිය)</string>
+  <string name="action_key_summary_reverse_auto_scan">මෙම ස්විට්චය එබීම මඟින් උද්දීපන ස්වයංක්‍රියව අයිතම අතර අනික් පැත්තට ගෙන යයි. නැවත එබීම මඟින් උද්දීපනය කරන ලද අයිතමය නැවත තෝරාගනු ඇත.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">තත්පර %.2f</item>
+    <item quantity="other">තත්පර %.2f</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">අභිරුචි ස්කෑන් කිරීම</string>
+  <string name="title_pref_scanning_methods">පරිලෝකන ක්‍රමය</string>
+  <string name="title_pref_start_scan_delay">පළමු අයිතමය මත ප්‍රමාදය</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">පළමුවන අයිතමය මත ගෙවන වැඩිපුර කාලය තෝරන්න. මෙම කාලය ස්වයංක්‍රිය-පරිලෝකන කාලයට එකතු කරයි.\n\nමෙම සැකසීම ස්වයංක්‍රිය-පරිලෝකන සහ ලක්ෂ්‍ය පරිලෝකනය යන දෙකටම බලපායි.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">පළමුවන අයිතමය මත ගෙවන වැඩිපුර කාලය තෝරන්න. මෙම කාලයට පසුව, සිරස් හෝ තිරස් රේඛාව චලනය කිරීමට පටන් ගනී.\n\n මෙම සැකසීම ස්වයංක්‍රිය-පරිලෝකන සහ ලක්ෂ්‍ය පරිලෝකනය යන දෙකටම බලපායි.</string>
+  <string name="title_pref_category_assign_switches">ස්විච පවරන්න</string>
+  <string name="title_pref_category_key_mappings">ගෝලීය ක්‍රියාවලට ස්විච පවරන්න</string>
+  <string name="summary_pref_category_key_mappings">ගෝලීය ක්‍රියා ඕනෑම මොහොතක සිදු කළ හැකිය</string>
+  <string name="title_pref_category_scan_key_mappings">ස්කෑන් කිරීම සඳහා ස්විච පවරන්න</string>
+  <string name="summary_pref_category_scan_key_mappings">පරිලෝකනය මඟින් ඔබට උද්දීපනය ගෙන යාමට සහ උද්දීපනය කරන ලද අයිතම තොරගනිමට ඉඩ දේ</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">චලනය &amp; තෝරාගැනීම</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">උද්දීපනය කරන ලද අයිතමය මත ක්‍රියා</string>
+  <string name="title_pref_point_scan_line_speed">රේඛාවේ වේගය</string>
+  <string name="dialog_message_pref_line_speed">තිරය හරහා තිරස් සහ සිරස් රේඛා චලනය වන වේගය තෝරන්න.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">තත්පරයකට %.2f cm</item>
+    <item quantity="other">තත්පරයකට %.2f cm</item>
+  </plurals>
+  <string name="title_pref_loop_count">ස්කෑන් කිරීම් ගණන</string>
+  <string name="dialog_message_pref_loop_count">ස්කෑන් කිරීම පුනරාවර්තනය කරන වාර ගණන තෝරන්න
+.\n\nමෙම සැකසීම ස්වයංක්‍රිය-පරිලෝකන සහ ලක්ෂ්‍ය පරිලෝකනය යන දෙකටම බලපායි.</string>
+  <string name="summary_pref_point_scan">නිශ්චිත තිරස් හා සිරස් ස්ථානයක් තෝරා ගැනීම සඳහා චලනය වන රේඛා භාවිතා කරන්න. %1$s</string>
+  <string name="point_scan_enable_animations_message">මෙම විශේෂාංගය භාවිතා කිරීමට සජීවිකරණය ක්‍රියාත්මක කරන්න.</string>
+  <string name="title_pref_category_switch_accomodation">නවතින තැන මාරු කරන්න</string>
+  <string name="title_pref_debounce_time">නැවත එබීම් නොසලකා හරින්න</string>
+  <string name="dialog_message_pref_debounce_time">මෙම කාලය තුළ බහුවිධ ක්‍රියාවලි එක් ක්‍රියාවලියක් ලෙස සලකනු ඇත.</string>
+  <string name="title_pref_press_on_release">ක්‍රියාව සිදු කිරීමට මුදා හරින්න</string>
+  <string name="subtitle_pref_press_on_release">ස්විචය මුදා හැරිය විට ක්‍රියාව සිදු කරන්න</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">ලූප %d</item>
+    <item quantity="other">ලූප %d</item>
+  </plurals>
+  <string name="preference_off">ක්‍රියාවිරහිතයි</string>
+  <string name="preference_on">ක්‍රියාත්මකයි</string>
+  <string name="toast_msg_key_already_assigned">\'%1$s\' යතුර දැනටමත් \'%2$s\' වෙත පවරා ඇත</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">ස්විච %dක් පවරන ලදී</item>
+    <item quantity="other">ස්විච %dක් පවරන ලදී</item>
+  </plurals>
+  <string name="option_scan_switch_format">සමූහ තේරීම් ස්විචය %1$d</string>
+  <string name="option_scan_switch_format_with_color">සමූහ තේරීම් ස්විචය %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">මෙම ස්විචය එබීම මඟින් %1$d කණ්ඩායම තෝරාගනු ඇත.</string>
+  <string name="action_name_next">ඊළඟ</string>
+  <string name="action_key_summary_next">මෙම ස්විචය මඟින් ඊළඟ අයිතමය උද්දීපනය කරයි.</string>
+  <string name="action_name_previous">පෙර</string>
+  <string name="action_key_summary_previous">මෙම ස්විචය මඟින් කලින් අයිතමය උද්දීපනය කරයි.</string>
+  <string name="action_name_click">තෝරන්න</string>
+  <string name="action_key_summary_click">මෙම ස්විචය මඟින් උද්දීපනය වූ අයිතමය තෝරාගනු ඇත.</string>
+  <string name="action_name_long_click">ස්පර්ශ කර අල්ලා ගෙන සිටින්න</string>
+  <string name="action_key_summary_long_click">මෙම ස්විචය මඟින් උද්දීපනය වූ අයිතමය ස්පර්ශ කර අල්ලාගෙන සිටියි.</string>
+  <string name="action_name_scroll_forward">ඉදිරියට අනුචලනය කරන්න</string>
+  <string name="action_key_summary_scroll_forward">මෙම ස්විචය මඟින් උද්දීපනය කළ අයිතමය ඉදිරියට ගෙන යනු ඇත.</string>
+  <string name="action_name_scroll_backward">පසුපසට අනුචලනය කරන්න</string>
+  <string name="action_key_summary_scroll_backward">මෙම ස්විචය මඟින් උද්දීපනය කළ අයිතමය අනික් පැත්තට ගෙන යනු ඇත.</string>
+  <string name="action_name_dismiss">අස් කරන්න</string>
+  <string name="action_name_expand">දිග හරින්න</string>
+  <string name="action_name_collapse">හකුළන්න</string>
+  <string name="action_name_highlight_text">පෙළ උද්දීපනය කරන්න</string>
+  <string name="action_group_name_highlight">උද්දීපනය කරන්න ...</string>
+  <string name="action_name_highlight_all_text">සියලු පෙළ උද්දීපනය කරන්න</string>
+  <string name="action_name_highlight_granular_text">උද්දීපන %1$s</string>
+  <string name="action_name_copy">පිටපත් කරන්න</string>
+  <string name="action_name_copy_all_text">සියල්ල පිටපත් කරන්න</string>
+  <string name="action_name_cut">කපන්න</string>
+  <string name="action_name_cut_all_text">සියල්ල කපන්න</string>
+  <string name="action_name_paste">අලවන්න</string>
+  <string name="action_name_undo">අස් කරන්න</string>
+  <string name="action_name_redo">යළි කරන්න</string>
+  <string name="action_group_name_delete">මකන්න ...</string>
+  <string name="action_name_delete">මකන්න %1$s</string>
+  <string name="action_name_delete_highlighted_text">උද්දීපනය කළ පෙළ මකන්න</string>
+  <string name="option_scanning_menu_button">මෙනුව</string>
+  <string name="option_scanning_menu_button_content_description">ප්‍රවේශය මාරු කිරීමේ මෙනුව</string>
+  <string name="switch_access_global_menu">ස්විච් ප්‍රවේශ්‍යතා ගෝලීය මෙනුව</string>
+  <string name="switch_access_actions_menu">ස්විච් ප්‍රවේශ්‍යතා ක්‍රියා මෙනුව</string>
+  <string name="switch_access_close_menu">වසන්න</string>
+  <string name="switch_access_back_menu">ආපසු</string>
+  <string name="next_arrow_content_description">ඊළඟ</string>
+  <string name="previous_arrow_content_description">පෙර</string>
+  <string name="global_action_back">ආපසු</string>
+  <string name="global_action_key_summary_back">මෙම ස්විචය එබීමෙන් පෙර තිරය වෙත ගොස් හෝ යතුරු පුවරුව දර්ශනය වේ නම් එය සඟවයි.</string>
+  <string name="global_action_home">මුල් පිටුව</string>
+  <string name="global_action_key_summary_home">මෙම ස්විචය මඟින් මුල් තිරය වෙතට යනු ඇත.</string>
+  <string name="global_action_overview">දළ විශ්ලේෂණය</string>
+  <string name="global_action_key_summary_overview">මෙම ස්විචය මඟින් මෑතකදී විවෘත කළ යෙදුම් ලැයිස්තුවක් පෙන්වනු ඇත.</string>
+  <string name="global_action_notifications">දැනුම්දීම්</string>
+  <string name="global_action_key_summary_notifications">මෙම ස්විචය මඟින් ඔබගේ උපාංගයේ දැනුම්දීම් පෙන්වනු ඇත.</string>
+  <string name="global_action_quick_settings">ක්ෂණික සැකසීම්</string>
+  <string name="global_action_key_summary_quick_settings">මෙම ස්විචය මඟින් ඔබගේ උපාංගයේ ඉක්මන් සැකසීම් පෙන්වනු ඇත.</string>
+  <string name="global_action_power_options">බල විකල්ප</string>
+  <string name="global_menu_volume_heading">ශබ්දය</string>
+  <string name="volume_menu_media">මාධ්‍ය හඬ පරිමාව</string>
+  <string name="volume_menu_call">ඇමතුම් ශබ්දය ත්‍රීවතාවය</string>
+  <string name="volume_menu_ring">නාද ශබ්දය</string>
+  <string name="volume_menu_alarm">සීනුවේ ශබ්දය</string>
+  <string name="volume_menu_accessibility">ප්‍රවේශ්‍යතා හඬ පරිමාව</string>
+  <string name="volume_menu_mute">නිහඬ</string>
+  <string name="volume_menu_unmute">නිහඬ නොකරන්න</string>
+  <string name="volume_menu_increase">වැඩි කිරීම</string>
+  <string name="volume_settings">හඬ පරිමා සැකසීම්</string>
+  <string name="volume_menu_decrease">අඩු කිරීම</string>
+  <string name="scrollable_forward">ඉදිරියට අනුචලනය කරන්න</string>
+  <string name="scrollable_backward">පසුපසට අනුචලනය කරන්න</string>
+  <string name="point_scan">ලක්ෂ්‍ය ස්කෑන් කිරීම</string>
+  <string name="box_scan">පිටවීම් ලක්ෂ්‍ය ස්කෑන්</string>
+  <string name="action_name_swipe_right">දකුණට ස්වයිප් කරන්න</string>
+  <string name="action_name_swipe_left">වමට ස්වයිප් කරන්න</string>
+  <string name="action_name_swipe_up">ඉහළට ස්වයිප් කරන්න</string>
+  <string name="action_name_swipe_down">පහළට ස්වයිප් කරන්න</string>
+  <string name="action_name_swipe_custom">ස්වයිප් කරන්න (අභිරුචි)</string>
+  <string name="action_name_zoom_out">විශාලනය අඩු කරන්න</string>
+  <string name="action_name_zoom_in">විශාලනය කරන්න</string>
+  <string name="switch_access_preferences_title">ස්විච ප්‍රවේශ සැකසීම්</string>
+  <string name="key_combo_preference_instructions">එය ලැයිස්තුවට එක් කිරීමට හෝ එයින් ඉවත් කිරීමට ස්විච සංයෝජනයක් ඔබන්න</string>
+  <string name="key_combo_preference_reset_button">ස්විච පැවරීම හිස් කරන්න</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">ස්විච පවරා නැත</string>
+  <string name="more">තව</string>
+  <string name="name_of_space_bar">ඉඩ යතුර</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">පටිත්ත</string>
+  <string name="save">සුරකින්න</string>
+  <string name="title_pref_category_display_and_sound">සංදර්ශනය සහ ශබ්දය</string>
+  <string name="title_pref_highlight_0">ස්කෑන් කිරීම් උද්දීපන විලාසය</string>
+  <string name="title_pref_primary_scan_style">ප්‍රාථමික පරිලෝකන විලාසය</string>
+  <string name="title_pref_highlight_0_color">උද්දීපන වර්ණය</string>
+  <string name="title_pref_highlight_0_weight">උද්දීපන පේළි විලාසය</string>
+  <string name="title_pref_privacy_policy">රහස්‍යතා ප්‍රතිපත්තිය</string>
+  <string name="title_pref_auto_select">ස්වයං-තේරීම</string>
+  <string name="summary_pref_auto_select">උද්දීපනය කළ අයිතමය ස්වයංක්‍රියව තෝරාගන්න. අයිතමය තෝරා ගැනීමට නොහැකි නම්, හෝ මෙම සැකසීම අක්‍රිය නම්, ඔබට ලබාගත හැකි ක්‍රියා වල මෙනුවක් දැකගත හැක.</string>
+  <string name="switch_access_global_menu_enable_autoselect">ස්වයං-තේරීම සබල කරන්න</string>
+  <string name="switch_access_global_menu_disable_autoselect">ස්වයං-තේරීම අබල කරන්න</string>
+  <string name="switch_access_move_next">ඊළඟ ...</string>
+  <string name="switch_access_move_next_character">ඊළඟ අනුලකුණ</string>
+  <string name="switch_access_move_next_word">ඊළඟ වචනය</string>
+  <string name="switch_access_move_next_line">ඊළඟ පේළිය</string>
+  <string name="switch_access_move_next_paragraph">ඊළඟ ඡේදය</string>
+  <string name="switch_access_move_next_page">ඊළඟ පිටුව</string>
+  <string name="switch_access_move_next_sentence">ඊළඟ වාක්‍යය</string>
+  <string name="switch_access_move_prev">පෙර ...</string>
+  <string name="switch_access_move_prev_character">පෙර අනුලකුණ</string>
+  <string name="switch_access_move_prev_word">පෙර වචනය</string>
+  <string name="switch_access_move_prev_line">පෙර පේළිය</string>
+  <string name="switch_access_move_prev_paragraph">පෙර ඡේදය</string>
+  <string name="switch_access_move_prev_page">පෙර පිටුව</string>
+  <string name="switch_access_move_prev_sentence">පෙර වාක්‍යය</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">ස්කෑන් කිරීම ස්වයංක්‍රියව ආරම්භ වේ</string>
+  <string name="switch_access_auto_start_scan_summary">මාරු කිරීම එබීමෙන් තොරව ස්කෑන් කිරීම ආරම්භ වේ</string>
+  <string name="pref_begin_switchaccess_setup_title">ස්ථාපන මාර්ගෝපදේශය විවෘත කරන්න</string>
+  <string name="setup_wizard_heading">ප්‍රවේශ මාරුව සැකසීමේ මාර්ගෝපදේශය</string>
+  <string name="one_switch">එක් ස්විචයක්</string>
+  <string name="two_switches">ස්විච දෙකක්</string>
+  <string name="finish">අවසන් කරන්න</string>
+  <string name="exit">පිටවන්න</string>
+  <string name="intro_heading">ස්විචය තෝරන්න</string>
+  <string name="usb_switch_option_text">USB ස්විචය</string>
+  <string name="bluetooth_switch_option_text">බ්ලූටූත් ස්විච්</string>
+  <string name="usb_switch_description_text">USB හරහා ස්විචයක් භෞතිකව සම්බන්ධ කරන්න</string>
+  <string name="bluetooth_switch_description_text">බ්ලූටූත් හරහා රැහැන් රහිතව ස්විචයක් යුගල කරන්න</string>
+  <string name="bluetooth_unsupported_description_text">ඔබගේ උපාංගය බ්ලූටූත් වෙත සහාය නොදක්වයි. ඒ වෙනුවට භෞතික ස්විචයක් භාවිතා කරන්න.</string>
+  <string name="connected_usb_devices_header">සම්බන්ධ කළ උපාංග</string>
+  <string name="usb_no_devices_connected_message">USB උපාංග කිසිවක් නොමැත. ඔබගේ උපාංගය ආරක්ෂිතව සම්බන්ධ වී ඇති බවට වග බලා ගන්න.</string>
+  <string name="connect_usb_heading">USB ස්විචය සම්බන්ධ කරන්න</string>
+  <string name="pair_bluetooth_heading">බ්ලූටූත් ස්විචය යුගල කරන්න</string>
+  <string name="pair_bluetooth_subheading">ඔබේ බ්ලූටූත් ස්විච් පහතින් තට්ටු කරන්න</string>
+  <string name="bluetooth_not_enabled_message">බ්ලූටූත් ස්විචයක් යුගල කිරීම සඳහා බ්ලූටූත් ස්පර්ශ කරන්න</string>
+  <string name="enable_bluetooth_button_title">බ්ලූටූත් ක්‍රියාත්මක කරන්න</string>
+  <string name="bluetooth_no_devices_paired">බ්ලූටූත් උපාංග කිසිවක් යුගල කරේ නොමැත</string>
+  <string name="paired_devices_header">යුගල කළ බ්ලූටූත් උපාංග</string>
+  <string name="available_devices_header">තිබෙන බ්ලූටූත් උපාංග</string>
+  <string name="bluetooth_computer_content_description">පරිගණකය</string>
+  <string name="bluetooth_phone_content_description">දුරකථනය</string>
+  <string name="bluetooth_imaging_content_description">නිරූපණය</string>
+  <string name="bluetooth_headphone_content_description">හෙඩ්ෆෝන්</string>
+  <string name="bluetooth_peripheral_content_description">පර්යන්තය</string>
+  <string name="bluetooth_default_content_description">බ්ලූටූත්</string>
+  <string name="bluetooth_connecting_description">සබැඳෙමින්...</string>
+  <string name="bluetooth_connected_description">සම්බන්ධයි</string>
+  <string name="bluetooth_device_unavailable_description">උපාංගය නොතිබේ</string>
+  <string name="reconnecting_unsupported_title">උපාංගය වෙත සම්බන්ධ විය නොහැකිය</string>
+  <string name="reconnecting_unsupported_message">ස්විච් ප්‍රවේශ්‍යතා වෙත ඔබගේ කලින් යුගල කළ උපාංගය වෙත සම්බන්ධ වීමට නොහැකි විය. ඔබගේ උපාංගය ක්‍රියාත්මක බව සහ සම්බන්ධිත බව තහවුරු කරගන්න.\n\nඔබගේ උපාංගය තවමත් සම්බන්ධ නොවේ නම්, බ්ලූටූත් සැකසීම් වෙත ගොස් නැවත සම්බන්ධ වීමට උත්සාහ කරන්න.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">බ්ලූටූත් සැකසීම් වෙත යන්න</string>
+  <string name="number_of_switches_heading">ස්විච සංඛ්‍යාව තෝරන්න</string>
+  <string name="title_assign_scan_key">%1$s පැවරීමේ ස්විචය</string>
+  <string name="one_switch_description_text">අයිතම අතර ස්වයංක්‍රියව ගෙන යාමට ස්විචය ඔබන්න. උද්දීපනය කළ අයිතමය තේරීමට නැවත ඔබන්න.</string>
+  <string name="two_switches_description_text">අයිතම අතර ස්වයංක්‍රියව ගෙන යාමට එක් ස්විචයක් ඔබන්න. උද්දීපනය කළ අයිතමය තේරීමට අනෙක් ස්විචය ඔබන්න.</string>
+  <string name="step_speed_heading">ස්කෑන් කිරීමේ වේගය තෝරන්න</string>
+  <string name="step_speed_subheading">එක් එක් අයිතමය තුළ උද්දීපනය පවතින කාලය තෝරන්න</string>
+  <string name="fast_radio_button_title">ඉක්මන් (%1$sක ප්‍රමාදය)</string>
+  <string name="medium_radio_button_title">මධ්‍යම (%1$sක ප්‍රමාදය)</string>
+  <string name="slow_radio_button_title">මන්දගාමී (%1$sක ප්‍රමාදය)</string>
+  <string name="custom_switch">අභිරුචි</string>
+  <string name="custom_edit_text">ප්‍රමාදය (තත්පර)</string>
+  <string name="setup_toast_msg_key_already_assigned">\'%1$s\' යතුර දැනටමත් වෙනත් ක්‍රියාවකට පවරා ඇත</string>
+  <string name="row_column_scanning_title">පේළි/තීරු ස්කෑන් කිරීම</string>
+  <string name="option_scanning_title">සමූහ තේරීම (උසස්)</string>
+  <string name="linear_scanning_title">රේඛීය ස්කෑන් කිරීම</string>
+  <string name="linear_scanning_except_keyboard_title">රේඛීය පරිලෝකනය (යතුරු පුවරුව හැර)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">කථනය, ශබ්දය සහ කම්පනය</string>
+  <string name="title_pref_switch_access_spoken_feedback">කථන ප්‍රතිපෝෂණ</string>
+  <string name="title_pref_scan_non_actionable_items">විස්තරාත්මක පෙළ කියවන්න</string>
+  <string name="scan_non_actionable_items_summary">ක්‍රියා ඇති සහ විස්තරාත්මක පෙළ ඇති අයිතම සඳහා කියවූ ප්‍රතිපෝෂණය ශ්‍රවනය කරන්න</string>
+  <string name="title_pref_switch_access_verbosity">Verbosity</string>
+  <string name="summary_verbosity">කොතරම් තොරතුරු කථනය වන බව තෝරන්න</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Verbosity විස්තර</string>
+  <string name="title_pref_switch_access_keyboard_echo">යතුරුපුවරු දෝංකාරය</string>
+  <string name="keyboard_echo_summary_on">තිරය මත ඇති යතුරු පුවරුව සඳහා ටයිප් යතුරු කියවන්න</string>
+  <string name="keyboard_echo_summary_off">තිරය මත ඇති යතුරු පුවරුව සඳහා ටයිප් යතුරු කියවන්න එපා</string>
+  <string name="title_pref_enable_hints">භාවිත ඉඟි කථා කරන්න</string>
+  <string name="enable_hints_summary_on">කෙටි පමාවකින් පසුව සංචාලනය අතරතුර භාවිත ඉඟි කථනය කරයි</string>
+  <string name="enable_hints_summary_off">ප්‍රවේශ්‍යතා නාභිගත කිරීම අතරතුර භාවිත ඉඟි කථනය කරයි</string>
+  <string name="title_pref_speak_container_element_position">කථන ලැයිස්තුව සහ ජාලක තොරතුරු</string>
+  <string name="speak_container_element_position_summary_on">ලැයිස්තු සහ ජාලක තොරතුරු කථනය කරයි</string>
+  <string name="speak_container_element_position_summary_off">ලැයිස්තු සහ ජාලක තොරතුරු කථනය නොකරයි</string>
+  <string name="title_pref_speak_element_type">කථන මූලාංග වර්ගය</string>
+  <string name="speak_element_type_summary_on">නාභිගත අයිතම සඳහා මූලාංග වර්ගය කථනය කරයි</string>
+  <string name="speak_element_type_summary_off">නාභිගත අයිතම සඳහා මූලාංග වර්ගය කථනය නොකරයි</string>
+  <string name="title_pref_pitch_change_for_ime">තාරතා වෙනස්වීම් භාවිතා කරන්න</string>
+  <string name="pitch_change_for_ime_summary_on">අඩු-තාරතා හඬක් තුළ යතුරුපුවරු ප්‍රතිපෝෂණ කථා කරන්න</string>
+  <string name="pitch_change_for_ime_summary_off">කථා කරන විට හඬ ප්‍රතිපෝෂණය වෙනස් නොකරන්න</string>
+  <string name="title_pref_speak_selected_item_or_group">තෝරාගත් අයිතමය හෝ කණ්ඩායම කියවන්න</string>
+  <string name="speak_selected_item_or_group_summary">තෝරාගත් පසු අයිතමයේ හෝ කණ්ඩායම් නම කියන්න</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">අයිතමයක් සඳහා උපරිම කථන කාලය</string>
+  <string name="dialog_message_pref_maximum_time_per_item">එක් එක් අයිතමයේ කථා විස්තරය සඳහා උපරිම කාලය සකසන්න. නියමිත වේලාවට පසුව කථාව නැවත්වේ. \nසටහන: සක්‍රිය කර ඇත්නම් ඉඟි සෑම විටම කථා කරනු ලැබේ.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">විවිධ</string>
+  <string name="title_pref_node_description_order">මූලාංග විස්තර අනුපිළිවෙළ</string>
+  <string name="title_pref_switch_access_speak_element_ids">කථන මූලාංග ID</string>
+  <string name="speak_element_ids_summary_on">ලේබල් නොකළ බොත්තම් සඳහා මූලාංග ID කථනය කෙරේ</string>
+  <string name="speak_element_ids_summary_off">ලේබල් නොකළ බොත්තම් සඳහා මූලාංග ID කථනය නොකෙරේ</string>
+  <string name="title_pref_switch_access_tts_settings">TTS සැකසීම්</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">අයිතම කිහිපයක් උද්දීපනය කර ඇති විට</string>
+  <string name="title_pref_switch_access_speak_first_last_item">පළමු හා අවසාන අයිතම කතා කරන්න</string>
+  <string name="title_pref_switch_access_speak_number_of_items">අයිතම ගණන කථනය</string>
+  <string name="title_pref_switch_access_speak_all_items">සියලු උද්දීපනය කළ අයිතම කථනය</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">ගෙන යාමට පෙර කථාව අවසන් කරන්න</string>
+  <string name="title_pref_spoken_feedback_other_feedback">වෙනත් ප්‍රතිපෝෂණ</string>
+  <string name="title_pref_developer_settings">සංවර්ධක සැකසීම්</string>
+  <string name="title_pref_spoken_feedback_overlay">කථන ප්‍රතිදාන සංදර්ශනය කරන්න</string>
+  <string name="title_pref_switch_access_vibration_feedback">කම්පන ප්‍රතිපෝෂණ</string>
+  <string name="vibration_feedback_summary">යම් දෙයක් වෙනස් වී ඇති බව පෙන්වීමට කම්පනය කරන්න (උදා. තිරයේ අන්තර්ගතය වෙනස් වී ඇත)</string>
+  <string name="title_pref_switch_access_sound_feedback">හඬ ප්‍රතිපෝෂණ</string>
+  <string name="sound_feedback_summary">යම් දෙයක් වෙනස් වී ඇති බව පෙන්වීමට කෙටි ශබ්දයක් කරන්න (උදා. තිරයේ අන්තර්ගතය වෙනස් වී ඇත)</string>
+  <string name="title_pref_switch_access_sound_volume">ශබ්ද තීව්‍රතාවය</string>
+  <string name="title_pref_switch_access_audio_ducking">ශ්‍රව්‍ය මැඩපැවැත්වීම</string>
+  <string name="audio_ducking_summary">කථා කරන අතරතුර වෙනත් ශ්‍රව්‍ය හඬ තීව්‍රතා අඩු කරන්න</string>
+  <string name="switch_access_focus_cleared_no_selection">තිරය ​​වෙනස් විය</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">පේළිය තේරීමට තෝරාගැනීමේ ස්විචය ඔබන්න</string>
+  <string name="switch_access_spoken_feedback_group">%1$s සමූහය</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">කණ්ඩායම තේරීමට කණ්ඩායම් %1$s ස්විචය ඔබන්න</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">අයිතමය තේරීමට කණ්ඩායම් %1$s ස්විචය ඔබන්න</string>
+  <string name="switch_access_spoken_feedback_to">%1$s සිට %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s අයිතම</string>
+  <string name="switch_access_spoken_feedback_group_selected">කණ්ඩායම් %1$s තෝරාගන්නා ලදි</string>
+  <string name="switch_access_spoken_feedback_row_selected">පේළිය තෝරන ලදී</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s තෝරන ලදී</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">අනුචලනය කළ හැකි</string>
+  <string name="switch_access_spoken_feedback_scroll">අනුචලනය කිරීමට තෝරන්න</string>
+  <string name="switch_access_spoken_feedback_unknown">නොදන්නා අයිතමය</string>
+  <string name="scanning_method_heading">ස්කෑන් කරන ආකාරය තෝරන්න</string>
+  <string name="row_column_scanning_description">වරකට එක් පේළියක් ස්කෑන් කරන්න. පේළිය තෝරා ගත් පසුව, එම ලැයිස්තුවේ අයිතම හරහා ගෙන යන්න.</string>
+  <string name="linear_scanning_description">වරකට අයිතම එකක් අතර ගෙන යන්න</string>
+  <string name="linear_scanning_except_keyboard_description">වරකට අයිතම එකක් අතර ගෙන යන්න. යතුරු පුවරු පේළිය අනුව ස්කෑන් කරන බව සටහන් කර ගන්න.</string>
+  <string name="option_scanning_description">සියලු අයිතමවලට වර්ණ පවරනු ලැබේ. ඔබට අවශ්‍ය අයිතමය වටා ඇති වර්ණයට අනුරූප ස්විචය ඔබන්න. ඔබ ඔබේ තේරීමට ළඟා වන තෙක් සමූහයේ තරම අඩු කරන්න.</string>
+  <string name="setup_switch_assignment_heading">%s වෙත පවරන ලද ස්විච</string>
+  <string name="setup_switch_assignment_empty">කිසිවක් නැත</string>
+  <string name="clear_keys_dialog_title">පවරන ලද ස්විච ඉවත් කරන්නද?</string>
+  <string name="clear_keys_dialog_message">ඔබ මේ වන විටත් ස්විච පවරා ඇත.</string>
+  <string name="clear_keys_dialog_positive_button">ස්විච හිස් කරන්න</string>
+  <string name="clear_keys_dialog_negative_button">ස්විච තබා ගන්න</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">ස්විච පවරා නැත</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">මෙම ක්‍රියාවට ස්විච පවරා නැත. ඔබට දිගටම කරගෙන යාමට අවශ්‍ය බව සහතිකද?</string>
+  <string name="option_scan_switch_title">%1$s සමූහය</string>
+  <string name="option_scan_switch_subtitle">ස්විචයක් %1$s සමූහය තේරීමට පැවරීමට එය ඔබන්න.</string>
+  <string name="assign_switch_subtitle">ස්විචයක් \"%1$s\" ක්‍රියාව වෙත පැවරීමට එය ඔබන්න.</string>
+  <string name="auto_scan_action_description">ස්කෑන් කිරීම සහ තේරීම අරඹන්න</string>
+  <string name="switch_game_heading">ටික්-ටැක්-ටෝ සමග ඔබගේ පිහිටුවීම පරීක්ෂා කරන්න</string>
+  <string name="switch_game_one_switch_linear_subheading">ස්කෑන් කිරීම ආරම්භ කිරීමට \"%1$s\" ඔබන්න. උද්දීපනය කළ අයිතමය තේරීමට ස්විචය නැවත ඔබන්න. ඔබ පළමුව යයි!</string>
+  <string name="switch_game_one_switch_row_col_subheading">ස්කෑන් කිරීම ආරම්භ කිරීමට \"%1$s\" ඔබන්න. උද්දීපනය කළ පේළිය තේරීමට ස්විචය නැවත ඔබන්න. උද්දීපනය කළ අයිතමය තේරීමට තවත් එක් වරක් ඔබන්න. ඔබ පළමුව යයි!</string>
+  <string name="switch_game_two_switch_linear_subheading">අයිතම අතර ගෙන යාමට \"%1$s\" ඔබන්න. උද්දීපනය කළ අයිතමය තේරීමට \"%2$s\" ඔබන්න. ඔබ පළමුව යයි!</string>
+  <string name="switch_game_two_switch_row_col_subheading">පේළි අතර ගෙන යාමට \"%1$s\" ඔබන්න. උද්දීපනය කළ පේළිය තේරීමට \"%2$s\" ඔබන්න. එම පේළියෙහි ඇති අයිතමයක් තේරීමට පුනරාවර්තනය කරන්න. ඔබ පළමුව යයි!</string>
+  <string name="switch_game_two_switch_option_scan_subheading">%2$s තුළ උද්දීපනය කර ඇති අයිතම තේරීමට \"%1$s\" ඔබන්න නැතහොත් %3$s තුළ උද්දීපනය කර ඇති අයිතම තේරීමට \"%4$s\" ඔබන්න. ඔබේ අයිතමයට ළඟා වීමට පුනරාවර්තනය කරන්න. ඔබ පළමුව යයි!</string>
+  <string name="switch_game_incomplete_switches_subheading">ඔබ තවම සියලු ක්‍රියා සඳහා ස්විච පවරා නැත. ආපසු ගොස් ස්විච පැවරීම අවසන් කිරීමට පෙර බොත්තම භාවිත කරන්න.</string>
+  <string name="game_square_content_description">%1$s ස්ථානය %2$s, %3$s හිදී</string>
+  <string name="game_square_no_marker_content_description">හිස්</string>
+  <string name="game_reset_button_title">ක්‍රීඩාව යළි සකසන්න</string>
+  <string name="game_square_already_taken">මෙම සමචතුරස්‍රය දැනටමත් ගෙන ඇත. නැවත උත්සාහ කරන්න!</string>
+  <string name="game_win_outcome_title">ඔබ දිනුම්!</string>
+  <string name="game_loss_outcome_title">ඊළඟ අවස්ථාව වඩාත් යහපත් වෙයි</string>
+  <string name="game_tie_outcome_title">එය සම වීමකි</string>
+  <string name="game_outcome_body_text">ඔබට ඔබේ වත්මන් පිහිටුවීම තබා ගැනීමට, හෝ යළි මුල සිට ඇරඹීමට හැකිය.</string>
+  <string name="game_outcome_positive_response">පිහිටුවීම තබා ගන්න</string>
+  <string name="game_outcome_negative_response">යළි මුල සිට අරඹන්න</string>
+  <string name="setup_completion_heading">පිහිටුවීම නිමයි</string>
+  <string name="setup_completion_message">ඔබ සියල්ල සකසා ඇත.</string>
+  <string name="setup_completion_settings_reminder">ඔබට අමතර සැකසිම් සැම විටම වෙනස් කිරීමට හෝ ස්විච ප්‍රවේශ සැකසීම් වෙතින් පිහිටුවීම් විශාරද නැවත විවෘත කිරීමට හැකිය.</string>
+  <string name="dialog_url_list">සබැඳියක් තෝරන්න</string>
+  <string name="dialog_do_not_disturb_permission_title">හඬ පරිමාව සීරුමාරු කිරීමට ස්විච ප්‍රවේශයට අවසරය අවශ්‍යයි</string>
+  <string name="dialog_do_not_disturb_permission_message">ස්විච ප්‍රවේශය මෙනුවෙන් හඬ පරිමාව සීරුමාරු කිරීමට, Android Accessibility Suite සඳහා බාධා නොකරන්න ප්‍රවේශය ක්‍රියාත්මක කරන්න</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">සැකසීම් විවෘත කරන්න</string>
 </resources>

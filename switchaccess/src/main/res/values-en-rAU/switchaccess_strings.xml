@@ -1,166 +1,319 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="switch_service_name" msgid="6043415138576713888">"Switch Access"</string>
-    <string name="switch_access_service_description" msgid="1693761307544122846">"Switch Access lets people with motor impairments control phones and tablets using one or more switches. Use switches to select items, scroll, enter text and more."</string>
-    <string name="switch_access_service_summary" msgid="511558483506675413">"Control device with switches"</string>
-    <string name="title_pref_help_feedback" msgid="7578057484183597929">"Help &amp; feedback"</string>
-    <string name="title_pref_category_auto_scan" msgid="2804297157354831139">"Auto-scan"</string>
-    <string name="title_pref_auto_scan_time_delay" msgid="7396126388313295285">"Auto-scan time"</string>
-    <string name="action_name_reverse_auto_scan" msgid="594190180778150556">"Reverse auto-scan"</string>
-    <plurals name="time_delay_summary_format" formatted="false" msgid="1547594125443053861">
-      <item quantity="other">%.2f seconds</item>
-      <item quantity="one">1 second</item>
-    </plurals>
-    <string name="title_pref_category_customize_scanning" msgid="3720500789365662390">"Customise scanning"</string>
-    <string name="title_pref_scanning_methods" msgid="2351427385843210311">"Scanning method"</string>
-    <string name="title_pref_start_scan_delay" msgid="4499124015754449555">"Delay on first item"</string>
-    <string name="title_pref_category_assign_switches" msgid="3490339388703127656">"Assign switches"</string>
-    <string name="title_pref_category_key_mappings" msgid="8098151108961081123">"Assign switches to actions"</string>
-    <string name="title_pref_category_scan_key_mappings" msgid="3806651318315475342">"Assign switches for scanning"</string>
-    <string name="title_pref_point_scan_line_speed" msgid="4768287489610129508">"Line speed"</string>
-    <string name="title_pref_loop_count" msgid="1316399564521331896">"Number of scans"</string>
-    <string name="dialog_message_pref_loop_count" msgid="6568066146739373058">"Choose how many times scanning repeats"</string>
-    <string name="title_pref_debounce_time" msgid="5988993592285062152">"Debounce time"</string>
-    <string name="dialog_message_pref_debounce_time" msgid="6278189231957412707">"Multiple presses within this time will be treated as one press."</string>
-    <string name="title_pref_press_on_release" msgid="8649274861329930131">"Release to perform action"</string>
-    <string name="subtitle_pref_press_on_release" msgid="6734192435411497678">"Perform action when switch is released"</string>
-    <plurals name="label_num_scanning_loops_format" formatted="false" msgid="7765833299435824880">
-      <item quantity="other">%d loops</item>
-      <item quantity="one">%d loop</item>
-    </plurals>
-    <string name="toast_msg_key_already_assigned" msgid="3975863624129922505">"The switch \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' is already assigned to \'<xliff:g id="ACTION_NAME">%2$s</xliff:g>\'"</string>
-    <plurals name="label_num_keys_assigned_format" formatted="false" msgid="249514612391247195">
-      <item quantity="other">%d switches assigned</item>
-      <item quantity="one">%d switch assigned</item>
-    </plurals>
-    <string name="option_scan_switch_format" msgid="8844133706095072488">"Group selection switch %1$d"</string>
-    <string name="action_name_next" msgid="4106603510441280028">"Next"</string>
-    <string name="action_name_previous" msgid="5382750123072539005">"Previous"</string>
-    <string name="action_name_click" msgid="8073233516135659087">"Select"</string>
-    <string name="action_name_long_click" msgid="507348897448984075">"Long-press"</string>
-    <string name="action_name_scroll_forward" msgid="5990489542786386281">"Scroll forwards"</string>
-    <string name="action_name_scroll_backward" msgid="6239835753035218776">"Scroll backwards"</string>
-    <string name="action_name_dismiss" msgid="4275752158295125939">"Dismiss"</string>
-    <string name="action_name_expand" msgid="4182452732293293291">"Expand"</string>
-    <string name="action_name_collapse" msgid="1959042827233565196">"Collapse"</string>
-    <string name="action_name_highlight_text" msgid="8096784088626654308">"Highlight text"</string>
-    <string name="action_name_copy" msgid="1469288293927752463">"Copy"</string>
-    <string name="action_name_cut" msgid="2633106458640561312">"Cut"</string>
-    <string name="action_name_paste" msgid="2366867168882651765">"Paste"</string>
-    <string name="option_scanning_menu_button" msgid="4460266289722058928">"MENU"</string>
-    <string name="global_action_back" msgid="8326879739948707767">"Back"</string>
-    <string name="global_action_home" msgid="2498984784930393183">"Home"</string>
-    <string name="global_action_overview" msgid="51725242460849609">"Overview"</string>
-    <string name="global_action_notifications" msgid="7052190988699716765">"Notifications"</string>
-    <string name="global_action_quick_settings" msgid="425687562421432080">"Quick Settings"</string>
-    <string name="scrollable_forward" msgid="5333609138723112412">"Scroll forwards"</string>
-    <string name="scrollable_backward" msgid="1547280412911969785">"Scroll backwards"</string>
-    <string name="point_scan" msgid="4514216871544244788">"Point scan"</string>
-    <string name="box_scan" msgid="6675486192630209217">"Exit Point scan"</string>
-    <string name="action_name_swipe_right" msgid="84947854784166452">"Swipe right"</string>
-    <string name="action_name_swipe_left" msgid="2116931513199897536">"Swipe left"</string>
-    <string name="action_name_swipe_up" msgid="3425266339761806416">"Swipe up"</string>
-    <string name="action_name_swipe_down" msgid="7515296139126535594">"Swipe down"</string>
-    <string name="action_name_swipe_custom" msgid="2236821234202203852">"Swipe (customised)"</string>
-    <string name="action_name_zoom_out" msgid="3316693831389888087">"Zoom out"</string>
-    <string name="action_name_zoom_in" msgid="5775276854353646583">"Zoom in"</string>
-    <string name="switch_access_preferences_title" msgid="1007079535058481685">"Switch Access settings"</string>
-    <string name="key_combo_preference_instructions" msgid="1176283838876767082">"Press a switch combination to add or remove it from the list"</string>
-    <string name="key_combo_preference_reset_button" msgid="1906090046656282094">"Clear switch assignment"</string>
-    <string name="key_combo_preference_control_plus" msgid="3798670998031739354">"CTRL + "</string>
-    <string name="key_combo_preference_shift_plus" msgid="2809984878781105825">"SHIFT + "</string>
-    <string name="key_combo_preference_alt_plus" msgid="3635428232205897122">"ALT + "</string>
-    <string name="no_key_assigned" msgid="5178596179827004883">"No switches assigned"</string>
-    <string name="more" msgid="1547670498589416840">"More"</string>
-    <string name="name_of_space_bar" msgid="5083960909593906754">"Space"</string>
-    <string name="name_of_enter_key" msgid="6379785627490220649">"Enter"</string>
-    <string name="name_of_tab_key" msgid="6744983965001375397">"Tab"</string>
-    <string name="save" msgid="5398278773451196019">"Save"</string>
-    <string name="title_pref_highlight_0" msgid="6745845465683574401">"Scanning highlight style"</string>
-    <string name="title_pref_primary_scan_style" msgid="3250995506517482375">"Primary scan style"</string>
-    <string name="title_pref_highlight_0_color" msgid="2495577882313852825">"Highlight colour"</string>
-    <string name="title_pref_highlight_0_weight" msgid="7296464279890648714">"Highlight line style"</string>
-    <string name="title_pref_privacy_policy" msgid="2670044477401089956">"Privacy policy"</string>
-    <string name="switch_access_global_menu_enable_autoselect" msgid="3153800776588253789">"Enable auto-select"</string>
-    <string name="switch_access_global_menu_disable_autoselect" msgid="1327506466162317615">"Disable auto-select"</string>
-    <string name="switch_access_move_next_character" msgid="1084530527433232522">"Next character"</string>
-    <string name="switch_access_move_next_word" msgid="4364935355445273844">"Next word"</string>
-    <string name="switch_access_move_next_line" msgid="1957454942120077989">"Next line"</string>
-    <string name="switch_access_move_next_paragraph" msgid="2401188575204362710">"Next paragraph"</string>
-    <string name="switch_access_move_next_page" msgid="5509521398337232740">"Next page"</string>
-    <string name="switch_access_move_prev_character" msgid="8927445469710181053">"Previous character"</string>
-    <string name="switch_access_move_prev_word" msgid="8425765588178702402">"Previous word"</string>
-    <string name="switch_access_move_prev_line" msgid="4933911200239574311">"Previous line"</string>
-    <string name="switch_access_move_prev_paragraph" msgid="6628794063582527750">"Previous paragraph"</string>
-    <string name="switch_access_move_prev_page" msgid="2162166283498843093">"Previous page"</string>
-    <string name="switch_access_dup_bounds_format" msgid="2470480705014577440">"%1$s (%2$d)"</string>
-    <string name="switch_access_auto_start_scan_title" msgid="1112172023292555792">"Automatically start scanning"</string>
-    <string name="switch_access_auto_start_scan_summary" msgid="8907204357556153170">"Scan starts without pressing switch"</string>
-    <string name="pref_begin_switchaccess_setup_title" msgid="713671255734706714">"Open Switch Access setup"</string>
-    <string name="setup_wizard_heading" msgid="2640995318204651084">"Switch Access Setup Wizard"</string>
-    <string name="one_switch" msgid="5247899666787922810">"One switch"</string>
-    <string name="two_switches" msgid="3082487661638289356">"Two switches"</string>
-    <string name="finish" msgid="4267641294267512480">"Finish"</string>
-    <string name="exit" msgid="8664597014081860813">"Exit"</string>
-    <string name="number_of_switches_heading" msgid="9097335572062162453">"Choose number of switches"</string>
-    <string name="one_switch_description_text" msgid="8337586400996301441">"Press the switch to start moving between items automatically, then press again to select the highlighted item."</string>
-    <string name="two_switches_description_text" msgid="6038430601522329332">"Press one switch to move between items. Press the other switch to select the highlighted item."</string>
-    <string name="step_speed_heading" msgid="620309500918283098">"Choose scanning speed"</string>
-    <string name="step_speed_subheading" msgid="8122025065439433485">"Choose how long the highlight should stay on each item"</string>
-    <string name="fast_radio_button_title" msgid="5090487620278637200">"Fast (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>s delay)"</string>
-    <string name="medium_radio_button_title" msgid="5602244023822764391">"Medium (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>s delay)"</string>
-    <string name="slow_radio_button_title" msgid="2003939981098477091">"Slow (<xliff:g id="DELAY_SPEED">%1$s</xliff:g>s delay)"</string>
-    <string name="custom_switch" msgid="8943620506977879481">"Customised"</string>
-    <string name="custom_edit_text" msgid="2329599295768944159">"delay (seconds)"</string>
-    <string name="setup_toast_msg_key_already_assigned" msgid="8945986106893756497">"The key \'<xliff:g id="KEY_NAME">%1$s</xliff:g>\' is already assigned to another action"</string>
-    <string name="row_column_scanning_title" msgid="2048923141563186344">"Row-column scanning"</string>
-    <string name="option_scanning_title" msgid="8241421334981836868">"Group selection"</string>
-    <string name="linear_scanning_title" msgid="9112196836805334986">"Linear scanning"</string>
-    <string name="title_pref_switch_access_spoken_feedback" msgid="2537181211880068063">"Spoken feedback"</string>
-    <string name="title_pref_switch_access_tts_settings" msgid="334392547493769340">"TTS settings"</string>
-    <string name="title_pref_category_switch_access_spoken_feedback_multiple_items" msgid="7286979755473244022">"For multiple items"</string>
-    <string name="title_pref_switch_access_speak_first_last_item" msgid="2376465285071418235">"Speak first &amp; last item"</string>
-    <string name="title_pref_switch_access_speak_number_of_items" msgid="512745041507935908">"Speak the number of items"</string>
-    <string name="title_pref_switch_access_speak_all_items" msgid="3766917516605025174">"Speak all highlighted items"</string>
-    <string name="title_pref_switch_access_spoken_feedback_finish_speech" msgid="4878237483949201848">"Finish speech before moving"</string>
-    <string name="switch_access_spoken_feedback_group" msgid="6496839825195066403">"group <xliff:g id="ID_1">%1$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_to" msgid="2482284169135690171">"<xliff:g id="ID_1">%1$s</xliff:g> to <xliff:g id="ID_2">%2$s</xliff:g>"</string>
-    <string name="switch_access_spoken_feedback_items" msgid="676223894515358365">"<xliff:g id="ID_1">%1$s</xliff:g> items"</string>
-    <string name="switch_access_spoken_feedback_scroll" msgid="626711109758352988">"select to scroll"</string>
-    <string name="switch_access_spoken_feedback_unknown" msgid="2796703480931400312">"unknown item"</string>
-    <string name="scanning_method_heading" msgid="7171323017672239328">"Choose how to scan"</string>
-    <string name="row_column_scanning_description" msgid="492223045735324390">"Scan one row at a time. After row is selected, move through items in that list."</string>
-    <string name="linear_scanning_description" msgid="105487938131581860">"Move between items one at a time. Note that keyboards will always scan by row."</string>
-    <string name="option_scanning_description" msgid="5840199645756828133">"All items will be assigned a colour. Press the switch corresponding to the colour around the item that you want. Narrow down the size of the group until you reach your choice."</string>
-    <string name="setup_switch_assignment_heading" msgid="3547873684143644842">"Switches assigned to <xliff:g id="ACTION_NAME">%s</xliff:g>"</string>
-    <string name="setup_switch_assignment_empty" msgid="7629399280985556503">"None"</string>
-    <string name="clear_keys_dialog_title" msgid="8200509321097568345">"Clear assigned switches?"</string>
-    <string name="clear_keys_dialog_message" msgid="4383272612040770487">"You\'ve already assigned switches."</string>
-    <string name="clear_keys_dialog_positive_button" msgid="2608710414388334862">"Clear switches"</string>
-    <string name="clear_keys_dialog_negative_button" msgid="7566857932268074330">"Keep switches"</string>
-    <string name="setup_switch_assignment_nothing_assigned_title" msgid="3352526937417583602">"No switches assigned"</string>
-    <string name="setup_switch_assignment_nothing_assigned_message" msgid="8220956538422974265">"No switches are assigned to this action. Are you sure that you want to continue?"</string>
-    <string name="option_scan_switch_title" msgid="2299019033642092563">"<xliff:g id="OPTION_COLOR">%1$s</xliff:g> group"</string>
-    <string name="option_scan_switch_subtitle" msgid="8451516252374994001">"Press a switch to assign it to select the <xliff:g id="OPTION_COLOR">%1$s</xliff:g> group."</string>
-    <string name="assign_switch_subtitle" msgid="7971522687129745500">"Press a switch to assign it to the \"<xliff:g id="ACTION_NAME">%1$s</xliff:g>\" action."</string>
-    <string name="auto_scan_action_description" msgid="6111936327364342765">"Start scan and select"</string>
-    <string name="switch_game_heading" msgid="3375148646195038737">"Test your setup with Tic-Tac-Toe"</string>
-    <string name="switch_game_one_switch_linear_subheading" msgid="7400677924365670815">"Press \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" to start scanning. Press the switch again to select the highlighted item. You go first!"</string>
-    <string name="switch_game_one_switch_row_col_subheading" msgid="787818214267146681">"Press \"<xliff:g id="SWITCH_NAME">%1$s</xliff:g>\" to start scanning. Press the switch again to select the highlighted row. Press once more to select the highlighted item. You go first!"</string>
-    <string name="switch_game_two_switch_linear_subheading" msgid="7782229134994392497">"Press \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" to move between items. Press \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" to select the highlighted item. You go first!"</string>
-    <string name="switch_game_two_switch_row_col_subheading" msgid="5727048309412520">"Press \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" to move between rows. Press \"<xliff:g id="SWITCH_NAME_1">%2$s</xliff:g>\" to select the highlighted row. Repeat to choose an item in that row. You go first!"</string>
-    <string name="switch_game_two_switch_option_scan_subheading" msgid="2239902680570435797">"Press \"<xliff:g id="SWITCH_NAME_0">%1$s</xliff:g>\" to select items highlighted in <xliff:g id="COLOR_NAME_1">%2$s</xliff:g> or press \"<xliff:g id="SWITCH_NAME_2">%4$s</xliff:g>\" to select items highlighted in <xliff:g id="COLOR_NAME_3">%3$s</xliff:g>. Repeat to reach your item. You go first!"</string>
-    <string name="switch_game_incomplete_switches_subheading" msgid="1317705031317390866">"You don\'t have switches assigned for all actions yet. Use the Previous button to go back and finish assigning switches."</string>
-    <string name="game_reset_button_title" msgid="1631443186692518797">"Reset game"</string>
-    <string name="game_square_already_taken" msgid="7092123933555305454">"This square is already taken. Try again!"</string>
-    <string name="game_win_outcome_title" msgid="1120991403765987810">"You won!"</string>
-    <string name="game_loss_outcome_title" msgid="2902309887278600085">"Better luck next time"</string>
-    <string name="game_tie_outcome_title" msgid="57373187590627529">"It\'s a tie"</string>
-    <string name="game_outcome_body_text" msgid="5780515852317652387">"You can keep your current setup, or start again."</string>
-    <string name="game_outcome_positive_response" msgid="1316086155472332895">"Keep setup"</string>
-    <string name="game_outcome_negative_response" msgid="1455435648544423521">"Start again"</string>
-    <string name="setup_completion_heading" msgid="5480299555935791749">"Setup finished"</string>
-    <string name="setup_completion_message" msgid="8730406671578811674">"You\'re all ready."</string>
-    <string name="setup_completion_settings_reminder" msgid="8093595040054130980">"You can always change additional settings or open the setup wizard again from Switch Access settings."</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="switch_service_name">Switch Access</string>
+  <string name="switch_access_service_description">Switch Access lets people with motor impairments control phones and tablets using one or more switches. Use switches to select items, scroll, enter text and more.</string>
+  <string name="switch_access_service_summary">Control device with switches</string>
+  <string name="title_pref_help_feedback">Help &amp; feedback</string>
+  <string name="title_pref_licenses">Open-source licences</string>
+  <string name="title_pref_category_auto_scan">Auto-scan</string>
+  <string name="title_pref_auto_scan_disabled">Auto-scan (disabled)</string>
+  <string name="action_key_summary_auto_scan">Pressing this switch will automatically start moving the highlight between items. Pressing again will select the highlighted item.</string>
+  <string name="title_pref_auto_scan_time_delay">Auto-scan time</string>
+  <string name="action_name_reverse_auto_scan">Reverse auto-scan</string>
+  <string name="title_pref_reverse_auto_scan_disabled">Reverse auto-scan (disabled)</string>
+  <string name="action_key_summary_reverse_auto_scan">Pressing this switch will automatically start moving the highlight between items in reverse. Pressing again will select the highlighted item.</string>
+  <plurals name="time_delay_summary_format">
+    <item quantity="one">1 second</item>
+    <item quantity="other">%.2f Seconds</item>
+  </plurals>
+  <string name="title_pref_category_customize_scanning">Customise scanning</string>
+  <string name="title_pref_scanning_methods">Scanning method</string>
+  <string name="title_pref_start_scan_delay">Delay on first item</string>
+  <string name="dialog_message_pref_start_scan_delay_auto_scan">Choose the extra time that is spent on the first item. This time is added to the auto-scan time.\n\nThis setting affects both auto-scan and point scan.</string>
+  <string name="dialog_message_pref_start_scan_delay_point_scan">Choose the extra time that is spent on the first item. After this time, the vertical or horizontal line will begin to move.\n\nThis setting affects both auto-scan and point scan.</string>
+  <string name="title_pref_category_assign_switches">Assign switches</string>
+  <string name="title_pref_category_key_mappings">Assign switches to global actions</string>
+  <string name="summary_pref_category_key_mappings">Global actions can be performed at any time</string>
+  <string name="title_pref_category_scan_key_mappings">Assign switches for scanning</string>
+  <string name="summary_pref_category_scan_key_mappings">Scanning lets you move highlight and select highlighted items</string>
+  <string name="title_pref_category_key_mappings_movement_and_selection">Movement &amp; selection</string>
+  <string name="title_pref_category_key_mappings_highlighted_item_actions">Actions on highlighted item</string>
+  <string name="title_pref_point_scan_line_speed">Line speed</string>
+  <string name="dialog_message_pref_line_speed">Choose how fast the horizontal and vertical lines move across the screen.</string>
+  <plurals name="line_speed_summary_format">
+    <item quantity="one">1 cm per second</item>
+    <item quantity="other">%.2f cm per second</item>
+  </plurals>
+  <string name="title_pref_loop_count">Number of scans</string>
+  <string name="dialog_message_pref_loop_count">Choose how many times scanning repeats.\n\nThis setting affects both auto-scan and point scan.</string>
+  <string name="summary_pref_point_scan">Use moving lines to select a specific horizontal and vertical location. %1$s</string>
+  <string name="point_scan_enable_animations_message">Turn on animations to use this feature.</string>
+  <string name="title_pref_category_switch_accomodation">Switch accommodation</string>
+  <string name="title_pref_debounce_time">Ignore repeated presses</string>
+  <string name="dialog_message_pref_debounce_time">Multiple switch presses within this time will be treated as one press.</string>
+  <string name="title_pref_press_on_release">Release to perform action</string>
+  <string name="subtitle_pref_press_on_release">Perform action when switch is released</string>
+  <plurals name="label_num_scanning_loops_format">
+    <item quantity="one">%d loop</item>
+    <item quantity="other">%d loops</item>
+  </plurals>
+  <string name="preference_off">Off</string>
+  <string name="preference_on">On</string>
+  <string name="toast_msg_key_already_assigned">The switch \'%1$s\' is already assigned to \'%2$s\'</string>
+  <plurals name="label_num_keys_assigned_format">
+    <item quantity="one">%d switch assigned</item>
+    <item quantity="other">%d switches assigned</item>
+  </plurals>
+  <string name="option_scan_switch_format">Group selection switch %1$d</string>
+  <string name="option_scan_switch_format_with_color">Group selection switch %1$d (%2$s)</string>
+  <string name="option_scan_key_summary_format">Pressing this switch will select group %1$d.</string>
+  <string name="action_name_next">Next</string>
+  <string name="action_key_summary_next">Pressing this switch will highlight the next item.</string>
+  <string name="action_name_previous">Previous</string>
+  <string name="action_key_summary_previous">Pressing this switch will highlight the previous item.</string>
+  <string name="action_name_click">Select</string>
+  <string name="action_key_summary_click">Pressing this switch will select the highlighted item.</string>
+  <string name="action_name_long_click">Touch and hold</string>
+  <string name="action_key_summary_long_click">Pressing this switch will touch and hold the highlighted item.</string>
+  <string name="action_name_scroll_forward">Scroll forwards</string>
+  <string name="action_key_summary_scroll_forward">Pressing this switch will scroll the highlighted item forwards.</string>
+  <string name="action_name_scroll_backward">Scroll backwards</string>
+  <string name="action_key_summary_scroll_backward">Pressing this switch will scroll the highlighted item backwards.</string>
+  <string name="action_name_dismiss">Dismiss</string>
+  <string name="action_name_expand">Expand</string>
+  <string name="action_name_collapse">Collapse</string>
+  <string name="action_name_highlight_text">Highlight text</string>
+  <string name="action_group_name_highlight">Highlight ...</string>
+  <string name="action_name_highlight_all_text">Highlight all text</string>
+  <string name="action_name_highlight_granular_text">Highlight %1$s</string>
+  <string name="action_name_copy">Copy</string>
+  <string name="action_name_copy_all_text">Copy all</string>
+  <string name="action_name_cut">Cut</string>
+  <string name="action_name_cut_all_text">Cut all</string>
+  <string name="action_name_paste">Paste</string>
+  <string name="action_name_undo">Undo</string>
+  <string name="action_name_redo">Redo</string>
+  <string name="action_group_name_delete">Delete...</string>
+  <string name="action_name_delete">Delete %1$s</string>
+  <string name="action_name_delete_highlighted_text">Delete highlighted text</string>
+  <string name="option_scanning_menu_button">MENU</string>
+  <string name="option_scanning_menu_button_content_description">Switch Access Menu</string>
+  <string name="switch_access_global_menu">Switch Access Global Menu</string>
+  <string name="switch_access_actions_menu">Switch Access Actions Menu</string>
+  <string name="switch_access_close_menu">CLOSE</string>
+  <string name="switch_access_back_menu">BACK</string>
+  <string name="next_arrow_content_description">Next</string>
+  <string name="previous_arrow_content_description">Previous</string>
+  <string name="global_action_back">Back</string>
+  <string name="global_action_key_summary_back">Pressing this switch will go back to the previous screen or hide the keyboard, if it is visible.</string>
+  <string name="global_action_home">Home</string>
+  <string name="global_action_key_summary_home">Pressing this switch will go to the Home screen.</string>
+  <string name="global_action_overview">Overview</string>
+  <string name="global_action_key_summary_overview">Pressing this switch will show a list of recently opened apps.</string>
+  <string name="global_action_notifications">Notifications</string>
+  <string name="global_action_key_summary_notifications">Pressing this switch will show your device’s notifications.</string>
+  <string name="global_action_quick_settings">Quick Settings</string>
+  <string name="global_action_key_summary_quick_settings">Pressing this switch will show your device’s Quick Settings.</string>
+  <string name="global_action_power_options">Power options</string>
+  <string name="global_menu_volume_heading">Volume</string>
+  <string name="volume_menu_media">Media volume</string>
+  <string name="volume_menu_call">Call volume</string>
+  <string name="volume_menu_ring">Ring volume</string>
+  <string name="volume_menu_alarm">Alarm volume</string>
+  <string name="volume_menu_accessibility">Accessibility volume</string>
+  <string name="volume_menu_mute">Mute</string>
+  <string name="volume_menu_unmute">Unmute</string>
+  <string name="volume_menu_increase">Increase</string>
+  <string name="volume_settings">Volume settings</string>
+  <string name="volume_menu_decrease">Decrease</string>
+  <string name="scrollable_forward">Scroll forwards</string>
+  <string name="scrollable_backward">Scroll backwards</string>
+  <string name="point_scan">Point scan</string>
+  <string name="box_scan">Exit Point scan</string>
+  <string name="action_name_swipe_right">Swipe right</string>
+  <string name="action_name_swipe_left">Swipe left</string>
+  <string name="action_name_swipe_up">Swipe up</string>
+  <string name="action_name_swipe_down">Swipe down</string>
+  <string name="action_name_swipe_custom">Swipe (customised)</string>
+  <string name="action_name_zoom_out">Zoom out</string>
+  <string name="action_name_zoom_in">Zoom in</string>
+  <string name="switch_access_preferences_title">Switch Access settings</string>
+  <string name="key_combo_preference_instructions">Press a switch combination to add or remove it from the list</string>
+  <string name="key_combo_preference_reset_button">Clear switch assignment</string>
+  <string name="key_combo_preference_control_plus">CTRL + </string>
+  <string name="key_combo_preference_shift_plus">SHIFT + </string>
+  <string name="key_combo_preference_alt_plus">ALT + </string>
+  <string name="no_key_assigned">No switches assigned</string>
+  <string name="more">More</string>
+  <string name="name_of_space_bar">Space</string>
+  <string name="name_of_enter_key">Enter</string>
+  <string name="name_of_tab_key">Tab</string>
+  <string name="save">Save</string>
+  <string name="title_pref_category_display_and_sound">Display &amp; sound</string>
+  <string name="title_pref_highlight_0">Scanning highlight style</string>
+  <string name="title_pref_primary_scan_style">Primary scan style</string>
+  <string name="title_pref_highlight_0_color">Highlight colour</string>
+  <string name="title_pref_highlight_0_weight">Highlight line style</string>
+  <string name="title_pref_privacy_policy">Privacy policy</string>
+  <string name="title_pref_auto_select">Auto-select</string>
+  <string name="summary_pref_auto_select">Automatically select the highlighted item. If the item can’t be selected, or if this setting is off, you’ll see a menu of available actions.</string>
+  <string name="switch_access_global_menu_enable_autoselect">Enable auto-select</string>
+  <string name="switch_access_global_menu_disable_autoselect">Disable auto-select</string>
+  <string name="switch_access_move_next">Next...</string>
+  <string name="switch_access_move_next_character">Next character</string>
+  <string name="switch_access_move_next_word">Next word</string>
+  <string name="switch_access_move_next_line">Next line</string>
+  <string name="switch_access_move_next_paragraph">Next paragraph</string>
+  <string name="switch_access_move_next_page">Next page</string>
+  <string name="switch_access_move_next_sentence">Next sentence</string>
+  <string name="switch_access_move_prev">Previous...</string>
+  <string name="switch_access_move_prev_character">Previous character</string>
+  <string name="switch_access_move_prev_word">Previous word</string>
+  <string name="switch_access_move_prev_line">Previous line</string>
+  <string name="switch_access_move_prev_paragraph">Previous paragraph</string>
+  <string name="switch_access_move_prev_page">Previous page</string>
+  <string name="switch_access_move_prev_sentence">Previous sentence</string>
+  <string name="switch_access_dup_bounds_format">%1$s (%2$d)</string>
+  <string name="switch_access_auto_start_scan_title">Automatically start scanning</string>
+  <string name="switch_access_auto_start_scan_summary">Scan starts without pressing switch</string>
+  <string name="pref_begin_switchaccess_setup_title">Open setup guide</string>
+  <string name="setup_wizard_heading">Switch Access Setup Guide</string>
+  <string name="one_switch">One switch</string>
+  <string name="two_switches">Two switches</string>
+  <string name="finish">Finish</string>
+  <string name="exit">Exit</string>
+  <string name="intro_heading">Choose switch</string>
+  <string name="usb_switch_option_text">USB switch</string>
+  <string name="bluetooth_switch_option_text">Bluetooth switch</string>
+  <string name="usb_switch_description_text">Physically connect a switch via USB</string>
+  <string name="bluetooth_switch_description_text">Pair a switch wirelessly via Bluetooth</string>
+  <string name="bluetooth_unsupported_description_text">Your device doesn\'t support Bluetooth. Try using a physical switch instead.</string>
+  <string name="connected_usb_devices_header">Connected devices</string>
+  <string name="usb_no_devices_connected_message">No USB devices found. Make sure that your device is securely connected.</string>
+  <string name="connect_usb_heading">Connect USB switch</string>
+  <string name="pair_bluetooth_heading">Pair Bluetooth switch</string>
+  <string name="pair_bluetooth_subheading">Tap your Bluetooth switch below</string>
+  <string name="bluetooth_not_enabled_message">To pair a Bluetooth switch, turn on Bluetooth</string>
+  <string name="enable_bluetooth_button_title">Turn on Bluetooth</string>
+  <string name="bluetooth_no_devices_paired">No Bluetooth devices are paired</string>
+  <string name="paired_devices_header">Paired Bluetooth devices</string>
+  <string name="available_devices_header">Available Bluetooth devices</string>
+  <string name="bluetooth_computer_content_description">Computer</string>
+  <string name="bluetooth_phone_content_description">Phone</string>
+  <string name="bluetooth_imaging_content_description">Imaging</string>
+  <string name="bluetooth_headphone_content_description">Headphone</string>
+  <string name="bluetooth_peripheral_content_description">Peripheral</string>
+  <string name="bluetooth_default_content_description">Bluetooth</string>
+  <string name="bluetooth_connecting_description">Connecting…</string>
+  <string name="bluetooth_connected_description">Connected</string>
+  <string name="bluetooth_device_unavailable_description">Device unavailable</string>
+  <string name="reconnecting_unsupported_title">Couldn\'t connect to device</string>
+  <string name="reconnecting_unsupported_message">Switch Access couldn\'t connect to your previously paired device. Make sure that your device is on and connected.\n\nIf your device still won\'t connect, go to Bluetooth settings and try reconnecting.</string>
+  <string name="reconnecting_unsupported_launch_bluetooth_settings">Go to Bluetooth settings</string>
+  <string name="number_of_switches_heading">Choose number of switches</string>
+  <string name="title_assign_scan_key">Assign %1$s Switch</string>
+  <string name="one_switch_description_text">Press the switch to start moving between items automatically. Press again to select the highlighted item.</string>
+  <string name="two_switches_description_text">Press one switch to move between items. Press the other switch to select the highlighted item.</string>
+  <string name="step_speed_heading">Choose scanning speed</string>
+  <string name="step_speed_subheading">Choose how long the highlight should stay on each item</string>
+  <string name="fast_radio_button_title">Fast (%1$ss delay)</string>
+  <string name="medium_radio_button_title">Medium (%1$ss delay)</string>
+  <string name="slow_radio_button_title">Slow (%1$ss delay)</string>
+  <string name="custom_switch">Customised</string>
+  <string name="custom_edit_text">delay (seconds)</string>
+  <string name="setup_toast_msg_key_already_assigned">The key \'%1$s\' is already assigned to another action</string>
+  <string name="row_column_scanning_title">Row-column scanning</string>
+  <string name="option_scanning_title">Group selection (advanced)</string>
+  <string name="linear_scanning_title">Linear scanning</string>
+  <string name="linear_scanning_except_keyboard_title">Linear scanning (except keyboard)</string>
+  <string name="title_pref_switch_access_speech_sound_vibration">Speech, sound &amp; vibration</string>
+  <string name="title_pref_switch_access_spoken_feedback">Spoken feedback</string>
+  <string name="title_pref_scan_non_actionable_items">Speak descriptive text</string>
+  <string name="scan_non_actionable_items_summary">Hear spoken feedback for items with available actions and descriptive text</string>
+  <string name="title_pref_switch_access_verbosity">Verbosity</string>
+  <string name="summary_verbosity">Choose how much information is spoken</string>
+  <string name="title_pref_verbosity_category_verbosity_details">Verbosity details</string>
+  <string name="title_pref_switch_access_keyboard_echo">Keyboard echo</string>
+  <string name="keyboard_echo_summary_on">Speak typed keys for on-screen keyboard</string>
+  <string name="keyboard_echo_summary_off">Don\'t speak typed keys for on-screen keyboard</string>
+  <string name="title_pref_enable_hints">Speak usage hints</string>
+  <string name="enable_hints_summary_on">Usage hints are spoken during navigation after a brief delay</string>
+  <string name="enable_hints_summary_off">Usage hints are not spoken when moving accessibility focus</string>
+  <string name="title_pref_speak_container_element_position">Speak list and grid information</string>
+  <string name="speak_container_element_position_summary_on">List and grid information is spoken</string>
+  <string name="speak_container_element_position_summary_off">List and grid information is not spoken</string>
+  <string name="title_pref_speak_element_type">Speak element type</string>
+  <string name="speak_element_type_summary_on">Element type is spoken for focused items</string>
+  <string name="speak_element_type_summary_off">Element type is not spoken for focused items</string>
+  <string name="title_pref_pitch_change_for_ime">Use pitch changes</string>
+  <string name="pitch_change_for_ime_summary_on">Speak keyboard feedback in a lower-pitched voice</string>
+  <string name="pitch_change_for_ime_summary_off">Don\'t change voice feedback when speaking</string>
+  <string name="title_pref_speak_selected_item_or_group">Speak selected item or group</string>
+  <string name="speak_selected_item_or_group_summary">Speak the name of an item or group after it is selected</string>
+  <string name="title_pref_switch_access_spoken_feedback_maximum_time_per_item">Maximum spoken time per item</string>
+  <string name="dialog_message_pref_maximum_time_per_item">Set the maximum amount of time for each item’s spoken description. Speech will be cut off after the set time.\nNote: Hints will always be spoken if turned on.</string>
+  <string name="title_pref_verbosity_category_miscellaneous">Miscellaneous</string>
+  <string name="title_pref_node_description_order">Element description order</string>
+  <string name="title_pref_switch_access_speak_element_ids">Speak element IDs</string>
+  <string name="speak_element_ids_summary_on">Element IDs are spoken for unlabelled buttons</string>
+  <string name="speak_element_ids_summary_off">Element IDs are not spoken for unlabelled buttons</string>
+  <string name="title_pref_switch_access_tts_settings">TTS settings</string>
+  <string name="title_pref_category_switch_access_spoken_feedback_multiple_items">When multiple items are highlighted</string>
+  <string name="title_pref_switch_access_speak_first_last_item">Speak first and last items</string>
+  <string name="title_pref_switch_access_speak_number_of_items">Speak the number of items</string>
+  <string name="title_pref_switch_access_speak_all_items">Speak all highlighted items</string>
+  <string name="title_pref_switch_access_spoken_feedback_finish_speech">Finish speech before moving</string>
+  <string name="title_pref_spoken_feedback_other_feedback">Other feedback</string>
+  <string name="title_pref_developer_settings">Developer settings</string>
+  <string name="title_pref_spoken_feedback_overlay">Display speech output</string>
+  <string name="title_pref_switch_access_vibration_feedback">Vibration feedback</string>
+  <string name="vibration_feedback_summary">Vibrate to indicate that something changed (e.g. content on the screen changed)</string>
+  <string name="title_pref_switch_access_sound_feedback">Sound feedback</string>
+  <string name="sound_feedback_summary">Play an earcon to indicate that something changed (e.g. content on the screen changed)</string>
+  <string name="title_pref_switch_access_sound_volume">Sound volume</string>
+  <string name="title_pref_switch_access_audio_ducking">Audio ducking</string>
+  <string name="audio_ducking_summary">Decrease other audio volume while speaking</string>
+  <string name="switch_access_focus_cleared_no_selection">Screen changed</string>
+  <string name="switch_access_spoken_feedback_row_column_selection_hint">Press select switch to select row</string>
+  <string name="switch_access_spoken_feedback_group">group %1$s</string>
+  <string name="switch_access_spoken_feedback_group_selection_hint">Press group %1$s switch to select group</string>
+  <string name="switch_access_spoken_feedback_group_selection_single_item_hint">Press group %1$s switch to select item</string>
+  <string name="switch_access_spoken_feedback_to">%1$s to %2$s</string>
+  <string name="switch_access_spoken_feedback_items">%1$s items</string>
+  <string name="switch_access_spoken_feedback_group_selected">group %1$s selected</string>
+  <string name="switch_access_spoken_feedback_row_selected">row selected</string>
+  <string name="switch_access_spoken_feedback_item_selected">%1$s selected</string>
+  <string name="switch_access_spoken_feedback_item_scrollable">scrollable</string>
+  <string name="switch_access_spoken_feedback_scroll">select to scroll</string>
+  <string name="switch_access_spoken_feedback_unknown">unknown item</string>
+  <string name="scanning_method_heading">Choose how to scan</string>
+  <string name="row_column_scanning_description">Scan one row at a time. After row is selected, move through items in that list.</string>
+  <string name="linear_scanning_description">Move between items one at a time</string>
+  <string name="linear_scanning_except_keyboard_description">Move between items one at a time. Note that keyboards will scan by row.</string>
+  <string name="option_scanning_description">All items will be assigned a colour. Press the switch corresponding to the colour around the item that you want. Narrow down the size of the group until you reach your choice.</string>
+  <string name="setup_switch_assignment_heading">Switches assigned to %s</string>
+  <string name="setup_switch_assignment_empty">None</string>
+  <string name="clear_keys_dialog_title">Clear assigned switches?</string>
+  <string name="clear_keys_dialog_message">You\'ve already assigned switches.</string>
+  <string name="clear_keys_dialog_positive_button">Clear switches</string>
+  <string name="clear_keys_dialog_negative_button">Keep switches</string>
+  <string name="setup_switch_assignment_nothing_assigned_title">No switches assigned</string>
+  <string name="setup_switch_assignment_nothing_assigned_message">No switches are assigned to this action. Are you sure that you want to continue?</string>
+  <string name="option_scan_switch_title">%1$s group</string>
+  <string name="option_scan_switch_subtitle">Press a switch to assign it to select the %1$s group.</string>
+  <string name="assign_switch_subtitle">Press a switch to assign it to the \'%1$s\' action.</string>
+  <string name="auto_scan_action_description">Start scan and select</string>
+  <string name="switch_game_heading">Test your setup with Tic-Tac-Toe</string>
+  <string name="switch_game_one_switch_linear_subheading">Press \"%1$s\" to start scanning. Press the switch again to select the highlighted item. You go first!</string>
+  <string name="switch_game_one_switch_row_col_subheading">Press \"%1$s\" to start scanning. Press the switch again to select the highlighted row. Press once more to select the highlighted item. You go first!</string>
+  <string name="switch_game_two_switch_linear_subheading">Press \'%1$s\' to move between items. Press \'%2$s\' to select the highlighted item. You go first.</string>
+  <string name="switch_game_two_switch_row_col_subheading">Press \'%1$s\' to move between rows. Press \'%2$s\' to select the highlighted row. Repeat to choose an item in that row. You go first.</string>
+  <string name="switch_game_two_switch_option_scan_subheading">Press \'%1$s\' to select items highlighted in %2$s or press \'%4$s\' to select items highlighted in %3$s. Repeat to reach your item. You go first.</string>
+  <string name="switch_game_incomplete_switches_subheading">You don\'t have switches assigned for all actions yet. Use the Previous button to go back and finish assigning switches.</string>
+  <string name="game_square_content_description">%1$s at position %2$s, %3$s</string>
+  <string name="game_square_no_marker_content_description">empty</string>
+  <string name="game_reset_button_title">Reset game</string>
+  <string name="game_square_already_taken">This square is already taken. Try again!</string>
+  <string name="game_win_outcome_title">You won!</string>
+  <string name="game_loss_outcome_title">Better luck next time</string>
+  <string name="game_tie_outcome_title">It\'s a tie</string>
+  <string name="game_outcome_body_text">You can keep your current setup, or start again.</string>
+  <string name="game_outcome_positive_response">Keep setup</string>
+  <string name="game_outcome_negative_response">Start again</string>
+  <string name="setup_completion_heading">Setup finished</string>
+  <string name="setup_completion_message">You\'re all set.</string>
+  <string name="setup_completion_settings_reminder">You can always change additional settings or open the setup wizard again from Switch Access settings.</string>
+  <string name="dialog_url_list">Choose a link</string>
+  <string name="dialog_do_not_disturb_permission_title">Switch Access needs permission to adjust volume</string>
+  <string name="dialog_do_not_disturb_permission_message">To adjust volume from the Switch Access menu, turn on Do Not Disturb access for Android Accessibility Suite</string>
+  <string name="dialog_go_to_do_not_disturb_settings_button">Open settings</string>
 </resources>

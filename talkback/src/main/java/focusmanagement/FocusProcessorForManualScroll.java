@@ -16,121 +16,100 @@
 
 package com.google.android.accessibility.talkback.focusmanagement;
 
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
-import android.view.accessibility.AccessibilityEvent;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import com.google.android.accessibility.talkback.ActorState;
+import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
+import com.google.android.accessibility.talkback.focusmanagement.record.NodePathDescription;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
+import java.util.Map;
 
 /** Handles the use case when a node is scrolled by dragging two fingers on screen. */
-public class FocusProcessorForManualScroll extends FocusProcessor {
+public class FocusProcessorForManualScroll {
 
-  private final FocusManagerInternal mFocusManagerInternal;
+  private final Pipeline.FeedbackReturner pipeline;
+  private final ActorState actorState;
 
-  public FocusProcessorForManualScroll(FocusManagerInternal focusManagerInternal) {
-    mFocusManagerInternal = focusManagerInternal;
+  // Object-wrapper around static-method getAccessibilityFocus(), for test-mocking.
+  private final AccessibilityFocusMonitor accessibilityFocusMonitor;
+
+  public FocusProcessorForManualScroll(
+      Pipeline.FeedbackReturner pipeline,
+      ActorState actorState,
+      AccessibilityFocusMonitor accessibilityFocusMonitor) {
+    this.pipeline = pipeline;
+    this.actorState = actorState;
+    this.accessibilityFocusMonitor = accessibilityFocusMonitor;
   }
 
-  @Override
-  public void onNodeManuallyScrolled(
+  public boolean onNodeManuallyScrolled(
       AccessibilityNodeInfoCompat scrolledNode,
       @TraversalStrategy.SearchDirection int direction,
       EventId eventId) {
+    // Nodes to be recycled.
     AccessibilityNodeInfoCompat currentA11yFocusedNode = null;
     AccessibilityNodeInfoCompat lastA11yFocusedNode = null;
     AccessibilityNodeInfoCompat nodeToFocus = null;
+
+    TraversalStrategy traversalStrategy = null;
     try {
-      currentA11yFocusedNode = mFocusManagerInternal.getAccessibilityFocus();
+      currentA11yFocusedNode =
+          accessibilityFocusMonitor.getAccessibilityFocus(/* useInputFocusIfEmpty= */ false);
       if (AccessibilityNodeInfoUtils.shouldFocusNode(currentA11yFocusedNode)) {
-        return;
+        return false;
       }
 
-      lastA11yFocusedNode = mFocusManagerInternal.getLastAccessibilityFocus();
-      if (lastA11yFocusedNode == null) {
-        return;
+      NodePathDescription lastFocusNodePathDescription =
+          actorState.getFocusHistory().getLastFocusNodePathDescription();
+      if (lastFocusNodePathDescription == null) {
+        return false;
       }
 
-      // When a child node is hidden from a scrollable parent, the parent-child relationship
-      // sometimes is not cleared completely. We should check on both directions to determine if the
-      // last focused node is a descendant of the scrolled node.
-      if (!AccessibilityNodeInfoUtils.hasAncestor(lastA11yFocusedNode, scrolledNode)
-          && !AccessibilityNodeInfoUtils.hasDescendant(scrolledNode, lastA11yFocusedNode)) {
-        return;
+      // We use attributes from AccessibilityNodeInfo, including viewIdResourceName to match
+      // ancestor node. However, on pre-OMR1 devices, source node of TYPE_VIEW_SCROLLED events
+      // always have null viewIdResourceName unless we call refresh().
+      if (!BuildVersionUtils.isAtLeastOMR1()) {
+        scrolledNode.refresh();
+      }
+      if (!lastFocusNodePathDescription.containsNodeByHashAndIdentity(scrolledNode)) {
+        return false;
       }
 
       // Try to focus on the next/previous focusable node.
-      // TODO: Shall we use lastA11yFocusedNode as the pivot to traverse through the tree?
-      nodeToFocus = findChildFromNode(scrolledNode, direction);
+      traversalStrategy = TraversalStrategyUtils.getTraversalStrategy(scrolledNode, direction);
+      final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodeCache =
+          traversalStrategy.getSpeakingNodesCache();
+      Filter<AccessibilityNodeInfoCompat> nodeFilter =
+          new Filter<AccessibilityNodeInfoCompat>() {
+            @Override
+            public boolean accept(AccessibilityNodeInfoCompat obj) {
+              return AccessibilityNodeInfoUtils.shouldFocusNode(obj, speakingNodeCache);
+            }
+          };
+
+      nodeToFocus =
+          TraversalStrategyUtils.findInitialFocusInNodeTree(
+              traversalStrategy, scrolledNode, direction, nodeFilter);
+
       if (nodeToFocus == null) {
-        return;
+        return false;
       }
 
       FocusActionInfo focusActionInfo =
           new FocusActionInfo.Builder().setSourceAction(FocusActionInfo.MANUAL_SCROLL).build();
 
-      mFocusManagerInternal.setAccessibilityFocus(
-          nodeToFocus, /* forceRefocusIfAlreadyFocused= */ false, focusActionInfo, eventId);
+      return pipeline.returnFeedback(eventId, Feedback.focus(nodeToFocus, focusActionInfo));
 
     } finally {
       AccessibilityNodeInfoUtils.recycleNodes(
           currentA11yFocusedNode, lastA11yFocusedNode, nodeToFocus);
-    }
-  }
-
-  // TODO: Remove the legacy implementation of AccessibilityEventListener;
-  @Override
-  public int getEventTypes() {
-    return 0;
-  }
-
-  // TODO: Remove the legacy implementation of AccessibilityEventListener;
-  @Override
-  public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
-    // Do nothing.
-  }
-
-  /**
-   * Returns the first focusable child found while traversing the child of the specified node in a
-   * specific direction. Only traverses direct children.
-   *
-   * <p><strong>Note: </strong> Caller is responsible for recycling the root node.
-   *
-   * @param root The node to search within.
-   * @param direction The direction to search, one of the {@link TraversalStrategy.SearchDirection}
-   *     constants.
-   * @return The first focusable child encountered in the specified direction.
-   */
-  private static AccessibilityNodeInfoCompat findChildFromNode(
-      AccessibilityNodeInfoCompat root, @TraversalStrategy.SearchDirection int direction) {
-    if (root == null || root.getChildCount() == 0) {
-      return null;
-    }
-
-    final TraversalStrategy traversalStrategy =
-        TraversalStrategyUtils.getTraversalStrategy(root, direction);
-
-    AccessibilityNodeInfoCompat pivotNode = traversalStrategy.focusInitial(root, direction);
-
-    Filter<AccessibilityNodeInfoCompat> filter =
-        new Filter<AccessibilityNodeInfoCompat>() {
-          @Override
-          public boolean accept(AccessibilityNodeInfoCompat node) {
-            return node != null
-                && AccessibilityNodeInfoUtils.shouldFocusNode(
-                    node, traversalStrategy.getSpeakingNodesCache());
-          }
-        };
-
-    if (filter.accept(pivotNode)) {
-      return pivotNode;
-    }
-    try {
-      return TraversalStrategyUtils.searchFocus(traversalStrategy, pivotNode, direction, filter);
-    } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(pivotNode);
+      TraversalStrategyUtils.recycle(traversalStrategy);
     }
   }
 }

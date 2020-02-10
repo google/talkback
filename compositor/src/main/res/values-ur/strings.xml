@@ -1,151 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="talkback_on" msgid="315529674405160699">"‏TalkBack آن ہے"</string>
-    <string name="talkback_suspended" msgid="183421830476125877">"‏TalkBack معطل ہو گئی"</string>
-    <string name="talkback_resumed" msgid="3229591037647690759">"‏TalkBack دوبارہ شروع ہو گئی"</string>
-    <string name="talkback_disabled" msgid="435490161122421779">"‏TalkBack آف ہے"</string>
-    <string name="spokenfeedback_on" msgid="7937037602859617664">"صوتی تاثرات آن ہیں"</string>
-    <string name="spokenfeedback_suspended" msgid="5170729391324258238">"صوتی تاثرات معطل کر دیے گئے ہیں"</string>
-    <string name="spokenfeedback_resumed" msgid="1263023417586024377">"صوتی تاثرات دوبارہ شروع کر دیے گئے ہیں"</string>
-    <string name="spokenfeedback_disabled" msgid="2441763506949733297">"صوتی تاثرات آف ہیں"</string>
-    <string name="notification_type_beginning_of_field" msgid="8377204645672459594">"فیلڈ کی شروعات"</string>
-    <string name="notification_type_end_of_field" msgid="7980557705539894781">"فیلڈ کا اختتام"</string>
-    <string name="notification_type_selection_mode_on" msgid="9089325915356056509">"انتخاب موڈ آن ہے"</string>
-    <string name="notification_type_selection_mode_off" msgid="5851903648134458514">"انتخاب موڈ آف ہے"</string>
-    <string name="notification_type_selection_cleared" msgid="3540829343521564569">"انتخاب صاف ہو گیا"</string>
-    <string name="notification_category_call" msgid="8759044960133656744">"کال"</string>
-    <string name="notification_category_msg" msgid="3423614482258766344">"پیغام"</string>
-    <string name="notification_category_email" msgid="1798163563317451971">"ای میل"</string>
-    <string name="notification_category_event" msgid="2820922443627103794">"ایونٹ"</string>
-    <string name="notification_category_promo" msgid="1838458497432571566">"پرومو"</string>
-    <string name="notification_category_alarm" msgid="8273049393546720273">"الارم"</string>
-    <string name="notification_category_progress" msgid="7076389021580809543">"پیشرفت"</string>
-    <string name="notification_category_social" msgid="5270520067519719769">"سوشل"</string>
-    <string name="notification_category_err" msgid="7382285710328994504">"خرابی"</string>
-    <string name="notification_category_transport" msgid="8495871555047142269">"میڈیا کنٹرول"</string>
-    <string name="notification_category_sys" msgid="5027585499925530547">"سسٹم کی صورتحال"</string>
-    <string name="notification_category_service" msgid="1236226325270344175">"سروس"</string>
-    <string name="template_drawer_opened" msgid="384588741799097665">"<xliff:g id="TITLE">%1$s</xliff:g> مینو"</string>
-    <string name="template_text_replaced" msgid="837970148139617839">"<xliff:g id="OLD_TEXT">%2$s</xliff:g> کو <xliff:g id="NEW_TEXT">%1$s</xliff:g> سے تبدیل کر دیا گیا"</string>
-    <string name="template_text_removed" msgid="2069327286898545053">"<xliff:g id="TEXT">%1$s</xliff:g> حذف کیا گیا"</string>
-    <string name="template_text_cut" msgid="7952067813030057908">"کٹ ہو گیا، <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_pasted" msgid="8439319384947093963">"پیسٹ ہو گیا، <xliff:g id="TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_selected" msgid="7969528330209940634">"<xliff:g id="SELECTED_TEXT">%1$s</xliff:g>، منتخب کردہ"</string>
-    <string name="template_announce_selected_text" msgid="8500638272120951960">"منتخب شدہ متن: <xliff:g id="SELECTED_TEXT">%1$s</xliff:g>"</string>
-    <string name="template_text_unselected" msgid="8491489660236837367">"<xliff:g id="UNSELECTED_TEXT">%1$s</xliff:g>، غیر منتخب کردہ"</string>
-    <string name="template_text_error" msgid="153775825635730287">"غلط ان پٹ <xliff:g id="ERROR_MSG">%1$s</xliff:g>"</string>
-    <string name="template_replaced_characters" msgid="6384850410145990959">"<xliff:g id="OLD_TEXT_LENGTH">%1$s</xliff:g> حروف کو <xliff:g id="NEW_TEXT_LENGTH">%2$s</xliff:g> حروف کے ساتھ تبدیل کر دیا گیا"</string>
-    <string name="template_labeled_item" msgid="6575017531554968477">"<xliff:g id="ITEM">%1$s</xliff:g> برائے <xliff:g id="LABEL">%2$s</xliff:g>"</string>
-    <string name="template_percent" msgid="6118803183030408820">"<xliff:g id="PERCENTAGE">%1$s</xliff:g> فیصد۔"</string>
-    <plurals name="template_containers" formatted="false" msgid="9179529663500973282">
-      <item quantity="other"><xliff:g id="TYPE_2">%1$s</xliff:g> میں <xliff:g id="COUNT_3">%2$d</xliff:g> آئٹمز نظر آ رہے ہیں۔</item>
-      <item quantity="one"><xliff:g id="TYPE_0">%1$s</xliff:g> میں <xliff:g id="COUNT_1">%2$d</xliff:g> آئٹم نظر آ رہا ہے۔</item>
-    </plurals>
-    <string name="value_gridview" msgid="1382219539169157957">"گرڈ"</string>
-    <string name="value_listview" msgid="7625152822709234439">"فہرست"</string>
-    <string name="value_tabwidget" msgid="6935453013254857519">"ٹیب بار"</string>
-    <string name="value_spinner" msgid="9204474944714379541">"ڈراپ ڈاؤن فہرست"</string>
-    <string name="value_checkbox" msgid="668616875637472508">"چیک باکس"</string>
-    <string name="value_radio_button" msgid="254185377743644004">"ریڈیو بٹن"</string>
-    <string name="value_button" msgid="2459787142940409576">"بٹن"</string>
-    <string name="value_seek_bar" msgid="4084950138979192413">"تلاش کرنے کا کنٹرول"</string>
-    <string name="value_switch" msgid="6946709666466895221">"سوئچ"</string>
-    <string name="value_edit_box" msgid="3400838694172416741">"ترمیمی باکس"</string>
-    <string name="value_edit_box_editing" msgid="761496650256809196">"ترمیم ہو رہی ہے"</string>
-    <string name="value_image" msgid="5114229220871881124">"تصویر"</string>
-    <string name="value_unlabelled" msgid="6226815555228981094">"بغیر لیبل والا"</string>
-    <string name="value_pager" msgid="7708574424402835461">"متعدد صفحات منظر"</string>
-    <string name="value_pager_page" msgid="7671668766555622125">"صفحہ"</string>
-    <string name="value_progress_bar" msgid="543686904500727882">"پیش رفت کا بار"</string>
-    <string name="value_webview" msgid="291321285400233958">"ویب منظر"</string>
-    <string name="template_password_selected" msgid="962942796289068525">"<xliff:g id="FROM_INDEX">%1$d</xliff:g> سے <xliff:g id="TO_INDEX">%2$d</xliff:g> کریکٹرز"</string>
-    <string name="template_password_traversed" msgid="937695852582849077">"کریکٹر <xliff:g id="INDEX">%1$d</xliff:g>"</string>
-    <string name="value_password" msgid="7285572231215250557">"پاس ورڈ"</string>
-    <string name="value_sliding_drawer_opened" msgid="1275285354723670810">"سلائیڈ کرنے والا دراز کھول دیا گیا"</string>
-    <string name="value_options_menu_open" msgid="4936310094261315665">"اختیارات۔"</string>
-    <string name="value_text_cleared" msgid="6558192295636412162">"متن صاف کر دیا گیا"</string>
-    <string name="value_text_max_length" msgid="4129865255646994586">"زیادہ سے زیادہ لمبائی تک پہنچ گیا"</string>
-    <string name="value_selected" msgid="1307429702194660766">"منتخب کردہ"</string>
-    <string name="value_checked" msgid="3006751014125833966">"چیک کیا گیا"</string>
-    <string name="value_not_checked" msgid="37422559536361725">"چیک نہیں کیا گیا"</string>
-    <string name="value_on" msgid="39454338086317219">"آن"</string>
-    <string name="value_off" msgid="6700497510945744608">"آف"</string>
-    <string name="value_disabled" msgid="5160977094078900656">"غیر فعال ہے"</string>
-    <string name="value_expanded" msgid="3777451536288368857">"پھیلا ہوا"</string>
-    <string name="value_collapsed" msgid="3341356513608380759">"سکڑا ہوا"</string>
-    <string name="value_double_tap" msgid="6104708724544509699">"دو بار تھپتھپائیں"</string>
-    <string name="value_single_tap" msgid="5044168772549910285">"تھپتھپائیں"</string>
-    <string name="value_press_select" msgid="4270348255373188872">"منتخب کریں دبائیں"</string>
-    <string name="template_hint_clickable" msgid="3443819371543556149">"فعال کرنے کیلئے <xliff:g id="ACTION">%1$s</xliff:g>۔"</string>
-    <string name="template_hint_clickable_keyboard" msgid="5861489320881379198">"فعال کرنے کیلئے <xliff:g id="KEYCOMBO">%1$s</xliff:g> دبائیں۔"</string>
-    <string name="template_hint_long_clickable" msgid="4546854599035099034">"دیر تک دبانے کیلئے <xliff:g id="ACTION">%1$s</xliff:g> اور دبائے رکھیں۔"</string>
-    <string name="template_hint_long_clickable_keyboard" msgid="1256266252223424130">"دیر تک دبانے کیلئے <xliff:g id="KEYCOMBO">%1$s</xliff:g> دبائیں۔"</string>
-    <string name="template_hint_checkable" msgid="504233139047201761">"ٹوگل کرنے کیلئے <xliff:g id="ACTION">%1$s</xliff:g>۔"</string>
-    <string name="template_hint_checkable_keyboard" msgid="3968541225490733596">"ٹوگل کرنے کیلئے <xliff:g id="KEYCOMBO">%1$s</xliff:g> دبائیں۔"</string>
-    <string name="template_hint_edit_text" msgid="2298057410435081106">"متن درج کرنے کیلئے <xliff:g id="ACTION">%1$s</xliff:g>۔"</string>
-    <string name="template_hint_edit_text_keyboard" msgid="7634371425618645820">"متن درج کرنے کیلئے <xliff:g id="KEYCOMBO">%1$s</xliff:g> دبائیں۔"</string>
-    <string name="template_hint_spinner" msgid="7251008361827086735">"تبدیل کرنے کیلئے <xliff:g id="ACTION">%1$s</xliff:g>۔"</string>
-    <string name="template_hint_spinner_keyboard" msgid="7561069958801230664">"تبدیل کرنے کیلئے <xliff:g id="KEYCOMBO">%1$s</xliff:g> دبائیں۔"</string>
-    <string name="template_hint_pager" msgid="5090637252098427661">"صفحات سوئچ کرنے کیلئے دو انگلیوں سے سوائپ کریں۔"</string>
-    <string name="template_hint_pager_single_page" msgid="7289799731232824636">"مزید صفحات نہیں ہیں۔"</string>
-    <string name="template_hint_seek_control" msgid="6233117586975523663">"ایڈجسٹ کرنے کے لیے والیوم کلیدوں کا استعمال کریں"</string>
-    <string name="template_hint_seek_control_tv" msgid="8074023820596008628">"تبدیل کرنے کیلئے <xliff:g id="ACTION">%1$s</xliff:g>۔"</string>
-    <string name="template_hint_custom_actions" msgid="1445181452175177980">"کارروائیاں:"</string>
-    <string name="template_custom_hint_for_actions" msgid="6271864053572367186">"<xliff:g id="ACTION">%1$s</xliff:g> پر <xliff:g id="HINT">%2$s</xliff:g>۔"</string>
-    <string name="template_custom_hint_for_actions_keyboard" msgid="3049485226126876806">"<xliff:g id="HINT">%2$s</xliff:g> کیلئے <xliff:g id="KEYCOMBO">%1$s</xliff:g> دبائیں۔"</string>
-    <string name="template_custom_hint_for_long_clickable_actions" msgid="1384724119268711688">"<xliff:g id="ACTION">%1$s</xliff:g> اور <xliff:g id="HINT">%2$s</xliff:g> کیلئے پکڑے رکھیں۔"</string>
-    <string name="value_caps_lock_on" msgid="7573294600745888208">"‏Caps Lock آن ہے۔"</string>
-    <string name="value_caps_lock_off" msgid="3838601485428893942">"‏Caps Lock آف ہے۔"</string>
-    <string name="value_num_lock_on" msgid="5129177598867360081">"‏Num Lock آن ہے۔"</string>
-    <string name="value_num_lock_off" msgid="1037451128304445281">"‏Num Lock آف ہے۔"</string>
-    <string name="value_scroll_lock_on" msgid="2645082633954205788">"‏Scroll Lock آن ہے۔"</string>
-    <string name="value_scroll_lock_off" msgid="4083567784058485871">"‏Scroll Lock آف ہے۔"</string>
-    <string name="orientation_portrait" msgid="7714435567541027105">"پورٹریٹ"</string>
-    <string name="orientation_landscape" msgid="2204457920803882766">"لینڈ اسکیپ"</string>
-    <string name="title_action_dismiss" msgid="5468480801270912647">"برخاست کریں"</string>
-    <string name="title_action_expand" msgid="1572280388660465585">"پھیلائیں"</string>
-    <string name="title_action_collapse" msgid="7790730102557547094">"سکیڑیں"</string>
-    <string name="row_index_template" msgid="4107789959609911947">"قطار <xliff:g id="ROW">%1$d</xliff:g>"</string>
-    <string name="column_index_template" msgid="258393957626754806">"کالم <xliff:g id="COL">%1$d</xliff:g>"</string>
-    <string name="heading_template" msgid="3585514481777782183">"سرخی"</string>
-    <string name="row_heading_template" msgid="7106495985061954643">"قطار کی سرخی"</string>
-    <string name="column_heading_template" msgid="1222984615395028719">"کالم کی سرخی"</string>
-    <string name="template_overlay_window" msgid="2628297551956649478">"<xliff:g id="APPLICATION_WINDOW_TITLE">%1$s</xliff:g> تصویر میں تصویر"</string>
-    <string name="in_list" msgid="444302621514168828">"فہرست میں <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_list_without_name" msgid="547527352661882147">"فہرست کے اند"</string>
-    <string name="out_of_list" msgid="2739881197703793453">"فہرست سے باہر <xliff:g id="LIST_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_list_without_name" msgid="6433404246109723383">"فہرست سے باہر"</string>
-    <string name="in_grid" msgid="6705387966271590222">"گرڈ میں <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="in_grid_without_name" msgid="1516356772452222103">"گرڈ کے اندر"</string>
-    <string name="out_of_grid" msgid="5682718654726730099">"گرڈ سے باہر <xliff:g id="GRID_DESCRIPTION">%1$s</xliff:g>"</string>
-    <string name="out_of_grid_without_name" msgid="8856532607453303641">"گرڈ سے باہر"</string>
-    <string name="template_collection_level" msgid="8386016656549198972">"سطح <xliff:g id="LEVEL">%1$s</xliff:g>"</string>
-    <plurals name="template_list_total_count" formatted="false" msgid="3955737557576761990">
-      <item quantity="other"><xliff:g id="TOTAL_COUNT_1">%1$d</xliff:g> آئٹمز</item>
-      <item quantity="one"><xliff:g id="TOTAL_COUNT_0">%1$d</xliff:g> آئٹم</item>
-    </plurals>
-    <plurals name="template_list_row_count" formatted="false" msgid="3432009359831385828">
-      <item quantity="other"><xliff:g id="ROW_COUNT_1">%1$d</xliff:g> قطاریں</item>
-      <item quantity="one"><xliff:g id="ROW_COUNT_0">%1$d</xliff:g> قطار</item>
-    </plurals>
-    <plurals name="template_list_column_count" formatted="false" msgid="5016154931003131594">
-      <item quantity="other"><xliff:g id="COLUMN_COUNT_1">%1$d</xliff:g> کالمز</item>
-      <item quantity="one"><xliff:g id="COLUMN_COUNT_0">%1$d</xliff:g> کالم</item>
-    </plurals>
-    <plurals name="template_password_character_count" formatted="false" msgid="1628316286149773405">
-      <item quantity="other"><xliff:g id="CHARACTER_COUNT_1">%1$d</xliff:g> کریکٹرز</item>
-      <item quantity="one"><xliff:g id="CHARACTER_COUNT_0">%1$d</xliff:g> کریکٹر</item>
-    </plurals>
-    <string name="template_screen_magnification_on" msgid="3412702166783307741">"میگنیفکیشن آن ہے <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="template_screen_magnification_scale_changed" msgid="4568978836415037830">"میگنیفکیشن <xliff:g id="SCALEINPERCENT">%1$d</xliff:g>%%"</string>
-    <string name="screen_magnification_off" msgid="3400369407286909776">"میگنیفکیشن آف ہے"</string>
-    <string name="template_speech_rate_change" msgid="4894072082761652120">"اسپیچ کی شرح %%<xliff:g id="SCALEINPERCENT">%1$d</xliff:g>"</string>
-    <string name="audio_focus_on" msgid="6058485499261824861">"آڈیو ڈکنگ آن ہے"</string>
-    <string name="audio_focus_off" msgid="3642265732935547348">"آڈیو ڈکنگ آف ہے"</string>
-    <string name="selector_speech_rate_output" msgid="3646194319025868642">"اسپیچ کی شرح"</string>
-    <string name="selector_verbosity_output" msgid="1939998775584372509">"طوالت بیانی"</string>
-    <string name="selector_granularity_output" msgid="2397932210438682648">"نیویگیشن"</string>
-    <string name="selector_audio_focus_output" msgid="2507493163197374282">"آڈیو ڈکنگ"</string>
-    <string name="summaryOff_pref_speak_passwords_without_headphones" msgid="6968569230560212685">"ہیڈ فونز کا استعمال کرتے وقت ہی پاس ورڈز بولے جاتے ہیں"</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="talkback_on">‏TalkBack آن ہے</string>
+  <string name="talkback_suspended">‏TalkBack معطل ہو گئی</string>
+  <string name="talkback_resumed">‏TalkBack دوبارہ شروع ہو گئی</string>
+  <string name="talkback_disabled">‏TalkBack آف ہے</string>
+  <string name="spokenfeedback_on">صوتی تاثرات آن ہیں</string>
+  <string name="spokenfeedback_suspended">صوتی تاثرات معطل کر دیے گئے ہیں</string>
+  <string name="spokenfeedback_resumed">صوتی تاثرات دوبارہ شروع کر دیے گئے ہیں</string>
+  <string name="spokenfeedback_disabled">صوتی تاثرات آف ہیں</string>
+  <string name="notification_type_beginning_of_field">فیلڈ کی شروعات</string>
+  <string name="notification_type_end_of_field">فیلڈ کا اختتام</string>
+  <string name="notification_type_selection_mode_on">انتخاب موڈ آن ہے</string>
+  <string name="notification_type_selection_mode_off">انتخاب موڈ آف ہے</string>
+  <string name="notification_type_selection_cleared">انتخاب صاف ہو گیا</string>
+  <string name="notification_category_call">کال</string>
+  <string name="notification_category_msg">پیغام</string>
+  <string name="notification_category_email">ای میل</string>
+  <string name="notification_category_event">ایونٹ</string>
+  <string name="notification_category_promo">پرومو</string>
+  <string name="notification_category_alarm">الارم</string>
+  <string name="notification_category_progress">پیشرفت</string>
+  <string name="notification_category_social">سوشل</string>
+  <string name="notification_category_err">خرابی</string>
+  <string name="notification_category_transport">میڈیا کنٹرول</string>
+  <string name="notification_category_sys">سسٹم کی صورتحال</string>
+  <string name="notification_category_service">سروس</string>
+  <string name="template_drawer_opened">%1$s مینو</string>
+  <string name="template_text_replaced">%2$s کو %1$s سے تبدیل کر دیا گیا</string>
+  <string name="template_text_removed">%1$s حذف کیا گیا</string>
+  <string name="template_text_cut">کٹ ہو گیا، %1$s</string>
+  <string name="template_text_pasted">پیسٹ ہو گیا، %1$s</string>
+  <string name="template_text_selected">%1$s، منتخب کردہ</string>
+  <string name="template_announce_selected_text">منتخب شدہ متن: %1$s</string>
+  <string name="template_text_unselected">%1$s، غیر منتخب کردہ</string>
+  <string name="template_text_error">غلط ان پٹ %1$s</string>
+  <string name="template_replaced_characters">%1$s حروف کو %2$s حروف کے ساتھ تبدیل کر دیا گیا</string>
+  <string name="template_labeled_item">%1$s برائے %2$s</string>
+  <string name="template_percent">%1$s فیصد۔</string>
+  <plurals name="template_containers">
+    <item quantity="one">%1$s میں %2$d آئٹم نظر آ رہا ہے۔</item>
+    <item quantity="other">%1$s میں %2$d آئٹمز نظر آ رہے ہیں۔</item>
+  </plurals>
+  <string name="template_node_error_with_error_message">Error: %1$s</string>
+  <string name="value_gridview">گرڈ</string>
+  <string name="value_listview">فہرست</string>
+  <string name="value_tabwidget">ٹیب بار</string>
+  <string name="value_spinner">ڈراپ ڈاؤن فہرست</string>
+  <string name="value_checkbox">چیک باکس</string>
+  <string name="value_radio_button">ریڈیو بٹن</string>
+  <string name="value_button">بٹن</string>
+  <string name="value_seek_bar">تلاش کرنے کا کنٹرول</string>
+  <string name="value_switch">سوئچ</string>
+  <string name="value_edit_box">ترمیمی باکس</string>
+  <string name="value_edit_box_editing">ترمیم ہو رہی ہے</string>
+  <string name="value_image">تصویر</string>
+  <string name="value_unlabelled">بغیر لیبل والا</string>
+  <string name="value_pager">متعدد صفحات منظر</string>
+  <string name="value_pager_page">صفحہ</string>
+  <string name="value_progress_bar">پیش رفت کا بار</string>
+  <string name="value_webview">ویب منظر</string>
+  <string name="value_toolbar">ٹول بار</string>
+  <string name="template_summary_description">%1$s: %2$s</string>
+  <string name="template_password_selected">%1$d سے %2$d کریکٹرز</string>
+  <string name="template_password_traversed">کریکٹر %1$d</string>
+  <string name="value_password">پاس ورڈ</string>
+  <string name="value_sliding_drawer_opened">سلائیڈ کرنے والا دراز کھول دیا گیا</string>
+  <string name="value_options_menu_open">اختیارات۔</string>
+  <string name="value_text_cleared">متن صاف کر دیا گیا</string>
+  <string name="value_text_max_length">زیادہ سے زیادہ لمبائی تک پہنچ گیا</string>
+  <string name="value_selected">منتخب کردہ</string>
+  <string name="value_checked">چیک کیا گیا</string>
+  <string name="value_not_checked">چیک نہیں کیا گیا</string>
+  <string name="value_on">آن</string>
+  <string name="value_off">آف</string>
+  <string name="value_disabled">غیر فعال ہے</string>
+  <string name="value_expanded">پھیلا ہوا</string>
+  <string name="value_collapsed">سکڑا ہوا</string>
+  <string name="value_double_tap">دو بار تھپتھپائیں</string>
+  <string name="value_single_tap">تھپتھپائیں</string>
+  <string name="value_switch_press">سوئچ منتخب کریں کو دبائیں</string>
+  <string name="value_press_select">منتخب کریں دبائیں</string>
+  <string name="template_hint_clickable">فعال کرنے کیلئے %1$s۔</string>
+  <string name="template_hint_clickable_keyboard">فعال کرنے کیلئے %1$s دبائیں۔</string>
+  <string name="template_hint_long_clickable">دیر تک دبانے کیلئے %1$s اور دبائے رکھیں۔</string>
+  <string name="template_hint_long_clickable_keyboard">دیر تک دبانے کیلئے %1$s دبائیں۔</string>
+  <string name="template_hint_checkable">ٹوگل کرنے کیلئے %1$s۔</string>
+  <string name="template_hint_checkable_keyboard">ٹوگل کرنے کیلئے %1$s دبائیں۔</string>
+  <string name="template_hint_edit_text">متن میں ترمیم کرنے کے ليے %1$s۔</string>
+  <string name="template_hint_edit_text_keyboard">متن میں ترمیم کرنے کے ليے %1$s پر دبائیں۔</string>
+  <string name="template_hint_spinner">تبدیل کرنے کیلئے %1$s۔</string>
+  <string name="template_hint_spinner_keyboard">تبدیل کرنے کیلئے %1$s دبائیں۔</string>
+  <string name="template_hint_pager">صفحات سوئچ کرنے کیلئے دو انگلیوں سے سوائپ کریں۔</string>
+  <string name="template_hint_pager_single_page">مزید صفحات نہیں ہیں۔</string>
+  <string name="template_hint_seek_control">ایڈجسٹ کرنے کے لیے والیوم کلیدوں کا استعمال کریں</string>
+  <string name="template_hint_seek_control_tv">تبدیل کرنے کیلئے %1$s۔</string>
+  <string name="template_hint_custom_actions">کارروائیاں:</string>
+  <string name="template_custom_hint_for_actions">%1$s پر %2$s۔</string>
+  <string name="template_custom_hint_for_actions_keyboard">%2$s کیلئے %1$s دبائیں۔</string>
+  <string name="template_custom_hint_for_long_clickable_actions">%1$s اور %2$s کیلئے پکڑے رکھیں۔</string>
+  <string name="template_sa_custom_hint_scrollable">اسکرول کرنے کے لیے %1$s۔</string>
+  <string name="template_sa_custom_hint_for_multiple_actions">دستیاب کارروائیوں کے لیے %1$s۔</string>
+  <string name="template_sa_hint_seek_control">ایڈجسٹ کرنے کے لئے سوئچ منتخب کریں</string>
+  <string name="value_caps_lock_on">‏Caps Lock آن ہے۔</string>
+  <string name="value_caps_lock_off">‏Caps Lock آف ہے۔</string>
+  <string name="value_num_lock_on">‏Num Lock آن ہے۔</string>
+  <string name="value_num_lock_off">‏Num Lock آف ہے۔</string>
+  <string name="value_scroll_lock_on">‏Scroll Lock آن ہے۔</string>
+  <string name="value_scroll_lock_off">‏Scroll Lock آف ہے۔</string>
+  <string name="orientation_portrait">پورٹریٹ</string>
+  <string name="orientation_landscape">لینڈ اسکیپ</string>
+  <string name="title_action_dismiss">برخاست کریں</string>
+  <string name="title_action_expand">پھیلائیں</string>
+  <string name="title_action_collapse">سکیڑیں</string>
+  <string name="row_index_template">قطار %1$d</string>
+  <string name="column_index_template">کالم %1$d</string>
+  <string name="heading_template">سرخی</string>
+  <string name="row_heading_template">قطار کی سرخی</string>
+  <string name="column_heading_template">کالم کی سرخی</string>
+  <string name="in_list">فہرست میں %1$s</string>
+  <string name="in_list_without_name">فہرست کے اند</string>
+  <string name="out_of_list">فہرست سے باہر %1$s</string>
+  <string name="out_of_list_without_name">فہرست سے باہر</string>
+  <string name="in_grid">گرڈ میں %1$s</string>
+  <string name="in_grid_without_name">گرڈ کے اندر</string>
+  <string name="out_of_grid">گرڈ سے باہر %1$s</string>
+  <string name="out_of_grid_without_name">گرڈ سے باہر</string>
+  <string name="in_pager_with_name">پیجر میں %1$s</string>
+  <string name="in_pager">پیجر میں</string>
+  <string name="out_of_pager_with_name">پیجر کے باہر %1$s</string>
+  <string name="out_of_pager">پیجر کے باہر</string>
+  <string name="in_vertical_pager_with_name">عمودی پیجر میں %1$s</string>
+  <string name="in_vertical_pager">عمودی پیجر میں</string>
+  <string name="out_of_vertical_pager_with_name">عمودی پیجر کر باہر %1$s</string>
+  <string name="out_of_vertical_pager">عمودی پیجر کر باہر</string>
+  <string name="in_horizontal_pager_with_name">افقی پیجر میں %1$s</string>
+  <string name="in_horizontal_pager">افقی پیجر میں</string>
+  <string name="out_of_horizontal_pager_with_name">افقی پیجر کے باہر %1$s</string>
+  <string name="out_of_horizontal_pager">افقی پیجر کے باہر</string>
+  <string name="in_grid_pager_with_name">گرڈ پیجر میں %1$s</string>
+  <string name="in_grid_pager">گرڈ پیجر میں</string>
+  <string name="out_of_grid_pager_with_name">گرڈ پیجر کے باہر %1$s</string>
+  <string name="out_of_grid_pager">گرڈ پیجر کے باہر</string>
+  <string name="template_collection_level">سطح %1$s</string>
+  <plurals name="template_list_total_count">
+    <item quantity="one">%1$d آئٹم</item>
+    <item quantity="other">%1$d آئٹمز</item>
+  </plurals>
+  <plurals name="template_list_row_count">
+    <item quantity="one">%1$d قطار</item>
+    <item quantity="other">%1$d قطاریں</item>
+  </plurals>
+  <plurals name="template_list_column_count">
+    <item quantity="one">%1$d کالم</item>
+    <item quantity="other">%1$d کالمز</item>
+  </plurals>
+  <plurals name="template_password_character_count">
+    <item quantity="one">%1$d کریکٹر</item>
+    <item quantity="other">%1$d کریکٹرز</item>
+  </plurals>
+  <string name="template_screen_magnification_on">میگنیفکیشن آن ہے %1$d%%</string>
+  <string name="template_screen_magnification_scale_changed">میگنیفکیشن %1$d%%</string>
+  <string name="screen_magnification_off">میگنیفکیشن آف ہے</string>
+  <string name="template_speech_rate_change">اسپیچ کی شرح %%%1$d</string>
+  <string name="audio_focus_on">آڈیو ڈکنگ آن ہے</string>
+  <string name="audio_focus_off">آڈیو ڈکنگ آف ہے</string>
+  <string name="selector_speech_rate_output">اسپیچ کی شرح</string>
+  <string name="selector_verbosity_output">طوالت بیانی</string>
+  <string name="selector_granularity_output">نیویگیشن</string>
+  <string name="selector_audio_focus_output">آڈیو ڈکنگ</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">ہیڈ فونز کا استعمال کرتے وقت ہی پاس ورڈز بولے جاتے ہیں</string>
+  <string name="template_hint_menu_type_high_verbosity">%1$s دستیاب، دیکھنے کے ليے %2$s کا استعمال کریں۔</string>
+  <string name="template_hint_menu_type_low_verbosity">%1$s دستیاب ہے۔</string>
 </resources>

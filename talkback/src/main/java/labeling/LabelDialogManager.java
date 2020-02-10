@@ -16,103 +16,109 @@
 
 package com.google.android.accessibility.talkback.labeling;
 
-import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
-
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.content.DialogInterface.OnDismissListener;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.Nullable;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
+import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.TalkBackService;
-import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.talkback.dialog.BaseDialog;
 import com.google.android.accessibility.utils.labeling.Label;
 
-/** Manages the accessibility overlay dialogs for adding, editing, and removing custom labels. */
+/**
+ * Manages the dialogs for adding, editing, and removing custom labels. If the context is from
+ * {@link com.google.android.accessibility.talkback.TalkBackService}, shows dialog as accessibility
+ * overlay.
+ */
 public class LabelDialogManager {
-  private static final long RESET_FOCUSED_NODE_DELAY = 250;
 
-  private final Context mContext;
-  private final CustomLabelManager mLabelManager;
-  private final boolean mAccessibilityOverlay;
-  private Button mPositiveButton;
+  private final Context context;
+  private final CustomLabelManager labelManager;
 
-  private LabelDialogManager(Context context, boolean overlay) {
-    mContext = context;
-    mLabelManager = new CustomLabelManager(context);
-    mAccessibilityOverlay = overlay;
+  private LabelDialogManager(Context context) {
+    this.context = context;
+    labelManager = new CustomLabelManager(context);
   }
 
   /**
    * Shows the dialog to add a label for the given node in the given context.
    *
-   * @param overlay True if an accessibility overlay/system dialog needs to be used, in which case
-   *     the context must be an accessibility service. False if the context is a normal activity and
-   *     not a service.
-   * @return True if showing the dialog was successful, otherwise false.
+   * @param context Context to display the dialog in
+   * @param node Accessibility node to add a label for
+   * @param isFromLocalContextMenu Sets to {@code true} if caller is from local context menu
+   * @param pipeline the FeedbackReturner which needs to perform restore focus
+   * @return True if showing the dialog was successful, otherwise false
    */
   public static boolean addLabel(
-      Context context, AccessibilityNodeInfoCompat node, boolean overlay) {
+      Context context,
+      AccessibilityNodeInfoCompat node,
+      boolean isFromLocalContextMenu,
+      @Nullable Pipeline.FeedbackReturner pipeline) {
     if (context == null || node == null) {
       return false;
     }
 
-    LabelDialogManager dialogManager = new LabelDialogManager(context, overlay);
-    dialogManager.showAddLabelDialog(node.getViewIdResourceName());
+    LabelDialogManager dialogManager = new LabelDialogManager(context);
+    dialogManager.showAddLabelDialog(
+        node.getViewIdResourceName(), isFromLocalContextMenu, pipeline);
     return true;
   }
 
   /**
    * Shows the dialog to edit the given label in the given context.
    *
-   * @param overlay True if an accessibility overlay/system dialog needs to be used, in which case
-   *     the context must be an accessibility service. False if the context is a normal activity and
-   *     not a service.
-   * @return True if showing the dialog was successful, otherwise false.
+   * @param context Context to display the dialog in
+   * @param label Label to edit.
+   * @param isFromLocalContextMenu Sets to {@code true} if caller is from local context menu
+   * @param pipeline the FeedbackReturner which needs to perform restore focus
+   * @return True if showing the dialog was successful, otherwise false
    */
-  public static boolean editLabel(Context context, Label label, boolean overlay) {
+  public static boolean editLabel(
+      Context context,
+      Label label,
+      boolean isFromLocalContextMenu,
+      @Nullable Pipeline.FeedbackReturner pipeline) {
     if (context == null || label == null) {
       return false;
     }
 
-    LabelDialogManager dialogManager = new LabelDialogManager(context, overlay);
-    dialogManager.showEditLabelDialog(label.getId());
+    LabelDialogManager dialogManager = new LabelDialogManager(context);
+    dialogManager.showEditLabelDialog(label.getId(), isFromLocalContextMenu, pipeline);
     return true;
   }
 
   /**
    * Shows the dialog to remove the given label in the given context.
    *
-   * @param overlay True if an accessibility overlay/system dialog needs to be used, in which case
-   *     the context must be an accessibility service. False if the context is a normal activity and
-   *     not a service.
-   * @return True if showing the dialog was successful, otherwise false.
+   * @param context Context to display the dialog in
+   * @param label Label to remove.
+   * @param isFromLocalContextMenu Sets to {@code true} if caller is from local context menu
+   * @param pipeline the FeedbackReturner which needs to perform restore focus
+   * @return True if showing the dialog was successful, otherwise false
    */
-  public static boolean removeLabel(Context context, Label label, boolean overlay) {
+  public static boolean removeLabel(
+      Context context,
+      Label label,
+      boolean isFromLocalContextMenu,
+      @Nullable Pipeline.FeedbackReturner pipeline) {
     if (context == null || label == null) {
       return false;
     }
 
-    LabelDialogManager dialogManager = new LabelDialogManager(context, overlay);
-    dialogManager.showRemoveLabelDialog(label.getId());
+    LabelDialogManager dialogManager = new LabelDialogManager(context);
+    dialogManager.showRemoveLabelDialog(label.getId(), isFromLocalContextMenu, pipeline);
     return true;
   }
 
@@ -122,8 +128,8 @@ public class LabelDialogManager {
    * @param packageName The package name of the application
    * @return The common name for the application
    */
-  private CharSequence getApplicationName(String packageName) {
-    final PackageManager pm = mContext.getPackageManager();
+  private static CharSequence getApplicationName(Context context, String packageName) {
+    final PackageManager pm = context.getPackageManager();
     ApplicationInfo appInfo;
     try {
       appInfo = pm.getApplicationInfo(packageName, 0);
@@ -133,7 +139,7 @@ public class LabelDialogManager {
 
     final CharSequence appLabel;
     if (appInfo != null) {
-      appLabel = mContext.getPackageManager().getApplicationLabel(appInfo);
+      appLabel = context.getPackageManager().getApplicationLabel(appInfo);
     } else {
       appLabel = null;
     }
@@ -141,209 +147,236 @@ public class LabelDialogManager {
     return appLabel;
   }
 
-  private void showAddLabelDialog(final String resourceName) {
-    final LayoutInflater li = LayoutInflater.from(mContext);
-    final View dialogView = li.inflate(R.layout.label_addedit_dialog, null);
-    final EditText editField = (EditText) dialogView.findViewById(R.id.label_dialog_edit_text);
-    editField.setOnEditorActionListener(mEditActionListener);
-    editField.addTextChangedListener(mTextValidator);
-
-    final OnClickListener buttonClickListener =
-        new OnClickListener() {
-          @Override
-          public void onClick(DialogInterface dialog, int which) {
-            if (which == Dialog.BUTTON_POSITIVE) {
-              mLabelManager.addLabel(resourceName, editField.getText().toString());
-            } else if (which == Dialog.BUTTON_NEGATIVE) {
-              dialog.dismiss();
-            }
-          }
-        };
-
-    final AlertDialog.Builder builder =
-        new AlertDialog.Builder(mContext)
-            .setView(dialogView)
-            .setMessage(mContext.getString(R.string.label_dialog_text, resourceName))
-            .setTitle(R.string.label_dialog_title_add)
-            .setPositiveButton(android.R.string.ok, buttonClickListener)
-            .setNegativeButton(android.R.string.cancel, buttonClickListener)
-            .setOnDismissListener(mDismissListener)
-            .setCancelable(true);
-
-    final AlertDialog dialog = builder.create();
-    showDialog(dialog);
-
-    mPositiveButton = dialog.getButton(Dialog.BUTTON_POSITIVE);
-    mPositiveButton.setEnabled(false);
+  private void showAddLabelDialog(
+      final String resourceName,
+      boolean isFromLocalContextMenu,
+      @Nullable Pipeline.FeedbackReturner pipeline) {
+    AddLabelDialog addLabelDialog =
+        new AddLabelDialog(context, resourceName, labelManager, pipeline);
+    addLabelDialog.setSoftInputMode(true);
+    addLabelDialog.setIsFromLocalContextMenu(isFromLocalContextMenu);
+    addLabelDialog.showDialog();
+    addLabelDialog.setButtonEnabled(DialogInterface.BUTTON_POSITIVE, false);
   }
 
-  private void showEditLabelDialog(long labelId) {
+  private void showEditLabelDialog(
+      long labelId, boolean isFromLocalContextMenu, @Nullable Pipeline.FeedbackReturner pipeline) {
     // We have to ensure we have the existing label object before we can
     // edit or remove it. We're not guaranteed that the cache will have
     // this available, so we have to query it directly.
-    mLabelManager.getLabelForLabelIdFromDatabase(
+    labelManager.getLabelForLabelIdFromDatabase(
         labelId,
-        new DirectLabelFetchRequest.OnLabelFetchedListener() {
-          @Override
-          public void onLabelFetched(Label result) {
-            if (result != null) {
-              showEditLabelDialog(result);
-            }
+        result -> {
+          if (result != null) {
+            EditLabelDialog editLabelDialog =
+                new EditLabelDialog(context, result, labelManager, pipeline);
+            editLabelDialog.setSoftInputMode(true);
+            editLabelDialog.setIsFromLocalContextMenu(isFromLocalContextMenu);
+            editLabelDialog.showDialog();
           }
         });
   }
 
-  private void showRemoveLabelDialog(long labelId) {
+  private void showRemoveLabelDialog(
+      long labelId, boolean isFromLocalContextMenu, @Nullable Pipeline.FeedbackReturner pipeline) {
     // We have to ensure we have the existing label object before we can
     // edit or remove it. We're not guaranteed that the cache will have
     // this available, so we have to query it directly.
-    mLabelManager.getLabelForLabelIdFromDatabase(
+    labelManager.getLabelForLabelIdFromDatabase(
         labelId,
-        new DirectLabelFetchRequest.OnLabelFetchedListener() {
-          @Override
-          public void onLabelFetched(Label result) {
-            if (result != null) {
-              showRemoveLabelDialog(result);
-            }
+        result -> {
+          if (result != null) {
+            RemoveLabelDialog removeLabelDialog =
+                new RemoveLabelDialog(context, result, labelManager, pipeline);
+            removeLabelDialog.setIsFromLocalContextMenu(isFromLocalContextMenu);
+            removeLabelDialog.showDialog();
           }
         });
   }
 
-  private void showEditLabelDialog(final Label existing) {
-    final LayoutInflater li = LayoutInflater.from(mContext);
-    final View dialogView = li.inflate(R.layout.label_addedit_dialog, null);
-    final EditText editField = (EditText) dialogView.findViewById(R.id.label_dialog_edit_text);
-    editField.setText(existing.getText());
-    editField.setOnEditorActionListener(mEditActionListener);
-    editField.addTextChangedListener(mTextValidator);
+  //////////////////////////////////////////////////////////////////////////////////
+  // Dialogs
 
-    final OnClickListener buttonClickListener =
-        new OnClickListener() {
-          @Override
-          public void onClick(DialogInterface dialog, int which) {
-            if (which == Dialog.BUTTON_POSITIVE) {
-              existing.setText(editField.getText().toString());
-              existing.setTimestamp(System.currentTimeMillis());
-              mLabelManager.updateLabel(existing);
-            } else if (which == Dialog.BUTTON_NEGATIVE) {
-              dialog.dismiss();
-            }
-          }
-        };
-
-    final AlertDialog.Builder builder =
-        new AlertDialog.Builder(mContext)
-            .setView(dialogView)
-            .setMessage(R.string.label_dialog_text)
-            .setTitle(R.string.label_dialog_title_edit)
-            .setPositiveButton(android.R.string.ok, buttonClickListener)
-            .setNegativeButton(android.R.string.cancel, buttonClickListener)
-            .setOnDismissListener(mDismissListener)
-            .setCancelable(true);
-
-    final AlertDialog dialog = builder.create();
-    showDialog(dialog);
-
-    mPositiveButton = dialog.getButton(Dialog.BUTTON_POSITIVE);
-  }
-
-  private void showRemoveLabelDialog(final Label existing) {
-    final CharSequence appName = getApplicationName(existing.getPackageName());
-
-    final CharSequence message;
-    if (TextUtils.isEmpty(appName)) {
-      message = mContext.getString(R.string.label_remove_dialog_text, existing.getText());
-    } else {
-      message =
-          mContext.getString(
-              R.string.label_remove_dialog_text_app_name, existing.getText(), appName);
-    }
-
-    final OnClickListener buttonClickListener =
-        new OnClickListener() {
-          @Override
-          public void onClick(DialogInterface dialog, int which) {
-            if (which == Dialog.BUTTON_POSITIVE) {
-              mLabelManager.removeLabel(existing);
-            } else if (which == Dialog.BUTTON_NEGATIVE) {
-              dialog.dismiss();
-            }
-          }
-        };
-
-    final AlertDialog.Builder builder =
-        new AlertDialog.Builder(mContext)
-            .setMessage(message)
-            .setTitle(R.string.label_dialog_title_remove)
-            .setPositiveButton(android.R.string.ok, buttonClickListener)
-            .setNegativeButton(android.R.string.cancel, buttonClickListener)
-            .setOnDismissListener(mDismissListener)
-            .setCancelable(true);
-
-    final AlertDialog dialog = builder.create();
-    showDialog(dialog);
-  }
-
-  private void showDialog(AlertDialog dialog) {
-    if (mAccessibilityOverlay) {
-      if (BuildVersionUtils.isAtLeastLMR1()) {
-        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_ACCESSIBILITY_OVERLAY);
-      } else {
-        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ERROR);
-      }
-
-      // Only need to register overlay dialogs (since they'll cover the lock screen).
-      TalkBackService service = TalkBackService.getInstance();
-      if (service != null) {
-        service.getRingerModeAndScreenMonitor().registerDialog(dialog);
-      }
-    }
-    dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-    dialog.show();
-  }
-
-  private final OnDismissListener mDismissListener =
-      new OnDismissListener() {
-        @Override
-        public void onDismiss(DialogInterface dialog) {
-          mLabelManager.shutdown();
-          TalkBackService service = TalkBackService.getInstance();
-          if (service != null) {
-            EventId eventId = EVENT_ID_UNTRACKED; // Performance not tracked for menu events.
-            service.resetFocusedNode(RESET_FOCUSED_NODE_DELAY, eventId);
-            service.getRingerModeAndScreenMonitor().unregisterDialog(dialog);
-          }
-        }
-      };
-
-  private final OnEditorActionListener mEditActionListener =
-      new OnEditorActionListener() {
-        @Override
-        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-          if ((mPositiveButton != null)
-              && (actionId == EditorInfo.IME_ACTION_DONE)
-              && !TextUtils.isEmpty(v.getText())) {
-            mPositiveButton.callOnClick();
+  /**
+   * Base abstract Dialog class to edit label. Used by {@code AddLabelDialog} and {@code
+   * EditLabelDialog}.
+   */
+  private abstract static class BaseEditLabelDialog extends BaseDialog {
+    protected CustomLabelManager labelManager;
+    @Nullable protected EditText editField;
+    private final OnEditorActionListener editActionListener =
+        (v, actionId, event) -> {
+          if (actionId == EditorInfo.IME_ACTION_DONE && !TextUtils.isEmpty(v.getText())) {
+            handleDialogClick(DialogInterface.BUTTON_POSITIVE);
             return true;
           }
-
           return false;
-        }
-      };
+        };
 
-  private final TextWatcher mTextValidator =
-      new TextWatcher() {
-        @Override
-        public void afterTextChanged(Editable text) {
-          if (mPositiveButton != null) {
-            mPositiveButton.setEnabled(!TextUtils.isEmpty(text));
+    private final TextWatcher textValidator =
+        new TextWatcher() {
+          @Override
+          public void afterTextChanged(Editable text) {
+            setButtonEnabled(DialogInterface.BUTTON_POSITIVE, !TextUtils.isEmpty(text));
           }
-        }
 
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+          @Override
+          public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {}
-      };
+          @Override
+          public void onTextChanged(CharSequence s, int start, int before, int count) {}
+        };
+
+    public BaseEditLabelDialog(
+        Context context,
+        int titleResId,
+        CustomLabelManager labelManager,
+        Pipeline.FeedbackReturner pipeline) {
+      super(context, titleResId, pipeline);
+      this.labelManager = labelManager;
+    }
+
+    /** Handles positive button click events in dialog. */
+    protected abstract void onPositiveAction();
+
+    /** Setup customized view */
+    protected void setupCustomizedView() {}
+
+    @Override
+    public void handleDialogClick(int buttonClicked) {
+      if (buttonClicked == Dialog.BUTTON_POSITIVE) {
+        onPositiveAction();
+      } else if (buttonClicked == Dialog.BUTTON_NEGATIVE) {
+        dismissDialog();
+      }
+    }
+
+    @Override
+    public void handleDialogDismiss() {
+      labelManager.shutdown();
+      editField = null;
+    }
+
+    @Override
+    public View getCustomizedView() {
+      final LayoutInflater li = LayoutInflater.from(context);
+      final View dialogView = li.inflate(R.layout.label_addedit_dialog, null);
+      editField = dialogView.findViewById(R.id.label_dialog_edit_text);
+      editField.setOnEditorActionListener(editActionListener);
+      editField.addTextChangedListener(textValidator);
+      editField.requestFocus();
+      setupCustomizedView();
+      return dialogView;
+    }
+  }
+
+  /** Dialog class to add label. */
+  private static class AddLabelDialog extends BaseEditLabelDialog {
+    private String resourceName;
+
+    public AddLabelDialog(
+        Context context,
+        String resourceName,
+        CustomLabelManager labelManager,
+        Pipeline.FeedbackReturner pipeline) {
+      super(context, R.string.label_dialog_title_add, labelManager, pipeline);
+      this.resourceName = resourceName;
+    }
+
+    @Override
+    public void onPositiveAction() {
+      if (editField != null) {
+        labelManager.addLabel(resourceName, editField.getText().toString());
+      }
+    }
+
+    @Override
+    public String getMessageString() {
+      return context.getString(R.string.label_dialog_text, resourceName);
+    }
+  }
+
+  /** Dialog class to edit label. */
+  private static class EditLabelDialog extends BaseEditLabelDialog {
+    private Label existing;
+
+    public EditLabelDialog(
+        Context context,
+        Label existing,
+        CustomLabelManager labelManager,
+        Pipeline.FeedbackReturner pipeline) {
+      super(context, R.string.label_dialog_title_edit, labelManager, pipeline);
+      this.existing = existing;
+    }
+
+    @Override
+    public void onPositiveAction() {
+      if (editField != null) {
+        existing.setText(editField.getText().toString());
+        existing.setTimestamp(System.currentTimeMillis());
+        labelManager.updateLabel(existing);
+      }
+    }
+
+    @Override
+    public void setupCustomizedView() {
+      if (editField != null) {
+        editField.setText(existing.getText());
+      }
+    }
+
+    @Override
+    public String getMessageString() {
+      return context.getString(R.string.label_dialog_text, existing.getViewName());
+    }
+  }
+
+  /** Dialog class to remove label. */
+  private static class RemoveLabelDialog extends BaseDialog {
+    private Label existing;
+    private CustomLabelManager labelManager;
+
+    public RemoveLabelDialog(
+        Context context,
+        Label existing,
+        CustomLabelManager labelManager,
+        Pipeline.FeedbackReturner pipeline) {
+      super(context, R.string.label_dialog_title_remove, pipeline);
+      this.existing = existing;
+      this.labelManager = labelManager;
+    }
+
+    @Override
+    public void handleDialogClick(int buttonClicked) {
+      if (buttonClicked == Dialog.BUTTON_POSITIVE) {
+        labelManager.removeLabel(existing);
+      } else if (buttonClicked == Dialog.BUTTON_NEGATIVE) {
+        dismissDialog();
+      }
+    }
+
+    @Override
+    public void handleDialogDismiss() {
+      labelManager.shutdown();
+    }
+
+    @Override
+    public String getMessageString() {
+      final CharSequence appName = getApplicationName(context, existing.getPackageName());
+      final CharSequence message;
+      if (TextUtils.isEmpty(appName)) {
+        message = context.getString(R.string.label_remove_dialog_text, existing.getText());
+      } else {
+        message =
+            context.getString(
+                R.string.label_remove_dialog_text_app_name, existing.getText(), appName);
+      }
+      return message.toString();
+    }
+
+    @Override
+    public View getCustomizedView() {
+      return null;
+    }
+  }
 }

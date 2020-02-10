@@ -19,14 +19,13 @@ package com.google.android.accessibility.talkback.labeling;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Toast;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.labeling.Label;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -47,6 +46,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class CustomLabelMigrationManager {
+
+  private static final String TAG = "CustomLabelMigrManager";
 
   private static final String JSON_LABELS_ARRAY = "labels_array";
   private static final String JSON_LABEL_PACKAGE_NAME = "package_name";
@@ -76,32 +77,32 @@ public class CustomLabelMigrationManager {
     public void onFail() {}
   }
 
-  private ExecutorService mExecutor;
-  private Handler mHandler;
-  private CustomLabelManager mManager;
-  private Context mContext;
+  private ExecutorService executor;
+  private Handler handler;
+  private CustomLabelManager manager;
+  private Context context;
 
   public CustomLabelMigrationManager(Context context) {
-    mExecutor = Executors.newSingleThreadExecutor();
-    mHandler = new Handler();
+    executor = Executors.newSingleThreadExecutor();
+    handler = new Handler();
     TalkBackService service = TalkBackService.getInstance();
     if (service != null) {
-      mManager = service.getLabelManager();
+      manager = service.getLabelManager();
     } else {
-      mManager = new CustomLabelManager(context);
+      manager = new CustomLabelManager(context);
     }
-    mContext = context;
+    this.context = context;
   }
 
   public void exportLabels(final OnLabelMigrationCallback callback) {
-    mManager.getLabelsFromDatabase(
+    manager.getLabelsFromDatabase(
         new LabelsFetchRequest.OnLabelsFetchedListener() {
           @Override
           public void onLabelsFetched(List<Label> results) {
             if (results != null && results.size() > 0) {
               createLabelFileAsync(results, callback);
             } else {
-              Toast.makeText(mContext, R.string.label_export_empty, Toast.LENGTH_SHORT).show();
+              Toast.makeText(context, R.string.label_export_empty, Toast.LENGTH_SHORT).show();
             }
           }
         });
@@ -109,7 +110,7 @@ public class CustomLabelMigrationManager {
 
   private void createLabelFileAsync(
       final List<Label> labels, final OnLabelMigrationCallback callback) {
-    mExecutor.execute(
+    executor.execute(
         new Runnable() {
           @Override
           public void run() {
@@ -119,7 +120,7 @@ public class CustomLabelMigrationManager {
                 final File file = getFilePath();
                 writeToFile(jsonText, file);
                 if (callback != null) {
-                  mHandler.post(
+                  handler.post(
                       new Runnable() {
                         @Override
                         public void run() {
@@ -132,7 +133,7 @@ public class CustomLabelMigrationManager {
               }
             } catch (Exception e) {
               notifyFailure(callback);
-              LogUtils.log(Log.ERROR, "Failed to export labels");
+              LogUtils.e(TAG, "Failed to export labels");
             }
           }
         });
@@ -140,7 +141,7 @@ public class CustomLabelMigrationManager {
 
   private void notifyFailure(final OnLabelMigrationCallback callback) {
     if (callback != null) {
-      mHandler.post(
+      handler.post(
           new Runnable() {
             @Override
             public void run() {
@@ -173,7 +174,7 @@ public class CustomLabelMigrationManager {
   }
 
   private File getFilePath() throws IOException {
-    File outputDir = mContext.getExternalCacheDir();
+    File outputDir = context.getExternalCacheDir();
     String fileName =
         String.format(
             "Talkback_custom_labels_%s.tbl", new SimpleDateFormat("MMddyyyy").format(new Date()));
@@ -199,16 +200,16 @@ public class CustomLabelMigrationManager {
         return;
       }
 
-      mManager.importLabels(labels, overrideExistingLabels, callback);
+      manager.importLabels(labels, overrideExistingLabels, callback);
     } catch (Exception e) {
       notifyFailure(callback);
-      LogUtils.log(Log.ERROR, "failed to import labels");
+      LogUtils.e(TAG, "failed to import labels");
     }
   }
 
   private String readText(Uri contentUri) throws IOException {
     StringBuilder text = new StringBuilder();
-    InputStream is = mContext.getContentResolver().openInputStream(contentUri);
+    InputStream is = context.getContentResolver().openInputStream(contentUri);
     BufferedReader br = new BufferedReader(new InputStreamReader(is));
     String line;
 

@@ -16,14 +16,11 @@
 
 package com.google.android.accessibility.switchaccess;
 
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.view.accessibility.AccessibilityEvent;
-import com.google.android.accessibility.utils.AccessibilityEventListener;
-import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.libraries.accessibility.utils.eventfilter.AccessibilityEventListener;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Class to detect possible changes to the UI based on AccessibilityEvents */
-@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class UiChangeDetector implements AccessibilityEventListener {
 
   /** Event types that are handled by UiChangeDetector. */
@@ -33,10 +30,10 @@ public class UiChangeDetector implements AccessibilityEventListener {
           | AccessibilityEvent.TYPE_VIEW_SCROLLED
           | AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED;
 
-  PossibleUiChangeListener mListener;
+  private final PossibleUiChangeListener listener;
 
   public UiChangeDetector(PossibleUiChangeListener listener) {
-    mListener = listener;
+    this.listener = listener;
   }
 
   @Override
@@ -45,7 +42,7 @@ public class UiChangeDetector implements AccessibilityEventListener {
   }
 
   @Override
-  public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
+  public void onAccessibilityEvent(AccessibilityEvent event) {
     if (event == null) {
       return;
     }
@@ -64,8 +61,16 @@ public class UiChangeDetector implements AccessibilityEventListener {
     }
 
     if (willClearFocus) {
-      mListener.onPossibleChangeToUi();
+      listener.onPossibleChangeToUi(event);
     }
+  }
+
+  /**
+   * Handle user clicks. These will usually cause the screen to change and, as in the case of
+   * showing notifications, might not cause accessibility events to be fired.
+   */
+  public void onUserClick() {
+    listener.onPossibleChangeToUi(null);
   }
 
   /**
@@ -73,6 +78,6 @@ public class UiChangeDetector implements AccessibilityEventListener {
    * change.
    */
   public interface PossibleUiChangeListener {
-    void onPossibleChangeToUi();
+    void onPossibleChangeToUi(@Nullable AccessibilityEvent event);
   }
 }

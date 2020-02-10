@@ -16,8 +16,7 @@
 
 package com.google.android.accessibility.talkback.labeling;
 
-import android.app.ActionBar;
-import android.app.Activity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -26,7 +25,8 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,9 +38,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.LocaleUtils;
-import com.google.android.accessibility.utils.LogUtils;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.labeling.LabelProviderClient;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,12 +49,15 @@ import java.util.List;
 import java.util.Map;
 
 /** An activity for managing custom labels in TalkBack for a specific package. */
-public class LabelManagerPackageActivity extends Activity {
+public class LabelManagerPackageActivity extends AppCompatActivity {
+
+  private static final String TAG = "LabelManagerPackageAct";
+
   public static final String EXTRA_PACKAGE_NAME = "packageName";
 
-  private LabelProviderClient mLabelProviderClient;
-  private String mPackageName;
-  private ListView mLabelList;
+  private LabelProviderClient labelProviderClient;
+  private String packageName;
+  private ListView labelList;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -67,30 +70,30 @@ public class LabelManagerPackageActivity extends Activity {
       throw new IllegalArgumentException("Intent missing package name extra.");
     }
 
-    mPackageName = intent.getStringExtra(EXTRA_PACKAGE_NAME);
+    packageName = intent.getStringExtra(EXTRA_PACKAGE_NAME);
 
     final PackageManager packageManager = getPackageManager();
     CharSequence applicationLabel;
     Drawable packageIcon;
     try {
-      packageIcon = packageManager.getApplicationIcon(mPackageName);
-      final PackageInfo packageInfo = packageManager.getPackageInfo(mPackageName, 0);
+      packageIcon = packageManager.getApplicationIcon(packageName);
+      final PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 0);
       applicationLabel = packageManager.getApplicationLabel(packageInfo.applicationInfo);
     } catch (NameNotFoundException e) {
-      LogUtils.log(this, Log.INFO, "Could not load package info for package %s.", mPackageName);
+      LogUtils.i(TAG, "Could not load package info for package %s.", packageName);
 
       packageIcon = packageManager.getDefaultActivityIcon();
-      applicationLabel = mPackageName;
+      applicationLabel = packageName;
     }
 
     setTitle(getString(R.string.label_manager_package_title, applicationLabel));
 
-    final ActionBar actionBar = getActionBar();
+    final ActionBar actionBar = getSupportActionBar();
     actionBar.setIcon(packageIcon);
     actionBar.setDisplayHomeAsUpEnabled(true);
 
-    mLabelList = (ListView) findViewById(R.id.label_list);
-    mLabelProviderClient = new LabelProviderClient(this, LabelProvider.AUTHORITY);
+    labelList = (ListView) findViewById(R.id.label_list);
+    labelProviderClient = new LabelProviderClient(this, LabelProvider.AUTHORITY);
   }
 
   @Override
@@ -104,7 +107,7 @@ public class LabelManagerPackageActivity extends Activity {
   protected void onDestroy() {
     super.onDestroy();
 
-    mLabelProviderClient.shutdown();
+    labelProviderClient.shutdown();
   }
 
   /** Finishes the activity when the up button is pressed on the action bar. */
@@ -121,19 +124,19 @@ public class LabelManagerPackageActivity extends Activity {
 
   /** An adapter that processes information about labels for a given package. */
   private class LabelAdapter extends ArrayAdapter<Label> {
-    private final LayoutInflater mLayoutInflater;
+    private final LayoutInflater layoutInflater;
 
     public LabelAdapter(Context context, int textViewResourceId, List<Label> items) {
       super(context, textViewResourceId, items);
 
-      mLayoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+      layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public View getView(int position, View view, ViewGroup parent) {
       if (view == null) {
-        view = mLayoutInflater.inflate(R.layout.label_manager_label_row, parent, false);
+        view = layoutInflater.inflate(R.layout.label_manager_label_row, parent, false);
       }
 
       final Label label = getItem(position);
@@ -159,7 +162,8 @@ public class LabelManagerPackageActivity extends Activity {
             @Override
             public void onClick(View view) {
               final Context context = LabelManagerPackageActivity.this;
-              LabelDialogManager.editLabel(context, label, false /* overlay */);
+              LabelDialogManager.editLabel(
+                  context, label, /* isFromLocalContextMenu= */ false, /* pipeline= */ null);
 
               // TODO: Also add intent for deleting the label.
             }
@@ -174,31 +178,26 @@ public class LabelManagerPackageActivity extends Activity {
    * adapter with those labels.
    */
   private class UpdateLabelsTask extends AsyncTask<Void, Void, List<Label>> {
-    private String mLocale;
+    private String locale;
 
     @Override
     protected void onPreExecute() {
-      mLocale = LocaleUtils.getDefaultLocale();
+      locale = LocaleUtils.getDefaultLocale();
     }
 
     @Override
     protected List<Label> doInBackground(Void... params) {
-      LogUtils.log(
-          this,
-          Log.VERBOSE,
-          "Spawning new UpdateLabelsTask(%d) for (%s, %s).",
-          hashCode(),
-          mPackageName,
-          mLocale);
+      LogUtils.v(
+          TAG, "Spawning new UpdateLabelsTask(%d) for (%s, %s).", hashCode(), packageName, locale);
 
       final Map<String, Label> labelsMap =
-          mLabelProviderClient.getLabelsForPackage(mPackageName, mLocale);
+          labelProviderClient.getLabelsForPackage(packageName, locale);
       return new ArrayList<>(labelsMap.values());
     }
 
     @Override
     protected void onPostExecute(List<Label> result) {
-      mLabelList.setAdapter(
+      labelList.setAdapter(
           new LabelAdapter(
               LabelManagerPackageActivity.this, R.layout.label_manager_label_row, result));
     }
@@ -206,8 +205,8 @@ public class LabelManagerPackageActivity extends Activity {
 
   /** A task for loading a screenshot from a label into a view. */
   private static class LoadScreenshotTask extends AsyncTask<Void, Void, Drawable> {
-    private Label mLabel;
-    private ImageView mImageView;
+    private Label label;
+    private ImageView imageView;
 
     /**
      * Constructs a new task for loading a screenshot.
@@ -216,28 +215,23 @@ public class LabelManagerPackageActivity extends Activity {
      * @param imageView The view into which to load the screenshot.
      */
     public LoadScreenshotTask(Label label, ImageView imageView) {
-      mLabel = label;
-      mImageView = imageView;
+      this.label = label;
+      this.imageView = imageView;
     }
 
     @Override
     protected Drawable doInBackground(Void... params) {
-      final String screenshotPath = mLabel.getScreenshotPath();
+      final String screenshotPath = label.getScreenshotPath();
 
-      LogUtils.log(
-          this,
-          Log.VERBOSE,
-          "Spawning new LoadScreenshotTask(%d) for %s.",
-          hashCode(),
-          screenshotPath);
+      LogUtils.v(TAG, "Spawning new LoadScreenshotTask(%d) for %s.", hashCode(), screenshotPath);
 
       return Drawable.createFromPath(screenshotPath);
     }
 
     @Override
     protected void onPostExecute(Drawable result) {
-      mImageView.setImageDrawable(result);
-      mImageView.invalidate();
+      imageView.setImageDrawable(result);
+      imageView.invalidate();
     }
   }
 }

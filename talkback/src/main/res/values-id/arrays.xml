@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="html_input_to_desc_values">
+    <item>Tombol</item>
+    <item>Kotak centang</item>
+    <item>Pemilih warna</item>
+    <item>Kontrol tanggal dan waktu</item>
+    <item>Kontrol tanggal dan waktu</item>
+    <item>Kontrol tanggal</item>
+    <item>Edit teks untuk email</item>
+    <item>Pemilihan file</item>
+    <item translatable="false"></item>
+    <item>Tombol</item>
+    <item>Kontrol bulan</item>
+    <item>Edit teks numerik saja</item>
+    <item>Teks edit sandi</item>
+    <item>Tombol radio</item>
+    <item>Bilah geser</item>
+    <item>Setel ulang</item>
+    <item>Edit teks untuk penelusuran</item>
+    <item>Tombol</item>
+    <item>Edit teks untuk nomor telepon</item>
+    <item>Edit teks</item>
+    <item>Edit teks untuk URL</item>
+    <item>Kontrol minggu dalam tahun</item>
+  </string-array>
+  <string-array name="html_role_to_desc_values">
+    <item>Notifikasi</item>
+    <item>Dialog notifikasi</item>
+    <item>Tombol</item>
+    <item>Kotak centang</item>
+    <item>Kotak kombo</item>
+    <item>Dialog</item>
+    <item>Sel kisi</item>
+    <item>Link</item>
+    <item>Log</item>
+    <item>Marquee</item>
+    <item>Item menu</item>
+    <item>Kotak centang item menu</item>
+    <item>Tombol radio item menu</item>
+    <item>Opsi</item>
+    <item>Bilah kemajuan</item>
+    <item>Tombol radio</item>
+    <item>Grup tombol radio</item>
+    <item>Bilah gulir</item>
+    <item>Bilah geser</item>
+    <item>Tombol pelintir</item>
+    <item>Status</item>
+    <item>Tab</item>
+    <item>Panel tab</item>
+    <item>Kotak teks</item>
+    <item>Timer</item>
+    <item>Bilah alat</item>
+    <item>Kiat alat</item>
+    <item>Item pohon</item>
+  </string-array>
+  <string-array name="html_tag_to_desc_values">
+    <item>Link</item>
+    <item>Judul satu</item>
+    <item>Judul dua</item>
+    <item>Judul tiga</item>
+    <item>Judul empat</item>
+    <item>Judul lima</item>
+    <item>Judul enam</item>
+    <item>Tombol</item>
+    <item>Kotak kombo</item>
+    <item>Tabel</item>
+    <item>Area teks</item>
+  </string-array>
+  <string-array name="voice_commands">
+    <item>@string/voice_commands_next_heading</item>
+    <item>@string/voice_commands_find</item>
+    <item>@string/voice_commands_find_again</item>
+    <item>@android:string/selectAll</item>
+    <item>@string/voice_commands_start_select</item>
+    <item>@string/voice_commands_finish_select</item>
+    <item>@string/voice_commands_deselect</item>
+    <item>@android:string/copy</item>
+    <item>@android:string/cut</item>
+    <item>@android:string/paste</item>
+    <item>@string/voice_commands_dictate</item>
+    <item>@string/voice_commands_assistant</item>
+    <item>@string/keycombo_menu_global_home</item>
+    <item>@string/keycombo_menu_global_recent</item>
+    <item>@string/keycombo_menu_global_notifications</item>
+    <item>@string/shortcut_quick_settings</item>
+    <item>@string/shortcut_read_from_top</item>
+    <item>@string/shortcut_read_from_current</item>
+    <item>@string/title_edittext_controls</item>
+    <item>@string/language_options</item>
+    <item>@string/title_custom_action</item>
+    <item>@string/shortcut_enable_dimming</item>
+    <item>@string/shortcut_disable_dimming</item>
+    <item>@string/title_pref_help</item>
+  </string-array>
+</resources>

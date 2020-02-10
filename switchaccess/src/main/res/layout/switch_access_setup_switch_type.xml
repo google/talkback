@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+  <com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioGroupWithSubheadings
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:paddingStart="@dimen/setup_wizard_padding_radio_buttons_start"
+      android:paddingEnd="@dimen/setup_wizard_padding_start_end"
+      android:paddingTop="@dimen/setup_wizard_padding_heading_top"
+      android:focusable="false" >
+
+    <com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+      <RadioButton
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textSize="@dimen/setup_wizard_text_size"
+          android:id="@+id/usb_switch_radio_button"
+          android:layout_weight="1"
+          android:checked="true"
+          android:text="@string/usb_switch_option_text"/>
+
+      <TextView
+          android:id="@+id/usb_switch_option_description"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:paddingStart="@dimen/setup_wizard_text_padding_start"
+          android:paddingBottom="@dimen/setup_wizard_radio_button_description_padding"
+          android:textSize="@dimen/setup_wizard_subtext_size"
+          android:textAlignment="viewStart"
+          android:text="@string/usb_switch_description_text" />
+    </com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading>
+
+    <com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+      <RadioButton
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textSize="@dimen/setup_wizard_text_size"
+          android:id="@+id/bluetooth_switch_radio_button"
+          android:layout_weight="1"
+          android:text="@string/bluetooth_switch_option_text" />
+
+      <TextView
+          android:id="@+id/bluetooth_switch_option_description"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:paddingStart="@dimen/setup_wizard_text_padding_start"
+          android:paddingBottom="@dimen/setup_wizard_radio_button_description_padding"
+          android:textSize="@dimen/setup_wizard_subtext_size"
+          android:textAlignment="viewStart"
+          android:text="@string/bluetooth_switch_description_text"/>
+    </com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioButtonRowWithSubheading>
+  </com.google.android.accessibility.switchaccess.setupwizard.radiobutton.RadioGroupWithSubheadings>
+</ScrollView>

@@ -26,27 +26,27 @@ public class Tutorial {
 
   private static final String JSON_KEY_LESSONS = "lessons";
 
-  private TutorialLesson[] mLessons;
+  private TutorialLesson[] lessons;
 
   public Tutorial(Context context, JSONObject tutorial) throws JSONException {
     JSONArray lessons = JsonUtils.getJsonArray(tutorial, JSON_KEY_LESSONS);
     if (lessons != null && lessons.length() > 0) {
       int lessonCount = lessons.length();
-      mLessons = new TutorialLesson[lessonCount];
+      this.lessons = new TutorialLesson[lessonCount];
       for (int i = 0; i < lessonCount; i++) {
         JSONObject lesson = lessons.getJSONObject(i);
-        mLessons[i] = new TutorialLesson(context, lesson);
+        this.lessons[i] = new TutorialLesson(context, lesson);
       }
     } else {
-      mLessons = new TutorialLesson[0];
+      this.lessons = new TutorialLesson[0];
     }
   }
 
   public int getLessonsCount() {
-    return mLessons.length;
+    return lessons.length;
   }
 
   public TutorialLesson getLesson(int index) {
-    return mLessons[index];
+    return lessons[index];
   }
 }

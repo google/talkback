@@ -16,15 +16,13 @@
 
 package com.google.android.accessibility.talkback.focusmanagement.interpreter;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.accessibility.AccessibilityWindowInfo;
 import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -40,72 +38,41 @@ import java.util.Objects;
 public final class ScreenState {
 
   // Maps from window ID to AccessibilityWindowInfo.
-  private HashMap<Integer, AccessibilityWindowInfo> mIdToWindowInfoMap = new HashMap<>();
+  private final HashMap<Integer, AccessibilityWindowInfo> idToWindowInfoMap = new HashMap<>();
 
-  private List<AccessibilityWindowInfo> mSystemWindows = new ArrayList<>();
-  private List<AccessibilityWindowInfo> mApplicationWindows = new ArrayList<>();
-  private List<AccessibilityWindowInfo> mAccessibilityWindows = new ArrayList<>();
-  private List<AccessibilityWindowInfo> mInputMethodWindows = new ArrayList<>();
-  private List<AccessibilityWindowInfo> mPicInPicWindows = new ArrayList<>();
-
-  private boolean mIsInSplitScreenMode = false;
+  private final AccessibilityWindowInfo activeWindow;
 
   // Maps from window ID to overridden window title.
-  private SparseArray<CharSequence> mOverriddenWindowTitles = new SparseArray<>();
+  private final SparseArray<CharSequence> overriddenWindowTitles = new SparseArray<>();
 
-  public ScreenState(List<AccessibilityWindowInfo> windows) {
+  public ScreenState(List<AccessibilityWindowInfo> windows, AccessibilityWindowInfo activeWindow) {
+    this.activeWindow = activeWindow;
     if (windows == null || windows.size() == 0) {
       return;
     }
     for (AccessibilityWindowInfo window : windows) {
-      boolean shouldIgnoreWindow = false;
-      if (AccessibilityWindowInfoUtils.isPictureInPicture(window)) {
-        mPicInPicWindows.add(window);
-      } else {
-        switch (window.getType()) {
-          case AccessibilityWindowInfo.TYPE_SYSTEM:
-            mSystemWindows.add(window);
-            break;
-          case AccessibilityWindowInfo.TYPE_SPLIT_SCREEN_DIVIDER:
-            mIsInSplitScreenMode = true;
-            shouldIgnoreWindow = true;
-            break;
-          case AccessibilityWindowInfo.TYPE_ACCESSIBILITY_OVERLAY:
-            mAccessibilityWindows.add(window);
-            break;
-          case AccessibilityWindowInfo.TYPE_APPLICATION:
-            mApplicationWindows.add(window);
-            break;
-          case AccessibilityWindowInfo.TYPE_INPUT_METHOD:
-            mInputMethodWindows.add(window);
-            break;
-          default:
-            shouldIgnoreWindow = true;
-            break;
-        }
-      }
-
-      // Ignores split screen divider window, and windows with unidentified types.
-      if (!shouldIgnoreWindow) {
-        mIdToWindowInfoMap.put(window.getId(), window);
-      }
+      idToWindowInfoMap.put(window.getId(), window);
     }
   }
 
   /**
    * Returns title of window with given window ID.
    *
-   * <p><strong>Note: </strong> This method returns null if the window has no title or the window is
-   * not visible.
+   * <p><strong>Note: </strong> This method returns null if the window has no title, or the window
+   * is not visible, or the window is IME or system window.
    */
   @Nullable
   public CharSequence getWindowTitle(int windowId) {
-    AccessibilityWindowInfo window = mIdToWindowInfoMap.get(windowId);
-    if (window == null) {
-      // Return null if the queried window is not displayed on screen.
+    AccessibilityWindowInfo window = idToWindowInfoMap.get(windowId);
+    if ((window == null)
+        || (window.getType() == AccessibilityWindowInfo.TYPE_INPUT_METHOD)
+        || (window.getType() == AccessibilityWindowInfo.TYPE_SYSTEM)
+        || (window.getType() == AccessibilityWindowInfo.TYPE_SPLIT_SCREEN_DIVIDER)) {
+      // Only return title for application or accessibility windows.
       return null;
     }
-    CharSequence eventTitle = mOverriddenWindowTitles.get(windowId);
+
+    CharSequence eventTitle = overriddenWindowTitles.get(windowId);
     if (!TextUtils.isEmpty(eventTitle)) {
       return eventTitle;
     }
@@ -120,6 +87,22 @@ public final class ScreenState {
     return null;
   }
 
+  public boolean hasIdenticalWindowSetWith(ScreenState another) {
+    return (another != null) && idToWindowInfoMap.equals(another.idToWindowInfoMap);
+  }
+
+  @Nullable
+  public AccessibilityWindowInfo getActiveWindow() {
+    return activeWindow;
+  }
+
+  public CharSequence getActiveWindowTitle() {
+    if (activeWindow == null) {
+      return null;
+    }
+    return getWindowTitle(activeWindow.getId());
+  }
+
   @Override
   public boolean equals(Object other) {
     if (!(other instanceof ScreenState)) {
@@ -130,22 +113,22 @@ public final class ScreenState {
     }
 
     ScreenState otherScreen = (ScreenState) other;
-    if (!mIdToWindowInfoMap.equals(otherScreen.mIdToWindowInfoMap)) {
+    if (!idToWindowInfoMap.equals(otherScreen.idToWindowInfoMap)) {
       return false;
     }
-    for (int windowId : mIdToWindowInfoMap.keySet()) {
+    for (int windowId : idToWindowInfoMap.keySet()) {
       if (!TextUtils.equals(getWindowTitle(windowId), otherScreen.getWindowTitle(windowId))) {
         return false;
       }
     }
-    return true;
+    return AccessibilityWindowInfoUtils.equals(activeWindow, otherScreen.activeWindow);
   }
 
   @Override
   public int hashCode() {
     int h = 0;
     Iterator<Entry<Integer, AccessibilityWindowInfo>> iterator =
-        mIdToWindowInfoMap.entrySet().iterator();
+        idToWindowInfoMap.entrySet().iterator();
     while (iterator.hasNext()) {
       Entry<Integer, AccessibilityWindowInfo> entry = iterator.next();
       h += entry.hashCode() ^ Objects.hashCode(getWindowTitle(entry.getKey()));
@@ -156,52 +139,118 @@ public final class ScreenState {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("Number of windows:").append(mIdToWindowInfoMap.size()).append('\n');
-    sb.append("System window: ").append(getWindowListString(mSystemWindows)).append('\n');
-    sb.append("Application window: ").append(getWindowListString(mApplicationWindows)).append('\n');
-    sb.append("Accessibility window: ")
-        .append(getWindowListString(mAccessibilityWindows))
+    sb.append("Number of windows:").append(idToWindowInfoMap.size()).append('\n');
+    sb.append("System window: ")
+        .append(getWindowListString(AccessibilityWindowInfo.TYPE_SYSTEM))
         .append('\n');
-    sb.append("InputMethod window: ").append(getWindowListString(mInputMethodWindows)).append('\n');
-    sb.append("PicInPic window: ").append(getWindowListString(mPicInPicWindows)).append('\n');
-    sb.append("isInSplitScreenMode:").append(mIsInSplitScreenMode);
+    sb.append("Application window: ")
+        .append(getWindowListString(AccessibilityWindowInfo.TYPE_APPLICATION))
+        .append('\n');
+    sb.append("Accessibility window: ")
+        .append(getWindowListString(AccessibilityWindowInfo.TYPE_ACCESSIBILITY_OVERLAY))
+        .append('\n');
+    sb.append("InputMethod window: ")
+        .append(getWindowListString(AccessibilityWindowInfo.TYPE_INPUT_METHOD))
+        .append('\n');
+    sb.append("PicInPic window: ").append(getPicInPicWindowListString()).append('\n');
+    sb.append("isInSplitScreenMode:").append(isInSplitScreenMode());
     return sb.toString();
   }
 
-  void updateOverriddenWindowTitles(@NonNull ScreenState anotherScreen) {
-    updateOverriddenWindowTitles(anotherScreen.mOverriddenWindowTitles);
+  /**
+   * Conditionally inherits overridden window titles from previous {@link ScreenState}.
+   *
+   * <p>Developer can update window title by either sending {@link
+   * android.view.accessibility.AccessibilityEvent#TYPE_WINDOW_STATE_CHANGED} with title as text, or
+   * by calling {@link android.view.Window#setTitle(CharSequence)}. If we discover that window title
+   * from {@link AccessibilityWindowInfo} has been changed and is not null, we should not inherit
+   * out-of-date event title from previous {@link ScreenState}.
+   */
+  void inheritOverriddenTitlesFromPreviousScreenState(@NonNull ScreenState previousScreenState) {
+    for (int windowId : idToWindowInfoMap.keySet()) {
+      CharSequence currentWindowInfoTitle = getTitleFromWindowInfo(idToWindowInfoMap.get(windowId));
+      CharSequence previousWindowInfoTitle =
+          getTitleFromWindowInfo(previousScreenState.idToWindowInfoMap.get(windowId));
+      if (!TextUtils.isEmpty(currentWindowInfoTitle)
+          && !TextUtils.equals(currentWindowInfoTitle, previousWindowInfoTitle)) {
+        continue;
+      }
+      CharSequence previousOverriddenTitle =
+          previousScreenState.overriddenWindowTitles.get(windowId);
+      if (!TextUtils.isEmpty(previousOverriddenTitle)) {
+        overriddenWindowTitles.put(windowId, previousOverriddenTitle);
+      }
+    }
   }
 
-  void updateOverriddenWindowTitles(@NonNull WindowTransitionInfo windowTransitionInfo) {
+  private static CharSequence getTitleFromWindowInfo(AccessibilityWindowInfo window) {
+    if ((window == null) || !BuildVersionUtils.isAtLeastN()) {
+      return null;
+    }
+    return window.getTitle();
+  }
+
+  void updateOverriddenTitlesFromEvents(@NonNull WindowTransitionInfo windowTransitionInfo) {
     updateOverriddenWindowTitles(windowTransitionInfo.getWindowTitleMap());
   }
 
-  @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
   void updateOverriddenWindowTitles(@NonNull SparseArray<CharSequence> windowTitles) {
-    for (int windowId : mIdToWindowInfoMap.keySet()) {
+    for (int windowId : idToWindowInfoMap.keySet()) {
       CharSequence title = windowTitles.get(windowId);
       if (!TextUtils.isEmpty(title)) {
-        mOverriddenWindowTitles.put(windowId, title);
+        overriddenWindowTitles.put(windowId, title);
       }
     }
   }
 
-  @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
-  HashMap<Integer, AccessibilityWindowInfo> getIdToWindowInfoMap() {
-    return mIdToWindowInfoMap;
+  public HashMap<Integer, AccessibilityWindowInfo> getIdToWindowInfoMap() {
+    return idToWindowInfoMap;
   }
 
-  /** Used for debug only. */
-  private String getWindowListString(List<AccessibilityWindowInfo> windows) {
-    if (windows == null) {
-      return "";
+  /** Used by {@link #toString()}. */
+  private String getWindowDescription(AccessibilityWindowInfo window) {
+    if (window == null) {
+      return null;
     }
+    return String.format(
+        "%d-%s%s;",
+        window.getId(),
+        getWindowTitle(window.getId()),
+        window.equals(activeWindow) ? "(active)" : "");
+  }
+
+  /** Used by {@link #toString()}. */
+  private String getWindowListString(int windowType) {
     StringBuilder sb = new StringBuilder();
-    for (AccessibilityWindowInfo window : windows) {
-      if (window != null) {
-        sb.append(window.getId()).append('-').append(getWindowTitle(window.getId())).append(';');
+    for (AccessibilityWindowInfo window : idToWindowInfoMap.values()) {
+      if ((window != null)
+          && (window.getType() == windowType)
+          && !AccessibilityWindowInfoUtils.isPictureInPicture(window)) {
+        sb.append(getWindowDescription(window));
       }
     }
     return sb.toString();
+  }
+
+  /** Used by {@link #toString()}. */
+  private String getPicInPicWindowListString() {
+    StringBuilder sb = new StringBuilder();
+    for (AccessibilityWindowInfo window : idToWindowInfoMap.values()) {
+      if ((window != null) && AccessibilityWindowInfoUtils.isPictureInPicture(window)) {
+        sb.append(getWindowDescription(window));
+      }
+    }
+    return sb.toString();
+  }
+
+  /** Used by {@link #toString()}. */
+  private boolean isInSplitScreenMode() {
+    for (AccessibilityWindowInfo window : idToWindowInfoMap.values()) {
+      if ((window != null)
+          && window.getType() == AccessibilityWindowInfo.TYPE_SPLIT_SCREEN_DIVIDER) {
+        return true;
+      }
+    }
+    return false;
   }
 }

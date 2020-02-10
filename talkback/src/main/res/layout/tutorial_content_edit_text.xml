@@ -6,11 +6,10 @@
 
     <EditText
         android:id="@+id/edit"
-        style="@style/MaterialTextSubHeading"
-        android:textColor="@android:color/black"
         android:hint="@string/tutorial_lesson_5_hint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="@dimen/tutorial_content_horizontal_offset"
         android:layout_marginRight="@dimen/tutorial_content_horizontal_offset"/>

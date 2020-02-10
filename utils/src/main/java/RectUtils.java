@@ -17,7 +17,7 @@
 package com.google.android.accessibility.utils;
 
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -27,7 +27,7 @@ import java.util.List;
 public final class RectUtils {
   /* A {@link Comparator} used to compare position of rectangles. The position order is from top
    * to bottom, from left to right. */
-  private static final Comparator<Rect> RECT_POSITION_COMPARATOR =
+  public static final Comparator<Rect> RECT_POSITION_COMPARATOR =
       new Comparator<Rect>() {
         @Override
         public int compare(Rect o1, Rect o2) {

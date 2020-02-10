@@ -27,20 +27,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public abstract class ContextMenu implements Menu {
 
   private static final int ID_CANCEL = -1;
 
-  private Context mContext;
-  private List<ContextMenuItem> mItems;
-  private MenuItem.OnMenuItemClickListener mListener;
+  private Context context;
+  private List<ContextMenuItem> items;
+  private MenuItem.OnMenuItemClickListener listener;
 
   public ContextMenu(Context context) {
-    mContext = context;
-    mItems = new ArrayList<>();
+    this.context = context;
+    items = new ArrayList<>();
   }
 
   /**
@@ -50,15 +49,15 @@ public abstract class ContextMenu implements Menu {
    * @param listener The default click listener for menu items.
    */
   public void setDefaultListener(MenuItem.OnMenuItemClickListener listener) {
-    mListener = listener;
+    this.listener = listener;
   }
 
   public MenuItem.OnMenuItemClickListener getDefaultListener() {
-    return mListener;
+    return listener;
   }
 
   public Context getContext() {
-    return mContext;
+    return context;
   }
 
   @Override
@@ -73,12 +72,12 @@ public abstract class ContextMenu implements Menu {
 
   @Override
   public ContextMenuItem add(int groupId, int itemId, int order, int titleRes) {
-    CharSequence title = mContext.getText(titleRes);
+    CharSequence title = context.getText(titleRes);
     return add(groupId, itemId, order, title);
   }
 
   public void add(ContextMenuItem item) {
-    mItems.add(item);
+    items.add(item);
   }
 
   @Override
@@ -96,9 +95,12 @@ public abstract class ContextMenu implements Menu {
 
   @Override
   public SubMenu addSubMenu(int groupId, int itemId, int order, int titleRes) {
-    final CharSequence title = mContext.getText(titleRes);
+    final CharSequence title = context.getText(titleRes);
     return addSubMenu(groupId, itemId, order, title);
   }
+
+  /** Updates the availability of an item in the menu. */
+  public abstract void updateItemAvailability(boolean shouldBeAvailable, int itemId);
 
   @Override
   public abstract ContextSubMenu addSubMenu(int groupId, int itemId, int order, CharSequence title);
@@ -110,12 +112,12 @@ public abstract class ContextMenu implements Menu {
 
   @Override
   public int size() {
-    return mItems.size();
+    return items.size();
   }
 
   @Override
   public void clear() {
-    mItems.clear();
+    items.clear();
   }
 
   @Override
@@ -125,12 +127,12 @@ public abstract class ContextMenu implements Menu {
       return;
     }
 
-    mItems.remove(item);
+    items.remove(item);
   }
 
   @Override
   public boolean hasVisibleItems() {
-    for (MenuItem item : mItems) {
+    for (MenuItem item : items) {
       if (item.isVisible()) {
         return true;
       }
@@ -141,29 +143,29 @@ public abstract class ContextMenu implements Menu {
 
   @Override
   public ContextMenuItem getItem(int index) {
-    return mItems.get(index);
+    return items.get(index);
   }
 
   protected int indexOf(ContextMenuItem item) {
-    return mItems.indexOf(item);
+    return items.indexOf(item);
   }
 
   @Override
   public void removeGroup(int group) {
-    List<MenuItem> removeItems = new LinkedList<>();
+    List<MenuItem> removeItems = new ArrayList<>();
 
-    for (MenuItem item : mItems) {
+    for (MenuItem item : items) {
       if (item.getGroupId() == group) {
         removeItems.add(item);
       }
     }
 
-    mItems.removeAll(removeItems);
+    items.removeAll(removeItems);
   }
 
   @Override
   public void setGroupCheckable(int group, boolean checkable, boolean exclusive) {
-    for (MenuItem item : mItems) {
+    for (MenuItem item : items) {
       if (item.getGroupId() == group) {
         item.setCheckable(checkable);
       }
@@ -172,7 +174,7 @@ public abstract class ContextMenu implements Menu {
 
   @Override
   public void setGroupEnabled(int group, boolean enabled) {
-    for (MenuItem item : mItems) {
+    for (MenuItem item : items) {
       if (item.getGroupId() == group) {
         item.setEnabled(enabled);
       }
@@ -181,7 +183,7 @@ public abstract class ContextMenu implements Menu {
 
   @Override
   public void setGroupVisible(int group, boolean visible) {
-    for (MenuItem item : mItems) {
+    for (MenuItem item : items) {
       if (item.getGroupId() == group) {
         item.setVisible(visible);
       }
@@ -194,7 +196,7 @@ public abstract class ContextMenu implements Menu {
       return null;
     }
 
-    for (ContextMenuItem item : mItems) {
+    for (ContextMenuItem item : items) {
       if (item.getItemId() == id) {
         return item;
       }
@@ -233,7 +235,7 @@ public abstract class ContextMenu implements Menu {
     final boolean performedAction =
         (item == null)
             || item.onClickPerformed()
-            || ((mListener != null) && mListener.onMenuItemClick(item));
+            || ((listener != null) && listener.onMenuItemClick(item));
 
     if ((item == null)
         || ((flags & FLAG_PERFORM_NO_CLOSE) == 0)
@@ -251,7 +253,7 @@ public abstract class ContextMenu implements Menu {
    * @return the {@link MenuItem} that responds to a given shortcut key
    */
   protected ContextMenuItem getItemForShortcut(int keyCode) {
-    for (ContextMenuItem item : mItems) {
+    for (ContextMenuItem item : items) {
       if (item.getAlphabeticShortcut() == keyCode || item.getNumericShortcut() == keyCode) {
         return item;
       }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="template_stream_volume_set">%1$s, уровень громкости в процентах: %2$d.</string>
+  <string name="value_stream_master">Основной звук.</string>
+  <string name="value_stream_voice_call">Телефонный звонок.</string>
+  <string name="value_stream_system">Системный звук.</string>
+  <string name="value_stream_ring">Рингтон.</string>
+  <string name="value_stream_music">Музыка.</string>
+  <string name="value_stream_alarm">Будильник.</string>
+  <string name="value_stream_notification">Уведомления.</string>
+  <string name="value_stream_dtmf">Тональный набор.</string>
+  <string name="value_stream_accessibility">Специальные возможности</string>
+  <string name="value_googletv_screen_saver">Заставка.</string>
+</resources>

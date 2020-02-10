@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!--
+    Notification spoken to the user to tell them that TalkBack has been turned on.
+    [CHAR_LIMIT=10000]
+  -->
   <string name="talkback_on">TalkBack on</string>
+  <!--
+    Notification spoken to the user to tell them that TalkBack will temporarily stop talking.
+    [CHAR_LIMIT=10000]
+  -->
   <string name="talkback_suspended">TalkBack suspended</string>
+  <!--
+    Notification spoken to the user to tell them that TalkBack will resume talking after having
+    stopped temporarily [CHAR_LIMIT=10000]
+  -->
   <string name="talkback_resumed">TalkBack resumed</string>
+  <!--
+    Notification spoken to the user to tell them that TalkBack has been turned off.
+    [CHAR_LIMIT=10000]
+  -->
   <string name="talkback_disabled">TalkBack off</string>
   <!-- SWITCH ACCESS-->
   <!--
@@ -190,6 +206,8 @@
       <item quantity="one"><xliff:g id="type" example="List">%1$s</xliff:g> showing <xliff:g id="count" example="1">%2$d</xliff:g> item.</item>
       <item quantity="other"><xliff:g id="type" example="List">%1$s</xliff:g> showing <xliff:g id="count" example="3">%2$d</xliff:g> items.</item>
   </plurals>
+  <!-- Utterance spoken when the edit field has error message on it. -->
+  <string name="template_node_error_with_error_message"><xliff:g id="error">Error: </xliff:g>%1$s</string>
   <!-- Spoken description of a grid-style list. -->
   <string name="value_gridview">Grid</string>
   <!-- Spoken description of a list. -->
@@ -224,6 +242,12 @@
   <string name="value_progress_bar">Progress bar</string>
   <!-- Spoken description of a web view. -->
   <string name="value_webview">Webview</string>
+  <!-- Spoken description of a toolbar. -->
+  <string name="value_toolbar">Toolbar</string>
+  <!--
+    Source: String spoken or displayed on screen that is a description of a node on screen. For use in the screen summary feature. Connects the role of a node, such as "button" or "tab bar" to a description of the contents of the node.[CHAR LIMIT="NONE"]
+   -->
+  <string name="template_summary_description"><xliff:g id="role">%1$s</xliff:g>: <xliff:g id="content_description">%2$s</xliff:g></string>
   <!--
     Source: String spoken when a user as selected some characters in a password
     field, indicating the start and end point of the selection cursor. The word "characters" in
@@ -303,8 +327,8 @@
   <string name="value_double_tap">Double-tap</string>
   <!-- Description of the single-tap action. Used to populate "Tap to activate" hint. -->
   <string name="value_single_tap">Tap</string>
-  <!-- Description of the selection action (for Switch Access). Used to populate "Press the Select Switch to activate" hint. -->
-  <string name="value_switch_press" translatable="false">Press the Select Switch</string>
+  <!-- Description of the selection action (for Switch Access). Used to populate "Press Select Switch to activate" hint. -->
+  <string name="value_switch_press">Press Select Switch</string>
   <!--
     Description of the action to press select on a TV remote. Used to populate "Press select to
     activate" hint. The terminology for the key should match the wording used for the center
@@ -326,10 +350,10 @@
   <string name="template_hint_checkable"><xliff:g id="action" example="Tap">%1$s</xliff:g> to toggle.</string>
   <!-- Hint spoken when the user pauses over a check box while they are navigating with keyboard. -->
   <string name="template_hint_checkable_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to toggle.</string>
-  <!-- Hint spoken when the user pauses over an editable text area. Populated with an action like "Tap" or "Double-tap". -->
-  <string name="template_hint_edit_text"><xliff:g id="action" example="Tap">%1$s</xliff:g> to enter text.</string>
-  <!-- Hint spoken when the user pauses over an editable text area while they are navigating with keyboard. -->
-  <string name="template_hint_edit_text_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to enter text.</string>
+  <!-- Hint spoken when the user pauses over an editable text area. Populated with an action like "Tap" or "Double-tap". [CHAR_LIMIT=40] -->
+  <string name="template_hint_edit_text"><xliff:g id="action" example="Tap">%1$s</xliff:g> to edit text.</string>
+  <!-- Hint spoken when the user pauses over an editable text area while they are navigating with keyboard. [CHAR_LIMIT=40] -->
+  <string name="template_hint_edit_text_keyboard">Press <xliff:g id="keyCombo" example="Alt+Enter">%1$s</xliff:g> to edit text.</string>
   <!-- Hint spoken when the user pauses over a drop-down list. Populated with an action like "Tap" or "Double-tap". -->
   <string name="template_hint_spinner"><xliff:g id="action" example="Tap">%1$s</xliff:g> to change.</string>
   <!-- Hint spoken when the user pauses over a drop-down list while they are navigating with keyboard. -->
@@ -350,10 +374,12 @@
   <string name="template_custom_hint_for_actions_keyboard">Press <xliff:g id="keyCombo" example="Alt + Enter">%1$s</xliff:g> to <xliff:g id="hint" example="Expand">%2$s</xliff:g>.</string>
   <!--Hint spoken when the user pauses over an item that has long-clickable actions with custom labels. -->
   <string name="template_custom_hint_for_long_clickable_actions"><xliff:g id="action" example="Double-tap">%1$s</xliff:g> and hold to <xliff:g id="hint" example="Expand">%2$s</xliff:g>.</string>
-  <!-- Hint spoken when the user pauses over an item that is scrollable (for Switch Access). Populated with the action "Press the Select Switch". -->
-  <string name="template_custom_hint_scrollable" translatable="false"><xliff:g id="action" example="Press select">%1$s</xliff:g> to scroll.</string>
-  <!-- Hint spoken when the user pauses over an item that is associated with multiple actions (for Switch Access). Populated with the action "Press the Select Switch". -->
-  <string name="template_custom_hint_for_multiple_actions" translatable="false"><xliff:g id="action" example="Press select">%1$s</xliff:g> to explore available actions.</string>
+  <!-- Hint spoken when the user pauses over an item that is scrollable (for Switch Access). Populated with the action "Press Select Switch". -->
+  <string name="template_sa_custom_hint_scrollable"><xliff:g id="action" example="Press select">%1$s</xliff:g> to scroll.</string>
+  <!-- Hint spoken when the user pauses over an item that is associated with multiple actions (for Switch Access). Populated with the action "Press Select Switch". -->
+  <string name="template_sa_custom_hint_for_multiple_actions"><xliff:g id="action" example="Press select">%1$s</xliff:g> for available actions.</string>
+  <!-- Hint spoken when the user selects a seek control with Switch Access. -->
+  <string name="template_sa_hint_seek_control">Press Select Switch to adjust</string>
   <!-- A message announcing that Caps Lock mode is on. -->
   <string name="value_caps_lock_on">Caps Lock on.</string>
   <!-- A message announcing that Caps Lock mode is off. -->
@@ -396,8 +422,6 @@
   <string name="row_heading_template">Row heading</string>
   <!-- Attached to the text spoken out by TalkBack if the item is a column heading -->
   <string name="column_heading_template">Column heading</string>
-  <!-- Spoken feedback for overlay window, example: picture-in-picture video. -->
-  <string name="template_overlay_window"><xliff:g id="application_window_title" example="Application A">%1$s</xliff:g> picture in picture</string>
   <!--
     Source: string indicating that the user is in the list that has a name,
     either via swiping into it linearly or by touching inside the list area.
@@ -446,7 +470,102 @@
     Description: This is spoken to the user. [CHAR LIMIT="NONE"]
    -->
   <string name="out_of_grid_without_name">Out of grid</string>
-
+  <!--
+    Source: string indicating that the user is in the pager that has a name, either via swiping into
+    it linearly or by touching inside the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+  -->
+  <string name="in_pager_with_name">In pager <xliff:g id="pager_description">%1$s</xliff:g></string>
+  <!--
+    Source: string indicating that the user is in the pager that does not have a name,
+    either via swiping into it linearly or by touching inside the pager area.
+    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+   -->
+  <string name="in_pager">In pager</string>
+  <!--
+    Source: string indicating that the user is out of the pager that has a name,
+    either by swiping linearly out of it or by touching outside of the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="out_of_pager_with_name">Out of pager <xliff:g id="pager_description">%1$s</xliff:g></string>
+  <!--
+    Source: string indicating that the user is out of the pager that does not have a name,
+    either by swiping linearly out of it or by touching outside of the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="out_of_pager">Out of pager</string>
+  <!--
+    Source: string indicating that the user is in the pager that has a vertical orientation and a
+    name, either via swiping into it linearly or by touching inside the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="in_vertical_pager_with_name">In vertical pager <xliff:g id="pager_description">%1$s</xliff:g></string>
+  <!--
+    Source: string indicating that the user is in the pager that has a vertical orientation and does
+    not have a name, either via swiping into it linearly or by touching inside the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="in_vertical_pager">In vertical pager</string>
+  <!--
+    Source: string indicating that the user is out of the vertical pager that has a name,
+    either by swiping linearly out of it or by touching outside of the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="out_of_vertical_pager_with_name">Out of vertical pager <xliff:g id="pager_description">%1$s</xliff:g></string>
+  <!--
+    Source: string indicating that the user is out of the vertical pager that does not have a name,
+    either by swiping linearly out of it or by touching outside of the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="out_of_vertical_pager">Out of vertical pager</string>
+  <!--
+    Source: string indicating that the user is in the pager that has a horizontal orientation and a
+    name, either via swiping into it linearly or by touching inside the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="in_horizontal_pager_with_name">In horizontal pager <xliff:g id="pager_description">%1$s</xliff:g></string>
+  <!--
+    Source: string indicating that the user is in the pager that has a horizontal orientation and
+    does not have a name, either via swiping into it linearly or by touching inside the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="in_horizontal_pager">In horizontal pager</string>
+  <!--
+    Source: string indicating that the user is out of the horizontal pager that has a name,
+    either by swiping linearly out of it or by touching outside of the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="out_of_horizontal_pager_with_name">Out of horizontal pager <xliff:g id="pager_description">%1$s</xliff:g></string>
+  <!--
+    Source: string indicating that the user is out of the horizontal pager that does not have a
+    name, either by swiping linearly out of it or by touching outside of the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="out_of_horizontal_pager">Out of horizontal pager</string>
+  <!--
+    Source: string indicating that the user is in the pager that has a grid orientation and a
+    name, either via swiping into it linearly or by touching inside the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="in_grid_pager_with_name">In grid pager <xliff:g id="pager_description">%1$s</xliff:g></string>
+  <!--
+    Source: string indicating that the user is in the pager that has a grid orientation and does
+    not have a name, either via swiping into it linearly or by touching inside the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="in_grid_pager">In grid pager</string>
+  <!--
+    Source: string indicating that the user is out of the grid pager that has a name,
+    either by swiping linearly out of it or by touching outside of the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="out_of_grid_pager_with_name">Out of grid pager <xliff:g id="pager_description">%1$s</xliff:g></string>
+  <!--
+    Source: string indicating that the user is out of the grid pager that does not have a
+    name, either by swiping linearly out of it or by touching outside of the pager area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="out_of_grid_pager">Out of grid pager</string>
   <!--
     Source: String template for indicating the nesting level of a collection in a hierarchy of
     collections, e.g. in an outline.
@@ -529,5 +648,10 @@
     Description: Explains that the passwords will only be spoken when using headphones. [CHAR+LIMIT="NONE"]
   -->
   <string name="summaryOff_pref_speak_passwords_without_headphones">Passwords only spoken when using headphones</string>
+
+  <!-- Hint spoken when the menu actions available in high verbosity.[CHAR_LIMIT=100] -->
+  <string name="template_hint_menu_type_high_verbosity"><xliff:g id="type" example="action">%1$s</xliff:g> available, use <xliff:g id="gesture" example="up-then-right">%2$s</xliff:g> to view.</string>
+  <!-- Hint spoken when the menu actions available in low verbosity.[CHAR_LIMIT=100] -->
+  <string name="template_hint_menu_type_low_verbosity"><xliff:g id="type" example="action">%1$s</xliff:g> available.</string>
 
 </resources>

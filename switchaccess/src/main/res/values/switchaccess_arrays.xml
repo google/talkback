@@ -64,58 +64,43 @@
         <item translatable="false">@string/thickness_16_dp</item>
     </string-array>
 
-    <!--
-        The scanning methods which specify the order in which the user wants the views to be
-        traversed/highlighted. So for example, if the user chooses row/column scanning, all the
-        views in a certain row are highlighted and scanning moves from the top row to the bottom
-        row. Once a row is selected, the views in that row are scanned one after the other in
-        a linear fashion.
-    -->
-    <string-array translatable="true" name="switch_access_scanning_methods_entries">
-        <!--
-            Linear scanning is a method that the user chooses to indicate how the views in a
-            window should be highlighted/traversed. In linear scanning the highlighting of views
-            moves from left to right, presenting one item at a time.
-
-            Row/Column scanning is a method that the user chooses to indicate how the views in a
-            window should be highlighted/traversed. In row/column scanning all the views in a
-            certain row are highlighted and scanning moves from the top row to the bottom row. Once
-            a row is selected, the views in that row are scanned one after the other.
-
-            This option uses row-column scanning for keyboards, but linear scanning the rest of
-            the time.
-         -->
-        <item>Linear scanning</item>
-        <!--
-            See previous item for context. This choice uses row-column scanning everywhere
-         -->
-        <item>Row-column</item>
-        <!--
-            Option scanning is a method that the user chooses to indicate how the views in a
-            window should be highlighted/traversed. In option scanning the views are highlighted
-            in groups. The user presses a button to choose a group. The options in the selected
-            group are then divided into new groups. Eventually there's just one option that the
-            user chooses.
-         -->
-        <item>Group selection</item>
-
-        <!--
-            Nomon clocks is a method that the user chooses to indicate how the views in a window
-            should be highlighted/traversed. With Nomon clocks each actionable item on the screen
-            has an animated clock next to it. The user presses a button when the rotating hand on
-            the clock that corresponds to the desired actionable item on the screen enters the dark
-            wedge at the top of the clock. Once the user presses the button, only the clocks still
-            in a valid angle range will keep animating. User continues pressing the switch until
-            their desired actionable item on the screen is selected.
-        -->
-        <item>Nomon Clocks</item>
-
-    </string-array>
-
     <string-array translatable="false" name="switch_access_scanning_methods_values">
+        <item>@string/linear_scanning_key</item>
         <item>@string/views_linear_ime_row_col_key</item>
         <item>@string/row_col_scanning_key</item>
-        <item>@string/option_scanning_key</item>
-        <item>@string/nomon_clocks_key</item>
+        <item>@string/group_selection_key</item>
+    </string-array>
+
+    <string-array name="switch_access_sound_volume_entries">
+        <!-- Volume that's the same as the system media volume. -->
+        <item>Same as media volume</item>
+        <!-- Volume that's 75% of the system media volume. -->
+        <item>75% of media volume</item>
+        <!-- Volume that's 50% of the system media volume. -->
+        <item>50% of media volume</item>
+        <!-- Volume that's 25% of the system media volume. -->
+        <item>25% of media volume</item>
+    </string-array>
+
+    <string-array name="switch_access_sound_volume_values">
+        <item>100</item>
+        <item>75</item>
+        <item>50</item>
+        <item>25</item>
+    </string-array>
+
+    <string-array name="switch_access_node_description_order_entries">
+        <!-- Describe elements in order of state, name, type. -->
+        <item>State, name, type</item>
+        <!-- Describe elements in order of type, name, state. -->
+        <item>Type, name, state</item>
+        <!-- Describe elements in order of name, type, state. -->
+        <item>Name, type, state</item>
+    </string-array>
+
+    <string-array translatable="false" name="switch_access_node_description_order_values">
+        <item>@string/state_name_type_key</item>
+        <item>@string/type_name_state_key</item>
+        <item>@string/name_type_state_key</item>
     </string-array>
 </resources>

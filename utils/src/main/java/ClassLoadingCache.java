@@ -17,13 +17,17 @@
 package com.google.android.accessibility.utils;
 
 import android.text.TextUtils;
-import android.util.Log;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashMap;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** This class manages efficient loading of classes. */
 public class ClassLoadingCache {
+
+  private static final String TAG = "ClassLoadingCache";
+
   // TODO: Use a LRU map instead?
-  private static final HashMap<String, Class<?>> mCachedClasses = new HashMap<>();
+  private static final HashMap<String, @Nullable Class<?>> mCachedClasses = new HashMap<>();
 
   /**
    * Returns a class by given <code>className</code>. It tries to load from the current class loader
@@ -32,22 +36,27 @@ public class ClassLoadingCache {
    * @param className The name of the class to load.
    * @return The class if loaded successfully, null otherwise.
    */
-  public static Class<?> loadOrGetCachedClass(String className) {
+  public static @Nullable Class<?> loadOrGetCachedClass(String className) {
     if (TextUtils.isEmpty(className)) {
-      LogUtils.log(Log.DEBUG, "Missing class name. Failed to load class.");
+      LogUtils.d(TAG, "Missing class name. Failed to load class.");
       return null;
     }
 
-    if (mCachedClasses.containsKey(className)) return mCachedClasses.get(className);
+    if (mCachedClasses.containsKey(className)) {
+      return mCachedClasses.get(className);
+    }
 
     Class<?> insideClazz = null;
     try {
-      insideClazz = ClassLoadingCache.class.getClassLoader().loadClass(className);
+      ClassLoader classLoader = ClassLoadingCache.class.getClassLoader();
+      if (classLoader != null) {
+        insideClazz = classLoader.loadClass(className);
+      }
       if (insideClazz == null) {
-        LogUtils.log(Log.DEBUG, "Failed to load class: %s", className);
+        LogUtils.d(TAG, "Failed to load class: %s", className);
       }
     } catch (ClassNotFoundException e) {
-      LogUtils.log(Log.DEBUG, "Failed to load class: %s", className);
+      LogUtils.d(TAG, "Failed to load class: %s", className);
     }
 
     mCachedClasses.put(className, insideClazz);

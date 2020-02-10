@@ -16,10 +16,14 @@
 
 package com.google.android.accessibility.talkback.menurules;
 
+import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_PAGE_DOWN;
+import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_PAGE_LEFT;
+import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_PAGE_RIGHT;
+import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_PAGE_UP;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.content.Context;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.google.android.accessibility.talkback.R;
@@ -31,7 +35,7 @@ import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.PerformActionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /** Rule for generating menu items related to ViewPager layouts. */
@@ -67,8 +71,9 @@ public class RuleViewPager implements NodeMenuRule {
   public List<ContextMenuItem> getMenuItemsForNode(
       TalkBackService service,
       ContextMenuItemBuilder menuItemBuilder,
-      AccessibilityNodeInfoCompat node) {
-    final LinkedList<ContextMenuItem> items = new LinkedList<>();
+      AccessibilityNodeInfoCompat node,
+      boolean includeAncestors) {
+    final List<ContextMenuItem> items = new ArrayList<>();
 
     AccessibilityNodeInfoCompat pagerNode = null;
 
@@ -78,28 +83,16 @@ public class RuleViewPager implements NodeMenuRule {
         return items;
       }
 
-      if (AccessibilityNodeInfoUtils.supportsAnyAction(
-          pagerNode, AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD)) {
-        final ContextMenuItem prevPage =
-            menuItemBuilder.createMenuItem(
-                service,
-                Menu.NONE,
-                R.id.viewpager_breakout_prev_page,
-                Menu.NONE,
-                service.getString(R.string.title_viewpager_breakout_prev_page));
-        items.add(prevPage);
+      if (!includeAncestors && !pagerNode.equals(node)) {
+        return items;
       }
 
-      if (AccessibilityNodeInfoUtils.supportsAnyAction(
-          pagerNode, AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD)) {
-        final ContextMenuItem nextPage =
-            menuItemBuilder.createMenuItem(
-                service,
-                Menu.NONE,
-                R.id.viewpager_breakout_next_page,
-                Menu.NONE,
-                service.getString(R.string.title_viewpager_breakout_next_page));
-        items.add(nextPage);
+      addPageActions(items, service, menuItemBuilder, pagerNode);
+
+      // Check for scroll actions if no page items were added. A node with page actions shouldn't be
+      // using scroll actions to navigate pages.
+      if (items.isEmpty()) {
+        addScrollActions(items, service, menuItemBuilder, pagerNode);
       }
 
       if (items.isEmpty()) {
@@ -120,6 +113,92 @@ public class RuleViewPager implements NodeMenuRule {
     }
   }
 
+  /** Appends to items list. */
+  private void addPageActions(
+      List<ContextMenuItem> items,
+      TalkBackService service,
+      ContextMenuItemBuilder menuItemBuilder,
+      AccessibilityNodeInfoCompat pagerNode) {
+
+    addMenuItemIfActionExists(
+        items,
+        service,
+        menuItemBuilder,
+        R.id.viewpager_breakout_page_up,
+        R.string.title_viewpager_breakout_page_up,
+        ACTION_PAGE_UP.getId(),
+        pagerNode);
+
+    addMenuItemIfActionExists(
+        items,
+        service,
+        menuItemBuilder,
+        R.id.viewpager_breakout_page_down,
+        R.string.title_viewpager_breakout_page_down,
+        ACTION_PAGE_DOWN.getId(),
+        pagerNode);
+
+    addMenuItemIfActionExists(
+        items,
+        service,
+        menuItemBuilder,
+        R.id.viewpager_breakout_page_left,
+        R.string.title_viewpager_breakout_page_left,
+        ACTION_PAGE_LEFT.getId(),
+        pagerNode);
+
+    addMenuItemIfActionExists(
+        items,
+        service,
+        menuItemBuilder,
+        R.id.viewpager_breakout_page_right,
+        R.string.title_viewpager_breakout_page_right,
+        ACTION_PAGE_RIGHT.getId(),
+        pagerNode);
+  }
+
+  /** Appends to items list. */
+  private void addScrollActions(
+      List<ContextMenuItem> items,
+      TalkBackService service,
+      ContextMenuItemBuilder menuItemBuilder,
+      AccessibilityNodeInfoCompat pagerNode) {
+
+    addMenuItemIfActionExists(
+        items,
+        service,
+        menuItemBuilder,
+        R.id.viewpager_breakout_prev_page,
+        R.string.title_viewpager_breakout_prev_page,
+        AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD,
+        pagerNode);
+
+    addMenuItemIfActionExists(
+        items,
+        service,
+        menuItemBuilder,
+        R.id.viewpager_breakout_next_page,
+        R.string.title_viewpager_breakout_next_page,
+        AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD,
+        pagerNode);
+  }
+
+  /** Appends to items list. */
+  private void addMenuItemIfActionExists(
+      List<ContextMenuItem> items,
+      TalkBackService service,
+      ContextMenuItemBuilder menuItemBuilder,
+      int valueResourceId,
+      int titleResourceId,
+      int nodeActionId,
+      AccessibilityNodeInfoCompat pagerNode) {
+    if (AccessibilityNodeInfoUtils.supportsAction(pagerNode, nodeActionId)) {
+      items.add(
+          menuItemBuilder.createMenuItem(
+              service, Menu.NONE, valueResourceId, Menu.NONE, service.getString(titleResourceId)));
+    }
+  }
+
   @Override
   public CharSequence getUserFriendlyMenuName(Context context) {
     return context.getString(R.string.title_viewpager_controls);
@@ -131,16 +210,16 @@ public class RuleViewPager implements NodeMenuRule {
   }
 
   private static class ViewPagerItemClickListener implements MenuItem.OnMenuItemClickListener {
-    private final AccessibilityNodeInfoCompat mNode;
+    private final AccessibilityNodeInfoCompat node;
 
     public ViewPagerItemClickListener(AccessibilityNodeInfoCompat node) {
-      mNode = node;
+      this.node = node;
     }
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
       if (item == null) {
-        mNode.recycle();
+        node.recycle();
         return true;
       }
 
@@ -148,15 +227,23 @@ public class RuleViewPager implements NodeMenuRule {
       EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance of menu events.
       if (itemId == R.id.viewpager_breakout_prev_page) {
         PerformActionUtils.performAction(
-            mNode, AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD, eventId);
+            node, AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD, eventId);
       } else if (itemId == R.id.viewpager_breakout_next_page) {
         PerformActionUtils.performAction(
-            mNode, AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD, eventId);
+            node, AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD, eventId);
+      } else if (itemId == R.id.viewpager_breakout_page_up) {
+        PerformActionUtils.performAction(node, ACTION_PAGE_UP.getId(), eventId);
+      } else if (itemId == R.id.viewpager_breakout_page_down) {
+        PerformActionUtils.performAction(node, ACTION_PAGE_DOWN.getId(), eventId);
+      } else if (itemId == R.id.viewpager_breakout_page_left) {
+        PerformActionUtils.performAction(node, ACTION_PAGE_LEFT.getId(), eventId);
+      } else if (itemId == R.id.viewpager_breakout_page_right) {
+        PerformActionUtils.performAction(node, ACTION_PAGE_RIGHT.getId(), eventId);
       } else {
         return false;
       }
 
-      mNode.recycle();
+      node.recycle();
       return true;
     }
   }

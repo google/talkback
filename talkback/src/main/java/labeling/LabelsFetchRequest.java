@@ -22,11 +22,11 @@ import java.util.List;
 
 public class LabelsFetchRequest extends LabelClientRequest<List<Label>> {
 
-  private OnLabelsFetchedListener mOnLabelFetchedListener;
+  private OnLabelsFetchedListener onLabelFetchedListener;
 
   public LabelsFetchRequest(LabelProviderClient client, OnLabelsFetchedListener listener) {
     super(client);
-    mOnLabelFetchedListener = listener;
+    onLabelFetchedListener = listener;
   }
 
   @Override
@@ -36,8 +36,8 @@ public class LabelsFetchRequest extends LabelClientRequest<List<Label>> {
 
   @Override
   public void onPostExecute(List<Label> result) {
-    if (mOnLabelFetchedListener != null) {
-      mOnLabelFetchedListener.onLabelsFetched(result);
+    if (onLabelFetchedListener != null) {
+      onLabelFetchedListener.onLabelsFetched(result);
     }
   }
 

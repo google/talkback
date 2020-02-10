@@ -17,13 +17,14 @@
 package com.google.android.accessibility.utils;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.FragmentActivity;
 import android.view.WindowManager;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Dummy activity used for various tests. */
 public class TestActivity extends FragmentActivity {
   @Override
-  public void onCreate(Bundle savedInstanceState) {
+  public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     getWindow()

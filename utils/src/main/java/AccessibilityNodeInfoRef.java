@@ -16,7 +16,7 @@
 
 package com.google.android.accessibility.utils;
 
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.traversal.ReorderedChildrenIterator;
 import java.util.HashSet;
 import java.util.Iterator;
