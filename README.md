@@ -8,7 +8,7 @@ When you build and install TalkBack package, both services will be installed und
 
 
 ### Building
-To build TalkBack you will need Android Studio.
+To build TalkBack, you will need Android Studio (tested with version 3.5.1).
 
 1. Create an Android Studio project from the talkback source code.
 2. If you receive warnings about "Multiple dex files define INotificationSideChannel", ensure you have an updated Gradle plugin.
