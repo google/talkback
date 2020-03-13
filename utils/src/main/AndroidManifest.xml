@@ -5,6 +5,9 @@
 
   <uses-sdk android:targetSdkVersion="28" />
 
+  <!-- Required for haptic feedback. -->
+  <uses-permission android:name="android.permission.VIBRATE" />
+
 </manifest>
 
 
