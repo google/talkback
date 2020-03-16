@@ -151,6 +151,16 @@
 
         <!-- TalkBack dump event preferences -->
         <activity
+            android:name=".TalkBackDeveloperPreferencesActivity"
+            android:exported="false"
+            android:label="@string/title_pref_category_developer_settings"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings">
+        </activity>
+
+        <!-- TalkBack dump event preferences -->
+        <activity
             android:name=".TalkBackDumpAccessibilityEventActivity"
             android:exported="false"
             android:label="@string/title_activity_dump_a11y_event"
