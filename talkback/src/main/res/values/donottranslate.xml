@@ -585,4 +585,31 @@
 
     <string name="pref_key_last_log_time_key">pref_key_last_log_time_key</string>
 
+    <!-- Voice type preferences. Matches Compositor.VoiceType -->
+    <string-array name="pref_voice_entries">
+        <item>@string/low_pitch_voice</item>
+        <item>@string/reduced_pitch_voice</item>
+        <item>@string/normal_voice</item>
+        <item>@string/elevated_pitch_voice</item>
+        <item>@string/high_pitch_voice</item>
+    </string-array>
+    <string-array name="pref_voice_values">
+        <item>@string/voice_type_low_pitch</item>
+        <item>@string/voice_type_reduced_pitch</item>
+        <item>@string/voice_type_normal</item>
+        <item>@string/voice_type_elevated_pitch</item>
+        <item>@string/voice_type_high_pitch</item>
+    </string-array>
+    <string name="voice_type_low_pitch">low_pitch</string>
+    <string name="voice_type_reduced_pitch">reduced_pitch</string>
+    <string name="voice_type_normal">normal</string>
+    <string name="voice_type_elevated_pitch">elevated_pitch</string>
+    <string name="voice_type_high_pitch">high_pitch</string>
+    <string name="pref_voice_default">@string/voice_type_normal</string>
+
+    <!-- Voice markup preferences keys -->
+    <string name="pref_actionable_voice_key">actionable_voice_pitch</string>
+    <string name="pref_image_voice_key">image_voice_pitch</string>
+    <string name="pref_button_voice_key">button_voice_pitch</string>
+
 </resources>

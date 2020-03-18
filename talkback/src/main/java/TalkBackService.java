@@ -1878,6 +1878,18 @@ public class TalkBackService extends AccessibilityService
               prefs, res, R.string.pref_node_desc_order_key, R.string.pref_node_desc_order_default);
       compositor.setDescriptionOrder(prefValueToDescriptionOrder(res, descriptionOrder));
 
+      // Update voice markup preferences.
+      String voiceType =
+          SharedPreferencesUtils.getStringPref(
+              prefs, res, R.string.pref_button_voice_key, R.string.pref_voice_default);
+      compositor.setButtonVoice(prefValueToVoiceType(res, voiceType));
+      voiceType = SharedPreferencesUtils.getStringPref(
+              prefs, res, R.string.pref_image_voice_key, R.string.pref_voice_default);
+      compositor.setImageVoice(prefValueToVoiceType(res, voiceType));
+      voiceType = SharedPreferencesUtils.getStringPref(
+              prefs, res, R.string.pref_actionable_voice_key, R.string.pref_voice_default);
+      compositor.setActionableElementVoice(prefValueToVoiceType(res, voiceType));
+
       // Update preference: speak element IDs.
       boolean speakElementIds =
           SharedPreferencesUtils.getBooleanPref(
@@ -1916,6 +1928,24 @@ public class TalkBackService extends AccessibilityService
       LogUtils.e(TAG, "Unhandled description order preference value \"%s\"", value);
       return Compositor.DESC_ORDER_STATE_NAME_ROLE_POSITION;
     }
+  }
+
+  private static @Compositor.VoiceType int prefValueToVoiceType(
+      Resources resources, String value) {
+    if (TextUtils.equals(
+        value, resources.getString(R.string.voice_type_low_pitch))) {
+      return Compositor.VOICE_TYPE_LOW;
+    } else if (TextUtils.equals(
+        value, resources.getString(R.string.voice_type_reduced_pitch))) {
+      return Compositor.VOICE_TYPE_REDUCED;
+    } else if (TextUtils.equals(
+        value, resources.getString(R.string.voice_type_elevated_pitch))) {
+      return Compositor.VOICE_TYPE_ELEVATED;
+    } else if (TextUtils.equals(
+        value, resources.getString(R.string.voice_type_high_pitch))) {
+      return Compositor.VOICE_TYPE_HIGH;
+    }
+    return Compositor.VOICE_TYPE_NORMAL;
   }
 
   /**

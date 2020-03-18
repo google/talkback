@@ -206,6 +206,8 @@ public class Compositor {
   static final int ENUM_RANGE_INFO_TYPE = 6;
   static final int RANGE_INFO_UNDEFINED = -1;
 
+  private static final int ENUM_VOICE_TYPE = 7;
+
   // Enum values
   private static final int QUEUE_MODE_INTERRUPTIBLE_IF_LONG = 0x40000001;
 
@@ -224,6 +226,23 @@ public class Compositor {
   public static final int DESC_ORDER_ROLE_NAME_STATE_POSITION = 0;
   public static final int DESC_ORDER_STATE_NAME_ROLE_POSITION = 1;
   public static final int DESC_ORDER_NAME_ROLE_STATE_POSITION = 2;
+
+  /** Voice type ids. */
+  @IntDef({
+    VOICE_TYPE_LOW,
+    VOICE_TYPE_REDUCED,
+    VOICE_TYPE_NORMAL,
+    VOICE_TYPE_ELEVATED,
+    VOICE_TYPE_HIGH
+  })
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface VoiceType {}
+
+  public static final int VOICE_TYPE_LOW = 0;
+  public static final int VOICE_TYPE_REDUCED = 1;
+  public static final int VOICE_TYPE_NORMAL = 2;
+  public static final int VOICE_TYPE_ELEVATED = 3;
+  public static final int VOICE_TYPE_HIGH = 4;
 
   /////////////////////////////////////////////////////////////////////////////////
   // Member variables
@@ -257,6 +276,9 @@ public class Compositor {
     boolean mSpeakRoles = true;
     boolean mSpeakCollectionInfo = true;
     @DescriptionOrder int mDescriptionOrder = DESC_ORDER_ROLE_NAME_STATE_POSITION;
+    @VoiceType int mActionableElementVoice = VOICE_TYPE_NORMAL;
+    @VoiceType int mButtonVoice = VOICE_TYPE_NORMAL;
+    @VoiceType int mImageVoice = VOICE_TYPE_NORMAL;
     boolean mSpeakElementIds = false;
   }
 
@@ -321,6 +343,27 @@ public class Compositor {
   public void setDescriptionOrder(@DescriptionOrder int descOrderInt) {
     if (descOrderInt != mConstants.mDescriptionOrder) {
       mConstants.mDescriptionOrder = descOrderInt;
+      mParseTreeIsStale = true;
+    }
+  }
+
+  public void setActionableElementVoice(@VoiceType int voiceType) {
+    if (voiceType != mConstants.mActionableElementVoice) {
+      mConstants.mActionableElementVoice = voiceType;
+      mParseTreeIsStale = true;
+    }
+  }
+
+  public void setButtonVoice(@VoiceType int voiceType) {
+    if (voiceType != mConstants.mButtonVoice) {
+      mConstants.mButtonVoice = voiceType;
+      mParseTreeIsStale = true;
+    }
+  }
+
+  public void setImageVoice(@VoiceType int voiceType) {
+    if (voiceType != mConstants.mImageVoice) {
+      mConstants.mImageVoice = voiceType;
       mParseTreeIsStale = true;
     }
   }
@@ -683,6 +726,18 @@ public class Compositor {
         "VERBOSITY_DESCRIPTION_ORDER",
         ENUM_VERBOSITY_DESCRIPTION_ORDER,
         constants.mDescriptionOrder);
+    parseTree.setConstantEnum(
+        "ACTIONABLE_ELEMENT_VOICE",
+        ENUM_VOICE_TYPE,
+        constants.mActionableElementVoice);
+    parseTree.setConstantEnum(
+        "BUTTON_VOICE",
+        ENUM_VOICE_TYPE,
+        constants.mButtonVoice);
+    parseTree.setConstantEnum(
+        "IMAGE_VOICE",
+        ENUM_VOICE_TYPE,
+        constants.mImageVoice);
     parseTree.setConstantBool("VERBOSITY_SPEAK_ELEMENT_IDS", constants.mSpeakElementIds);
   }
 
@@ -772,6 +827,14 @@ public class Compositor {
     verbosityDescOrderValues.put(DESC_ORDER_STATE_NAME_ROLE_POSITION, "StateNameRolePosition");
     verbosityDescOrderValues.put(DESC_ORDER_NAME_ROLE_STATE_POSITION, "NameRoleStatePosition");
     parseTree.addEnum(ENUM_VERBOSITY_DESCRIPTION_ORDER, verbosityDescOrderValues);
+
+    Map<Integer, String> voiceTypeValues = new HashMap<>();
+    voiceTypeValues.put(VOICE_TYPE_LOW, "low");
+    voiceTypeValues.put(VOICE_TYPE_REDUCED, "reduced");
+    voiceTypeValues.put(VOICE_TYPE_NORMAL, "normal");
+    voiceTypeValues.put(VOICE_TYPE_ELEVATED, "elevated");
+    voiceTypeValues.put(VOICE_TYPE_HIGH, "high");
+    parseTree.addEnum(ENUM_VOICE_TYPE, voiceTypeValues);
 
     Map<Integer, String> rangeInfoTypes = new HashMap<>();
     rangeInfoTypes.put(RangeInfo.RANGE_TYPE_INT, "int");
