@@ -362,8 +362,13 @@ public class TextEventInterpreter {
         interpretation.setEvent(Compositor.EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_NO_SELECTION);
         interpretation.setReason("Cursor moved to end of selection.");
         // Extract traversed text.
-        int startIndex = Math.min(mHistory.getLastToIndex(), toIndex);
-        int endIndex = Math.max(mHistory.getLastToIndex(), toIndex);
+        /*
+         * Actually it is better to get a character under cursor here.
+         */
+        int startIndex = currentCursorPos;
+        int endIndex = currentCursorPos;
+        if (currentCursorPos != previousCursorPos)
+            endIndex++;
         if (0 <= startIndex && endIndex <= textLength) {
           CharSequence traversedText = getSubsequence(isPassword, text, startIndex, endIndex);
           interpretation.setTraversedText(traversedText);
