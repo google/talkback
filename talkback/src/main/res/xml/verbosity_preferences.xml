@@ -97,6 +97,36 @@
         android:summary="%s"
         android:title="@string/pref_button_voice_title" />
 
+    <!-- Voice for switches and checkboxes -->
+    <ListPreference
+        android:defaultValue="@string/pref_voice_default"
+        android:dialogTitle="@string/pref_switch_voice_dialog_title"
+        android:entries="@array/pref_voice_entries"
+        android:entryValues="@array/pref_voice_values"
+        android:key="@string/pref_switch_voice_key"
+        android:summary="%s"
+        android:title="@string/pref_switch_voice_title" />
+
+    <!-- Voice for selected or checked items -->
+    <ListPreference
+        android:defaultValue="@string/pref_voice_default"
+        android:dialogTitle="@string/pref_selected_item_voice_dialog_title"
+        android:entries="@array/pref_voice_entries"
+        android:entryValues="@array/pref_voice_values"
+        android:key="@string/pref_selected_item_voice_key"
+        android:summary="%s"
+        android:title="@string/pref_selected_item_voice_title" />
+
+    <!-- Voice for actionable elements on web pages -->
+    <ListPreference
+        android:defaultValue="@string/pref_voice_default"
+        android:dialogTitle="@string/pref_actionable_voice_dialog_title"
+        android:entries="@array/pref_voice_entries"
+        android:entryValues="@array/pref_voice_values"
+        android:key="@string/pref_actionable_voice_key"
+        android:summary="%s"
+        android:title="@string/pref_actionable_voice_title" />
+
     <!-- Voice for images -->
     <ListPreference
         android:defaultValue="@string/pref_voice_default"
@@ -106,16 +136,6 @@
         android:key="@string/pref_image_voice_key"
         android:summary="%s"
         android:title="@string/pref_image_voice_title" />
-
-    <!-- Voice for actionable elements -->
-    <ListPreference
-        android:defaultValue="@string/pref_voice_default"
-        android:dialogTitle="@string/pref_actionable_voice_dialog_title"
-        android:entries="@array/pref_voice_entries"
-        android:entryValues="@array/pref_voice_values"
-        android:key="@string/pref_actionable_voice_key"
-        android:summary="%s"
-        android:title="@string/pref_actionable_voice_title" />
 
   </PreferenceCategory>
 

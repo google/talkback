@@ -1531,7 +1531,11 @@
   <string name="pref_button_voice_title">Buttons</string>
   <string name="pref_image_voice_dialog_title">Voice for speaking images</string>
   <string name="pref_image_voice_title">Images</string>
-  <string name="pref_actionable_voice_dialog_title">Voice for speaking actionable elements</string>
-  <string name="pref_actionable_voice_title">Actionable elements</string>
+  <string name="pref_actionable_voice_dialog_title">Voice for speaking actionable elements on web pages</string>
+  <string name="pref_actionable_voice_title">Actionable elements on web pages</string>
+  <string name="pref_switch_voice_dialog_title">Voice for speaking switches and checkboxes</string>
+  <string name="pref_switch_voice_title">Switches and checkboxes</string>
+  <string name="pref_selected_item_voice_dialog_title">Voice for speaking selected or checked items</string>
+  <string name="pref_selected_item_voice_title">Selected or checked items</string>
 
 </resources>

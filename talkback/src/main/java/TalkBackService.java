@@ -1884,6 +1884,12 @@ public class TalkBackService extends AccessibilityService
               prefs, res, R.string.pref_button_voice_key, R.string.pref_voice_default);
       compositor.setButtonVoice(prefValueToVoiceType(res, voiceType));
       voiceType = SharedPreferencesUtils.getStringPref(
+              prefs, res, R.string.pref_switch_voice_key, R.string.pref_voice_default);
+      compositor.setSwitchVoice(prefValueToVoiceType(res, voiceType));
+      voiceType = SharedPreferencesUtils.getStringPref(
+              prefs, res, R.string.pref_selected_item_voice_key, R.string.pref_voice_default);
+      compositor.setSelectedItemVoice(prefValueToVoiceType(res, voiceType));
+      voiceType = SharedPreferencesUtils.getStringPref(
               prefs, res, R.string.pref_image_voice_key, R.string.pref_voice_default);
       compositor.setImageVoice(prefValueToVoiceType(res, voiceType));
       voiceType = SharedPreferencesUtils.getStringPref(

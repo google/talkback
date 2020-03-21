@@ -537,7 +537,11 @@
   <string name="pref_button_voice_title">Кнопки</string>
   <string name="pref_image_voice_dialog_title">Голос для озвучивания изображений</string>
   <string name="pref_image_voice_title">Изображения</string>
-  <string name="pref_actionable_voice_dialog_title">Голос для озвучивания активных элементов</string>
-  <string name="pref_actionable_voice_title">Активные элементы</string>
+  <string name="pref_actionable_voice_dialog_title">Голос для озвучивания активных элементов на web-страницах</string>
+  <string name="pref_actionable_voice_title">Активные элементы на web-страницах</string>
+  <string name="pref_switch_voice_dialog_title">Голос для озвучивания флажков и переключателей</string>
+  <string name="pref_switch_voice_title">Флажки и переключатели</string>
+  <string name="pref_selected_item_voice_dialog_title">Голос для озвучивания выбранных элементов</string>
+  <string name="pref_selected_item_voice_title">Выбранные элементы</string>
 
 </resources>

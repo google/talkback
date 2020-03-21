@@ -1804,16 +1804,24 @@
       ]
     },
     "get_voice_for_element": {
-      "switch": "$node.role",
-      "cases": {
-        "button": "%button_voice",
-        "image_button": "%button_voice",
-        "image": "%image_voice"
-      },
-      "default": {
-        "if": "$node.isActionable",
+      "if": "$node.isSelected || $node.isChecked",
+      "then": "%selected_item_voice",
+      "else": {
+        "if": "$node.isWebContainer && $node.isActionable",
         "then": "%actionable_element_voice",
-        "else": "%voice_normal"
+        "else": {
+          "switch": "$node.role",
+          "cases": {
+            "button": "%button_voice",
+            "image_button": "%button_voice",
+            "radio_button": "%switch_voice",
+            "toggle_button": "%switch_voice",
+            "switch": "%switch_voice",
+            "check_box": "%switch_voice",
+            "image": "%image_voice"
+          },
+          "default": "%voice_normal"
+        }
       }
     },
     "actionable_element_voice": {
@@ -1828,6 +1836,26 @@
     },
     "button_voice": {
       "switch": "#BUTTON_VOICE",
+      "cases": {
+        "low": "%voice_low",
+        "reduced": "%voice_reduced",
+        "normal": "%voice_normal",
+        "elevated": "%voice_elevated",
+        "high": "%voice_high"
+      }
+    },
+    "switch_voice": {
+      "switch": "#SWITCH_VOICE",
+      "cases": {
+        "low": "%voice_low",
+        "reduced": "%voice_reduced",
+        "normal": "%voice_normal",
+        "elevated": "%voice_elevated",
+        "high": "%voice_high"
+      }
+    },
+    "selected_item_voice": {
+      "switch": "#SELECTED_ITEM_VOICE",
       "cases": {
         "low": "%voice_low",
         "reduced": "%voice_reduced",
