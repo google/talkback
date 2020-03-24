@@ -1804,7 +1804,7 @@
       ]
     },
     "get_voice_for_element": {
-      "if": "$node.isSelected || $node.isChecked",
+      "if": "$node.isSelected || $node.isChecked || $node.isCheckedInternally",
       "then": "%selected_item_voice",
       "else": {
         "if": "$node.isWebContainer && $node.isActionable",
@@ -1820,7 +1820,11 @@
             "check_box": "%switch_voice",
             "image": "%image_voice"
           },
-          "default": "%voice_normal"
+          "default": {
+            "if": "$node.containsCheckable",
+            "then": "%switch_voice",
+            "else": "%voice_normal"
+          }
         }
       }
     },
