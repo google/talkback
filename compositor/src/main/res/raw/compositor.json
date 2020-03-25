@@ -1804,6 +1804,11 @@
       ]
     },
     "get_voice_for_element": {
+      "if": "$node.isEnabled",
+      "then": "%element_type_specific_voice",
+      "else": "%voice_normal"
+    },
+    "element_type_specific_voice": {
       "if": "$node.isSelected || $node.isChecked || $node.isCheckedInternally",
       "then": "%selected_item_voice",
       "else": {
