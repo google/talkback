@@ -1823,7 +1823,11 @@
             "toggle_button": "%switch_voice",
             "switch": "%switch_voice",
             "check_box": "%switch_voice",
-            "image": "%image_voice"
+            "image": {
+              "if": "$node.isClickable",
+              "then": "%button_voice",
+              "else": "%image_voice"
+            }
           },
           "default": {
             "if": "$node.containsCheckable",
