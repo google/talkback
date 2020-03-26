@@ -1832,9 +1832,23 @@
           "default": {
             "if": "$node.containsCheckable",
             "then": "%switch_voice",
-            "else": "%voice_normal"
+            "else": {
+              "if": "$node.isHeading",
+              "then": "%header_voice",
+              "else": "%voice_normal"
+            }
           }
         }
+      }
+    },
+    "header_voice": {
+      "switch": "#HEADER_VOICE",
+      "cases": {
+        "low": "%voice_low",
+        "reduced": "%voice_reduced",
+        "normal": "%voice_normal",
+        "elevated": "%voice_elevated",
+        "high": "%voice_high"
       }
     },
     "actionable_element_voice": {

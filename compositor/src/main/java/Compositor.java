@@ -280,6 +280,7 @@ public class Compositor {
     @VoiceType int mButtonVoice = VOICE_TYPE_NORMAL;
     @VoiceType int mSwitchVoice = VOICE_TYPE_NORMAL;
     @VoiceType int mSelectedItemVoice = VOICE_TYPE_NORMAL;
+    @VoiceType int mHeaderVoice = VOICE_TYPE_NORMAL;
     @VoiceType int mImageVoice = VOICE_TYPE_NORMAL;
     boolean mSpeakElementIds = false;
   }
@@ -373,6 +374,13 @@ public class Compositor {
   public void setSelectedItemVoice(@VoiceType int voiceType) {
     if (voiceType != mConstants.mSelectedItemVoice) {
       mConstants.mSelectedItemVoice = voiceType;
+      mParseTreeIsStale = true;
+    }
+  }
+
+  public void setHeaderVoice(@VoiceType int voiceType) {
+    if (voiceType != mConstants.mHeaderVoice) {
+      mConstants.mHeaderVoice = voiceType;
       mParseTreeIsStale = true;
     }
   }
@@ -758,6 +766,10 @@ public class Compositor {
         "SELECTED_ITEM_VOICE",
         ENUM_VOICE_TYPE,
         constants.mSelectedItemVoice);
+    parseTree.setConstantEnum(
+        "HEADER_VOICE",
+        ENUM_VOICE_TYPE,
+        constants.mHeaderVoice);
     parseTree.setConstantEnum(
         "IMAGE_VOICE",
         ENUM_VOICE_TYPE,
