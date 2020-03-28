@@ -87,7 +87,7 @@ public class GridView extends ViewGroup {
     int rowIndex = 0;
     int colIndex = 0;
     int childIndex = 0;
-    boolean isRTL = ViewCompat.getLayoutDirection(this) == LAYOUT_DIRECTION_RTL;
+    boolean isRTL = ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL;
     while (childIndex < childToLayout) {
       int cellLeft = getPaddingLeft() + horizontalOffset + colIndex * cellWidth;
       int cellTop = getPaddingTop() + verticalOffset + rowIndex * cellHeight;

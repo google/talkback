@@ -779,7 +779,7 @@ public class CollectionState {
     CharSequence headingName = getHeaderText(node);
     CollectionItemInfoCompat itemInfo = node.getCollectionItemInfo();
     if (itemInfo != null && headingName != null) {
-      @RowColumnTransition int headingType = getTableHeading(node, itemInfo, collectionInfo);
+      @TableHeadingType int headingType = getTableHeading(node, itemInfo, collectionInfo);
       if ((headingType & TYPE_ROW) != 0) {
         rowHeaders.put(itemInfo.getRowIndex(), headingName);
       }
