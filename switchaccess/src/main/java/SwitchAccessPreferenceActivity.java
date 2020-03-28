@@ -17,6 +17,7 @@
 package com.google.android.accessibility.switchaccess;
 
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -677,6 +678,7 @@ public class SwitchAccessPreferenceActivity extends PreferenceActivity {
      * Disable all point scanning preferences if the device does not support gesture dispatch
      * (that is, if the Android version is below N).
      */
+    @TargetApi(Build.VERSION_CODES.O)
     private void adjustPointScanPrefs() {
       if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
         // Remove point scan screen

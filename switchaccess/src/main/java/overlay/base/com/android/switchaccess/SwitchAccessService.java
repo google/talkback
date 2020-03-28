@@ -18,6 +18,7 @@ package com.android.switchaccess;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.annotation.TargetApi;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -270,6 +271,7 @@ public class SwitchAccessService extends AccessibilityService
    * FULL_WAKE_LOCK has been deprecated, but the replacement only works for applications. The docs
    * actually say that using wake locks from a service is a legitimate use case.
    */
+  @TargetApi(Build.VERSION_CODES.N)
   @SuppressWarnings("deprecation")
   @Override
   protected void onServiceConnected() {

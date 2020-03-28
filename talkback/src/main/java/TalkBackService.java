@@ -26,6 +26,7 @@ import android.accessibilityservice.AccessibilityService.MagnificationController
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.accessibilityservice.FingerprintGestureController;
 import android.accessibilityservice.FingerprintGestureController.FingerprintGestureCallback;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -648,7 +649,12 @@ public class TalkBackService extends AccessibilityService
    *
    * @param eventId
    */
+  @SuppressLint("NewApi")
   public void disableTalkBackFromTutorial(EventId eventId) {
+    if (!BuildVersionUtils.isAtLeastN()) {
+      LogUtils.d(TAG, "TalkBack disabling from tutorial is not supported for pre-N devices.");
+      return;
+    }
     if (isServiceActive()) {
       if (supportsTouchScreen) {
         requestTouchExploration(false);
@@ -1424,6 +1430,7 @@ public class TalkBackService extends AccessibilityService
    * Registers listeners, sets service info, loads preferences. This should be called from {@link
    * #onServiceConnected} and when TalkBack resumes from a suspended state.
    */
+  @SuppressLint("NewApi")
   private void resumeInfrastructure() {
     // Log meta-data about service.
     LogUtils.d(
@@ -1527,7 +1534,7 @@ public class TalkBackService extends AccessibilityService
       }
     }
 
-    if ((fingerprintGestureCallback != null) && isFingerprintPermissionGranted() && (getFingerprintGestureController() != null)) {
+    if (BuildVersionUtils.isAtLeastO() && (fingerprintGestureCallback != null) && isFingerprintPermissionGranted() && (getFingerprintGestureController() != null)) {
       getFingerprintGestureController()
           .registerFingerprintGestureCallback(fingerprintGestureCallback, null);
     }
@@ -1592,6 +1599,7 @@ public class TalkBackService extends AccessibilityService
    * Registers listeners, sets service info, loads preferences. This should be called from {@link
    * #onServiceConnected} and when TalkBack resumes from a suspended state.
    */
+  @SuppressLint("NewApi")
   private void suspendInfrastructure() {
     if (!isServiceActive()) {
       LogUtils.e(TAG, "Attempted to suspend while already suspended");
@@ -1650,7 +1658,7 @@ public class TalkBackService extends AccessibilityService
       }
     }
 
-    if ((fingerprintGestureCallback != null) && isFingerprintPermissionGranted() && (getFingerprintGestureController() != null)) {
+    if (BuildVersionUtils.isAtLeastO() && (fingerprintGestureCallback != null) && isFingerprintPermissionGranted() && (getFingerprintGestureController() != null)) {
       getFingerprintGestureController()
           .unregisterFingerprintGestureCallback(fingerprintGestureCallback);
     }

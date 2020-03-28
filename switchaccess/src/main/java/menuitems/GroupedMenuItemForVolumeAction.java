@@ -16,6 +16,7 @@
 
 package com.google.android.accessibility.switchaccess.menuitems;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Build;
@@ -72,7 +73,7 @@ public class GroupedMenuItemForVolumeAction extends GroupedMenuItem {
   public GroupedMenuItemHeader getHeader() {
     // Certain volume stream types (e.g. call volume) cannot be 100% muted. If that is the case,
     // don't show a mute button.
-    return canStreamBeMuted()
+    return ((Build.VERSION.SDK_INT >= VERSION_CODES.P) && canStreamBeMuted())
         ? new GroupedMenuItemHeader(
             getText(),
             new VolumeAdjustmentMenuItem(
@@ -200,6 +201,7 @@ public class GroupedMenuItemForVolumeAction extends GroupedMenuItem {
     return SwitchAccessMenuItemEnum.MenuItem.ITEM_UNSPECIFIED;
   }
 
+  @TargetApi(Build.VERSION_CODES.P)
   private boolean canStreamBeMuted() {
     // TODO: Instead of hiding the mute button for alarm and accessibility, investigate
     // a more elegant way of determining is a volume stream can be muted and/or manually setting

@@ -19,6 +19,7 @@ package com.google.android.accessibility.utils;
 import android.accessibilityservice.AccessibilityButtonController;
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.FingerprintGestureController;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.os.Build;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -190,10 +191,11 @@ public class AccessibilityServiceCompatUtils {
    *
    * <p>. Works around NPE on some Moto devices running O.
    */
+  @SuppressLint("NewApi")
   public static boolean isAccessibilityButtonAvailableCompat(
       AccessibilityButtonController controller) {
     try {
-      return controller.isAccessibilityButtonAvailable();
+      return BuildVersionUtils.isAtLeastO() ? controller.isAccessibilityButtonAvailable() : false;
     } catch (NullPointerException e) {
       LogUtils.e(TAG, e.toString());
       return false;

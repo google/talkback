@@ -22,13 +22,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.RangeInfoCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.accessibility.AccessibilityNodeInfo;
-import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import com.google.android.accessibility.talkback.Pipeline;
@@ -64,7 +63,7 @@ public class RuleSeekBar implements NodeMenuRule {
     }
 
     return AccessibilityNodeInfoUtils.supportsAction(
-        node, AccessibilityNodeInfo.AccessibilityAction.ACTION_SET_PROGRESS.getId());
+        node, AccessibilityActionCompat.ACTION_SET_PROGRESS.getId());
   }
 
   @Override
@@ -115,11 +114,11 @@ public class RuleSeekBar implements NodeMenuRule {
     if (rangeInfo != null && progress >= 0 && progress <= 100) {
       Bundle args = new Bundle();
       args.putFloat(
-          AccessibilityNodeInfo.ACTION_ARGUMENT_PROGRESS_VALUE,
+          AccessibilityNodeInfoCompat.ACTION_ARGUMENT_PROGRESS_VALUE,
           percentToReal(progress, rangeInfo.getMin(), rangeInfo.getMax()));
       EventId eventId = EVENT_ID_UNTRACKED; // Performance not tracked for menu events.
       PerformActionUtils.performAction(
-          node, AccessibilityAction.ACTION_SET_PROGRESS.getId(), args, eventId);
+          node, AccessibilityActionCompat.ACTION_SET_PROGRESS.getId(), args, eventId);
     }
   }
 

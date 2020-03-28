@@ -16,11 +16,13 @@
 
 package com.google.android.accessibility.talkback.utils;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.FeatureSupport;
@@ -35,6 +37,7 @@ public class NotificationUtils {
    *
    * @param context The context.
    */
+  @TargetApi(Build.VERSION_CODES.O)
   private static void setupNotificationChannel(Context context) {
     if (FeatureSupport.supportNotificationChannel()) {
       NotificationManager notificationManager =
