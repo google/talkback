@@ -52,6 +52,7 @@ public class FullScreenReadControllerApp
     implements FullScreenReadController, AccessibilityEventListener {
   /** Tag used for log output and wake lock */
   private static final String TAG = "FullScreenReadController";
+  private static final String WL_TAG_PREFIX = "talkback:";
 
   /** The possible states of the controller. */
   private static final int STATE_STOPPED = 0;
@@ -113,7 +114,7 @@ public class FullScreenReadControllerApp
     fullScreenReadDialog = new FullScreenReadDialog(this, service, pipeline);
     wakeLock =
         ((PowerManager) service.getSystemService(Context.POWER_SERVICE))
-            .newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, TAG);
+            .newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, WL_TAG_PREFIX + TAG);
   }
 
   /** Releases all resources held by this controller and save any persistent preferences. */
