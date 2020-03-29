@@ -20,33 +20,25 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-import android.widget.Button;
+import androidx.appcompat.widget.AppCompatButton;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * A button that is invisible to Switch Access. Used for the menu button that opens the global
  * context menu.
  */
-public class ButtonSwitchAccessIgnores extends Button {
+public class ButtonSwitchAccessIgnores extends AppCompatButton {
 
   public ButtonSwitchAccessIgnores(Context context) {
-    this(context, null);
+    super(context);
   }
 
   public ButtonSwitchAccessIgnores(Context context, @Nullable AttributeSet attrs) {
-    this(context, attrs, 0);
+    super(context, attrs);
   }
 
   public ButtonSwitchAccessIgnores(Context context, @Nullable AttributeSet attrs, int defStyleRes) {
-    this(context, attrs, defStyleRes, 0);
-  }
-
-  // The Button constructor does not indicate that attrs can be @Nullable, but its super class does
-  // allow it, and one of the other Button constructors passes null in as the argument as well.
-  @SuppressWarnings("nullness:argument.type.incompatible")
-  public ButtonSwitchAccessIgnores(
-      Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-    super(context, attrs, defStyleAttr, defStyleRes);
+    super(context, attrs, defStyleRes);
   }
 
   @Override
