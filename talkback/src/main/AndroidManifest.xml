@@ -149,7 +149,7 @@
             </intent-filter>
         </activity>
 
-        <!-- TalkBack dump event preferences -->
+        <!-- TalkBack developer preferences -->
         <activity
             android:name=".TalkBackDeveloperPreferencesActivity"
             android:exported="false"
