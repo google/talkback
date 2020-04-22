@@ -101,7 +101,7 @@
             android:title="@string/title_pref_manage_labels" >
           <intent
               android:targetPackage="com.google.android.accessibility.talkback"
-              android:targetClass="com.google.android.accessibility.talkback.labeling.TalkBackSelectorPreferencesActivity" />
+              android:targetClass="com.google.android.accessibility.talkback.labeling.LabelManagerSummaryActivity" />
         </Preference>
     </PreferenceCategory>
     <PreferenceCategory
