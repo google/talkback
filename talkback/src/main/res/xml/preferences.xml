@@ -85,23 +85,23 @@
         <Preference
             android:key="@string/pref_selector_category_settings_key"
             android:title="@string/title_pref_selector_settings" >
-          <intent
-              android:targetPackage="com.google.android.accessibility.talkback"
-              android:targetClass="com.google.android.accessibility.talkback.TalkBackSelectorPreferencesActivity" />
+            <intent
+                android:targetPackage="com.google.android.accessibility.talkback"
+                android:targetClass="com.google.android.accessibility.talkback.TalkBackSelectorPreferencesActivity" />
         </Preference>
         <Preference
             android:key="@string/pref_category_manage_keyboard_shortcut_key"
             android:title="@string/title_pref_manage_keyboard_shortcuts" >
-          <intent
-              android:targetPackage="com.google.android.accessibility.talkback"
-              android:targetClass="com.google.android.accessibility.talkback.TalkBackKeyboardShortcutPreferencesActivity" />
+            <intent
+                android:targetPackage="com.google.android.accessibility.talkback"
+                android:targetClass="com.google.android.accessibility.talkback.TalkBackKeyboardShortcutPreferencesActivity" />
         </Preference>
         <Preference
             android:key="@string/pref_manage_labels_key"
             android:title="@string/title_pref_manage_labels" >
-          <intent
-              android:targetPackage="com.google.android.accessibility.talkback"
-              android:targetClass="com.google.android.accessibility.talkback.labeling.LabelManagerSummaryActivity" />
+            <intent
+                android:targetPackage="com.google.android.accessibility.talkback"
+                android:targetClass="com.google.android.accessibility.talkback.labeling.LabelManagerSummaryActivity" />
         </Preference>
     </PreferenceCategory>
     <PreferenceCategory
@@ -132,9 +132,9 @@
         <Preference
             android:key="@string/pref_category_developer_key"
             android:title="@string/title_pref_category_developer_settings" >
-          <intent
-              android:targetPackage="com.google.android.accessibility.talkback"
-              android:targetClass="com.google.android.accessibility.talkback.TalkBackDeveloperPreferencesActivity" />
+            <intent
+                android:targetPackage="com.google.android.accessibility.talkback"
+                android:targetClass="com.google.android.accessibility.talkback.TalkBackDeveloperPreferencesActivity" />
         </Preference>
         <Preference
             android:key="@string/pref_tutorial_key"
