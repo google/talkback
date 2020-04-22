@@ -149,6 +149,20 @@
             </intent-filter>
         </activity>
 
+        <!-- Preferences Selector -->
+        <activity
+            android:name=".TalkBackSelectorPreferencesActivity"
+            android:exported="false"
+            android:label="@string/title_pref_selector_settings"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings"
+            tools:ignore="ExportedActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
         <!-- TalkBack developer preferences -->
         <activity
             android:name=".TalkBackDeveloperPreferencesActivity"
