@@ -66,14 +66,13 @@ public class RuleEditText implements NodeMenuRule {
       ContextMenuItemBuilder menuItemBuilder,
       AccessibilityNodeInfoCompat node,
       boolean includeAncestors) {
-    final AccessibilityNodeInfoCompat nodeCopy = AccessibilityNodeInfoCompat.obtain(node);
     final List<ContextMenuItem> items = new ArrayList<>();
 
     // This action has inconsistencies with EditText nodes that have
     // contentDescription attributes.
-    if (TextUtils.isEmpty(nodeCopy.getContentDescription())) {
+    if (TextUtils.isEmpty(node.getContentDescription())) {
       if (AccessibilityNodeInfoUtils.supportsAnyAction(
-          nodeCopy,
+          node,
           AccessibilityNodeInfoCompat.ACTION_SET_SELECTION,
           AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY)) {
         ContextMenuItem moveToBeginning =
@@ -87,7 +86,7 @@ public class RuleEditText implements NodeMenuRule {
       }
 
       if (AccessibilityNodeInfoUtils.supportsAnyAction(
-          nodeCopy,
+          node,
           AccessibilityNodeInfoCompat.ACTION_SET_SELECTION,
           AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY)) {
         ContextMenuItem moveToEnd =
@@ -101,7 +100,7 @@ public class RuleEditText implements NodeMenuRule {
       }
 
       if (AccessibilityNodeInfoUtils.supportsAnyAction(
-          nodeCopy, AccessibilityNodeInfoCompat.ACTION_CUT)) {
+          node, AccessibilityNodeInfoCompat.ACTION_CUT)) {
         ContextMenuItem cut =
             menuItemBuilder.createMenuItem(
                 service,
@@ -113,7 +112,7 @@ public class RuleEditText implements NodeMenuRule {
       }
 
       if (AccessibilityNodeInfoUtils.supportsAnyAction(
-          nodeCopy, AccessibilityNodeInfoCompat.ACTION_COPY)) {
+          node, AccessibilityNodeInfoCompat.ACTION_COPY)) {
         ContextMenuItem copy =
             menuItemBuilder.createMenuItem(
                 service,
@@ -125,7 +124,7 @@ public class RuleEditText implements NodeMenuRule {
       }
 
       if (AccessibilityNodeInfoUtils.supportsAnyAction(
-          nodeCopy, AccessibilityNodeInfoCompat.ACTION_PASTE)) {
+          node, AccessibilityNodeInfoCompat.ACTION_PASTE)) {
         ContextMenuItem paste =
             menuItemBuilder.createMenuItem(
                 service,
@@ -137,8 +136,8 @@ public class RuleEditText implements NodeMenuRule {
       }
 
       if (AccessibilityNodeInfoUtils.supportsAnyAction(
-              nodeCopy, AccessibilityNodeInfoCompat.ACTION_SET_SELECTION)
-          && nodeCopy.getText() != null) {
+              node, AccessibilityNodeInfoCompat.ACTION_SET_SELECTION)
+          && node.getText() != null) {
         ContextMenuItem select =
             menuItemBuilder.createMenuItem(
                 service,
@@ -171,11 +170,15 @@ public class RuleEditText implements NodeMenuRule {
       items.add(selectionMode);
     }
 
-    for (ContextMenuItem item : items) {
-      item.setOnMenuItemClickListener(new EditTextMenuItemClickListener(nodeCopy));
-      // Skip window and focued event for edit options, see .
-      item.setSkipRefocusEvents(true);
-      item.setSkipWindowEvents(true);
+    if (!items.isEmpty()) {
+      final EditTextMenuItemClickListener itemClickListener =
+          new EditTextMenuItemClickListener(AccessibilityNodeInfoCompat.obtain(node));
+      for (ContextMenuItem item : items) {
+        item.setOnMenuItemClickListener(itemClickListener);
+        // Skip window and focued event for edit options, see .
+        item.setSkipRefocusEvents(true);
+        item.setSkipWindowEvents(true);
+      }
     }
 
     return items;
