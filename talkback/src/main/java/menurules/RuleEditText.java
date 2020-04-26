@@ -210,21 +210,21 @@ public class RuleEditText implements NodeMenuRule {
       final boolean result;
       EventId eventId = EVENT_ID_UNTRACKED; // Not tracking performance for menu events.
       if (itemId == R.id.edittext_breakout_move_to_beginning) {
-        result = pipeline.returnFeedback(eventId, Feedback.edit(node, CURSOR_TO_BEGINNING));
+        result = pipeline.returnFeedback(eventId, Feedback.edit(AccessibilityNodeInfoCompat.obtain(node), CURSOR_TO_BEGINNING));
       } else if (itemId == R.id.edittext_breakout_move_to_end) {
-        result = pipeline.returnFeedback(eventId, Feedback.edit(node, CURSOR_TO_END));
+        result = pipeline.returnFeedback(eventId, Feedback.edit(AccessibilityNodeInfoCompat.obtain(node), CURSOR_TO_END));
       } else if (itemId == R.id.edittext_breakout_cut) {
-        result = pipeline.returnFeedback(eventId, Feedback.edit(node, CUT));
+        result = pipeline.returnFeedback(eventId, Feedback.edit(AccessibilityNodeInfoCompat.obtain(node), CUT));
       } else if (itemId == R.id.edittext_breakout_copy) {
-        result = pipeline.returnFeedback(eventId, Feedback.edit(node, COPY));
+        result = pipeline.returnFeedback(eventId, Feedback.edit(AccessibilityNodeInfoCompat.obtain(node), COPY));
       } else if (itemId == R.id.edittext_breakout_paste) {
-        result = pipeline.returnFeedback(eventId, Feedback.edit(node, PASTE));
+        result = pipeline.returnFeedback(eventId, Feedback.edit(AccessibilityNodeInfoCompat.obtain(node), PASTE));
       } else if (itemId == R.id.edittext_breakout_select_all && node.getText() != null) {
-        result = pipeline.returnFeedback(eventId, Feedback.edit(node, SELECT_ALL));
+        result = pipeline.returnFeedback(eventId, Feedback.edit(AccessibilityNodeInfoCompat.obtain(node), SELECT_ALL));
       } else if (itemId == R.id.edittext_breakout_start_selection_mode) {
-        result = pipeline.returnFeedback(eventId, Feedback.edit(node, START_SELECT));
+        result = pipeline.returnFeedback(eventId, Feedback.edit(AccessibilityNodeInfoCompat.obtain(node), START_SELECT));
       } else if (itemId == R.id.edittext_breakout_end_selection_mode) {
-        result = pipeline.returnFeedback(eventId, Feedback.edit(node, END_SELECT));
+        result = pipeline.returnFeedback(eventId, Feedback.edit(AccessibilityNodeInfoCompat.obtain(node), END_SELECT));
       } else {
         result = false;
       }
