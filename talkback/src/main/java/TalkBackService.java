@@ -1338,7 +1338,7 @@ public class TalkBackService extends AccessibilityService
           new TelevisionNavigationController(
               this, accessibilityFocusMonitor, pipeline.getFeedbackReturner());
       keyEventListeners.add(televisionNavigationController);
-      televisionDPadManager = new TelevisionDPadManager(televisionNavigationController);
+      televisionDPadManager = new TelevisionDPadManager(televisionNavigationController, this);
       addEventListener(televisionDPadManager);
     }
 
