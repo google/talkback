@@ -15,4 +15,10 @@ To build TalkBack, you will need Android Studio (tested with version 3.5.1).
 3. From the "Build" menu, "Make project".
 4. Use the APK file from the "build/" directory.
 
+The project can be built from the command line using Gradle wrapper
+as well, but Java runtime environment provided with Android Studio
+is necessary. So, set `JAVA_HOME` environment variable as follows:
 
+```bash
+$ export JAVA_HOME=<android_studio_installation_path>/jre
+```
