@@ -1,4 +1,6 @@
-# Introduction
+# TalkBack
+
+## Introduction
 This repository contains sources for two Android accessibility services from Google:
 
 * TalkBack -- a screen reader for blind and visually impaired users. For usage instructions, see [TalkBack User Guide](https://support.google.com/accessibility/android/answer/6283677?hl=en).
