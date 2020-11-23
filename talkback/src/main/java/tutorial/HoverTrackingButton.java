@@ -19,9 +19,9 @@ package com.google.android.accessibility.talkback.tutorial;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.Button;
+import androidx.appcompat.widget.AppCompatButton;
 
-public class HoverTrackingButton extends Button {
+public class HoverTrackingButton extends AppCompatButton {
 
   private boolean didHoverEnter;
 

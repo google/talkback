@@ -72,6 +72,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 @SuppressWarnings("deprecation")
 public class FailoverTextToSpeech {
   private static final String TAG = "FailoverTextToSpeech";
+  private static final String WL_TAG_PREFIX = "talkback:";
 
   /** The package name for the Google TTS engine. */
   private static final String PACKAGE_GOOGLE_TTS = "com.google.android.tts";
@@ -205,7 +206,7 @@ public class FailoverTextToSpeech {
   protected void initWakeLock(Context context) {
     mWakeLock =
         ((PowerManager) context.getSystemService(Context.POWER_SERVICE))
-            .newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, TAG);
+            .newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, WL_TAG_PREFIX + TAG);
   }
 
   /**

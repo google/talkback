@@ -279,7 +279,7 @@ public class SwitchAccessHighlightFeedbackController implements HintEventListene
 
     if (focus instanceof TreeScanSystemProvidedNode) {
       nodeInfoCompat = ((TreeScanSystemProvidedNode) focus).getNodeInfoCompat();
-      event.setEventType(AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUSED);
+      event.setEventType(AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED);
     } else if (focus instanceof OverlayActionNode) {
       // The OverlayActionNode (e.g., the Switch Access Menu button) doesn't have any
       // AccessibilityNodeInfoCompat. In order to pass the node compat info associated such items to

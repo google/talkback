@@ -20,11 +20,13 @@ import static com.google.android.accessibility.talkback.Feedback.FocusDirection.
 import static com.google.android.accessibility.talkback.Feedback.FocusDirection.Action.PREVIOUS_GRANULARITY;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
+import android.Manifest;
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityService.MagnificationController.OnMagnificationChangedListener;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.accessibilityservice.FingerprintGestureController;
 import android.accessibilityservice.FingerprintGestureController.FingerprintGestureCallback;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -36,6 +38,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Region;
@@ -43,6 +46,7 @@ import android.media.AudioManager;
 import android.os.Build;
 import android.provider.Settings;
 import androidx.annotation.VisibleForTesting;
+import androidx.core.content.ContextCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -645,7 +649,12 @@ public class TalkBackService extends AccessibilityService
    *
    * @param eventId
    */
+  @SuppressLint("NewApi")
   public void disableTalkBackFromTutorial(EventId eventId) {
+    if (!BuildVersionUtils.isAtLeastN()) {
+      LogUtils.d(TAG, "TalkBack disabling from tutorial is not supported for pre-N devices.");
+      return;
+    }
     if (isServiceActive()) {
       if (supportsTouchScreen) {
         requestTouchExploration(false);
@@ -1421,6 +1430,7 @@ public class TalkBackService extends AccessibilityService
    * Registers listeners, sets service info, loads preferences. This should be called from {@link
    * #onServiceConnected} and when TalkBack resumes from a suspended state.
    */
+  @SuppressLint("NewApi")
   private void resumeInfrastructure() {
     // Log meta-data about service.
     LogUtils.d(
@@ -1524,7 +1534,7 @@ public class TalkBackService extends AccessibilityService
       }
     }
 
-    if ((fingerprintGestureCallback != null) && (getFingerprintGestureController() != null)) {
+    if (BuildVersionUtils.isAtLeastO() && (fingerprintGestureCallback != null) && isFingerprintPermissionGranted() && (getFingerprintGestureController() != null)) {
       getFingerprintGestureController()
           .registerFingerprintGestureCallback(fingerprintGestureCallback, null);
     }
@@ -1589,6 +1599,7 @@ public class TalkBackService extends AccessibilityService
    * Registers listeners, sets service info, loads preferences. This should be called from {@link
    * #onServiceConnected} and when TalkBack resumes from a suspended state.
    */
+  @SuppressLint("NewApi")
   private void suspendInfrastructure() {
     if (!isServiceActive()) {
       LogUtils.e(TAG, "Attempted to suspend while already suspended");
@@ -1647,7 +1658,7 @@ public class TalkBackService extends AccessibilityService
       }
     }
 
-    if ((fingerprintGestureCallback != null) && (getFingerprintGestureController() != null)) {
+    if (BuildVersionUtils.isAtLeastO() && (fingerprintGestureCallback != null) && isFingerprintPermissionGranted() && (getFingerprintGestureController() != null)) {
       getFingerprintGestureController()
           .unregisterFingerprintGestureCallback(fingerprintGestureCallback);
     }
@@ -2198,6 +2209,12 @@ public class TalkBackService extends AccessibilityService
 
   public InputModeManager getInputModeManager() {
     return inputModeManager;
+  }
+
+  /** @return whether the permission USE_FINGERPRINT is granted to TalkBack. */
+  private boolean isFingerprintPermissionGranted() {
+    return ContextCompat.checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT)
+        == PackageManager.PERMISSION_GRANTED;
   }
 
   /** Runnable to run after announcing "TalkBack off". */

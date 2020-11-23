@@ -154,6 +154,7 @@ public class MediaRecorderMonitor {
     return false;
   }
 
+  @TargetApi(Build.VERSION_CODES.N)
   private boolean containsAudioSource(
       List<AudioRecordingConfiguration> configs, AudioSource targetSource) {
     if (configs == null || targetSource == null) {

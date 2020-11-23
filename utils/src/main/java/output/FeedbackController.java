@@ -18,7 +18,9 @@ package com.google.android.accessibility.utils.output;
 
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
 import android.media.AudioAttributes;
@@ -27,6 +29,7 @@ import android.media.SoundPool;
 import android.media.SoundPool.OnLoadCompleteListener;
 import android.os.Vibrator;
 import android.util.SparseIntArray;
+import androidx.core.content.ContextCompat;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.R;
@@ -112,7 +115,8 @@ public class FeedbackController {
     for (HapticFeedbackListener listener : mHapticFeedbackListeners) {
       listener.onHapticFeedbackStarting(nanoTime);
     }
-    mVibrator.vibrate(pattern, -1);
+    if (isVibratePermissionGranted())
+      mVibrator.vibrate(pattern, -1);
     return true;
   }
 
@@ -182,7 +186,8 @@ public class FeedbackController {
   /** Interrupts all ongoing feedback. */
   public void interrupt() {
     // TODO: Stop all sounds.
-    mVibrator.cancel();
+    if (isVibratePermissionGranted())
+      mVibrator.cancel();
   }
 
   /**
@@ -192,7 +197,8 @@ public class FeedbackController {
   public void shutdown() {
     mHapticFeedbackListeners.clear();
     mSoundPool.release();
-    mVibrator.cancel();
+    if (isVibratePermissionGranted())
+      mVibrator.cancel();
   }
 
   /**
@@ -230,6 +236,12 @@ public class FeedbackController {
   public void playActionCompletionFeedback() {
     playHaptic(R.array.window_state_pattern, EVENT_ID_UNTRACKED);
     playAuditory(R.raw.window_state, EVENT_ID_UNTRACKED);
+  }
+
+  /** @return whether the permission VIBRATE is granted to TalkBack. */
+  private boolean isVibratePermissionGranted() {
+    return ContextCompat.checkSelfPermission(mContext, Manifest.permission.VIBRATE)
+        == PackageManager.PERMISSION_GRANTED;
   }
 
   private static SoundPool createSoundPool() {

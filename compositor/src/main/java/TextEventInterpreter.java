@@ -257,7 +257,7 @@ public class TextEventInterpreter {
     // Extract text from input field.
     final boolean isGranularTraversal =
         (event.getEventType()
-            == AccessibilityEventCompat.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY);
+            == AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY);
     final @Nullable CharSequence text;
     if (isGranularTraversal) {
       // Gets text from node instead of event to prevent missing locale spans.

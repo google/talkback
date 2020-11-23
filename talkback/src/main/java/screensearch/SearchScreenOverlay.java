@@ -19,9 +19,11 @@ package com.google.android.accessibility.talkback.screensearch;
 import static com.google.android.accessibility.talkback.ScrollEventInterpreter.ACTION_AUTO_SCROLL;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
@@ -181,6 +183,7 @@ public final class SearchScreenOverlay implements SearchObserver {
   }
 
   /** Creates search overlay window and necessary widgets. */
+  @TargetApi(Build.VERSION_CODES.P)
   private void createUIElements() {
     WindowManager wm = (WindowManager) service.getSystemService(Context.WINDOW_SERVICE);
 

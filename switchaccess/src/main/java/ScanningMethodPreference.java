@@ -129,6 +129,7 @@ public class ScanningMethodPreference extends DialogPreference {
 
   @Override
   protected void onBindDialogView(@NonNull View dialogView) {
+    super.onBindDialogView(dialogView);
     for (int i = 0; i < radioButtonIds.length; i++) {
       RadioButton radioButton = dialogView.findViewById(radioButtonIds[i]);
       View summaryView = dialogView.findViewById(scanningMethodSummaryViewIds[i]);

@@ -43,7 +43,7 @@ class TextToSpeechUtils {
       PackageManager pm, List<String> results) {
     final Intent intent = new Intent(TextToSpeech.Engine.INTENT_ACTION_TTS_SERVICE);
     final List<ResolveInfo> resolveInfos =
-        pm.queryIntentServices(intent, PackageManager.GET_SERVICES);
+        pm.queryIntentServices(intent, 0);
 
     String systemTtsEngine = null;
 

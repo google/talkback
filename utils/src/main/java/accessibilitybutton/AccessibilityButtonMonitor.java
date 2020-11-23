@@ -3,6 +3,7 @@ package com.google.android.accessibility.utils.accessibilitybutton;
 import android.accessibilityservice.AccessibilityButtonController;
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Message;
@@ -219,6 +220,7 @@ public class AccessibilityButtonMonitor {
       super(parent);
     }
 
+    @SuppressLint("NewApi")
     @Override
     protected void handleMessage(Message msg, AccessibilityButtonMonitor parent) {
       if (parent == null) {
@@ -250,10 +252,12 @@ public class AccessibilityButtonMonitor {
           boolean isAvailable;
           if (BuildCompat.isAtLeastOMR1()) {
             isAvailable = AccessibilityManager.isAccessibilityButtonSupported();
-          } else {
+          } else if (BuildCompat.isAtLeastO()) {
             isAvailable =
                 AccessibilityServiceCompatUtils.isAccessibilityButtonAvailableCompat(
                     parent.mService.getAccessibilityButtonController());
+          } else {
+            isAvailable = false;
           }
           parent.mButtonState = isAvailable ? SUPPORTED : NOT_SUPPORTED;
           if (!mHasNotifiedSupportability) {

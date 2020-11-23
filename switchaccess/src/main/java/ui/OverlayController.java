@@ -17,6 +17,7 @@
 package com.google.android.accessibility.switchaccess.ui;
 
 import android.accessibilityservice.AccessibilityService;
+import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -430,6 +431,7 @@ public class OverlayController implements VolumeChangeListener {
     }
   }
 
+  @TargetApi(Build.VERSION_CODES.P)
   private void adjustGlobalMenuButtonForDisplayCutouts() {
     // Having the gravity at CENTER_HORIZONTAL rather than START causes the display cutout's
     // bounding rects to be incorrect (the left coordinate is 0 even though the left of the cutout
@@ -928,6 +930,7 @@ public class OverlayController implements VolumeChangeListener {
    *    functional for use (i.e. the notches)
    */
   @VisibleForTesting
+  @TargetApi(Build.VERSION_CODES.P)
   void adjustGlobalMenuButtonPosition(
       @Nullable DisplayCutout displayCutout, List<Rect> cutoutRects) {
     LayoutParams globalMenuButtonParams = globalMenuButtonOverlay.getParams();

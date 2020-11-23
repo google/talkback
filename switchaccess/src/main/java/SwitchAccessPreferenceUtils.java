@@ -17,6 +17,7 @@
 package com.google.android.accessibility.switchaccess;
 
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -154,6 +155,7 @@ public class SwitchAccessPreferenceUtils {
    * @param context The current context
    * @return {@code true} if point scanning is currently enabled
    */
+  @TargetApi(VERSION_CODES.O)
   public static boolean isPointScanEnabled(Context context) {
     // When animations are disabled, point scan won't animate correctly, so revert to another type
     // of scanning.
