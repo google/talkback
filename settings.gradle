@@ -3,9 +3,6 @@
 include ':talkback'
 project(':talkback').projectDir = new File(rootDir, 'talkback')
 
-include ':switchaccess'
-project(':switchaccess').projectDir = new File(rootDir, 'switchaccess')
-
 include ':compositor'
 project(':compositor').projectDir = new File(rootDir, 'compositor')
 

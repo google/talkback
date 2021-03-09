@@ -657,15 +657,6 @@ public class Compositor {
 
     try {
       parseTree.mergeTree(JsonUtils.readFromRawFile(context, R.raw.compositor));
-      if (constants.mFlavor == FLAVOR_ARC) {
-        parseTree.mergeTree(JsonUtils.readFromRawFile(context, R.raw.compositor_arc));
-      } else if (constants.mFlavor == FLAVOR_TV) {
-        parseTree.mergeTree(JsonUtils.readFromRawFile(context, R.raw.compositor_tv));
-      } else if (constants.mFlavor == FLAVOR_SWITCH_ACCESS) {
-        parseTree.mergeTree(JsonUtils.readFromRawFile(context, R.raw.compositor_switchaccess));
-      } else if (constants.mFlavor == FLAVOR_JASPER) {
-        parseTree.mergeTree(JsonUtils.readFromRawFile(context, R.raw.compositor_jasper));
-      }
     } catch (Exception e) {
       throw new IllegalStateException(e.toString());
     }
