@@ -1,13 +1,8 @@
 # Introduction
-This repository contains sources for two Android accessibility services from Google:
+This repository contains source code for Google's TalkBack, which is a screen reader for blind and visually-impaired users of Android.
+For usage instructions, see [TalkBack User Guide](https://support.google.com/accessibility/android/answer/6283677?hl=en).
 
-* TalkBack -- a screen reader for blind and visually impaired users. For usage instructions, see [TalkBack User Guide](https://support.google.com/accessibility/android/answer/6283677?hl=en).
-* Switch Access -- screen navigation tool for users with mobility limitations. For usage instructions, see [Switch Access User Guide](https://support.google.com/accessibility/android/answer/6122836?hl=en).
-
-When you build and install TalkBack package, both services will be installed under Settings -> Accessibility and will be turned off by default. It is *not recommended* running both services at the same time as they may conflict with each other.
-
-
-### Building
+### How to Build
 To build TalkBack, you will need Android Studio (tested with version 3.5.1).
 
 1. Create an Android Studio project from the talkback source code.
@@ -15,4 +10,8 @@ To build TalkBack, you will need Android Studio (tested with version 3.5.1).
 3. From the "Build" menu, "Make project".
 4. Use the APK file from the "build/" directory.
 
+### How to Install
+Install the apk onto your Android device in the usual manner using adb.
 
+### How to Run
+With the apk now installed on the device, the TalkBack service should now be present under Settings -> Accessibility, and will be off by default. To turn it on, toggle the switch preference to the on position.
