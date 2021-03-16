@@ -28,6 +28,7 @@ import android.text.style.LocaleSpan;
 import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.Role;
@@ -114,6 +115,9 @@ class NodeVariables implements ParseTree.VariableDelegate {
   private static final int NODE_SELF_MENU_ACTION_IS_AVAILABLE = 7049;
   private static final int NODE_SELF_MENU_ACTION_TYPE = 7050;
   private static final int NODE_IS_WEB_CONTAINER = 7051;
+
+  private static final int NODE_CONTAINS_CHECKABLE = 7052;
+  private static final int NODE_IS_CHECKED_INTERNALLY = 7053;
 
   private final Context mContext;
   private final @Nullable LabelManager mLabelManager;
@@ -324,6 +328,10 @@ class NodeVariables implements ParseTree.VariableDelegate {
           return nodeMenuProvider != null
               && !nodeMenuProvider.getSelfNodeMenuActionTypes(mNode).isEmpty();
         }
+      case NODE_CONTAINS_CHECKABLE:
+        return getInternalCheckable() != null;
+      case NODE_IS_CHECKED_INTERNALLY:
+        return isCheckedInternally();
       default:
         return mParentVariables.getBoolean(variableId);
     }
@@ -681,6 +689,24 @@ class NodeVariables implements ParseTree.VariableDelegate {
     }
   }
 
+  private @Nullable AccessibilityNodeInfoCompat getInternalCheckable() {
+    List<AccessibilityNodeInfoCompat> checkables =
+      AccessibilityNodeInfoUtils.getMatchingDescendantsOrRoot(mNode, new Filter<AccessibilityNodeInfoCompat>() {
+        @Override
+        public boolean accept(AccessibilityNodeInfoCompat node) {
+          return node != null && node.isCheckable();
+        }
+      });
+    if (checkables != null && checkables.size() == 1)
+      return checkables.get(0);
+    return null;
+  }
+
+  private boolean isCheckedInternally() {
+    AccessibilityNodeInfoCompat node = getInternalCheckable();
+    return node != null && node.isChecked();
+  }
+
   static void declareVariables(ParseTree parseTree) {
     // Variables.
     // Nodes.
@@ -741,5 +767,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
         "node.selfMenuActionAvailable", NODE_SELF_MENU_ACTION_IS_AVAILABLE);
     parseTree.addStringVariable("node.selfMenuActions", NODE_SELF_MENU_ACTION_TYPE);
     parseTree.addBooleanVariable("node.isWebContainer", NODE_IS_WEB_CONTAINER);
+    parseTree.addBooleanVariable("node.containsCheckable", NODE_CONTAINS_CHECKABLE);
+    parseTree.addBooleanVariable("node.isCheckedInternally", NODE_IS_CHECKED_INTERNALLY);
   }
 }

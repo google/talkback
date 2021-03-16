@@ -209,6 +209,7 @@
         "then":"queue",
         "else":"flush"
       },
+      "ttsPitch": "%get_voice_for_element",
       "ttsAddToHistory": true,
       // TODO: Remove the next line when focus management feature is settled down.
       //"ttsForceFeedback": "!$global.syncedAccessibilityFocusLatch && $node.role != 'web_view'",
@@ -242,6 +243,7 @@
     },
     "TYPE_VIEW_FOCUSED": {
       "ttsOutput": "%event_description",
+      "ttsPitch": "%get_voice_for_element",
       "ttsAddToHistory": true,
       // From FallbackFormatter
       // TODO: Delete porting comments.
@@ -256,6 +258,7 @@
     },
     "TYPE_VIEW_HOVER_ENTER": {
       "ttsOutput": "%event_description",
+      "ttsPitch": "%get_voice_for_element",
       "ttsAddToHistory": true,
       // TODO: respect user settings
       "ttsForceFeedbackAudioPlaybackActive": true,
@@ -1799,6 +1802,109 @@
           }
         }
       ]
-    }
+    },
+    "get_voice_for_element": {
+      "if": "$node.isEnabled",
+      "then": "%element_type_specific_voice",
+      "else": "%voice_normal"
+    },
+    "element_type_specific_voice": {
+      "if": "$node.isSelected || $node.isChecked || $node.isCheckedInternally",
+      "then": "%selected_item_voice",
+      "else": {
+        "if": "$node.isWebContainer && $node.isActionable",
+        "then": "%actionable_element_voice",
+        "else": {
+          "switch": "$node.role",
+          "cases": {
+            "button": "%button_voice",
+            "image_button": "%button_voice",
+            "radio_button": "%switch_voice",
+            "toggle_button": "%switch_voice",
+            "switch": "%switch_voice",
+            "check_box": "%switch_voice",
+            "image": {
+              "if": "$node.isClickable",
+              "then": "%button_voice",
+              "else": "%image_voice"
+            }
+          },
+          "default": {
+            "if": "$node.containsCheckable",
+            "then": "%switch_voice",
+            "else": {
+              "if": "$node.isHeading",
+              "then": "%header_voice",
+              "else": "%voice_normal"
+            }
+          }
+        }
+      }
+    },
+    "header_voice": {
+      "switch": "#HEADER_VOICE",
+      "cases": {
+        "low": "%voice_low",
+        "reduced": "%voice_reduced",
+        "normal": "%voice_normal",
+        "elevated": "%voice_elevated",
+        "high": "%voice_high"
+      }
+    },
+    "actionable_element_voice": {
+      "switch": "#ACTIONABLE_ELEMENT_VOICE",
+      "cases": {
+        "low": "%voice_low",
+        "reduced": "%voice_reduced",
+        "normal": "%voice_normal",
+        "elevated": "%voice_elevated",
+        "high": "%voice_high"
+      }
+    },
+    "button_voice": {
+      "switch": "#BUTTON_VOICE",
+      "cases": {
+        "low": "%voice_low",
+        "reduced": "%voice_reduced",
+        "normal": "%voice_normal",
+        "elevated": "%voice_elevated",
+        "high": "%voice_high"
+      }
+    },
+    "switch_voice": {
+      "switch": "#SWITCH_VOICE",
+      "cases": {
+        "low": "%voice_low",
+        "reduced": "%voice_reduced",
+        "normal": "%voice_normal",
+        "elevated": "%voice_elevated",
+        "high": "%voice_high"
+      }
+    },
+    "selected_item_voice": {
+      "switch": "#SELECTED_ITEM_VOICE",
+      "cases": {
+        "low": "%voice_low",
+        "reduced": "%voice_reduced",
+        "normal": "%voice_normal",
+        "elevated": "%voice_elevated",
+        "high": "%voice_high"
+      }
+    },
+    "image_voice": {
+      "switch": "#IMAGE_VOICE",
+      "cases": {
+        "low": "%voice_low",
+        "reduced": "%voice_reduced",
+        "normal": "%voice_normal",
+        "elevated": "%voice_elevated",
+        "high": "%voice_high"
+      }
+    },
+    "voice_low": 0.6,
+    "voice_reduced": 0.8,
+    "voice_normal": 1.0,
+    "voice_elevated": 1.25,
+    "voice_high": 1.5
   }
 }

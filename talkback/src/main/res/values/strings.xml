@@ -1518,4 +1518,26 @@
   <!-- Notification channel description of Talkback. [CHAR_LIMIT=42] -->
   <string name="talkback_notification_channel_description">The Notification Channel of TalkBack</string>
 
+  <!-- Voice types -->
+  <string name="low_pitch_voice">Low pitch</string>
+  <string name="reduced_pitch_voice">Reduced pitch</string>
+  <string name="normal_voice">Normal</string>
+  <string name="elevated_pitch_voice">Elevated pitch</string>
+  <string name="high_pitch_voice">High pitch</string>
+
+  <!-- For voice markup preferences -->
+  <string name="pref_verbosity_category_voice_markup_settings_title">Voices for various elements</string>
+  <string name="pref_button_voice_dialog_title">Voice for speaking buttons</string>
+  <string name="pref_button_voice_title">Buttons</string>
+  <string name="pref_image_voice_dialog_title">Voice for speaking images</string>
+  <string name="pref_image_voice_title">Images</string>
+  <string name="pref_actionable_voice_dialog_title">Voice for speaking\nactionable web elements</string>
+  <string name="pref_actionable_voice_title">Actionable web elements</string>
+  <string name="pref_switch_voice_dialog_title">Voice for speaking\nswitches and checkboxes</string>
+  <string name="pref_switch_voice_title">Switches and checkboxes</string>
+  <string name="pref_selected_item_voice_dialog_title">Voice for speaking\nselected or checked items</string>
+  <string name="pref_selected_item_voice_title">Selected or checked items</string>
+  <string name="pref_header_voice_dialog_title">Voice for speaking headers</string>
+  <string name="pref_header_voice_title">Headers</string>
+
 </resources>
