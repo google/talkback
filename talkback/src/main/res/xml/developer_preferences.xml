@@ -28,7 +28,9 @@
   <Preference
       android:key="@string/pref_dump_a11y_event_key"
       android:title="@string/title_pref_dump_a11y_event">
-    <intent android:action=".TalkBackDumpAccessibilityEventActivity"/>
+    <intent
+        android:targetPackage="com.google.android.accessibility.talkback"
+        android:targetClass="com.google.android.accessibility.talkback.TalkBackDumpAccessibilityEventActivity"/>
   </Preference>
   <SwitchPreference
       android:defaultValue="@bool/pref_explore_by_touch_default"
