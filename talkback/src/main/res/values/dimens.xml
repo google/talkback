@@ -22,31 +22,75 @@
     <dimen name="screen_margin_top">72dp</dimen>
     <dimen name="screen_margin_bottom">48dp</dimen>
     <dimen name="title_height">48dp</dimen>
+    <dimen name="edittext_min_height">48dp</dimen>
     <dimen name="content_margin_left">16dp</dimen>
     <dimen name="button_bar_height">48dp</dimen>
     <dimen name="tutorial_button_max_width">150dp</dimen>
     <dimen name="search_text_font_size">30dp</dimen>
 
-    <!-- for radial menu -->
-    <dimen name="inner_radius">72dp</dimen>
-    <dimen name="outer_radius">80dp</dimen>
-    <dimen name="corner_radius">64dp</dimen>
-    <dimen name="extreme_radius">128dp</dimen>
-    <dimen name="spacing">2dp</dimen>
-    <dimen name="text_size">14sp</dimen>
-    <dimen name="text_shadow_radius">4dp</dimen>
-    <dimen name="shadow_radius">4dp</dimen>
-    <!-- end radial menu -->
-
     <dimen name="dim_screen_bottom_offset">96dp</dimen>
 
-    <!-- tutorial -->
-    <dimen name="tutorial_header_text">14sp</dimen>
-    <dimen name="tutorial_header_min_height">160dp</dimen>
-    <dimen name="tutorial_grid_item_width">90dp</dimen>
-    <dimen name="tutorial_grid_item_height">120dp</dimen>
-    <dimen name="tutorial_content_horizontal_offset">16dp</dimen>
-    <dimen name="tutorial_grid_horizontal_offset">0dp</dimen>
-    <dimen name="tutorial_list_horizontal_offset">8dp</dimen>
-    <dimen name="tutorial_footer_horizontal_padding">16dp</dimen>
+    <!-- for customize menus settings -->
+    <dimen name="customize_menus_settings_menuitem_margin_top">12dp</dimen>
+    <dimen name="customize_menus_settings_menuitem_margin_bottom">12dp</dimen>
+    <dimen name="customize_menus_settings_layout_margin_start_16">16dp</dimen>
+    <dimen name="customize_menus_settings_layout_margin_start_24">24dp</dimen>
+    <dimen name="customize_menus_settings_layout_margin_end_6">6dp</dimen>
+    <!-- end customize menus settings -->
+
+    <!-- Quick menu overlays -->
+    <dimen name="quick_menu_overlay_text_size">24sp</dimen>
+    <dimen name="quick_menu_overlay_margin">24dp</dimen>
+    <dimen name="quick_menu_overlay_margin_start">24dp</dimen>
+    <dimen name="quick_menu_overlay_margin_end">24dp</dimen>
+    <dimen name="quick_menu_overlay_padding">24dp</dimen>
+    <dimen name="quick_menu_overlay_padding_start">24dp</dimen>
+    <dimen name="quick_menu_overlay_padding_end">24dp</dimen>
+    <dimen name="quick_menu_overlay_padding_top">16dp</dimen>
+    <dimen name="quick_menu_overlay_padding_bottom">16dp</dimen>
+    <dimen name="quick_menu_overlay_corner_radius">16dp</dimen>
+    <dimen name="quick_menu_overlay_border">1dp</dimen>
+
+    <!-- Training -->
+    <dimen name="training_padding_start">24dp</dimen>
+    <dimen name="training_padding_end">24dp</dimen>
+    <dimen name="training_padding_top">36dp</dimen>
+    <dimen name="training_padding_bottom">36dp</dimen>
+    <dimen name="training_title_text_size">26sp</dimen>
+    <dimen name="training_title_height">32sp</dimen>
+    <dimen name="training_text_size">18sp</dimen>
+    <dimen name="training_text_height">24sp</dimen>
+    <dimen name="training_subtext_size">14sp</dimen>
+    <dimen name="training_subtext_height">20sp</dimen>
+    <dimen name="training_button_text_size">16sp</dimen>
+    <dimen name="training_button_height">64dp</dimen>
+    <dimen name="training_heading_size">24sp</dimen>
+    <dimen name="training_heading_height">38sp</dimen>
+    <dimen name="training_note_padding">16dp</dimen>
+    <dimen name="training_note_margin_top">24dp</dimen>
+    <dimen name="training_note_stroke_width">1dp</dimen>
+    <dimen name="training_note_corner_radius">4dp</dimen>
+    <dimen name="training_note_text_size">16sp</dimen>
+    <dimen name="training_note_text_height">20dp</dimen>
+    <dimen name="training_page_number_margin_top">16dp</dimen>
+    <dimen name="training_page_number_text_size">16sp</dimen>
+    <dimen name="training_page_number_height">24sp</dimen>
+    <dimen name="training_list_margin_top">32dp</dimen>
+    <dimen name="training_list_item_padding">16dp</dimen>
+    <dimen name="training_list_item_margin_top">8dp</dimen>
+    <dimen name="training_list_item_margin_bottom">8dp</dimen>
+    <dimen name="training_list_item_margin_start">8dp</dimen>
+    <dimen name="training_list_item_stroke_width">1dp</dimen>
+    <dimen name="training_list_item_corner_radius">4dp</dimen>
+    <dimen name="training_list_item_height">64dp</dimen>
+    <dimen name="training_list_item_text_size">18sp</dimen>
+    <dimen name="training_list_item_text_height">26dp</dimen>
+    <dimen name="training_text_with_number_margin_top">16dp</dimen>
+    <dimen name="training_link_padding">16dp</dimen>
+    <dimen name="training_link_margin_top">24dp</dimen>
+    <dimen name="training_edit_text_padding">16dp</dimen>
+    <dimen name="training_edit_text_text_size">18sp</dimen>
+    <dimen name="training_edit_text_text_height">26dp</dimen>
+    <dimen name="training_button_padding">16dp</dimen>
+
 </resources>

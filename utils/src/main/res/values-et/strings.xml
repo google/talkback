@@ -27,10 +27,10 @@
   <string name="granularity_web_heading">Pealkirjad</string>
   <string name="granularity_web_list">Loendid</string>
   <string name="granularity_web_link">Lingid</string>
-  <string name="granularity_web_control">Juhtnupud</string>
+  <string name="granularity_web_control">Juhtelemendid</string>
   <string name="granularity_pseudo_web_special_content">Erisisu</string>
   <string name="granularity_native_heading">Pealkirjad</string>
-  <string name="granularity_native_control">Juhtnupud</string>
+  <string name="granularity_native_control">Juhtelemendid</string>
   <string name="granularity_native_link">Lingid</string>
   <string name="template_overlay_window">%1$s on režiimis Pilt pildis</string>
   <string name="template_split_screen_mode_portrait">%1$s on üleval, %2$s on all</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Leht %1$d/%2$d</string>
   <string name="template_viewpager_index_count_short">%1$d/%2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Välju</string>
+  <string name="show_keyboard_window">Kuvatud on %1$s</string>
+  <string name="hide_keyboard_window">klaviatuur on peidetud</string>
+  <string name="function_on">Suuline tagasiside on sisse lülitatud</string>
+  <string name="function_off">Suuline tagasiside on välja lülitatud</string>
 </resources>

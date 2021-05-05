@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <PreferenceCategory
+      android:key="@string/pref_category_controls_key"
+      android:title="@string/title_pref_category_controls" >
+    <Preference
+        android:key="@string/pref_manage_labels_key"
+        android:title="@string/title_pref_manage_labels" >
+      <intent android:action=".labeling.TalkBackSelectorPreferencesActivity" />
+    </Preference>
+    <SwitchPreference
+        android:defaultValue="@bool/pref_single_tap_default"
+        android:key="@string/pref_single_tap_key"
+        android:summary="@string/summary_pref_single_tap"
+        android:title="@string/title_pref_single_tap" />
+    <Preference
+        android:key="@string/pref_category_manage_keyboard_shortcut_key"
+        android:title="@string/title_pref_manage_keyboard_shortcuts" >
+      <intent android:action=".TalkBackKeyboardShortcutPreferencesActivity" />
+    </Preference>
+    <SwitchPreference
+        android:defaultValue="@bool/pref_resume_volume_buttons_long_click_default"
+        android:key="@string/pref_two_volume_long_press_key"
+        android:summary="@string/value_long_volume_pressed_suspend_talkback"
+        android:title="@string/title_pref_two_volume_button_long_click" />
+    <SwitchPreference
+        android:defaultValue="@bool/pref_dim_volume_three_clicks_default"
+        android:key="@string/pref_dim_volume_three_clicks_key"
+        android:summary="@string/value_dim_volume_three_clicks"
+        android:title="@string/title_pref_dim_volume_three_clicks" />
+    <ListPreference
+        android:defaultValue="@string/pref_resume_talkback_default"
+        android:dialogTitle="@string/title_pref_resume_talkback"
+        android:entries="@array/pref_resume_talkback_entries"
+        android:entryValues="@array/pref_resume_talkback_values"
+        android:key="@string/pref_resume_talkback_key"
+        android:summary="%s"
+        android:title="@string/title_pref_resume_talkback" />
+  </PreferenceCategory>
+  <Preference
+      android:key="@string/pref_category_developer_key"
+      android:title="@string/title_pref_category_developer_settings"
+      app:allowDividerAbove="true" >
+    <intent android:action=".TalkBackDeveloperPreferencesActivity" />
+  </Preference>
+  <Preference
+      android:key="@string/pref_policy_key"
+      android:title="@string/title_pref_show_privacy_policy">
+  </Preference>
+  <Preference
+      android:key="@string/pref_show_tos_key"
+      android:title="@string/title_pref_show_tos">
+  </Preference>
+</PreferenceScreen>

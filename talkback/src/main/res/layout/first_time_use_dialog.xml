@@ -67,6 +67,7 @@
             android:id="@+id/show_message_checkbox"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:theme="@style/CheckBoxTheme"
             android:minHeight="48dp"
             android:checked="true"
             android:text="@string/always_show_this_message_label" />

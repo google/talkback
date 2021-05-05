@@ -12,7 +12,7 @@
   <string name="keycombo_key_modifier_shift">Shift</string>
   <string name="keycombo_key_modifier_alt">Alt</string>
   <string name="keycombo_key_modifier_ctrl">Ctrl</string>
-  <string name="keycombo_key_modifier_meta">सर्च</string>
+  <string name="keycombo_key_modifier_meta">खोजें</string>
   <string name="keycombo_key_arrow_right">दायां तीर</string>
   <string name="keycombo_key_arrow_left">बायां तीर</string>
   <string name="keycombo_key_arrow_up">ऊपर तीर</string>
@@ -20,17 +20,17 @@
   <string name="granularity_default">डिफ़ॉल्ट</string>
   <string name="granularity_character">वर्ण</string>
   <string name="granularity_word">शब्‍द</string>
-  <string name="granularity_line">पंक्‍तियां</string>
+  <string name="granularity_line">लाइन</string>
   <string name="granularity_paragraph">पैराग्राफ़</string>
   <string name="granularity_page">पेज</string>
   <string name="granularity_web_landmark">लैंडमार्क</string>
   <string name="granularity_web_heading">शीर्षक</string>
   <string name="granularity_web_list">सूचियां</string>
   <string name="granularity_web_link">लिंक</string>
-  <string name="granularity_web_control">नियंत्रण</string>
-  <string name="granularity_pseudo_web_special_content">विशेष सामग्री</string>
+  <string name="granularity_web_control">कंट्रोल</string>
+  <string name="granularity_pseudo_web_special_content">विशेष कॉन्टेंट</string>
   <string name="granularity_native_heading">शीर्षक</string>
-  <string name="granularity_native_control">नियंत्रण</string>
+  <string name="granularity_native_control">कंट्रोल</string>
   <string name="granularity_native_link">लिंक</string>
   <string name="template_overlay_window">%1$s पिक्चर में पिक्चर</string>
   <string name="template_split_screen_mode_portrait">%1$s शीर्ष पर है, %2$s नीचे है</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">पेज %2$d में से %1$d</string>
   <string name="template_viewpager_index_count_short">%2$d में से %1$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">बाहर निकलें</string>
+  <string name="show_keyboard_window">%1$s दिखाया जा रहा है</string>
+  <string name="hide_keyboard_window">कीबोर्ड छिपा हुआ है</string>
+  <string name="function_on">बोलकर जवाब देने की सुविधा चालू है</string>
+  <string name="function_off">बोलकर जवाब देने की सुविधा बंद है</string>
 </resources>

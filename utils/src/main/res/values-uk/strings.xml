@@ -23,12 +23,12 @@
   <string name="granularity_line">Рядки</string>
   <string name="granularity_paragraph">Абзаци</string>
   <string name="granularity_page">Сторінки</string>
-  <string name="granularity_web_landmark">Визначні місця</string>
+  <string name="granularity_web_landmark">Основні елементи</string>
   <string name="granularity_web_heading">Заголовки</string>
   <string name="granularity_web_list">Списки</string>
   <string name="granularity_web_link">Посилання</string>
   <string name="granularity_web_control">Елементи керування</string>
-  <string name="granularity_pseudo_web_special_content">Спеціальний вміст</string>
+  <string name="granularity_pseudo_web_special_content">Спеціальний контент</string>
   <string name="granularity_native_heading">Заголовки</string>
   <string name="granularity_native_control">Елементи керування</string>
   <string name="granularity_native_link">Посилання</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Сторінка %1$d з %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d з %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Вийти</string>
+  <string name="show_keyboard_window">Показано \"%1$s\"</string>
+  <string name="hide_keyboard_window">клавіатуру сховано</string>
+  <string name="function_on">Голосові підказки ввімкнено</string>
+  <string name="function_off">Голосові підказки вимкнено</string>
 </resources>

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <Preference
+        android:key="@string/pref_new_feature_talkback91_entry_point_key"
+        android:title="@string/new_feature_talkback_91_title" />
     <PreferenceCategory
-        android:key="@string/pref_category_when_to_speak_key"
-        android:title="@string/title_pref_category_when_to_speak" >
+        android:key="@string/pref_category_audio_key"
+        android:title="@string/title_pref_category_audio" >
         <ListPreference
             android:defaultValue="@string/pref_speech_volume_default"
             android:dialogTitle="@string/title_pref_speech_volume"
@@ -22,122 +26,53 @@
             <intent android:action=".TalkBackVerbosityPreferencesActivity" />
         </Preference>
         <SwitchPreference
-            android:defaultValue="@bool/pref_proximity_default"
-            android:key="@string/pref_proximity_key"
-            android:summaryOff="@string/summaryOff_pref_proximity"
-            android:summaryOn="@string/summaryOn_pref_proximity"
-            android:title="@string/title_pref_proximity" />
-        <SwitchPreference
             android:title="@string/title_pref_speak_passwords_without_headphones"
             android:summaryOff="@string/summaryOff_pref_speak_passwords_without_headphones"
             android:summaryOn="@string/summaryOn_pref_speak_passwords_without_headphones"
             android:key="@string/pref_speak_passwords_without_headphones"
             />
+        <Preference
+            android:key="@string/pref_sound_and_vibration_key"
+            android:title="@string/title_pref_sound_and_vibration" >
+            <intent android:action=".preference.TalkBackSoundAndVibrationPreferencesActivity" />
+        </Preference>
     </PreferenceCategory>
     <PreferenceCategory
-        android:key="@string/pref_category_feedback_key"
-        android:title="@string/title_pref_category_feedback_settings" >
-        <SwitchPreference
-            android:defaultValue="@bool/pref_vibration_default"
-            android:key="@string/pref_vibration_key"
-            android:title="@string/title_pref_vibration" />
-        <SwitchPreference
-            android:defaultValue="@bool/pref_soundback_default"
-            android:key="@string/pref_soundback_key"
-            android:title="@string/title_pref_soundback" />
-        <ListPreference
-            android:defaultValue="@string/pref_soundback_volume_default"
-            android:dependency="@string/pref_soundback_key"
-            android:dialogTitle="@string/title_pref_soundback_volume"
-            android:entries="@array/pref_soundback_volume_entries"
-            android:entryValues="@array/pref_soundback_volume_values"
-            android:key="@string/pref_soundback_volume_key"
-            android:summary="%s"
-            android:title="@string/title_pref_soundback_volume" />
-        <SwitchPreference
-            android:defaultValue="@bool/pref_use_audio_focus_default"
-            android:key="@string/pref_use_audio_focus_key"
-            android:title="@string/title_pref_use_audio_focus"
-            android:summary="@string/summary_pref_use_audio_focus" />
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:key="@string/pref_category_touch_exploration_key"
-        android:title="@string/title_pref_category_touch_exploration" >
-        <SwitchPreference
-            android:defaultValue="@bool/pref_single_tap_default"
-            android:key="@string/pref_single_tap_key"
-            android:summary="@string/summary_pref_single_tap"
-            android:title="@string/title_pref_single_tap" />
-        <SwitchPreference
-            android:defaultValue="@bool/pref_show_menu_as_list"
-            android:key="@string/pref_show_context_menu_as_list_key"
-            android:title="@string/title_pref_show_context_menu_as_list" />
+        android:key="@string/pref_category_controls_key"
+        android:title="@string/title_pref_category_controls" >
         <Preference
             android:key="@string/pref_category_manage_gestures_key"
             android:title="@string/title_pref_category_manage_gestures" >
             <intent android:action=".TalkBackShortcutPreferencesActivity" />
         </Preference>
-        <!-- Selector settings -->
         <Preference
-            android:key="@string/pref_selector_category_settings_key"
-            android:title="@string/title_pref_selector_settings" >
-          <intent android:action=".TalkBackSelectorPreferencesActivity" />
-        </Preference>>
-        <Preference
-            android:key="@string/pref_category_manage_keyboard_shortcut_key"
-            android:title="@string/title_pref_manage_keyboard_shortcuts" >
-          <intent android:action=".TalkBackKeyboardShortcutPreferencesActivity" />
+            android:key="@string/pref_manage_customize_menus_key"
+            android:title="@string/title_pref_manage_customize_menus" >
+            <intent android:action=".preference.TalkBackCustomizeMenusPreferencesActivity" />
         </Preference>
         <Preference
-            android:key="@string/pref_manage_labels_key"
-            android:title="@string/title_pref_manage_labels" >
-          <intent android:action=".labeling.TalkBackSelectorPreferencesActivity" />
+            android:key="@string/pref_brailleime_key"
+            android:title="@string/title_pref_brailleime" >
+            <intent android:action=".BrailleImePreferencesActivity" />
         </Preference>
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:key="@string/pref_category_miscellaneous_key"
-        android:title="@string/title_pref_category_miscellaneous_settings" >
         <SwitchPreference
-            android:defaultValue="@bool/pref_resume_volume_buttons_long_click_default"
-            android:key="@string/pref_two_volume_long_press_key"
-            android:summary="@string/value_long_volume_pressed_suspend_talkback"
-            android:title="@string/title_pref_two_volume_button_long_click" />
-        <SwitchPreference
-            android:defaultValue="@bool/pref_dim_volume_three_clicks_default"
-            android:key="@string/pref_dim_volume_three_clicks_key"
-            android:summary="@string/value_dim_volume_three_clicks"
-            android:title="@string/title_pref_dim_volume_three_clicks" />
-        <ListPreference
-            android:defaultValue="@string/pref_resume_talkback_default"
-            android:dialogTitle="@string/title_pref_resume_talkback"
-            android:entries="@array/pref_resume_talkback_entries"
-            android:entryValues="@array/pref_resume_talkback_values"
-            android:key="@string/pref_resume_talkback_key"
-            android:summary="%s"
-            android:title="@string/title_pref_resume_talkback" />
-        <PreferenceScreen
-            android:key="@string/pref_play_store_key"
-            android:title="@string/title_pref_play_store">
-        </PreferenceScreen>
-        <Preference
-            android:key="@string/pref_category_developer_key"
-            android:title="@string/title_pref_category_developer_settings" >
-          <intent android:action=".TalkBackDeveloperPreferencesActivity" />
-        </Preference>>
-        <Preference
-            android:key="@string/pref_tutorial_key"
-            android:title="@string/title_pref_tutorial" />
-        <PreferenceScreen
-            android:key="@string/pref_help_and_feedback_key">
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:key="@string/pref_policy_key"
-            android:title="@string/title_pref_show_privacy_policy">
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:key="@string/pref_show_tos_key"
-            android:title="@string/title_pref_show_tos">
-        </PreferenceScreen>
+            android:defaultValue="@bool/pref_proximity_default"
+            android:key="@string/pref_proximity_key"
+            android:title="@string/title_pref_cover_proximity_sensor" />
     </PreferenceCategory>
-
+    <Preference
+        android:key="@string/pref_category_help_and_feedback_key"
+        android:title="@string/title_pref_category_tutorial_and_help"
+        app:allowDividerAbove="true">
+        <intent android:action=".preference.TalkBackHelpPreferencesActivity" />
+    </Preference>
+    <Preference
+        android:key="@string/pref_advanced_settings_key"
+        android:title="@string/title_pref_advanced_settings">
+        <intent android:action=".preference.TalkBackAdvancedPreferencesActivity" />
+    </Preference>
+    <Preference
+        android:key="@string/pref_play_store_key"
+        android:title="@string/title_pref_play_store">
+    </Preference>
 </PreferenceScreen>

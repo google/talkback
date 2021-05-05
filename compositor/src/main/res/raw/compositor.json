@@ -1,3 +1,4 @@
+// Turn to the non-strict mode json: REFERTO
 {
   "events": {
     // Changes to TalkBack state.
@@ -103,6 +104,10 @@
           "screen": {
             "if": "$global.enableUsageHint",
             "then":"$event.hintText"
+          },
+          "selector": {
+            "if": "$global.enableUsageHint",
+            "then":"$event.hintText"
           }
         }
       },
@@ -129,54 +134,24 @@
       "ttsForceFeedbackMicrophoneActive": false,
       "ttsForceFeedbackSsbActive": false
     },
-    // Selector events
-    "EVENT_SELECT_SPEECH_RATE": {
-      "ttsOutput": "@string/selector_speech_rate_output",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
-    },
-    "EVENT_SELECT_VERBOSITY": {
-      "ttsOutput": "@string/selector_verbosity_output",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
-    },
-    "EVENT_SELECT_GRANULARITY": {
-      "ttsOutput": "@string/selector_granularity_output",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
-    },
-    "EVENT_SELECT_AUDIO_FOCUS": {
-      "ttsOutput": "@string/selector_audio_focus_output",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
-    },
-    "EVENT_SPEECH_RATE_CHANGE": {
-      "ttsOutput": "@string/template_speech_rate_change(round($global.speechRate * 50))",
-      "ttsForceFeedbackAudioPlaybackActive": true,
-      "ttsForceFeedbackMicrophoneActive": true,
-      "ttsForceFeedbackSsbActive": true
-    },
-    "EVENT_AUDIO_FOCUS_SWITCH": {
-      "ttsOutput": {
-        "if": "$global.useAudioFocus",
-        "then": "@string/audio_focus_on",
-        "else": "@string/audio_focus_off"
-      },
-      "ttsForceFeedback": true
-    },
     // Accessibility Events.
     "TYPE_VIEW_ACCESSIBILITY_FOCUSED": {
       "ttsOutput": {
         "join": [
           {
-            "fallback": [
-              "%get_description_for_tree",
-              "%event_description"
-            ]
+            "if": "equals(%get_description_for_tree, @string/value_unlabelled)",
+            "then": {
+              "fallback": [
+                "%event_description",
+                "@string/value_unlabelled"
+              ]
+            },
+            "else": {
+              "fallback": [
+                "%get_description_for_tree",
+                "%event_description"
+              ]
+            }
           },
           {
             "fallback": [
@@ -186,7 +161,7 @@
               },
               {
                 "_comment": "Don't announce heading for web container.",
-                "_comment": "See  and  for details.",
+                "_comment": "REFERTO and REFERTO for details.",
                 "if": "!$node.isWebContainer && $node.isHeading",
                 "then": {
                   "fallback":[
@@ -370,27 +345,89 @@
         "if": "$node.liveRegion != 'none'",
         "then": "%get_description_for_tree",
         "else": {
-          "if": "$node.isAccessibilityFocused && $event.isContentDescriptionChanged",
-          "then": "$event.contentDescription",
-          // When an error is displayed in an edit text, it sends
-          // AccessibilityEvent#CONTENT_CHANGE_TYPE_UNDEFINED. At this point talkback should
-          // indicate the presence of an error to the user. See 
-          // Note that its textView that actually sets the error and sends the a11y event but
-          // talkback is currently handling only edit texts. see TextView#setError().
-          "else": {
-            "if": "$node.role == 'edit_text' && $event.isContentUndefined",
-            "then": "%get_accessibility_node_error"
-          }
+          "switch": "$event.contentChangeTypes",
+            "cases": {
+              "content_description": {
+                "if": "$node.isWithinAccessibilityFocus",
+                "then": "$event.contentDescription"
+              },
+              "text": {
+                "if": "$node.isWithinAccessibilityFocus",
+                "then": "$node.text"
+              },
+              "state_description": {
+                "if": "$node.isWithinAccessibilityFocus",
+                "then": {
+                  "fallback": [
+                  {
+                    "if": "$node.role == 'seek_control'",
+                    "then": "%get_description_for_node"
+                  },
+                  // The changed part of state-description is in the event text.
+                  "%event_aggregate_text",
+                  "$node.stateDescription"
+                  ]
+                }
+              },
+              "undefined": {
+                // When an error is displayed in an edit text, it sends
+                // AccessibilityEvent#CONTENT_CHANGE_TYPE_UNDEFINED. At this point talkback should
+                // indicate the presence of an error to the user. REFERTO.
+                // Note that its textView that actually sets the error and sends the a11y event but
+                // talkback is currently handling only edit texts. see TextView#setError().
+                "if": "$node.role == 'edit_text'",
+                "then": "%get_accessibility_node_error"
+              }
+            }
         }
-      },
-      "ttsQueueMode": {
-        "if": "$node.liveRegion == 'assertive'",
-        "then": "interrupt",
-        "else": "queue"
       },
       "ttsForceFeedbackAudioPlaybackActive": true,
       "ttsForceFeedbackMicrophoneActive": true,
       "ttsForceFeedbackSsbActive": false,
+      "earcon": {
+        "switch": "$node.role",
+        "cases": {
+          "progress_bar": {
+            "if": "$event.sourceIsNull || $node.isFocused || $node.isAccessibilityFocused || $node.liveRegion != 'none'",
+            "then": {
+              "if": "length($event.text) == 0 || %event_description == $node.text",
+              "then": "@raw/scroll_tone"
+            }
+          }
+        },
+        "default": ""
+      },
+      "earcon_rate": {
+        "if": "$node.role == 'progress_bar'",
+        "then": "%progress_bar_earcon_rate"
+      },
+      "earcon_volume": {
+        "if": "$node.role == 'progress_bar'",
+        "then": "0.5"
+      },
+      "ttsQueueMode": {
+        "switch": "$event.sourceRole",
+        "cases": {
+          "progress_bar": {
+            "if": "$node.liveRegion == 'assertive'",
+            "then": "interrupt",
+            "else": "uninterruptible"
+          },
+          "seek_control": "uninterruptible"
+        },
+        "default": {
+          "if": "$node.liveRegion == 'assertive'",
+          "then": "interrupt",
+          "else": "queue"
+        }
+      },
+      "ttsClearQueueGroup": {
+        "switch": "$node.role",
+        "cases": {
+          "progress_bar": "progress_bar",
+          "seek_control": "seek_progress"
+        }
+      },
       "refreshSourceNode": "$node.liveRegion != 'none'",
       "ttsAddToHistory": true,
       "ttsSkipDuplicate": true
@@ -420,9 +457,7 @@
         "switch": "$node.role",
         "cases": {
           "seek_control": "",
-          // From RuleSeekBar
           "progress_bar": {
-            // From ProgressBarFormatter
             "if": "$event.sourceIsNull || $node.isFocused || $node.isAccessibilityFocused || $node.liveRegion != 'none'",
             "then": {
               "if": "length($event.text) > 0 && %event_description != $node.text",
@@ -439,7 +474,7 @@
       },
       "earcon_rate": {
         "if": "$node.role == 'progress_bar'",
-        "then": "2.0 ^ ($event.progressPercent / 50.0 - 1)"
+        "then": "%progress_bar_earcon_rate"
       },
       "earcon_volume": {
         "if": "$node.role == 'progress_bar'",
@@ -449,7 +484,6 @@
         "switch": "$node.role",
         "cases": {
           "seek_control": "",
-          // From RuleSeekBar
           "progress_bar": ""
           // From ProgressBarFormatter
         },
@@ -472,7 +506,6 @@
           "tab_bar": "uninterruptible",
           // From speechstrategy.xml
           "seek_control": "uninterruptible"
-          // From RuleSeekBar
         }
       },
       "ttsClearQueueGroup": {
@@ -517,6 +550,15 @@
       "ttsQueueMode": "queue",
       "ttsPitch": 1.2
     },
+    "EVENT_INPUT_DESCRIBE_NODE": {
+      "ttsOutput": "%get_description_for_node",
+      "ttsAddToHistory": true,
+      "ttsForceFeedbackAudioPlaybackActive": true,
+      "ttsForceFeedbackMicrophoneActive": true,
+      "ttsForceFeedbackSsbActive": true,
+      "advanceContinuousReading": true,
+      "ttsQueueMode": "queue"
+    },
     "EVENT_TYPE_INPUT_TEXT_CLEAR": {
       "ttsOutput": {
         "join": [
@@ -546,8 +588,8 @@
         "join": [
           {
             "if": "$event.isCut",
-            "then": "@string/template_text_cut($event.removedText)",
-            "else": "@string/template_text_removed($event.removedText)"
+            "then": "@string/template_text_cut(prependCapital($event.removedText))",
+            "else": "@string/template_text_removed(prependCapital($event.removedText))"
           },
           "%notify_error"
         ]
@@ -569,8 +611,8 @@
               "$event.initialWord",
               {
                 "if": "$event.isPaste",
-                "then": "@string/template_text_pasted($event.addedText)",
-                "else": "$event.addedText"
+                "then": "@string/template_text_pasted(prependCapital($event.addedText))",
+                "else": "prependCapital($event.addedText)"
               }
             ]
           },
@@ -659,7 +701,7 @@
     "EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_NO_SELECTION": {
       "ttsOutput": {
         "join": [
-          "$event.traversedText",
+          "prependCapital($event.traversedText)",
           {
             "if": "$event.toIndex == 0",
             "then": "@string/notification_type_beginning_of_field",
@@ -721,7 +763,7 @@
     },
     "EVENT_TYPE_INPUT_SELECTION_TEXT_TRAVERSAL": {
       // TODO: Make this the same as EVENT_TYPE_INPUT_SELECTION_MOVE_CURSOR_NO_SELECTION ?
-      "ttsOutput": "$event.traversedText",
+      "ttsOutput": "prependCapital($event.traversedText)",
       "ttsAddToHistory": true,
       "ttsClearQueueGroup": "text_selection",
       "ttsInterruptSameGroup": true,
@@ -790,7 +832,8 @@
     },
     "notify_max_length_reached": {
       // TextFormatters.ChangedTextFormatter.notifyMaxLengthReached()
-      "if": "$event.sourceMaxTextLength > -1 && length($event.text0) >= $event.sourceMaxTextLength",
+      "_comment": "Uses node.text to get correct text length because event.text would have a symbol character transferred to a spoken description.",
+      "if": "$event.sourceMaxTextLength > -1 && length($node.text) >= $event.sourceMaxTextLength",
       "then": "@string/value_text_max_length"
     },
     // Collections
@@ -831,184 +874,35 @@
                 }
               }
             ]
+          },
+          "list": {
+            "join": [
+              {
+                "if": "$collection.listItem.isHeading && !$node.roleDescription",
+                "then": "@string/heading_template"
+              },
+                "$collection.listItem.positionDescription"
+            ]
           }
-        },
-        "default": {
-          "if": "$collection.listItem.isHeading && !$node.roleDescription",
-          "then": "@string/heading_template"
         }
       }
     },
-    "collection_transition": {
-      "switch": "$collection.transition",
-      "cases": {
-        "none": "",
-        "enter": {
-          "switch": "$collection.role",
-          "cases": {
-            "list": {
-              "join": [
-                {
-                  "if": "$collection.name",
-                  "then": "@string/in_list($collection.name)",
-                  "else": "@string/in_list_without_name"
-                },
-                "%collection_level",
-                "%collection_list_item_count"
-              ]
-            },
-            "grid": {
-              "join": [
-                {
-                  "if": "$collection.name",
-                  "then": "@string/in_grid($collection.name)",
-                  "else": "@string/in_grid_without_name"
-                },
-                "%collection_level",
-                "%collection_grid_item_count"
-              ]
-            },
-            "pager": {
-              // A pager with a CollectionInfo with 0 or 1 elements will never get to this point
-              // because CollectionState#shouldEnter returns false beforehand. This case handles a
-              // ViewPager1 which doesn't have a CollectionInfo (rowCount and columnCount do not
-              // exist and are set to -1) but CollectionState#shouldEnter returns true because it
-              // has >2 children. It may or may not have a name.
-              "if": "$collection.rowCount == -1 && $collection.columnCount == -1",
-              "then": {
-                "if": "$collection.name",
-                "then": "@string/in_pager_with_name($collection.name)",
-                "else": "@string/in_pager"
-              },
-              "else": {
-                "if": "$collection.rowCount > 1 && $collection.columnCount > 1",
-                "then": "%collection_grid_pager",
-                "else": {
-                  "if": "$collection.isVerticalAligned",
-                  "then": "%collection_vertical_pager",
-                  "else": "%collection_horizontal_pager"
-                }
-              }
-            }
-          }
-        },
-        "exit": {
-          "if": "$collection.exists",
-          "then": {
-            "switch": "$collection.role",
-            "cases": {
-              "list": {
-                "if": "$collection.name",
-                "then": "@string/out_of_list($collection.name)",
-                "else": "@string/out_of_list_without_name"
-              },
-              "grid": {
-                "if": "$collection.name",
-                "then": "@string/out_of_grid($collection.name)",
-                "else": "@string/out_of_grid_without_name"
-              },
-              "pager": {
-                "if": "$collection.rowCount == -1 && $collection.columnCount == -1",
-                "then": {
-                  "if": "$collection.name",
-                  "then": "@string/out_of_pager_with_name($collection.name)",
-                  "else": "@string/out_of_pager"
-                },
-                "else": {
-                  "if": "$collection.rowCount > 1 && $collection.columnCount > 1",
-                  "then": {
-                    "if": "$collection.name",
-                    "then": "@string/out_of_grid_pager_with_name($collection.name)",
-                    "else": "@string/out_of_grid_pager"
-                  },
-                  "else": {
-                    "if": "$collection.isVerticalAligned",
-                    "then": {
-                      "if": "$collection.name",
-                      "then": "@string/out_of_vertical_pager_with_name($collection.name)",
-                      "else": "@string/out_of_vertical_pager"
-                    },
-                    "else": {
-                      "if": "$collection.name",
-                      "then": "@string/out_of_horizontal_pager_with_name($collection.name)",
-                      "else": "@string/out_of_horizontal_pager"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "interior": ""
-      }
-    },
-    "collection_level": {
-      "if": "$collection.level >= 0",
-      "then": "@string/template_collection_level($collection.level + 1)"
-    },
-    "collection_list_item_count": {
-      "if": "$collection.rowCount >= 0 && $collection.columnCount >= 0",
-      "then": {
-        "if": "$collection.isVerticalAligned && $collection.rowCount >= 0",
-        "then": "@plurals/template_list_total_count($collection.rowCount, $collection.rowCount)",
-        "else": {
-          "if": "$collection.isHorizontalAligned && $collection.columnCount >= 0",
-          "then": "@plurals/template_list_total_count($collection.columnCount, $collection.columnCount)"
-        }
-      }
-    },
-    "collection_grid_item_count": {
-      "if": "$collection.rowCount >= 0 && $collection.columnCount >= 0",
-      "then": "@plurals/template_list_row_count($collection.rowCount, $collection.rowCount), @plurals/template_list_column_count($collection.columnCount, $collection.columnCount)"
-    },
-    "collection_grid_pager": {
-      "join": [
-        {
-          "if": "$collection.name",
-          "then": "@string/in_grid_pager_with_name($collection.name)",
-          "else": "@string/in_grid_pager"
-        },
-        "%collection_level",
-        "@string/row_index_template($collection.pagerItem.rowIndex + 1), @string/column_index_template($collection.pagerItem.columnIndex + 1)",
-        "@plurals/template_list_row_count($collection.rowCount, $collection.rowCount), @plurals/template_list_column_count($collection.columnCount, $collection.columnCount)"
-      ]
-    },
-    "collection_vertical_pager": {
-      "join": [
-        {
-          "if": "$collection.name",
-          "then": "@string/in_vertical_pager_with_name($collection.name)",
-          "else": "@string/in_vertical_pager"
-        },
-        "%collection_level",
-        "@string/template_viewpager_index_count($collection.pagerItem.rowIndex + 1, $collection.rowCount)"
-      ]
-    },
-    "collection_horizontal_pager": {
-      "join": [
-        {
-          "if": "$collection.name",
-          "then": "@string/in_horizontal_pager_with_name($collection.name)",
-          "else": "@string/in_horizontal_pager"
-        },
-        "%collection_level",
-        "@string/template_viewpager_index_count($collection.pagerItem.columnIndex + 1, $collection.columnCount)"
-      ]
-    },
+    "collection_transition": "$collection.transition",
     // Windows
     "window_transition": {
-      "if": "$node.windowId != $windows.lastWindowId",
+      // When the accessibility focus is moved to another window, Talkback reads the window title.
+      // However, if the accessibility focus is automatically moved by the Enhanced focus function
+      // by changing to split screen mode, the window title is not read.
+      // So user can not know the window which the accessibility focus is located.
+      // Even, if it is not navigation by user, the title should be read in split screen mode.
+      "if": "($event.isNavigateByUser || $windows.isSplitScreenMode) && $node.windowId != $windows.lastWindowId",
       "then": {
         "if": "$node.windowType == 'picture_in_picture'",
         "then": "@string/template_overlay_window(getWindowTitle($node.windowId))",
-        "else": {
-          "if": "($windows.isSplitScreenMode || $global.inputMode == 'keyboard') && ($node.windowType == 'application' || $node.windowType == 'system')",
-          "then": "getWindowTitle($node.windowId)"
-        }
+        "else": "getWindowTitle($node.windowId)"
       }
     },
     // Nodes
-    // From NodeSpeechRuleProcessor.getDescriptionForTree()
     "get_description_for_tree": {
       "switch": "#VERBOSITY_DESCRIPTION_ORDER",
       "cases": {
@@ -1036,7 +930,6 @@
         }
       }
     },
-    // From NodeSpeechRuleProcessor.formatTextWithLabel()
     "tree_description_with_label": {
       "if": "length(%label_description) > 0",
       "then": "@string/template_labeled_item(%append_description_for_tree, %label_description)",
@@ -1058,8 +951,6 @@
         "then": "@string/value_expanded"
       }
     },
-
-    // From NodeSpeechRuleProcessor.formatTextWithLabel()
     "label_description": {
       "for_reference": "$node.labeledBy",
       "evaluate": "%append_description_for_tree"
@@ -1076,7 +967,7 @@
           }
         },
         // Since error message is more valuable than a hint, its placed before the hint.
-        // See 
+        // REFERTO.
         "%get_accessibility_node_error",
         // TODO: Currently we have appended the accessibility hint just after the node details that talkback announces.
         // In future we can append $node.hint for a node similar to name, state and type and take hint into consideration for deciding VERBOSITY_DESCRIPTION_ORDER.
@@ -1087,11 +978,13 @@
     },
     "description_for_tree_status": {
       "join": [
-        // From NodeSpeechRuleProcessor.appendExpandedOrCollapsedStatus()
         "%notify_collapsed_or_expanded",
-        // From NodeSpeechRuleProcessor.appendCheckedStatus()
         {
-          "if": "$node.isCheckable && $node.role != 'switch' && $node.role != 'toggle_button' && ($node.role != 'checked_text_view' || $node.isChecked)",
+          // If we have have stateDescription, it will be in the description_for
+          // tree_nodes and therefore the checked-value would be redundant.
+          // switch and toggle button always have it in
+          // description_for_tree_nodes.
+          "if": "!$node.stateDescription && $node.isCheckable && $node.role != 'switch' && $node.role != 'toggle_button' && ($node.role != 'checked_text_view' || $node.isChecked)",
           "then": {
             "if": "$node.isChecked",
             "then": "@string/value_checked",
@@ -1120,34 +1013,32 @@
         }
       ]
     },
-    // From NodeSpeechRuleProcessor.getDescriptionForNode()
     "get_description_for_node": {
-      "switch": "$node.role",
-      "cases": {
-        "drop_down_list": "%rule_default",
-        //RuleSimpleHintTemplate. Falls down to RuleDefault.
-        "switch": "%rule_switch",
-        "toggle_button": "%rule_switch",
-        "image": "%rule_non_text_views",
-        "image_button": "%rule_non_text_views",
-        "edit_text": "%rule_edit_text",
-        "seek_control": "%rule_seek_bar",
-        "pager": "%rule_default"
-        // RulePager. Falls down to RuleDefault
-      },
-      "default": {
-        // From RulePagerPage
-        "if": {
-          "for_reference": "$node.parent",
-          "evaluate": "$node.role == 'pager' && $node.visibleChildCount == 1"
+      "if": "$node.needsLabel && !%get_role_description_or_default && !$node.stateDescription && $node.role != 'seek_control' && $node.role != 'progress_bar' && !$node.isCheckable",
+      "then": "%rule_non_text_views",
+      "else": {
+        "switch": "$node.role",
+        "cases": {
+          "drop_down_list": "%rule_default",
+          //RuleSimpleHintTemplate. Falls down to RuleDefault.
+          "switch": "%rule_switch",
+          "toggle_button": "%rule_switch",
+          "image": "%rule_non_text_views",
+          "image_button": "%rule_non_text_views",
+          "edit_text": "%rule_edit_text",
+          "seek_control": "%rule_seek_bar",
+          "progress_bar": "%rule_seek_bar",
+          "pager": "%rule_default"
+          // RulePager. Falls down to RuleDefault
         },
-        "then": "%rule_pager_page",
-        "else": {
-          // From RuleViewGroup
-          "if": "$node.role == 'view_group'",
-          "then": "%rule_view_group",
+        "default": {
+          // From RulePagerPage
+          "if": {
+            "for_reference": "$node.parent",
+            "evaluate": "$node.role == 'pager' && $node.visibleChildCount == 1"
+          },
+          "then": "%rule_pager_page",
           "else": "%rule_default"
-          // From NodeSpeechRuleProcessor
         }
       }
     },
@@ -1156,18 +1047,21 @@
       "fallback": [
         {
           // If focusing on-screen keyboard key... apply speak-passwords policy to hide key name.
-          "if": "$global.lastTextEditIsPassword && !$global.speakPasswordsServicePolicy && ($event.sourceIsKeyboard || $node.isPinKey)",
+          "if": "$global.lastTextEditIsPassword && !$global.speakPasswordsServicePolicy && ($event.sourceIsKeyboard || $node.isKeyboardWindow || $node.isPinKey)",
           "then": "@string/symbol_bullet",
-          "else": "$node.contentDescription"
+          "else": "prependCapital($node.contentDescription)"
         },
-        "$node.text"
+        "prependCapital($node.text)"
       ]
     },
     "get_role_description_or_default": {
-      "fallback": [
-        "$node.roleDescription",
-        "%node_role"
-      ]
+      "if": "#VERBOSITY_SPEAK_ROLE",
+      "then": {
+        "fallback": [
+          "$node.roleDescription",
+          "%node_role"
+        ]
+      }
     },
     "node_role": {
       "switch": "$node.role",
@@ -1196,18 +1090,6 @@
         // None
       }
     },
-    "node_text_and_role": {
-      "join": [
-        "%get_node_text",
-        "%get_role_description_or_default"
-      ]
-    },
-    "role_and_node_text": {
-      "join": [
-        "%get_role_description_or_default",
-        "%get_node_text"
-      ]
-    },
     "node_descendant_checked": {
       // Either node is checkable, or recurse on descendants.
       "fallback": [
@@ -1224,7 +1106,9 @@
     },
     "node_checked": {
       // If node is checkable, speak checked state depending on node type.
-      "if": "$node.isCheckable",
+      // if stateDescritipion is set, the CONTENT_CHANGE_TYPE_STATE_DESCRIPTION event will
+      // speak out the state description.
+      "if": "$node.isCheckable && !$node.stateDescription",
       "then": {
         "switch": "$node.role",
         "cases": {
@@ -1246,228 +1130,94 @@
         }
       }
     },
-    "node_text_or_event_aggregate_text": {
+    "_comment": "If the node has no text and context description, ",
+    "_comment": "Talkback reads out Unlabelled or element IDs",
+    "node_text_or_label_or_id": {
       "fallback": [
-        "$node.text",
-        "%event_aggregate_text"
-      ]
-    },
-    "node_text_or_label": {
-      "fallback": [
-        "%get_node_text",
-        "$node.labelText",
+        "%node_text_or_label",
         {
           "if": "#VERBOSITY_SPEAK_ELEMENT_IDS",
           "then": "$node.viewIdText"
         }
       ]
     },
+    "_comment": "Talkback doesn't need to read out unlabelled or element IDs ",
+    "_comment": "for the node that has extra information, ",
+    "_comment": "like CheckBox, which has state description.",
+    "node_text_or_label": {
+      "fallback": [
+        "%get_node_text",
+        "prependCapital($node.labelText)"
+      ]
+    },
     // SpeechRules
     "rule_default": {
-      "if": "!#VERBOSITY_SPEAK_ROLE",
-      "then": "%get_node_text",
-      "else": {
-        "switch": "#VERBOSITY_DESCRIPTION_ORDER",
-        "cases": {
-          "RoleNameStatePosition": "%role_and_node_text",
-          "StateNameRolePosition": "%node_text_and_role",
-          "NameRoleStatePosition": "%node_text_and_role"
-        }
+      "switch": "#VERBOSITY_DESCRIPTION_ORDER",
+      "cases": {
+        "RoleNameStatePosition": "dedupJoin(%get_role_description_or_default, %node_text_or_label, $node.stateDescription)",
+        "StateNameRolePosition": "dedupJoin($node.stateDescription, %node_text_or_label, %get_role_description_or_default)",
+        "NameRoleStatePosition": "dedupJoin(%node_text_or_label, %get_role_description_or_default, $node.stateDescription)"
       }
     },
     "rule_edit_text": {
       "switch": "#VERBOSITY_DESCRIPTION_ORDER",
       "cases": {
+        "RoleNameStatePosition": "dedupJoin(%get_role_description_or_default, %get_edit_text_text, %get_edit_text_state)",
+        "StateNameRolePosition": "dedupJoin(%get_edit_text_state, %get_edit_text_text, %get_role_description_or_default)",
+        "NameRoleStatePosition": "dedupJoin(%get_edit_text_text, %get_role_description_or_default, %get_edit_text_state)"
+      }
+    },
+    "rule_pager_page": {
+      "switch": "#VERBOSITY_DESCRIPTION_ORDER",
+      "cases": {
         "RoleNameStatePosition": {
           "join": [
-            {
-              "if": "#VERBOSITY_SPEAK_ROLE",
-              "then": "%get_role_description_or_default"
-            },
-            "%get_edit_text_text",
-            "%get_edit_text_state"
+            "%get_pager_page_role_description",
+            "%node_text_or_label"
           ]
         },
         "StateNameRolePosition": {
           "join": [
-            "%get_edit_text_state",
-            "%get_edit_text_text",
-            {
-              "if": "#VERBOSITY_SPEAK_ROLE",
-              "then": "%get_role_description_or_default"
-            }
+            "%node_text_or_label",
+            "%get_pager_page_role_description"
           ]
         },
         "NameRoleStatePosition": {
           "join": [
-            "%get_edit_text_text",
-            {
-              "if": "#VERBOSITY_SPEAK_ROLE",
-              "then": "%get_role_description_or_default"
-            },
-            "%get_edit_text_state"
+            "%node_text_or_label",
+            "%get_pager_page_role_description"
           ]
-        }
-      }
-    },
-    "rule_pager_page": {
-      "if": "!#VERBOSITY_SPEAK_ROLE",
-      "then": "%get_node_text",
-      "else": {
-        "switch": "#VERBOSITY_DESCRIPTION_ORDER",
-        "cases": {
-          "RoleNameStatePosition": {
-            "join": [
-              "%get_pager_page_role_description",
-              "%get_node_text"
-            ]
-          },
-          "StateNameRolePosition": {
-            "join": [
-              "%get_node_text",
-              "%get_pager_page_role_description"
-            ]
-          },
-          "NameRoleStatePosition": {
-            "join": [
-              "%get_node_text",
-              "%get_pager_page_role_description"
-            ]
-          }
         }
       }
     },
     "rule_switch": {
       "switch": "#VERBOSITY_DESCRIPTION_ORDER",
       "cases": {
-        "RoleNameStatePosition": {
-          "join": [
-            {
-              "if": "#VERBOSITY_SPEAK_ROLE",
-              "then": "%get_role_description_or_default"
-            },
-            "$node.contentDescription",
-            // Name
-            "%get_switch_state"
-          ]
-        },
-        "StateNameRolePosition": {
-          "join": [
-            "%get_switch_state",
-            "$node.contentDescription",
-            // Name
-            {
-              "if": "#VERBOSITY_SPEAK_ROLE",
-              "then": "%get_role_description_or_default"
-            }
-          ]
-        },
-        "NameRoleStatePosition": {
-          "join": [
-            "$node.contentDescription",
-            // Name
-            {
-              "if": "#VERBOSITY_SPEAK_ROLE",
-              "then": "%get_role_description_or_default"
-            },
-            "%get_switch_state"
-          ]
-        }
+        "RoleNameStatePosition": "dedupJoin(%get_role_description_or_default, %get_switch_content, %get_switch_state)",
+        "StateNameRolePosition": "dedupJoin(%get_switch_state, %get_switch_content, %get_role_description_or_default)",
+        "NameRoleStatePosition": "dedupJoin(%get_switch_content, %get_role_description_or_default, %get_switch_state)"
       }
     },
     "rule_seek_bar": {
-      // TODO: Investigate if we should announce role description for TYPE_VIEW_SELECTED event.
-      "if": "$node.isAccessibilityFocused",
+      "if": "$node.isAccessibilityFocused || $node.liveRegion != 'none'",
       "then": {
+        // TODO: Investigate if we should announce role description for TYPE_VIEW_SELECTED event.
         "switch": "#VERBOSITY_DESCRIPTION_ORDER",
         "cases": {
-          "RoleNameStatePosition": {
-            "join": [
-              {
-                "if": "#VERBOSITY_SPEAK_ROLE",
-                "then": "%get_role_description_or_default"
-              },
-              "%get_node_text",
-              "%get_seek_bar_state"
-            ]
-          },
-          "StateNameRolePosition": {
-            "join": [
-              "%get_seek_bar_state",
-              "%get_node_text",
-              {
-                "if": "#VERBOSITY_SPEAK_ROLE",
-                "then": "%get_role_description_or_default"
-              }
-            ]
-          },
-          "NameRoleStatePosition": {
-            "join": [
-              "%get_node_text",
-              {
-                "if": "#VERBOSITY_SPEAK_ROLE",
-                "then": "%get_role_description_or_default"
-              },
-              "%get_seek_bar_state"
-            ]
-          }
+          "RoleNameStatePosition": "dedupJoin(%get_role_description_or_default, %node_text_or_label, %get_seek_bar_state)",
+          "StateNameRolePosition": "dedupJoin(%get_seek_bar_state, %node_text_or_label, %get_role_description_or_default)",
+          "NameRoleStatePosition": "dedupJoin(%node_text_or_label, %get_role_description_or_default, %get_seek_bar_state)"
         }
       }
     },
     "rule_non_text_views": {
       "switch": "#VERBOSITY_DESCRIPTION_ORDER",
       "cases": {
-        "RoleNameStatePosition": {
-          "join": [
-            {
-              // Role
-              "if": "#VERBOSITY_SPEAK_ROLE",
-              "then": "%get_non_text_view_role"
-            },
-            "%node_text_or_label",
-            // Name
-            {
-              // State
-              "if": "!%node_text_or_label",
-              "then": "@string/value_unlabelled"
-            }
-          ]
-        },
-        "StateNameRolePosition": {
-          "join": [
-            {
-              // State
-              "if": "!%node_text_or_label",
-              "then": "@string/value_unlabelled"
-            },
-            "%node_text_or_label",
-            // Name
-            {
-              // Role
-              "if": "#VERBOSITY_SPEAK_ROLE",
-              "then": "%get_non_text_view_role"
-            }
-          ]
-        },
-        "NameRoleStatePosition": {
-          "join": [
-            "%node_text_or_label",
-            // Name
-            {
-              // ROle
-              "if": "#VERBOSITY_SPEAK_ROLE",
-              "then": "%get_non_text_view_role"
-            },
-            {
-              // State
-              "if": "!%node_text_or_label",
-              "then": "@string/value_unlabelled"
-            }
-          ]
-        }
+        "RoleNameStatePosition": "dedupJoin(%get_non_text_view_role, %node_text_or_label_or_id, %get_non_text_view_state)",
+        "StateNameRolePosition": "dedupJoin(%get_non_text_view_state, %node_text_or_label_or_id, %get_non_text_view_role)",
+        "NameRoleStatePosition": "dedupJoin(%node_text_or_label_or_id, %get_non_text_view_role, %get_non_text_view_state)"
       }
     },
-    "rule_view_group": "%get_node_text",
     // Utils for speech rules.
     "get_edit_text_state": {
       "join": [
@@ -1501,7 +1251,8 @@
               "if": "$node.supportsActionSetSelection",
               "then": "@plurals/template_password_character_count(length($node.text), length($node.text))",
               "else": "$node.text"
-            }
+            },
+            "else": "$node.labelText"
           }
         ]
       },
@@ -1509,49 +1260,84 @@
         // Treat as normal text input field.
         "fallback": [
           "$node.text",
-          "$node.contentDescription"
+          "$node.contentDescription",
+          "$node.labelText"
         ]
       }
     },
     "get_pager_page_role_description": {
-      "fallback": [
-        "$node.roleDescription",
-        "@string/value_pager_page"
-      ]
+      "if": "#VERBOSITY_SPEAK_ROLE",
+      "then": {
+        "fallback": [
+          "$node.roleDescription",
+          "@string/value_pager_page"
+        ]
+      }
     },
     "get_seek_bar_state": {
-      "switch": "$node.rangeInfoType",
-      "cases": {
-        "percent": "@string/template_percent(round($node.rangeCurrentValue))",
-        "undefined": {
-          "if": "$event.itemCount > 0",
-          "then": "@string/template_percent(round($event.progressPercent))"
+      "fallback" : [
+        "$node.stateDescription",
+        // In R, we will set the default stateDescription for progress bar. So
+        // the below block can be removed if we only support R+.
+        {
+          "switch": "$node.rangeInfoType",
+          "cases": {
+            "percent": "@string/template_percent(roundForProgressPercent($node.rangeCurrentValue))",
+            "undefined": {
+              "if": "$event.itemCount > 0",
+              "then": "@string/template_percent(roundForProgressPercent($event.progressPercent))"
+            }
+          },
+          "default": "@string/template_percent(roundForProgressPercent($node.progressPercent))"
         }
-      },
-      "default": "@string/template_percent(round($node.progressPercent))"
+      ]
+    },
+    "_comment": "TODO: Move value_unlabeled out of get_non_text_view_state to rule_non_text_views, ",
+    "_comment": "TODO: Refers to the comment in cl/298559232 for more detail.",
+    "get_non_text_view_state": {
+      "fallback": [
+        "$node.stateDescription",
+        {
+          "if": "!%node_text_or_label_or_id",
+          "then": "@string/value_unlabelled"
+        }
+      ]
     },
     "get_non_text_view_role": {
+      "if": "#VERBOSITY_SPEAK_ROLE",
+      "then": {
+        "fallback": [
+          "$node.roleDescription",
+          {
+            "if": "!($node.role == 'image' && $node.supportsActionSelect)",
+            "then": "%node_role"
+          }
+        ]
+      }
+    },
+    "get_switch_content": {
       "fallback": [
-        "$node.roleDescription",
+        "$node.contentDescription",
         {
-          "if": "!($node.role == 'image' && $node.supportsActionSelect)",
-          "then": "%node_role"
-        }
+          "_comment": "If stateDescription is not set (android version < R)",
+          "_comment": "node text will be in the get_switch_state",
+          "_comment": "When stateDescription is set, we need to get text here",
+          "if": "$node.stateDescription",
+          "then": "$node.text"
+        },
+        "$node.labelText"
       ]
     },
     "get_switch_state": {
-      "join": [
-        "%node_text_or_event_aggregate_text",
-        // Text of switch widget is "on"/"off" state.
-        {
-          // Complementary state for toggle button and when there is no state information from text.
-          "if": "$node.role == 'toggle_button' || !%node_text_or_event_aggregate_text",
-          "then": {
+      "fallback": [
+        "$node.stateDescription",
+         "$node.text",
+         // Text of switch widget is "on"/"off" state.
+         {
             "if": "$node.isChecked",
             "then": "@string/value_checked",
             "else": "@string/value_not_checked"
-          }
-        }
+         }
       ]
     },
     // HintRules
@@ -1560,9 +1346,8 @@
     "get_hint_from_node": {
       "if": "$node.isEnabled",
       "then": {
-        "if": "!$global.enableUsageHint",
-        "then": "%get_hint_for_node_actions_low_verbosity",
-        "else": {
+        "if": "$global.enableUsageHint",
+        "then": {
           "join": [
             {
               "switch": "$node.role",
@@ -1664,10 +1449,6 @@
       ]
     },
     // Utils.
-    "get_hint_for_node_actions_low_verbosity": {
-      "if": "$node.selfMenuActionAvailable",
-      "then": "@string/template_hint_menu_type_low_verbosity($node.selfMenuActions)"
-    },
     "get_hint_for_node_actions_high_verbosity": {
       "if": "$node.selfMenuActionAvailable",
       "then": "@string/template_hint_menu_type_high_verbosity($node.selfMenuActions, $gesture.nodeMenuShortcut)"
@@ -1799,6 +1580,14 @@
           }
         }
       ]
+    },
+    "progress_bar_earcon_rate": {
+      "switch": "$node.rangeInfoType",
+      "cases": {
+        "percent": "2.0 ^ (($node.rangeCurrentValue / 50.0) - 1)",
+        "undefined": "2.0 ^ (($event.progressPercent / 50.0) - 1)"
+      },
+      "default": "2.0 ^ (($node.progressPercent / 50.0) - 1)"
     }
   }
 }

@@ -32,7 +32,7 @@
   <string name="granularity_native_heading">Títols</string>
   <string name="granularity_native_control">Controls</string>
   <string name="granularity_native_link">Enllaços</string>
-  <string name="template_overlay_window">%1$s amb pantalla en pantalla</string>
+  <string name="template_overlay_window">%1$s en pantalla en pantalla</string>
   <string name="template_split_screen_mode_portrait">%1$s a la part superior; %2$s a la part inferior</string>
   <string name="template_split_screen_mode_landscape_ltr">%1$s a l\'esquerra; %2$s a la dreta</string>
   <string name="template_split_screen_mode_landscape_rtl">%1$s a la dreta; %2$s a l\'esquerra</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Pàgina %1$d de %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d de %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Surt</string>
+  <string name="show_keyboard_window">S\'està mostrant la finestra %1$s</string>
+  <string name="hide_keyboard_window">el teclat està amagat</string>
+  <string name="function_on">Els avisos de veu estan activats</string>
+  <string name="function_off">Els avisos de veu estan desactivats</string>
 </resources>

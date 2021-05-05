@@ -1,0 +1,59 @@
+<resources>
+
+  <dimen name="input_plane_debug_background_inset">20dp</dimen>
+
+  <dimen name="input_plane_dot_radius">40dp</dimen>
+
+  <!-- Dot number dimens. -->
+  <dimen name="input_plane_dot_number_stroke_width">3dp</dimen>
+  <item name="input_plane_dot_number_size_multiplier" format="float" type="dimen">1.25</item>
+
+  <!-- Touch circle dimens. -->
+  <dimen name="input_plane_touch_circle_stroke_width">3dp</dimen>
+  <item name="input_plane_touch_circle_size_multiplier" format="float" type="dimen">1.3</item>
+
+  <!-- Most Recent dimens. -->
+  <dimen name="input_view_most_recent_text_size">80dp</dimen>
+
+  <!-- Caption dimens. -->
+  <dimen name="input_view_caption_text_size">15dp</dimen>
+  <dimen name="input_view_caption_bottom_margin">15dp</dimen>
+
+  <!-- Braille keyboard actions -->
+  <dimen name="actions_drawable_size">36dp</dimen>
+  <dimen name="padding_between_drawable_and_text">16dp</dimen>
+  <dimen name="actions_item_text_size">18sp</dimen>
+
+  <!-- Tutorial -->
+  <dimen name="tutorial_width">420dp</dimen>
+  <dimen name="tutorial_title_text_size">30sp</dimen>
+  <dimen name="tutorial_description_text_size">18sp</dimen>
+  <dimen name="tutorial_description_line_space">8dp</dimen>
+  <dimen name="tutorial_description_min_height">40dp</dimen>
+  <dimen name="tutorial_description_bold_text_size">22sp</dimen>
+  <dimen name="tutorial_vertical_padding">32dp</dimen>
+  <dimen name="tutorial_horizontal_padding">24dp</dimen>
+  <dimen name="tutorial_animation_margin">36dp</dimen>
+  <dimen name="tutorial_gesture_dot_radius">35dp</dimen>
+  <dimen name="tutorial_button_margin">8dp</dimen>
+  <dimen name="tutorial_continue_button_bottom_padding">18dp</dimen>
+  <dimen name="hint_margin">12dp</dimen>
+  <dimen name="hint_text_size">16sp</dimen>
+  <dimen name="action_result_text_size">58sp</dimen>
+  <dimen name="dot_block_padding">4dp</dimen>
+  <dimen name="dot_block_dash_path_stroke_width">3dp</dimen>
+  <dimen name="dot_block_dash_path_interval">10dp</dimen>
+
+  <!-- Tutorial intro animation drawable -->
+  <dimen name="intro_animation_border_width">5dp</dimen>
+  <dimen name="intro_animation_dot_diameter">20dp</dimen>
+  <dimen name="intro_animation_dot_horizontal_length_to_near_border">70dp</dimen>
+  <dimen name="intro_animation_dot_horizontal_length_to_far_border">130dp</dimen>
+  <dimen name="intro_animation_dot_vertical_length_to_near_border">20dp</dimen>
+  <dimen name="intro_animation_dot_vertical_length_to_far_border">90dp</dimen>
+  <dimen name="intro_animation_middle_dot_vertical_length_to_border">55dp</dimen>
+  <dimen name="intro_animation_gray_background_corner_radius">15dp</dimen>
+  <dimen name="intro_animation_black_background_corner_radius">10dp</dimen>
+  <dimen name="intro_animation_letter_vertical_length_to_border">53dp</dimen>
+  <dimen name="intro_animation_letter_horizontal_length_to_border">98dp</dimen>
+</resources>

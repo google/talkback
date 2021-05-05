@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+  <ImageView
+      android:id="@+id/training_icon"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/training_padding_top"
+      android:gravity="start|top"/>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingStart="24dp"
+      android:paddingEnd="0dp"
+      android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/training_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/training_padding_top"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/training_text_color"
+        android:textSize="@dimen/training_text_size"
+        android:lineHeight="@dimen/training_text_height"/>
+
+    <TextView
+        android:id="@+id/training_subtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/training_subtext_color"
+        android:textSize="@dimen/training_subtext_size"
+        android:lineHeight="@dimen/training_subtext_height"/>
+
+  </LinearLayout>
+
+</LinearLayout>

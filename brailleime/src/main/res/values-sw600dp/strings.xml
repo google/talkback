@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Audial announcement that plays when in the swipe up 3 fingers state of tutorial. [CHAR LIMIT=500] -->
+  <string name="swipe_up_3_fingers_announcement">To finish the tutorial, swipe up with 3 fingers, and find the finish tutorial option</string>
+  <!-- Audial announcement that plays when users open the context menu. [CHAR LIMIT=1000] -->
+  <string name="open_context_menu_announcement">The options menu is open. You can now use regular TalkBack gestures to navigate. Swipe right to see more options.</string>
+  <!-- Audial announcement that plays when user exits tutorial. [CHAR LIMIT=500] -->
+  <string name="finish_tutorial_announcement">Showing braille keyboard.</string>
+  <!-- Tutorial intro description. [CHAR_LIMIT=500] -->
+  <string name="tutorial_intro_description">With the braille keyboard, you can tap your screen to enter 6-dot braille.\n\nYou’re using Unified English Braille. To switch your typing language, go to TalkBack settings.</string>
+  <!-- Audial announcement that plays when in the type letter A state of tutorial. %1$s is a placeholder of 'left/right index finger'. [CHAR LIMIT=1000] -->
+  <string name="type_letter_a_announcement">Your %1$s should be on dot 1. Now, tap dot 1 to type the letter “A”.</string>
+</resources>

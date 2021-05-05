@@ -12,7 +12,7 @@
   <string name="keycombo_key_modifier_shift">شفٹ</string>
   <string name="keycombo_key_modifier_alt">Alt</string>
   <string name="keycombo_key_modifier_ctrl">Ctrl</string>
-  <string name="keycombo_key_modifier_meta">Search</string>
+  <string name="keycombo_key_modifier_meta">تلاش</string>
   <string name="keycombo_key_arrow_right">دائیں طرف تیر کا نشان</string>
   <string name="keycombo_key_arrow_left">بائیں طرف تیر کا نشان</string>
   <string name="keycombo_key_arrow_up">اوپر کی طرف تیر کا نشان</string>
@@ -20,16 +20,16 @@
   <string name="granularity_default">ڈیفالٹ</string>
   <string name="granularity_character">حروف</string>
   <string name="granularity_word">الفاظ</string>
-  <string name="granularity_line">لکیریں</string>
+  <string name="granularity_line">لائنیں</string>
   <string name="granularity_paragraph">پیراگرافس</string>
   <string name="granularity_page">صفحات</string>
   <string name="granularity_web_landmark">نمایاں مقامات</string>
-  <string name="granularity_web_heading">سرخیاں</string>
+  <string name="granularity_web_heading">ہیڈنگز</string>
   <string name="granularity_web_list">فہرستیں</string>
   <string name="granularity_web_link">لنکس</string>
   <string name="granularity_web_control">کنٹرولز</string>
   <string name="granularity_pseudo_web_special_content">خصوصی مواد</string>
-  <string name="granularity_native_heading">سرخیاں</string>
+  <string name="granularity_native_heading">ہیڈنگز</string>
   <string name="granularity_native_control">کنٹرولز</string>
   <string name="granularity_native_link">لنکس</string>
   <string name="template_overlay_window">%1$s تصویر میں تصویر</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">صفحہ %1$d از %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d از %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">باہر نکلیں</string>
+  <string name="show_keyboard_window">%1$s دکھایا جا رہا ہے</string>
+  <string name="hide_keyboard_window">کی بورڈ پوشیدہ ہے</string>
+  <string name="function_on">صوتی تاثرات آن ہے</string>
+  <string name="function_off">صوتی تاثرات آف ہے</string>
 </resources>

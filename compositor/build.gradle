@@ -1,10 +1,7 @@
-/* For building open-source release of accessibility services.  */
-
 apply plugin: 'com.android.library'
 apply from: "../shared.gradle"
 
 dependencies {
-    implementation project(':proguard')  // Only exists in github repo.
+    implementation project(':proguard')  // Only exists in open source repo.
     implementation project(':utils')
-    implementation project(':lib_utils_log')
 }

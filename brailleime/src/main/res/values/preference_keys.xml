@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Shows a dialog that explains how to enable the IME. -->
+  <string name="pref_brailleime_turn_on_braille_keyboard" translatable="false">pref_brailleime_turn_on_braille_keyboard</string>
+
+  <!-- BEGIN: These keys are released. UserPreferences.upgradeHelper renamed key names from pref_xxx to pref_brailleime_xxx. -->
+  <string name="pref_brailleime_accumulate_mode" translatable="false">pref_brailleime_accumulate_mode</string>
+  <string name="pref_brailleime_reverse_dots_mode" translatable="false">pref_brailleime_reverse_dots_mode</string>
+  <string name="pref_brailleime_contracted_mode" translatable="false">pref_brailleime_contracted_mode</string>
+  <string name="pref_brailleime_typing_echo" translatable="false">pref_brailleime_typing_echo</string>
+  <string name="pref_brailleime_see_all_actions" translatable="false">pref_brailleime_see_all_actions</string>
+  <!-- Auto launch tutorial when opens Braille keyboard. -->
+  <string name="pref_brailleime_auto_launch_tutorial" translatable="false">pref_brailleime_auto_launch_tutorial</string>
+  <!-- How many times the keyboard has been exited (used by escape reminder). -->
+  <string name="pref_brailleime_exit_keyboard_count" translatable="false">pref_brailleime_exit_keyboard_count</string>
+  <!-- How many times the options dialog has been shown (used by escape reminder). -->
+  <string name="pref_brailleime_show_option_dialog_count" translatable="false">pref_brailleime_show_option_dialog_count</string>
+  <!-- END: These keys should be renamed to be pref_brailleime_xxx -->
+
+  <string name="pref_brailleime_translator_code" translatable="false">pref_brailleime_translator_code</string>
+  <string name="pref_brailleime_translator_codes_preferred" translatable="false">pref_brailleime_translator_codes_preferred</string>
+  <string name="pref_brailleime_layout_mode" translatable="false">pref_brailleime_layout_mode</string>
+  <string name="pref_brailleime_calibration_points_phone_tabletop" translatable="false">pref_brailleime_calibration_points_phone_tabletop</string>
+  <string name="pref_brailleime_calibration_points_phone_screenaway" translatable="false">pref_brailleime_calibration_points_phone_screenaway</string>
+  <string name="pref_brailleime_calibration_points_tablet_tabletop_portrait" translatable="false">pref_brailleime_calibration_points_tablet_tabletop_portrait</string>
+  <string name="pref_brailleime_calibration_points_tablet_tabletop_landscape" translatable="false">pref_brailleime_calibration_points_tablet_tabletop_landscape</string>
+</resources>

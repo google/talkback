@@ -66,6 +66,15 @@
         android:summaryOn="@string/summaryOn_pref_phonetic_letters"
         android:title="@string/title_pref_phonetic_letters" />
 
+    <!-- Capital letter -->
+    <ListPreference
+        android:defaultValue="@string/pref_capital_letters_default"
+        android:entries="@array/pref_capital_letters_entries"
+        android:entryValues="@array/pref_capital_letters_values"
+        android:key="@string/pref_capital_letters_key"
+        android:summary="%s"
+        android:title="@string/title_pref_capital_letters" />
+
     <!-- Pitch changes -->
     <SwitchPreference
         android:defaultValue="@bool/pref_intonation_default"
@@ -103,6 +112,14 @@
         android:summaryOff="@string/summaryOff_pref_speak_element_ids"
         android:summaryOn="@string/summaryOn_pref_speak_element_ids"
         android:title="@string/title_pref_speak_element_ids" />
+
+    <!-- Punctuation -->
+    <SwitchPreference
+        android:defaultValue="@bool/pref_punctuation_default"
+        android:key="@string/pref_punctuation_key"
+        android:summaryOff="@string/pref_punctuation_summary_off"
+        android:summaryOn="@string/pref_punctuation_summary_on"
+        android:title="@string/title_pref_punctuation" />
 
   </PreferenceCategory>
 

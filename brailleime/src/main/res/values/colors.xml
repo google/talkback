@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="input_plane_background">#DD222222</color>
+
+  <!-- Dot number colors. -->
+  <color name="input_plane_dot_number_pressed">#FFFFFFFF</color>
+  <color name="input_plane_dot_number_default">#FF2177E9</color>
+  <color name="input_plane_dot_background_pressed">#FF2177E9</color>
+  <color name="input_plane_dot_background_default">#FFFFFFFF</color>
+
+  <color name="input_plane_touch_circle">#FF2177E9</color>
+
+  <color name="input_plane_most_recent_animation">#FFFFFFFF</color>
+
+  <color name="input_plane_debug_background">#220000FF</color>
+
+  <color name="input_plane_caption">@color/google_grey500</color>
+
+  <!-- Tutorial -->
+  <color name="tutorial_background">#282828</color>
+  <color name="tutorial_button_background">#FCC934</color>
+  <color name="tutorial_leave_button_text_color">#FDD663</color>
+  <color name="tap_to_continue_text_color">#FDD663</color>
+  <color name="gesture_circle_gradient">#c29c32</color>
+  <color name="gesture_circle">#FCC835</color>
+  <color name="hint_background">#B3000000</color>
+  <color name="text_highlight_color">#66FBBD04</color>
+  <color name="braille_block_background">#66FBBD04</color>
+  <color name="braille_block_dash_path">#FCC934</color>
+
+  <!-- Settings -->
+  <color name="settings_background">@color/google_white</color>
+  <color name="settings_primary_text">@color/google_black</color>
+  <color name="colorAccent">@color/google_blue600</color>
+</resources>

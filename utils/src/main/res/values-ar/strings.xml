@@ -6,8 +6,8 @@
   <string name="template_capital_letter">حرف %1$s كبير</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
   <string name="template_current_tts_engine">استخدام %1$s</string>
-  <string name="keycombo_assign_dialog_instruction">‏اضغط على مجموعة المفاتيح لتعيين اختصار جديد والتي يجب أن تحتوي على مفتاح ALT أو Control على الأقل.</string>
-  <string name="keycombo_assign_dialog_default_keymap_instruction">اضغط على مجموعة مفاتيح مع مفتاح تعديل %1$s لتعيين اختصار جديد.</string>
+  <string name="keycombo_assign_dialog_instruction">‏اضغط على مجموعة المفاتيح لضبط اختصار جديد والتي يجب أن تحتوي على مفتاح ALT أو Control على الأقل.</string>
+  <string name="keycombo_assign_dialog_default_keymap_instruction">اضغط على مجموعة مفاتيح مع مفتاح تعديل %1$s لضبط اختصار جديد.</string>
   <string name="keycombo_unassigned">غير محدد</string>
   <string name="keycombo_key_modifier_shift">Shift</string>
   <string name="keycombo_key_modifier_alt">Alt</string>
@@ -15,8 +15,8 @@
   <string name="keycombo_key_modifier_meta">بحث</string>
   <string name="keycombo_key_arrow_right">سهم لليمين</string>
   <string name="keycombo_key_arrow_left">سهم لليسار</string>
-  <string name="keycombo_key_arrow_up">سهم لأعلى</string>
-  <string name="keycombo_key_arrow_down">سهم لأسفل</string>
+  <string name="keycombo_key_arrow_up">سهم متّجه للأعلى</string>
+  <string name="keycombo_key_arrow_down">سهم متّجه للأسفل</string>
   <string name="granularity_default">تلقائي</string>
   <string name="granularity_character">الأحرف</string>
   <string name="granularity_word">الكلمات</string>
@@ -24,12 +24,12 @@
   <string name="granularity_paragraph">الفقرات</string>
   <string name="granularity_page">الصفحات</string>
   <string name="granularity_web_landmark">معالم</string>
-  <string name="granularity_web_heading">الرؤوس</string>
+  <string name="granularity_web_heading">العناوين</string>
   <string name="granularity_web_list">القوائم</string>
   <string name="granularity_web_link">الروابط</string>
   <string name="granularity_web_control">عناصر التحكم</string>
   <string name="granularity_pseudo_web_special_content">محتوى خاص</string>
-  <string name="granularity_native_heading">الرؤوس</string>
+  <string name="granularity_native_heading">العناوين</string>
   <string name="granularity_native_control">عناصر التحكم</string>
   <string name="granularity_native_link">الروابط</string>
   <string name="template_overlay_window">صورة %1$s داخل صورة</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">صفحة %1$d من %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d من %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">خروج</string>
+  <string name="show_keyboard_window">يتم الآن عرض %1$s.</string>
+  <string name="hide_keyboard_window">لوحة المفاتيح مخفية</string>
+  <string name="function_on">ميزة التعليقات والملاحظات المنطوقة مفعَّلة.</string>
+  <string name="function_off">ميزة التعليقات والملاحظات المنطوقة غير مفعَّلة.</string>
 </resources>

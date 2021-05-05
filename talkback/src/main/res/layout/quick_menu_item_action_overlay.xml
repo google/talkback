@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_margin="@dimen/quick_menu_overlay_margin"
+      android:gravity="center"
+      android:padding="@dimen/quick_menu_overlay_padding"
+      android:orientation="vertical"
+      android:background="@drawable/quick_menu_overlay_message_background"
+      android:alpha="0.8">
+
+    <ImageView
+        android:id="@+id/quick_menu_left_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:rotation="-90"
+        android:src="@drawable/ic_swipe_right" />
+    <TextView
+        android:id="@+id/quick_menu_text"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:paddingTop="@dimen/quick_menu_overlay_padding_top"
+        android:paddingBottom="@dimen/quick_menu_overlay_padding_bottom"
+        android:textColor="@color/quick_menu_overlay_text_color"
+        android:textSize="@dimen/quick_menu_overlay_text_size"
+        android:textFontWeight="@integer/quick_menu_overlay_font_weight"
+        android:fontFamily="sans-serif"/>
+    <ImageView
+        android:id="@+id/quick_menu_right_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:rotation="90"
+        android:src="@drawable/ic_swipe_right" />
+
+  </LinearLayout>
+
+</LinearLayout>

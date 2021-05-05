@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.accessibility.talkback.screensearch.SearchScreenOverlayLayout
+<com.google.android.accessibility.talkback.actor.search.SearchScreenOverlayLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -63,6 +63,8 @@
         android:layout_toStartOf="@+id/clear_keyword"
         android:background="@android:color/transparent"
         android:hint="@string/hint_type_search_term"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:imeOptions="actionSearch|flagNoExtractUi"
         android:inputType="text"
         android:paddingStart="12dp"
@@ -86,9 +88,9 @@
       android:layout_height="1dp"
       android:background="@color/divider_color"
       android:focusable="false"/>
-  <android.support.v7.widget.RecyclerView
+  <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/search_result"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:contentDescription="@string/label_screen_search_result"/>
-</com.google.android.accessibility.talkback.screensearch.SearchScreenOverlayLayout>
+</com.google.android.accessibility.talkback.actor.search.SearchScreenOverlayLayout>

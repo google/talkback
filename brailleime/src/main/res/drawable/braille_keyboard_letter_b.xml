@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:gravity="center">
+    <shape>
+      <solid android:color="@android:color/darker_gray" />
+      <corners android:radius="@dimen/intro_animation_gray_background_corner_radius" />
+    </shape>
+  </item>
+
+  <item
+      android:bottom="@dimen/intro_animation_border_width"
+      android:end="@dimen/intro_animation_border_width"
+      android:gravity="center"
+      android:start="@dimen/intro_animation_border_width"
+      android:top="@dimen/intro_animation_border_width">
+    <shape>
+      <solid android:color="@android:color/black" />
+      <corners android:radius="@dimen/intro_animation_black_background_corner_radius" />
+    </shape>
+  </item>
+
+  <!-- Dot 1 -->
+  <item
+      android:bottom="@dimen/intro_animation_dot_vertical_length_to_far_border"
+      android:end="@dimen/intro_animation_dot_horizontal_length_to_far_border"
+      android:gravity="center"
+      android:start="@dimen/intro_animation_dot_horizontal_length_to_near_border"
+      android:top="@dimen/intro_animation_dot_vertical_length_to_near_border">
+    <shape android:shape="oval">
+      <solid android:color="@color/input_plane_dot_background_pressed" />
+      <size
+          android:width="@dimen/intro_animation_dot_diameter"
+          android:height="@dimen/intro_animation_dot_diameter" />
+    </shape>
+  </item>
+
+  <!-- Dot 2 -->
+  <item
+      android:bottom="@dimen/intro_animation_middle_dot_vertical_length_to_border"
+      android:end="@dimen/intro_animation_dot_horizontal_length_to_far_border"
+      android:gravity="center"
+      android:start="@dimen/intro_animation_dot_horizontal_length_to_near_border"
+      android:top="@dimen/intro_animation_middle_dot_vertical_length_to_border">
+    <shape android:shape="oval">
+      <solid android:color="@color/input_plane_dot_background_pressed" />
+      <size
+          android:width="@dimen/intro_animation_dot_diameter"
+          android:height="@dimen/intro_animation_dot_diameter" />
+    </shape>
+  </item>
+
+  <!-- Dot 3 -->
+  <item
+      android:bottom="@dimen/intro_animation_dot_vertical_length_to_near_border"
+      android:end="@dimen/intro_animation_dot_horizontal_length_to_far_border"
+      android:gravity="center"
+      android:start="@dimen/intro_animation_dot_horizontal_length_to_near_border"
+      android:top="@dimen/intro_animation_dot_vertical_length_to_far_border">
+    <shape android:shape="oval">
+      <solid android:color="@android:color/white" />
+      <size
+          android:width="@dimen/intro_animation_dot_diameter"
+          android:height="@dimen/intro_animation_dot_diameter" />
+    </shape>
+  </item>
+
+  <!-- Dot 4 -->
+  <item
+      android:bottom="@dimen/intro_animation_dot_vertical_length_to_far_border"
+      android:end="@dimen/intro_animation_dot_horizontal_length_to_near_border"
+      android:gravity="center"
+      android:start="@dimen/intro_animation_dot_horizontal_length_to_far_border"
+      android:top="@dimen/intro_animation_dot_vertical_length_to_near_border">
+    <shape android:shape="oval">
+      <solid android:color="@android:color/white" />
+      <size
+          android:width="@dimen/intro_animation_dot_diameter"
+          android:height="@dimen/intro_animation_dot_diameter" />
+    </shape>
+  </item>
+
+  <!-- Dot 5 -->
+  <item
+      android:bottom="@dimen/intro_animation_middle_dot_vertical_length_to_border"
+      android:end="@dimen/intro_animation_dot_horizontal_length_to_near_border"
+      android:gravity="center"
+      android:start="@dimen/intro_animation_dot_horizontal_length_to_far_border"
+      android:top="@dimen/intro_animation_middle_dot_vertical_length_to_border">
+    <shape android:shape="oval">
+      <solid android:color="@android:color/white" />
+      <size
+          android:width="@dimen/intro_animation_dot_diameter"
+          android:height="@dimen/intro_animation_dot_diameter" />
+    </shape>
+  </item>
+
+  <!-- Dot 6 -->
+  <item
+      android:bottom="@dimen/intro_animation_dot_vertical_length_to_near_border"
+      android:end="@dimen/intro_animation_dot_horizontal_length_to_near_border"
+      android:gravity="center"
+      android:start="@dimen/intro_animation_dot_horizontal_length_to_far_border"
+      android:top="@dimen/intro_animation_dot_vertical_length_to_far_border">
+    <shape android:shape="oval">
+      <solid android:color="@android:color/white" />
+      <size
+          android:width="@dimen/intro_animation_dot_diameter"
+          android:height="@dimen/intro_animation_dot_diameter" />
+    </shape>
+  </item>
+
+  <!-- Letter B -->
+  <item
+      android:bottom="@dimen/intro_animation_letter_vertical_length_to_border"
+      android:drawable="@drawable/ic_letter_b"
+      android:end="@dimen/intro_animation_letter_horizontal_length_to_border"
+      android:gravity="center"
+      android:start="@dimen/intro_animation_letter_horizontal_length_to_border"
+      android:top="@dimen/intro_animation_letter_vertical_length_to_border" />
+</layer-list>

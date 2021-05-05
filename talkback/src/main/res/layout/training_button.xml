@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+  <Button
+      android:id="@+id/training_button"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/training_padding_top"
+      android:padding="@dimen/training_button_padding"
+      android:background="@drawable/training_list_item_background"
+      android:layout_weight="1"
+      android:gravity="center_vertical"
+      android:lineHeight="@dimen/training_text_height"
+      android:textColor="@color/training_text_color"
+      android:textSize="@dimen/training_text_size"
+      android:textAllCaps="false"
+      android:textAlignment="center"/>
+
+</LinearLayout>

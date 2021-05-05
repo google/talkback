@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!-- To aid tooling, any string-containing xml file in this project should have a filename beginning with "strings" -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!--The human-readable name of this service. Do not translate. -->
-    <string name="talkback_title" translatable="false">TalkBack</string>
+    <string name="talkback_title" translatable="false">TalkBack_TfP</string>
+
     <!--
       Source: A brief description of TalkBack.
       Description: This is presented to the user on the accessibility settings view. [CHAR LIMIT="NONE"]
     -->
     <string name="talkback_service_description">
       When TalkBack is on, it provides spoken feedback so that you can use your device without looking at the screen. This can be helpful for people who are blind or have low vision.\n\nTo navigate using TalkBack:\n•  Swipe right or left to move between items\n•  Double-tap to activate an item\n•  Drag two fingers to scroll\n\nTo turn off TalkBack:\n•  Tap the switch. You’ll see a green outline. Double-tap the switch.\n•  On the confirmation message, tap OK. Then double-tap OK.
+    </string>
+
+    <!-- TODO: Try to remove nbsp following li. -->
+    <!--
+      Source: A html description of TalkBack for Android R and above.
+      Description: This is presented in html to the user on the accessibility settings view. [CHAR_LIMIT=NONE]
+    -->
+    <string name="talkback_service_html_description">
+      <![CDATA[When Talkback is on, it provides spoken feedback so that you can use your device without looking at the screen. Talkback is intended for situations or people who have difficulty seeing the screen.<br><br><b>How to use Talkback</b><br>• Swipe right or left to move between items<br>• Double-tap to activate an item<br>• Drag 2 fingers to scroll<br><br><b>How to turn off Talkback</b><br><br><b>Volume Keys:</b> Press &amp\; hold both volume keys for a few seconds.<br><br><b>Settings</b><br>• Tap the <b>Use Talkback</b> switch. You&apos\;ll see a green outline. Double-tap the switch.<br>• On the confirmation message, tap stop. Then double-tap Stop.]]>
     </string>
 
     <!--
@@ -26,12 +37,22 @@
       Source: Title for the activity that manages Text to speech settings.
       Description: This is presented to the user when managing Text to speech settings. [CHAR LIMIT="NONE"]
     -->
-    <string name="tts_preferences_title">Text to speech settings</string>
+    <string name="tts_preferences_title">Text-to-speech settings</string>
     <!--
       Source: Title for the menu item that opens the dialog with TTS  languages installed by the user.
       Description: This is presented to the user. [CHAR LIMIT="NONE"]
     -->
     <string name="language_options">Languages</string>
+    <!--
+    Source: Title for the menu item of Talkback Menu that opens the dialog with TTS  languages installed by the user.
+    Description: This is presented to the user. [CHAR LIMIT="70"]
+    -->
+    <string name="spoken_language">Spoken language</string>
+    <!--
+      Source: Title for the menu item that opens the dialog with system actions available on device
+      Description: This is presented to the user. [CHAR LIMIT=NONE]
+    -->
+    <string name="system_actions">System actions</string>
     <!-- Subtitle for settings activity. Argument is version name. [CHAR_LIMIT="NONE"]-->
     <string name="talkback_preferences_subtitle">Version <xliff:g id="version_name">%1$s</xliff:g></string>
     <!--
@@ -44,20 +65,14 @@
       Description: This is presented to the user when managing TalkBack custom labels for a package. [CHAR LIMIT="NONE"]
     -->
     <string name="label_manager_package_title">Manage Labels for <xliff:g id="applicationLabel" example="Gmail">%1$s</xliff:g></string>
-    <!-- A message on the label manager package summary screen when there are no packages with labels. -->
-    <string name="label_manager_no_packages_message">There are currently no custom labels. You can create one by navigating to an unlabeled image and then adding a label from the Local Context Menu.</string>
+    <!-- A message on the label manager package summary screen when there are no packages with labels. [CHAR_LIMIT=NONE] [BACKUP_MESSAGE_ID: 305927220428084385]-->
+    <string name="label_manager_no_packages_message">There are currently no custom labels. You can create one by navigating to an unlabeled image and then adding a label from the Talkback Menu.</string>
     <!-- A label for the timestamp of when a custom label was stored or last modified. -->
     <string name="label_manager_timestamp_text">Last modified <xliff:g id="timestamp" example="1/1/11 11:11 AM">%1$s</xliff:g></string>
     <!-- Label for search dialog. Argument is search text. This is shown on screen in a popup window. [CHAR_LIMIT=15]-->
     <string name="search_dialog_label">Search: <xliff:g id="search_query">%1$s</xliff:g></string>
-    <!-- Spoken when search mode is opened. -->
-    <string name="search_mode_open">Search mode opened.</string>
     <!-- Spoken when the search is canceled. -->
     <string name="search_mode_cancel">Search canceled.</string>
-    <!-- Spoken when the search is finished. -->
-    <string name="search_mode_finish">Search finished.</string>
-    <!-- Spoken at the beginning of a hint for search mode. -->
-    <string name="search_mode_hint_start">Search mode.</string>
     <!-- Spoken as part of the search mode hint if there is no search query. -->
     <string name="search_mode_hint_no_query">No query has been entered.</string>
     <!-- Spoken as part of the search mode hint if there is a search query. Argument is the query text. -->
@@ -171,7 +186,7 @@
       Description: This is spoken to the user. [CHAR LIMIT="NONE"]
     -->
     <string name="value_dismissible">dismissible</string>
-
+    <!-- TODO: Remove radial menu relate string in final development stage -->
     <!-- Hint spoken when the user pauses in a radial menu, which is a pie-shaped arrangement of menu items. -->
     <string name="hint_radial_menu">Touch the screen and explore in a circle to find an item, then lift to activate.</string>
     <!-- Hint spoken when the user pauses in the summary jog dial, which allows the users to navigate circularly around the screen. -->
@@ -205,10 +220,16 @@
     <string name="value_device_unlocked">Device unlocked.</string>
     <!-- PREFERENCES -->
     <!--
+      [Deprecated]
       Source: Preference category for customizing when to speak.
       Description: Contains preferences for customizing when to speak. [CHAR LIMIT=25]
     -->
     <string name="title_pref_category_when_to_speak">Speech</string>
+    <!--
+      Source: Preference category for audio.
+      Description: Contains preferences for customizing audio. [CHAR LIMIT=25]
+    -->
+    <string name="title_pref_category_audio">Audio</string>
     <!-- Title for preference that controls the volume of TalkBack's speech output. [CHAR LIMIT=25] -->
     <string name="title_pref_speech_volume">Speech volume</string>
     <!--
@@ -243,15 +264,23 @@
     <string name="summaryOn_pref_verbose_scroll_announcement">Always spoken</string>
     <!--
       Source: Preference for using the proximity sensor to silence speech output.
+      Description: The user can check or not check this. [CHAR LIMIT=120]
+    -->
+    <string name="title_pref_cover_proximity_sensor">Cover proximity sensor to stop speech</string>
+    <!--
+      [Deprecated]
+      Source: Preference for using the proximity sensor to silence speech output.
       Description: The user can check or not check this. [CHAR LIMIT=30]
     -->
     <string name="title_pref_proximity">Use proximity sensor</string>
     <!--
+      [Deprecated]
       Source: Summary subtext for the Proximity Sensor setting.
       Description: Explains that the proximity sensor will be used to stop speech. [CHAR LIMIT="NONE"]
     -->
     <string name="summaryOn_pref_proximity">Proximity sensor silences speech</string>
     <!--
+      [Deprecated]
       Source: Summary subtext for the Proximity Sensor setting.
       Description: Explains that the proximity sensor will not have any effect on speech. [CHAR LIMIT="NONE"]
     -->
@@ -272,6 +301,41 @@
       Description: Explains when phonetic letters will be spoken. [CHAR LIMIT="NONE"]
     -->
     <string name="summaryOn_pref_phonetic_letters">Phonetic letters are spoken when long pressing on keyboard keys and navigating by character</string>
+    <!--
+      Source: Preference for reading punctuations. [CHAR LIMIT=45]
+      Description: The user can check or not check this.
+    -->
+    <string name="title_pref_punctuation">Punctuation</string>
+    <!--
+      Source: Summary subtext for the Punctuation setting.
+      Description: Explains that punctuation will not be spoken. [CHAR LIMIT=NONE]
+    -->
+    <string name="pref_punctuation_summary_off">Punctuation and symbols are not spoken</string>
+    <!--
+      Source: Summary subtext for the Punctuation setting.
+      Description: Explains that punctuation will be spoken. [CHAR LIMIT=NONE]
+    -->
+    <string name="pref_punctuation_summary_on">Punctuation and symbols are spoken</string>
+    <!--
+      Source: Preference providing feedback for reading Capital Letters. [CHAR LIMIT=45]
+    -->
+    <string name="title_pref_capital_letters">Capital letters</string>
+    <!--
+      Source: Preference providing feedback for reading Capital Letters and do nothing. [CHAR LIMIT=45]
+    -->
+    <string name="capital_letters_nothing">Do nothing</string>
+    <!--
+      Source: Preference providing feedback for reading Capital Letters with prepending "Capital". [CHAR LIMIT=45]
+    -->
+    <string name="capital_letters_speak_capital">Say “capital”</string>
+    <!--
+      Source: Preference providing feedback for reading Capital Letters with raising pitch. [CHAR LIMIT=45]
+    -->
+    <string name="capital_letters_change_pitch">Change pitch</string>
+    <!--
+      Source: Preference providing feedback for reading Capital Letters with sound feedback. [CHAR LIMIT=45]
+    -->
+    <string name="capital_letters_sound_feedback">Play sound</string>
     <!--
       Source: Preference for speaking accessibility hints when moving accessibility focus.
       Description: The user can check or not check this. [CHAR LIMIT=40]
@@ -304,10 +368,19 @@
     -->
     <string name="pref_speak_container_element_positions_summaryOff">List and grid information is not spoken</string>
 
-    <!--
-      Source: Preference for speaking types of elements with  accessibility focus.
-      Description: The user can check or not check this. [CHAR LIMIT=40]
-    -->
+  <!-- Reset keymap [CHAR LIMIT=57] -->
+  <string name="Reset_gesture_settings_dialog_title">Reset gestures?</string>
+  <!-- Description what the reset gesture will do. [CHAR LIMIT="NONE"] -->
+  <string name="message_reset_gesture_settings_confirm_dialog">This will reset all gestures to their default actions.\n\nYou will lose any changes that you have made.</string>
+
+  <string name="reset_button_in_reset_gesture_settings_confirm_dialog">Reset</string>
+  <!-- Announce reset the keymap -->
+  <string name="gestures_announce_reset_gesture_settings">The gesture settings have been reset.</string>
+
+  <!--
+    Source: Preference for speaking types of elements with  accessibility focus.
+    Description: The user can check or not check this. [CHAR LIMIT=40]
+  -->
     <string name="pref_speak_roles_title">Speak element type</string>
     <!--
       Source: Summary subtext for preference to speak roles of elements.
@@ -341,23 +414,58 @@
       Description: The user can check or not check this. [CHAR LIMIT=40]
     -->
     <string name="title_pref_explore_by_touch">Explore by touch</string>
-    <!-- Category for touch interaction settings. [CHAR LIMIT=40] -->
+    <!-- [Deprecated] Category for touch interaction settings. [CHAR LIMIT=40] -->
     <string name="title_pref_category_touch_exploration">Navigation</string>
+    <!-- Category for gestures, menus or other controls. [CHAR LIMIT=40] -->
+    <string name="title_pref_category_controls">Controls</string>
     <!-- Preference for single-tap activation. When enabled, the user can place accessibility focus on an item and activate it using a single tap, rather than the default double-tap. -->
     <string name="title_pref_single_tap">Single-tap activation</string>
-    <!-- Preference for show context menu as list selection. -->
+    <!-- [Deprecated] Preference for show context menu as list selection. -->
     <string name="title_pref_show_context_menu_as_list">Show context menu as list</string>
-    <!-- Summary sub-text for single-tap activation. When enabled, the user can place accessibility focus on an item and activate it using a single tap, rather than the default double-tap. -->
-    <string name="summary_pref_single_tap">(Experimental) Tap on currently focused item to activate</string>
+    <!-- Summary sub-text for single-tap activation. When enabled, the user can place accessibility focus on an item and activate it using a single tap, rather than the default double-tap. [CHAR LIMIT=NONE]-->
+    <string name="summary_pref_single_tap">(Experimental) Tap once on a focused item to activate</string>
     <!-- Preference for shake to read.  When enabled, the user may shake the phone to initiate continuous reading from the current point. -->
     <string name="title_pref_shake_to_read_threshold">Shake to start continuous reading</string>
     <!-- Label for the button to launch an activity for managing TalkBack's verbosity. [CHAR LIMIT=40] -->
     <string name="pref_verbosity_title">Verbosity</string>
+    <!--
+      Source: Title of preference for including punctuation in the selector setting list.
+      Description: The user can check or not check this. [CHAR LIMIT=40]
+    -->
+    <string name="pref_punctuation_title">Punctuation</string>
     <!-- Label for the PreferenceScreen used to manage TalkBack's gesture mapping. [CHAR LIMIT=40] -->
-    <string name="title_pref_category_manage_gestures">Gestures</string>
-    <!-- Label for the button to launch an activity for managing TalkBack's custom view labels. [CHAR LIMIT=40] -->
+    <string name="title_pref_category_manage_gestures">Customize gestures</string>
+    <!-- Label for the button to launch an activity for managing TalkBack's custom view labels. [CHAR LIMIT=70] -->
     <string name="title_pref_manage_labels">Custom labels</string>
+    <!-- Label for the button to launch an activity for managing custom menus. [CHAR LIMIT=70] -->
+    <string name="title_pref_manage_customize_menus">Customize menus</string>
+    <!-- Label for the button to launch an activity for managing TalkBack's custom menus. [CHAR LIMIT=100] -->
+    <string name="title_pref_category_context_menu">Customize TalkBack menu</string>
+    <!-- Label for the button to launch an activity for managing TalkBack's custom menus. [CHAR LIMIT=100] -->
+    <string name="title_pref_category_selector_menu">Customize reading controls</string>
+    <!-- Label for the button to launch an activity for managing TalkBack's navigation options menus. [CHAR LIMIT=100] -->
+    <string name="title_pref_category_navigation_menu">Edit navigation options</string>
     <!-- Label for the button to launch an activity for managing TalkBack's keyboard shortcuts. [CHAR LIMIT=40] -->
+    <!--
+      Source: Summary subtext for talkback context menu setting.
+      Description: Explains how Talkback context menu is opened. [CHAR LIMIT="NONE"]
+    -->
+    <string name="pref_category_context_menu_summary">To use the TalkBack menu, tap the screen with 3 fingers. You can also swipe up then right, or swipe down then right.</string>
+    <!--
+    Source: Summary subtext for talkback context menu setting.
+    Description: Explains how Talkback context menu is opened without multifinger support. [CHAR LIMIT=NONE]
+    -->
+    <string name="pref_category_context_menu_summary_single_finger">To use the TalkBack menu, swipe down then right.</string>
+    <!--
+    Source: Summary subtext for quick menu setting.
+    Description: Explains how quick menu is opened. [CHAR LIMIT=NONE]
+    -->
+    <string name="pref_category_selector_menu_summary">To use the reading controls, swipe left or right with 3 fingers. You can also swipe up or down with 3 fingers.</string>
+    <!--
+    Source: Summary subtext for quick menu setting.
+    Description: Explains how quick menu is opened without multifinger support. [CHAR LIMIT=NONE]
+    -->
+    <string name="pref_category_selector_menu_summary_single_finger">To use the reading controls, swipe up then down.</string>
     <string name="title_pref_manage_keyboard_shortcuts">Keyboard shortcuts</string>
     <!-- Label for the button to export custom labels data as a file. [CHAR LIMIT=40] -->
     <string name="title_pref_export_custom_labels">Export custom labels</string>
@@ -375,14 +483,40 @@
     <string name="title_pref_show_tos">Terms of service</string>
     <!-- Label for the button to show privacy policy [CHAR LIMIT=40] -->
     <string name="title_pref_show_privacy_policy">Privacy policy</string>
-    <!-- Category for assigning shortcuts to touch gestures. [CHAR LIMIT=40] -->
-    <string name="title_pref_category_touch_shortcuts">Shortcut gestures</string>
+    <!-- Category for assigning shortcuts to multi-finger gestures. [CHAR LIMIT=90] -->
+    <string name="pref_category_multi_finger_shortcuts">Multi-finger gestures</string>
     <!-- Category for assigning shortcuts to fingerprint sensor gestures. [CHAR LIMIT=40] -->
     <string name="title_pref_category_fingerprint_touch_shortcuts">Fingerprint gestures</string>
     <!-- Category for changing the mapping of built-in gestures. [CHAR LIMIT=40] -->
     <string name="title_pref_category_built_in_gestures">Built-in gestures</string>
+    <!-- [Deprecated] Category for helping page or feedback. [CHAR LIMIT=60] -->
+    <string name="title_pref_category_help_and_feedback">Help and feedback</string>
+    <!-- Category for helping page or feedback. [CHAR LIMIT=60] -->
+    <string name="title_pref_category_tutorial_and_help">Tutorial and help</string>
+    <!-- Category for advanced settings. [CHAR LIMIT=60] -->
+    <string name="title_pref_category_advanced">Advanced</string>
+    <!-- Category for legal and privacy. [CHAR LIMIT=60] -->
+    <string name="title_pref_category_legal_and_privacy">Legal and privacy</string>
+    <!-- Category for advanced settings. [CHAR LIMIT=60] -->
+    <string name="title_pref_advanced_settings">Advanced settings</string>
 
-    <!-- Verbosity preferences sub-activity -->
+
+    <!-- Label for the reset gesture settings. [CHAR_LIMIT=66] -->
+    <string name="reset_gesture_settings_title">Reset gesture settings</string>
+    <!-- Label for the group of one finger gestures. [CHAR_LIMIT=60] -->
+    <string name="one_finger_gestures_title">1 finger</string>
+    <!-- Label for the group of one finger back & forth gestures. [CHAR_LIMIT=90] -->
+    <string name="one_finger_back_forth_gestures_title">1 finger back-and-forth</string>
+    <!-- Label for the group of one finger angle gestures. [CHAR_LIMIT=75] -->
+    <string name="one_finger_angle_gestures_title">1 finger angle</string>
+    <!-- Label for the group of two finger gestures. [CHAR_LIMIT=60] -->
+    <string name="two_finger_gestures_title">2 fingers</string>
+    <!-- Label for the group of three finger gestures. [CHAR_LIMIT=63] -->
+    <string name="three_finger_gestures_title">3 fingers</string>
+    <!-- Label for the group of four finger gestures. [CHAR_LIMIT=60] -->
+    <string name="four_finger_gestures_title">4 fingers</string>
+
+  <!-- Verbosity preferences sub-activity -->
     <!-- Verbosity preferences, presets. [CHAR LIMIT=40] -->
     <string name="pref_verbosity_preset_title">Choose a preset</string>
     <!-- Verbosity preferences, presets, entry high [CHAR LIMIT=40] -->
@@ -473,18 +607,15 @@
     <string name="keycombo_menu_granularity_decrease">Previous navigation setting</string>
     <!-- Other actions group name title [CHAR LIMIT=40] -->
     <string name="keycombo_menu_category_other">Other actions</string>
-    <!-- Keyboard key combination assignment for Read from top visible item action [CHAR LIMIT=40] -->
+    <!-- Keyboard key combination assignment for Read from top visible item action [CHAR LIMIT=100] -->
     <string name="keycombo_menu_other_read_from_top">Read from top</string>
-    <!-- Keyboard key combination assignment for Read from next (relative to current focus) item  action [CHAR LIMIT=40] -->
+    <!-- Keyboard key combination assignment for Read from next (relative to current focus) item  action [CHAR LIMIT=130] -->
     <string name="keycombo_menu_other_read_from_next_item">Read from next item</string>
     <!-- Keyboard key combination assignment for Start item search action [CHAR LIMIT=40] -->
     <string name="keycombo_menu_other_toggle_search">Search the screen for an item</string>
-    <!-- Keyboard key combination assignment for Show Local Context Menu action [CHAR LIMIT=40]
-    Local Context actions are related to currently focused item only -->
-    <string name="keycombo_menu_other_local_context_menu">Show Local Context Menu</string>
-    <!-- Keyboard key combination assignment for Show Global Context Menu action [CHAR LIMIT=40]
-    Global context menu actions are related to whole application -->
-    <string name="keycombo_menu_other_global_context_menu">Show Global Context Menu</string>
+    <!-- Keyboard key combination assignment for Show Talkback Menu action
+    Talkback menu actions are related to whole application [CHAR LIMIT=130] [BACKUP_MESSAGE_ID: 8053375494161376217] -->
+    <string name="keycombo_menu_other_talkback_context_menu">Show Talkback Menu</string>
     <!-- Keyboard key combination assignment for opening the list of custom actions [CHAR LIMIT=60] -->
     <string name="keycombo_menu_other_custom_actions">Show actions</string>
   <!-- Keyboard key combination assignment for opening the list of TTS languages installed by the user. [CHAR LIMIT=60] -->
@@ -578,112 +709,14 @@
     <string name="keycombo_assign_dialog_navigation_reminder">Press Backspace to clear the shortcut, press Enter to save, or press Escape to cancel.</string>
     <!-- Clear pressed key combination button text -->
     <string name="keycombo_assign_dialog_clear">Clear shortcut</string>
-
-    <!--
-      Source: Possible user requests from voice commands to start the summary of the screen.
-      Description: Looks for keyword "summary" to see if user has asked to start a summary of the screen
-    -->
-    <string name="voice_commands_summary">summary</string>
-    <!--
-      Source: Possible user requests from voice commands to read from top.
-      Description: Looks for keyword "read" to see if user has asked to read from top.
-    -->
-    <string name="voice_commands_read">read</string>
-    <!--
-      Source: Possible user requests from voice commands to read from top.
-      Description: Looks for keyword "top" to see if user has asked to read from top.
-    -->
-    <string name="voice_commands_top">top</string>
-    <!--
-      Source: Possible user requests from voice commands to view recent apps.
-      Description: Looks for keyword "recent" to see if user has asked to view recent apps.
-    -->
-    <string name="voice_commands_recent">recent</string>
-    <!--
-      Source: Possible user requests from voice commands to edit.
-      Description: Looks for keyword "edit" to see if user has asked to edit.
-    -->
-    <string name="voice_commands_edit">edit</string>
-    <!--
-      Source: Possible user requests from voice commands to see possible voice commands.
-      Description: Looks for keyword "what" to see if user has asked to see possible voice commands.
-    -->
-    <string name="voice_commands_what">what</string>
-    <!--
-      Source: Possible user requests from voice commands to see possible voice commands.
-      Description: Looks for keyword "say" to see if user has asked to see possible voice commands.
-    -->
-    <string name="voice_commands_say">say</string>
-    <!--
-      Source: Possible user requests from voice commands to read from next item.
-      Description: Looks for keyword "next" to see if user has asked to see read from next item.
-    -->
-    <string name="voice_commands_next">next</string>
-    <!--
-      Source: Possible user requests from voice commands to see possible languages.
-      Description: Looks for keyword "language" to see if user has asked to see possible languages.
-    -->
-    <string name="voice_commands_language">language</string>
-    <!--
-      Source: Possible user requests from voice commands to show possible actions.
-      Description: Looks for keyword "action" to see if user has asked to see possible actions.
-    -->
-    <string name="voice_commands_action">action</string>
-    <!--
-      Source: Possible user requests from voice commands to see quick settings.
-      Description: Looks for keyword "setting" to see if user has asked to see quick settings.
-    -->
-    <string name="voice_commands_setting">setting</string>
-  <!--
-      Source: Possible user requests from voice commands to dim screen.
-      Description: Looks for keyword "dim" to see if user has asked to dim the screen.
-    -->
-  <string name="voice_commands_dim_screen">dim</string>
-  <!--
-      Source: Possible user requests from voice commands to un-dim screen.
-      Description: Looks for keyword "brighten" to see if user has asked to un-dim the screen.
-    -->
-  <string name="voice_commands_brighten_screen">brighten</string>
-
-  <!--
-      Voice-shortcut command words.  Try to make all voice-shortcuts start with different words, to
-      avoid premature command recognition.
-  -->
-  <!-- Voice-shortcut command word to find a keyword on screen. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_find">Find</string>
-  <!-- Voice-shortcut command word to find more instances of a keyword on screen. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_find_again">Repeat find</string>
-  <!-- Voice-shortcut command word to find more instances of a keyword on screen. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_next_heading">Next heading</string>
-  <!-- Voice-shortcut failure message, when user tries an editing command on non-editable content. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_not_editable">Not editable</string>
-  <!-- Voice-shortcut command word to start selecting text in an edit field. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_start_select">Select</string>
-  <!-- Voice-shortcut command word to complete selecting text in an edit field. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_finish_select">Finish select</string>
-  <!-- Voice-shortcut command word to abort selecting text in an edit field. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_deselect">Cancel select</string>
-  <!-- Voice-shortcut command word to start dictating text to insert in an edit field. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_dictate">Dictate</string>
-  <!-- Voice-shortcut command word to start the google-assistant. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_assistant">Assistant</string>
-
-    <!-- Dialog title that explains to user the options available when using voice commands.-->
-    <string name="voice_commands_possible_options_title">You can say</string>
-    <!-- Dialog message that explains to user the requested action is not supported yet. [CHAR_LIMIT=100] -->
-    <string name="voice_commands_no_action">Voice shortcut not supported</string>
-    <!-- Dialog message that explains to user that they do not have mic permissions on.-->
-    <string name="voice_commands_no_mic_permissions">To use this feature, you must grant permission to use the microphone.</string>
-    <!-- Dialog message that explains to user about the ability to use voice commands.-->
-    <string name="voice_commands_no_voice_recognition_ability"> Sorry! This feature is not available on your device</string>
-    <!-- Dialog message that explains to user the an error occured while using voice commands. [CHAR_LIMIT=100] -->
-    <string name="voice_commands_error">Error recognizing voice shortcut</string>
-    <!-- Dialog message that explains to user that voice commands only partially understood. [CHAR_LIMIT=300] -->
-    <string name="voice_commands_partial_result">No voice shortcut recognized. Speak shortcut \"<xliff:g>%1$s</xliff:g>\" for a list of available voice shortcuts.</string>
-    <!-- Dialog message that explains to the user that they requested speech recognizer too many times, causing an error.-->
-    <string name="voice_commands_many_requests">Please try again in a moment</string>
-
-
+    <!-- Edit action failure message, when user tries to copy with no text selected [CHAR_LIMIT=100] -->
+    <string name="cannot_copy_feedback">No text to copy, select some text first.</string>
+    <!-- Edit action failure message, when user tries to copy with no text selected [CHAR_LIMIT=100] -->
+    <string name="cannot_paste_feedback">No text to paste, copy some texts first.</string>
+    <!-- Edit action failure message, when user tries to cut with no text selected [CHAR_LIMIT=100] -->
+    <string name="cannot_cut_feedback">No text to cut, select some text first.</string>
+    <!-- Edit action failure message, when user tries to delete with no text selected [CHAR_LIMIT=100] -->
+    <string name="cannot_delete_feedback">No text to delete, select some text first.</string>
     <!-- Message in confirm dialog to reset keymap -->
     <string name="message_in_reset_keymap_confirm_dialog">Are you sure you would like to reset your shortcut keys for this keymap to their default values? Please note, this action cannot be undone.</string>
     <!-- Reset button in confirm dialog to reset keymap -->
@@ -714,6 +747,12 @@
     -->
     <string name="summaryOff_pref_intonation">Don\'t change voice pitch when speaking</string>
     <!--
+      Source: Preference category for braille IME feature.
+      Description: Contains preferences of braille IME related settings. [CHAR LIMIT=35]
+    -->
+    <string name="title_pref_brailleime">Braille keyboard</string>
+    <!--
+      [Deprecated]
       Source: Preference category for customizing the sound and vibration feedback.
       Description: Contains preferences for customizing sound and vibration feedback. [CHAR LIMIT=25]
     -->
@@ -751,9 +790,10 @@
       Source: Preference to enable the shortcut for dimming the screen.
       Description: The user can check or not check this. [CHAR LIMIT=50]
     -->
-    <string name="title_pref_dim_volume_three_clicks">Dim screen shortcut</string>
+    <string name="title_pref_dim_volume_three_clicks">Hide screen shortcut</string>
 
     <!--
+      [Deprecated]
       Source: Preference category title.
       Description: Preference category for miscellaneous settings.
     -->
@@ -779,7 +819,7 @@
     -->
     <string name="pref_reduce_window_delay_title">Reduce window announcement delay</string>
 
-  <!--
+    <!--
       Source: Preference title.
       Description: Preference for controlling the amount of log output.
     -->
@@ -789,6 +829,11 @@
       Description: This preference allows the user to show speech output on the screen.
     -->
     <string name="title_pref_tts_overlay">Display speech output</string>
+    <!--
+    Source: Preference title.
+    Description: This preference allows the user to echo back recognized text speech.
+    -->
+    <string name="title_pref_echo_recognized_text_speech">Echo recognized speech</string>
     <!--
       Source: Preference title.
       Description: This preference allows the user to print node trees to LogCat using gestures.
@@ -809,27 +854,55 @@
       Description: This preference allows the user to specify when TalkBack resumes from a suspended state
     -->
     <string name="title_pref_resume_talkback">Resume from suspend</string>
+    <!--
+      Source: Preference title.
+      Description: This preference allows the user to use gestures by multiple fingers. [CHAR_LIMIT=93]
+      TODO: Keep this string until it's certainly no use.
+    -->
+    <string name="title_pref_multi_finger_gesture">Enable multi-finger gestures</string>
 
     <!--
       Source: A value for announcing screen has been dimmed.
-      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+      Description: This is spoken to the user. [CHAR LIMIT="40"]
     -->
-    <string name="screen_dimmed">Screen dimmed</string>
+    <string name="screen_dimmed">Screen hidden</string>
     <!--
       Source: A value for announcing screen brightness was restored.
       Description: This is spoken to the user. [CHAR LIMIT="NONE"]
     -->
-    <string name="screen_brightness_restored">Screen brightness restored</string>
+    <string name="screen_brightness_restored">Showing screen</string>
 
     <!--
-      Text that is temporary displayed on the screen when user chose screen dimming option.
+      Text that is temporary displayed on the screen when user chose screen dimming option. [CHAR_LIMIT=NONE]
     -->
-    <string name="screen_dimming_exit_instruction_line1">TalkBack accessibility service has dimmed the screen</string>
-    <string name="screen_dimming_exit_instruction_line2">Do gesture swipe <xliff:g id="gesture" example="down then right">%1$s</xliff:g> to open the global context menu, highlight \"<xliff:g id="menu item" example="brighten">%2$s</xliff:g>\", then double-tap.</string>
+    <string name="screen_dimming_exit_instruction_line1">TalkBack accessibility service has hidden the screen</string>
+    <!--
+      Text that is temporary displayed on the screen for showing the screen from hidden mode. [CHAR_LIMIT=NONE]
+    -->
+    <string name="screen_dimming_exit_instruction_line2">Do gesture <xliff:g id="gesture" example="Tap with 3 fingers">%1$s</xliff:g> to open TalkBack menu, highlight \"<xliff:g id="menu item" example="show screen">%2$s</xliff:g>\", then double-tap.</string>
 
+    <!-- Category for shortcuts related to basic navigation. [CHAR_LIMIT=40] -->
+    <string name="shortcut_title_basic_navigation">Basic Navigation</string>
+    <!-- Category for shortcuts related to system actions. [CHAR_LIMIT=40] -->
+    <string name="shortcut_title_system_actions">System actions</string>
+    <!-- Category for shortcuts related to reading control. [CHAR_LIMIT=40] -->
+    <string name="shortcut_title_reading_control">Reading</string>
+    <!-- Category for shortcuts related to menu control. [CHAR_LIMIT=40] -->
+    <string name="shortcut_title_menu_control">Menu and controls</string>
+    <!-- Category for shortcuts related to text editing. [CHAR_LIMIT=40] -->
+    <string name="shortcut_title_text_editing">Text editing</string>
+    <!-- Category for shortcuts related to special features. [CHAR_LIMIT=40] -->
+    <string name="shortcut_title_special_features">Other</string>
 
     <!-- Label for a shortcut that is not assigned and does nothing. [CHAR_LIMIT=40] -->
-    <string name="shortcut_unassigned">Unassigned</string>
+    <string name="shortcut_unassigned">Tap to assign</string>
+
+    <!-- Label for a shortcut that is not customizable. [CHAR_LIMIT=40] -->
+    <string name="shortcut_not_customizable"><xliff:g id="shortcut" example="Scroll down">%1$s</xliff:g>, not customizable</string>
+
+    <!-- Label for a shortcut that is reserved to pass-through of scrolling or dragging purpose. [CHAR_LIMIT=200] -->
+    <!-- TODO: Remove shortcut_2finger_passthrough in final development stage -->
+    <string name="shortcut_2finger_passthrough">Swipe, scroll, or drag.</string>
     <!-- Label for the shortcut that moves accessibility focus to the next item. [CHAR_LIMIT=40] -->
     <string name="shortcut_next">Next item</string>
     <!-- Label for the shortcut that moves accessibility focus to the previous item. [CHAR_LIMIT=40] -->
@@ -838,35 +911,53 @@
     <string name="shortcut_scroll_forward">Scroll forward</string>
     <!-- Label for the shortcut that tries to scroll current view back. [CHAR_LIMIT=40] -->
     <string name="shortcut_scroll_back">Scroll back</string>
+    <!-- Label for the shortcut that tries to scroll current view up. [CHAR_LIMIT=40] -->
+    <string name="shortcut_scroll_up">Scroll up</string>
+    <!-- Label for the shortcut that tries to scroll current view down. [CHAR_LIMIT=40] -->
+    <string name="shortcut_scroll_down">Scroll down</string>
+    <!-- Label for the shortcut that tries to scroll current view left. [CHAR_LIMIT=40] -->
+    <string name="shortcut_scroll_left">Scroll left</string>
+    <!-- Label for the shortcut that tries to scroll current view right. [CHAR_LIMIT=40] -->
+    <string name="shortcut_scroll_right">Scroll right</string>
     <!-- Label for the shortcut that activates the Back button. [CHAR_LIMIT=40] -->
-    <string name="shortcut_back">Back button</string>
+    <string name="shortcut_back">Back</string>
     <!-- Label for the shortcut that activates the Home button. [CHAR_LIMIT=40] -->
-    <string name="shortcut_home">Home button</string>
+    <string name="shortcut_home">Home</string>
     <!-- Label for the shortcut that activates the Overview button. [CHAR_LIMIT=40] -->
-    <string name="shortcut_overview">Overview button</string>
+    <string name="shortcut_overview">Overview</string>
     <!-- Label for the shortcut that opens the notifications shade. [CHAR_LIMIT=40] -->
-    <string name="shortcut_notifications">Open notifications</string>
+    <string name="shortcut_notifications">Notifications</string>
     <!-- Label for the shortcut that opens the quick settings. [CHAR_LIMIT=50] -->
-    <string name="shortcut_quick_settings">Open quick settings</string>
+    <string name="shortcut_quick_settings">Quick Settings</string>
     <!-- Label for the shortcut that opens the custom action menu. [CHAR_LIMIT=40] -->
-    <string name="shortcut_show_custom_actions">Show actions</string>
+    <string name="shortcut_show_custom_actions">Show custom actions</string>
     <!-- Label for the shortcut that opens the editing menu. [CHAR_LIMIT=40] -->
-    <string name="shortcut_editing">Show edit options</string>
-    <!-- Label for the shortcut that opens the global context breakout menu [CHAR_LIMIT=50] -->
-    <string name="shortcut_talkback_breakout">Open global context menu</string>
-    <!-- Label for the shortcut that opens the local context breakout menu [CHAR_LIMIT=50] -->
-    <string name="shortcut_local_breakout">Open local context menu</string>
-    <!-- Label for the shortcut that repeats aloud the last thing that TalkBack spoke as a result of user action. [CHAR_LIMIT=50] -->
+    <string name="shortcut_editing">Show editing options</string>
+    <!-- Label for the shortcut that opens the talkback context breakout menu [CHAR_LIMIT=100] -->
+    <string name="shortcut_talkback_breakout">Open TalkBack menu</string>
+    <!-- [Deprecated] Label for the shortcut that repeats aloud the last thing that TalkBack spoke as a result of user action. [CHAR_LIMIT=50] -->
     <string name="shortcut_repeat_last_utterance">Repeat last utterance</string>
-    <!-- Label for the shortcut that spells aloud the last thing that TalkBack spoke aloud. [CHAR_LIMIT=50] -->
+    <!-- [Deprecated] Label for the shortcut that spells aloud the last thing that TalkBack spoke aloud. [CHAR_LIMIT=50] -->
     <string name="shortcut_spell_last_utterance">Spell last utterance</string>
-    <!-- Label for the shortcut that copies  the last thing TalkBack spoke to clipboard [CHAR_LIMIT=none] -->
+    <!-- [Deprecated] Label for the shortcut that copies  the last thing TalkBack spoke to clipboard [CHAR_LIMIT=none] -->
     <string name="shortcut_copy_last_utterance_to_clipboard">Copy last utterance to clipboard</string>
     <!-- Label for the shortcut that pauses all feedback from TalkBack. [CHAR_LIMIT=40] -->
     <string name="shortcut_pause_feedback">Pause feedback</string>
+    <!-- Label for the shortcut that pauses all feedback from TalkBack. [CHAR_LIMIT=69] -->
+    <string name="shortcut_pause_or_resume_feedback">Pause or resume speech</string>
+    <!-- Label for the shortcut that toggle voice feedback from TalkBack. [CHAR_LIMIT=72] -->
+    <string name="shortcut_toggle_voice_feedback">Turn TalkBack sound on or off</string>
     <!-- Label for menu item that reads all on-screen content, starting from the top of the screen. [CHAR_LIMIT=40] -->
+    <!--
+      Source: Possible user requests from voice commands to read from top.
+      Description: Looks for keyword "top" to see if user has asked to read from top. [CHAR LIMIT=40]
+    -->
     <string name="shortcut_read_from_top">Read from top</string>
     <!-- Label for menu item that reads all on-screen content, starting from the next item. [CHAR_LIMIT=40] -->
+    <!--
+     Source: Possible user requests from voice commands to read from next.
+     Description: Looks for keyword "read from next item" or "read from next" to see if user has asked to read from next. [CHAR LIMIT=40]
+    -->
     <string name="shortcut_read_from_current">Read from next item</string>
     <!-- Label for the shortcut that prints the node tree to LogCat. [CHAR_LIMIT=40] -->
     <string name="shortcut_print_node_tree">Print node tree</string>
@@ -877,45 +968,72 @@
     <!-- Label for the shortcut that changes to the previous navigation setting -->
     <string name="shortcut_previous_granularity">Previous navigation setting</string>
     <!-- Label for the shortcut that will move focus to the first item on the screen -->
-    <string name="shortcut_first_in_screen">Focus first item on screen</string>
+    <string name="shortcut_first_in_screen">Focus on first item on screen</string>
     <!-- Label for the shortcut that will make a summary of the screen -->
     <string name="shortcut_summary">Summarize screen layout</string>
     <!-- Label for the shortcut that will allow voice commands to invoke talkback actions. [CHAR_LIMIT=60] -->
-    <string name="shortcut_voice_commands">Start voice shortcut</string>
+    <string name="shortcut_voice_commands">Start voice command</string>
     <!-- Label for the shortcut that will move focus to the last item on the screen -->
-    <string name="shortcut_last_in_screen">Focus last item on screen</string>
-    <!-- Label for the shortcut that will dim the screen -->
-    <string name="shortcut_enable_dimming">Dim screen</string>
-    <!-- Label for the shortcut that will disable screen dimming and make the screen visible -->
-    <string name="shortcut_disable_dimming">Brighten screen</string>
+    <string name="shortcut_last_in_screen">Focus on last item on screen</string>
+    <!-- Label for the shortcut that will dim the screen [CHAR_LIMIT=40] -->
+    <!--
+      Source: Possible user requests from voice commands to dim screen.
+      Description: Looks for keyword "dim" or "darken" to see if user has asked to dim the screen. This is a verb for voice commands. [CHAR_LIMIT=30]
+    -->
+    <string name="shortcut_enable_dimming">Hide screen</string>
+    <!-- Label for the shortcut that will disable screen dimming and make the screen visible [CHAR_LIMIT=40] -->
+    <!--
+      Source: Possible user requests from voice commands to un-dim screen.
+      Description: Looks for keyword which lists below to see if user has asked to un-dim the screen. This is a verb for voice commands. [CHAR_LIMIT=30]
+    -->
+    <string name="shortcut_disable_dimming">Show screen</string>
     <!-- Label for the shortcut that performs click on focused item action. -->
-    <string name="shortcut_perform_click_action">Perform click</string>
-    <!-- Title for dialog with actions related to currently focused item -->
-    <string name="local_context_menu_title">Local Context Menu</string>
-    <!-- Title for dialog with general TalkBack actions -->
+    <string name="shortcut_perform_click_action">Tap</string>
+    <!-- Label for the shortcut that performs long click on focused item action. [CHAR_LIMIT=60] -->
+    <string name="shortcut_perform_long_click_action">Touch and hold</string>
+    <!-- [Deprecated] Title for dialog with general TalkBack actions -->
     <string name="global_context_menu_title">Global Context Menu</string>
+    <!-- Title for dialog with general TalkBack actions and focused node actions [CHAR_LIMIT=40] -->
+    <string name="talkback_menu_title">TalkBack menu</string>
   <!-- Label for the shortcut that opens the language option menu. [CHAR_LIMIT=40] -->
-  <string name="shortcut_show_language_options">Show installed languages</string>
-  <!--Label for the shortcut that selects the next setting -->
-  <string name="shortcut_select_next_setting">Select next setting</string>
-  <!--Label for the shortcut that selects the previous setting -->
-  <string name="shortcut_select_previous_setting">Select previous setting</string>
+  <string name="shortcut_show_language_options">Change spoken language</string>
+  <!--Label for the shortcut that selects the next setting [CHAR_LIMIT=100]-->
+  <string name="shortcut_select_next_setting">Next reading control</string>
+  <!--Label for the shortcut that selects the previous setting [CHAR_LIMIT=100]-->
+  <string name="shortcut_select_previous_setting">Previous reading control</string>
+  <!--Label for the shortcut that enables pass-through [CHAR_LIMIT=NONE] -->
+  <string name="shortcut_pass_through_next">Pass through system gesture</string>
+  <!--Label for the shortcut that triggers clicking the Accessibility button -->
+  <string name="shortcut_a11y_button">Accessibility shortcut</string>
+  <!--Label for the shortcut that triggers long clicking the Accessibility button -->
+  <string name="shortcut_a11y_button_long_press">Hold accessibility shortcut</string>
   <!-- TODO: add selector shortcuts to perform next and previous actions specific to the selected setting. -->
-  <!--Label for the shortcut that performs the selected setting's next action-->
-  <string name="shortcut_selected_setting_next_action">Selected setting next action</string>
-  <!--Label for the shortcut that performs the selected setting's previous action-->
-  <string name="shortcut_selected_setting_previous_action">Selected setting previous action</string>
-  <!-- Label for the shortcut that performs screen search. -->
-  <string name="shortcut_perform_screen_search">Screen search</string>
+  <!--Label for the shortcut that performs the selected setting's next action [CHAR_LIMIT=120]-->
+  <string name="shortcut_selected_setting_next_action">Move navigation focus forward or adjust reading control down</string>
+  <!--Label for the shortcut that performs the selected setting's previous action [CHAR_LIMIT=120]-->
+  <string name="shortcut_selected_setting_previous_action">Move navigation focus backward or adjust reading control up</string>
+  <!-- [Deprecated] Label for the shortcut that performs screen search. [CHAR_LIMIT=100] -->
+  <string name="shortcut_perform_screen_search">Open screen search</string>
   <!-- Label for the screen search result list. -->
   <string name="label_screen_search_result">Search result</string>
   <!-- Title for the screen search overlay. -->
-  <string name="title_screen_search" translatable="false">@string/shortcut_perform_screen_search</string>
+  <string name="title_screen_search" translatable="false">@string/title_show_screen_search</string>
   <!-- Label for the shortcut that toggles headphone navigation mode -->
   <string name="shortcut_toggle_headphone_navigation" translatable="false">Toggle headphone navigation</string>
+    <!-- Label for the shortcut that plays/pauses media [CHAR_LIMIT=61]-->
+    <string name="shortcut_media_control">Play or pause media</string>
+    <!-- Label for the shortcut that perform all apps action. [CHAR_LIMIT=25]-->
+    <string name="shortcut_all_apps">All apps</string>
+    <!-- Label for the shortcut that perform switch to braille keyboard action. [CHAR_LIMIT=40]-->
+    <string name="shortcut_braille_keyboard">Switch to braille keyboard</string>
+    <!-- Label for the shortcut that launch Talkback tutorial action. [CHAR_LIMIT=40]-->
+    <string name="shortcut_tutorial">Open tutorial</string>
+    <!-- Label for the shortcut that launch gesture practicing page. [CHAR_LIMIT=40]-->
+    <string name="shortcut_practice_gestures">Practice gestures</string>
+    <!-- Label for the shortcut that report gesture issue. [CHAR_LIMIT=60]-->
+    <string name="shortcut_report_gesture">Report gesture issue</string>
 
-
-    <!-- Label for the local breakout menu when it contains no other items. -->
+    <!-- Label for the talkback breakout menu when it contains no other items. [CHAR_LIMIT=100] -->
     <string name="title_local_breakout_no_items">No menu items.</string>
     <!-- Label for the menu item to move to the next section within web content. [CHAR_LIMIT=40] -->
     <string name="title_web_breakout_next_section">Next section</string>
@@ -929,17 +1047,17 @@
     <string name="title_web_breakout_prev_list">Previous list</string>
     <!-- Label for the menu item to move to the previous control within web content. [CHAR_LIMIT=40] -->
     <string name="title_web_breakout_prev_control">Previous control</string>
-    <!-- Label for the local breakout menu containing controls for navigating editable text content. [CHAR_LIMIT=40] -->
-    <string name="title_edittext_controls">Edit options</string>
+    <!-- Label for the talkback breakout menu containing controls for navigating editable text content. [CHAR_LIMIT=70] -->
+    <string name="title_edittext_controls">Editing options</string>
     <!-- Label for the menu item to move the cursor to the beginning of editable text content. [CHAR_LIMIT=40] -->
     <string name="title_edittext_breakout_move_to_beginning">Move cursor to beginning</string>
     <!-- Label for the menu item to move the cursor to the end of editable text content. [CHAR_LIMIT=40] -->
     <string name="title_edittext_breakout_move_to_end">Move cursor to end</string>
-    <!-- Label for the menu item to start text selection mode. [CHAR_LIMIT=40] -->
-    <string name="title_edittext_breakout_start_selection_mode">Start selection mode</string>
+    <!-- Label for the menu item to start text selection mode. [CHAR_LIMIT=81] -->
+    <string name="title_edittext_breakout_start_selection_mode">Start or end selection mode</string>
     <!-- Label for the menu item to end text selection mode. [CHAR_LIMIT=40] -->
     <string name="title_edittext_breakout_end_selection_mode">End selection mode</string>
-    <!-- Label for the local breakout menu containing controls for navigating within a ViewPager control. [CHAR_LIMIT=40] -->
+    <!-- Label for the talkback breakout menu containing controls for navigating within a ViewPager control. [CHAR_LIMIT=70] -->
     <string name="title_viewpager_controls">Page navigation</string>
     <!-- Label for the menu item to move to the next page within a ViewPager control. [CHAR_LIMIT=40] -->
     <string name="title_viewpager_breakout_next_page">Next page</string>
@@ -953,35 +1071,63 @@
     <string name="title_viewpager_breakout_page_left">Page left</string>
     <!-- Label for the menu item to move a page right within a ViewPager control. [CHAR_LIMIT=40] -->
     <string name="title_viewpager_breakout_page_right">Page right</string>
-    <!-- Label for the local breakout menu containing controls for managing user defined labels for unlabeled items [CHAR_LIMIT=40] -->
+    <!-- Label for the talkback breakout menu containing controls for managing user defined labels for unlabeled items [CHAR_LIMIT=40] -->
     <string name="title_labeling_controls">Labels</string>
-    <!-- Label for the menu item that lets the user quickly navigate through all on-screen items. [CHAR_LIMIT=40] -->
-    <string name="title_summary">Quick navigation</string>
+    <!-- Label for the talkback breakout menu settings containing controls for managing to show or hide label at talkback breakout menu [CHAR_LIMIT=130] -->
+    <string name="title_labeling_show_or_hide_controls">Add or edit labels</string>
     <!-- Label for the menu item that lets the user change the navigation granularity (ex. character, word). [CHAR_LIMIT=40] -->
     <string name="title_granularity">Navigation</string>
+    <!-- Label for the menu item that lets the user change the navigation granularity detail (ex. character, word). [CHAR_LIMIT=100] -->
+    <string name="title_granularity_edit_menu">Edit navigation menu</string>
+    <!-- Label for the menu item that lets the user change the read from top. [CHAR_LIMIT=100] -->
+    <string name="title_read_from_top">Read from top</string>
+    <!-- Label for the menu item that lets the user copies the last spoken phrase. [CHAR_LIMIT=130] -->
+    <string name="title_copy_last_spoken_phrase">Copy last spoken phrase</string>
+    <!-- Label for the menu item that lets the user spells the last spoken phrase. [CHAR_LIMIT=130] -->
+    <string name="title_spell_last_spoken_phrase">Spell last spoken phrase</string>
+    <!-- Label for the menu item that lets the user repeats the last spoken phrase. [CHAR_LIMIT=130] -->
+    <string name="title_repeat_last_spoken_phrase">Repeat last spoken phrase</string>
     <!-- Label for the menu item that lets the user open the custom action menu (this is menu items defined by the app [CHAR_LIMIT=40] -->
+    <!--
+      Source: Possible user requests from voice commands to show possible actions.
+      Description: Looks for keyword "Actions" to see if user has asked to see possible actions. [CHAR LIMIT=40]
+    -->
     <string name="title_custom_action">Actions</string>
-    <!-- Label for local breakout menu containing controls for autocomplete edit fields. [CHAR_LIMIT=40] -->
-    <string name="title_suggestions_controls">Autocomplete suggestions</string>
     <!-- Label for the menu item to move to the autocomplete suggestions window for the current control. [CHAR_LIMIT=40] -->
     <string name="title_suggestions_breakout_suggestions">Jump to suggestions</string>
     <!-- Label for the menu item to return to the autocomplete edit field that provides the current suggestions window. [CHAR_LIMIT=40] -->
     <string name="title_suggestions_breakout_anchor">Return to edit field</string>
-    <!-- Label for the local breakout menu containing seek bar-specific controls. [CHAR_LIMIT=40] -->
-    <string name="title_seek_bar_controls">Seek control</string>
-    <!--
+    <!-- [Deprecated] Label for the talkback breakout menu containing seek bar-specific controls. [CHAR_LIMIT=70] -->
+    <string name="title_seek_bar_controls">Slider</string>
+    <!-- [Deprecated] Label for the context menu containing slider-specific controls. [CHAR_LIMIT=70] -->
+    <string name="title_adjust_slider">Change slider</string>
+    <!-- Label for the context menu containing show or hide screen. [CHAR_LIMIT=130] -->
+    <string name="title_show_hide_screen">Hide or show screen</string>
+    <!-- Label for the context menu containing screen search. [CHAR_LIMIT=70] -->
+    <string name="title_show_screen_search">Screen search</string>
+    <!-- Label for the context menu containing voice commands. [CHAR_LIMIT=70] -->
+    <string name="title_show_voice_commands">Voice commands</string>
+    <!-- Label for the context menu containing Talkback settings. [CHAR_LIMIT=70] -->
+    <string name="talkback_show_talkback_settings">TalkBack settings</string>
+
+    <!-- Label for the navigation menu containing other web navigation. [CHAR_LIMIT=100] -->
+    <string name="title_other_web_navigation">Other web navigation</string>
+    <!-- Label for the navigation menu containing default granularity. [CHAR_LIMIT=100] -->
+    <string name="title_granularity_default">Default navigation</string>
+
+    <!-- [Deprecated]
       Source: Title for editing the seek bar percentage.
-      Description: This is presented to the user in the editing dialog and in the local context
-      menu item that opens the editing dialog. [CHAR LIMIT=50]
+      Description: This is presented to the user in the editing dialog and in the talkback context
+      menu item that opens the editing dialog. [CHAR LIMIT=100]
     -->
-    <string name="title_seek_bar_edit">Edit seek control level</string>
-    <!--
+    <string name="title_seek_bar_edit">Edit slider level</string>
+    <!-- [Deprecated]
       Source: Instructions for editing the seek bar percentage; the user must enter an integer
       between 0 and 100, inclusive of both 0 and 100.
       Description: This is presented to the user when editing a seek bar's level. [CHAR LIMIT="NONE"]
     -->
     <string name="value_seek_bar_dialog_instructions">Enter a number from 0 to 100.</string>
-    <!--
+    <!-- [Deprecated]
       Source: Percentage indicator that is placed after the percentage edit box.
       Description: This is presented to the user when editing a seek bar's level. [CHAR LIMIT="NONE"]
     -->
@@ -997,6 +1143,98 @@
       Description: This is presented to the user when an element supports a "long click" action. [CHAR LIMIT="NONE"]
     -->
     <string name="title_action_long_press" translatable="false">Long Press</string>
+
+    <!-- Contextual actions group name title [CHAR LIMIT=80] -->
+    <string name="context_menu_category_contextual_actions">Actions for current item</string>
+    <!-- Reading control group name title [CHAR LIMIT=80] -->
+    <string name="menu_category_reading_controls">Reading</string>
+    <!-- Special features group name title [CHAR LIMIT=80] -->
+    <string name="menu_category_special_features">Special features</string>
+    <!-- Others group name title [CHAR LIMIT=40] -->
+    <string name="context_menu_category_others">Other</string>
+
+    <!-- Summary for the Context menu containing custom action. [CHAR_LIMIT=NONE] -->
+    <string name="summary_custom_action">Shows when custom actions exist for the current item</string>
+    <!-- Summary for the Context menu containing editing option. [CHAR_LIMIT=NONE] -->
+    <string name="summary_edittext_controls">Copy, paste, select, and more. Shows when you select a text box.</string>
+    <!-- Summary for the Context menu containing links. [CHAR_LIMIT=NONE] -->
+    <string name="summary_context_menu_links">Open links within a focused item</string>
+    <!-- Summary for the Context menu containing page navigation. [CHAR_LIMIT=NONE] -->
+    <string name="summary_viewpager_controls">Go to the next or previous page. Shows when you are reading content with multiple pages.</string>
+    <!-- Summary for the Context menu containing label manager. [CHAR_LIMIT=NONE] -->
+    <string name="summary_labeling_controls">Shows when you select an unlabeled item</string>
+    <!-- [Deprecated] Summary for the Context menu containing cslider-specific controls. [CHAR_LIMIT=NONE] -->
+    <string name="summary_adjust_slider">Update the number or percentage of a slider</string>
+    <!-- Summary for the Context menu containing navigation. [CHAR_LIMIT=NONE] -->
+    <string name="summary_granularity">Read by character, word, lines, and more</string>
+    <!-- Summary for the menu item that lets the user change the read from top. [CHAR_LIMIT=NONE] -->
+    <string name="summary_read_from_top">Starting from the top, read all items on the screen</string>
+    <!-- Summary for the menu item that lets the user change the read from next. [CHAR_LIMIT=NONE] -->
+    <string name="summary_read_from_current">Starting from the next item, read all items on the screen</string>
+    <!-- Summary for the menu item that lets the user copies the last spoken phrase. [CHAR_LIMIT=NONE] -->
+    <string name="summary_copy_last_spoken_phrase">Copy the last phrase TalkBack said to the clipboard so you can paste the text</string>
+    <!-- Summary for the menu item that lets the user spells the last spoken phrase. [CHAR_LIMIT=NONE] -->
+    <string name="summary_spell_last_spoken_phrase">Spell each letter of the last phrase that TalkBack said</string>
+    <!-- Summary for the menu item that lets the user repeats the last spoken phrase. [CHAR_LIMIT=NONE] -->
+    <string name="summary_repeat_last_spoken_phrase">Hear the last phrase that TalkBack said again</string>
+    <!-- Summary for user to performs screen search keyword. [CHAR_LIMIT=NONE] -->
+    <string name="summary_perform_screen_search">Enter a search term to find that text on the screen</string>
+    <!-- Summary for user to control talkback by voice. [CHAR_LIMIT=NONE] -->
+    <string name="summary_voice_commands">Control TalkBack with your voice</string>
+    <!-- Summary for the context menu containing show or hide screen. [CHAR_LIMIT=NONE] -->
+    <string name="summary_show_hide_screen">Hide the display so your screen is not visible to others in public places. After hiding your screen, return it to a normal state.</string>
+    <!-- Summary for the activity that manages TalkBack settings. [CHAR_LIMIT=NONE] -->
+    <string name="summary_talkback_preferences">Open TalkBack settings</string>
+    <!-- Summary for the menu item that opens the dialog with system actions available on device. [CHAR_LIMIT=NONE] -->
+    <string name="summary_system_actions">Go to all apps, Quick Settings, and use split screen</string>
+    <!-- Summary for user to adjust Text to Speech settings. [CHAR_LIMIT=NONE] -->
+    <string name="summary_tts_settings">Open text-to-speech settings</string>
+    <!-- Summary for user to suspend talkback. [CHAR_LIMIT=NONE] -->
+    <string name="summary_pause_feedback">Turn off TalkBack voice feedback</string>
+    <!-- voice feedback message, when user tries an editing command or action on non-editable content. [CHAR_LIMIT=30] -->
+    <string name="not_editable">Not editable</string>
+    <!-- Summary for the navigation options menu or quick menu containing characters. [CHAR_LIMIT=190] -->
+    <string name="summary_characters">Read one character at a time</string>
+    <!-- Summary for the navigation options menu or quick menu containing words. [CHAR_LIMIT=190] -->
+    <string name="summary_words">Read one word at a time</string>
+    <!-- Summary for the navigation options menu or quick menu containing lines. [CHAR_LIMIT=190] -->
+    <string name="summary_lines">Read one line at a time</string>
+    <!-- Summary for the navigation options menu or quick menu containing paragraphs. [CHAR_LIMIT=190] -->
+    <string name="summary_paragraphs">Read one paragraph at a time</string>
+    <!-- Summary for the navigation options menu or quick menu containing headings. [CHAR_LIMIT=100] -->
+    <string name="summary_headings">Jump between headings</string>
+    <!-- Summary for the navigation options menu or quick menu containing controls. [CHAR_LIMIT=NONE] -->
+    <string name="summary_controls">Jump between items you can interact with, like buttons, checkboxes, and text fields</string>
+    <!-- Summary for the navigation options menu or quick menu containing links. [CHAR_LIMIT=100] -->
+    <string name="summary_links">Jump between links</string>
+    <!-- Summary for the navigation options menu or quick menu containing landmarks. [CHAR_LIMIT=NONE] -->
+    <string name="summary_landmarks">Jump between landmarks on web pages, like \"main\" or \"navigation\"</string>
+    <!-- Summary for the navigation options menu or quick menu containing special content. [CHAR_LIMIT=NONE] -->
+    <string name="summary_special_content">Jump between special content on web pages, like tables</string>
+    <!-- Summary for the navigation options menu containing other web navigation. [CHAR_LIMIT=NONE] -->
+    <string name="summary_other_web_navigation">Only appear on web pages</string>
+    <!-- Summary for the navigation options menu containing default granularity. [CHAR_LIMIT=NONE] -->
+    <string name="summary_granularity_default">Read one item at a time</string>
+    <!-- Summary for the quick menu containing speech rate. [CHAR_LIMIT=NONE] -->
+    <string name="summary_speech_rate">Change how quickly TalkBack speaks</string>
+    <!-- Summary for the quick menu containing verbosity. [CHAR_LIMIT=NONE] -->
+    <string name="summary_selector_menu_verbosity">Change whether typed keys, usage hints, grid info, and other info is read aloud</string>
+    <!-- Summary for the quick menu containing punctuation. [CHAR_LIMIT=NONE] -->
+    <string name="summary_selector_menu_punctuation">Change whether punctuation and symbols are read aloud</string>
+    <!-- Summary for the quick menu containing language. [CHAR_LIMIT=NONE] -->
+    <string name="summary_language">Change your spoken language. Shows only when you have multiple text-to-speech languages installed.</string>
+    <!-- Summary for the quick menu containing sound feedback. [CHAR_LIMIT=NONE] -->
+    <string name="summary_sound_feedback">Hear sound effects as you navigate, like a beep to confirm an action.</string>
+    <!-- Summary for the quick menu containing vibration feedback. [CHAR_LIMIT=NONE] -->
+    <string name="summary_vibration_feedback">Feel vibrations for actions like selecting an item. Does not affect vibrations coming from apps or the system.</string>
+    <!-- Summary for the quick menu containing hide screen. [CHAR_LIMIT=NONE] -->
+    <string name="summary_hide_screen">Hide the display so your screen is not visible to others when in public places</string>
+    <!-- Summary for the quick menu containing audio ducking. [CHAR_LIMIT=NONE] -->
+    <string name="summary_audio_ducking">Lower volume of other audio playing when TalkBack speaks</string>
+    <!-- Summary for the quick menu containing scrolling. [CHAR_LIMIT=NONE] -->
+    <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+    <!-- Summary for the quick menu containing Accessibility volume change. [CHAR_LIMIT=NONE] -->
+    <string name="summary_support_change_a11y_volume">Increase or decrease Accessibility volume</string>
 
     <!-- Label for the direction of the "swipe up" gesture. For instance, this is used in the tutorial to inform the user of how to perform a specific gesture. [CHAR_LIMIT=40] -->
     <string name="value_direction_up">up</string>
@@ -1064,17 +1302,88 @@
     <!-- Label for the preference that assigns an action to the "swipe left then up" gesture. [CHAR_LIMIT=40] -->
     <string name="title_pref_shortcut_left_and_up">Swipe left then up</string>
 
-    <!-- Label for the preference that assigns an action to the "swipe up" gesture on fingerprint sensor. [CHAR_LIMIT=40] -->
+    <!-- Label for the preference that assigns an action to the "two-finger tap" gesture. [CHAR_LIMIT=63] -->
+    <string name="title_pref_shortcut_2finger_1tap">Tap with 2 fingers</string>
+    <!-- Label for the preference that assigns an action to the "two-finger double-tap" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_2finger_2tap">Double-tap with 2 fingers</string>
+    <!-- Label for the preference that assigns an action to the "two-finger triple-tap" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_2finger_3tap">Triple-tap with 2 fingers</string>
+    <!-- Label for the preference that assigns an action to the "three-finger tap" gesture. [CHAR_LIMIT=60] -->
+    <string name="title_pref_shortcut_3finger_1tap">Tap with 3 fingers</string>
+    <!-- Label for the preference that assigns an action to the "three-finger double-tap" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_3finger_2tap">Double-tap with 3 fingers</string>
+    <!-- Label for the preference that assigns an action to the "three-finger triple-tap" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_3finger_3tap">Triple-tap with 3 fingers</string>
+    <!-- Label for the preference that assigns an action to the "four-finger tap" gesture. [CHAR_LIMIT=63] -->
+    <string name="title_pref_shortcut_4finger_1tap">Tap with 4 fingers</string>
+    <!-- Label for the preference that assigns an action to the "four-finger double-tap" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_4finger_2tap">Double-tap with 4 fingers</string>
+    <!-- Label for the preference that assigns an action to the "four-finger triple-tap" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_4finger_3tap">Triple-tap with 4 fingers</string>
+
+    <!-- Label for the preference that assigns an action to the "two-finger swipe up" gesture. [CHAR_LIMIT=74] -->
+    <string name="title_pref_shortcut_2finger_swipe_up">Swipe up with 2 fingers</string>
+    <!-- Label for the preference that assigns an action to the "two-finger swipe down" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_2finger_swipe_down">Swipe down with 2 fingers</string>
+    <!-- Label for the preference that assigns an action to the "two-finger swipe left" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_2finger_swipe_left">Swipe left with 2 fingers</string>
+    <!-- Label for the preference that assigns an action to the "two-finger swipe right" gesture. [CHAR_LIMIT=78] -->
+    <string name="title_pref_shortcut_2finger_swipe_right">Swipe right with 2 fingers</string>
+    <!-- Label for the preference that assigns an action to the "three-finger swipe up" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_3finger_swipe_up">Swipe up with 3 fingers</string>
+    <!-- Label for the preference that assigns an action to the "three-finger swipe down" gesture. [CHAR_LIMIT=78] -->
+    <string name="title_pref_shortcut_3finger_swipe_down">Swipe down with 3 fingers</string>
+    <!-- Label for the preference that assigns an action to the "three-finger swipe left" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_3finger_swipe_left">Swipe left with 3 fingers</string>
+    <!-- Label for the preference that assigns an action to the "three-finger swipe right" gesture. [CHAR_LIMIT=78] -->
+    <string name="title_pref_shortcut_3finger_swipe_right">Swipe right with 3 fingers</string>
+
+    <!-- Label for the preference that assigns an action to the "four-finger swipe up" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_4finger_swipe_up">Swipe up with 4 fingers</string>
+    <!-- Label for the preference that assigns an action to the "four-finger swipe down" gesture. [CHAR_LIMIT=78] -->
+    <string name="title_pref_shortcut_4finger_swipe_down">Swipe down with 4 fingers</string>
+    <!-- Label for the preference that assigns an action to the "four-finger swipe left" gesture. [CHAR_LIMIT=75] -->
+    <string name="title_pref_shortcut_4finger_swipe_left">Swipe left with 4 fingers</string>
+    <!-- Label for the preference that assigns an action to the "four-finger swipe right" gesture. [CHAR_LIMIT=78] -->
+    <string name="title_pref_shortcut_4finger_swipe_right">Swipe right with 4 fingers</string>
+
+    <!-- Label for the preference that assigns an action to the "two-finger double-tap and hold" gesture. [CHAR_LIMIT=90] -->
+    <string name="title_pref_shortcut_2finger_2tap_hold">Double-tap and hold with 2 fingers</string>
+    <!-- Label for the preference that assigns an action to the "three-finger double-tap and hold" gesture. [CHAR_LIMIT=96] -->
+    <string name="title_pref_shortcut_3finger_2tap_hold">Double-tap and hold with 3 fingers</string>
+    <!-- Label for the preference that assigns an action to the "four-finger double-tap and hold" gesture. [CHAR_LIMIT=93] -->
+    <string name="title_pref_shortcut_4finger_2tap_hold">Double-tap and hold with 4 fingers</string>
+
+    <!-- The gesture name of cancelled gestures. [CHAR_LIMIT=60]-->
+    <string name="gesture_name_unknown">Unknown gesture</string>
+    <!-- The gesture name of pass through to system. [CHAR_LIMIT=100]-->
+    <string name="gesture_name_pass_through">Pass through to system gesture</string>
+    <!-- The gesture name of touch-explore gestures. [CHAR_LIMIT=60]-->
+    <string name="gesture_name_touch_explore">Touch explore</string>
+    <!-- The gesture name of double-tap. [CHAR_LIMIT=60]-->
+    <string name="gesture_name_double_tap">Double-tap</string>
+    <!-- The gesture name of double-tap and hold. [CHAR_LIMIT=100]-->
+    <string name="gesture_name_double_tap_and_hold">Double-tap and hold</string>
+    <!-- The gesture name of 2 finger tap and hold. [CHAR_LIMIT=100]-->
+    <string name="gesture_name_2finger_tap_hold">Tap and hold with 2 fingers</string>
+    <!-- The gesture name of 3 finger tap and hold. [CHAR_LIMIT=100]-->
+    <string name="gesture_name_3finger_tap_hold">Tap and hold with 3 fingers</string>
+    <!-- The gesture name of 3 finger triple tap and hold. [CHAR_LIMIT=100]-->
+    <string name="gesture_name_3finger_3tap_hold">Triple-tap and hold with 3 fingers</string>
+
+    <!-- Label for the preference that assigns an action to the "swipe up" gesture on fingerprint sensor. [CHAR_LIMIT=90] -->
     <string name="title_pref_shortcut_fingerprint_up">Swipe up on fingerprint sensor</string>
-    <!-- Label for the preference that assigns an action to the "swipe down" gesture on fingerprint sensor. [CHAR_LIMIT=40] -->
+    <!-- Label for the preference that assigns an action to the "swipe down" gesture on fingerprint sensor. [CHAR_LIMIT=96] -->
     <string name="title_pref_shortcut_fingerprint_down">Swipe down on fingerprint sensor</string>
-    <!-- Label for the preference that assigns an action to the "swipe left" gesture on fingerprint sensor. [CHAR_LIMIT=40] -->
+    <!-- Label for the preference that assigns an action to the "swipe left" gesture on fingerprint sensor. [CHAR_LIMIT=96] -->
     <string name="title_pref_shortcut_fingerprint_left">Swipe left on fingerprint sensor</string>
-    <!-- Label for the preference that assigns an action to the "swipe right" gesture on fingerprint sensor. [CHAR_LIMIT=40] -->
+    <!-- Label for the preference that assigns an action to the "swipe right" gesture on fingerprint sensor. [CHAR_LIMIT=99] -->
     <string name="title_pref_shortcut_fingerprint_right">Swipe right on fingerprint sensor</string>
 
     <!-- Label for the preference that allows the user to choose the assigned action for the down-then-up and up-then-down accessibility gestures. [CHAR_LIMIT=60] -->
     <string name="title_pref_two_part_vertical_gestures">Two part vertical gestures</string>
+    <!-- Label for the prefernce that displays version code. [CHAR_LIMIT=99] -->
+    <string name="title_pref_version_code">Version Code</string>
 
     <!-- Label for preference specifying a volume that's the same as the system media volume. -->
     <string name="value_volume_100_percent" formatted="false">Match media volume</string>
@@ -1164,6 +1473,8 @@
     <string name="label_dialog_title_edit">Edit label</string>
     <!-- Title for the alert shown when a user removes a custom label for an unlabeled view. [CHAR_LIMIT=40] -->
     <string name="label_dialog_title_remove">Remove label</string>
+    <!-- Confirmation when a user removes a custom label for an unlabeled view. [CHAR_LIMIT=70] -->
+    <string name="label_dialog_confirm_label_remove">Label removed</string>
     <!-- Text that appears in the alert shown when a user adds or edits a custom label for an unlabeled view. -->
     <string name="label_dialog_text">Enter the text to be used as a label for this element\nInternal view name: <xliff:g id="view_resource_name">%1$s</xliff:g></string>
     <!-- Text that appears in the alert shown when a user removes a custom label for an unlabeled view. -->
@@ -1203,20 +1514,20 @@
     <!-- Label for preference specifying Suspend/Resume action is assigned for long press 2 volume buttons. -->
     <string name="value_long_volume_pressed_suspend_talkback" formatted="false">Long press volume up and down keys</string>
 
-    <!-- Label for preference specifying that the "dim screen" action is assigned to pressing both volume up/down buttons three times quickly. -->
-    <string name="value_dim_volume_three_clicks" formatted="false">Press both volume keys three times quickly to enable or disable screen dimming</string>
+    <!-- Label for preference specifying that the "dim screen" action is assigned to pressing both volume up/down buttons three times quickly. [CHAR_LIMIT=NONE] -->
+    <string name="value_dim_volume_three_clicks" formatted="false">Press both volume keys three times quickly to hide or show the screen</string>
 
-    <!-- Title for the alert shown when a user attempts to set option that dims the screen. -->
-    <string name="dialog_title_dim_screen">Dim the screen?</string>
-    <!-- Message for the alert shown when a user attempts to set option that dims the screen. -->
-    <string name="dialog_message_dim_screen">Are you sure you want to dim the screen?</string>
+    <!-- Title for the alert shown when a user attempts to set option that turns the phone screen dark to provide provide privacy. [CHAR_LIMIT=50] -->
+    <string name="dialog_title_dim_screen">Hide screen?</string>
+    <!-- Message for the alert shown when a user attempts to set option that turns the phone screen dark to provide provide privacy. [CHAR_LIMIT=NONE] -->
+    <string name="dialog_message_dim_screen">This turns off the display to improve privacy so your screen is not visible to others when in public places</string>
 
 
     <!--
       Source: Description of a notification that some of TalkBack's built-in gestures have been changed.
       Description: Displays a more detailed notification with information about gesture changes [CHAR LIMIT=NONE]
      -->
-    <string name="talkback_built_in_gesture_change_details">This version of TalkBack includes changes to the default accessibility gestures.\n\nThe up-then-down gesture will allow you to move to the first item on the screen, and the down-then-up gesture will move to the last item.\n\nThe reading granularity can now be changed by focusing an item, then selecting a granularity from the local context menu.\n\nYou can change the actions performed by these gestures in TalkBack Settings.</string>
+    <string name="talkback_built_in_gesture_change_details">This version of TalkBack includes changes to the default accessibility gestures.\n\nThe up-then-down gesture will allow you to move to the first item on the screen, and the down-then-up gesture will move to the last item.\n\nThe reading granularity can now be changed by focusing an item, then selecting a granularity from the talkback context menu.\n\nYou can change the actions performed by these gestures in TalkBack Settings.</string>
 
     <!--
       Source: Description of a notification that TalkBack's built-in swipe-up and swipe-down gestures have been changed in TalkBack 4.5.
@@ -1229,6 +1540,12 @@
      -->
     <string name="side_tap_shortcuts_removed_details">These settings are removed from TalkBack, due to reliability issues:\n• Tap on side of device gestures\n• Shake to start continuous reading</string>
 
+    <!--
+      Notification that TalkBack's first-element shortcut is reassigned to select the previous setting and last-element shortcut is reassigned to voice-shortcut and the selector is enabled.
+      Gesture name should match string for title_pref_shortcut_up_and_down and title_pref_shortcut_down_and_up.
+      [CHAR_LIMIT=1200]
+     -->
+    <string name="updown_downup_gestures_change_and_selector_always_on_details">The gesture \"swipe up then down\" is reassigned to select previous setting.\nThe gesture \"swipe down then up\" is reassigned to start voice-shortcuts.\n\nThe selector is enabled, swipe up then down on the screen, swipe up or down on the fingerprint sensor to select a setting. And swipe up or down on the screen to adjust the setting.</string>
     <!-- Label for the gesture change notificaiton dialog button to accept the suggested gesture mapping -->
     <string name="button_accept_changed_gesture_mappings">Accept gestures</string>
 
@@ -1245,8 +1562,7 @@
     <string name="dialog_title_disable_exploration">Disable Explore by touch?</string>
     <!-- Message for the dialog shown when a user attempts to disable Explore by Touch. -->
     <string name="dialog_message_disable_exploration">Are you sure you want to turn off Explore by touch?\n\nYour device will no longer respond to shortcut gestures or speak items when you touch the screen.</string>
-
-     <!-- Title for the dialog shown when a user attempts to enable node tree debugging.  -->
+    <!-- Title for the dialog shown when a user attempts to enable node tree debugging.  -->
     <string name="dialog_title_enable_tree_debug">Enable Node Tree Debugging?</string>
     <!-- Message for the dialog shown when a user attempts to enable node tree debugging. -->
     <string name="dialog_message_enable_tree_debug">Are you sure you want to turn on node tree debugging?\n\nNode tree debugging exposes the content of your screen to your device\'s logs, which may be read by other applications.</string>
@@ -1256,7 +1572,7 @@
     <!-- Message for the dialog shown when a user attempts to enable performance statistics. -->
     <string name="dialog_message_enable_performance_stats">Are you sure you want to turn on performance statistics?\n\nPerformance statistics may consume more memory and power.</string>
 
-    <!-- Label for shortcut action that opens the TalkBack global context menu. -->
+    <!-- [Deprecated] Label for shortcut action that opens the TalkBack global context menu. -->
     <string name="label_talkback_context_menu">TalkBack global context menu</string>
 
     <!-- Label for the permission that allows an application to control TalkBack. -->
@@ -1283,6 +1599,11 @@
     <!-- Spoken description when the user navigates forwards with a web or macro granularity and there is no more items. -->
     <string name="end_of_page">No next <xliff:g name="granularity" example="heading">%1$s</xliff:g></string>
 
+    <!-- Spoken result when the user sets granularity fail.[CHAR_LIMIT=NONE] -->
+    <string name="set_granularity_fail"><xliff:g name="granularity" example="heading">%1$s</xliff:g> failed</string>
+
+    <!--Spoken description of a window. [CHAR_LIMIT=30] -->
+    <string name="display_name_window">window</string>
     <!--Spoken description of a heading -->
     <string name="display_name_heading">heading</string>
     <!--Spoken description of a button -->
@@ -1349,21 +1670,21 @@
     <!--
       Source: String template for indicating that the Android TV remote control mode has changed to
       a special mode.
-      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+      Description: This is spoken to the user. [CHAR LIMIT=NONE]
      -->
-    <string name="template_tv_remote_mode_started"><xliff:g id="remote_mode" example="Seek control mode">%1$s</xliff:g> started</string>
+    <string name="template_tv_remote_mode_started"><xliff:g id="remote_mode" example="Slider mode">%1$s</xliff:g> started</string>
     <!--
       Source: String template for indicating that the Android TV remote control mode has exited a
       special mode and has returned to normal navigation mode.
-      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+      Description: This is spoken to the user. [CHAR LIMIT=NONE]
      -->
-    <string name="template_tv_remote_mode_ended"><xliff:g id="remote_mode" example="Seek control mode">%1$s</xliff:g> ended</string>
+    <string name="template_tv_remote_mode_ended"><xliff:g id="remote_mode" example="Slider mode">%1$s</xliff:g> ended</string>
     <!--
       Source: The Android TV remote control mode in which the arrow keys change the value of a
       seek control.
-      Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+      Description: This is spoken to the user. [CHAR LIMIT=NONE]
      -->
-    <string name="value_tv_remote_mode_seek_control">Seek control mode</string>
+    <string name="value_tv_remote_mode_seek_control">Slider mode</string>
     <!--
       Source: The hint for the Android TV seek control remote mode. Instructs users that the arrow
       directional keys on their remote will manipulate the seek control value, and that pressing
@@ -1399,10 +1720,8 @@
     -->
     <string name="arc_open_talkback_settings_hint">Press <xliff:g id="keyCombo" example="Search+0">%1$s</xliff:g> to open TalkBack settings</string>
 
-
-
-  <!-- Value used to reset the user language preference -->
-  <string name="reset_user_language_preference">Reset</string>
+  <!-- Value used to reset the user language preference to default [CHAR LIMIT=40] -->
+  <string name="reset_user_language_preference">Default</string>
 
   <!--Selector preferences-->
   <!--Title of selector preference screen.-->
@@ -1415,6 +1734,8 @@
 
   <!--Title of preference for configuring the settings of the selector.-->
   <string name="title_pref_category_selector_settings_configuration">Setting configuration</string>
+  <!--Title of preference for configuring the granularity of the selector.-->
+  <string name="title_pref_category_selector_granularity_configuration">Granularity configuration</string>
   <!--
   Source: Title of preference for including speech rate in the selector setting list.
   Description: The user can check or not check this. [CHAR LIMIT=40]
@@ -1426,6 +1747,11 @@
   -->
   <string name="title_pref_selector_verbosity">Verbosity</string>
   <!--
+  Source: Title of preference for including verbosity in the selector setting list.
+  Description: The user can check or not check this. [CHAR LIMIT=40]
+  -->
+  <string name="title_pref_selector_punctuation">Punctuation</string>
+  <!--
   Source: Title of preference for including granularity in the selector setting list.
   Description: The user can check or not check this. [CHAR LIMIT=40]
   -->
@@ -1436,10 +1762,25 @@
   -->
   <string name="title_pref_selector_audio_focus">Audio ducking</string>
   <!--
-  Source: Summary subtext for the Speak when the selector is switched on.
-  Description: Explains that the gestures will be reassigned to selector settings. [CHAR LIMIT="NONE"]
+    Source: Title for the preference that allows user to scroll forward/backward scrollable.
+    Description: The user can check or not check this. [CHAR LIMIT=75]
+   -->
+  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <!--
+    Source: Title for the preference that allows user to change Accessibility volume.
+    Description: The user can check or not check this. [CHAR LIMIT=81]
+   -->
+  <string name="title_pref_a11y_volume">Accessibility volume</string>
+  <!--
+  Source: Adjusting slider is the current setting of quick menu.
+  Description: Notify user it's ready to adjust slider [CHAR LIMIT=45]
   -->
-  <string name="pref_selector_activation_summary">Swipe up and down on the fingerprint sensor to select a setting. Swipe up and down on the screen to change the setting value</string>
+  <string name="title_pref_selector_adjustable_widget_slider">Adjust slider</string>
+  <!--
+  Source: Adjusting number picker is the current setting of quick menu.
+  Description: Notify user it's ready to adjust value [CHAR LIMIT=45]
+  -->
+  <string name="title_pref_selector_adjustable_widget_number_picker">Adjust value</string>
   <!--
   Source: Title for the Speak passwords without headphones setting.
   Description: The user can check or not check this. [CHAR+LIMIT="NONE"]
@@ -1450,6 +1791,11 @@
   Description: Explains that the passwords will always be spoken. [CHAR+LIMIT="NONE"]
   -->
   <string name="summaryOn_pref_speak_passwords_without_headphones">Passwords always spoken</string>
+  <!--
+  Source: Title for the Speak passwords without headphones setting.
+  Description: The user can check or not check this. [CHAR_LIMIT=NONE]
+  -->
+  <string name="title_pref_sound_and_vibration">Sound and vibration</string>
 
   <!--
     Source: An utterance template for announcing copy of text (during edit).
@@ -1505,10 +1851,18 @@
   <!-- Checkbox text for always displaying the dialog -->
   <string name="always_show_this_message_label">Always show this message</string>
 
-  <!-- Title for voice commands, first-time use dialog -->
-  <string name="dialog_title_voice_commands">Using TalkBack voice commands</string>
-  <!-- Message for voice commands, first-time use dialog -->
-  <string name="dialog_message_voice_commands">Use your voice to control TalkBack.\nTo display the list of available voice commands, say \"help\" or \"what can I say\" at the voice prompt.</string>
+  <!-- Title for voice commands, first-time use dialog [CHAR_LIMIT=80] -->
+  <string name="dialog_title_voice_commands">Use voice commands to control TalkBack</string>
+  <!-- Message for voice commands, first-time use dialog [CHAR_LIMIT=NONE] -->
+  <string name="dialog_message_voice_commands">Here are some things you can say:\n\n• Copy\n• Read from next item\n• Find [save]\n• Speak [faster]\n• TalkBack settings\n\nSay \"<xliff:g example="help" id="voice_help_cmd">%1$s</xliff:g>\" for a list of all voice commands</string>
+  <!-- Label for use voice commands, first-time use dialog [CHAR_LIMIT=40] -->
+  <string name="start_voice_command">Use voice commands</string>
+
+  <!-- Title for pass through mode, first-time use dialog. [CHAR_LIMIT=NONE] -->
+  <string name="dialog_title_pass_through_mode">Skip TalkBack gestures to use system gestures</string>
+  <!-- Message for pass-through mode tutorial. [CHAR_LIMIT=NONE] [BACKUP_MESSAGE_ID: 2757739143933456348]-->
+  <string name="dialog_message_pass_through_mode">When you hear a chime, you can use a system gesture that isn\'t supported by TalkBack. This is known as a pass-through gesture.</string>
+
 
   <!-- Used to hint user to type search term in EditText field -->
   <string name="hint_type_search_term">Type search term</string>
@@ -1518,4 +1872,399 @@
   <!-- Notification channel description of Talkback. [CHAR_LIMIT=42] -->
   <string name="talkback_notification_channel_description">The Notification Channel of TalkBack</string>
 
+  <!-- For selector summary. -->
+  <!--
+  Source: Summary subtext for the selector.
+  Description: Explains how to use the selector. [CHAR_LIMIT=500]
+  For example: Swipe up then down to select a setting. Then Swipe up to adjust the setting.
+  -->
+  <string name="pref_selector_summary"><xliff:g id="select_setting_gesture">%1$s</xliff:g> to select a setting. Then <xliff:g id="adjust_setting_gesture">%2$s</xliff:g> to adjust the setting.</string>
+  <!--
+    Source: Summary subtext for the selector with two select gestures and one adjust gesture.
+    Description: Explains how to use the selector. [CHAR_LIMIT=700]
+    For example: Swipe up then down or Swipe down then up to select a setting. Then Swipe up to adjust the setting.
+  -->
+  <string name="pref_selector_summary_two_select_gesture"><xliff:g id="first_select_setting_gesture">%1$s</xliff:g> or <xliff:g id="second_select_setting_gesture">%2$s</xliff:g> to select a setting. Then <xliff:g id="adjust_setting_gesture">%3$s</xliff:g> to adjust the setting.</string>
+  <!-- The description of notifying user to assign gestures for selector in selector summary. [CHAR_LIMIT=50] -->
+  <string name="assign_gestures">Assign gestures</string>
+
+  <!-- Announces the new speech rate value. This is spoken to the user. [CHAR_LIMIT=100] -->
+  <string name="speech_rate_change">Speech rate <xliff:g example="50" id="scaleInPercent">%1$d</xliff:g>%%</string>
+  <!-- Announces punctuation is turned on or off.  This is spoken to the user. [CHAR_LIMIT=100] -->
+  <string name="punctuation_state">Punctuation <xliff:g example="on" id="state">%1$s</xliff:g></string>
+  <!-- Announces audio focus is turned on or off.  This is spoken to the user. [CHAR_LIMIT=100] -->
+  <string name="audio_focus_state">Audio ducking <xliff:g example="on" id="state">%1$s</xliff:g></string>
+  <!-- Announces sound feedback is turned on or off.  This is spoken to the user. [CHAR_LIMIT=100] -->
+  <string name="sound_feedback_state">Sound feedback <xliff:g example="on" id="state">%1$s</xliff:g></string>
+  <!-- Announces vibration feedback is turned on or off.  This is spoken to the user. [CHAR_LIMIT=100] -->
+  <string name="vibration_feedback_state">Vibration feedback <xliff:g example="on" id="state">%1$s</xliff:g></string>
+
+  <!-- One or two gesture name. This is spoken to the user. [CHAR_LIMIT=100]-->
+  <string name="gesture_1_or_2"><xliff:g example="swipe up">%1$s</xliff:g> or <xliff:g example="swipe down">%2$s</xliff:g></string>
+  <!-- Usage hint for how to select setting. This is spoken to the user. [CHAR_LIMIT=200] -->
+  <string name="select_setting_hint"><xliff:g example="swipe up" id="select_setting_gesture">%1$s</xliff:g> to select a different setting</string>
+  <!-- Usage hint for how to adjust the selected setting. This is spoken to the user. [CHAR_LIMIT=150] -->
+  <string name="adjust_setting_hint"><xliff:g example="swipe up" id="adjust_setting_gesture">%1$s</xliff:g> to adjust the setting</string>
+  <!-- Usage hint for how to read the screen (such as reading a single word at a time). This is spoken to the user. [CHAR_LIMIT=180] -->
+  <string name="adjust_granularity_hint"><xliff:g example="swipe up" id="adjust_granularity_gesture">%1$s</xliff:g> to read by <xliff:g example="words" id="granularity">%2$s</xliff:g></string>
+  <!-- Usage hint for how to assign gesture for the quick menu. This is spoken to the user. [CHAR_LIMIT=280] -->
+  <string name="no_adjust_setting_gesture">To use this, go to TalkBack settings and add a gesture for \'<xliff:g example="selected setting next action">%1$s</xliff:g>\'</string>
+
+  <!-- Announced when can't switching to braille keyboard . [CHAR_LIMIT=150] -->
+  <string name="switch_to_braille_keyboard_failure_msg">Braille keyboard isn\'t turned on. Go to TalkBack settings, set up Braille keyboard, and try again.</string>
+
+  <!-- For training. -->
+  <!-- Show the page number in training. [CHAR_LIMIT=140]-->
+  <string name="training_page_number">Page <xliff:g example="1" id="page_number">%1$d</xliff:g> of <xliff:g example="5" id="total_number">%2$d</xliff:g></string>
+  <!-- The text of previous button to go to the previous page. [CHAR_LIMIT=15]-->
+  <string name="training_back_button">Previous</string>
+  <!-- The text of next button [CHAR_LIMIT=15]-->
+  <string name="training_next_button">Next</string>
+  <!-- The text of close button [CHAR_LIMIT=15]-->
+  <string name="training_close_button">Close</string>
+  <!-- The text of finish button [CHAR_LIMIT=20]-->
+  <string name="training_finish_button">Finish</string>
+  <!-- The description of the navigate up button on the action bar. This is spoken to the user. [CHAR_LIMIT=NONE]-->
+  <string name="training_navigate_up">Navigate up</string>
+
+  <!-- For on-boarding. -->
+  <!-- A item in settings page to introduce TalkBack 9.1 new features. [CHAR_LIMIT=NONE]-->
+  <string name="new_feature_talkback_91_title">New features in TalkBack</string>
+  <!-- The title of a dialog that is shown when exiting the tutorial. [CHAR_LIMIT=45]-->
+  <string name="exit_tutorial_title">Close tutorial?</string>
+  <!-- The content of the exit dialog. [CHAR_LIMIT=NONE]-->
+  <string name="exit_tutorial_content">You can come back to it anytime in TalkBack settings.</string>
+  <!-- The text of the button that is for staying in tutorial. [CHAR_LIMIT=50]-->
+  <string name="stay_in_tutorial_button">Stay in tutorial</string>
+  <!-- For welcome to the update TalkBack page in on-boarding. -->
+  <!-- The page title of welcome to updated TalkBack. [CHAR_LIMIT=NONE]-->
+  <string name="welcome_to_updated_talkback_title">Welcome to the updated TalkBack</string>
+  <!-- The content of welcome page for pre-Android-R devices. [CHAR_LIMIT=NONE]-->
+  <string name="welcome_to_updated_talkback_text_pre_r">You will get simpler menus, voice control, and more.\n\nYou will learn about key updates and changes in the next few screens. This will take about 3 minutes. \n\nYou can review this information in TalkBack settings at any time.</string>
+  <!-- The content of welcome page for Android-R and above devices. [CHAR_LIMIT=NONE]-->
+  <string name="welcome_to_updated_talkback_text">You will get new, easier gestures, simpler menus, voice control, and more.\n\nYou will learn about key updates and changes in the next few screens. This will take about 5 minutes.\n\nYou can review this information in TalkBack settings at any time.</string>
+  <!-- For navigation and setting selector page in on-boarding. -->
+  <!-- Navigation subtitle. The translation should be the same as "navigation" in jump_between_headings_text and jump_between_headings_text_pre_r.[CHAR_LIMIT=NONE]-->
+  <string name="navigation_heading">Navigation</string>
+  <!-- Setting selector subtitle. [CHAR_LIMIT=NONE]-->
+  <string name="setting_selector_heading">Reading controls</string>
+  <!-- The text to introduce how to trigger setting selector for pre-Android-R devices. [CHAR_LIMIT=NONE]-->
+  <string name="setting_selector_text_pre_r">These shortcuts can help you quickly change settings, like switching your navigation from characters to words or changing TalkBack\'s speech rate.\n\nStep 1: Swipe down and then up to select the next reading control.\n\nStep 2: Swipe down to move the navigation focus forward or adjust a reading control down.</string>
+  <!-- The text to introduce how to trigger setting selector for Android-R or above devices. [CHAR_LIMIT=NONE]-->
+  <string name="setting_selector_text">These shortcuts can help you quickly change settings, like switching your navigation from characters to words or changing TalkBack\'s speech rate.\n\nStep 1: Swipe right with 3 fingers to select the next reading control.\n\nStep 2: Swipe down with 1 finger to move the navigation focus forward or adjust a reading control down.</string>
+  <!-- The text to try setting selector. [CHAR_LIMIT=NONE]-->
+  <string name="try_setting_selector_gesture">Try it now. Swipe right with 3 fingers.</string>
+  <!-- The text to try setting selector for Android-R or above devices. [CHAR_LIMIT=NONE]-->
+  <string name="try_setting_selector_gesture_pre_r">Try it now. Swipe down and then up.</string>
+  <!-- The text to introduce how to customize setting selector item. [CHAR_LIMIT=NONE]-->
+  <string name="customize_setting_selector_text">You can also reverse either of these gestures.\n\nSwipe left with 3 fingers to select the previous reading control.\n\nSwipe up with 1 finger to move the navigation focus backward or adjust a reading control up.\n\nYou can customize your reading controls in TalkBack settings.</string>
+  <!-- The text to introduce how to customize setting selector item for pre-Android-R devices. [CHAR_LIMIT=NONE]-->
+  <string name="customize_setting_selector_text_pre_r">You can also reverse either of these gestures.\n\nSwipe up and then down to select the previous reading control.\n\nSwipe up to move the navigation focus up or adjust a reading control up.\n\nYou can customize your reading controls in TalkBack settings.</string>
+  <!-- For more new gestures in on-boarding. -->
+  <!-- The title of new features page. [CHAR_LIMIT=NONE]-->
+  <string name="more_new_feature_title">More new features</string>
+  <!-- The text to introduce new context menu for pre-android-r devices. [CHAR_LIMIT=NONE]-->
+  <string name="more_new_feature_context_menu_text_pre_r">Global and local context menus, used to help you find settings and controls, are now united in a single TalkBack menu.\n\nYour existing gestures, such as swipe down and then right, will still take you to the new united menu.</string>
+  <!-- The text to introduce new context menu for android-r or above devices. [CHAR_LIMIT=NONE]-->
+  <string name="more_new_feature_context_menu_text">Global and local context menus, used to help you find settings and controls, are now united in a single TalkBack menu. You can open it by tapping with 3 fingers. Try it now.\n\nYour existing gestures will still take you to the new united menu: swipe down and then right.</string>
+  <!-- The text to introduce voice command. [CHAR_LIMIT=NONE]-->
+  <string name="more_new_feature_voice_command_text_with_actual_gesture">Now you can use your voice to control TalkBack quickly. To try it, <xliff:g example="swipe right then up">%1$s</xliff:g>.</string>
+  <!-- The text to introduce voice command. [CHAR_LIMIT=NONE]-->
+  <string name="more_new_feature_voice_command_default_text">Now you can use your voice to control TalkBack quickly. Go to TalkBack settings to set up a gesture for voice command.</string>
+  <!-- The text to introduce braille keyboard. [CHAR_LIMIT=NONE]-->
+  <string name="more_new_feature_braille_keyboard_text">TalkBack now includes a braille keyboard so you can type faster with braille. To try it, go to TalkBack settings.</string>
+  <!-- For new shortcut gestures page in on-boarding -->
+  <!-- The title of new shortcut gestures page. [CHAR_LIMIT=NONE]-->
+  <string name="new_shortcut_gesture_title">New gestures</string>
+  <!-- The text to introduce new shortcut gestures. [CHAR_LIMIT=NONE]-->
+  <string name="new_shortcut_gesture_text">New gestures have been added to make TalkBack faster and easier to use.\n\nOn this screen, you can try the new gestures.</string>
+  <!-- The text to introduce how to pause or play media. [CHAR_LIMIT=NONE]-->
+  <string name="new_shortcut_gesture_pause_or_play_media_text">To pause or play media in a video or music app, double-tap with 2 fingers. Try it now.</string>
+  <!-- The text to introduce how to pause or play media. [CHAR_LIMIT=NONE]-->
+  <string name="new_shortcut_gesture_pause_or_play_media_subtext">Other apps may use this gesture for things like answering or ending a phone call. This gesture may not be supported by all apps.</string>
+  <!--
+  Source: Announces when media paused or playing.
+  Description: This is spoken to the user. In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE] TODO: The resource name can be changed to new_shortcut_gesture_pause_or_play_media_announcement.
+  -->
+  <string name="new_shortcut_gesture_pause_media_announcement">Media paused or playing. Usually, this will pause or play the current video or music. Swipe right to continue.</string>
+  <!--
+  Source: Announces when media is playing.
+  Description: This is spoken to the user. In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE] TODO: Deprecated string resource.
+  -->
+  <string name="new_shortcut_gesture_play_media_announcement">Media playing. Usually, this will play the current video or music. Swipe right to continue.</string>
+  <!-- The text to introduce how to stop TalkBack speech. [CHAR_LIMIT=NONE]-->
+  <string name="new_shortcut_gesture_stop_speech_text">To stop TalkBack from talking temporarily, tap with 2 fingers.</string>
+  <!--
+  Source: Announces when TalkBack speech stopped.
+  Description: This is spoken to the user. In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE]
+  -->
+  <string name="new_shortcut_gesture_stop_speech_announcement">TalkBack speech stopped. Usually, this will stop the current phrase that TalkBack is saying. Swipe right to continue.</string>
+  <!-- The text to introduce how to copy text. This is spoken to the user. [CHAR_LIMIT=NONE]-->
+  <string name="new_shortcut_gesture_copy_text_text">To copy text, double-tap with 3 fingers.</string>
+  <!--
+  Source: Announces when text copied.
+  Description: This is spoken to the user. In RTL language, "right" and "left" shoud be translated reverse.[CHAR_LIMIT=NONE]
+  -->
+  <string name="new_shortcut_gesture_copy_text_announcement">Copied text. Usually, this will copy the text you have selected. Swipe right to continue.</string>
+  <!-- The text to introduce how to paste text. [CHAR_LIMIT=NONE]-->
+  <string name="new_shortcut_gesture_paste_text_text">To paste text, triple-tap with 3 fingers.</string>
+  <!--
+  Source: Announces when text pasted.
+  Description: This is spoken to the user. In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE]
+  -->
+  <string name="new_shortcut_gesture_paste_text_announcement">Pasted text. Usually, this will paste the text you have copied. Swipe right to continue.</string>
+  <!-- The text to introduce how to cut text. [CHAR_LIMIT=NONE]-->
+  <string name="new_shortcut_gesture_cut_text_text">To cut text, double-tap and hold with 3 fingers.</string>
+  <!--
+  Source: Announces when text cut.
+  Description: This is spoken to the user. In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE]
+  -->
+  <string name="new_shortcut_gesture_cut_text_announcement">Cut text. Usually, this will cut the text you have selected. Swipe right to continue.</string>
+  <!-- The text to introduce how to start or end text selection mode. [CHAR_LIMIT=NONE]-->
+  <string name="new_shortcut_gesture_selection_mode_text">To start or end text selection mode, double-tap and hold with 2 fingers.</string>
+  <!--
+  Source: Announces when selection mode turned on or off.
+  Description: This is spoken to the user. In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE] TODO: The resource name can be changed to new_shortcut_gesture_selection_mode_on_or_off_announcement
+  -->
+  <string name="new_shortcut_gesture_selection_mode_on_announcement">Selection mode on or off. Usually, this will start or stop text selection mode when you are inside an input field. Swipe right to continue.</string>
+  <!--
+  Source: Announces when selection mode turned off.
+  Description: This is spoken to the user. In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE] TODO: Deprecated string resource.
+  -->
+  <string name="new_shortcut_gesture_selection_mode_off_announcement">Selection mode off. Usually, this will end selection mode when you are inside an input field. Swipe right to continue.</string>
+  <!-- The text to introduce how to use reading controls. [CHAR_LIMIT=NONE]-->
+  <string name="new_shortcut_gesture_reading_menu_text">To use the reading controls, swipe left or right with 3 fingers. You can also swipe up or down with 3 fingers.</string>
+  <!-- A text to notify that gestures might not be correct because some gestures are customized. [CHAR_LIMIT=NONE]-->
+  <string name="new_shortcut_gesture_note">Note: You have customized some of your gestures, so this information may not be accurate. To review your gestures, go to TalkBack settings.</string>
+  <!-- For welcome page when user updates to R. -->
+  <!-- The title of welcome to TalkBack on Android 11 page. [CHAR_LIMIT=NONE]-->
+  <string name="welcome_to_android11">Welcome to TalkBack on Android 11</string>
+  <!-- The text about what's new in TalkBack on Android 11. [CHAR_LIMIT=NONE]-->
+  <string name="welcome_to_android11_text">New gestures have been added to make TalkBack faster and easier to use.\n\nOn this screen, you can try the new gestures. You can review this information in TalkBack settings at any time.</string>
+  <!-- The title of notification that to notify TalkBack supports new gestures. [CHAR_LIMIT=NONE]-->
+  <string name="new_gesture_notification_title">New gestures in TalkBack</string>
+  <!-- The content text of notification that to notify TalkBack supports new gestures. [CHAR_LIMIT=NONE]-->
+  <string name="new_gesture_notification_content">Tap to learn how to use TalkBack faster with new gestures.</string>
+  <!-- Announces when user dump the node tree log. This is spoken to the user. [CHAR_LIMIT=NONE]-->
+  <string name="dump_node_tree_description">Node tree has been printed to logs.</string>
+  <!-- The hint description provided to users to report gesture issues. [CHAR_LIMIT=NONE]-->
+  <string name="report_gesture_description">Here are gestures performed recently, please report which gesture is wrong and what is expected.</string>
+
+  <!-- For tutorial. -->
+  <!-- An item in settings page to explain how to use TalkBack. [CHAR_LIMIT=25]-->
+  <string name="tutorial_entry_point_title">Tutorial</string>
+  <!-- For welcome page in tutorial. -->
+  <!-- The title of welcoming to use TalkBack. [CHAR_LIMIT=NONE]-->
+  <string name="welcome_to_talkback_title">Welcome to TalkBack</string>
+  <!--
+  Srouce: The text of introducing TalkBack.
+  Description: In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE]
+  -->
+  <string name="welcome_to_talkback_text">TalkBack is a screen reader intended for situations or people who have difficulty seeing the screen. It gives you spoken feedback so that you can use your device without looking at the screen.\n\nYou can turn TalkBack on or off by holding both volume keys for several seconds.\n\nWhen TalkBack is on, the focused item on the screen is spoken out loud.\n\nSwiping right will move to the next item, and swiping left will move to the previous item.\n\nSwipe right now to find the next button.</string>
+  <!-- For touch explore page in tutorial. -->
+  <!-- The title of exploring by touch page. [CHAR_LIMIT=NONE] -->
+  <string name="explore_by_touch_title">Explore by touch</string>
+  <!-- The text to explain how to use TalkBack via touch explore. [CHAR_LIMIT=NONE]-->
+  <string name="explore_by_touch_text">You can focus on an item by dragging your finger across the screen.\n\nTry this now by touching the screen and dragging toward the bottom left corner until you find the next button.</string>
+  <!-- For scrolling page in tutorial. -->
+  <!-- The title of scrolling page. [CHAR_LIMIT=NONE]-->
+  <string name="scrolling_title">Scrolling</string>
+  <!-- The text to explain how to use TalkBack to scroll page. [CHAR_LIMIT=NONE]-->
+  <string name="scrolling_text">You can scroll by swiping with 2 fingers.\n\nTry this now by swiping up with 2 fingers until you scroll to the bottom of the list items.</string>
+  <!-- For gestures page in tutorial. -->
+  <!-- The title of gestures page. [CHAR_LIMIT=NONE]-->
+  <string name="gestures_title">System actions</string>
+  <!-- The text to introduce some useful gestures in TalkBack. [CHAR_LIMIT=NONE]-->
+  <string name="gestures_text">To perform any system action, add 1 finger to the system gesture.\n\nThis means when using TalkBack, you can go Home by swiping up with 2 fingers instead of 1.\n\nTrying these gestures now will close the tutorial. You may want to wait until you have completed the tutorial.</string>
+  <!-- The text to explain how to go Home via gesture. [CHAR_LIMIT=NONE]-->
+  <string name="gestures_home_text">To go Home, swipe up from the bottom of your screen with 2 fingers.</string>
+  <!-- The text to explain how to go to the recent apps via gesture. [CHAR_LIMIT=NONE]-->
+  <string name="gestures_overview_screen_text">To go to your recent apps, swipe up from the bottom of your screen with 2 fingers and hold. Then release. This takes you to the overview screen.</string>
+  <!-- The text to explain how to go back via gesture. [CHAR_LIMIT=NONE]-->
+  <string name="gestures_back_text">To go back, start at the left or right edge and swipe towards the middle of your screen with 2 fingers.</string>
+  <!-- The text to explain how to open notification shade via gesture for the device with gesture navigation. [CHAR_LIMIT=NONE]-->
+  <string name="gestures_open_notifications_text_for_gesture_navigation">To open notifications, swipe down from the top of the screen with 2 fingers.</string>
+  <!-- The text to explain how to open notification shade via gesture for the device with 3 navigation buttons at the bottom of the screen. [CHAR_LIMIT=NONE]-->
+  <string name="gestures_open_notifications_text_for_3_button_navigation">To open notifications, swipe down from the top of the screen with 2 fingers. Then you can close notifications by swiping back up with 2 fingers.\n\nTry it now.</string>
+  <!-- The text to explain how to use accessibility shortcut via gesture. [CHAR_LIMIT=NONE]-->
+  <string name="gestures_accessibility_shortcut_text">To open your accessibility shortcut, swipe up from the bottom of the screen with 3 fingers.</string>
+  <!-- For menus page in tutorial. -->
+  <!-- The title of menus page. [CHAR_LIMIT=NONE]-->
+  <string name="menus_title">Menu and controls</string>
+  <!-- The text to introduce TalkBack menu and how to open it via multi-fingers gestures. [CHAR_LIMIT=NONE]-->
+  <string name="menus_talkback_menu_text">The TalkBack menu includes settings and controls that you may need often.\n\nOpen the TalkBack menu now by tapping the screen with 3 fingers.</string>
+  <!-- The text to introduce TalkBack menu and how to open it via single finger gestures. [CHAR_LIMIT=NONE]-->
+  <string name="menus_talkback_menu_text_pre_r">The TalkBack menu includes settings and controls that you may need often.\n\nOpen the TalkBack menu now by swiping down then right.</string>
+  <!-- The text to introduce how to adjust reading settings quickly via multi-fingers gestures. [CHAR_LIMIT=NONE]-->
+  <string name="menus_selector_text">These shortcuts can help you quickly change settings, like switching your navigation from characters to words or changing TalkBack\'s speech rate.\n\nTo quickly change your reading controls, swipe left with 3 fingers or swipe right with 3 fingers.\n\nYou can customize the TalkBack menu and your reading controls later in TalkBack settings.</string>
+  <!-- The text to introduce how to adjust reading settings quickly via single finger gestures. [CHAR_LIMIT=NONE]-->
+  <string name="menus_selector_text_pre_r">These shortcuts can help you quickly change settings, like switching your navigation from characters to words or changing TalkBack\'s speech rate.\n\nTo quickly change your reading controls, swipe down and then back up.\n\nYou can customize the TalkBack menu and your reading controls later in TalkBack settings.</string>
+  <!-- The title of all set page. [CHAR_LIMIT=NONE]-->
+  <string name="all_set_title">All set!</string>
+  <!-- The text to notify user tutorial is finished. [CHAR_LIMIT=NONE]-->
+  <string name="all_set_text">You are ready to use TalkBack.\n\nKeep learning about other topics now, or review this info anytime in TalkBack settings.</string>
+  <!-- For tutorial index page. -->
+  <!-- The title of talkback tutorial. [CHAR_LIMIT=NONE] -->
+  <string name="talkback_tutorial_title">TalkBack tutorial</string>
+  <!--
+  Source: The description on the tutorial index page.
+  Description: In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE]
+  -->
+  <string name="talkback_tutorial_text">Swipe right to select a topic</string>
+  <!-- The text of basic navigation on the index page. [CHAR_LIMIT=NONE]-->
+  <string name="basic_navigation_link_text">Basic navigation</string>
+  <!-- The subtext of basic navigation on the index page. [CHAR_LIMIT=NONE]-->
+  <string name="basic_navigation_link_subtext">Move between items, scroll, use menus, and more</string>
+  <!-- The text of text editing on the index page. [CHAR_LIMIT=NONE]-->
+  <string name="text_editing_link_text">Text editing</string>
+  <!-- The subtext of text editing on the index page. [CHAR_LIMIT=NONE]-->
+  <string name="text_editing_link_subtext">Type, select, edit, and copy</string>
+  <!-- The text of reading navigation on the index page. [CHAR_LIMIT=NONE]-->
+  <string name="reading_navigation_link_text">Reading navigation</string>
+  <!-- The subtext of reading navigation on the index page. [CHAR_LIMIT=NONE]-->
+  <string name="reading_navigation_link_subtext">Read by word or character, and jump between links, controls or headings</string>
+  <!-- The text of voice commands on the index page. [CHAR_LIMIT=NONE]-->
+  <string name="voice_commands_link_text">Voice commands</string>
+  <!-- The subtext of voice commands on the index page. [CHAR_LIMIT=NONE]-->
+  <string name="voice_commands_link_subtext">Control TalkBack with your voice</string>
+  <!-- The text of practice gestures on the index page. [CHAR_LIMIT=NONE]-->
+  <string name="practice_gestures_link_text">Practice gestures</string>
+  <!-- The subtext of practice gestures on the index page. [CHAR_LIMIT=NONE]-->
+  <string name="practice_gestures_link_subtext">Try different gestures to learn what they do</string>
+  <!-- For text editing pages in tutorial. -->
+  <!-- The title of using text boxes page. [CHAR_LIMIT=NONE]-->
+  <string name="using_text_boxes_title">Using text boxes</string>
+  <!-- The description about how to use text boxes. [CHAR_LIMIT=NONE]-->
+  <string name="using_text_boxes_text">When you activate a text box, a keyboard opens at the bottom of your screen.\n\nTo dismiss the keyboard, double-tap the back button in the bottom left corner of your screen.\n\nTry activating and dismissing the text box below.</string>
+  <!-- The hint of edit box. [CHAR_LIMIT=NONE]-->
+  <string name="edit_box_hint">This is a text box</string>
+  <!-- A hint to notify user can type here. [CHAR_LIMIT=NONE]-->
+  <string name="enter_text_here">Enter text here</string>
+  <!-- The title of typing text page. [CHAR_LIMIT=NONE]-->
+  <string name="typing_text_title">Typing text</string>
+  <!-- The description about how to type text. [CHAR_LIMIT=NONE]-->
+  <string name="typing_text_text">Move your finger across the keyboard. When you hear the letter you want to type, lift your finger.\n\nTry activating the text box below and type your name.</string>
+  <!-- The description about how to type with braille keyboard. [CHAR_LIMIT=NONE]-->
+  <string name="typing_text_with_braille_keyboard_text">You can also type with the braille keyboard. Find it in TalkBack settings.</string>
+  <!-- The title of moving cursor page. [CHAR_LIMIT=NONE]-->
+  <string name="moving_cursor_title">Moving the cursor</string>
+  <!-- The description about how to move cursor. [CHAR_LIMIT=NONE]-->
+  <string name="moving_cursor_text">When you have activated a text box, you can move the cursor between letters by pressing the volume keys up or down.\n\nTry it in the text box below.</string>
+  <!-- The text in edit box to try some editing actions, like copy and paste. [CHAR_LIMIT=NONE]-->
+  <string name="edit_box_text">Welcome to TalkBack</string>
+  <!-- The title of selecting text from edit box. [CHAR_LIMIT=NONE]-->
+  <string name="selecting_text_title">Selecting text</string>
+  <!-- The description about how to select the text via gesture. [CHAR_LIMIT=NONE]-->
+  <string name="selecting_text_text">In a text box, move the cursor to the beginning of the text you want to select.\n\nDouble-tap and hold with 2 fingers to start selection mode. Then move the cursor to the end of the text. Double-tap and hold with 2 fingers again to end selection mode.\n\nTry to select the word \"Welcome\" in the text box below.</string>
+  <!-- The description about how to select the text via gesture. [CHAR_LIMIT=NONE]-->
+  <string name="selecting_text_text_pre_r">In a text box, move the cursor to the beginning of the text you want to select.\n\nSwipe down then right to open the TalkBack menu. Double-tap editing options and then start selection mode. Move the cursor to the end of the text.\n\nOpen the TalkBack menu again, then double-tap editing options to end selection mode.\n\nTry to select the word \"Welcome\" in the text box below.</string>
+  <!-- The description about how to select the text via TalkBack menu. [CHAR_LIMIT=NONE]-->
+  <string name="selecting_text_with_talkback_menu">You can find selection and other text editing actions by opening the TalkBack menu and choosing \"edit options\". TalkBack menu is opened by tapping with 3 fingers.</string>
+  <!-- The description about how to select the text via TalkBack menu. [CHAR_LIMIT=NONE]-->
+  <string name="selecting_text_with_talkback_menu_pre_r">You can find selection and other text editing actions by opening the TalkBack menu and choosing \"edit options\". TalkBack menu is opened by swiping up then right.</string>
+  <!-- The title of coping, cutting and pasting text. [CHAR_LIMIT=NONE]-->
+  <string name="copy_cut_paste_title">Copy, cut, and paste</string>
+  <!-- The description about how to copy text. [CHAR_LIMIT=NONE]-->
+  <string name="copy_text">After selecting text, copy it by double tapping with 3 fingers.\n\nTry to copy a word in the text box below.</string>
+  <!-- The description about how to cut or paste text. [CHAR_LIMIT=NONE]-->
+  <string name="cut_paste_text">To cut text, double-tap and hold with 3 fingers.\n\nTo paste text, triple-tap with 3 fingers.\n\nTry to paste a word in the text box below.</string>
+  <!-- The description about how to copy text. [CHAR_LIMIT=NONE]-->
+  <string name="copy_text_pre_r">After selecting text, you can copy it in the TalkBack menu. Swipe down and then right to open the TalkBack menu. Double-tap editing options and then copy.\n\nTry to copy a word in the text box below.</string>
+  <!-- The description about how to cut or paste text. [CHAR_LIMIT=NONE]-->
+  <string name="cut_paste_text_pre_r">To cut or paste text, open the TalkBack menu and double-tap editing options.\n\nTry to paste a word in the text box below.</string>
+  <!-- For reading navigation pages in tutorial. -->
+  <!-- The title of reading by character, word or paragraph page. [CHAR_LIMIT=NONE]-->
+  <string name="read_by_character_title">Read by character, word, or paragraph</string>
+  <!-- The description about how to read by character. [CHAR_LIMIT=NONE]-->
+  <string name="read_by_character_text">Sometimes, you might want to hear text read aloud one character at a time.\n\nTo do this, swipe right with 3 fingers until you hear \"<xliff:g example="characters">%1$s</xliff:g>\". Next, swipe up to move the navigation focus backward by character. Swipe down to move the navigation focus forward by character.\n\nTry it now. When you swipe right with 3 fingers, you can also choose to read by words or paragraphs.</string>
+  <!-- The description about how to read by character. [CHAR_LIMIT=NONE]-->
+  <string name="read_by_character_text_pre_r">Sometimes, you might want to hear text read aloud one character at a time.\n\nTo do this, swipe down and then up until you hear \"<xliff:g example="characters">%1$s</xliff:g>\". Next, swipe up to move the navigation focus backward by character. Swipe down to move the navigation focus forward by character.\n\nTry it now. When you swipe down and then up, you can also choose to read by words or paragraphs.</string>
+  <!-- The title of jump between controls page. [CHAR_LIMIT=NONE]-->
+  <string name="jump_between_controls_title">Jump between controls</string>
+  <!-- The description about how to move focus between some specific widgets. [CHAR_LIMIT=NONE]-->
+  <string name="jump_between_controls_text">Controls are items that you can interact with, like buttons, checkboxes, and text boxes.\n\nOn some pages, you may want to jump between controls to quickly find an action, like the next button.\n\nTo do this, swipe right with 3 fingers until you hear \"<xliff:g example="controls">%1$s</xliff:g>\". Next, swipe up to go to the previous control on a page. Swipe down to go to the next control on a page.\n\nTry it now. Switch to controls and find the next button.</string>
+  <!-- The description about how to move focus between some specific widgets. [CHAR_LIMIT=NONE]-->
+  <string name="jump_between_controls_text_pre_r">Controls are items that you can interact with, like buttons, checkboxes, and text boxes.\n\nOn some pages, you may want to jump between controls to quickly find an action, like the next button.\n\nTo do this, swipe down and then up until you hear \"<xliff:g example="controls">%1$s</xliff:g>\". Next, swipe up to go to the previous control on a page. Swipe down to go to the next control on a page.\n\nTry it now. Switch to controls and find the next button.</string>
+  <!-- The title of jump between links page. [CHAR_LIMIT=NONE]-->
+  <string name="jump_between_links_title">Jump between links</string>
+  <!--
+  Source: The description about how to move focus between links.
+  Description: The translation of "continue" should be the same as target_link_text. In RTL language, "Swipe right to find the next button" shoud be translated to "Swipe left to find the next button". [CHAR_LIMIT=NONE]
+  -->
+  <string name="jump_between_links_text">You can also jump between links on a page.\n\nTo try it now, swipe right with 3 fingers until you hear \"<xliff:g example="links">%1$s</xliff:g>\". Next, swipe down to find the link named \"continue\". While in the tutorial, double tapping this link will not do anything.\n\nSwipe right to find the next button and go to the next page.</string>
+  <!--
+  Source: The description about how to move focus between links.
+  Description: The translation of "continue" should be the same as target_link_text. In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE]
+  -->
+  <string name="jump_between_links_text_pre_r">You can also jump between links on a page.\n\nTo try it now, swipe down and then up until you hear \"<xliff:g example="links">%1$s</xliff:g>\". Next, swipe down and find the link named \"continue\". While in the tutorial, double tapping this link will not do anything.\n\nSwipe right to find the next button and go to the next page.</string>
+  <!-- The text of paragraph 1. [CHAR_LIMIT=NONE]-->
+  <string name="paragraph1_text">Paragraph 1. </string>
+  <!-- The text of paragraph 2. [CHAR_LIMIT=NONE]-->
+  <string name="paragraph2_text">Paragraph 2. </string>
+  <!-- The text of paragraph 3. [CHAR_LIMIT=NONE]-->
+  <string name="paragraph3_text">Paragraph 3. </string>
+  <!-- The text of paragraph 4. [CHAR_LIMIT=NONE]-->
+  <string name="paragraph4_text">Paragraph 4. </string>
+  <!-- The text of link 1. [CHAR_LIMIT=NONE]-->
+  <string name="link1_text">Link1</string>
+  <!-- The text of link 2. [CHAR_LIMIT=NONE]-->
+  <string name="link2_text">Link2</string>
+  <!-- The text of link 3. [CHAR_LIMIT=NONE]-->
+  <string name="link3_text">Link3</string>
+  <!-- The text of link 4. [CHAR_LIMIT=NONE]-->
+  <string name="link4_text">Link4</string>
+  <!-- The text of the target link. The translation should be the same as the translation of "continue" in jump_between_links_text and jump_between_links_text_pre_r. [CHAR_LIMIT=NONE]-->
+  <string name="target_link_text">Continue</string>
+  <!-- The title of jump between headings page. [CHAR_LIMIT=NONE]-->
+  <string name="jump_between_headings_title">Jump between headings</string>
+  <!--
+  Source: The description about how to move focus between headings.
+  Description: The translation of "navigation" should be the same as navigation_heading. In RTL language, "swipe right to find the finish button" shoud be translated to "swipe left to find the finish button". [CHAR_LIMIT=NONE]
+  -->
+  <string name="jump_between_headings_text">You can also jump between headings on a page.\n\nTo try it now, swipe right with 3 fingers until you hear \"<xliff:g example="headings">%1$s</xliff:g>\". Next, swipe down to find the \"navigation\" heading.\n\nTo finish the tutorial, swipe right to find the finish button. </string>
+  <!--
+  Source: The description about how to move focus between headings.
+  Description: The translation of "navigation" should be the same as navigation_heading. In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE]
+  -->
+  <string name="jump_between_headings_text_pre_r">You can also jump between headings on a page.\n\nTo try it now, swipe down and then up until you hear \"<xliff:g example="headings">%1$s</xliff:g>\". Next, swipe down to find the \"navigation\" heading.\n\nTo finish the tutorial, swipe right to find the finish button.</string>
+  <!-- A heading text. [CHAR_LIMIT=NONE]-->
+  <string name="content_heading">Content</string>
+  <!-- The hint about continuing to find heading and button. [CHAR_LIMIT=NONE]-->
+  <string name="content_text">Continue to the next heading.</string>
+  <!--
+  Source: The hint about continuing to find the finish button.
+  Description: In RTL language, "right" and "left" shoud be translated reverse. [CHAR_LIMIT=NONE]
+  -->
+  <string name="find_finish_button_text">Swipe right to find the finish button.</string>
+  <!-- For voice commands pages in tutorial. -->
+  <!-- The title of voice commands page. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_title">Voice commands</string>
+  <!-- The description about how to use voice command. [CHAR_LIMIT=NONE]-->
+  <string name="voice_commands_text">You can use your voice to control TalkBack quickly.\n\nFor example, say a command to change navigation, jump to the next heading, copy text, and more.\n\nTo try it now, swipe right and then up.</string>
+  <!-- For practice gestures pages in tutorial. -->
+  <!-- The title of practicing gesture page. [CHAR_LIMIT=NONE]-->
+  <string name="practice_gestures_title">Practice gestures</string>
+  <!-- The description about how to try gestures. [CHAR_LIMIT=NONE]-->
+  <string name="practice_gestures_text">Try any TalkBack gesture on this screen to hear what that gesture does.\n\nTap the screen with 2 fingers. Keep practicing by tapping once, twice, or three times with 2, 3, or 4 fingers.\n\nYou can also double-tap and hold with 2, 3, or 4 fingers.</string>
+  <!-- The description about how to try gestures. [CHAR_LIMIT=NONE]-->
+  <string name="practice_gestures_text_pre_r">Try any TalkBack gesture on this screen to hear what that gesture does.\n\nTry any gesture where two swipes form a right angle. For example, swipe down and then right, without lifting your finger in between.</string>
+  <!-- The text of the first button which lets users try jumping between controls in tutorial. [CHAR_LIMIT=NONE]-->
+  <string name="button_1">Button 1</string>
+  <!-- The text of the second button which lets users try jumping between controls in tutorial. [CHAR_LIMIT=NONE]-->
+  <string name="button_2">Button 2</string>
+  <!-- The text of the third button which lets users try jumping between controls in tutorial. [CHAR_LIMIT=NONE]-->
+  <string name="button_3">Button 3</string>
+  <!-- The text of the forth button which lets users try jumping between controls in tutorial. [CHAR_LIMIT=NONE]-->
+  <string name="button_4">Button 4</string>
+  <!-- The text is shown on the Toast when the view, like button or link, is clicked. The toast is to notify users that they activate a button or a link. [CHAR_LIMIT=NONE]-->
+  <string name="activated_view">Activated <xliff:g example="button">%1$s</xliff:g></string>
+  <!-- Alert dialog title for when the user starts the TalkBack tutorial but TalkBack is inactive. [CHAR_LIMIT=60] -->
+  <string name="talkback_inactive_title">TalkBack Disabled</string>
+  <!-- Alert message for when the user starts the TalkBack tutorial but TalkBack is inactive. [CHAR_LIMIT=NONE] -->
+  <string name="talkback_inactive_message">This tutorial requires TalkBack to be enabled. Please turn TalkBack on before launching the tutorial.</string>
+
+
+  <!-- For HaTS. -->
+  <!-- Announce when a survey is closed. [CHAR_LIMIT=NONE]-->
+  <string name="survey_closed">Survey closed</string>
 </resources>

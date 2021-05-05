@@ -18,12 +18,12 @@
   <string name="keycombo_key_arrow_up">Өйдө жебе</string>
   <string name="keycombo_key_arrow_down">Төмөн жебе</string>
   <string name="granularity_default">Демейки</string>
-  <string name="granularity_character">Каармандар</string>
+  <string name="granularity_character">Символдор</string>
   <string name="granularity_word">Сөздөр</string>
-  <string name="granularity_line">Сызыктар</string>
+  <string name="granularity_line">Саптар</string>
   <string name="granularity_paragraph">Абзацтар</string>
   <string name="granularity_page">Баракчалар</string>
-  <string name="granularity_web_landmark">Белги жерлер</string>
+  <string name="granularity_web_landmark">Белгиленген жерлер</string>
   <string name="granularity_web_heading">Аталыштар</string>
   <string name="granularity_web_list">Тизмелер</string>
   <string name="granularity_web_link">Шилтемелер</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">%2$d беттин %1$d-бети</string>
   <string name="template_viewpager_index_count_short">%2$d беттин %1$d-бети</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Чыгуу</string>
+  <string name="show_keyboard_window">%1$s көрсөтүлүүдө</string>
+  <string name="hide_keyboard_window">баскычтоп жашырылган</string>
+  <string name="function_on">Экрандагы текстти окуп берүү функциясы күйүк</string>
+  <string name="function_off">Экрандагы текстти окуп берүү функциясы өчүк</string>
 </resources>

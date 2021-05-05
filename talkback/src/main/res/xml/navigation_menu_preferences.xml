@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/pref_category_navigation_options_menu_key">
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_characters_default"
+        android:key="@string/pref_show_navigation_menu_characters_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_characters"
+        android:title="@string/granularity_character" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_words_default"
+        android:key="@string/pref_show_navigation_menu_words_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_words"
+        android:title="@string/granularity_word" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_lines_default"
+        android:key="@string/pref_show_navigation_menu_lines_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_lines"
+        android:title="@string/granularity_line" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_paragraphs_default"
+        android:key="@string/pref_show_navigation_menu_paragraphs_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_paragraphs"
+        android:title="@string/granularity_paragraph" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_headings_default"
+        android:key="@string/pref_show_navigation_menu_headings_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_headings"
+        android:title="@string/granularity_web_heading" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_controls_default"
+        android:key="@string/pref_show_navigation_menu_controls_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_controls"
+        android:title="@string/granularity_web_control" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_links_default"
+        android:key="@string/pref_show_navigation_menu_links_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_links"
+        android:title="@string/granularity_web_link" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_landmarks_default"
+        android:key="@string/pref_show_navigation_menu_landmarks_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_landmarks"
+        android:title="@string/granularity_web_landmark" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_special_content_default"
+        android:key="@string/pref_show_navigation_menu_special_content_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_special_content"
+        android:title="@string/granularity_pseudo_web_special_content" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_other_web_navigation_default"
+        android:key="@string/pref_show_navigation_menu_other_web_navigation_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_other_web_navigation"
+        android:title="@string/title_other_web_navigation" />
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_granularity_default"
+        android:key="@string/pref_show_navigation_menu_granularity_default_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_granularity_default"
+        android:title="@string/title_granularity_default" />
+</PreferenceScreen>

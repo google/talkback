@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:key="@string/pref_category_developer_key">
+  <Preference
+      android:key="@string/pref_version_code_key"
+      android:title="@string/title_pref_version_code" />
   <ListPreference
       android:defaultValue="@string/pref_log_level_default"
       android:dialogTitle="@string/title_pref_log_level"
@@ -13,6 +16,10 @@
       android:defaultValue="@bool/pref_tts_overlay_default"
       android:key="@string/pref_tts_overlay_key"
       android:title="@string/title_pref_tts_overlay"/>
+  <SwitchPreference
+      android:defaultValue="@bool/pref_echo_recognized_text_default"
+      android:key="@string/pref_echo_recognized_text_speech_key"
+      android:title="@string/title_pref_echo_recognized_text_speech"/>
   <SwitchPreference
       android:defaultValue="@bool/pref_reduce_window_delay_default"
       android:key="@string/pref_reduce_window_delay_key"

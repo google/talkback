@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <Preference
+      android:key="@string/pref_brailleime_turn_on_braille_keyboard"
+      android:title="@string/set_up_braille_keyboard" />
+
+  <MultiSelectListPreference
+      android:key="@string/pref_brailleime_translator_codes_preferred"
+      android:summary="%s"
+      android:title="@string/language_list_preference_title" />
+
+  <Preference
+      android:key="@string/pref_brailleime_see_all_actions"
+      android:title="@string/context_menu_see_all_gestures_selection" />
+
+  <ListPreference
+      android:key="@string/pref_brailleime_layout_mode"
+      android:title="@string/context_menu_layout_selection"
+      android:summary="%s" />
+
+  <SwitchPreference
+      android:key="@string/pref_brailleime_accumulate_mode"
+      android:summary="@string/summary_pref_accumulate_presses"
+      android:title="@string/title_pref_accumulate_presses" />
+
+  <SwitchPreference
+      android:key="@string/pref_brailleime_reverse_dots_mode"
+      android:summary="@string/summary_pref_reverse_dots"
+      android:title="@string/title_pref_reverse_dots" />
+
+  <ListPreference
+      android:key="@string/pref_brailleime_typing_echo"
+      android:title="@string/typing_echo_list_preference_title"
+      android:summary="%s" />
+
+</PreferenceScreen>

@@ -1,8 +1,14 @@
-/* For building open-source release of accessibility services.  */
+// For building the open-source release of TalkBack.
 
 apply plugin: 'com.android.application'
 
 apply from: 'shared.gradle'
+
+apply from: 'version.gradle'
+
+dependencies {
+    implementation project(':talkback')
+}
 
 buildscript {
     repositories {
@@ -11,7 +17,7 @@ buildscript {
     }
     dependencies {
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath 'com.android.tools.build:gradle:3.5.1'
+        classpath 'com.android.tools.build:gradle:3.5.4'
     }
 }
 
@@ -25,8 +31,11 @@ allprojects {
 android {
     buildToolsVersion '29.0.0'
     defaultConfig {
+        applicationId talkbackApplicationId
+        versionName talkbackVersionName
+        manifestPlaceholders = [talkbackMainPermission:talkbackMainPermission]
         minSdkVersion 26
-        targetSdkVersion 29
+        targetSdkVersion 30
         testInstrumentationRunner 'android.test.InstrumentationTestRunner'
         multiDexEnabled true
     }
@@ -40,6 +49,11 @@ android {
     }
 }
 
-dependencies {
-    implementation project(':talkback')
+task createTranslationTablesZip(type: Zip){
+    archiveName="translationtables.zip"
+    destinationDir = file('braille/src/main/res/raw/')
+    from fileTree('./braille/src/main/tables/')
+    into('liblouis/tables')
 }
+
+preBuild.dependsOn createTranslationTablesZip

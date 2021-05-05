@@ -20,7 +20,7 @@
   <string name="granularity_default">លំនាំដើម</string>
   <string name="granularity_character">តួអក្សរ</string>
   <string name="granularity_word">ពាក្យ</string>
-  <string name="granularity_line">បន្ទាត់</string>
+  <string name="granularity_line">ជួរ</string>
   <string name="granularity_paragraph">កឋាខណ្ឌ</string>
   <string name="granularity_page">ទំព័រ</string>
   <string name="granularity_web_landmark">ទីតាំង​សម្គាល់</string>
@@ -28,7 +28,7 @@
   <string name="granularity_web_list">បញ្ជី</string>
   <string name="granularity_web_link">តំណ</string>
   <string name="granularity_web_control">អង្គគ្រប់គ្រង</string>
-  <string name="granularity_pseudo_web_special_content">មាតិកាពិសេស</string>
+  <string name="granularity_pseudo_web_special_content">ខ្លឹមសារពិសេស</string>
   <string name="granularity_native_heading">ចំណងជើង</string>
   <string name="granularity_native_control">ការគ្រប់គ្រង</string>
   <string name="granularity_native_link">តំណ</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">ទំព័រ %1$d នៃ %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d នៃ %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">ចាកចេញ</string>
+  <string name="show_keyboard_window">កំពុងបង្ហាញ %1$s</string>
+  <string name="hide_keyboard_window">បានលាក់ក្តារចុច</string>
+  <string name="function_on">ការអាន​អេក្រង់​ត្រូវ​បាន​បើក</string>
+  <string name="function_off">ការអានអេក្រង់ត្រូវបានបិទ</string>
 </resources>

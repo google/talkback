@@ -12,7 +12,7 @@
   <string name="keycombo_key_modifier_shift">শ্বিফ্ট</string>
   <string name="keycombo_key_modifier_alt">Alt</string>
   <string name="keycombo_key_modifier_ctrl">Ctrl</string>
-  <string name="keycombo_key_modifier_meta">সন্ধান</string>
+  <string name="keycombo_key_modifier_meta">সন্ধান কৰক</string>
   <string name="keycombo_key_arrow_right">সোঁফালে নিৰ্দেশ কৰা কাঁড় চিহ্ন</string>
   <string name="keycombo_key_arrow_left">বাওঁফালৰ নিৰ্দেশ কৰা কাঁড় চিহ্ন</string>
   <string name="keycombo_key_arrow_up">ওপৰলৈ নিৰ্দেশ কৰা কাঁড় চিহ্ন</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">%2$dৰ %1$d পৃষ্ঠা</string>
   <string name="template_viewpager_index_count_short">%2$dৰ %1$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">বাহিৰ হওক</string>
+  <string name="show_keyboard_window">%1$s দেখুৱাই থকা হৈছে</string>
+  <string name="hide_keyboard_window">কীব’ৰ্ড লুকুওৱা হৈছে</string>
+  <string name="function_on">কথিত ফীডবেক অন আছে</string>
+  <string name="function_off">কথিত ফীডবেক অফ আছে</string>
 </resources>

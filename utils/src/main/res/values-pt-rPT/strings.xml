@@ -32,7 +32,7 @@
   <string name="granularity_native_heading">Títulos</string>
   <string name="granularity_native_control">Controlos</string>
   <string name="granularity_native_link">Links</string>
-  <string name="template_overlay_window">A aplicação %1$s está no modo de imagem na imagem</string>
+  <string name="template_overlay_window">A app %1$s está no modo de imagem na imagem</string>
   <string name="template_split_screen_mode_portrait">%1$s em cima e %2$s em baixo</string>
   <string name="template_split_screen_mode_landscape_ltr">%1$s à esquerda e %2$s à direita</string>
   <string name="template_split_screen_mode_landscape_rtl">%1$s à direita e %2$s à esquerda</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Página %1$d de %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d de %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Sair</string>
+  <string name="show_keyboard_window">A mostrar %1$s</string>
+  <string name="hide_keyboard_window">teclado oculto</string>
+  <string name="function_on">O feedback de voz está ativado.</string>
+  <string name="function_off">O feedback de voz está desativado.</string>
 </resources>

@@ -3,7 +3,7 @@
   <string name="untitled_window">शीर्षक नभएको</string>
   <string name="template_alert_dialog_template">चेतावनी %1$s</string>
   <string name="template_text_copied">प्रतिलिपि बनाइयो, %1$s</string>
-  <string name="template_capital_letter">ठूलो %1$s</string>
+  <string name="template_capital_letter">ठुलो %1$s</string>
   <string name="character_collapse_template"> %1$d %2$s﻿</string>
   <string name="template_current_tts_engine">प्रयोग गर्दै %1$s</string>
   <string name="keycombo_assign_dialog_instruction">नयाँ सर्टकट सेट गर्न कुञ्जी संयोजन थिच्नुहोस्। यसमा कम्तीमा ALT वा नियन्त्रण कुञ्जी हुनु पर्छ।</string>
@@ -20,7 +20,7 @@
   <string name="granularity_default">पूर्वनिर्धारित</string>
   <string name="granularity_character">वर्णहरू</string>
   <string name="granularity_word">शब्दहरु</string>
-  <string name="granularity_line">लाइनहरू</string>
+  <string name="granularity_line">हरपहरू</string>
   <string name="granularity_paragraph">अनुच्छेदहरु</string>
   <string name="granularity_page">पृष्ठहरू</string>
   <string name="granularity_web_landmark">ऐतिहासिक स्थलहरू</string>
@@ -32,7 +32,7 @@
   <string name="granularity_native_heading">शीर्षकहरू</string>
   <string name="granularity_native_control">नियन्त्रणहरू</string>
   <string name="granularity_native_link">लिंकहरू</string>
-  <string name="template_overlay_window">%1$s तस्बिर भित्रको तस्बिर</string>
+  <string name="template_overlay_window">%1$s फोटो भित्रको फोटो</string>
   <string name="template_split_screen_mode_portrait">टुप्पोमा %1$s, फेदमा %2$s</string>
   <string name="template_split_screen_mode_landscape_ltr">बायॉंतिर %1$s, दायॉंतिर %2$s</string>
   <string name="template_split_screen_mode_landscape_rtl">दायॉंतिर %1$s, बायॉंतिर %2$s</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">%2$d मध्ये पृष्ठ %1$d</string>
   <string name="template_viewpager_index_count_short">%2$d मध्ये %1$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">बाहिर</string>
+  <string name="show_keyboard_window">%1$s देखाइँदै</string>
+  <string name="hide_keyboard_window">किबोर्ड लुकाइएको छ</string>
+  <string name="function_on">बोलेर प्रतिक्रिया दिने सुविधा अन छ</string>
+  <string name="function_off">बोलेर प्रतिक्रिया दिने सुविधा अफ छ</string>
 </resources>

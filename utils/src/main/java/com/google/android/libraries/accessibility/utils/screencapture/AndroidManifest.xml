@@ -1,0 +1,22 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.google.android.libraries.accessibility.utils.screencapture"
+    android:versionCode="1"
+    android:versionName="1.0.0" >
+
+    <uses-sdk
+        android:minSdkVersion="22"
+        android:targetSdkVersion="22" />
+
+    <application>
+
+        <activity
+            android:name="com.google.android.libraries.accessibility.utils.screencapture.ScreenshotAuthProxyActivity"
+            android:theme="@style/ScreenshotAuthoProxyActivityTheme"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:noHistory="false" >
+        </activity>
+
+    </application>
+
+</manifest>

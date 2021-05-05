@@ -12,7 +12,7 @@
   <string name="keycombo_key_modifier_shift">Shift</string>
   <string name="keycombo_key_modifier_alt">Alt</string>
   <string name="keycombo_key_modifier_ctrl">Ctrl</string>
-  <string name="keycombo_key_modifier_meta">शोध</string>
+  <string name="keycombo_key_modifier_meta">सर्च</string>
   <string name="keycombo_key_arrow_right">उजवा बाण</string>
   <string name="keycombo_key_arrow_left">डावा बाण</string>
   <string name="keycombo_key_arrow_up">वर बाण</string>
@@ -20,15 +20,15 @@
   <string name="granularity_default">डीफॉल्ट</string>
   <string name="granularity_character">वर्ण</string>
   <string name="granularity_word">शब्द</string>
-  <string name="granularity_line">रेखा</string>
+  <string name="granularity_line">ओळी</string>
   <string name="granularity_paragraph">परिच्छेद</string>
   <string name="granularity_page">पेज</string>
-  <string name="granularity_web_landmark">खूणा</string>
-  <string name="granularity_web_heading">शीर्षलेख</string>
+  <string name="granularity_web_landmark">खुणा</string>
+  <string name="granularity_web_heading">शीर्षक</string>
   <string name="granularity_web_list">सूची</string>
   <string name="granularity_web_link">लिंक</string>
   <string name="granularity_web_control">नियंत्रणे</string>
-  <string name="granularity_pseudo_web_special_content">विशिष्ट सामग्री</string>
+  <string name="granularity_pseudo_web_special_content">विशिष्ट आशय</string>
   <string name="granularity_native_heading">शीर्षके</string>
   <string name="granularity_native_control">नियंत्रणे</string>
   <string name="granularity_native_link">लिंक</string>
@@ -37,8 +37,13 @@
   <string name="template_split_screen_mode_landscape_ltr">%1$s डावीकडे, %2$s उजवीकडे</string>
   <string name="template_split_screen_mode_landscape_rtl">%1$s उजवीकडे %2$s डावीकडे</string>
   <string name="template_scroll_from_to_count">%3$d पैकी %1$d ते %2$d आयटम दर्शवित आहोत.</string>
-  <string name="template_scroll_from_count">%2$d पैकी %1$d आयटम दर्शवित अाहोत.</string>
+  <string name="template_scroll_from_count">%2$d पैकी %1$d आयटम दर्शवित आहोत.</string>
   <string name="template_viewpager_index_count">%2$d पैकी %1$d पृष्ठ</string>
   <string name="template_viewpager_index_count_short">%2$d पैकी %1$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">बाहेर पडा</string>
+  <string name="show_keyboard_window">%1$s दाखवत आहे</string>
+  <string name="hide_keyboard_window">कीबोर्ड लपवलेला आहे</string>
+  <string name="function_on">वाचिक फीडबॅक सुरू आहे</string>
+  <string name="function_off">वाचिक फीडबॅक बंद आहे</string>
 </resources>

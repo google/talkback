@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.google.android.accessibility.brailleime">
+
+  <uses-sdk
+      android:minSdkVersion="23"
+      android:targetSdkVersion="30" />
+
+  <!-- Required for haptic feedback. -->
+  <uses-permission android:name="android.permission.VIBRATE" />
+
+  <application>
+    <service
+        android:name="com.google.android.accessibility.brailleime.BrailleIme"
+        android:label="@string/braille_ime_service_name"
+        android:enabled="false"
+        android:directBootAware="true"
+        android:permission="android.permission.BIND_INPUT_METHOD">
+      <intent-filter>
+        <action android:name="android.view.InputMethod" />
+      </intent-filter>
+      <meta-data
+          android:name="android.view.im"
+          android:resource="@xml/braille_ime" />
+    </service>
+    <activity
+        android:name="com.google.android.accessibility.brailleime.settings.BrailleImePreferencesActivity"
+        android:configChanges="orientation|screenSize"
+        android:exported="true"
+        android:label="@string/braille_keyboard"
+        android:launchMode="singleTop"
+        android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+        android:theme="@style/SettingsTheme"
+        tools:ignore="ExportedActivity"
+        >
+      <intent-filter>
+        <action android:name=".BrailleImePreferencesActivity" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </activity>
+
+    <receiver android:name=".MyPackageReplacedReceiver"
+        android:enabled="true"
+        android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+      </intent-filter>
+    </receiver>
+
+  </application>
+
+</manifest>

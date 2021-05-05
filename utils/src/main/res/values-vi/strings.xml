@@ -20,18 +20,18 @@
   <string name="granularity_default">Mặc định</string>
   <string name="granularity_character">Ký tự</string>
   <string name="granularity_word">Từ</string>
-  <string name="granularity_line">Đường</string>
+  <string name="granularity_line">Dòng</string>
   <string name="granularity_paragraph">Đoạn</string>
   <string name="granularity_page">Trang</string>
   <string name="granularity_web_landmark">Mốc</string>
-  <string name="granularity_web_heading">Tiêu đề</string>
+  <string name="granularity_web_heading">Đầu đề</string>
   <string name="granularity_web_list">Danh sách</string>
-  <string name="granularity_web_link">Liên kết</string>
-  <string name="granularity_web_control">Điều khiển</string>
+  <string name="granularity_web_link">Đường liên kết</string>
+  <string name="granularity_web_control">Các thành phần điều khiển</string>
   <string name="granularity_pseudo_web_special_content">Nội dung đặc biệt</string>
-  <string name="granularity_native_heading">Tiêu đề</string>
-  <string name="granularity_native_control">Các điều khiển</string>
-  <string name="granularity_native_link">Liên kết</string>
+  <string name="granularity_native_heading">Đầu đề</string>
+  <string name="granularity_native_control">Các thành phần điều khiển</string>
+  <string name="granularity_native_link">Đường liên kết</string>
   <string name="template_overlay_window">%1$s ảnh trong ảnh</string>
   <string name="template_split_screen_mode_portrait">%1$s ở trên cùng, %2$s ở dưới cùng</string>
   <string name="template_split_screen_mode_landscape_ltr">%1$s ở bên trái, %2$s ở bên phải</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Trang %1$d / %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d / %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Thoát</string>
+  <string name="show_keyboard_window">Đang hiển thị %1$s</string>
+  <string name="hide_keyboard_window">đã ẩn bàn phím</string>
+  <string name="function_on">Đã bật tính năng phản hồi bằng giọng nói</string>
+  <string name="function_off">Đã tắt tính năng phản hồi bằng giọng nói</string>
 </resources>

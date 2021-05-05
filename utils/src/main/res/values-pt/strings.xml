@@ -12,7 +12,7 @@
   <string name="keycombo_key_modifier_shift">Shift</string>
   <string name="keycombo_key_modifier_alt">Alt</string>
   <string name="keycombo_key_modifier_ctrl">Ctrl</string>
-  <string name="keycombo_key_modifier_meta">Search</string>
+  <string name="keycombo_key_modifier_meta">Pesquisa</string>
   <string name="keycombo_key_arrow_right">Seta para a direita</string>
   <string name="keycombo_key_arrow_left">Seta para a esquerda</string>
   <string name="keycombo_key_arrow_up">Seta para cima</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Página %1$d de %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d de %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Sair</string>
+  <string name="show_keyboard_window">Exibindo %1$s</string>
+  <string name="hide_keyboard_window">teclado oculto</string>
+  <string name="function_on">O feedback falado está ativado</string>
+  <string name="function_off">O feedback falado está desativado</string>
 </resources>

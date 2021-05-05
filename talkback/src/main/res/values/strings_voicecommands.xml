@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!--
+      Source: Possible user requests from voice commands to start the summary of the screen.
+      Description: Looks for keyword "summary" to see if user has asked to start a summary of the screen. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_summary">summary</string>
+    <!--
+      Source: Possible user requests from voice commands to read from top.
+      Description: Looks for keyword "read" to see if user has asked to read from top. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_read">read</string>
+    <!--
+     Source: Possible user requests from voice commands to read from next.
+     Description: Looks for keyword "read from next item" or "read from next" to see if user has asked to read from next. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_read_from_next">Read from next</string>
+    <!--
+    Source: Possible user requests from voice commands to show edit menu.
+    Description: Show edit options menu. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_edit_options">Edit options</string>
+    <!--
+    Source: Possible user requests from voice commands to show edit menu.
+    Description: Show edit options menu. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_text_editing">Text editing</string>
+    <!--
+    Source: Possible user requests from voice commands to show edit menu.
+    Description: Show edit options menu. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_edit_text">Edit text</string>
+    <!--
+    Source: Possible user requests from voice commands to show edit menu.
+    Description: Show edit options menu. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_editing_options">Editing options</string>
+    <!--
+      Source: Possible user requests from voice commands to edit.
+      Description: Looks for keyword "edit" to see if user has asked to edit. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_edit">edit</string>
+    <!--
+      Source: Possible user requests from voice commands to see possible voice commands.
+      Description: Looks for keyword "what" to see if user has asked to see possible voice commands. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_what">what</string>
+    <!--
+      Source: Possible user requests from voice commands to see possible voice commands.
+      Description: Looks for keyword "say" to see if user has asked to see possible voice commands. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_say">say</string>
+    <!--
+      Source: Possible user requests from voice commands to read from next item.
+      Description: Looks for keyword "next" to see if user has asked to see read from next item. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_next">next</string>
+    <!--
+      Source: Possible user requests from voice commands to see possible languages.
+      Description: Looks for keyword "language" or "languages" "show language now" to see if user has asked to see possible languages. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_language">Language</string>
+      <!--
+      Source: Possible user requests from voice commands to see possible languages.
+      Description: Looks for keyword "language" or "languages" as "show languages now" to see if user has asked to see possible languages. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_languages">Languages</string>
+    <!--
+      Source: Possible user requests from voice commands to show possible actions.
+      Description: Looks for keyword "custom actions" to see if user has asked to see possible actions. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_custom_actions">custom actions</string>
+    <!--
+      Source: Possible user requests from voice commands to show possible actions.
+      Description: Looks for keyword "Action" to see if user has asked to see possible actions. [CHAR LIMIT=40]
+    -->
+    <string name="voice_commands_action">Action</string>
+    <!--
+      Source: Possible user requests from voice commands to see quick settings.
+      Description: Looks for keyword "Quick settings" to see if user has asked to see quick settings. [CHAR_LIMIT=40]
+    -->
+    <string name="voice_commands_quick_settings">Quick settings</string>
+    <!--
+      Source: Possible user requests from voice commands to see quick settings.
+      Description: Looks for keyword "quick setting" to see if user has asked to see quick settings. [CHAR_LIMIT=40]
+    -->
+    <string name="voice_commands_quick_setting">Quick setting</string>
+    <!--
+      Source: Possible user requests from voice commands to dim screen.
+      Description: Looks for keyword "dim" to see if user has asked to dim the screen. This is a verb for voice commands. [CHAR_LIMIT=30]
+    -->
+    <string name="voice_commands_dim">dim</string>
+    <!--
+      Source: Possible user requests from voice commands to dim screen.
+      Description: Looks for keyword "dim" to see if user has asked to dim the screen. This is a verb for voice commands. [CHAR_LIMIT=30]
+    -->
+    <string name="voice_commands_darken">darken</string>
+    <!--
+      Source: Possible user requests from voice commands to un-dim screen.
+      Description: Looks for keyword which lists below to see if user has asked to un-dim the screen. [CHAR_LIMIT=30]
+  -->
+  <string name="voice_commands_brighten_screen">brighten screen</string>
+  <!--
+      Source: Possible user requests from voice commands to un-dim screen.
+      Description: Looks for keyword which lists below to see if user has asked to un-dim the screen. [CHAR_LIMIT=30]
+  -->
+  <string name="voice_commands_restore_screen">restore screen</string>
+  <!--
+      Source: Possible user requests from voice commands to un-dim screen.
+      Description: Looks for keyword which lists below to see if user has asked to un-dim the screen. [CHAR_LIMIT=30]
+  -->
+  <string name="voice_commands_cancel_hide_screen">cancel hide screen</string>
+
+  <!--
+    Source: Possible user requests from voice commands to perform All apps action
+    Description: Looks for keyword which lists below to see if user has asked to all apps [CHAR_LIMIT=30]
+  -->
+  <string name="voice_commands_all_apps">All apps</string>
+  <!--
+    Source: Possible user requests from voice commands to perform All apps action
+    Description: Looks for keyword which lists below to see if user has asked to all apps [CHAR_LIMIT=30]
+  -->
+  <string name="voice_commands_apps">Apps</string>
+  <!--
+    Source: Possible user requests from voice commands to perform global recents action
+    Description: Looks for keyword which lists below to see if user has asked to perform global recent action[CHAR_LIMIT=30]
+  -->
+  <string name="voice_commands_overview">Overview</string>
+  <!--
+    Source: Possible user requests from voice commands to perform global recents action
+    Description: Looks for keyword which lists below to see if user has asked to perform global recent action[CHAR_LIMIT=30]
+  -->
+  <string name="voice_commands_recent_apps">Recent apps</string>
+  <!--
+    Source: Possible user requests from voice commands to perform global recents action
+    Description: Looks for keyword which lists below to see if user has asked to perform global recent action[CHAR_LIMIT=30]
+  -->
+  <string name="voice_commands_recent">Recent</string>
+  <!--
+    Source: Possible user requests from voice commands to perform global recents action
+    Description: Looks for keyword which lists below to see if user has asked to perform global recent action[CHAR_LIMIT=30]
+  -->
+  <string name="voice_commands_recents">Recents</string>
+
+  <!--
+      Voice-shortcut command words.  Try to make all voice-shortcuts start with different words, to
+      avoid premature command recognition.
+  -->
+  <!-- Voice-shortcut command word to find a keyword on screen. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_find">Find</string>
+  <!-- Voice-shortcut command word to find a keyword on screen. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_search">Search</string>
+  <!-- Voice-shortcut command word to find a keyword on screen. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_search_for">Search for</string>
+  <!-- Voice-shortcut command word to find more instances of a keyword on screen. [CHAR_LIMIT=40] -->
+  <string name="voice_commands_find_again">Repeat find</string>
+  <!-- Voice-shortcut command word to find more instances of a keyword on screen. [CHAR_LIMIT=40] -->
+  <string name="voice_commands_next_heading">Next heading</string>
+  <!-- Voice-shortcut command word to find more instances of a keyword on screen. [CHAR_LIMIT=40] -->
+  <string name="voice_commands_next_control">Next control</string>
+  <!-- Voice-shortcut command word to find more instances of a keyword on screen. [CHAR_LIMIT=40] -->
+  <string name="voice_commands_next_link">Next link</string>
+  <!-- Voice-shortcut command word to find more instances of a keyword on screen. [CHAR_LIMIT=50] -->
+  <string name="voice_commands_next_landmark">Next landmark</string>
+  <!-- Voice-shortcut command word to start selecting text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_select">Select</string>
+  <!-- Voice-shortcut command word to start selecting text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_start_select">Start select</string>
+  <!-- Voice-shortcut command word to start selecting text in an edit field. [CHAR_LIMIT=50] -->
+  <string name="voice_commands_start_selection_mode">Start selection mode</string>
+  <!-- Voice-shortcut command word to start selecting text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_start_selection">Start selection</string>
+  <!-- Voice-shortcut command word to complete selecting text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_finish_select">Finish select</string>
+  <!-- Voice-shortcut command word to complete selecting text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_finish_selection">Finish selection</string>
+  <!-- Voice-shortcut command word to complete selecting text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_finish_selection_mode">Finish selection mode</string>
+  <!-- Voice-shortcut command word to complete selecting text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_end_select">End select</string>
+  <!-- Voice-shortcut command word to abort selecting text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_deselect">Cancel select</string>
+  <!-- Voice-shortcut command word to set a custom label on a view. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_label">Label</string>
+  <!-- Voice-shortcut failure message, when user tries labeling non-labelable content. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_cannot_label_feedback">Cannot label</string>
+  <!-- Voice-shortcut command word to start the google-assistant. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_assistant">Assistant</string>
+  <!-- Voice-shortcut command word to set speech-rate. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_setting_speech_rate">Setting speech rate</string>
+  <!-- Voice-shortcut command word to set verbosity. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_setting_verbosity">Setting verbosity</string>
+  <!-- Voice-shortcut command word to set the navigation granularity (ex. character, word). [CHAR_LIMIT=30] -->
+  <string name="voice_commands_setting_granularity">Setting granularity</string>
+  <!-- Voice-shortcut command word to set the navigation granularity (ex. character, word). [CHAR_LIMIT=30] -->
+  <string name="voice_commands_setting_navigation">Setting navigation</string>
+  <!-- Voice-shortcut command word to move focus to the first item on the screen. [CHAR_LIMIT=20] -->
+  <string name="voice_commands_first">First</string>
+  <!-- Voice-shortcut command word to move focus to the first item on the screen. [CHAR_LIMIT=20] -->
+  <string name="voice_commands_top">Top</string>
+  <!-- Voice-shortcut command word to move focus to the last item on the screen. [CHAR_LIMIT=20] -->
+  <string name="voice_commands_last">Last</string>
+  <!-- Voice-shortcut command word to move focus to the last item on the screen. [CHAR_LIMIT=20] -->
+  <string name="voice_commands_bottom">Bottom</string>
+  <!-- Voice-shortcut command word to input text to editable ui. [CHAR_LIMIT=20] -->
+  <string name="voice_commands_type">Type</string>
+  <!-- Voice-shortcut command word to input text to editable ui. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_input">Input</string>
+  <!-- Voice-shortcut command word to input text to editable ui. [CHAR_LIMIT=20] -->
+  <string name="voice_commands_dictate">Dictate</string>
+  <!-- Voice-shortcut command word to input text to editable ui. [CHAR_LIMIT=20] -->
+  <string name="voice_commands_write">Write</string>
+  <!-- Voice-shortcut command word to input text to editable ui. [CHAR_LIMIT=20] -->
+  <string name="voice_commands_Spell">Spell</string>
+  <!-- Voice-shortcut command to launch TalkBack Settings. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_talkback_settings">TalkBack Settings</string>
+  <!-- Voice-shortcut command to launch TalkBack Settings. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_talkback_setting">TalkBack Setting</string>
+  <!-- Voice-shortcut command to start screen search UI. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_screen_search">Screen search</string>
+  <!-- Voice-shortcut command to start screen search UI. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_search_on_screen">Search on screen</string>
+  <!-- Voice-shortcut command to copy text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_copy">@android:string/copy</string>
+  <!-- Voice-shortcut command to cut text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_cut">@android:string/cut</string>
+  <!-- Voice-shortcut command to cut text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_delete">Delete</string>
+  <!-- Voice-shortcut command to paste text in an edit field. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_paste">@android:string/paste</string>
+  <!-- Voice-shortcut command to show notification page [CHAR_LIMIT=30] -->
+  <string name="voice_commands_notification">Notification</string>
+  <!-- Voice-shortcut command to show notification page [CHAR_LIMIT=30] -->
+  <string name="voice_commands_notifications">Notifications</string>
+  <!-- Voice-shortcut command to set verbosity with different format "Verbosity" with parameter low/high/custom [CHAR_LIMIT=50] -->
+  <string name="voice_commands_verbosity_parameter">Verbosity %s</string>
+  <!-- voice-shortcut command to set low/high/custom verbosity.[CHAR_LIMIT=50] -->
+  <string name="voice_commands_parameter_verbosity">%s verbosity</string>
+  <!-- voice-shortcut command to change verbosity to low/high/custom. [CHAR_LIMIT=70] -->
+  <string name="voice_commands_change_verbosity_to_parameter">Change verbosity to %s</string>
+  <!-- Voice-shortcut command word to set the navigation granularity(ex.character, word). This is used to construct commands like "Navigation by word"[CHAR_LIMIT=30] -->
+  <string name="voice_commands_navigation_by_parameter">Navigation by %s</string>
+  <!-- Voice-shortcut command word to set the navigation granularity(ex.character, word). This is used to construct commands like "word navigation"[CHAR_LIMIT=30] -->
+  <string name="voice_commands_parameter_navigation">%s navigation</string>
+  <!-- Voice-shortcut command word to set the navigation granularity (ex.character, word). This is used to construct commands like "word granularity" [CHAR_LIMIT=30] -->
+  <string name="voice_commands_parameter_granularity">%s granularity</string>
+  <!-- Voice-shortcut command word to set the navigation granularity (ex.character, word). This is used to construct commands like "Read by word" [CHAR_LIMIT=30] -->
+  <string name="voice_commands_read_by_parameter">Read by %s</string>
+  <!-- Voice-shortcut command word to back to previous screen.   [CHAR_LIMIT=30] -->
+  <string name="voice_commands_back">Back</string>
+  <!-- Voice-shortcut command word to back to previous screen.   [CHAR_LIMIT=30] -->
+  <string name="voice_commands_go_back">Go back</string>
+  <!-- Voice-shortcut command word to return to Home screen.  [CHAR_LIMIT=30] -->
+  <string name="voice_commands_home">Home</string>
+  <!-- Voice-shortcut command word to return to Home screen.  [CHAR_LIMIT=30] -->
+  <string name="voice_commands_desktop">Desktop</string>
+  <!-- Voice-shortcut command word to quit this voice command session. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_stop">Stop</string>
+  <!-- Voice-shortcut command word to quit this voice command session. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_quit">Quit</string>
+  <!-- Voice-shortcut command word to quit this voice command session. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_quiet">Quiet</string>
+  <!-- Voice-shortcut command word to quit this voice command session. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_pause">Pause</string>
+  <!-- Voice-shortcut command word to quit this voice command session. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_nevermind">Nevermind</string>
+  <!-- Voice-shortcut command word to quit this voice command session. [CHAR_LIMIT=30] -->
+  <string name="voice_commands_shut_up">Shut up</string>
+  <!-- Voice-shortcut command word to increase speech rate.  [CHAR_LIMIT=30] -->
+  <string name="voice_commands_faster">Faster</string>
+  <!-- Voice-shortcut command word to increase speech rate.  [CHAR_LIMIT=30] -->
+  <string name="voice_commands_increase_speech_rate">Increase speech rate</string>
+  <!-- Voice-shortcut command word to decrease speech rate.  [CHAR_LIMIT=30] -->
+  <string name="voice_commands_slower">Slower</string>
+  <!-- Voice-shortcut command word to decrease speech rate.  [CHAR_LIMIT=30] -->
+  <string name="voice_commands_decrease_speech_rate">decrease speech rate</string>
+  <!-- Voice-shortcut command word that is homophone of high and hi.  [CHAR_LIMIT=30] -->
+  <string name="voice_commands_homophone_high_and_hi" translatable="false">Hi</string>
+
+
+    <!-- Dialog title that explains to user the options available when using voice commands. [CHAR_LIMIT=60]-->
+    <string name="voice_commands_possible_options_title">You can say</string>
+    <!-- Dialog message that explains to user the requested action is not supported yet. [CHAR_LIMIT=100] -->
+    <string name="voice_commands_no_action">Voice shortcut not supported</string>
+    <!-- Dialog message that explains to user that they do not have mic permissions on. [CHAR_LIMIT=100] -->
+    <string name="voice_commands_no_mic_permissions">To use this feature, you must grant permission to use the microphone.</string>
+    <!-- Dialog message that explains to user about the ability to use voice commands. [CHAR_LIMIT=100] -->
+    <string name="voice_commands_no_voice_recognition_ability"> Sorry! This feature is not available on your device</string>
+    <!-- Dialog message that explains to user the an error occured while using voice commands. [CHAR_LIMIT=100] -->
+    <string name="voice_commands_error">Error recognizing voice command</string>
+    <!-- Dialog message that explains to user that voice commands only partially understood. [CHAR_LIMIT=300] -->
+    <string name="voice_commands_partial_result">Can\'t recognize this command. Say \"<xliff:g>%1$s</xliff:g>\" for the list of all commands.</string>
+    <!-- Dialog message that explains to the user that they requested speech recognizer too many times, causing an error. [CHAR_LIMIT=90]-->
+    <string name="voice_commands_many_requests">Please try again in a moment</string>
+    <!-- Error message that explains to the user the setting is disable. [CHAR_LIMIT=130] -->
+    <string name="voice_commands_setting_disabled">\"<xliff:g>%1$s</xliff:g>\" setting is not enabled</string>
+    <!-- Speech feedback message that some voice input from user is not recognized as voice command.  Ex. blah blah not recognized as voice command.[CHAR_LIMIT=300] -->
+    <string name="voice_commands_echo_feedback_not_recognized">\"<xliff:g>%1$s</xliff:g>\" not recognized as voice command.</string>
+    <!-- Speech feedback label voice commands executes successfully.[CHAR_LIMIT=300] -->
+    <string name="voice_commands_label_saved">Label saved</string>
+    <!-- Speech feedback when no actions available for this accessibility node. [CHAR_LIMIT=300] -->
+    <string name="voice_commands_no_actions_feedback">No actions available</string>
+    <!-- Speech feedback when no next heading available. [CHAR_LIMIT=300] -->
+    <string name="voice_commands_no_next_heading_feedback">No next heading</string>
+    <!-- Speech feedback when no next link available. [CHAR_LIMIT=300] -->
+    <string name="voice_commands_no_next_link_feedback">No next link</string>
+    <!-- Speech feedback when no next control available. [CHAR_LIMIT=300] -->
+    <string name="voice_commands_no_next_control_feedback">No next control</string>
+    <!-- Speech feedback when no next landmark available. [CHAR_LIMIT=300] -->
+    <string name="voice_commands_no_next_landmark_feedback">No next landmark</string>
+    <!-- Speech feedback when no next landmark available. [CHAR_LIMIT=300] -->
+    <string name="voice_commands_screen_hidden_feedback">Screen hidden</string>
+    <!-- Speech feedback when no next landmark available. [CHAR_LIMIT=300] -->
+    <string name="voice_commands_showing_screen_feedback">Showing Screen</string>
+  <!-- Voice command help pages -->
+  <!-- The page title of voice command overview. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_title">Voice command overview</string>
+  <!-- The description of voice command overview. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_description">To use voice commands, swipe right then up. Say \"Help\" or \"What can I say?\" anytime for this list of commands.</string>
+  <!-- The hint of triggering voice command. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_hint">For best results, say the exact wording listed on the following screens.</string>
+
+  <!-- The page title of voice command - reading controls. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
+  <!-- The description of voice command - reading controls. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_reading_controls_description">Change how you read content on the current screen</string>
+  <!-- The description of voice command - find more instances of a keyword on screen. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_next">Next [heading]</string>
+  <!-- The description of voice command - set the navigation granularity. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_navigation">[Word] navigation</string>
+  <!-- The description of voice command - change speech rate. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_speech_rate">Speak [faster]</string>
+  <!-- The description of voice command - set verbosity. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_verbosity">[Low] verbosity</string>
+
+  <!-- The description of voice command "Next". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_next_description">Go to the next heading, control, list, or landmark</string>
+  <!-- The description of voice command "Navigation". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_navigation_description">Navigate by words, characters, lines, paragraphs, headings, controls, and more</string>
+  <!-- The description of voice command "Speak faster/slower". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_speech_rate_description">You can also say \"speak slower\"</string>
+  <!-- The description of voice command "Low/High/Custom verbosity". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_verbosity_description">Change to low, high, or custom</string>
+  <!-- The description of voice command "First". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_first_description">Move to the first item on the current screen</string>
+  <!-- The description of voice command "Last". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_last_description">Move to the last item on the current screen</string>
+  <!-- The description of voice command "Languages". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_languages_description">Change your spoken language (text-to-speech)</string>
+
+  <!-- The page title of voice command - find items. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_find_items_title">Find items</string>
+  <!-- The description of voice command - find items. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_find_items_description">Find specific content on the current screen</string>
+  <!-- The description of voice command - find a keyword on screen. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_find_text">Find [save]</string>
+
+  <!-- The description of voice command "Find [item]". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_find_text_description">Find the first item that includes the text \"save\" on the current screen</string>
+  <!-- The description of voice command "Find". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_find_description">Repeat \"find\" to go to the next item that includes the text \"save\"</string>
+  <!-- The description of voice command "Screen search". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_screen_search_description">Enter a search term to find that text on the screen</string>
+
+  <!-- The description of voice command - text editing. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_text_editing_description">Type, select, and copy text</string>
+  <!-- The description of voice command - input text. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_type_text">Type [OK]</string>
+
+  <!-- The description of voice command "Copy". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_copy_description">Select text before copying</string>
+  <!-- The description of voice command "Cut". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_cut_description">Select text before cutting</string>
+  <!-- The description of voice command "Cut". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_delete_description">Select text before deleting</string>
+
+  <!-- The page title of voice command - device navigation. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_device_navigation_title">Device navigation</string>
+  <!-- The description of voice command - device navigation. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_device_navigation_description">Go Home, go back, show notifications, and more</string>
+
+  <!-- The description of voice command "Overview". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_overview_description">See your recent apps</string>
+  <!-- The description of voice command "Assistant". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_assistant_description">Open Google Assistant</string>
+
+  <!-- The page title of voice command - other commands. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_other_commands_title">Other commands</string>
+  <!-- The description of voice command - other commands. [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_other_commands_description">Go to TalkBack settings, hide screen, see actions, add custom labels, and more</string>
+  <!-- The description of voice command - label commands. [CHAR_LIMIT=70] -->
+  <string name="voice_commands_help_label">Label [submit]</string>
+
+  <!-- The description of voice command "Hide screen". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_hide_screen_description">Hide the display so your screen isn\'t visible to others in public places</string>
+  <!-- The description of voice command "Show screen". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_show_screen_description">After hiding your screen, return it to a normal state</string>
+  <!-- The description of voice command "Actions". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_actions_description">Show available actions for the current item</string>
+  <!-- The description of voice command "Label". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_label_description">Add or edit a custom label to say \"submit\"</string>
+  <!-- The description of voice command "Stop". [CHAR_LIMIT=NONE] -->
+  <string name="voice_commands_help_stop_description">Stop current voice command</string>
+</resources>

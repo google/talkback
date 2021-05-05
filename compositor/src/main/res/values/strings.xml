@@ -222,8 +222,8 @@
   <string name="value_radio_button">Radio button</string>
   <!-- Spoken description of a button. -->
   <string name="value_button">Button</string>
-  <!-- Spoken description of a seek bar (slider). -->
-  <string name="value_seek_bar">Seek control</string>
+  <!-- Spoken description of a seek bar (slider). [CHAR LIMIT=NONE] -->
+  <string name="value_seek_bar">Slider</string>
   <!-- Spoken description of a switch. -->
   <string name="value_switch">Switch</string>
   <!-- Spoken description of an edit box. -->
@@ -416,6 +416,8 @@
   <string name="row_index_template">Row <xliff:g id="row" example="1">%1$d</xliff:g></string>
   <!-- Spoken out to indicate the column index of a cell -->
   <string name="column_index_template">Column <xliff:g id="col" example="1">%1$d</xliff:g></string>
+  <!-- Spoken out to indicate the index of a list item. [CHAR LIMIT=NONE] -->
+  <string name="list_index_template"><xliff:g id="item_pos">%1$d</xliff:g> of <xliff:g id="total_count">%2$d</xliff:g></string>
   <!-- Attached to the text spoken out by TalkBack if the item is a heading -->
   <string name="heading_template">Heading</string>
   <!-- Attached to the text spoken out by TalkBack if the item is a row heading -->
@@ -423,53 +425,77 @@
   <!-- Attached to the text spoken out by TalkBack if the item is a column heading -->
   <string name="column_heading_template">Column heading</string>
   <!--
+   Source: string indicating that the user is in a collection with role description that has a name,
+   either via swiping into it linearly or by touching inside a collection area.
+   Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="in_collection_role_description_with_name">In <xliff:g id="role_description">%1$s</xliff:g> <xliff:g id="collection_description">%2$s</xliff:g></string>
+  <!--
+  Source: string indicating that the user is in a collection with role description that does not have a name,
+  either via swiping into it linearly or by touching inside a collection area.
+  Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+ -->
+  <string name="in_collection_role_description">In <xliff:g id="role_description">%1$s</xliff:g></string>
+  <!--
     Source: string indicating that the user is in the list that has a name,
     either via swiping into it linearly or by touching inside the list area.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
    -->
-  <string name="in_list">In list <xliff:g id="list_description">%1$s</xliff:g></string>
+  <string name="in_list_with_name">In list <xliff:g id="list_description">%1$s</xliff:g></string>
   <!--
     Source: string indicating that the user is in the list that does not have a name,
     either via swiping into it linearly or by touching inside the list area.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
    -->
-  <string name="in_list_without_name">In list</string>
+  <string name="in_list">In list</string>
+  <!--
+    Source: string indicating that the user is out of a collection that has a name,
+    either via swiping linearly out of it or by touching outside of the collection area.
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
+   -->
+  <string name="out_of_role_description_with_name">Out of <xliff:g id="role_description">%1$s</xliff:g> <xliff:g id="collection_description">%2$s</xliff:g></string>
+  <!--
+    Source: string indicating that the user is out of a collection that does not have a name,
+    either via swiping linearly out of it or by touching outside of the collection area.
+    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+   -->
+  <string name="out_of_role_description">Out of <xliff:g id="role_description">%1$s</xliff:g></string>
   <!--
     Source: string indicating that the user is out of the list that has a name,
     either via swiping linearly out of it or by touching outside of the list area.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
    -->
-  <string name="out_of_list">Out of list <xliff:g id="list_description">%1$s</xliff:g></string>
+  <string name="out_of_list_with_name">Out of list <xliff:g id="list_description">%1$s</xliff:g></string>
   <!--
     Source: string indicating that the user is out of the list that does not have a name,
     either via swiping linearly out of it or by touching outside of the list area.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
    -->
-  <string name="out_of_list_without_name">Out of list</string>
+  <string name="out_of_list">Out of list</string>
   <!--
     Source: string indicating that the user is in the grid that has a name,
     either by swiping linearly into it or by touching inside the grid area.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
    -->
-  <string name="in_grid">In grid <xliff:g id="grid_description">%1$s</xliff:g></string>
+  <string name="in_grid_with_name">In grid <xliff:g id="grid_description">%1$s</xliff:g></string>
   <!--
     Source: string indicating that the user is in the grid that does not have a name,
     either by swiping linearly into it or by touching inside the grid area.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
    -->
-  <string name="in_grid_without_name">In grid</string>
+  <string name="in_grid">In grid</string>
   <!--
     Source: string indicating that the user is out of the grid that has a name,
     either by swiping linearly out of it or by touching outside of the grid area.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
    -->
-  <string name="out_of_grid">Out of grid <xliff:g id="grid_description">%1$s</xliff:g></string>
+  <string name="out_of_grid_with_name">Out of grid <xliff:g id="grid_description">%1$s</xliff:g></string>
   <!--
     Source: string indicating that the user is out of the grid that does not have a name,
     either by swiping linearly out of it or by touching outside of the grid area.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
    -->
-  <string name="out_of_grid_without_name">Out of grid</string>
+  <string name="out_of_grid">Out of grid</string>
   <!--
     Source: string indicating that the user is in the pager that has a name, either via swiping into
     it linearly or by touching inside the pager area.
@@ -569,9 +595,9 @@
   <!--
     Source: String template for indicating the nesting level of a collection in a hierarchy of
     collections, e.g. in an outline.
-    Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    Description: This is spoken to the user. [CHAR LIMIT=NONE]
    -->
-  <string name="template_collection_level">Level <xliff:g id="level" example="2">%1$s</xliff:g></string>
+  <string name="template_collection_level">Level <xliff:g id="level" example="2">%1$d</xliff:g></string>
   <!--
     Source: String template for indicating the list item index out of the total number of items
     in the list
@@ -627,8 +653,46 @@
   <!--
     Source: String template for notifying the user the new speech rate value.
     Description: This is spoken to the user. [CHAR LIMIT="NONE"]
+    Deprecated TODO
   -->
   <string name="template_speech_rate_change">Speech rate <xliff:g id="scaleInPercent" example="200">%1$d</xliff:g>%%</string>
+  <!--
+    Source: String for notifying the user the new speech rate value is some level faster than the original value.
+    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="template_speech_rate_change_faster">Faster</string>
+  <!--
+    Source: String for notifying the user the new speech rate value is some level slower than the original value.
+    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="template_speech_rate_change_slower">Slower</string>
+  <!--
+    Source: String for notifying the user the speech rate value has reached the highest value.
+    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="template_speech_rate_change_fastest">Fastest</string>
+  <!--
+    Source: String for notifying the user the speech rate value has reached the lowest value.
+    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="template_speech_rate_change_slowest">Slowest</string>
+
+  <!--
+    Source: String for notifying the user the stream volume is increased.
+    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="template_volume_change_increase">Increase</string>
+  <!--
+    Source: String for notifying the user the stream volume is decreased.
+    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="template_volume_change_decrease">Decrease</string>
+
+  <!--
+    Source: A notification for the failure of attempting to change seek bar value.
+    Description: The value reaches its maximum. [CHAR LIMIT=NONE]
+  -->
+  <string name="template_seekbar_range"><xliff:g id="scaleInPercent" example="0">%1$d</xliff:g>%%</string>
 
   <!-- Announced when audio focus is turned on with selector-->
   <string name="audio_focus_on">Audio ducking on</string>

@@ -12,7 +12,7 @@
   <string name="keycombo_key_modifier_shift">Shift</string>
   <string name="keycombo_key_modifier_alt">Alt</string>
   <string name="keycombo_key_modifier_ctrl">Ctrl</string>
-  <string name="keycombo_key_modifier_meta">Search</string>
+  <string name="keycombo_key_modifier_meta">Хайлт</string>
   <string name="keycombo_key_arrow_right">Баруун тийш заасан сум</string>
   <string name="keycombo_key_arrow_left">Зүүн тийш заасан сум</string>
   <string name="keycombo_key_arrow_up">Дээш заасан сум</string>
@@ -20,18 +20,18 @@
   <string name="granularity_default">Үндсэн</string>
   <string name="granularity_character">Тэмдэгт</string>
   <string name="granularity_word">Үг</string>
-  <string name="granularity_line">Шугам</string>
+  <string name="granularity_line">Мөр</string>
   <string name="granularity_paragraph">Параграф</string>
   <string name="granularity_page">Хуудас</string>
   <string name="granularity_web_landmark">Газрын тэмдэглэгээ</string>
   <string name="granularity_web_heading">Гарчгууд</string>
   <string name="granularity_web_list">Жагсаалтууд</string>
-  <string name="granularity_web_link">Холбоосууд</string>
+  <string name="granularity_web_link">Холбооснууд</string>
   <string name="granularity_web_control">Удирдлага</string>
   <string name="granularity_pseudo_web_special_content">Тусгай агуулга</string>
   <string name="granularity_native_heading">Гарчиг</string>
   <string name="granularity_native_control">Хяналтууд</string>
-  <string name="granularity_native_link">Холбоосууд</string>
+  <string name="granularity_native_link">Холбооснууд</string>
   <string name="template_overlay_window">%1$s дэлгэцэн доторх дэлгэц</string>
   <string name="template_split_screen_mode_portrait">дээр нь %1$s, доор нь %2$s</string>
   <string name="template_split_screen_mode_landscape_ltr">зүүн талд %1$s, баруун талд %2$s</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Хуудас %2$d-н %1$d</string>
   <string name="template_viewpager_index_count_short">%2$d-н %1$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Гарах</string>
+  <string name="show_keyboard_window">%1$s-г харуулж байна</string>
+  <string name="hide_keyboard_window">гарыг нуусан</string>
+  <string name="function_on">Яриагаар өгөх саналыг асаасан</string>
+  <string name="function_off">Яриагаар өгөх саналыг унтраасан</string>
 </resources>

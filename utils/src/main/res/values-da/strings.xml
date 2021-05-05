@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="untitled_window">ikke-navngivet</string>
+  <string name="untitled_window">unavngivet</string>
   <string name="template_alert_dialog_template">Underretning %1$s</string>
   <string name="template_text_copied">kopieret, %1$s</string>
   <string name="template_capital_letter">stort %1$s</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Side %1$d af %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d af %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Luk</string>
+  <string name="show_keyboard_window">Viser %1$s</string>
+  <string name="hide_keyboard_window">tastaturet er skjult</string>
+  <string name="function_on">Talefeedback er aktiveret</string>
+  <string name="function_off">Talefeedback er deaktiveret</string>
 </resources>

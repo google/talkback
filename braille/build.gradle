@@ -1,0 +1,15 @@
+apply plugin: 'com.android.library'
+apply from: "../shared.gradle"
+
+android {
+    externalNativeBuild {
+        ndkBuild {
+            path file('src/main/jni/Android.mk')
+        }
+    }
+}
+
+dependencies {
+    implementation project(':proguard')  // Only exists in open source repo.
+    implementation project(':utils')
+}

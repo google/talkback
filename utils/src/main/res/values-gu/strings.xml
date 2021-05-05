@@ -26,10 +26,10 @@
   <string name="granularity_web_landmark">લૅન્ડમાર્ક</string>
   <string name="granularity_web_heading">મથાળાં</string>
   <string name="granularity_web_list">સૂચિઓ</string>
-  <string name="granularity_web_link">લિંક્સ</string>
+  <string name="granularity_web_link">લિંક</string>
   <string name="granularity_web_control">નિયંત્રણો</string>
-  <string name="granularity_pseudo_web_special_content">વિશિષ્ટ સામગી</string>
-  <string name="granularity_native_heading">શીર્ષકો</string>
+  <string name="granularity_pseudo_web_special_content">વિશિષ્ટ કન્ટેન્ટ</string>
+  <string name="granularity_native_heading">મથાળા</string>
   <string name="granularity_native_control">નિયંત્રણો</string>
   <string name="granularity_native_link">લિંક</string>
   <string name="template_overlay_window">%1$s ચિત્રમાં ચિત્ર</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">%2$d માંથી %1$d પૃષ્ઠ</string>
   <string name="template_viewpager_index_count_short">%2$d માંથી %1$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">બહાર નીકળો</string>
+  <string name="show_keyboard_window">%1$s બતાવી રહ્યાં છીએ</string>
+  <string name="hide_keyboard_window">કીબોર્ડ છુપાવેલું છે</string>
+  <string name="function_on">\'બોલાયેલા પ્રતિસાદ\'નો વિકલ્પ ચાલુ છે</string>
+  <string name="function_off">\'બોલાયેલા પ્રતિસાદ\'નો વિકલ્પ બંધ છે</string>
 </resources>

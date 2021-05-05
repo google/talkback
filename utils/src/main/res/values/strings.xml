@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!-- To aid tooling, any string-containing xml file in this project should have a filename beginning with "strings" -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Window title used for announcing untitled window. -->
@@ -17,6 +18,8 @@
     <!--
       Source: An utterance template for announcing a single upper-case (capital) letter.
       Description: This is spoken to the user. May not be translatable for some languages. [CHAR LIMIT="NONE"]
+
+      TODO: This string was moved to compositor's resource. We can remove it later.
     -->
     <string name="template_capital_letter">capital <xliff:g id="uppercase_character">%1$s</xliff:g></string>
     <!-- Replacement string used when collapsing multiple repeated characters which is spoken to the user.  For example, in the case where we're about to speak 10 equal signs, we use this string to format the phrase "10 equal sign" rather than speaking "equal sign equal sign equal sign..." -->
@@ -130,4 +133,19 @@
         truncated if the text exceeds more than one line on the dialog.
     -->
     <string name="url_dialog_table"><xliff:g id="dialog_text" example="Google">%1$s</xliff:g> (<xliff:g id="dialog_url" example="www.google.com">%2$s</xliff:g>)</string>
+
+    <!-- Label for exit button for a scrim.[CHAR_LIMIT=NONE] -->
+    <string name="exit_scrim">
+        Exit
+    </string>
+
+    <!-- Announced when the window shows.[CHAR_LIMIT=NONE]-->
+    <string name="show_keyboard_window">Showing <xliff:g id="window_title" example="Gboard">%1$s</xliff:g></string>
+    <!-- Announced when the window hidden.[CHAR_LIMIT=NONE] -->
+    <string name="hide_keyboard_window">keyboard hidden</string>
+
+    <!-- Announced when toggle voice feedback is on.[CHAR_LIMIT=NONE] -->
+    <string name="function_on">Spoken feedback is on</string>
+    <!-- Announced when toggle voice feedback is off.[CHAR_LIMIT=NONE] -->
+    <string name="function_off">Spoken feedback is off</string>
 </resources>

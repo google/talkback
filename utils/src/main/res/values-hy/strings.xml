@@ -18,19 +18,19 @@
   <string name="keycombo_key_arrow_up">Սլաքը վերև</string>
   <string name="keycombo_key_arrow_down">Սլաքը ներքև</string>
   <string name="granularity_default">Կանխադրված</string>
-  <string name="granularity_character">Գրանշաններ</string>
+  <string name="granularity_character">Նիշեր</string>
   <string name="granularity_word">Բառեր</string>
-  <string name="granularity_line">Գծեր</string>
+  <string name="granularity_line">Տողեր</string>
   <string name="granularity_paragraph">Պարբերություններ</string>
   <string name="granularity_page">Էջեր</string>
   <string name="granularity_web_landmark">Ուղենիշներ</string>
   <string name="granularity_web_heading">Վերնագրեր</string>
   <string name="granularity_web_list">Ցանկեր</string>
   <string name="granularity_web_link">Հղումներ</string>
-  <string name="granularity_web_control">Կառավարներ</string>
+  <string name="granularity_web_control">Կառավարման տարրեր</string>
   <string name="granularity_pseudo_web_special_content">Հատուկ բովանդակություն</string>
   <string name="granularity_native_heading">Վերնագրեր</string>
-  <string name="granularity_native_control">Կառավարներ</string>
+  <string name="granularity_native_control">Կառավարման տարրեր</string>
   <string name="granularity_native_link">Հղումներ</string>
   <string name="template_overlay_window">%1$s՝ նկար նկարի մեջ</string>
   <string name="template_split_screen_mode_portrait">%1$s-ը վերևում, %2$s-ը ներքևում</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Էջ %1$d՝ %2$d-ից</string>
   <string name="template_viewpager_index_count_short">%1$d՝ %2$d-ից</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Ելք</string>
+  <string name="show_keyboard_window">Ցուցադրվում է «%1$s» ստեղնաշարը</string>
+  <string name="hide_keyboard_window">ստեղնաշարը թաքցված է</string>
+  <string name="function_on">Ձայնային արձագանքը միացված է</string>
+  <string name="function_off">Տեքստի հնչեցումն անջատված է</string>
 </resources>

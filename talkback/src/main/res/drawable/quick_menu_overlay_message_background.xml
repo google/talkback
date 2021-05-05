@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="@dimen/quick_menu_overlay_padding"
+    android:shape="rectangle">
+  <corners android:radius="@dimen/quick_menu_overlay_corner_radius" />
+  <solid android:color="@color/google_black" />
+  <stroke
+      android:width="@dimen/quick_menu_overlay_border"
+      android:color="@color/google_grey100" />
+</shape>

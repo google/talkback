@@ -12,7 +12,7 @@
   <string name="keycombo_key_modifier_shift">Shift</string>
   <string name="keycombo_key_modifier_alt">Alt</string>
   <string name="keycombo_key_modifier_ctrl">Ctrl</string>
-  <string name="keycombo_key_modifier_meta">Search</string>
+  <string name="keycombo_key_modifier_meta">ძიება</string>
   <string name="keycombo_key_arrow_right">ისარი მარჯვნივ</string>
   <string name="keycombo_key_arrow_left">ისარი მარცხნივ</string>
   <string name="keycombo_key_arrow_up">ისარი ზემოთ</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">გვერდი %1$d / %2$d-დან</string>
   <string name="template_viewpager_index_count_short">%1$d / %2$d-დან</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">გასვლა</string>
+  <string name="show_keyboard_window">ნაჩვენებია %1$s</string>
+  <string name="hide_keyboard_window">კლავიატურა დამალულია</string>
+  <string name="function_on">გახმოვანებული უკუკავშირი ჩართულია</string>
+  <string name="function_off">გახმოვანებული უკუკავშირი გამორთულია</string>
 </resources>

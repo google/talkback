@@ -18,7 +18,7 @@
   <string name="keycombo_key_arrow_up">အပေါ်ညွှန်မြှား</string>
   <string name="keycombo_key_arrow_down">အောက်ညွှန်မြှား</string>
   <string name="granularity_default">မူရင်းအတိုင်း</string>
-  <string name="granularity_character">ဇာတ်ကောင်များ</string>
+  <string name="granularity_character">အက္ခရာများ</string>
   <string name="granularity_word">စကားလုံးများ</string>
   <string name="granularity_line">စာကြောင်းများ</string>
   <string name="granularity_paragraph">စာပိုဒ်များ</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">စာမျက်နှာ %2$d ထဲက %1$d</string>
   <string name="template_viewpager_index_count_short">%2$d ထဲက %1$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">ထွက်ရန်</string>
+  <string name="show_keyboard_window">%1$s ကို ပြနေသည်</string>
+  <string name="hide_keyboard_window">ကီးဘုတ်ကို ဝှက်ထားသည်</string>
+  <string name="function_on">အသံထွက် အကြံပြုချက်ကို ဖွင့်ထားသည်</string>
+  <string name="function_off">အသံထွက် အကြံပြုချက်ကို ပိတ်ထားသည်</string>
 </resources>

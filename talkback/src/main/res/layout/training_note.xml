@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+  <TextView
+      android:id="@+id/training_note"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/training_note_margin_top"
+      android:padding="@dimen/training_note_padding"
+      android:background="@drawable/training_note_background"
+      android:fontFamily="sans-serif"
+      android:lineHeight="@dimen/training_note_text_height"
+      android:textColor="@color/training_note_text_color"
+      android:textSize="@dimen/training_note_text_size" />
+
+</LinearLayout>

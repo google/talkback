@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+  <LinearLayout
+      android:id="@+id/training_link"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/training_link_margin_top"
+      android:padding="@dimen/training_link_padding"
+      android:background="@drawable/training_list_item_background"
+      android:orientation="horizontal"
+      android:focusable="true">
+
+    <ImageView
+        android:id="@+id/training_link_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start|top" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/training_link_padding"
+        android:paddingEnd="0dp"
+        android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/training_link_text"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:fontFamily="sans-serif-medium"
+          android:lineHeight="@dimen/training_text_height"
+          android:textColor="@color/training_text_color"
+          android:textSize="@dimen/training_text_size" />
+
+      <TextView
+          android:id="@+id/training_link_subtext"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:fontFamily="sans-serif"
+          android:lineHeight="@dimen/training_subtext_height"
+          android:textColor="@color/training_text_color"
+          android:textSize="@dimen/training_subtext_size" />
+
+    </LinearLayout>
+
+  </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+  <SwitchPreference
+      android:defaultValue="@bool/pref_soundback_default"
+      android:key="@string/pref_soundback_key"
+      android:title="@string/title_pref_soundback" />
+  <ListPreference
+      android:defaultValue="@string/pref_soundback_volume_default"
+      android:dependency="@string/pref_soundback_key"
+      android:dialogTitle="@string/title_pref_soundback_volume"
+      android:entries="@array/pref_soundback_volume_entries"
+      android:entryValues="@array/pref_soundback_volume_values"
+      android:key="@string/pref_soundback_volume_key"
+      android:summary="%s"
+      android:title="@string/title_pref_soundback_volume" />
+  <SwitchPreference
+      android:defaultValue="@bool/pref_use_audio_focus_default"
+      android:key="@string/pref_use_audio_focus_key"
+      android:title="@string/title_pref_use_audio_focus"
+      android:summary="@string/summary_pref_use_audio_focus" />
+  <SwitchPreference
+      android:defaultValue="@bool/pref_vibration_default"
+      android:key="@string/pref_vibration_key"
+      android:title="@string/title_pref_vibration" />
+</PreferenceScreen>

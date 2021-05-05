@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="group_corners" type="id"/>
     <item name="group_language" type="id"/>
     <item name="group_keyboard" type="id"/>
     <item name="group_links" type="id"/>
     <item name="custom_action_menu" type="id"/>
     <item name="language_menu" type="id"/>
     <item name="editing_menu" type="id"/>
-    <item name="corner_NW" type="integer">0</item>
-    <item name="corner_NE" type="integer">1</item>
-    <item name="corner_SW" type="integer">2</item>
-    <item name="corner_SE" type="integer">3</item>
+    <item name="links_menu" type="id"/>
+    <item name="window_menu" type="id"/>
+    <item name="viewpager_menu" type="id"/>
+    <item name="seekbar_menu" type="id"/>
+    <item name="granularity_menu" type="id"/>
+
+    <integer name="quick_menu_overlay_font_weight">900</integer>
+
+    <!-- For next buttons in training. -->
+    <item name="training_next_button_0" type="id" />
+    <item name="training_next_button_1" type="id" />
+
+    <!-- For back buttons in training. -->
+    <item name="training_back_button_0" type="id" />
+    <item name="training_back_button_1" type="id" />
+
+    <!-- For exit buttons in training. -->
+    <item name="training_exit_button_0" type="id" />
+    <item name="training_exit_button_1" type="id" />
 </resources>

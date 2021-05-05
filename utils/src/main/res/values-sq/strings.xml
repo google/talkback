@@ -18,17 +18,17 @@
   <string name="keycombo_key_arrow_up">Shigjeta lart</string>
   <string name="keycombo_key_arrow_down">Shigjeta poshtë</string>
   <string name="granularity_default">E parazgjedhur</string>
-  <string name="granularity_character">Personazhet</string>
+  <string name="granularity_character">Karakteret</string>
   <string name="granularity_word">Fjalët</string>
   <string name="granularity_line">Vijat</string>
-  <string name="granularity_paragraph">Paragrafë</string>
+  <string name="granularity_paragraph">Paragrafët</string>
   <string name="granularity_page">Faqe</string>
-  <string name="granularity_web_landmark">Pika referimi</string>
+  <string name="granularity_web_landmark">Pikat e referimit</string>
   <string name="granularity_web_heading">Titujt</string>
   <string name="granularity_web_list">Listat</string>
   <string name="granularity_web_link">Lidhjet</string>
   <string name="granularity_web_control">Kontrollet</string>
-  <string name="granularity_pseudo_web_special_content">Përmbajtje e veçantë</string>
+  <string name="granularity_pseudo_web_special_content">Përmbajtjet e veçanta</string>
   <string name="granularity_native_heading">Titujt</string>
   <string name="granularity_native_control">Kontrollet</string>
   <string name="granularity_native_link">Lidhjet</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Faqja %1$d nga %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d nga %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Dil</string>
+  <string name="show_keyboard_window">Po shfaq %1$s</string>
+  <string name="hide_keyboard_window">tastiera është e fshehur</string>
+  <string name="function_on">Komentet me zë janë aktive</string>
+  <string name="function_off">Komentet me zë janë joaktive</string>
 </resources>

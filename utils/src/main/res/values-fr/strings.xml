@@ -23,13 +23,13 @@
   <string name="granularity_line">Lignes</string>
   <string name="granularity_paragraph">Paragraphes</string>
   <string name="granularity_page">Pages</string>
-  <string name="granularity_web_landmark">Repères</string>
+  <string name="granularity_web_landmark">Sections</string>
   <string name="granularity_web_heading">Titres</string>
   <string name="granularity_web_list">Listes</string>
   <string name="granularity_web_link">Liens</string>
   <string name="granularity_web_control">Commandes</string>
   <string name="granularity_pseudo_web_special_content">Contenu spécial</string>
-  <string name="granularity_native_heading">En-têtes</string>
+  <string name="granularity_native_heading">Titres</string>
   <string name="granularity_native_control">Commandes</string>
   <string name="granularity_native_link">Liens</string>
   <string name="template_overlay_window">%1$s en mode PIP</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Page %1$d sur %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d sur %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Quitter</string>
+  <string name="show_keyboard_window">Affichage de %1$s</string>
+  <string name="hide_keyboard_window">clavier masqué</string>
+  <string name="function_on">Commentaires audio activés</string>
+  <string name="function_off">Commentaires audio désactivés</string>
 </resources>

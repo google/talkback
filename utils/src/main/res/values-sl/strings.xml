@@ -20,7 +20,7 @@
   <string name="granularity_default">Privzeto</string>
   <string name="granularity_character">Znaki</string>
   <string name="granularity_word">Besede</string>
-  <string name="granularity_line">Črte</string>
+  <string name="granularity_line">Vrstice</string>
   <string name="granularity_paragraph">Odstavki</string>
   <string name="granularity_page">Strani</string>
   <string name="granularity_web_landmark">Posamezni sklopi</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">Stran %1$d od %2$d</string>
   <string name="template_viewpager_index_count_short">%1$d od %2$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">Zapri</string>
+  <string name="show_keyboard_window">Tipkovnica %1$s je prikazana</string>
+  <string name="hide_keyboard_window">Tipkovnica je skrita</string>
+  <string name="function_on">Glasovni odziv je vklopljen</string>
+  <string name="function_off">Glasovni odziv je izklopljen</string>
 </resources>

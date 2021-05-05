@@ -1,0 +1,9 @@
+<input-method xmlns:android="http://schemas.android.com/apk/res/android"
+    android:settingsActivity="com.google.android.accessibility.brailleime.settings.BrailleImePreferencesActivity"
+    android:supportsSwitchingToNextInputMethod="true">
+  <subtype
+      android:imeSubtypeLocale=""
+      android:imeSubtypeMode="keyboard"
+      android:isAsciiCapable="true"
+      android:label="Braille Keyboard" />
+</input-method>

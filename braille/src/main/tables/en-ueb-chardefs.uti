@@ -1,0 +1,729 @@
+# liblouis: English (Unified) character definitions table
+#
+#  Based on the Linux screenreader BRLTTY
+#
+#  Copyright (C) 1999-2006 by The BRLTTY Team
+#  Copyright (C) 2004-2006 ViewPlus Technologies, Inc. www.viewplus.com
+#  Copyright (C) 2004-2006 JJB Software, Inc. www.jjb-software.com
+#  Copyright (C) 2016 American Printing House for the Blind, Inc. www.aph.org
+#
+#  This file is part of liblouis.
+#
+#  liblouis is free software: you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as
+#  published by the Free Software Foundation, either version 2.1 of the
+#  License, or (at your option) any later version.
+#
+#  liblouis is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#  Lesser General Public License for more details.
+#
+#  You should have received a copy of the GNU Lesser General Public
+#  License along with liblouis. If not, see
+#  <http://www.gnu.org/licenses/>.
+
+#  Maintained by Mike Gray <mgray@aph.org>
+
+space \t 9 tab
+space \x001b 1b escape character for html back-translation
+space \x00A0 a NO-BREAK SPACE <noBreak> 0020 NON-BREAKING SPACE
+
+include spaces.uti
+noback correct "\x200b" "\s"
+
+include latinLetterDef8Dots.uti
+
+
+#   Numeric Symbols
+
+display 0 356
+display 1 2
+display 2 23
+display 3 25
+display 4 256
+display 5 26
+display 6 235
+display 7 2356
+display 8 236
+display 9 35
+
+digit 0 245
+digit 1 1
+digit 2 12
+digit 3 14
+digit 4 145
+digit 5 15
+digit 6 124
+digit 7 1245
+digit 8 125
+digit 9 24
+
+# this is a bad work-around for doing numeric mode backwards
+litdigit 0 245
+litdigit 1 1
+litdigit 2 12
+litdigit 3 14
+litdigit 4 145
+litdigit 5 15
+litdigit 6 124
+litdigit 7 1245
+litdigit 8 125
+litdigit 9 24
+
+
+#   Modifiers
+
+# acute accent
+sign \x00b4 45-34 ´
+sign \x0301 45-34 ́ 
+noback correct [$l]"́" "́"*
+
+# circumflex/carot
+display \x005e 457 ^
+sign \x005e 4-26 ^
+sign \x0302 45-146 ̂ 
+noback correct [$l]"̂" "̂"*
+
+# grave accent
+sign \x0060 46-16 `
+noback punctuation ` 4
+sign \x0300 45-16 ̀̀ 
+noback correct [$l]"̀" "̀"*
+
+# tilde
+display \x007e 45 ~
+math \x007e 4-35 ~
+sign \x0303 45-12456 ̃ 
+noback correct [$l]"̃" "̃"*
+noback pass2 @45-12456-6 @6-45-12456  move after capital sign
+
+# macron
+sign \x00af 4-36 ¯
+sign \x0304 45-4-36 ̄ 
+noback correct [$l]"̄" "̄"*
+
+# cedilla
+sign \x00b8 45-12346 ¸
+sign \x0327 45-12346 ̧ 
+noback correct [$l]"̧" "̧"*
+
+# diaeresis/umlat
+sign \x00a8 45-25 ¨
+sign \x0308 45-25 ̈  
+noback correct [$l]"̈" "̈"*
+
+# caron
+sign \x02c7 45-345 ˇ
+sign \x030c 45-346 ̌ 
+noback correct [$l]"̌" "̌"*
+
+# breve
+sign \x02d8 4-346 ˘
+sign \x0306 4-346 ̆ 
+noback correct [$l]"̆" "̆"*
+
+# ring/circle
+sign \x02da 45-1246 ˚
+sign \x030a 45-1246 ̊  
+noback correct [$l]"̊" "̊"*
+
+
+#####   Start of Unicode
+
+
+#   Unicode:  Basic Latin
+
+display ! 2346
+punctuation ! 235
+nofor postpunc ! 235
+match %a ! %a 56-235
+
+display " 5
+punctuation " 6-2356
+# The "?" symbol is mostly handled below,
+# but the pattern needs to be defined before prepunc and postpunc can be used.
+display ? 1456
+nofor punctuation ? 236
+nofor punctuation " 356
+nofor prepunc " 236
+nofor postpunc " 356
+match %[^_~]%<* " %[_.$]*%[a#] 236
+match %[a#]%[_.$]* " %>*%[^_~] 356
+
+display # 3456
+sign # 456-1456
+display $ 1246
+sign $ 4-234
+display % 146
+sign % 46-356
+display & 12346
+sign & 4-12346
+display ' 3
+punctuation ' 3
+display ( 12356
+punctuation ( 5-126
+display ) 23456
+punctuation ) 5-345
+display * 16
+sign * 5-35
+display + 346
+math + 5-235
+display , 6
+punctuation , 2
+match %a , %a 56-2
+display - 36
+punctuation - 36
+hyphen - 36
+display . 46
+punctuation . 256
+decpoint . 256
+display / 34
+math / 456-34
+# 0-9   see Numeric Symbols
+display : 156
+punctuation : 25
+postpunc : 25
+match %a : %a 56-25
+#TODO:  this is unnecessarily necessary
+display ; 56
+punctuation ; 23
+noback punctuation ; 56
+match %a ; %a 56-23
+display < 126
+math < 4-126
+display = 123456
+math = 5-2356
+display > 345
+punctuation > 4-345
+# requires grade one indicator when by itself
+punctuation ? 56-236
+postpunc ? 236
+display @ 47
+sign @ 4-1
+# A-Z   see latinLetterDef8Dots.uti
+display [ 2467
+punctuation [ 46-126
+display \\ 12567
+sign \\ 456-16
+display ] 124567
+punctuation ] 46-345
+# \x005e ^   see Modifiers
+display _ 456
+sign _ 46-36
+# /x0060 `   see Modifiers
+# a-z   see latinLetterDef8Dots.uti
+display { 246
+punctuation { 456-126
+display | 1256
+sign | 456-1256 
+display } 12456
+punctuation } 456-345
+# \x007e ~   see Modifiers
+
+
+#   Unicode:  Latin-1 Supplement
+
+#punctuation \x0093 236
+#punctuation \x0094 356
+#punctuation \x0096 36
+space \x00a0 a   non-breaking space
+sign \x00a1 45-56-235 ¡
+punctuation \x00a1 235 ¡
+sign \x00a2 4-14 ¢ cent
+sign \x00a3 4-123 £ pound
+sign \x00a4 1246 ¤ curency
+sign \x00a5 4-13456 ¥ yen
+sign \x00a6 46-1256 ¦ broken bar
+punctuation \x00a6 456-1256 ¦ broken bar
+sign \x00a7 45-234 § section
+# \x00a8 ¨   see Modifiers
+sign \x00a9 45-14 © copyright
+#sign \x00aa ª
+punctuation \x00ab 456-236 «
+sign \x00ac 4-1456 ¬
+punctuation \x00ad 36 - soft hyphen
+sign \x00ae 45-1235 ® registered
+# \x00af ¯   see Modifiers
+sign \x00b0 45-245 °
+math \x00b1 456-235 ±
+
+# fake grade 1 and superscipt indicator
+math \x00b2 56-35-3456-12 ²
+math \x00b3 56-35-3456-14 ³
+
+# \x00b4 ´   see Modifiers
+sign \x00b5 46-134 µ
+math \x00b7 4-16 ·
+
+# fake numeric indicator
+math \x00bc 3456-1-34-145 ¼
+math \x00bd 3456-1-34-12 ½
+math \x00be 3456-14-34-145 ¾
+
+#sign \x00ba 0 º
+sign \x00b6 45-1234 ¶ pilcrow
+# \x00b8 ¸   see Modifiers
+punctuation \x00bb 456-356 »
+punctuation \x00bf 45-56-236 ¿
+uplow \x00c0\x00e0 45-16-1 Àà
+uplow \x00c1\x00e1 45-34-1 Áá
+uplow \x00c2\x00e2 45-146-1 Ââ
+uplow \x00c3\x00e3 45-12456-1 Ãã
+uplow \x00c4\x00e4 45-25-1 Ää
+uplow \x00c5\x00e5 45-1246-1 Åå
+uppercase \x00c6 1-6-45-235-15 Æ
+uplow \x00c7\x00e7 45-12346-14 Çç
+uplow \x00c8\x00e8 45-16-15 Èè
+uplow \x00c9\x00e9 45-34-15 Éé
+uplow \x00ca\x00ea 45-146-15 Êê
+uplow \x00cb\x00eb 45-25-15 Ëë
+uplow \x00cc\x00ec 45-16-24 Ìì
+uplow \x00cd\x00ed 45-34-24 Íí
+uplow \x00ce\x00ee 45-146-24 Îî
+uplow \x00cf\x00ef 45-25-24 Ïï
+uplow \x00d0\x00f0 3456-1246 Ðð
+uplow \x00d1\x00f1 45-12456-1345 Ññ
+uplow \x00d2\x00f2 45-16-135 Òò
+uplow \x00d3\x00f3 45-34-135 Óó
+uplow \x00d4\x00f4 45-146-135 Ôô
+uplow \x00d5\x00f5 45-12456-135 Õõ
+uplow \x00d6\x00f6 45-25-135 Öö
+math \x00d7 5-236 ×
+uplow \x00d8\x00f8 4-16-135 Øø   
+uplow \x00d9\x00f9 45-16-136 Ùù
+uplow \x00da\x00fa 45-34-136 Úú
+uplow \x00db\x00fb 45-146-136 Ûû
+uplow \x00dc\x00fc 45-25-136 Üü
+uplow \x00dd\x00fd 45-34-13456 Ýý
+uplow \x00de\x00fe 3456-2346 Þþ
+lowercase \x00e6 1-45-235-15 æ
+math \x00f7 5-34 ÷
+
+
+#   Unicode:  Latin Extended-A
+
+uplow \x0100\x0101 4-36-1 Āā
+uplow \x0102\x0103 4-346-1 Ăă
+uplow \x0106\x0107 45-34-14 Ćć
+uplow \x0108\x0109 45-146-14 Ĉĉ
+uplow \x010e\x010f 45-346-145 Ďď
+uplow \x0110\x0111 4-25-145 Đđ
+uplow \x0112\x0113 4-36-15 Ēē
+uplow \x0114\x0115 4-346-15 Ĕĕ
+uplow \x011c\x011d 45-146-1245 Ĝĝ
+uplow \x011e\x011f 4-346-1245 Ğğ
+uplow \x0122\x0123 45-12346-1245 Ģģ
+uplow \x0124\x0125 45-146-125 Ĥĥ
+uplow \x0126\x0127 4-25-125 Ħħ
+uplow \x0128\x0129 45-12456-24 Ĩĩ
+uplow \x012a\x012b 4-36-24 Īī
+uplow \x012c\x012d 4-346-24 Ĭĭ
+uppercase \x0132 24-6-45-235-245 Ĳ
+lowercase \x0133 24-45-235-245 ĳ
+uplow \x0134\x0135 45-146-245 Ĵĵ
+uplow \x0136\x0137 45-12346-13 Ķķ
+uplow \x0139\x013a 45-34-123 Ĺĺ
+uplow \x013b\x013c 45-12346-123 Ļļ
+uplow \x013d\x013e 45-346-123 Ľľ
+uplow \x0141\x0142 4-16-123 Łł
+uplow \x0141\x0142 4-25-123 Łł
+uplow \x0143\x0144 45-34-1345 Ńń
+uplow \x0145\x0146 45-12346-1345 Ņņ
+uplow \x0147\x0148 45-346-1345 Ňň
+uplow \x014a\x014b 45-1345 Ŋŋ
+uplow \x014c\x014d 4-36-135 Ōō
+uplow \x014e\x014f 4-346-135 Ŏŏ
+uppercase \x0152 135-6-45-235-15 Œ
+lowercase \x0153 135-45-235-15 œ
+uplow \x0154\x0155 45-34-1235 Ŕŕ
+uplow \x0156\x0157 45-12346-1235 Ŗŗ
+uplow \x0158\x0159 45-346-1235 Řř
+uplow \x015a\x015b 45-34-234 Śś
+uplow \x015c\x015d 45-146-234 Ŝŝ
+uplow \x015e\x015f 45-12346-234 Şş
+uplow \x0160\x0161 45-346-234 Šš
+uplow \x0162\x0163 45-12346-2345 Ţţ
+uplow \x0164\x0165 45-346-2345 Ťť
+uplow \x0166\x0167 4-25-2345 Ŧŧ
+uplow \x0168\x0169 45-12456-136 Ũũ
+uplow \x016a\x016b 4-36-136 Ūū
+uplow \x016c\x016d 4-346-136 Ŭŭ
+uplow \x016e\x016f 45-1246-136 Ůů
+uplow \x0174\x0175 45-146-2456 Ŵŵ
+uplow \x0176\x0177 45-146-13456 Ŷŷ
+uplow \x0178\x00ff 45-25-13456 Ÿÿ
+uplow \x0179\x017a 45-34-1356 Źź
+uplow \x017d\x017e 45-346-1356 Žž
+
+
+#   Unicode:  Latin Extended-B
+
+uplow \x018f\x0259 456-26 Əə   schwa e must be before \x018e and \x04d8
+uplow \x018e\x01dd 456-26 Ǝǝ   turned e
+uplow \x0197\x0268 4-25-24 Ɨɨ
+uplow \x01b5\x01b6 4-25-1356 Ƶƶ
+uplow \x01cd\x01ce 45-346-1 Ǎǎ
+uplow \x01cf\x01d0 45-346-123 Ǐǐ
+uplow \x01cf\x01d0 45-346-24 Ǐǐ
+uplow \x01d1\x01d2 45-346-135 Ǒǒ
+uplow \x01d3\x01d4 45-346-136 Ǔǔ
+uplow \x01e4\x01e5 4-25-1245 Ǥǥ
+uplow \x01e6\x01e7 45-346-1245 Ǧǧ
+uplow \x01e8\x01e9 45-346-13 Ǩǩ
+uplow \x01f4\x01f5 45-34-1245 Ǵǵ
+uplow \x01f7\x01bf 3456-2456 Ƿƿ   wynn
+uplow \x01f8\x01f9 45-16-1345 Ǹǹ
+
+uplow \x021c\x021d 3456-13456 Ȝȝ   yogh
+uplow \x021e\x021f 45-346-125 Ȟȟ
+uplow \x0228\x0229 45-12346-15 Ȩȩ
+uplow \x0232\x0233 4-36-13456 Ȳȳ
+uplow \x023a\x2c65 4-16-1 Ⱥⱥ
+uplow \x023b\x023c 4-16-14 Ȼȼ
+uplow \x023e\x2c66 4-16-2345 Ⱦⱦ
+uplow \x0243\x0180 4-25-12 Ƀƀ
+uplow \x0246\x0247 4-16-15 Ɇɇ
+uplow \x0248\x0249 4-25-245 Ɉɉ
+uplow \x0248\x0249 4-25-245 Ɉɉ 
+uplow \x024c\x024d 4-25-1235 Ɍɍ
+uplow \x024e\x024f 4-25-13456 Ɏɏ
+
+
+#   Unicode:  IPA Extensions
+
+# \x0259 ə   see \x018f
+
+
+#   Unicode:  Spacing Modifier Letters
+
+sign \x02e6 45-46-14 ˦   high tone
+sign \x02e7 45-46-25 ˧   mid tone
+sign \x02e8 45-46-36 ˨   low tone
+
+
+#   Unicode:  Greek and Coptic
+
+uplow \x0391\x03b1 46-1 Αα Alpha
+uplow \x0392\x03b2 46-12 Ββ Beta
+uplow \x0393\x03b3 46-1245 Γγ Gamma
+uplow \x0394\x03b4 46-145 Δδ Delta
+uplow \x0395\x03b5 46-15 Εε Epsilon
+uplow \x0396\x03b6 46-1356 Ζζ Zeta
+uplow \x0397\x03b7 46-156 Ηη Eta
+uplow \x0398\x03b8 46-1456 Θθ Theta
+uplow \x0399\x03b9 46-24 Ιι Iota
+uplow \x039a\x03ba 46-13 Κκ Kappa
+uplow \x039b\x03bb 46-123 Λλ Lamda
+uplow \x039c\x03bc 46-134 Μμ Mu
+uplow \x039d\x03bd 46-1345 Νν Nu
+uplow \x039e\x03be 46-1346 Ξξ Xi
+uplow \x039f\x03bf 46-135 Οο Omicron
+uplow \x03a0\x03c0 46-1234 Ππ Pi
+uplow \x03a1\x03c1 46-1235 Ρρ Rho
+uplow \x03a3\x03c3 46-234 Σσ Sigma
+uplow \x03a4\x03c4 46-2345 Ττ Tau
+uplow \x03a5\x03c5 46-136 Υυ Upsilon
+uplow \x03a6\x03c6 46-124 Φφ Phi
+uplow \x03a7\x03c7 46-12346 Χχ Chi
+uplow \x03a8\x03c8 46-13456 Ψψ Psi
+uplow \x03a9\x03c9 46-2456 Ωω Omega
+noback lowercase \x03c2 46-234 ς Small Letter Sigma
+
+
+#   Unicode:  Cyrillic
+# similar cryrillic characters must be after latin characters
+# to ensure proper backward translation
+
+
+#   Unicode:  Latin Extended Additional
+
+uplow \x1e20\x1e21 4-36-1245 Ḡḡ
+uplow \x1e26\x1e27 45-25-125 Ḧḧ
+uplow \x1e30\x1e31 45-34-13 Ḱḱ
+uplow \x1e3e\x1e3f 45-34-134 Ḿḿ
+uplow \x1e54\x1e55 45-34-1234 Ṕṕ
+uplow \x1e7c\x1e7d 45-12456-1236 Ṽṽ
+uplow \x1e82\x1e83 45-34-2456 Ẃẃ
+uplow \x1e84\x1e85 45-25-2456 Ẅẅ
+uplow \x1e8c\x1e8d 45-25-1346 Ẍẍ
+lowercase \x1e97 45-25-2345 ẗ
+lowercase \x1e98 45-1246-2456 ẘ   http://archives.miloush.net/michkap/archive/2012/04/17/10294366.html
+lowercase \x1e99 45-1246-13456 ẙ
+uplow \x1ebc\x1ebd 45-12456-15 Ẽẽ
+uplow \x1ef8\x1ef9 45-12456-13456 Ỹỹ
+
+
+#   Unicode:  General Punctuation
+
+space \x2000 0
+space \x2001 0
+space \x2002 0
+space \x2003 0
+space \x2004 0
+space \x2005 0
+space \x2006 0
+space \x2007 0
+space \x2008 0
+space \x2009 0
+space \x200a 0
+space \x200b 0
+punctuation \x2010 36 ‐
+punctuation \x2011 36 ‑
+punctuation \x2013 6-36 –
+punctuation \x2014 5-6-36 —   Rules of UEB, page 15
+punctuation \x2015 5-6-36 ―
+noback punctuation \x2018 6-236 ‘
+noback punctuation \x2019 6-356 ’
+punctuation \x201c 236 “
+punctuation \x201d 356 ”
+sign \x2020 4-6-1456 †   dagger
+sign \x2021 4-6-12456 ‡   double dagger
+sign \x2022 456-256 •   bullet
+punctuation \x2026 256-256-256 …   ellipse
+space \x202f 0   narrow no-break space
+sign \x2032 2356 ′   prime (derivative)
+sign \x2033 2356-2356 ″   double prime (second derivative)
+
+
+#   Unicode:  Superscripts and Subscripts
+
+# fake indicators and numeric indicator
+#math \x2070 35-3456-245 ⁰
+
+
+#   Unicode:  Currency Symbols
+
+sign \x20a3 4-124 ₣ franc
+sign \x20a6 4-1345 ₦ naira
+sign \x20ac 4-15 € euro
+
+
+#   Unicode:  Letterlike Symbols
+
+sign \x2122 45-2345 ™
+
+
+#   Unicode:  Number Forms
+
+# fake numerical indicator for simple fractions
+math \x2150 3456-1-34-1245 ⅐
+math \x2151 3456-1-34-24 ⅑
+math \x2152 3456-1-34-1-245 ⅒
+math \x2153 3456-1-34-14 ⅓
+math \x2154 3456-12-34-14 ⅔
+math \x2155 3456-1-34-15 ⅕
+math \x2156 3456-12-34-15 ⅖
+math \x2157 3456-14-34-15 ⅗
+math \x2158 3456-145-34-15 ⅘
+math \x2159 3456-1-34-124 ⅙
+math \x215a 3456-15-34-124 ⅚
+math \x215b 3456-1-34-125 ⅛
+math \x215c 3456-14-34-125 ⅜
+math \x215d 3456-15-34-125 ⅝
+math \x215e 3456-1245-34-125 ⅞
+math \x2189 3456-245-34-14 ↉
+
+
+#   Unicode:  Arrows
+
+sign \x2190 56-1256-246 ←
+sign \x2191 56-1256-346 ↑
+sign \x2192 56-1256-135 →
+sign \x2193 56-1256-146 ↓
+sign \x2196 56-1256-156 ↖
+sign \x2197 56-1256-234 ↗
+sign \x2198 56-1256-126 ↘
+sign \x2199 56-1256-345 ↙
+sign \x21a6 56-1256-1256 ↦
+sign \x21b2 56-1256-256 ↲
+sign \x21b3 56-1256-356 ↳
+sign \x21b5 56-1256-256-146 ↵   Rules of UEB, page 21
+sign \x21c0 56-1256-4-1235 ⇀
+sign \x21c1 56-1256-6-1235 ⇁
+sign \x21cc 45-456-2356 ⇌   equilibrium arrow (harpoons)
+sign \x21d2 56-1256-2356-2356 ⇒
+
+
+#   Unicode:  Mathematical Operators
+
+sign \x2200 45-1 ∀   for all
+sign \x2202 4-145 ∂   partial derivative
+sign \x2203 45-26 ∃   there exists
+sign \x2204 45-26-4-156 ∄   there does not exist
+sign \x2205 4-245 ∅   empty set
+sign \x2207 45-145 ∇   nabla
+sign \x2208 45-15 ∈   element of
+sign \x220b 4-45-15 ∋   contains (such that)
+sign \x2211 6-46-234 ∑   sum (capitol sigma)
+sign \x2212 5-36 −   minus sign (not hyphen)
+sign \x2213 456-36 ∓   minus or plus
+sign \x2218 5-356 ∘   hollow dot (ring operator)
+sign \x221a 5-146 √   square root
+sign \x221d 456-5-2356   ∝ proportional to
+sign \x221e 3456-123456   ∞ infinity
+sign \x2220 456-246   ∠ angle
+sign \x2221 46-456-246   ∡ measured angle
+sign \x2225 3456-123   ∥ parallel to
+sign \x2227 4-236 ∧   logical and
+sign \x2228 4-235 ∨   logical or
+sign \x2229 46-236 ∩   set intersection
+sign \x222a 46-235 ∪   set union
+sign \x222b 2346 ∫   integral
+sign \x222e 4-2346   contour integral
+noback sign \x2234 6-16 ∴   therefore   # using noback to avoid conflict with Child
+sign \x2235 4-34 ∵   because
+noback sign \x2236 25 ∶   ratio   # using noback to avoid conflict with :
+sign \x2237 25-25 ∷   proportion
+sign \x2243 456-35 ≃   asymptotically equal to
+sign \x2245 5-456-35 ≅   approximately equal to
+sign \x2248 45-35 ≈   almost equal to
+sign \x224f 45-5-2356 ≏   difference between
+sign \x2251 46-5-2356 ≑   geometrically equal
+sign \x2260 5-2356-4-156 ≠   not equal
+sign \x2261 456-123456 ≡   identical (equivalent) to
+sign \x2264 456-4-126 ≤   less than or equal to
+sign \x2265 456-4-345 ≥   greater than or equal to
+sign \x226a 46-4-126 ≪   much less than
+sign \x226b 46-4-345 ≫   much greater than
+sign \x2282 45-126 ⊂   subset of
+sign \x2283 45-345 ⊃   superset of
+sign \x2286 456-45-126 ⊆   subset or equal to
+sign \x2287 456-45-345 ⊇   superset or equal to
+sign \x228a 46-45-126 ⊊   proper subset
+sign \x228b 46-45-345 ⊋   proper superset
+sign \x22a3 4-456-25 ⊣   left tack
+sign \x22a5 3456-36 ⊥   up tack
+sign \x22a6 456-25 ⊦   assertion
+sign \x22a8 45-456-25 ⊨   valid
+sign \x22b2 4-456-126 ⊲   normal subgroup
+sign \x22b3 4-456-345 ⊳   contains as normal subgroup
+sign \x22b4 456-456-126 ⊴   normal subgroup or equal
+sign \x22b5 456-456-345 ⊵   contains as normal subgroup or equal
+sign \x22be 3456-456-246 ⊾   right angle with arc
+sign \x22c5 5-256 ⋅   dot operator
+
+
+#   Unicode:  Miscellaneous Technical
+
+math \x2329 4-126 〈
+math \x232A 4-345 〉
+
+
+#   Unicode:  Box Drawing
+
+noback sign \x2502 456 │   tally mark - vertical single solid line segment
+noback sign \x250a 45 ┊   first variant vertical line segment
+noback sign \x2551 6-456 ║   second variant vertical line segment
+noback sign \x2571 345 ╱   right-leaning single solid diagonal line segment   # using noback to avoid conflict with "ar" contraction
+noback sign \x2572 126 ╲   left-leaning single solid diagonal line segment   # using noback to avoid conflict with "gh" contraction
+
+
+#   Unicode:  Geometric Shapes
+
+sign \x25a0 456-1246-3456-145 ■   filled (solid) square
+sign \x25a1 1246-3456-145 □   square
+sign \x25a7 46-1246-3456-145 ▧   shaded square (upper left to lower right)
+sign \x25b2 456-1246-3456-14 ▲   filled (solid) (equilateral) triangle
+sign \x25b3 1246-3456-14 △   regular (equilateral) triangle
+sign \x25cb 1246-123456 ○   circle
+sign \x25cd 46-1246-123456 ◍   shaded circle
+sign \x25aa 456-256 ▪
+noback sign \x25cf 5-35 ●   black circle   # not representing filled circle shape as it is mostly used in password fields to represent hidden characters
+
+
+#   Unicode:  Miscellaneous Symbols
+
+sign \x2640 45-1346 ♀
+sign \x2642 45-13456 ♂
+sign \x266D 3456-126 ♭
+sign \x266E 3456-16 ♮
+sign \x266F 3456-146 ♯
+
+
+#   Unicode:  Miscellaneous Mathematical Symbols-B
+
+sign \x29b5 46-245 ⦵   'normal' (superscript circle crossed by horizontal line)
+
+
+#   Unicode:  Supplemental Mathemetical Operators
+
+math  \x2a23       45-146-5-235 ⨣
+math  \x2a24       45-12456-5-235 ⨤
+
+
+#   Unicode:  Supplemental Mathematical Operators
+
+sign \x2a23 45-146-5-235 ⨣
+sign \x2a24 45-12456-5-235 ⨤
+sign \x2ae4 46-456-25 ⫤   reverse 'is valid' sign
+
+
+#   Unicode:  Latin Extended-C
+
+uplow \x2c63\x1d7d 4-25-1234 Ᵽᵽ
+
+
+#   Unicode:  CJK Symbols and Punctuation
+
+sign \x3003 5-2 〃   ditto mark
+math \x3008 4-126 〈
+math \x3009 4-345 〉
+
+
+#   Unicode:  Latin Extended-D
+
+uplow \xa740\xa741 4-25-13 Ꝁꝁ
+uplow \xa742\xa743 4-16-13 Ꝃꝃ
+uplow \xa750\xa751 4-25-1234 Ꝑꝑ
+uplow \xa756\xa757 4-25-12345 Ꝗꝗ
+uplow \xa758\xa759 4-16-12345 Ꝙꝙ
+uplow \xa75e\xa75f 4-16-1236 Ꝟꝟ
+uplow \xa798\xa798 4-25-124 Ꞙꞙ
+
+
+#   Unicode:  Latin Extended-D
+
+lowercase \xfb00 124-45-235-124 ﬀ
+lowercase \xfb01 124-45-235-24 ﬁ
+#\xfb02 ﬃ
+#\xfb03 ﬄ
+lowercase \xfb05 124-45-235-2345 ﬅ
+lowercase \xfb06 234-45-235-2345 ﬆ
+
+
+#   Unicode:  Cyrillic
+# see above as to why these are here
+
+uplow \x0400\x0450 45-16-15 Ѐѐ
+uplow \x0401\x0451 45-25-15 Ёё
+uplow \x0407\x0457 45-25-24 Її
+uplow \x040c\x045c 45-34-13 Ќќ
+uplow \x040e\x04e5 45-346-13456 Ўў
+uplow \x04aa\x04ab 45-12346-14 Ҫҫ
+uplow \x04b0\x04b1 4-25-13456 Ұұ
+uplow \x04d0\x04d1 4-346-1 Ӑӑ
+uplow \x04d2\x04d3 45-25-1 Ӓӓ
+uppercase \x04d4 1-6-45-235-15 Ӕ
+lowercase \x04d5 1-45-235-15 ӕ
+uplow \x04d6\x04d7 45-346-15 Ӗӗ
+uplow \x04d8\x04d9 456-26 Әә
+uplow \x04ee\x04ef 4-36-13456 Ӯӯ
+uplow \x04f0\x04f1 45-25-13456 Ӱӱ
+
+
+#####   End of Unicode
+
+
+# Unicode prefers \x2019 for apostrophe instead of \x0027
+
+endword \x2019d 3-145
+endword \x2019m 3-134
+endword \x2019re 3-1235-15
+endword \x2019ve 3-1236-15
+endword \x2019ll 3-123-123
+endword \x2019s 3-234
+endword s\x2019 234-3
+endword \x2019t 3-2345
+
+

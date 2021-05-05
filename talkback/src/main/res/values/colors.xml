@@ -21,56 +21,35 @@
     <color name="title_color">#ff33b5e5</color>
     <color name="accessibility_touch_guard">#66000000</color>
 
-    <!-- For radial menu -->
-    <color name="center_fill">#D333</color>
-    <color name="center_text_fill">#FEEE</color>
-
-    <color name="outer_fill">#D333</color>
-    <color name="text_fill">#FEEE</color>
-
-    <color name="corner_fill">#D333</color>
-    <color name="corner_text_fill">#FEEE</color>
-
-    <color name="gradient_inner">#0000</color>
-    <color name="gradient_outer">#C000</color>
-
-    <color name="selection_fill">#1A73E8</color>
-    <color name="selection_text_fill">#FFFF</color>
-    <color name="selection_shadow">#9FFF</color>
-
-    <color name="submenu_overlay">#30F0</color>
-
-    <color name="dot_fill">#8333</color>
-    <color name="dot_stroke">#8FFF</color>
-
-    <color name="text_shadow">#A000</color>
-
     <color name="light_gray">#DDDDDD</color>
-    <!-- end radial menu -->
-
     <!-- For Screen Search -->
     <color name="overlay_background">#D000</color>
     <!-- end Screen Search -->
 
-    <color name="tutorial_action_bar_background">#263238</color>
-    <color name="tutorial_action_bar_text">#ffffff</color>
-    <color name="tutorial_header_text">#B3FFFFFF</color>
-    <color name="tutorial_header_background">#37474F</color>
-    <color name="tutorial_header_button_background">#FF4DB6AC</color>
-
-    <color name="tutorial_footer_background">#EEEEEE</color>
-    <color name="tutorial_footer_buttons">#444444</color>
-    <color name="tutorial_footer_chevron_color">@android:color/black</color>
-    <color name="tutorial_main_item_title">@android:color/black</color>
-    <color name="tutorial_main_item_buttons">#FF009688</color>
-    <color name="tutorial_main_item_background">@android:color/white</color>
-    <color name="tutorial_main_item_stroke">#ddd</color>
-    <color name="tutorial_semi_black">#8A000000</color>
-    <color name="tutorial_grid_item">#80CBC4</color>
-    <color name="tutorial_grid_item_selected">#00897B</color>
-    <color name="tutorial_arrow_color">#37474F</color>
-
     <color name="settings_bg_color">@color/google_white</color>
     <color name="actionBarTextColorPrimary">@color/google_black</color>
     <color name="colorAccent">@color/google_blue600</color>
+    <color name="colorAccentFocused">@color/google_blue900</color>
+    <color name="alert_dialog_bg_color">@color/google_white</color>
+    <color name="quick_menu_overlay_text_color">@color/google_white</color>
+
+    <!-- Attribute for wear color customization. -->
+    <color name="text_color">@color/google_grey200</color>
+
+    <color name="training_background_color">@color/google_grey900</color>
+    <color name="training_navigation_button_bar_background_color">#2c2d30</color>
+    <color name="training_text_color">#e8eaed</color>
+    <color name="training_subtext_color">#bdc1c6</color>
+    <color name="training_icon_color">@color/google_blue300</color>
+    <color name="training_button_text_color">#8ab5f7</color>
+    <color name="training_heading_color">#bdc1c6</color>
+    <color name="training_note_border_color">#8ab5f7</color>
+    <color name="training_note_text_color">#8ab5f7</color>
+    <color name="training_page_number_text_color">#bdc1c6</color>
+    <color name="training_list_item_text_color">#dadce0</color>
+    <color name="training_list_item_border_color">@color/google_grey700</color>
+    <color name="training_edit_text_text_color">#dadce0</color>
+    <color name="training_edit_text_hint_color">@color/google_grey500</color>
+    <color name="training_link_text_color">#8ab5f7</color>
+    <color name="training_divider_color">@color/google_grey700</color>
 </resources>

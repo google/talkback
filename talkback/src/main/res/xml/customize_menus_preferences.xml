@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@string/pref_manage_customize_menus_key">
+
+    <Preference
+        android:key="@string/pref_category_manage_context_menu_key"
+        android:summary="@string/pref_category_context_menu_summary"
+        android:title="@string/title_pref_category_context_menu">
+        <intent android:action=".preference.TalkBackContextMenuPreferencesActivity" />
+    </Preference>
+
+    <Preference
+        android:key="@string/pref_category_manage_selector_menu_key"
+        android:summary="@string/pref_category_selector_menu_summary"
+        android:title="@string/title_pref_category_selector_menu">
+        <intent android:action=".preference.TalkBackSelectorMenuPreferencesActivity" />
+    </Preference>
+</PreferenceScreen>

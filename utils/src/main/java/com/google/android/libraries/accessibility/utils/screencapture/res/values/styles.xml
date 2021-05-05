@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="ScreenshotAuthoProxyActivityTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
+    <!-- windowIsFloating is needed, otherwise the nav bar and status bar have black background. -->
+    <item name="android:windowIsFloating">true</item>
+    <!-- When the window is floating, the background is dimmed by default, we should turn it off. -->
+    <item name="android:backgroundDimEnabled">false</item>
+  </style>
+</resources>

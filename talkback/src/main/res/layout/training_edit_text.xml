@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+  <EditText
+      android:id="@+id/training_edit_text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/training_padding_top"
+      android:padding="@dimen/training_edit_text_padding"
+      android:background="@drawable/training_list_item_background"
+      android:gravity="center_vertical"
+      android:lineHeight="@dimen/training_edit_text_text_height"
+      android:textColor="@color/training_edit_text_text_color"
+      android:textColorHint="@color/training_edit_text_hint_color"
+      android:textSize="@dimen/training_edit_text_text_size"
+      android:imeOptions="flagNoExtractUi"
+      android:inputType="text">
+  </EditText>
+
+</LinearLayout>

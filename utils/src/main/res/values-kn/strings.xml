@@ -12,7 +12,7 @@
   <string name="keycombo_key_modifier_shift">Shift</string>
   <string name="keycombo_key_modifier_alt">Alt</string>
   <string name="keycombo_key_modifier_ctrl">Ctrl</string>
-  <string name="keycombo_key_modifier_meta">ಹುಡುಕಿ</string>
+  <string name="keycombo_key_modifier_meta">ಹುಡುಕಾಟ</string>
   <string name="keycombo_key_arrow_right">ಬಲ ಬಾಣದ ಗುರುತು</string>
   <string name="keycombo_key_arrow_left">ಎಡ ಬಾಣದ ಗುರುತು</string>
   <string name="keycombo_key_arrow_up">ಮೇಲಿನ ಬಾಣದ ಗುರುತು</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">%2$d ರಲ್ಲಿ %1$d ಪುಟಗಳು</string>
   <string name="template_viewpager_index_count_short">%2$d ರಲ್ಲಿ %1$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">ನಿರ್ಗಮಿಸಿ</string>
+  <string name="show_keyboard_window">%1$s ಅನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ</string>
+  <string name="hide_keyboard_window">ಕೀಬೋರ್ಡ್ ಅನ್ನು ಮರೆಮಾಡಲಾಗಿದೆ</string>
+  <string name="function_on">ಮಾತಿನ ಪ್ರತಿಕ್ರಿಯೆ ಆನ್ ಆಗಿದೆ</string>
+  <string name="function_off">ಮಾತಿನ ಪ್ರತಿಕ್ರಿಯೆ ಆಫ್ ಆಗಿದೆ</string>
 </resources>

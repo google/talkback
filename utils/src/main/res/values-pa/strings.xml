@@ -12,13 +12,13 @@
   <string name="keycombo_key_modifier_shift">ਸ਼ਿਫਟ ਕੁੰਜੀ</string>
   <string name="keycombo_key_modifier_alt">Alt</string>
   <string name="keycombo_key_modifier_ctrl">Ctrl</string>
-  <string name="keycombo_key_modifier_meta">Search</string>
+  <string name="keycombo_key_modifier_meta">ਖੋਜੋ</string>
   <string name="keycombo_key_arrow_right">ਤੀਰ ਸੱਜੇ</string>
   <string name="keycombo_key_arrow_left">ਤੀਰ ਖੱਬੇ</string>
   <string name="keycombo_key_arrow_up">ਤੀਰ ਉੱਪਰ</string>
   <string name="keycombo_key_arrow_down">ਤੀਰ ਥੱਲੇ</string>
-  <string name="granularity_default">ਪੂਰਵ-ਨਿਰਧਾਰਤ</string>
-  <string name="granularity_character">ਅੱਖਰ</string>
+  <string name="granularity_default">ਪੂਰਵ-ਨਿਰਧਾਰਿਤ</string>
+  <string name="granularity_character">ਅੱਖਰ-ਚਿੰਨ੍ਹ</string>
   <string name="granularity_word">ਸ਼ਬਦ</string>
   <string name="granularity_line">ਲਾਈਨਾਂ</string>
   <string name="granularity_paragraph">ਪੈਰਾਗ੍ਰਾਫ</string>
@@ -41,4 +41,9 @@
   <string name="template_viewpager_index_count">%2$d ਵਿੱਚੋਂ %1$d ਪੰਨਾ</string>
   <string name="template_viewpager_index_count_short">%2$d ਵਿੱਚੋਂ %1$d</string>
   <string name="url_dialog_table">%1$s (%2$s)</string>
+  <string name="exit_scrim">ਬਾਹਰ ਜਾਓ</string>
+  <string name="show_keyboard_window">%1$s ਨੂੰ ਦਿਖਾਇਆ ਜਾ ਰਿਹਾ ਹੈ</string>
+  <string name="hide_keyboard_window">ਕੀ-ਬੋਰਡ ਲੁਕਾਇਆ ਗਿਆ</string>
+  <string name="function_on">ਬੋਲੀ ਪ੍ਰਤੀਕਰਮ ਚਾਲੂ ਹੈ</string>
+  <string name="function_off">ਬੋਲੀ ਪ੍ਰਤੀਕਰਮ ਬੰਦ ਹੈ</string>
 </resources>
