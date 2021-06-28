@@ -27,6 +27,9 @@ public class LibLouis implements TranslatorFactory {
 
   @Override
   public Translator create(Context context, Code code, boolean contractedMode) {
+    if (code.equals(Code.POLISH)) {
+      return new LibLouisTranslatorPolish(context);
+    }
     if (code.equals(Code.FRENCH)) {
       return new LibLouisTranslatorFrench(context);
     }
