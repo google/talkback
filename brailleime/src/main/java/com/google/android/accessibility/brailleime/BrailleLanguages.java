@@ -25,6 +25,7 @@ import com.google.android.accessibility.brailleime.translate.EditBufferSpanish;
 import com.google.android.accessibility.brailleime.translate.EditBufferStub;
 import com.google.android.accessibility.brailleime.translate.EditBufferUeb1;
 import com.google.android.accessibility.brailleime.translate.EditBufferUeb2;
+import com.google.android.accessibility.brailleime.translate.EditBufferPolish;
 import com.google.android.accessibility.brailleime.translate.Translator;
 import com.google.android.accessibility.brailleime.translate.TranslatorFactory;
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ public class BrailleLanguages {
   public static final String SPOKEN_LANGUAGE_ES = "es";
   public static final String SPOKEN_LANGUAGE_AR = "ar";
   public static final String SPOKEN_LANGUAGE_FR = "fr";
+  public static final String SPOKEN_LANGUAGE_PL = "pl";
 
   /**
    * Finds and produces a {@link EditBuffer} based on {@code code}, {@code translatorFactory}, and
@@ -124,9 +126,9 @@ public class BrailleLanguages {
     FRENCH(SPOKEN_LANGUAGE_FR, false) {
       @Override
       public CharSequence getUserFacingName(Resources resources) {
-        return null;
+        // return null;
         // TODO: Reveal after user testing.
-        // return resources.getString(R.string.code_user_facing_name_fr);
+        return resources.getString(R.string.code_user_facing_name_fr);
       }
 
       @Override
@@ -184,6 +186,21 @@ public class BrailleLanguages {
           return new EditBufferUeb2(context, translator, talkBack);
         }
         return new EditBufferUeb1(context, translator, talkBack);
+      }
+    },
+    POLISH(SPOKEN_LANGUAGE_PL, false) {
+      @Override
+      public CharSequence getUserFacingName(Resources resources) {
+        return resources.getString(R.string.code_user_facing_name_pl);
+      }
+
+      @Override
+      EditBuffer createEditBuffer(
+          Context context,
+          TalkBackForBrailleImeInternal talkBack,
+          Translator translator,
+          boolean contractedMode) {
+        return new EditBufferPolish(context, translator, talkBack);
       }
     };
     // LINT.ThenChange(
