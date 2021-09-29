@@ -4,6 +4,8 @@
   <string name="switch_to_screen_away_announcement">Tryb Ekran odsunięty</string>
   <string name="switch_to_tabletop_announcement">Tryb na stole. Połóż urządzenie tak, by port ładowania był po lewej stronie. Aby zmienić pozycję kropki, przytrzymaj ekran 6 palcami.</string>
   <string name="braille_ime_hidden_announcement">Ukryto klawiaturę brajlowską</string>
+    <string name="number_announcement">Liczba</string>
+  <string name="capitalize_announcement">Wielkie</string>
   <string name="bring_ime_settings_page">Inne klawiatury nie są uruchomione, otwórz ustawienia klawiatury</string>
   <string name="reminder_announcement">Przesuń 3 palcami w górę, by wyświetlić więcej opcji</string>
   <string name="switched_to_contracted_announcement">Przełączono na brajla skrótowego</string>
@@ -50,7 +52,7 @@
   <string name="context_menu_switch_contracted_status_selection">Przełącz na brajla: %s</string>
   <string name="contracted">skrótowego</string>
   <string name="uncontracted">integralnego</string>
-  <string name="context_menu_see_all_gestures_selection">Review all gestures</string>
+  <string name="context_menu_see_all_gestures_selection">Przejrzyj wszystkie gesty</string>
   <string name="context_menu_tutorial_selection">Otwórz samouczek</string>
   <string name="context_menu_tutorial_finish">Zakończ samouczek</string>
   <string name="context_menu_settings_selection">Ustawienia</string>

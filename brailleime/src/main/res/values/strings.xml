@@ -9,9 +9,9 @@
   <!-- Audial announcement that plays when the soft braille keyboard dismiss. [CHAR_LIMIT=100] -->
   <string name="braille_ime_hidden_announcement">Braille keyboard hidden</string>
   <!-- Audial announcement that plays when number indicator is pressed. [CHAR_LIMIT=30] -->
-  <string name="number_announcement" translatable="false">Number</string>
+  <string name="number_announcement">Number</string>
   <!-- Audial announcement that plays when capitalize indicator is pressed. [CHAR_LIMIT=30] -->
-  <string name="capitalize_announcement" translatable="false">Cap</string>
+  <string name="capitalize_announcement">Cap</string>
   <!-- No other keyboard enabled and bring keyboard settings page to user. [CHAR_LIMIT=150] -->
   <string name="bring_ime_settings_page">There is no other keyboard enabled, go to keyboard settings</string>
   <!-- Audial announcement that notifies user how to leave keyboard. [CHAR LIMIT=100] -->
