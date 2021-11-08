@@ -360,6 +360,7 @@
   <string name="title_show_hide_screen">Ukryj lub pokaż ekran</string>
   <string name="title_show_screen_search">Wyszukiwanie zawartości ekranu</string>
   <string name="title_show_voice_commands">Polecenia głosowe</string>
+      <string name="talkback_show_talkback_settings">Ustawienia TalkBack</string>
   <string name="title_other_web_navigation">Inna nawigacja w internecie</string>
   <string name="title_granularity_default">Domyślna nawigacja</string>
   <string name="title_seek_bar_edit">Edytuj ustawienie suwaka</string>
@@ -690,8 +691,8 @@
   <string name="setting_selector_text">Te skróty pomogą Ci szybko zmienić ustawienia, np. przełączenie nawigacji ze znaków na słowa lub zmianę szybkości mowy funkcji TalkBack.\n\nKrok 1. Przesuń w prawo 3 palcami, by wybrać następny element sterujący czytaniem.\n\nKrok 2. Przesuń palcem w dół, by przenieść centrum nawigacji do przodu lub spowolnić szybkość czytania.</string>
   <string name="try_setting_selector_gesture">Spróbuj to zrobić teraz. Przesuń 3 palcami w prawo.</string>
   <string name="try_setting_selector_gesture_pre_r">Spróbuj to zrobić teraz. Przesuń palcem w dół, a potem w górę.</string>
-  <string name="customize_setting_selector_text">Możesz też odwrócić każdy z tych gestów.\n\nPrzesuń w lewo 3 palcami, by wybrać poprzedni element sterujący czytaniem.\n\nPrzesuń placem w górę, by przenieść centrum nawigacji do tyłu lub przyspieszyć szybkość czytania.\n\nMożesz zmienić elementy sterujące czytaniem w ustawieniach TalkBack.</string>
-  <string name="customize_setting_selector_text_pre_r">Możesz też odwrócić każdy z tych gestów.\n\nPrzesuń palcem w górę, a potem w dół, by wybrać poprzedni element sterujący czytaniem.\n\nPrzesuń placem w górę, by przenieść centrum nawigacji do góry lub przyspieszyć szybkość czytania.\n\nMożesz zmienić elementy sterujące czytaniem w ustawieniach TalkBack.</string>
+  <string name="customize_setting_selector_text">Możesz też odwrócić każdy z tych gestów.\n\nPrzesuń w lewo 3 palcami, by wybrać poprzedni element sterujący czytaniem.\n\nPrzesuń palcem w górę, by przenieść centrum nawigacji do tyłu lub przyspieszyć szybkość czytania.\n\nMożesz zmienić elementy sterujące czytaniem w ustawieniach TalkBack.</string>
+  <string name="customize_setting_selector_text_pre_r">Możesz też odwrócić każdy z tych gestów.\n\nPrzesuń palcem w górę, a potem w dół, by wybrać poprzedni element sterujący czytaniem.\n\nPrzesuń palcem w górę, by przenieść centrum nawigacji do góry lub przyspieszyć szybkość czytania.\n\nMożesz zmienić elementy sterujące czytaniem w ustawieniach TalkBack.</string>
   <string name="more_new_feature_title">Więcej nowych funkcji</string>
   <string name="more_new_feature_context_menu_text_pre_r">Globalne i lokalne menu kontekstowe, które pomagają w znalezieniu ustawień i elementów sterujących, są teraz połączone w jedno zbiorcze menu TalkBack.\n\nIstniejące gesty, z których korzystasz, np. przesunięcie palcem w dół, a potem w prawo, wciąż działają i przeniosą Cię do nowego zbiorczego menu.</string>
   <string name="more_new_feature_context_menu_text">Globalne i lokalne menu kontekstowe, które zawierały przydatne ustawienia i elementy sterujące, zostały zebrane w jednym zbiorczym menu TalkBack. Aby je otworzyć, kliknij 3 palcami. Spróbuj to zrobić teraz.\n\nNowe, zbiorcze menu otworzysz, korzystając z dotychczasowych gestów: przesuń palcem w dół, a potem w prawo.</string>
