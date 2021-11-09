@@ -27,8 +27,8 @@ import java.util.Optional;
 public class EditBufferFrench extends EditBufferCommon {
 
   public EditBufferFrench(
-      Context context, Translator ueb1Translator, TalkBackForBrailleImeInternal talkBack) {
-    super(context, ueb1Translator, talkBack);
+      Context context, Translator frenchTranslator, TalkBackForBrailleImeInternal talkBack) {
+    super(context, frenchTranslator, talkBack);
   }
 
   @Override
