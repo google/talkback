@@ -54,6 +54,8 @@ extern "C" {
 #endif
 
 #define NUMVAR 50
+#define EMPHMODECHARSSIZE 256
+#define NOEMPHCHARSSIZE 256
 #define LETSIGNSIZE 256
 // noletsignbefore and noletsignafter is hardly ever used and usually
 // only with very few chars, so it only needs a small array
@@ -98,7 +100,7 @@ typedef enum {
 	CTC_Sign = 0x80,
 	CTC_LitDigit = 0x100,
 	CTC_CapsMode = 0x200,
-	CTC_EmphMode = 0x400,
+	// bit 0x400 used to be taken by CTC_EmphMode
 	CTC_NumericMode = 0x800,
 	CTC_NumericNoContract = 0x1000,
 	CTC_SeqDelimiter = 0x2000,
@@ -198,6 +200,7 @@ typedef enum {
 typedef unsigned long long TranslationTableCharacterAttributes;
 
 typedef struct {
+	TranslationTableOffset offset;
 	TranslationTableOffset next;
 	widechar lookFor;
 	widechar found;
@@ -208,6 +211,7 @@ typedef struct {
 	TranslationTableOffset definitionRule;
 	TranslationTableOffset otherRules;
 	TranslationTableCharacterAttributes attributes;
+	TranslationTableOffset offset;
 	widechar realchar;
 	widechar uppercase;
 	widechar lowercase;
@@ -255,6 +259,7 @@ typedef enum { /* Op codes */
 
 	CTO_CapsModeChars,
 	CTO_EmphModeChars,
+	CTO_NoEmphChars,
 	CTO_BegComp,
 	CTO_CompBegEmph1,
 	CTO_CompEndEmph1,
@@ -452,6 +457,7 @@ typedef enum { /* Op codes */
 } TranslationTableOpcode;
 
 typedef struct {
+	TranslationTableOffset offset;
 	TranslationTableOffset charsnext;			/** next chars entry */
 	TranslationTableOffset dotsnext;			/** next dots entry */
 	TranslationTableCharacterAttributes after;  /** character types which must follow */
@@ -492,7 +498,7 @@ typedef struct CharacterClass {
 
 typedef struct RuleName {
 	struct RuleName *next;
-	TranslationTableOffset ruleOffset;
+	TranslationTableOffset rule;
 	widechar length;
 	widechar name[1];
 } RuleName;
@@ -530,7 +536,7 @@ typedef struct { /* translation table */
 	int syllables;
 	int usesSequences;
 	int usesNumericMode;
-	int usesEmphMode;
+	int hasCapsModeChars;
 	TranslationTableOffset undefined;
 	TranslationTableOffset letterSign;
 	TranslationTableOffset numberSign;
@@ -540,7 +546,8 @@ typedef struct { /* translation table */
 	int seqPatternsCount;
 	widechar seqAfterExpression[SEQPATTERNSIZE];
 	int seqAfterExpressionLength;
-	TranslationTableOffset emphRules[MAX_EMPH_CLASSES + 1][9]; /* includes caps */
+	TranslationTableOffset emphRules[MAX_EMPH_CLASSES + 1] /* includes caps */
+									[9]; /* 9 is the size of the EmphCodeOffset enum */
 	TranslationTableOffset begComp;
 	TranslationTableOffset endComp;
 	TranslationTableOffset hyphenStatesArray;
@@ -550,6 +557,12 @@ typedef struct { /* translation table */
 	int noLetsignCount;
 	widechar noLetsignAfter[LETSIGNAFTERSIZE];
 	int noLetsignAfterCount;
+	widechar emphModeChars[MAX_EMPH_CLASSES] /* does not include caps: capsmodechars are
+											  * currently stored as character attributes
+											  */
+						  [EMPHMODECHARSSIZE + 1];
+	widechar noEmphChars[MAX_EMPH_CLASSES] /* does not include caps */
+						[NOEMPHCHARSSIZE + 1];
 	TranslationTableOffset characters[HASHNUM]; /** Character definitions */
 	TranslationTableOffset dots[HASHNUM];		/** Dot definitions */
 	TranslationTableOffset compdotsPattern[256];
@@ -573,6 +586,7 @@ typedef enum {
 
 #define MAXPASSBUF 3
 
+/* index in table->emphRules */
 typedef enum {
 	capsRule = 0,
 	emph1Rule = 1,
@@ -604,14 +618,17 @@ typedef enum {
  * to do simple bit operations. */
 
 typedef struct {
-	unsigned int begin : 16;
+	unsigned int begin : 16; /* fields contain sums of EmphasisClass.value */
 	unsigned int end : 16;
 	unsigned int word : 16;
 	unsigned int symbol : 16;
 } EmphasisInfo;
 
-/* An emphasis class is a bit field that contains a single "1" */
-typedef unsigned int EmphasisClass;
+typedef struct {
+	unsigned int value;  /* bit field that contains a single "1" */
+	formtype typeform;   /* corresponding value in "typeforms" enum */
+	EmphRuleNumber rule; /* corresponding emphasis rules */
+} EmphasisClass;
 
 typedef enum { noEncoding, bigEndian, littleEndian, ascii8 } EncodingType;
 

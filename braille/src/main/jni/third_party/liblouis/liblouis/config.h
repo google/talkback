@@ -309,7 +309,7 @@
 /* #undef PACKAGE_PACKAGER_VERSION */
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Liblouis 3.15.0"
+#define PACKAGE_STRING "Liblouis 3.19.0"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "liblouis"
@@ -318,7 +318,7 @@
 #define PACKAGE_URL "http://www.liblouis.org"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "3.15.0"
+#define PACKAGE_VERSION "3.19.0"
 
 /* Define to l, ll, u, ul, ull, etc., as suitable for constants of type
    'ptrdiff_t'. */
@@ -423,7 +423,7 @@
 
 
 /* Version number of package */
-#define VERSION "3.15.0"
+#define VERSION "3.19.0"
 
 /* Define to l, ll, u, ul, ull, etc., as suitable for constants of type
    'wchar_t'. */
