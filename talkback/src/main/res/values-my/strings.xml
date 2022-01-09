@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">ဗားရှင်း %1$s</string>
   <string name="label_manager_summary_title">တံဆိပ်များကို စီမံခြင်း</string>
   <string name="label_manager_package_title">%1$s အတွက် တံဆိပ်များကို စီမံကွပ်ကဲပါ</string>
+  <string name="manage_label">အညွှန်း စီမံခန့်ခွဲခြင်း</string>
   <string name="label_manager_no_packages_message">လောလောဆယ်တွင် စိတ်ကြိုက်အညွှန်းများ မရှိပါ။ အညွှန်းတပ်မထားသည့် ပုံသို့သွားပြီး \'Talkback မီနူး\' မှ အညွှန်းထည့်ပေးနိုင်သည်။</string>
   <string name="label_manager_timestamp_text">နောက်ဆုံး မွမ်းမံခဲ့သည်မှာ %1$s</string>
   <string name="search_dialog_label">ရှာဖွေရန်- %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">တို့ထိလျက် စူးစမ်းပါ</string>
   <string name="title_pref_category_touch_exploration">လမ်းညွှန်ချက်</string>
   <string name="title_pref_category_controls">ထိန်းချုပ်မှုများ</string>
-  <string name="title_pref_single_tap">တစ်ကြိမ်နှိပ်၍ ဖွင့်ခြင်း</string>
+  <string name="title_pref_single_tap">စဖွင့်ရန် တစ်ကြိမ်တို့ပါ</string>
   <string name="title_pref_show_context_menu_as_list">အကြောင်းအရာမီနူးအား စာရင်းပုံစံဖြင့်ပြရန်</string>
-  <string name="summary_pref_single_tap">(စမ်းသပ်မှု) စဖွင့်ရန် အာရုံစိုက်ထားသည့် အကြောင်းအရာကို တစ်ကြိမ်တို့ပါ</string>
+  <string name="summary_pref_single_tap">စဖွင့်ရန် အာရုံစိုက်ထားသည့် အကြောင်းအရာကို တစ်ကြိမ်တို့ပါ</string>
   <string name="title_pref_shake_to_read_threshold">ဆက်တိုက် ဖတ်ကြားမှုကို စတင်ရန် လှုပ်ခါပါ</string>
   <string name="pref_verbosity_title">အကျယ်ချဲ့ရှင်းပြရန်</string>
   <string name="pref_punctuation_title">ပုဒ်ဖြတ်ပုဒ်ရပ်</string>
+  <string name="title_pref_category_manage_focus_indicator">အာရုံပြုအညွှန်းကို စိတ်ကြိုက်လုပ်ရန်</string>
   <string name="title_pref_category_manage_gestures">စိတ်ကြိုက်လက်ဟန် လုပ်ရန်</string>
   <string name="title_pref_manage_labels">စိတ်ကြိုက် အမည်များ</string>
   <string name="title_pref_manage_customize_menus">စိတ်ကြိုက်လုပ်ထားသော မီနူးများ</string>
@@ -114,13 +116,14 @@
   <string name="pref_item_licenses">အခမဲ့ အများသုံးလိုင်စင်များ</string>
   <string name="title_pref_help">အကူအညီ</string>
   <string name="title_pref_show_tos">ဝန်ဆောင်မှု စည်းမျဉ်းများ</string>
-  <string name="title_pref_show_privacy_policy">ပုဂ္ဂိုလ်ရေးဆိုင်ရာ မူဝါဒ</string>
+  <string name="title_pref_show_privacy_policy">ကိုယ်ရေးအချက်အလက်လုံခြုံမှုဆိုင်ရာ မူဝါဒ</string>
   <string name="pref_category_multi_finger_shortcuts">လက်ချောင်းအမျိုးမျိုးသုံး လက်ဟန်များ</string>
   <string name="title_pref_category_fingerprint_touch_shortcuts">လက်ဗွေ ဟန်များ</string>
   <string name="title_pref_category_built_in_gestures">ထည်သွင်းထားသည့် လက်ဟန်များ</string>
   <string name="title_pref_category_help_and_feedback">အကူအညီနှင့် အကြံပြုချက်</string>
   <string name="title_pref_category_tutorial_and_help">ရှင်းလင်းပို့ချချက်နှင့် အကူအညီ</string>
   <string name="title_pref_category_advanced">အဆင့်မြင့်</string>
+  <string name="title_pref_category_typing">ကီးဘုတ်နှင့် စာရိုက်ခြင်း</string>
   <string name="title_pref_category_legal_and_privacy">ဥပဒေဆိုင်ရာနှင့် ကိုယ်ရေးလုံခြုံမှု</string>
   <string name="title_pref_advanced_settings">အဆင့်မြင့် ဆက်တင်များ</string>
   <string name="reset_gesture_settings_title">လက်ဟန် ဆက်တင်များ ပြင်ဆင်သတ်မှတ်ရန်</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">လတ်တလော သုံးခဲ့ အက်ပ်</string>
   <string name="keycombo_menu_global_notifications">အကြောင်းကြားချက်များ</string>
   <string name="keycombo_menu_global_suspend">TalkBack ခေတ္တရပ်တန့်ပါ သို့မဟုတ် ဆက်လက်လုပ်ဆောင်ပါ</string>
+  <string name="keycombo_menu_global_play_pause_media">မီဒီယာဖွင့်ခြင်း (သို့) ခဏရပ်ခြင်း</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">စာဖတ်ခြင်းထိန်းချုပ်မှု နောက်တစ်ခု ရွေးပါ</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">စာဖတ်ခြင်းထိန်းချုပ်မှု ယခင်တစ်ခု ရွေးပါ</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">စာဖတ်ခြင်းထိန်းချုပ်မှုကို အပေါ်တင်ပါ</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">စာဖတ်ခြင်းထိန်းချုပ်မှုကို အောက်ချပါ</string>
   <string name="keycombo_menu_category_granularity">လမ်းညွှန်ချက်</string>
   <string name="keycombo_menu_granularity_increase">နောက် ရွေ့လျားမှုဆက်တင်</string>
   <string name="keycombo_menu_granularity_decrease">ယခင် ရွေ့လျားမှုဆက်တင်</string>
@@ -226,7 +234,8 @@
   <string name="keycombo_assign_dialog_clear">ဖြတ်လမ်းခလုတ်များကို ဖယ်ရှားပါ</string>
   <string name="cannot_copy_feedback">မိတ္တူကူးရန် စာသားမရှိပါ။ စာသားအချို့ကို ပထမဦးစွာ ရွေးချယ်ပါ။</string>
   <string name="cannot_paste_feedback">ကူးထည့်ရန် စာသားမရှိပါ။ စာသားအချို့ကို ပထမဦးစွာ မိတ္တူကူးပါ။</string>
-  <string name="cannot_cut_feedback">ဖြတ်ယူရန် စာသားမရှိပါ။ စာသားအချို့ကို ပထမဦးစွာ ရွေးချယ်ပါ။</string>
+  <string name="cannot_cut_feedback">ဖြတ်ယူရန် စာသားမရှိပါ၊ စာသားအချို့ကို ပထမဦးစွာ ရွေးချယ်ပါ။</string>
+  <string name="cannot_delete_feedback">ဖျက်ရန် စာသားမရှိပါ၊ စာသားအချို့ကို ပထမဦးစွာ ရွေးချယ်ပါ။</string>
   <string name="message_in_reset_keymap_confirm_dialog">ဤခလုတ်ပြမြေပုံအတွက် ဖြတ်လမ်းခလုတ်များကို ၎င်းတို့၏မူရင်းသို့ ပြန်လည်သတ်မှတ်လိုသည်မှာ သေချာပါသလား။ မှတ်ချက်၊ ဤလုပ်ဆောင်ချက်ကို ပြန်ပြောင်း၍မရပါ။</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">ပြန်လည်သတ်မှတ်ပါ</string>
   <string name="override_keycombo">ကီးသုံးပြီးနေပါပြီ</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">အသံစဉ် ပြောင်းလဲမှုများကို အသုံးပြုရန်</string>
   <string name="title_pref_keyboard_echo">ကီးဘုတ် အသံထွက်</string>
   <string name="pref_node_desc_order_title">အကြောင်းအရာဖော်ပြချက် အစီအစဉ်</string>
-  <string name="summaryOn_pref_intonation">ကီးဘုတ် တုံ့ပြန်ချက်ကို နိမ့်သည့် အသံဖြင့် ပြောပါ</string>
+  <string name="summaryOn_pref_intonation">ဖျက်လိုက်သည့်စာကို အသံကျယ်ကျယ်စူးစူးဖြင့် ကီးဘုတ်က ဖတ်ပြပါ</string>
   <string name="summaryOff_pref_intonation">စကား ပြောနေစဉ် အသံအနိမ့်အမြင့်ကို မပြောင်းပါနှင့်</string>
   <string name="title_pref_brailleime">မျက်မမြင်စာရေးစနစ် လက်ကွက်</string>
   <string name="title_pref_category_feedback_settings">အခြား အကြံပြုချက်</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">node tree အမှားရှာပြင်ရန် ဖွင့်ပါ</string>
   <string name="summary_pref_tree_debug_tv">ရှာဖွေမည့်အစား အဆင့်လိုက်ပြဇယားချပ်ကို ပုံနှိပ်ထုတ်ယူရန် စာမရိုက်ဘဲ အသံဖြင့် ရှာဖွေစေခြင်းကီးကို အသုံးပြုပါ</string>
   <string name="title_pref_performance_stats">စွမ်းဆောင်ရည်ပြ စာရင်းဇယားကို ဖွင့်ပါ</string>
+  <string name="title_pref_log_overlay">အမှားရှာပြင်သည့်မှတ်တမ်း ထပ်ပိုးလွှာကို ဖွင့်ရန်</string>
   <string name="title_pref_resume_talkback">ဆိုင်းငံ့မှ ဆက်လုပ်ရန်</string>
+  <string name="title_pref_typing_confirmation">စာရိုက်ခြင်း စိတ်ကြိုက်သတ်မှတ်ချက်</string>
   <string name="title_pref_multi_finger_gesture">လက်ချောင်းအမျိုးမျိုးသုံး လက်ဟန်များ ဖွင့်ခြင်း</string>
   <string name="screen_dimmed">ဖန်သားပြင်ကို မှိန်ထားသည်</string>
   <string name="screen_brightness_restored">ဖန်သားပြင်ကို အလင်းပေးထားသည်</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">အောက်သို့ လှိမ့်ရန်</string>
   <string name="shortcut_scroll_left">ဘယ်သို့ လှိမ့်ရန်</string>
   <string name="shortcut_scroll_right">ညာသို့ လှိမ့်ရန်</string>
+  <string name="shortcut_next_window">နောက်ဝင်းဒိုး</string>
+  <string name="shortcut_previous_window">ယခင်ဝင်းဒိုး</string>
   <string name="shortcut_back">နောက်သို့</string>
   <string name="shortcut_home">ပင်မ</string>
   <string name="shortcut_overview">အနှစ်ချုပ်</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">ဖန်သားပြင်ကို ဝှက်ရန် သို့မဟုတ် ပြရန်</string>
   <string name="title_show_screen_search">မြင်လွှာတွင်ရှာရန်</string>
   <string name="title_show_voice_commands">အသံကွန်မန်းများ</string>
+  <string name="talkback_show_talkback_settings">TalkBack ဆက်တင်များ</string>
   <string name="title_other_web_navigation">အခြား ဝဘ်လမ်းညွှန်မှု</string>
   <string name="title_granularity_default">မူရင်း လမ်းညွှန်မှု</string>
   <string name="title_seek_bar_edit">ရွှေ့တုံးအဆင့်ကို တည်းဖြတ်ခြင်း</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">TalkBack ကို သင့်အသံဖြင့် ထိန်းချုပ်ပါ</string>
   <string name="summary_show_hide_screen">အများသုံးနေရာများတွင် အခြားသူများက သင့်ဖန်သားပြင်ကို မမြင်နိုင်ရန် ဖန်သားပြင်ပြသမှုကို ဝှက်ပေးသည်။ သင့်ဖန်သားပြင်ကို ဝှက်ပေးပြီးနောက် ပုံမှန်အခြေအနေသို့ ပြန်ပြောင်းပေးသည်။</string>
   <string name="summary_talkback_preferences">TalkBack ဆက်တင်များကို ဖွင့်ပါ</string>
-  <string name="summary_system_actions">အက်ပ်များအားလုံးရှိ \'အမြန် ဆက်တင်များ\' သို့ သွားပြီး မျက်နှာပြင် ခွဲ၍ပြသခြင်းကို သုံးပါ</string>
+  <string name="summary_system_actions">အက်ပ်အားလုံးနှင့် ‘အမြန် ဆက်တင်များ’ သို့ သွားသည်</string>
   <string name="summary_tts_settings">စာသားမှ စကားပြောသို့ ပြောင်းခြင်း ဆက်တင်များကို ဖွင့်ပါ</string>
   <string name="summary_pause_feedback">TalkBack အသံတုံ့ပြန်မှုကို ပိတ်ရန်</string>
   <string name="not_editable">တည်းဖြတ်၍မရပါ</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">တစ်ကြိမ်လျှင် စာလုံးတစ်လုံးကိုသာ ဖတ်ရန်</string>
   <string name="summary_lines">တစ်ကြိမ်လျှင် စာကြောင်းတစ်ကြောင်းကိုသာ ဖတ်ရန်</string>
   <string name="summary_paragraphs">တစ်ကြိမ်လျှင် စာပိုဒ်တစ်ပိုဒ်ကိုသာ ဖတ်ရန်</string>
+  <string name="summary_windows">အသံအတိုးအကျယ် ခလုတ်များ (သို့) လမ်းညွှန်ဘားကဲ့သို့ အခြားဝင်းဒိုးများသို့ အမြန်သွားသည်</string>
   <string name="summary_headings">ခေါင်းစဉ်များ ပြောင်းလဲကြည့်ရန်</string>
   <string name="summary_controls">ခလုတ်များ၊ အမှတ်ခြစ်ရန် နေရာများနှင့် စာသားအကွက်များကဲ့သို့ ပြန်လှန်တုံ့ပြန်နိုင်သည့် အရာများအကြား ကူးပြောင်းရန်</string>
   <string name="summary_links">လင့်ခ်များ ပြောင်းလဲကြည့်ရန်</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">ရိုက်သည့်ကီးများ၊ အသုံးပြုမှု အကြံပေးချက်များ၊ ဇယားကွက်အချက်အလက်များနှင့် အခြားအချက်အလက်များကို အသံထွက်ပြီး ဖတ်ခြင်း ရှိ၊ မရှိ ပြောင်းသည်</string>
   <string name="summary_selector_menu_punctuation">ပုဒ်ဖြတ်ပုဒ်ရပ်နှင့် သင်္ကေတများကို အသံထွက်ပြောပေးခြင်းရှိမရှိ ပြောင်းပေးသည်</string>
   <string name="summary_language">သင်ပြောဆိုသည့် ဘာသာစကားကို ပြောင်းပေးသည်။ စာသားမှ စကားပြော ဘာသာစကားများစွာကို ထည့်သွင်းထားသည့်အခါတွင်သာ ပြသည်။</string>
-  <string name="summary_sound_feedback">လုပ်ဆောင်ချက်ကို အတည်ပြုရန် မြည်သံကဲ့သို့ အသံ အထူးပြုလုပ်ချက်များကို သင် လမ်းညွှန်သည့်အတိုင်း ကြားရသည်။</string>
+  <string name="summary_sound_feedback">လုပ်ဆောင်ချက်ကို အတည်ပြုရန် တတီတီမြည်သံကဲ့သို့ အသံ အထူးပြုလုပ်ချက်များကို သင်သုံးနေရင်း ကြားနိုင်သည်</string>
   <string name="summary_vibration_feedback">အကြောင်းအရာ ရွေးချယ်ခြင်းကဲ့သို့ လုပ်ဆောင်ချက်များအတွက် တုန်ခါမှုများကို ခံစားရသည်။ အက်ပ်များ သို့မဟုတ် စနစ်မှလာသော တုန်ခါမှုများအပေါ် မသက်ရောက်ပါ။</string>
   <string name="summary_hide_screen">အများသုံးနေရာများတွင် ရှိနေသောအခါ အခြားသူများက သင့်ဖန်သားပြင်ကို မမြင်နိုင်ရန် ဖန်သားပြင်ပြသမှုကို ဝှက်ပေးသည်</string>
   <string name="summary_audio_ducking">TalkBack ပြောသောအခါတွင် ဖွင့်ထားသည့် အခြားအသံကို တိုးသည်</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">ရှေ့သို့ (သို့) နောက်သို့ လှိမ့်ပါ</string>
+  <string name="summary_support_change_a11y_volume">‘အများသုံးစွဲနိုင်မှု အသံ’ ကို ချဲ့သည် (သို့) တိုးသည်</string>
+  <string name="summary_image_caption">ဤပုံအတွက် အလိုအလျောက်ဖော်ပြချက် ရယူပါ</string>
   <string name="value_direction_up">အပေါ်မြား</string>
   <string name="value_direction_down">အောက်မြား</string>
   <string name="value_direction_left">ဘယ်မြား</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">လက်ချောင်း ၂ ချောင်းဖြင့် နှစ်ချက်တို့ပြီး ဖိထားရန်</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">လက်ချောင်း ၃ ချောင်းဖြင့် နှစ်ချက်တို့ပြီး ဖိထားရန်</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">လက်ချောင်း ၄ ချောင်းဖြင့် နှစ်ချက်တို့ပြီး ဖိထားရန်</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">လက် ၂ ချောင်းဖြင့် သုံးချက်တို့ပြီး ဖိထားရန်</string>
+  <string name="seekbar_hint_2gesture">ညှိရန် “%1$s” သို့မဟုတ် “%2$s”</string>
+  <string name="seekbar_hint_1gesture">ညှိရန် “%1$s”</string>
   <string name="gesture_name_unknown">အမည်မသိ လက်ဟန်</string>
   <string name="gesture_name_pass_through">စနစ်လက်ဟန်သို့ ကျော်သွားရန်</string>
   <string name="gesture_name_touch_explore">တို့၍စူးစမ်းလေ့လာခြင်း လက်ဟန်</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">နှစ်ချက်တို့ပြီး ဖိထားရသည့် လက်ဟန်</string>
   <string name="gesture_name_2finger_tap_hold">လက်ချောင်း ၂ ချောင်းဖြင့် တို့ပြီး ဖိထားရသည့် လက်ဟန်</string>
   <string name="gesture_name_3finger_tap_hold">လက်ချောင်း ၃ ချောင်းဖြင့် တို့ပြီး ဖိထားရသည့် လက်ဟန်</string>
+  <string name="gesture_name_2finger_3tap_hold">လက်ချောင်း ၂ ချောင်းဖြင့် သုံးချက်တို့ပြီး ဖိထားရသည့် လက်ဟန်</string>
   <string name="gesture_name_3finger_3tap_hold">လက်ချောင်း ၃ ချောင်းဖြင့် သုံးချက်တို့ပြီး ဖိထားရသည့် လက်ဟန်</string>
   <string name="title_pref_shortcut_fingerprint_up">လက်ဗွေဖတ်စနစ်ပေါ်၌ အပေါ်သို့ပွတ်ဆွဲရန်</string>
   <string name="title_pref_shortcut_fingerprint_down">လက်ဗွေဖတ်စနစ်ပေါ်၌ အောက်သို့ပွတ်ဆွဲရန်</string>
@@ -480,12 +501,14 @@
   <string name="title_pref_two_part_vertical_gestures">နှစ်ပိုင်း ဒေါင်လိုက် လက်ဟန်များ</string>
   <string name="title_pref_version_code">ဗားရှင်းကုဒ်</string>
   <string formatted="false" name="value_volume_100_percent">မီဒီယာသံနှင့် အတူထားရန်</string>
-  <string formatted="false" name="value_volume_75_percent">အသံပမာဏ၏ 75%</string>
-  <string formatted="false" name="value_volume_50_percent">မီဒီယာ ပမာဏ၏50%</string>
-  <string formatted="false" name="value_volume_25_percent">အသံပမာဏ၏ 25%</string>
+  <string formatted="false" name="value_volume_75_percent">မီဒီယာ ပမာဏ၏ ၇၅%</string>
+  <string formatted="false" name="value_volume_50_percent">မီဒီယာ ပမာဏ၏ ၅၀%</string>
+  <string formatted="false" name="value_volume_25_percent">မီဒီယာ ပမာဏ၏ ၂၅%</string>
   <string name="value_resume_screen_on">မျက်နှာပြင် ပွင့်လာချိန်မှာ</string>
   <string name="value_resume_keyguard">သော့ခတ် မျက်နှာပြင် မြင်ရလျှင်</string>
   <string name="value_resume_manual">အကြောင်းကြားစာ ထံမှသာ</string>
+  <string name="value_type_confirmation_double_tap">ကီးရွေးရန် လက်ချောင်းကိုဖိထားပြီး နှစ်ချက်တို့ပါ</string>
+  <string name="value_type_confirmation_lift_to_type">ကီးရွေးရန် လက်ချောင်းကိုဖိထားပြီး လွှတ်လိုက်ပါ</string>
   <string name="value_shake_to_read_disabled">ပိတ်ထားသည်</string>
   <string name="value_shake_to_read_threshold_very_light">အနည်းငယ်မျှ</string>
   <string name="value_shake_to_read_threshold_light">အသာအယာ</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">ရိုက်ထည့် ခလုတ်များကို အမြဲတမ်း ပြောပါ</string>
   <string name="value_keyboard_echo_softkeys">မျက်နှာပြင် ပေါ်က ကီးဘုတ် အတွက်သာ</string>
   <string name="value_keyboard_echo_never">ရိုက်ထည့် ခလုတ်များကို ဘယ်တော့မှ မပြောပါနှင့်</string>
+  <string name="title_pref_keyboard_echo_on_screen">လက်ကွက် အသံထွက်- မျက်နှာပြင် လက်ကွက်</string>
+  <string name="title_pref_keyboard_echo_physical">လက်ကွက် အသံထွက်- ထိတွေ့နိုင်သော ကီးဘုတ်</string>
+  <string name="value_keyboard_echo_none">မရှိ</string>
+  <string name="value_keyboard_echo_characters_only">အက္ခရာများ</string>
+  <string name="value_keyboard_echo_words_only">စကားလုံးများ</string>
+  <string name="value_keyboard_echo_characters_and_words">အက္ခရာနှင့် စကားလုံးများ</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">အခြေအနေ၊ အမည်၊ အမျိုးအစား</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">အမျိုးအစား၊ အမည်၊ အခြေအနေ</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">အမည်၊ အမျိုးအစား၊ အခြေအနေ</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">node tree အမှားရှာဖွင့်ရန် ဖွင့်လိုသည်မှာ သေချာပါသလား?\n\nNode tree အမှားရှာခြင်းသည် တစ်ခြား အက်ပ်များဖြင့် ဖတ်နိုင်သည့် သင့်စက်ကိရိယာ၏ မှတ်တမ်းများကို ထုတ်ဖော်ပြသလိုဖြစ်မည်။</string>
   <string name="dialog_title_enable_performance_stats">စွမ်းဆောင်ရည်ပြ စာရင်းဇယားကို ဖွင့်မလား။</string>
   <string name="dialog_message_enable_performance_stats">စွမ်းဆောင်ရည်ပြ စာရင်းဇယားကို ဖွင့်လိုသည်မှာ သေချာပြီလား။\n\nစွမ်းဆောင်ရည်ပြ စာရင်းဇယားသည် မှတ်ဉာဏ်နှင့် ဓာတ်အားကို ပိုမိုသုံးစွဲနိုင်ပါသည်။</string>
+  <string name="title_request_phone_permission">ဖုန်းသုံးခွင့်ပြုမလား။</string>
+  <string name="message_request_phone_permission">သင်ဖုန်းပြောနေစဉ် Talkback ကို ကြေညာချက်များ လျှော့ချရန် ကူညီပေးနိုင်သည်</string>
+  <string name="continue_button">ရှေ့ဆက်ရန်</string>
   <string name="label_talkback_context_menu">TalkBack ကမ္ဘာလုံးဆိုင်ရာ ဆက်စပ် မီနူး</string>
   <string name="permission_talkback_label">TalkBack ထိန်းချုပ်ရန်</string>
   <string name="permission_talkback_desc">TalkBack ထံသို့ လက်ဟန်များ ပို့ရန် နှင့် ထုတ်ပြောခဲ့သည့် တုံ့ပြန်ချက်များကို ဆက်လုပ်ရန် ခွင့်ပြုချက်။</string>
-  <string name="permission_labeling_label">TalkBack စိတ်ကြိုက် တံဆိပ်များ စီမံကွပ်ကဲရန်</string>
-  <string name="permission_labeling_desc">TalkBack ထဲက စိတ်ကြိုက် တံဆိပ်များ ရယူအသုံးပြုရေး၊ မွမ်းမံရေး၊ နှင့် ဖျက်ရေး ခွင့်ပြုချက်။</string>
   <string name="links">လင့်များ</string>
   <string name="end_of_text">ပြီးပြီ</string>
   <string name="start_of_page">ယခင် %1$s မရှိတော့ပါ</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">ပုဒ်ဖြတ်ပုဒ်ရပ်</string>
   <string name="title_pref_selector_granularity">လမ်းညွှန်ချက်</string>
   <string name="title_pref_selector_audio_focus">နောက်ခံသံလျှော့ချခြင်း</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">လှိမ့်ရန်</string>
+  <string name="title_pref_a11y_volume">အများသုံးစွဲနိုင်မှု အသံ</string>
   <string name="title_pref_selector_adjustable_widget_slider">ရွှေ့တုံးကို ချိန်ညှိပါ</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">တန်ဖိုးကို ချိန်ညှိပါ</string>
   <string name="title_pref_speak_passwords_without_headphones">စကားဝှက်များကို အသံထွက်ဖတ်ပေးခြင်း</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">အသံကွန်မန်းများ အသုံးပြုရန်</string>
   <string name="dialog_title_pass_through_mode">စနစ်ရှိ လက်ဟန်များကို သုံးရန် TalkBack လက်ဟန်များကို ကျော်ပါ</string>
   <string name="dialog_message_pass_through_mode">ခေါင်းလောင်းသံကို ကြားရသောအခါ TalkBack က ပံ့ပိုးမထားသည့် စနစ်လက်ဟန်ကို အသုံးပြုနိုင်သည်။ ၎င်းကို ဖြတ်ကျော်သွားရန် လက်ဟန်ဟု လူသိများသည်။</string>
-  <string name="hint_type_search_term">ရှာဖွေသည့် စာလုံး ရိုက်ထည့်ပါ</string>
+  <string name="hint_type_search_term">ရှာဖွေသည့် စာလုံး</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack ၏ အကြောင်းကြားချက် ချန်နယ်</string>
   <string name="pref_selector_summary">ဆက်တင်ရွေးရန် %1$s။ ထို့နောက် ဆက်တင်ပြင်ဆင်ရန် %2$s။</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">စာသားကို ဖြတ်ယူရန် လက်ချောင်း ၃ ချောင်းဖြင့် နှစ်ချက်တို့ပြီး ဖိထားပါ။\n\nစာသားကို ကူးထည့်ရန် လက်ချောင်း ၃ ချောင်းဖြင့် သုံးချက်တို့ပါ။\n\nအောက်ပါ စာသားအကွက်အတွင်း စကားလုံးကို ကူးထည့်ကြည့်ပါ။</string>
   <string name="copy_text_pre_r">စာသားကို ရွေးချယ်ပြီးနောက် ၎င်းကို TalkBack မီနူးတွင် မိတ္တူကူးနိုင်သည်။ TalkBack မီနူးကို ဖွင့်ရန် အောက်သို့ ပွတ်ဆွဲပြီးနောက် ညာဘက်သို့ ပွတ်ဆွဲပါ။ \'တည်းဖြတ်ရန်ရွေးစရာ\' မီနူးကို နှစ်ချက်တို့ဖွင့်ပြီး \'မိတ္တူကူးရန်\' ကို နှစ်ချက်တို့ပါ။\n\nအောက်ပါ စာသားအကွက်တွင် စကားလုံးကို မိတ္တူကူးကြည့်ပါ။</string>
   <string name="cut_paste_text_pre_r">စာသားကိုဖြတ်ယူရန် သို့မဟုတ် ကူးထည့်ရန် TalkBack မီနူးကို ဖွင့်ပြီးနောက် \'တည်းဖြတ်ရန်ရွေးစရာ\' မီနူးထဲမှ လုပ်လိုသည်ကို နှစ်ချက်တို့ပါ။\n\nအောက်ပါ စာသားအကွက်တွင် စကားလုံးကို ကူးထည့်ကြည့်ပါ။</string>
+  <string name="edit_box_hint_paste_text">ဤနေရာတွင် ကူးထည့်ပါ</string>
   <string name="read_by_character_title">အက္ခရာ၊ စကားလုံး သို့မဟုတ် စာပိုဒ်အလိုက် ဖတ်ခြင်း</string>
   <string name="read_by_character_text">တစ်ခါတစ်ရံတွင် စာသားကို အက္ခရာတစ်လုံးချင်းစီ ဖတ်ပြသည်ကို ကြားလိုလိမ့်မည်။\n\n၎င်းကိုလုပ်ဆောင်ရန် \"%1$s\" ဟု ပြောသံကြားရသည်အထိ လက်ချောင်း ၃ ချောင်းဖြင့် ညာဘက်သို့ ပွတ်ဆွဲပါ။ ထို့နောက် အက္ခရာအလိုက် နောက်ပြန်ရွေးရန် အပေါ်သို့ ပွတ်ဆွဲပါ။ အက္ခရာအလိုက် ရှေ့သို့ရွေးရန် အောက်သို့ ပွတ်ဆွဲပါ။\n\nယခုပဲ စမ်းကြည့်ပါ။ လက်ချောင်း ၃ ချောင်းဖြင့် ညာဘက်သို့ ပွတ်ဆွဲ၍ စကားလုံးအလိုက် သို့မဟုတ် စာပိုဒ်အလိုက် ဖတ်ရန်လည်း ရွေးနိုင်သည်။</string>
   <string name="read_by_character_text_pre_r">တစ်ခါတစ်ရံတွင် စာသားကို အက္ခရာတစ်လုံးချင်းစီ ဖတ်ပြသည်ကို ကြားလိုလိမ့်မည်။\n\n၎င်းကိုလုပ်ဆောင်ရန် \"%1$s\" ဟု ပြောသံကြားရသည်အထိ အောက်သို့ ပွတ်ဆွဲပြီးနောက် အပေါ်သို့ ပွတ်ဆွဲပါ။ ထို့နောက် အက္ခရာအလိုက် နောက်ပြန်ရွေးရန် အပေါ်သို့ ပွတ်ဆွဲပါ။ အက္ခရာအလိုက် ရှေ့သို့ရွေးရန် အောက်သို့ ပွတ်ဆွဲပါ။\n\nယခုပဲ စမ်းကြည့်ပါ။ အောက်သို့ ပွတ်ဆွဲပြီးနောက် အပေါ်သို့ ပွတ်ဆွဲ၍ စကားလုံးအလိုက် သို့မဟုတ် စာပိုဒ်အလိုက် ဖတ်ရန်လည်း ရွေးနိုင်သည်။</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">%1$s ကို စဖွင့်လိုက်သည်</string>
   <string name="talkback_inactive_title">TalkBack ကို ပိတ်ထားသည်</string>
   <string name="talkback_inactive_message">ဤရှင်းလင်းပို့ချချက်သည် TalkBack ကို ဖွင့်ထားရန် လိုအပ်သည်။ ရှင်းလင်းပို့ချချက်ကို မဖွင့်မီ TalkBack ကိုဖွင့်ပါ။</string>
+  <string name="watch_swipe_left_right_text">အကြောင်းအရာများအကြား ရွှေ့ရန် ညာဘက် (သို့) ဘယ်ဘက်သို့ ပွတ်ဆွဲပါ</string>
+  <string name="watch_double_tap_text">အကြောင်းအရာကို စတင်ရန် နှစ်ချက်တို့ပါ</string>
+  <string name="watch_2_finger_scroll_text">လှိမ့်ရန် လက် ၂ ချောင်းဖြင့် ဖိဆွဲပါ</string>
+  <string name="title_pref_thick_border">ထူသော ဘောင်များ</string>
+  <string name="title_pref_category_border_color">အရောင်</string>
+  <string name="title_pref_default_color">မူရင်း</string>
+  <string name="title_pref_red">အနီရောင်</string>
+  <string name="title_pref_orange">လိမ္မော်ရောင်</string>
+  <string name="title_pref_yellow">အဝါရောင်</string>
+  <string name="title_pref_green">အစိမ်းရောင်</string>
+  <string name="title_pref_blue">အပြာရောင်</string>
+  <string name="title_pref_grey">မီးခိုးရောင်</string>
   <string name="survey_closed">စစ်တမ်း ပိတ်ထားသည်</string>
+  <string name="character_recognition_text">စာသား- %1$s</string>
+  <string name="title_image_caption">ပုံကိုရှင်းလင်းဖော်ပြရန်</string>
 </resources>

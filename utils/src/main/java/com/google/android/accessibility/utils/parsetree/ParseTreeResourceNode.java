@@ -17,12 +17,12 @@
 package com.google.android.accessibility.utils.parsetree;
 
 import android.content.res.Resources;
-import androidx.annotation.IntDef;
-import androidx.annotation.VisibleForTesting;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
+import androidx.annotation.IntDef;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -20,8 +20,8 @@ import static com.google.android.accessibility.talkback.Interpretation.ID.Value.
 import static com.google.android.accessibility.talkback.actor.AutoScrollActor.UNKNOWN_SCROLL_INSTANCE_ID;
 
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;

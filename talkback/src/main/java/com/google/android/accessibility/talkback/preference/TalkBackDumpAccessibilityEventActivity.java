@@ -32,14 +32,14 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
-import com.google.android.accessibility.utils.BasePreferencesActivity;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
+import com.google.android.accessibility.utils.PreferencesActivity;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import java.util.ArrayList;
 import java.util.List;
 
 /** Activity used to set TalkBack's dump events preferences. */
-public class TalkBackDumpAccessibilityEventActivity extends BasePreferencesActivity {
+public class TalkBackDumpAccessibilityEventActivity extends PreferencesActivity {
 
   private MenuItem.OnMenuItemClickListener listener;
 

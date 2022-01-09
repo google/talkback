@@ -37,6 +37,7 @@ import com.google.android.accessibility.talkback.Feedback.EditText;
 import com.google.android.accessibility.talkback.Feedback.Focus;
 import com.google.android.accessibility.talkback.Feedback.FocusDirection;
 import com.google.android.accessibility.talkback.Feedback.Gesture;
+import com.google.android.accessibility.talkback.Feedback.ImageCaption;
 import com.google.android.accessibility.talkback.Feedback.Label;
 import com.google.android.accessibility.talkback.Feedback.Language;
 import com.google.android.accessibility.talkback.Feedback.NodeAction;
@@ -59,6 +60,7 @@ import com.google.android.accessibility.talkback.actor.FocusActorForScreenStateC
 import com.google.android.accessibility.talkback.actor.FocusActorForTapAndTouchExploration;
 import com.google.android.accessibility.talkback.actor.FullScreenReadActor;
 import com.google.android.accessibility.talkback.actor.GestureReporter;
+import com.google.android.accessibility.talkback.actor.ImageCaptioner;
 import com.google.android.accessibility.talkback.actor.LanguageActor;
 import com.google.android.accessibility.talkback.actor.NodeActionPerformer;
 import com.google.android.accessibility.talkback.actor.NumberAdjustor;
@@ -119,6 +121,7 @@ class Actors {
   private final ActorStateWritable actorState;
   private final SpeechRecognizerActor speechRecognizer;
   private final GestureReporter gestureReporter;
+  private final ImageCaptioner imageCaptioner;
 
   //////////////////////////////////////////////////////////////////////////
   // Construction methods
@@ -147,7 +150,8 @@ class Actors {
       NumberAdjustor numberAdjustor,
       VolumeAdjustor volumeAdjustor,
       SpeechRecognizerActor speechRecognizer,
-      GestureReporter gestureReporter) {
+      GestureReporter gestureReporter,
+      ImageCaptioner imageCaptioner) {
     this.context = context;
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
     this.dimmer = dimmer;
@@ -172,6 +176,7 @@ class Actors {
     this.volumeAdjustor = volumeAdjustor;
     this.speechRecognizer = speechRecognizer;
     this.gestureReporter = gestureReporter;
+    this.imageCaptioner = imageCaptioner;
 
     actorState =
         new ActorStateWritable(
@@ -183,6 +188,7 @@ class Actors {
             directionNavigator.state,
             nodeActionPerformer.stateReader,
             languageSwitcher.state,
+            speechRateActor.state,
             passThroughModeActor.state,
             labeler.stateReader);
     // Focuser stores some actor-state in ActorState, because focuser does not use that state
@@ -193,6 +199,7 @@ class Actors {
     this.focuserWindowChange.setActorState(actorStateReadOnly);
     this.languageSwitcher.setActorState(actorStateReadOnly);
     this.focuserTouch.setActorState(actorStateReadOnly);
+    this.imageCaptioner.setActorState(actorStateReadOnly);
   }
 
   public void setPipelineEventReceiver(Pipeline.EventReceiver pipelineEventReceiver) {
@@ -213,6 +220,7 @@ class Actors {
     focuserTouch.setPipeline(pipelineFeedbackReturner);
     numberAdjustor.setPipeline(pipelineFeedbackReturner);
     speechRecognizer.setPipeline(pipelineFeedbackReturner);
+    imageCaptioner.setPipeline(pipelineFeedbackReturner);
   }
 
   public void setUserInterface(UserInterface userInterface) {
@@ -557,6 +565,9 @@ class Actors {
               searcher.searchAndFocus(
                   /* startAtRoot= */ false, searcher.getLastKeyword(), directionNavigator);
           break;
+        case ENSURE_ACCESSIBILITY_FOCUS_ON_SCREEN:
+          success &= focuser.ensureAccessibilityFocusOnScreen(eventId);
+          break;
       }
     }
 
@@ -618,8 +629,9 @@ class Actors {
       switch (adjustVolume.action()) {
         case INCREASE_VOLUME:
         case DECREASE_VOLUME:
-          volumeAdjustor.adjustVolume(
-              adjustVolume.action() == DECREASE_VOLUME, adjustVolume.streamType());
+          success &=
+              volumeAdjustor.adjustVolume(
+                  adjustVolume.action() == DECREASE_VOLUME, adjustVolume.streamType());
           break;
       }
     }
@@ -763,6 +775,16 @@ class Actors {
           break;
         case REPORT:
           success &= gestureReporter.report();
+          break;
+      }
+    }
+
+    // Image caption
+    @Nullable ImageCaption imageCaption = part.imageCaption();
+    if (imageCaption != null) {
+      switch (imageCaption.action()) {
+        case PERFORM_CAPTIONS:
+          success &= imageCaptioner.caption(imageCaption.target());
           break;
       }
     }

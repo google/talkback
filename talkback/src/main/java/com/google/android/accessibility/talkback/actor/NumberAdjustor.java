@@ -22,6 +22,7 @@ import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRAC
 
 import android.content.Context;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import android.text.TextUtils;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
@@ -71,19 +72,25 @@ public class NumberAdjustor {
       if (Role.getRole(node) == Role.ROLE_SEEK_CONTROL) {
         final AccessibilityNodeInfoCompat.RangeInfoCompat rangeInfo = node.getRangeInfo();
         if (rangeInfo != null) {
+          CharSequence stateDescription = node.getStateDescription();
           if (decrease && (rangeInfo.getCurrent() <= rangeInfo.getMin())) {
             // Notify user it reaches lower bound: 0%
             pipeline.returnFeedback(
                 EVENT_ID_UNTRACKED,
                 Feedback.speech(
-                    context.getString(R.string.template_seekbar_range, 0), SpeakOptions.create()));
+                    TextUtils.isEmpty(stateDescription)
+                        ? context.getString(R.string.template_seekbar_range, 0)
+                        : stateDescription,
+                    SpeakOptions.create()));
             return false;
           } else if (!decrease && (rangeInfo.getCurrent() >= rangeInfo.getMax())) {
             // Notify user it reaches upper bound: 100%
             pipeline.returnFeedback(
                 EVENT_ID_UNTRACKED,
                 Feedback.speech(
-                    context.getString(R.string.template_seekbar_range, 100),
+                    TextUtils.isEmpty(stateDescription)
+                        ? context.getString(R.string.template_seekbar_range, 100)
+                        : stateDescription,
                     SpeakOptions.create()));
             return false;
           }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+      android:width="412dp"
+      android:height="300dp"
+      android:drawable="@drawable/braille_keyboard_tabletop"
+      android:gravity="center" />
+
+  <!-- Dot 1 -->
+  <item
+      android:end="@dimen/intro_animation_dot_horizontal_length_to_near_border_tabletop"
+      android:top="@dimen/intro_animation_dot_vertical_length_to_far_border_tabletop"
+      android:gravity="center">
+    <shape android:shape="oval">
+      <solid android:color="@color/input_plane_dot_background_pressed" />
+      <size
+          android:width="@dimen/intro_animation_dot_diameter_tabletop"
+          android:height="@dimen/intro_animation_dot_diameter_tabletop" />
+    </shape>
+  </item>
+
+  <!-- Dot 4 -->
+  <item
+      android:start="@dimen/intro_animation_dot_horizontal_length_to_near_with_offset_border_tabletop"
+      android:top="@dimen/intro_animation_dot_vertical_length_to_far_border_tabletop"
+      android:gravity="center">
+    <shape android:shape="oval">
+      <solid android:color="@color/input_plane_dot_background_pressed" />
+      <size
+          android:width="@dimen/intro_animation_dot_diameter_tabletop"
+          android:height="@dimen/intro_animation_dot_diameter_tabletop" />
+    </shape>
+  </item>
+
+  <!-- Letter C -->
+  <item
+      android:bottom="@dimen/intro_animation_letter_vertical_bottom_padding_tabletop"
+      android:drawable="@drawable/ic_letter_c"
+      android:gravity="center"/>
+</layer-list>

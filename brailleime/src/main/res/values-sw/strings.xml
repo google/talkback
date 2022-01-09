@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Inasasisha nafasi ya nukta nundu. Kwanza, hebu turekodi nukta nundu za mkono wako wa kushoto. Gusa na ushikilie skrini ukitumia vidole vitatu vya kati vya mkono wako wa kushoto.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Inasasisha nafasi ya nukta nundu. Kwanza, hebu turekodi nukta nundu za mkono wako wa kulia. Gusa na ushikilie skrini kwa vidole vitatu vya kati vya mkono wako wa kulia.</string>
   <string name="calibration_finish_announcement">Umesasisha nafasi ya nukta nundu</string>
+  <string name="remaining_calibration_finish_announcement">Nafasi zote za nukta zimesasishwa</string>
   <string name="calibration_step2_hold_right_finger_announcement">Umesasisha nafasi za nukta nundu ya kwanza, ya pili na ya tatu. Kisha, turekodi nukta nundu za mkono wako wa kulia. Gusa na ushikilie skrini kwa vidole vitatu vya kati vya mkono wako wa kulia.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Umesasisha nafasi za nukta nundu ya kwanza, ya pili na ya tatu. Kisha, turekodi nukta nundu za mkono wako wa kushoto. Gusa na ushikilie skrini ukitumia vidole vitatu vya kati vya mkono wako wa kushoto.</string>
   <string name="calibration_fail_announcement">Imeshindwa kusasisha nafasi ya nukta nundu. Gusa na ushikilie skrini kwa vidole sita. Kisha ujaribu tena.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">Kihispania</string>
   <string name="code_user_facing_name_ar">Kiarabu</string>
+  <string name="code_user_facing_name_fr">Kifaransa</string>
   <string name="title_pref_accumulate_presses">Jumuisha nukta nundu zote ulizobonyeza</string>
   <string name="summary_pref_accumulate_presses">Kila nukta nundu uliyobonyeza ni sehemu ya uingizaji, hata ikiachiliwa kabla ya nukta nundu nyingine</string>
   <string name="title_pref_reverse_dots">Geuza nukta nundu</string>
   <string name="summary_pref_reverse_dots">Badilisha nafasi za nukta nundu ili nukta nundu ya kwanza na ya nne zibadilishane nafasi, kwa mfano</string>
-  <string name="typing_echo_list_preference_title">Mwitiko wa kuandika (mwangwi wa kuandika)</string>
-  <string name="typing_echo_preference_label_characters">Soma maneno na herufi zote</string>
-  <string name="typing_echo_preference_label_words">Soma maneno pekee</string>
   <string name="context_menu_title">Chaguo za kibodi ya nukta nundu</string>
   <string name="context_menu_typing_language_selection">Badilisha lugha ya kuandika</string>
   <string name="context_menu_typing_language_selection_summary">Kwa sasa unatumia %s</string>

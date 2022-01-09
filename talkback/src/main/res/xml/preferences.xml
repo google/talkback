@@ -41,6 +41,11 @@
         android:key="@string/pref_category_controls_key"
         android:title="@string/title_pref_category_controls" >
         <Preference
+            android:key="@string/pref_category_manage_focus_indicator_key"
+            android:title="@string/title_pref_category_manage_focus_indicator" >
+            <intent android:action=".TalkBackFocusIndicatorPreferenceActivity" />
+        </Preference>
+        <Preference
             android:key="@string/pref_category_manage_gestures_key"
             android:title="@string/title_pref_category_manage_gestures" >
             <intent android:action=".TalkBackShortcutPreferencesActivity" />
@@ -54,6 +59,11 @@
             android:key="@string/pref_brailleime_key"
             android:title="@string/title_pref_brailleime" >
             <intent android:action=".BrailleImePreferencesActivity" />
+        </Preference>
+        <Preference
+            android:key="@string/pref_brailledisplay_key"
+            android:title="Braille display">
+            <intent android:action=".BrailleDisplayPreferencesActivity"/>
         </Preference>
         <SwitchPreference
             android:defaultValue="@bool/pref_proximity_default"

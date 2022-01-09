@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">점 위치를 업데이트하는 중입니다. 먼저 왼손의 점 위치를 기록합니다. 왼손 가운데 세 손가락을 사용해 화면을 길게 터치합니다.</string>
   <string name="calibration_step1_hold_right_finger_announcement">점 위치를 업데이트하는 중입니다. 먼저 오른손의 점 위치를 기록합니다. 오른손 가운데 세 손가락을 사용해 화면을 길게 터치합니다.</string>
   <string name="calibration_finish_announcement">점 위치가 업데이트되었습니다</string>
+  <string name="remaining_calibration_finish_announcement">모든 점 위치 업데이트됨</string>
   <string name="calibration_step2_hold_right_finger_announcement">점 1, 점 2, 점 3의 위치가 업데이트되었습니다. 이제 오른손의 점 위치를 기록합니다. 오른손 가운데 세 손가락을 사용해 화면을 길게 터치합니다.</string>
   <string name="calibration_step2_hold_left_finger_announcement">점 1, 점 2, 점 3의 위치가 업데이트되었습니다. 이제 왼손의 점 위치를 기록합니다. 왼손 가운데 세 손가락을 사용해 화면을 길게 터치합니다.</string>
   <string name="calibration_fail_announcement">점 위치를 업데이트할 수 없습니다. 손가락 여섯 개를 사용해 화면을 길게 터치합니다. 그런 다음 다시 시도해 보세요.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">통합 영어 점자</string>
   <string name="code_user_facing_name_es">스페인어</string>
   <string name="code_user_facing_name_ar">아랍어</string>
+  <string name="code_user_facing_name_fr">프랑스어</string>
   <string name="title_pref_accumulate_presses">사용자가 누른 점 모두 포함</string>
   <string name="summary_pref_accumulate_presses">점을 누른 다음 다른 점을 누르기 위해 손가락을 떼었다고 해도, 사용자가 누른 모든 점은 입력에 포함됩니다.</string>
   <string name="title_pref_reverse_dots">점 위치 교환</string>
   <string name="summary_pref_reverse_dots">점 위치를 교환합니다. 예를 들어 점 1과 4의 위치를 바꿀 수 있습니다.</string>
-  <string name="typing_echo_list_preference_title">입력 피드백(입력 에코)</string>
-  <string name="typing_echo_preference_label_characters">모든 글자와 단어 읽기</string>
-  <string name="typing_echo_preference_label_words">단어만 읽기</string>
   <string name="context_menu_title">점자 키보드 옵션</string>
   <string name="context_menu_typing_language_selection">입력 언어 변경</string>
   <string name="context_menu_typing_language_selection_summary">현재 %s 사용 중</string>

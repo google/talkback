@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Muutetaan pisteen sijaintia. Tallennetaan ensin vasemman kätesi pisteet. Kosketa näyttöä pitkään vasemman käden kolmella keskimmäisellä sormella.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Muutetaan pisteen sijaintia. Tallennetaan ensin oikean kätesi pisteet. Kosketa näyttöä pitkään oikean käden kolmella keskimmäisellä sormella.</string>
   <string name="calibration_finish_announcement">Pisteen sijaintia muutettu</string>
+  <string name="remaining_calibration_finish_announcement">Kaikki pisteiden paikat päivitetty</string>
   <string name="calibration_step2_hold_right_finger_announcement">Pisteiden 1, 2 ja 3 sijaintia muutettu. Tallennetaan seuraavaksi oikean kätesi pisteet. Kosketa näyttöä pitkään oikean käden kolmella keskimmäisellä sormella.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Pisteiden 1, 2 ja 3 sijaintia muutettu. Tallennetaan seuraavaksi vasemman kätesi pisteet. Kosketa näyttöä pitkään vasemman käden kolmella keskimmäisellä sormella.</string>
   <string name="calibration_fail_announcement">Pisteen sijaintia ei voitu muuttaa. Kosketa näyttöä pitkään kuudella sormella. Yritä sitten uudelleen.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">yleinen englanninkielinen pistekirjoitus</string>
   <string name="code_user_facing_name_es">espanja</string>
   <string name="code_user_facing_name_ar">arabia</string>
+  <string name="code_user_facing_name_fr">ranska</string>
   <string name="title_pref_accumulate_presses">Sisällytä kaikki painetut pisteet</string>
   <string name="summary_pref_accumulate_presses">Jokainen painettu piste on syötteen osa, vaikka piste vapautetaan ennen muita pisteitä</string>
   <string name="title_pref_reverse_dots">Käänteiset pisteet</string>
   <string name="summary_pref_reverse_dots">Vaihda pisteiden paikkaa siten, että esimerkiksi pisteet 1 ja 4 vaihtavat paikkaa</string>
-  <string name="typing_echo_list_preference_title">Kirjoituspalaute (kirjoituksen kaiku)</string>
-  <string name="typing_echo_preference_label_characters">Lue kaikki kirjaimet ja sanat</string>
-  <string name="typing_echo_preference_label_words">Lue vain sanat</string>
   <string name="context_menu_title">Pistekirjoitusnäppäimistön asetukset</string>
   <string name="context_menu_typing_language_selection">Vaihda kirjoituskieltä</string>
   <string name="context_menu_typing_language_selection_summary">Tällä hetkellä käytetään tiliä %s</string>

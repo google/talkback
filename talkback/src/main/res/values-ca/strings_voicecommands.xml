@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Idioma</string>
   <string name="voice_commands_languages">Idiomes</string>
   <string name="voice_commands_custom_actions">accions personalitzades</string>
+  <string name="voice_commands_action">Acció</string>
   <string name="voice_commands_quick_settings">Configuració ràpida</string>
   <string name="voice_commands_quick_setting">Configuració ràpida</string>
   <string name="voice_commands_dim">atenua</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Aquesta funció no està disponible al teu dispositiu</string>
   <string name="voice_commands_error">No s\'ha pogut reconèixer l\'ordre de veu</string>
   <string name="voice_commands_partial_result">No es reconeix aquesta ordre. Digues \"%1$s\" per veure la llista de totes les ordres.</string>
+  <string name="voice_commands_timeout">Digues \"%1$s\" per veure la llista de totes les ordres.</string>
   <string name="voice_commands_many_requests">Torna-ho a provar d\'aquí a una estona</string>
-  <string name="voice_commands_setting_disabled">L\'opció de configuració %1$s no està activada</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" no s\'ha reconegut com a ordre de veu.</string>
   <string name="voice_commands_label_saved">L\'etiqueta s\'ha desat</string>
   <string name="voice_commands_no_actions_feedback">No hi ha cap acció disponible</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Visió general sobre les ordres de veu</string>
   <string name="voice_commands_help_description">Per utilitzar ordres de veu, llisca cap a la dreta i cap amunt. Digues \"Ajuda\" o \"Què puc dir?\" en qualsevol moment per veure aquesta llista d\'ordres.</string>
   <string name="voice_commands_help_hint">Per obtenir els millors resultats, digues les paraules exactes que figuren a les pantalles següents.</string>
+  <string name="voice_command_screen_locked_hint">Les ordres de veu no estan disponibles mentre la pantalla està bloquejada. Per utilitzar el menú de TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Canvia com es llegeix el contingut de la pantalla actual</string>
   <string name="voice_commands_help_next">[Títol] següent</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Escriu un terme de cerca per trobar el text en qüestió a la pantalla</string>
   <string name="voice_commands_help_text_editing_description">Escriu, selecciona i copia text</string>
   <string name="voice_commands_help_type_text">Escriu [d\'acord]</string>
-  <string name="voice_commands_help_copy_description">Assegura\'t d\'haver seleccionat el text abans de copiar-lo</string>
-  <string name="voice_commands_help_cut_description">Assegura\'t d\'haver seleccionat el text abans de retallar-lo</string>
+  <string name="voice_commands_help_copy_description">Selecciona text abans de copiar</string>
+  <string name="voice_commands_help_cut_description">Selecciona text abans de retallar</string>
+  <string name="voice_commands_help_delete_description">Selecciona text abans de suprimir</string>
   <string name="voice_commands_help_device_navigation_title">Navegació pel dispositiu</string>
   <string name="voice_commands_help_device_navigation_description">Ves a la pantalla d\'inici, torna enrere, mostra les notificacions i més</string>
   <string name="voice_commands_help_overview_description">Consulta les teves aplicacions recents</string>

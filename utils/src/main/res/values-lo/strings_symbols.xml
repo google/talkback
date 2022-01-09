@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">ເຄື່ອງໝາຍ​ອະໂພສ​ໂທຣຟີ</string>
   <string name="symbol_ampersand">ເຄື່ອງໝາຍແລະ</string>
-  <string name="symbol_angle_bracket_left">ວົງເລັບມຸມຊ້າຍ</string>
-  <string name="symbol_angle_bracket_right">ວົງເລັບມຸມຂວາ</string>
+  <string name="symbol_angle_bracket_left">​ເຄື່ອງ​ໝາຍ​ນ້ອຍກວ່າ</string>
+  <string name="symbol_angle_bracket_right">​ເຄື່ອງ​ໝາຍ​​ໃຫຍ່ກວ່າ</string>
   <string name="symbol_asterisk">ດອກຈັນ</string>
   <string name="symbol_at_sign">ແອັດ</string>
   <string name="symbol_backslash">ສະແລດກັບຫຼັງ</string>
   <string name="symbol_bullet">ສັນຍາລັກຫຍໍ້ໜ້າ</string>
   <string name="symbol_caret">ແຄເຣັດ</string>
-  <string name="symbol_cent">​ເຊັນ</string>
+  <string name="symbol_cent">ເຄື່ອງໝາຍເຊັນ</string>
   <string name="symbol_colon">​ຈ້ຳ​ສອງ​ເມັດ</string>
   <string name="symbol_comma">ຈຸດ</string>
   <string name="symbol_copyright">ລິຂະສິດ</string>
   <string name="symbol_curly_bracket_left">ວົງປີກກາຊ້າຍ</string>
   <string name="symbol_curly_bracket_right">ວົງປີກກາຂວາ</string>
-  <string name="symbol_degree">ອົງສາ</string>
+  <string name="symbol_degree">ເຄື່ອງໝາຍອົງສາ</string>
   <string name="symbol_division">ເຄື່ອງໝາຍຫານ</string>
   <string name="symbol_dollar_sign">ເຄື່ອງໝາຍ​ເງິນໂດລາ</string>
   <string name="symbol_ellipsis">ເຄື່ອງໝາຍສາມຈ້ຳ</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">ຈ້ຳເມັດ</string>
   <string name="symbol_pi">​ປີ້</string>
   <string name="symbol_pound">ປອນ</string>
-  <string name="symbol_pound_sterling">ເງິນປອນ</string>
+  <string name="symbol_pound_sterling">ເຄື່ອງໝາຍສະກຸນເງິນພາວ</string>
   <string name="symbol_question_mark">ຫມາຍຖາມ</string>
   <string name="symbol_quotation_mark">ວົງຢືມ</string>
   <string name="symbol_registered_trademark">ເຄື່ອງຫມາຍ​ການຄ້າທີ່​ຈົດທະບຽນ</string>
@@ -48,12 +48,12 @@
   <string name="symbol_square_root">ຮາກຂັ້ນ​ສອງ</string>
   <string name="symbol_trademark">ເຄື່ອງຫມາຍການຄ້າ</string>
   <string name="symbol_underscore">​ຂີດ​ກ້ອງ</string>
-  <string name="symbol_vertical_bar">ແທ່ງຕັ້ງ</string>
+  <string name="symbol_vertical_bar">​ເສັ້ນ​ລວງຕັ້ງ</string>
   <string name="symbol_yen">ເຢນ</string>
   <string name="symbol_not_sign">ເຄື່ອງໝາຍຫ້າມ</string>
   <string name="symbol_broken_bar">ເສັ້ນຕັ້ງ​ທີ່ມີຊ່ອງ​ທາງກາງ</string>
   <string name="symbol_micro_sign">ສັນຍາລັກ​ໄມໂຄຣ</string>
-  <string name="symbol_almost_equals">ເກືອບ​ເທົ່າ​ກັນ</string>
+  <string name="symbol_almost_equals">ເກືອບເທົ່າກັບ</string>
   <string name="symbol_not_equals">ບໍ່ເທົ່າກັບ</string>
   <string name="symbol_currency_sign">ເຄື່ອງໝາຍ​ສະກຸນເງິນ</string>
   <string name="symbol_section_sign">ເຄື່ອງໝາຍໝວດ</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">ຫົວ​ໃຈ​ສີ​ດໍາ</string>
   <string name="symbol_tilde">ຫົວ​ຂໍ້</string>
   <string name="symbol_equal">ໝາຍ​ເທົ່າ​ກັບ</string>
-  <string name="symbol_won">ສັນ​ຍາ​ລັກ​ເງິນວອນ</string>
+  <string name="symbol_won">ເຄື່ອງໝາຍສະກຸນເງິນວອນ</string>
   <string name="symbol_reference">ເຄື່ອງ​ໝາຍ​ອ້າງ​ອີງ</string>
   <string name="symbol_white_star">ດາວ​ສີ​ຂາວ</string>
   <string name="symbol_black_star">ດາວ​ສີ​ດໍາ</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">ວົງປີກກາມຸມຄູ່ຂວາ</string>
   <string name="symbol_inverted_exclamation_mark">ເຄື່ອງໝາຍທ້ວງປີ້ນຫົວ</string>
   <string name="symbol_inverted_question_mark">ເຄື່ອງໝາຍຄຳຖາມປີ້ນຫົວ</string>
-  <string name="symbol_won_sign">ເຄື່ອງໝາຍສະກຸນເງິນວອນເກົາຫຼີ</string>
+  <string name="symbol_won_sign">ເຄື່ອງໝາຍສະກຸນເງິນວອນ</string>
   <string name="symbol_full_width_comma">ຈ້ຳເມັດເຕັມຄວາມກວ້າງ</string>
   <string name="symbol_full_width_exclamation_mark">ເຄື່ອງໝາຍທ້ວງເຕັມຄວາມກວ້າງ</string>
   <string name="symbol_full_width_ideographic_full_stop">ຈ້ຳເມັດແບບຈີນ-ຍີ່ປຸ່ນ</string>

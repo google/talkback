@@ -54,6 +54,12 @@
             android:summary="@string/summary_landmarks"/>
         <CheckBoxPreference
             android:layout="@layout/listitem_2texts"
+            android:defaultValue="@bool/pref_selector_granularity_windows_default"
+            android:key="@string/pref_selector_granularity_windows_key"
+            android:title="@string/granularity_window"
+            android:summary="@string/summary_windows"/>
+        <CheckBoxPreference
+            android:layout="@layout/listitem_2texts"
             android:defaultValue="@bool/pref_selector_granularity_default"
             android:key="@string/pref_selector_granularity_key"
             android:title="@string/title_granularity_default"

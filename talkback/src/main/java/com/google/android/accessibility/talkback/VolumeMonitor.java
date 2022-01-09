@@ -24,9 +24,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.os.Message;
-import androidx.annotation.VisibleForTesting;
 import android.telephony.TelephonyManager;
 import android.util.SparseIntArray;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.utils.BuildVersionUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
@@ -61,7 +61,7 @@ public class VolumeMonitor extends BroadcastReceiver {
   private Context context;
   private Pipeline.FeedbackReturner pipeline;
   private AudioManager audioManager;
-  private TelephonyManager telephonyManager;
+  private final CallStateMonitor callStateMonitor;
 
   private int cachedAccessibilityStreamVolume = -1;
   private int cachedAccessibilityStreamMaxVolume = -1;
@@ -70,7 +70,8 @@ public class VolumeMonitor extends BroadcastReceiver {
   private int currentStream = -1;
 
   /** Creates and initializes a new volume monitor. */
-  public VolumeMonitor(Pipeline.FeedbackReturner pipeline, Context context) {
+  public VolumeMonitor(
+      Pipeline.FeedbackReturner pipeline, Context context, CallStateMonitor callStateMonitor) {
     if (pipeline == null) {
       throw new IllegalStateException();
     }
@@ -79,7 +80,7 @@ public class VolumeMonitor extends BroadcastReceiver {
 
     // TODO: See if many objects use the same system services and get them once
     audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-    telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+    this.callStateMonitor = callStateMonitor;
   }
 
   public IntentFilter getFilter() {
@@ -277,8 +278,8 @@ public class VolumeMonitor extends BroadcastReceiver {
    */
   private void speakWithCompletion(
       String text, SpeechController.UtteranceCompleteRunnable completedAction, EventId eventId) {
-    if ((telephonyManager != null)
-        && (telephonyManager.getCallState() != TelephonyManager.CALL_STATE_IDLE)) {
+    if ((callStateMonitor != null)
+        && (callStateMonitor.getCurrentCallState() != TelephonyManager.CALL_STATE_IDLE)) {
       // If the phone is busy, don't speak anything.
       handler.post(() -> releaseControl());
       return;

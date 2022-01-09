@@ -30,7 +30,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import androidx.appcompat.app.ActionBar;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragmentCompat;
@@ -39,15 +38,15 @@ import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
-import com.google.android.accessibility.utils.BasePreferencesActivity;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
+import com.google.android.accessibility.utils.PreferencesActivity;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Activity used to set TalkBack's developer preferences. */
-public class TalkBackDeveloperPreferencesActivity extends BasePreferencesActivity {
+public class TalkBackDeveloperPreferencesActivity extends PreferencesActivity {
 
   private static final String TAG = "DeveloperPreferencesActivity";
   private static String versionInfo;
@@ -58,17 +57,18 @@ public class TalkBackDeveloperPreferencesActivity extends BasePreferencesActivit
     // Shows TalkBack's abbreviated version number in the action bar.
     try {
       PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-      ActionBar actionBar = getSupportActionBar();
-      long versionCode =
-          FeatureSupport.supportLongVersionCode()
-              ? packageInfo.getLongVersionCode()
-              : packageInfo.versionCode;
-      versionInfo =
-          getString(
-              R.string.talkback_preferences_subtitle,
-              packageInfo.versionName + " (" + versionCode + ")");
-      if (actionBar != null && packageInfo != null) {
-        actionBar.setSubtitle(versionInfo);
+      if (packageInfo != null) {
+        long versionCode =
+            FeatureSupport.supportLongVersionCode()
+                ? packageInfo.getLongVersionCode()
+                : packageInfo.versionCode;
+        versionInfo =
+            getString(
+                R.string.talkback_preferences_subtitle,
+                packageInfo.versionName + " (" + versionCode + ")");
+        if (!FeatureSupport.supportSettingsTheme()) {
+          setActionBarTitle(versionInfo);
+        }
       }
     } catch (NameNotFoundException e) {
       LogUtils.e(TAG, "Can't find PackageInfo by the package name.");
@@ -108,9 +108,18 @@ public class TalkBackDeveloperPreferencesActivity extends BasePreferencesActivit
       PreferenceSettingsUtils.addPreferencesFromResource(this, R.xml.developer_preferences);
 
       // Remove preferences for features that are not supported by device.
+      checkReleaseBuild();
       checkTelevision();
       checkReducedWindowDelaySupport();
       initTouchExplorationPreference();
+
+      final Preference prefVersion =
+          findPreference(getString(R.string.pref_developer_version_code_key));
+      if (FeatureSupport.supportSettingsTheme() && (prefVersion != null) && (versionInfo != null)) {
+        prefVersion.setSummary(versionInfo);
+      } else {
+        getPreferenceScreen().removePreference(prefVersion);
+      }
 
       // Initialize preference dialogs.
       final TwoStatePreference prefTreeDebug =
@@ -118,7 +127,7 @@ public class TalkBackDeveloperPreferencesActivity extends BasePreferencesActivit
       if (prefTreeDebug != null) {
         prefTreeDebug.setOnPreferenceChangeListener(treeDebugChangeListener);
         treeDebugDialog =
-            AlertDialogUtils.createBuilder(getActivity())
+            AlertDialogUtils.builder(getActivity())
                 .setNegativeButton(android.R.string.cancel, null)
                 .setOnCancelListener(null)
                 .setTitle(R.string.dialog_title_enable_tree_debug)
@@ -138,7 +147,7 @@ public class TalkBackDeveloperPreferencesActivity extends BasePreferencesActivit
       if (prefPerformanceStats != null) {
         prefPerformanceStats.setOnPreferenceChangeListener(performanceStatsChangeListener);
         performanceStatsDialog =
-            AlertDialogUtils.createBuilder(getActivity())
+            AlertDialogUtils.builder(getActivity())
                 .setNegativeButton(android.R.string.cancel, null)
                 .setOnCancelListener(null)
                 .setTitle(R.string.dialog_title_enable_performance_stats)
@@ -151,6 +160,18 @@ public class TalkBackDeveloperPreferencesActivity extends BasePreferencesActivit
                       prefPerformanceStats.setChecked(true);
                     })
                 .create();
+      }
+    }
+
+    private void checkReleaseBuild() {
+      // TODO: BuildConfig.DEBUG broken? Assume this is a release build for now.
+      boolean isReleaseBuild = true;
+      if (isReleaseBuild) {
+        Preference debugOverlayPreference =
+            findPreference(getString(R.string.pref_log_overlay_key));
+        if (debugOverlayPreference != null) {
+          getPreferenceScreen().removePreference(debugOverlayPreference);
+        }
       }
     }
 
@@ -250,7 +271,7 @@ public class TalkBackDeveloperPreferencesActivity extends BasePreferencesActivit
 
       // Initialize preference dialog
       exploreByTouchDialog =
-          AlertDialogUtils.createBuilder(getActivity())
+          AlertDialogUtils.builder(getActivity())
               .setTitle(R.string.dialog_title_disable_exploration)
               .setMessage(R.string.dialog_message_disable_exploration)
               .setNegativeButton(android.R.string.cancel, null)

@@ -23,6 +23,7 @@
   <string name="granularity_line">줄</string>
   <string name="granularity_paragraph">단락</string>
   <string name="granularity_page">페이지</string>
+  <string name="granularity_window">창</string>
   <string name="granularity_web_landmark">랜드마크</string>
   <string name="granularity_web_heading">제목</string>
   <string name="granularity_web_list">목록</string>
@@ -37,7 +38,7 @@
   <string name="template_split_screen_mode_landscape_ltr">왼쪽에 %1$s, 오른쪽에 %2$s</string>
   <string name="template_split_screen_mode_landscape_rtl">오른쪽에 %1$s, 왼쪽에 %2$s</string>
   <string name="template_scroll_from_to_count">총 %3$d개 항목 중에서 %1$d번째에서 %2$d번째 항목을 표시 중입니다.</string>
-  <string name="template_scroll_from_count">총 %2$d개 항목 중에서 %1$d개 항목을 표시 중입니다.</string>
+  <string name="template_scroll_from_count">총 %2$d개 항목 중에서 %1$d번째 항목을 표시 중입니다.</string>
   <string name="template_viewpager_index_count">총 %2$d페이지 중 %1$d페이지</string>
   <string name="template_viewpager_index_count_short">%2$d페이지 중 %1$d페이지</string>
   <string name="url_dialog_table">%1$s(%2$s)</string>

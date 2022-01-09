@@ -20,25 +20,29 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.preference.DialogPreference;
-import android.preference.Preference;
-import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.accessibility.AccessibilityManager;
-import android.widget.Button;
-import android.widget.TextView;
+import androidx.preference.DialogPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceDialogFragmentCompat;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
 import com.google.android.accessibility.utils.keyboard.KeyComboManager;
 import com.google.android.accessibility.utils.keyboard.KeyComboModel;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
+/**
+ * A {@link DialogPreference} which contains a dialog for all keybaord combo assigned key. It works
+ * with {@link KeyboardShortcutPreferenceFragmentCompat} to provide a customized dialog for combo
+ * assigned key setting.
+ *
+ * <p><b>Use {@link #createDialogFragment()} to create the dialog fragment.<b/>
+ */
 public class KeyboardShortcutDialogPreference extends DialogPreference
     implements DialogInterface.OnKeyListener,
         ServiceKeyEventListener,
@@ -47,57 +51,13 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
   private static final int KEY_EVENT_SOURCE_ACTIVITY = 0;
   private static final int KEY_EVENT_SOURCE_ACCESSIBILITY_SERVICE = 1;
 
-  private TextView keyAssignmentView;
   private KeyComboManager keyComboManager;
-  private TextView instructionText;
   private int keyEventSource = KEY_EVENT_SOURCE_ACTIVITY;
   private AccessibilityManager accessibilityManager;
   private int temporaryModifier;
   private int temporaryKeyCode;
-
-  private View.OnClickListener clearButtonClickListener =
-      new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-          instructionText.setTextColor(Color.BLACK);
-          clearTemporaryKeyComboCode();
-          updateKeyAssignmentText();
-        }
-      };
-
-  private View.OnClickListener okButtonClickListener =
-      new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-          long temporaryKeyComboCode = getTemporaryKeyComboCodeWithoutTriggerModifier();
-          if (temporaryKeyComboCode == KeyComboModel.KEY_COMBO_CODE_INVALID
-              || !keyComboManager
-                  .getKeyComboModel()
-                  .isEligibleKeyComboCode(temporaryKeyComboCode)) {
-            instructionText.setTextColor(Color.RED);
-            PreferencesActivityUtils.announceText(
-                instructionText.getText().toString(), getContext());
-            return;
-          }
-
-          String key =
-              keyComboManager
-                  .getKeyComboModel()
-                  .getKeyForKeyComboCode(getTemporaryKeyComboCodeWithoutTriggerModifier());
-          if (key == null) {
-            saveKeyCode();
-            notifyChanged();
-          } else if (!key.equals(getKey())) {
-            showOverrideKeyComboDialog(key);
-            return;
-          }
-
-          Dialog dialog = getDialog();
-          if (dialog != null) {
-            dialog.dismiss();
-          }
-        }
-      };
+  private KeyboardShortcutPreferenceFragmentCompat keyboardShortcutPreferenceFragment;
+  private AlertDialog alertDialog;
 
   public KeyboardShortcutDialogPreference(
       Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -120,15 +80,28 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
     init();
   }
 
+  /** Creates the dialog fragment, which contains the list of supported actions. */
+  public PreferenceDialogFragmentCompat createDialogFragment() {
+    keyboardShortcutPreferenceFragment = KeyboardShortcutPreferenceFragmentCompat.create(this);
+    return keyboardShortcutPreferenceFragment;
+  }
+
+  static KeyComboManager getKeyComboManager(Context context) {
+    KeyComboManager keyComboManager;
+    if (TalkBackService.getInstance() != null) {
+      keyComboManager = TalkBackService.getInstance().getKeyComboManager();
+    } else {
+      keyComboManager = KeyComboManager.create(context);
+    }
+
+    return keyComboManager;
+  }
+
   private void init() {
     setPersistent(true);
     setDialogLayoutResource(R.layout.keyboard_shortcut_dialog);
 
-    if (TalkBackService.getInstance() != null) {
-      keyComboManager = TalkBackService.getInstance().getKeyComboManager();
-    } else {
-      keyComboManager = KeyComboManager.create(getContext());
-    }
+    keyComboManager = getKeyComboManager(getContext());
 
     if (keyComboManager == null) {
       throw new IllegalStateException(
@@ -155,7 +128,7 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
   }
 
   /** Clears current temporary key combo code. */
-  private void clearTemporaryKeyComboCode() {
+  void clearTemporaryKeyComboCode() {
     temporaryModifier = KeyComboModel.NO_MODIFIER;
     temporaryKeyCode = KeyEvent.KEYCODE_UNKNOWN;
   }
@@ -164,13 +137,13 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
    * Sets temporary key combo code with trigger modifier. You can set key combo code which doesn't
    * contain trigger modifier.
    */
-  private void setTemporaryKeyComboCodeWithTriggerModifier(long keyComboCode) {
+  void setTemporaryKeyComboCodeWithTriggerModifier(long keyComboCode) {
     temporaryModifier = KeyComboManager.getModifier(keyComboCode);
     temporaryKeyCode = KeyComboManager.getKeyCode(keyComboCode);
   }
 
   /** Sets temporary key combo code without trigger modifier. */
-  private void setTemporaryKeyComboCodeWithoutTriggerModifier(long keyComboCode) {
+  void setTemporaryKeyComboCodeWithoutTriggerModifier(long keyComboCode) {
     temporaryModifier = KeyComboManager.getModifier(keyComboCode);
     temporaryKeyCode = KeyComboManager.getKeyCode(keyComboCode);
 
@@ -182,7 +155,7 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
   }
 
   /** Gets temporary key combo code with trigger modifier. */
-  private long getTemporaryKeyComboCodeWithTriggerModifier() {
+  long getTemporaryKeyComboCodeWithTriggerModifier() {
     return KeyComboManager.getKeyComboCode(temporaryModifier, temporaryKeyCode);
   }
 
@@ -190,7 +163,7 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
    * Gets temporary key combo code without trigger modifier. If current temporary key combo code
    * doesn't contain trigger modifier, KEY_COMBO_CODE_INVALID will be returned.
    */
-  private long getTemporaryKeyComboCodeWithoutTriggerModifier() {
+  long getTemporaryKeyComboCodeWithoutTriggerModifier() {
     if (getTemporaryKeyComboCodeWithTriggerModifier() == KeyComboModel.KEY_COMBO_CODE_UNASSIGNED) {
       return KeyComboModel.KEY_COMBO_CODE_UNASSIGNED;
     }
@@ -216,11 +189,6 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
     accessibilityManager.removeAccessibilityStateChangeListener(this);
 
     super.onPrepareForRemoval();
-  }
-
-  @Override
-  protected void onPrepareDialogBuilder(AlertDialog.Builder builder) {
-    builder.getContext().setTheme(R.style.AlertDialogTheme);
   }
 
   private void updateAvailability() {
@@ -269,53 +237,40 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
         getTemporaryKeyComboCodeWithTriggerModifier());
   }
 
-  @Override
-  protected void onDialogClosed(boolean positiveResult) {
-    super.onDialogClosed(positiveResult);
+  /** Handles key combo when fragment closes. */
+  void onDialogClosed() {
     setTemporaryKeyComboCodeWithoutTriggerModifier(
         keyComboManager.getKeyComboModel().getKeyComboCodeForKey(getKey()));
     keyComboManager.setMatchKeyCombo(true);
     setKeyEventSource(KEY_EVENT_SOURCE_ACTIVITY);
   }
 
-  @Override
-  protected void onBindDialogView(@NonNull View view) {
-    super.onBindDialogView(view);
-
-    setTemporaryKeyComboCodeWithoutTriggerModifier(
-        keyComboManager.getKeyComboModel().getKeyComboCodeForKey(getKey()));
-    keyAssignmentView = (TextView) view.findViewById(R.id.assigned_combination);
-    instructionText = (TextView) view.findViewById(R.id.instruction);
-    instructionText.setText(keyComboManager.getKeyComboModel().getDescriptionOfEligibleKeyCombo());
-    updateKeyAssignmentText();
-
-    keyComboManager.setMatchKeyCombo(false);
-  }
-
-  private void updateKeyAssignmentText() {
-    keyAssignmentView.setText(getSummary());
-  }
-
-  @Override
-  public void showDialog(Bundle state) {
-    super.showDialog(state);
-    AlertDialog alertDialog = (AlertDialog) getDialog();
-    if (alertDialog == null) {
+  /**
+   * Registers the key event listener to receive key event.
+   *
+   * @param dialog Dialog receives key event.
+   */
+  void registerDialogKeyEvent(Dialog dialog) {
+    if (dialog == null) {
       return;
     }
 
-    View clear = alertDialog.findViewById(R.id.clear);
-    clear.setOnClickListener(clearButtonClickListener);
-    alertDialog
-        .getButton(DialogInterface.BUTTON_POSITIVE)
-        .setOnClickListener(okButtonClickListener);
-    alertDialog.setOnKeyListener(this);
-
-    Button okButton = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
-    okButton.setFocusableInTouchMode(true);
-    okButton.requestFocus();
-
+    dialog.setOnKeyListener(this);
     setKeyEventSource(getKeyEventSourceForCurrentKeyComboModel());
+  }
+
+  /**
+   * Gets the dialog of KeyboardShortcutDialogPreference. Returns null if
+   * KeyboardShortcutPreferenceFragment isn't created.
+   *
+   * @return The dialog of KeyboardShortcutPreferenceFragment.
+   */
+  @Nullable
+  public Dialog getDialog() {
+    if (keyboardShortcutPreferenceFragment == null) {
+      return null;
+    }
+    return keyboardShortcutPreferenceFragment.getDialog();
   }
 
   @Override
@@ -353,7 +308,7 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
       setTemporaryKeyComboCodeWithTriggerModifier(KeyComboManager.getKeyComboCode(event));
     }
 
-    updateKeyAssignmentText();
+    keyboardShortcutPreferenceFragment.updateKeyAssignmentText();
 
     return true;
   }
@@ -375,6 +330,17 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
       return false;
     }
 
+    // Uses Enter key to replace of OK button from S since there is no button in the
+    // DialogPreference. If alertDialog which confirms duplicate assigned key isn't null, it will
+    // not process the button click function since onKey() will receive enter key twice. alertDialog
+    // will be null when this dialog dismisses.
+    if (FeatureSupport.supportSettingsTheme()
+        && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)
+        && (alertDialog == null)) {
+      keyboardShortcutPreferenceFragment.processOKButtonClickListener();
+      return false;
+    }
+
     // Enter and Esc are used to accept/dismiss dialogs. However, the default shortcuts
     // involve Enter and Esc (with modifiers), so we should only trap Enter and Esc without
     // modifiers.
@@ -388,7 +354,8 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
     return event.getAction() == KeyEvent.ACTION_DOWN;
   }
 
-  private void showOverrideKeyComboDialog(final String key) {
+  /** Shows dialog if there is duplicate key assigned. */
+  void showOverrideKeyComboDialog(final String key) {
     final Preference currentActionPreference = getPreferenceManager().findPreference(key);
     if (currentActionPreference == null) {
       return;
@@ -424,7 +391,8 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
         });
   }
 
-  private void saveKeyCode() {
+  /** Saves key code to keyComboManager and notifies the listeners. */
+  void saveKeyCode() {
     keyComboManager
         .getKeyComboModel()
         .saveKeyComboCode(getKey(), getTemporaryKeyComboCodeWithoutTriggerModifier());
@@ -454,22 +422,27 @@ public class KeyboardShortcutDialogPreference extends DialogPreference
     String message =
         getContext()
             .getString(R.string.override_keycombo_message_two_params, currentAction, newAction);
-    AlertDialogUtils.createBuilder(getContext())
-        .setTitle(R.string.override_keycombo)
-        .setMessage(message)
-        .setNegativeButton(
-            android.R.string.cancel,
-            (dialog, which) -> {
-              dialog.dismiss();
-              clickListener.onClick(dialog, which);
-            })
-        .setPositiveButton(
-            android.R.string.ok,
-            (dialog, which) -> {
-              saveKeyCode();
-              clickListener.onClick(dialog, which);
-            })
-        .create()
-        .show();
+    AlertDialog.Builder builder =
+        AlertDialogUtils.builder(getContext())
+            .setTitle(R.string.override_keycombo)
+            .setMessage(message)
+            .setNegativeButton(
+                android.R.string.cancel,
+                (dialog, which) -> {
+                  dialog.dismiss();
+                  clickListener.onClick(dialog, which);
+                })
+            .setPositiveButton(
+                android.R.string.ok,
+                (dialog, which) -> {
+                  saveKeyCode();
+                  clickListener.onClick(dialog, which);
+                });
+    alertDialog = builder.create();
+    alertDialog.setOnDismissListener(
+        (dialog) -> {
+          alertDialog = null;
+        });
+    alertDialog.show();
   }
 }

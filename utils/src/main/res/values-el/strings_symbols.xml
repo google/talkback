@@ -2,8 +2,8 @@
 <resources>
   <string name="symbol_apostrophe">Απόστροφος</string>
   <string name="symbol_ampersand">Συμπλεκτικό σύμβολο</string>
-  <string name="symbol_angle_bracket_left">Σύμβολο μικρότερο από</string>
-  <string name="symbol_angle_bracket_right">Σύμβολο μεγαλύτερο από</string>
+  <string name="symbol_angle_bracket_left">Σύμβολο \"μικρότερο από\"</string>
+  <string name="symbol_angle_bracket_right">Σύμβολο \"μεγαλύτερο από\"</string>
   <string name="symbol_asterisk">Αστερίσκος</string>
   <string name="symbol_at_sign">Παπάκι</string>
   <string name="symbol_backslash">Ανάστροφη κάθετος</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">Τελεία</string>
   <string name="symbol_pi">πι</string>
   <string name="symbol_pound">Δίεση</string>
-  <string name="symbol_pound_sterling">Σύμβολο λίρας</string>
+  <string name="symbol_pound_sterling">Σύμβολο λίρας στερλίνας</string>
   <string name="symbol_question_mark">Ερωτηματικό</string>
   <string name="symbol_quotation_mark">Εισαγωγικά</string>
   <string name="symbol_registered_trademark">Σήμα κατατεθέν</string>
@@ -53,7 +53,7 @@
   <string name="symbol_not_sign">Σύμβολο Not</string>
   <string name="symbol_broken_bar">Διακεκομμένη κάθετο</string>
   <string name="symbol_micro_sign">Σύμβολο Micro</string>
-  <string name="symbol_almost_equals">Σχεδόν ισούται με</string>
+  <string name="symbol_almost_equals">Σχεδόν ίσον με</string>
   <string name="symbol_not_equals">Δεν ισούται με</string>
   <string name="symbol_currency_sign">Σύμβολο νομίσματος</string>
   <string name="symbol_section_sign">Σύμβολο παραγράφου</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">Μαύρη καρδιά</string>
   <string name="symbol_tilde">Περισπωμένη</string>
   <string name="symbol_equal">Σύμβολο ίσον</string>
-  <string name="symbol_won">Σύμβολο \"γουόν\"</string>
+  <string name="symbol_won">Σύμβολο νομίσματος ουόν</string>
   <string name="symbol_reference">Σημείο παραπομπής</string>
   <string name="symbol_white_star">Λευκό αστέρι</string>
   <string name="symbol_black_star">Μαύρο αστέρι</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">Δεξιά διπλή αγκύλη</string>
   <string name="symbol_inverted_exclamation_mark">Αντίστροφο θαυμαστικό</string>
   <string name="symbol_inverted_question_mark">Αντίστροφο ερωτηματικό</string>
-  <string name="symbol_won_sign">Σήμα νομίσματος γουάν Κορέας</string>
+  <string name="symbol_won_sign">Σύμβολο νομίσματος ουόν</string>
   <string name="symbol_full_width_comma">Κόμμα πλήρους πλάτους</string>
   <string name="symbol_full_width_exclamation_mark">Θαυμαστικό πλήρους πλάτους</string>
   <string name="symbol_full_width_ideographic_full_stop">Ιδεογραφική τελεία</string>

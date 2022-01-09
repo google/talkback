@@ -59,6 +59,7 @@ public final class NodePathDescription {
    *
    * <p><strong>Note: </strong> Caller should recycle {@code root} and the returned node.
    */
+  // TODO: Improves the logic for stable focus in general cases.
   @Nullable
   public static AccessibilityNodeInfoCompat findNode(
       AccessibilityNodeInfoCompat root, NodePathDescription path) {
@@ -67,17 +68,22 @@ public final class NodePathDescription {
 
     NodeDescription rootDescription = nodeDescriptionIterator.next();
     if ((rootDescription == null) || !rootDescription.identityMatches(root)) {
-      // If root node is not accepted, return null;
+      // If root node is not accepted, returns null;
       return null;
     }
 
     lastMatchedNodeInPath = AccessibilityNodeInfoUtils.obtain(root);
-
     while (nodeDescriptionIterator.hasNext() && (lastMatchedNodeInPath != null)) {
       NodeDescription childDescription = nodeDescriptionIterator.next();
-      final AccessibilityNodeInfoCompat matchedChild =
-          findChildWithDescription(/* parent= */ lastMatchedNodeInPath, childDescription);
-
+      AccessibilityNodeInfoCompat matchedChild = null;
+      if (lastMatchedNodeInPath.getCollectionInfo() != null && !nodeDescriptionIterator.hasNext()) {
+        // If the parent node is collection and its child is the leaf of the path, just returns the
+        // child in the same index.
+        matchedChild = findChildMatchesIndex(/* parent= */ lastMatchedNodeInPath, childDescription);
+      } else {
+        matchedChild =
+            findChildWithDescription(/* parent= */ lastMatchedNodeInPath, childDescription);
+      }
       AccessibilityNodeInfoUtils.recycleNodes(lastMatchedNodeInPath);
       lastMatchedNodeInPath = matchedChild;
     }
@@ -124,7 +130,7 @@ public final class NodePathDescription {
   private static AccessibilityNodeInfoCompat findChildWithDescription(
       AccessibilityNodeInfoCompat parent, NodeDescription childDescription) {
     AccessibilityNodeInfoCompat child = findChildMatchesIndex(parent, childDescription);
-    if ((child != null) && childDescription.identityMatches(child)) {
+    if (childDescription.identityMatches(child)) {
       return child;
     } else {
       AccessibilityNodeInfoUtils.recycleNodes(child);

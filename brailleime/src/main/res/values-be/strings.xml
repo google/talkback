@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Пазіцыя кропкі абнаўляецца. Спачатку запішам кропкі для левай рукі. Націсніце і ўтрымлівайце на экране тры сярэднія пальцы левай рукі.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Пазіцыя кропкі абнаўляецца. Спачатку запішам кропкі для правай рукі. Націсніце і ўтрымлівайце на экране тры сярэднія пальцы правай рукі.</string>
   <string name="calibration_finish_announcement">Пазіцыя кропкі абноўлена</string>
+  <string name="remaining_calibration_finish_announcement">Палажэнні ўсіх кропак абноўлены</string>
   <string name="calibration_step2_hold_right_finger_announcement">Пазіцыі кропак 1, 2 і 3 абноўлены. Цяпер запішам кропкі для правай рукі. Націсніце і ўтрымлівайце на экране тры сярэднія пальцы правай рукі.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Пазіцыі кропак 1, 2 і 3 абноўлены. Цяпер запішам кропкі для левай рукі. Націсніце і ўтрымлівайце на экране тры сярэднія пальцы левай рукі.</string>
   <string name="calibration_fail_announcement">Не ўдалося абнавіць пазіцыю кропкі. Дакраніцеся да экрана 6 пальцамі і затрымайце іх. Потым паўтарыце спробу.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Адзіная англійская клавіятура Брайля</string>
   <string name="code_user_facing_name_es">Іспанская</string>
   <string name="code_user_facing_name_ar">Арабская мова</string>
+  <string name="code_user_facing_name_fr">Французская мова</string>
   <string name="title_pref_accumulate_presses">Уключаць усе націснутыя кропкі</string>
   <string name="summary_pref_accumulate_presses">Кожная націснутая кропка, нават калі яе адпусціць перад націскам іншых кропак, – гэта частка ўводу</string>
   <string name="title_pref_reverse_dots">Зваротны парадак кропак</string>
   <string name="summary_pref_reverse_dots">Замяніць палажэнне кропак, напрыклад памяняць месцамі кропкі 1 і 4</string>
-  <string name="typing_echo_list_preference_title">Зваротная сувязь пры наборы тэксту (рэха набору тэксту)</string>
-  <string name="typing_echo_preference_label_characters">Чытаць усе літары і словы</string>
-  <string name="typing_echo_preference_label_words">Чытаць толькі словы</string>
   <string name="context_menu_title">Параметры клавіятуры Брайля</string>
   <string name="context_menu_typing_language_selection">Змяніць мову набору тэксту</string>
   <string name="context_menu_typing_language_selection_summary">Зараз выкарыстоўваецца %s</string>

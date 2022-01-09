@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Versioon %1$s</string>
   <string name="label_manager_summary_title">Kohandatud siltide haldamine</string>
   <string name="label_manager_package_title">Rakenduse %1$s siltide haldamine</string>
+  <string name="manage_label">Sildi haldamine</string>
   <string name="label_manager_no_packages_message">Praegu pole ühtegi kohandatud silti. Selle loomiseks navigeerige sildita pildile ja lisage silt TalkBacki menüüst.</string>
   <string name="label_manager_timestamp_text">Viimati muudetud: %1$s</string>
   <string name="search_dialog_label">Otsing: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Puudutusega uurimine</string>
   <string name="title_pref_category_touch_exploration">Navigeerimine</string>
   <string name="title_pref_category_controls">Juhtelemendid</string>
-  <string name="title_pref_single_tap">Ühe puudutusega aktiveerimine</string>
+  <string name="title_pref_single_tap">Üks puudutus aktiveerimiseks</string>
   <string name="title_pref_show_context_menu_as_list">Kontekstimenüü kuvamine loendina</string>
-  <string name="summary_pref_single_tap">(Katseline.) Aktiveerimiseks puudutage esile tõstetud üksust ühe korra</string>
+  <string name="summary_pref_single_tap">Aktiveerimiseks puudutage esile tõstetud üksust ühe korra</string>
   <string name="title_pref_shake_to_read_threshold">Raputamine pideva lugemise alustamiseks</string>
   <string name="pref_verbosity_title">Sõnaohtrus</string>
   <string name="pref_punctuation_title">Kirjavahemärgid</string>
+  <string name="title_pref_category_manage_focus_indicator">Fookuse indikaatori kohandamine</string>
   <string name="title_pref_category_manage_gestures">Liigutuste kohandamine</string>
   <string name="title_pref_manage_labels">Kohandatud sildid</string>
   <string name="title_pref_manage_customize_menus">Menüüde kohandamine</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Abi ja tagasiside</string>
   <string name="title_pref_category_tutorial_and_help">Õpetused ja abi</string>
   <string name="title_pref_category_advanced">Täpsemad</string>
+  <string name="title_pref_category_typing">Sisestamine ja klaviatuur</string>
   <string name="title_pref_category_legal_and_privacy">Juriidiline ja privaatsus</string>
   <string name="title_pref_advanced_settings">Täpsemad seaded</string>
   <string name="reset_gesture_settings_title">Liigutuste lähtestamise seaded</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Hiljutised rakendused</string>
   <string name="keycombo_menu_global_notifications">Märguanded</string>
   <string name="keycombo_menu_global_suspend">TalkBacki peatamine või jätkamine</string>
+  <string name="keycombo_menu_global_play_pause_media">Meedia esitamine või peatamine</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Lugemise juhtelement Vali järgmine</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Lugemise juhtelement Vali eelmine</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Lugemise juhtelemendi üles liigutamine</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Lugemise juhtelemendi alla liigutamine</string>
   <string name="keycombo_menu_category_granularity">Navigeerimine</string>
   <string name="keycombo_menu_granularity_increase">Järgmine navigeerimisseade</string>
   <string name="keycombo_menu_granularity_decrease">Eelmine navigeerimisseade</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Kopeeritavat teksti pole, valige esmalt tekst.</string>
   <string name="cannot_paste_feedback">Kleebitavat teksti pole, kopeerige esmalt tekst.</string>
   <string name="cannot_cut_feedback">Lõigatavat teksti pole, valige esmalt tekst.</string>
+  <string name="cannot_delete_feedback">Kustutatavat teksti pole, valige esmalt tekst.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Kas soovite kindlasti selle klahvitabeli otseteeklahvid lähtestada vaikeväärtustele? Pange tähele, et seda toimingut ei saa tagasi võtta.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Lähtesta</string>
   <string name="override_keycombo">Klahv on juba kasutusel</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Helikõrguse muudatuste kasutamine</string>
   <string name="title_pref_keyboard_echo">Klaviatuuri kaja</string>
   <string name="pref_node_desc_order_title">Elemendi kirjelduse järjestus</string>
-  <string name="summaryOn_pref_intonation">Klaviatuuri tagasiside esitamine madalama häälega</string>
+  <string name="summaryOn_pref_intonation">Ütle klaviatuuri kustutatud tekst kõrgema tooniga</string>
   <string name="summaryOff_pref_intonation">Ära muuda kõne ajal helikõrgust</string>
   <string name="title_pref_brailleime">Braille\' klaviatuur</string>
   <string name="title_pref_category_feedback_settings">Muu tagasiside</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Sõlmepuu silumise lubamine</string>
   <string name="summary_pref_tree_debug_tv">Kasutage otsimise asemel sõlmepuu printimiseks häälotsingu klahvi</string>
   <string name="title_pref_performance_stats">Toimivusstatistika lubamine</string>
+  <string name="title_pref_log_overlay">Silumise logi ülekatte lubamine</string>
   <string name="title_pref_resume_talkback">Peatatud olekust jätkamine</string>
+  <string name="title_pref_typing_confirmation">Sisestamise eelistus</string>
   <string name="title_pref_multi_finger_gesture">Luba mitme sõrmega liigutused</string>
   <string name="screen_dimmed">Ekraanikuva on peidetud</string>
   <string name="screen_brightness_restored">Ekraanikuva on nähtav</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Alla kerimine</string>
   <string name="shortcut_scroll_left">Vasakule kerimine</string>
   <string name="shortcut_scroll_right">Paremale kerimine</string>
+  <string name="shortcut_next_window">Järgmine aken</string>
+  <string name="shortcut_previous_window">Eelmine aken</string>
   <string name="shortcut_back">Tagasi</string>
   <string name="shortcut_home">Avakuva</string>
   <string name="shortcut_overview">Ülevaade</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Ekraanikuva peitmine või kuvamine</string>
   <string name="title_show_screen_search">Ekraaniotsing</string>
   <string name="title_show_voice_commands">Häälkäsklused</string>
+  <string name="talkback_show_talkback_settings">TalkBacki seaded</string>
   <string name="title_other_web_navigation">Muu veebis navigeerimine</string>
   <string name="title_granularity_default">Vaikenavigeerimine</string>
   <string name="title_seek_bar_edit">Liuguri taseme muutmine</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Juhtige TalkBacki oma hääle abil</string>
   <string name="summary_show_hide_screen">Ekraanikuva peitmine, et see poleks avalikes kohtades teistele nähtav. Pärast ekraanikuva peitmist lülitage see tavaolekusse.</string>
   <string name="summary_talkback_preferences">TalkBacki seadete avamine</string>
-  <string name="summary_system_actions">Kõigi rakenduste menüü ja kiirseadete avamine ning jagatud ekraanikuva kasutamine</string>
+  <string name="summary_system_actions">Tehke valikud Kõik rakendused &gt; Kiirseaded</string>
   <string name="summary_tts_settings">Kõnesünteesi seadete avamine</string>
   <string name="summary_pause_feedback">TalkBacki suulise tagasiside väljalülitamine</string>
   <string name="not_editable">Pole muudetav</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Lugemine sõnahaaval</string>
   <string name="summary_lines">Lugemine ridahaaval</string>
   <string name="summary_paragraphs">Lugemine lõikhaaval</string>
+  <string name="summary_windows">Liikuge teistesse akendesse, nt helitugevuse juhtnuppude juurde või navigeerimisribale</string>
   <string name="summary_headings">Liikumine pealkirjade vahel</string>
   <string name="summary_controls">Liikumine üksuste vahel, mida saate kasutada (nt nupud, märkeruudud ja tekstiväljad)</string>
   <string name="summary_links">Liikumine linkide vahel</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Sisestatud klahvide, kasutamisvihjete, ruudustiku teabe ja muu teabe ettelugemise sisse-/väljalülitamine</string>
   <string name="summary_selector_menu_punctuation">Muutke seda, kas kirjavahemärgid ja sümbolid loetakse ette</string>
   <string name="summary_language">Hääle keele muutmine. Kuvatakse ainult siis, kui teil on installitud mitu kõnesünteesi keelt.</string>
-  <string name="summary_sound_feedback">Heliefektid navigeerimisel, näiteks toimingute kinnitamise piiksud.</string>
+  <string name="summary_sound_feedback">Heliefektid navigeerimisel, näiteks toimingute kinnitamise piiksud</string>
   <string name="summary_vibration_feedback">Seadme vibreerimine toimingute puhul, näiteks üksuse valimisel. Ei mõjuta rakendustest või süsteemist pärit vibreerimist.</string>
   <string name="summary_hide_screen">Ekraanikuva peitmine, et see poleks avalikes kohtades teistele nähtav</string>
   <string name="summary_audio_ducking">TalkBacki rääkimise ajal muude esitatava helide helitugevuse vähendamine</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Kerige edasi või tagasi</string>
+  <string name="summary_support_change_a11y_volume">Suurendage või vähendage juurdepääsufunktsioonide helitugevust</string>
+  <string name="summary_image_caption">Hankige selle pildi puhul automaatne kirjeldus</string>
   <string name="value_direction_up">üles</string>
   <string name="value_direction_down">alla</string>
   <string name="value_direction_left">vasakule</string>
@@ -428,7 +445,7 @@
   <string name="title_pref_shortcut_up">Üles pühkimine</string>
   <string name="title_pref_shortcut_down">Alla pühkimine</string>
   <string name="title_pref_shortcut_left">Vasakule pühkimine</string>
-  <string name="title_pref_shortcut_right">Raremale pühkimine</string>
+  <string name="title_pref_shortcut_right">Paremale pühkimine</string>
   <string name="title_pref_shortcut_up_and_down">Üles, seejärel alla pühkimine</string>
   <string name="title_pref_shortcut_down_and_up">Alla, seejärel üles pühkimine</string>
   <string name="title_pref_shortcut_left_and_right">Vasakule, seejärel paremale pühkimine</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">2 sõrmega topeltpuudutamine ja all hoidmine</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">3 sõrmega topeltpuudutamine ja all hoidmine</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">4 sõrmega topeltpuudutamine ja all hoidmine</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Kolmikpuudutamine ja hoidmine kahe sõrmega</string>
+  <string name="seekbar_hint_2gesture">Kohandamiseks liigutus „%1$s“ või „%2$s“</string>
+  <string name="seekbar_hint_1gesture">Kohandamiseks liigutus „%1$s“</string>
   <string name="gesture_name_unknown">Tundmatu liigutus</string>
   <string name="gesture_name_pass_through">Liigutus Liigu edasi süsteemi juurde</string>
   <string name="gesture_name_touch_explore">Puudutusega avastamine</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Topeltpuudutamine ja hoidmine</string>
   <string name="gesture_name_2finger_tap_hold">Puudutamine ja hoidmine kahe sõrmega</string>
   <string name="gesture_name_3finger_tap_hold">Puudutamine ja hoidmine kolme sõrmega</string>
+  <string name="gesture_name_2finger_3tap_hold">Kolmikpuudutamine ja hoidmine kahe sõrmega</string>
   <string name="gesture_name_3finger_3tap_hold">Kolmikpuudutamine ja hoidmine kolme sõrmega</string>
   <string name="title_pref_shortcut_fingerprint_up">Sõrmejäljeanduril üles pühkimine</string>
   <string name="title_pref_shortcut_fingerprint_down">Sõrmejäljeanduril alla pühkimine</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Ekraani sisselülitamisel</string>
   <string name="value_resume_keyguard">Lukustuskuva ilmumisel</string>
   <string name="value_resume_manual">Ainult märguandest</string>
+  <string name="value_type_confirmation_double_tap">Hoidke sõrme klahvi valimiseks, seejärel topeltpuudutage</string>
+  <string name="value_type_confirmation_lift_to_type">Hoidke sõrme klahvi valimiseks, seejärel eemaldage sõrm</string>
   <string name="value_shake_to_read_disabled">Keelatud</string>
   <string name="value_shake_to_read_threshold_very_light">Väga õrnalt</string>
   <string name="value_shake_to_read_threshold_light">Õrnalt</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Nimeta alati sisestatud klahvid</string>
   <string name="value_keyboard_echo_softkeys">Ainult ekraanil kuvatavale klaviatuurile</string>
   <string name="value_keyboard_echo_never">Ära nimeta kunagi sisestatud klahve</string>
+  <string name="title_pref_keyboard_echo_on_screen">Klaviatuuri kaja: ekraanil kuvatav klaviatuur</string>
+  <string name="title_pref_keyboard_echo_physical">Klaviatuuri kaja: füüsiline klaviatuur</string>
+  <string name="value_keyboard_echo_none">Puudub</string>
+  <string name="value_keyboard_echo_characters_only">Tähemärgid</string>
+  <string name="value_keyboard_echo_words_only">Sõnad</string>
+  <string name="value_keyboard_echo_characters_and_words">Tähemärgid ja sõnad</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Olek, nimi, tüüp</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Tüüp, nimi, olek</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Nimi, tüüp, olek</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Kas soovite kindlasti sõlmepuu silumise sisse lülitada?\n\nSõlmepuu silumisel avaldatakse ekraanil olev sisu seadme logidele, mida võivad lugeda teised rakendused.</string>
   <string name="dialog_title_enable_performance_stats">Kas lubada toimivusstatistika?</string>
   <string name="dialog_message_enable_performance_stats">Kas soovite toimivusstatistika kindlasti sisse lülitada?\n\nToimivusstatistika võib kulutada rohkem mälu ja toidet.</string>
+  <string name="title_request_phone_permission">Kas lubada juurdepääs telefonile?</string>
+  <string name="message_request_phone_permission">See aitab TalkBackil vähendada teavituste hulka, kui teil on kõne pooleli</string>
+  <string name="continue_button">Jätka</string>
   <string name="label_talkback_context_menu">TalkBacki globaalne kontekstimenüü</string>
   <string name="permission_talkback_label">TalkBacki juhtimine</string>
   <string name="permission_talkback_desc">Lubab saata liigutusi TalkBackile ja jätkata esitatud tagasisidet.</string>
-  <string name="permission_labeling_label">TalkBacki kohandatud siltide haldamine</string>
-  <string name="permission_labeling_desc">Lubab hankida juurdepääsu TalkBacki esitatud kohandatud siltidele ning lubab neid muuta ja kustutada.</string>
   <string name="links">Lingid</string>
   <string name="end_of_text">Lõpp</string>
   <string name="start_of_page">Eelmist üksust %1$s ei ole</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Kirjavahemärgid</string>
   <string name="title_pref_selector_granularity">Navigeerimine</string>
   <string name="title_pref_selector_audio_focus">Heli vaigistamine</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Kerimine</string>
+  <string name="title_pref_a11y_volume">Juurdepääsufunktsioonide helitugevus</string>
   <string name="title_pref_selector_adjustable_widget_slider">Kohandage liugurit</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Kohandage väärtust</string>
   <string name="title_pref_speak_passwords_without_headphones">Paroolide ettelugemine</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Häälkäskluste kasutamine</string>
   <string name="dialog_title_pass_through_mode">Süsteemiliigutuste kasutamiseks TalkBacki liigutuste vahelejätmine</string>
   <string name="dialog_message_pass_through_mode">Kui kuulete kellahelinat, saate kasutada süsteemiliigutusi, mida TalkBack ei toeta. Seda nimetatakse liigutuse vahelejätmiseks.</string>
-  <string name="hint_type_search_term">Sisestage otsingutermin</string>
+  <string name="hint_type_search_term">Otsingutermin</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBacki märguannete kanal</string>
   <string name="pref_selector_summary">%1$s, et valida seade. %2$s seejärel, et seadet kohandada.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Teksti lõikamiseks topeltpuudutage ja hoidke kolme sõrmega.\n\nTeksti kleepimiseks puudutage kolme sõrmega kolm korda.\n\nProovige kleepida sõna allolevasse tekstikasti.</string>
   <string name="copy_text_pre_r">Pärast teksti valimist saate selle kopeerida TalkBacki menüü kaudu. Pühkige alla ja seejärel paremale, et avada TalkBacki menüü. Topeltpuudutage muutmisvalikuid ja seejärel käsku Kopeeri.\n\nProovige kopeerida sõna allolevasse tekstikasti.</string>
   <string name="cut_paste_text_pre_r">Teksti lõikamiseks või kleepimiseks avage TalkBacki menüü ja topeltpuudutage muutmisvalikuid.\n\nProovige kleepida sõna allolevasse tekstikasti.</string>
+  <string name="edit_box_hint_paste_text">Kleepige tekst siia</string>
   <string name="read_by_character_title">Tähemärgi, sõna või lõigu haaval lugemine</string>
   <string name="read_by_character_text">Võib-olla soovite mõnikord lasta teksti ette lugeda ühe tähemärgi haaval.\n\nSelleks pühkige kolme sõrmega paremale, kuni kuulete sõna „%1$s“. Seejärel pühkige üles, et liigutada navigeerimise esiletõst ühe tähemärgi võrra tagasi. Pühkige alla, et liigutada navigeerimise esiletõst ühe tähemärgi võrra edasi.\n\nProovige seda kohe. Kui pühite kolme sõrmega paremale, saate lugeda ka sõnade või lõikude haaval.</string>
   <string name="read_by_character_text_pre_r">Võib-olla soovite mõnikord lasta teksti ette lugeda ühe tähemärgi haaval.\n\nSelleks pühkige alla ja seejärel üles, kuni kuulete sõna „%1$s“. Seejärel pühkige üles, et liigutada navigeerimise esiletõst ühe tähemärgi võrra tagasi. Pühkige alla, et liigutada navigeerimise esiletõst ühe tähemärgi võrra edasi.\n\nProovige seda kohe. Kui pühite alla ja seejärel üles, saate lugeda ka sõnade või lõikude haaval.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">Aktiveeriti %1$s</string>
   <string name="talkback_inactive_title">TalkBack on keelatud</string>
   <string name="talkback_inactive_message">Nende õpetuste jaoks on vaja TalkBacki. Enne õpetuste käivitamist lülitage TalkBack sisse.</string>
+  <string name="watch_swipe_left_right_text">Üksuste vahel liikumiseks pühkige paremale või vasakule</string>
+  <string name="watch_double_tap_text">Üksuse aktiveerimiseks topeltpuudutage</string>
+  <string name="watch_2_finger_scroll_text">Kerimiseks lohistage kahe sõrmega</string>
+  <string name="title_pref_thick_border">Paksud äärised</string>
+  <string name="title_pref_category_border_color">Värv</string>
+  <string name="title_pref_default_color">Vaikeseade</string>
+  <string name="title_pref_red">Punane</string>
+  <string name="title_pref_orange">Oranž</string>
+  <string name="title_pref_yellow">Kollane</string>
+  <string name="title_pref_green">Roheline</string>
+  <string name="title_pref_blue">Sinine</string>
+  <string name="title_pref_grey">Hall</string>
   <string name="survey_closed">Küsitlus on suletud</string>
+  <string name="character_recognition_text">Tekst: %1$s</string>
+  <string name="title_image_caption">Pildi kirjeldamine</string>
 </resources>

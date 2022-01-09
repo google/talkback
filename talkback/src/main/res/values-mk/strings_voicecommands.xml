@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Јазик</string>
   <string name="voice_commands_languages">Јазици</string>
   <string name="voice_commands_custom_actions">приспособени дејства</string>
+  <string name="voice_commands_action">Дејство</string>
   <string name="voice_commands_quick_settings">Брзи поставки</string>
   <string name="voice_commands_quick_setting">Брзи поставки</string>
   <string name="voice_commands_dim">затемни</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">За жал, функцијава не е достапна на вашиот уред</string>
   <string name="voice_commands_error">Грешка при препознавањето на гласовната наредба</string>
   <string name="voice_commands_partial_result">Не може да се препознае наредбава. Изговорете „%1$s“ за да се прикаже списокот со сите наредби.</string>
+  <string name="voice_commands_timeout">Изговорете „%1$s“ за да се прикаже списокот со сите наредби.</string>
   <string name="voice_commands_many_requests">Обидете се повторно за кратко</string>
-  <string name="voice_commands_setting_disabled">Поставката „%1$s“ не е овозможена</string>
   <string name="voice_commands_echo_feedback_not_recognized">Записот „%1$s“ не е препознаен како гласовна наредба.</string>
   <string name="voice_commands_label_saved">Етикетата е зачувана</string>
   <string name="voice_commands_no_actions_feedback">Нема достапни дејства</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Преглед на гласовните наредби</string>
   <string name="voice_commands_help_description">За користење на гласовните наредби, повлечете надесно, па нагоре. Кажете „Help“ (Помош) или „What can I say?“ (Што може да кажам?) кога ќе сакате да се прикаже списоков со наредби.</string>
   <string name="voice_commands_help_hint">За најдобри резултати, точно изговорете ги наредбите наведени на следниве екрани.</string>
+  <string name="voice_command_screen_locked_hint">Гласовните наредби не се достапни додека екранот е заклучен. За да го користите менито на TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Променете го начинот на читање содржини на тековниот екран</string>
   <string name="voice_commands_help_next">Следно [наслов]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Внесете поим за пребарување за да го најдете тој текст на екранот</string>
   <string name="voice_commands_help_text_editing_description">Напишете, изберете и копирајте текст</string>
   <string name="voice_commands_help_type_text">Напиши [во ред]</string>
-  <string name="voice_commands_help_copy_description">Прво треба да изберете текст, па да го копирате</string>
-  <string name="voice_commands_help_cut_description">Прво треба да изберете текст, па да го сечете</string>
+  <string name="voice_commands_help_copy_description">Изберете текст пред да копирате</string>
+  <string name="voice_commands_help_cut_description">Изберете текст пред да исечете</string>
+  <string name="voice_commands_help_delete_description">Изберете текст пред да бришете</string>
   <string name="voice_commands_help_device_navigation_title">Навигација со уредот</string>
   <string name="voice_commands_help_device_navigation_description">Одете на почетниот екран, вратете се назад, погледнете ги известувањата и друго</string>
   <string name="voice_commands_help_overview_description">Видете ги неодамнешните апликации</string>

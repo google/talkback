@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Oppdaterer punktposisjonene. Først registrerer du punktene på venstre hånd. Trykk og hold på skjermen med de tre midterste fingrene på venstre hånd.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Oppdaterer punktposisjonene. Først registrerer du punktene på høyre hånd. Trykk og hold på skjermen med de tre midterste fingrene på høyre hånd.</string>
   <string name="calibration_finish_announcement">Punktposisjonen er oppdatert</string>
+  <string name="remaining_calibration_finish_announcement">Alle punktposisjonene er oppdatert</string>
   <string name="calibration_step2_hold_right_finger_announcement">Oppdater posisjon for punkt 1, 2 og 3. Deretter registrerer du punktene på høyre hånd. Trykk og hold på skjermen med de tre midterste fingrene på høyre hånd.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Oppdater posisjon for punkt 1, 2 og 3. Deretter registrerer du punktene på venstre hånd. Trykk og hold på skjermen med de tre midterste fingrene på venstre hånd.</string>
   <string name="calibration_fail_announcement">Kunne ikke oppdatere punktposisjonen. Trykk og hold på skjermen med seks fingre. Prøv deretter på nytt.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">Spansk</string>
   <string name="code_user_facing_name_ar">Arabisk</string>
+  <string name="code_user_facing_name_fr">Fransk</string>
   <string name="title_pref_accumulate_presses">Inkluder alle trykte punkter</string>
   <string name="summary_pref_accumulate_presses">Hvert trykte punkt er en del av inndataene, selv om punktet slippes før andre punkter.</string>
   <string name="title_pref_reverse_dots">Omvendte punkter</string>
   <string name="summary_pref_reverse_dots">Bytt punktposisjoner, slik at for eksempel punkt én og fire bytter plass</string>
-  <string name="typing_echo_list_preference_title">Skrivetilbakemelding (innskrivingsekko)</string>
-  <string name="typing_echo_preference_label_characters">Les alle bokstaver og ord</string>
-  <string name="typing_echo_preference_label_words">Les bare ord</string>
   <string name="context_menu_title">Alternativer for punktskrifttastatur</string>
   <string name="context_menu_typing_language_selection">Endre skriftspråk</string>
   <string name="context_menu_typing_language_selection_summary">Du bruker for øyeblikket %s</string>

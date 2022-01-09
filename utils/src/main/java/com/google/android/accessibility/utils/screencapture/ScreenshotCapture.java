@@ -59,7 +59,7 @@ public class ScreenshotCapture {
         new TakeScreenshotCallback() {
           @Override
           public void onFailure(int errorCode) {
-            LogUtils.w(TAG, "Taking screenshot but failed");
+            LogUtils.e(TAG, "Taking screenshot but failed [error:" + errorCode + "]");
             listener.onScreenCaptureFinished(
                 /* screenCapture= */ null, /* isFormatSupported= */ false);
           }

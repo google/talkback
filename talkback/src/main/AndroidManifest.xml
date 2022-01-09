@@ -7,7 +7,9 @@
     placeholders, and they get replaced by the build system with the appropriate
     value when a build executes. -->
 
-    <!-- Behavior change since Android 11. -->
+    <!-- The <queries> element allows us to ask the package manager about
+    the installation status of external components we are interested in. This
+    policy change was introduced in Android 11. -->
     <queries>
         <intent>
             <action android:name="android.intent.action.TTS_SERVICE" />
@@ -17,15 +19,6 @@
                 android:name="android.speech.RecognitionService" />
         </intent>
     </queries>
-
-    <!-- Permission used to restrict storing and retrieving custom view labels. -->
-    <!-- TODO This permission can go away -->
-    <permission
-        android:name="${applicationId}.permission.LABELING"
-        android:description="@string/permission_labeling_desc"
-        android:icon="@drawable/icon"
-        android:label="@string/permission_labeling_label"
-        android:protectionLevel="signature" />
 
     <!-- Used by voice commands. -->
     <uses-feature android:name="android.hardware.microphone" android:required="false" />
@@ -43,9 +36,6 @@
     <!-- Required for keeping the screen awake during continuous reading and key filtering. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!-- Required for labeling. -->
-    <uses-permission android:name="${applicationId}.permission.LABELING" />
-
     <!-- Required for managing audio levels on GB. -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
@@ -60,9 +50,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
-    <!-- Required for reading bluetooth headphone state. -->
-    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <!-- Required for calling Service.startForeground after API 28. -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -79,10 +66,6 @@
         android:required="false" />
     <uses-feature
         android:name="android.hardware.sensor.accelerometer"
-        android:required="false" />
-    <!-- Bluetooth is flagged as required by android.permission.BLUETOOTH, so make it optional -->
-    <uses-feature
-        android:name="android.hardware.bluetooth"
         android:required="false" />
 
     <application
@@ -154,9 +137,26 @@
             </intent-filter>
         </activity>
 
-        <!-- TalkBack Voice Commands Mic Activity Preference -->
+        <!-- TalkBack Focus Indicator Preferences -->
         <activity
-            android:name="com.google.android.accessibility.talkback.actor.voicecommands.SpeechRecognitionMicActivity"
+            android:name="com.google.android.accessibility.talkback.preference.TalkBackFocusIndicatorPreferenceActivity"
+            android:exported="false"
+            android:label="@string/title_pref_category_manage_focus_indicator"
+            android:launchMode="singleTop"
+            android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity"
+            android:theme="@style/TalkBackSettings"
+            android:configChanges="orientation|screenSize"
+            tools:ignore="ExportedActivity" >
+            <!-- This preference activity can receive an implicit intent action -->
+            <intent-filter>
+                <action android:name=".TalkBackFocusIndicatorPreferenceActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- TalkBack permission request activity proxy -->
+        <activity
+            android:name="com.google.android.accessibility.talkback.permission.PermissionRequestActivity"
             android:excludeFromRecents="true"
             android:theme="@style/BlankActivityTheme"
             android:exported="false"
@@ -340,8 +340,10 @@
         </activity>
 
         <!-- TalkBack training -->
+        <!-- To prevent slowdown of talkback event-handlers, arrange to run on a separate process. -->
         <activity
             android:name="com.google.android.accessibility.talkback.training.TrainingActivity"
+            android:process=":Tutorial"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:launchMode="singleTop"
@@ -377,9 +379,9 @@
         <activity
             android:name="com.google.android.accessibility.talkback.labeling.LabelManagerPackageActivity"
             android:exported="false"
-            android:label="@string/label_manager_package_title"
+            android:label="@string/manage_label"
             android:launchMode="singleTop"
-            android:theme="@style/BaseTheme"
+            android:theme="@style/TalkBackSettings"
             android:taskAffinity="com.google.android.accessibility.talkback.SettingsAffinity" />
 
         <!-- Gesture Change Notification Activity -->
@@ -411,8 +413,6 @@
             android:name="com.google.android.accessibility.talkback.labeling.LabelProvider"
             android:authorities="${applicationId}.providers.LabelProvider"
             android:exported="true"
-            android:readPermission="${applicationId}.permission.LABELING"
-            android:writePermission="${applicationId}.permission.LABELING"
             android:directBootAware="true" />
 
         <provider

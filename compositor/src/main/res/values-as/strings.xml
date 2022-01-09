@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="talkback_on">টকবেক অন হৈ আছে</string>
-  <string name="talkback_suspended">টকবেক নিলম্বন কৰা হ’ল</string>
-  <string name="talkback_resumed">টকবেক অব্যাহত ৰখা হ’ল</string>
-  <string name="talkback_disabled">টকবেক অফ কৰা হ’ল</string>
+  <string name="talkback_on">TalkBack অন হৈ আছে</string>
+  <string name="talkback_suspended">TalkBack নিলম্বন কৰা হ’ল</string>
+  <string name="talkback_resumed">TalkBack অব্যাহত ৰখা হ’ল</string>
+  <string name="talkback_disabled">TalkBack অফ কৰা হ’ল</string>
   <string name="spokenfeedback_on">কথিত প্ৰতিক্ৰিয়া অন আছে</string>
   <string name="spokenfeedback_suspended">কথিত প্ৰতিক্ৰিয়া নিলম্বিত কৰা হৈছে</string>
   <string name="spokenfeedback_resumed">কথিত প্ৰতিক্ৰিয়া অব্যাহত ৰখা হৈছে</string>
@@ -171,6 +171,10 @@
   <string name="template_speech_rate_change_slower">লেহেমীয়া</string>
   <string name="template_speech_rate_change_fastest">দ্ৰুততম</string>
   <string name="template_speech_rate_change_slowest">সকলোতকৈ লেহেমীয়া</string>
+  <string name="template_volume_change_increase">বঢ়াওক</string>
+  <string name="template_volume_change_decrease">কমাওক</string>
+  <string name="template_volume_change_maximum">সৰ্বাধিক</string>
+  <string name="template_volume_change_minimum">ন্যূনতম</string>
   <string name="template_seekbar_range">%1$d%%</string>
   <string name="audio_focus_on">অডিঅ\' ডাকিং অন আছে</string>
   <string name="audio_focus_off">অডিঅ\' ডাকিং অফ আছে</string>

@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Uppdaterar punktpositionerna. Börja med att registrera punkterna på vänster hand. Tryck länge på skärmen med de mellersta tre fingrarna på vänster hand.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Uppdaterar punktpositionerna. Börja med att registrera punkterna på höger hand. Tryck länge på skärmen med de mellersta tre fingrarna på höger hand.</string>
   <string name="calibration_finish_announcement">Punktpositionerna har uppdaterats</string>
+  <string name="remaining_calibration_finish_announcement">Alla punktpositioner har uppdaterats</string>
   <string name="calibration_step2_hold_right_finger_announcement">Positionen för punkt 1, 2 och 3 har uppdaterats. Sedan registrerar du punkterna på höger hand. Tryck länge på skärmen med de mellersta tre fingrarna på höger hand.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Positionen för punkt 1, 2 och 3 har uppdaterats. Sedan registrerar du punkterna på vänster hand. Tryck länge på skärmen med de mellersta tre fingrarna på vänster hand.</string>
   <string name="calibration_fail_announcement">Det gick inte att uppdatera punktpositionerna. Tryck länge med sex fingrar på skärmen. Försök sedan igen.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">spanska</string>
   <string name="code_user_facing_name_ar">arabiska</string>
+  <string name="code_user_facing_name_fr">franska</string>
   <string name="title_pref_accumulate_presses">Inkludera alla nedtryckta punkter</string>
   <string name="summary_pref_accumulate_presses">Alla nedtryckta punkter är en del av inmatningen, även om punkten släpps upp före andra punkter</string>
   <string name="title_pref_reverse_dots">Omvända punkter</string>
   <string name="summary_pref_reverse_dots">Byt plats på punkterna så att exempelvis punkt 1 och punkt 4 byter plats med varandra</string>
-  <string name="typing_echo_list_preference_title">Feedback när du skriver (”skriveko”)</string>
-  <string name="typing_echo_preference_label_characters">Läs upp alla bokstäver och ord</string>
-  <string name="typing_echo_preference_label_words">Läs bara upp ord</string>
   <string name="context_menu_title">Alternativ för punktskriftstangentbordet</string>
   <string name="context_menu_typing_language_selection">Byt språk för inmatning</string>
   <string name="context_menu_typing_language_selection_summary">Du använder nu %s</string>

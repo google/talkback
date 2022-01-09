@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">ກຳລັງອັບເດດຕຳແໜ່ງຂອງຈຸດ. ທຳອິດ, ມາບັນທຶກຈຸດທາງຊ້າຍມືຂອງທ່ານ. ແຕະໃສ່ໜ້າຈໍຄ້າງໄວ້ດ້ວຍນິ້ວກາງ 3 ນິ້ວຂອງມືຊ້າຍທ່ານ.</string>
   <string name="calibration_step1_hold_right_finger_announcement">ກຳລັງອັບເດດຕຳແໜ່ງຂອງຈຸດ. ທຳອິດ, ມາບັນທຶກຈຸດຢູ່ທາງຂວາມືຂອງທ່ານກ່ອນ. ແຕະໃສ່ໜ້າຈໍຄ້າງໄວ້ດ້ວຍນິ້ວກາງ 3 ນິ້ວຂອງມືຂວາທ່ານ.</string>
   <string name="calibration_finish_announcement">ອັບເດດຕຳແໜ່ງຈຸດແລ້ວ</string>
+  <string name="remaining_calibration_finish_announcement">ອັບເດດຕຳແໜ່ງຈຸດທັງໝົດແລ້ວ</string>
   <string name="calibration_step2_hold_right_finger_announcement">ອັບເດດຕຳແໜ່ງຈຸດສຳລັບ 1, 2 ແລະ 3 ແລ້ວ. ຕໍ່ໄປ, ມາບັນທຶກຈຸດຢູ່ທາງຂວາມືຂອງທ່ານ. ແຕະໃສ່ໜ້າຈໍຄ້າງໄວ້ດ້ວຍນິ້ວກາງ 3 ນິ້ວຂອງມືຂວາທ່ານ.</string>
   <string name="calibration_step2_hold_left_finger_announcement">ອັບເດດຕຳແໜ່ງຈຸດສຳລັບ 1, 2 ແລະ 3 ແລ້ວ. ຕໍ່ໄປ, ມາບັນທຶກຈຸດຢູ່ທາງຊ້າຍມືຂອງທ່ານ. ແຕະໃສ່ໜ້າຈໍຄ້າງໄວ້ດ້ວຍນິ້ວກາງ 3 ນິ້ວຂອງມືຊ້າຍທ່ານ.</string>
   <string name="calibration_fail_announcement">ບໍ່ສາມາດອັບເດດຕຳແໜ່ງຈຸດໄດ້. ແຕະໃສ່ໜ້າຈໍຄ້າງໄວ້ດ້ວຍ 6 ນິ້ວ. ຈາກນັ້ນລອງໃໝ່.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">ສະແປນນິຊ</string>
   <string name="code_user_facing_name_ar">ອາຣາບິກ</string>
+  <string name="code_user_facing_name_fr">ຝຣັ່ງ</string>
   <string name="title_pref_accumulate_presses">ຮວມຈຸດທີ່ກົດໄວ້ທັງໝົດ</string>
   <string name="summary_pref_accumulate_presses">ແຕ່ລະຈຸດທີ່ກົດເປັນສ່ວນໜຶ່ງຂອງອິນພຸດ, ເຖິງແມ່ນວ່າຈະປ່ອຍຈຸດນັ້ນກ່ອນຈຸດອື່ນ</string>
   <string name="title_pref_reverse_dots">ຈຸດແບບຍ້ອນກັບ</string>
   <string name="summary_pref_reverse_dots">ສະຫຼັບຕຳແໜ່ງຈຸດ ເຊັ່ນ: ເພື່ອໃຫ້ຈຸດ 1 ແລະ ຈຸດ 4 ສະຫຼັບບ່ອນກັນ</string>
-  <string name="typing_echo_list_preference_title">ການຕອບສະໜອງການພິມ (ສະທ້ອນການພິມ)</string>
-  <string name="typing_echo_preference_label_characters">ອ່ານຕົວອັກສອນ ແລະ ຄຳສັບທັງໝົດ</string>
-  <string name="typing_echo_preference_label_words">ອ່ານຄຳສັບເທົ່ານັ້ນ</string>
   <string name="context_menu_title">ຕົວເລືອກແປ້ນພິມຕົວອັກສອນນູນ</string>
   <string name="context_menu_typing_language_selection">ປ່ຽນພາສາການພິມ</string>
   <string name="context_menu_typing_language_selection_summary">ໃນປັດຈຸບັນກຳລັງໃຊ້ %s</string>

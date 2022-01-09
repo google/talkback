@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Dateer tans puntposisie op. Kom ons teken eers die punte op jou linkerhand aan. Raak en hou die skerm met jou linkerhand se middelste 3 vingers.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Dateer tans puntposisie op. Kom ons teken eers die punte op jou regterhand aan. Raak en hou die skerm met jou regterhand se middelste 3 vingers.</string>
   <string name="calibration_finish_announcement">Puntposisie is opgedateer</string>
+  <string name="remaining_calibration_finish_announcement">Alle kolposisies is opgedateer</string>
   <string name="calibration_step2_hold_right_finger_announcement">Opgedateerde posisies vir punte 1, 2, en 3. Ons kan volgende die punte op jou regterhand aanteken. Raak en hou die skerm met jou regterhand se middelste 3 vingers.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Opgedateerde posisies vir punte 1, 2, en 3. Ons kan volgende die punte op jou linkerhand aanteken. Raak en hou die skerm met jou linkerhand se middelste 3 vingers.</string>
   <string name="calibration_fail_announcement">Kon nie puntposisie opdateer nie. Druk en hou die skerm met 6 vingers. Probeer dan weer.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Verenigde Engelse Braille</string>
   <string name="code_user_facing_name_es">Spaans</string>
   <string name="code_user_facing_name_ar">Arabies</string>
+  <string name="code_user_facing_name_fr">Frans</string>
   <string name="title_pref_accumulate_presses">Sluit alle punte wat gedruk is, in</string>
   <string name="summary_pref_accumulate_presses">Elke punt wat gedruk word, is deel van die invoer, selfs al word die punt voor die ander punte gelos</string>
   <string name="title_pref_reverse_dots">Keer punte om</string>
   <string name="summary_pref_reverse_dots">Ruil die puntposisies om sodat punt 1 en punt 4 plekke ruil, byvoorbeeld</string>
-  <string name="typing_echo_list_preference_title">Tik tans terugvoer (tikeggo)</string>
-  <string name="typing_echo_preference_label_characters">Lees alle letters en woorde</string>
-  <string name="typing_echo_preference_label_words">Lees net woorde</string>
   <string name="context_menu_title">Braille-sleutelbordopsies</string>
   <string name="context_menu_typing_language_selection">Verander tiktaal</string>
   <string name="context_menu_typing_language_selection_summary">Gebruik tans %s</string>

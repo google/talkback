@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">버전: %1$s</string>
   <string name="label_manager_summary_title">맞춤 라벨 관리</string>
   <string name="label_manager_package_title">%1$s의 라벨 관리</string>
+  <string name="manage_label">라벨 관리</string>
   <string name="label_manager_no_packages_message">현재 맞춤 라벨이 없습니다. 라벨이 지정되지 않은 이미지를 찾은 다음 음성 안내 지원 메뉴에서 라벨을 추가하여 맞춤 라벨을 만들 수 있습니다.</string>
   <string name="label_manager_timestamp_text">최종 수정: %1$s</string>
   <string name="search_dialog_label">검색: %1$s</string>
@@ -73,7 +74,7 @@
   <string name="capital_letters_sound_feedback">소리 재생</string>
   <string name="title_pref_a11y_hints">사용 힌트를 음성으로 제공</string>
   <string name="summaryOff_pref_a11y_hints">접근성 포커스를 이동하는 중에는 사용 힌트를 읽지 않음</string>
-  <string name="summaryOn_pref_a11y_hints">접근성 포커스를 이동하면 잠시 후 사용 힌트를 읽음</string>
+  <string name="summaryOn_pref_a11y_hints">탐색 중 약간의 지연 시간 후 사용 힌트를 읽음</string>
   <string name="pref_speak_container_element_positions_title">목록 및 그리드 정보 말하기</string>
   <string name="pref_speak_container_element_positions_summaryOn">목록 및 그리드 정보를 읽음</string>
   <string name="pref_speak_container_element_positions_summaryOff">목록 및 그리드 정보를 읽지 않음</string>
@@ -92,16 +93,17 @@
   <string name="title_pref_category_controls">제어</string>
   <string name="title_pref_single_tap">한 번 탭하여 활성화</string>
   <string name="title_pref_show_context_menu_as_list">컨텍스트 메뉴를 목록으로 표시</string>
-  <string name="summary_pref_single_tap">(실험용 기능) 포커스가 설정된 항목을 한 번 탭하여 활성화합니다.</string>
+  <string name="summary_pref_single_tap">포커스가 설정된 항목을 한 번 탭하여 활성화합니다.</string>
   <string name="title_pref_shake_to_read_threshold">흔들어서 계속 읽기</string>
   <string name="pref_verbosity_title">상세 출력</string>
   <string name="pref_punctuation_title">구두점</string>
+  <string name="title_pref_category_manage_focus_indicator">초점 표시기 맞춤설정</string>
   <string name="title_pref_category_manage_gestures">동작 맞춤설정</string>
   <string name="title_pref_manage_labels">맞춤 라벨</string>
   <string name="title_pref_manage_customize_menus">메뉴 맞춤설정</string>
   <string name="title_pref_category_context_menu">음성 안내 지원 메뉴 맞춤설정</string>
   <string name="title_pref_category_selector_menu">읽기 제어 기능 맞춤설정</string>
-  <string name="title_pref_category_navigation_menu">이동 옵션 수정</string>
+  <string name="title_pref_category_navigation_menu">탐색 옵션 수정</string>
   <string name="pref_category_context_menu_summary">음성 안내 지원 메뉴를 사용하려면 세 손가락으로 화면을 탭합니다. 위로 스와이프한 후 오른쪽으로 스와이프하거나 아래로 스와이프한 후 오른쪽으로 스와이프해도 됩니다.</string>
   <string name="pref_category_context_menu_summary_single_finger">음성 안내 지원 메뉴를 사용하려면 아래로 스와이프한 후 오른쪽으로 스와이프합니다.</string>
   <string name="pref_category_selector_menu_summary">읽기 제어 기능을 사용하려면 세 손가락을 사용해 왼쪽 또는 오른쪽으로 스와이프합니다. 세 손가락을 사용해 위 또는 아래로 스와이프해도 됩니다.</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">도움말 및 의견</string>
   <string name="title_pref_category_tutorial_and_help">가이드 및 도움말</string>
   <string name="title_pref_category_advanced">고급</string>
+  <string name="title_pref_category_typing">입력 및 키보드</string>
   <string name="title_pref_category_legal_and_privacy">법률 및 개인정보 보호</string>
   <string name="title_pref_advanced_settings">고급 설정</string>
   <string name="reset_gesture_settings_title">동작 재설정</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">최근 앱</string>
   <string name="keycombo_menu_global_notifications">알림</string>
   <string name="keycombo_menu_global_suspend">음성 안내 지원 일시중지/재개</string>
+  <string name="keycombo_menu_global_play_pause_media">미디어 재생 또는 일시중지</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">다음 읽기 제어 설정 선택</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">이전 읽기 제어 설정 선택</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">읽기 제어 설정을 위로 조정</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">읽기 제어 설정을 아래로 조정</string>
   <string name="keycombo_menu_category_granularity">탐색</string>
   <string name="keycombo_menu_granularity_increase">다음 탐색 설정</string>
   <string name="keycombo_menu_granularity_decrease">이전 탐색 설정</string>
@@ -226,23 +234,24 @@
   <string name="keycombo_assign_dialog_clear">단축키 삭제</string>
   <string name="cannot_copy_feedback">복사할 텍스트가 없습니다. 먼저 텍스트를 선택하세요.</string>
   <string name="cannot_paste_feedback">붙여넣을 텍스트가 없습니다. 먼저 텍스트를 복사하세요.</string>
-  <string name="cannot_cut_feedback">잘라낼 텍스트가 없습니다. 먼저 텍스트를 선택하세요.</string>
+  <string name="cannot_cut_feedback">자를 텍스트가 없습니다. 먼저 텍스트를 선택하세요.</string>
+  <string name="cannot_delete_feedback">삭제할 텍스트가 없습니다. 먼저 텍스트를 선택하세요.</string>
   <string name="message_in_reset_keymap_confirm_dialog">이 키맵의 단축키를 기본값으로 재설정하시겠습니까? 이 작업은 취소할 수 없습니다.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">재설정</string>
   <string name="override_keycombo">이미 사용 중인 키입니다.</string>
   <string name="override_keycombo_message_two_params">\'%1$s\' 작업에 사용되는 키 조합입니다. 이전 작업을 삭제하고 이 키 조합에 \'%2$s\' 작업을 할당하시겠습니까?</string>
-  <string name="title_pref_intonation">피치 변경 사용</string>
+  <string name="title_pref_intonation">음조 변경 사용</string>
   <string name="title_pref_keyboard_echo">키보드 에코</string>
   <string name="pref_node_desc_order_title">요소 설명 순서</string>
-  <string name="summaryOn_pref_intonation">키보드로 입력한 내용을 낮은 피치 음성으로 말함</string>
-  <string name="summaryOff_pref_intonation">말할 때 음성 피치를 변경하지 않음</string>
+  <string name="summaryOn_pref_intonation">키보드로 삭제한 텍스트를 더 높은 음으로 말합니다</string>
+  <string name="summaryOff_pref_intonation">말할 때 음성 음조를 변경하지 않음</string>
   <string name="title_pref_brailleime">점자 키보드</string>
   <string name="title_pref_category_feedback_settings">소리 및 진동 알림</string>
-  <string name="title_pref_vibration">진동으로 알림</string>
-  <string name="title_pref_soundback">소리로 알림</string>
+  <string name="title_pref_vibration">진동 확인</string>
+  <string name="title_pref_soundback">음향 피드백</string>
   <string name="title_pref_use_audio_focus">오디오 볼륨 낮추기</string>
   <string name="summary_pref_use_audio_focus">말하는 동안 다른 오디오 볼륨 줄이기</string>
-  <string name="title_pref_soundback_volume">소리 피드백 볼륨</string>
+  <string name="title_pref_soundback_volume">음향 피드백 볼륨</string>
   <string name="title_pref_two_volume_button_long_click">음성 안내 지원 중지 및 재개 단축키</string>
   <string name="title_pref_dim_volume_three_clicks">화면 바로가기 숨기기</string>
   <string name="title_pref_category_miscellaneous_settings">기타</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">노드 트리 디버깅 사용</string>
   <string name="summary_pref_tree_debug_tv">검색하지 않고 음성 검색 키를 사용하여 노드 트리 인쇄</string>
   <string name="title_pref_performance_stats">실적 통계 사용</string>
+  <string name="title_pref_log_overlay">디버그 로그 오버레이 사용 설정</string>
   <string name="title_pref_resume_talkback">일시중지한 부분에서 다시 시작</string>
+  <string name="title_pref_typing_confirmation">입력 환경설정</string>
   <string name="title_pref_multi_finger_gesture">여러 손가락을 사용한 동작 사용</string>
   <string name="screen_dimmed">화면 숨겨짐</string>
   <string name="screen_brightness_restored">화면 표시 중</string>
@@ -279,9 +290,11 @@
   <string name="shortcut_scroll_down">아래로 스크롤</string>
   <string name="shortcut_scroll_left">왼쪽으로 스크롤</string>
   <string name="shortcut_scroll_right">오른쪽으로 스크롤</string>
+  <string name="shortcut_next_window">다음 창</string>
+  <string name="shortcut_previous_window">이전 창</string>
   <string name="shortcut_back">뒤로</string>
   <string name="shortcut_home">홈</string>
-  <string name="shortcut_overview">최근 사용</string>
+  <string name="shortcut_overview">최근 앱</string>
   <string name="shortcut_notifications">알림</string>
   <string name="shortcut_quick_settings">빠른 설정</string>
   <string name="shortcut_show_custom_actions">맞춤 작업 표시</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">화면 숨기기 또는 표시</string>
   <string name="title_show_screen_search">화면검색</string>
   <string name="title_show_voice_commands">음성 명령</string>
+  <string name="talkback_show_talkback_settings">음성 안내 지원 설정</string>
   <string name="title_other_web_navigation">기타 웹 탐색</string>
   <string name="title_granularity_default">기본 탐색</string>
   <string name="title_seek_bar_edit">슬라이더 수준 수정</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">음성으로 음성 안내 지원 제어</string>
   <string name="summary_show_hide_screen">공공장소에 있을 때 다른 사람에게 보이지 않도록 화면을 숨깁니다. 화면을 숨긴 후 원래 상태로 되돌립니다.</string>
   <string name="summary_talkback_preferences">음성 안내 지원 설정을 엽니다.</string>
-  <string name="summary_system_actions">모든 앱, 빠른 설정으로 이동하고 화면 분할을 사용합니다.</string>
+  <string name="summary_system_actions">모든 앱 및 빠른 설정으로 이동</string>
   <string name="summary_tts_settings">텍스트 음성 변환 설정을 엽니다.</string>
   <string name="summary_pause_feedback">음성 안내 지원 음성 피드백을 사용 중지합니다.</string>
   <string name="not_editable">수정할 수 없음</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">한 번에 한 단어를 읽습니다.</string>
   <string name="summary_lines">한 번에 한 줄을 읽습니다.</string>
   <string name="summary_paragraphs">한 번에 한 단락씩 읽습니다.</string>
+  <string name="summary_windows">볼륨 컨트롤이나 탐색 메뉴와 같은 다른 창으로 이동합니다.</string>
   <string name="summary_headings">제목 간에 이동합니다.</string>
   <string name="summary_controls">버튼, 체크박스, 텍스트 입력란 등 상호작용할 수 있는 항목 간에 이동합니다.</string>
   <string name="summary_links">링크 간에 이동합니다.</string>
@@ -408,7 +423,9 @@
   <string name="summary_vibration_feedback">항목 선택과 같은 작업 실행 시 진동을 울립니다. 앱이나 시스템의 진동에는 영향을 주지 않습니다.</string>
   <string name="summary_hide_screen">공공장소에 있을 때 다른 사람에게 보이지 않도록 화면을 숨깁니다.</string>
   <string name="summary_audio_ducking">음성 안내 지원이 말하는 동안 재생 중인 다른 오디오의 볼륨을 낮춥니다.</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">앞으로 또는 뒤로 스크롤</string>
+  <string name="summary_support_change_a11y_volume">접근성 볼륨 증가 또는 감소</string>
+  <string name="summary_image_caption">이미지에 관해 자동으로 설명</string>
   <string name="value_direction_up">위쪽</string>
   <string name="value_direction_down">아래쪽</string>
   <string name="value_direction_left">왼쪽</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">두 손가락으로 두 번 탭한 후 길게 누름</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">세 손가락으로 두 번 탭한 후 길게 누름</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">네 손가락으로 두 번 탭한 후 길게 누름</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">두 손가락으로 세 번 탭한 후 길게 누르기</string>
+  <string name="seekbar_hint_2gesture">\"%1$s\" 또는 %2$s\" 동작으로 조정</string>
+  <string name="seekbar_hint_1gesture">\"%1$s\" 동작으로 조정</string>
   <string name="gesture_name_unknown">알 수 없는 동작</string>
   <string name="gesture_name_pass_through">시스템 동작으로 연결</string>
   <string name="gesture_name_touch_explore">터치 탐색</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">두 번 탭한 후 길게 누르기</string>
   <string name="gesture_name_2finger_tap_hold">두 손가락으로 길게 탭하기</string>
   <string name="gesture_name_3finger_tap_hold">세 손가락으로 길게 탭하기</string>
+  <string name="gesture_name_2finger_3tap_hold">두 손가락으로 세 번 탭한 후 길게 누르기</string>
   <string name="gesture_name_3finger_3tap_hold">세 손가락으로 세 번 탭한 후 길게 누르기</string>
   <string name="title_pref_shortcut_fingerprint_up">지문 센서에서 위로 스와이프</string>
   <string name="title_pref_shortcut_fingerprint_down">지문 센서에서 아래로 스와이프</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">화면이 켜질 때</string>
   <string name="value_resume_keyguard">잠금 화면이 표시될 때</string>
   <string name="value_resume_manual">알림이 표시될 때</string>
+  <string name="value_type_confirmation_double_tap">길게 눌러 키 선택 후 두 번 탭</string>
+  <string name="value_type_confirmation_lift_to_type">길게 눌러 키 선택 후 떼기</string>
   <string name="value_shake_to_read_disabled">사용 안함</string>
   <string name="value_shake_to_read_threshold_very_light">매우 약하게</string>
   <string name="value_shake_to_read_threshold_light">약하게</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">키 입력 시 항상 음성으로 안내</string>
   <string name="value_keyboard_echo_softkeys">터치 키보드에만 사용</string>
   <string name="value_keyboard_echo_never">입력 키 음성 출력 사용 안함</string>
+  <string name="title_pref_keyboard_echo_on_screen">키보드 에코: 터치 키보드</string>
+  <string name="title_pref_keyboard_echo_physical">키보드 에코: 실제 키보드</string>
+  <string name="value_keyboard_echo_none">없음</string>
+  <string name="value_keyboard_echo_characters_only">글자</string>
+  <string name="value_keyboard_echo_words_only">단어</string>
+  <string name="value_keyboard_echo_characters_and_words">글자 및 단어</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">상태, 이름, 유형</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">유형, 이름, 상태</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">이름, 유형, 상태</string>
@@ -535,7 +564,7 @@
   <string name="label_choose_app_to_import">라벨을 가져올 때 사용할 애플리케이션을 선택하세요.</string>
   <string name="label_choose_app_to_export">라벨을 내보낼 애플리케이션 선택:</string>
   <string name="talkback_gesture_change_details">해당 버전의 음성 안내 지원에서는 기본 접근성 동작이 변경되었습니다. 이 동작과 관련된 작업은 음성 안내 지원 설정에서 맞춤설정할 수 있습니다. \'터치하여 탐색\'을 사용 설정하면 다음 동작을 사용하여 특정 작업을 수행할 수 있습니다.\n\n%1$s</string>
-  <string formatted="false" name="value_long_volume_pressed_suspend_talkback">볼륨 크게, 볼륨 작게 키 길게 누르기</string>
+  <string formatted="false" name="value_long_volume_pressed_suspend_talkback">볼륨 업 버튼과 볼륨 다운 버튼 길게 누르기</string>
   <string formatted="false" name="value_dim_volume_three_clicks">양쪽 볼륨 키를 빠르게 세 번 눌러 화면 숨기거나 표시하기</string>
   <string name="dialog_title_dim_screen">화면을 숨기시겠습니까?</string>
   <string name="dialog_message_dim_screen">이렇게 하면 개인정보 보호를 위해 디스플레이가 꺼지며, 공공장소에 있을 때 다른 사람에게 화면이 보이지 않게 됩니다.</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">노드 트리 디버깅을 사용 설정하시겠습니까?\n\n노드 트리 디버깅을 사용하면 화면의 콘텐츠가 기기 로그에 표시되어 다른 앱에서 읽을 수 있습니다.</string>
   <string name="dialog_title_enable_performance_stats">실적 통계 사용</string>
   <string name="dialog_message_enable_performance_stats">실적 통계를 사용 설정하시겠습니까?\n\n실적 통계를 사용하면 메모리와 전원이 더 많이 소모될 수 있습니다.</string>
+  <string name="title_request_phone_permission">휴대전화 액세스를 허용하시겠습니까?</string>
+  <string name="message_request_phone_permission">통화 중일 때 음성 안내 지원에서 안내를 줄이는 데 도움이 됩니다</string>
+  <string name="continue_button">계속</string>
   <string name="label_talkback_context_menu">음성 안내 지원 글로벌 컨텍스트 메뉴</string>
   <string name="permission_talkback_label">음성 안내 지원 제어</string>
   <string name="permission_talkback_desc">음성 안내 지원에 동작을 보내고 음성 피드백을 다시 사용할 수 있는 권한입니다.</string>
-  <string name="permission_labeling_label">음성 안내 지원 맞춤 라벨 관리</string>
-  <string name="permission_labeling_desc">음성 안내 지원에서 사용하는 맞춤 라벨을 조회, 수정, 삭제할 수 있는 권한입니다.</string>
   <string name="links">링크</string>
   <string name="end_of_text">종료</string>
   <string name="start_of_page">이전 %1$s 없음</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">구두점</string>
   <string name="title_pref_selector_granularity">탐색</string>
   <string name="title_pref_selector_audio_focus">오디오 볼륨 낮추기</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">스크롤</string>
+  <string name="title_pref_a11y_volume">접근성 볼륨</string>
   <string name="title_pref_selector_adjustable_widget_slider">슬라이더 조정</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">값 조정</string>
   <string name="title_pref_speak_passwords_without_headphones">비밀번호 말하기</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">음성 명령 사용</string>
   <string name="dialog_title_pass_through_mode">음성 안내 지원 동작을 건너뛰고 시스템 동작 사용하기</string>
   <string name="dialog_message_pass_through_mode">차임벨 소리가 들리면 음성 안내 지원에서 지원되지 않는 시스템 동작을 사용할 수 있습니다. 이를 패스 스루 동작이라고 합니다.</string>
-  <string name="hint_type_search_term">검색어 입력</string>
+  <string name="hint_type_search_term">검색어</string>
   <string name="talkback_notification_channel_name">음성 안내 지원</string>
   <string name="talkback_notification_channel_description">음성 안내 지원의 알림 채널</string>
   <string name="pref_selector_summary">%1$s하여 설정을 선택합니다. 그런 다음 %2$s하여 설정을 조정합니다.</string>
@@ -657,7 +688,7 @@
   <string name="speech_rate_change">말하기 속도 %1$d%%</string>
   <string name="punctuation_state">구두점 %1$s</string>
   <string name="audio_focus_state">오디오 볼륨 낮추기 %1$s</string>
-  <string name="sound_feedback_state">소리 피드백 %1$s</string>
+  <string name="sound_feedback_state">음향 피드백 %1$s</string>
   <string name="vibration_feedback_state">진동 피드백 %1$s</string>
   <string name="gesture_1_or_2">%1$s 또는 %2$s</string>
   <string name="select_setting_hint">%1$s하여 다른 설정을 선택합니다</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">텍스트를 자르려면 세 손가락으로 두 번 탭한 다음 길게 누르세요.\n\n텍스트를 붙여넣으려면 세 손가락으로 세 번 탭합니다.\n\n아래의 텍스트 상자에 단어를 붙여넣어 보세요.</string>
   <string name="copy_text_pre_r">텍스트를 선택한 다음 음성 안내 지원 메뉴에서 텍스트를 복사할 수 있습니다. 아래로 스와이프한 다음 오른쪽으로 스와이프하여 음성 안내 지원 메뉴를 엽니다. 수정 옵션을 두 번 탭한 다음 복사합니다.\n\n아래의 텍스트 상자에서 단어를 복사해 보세요.</string>
   <string name="cut_paste_text_pre_r">텍스트를 자르거나 붙여넣으려면 음성 안내 지원 메뉴를 연 다음 수정 옵션을 두 번 탭하세요.\n\n아래의 텍스트 상자에 단어를 붙여넣어 보세요.</string>
+  <string name="edit_box_hint_paste_text">여기에 텍스트를 붙여넣으세요.</string>
   <string name="read_by_character_title">글자, 단어, 단락 단위로 읽기</string>
   <string name="read_by_character_text">한 번에 한 글자씩 듣고 싶을 때도 있습니다.\n\n한 글자씩 탐색하려면 ‘%1$s’라는 소리가 들릴 때까지 세 손가락을 사용해 오른쪽으로 스와이프하세요. 그런 다음 위로 스와이프하여 탐색 포커스를 한 글자씩 뒤로 옮깁니다. 아래로 스와이프하면 탐색 포커스를 한 글자씩 앞으로 옮길 수도 있습니다.\n\n지금 해 보세요. 세 손가락을 사용해 오른쪽으로 스와이프하면 단어 또는 단락 단위로 읽을 수도 있습니다.</string>
   <string name="read_by_character_text_pre_r">한 번에 한 글자만 듣고 싶을 때도 있습니다.\n\n한 글자씩 탐색하려면 아래로 스와이프한 다음 ‘%1$s’라는 소리가 들릴 때까지 위로 스와이프하세요. 그런 다음 위로 스와이프하여 탐색 포커스를 한 글자씩 뒤로 옮깁니다. 아래로 스와이프하면 탐색 포커스를 한 글자씩 앞으로 옮길 수도 있습니다.\n\n지금 해 보세요. 아래로 스와이프한 다음 위로 스와이프하면 단어 또는 단락 단위로 읽을 수도 있습니다.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">%1$s 활성화됨</string>
   <string name="talkback_inactive_title">음성 안내 지원 사용 중지됨</string>
   <string name="talkback_inactive_message">이 가이드를 실행하려면 음성 안내 지원 기능이 필요합니다. 가이드를 실행하기 전에 음성 안내 지원 기능을 사용 설정하세요.</string>
+  <string name="watch_swipe_left_right_text">항목 간에 전환하려면 오른쪽이나 왼쪽으로 스와이프하세요</string>
+  <string name="watch_double_tap_text">항목을 활성화하려면 두 번 탭하세요</string>
+  <string name="watch_2_finger_scroll_text">스크롤하려면 두 손가락으로 드래그하세요</string>
+  <string name="title_pref_thick_border">두꺼운 테두리</string>
+  <string name="title_pref_category_border_color">색상</string>
+  <string name="title_pref_default_color">기본</string>
+  <string name="title_pref_red">빨간색</string>
+  <string name="title_pref_orange">주황색</string>
+  <string name="title_pref_yellow">노란색</string>
+  <string name="title_pref_green">녹색</string>
+  <string name="title_pref_blue">파란색</string>
+  <string name="title_pref_grey">회색</string>
   <string name="survey_closed">설문조사 종료됨</string>
+  <string name="character_recognition_text">텍스트: %1$s</string>
+  <string name="title_image_caption">이미지 설명</string>
 </resources>

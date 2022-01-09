@@ -1,5 +1,7 @@
 package com.google.android.accessibility.utils.traversal;
 
+import static com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.SEARCH_FOCUS_FAIL;
+
 import android.graphics.Rect;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.View;
@@ -11,6 +13,7 @@ import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.NodeActionFilter;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
+import com.google.android.accessibility.utils.output.DiagnosticOverlayUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.HashSet;
 import java.util.Set;
@@ -385,6 +388,7 @@ public class TraversalStrategyUtils {
       do {
         seenNodes.add(targetNode);
         targetNode = traversal.findFocus(targetNode, direction);
+        DiagnosticOverlayUtils.appendLog(SEARCH_FOCUS_FAIL, targetNode);
 
         if (seenNodes.contains(targetNode)) {
           LogUtils.e(TAG, "Found duplicate during traversal: %s", targetNode);

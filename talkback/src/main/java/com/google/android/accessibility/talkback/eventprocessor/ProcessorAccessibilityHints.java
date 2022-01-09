@@ -38,6 +38,7 @@ import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
 import com.google.android.accessibility.utils.feedback.AbstractAccessibilityHintsManager;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Implements {@link AccessibilityEventListener} and manages accessibility-focus events. When an
@@ -71,31 +72,37 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
     this.pipelineInterpretationReceiver = pipeline;
   }
 
+  @Nullable
   private EventInterpretation getEventInterpretation() {
     @HintEventInterpretation.HintType int hintEventType;
-    EventInterpretation eventInterp = null;
+    @Nullable EventInterpretation eventInterp = null;
+    @Nullable HintEventInterpretation hintInterp = null;
     if (hintInfo.getPendingHintSource() != null) {
       hintEventType =
           (hintInfo.getPendingHintEventType() == TYPE_VIEW_FOCUSED)
               ? HintEventInterpretation.HINT_TYPE_INPUT_FOCUS
               : HintEventInterpretation.HINT_TYPE_ACCESSIBILITY_FOCUS;
-      HintEventInterpretation hintInterp = new HintEventInterpretation(hintEventType);
+      hintInterp = new HintEventInterpretation(hintEventType);
       eventInterp = new EventInterpretation(Compositor.EVENT_SPEAK_HINT);
-      eventInterp.setHint(hintInterp);
-
     } else if (hintInfo.getPendingScreenHint() != null) {
-      HintEventInterpretation hintInterp =
-          new HintEventInterpretation(HintEventInterpretation.HINT_TYPE_SCREEN);
+      hintInterp = new HintEventInterpretation(HintEventInterpretation.HINT_TYPE_SCREEN);
       hintInterp.setText(hintInfo.getPendingScreenHint());
       eventInterp = new EventInterpretation(Compositor.EVENT_SPEAK_HINT);
-      eventInterp.setHint(hintInterp);
     } else if (hintInfo.getPendingSelectorHint() != null) {
-      HintEventInterpretation hintEvent =
-          new HintEventInterpretation(HintEventInterpretation.HINT_TYPE_SELECTOR);
-      hintEvent.setText(hintInfo.getPendingSelectorHint());
+      hintInterp = new HintEventInterpretation(HintEventInterpretation.HINT_TYPE_SELECTOR);
+      hintInterp.setText(hintInfo.getPendingSelectorHint());
       eventInterp = new EventInterpretation(Compositor.EVENT_SPEAK_HINT);
-      eventInterp.setHint(hintEvent);
     }
+
+    if (hintInterp == null || eventInterp == null) {
+      return null;
+    }
+
+    hintInterp.setForceFeedbackAudioPlaybackActive(
+        hintInfo.getNodeHintForcedFeedbackAudioPlaybackActive());
+    hintInterp.setForceFeedbackMicropphoneActive(
+        hintInfo.getNodeHintForcedFeedbackMicrophoneActive());
+    eventInterp.setHint(hintInterp);
     return eventInterp;
   }
 
@@ -167,16 +174,17 @@ public class ProcessorAccessibilityHints extends AbstractAccessibilityHintsManag
           }
         }
 
-      hintInfo.setNodeHintForcedFeedbackAudioPlaybackActive(
-          (focusActionInfo != null) && focusActionInfo.isForcedFeedbackAudioPlaybackActive());
-      hintInfo.setNodeHintForcedFeedbackMicrophoneActive(
-          (focusActionInfo != null) && focusActionInfo.isForcedFeedbackMicrophoneActive());
-
-        AccessibilityNodeInfoCompat source = AccessibilityNodeInfoUtils.toCompat(event.getSource());
+      AccessibilityNodeInfoCompat source = AccessibilityNodeInfoUtils.toCompat(event.getSource());
+      boolean isForcedFeedbackAudioPlaybackActive =
+          (focusActionInfo != null) && focusActionInfo.isForcedFeedbackAudioPlaybackActive();
+      boolean isForcedFeedbackMicrophoneActive =
+          (focusActionInfo != null) && focusActionInfo.isForcedFeedbackMicrophoneActive();
 
       try {
         if (source != null) {
-          postHintForNode(event, source); // postHintForNode() doesn't take ownership of source.
+          // postHintForNode() doesn't take ownership of source.
+          postHintForNode(
+              event, source, isForcedFeedbackAudioPlaybackActive, isForcedFeedbackMicrophoneActive);
         }
       } finally {
         AccessibilityNodeInfoUtils.recycleNodes(source);

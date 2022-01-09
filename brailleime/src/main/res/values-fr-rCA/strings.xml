@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Mise à jour de la position des points en cours… Enregistrez d\'abord les points pour la main gauche. Maintenez les trois doigts du milieu de votre main gauche sur l\'écran.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Mise à jour de la position des points en cours… Enregistrez d\'abord les points pour la main droite. Maintenez les trois doigts du milieu de votre main droite sur l\'écran.</string>
   <string name="calibration_finish_announcement">La position des points a été modifiée</string>
+  <string name="remaining_calibration_finish_announcement">Toutes les positions des points ont été mises à jour</string>
   <string name="calibration_step2_hold_right_finger_announcement">Position modifiée pour les points 1, 2 et 3. Enregistrez maintenant les points pour la main droite. Maintenez les trois doigts du milieu de votre main droite sur l\'écran.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Position modifiée pour les points 1, 2 et 3. Enregistrez maintenant les points pour la main gauche. Maintenez les trois doigts du milieu de votre main gauche sur l\'écran.</string>
   <string name="calibration_fail_announcement">Impossible de modifier la position des points. Maintenez six doigts sur l\'écran, puis réessayez.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Code braille anglais unifié</string>
   <string name="code_user_facing_name_es">Espagnol</string>
   <string name="code_user_facing_name_ar">Arabe</string>
+  <string name="code_user_facing_name_fr">Français</string>
   <string name="title_pref_accumulate_presses">Inclure tous les points enfoncés</string>
   <string name="summary_pref_accumulate_presses">Chaque point enfoncé fait partie de l\'entrée, même si le point est relâché avant d\'autres points</string>
   <string name="title_pref_reverse_dots">Points inversés</string>
   <string name="summary_pref_reverse_dots">Échangez les positions des points, de manière à permuter les points 1 et 4, par exemple</string>
-  <string name="typing_echo_list_preference_title">Écho du clavier</string>
-  <string name="typing_echo_preference_label_characters">Lire toutes les lettres et tous les mots</string>
-  <string name="typing_echo_preference_label_words">Lire les mots seulement</string>
   <string name="context_menu_title">Options du clavier braille</string>
   <string name="context_menu_typing_language_selection">Modifier la langue de rédaction</string>
   <string name="context_menu_typing_language_selection_summary">Vous utilisez actuellement le compte %s</string>

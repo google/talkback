@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">%1$s versija</string>
   <string name="label_manager_summary_title">Tvarkyti tinkintas etiketes</string>
   <string name="label_manager_package_title">Tvarkykite „%1$s“ etiketes</string>
+  <string name="manage_label">Tvarkyti etiketę</string>
   <string name="label_manager_no_packages_message">Šiuo metu nėra tinkintų etikečių. Etiketę galite sukurti perėję prie vaizdo be etiketės ir pridėję etiketę iš „Talkback“ meniu.</string>
   <string name="label_manager_timestamp_text">Paskutinį kartą keista %1$s</string>
   <string name="search_dialog_label">Paieška: %1$s</string>
@@ -91,11 +92,12 @@
   <string name="title_pref_category_touch_exploration">Naršymas</string>
   <string name="title_pref_category_controls">Valdikliai</string>
   <string name="title_pref_single_tap">Suaktyvinimas vienu palietimu</string>
-  <string name="title_pref_show_context_menu_as_list">Rodyti kontekstinį meniu kaip sąrašą</string>
-  <string name="summary_pref_single_tap">(Eksperimentinė funkcija) Palieskite vieną kartą paryškintą elementą, kad suaktyvintumėte</string>
+  <string name="title_pref_show_context_menu_as_list">Rodyti kontekstinį meniu kaip sąr.</string>
+  <string name="summary_pref_single_tap">Palieskite vieną kartą paryškintą elementą, kad suaktyvintumėte</string>
   <string name="title_pref_shake_to_read_threshold">Pakratykite, kad nuosekliai skaitytumėte</string>
   <string name="pref_verbosity_title">Daugiažodiškumas</string>
   <string name="pref_punctuation_title">Skyryba</string>
+  <string name="title_pref_category_manage_focus_indicator">Fokusavimo indikatoriaus tinkinimas</string>
   <string name="title_pref_category_manage_gestures">Tinkinti gestus</string>
   <string name="title_pref_manage_labels">Tinkintos etiketės</string>
   <string name="title_pref_manage_customize_menus">Tinkinti meniu</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Pagalba ir atsiliepimai</string>
   <string name="title_pref_category_tutorial_and_help">Mokymo programa ir pagalba</string>
   <string name="title_pref_category_advanced">Išplėstiniai</string>
+  <string name="title_pref_category_typing">Įvestis ir klaviatūra</string>
   <string name="title_pref_category_legal_and_privacy">Teisinė informacija ir privatumas</string>
   <string name="title_pref_advanced_settings">Išplėstiniai nustatymai</string>
   <string name="reset_gesture_settings_title">Gestų nustatymas iš naujo</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Naujausios programos</string>
   <string name="keycombo_menu_global_notifications">Pranešimai</string>
   <string name="keycombo_menu_global_suspend">Pristabdyti arba tęsti „TalkBack“</string>
+  <string name="keycombo_menu_global_play_pause_media">Paleisti arba pristabdyti mediją</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Pasirinkti kitą skaitymo valdymą</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Pasirinkti ankstesnį skaitymo valdymą</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Koreguoti skaitymo valdymą aukštyn</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Koreguoti skaitymo valdymą žemyn</string>
   <string name="keycombo_menu_category_granularity">Naršymas</string>
   <string name="keycombo_menu_granularity_increase">Kitas naršymo nustatymas</string>
   <string name="keycombo_menu_granularity_decrease">Ankstesnis naršymo nustatymas</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Nėra teksto, kurį būtų galima kopijuoti. Pirmiausia pasirinkite tekstą.</string>
   <string name="cannot_paste_feedback">Nėra teksto, kurį būtų galima įklijuoti. Pirmiausia pasirinkite tekstą.</string>
   <string name="cannot_cut_feedback">Nėra teksto, kurį būtų galima iškirpti. Pirmiausia pasirinkite tekstą.</string>
+  <string name="cannot_delete_feedback">Nėra teksto, kurį būtų galima ištrinti. Pirmiausia pasirinkite tekstą.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Ar tikrai norite iš naujo nustatyti šios klavišų schemos sparčiųjų klavišų vertes į numatytąsias? Atminkite, kad šio veiksmo negalima anuliuoti.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Nustatyti iš naujo</string>
   <string name="override_keycombo">Klavišas jau naudojamas</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Naudoti tono pakeitimus</string>
   <string name="title_pref_keyboard_echo">Klaviatūros aidas</string>
   <string name="pref_node_desc_order_title">Elemento aprašo užsakymas</string>
-  <string name="summaryOn_pref_intonation">Klaviatūros veiksmą pasakyti žemesniu tonu</string>
+  <string name="summaryOn_pref_intonation">Aukštesniu balso tonu sakyti klaviatūra ištrintą tekstą</string>
   <string name="summaryOff_pref_intonation">Kalbant nekeisti tono</string>
   <string name="title_pref_brailleime">Brailio rašmenų klaviatūra</string>
   <string name="title_pref_category_feedback_settings">Kitų tipų atsakas</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Įgalinti mazgų medžio derinimo režimą</string>
   <string name="summary_pref_tree_debug_tv">Naudodami paieškos balsu klavišą atspausdinkite mazgų medį vietoj paieškos</string>
   <string name="title_pref_performance_stats">Įgalinti našumo statistiką</string>
+  <string name="title_pref_log_overlay">Įgalinti derinimo žurnalo perdangą</string>
   <string name="title_pref_resume_talkback">Atnaujinti veikimą</string>
+  <string name="title_pref_typing_confirmation">Rašymo nuostata</string>
   <string name="title_pref_multi_finger_gesture">Įgalinti kelių pirštų gestus</string>
   <string name="screen_dimmed">Ekranas slepiamas</string>
   <string name="screen_brightness_restored">Ekranas rodomas</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Slinkti žemyn</string>
   <string name="shortcut_scroll_left">Slinkti į kairę</string>
   <string name="shortcut_scroll_right">Slinkti į dešinę</string>
+  <string name="shortcut_next_window">Kitas langas</string>
+  <string name="shortcut_previous_window">Ankstesnis langas</string>
   <string name="shortcut_back">Atgal</string>
   <string name="shortcut_home">Pagrindinis ekranas</string>
   <string name="shortcut_overview">Apžvalga</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Slėpti arba rodyti ekraną</string>
   <string name="title_show_screen_search">Paieška ekrane</string>
   <string name="title_show_voice_commands">Komandos balsu</string>
+  <string name="talkback_show_talkback_settings">„TalkBack“ nustatymai</string>
   <string name="title_other_web_navigation">Kitos žiniatinklio naršymo parinktys</string>
   <string name="title_granularity_default">Numatytasis naršymas</string>
   <string name="title_seek_bar_edit">Slankiklio lygio redagavimas</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Valdykite „TalkBack“ balsu</string>
   <string name="summary_show_hide_screen">Slėpkite pateiktį, kad ekrano nematytų kiti viešose vietose. Paslėpę ekraną, grąžinkite įprastą būseną.</string>
   <string name="summary_talkback_preferences">Atidarykite „TalkBack“ nustatymus</string>
-  <string name="summary_system_actions">Eikite į visas programas, sparčiuosius nustatymus ir naudokite išskaidyto ekrano režimą</string>
+  <string name="summary_system_actions">Eiti į skiltis „Visos programos“ ir „Spartieji nustatymai“</string>
   <string name="summary_tts_settings">Atidarykite teksto į kalbą nustatymus</string>
   <string name="summary_pause_feedback">Išjunkite „TalkBack“ balso atsaką</string>
   <string name="not_editable">Neredaguotina</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Skaitykite po vieną žodį.</string>
   <string name="summary_lines">Skaitykite po vieną eilutę.</string>
   <string name="summary_paragraphs">Skaitykite po vieną pastraipą.</string>
+  <string name="summary_windows">Pereikite į kitus langus, pvz., garsumo valdiklių ar naršymo juostos</string>
   <string name="summary_headings">Pereikite nuo vienos antraštės prie kitos</string>
   <string name="summary_controls">Pereikite nuo vieno sąveikaujamo elemento prie kito, pvz., mygtukų, žymimųjų laukelių ir teksto laukų.</string>
   <string name="summary_links">Pereikite nuo vienos eilutės prie kitos</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Keiskite, ar paspausti klavišai, naudojimo patarimai, tinklelio informacija ir kita informacija bus skaitoma garsiai</string>
   <string name="summary_selector_menu_punctuation">Keičiama, ar skyrybos ženklai ir simboliai perskaitomi garsiai</string>
   <string name="summary_language">Keiskite kalbą, kuria kalbama. Rodoma, tik jei esate įdiegę kelias „Teksto į kalbą“ kalbas.</string>
-  <string name="summary_sound_feedback">Naršydami girdėkite garso efektus, pvz., veiksmą patvirtinantį pyptelėjimą.</string>
+  <string name="summary_sound_feedback">Naršydami girdėkite garso efektus, pvz., veiksmą patvirtinantį pyptelėjimą</string>
   <string name="summary_vibration_feedback">Jauskite vibravimą atlikę veiksmus, pvz., pasirinkę elementą. Tai nedaro įtakos programų ar sistemos vibravimui.</string>
   <string name="summary_hide_screen">Slėpkite pateiktį, kad ekrano nematytų kiti, kai esate viešose vietose.</string>
   <string name="summary_audio_ducking">Sumažinkite kitų leidžiamų garsų garsumą, kai „TalkBack“ kalba</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Slinkimas pirmyn arba atgal</string>
+  <string name="summary_support_change_a11y_volume">Padidinti arba sumažinti pritaikomumo garsumą</string>
+  <string name="summary_image_caption">Gaukite automatinį šio vaizdo aprašą</string>
   <string name="value_direction_up">aukštyn</string>
   <string name="value_direction_down">žemyn</string>
   <string name="value_direction_left">kairėn</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Palietimas du kartus ir palaikymas dviem pirštais</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Palietimas du kartus ir palaikymas trimis pirštais</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Palietimas du kartus ir palaikymas keturiais pirštais</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Triskart paliesti ir palaikyti dviem pirštais</string>
+  <string name="seekbar_hint_2gesture">Jei norite koreguoti, naudokite gestą „%1$s“ arba „%2$s“</string>
+  <string name="seekbar_hint_1gesture">Jei norite koreguoti, naudokite gestą „%1$s“</string>
   <string name="gesture_name_unknown">Nežinomas gestas</string>
   <string name="gesture_name_pass_through">Perdavimo sistemai gestas</string>
   <string name="gesture_name_touch_explore">Naršyti palietus</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Dukart paliesti ir palaikyti</string>
   <string name="gesture_name_2finger_tap_hold">Paliesti ir palaikyti dviem pirštais</string>
   <string name="gesture_name_3finger_tap_hold">Paliesti ir palaikyti trimis pirštais</string>
+  <string name="gesture_name_2finger_3tap_hold">Triskart paliesti ir palaikyti dviem pirštais</string>
   <string name="gesture_name_3finger_3tap_hold">Triskart paliesti ir palaikyti trimis pirštais</string>
   <string name="title_pref_shortcut_fingerprint_up">Perbraukite aukštyn kontr. kodo jutikliu</string>
   <string name="title_pref_shortcut_fingerprint_down">Perbraukite žemyn kontr. kodo jutikliu</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Kai įjungiamas ekranas</string>
   <string name="value_resume_keyguard">Kai rodomas užrakinimo ekranas</string>
   <string name="value_resume_manual">Tik iš pranešimo</string>
+  <string name="value_type_confirmation_double_tap">Laikydami pirštą pasirinkite klavišą, tada dukart palieskite</string>
+  <string name="value_type_confirmation_lift_to_type">Laikydami pirštą pasirinkite klavišą, tada pakelkite pirštą</string>
   <string name="value_shake_to_read_disabled">Išjungta</string>
   <string name="value_shake_to_read_threshold_very_light">Labai švelniai</string>
   <string name="value_shake_to_read_threshold_light">Švelniai</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Visada ištarti paspaustų klavišų pavadinimus</string>
   <string name="value_keyboard_echo_softkeys">Skirta tik ekrano klaviatūrai</string>
   <string name="value_keyboard_echo_never">Niekada neištarti paspaustų klavišų pavadinimų</string>
+  <string name="title_pref_keyboard_echo_on_screen">Klaviatūros aidas: ekrano klaviatūra</string>
+  <string name="title_pref_keyboard_echo_physical">Klaviatūros aidas: fizinė klaviatūra</string>
+  <string name="value_keyboard_echo_none">Nėra</string>
+  <string name="value_keyboard_echo_characters_only">Simboliai</string>
+  <string name="value_keyboard_echo_words_only">Žodžiai</string>
+  <string name="value_keyboard_echo_characters_and_words">Simboliai ir žodžiai</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Būsena, pavadinimas, tipas</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Tipas, pavadinimas, būsena</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Pavadinimas, tipas, būsena</string>
@@ -555,11 +584,12 @@
   <string name="dialog_message_enable_tree_debug">Ar tikrai norite įjungti mazgų medžio derinimo režimą?\n\nJį įjungus, ekrano turinys pateikiamas įrenginio žurnaluose, kuriuos gali skaityti kitos programos.</string>
   <string name="dialog_title_enable_performance_stats">Įgalinti našumo statistiką?</string>
   <string name="dialog_message_enable_performance_stats">Ar tikrai norite įjungti našumo statistiką?\n\nNašumo statistika gali naudoti daugiau atminties ir energijos.</string>
+  <string name="title_request_phone_permission">Leisti pasiekti telefoną?</string>
+  <string name="message_request_phone_permission">Tai padeda „TalkBack“ sumažinti pranešimų, kai kalbate telefonu</string>
+  <string name="continue_button">Tęsti</string>
   <string name="label_talkback_context_menu">„TalkBack“ visuotinis kontekstinis meniu</string>
   <string name="permission_talkback_label">Valdyti „TalkBack“</string>
   <string name="permission_talkback_desc">Leidimas siųsti gestus į „TalkBack“ ir toliau teikti ekrano skaitymo balsu funkciją.</string>
-  <string name="permission_labeling_label">Tvarkyti „TalkBack“ tinkintas etiketes</string>
-  <string name="permission_labeling_desc">Leidimas pasiekti, keisti ir ištrinti tinkintas etiketes, pasakytas „TalkBack“.</string>
   <string name="links">Nuorodos</string>
   <string name="end_of_text">Pabaiga</string>
   <string name="start_of_page">Nėra ankstesnio elemento: %1$s</string>
@@ -617,7 +647,8 @@
   <string name="title_pref_selector_punctuation">Skyryba</string>
   <string name="title_pref_selector_granularity">Naršymas</string>
   <string name="title_pref_selector_audio_focus">Garso įrašo perdengimas</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Slinkti</string>
+  <string name="title_pref_a11y_volume">Pritaikomumo garsumas</string>
   <string name="title_pref_selector_adjustable_widget_slider">Koreguoti šliaužiklį</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Koreguoti vertę</string>
   <string name="title_pref_speak_passwords_without_headphones">Slaptažodžių ištarimas</string>
@@ -654,7 +685,7 @@
   <string name="start_voice_command">Komandų balsu naudojimas</string>
   <string name="dialog_title_pass_through_mode">Praleiskite „TalkBack“ gestus ir naudokite sistemos gestus</string>
   <string name="dialog_message_pass_through_mode">Išgirdę durų skambutį, galėsite naudoti sistemos gestus, kurių nepalaiko „TalkBack“. Tai vadinama perdavimo sistemai gestu.</string>
-  <string name="hint_type_search_term">Įveskite paieškos terminą</string>
+  <string name="hint_type_search_term">Paieškos terminas</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">„TalkBack“ pranešimų kanalas</string>
   <string name="pref_selector_summary">%1$s, kad pasirinktumėte nustatymą. Tada %2$s, kad koreguotumėte nustatymą.</string>
@@ -777,6 +808,7 @@
   <string name="cut_paste_text">Jei norite iškirpti tekstą, dukart palieskite ir palaikykite trimis pirštais.\n\nJei norite įklijuoti tekstą, triskart palieskite trimis pirštais.\n\nPabandykite įklijuoti žodį toliau pateiktame teksto laukelyje.</string>
   <string name="copy_text_pre_r">Pasirinkę tekstą galite nukopijuoti jį „TalkBack“ meniu. Perbraukite žemyn, tada – dešinėn, kad atidarytumėte „TalkBack“ meniu. Dukart palieskite redagavimo parinktis, o tada nukopijuokite.\n\nPabandykite nukopijuoti žodį toliau pateiktame teksto laukelyje.</string>
   <string name="cut_paste_text_pre_r">Jei norite iškirpti tekstą, atidarykite „TalkBack“ meniu ir dukart palieskite redagavimo parinktis.\n\nPabandykite įklijuoti žodį toliau pateiktame teksto laukelyje.</string>
+  <string name="edit_box_hint_paste_text">Įklijuokite tekstą čia</string>
   <string name="read_by_character_title">Skaitymas po vieną simbolį, žodį ar pastraipą</string>
   <string name="read_by_character_text">Kartais galite norėti išgirsti tekstą, skaitomą po vieną simbolį.\n\nKad tai atliktumėte, perbraukite dešinėn trimis pirštais, kol išgirsite „%1$s“. Paskui perbraukite aukštyn, kad perkeltumėte aktyvinamą naršymo sritį simboliu atgal. Paskui perbraukite žemyn, kad perkeltumėte aktyvinamą naršymo sritį simboliu pirmyn.\n\nIšbandykite tai dabar. Perbraukdami dešinėn trimis pirštais taip pat galite pasirinkti skaityti žodžiais ar pastraipomis.</string>
   <string name="read_by_character_text_pre_r">Kartais galite norėti išgirsti tekstą, skaitomą po vieną simbolį.\n\nKad tai atliktumėte, perbraukite žemyn ir tada aukštyn, kol išgirsite „%1$s“. Paskui perbraukite aukštyn, kad perkeltumėte aktyvinamą naršymo sritį simboliu atgal. Paskui perbraukite žemyn, kad perkeltumėte aktyvinamą naršymo sritį simboliu pirmyn.\n\nIšbandykite tai dabar. Perbraukdami žemyn ir tada aukštyn taip pat galite pasirinkti skaityti žodžiais ar pastraipomis.</string>
@@ -813,5 +845,19 @@
   <string name="activated_view">Suaktyvinta: %1$s</string>
   <string name="talkback_inactive_title">„TalkBack“ išjungta</string>
   <string name="talkback_inactive_message">Norint naudoti šią mokymo programą, turi būti įgalinta „TalkBack“. Prieš paleisdami mokymo programą, įjunkite „TalkBack“.</string>
+  <string name="watch_swipe_left_right_text">Pereikite nuo vieno elemento prie kito perbraukdami dešinėn ar kairėn</string>
+  <string name="watch_double_tap_text">Dukart palieskite, kad suaktyvintumėte elementą</string>
+  <string name="watch_2_finger_scroll_text">Vilkite du pirštus, kad slinktumėte</string>
+  <string name="title_pref_thick_border">Storos kraštinės</string>
+  <string name="title_pref_category_border_color">Spalva</string>
+  <string name="title_pref_default_color">Numatytoji</string>
+  <string name="title_pref_red">Raudona</string>
+  <string name="title_pref_orange">Oranžinė</string>
+  <string name="title_pref_yellow">Geltona</string>
+  <string name="title_pref_green">Žalia</string>
+  <string name="title_pref_blue">Mėlyna</string>
+  <string name="title_pref_grey">Pilka</string>
   <string name="survey_closed">Apklausa uždaryta</string>
+  <string name="character_recognition_text">Tekstas: %1$s</string>
+  <string name="title_image_caption">Vaizdo aprašas</string>
 </resources>

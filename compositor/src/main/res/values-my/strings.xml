@@ -71,8 +71,8 @@
   <string name="value_selected">ရွေးထား</string>
   <string name="value_checked">အမှန်ခြစ်ပြီး</string>
   <string name="value_not_checked">ခြစ် မထား</string>
-  <string name="value_on">ဖွင့်ထားသည်</string>
-  <string name="value_off">ပိတ်ထားသည်</string>
+  <string name="value_on">ဖွင့်</string>
+  <string name="value_off">ပိတ်</string>
   <string name="value_disabled">ပိတ်ရန်</string>
   <string name="value_expanded">တိုးချဲ့ထားပါတယ်</string>
   <string name="value_collapsed">ခေါက်သိမ်းထားပါတယ်</string>
@@ -171,6 +171,10 @@
   <string name="template_speech_rate_change_slower">ပိုနှေး</string>
   <string name="template_speech_rate_change_fastest">အမြန်ဆုံး</string>
   <string name="template_speech_rate_change_slowest">အနှေးဆုံး</string>
+  <string name="template_volume_change_increase">အသံချဲ့လိုက်သည်</string>
+  <string name="template_volume_change_decrease">အသံတိုးလိုက်သည်</string>
+  <string name="template_volume_change_maximum">အကျယ်ဆုံး</string>
+  <string name="template_volume_change_minimum">အတိုးဆုံး</string>
   <string name="template_seekbar_range">%1$d%%</string>
   <string name="audio_focus_on">နောက်ခံသံလျှော့ချခြင်းအား ဖွင့်ထားပါသည်</string>
   <string name="audio_focus_off">နောက်ခံသံလျှော့ချခြင်းအား ပိတ်ထားပါသည်</string>

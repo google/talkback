@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Dil</string>
   <string name="voice_commands_languages">Diller</string>
   <string name="voice_commands_custom_actions">özel işlemler</string>
-  <string name="voice_commands_quick_settings">Hızlı ayarlar</string>
-  <string name="voice_commands_quick_setting">Hızlı ayar</string>
+  <string name="voice_commands_action">İşlem</string>
+  <string name="voice_commands_quick_settings">Hızlı Ayarlar</string>
+  <string name="voice_commands_quick_setting">Hızlı Ayar</string>
   <string name="voice_commands_dim">karart</string>
   <string name="voice_commands_darken">koyulaştır</string>
   <string name="voice_commands_brighten_screen">ekran parlaklığını artır</string>
@@ -60,8 +61,8 @@
   <string name="voice_commands_dictate">Sesle yaz</string>
   <string name="voice_commands_write">Yaz</string>
   <string name="voice_commands_Spell">Harfleri oku</string>
-  <string name="voice_commands_talkback_settings">TalkBack Ayarları</string>
-  <string name="voice_commands_talkback_setting">TalkBack Ayarı</string>
+  <string name="voice_commands_talkback_settings">TalkBack ayarları</string>
+  <string name="voice_commands_talkback_setting">TalkBack ayarı</string>
   <string name="voice_commands_screen_search">Ekranda ara</string>
   <string name="voice_commands_search_on_screen">Ekrandakilerde ara</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Maalesef, bu özellik cihazınızda kullanılamıyor</string>
   <string name="voice_commands_error">Sesli komut tanınırken hata oluştu</string>
   <string name="voice_commands_partial_result">Bu komutu tanıyamadım. Tüm komutların listesi için \"%1$s\" deyin.</string>
+  <string name="voice_commands_timeout">Tüm komutların listesi için \"%1$s\" deyin.</string>
   <string name="voice_commands_many_requests">Lütfen birazdan tekrar deneyin.</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" ayarı etkin değil</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\", sesli komut olarak tanınmadı.</string>
   <string name="voice_commands_label_saved">Etiket kaydedildi</string>
   <string name="voice_commands_no_actions_feedback">Yapılabilir işlem yok</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Sesli komutlara genel bakış</string>
   <string name="voice_commands_help_description">Sesli komutları kullanmak için parmağınızı önce sağa sonra yukarı kaydırın. İstediğiniz zaman \"Yardım\" ya da \"Neler söyleyebilirim?\" diyerek bu komut listesine ulaşabilirsiniz.</string>
   <string name="voice_commands_help_hint">En iyi sonuçlar için aşağıdaki ekranlarda listelenen kelimeleri bire bir söyleyin.</string>
+  <string name="voice_command_screen_locked_hint">Ekran kilitliyken sesli komutlar kullanılamaz. Bunun yerine TalkBack menüsünü kullanmak için %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Geçerli ekrandaki içeriğin okunma şeklini değiştirin</string>
   <string name="voice_commands_help_next">Sonraki [başlık]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Bir metni ekranda bulabilmek için o metni arama terimi olarak girin</string>
   <string name="voice_commands_help_text_editing_description">Metin girin, seçin ve kopyalayın</string>
   <string name="voice_commands_help_type_text">[Tamam] yaz</string>
-  <string name="voice_commands_help_copy_description">Kopyalamadan önce metni seçmiş olduğunuzdan emin olun</string>
-  <string name="voice_commands_help_cut_description">Kesmeden önce metni seçmiş olduğunuzdan emin olun</string>
+  <string name="voice_commands_help_copy_description">Kopyalamak için önce metin seçin</string>
+  <string name="voice_commands_help_cut_description">Kesmek için önce metin seçin</string>
+  <string name="voice_commands_help_delete_description">Silmek için önce metin seçin</string>
   <string name="voice_commands_help_device_navigation_title">Cihazda gezinme</string>
   <string name="voice_commands_help_device_navigation_description">Ana ekrana gidin, geri gidin, bildirimleri görüntüleyin ve daha fazlası</string>
   <string name="voice_commands_help_overview_description">Son uygulamaları görüntüleyin</string>

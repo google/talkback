@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Posodabljanje položaja pik. Najprej zabeležite pike z levo roko. Na zaslonu pridržite srednje tri prste leve roke.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Posodabljanje položaja pik. Najprej zabeležite pike z desno roko. Na zaslonu pridržite srednje tri prste desne roke.</string>
   <string name="calibration_finish_announcement">Položaj pik je posodobljen</string>
+  <string name="remaining_calibration_finish_announcement">Vsi položaji pik so bili posodobljeni.</string>
   <string name="calibration_step2_hold_right_finger_announcement">Položaji pik 1, 2 in 3 so posodobljeni. Zdaj zabeležite pike z desno roko. Na zaslonu pridržite srednje tri prste desne roke.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Položaji pik 1, 2 in 3 so posodobljeni. Zdaj zabeležite pike z levo roko. Na zaslonu pridržite srednje tri prste leve roke.</string>
   <string name="calibration_fail_announcement">Položaja pik ni bilo mogoče posodobiti. Na zaslonu pridržite šest prstov. Nato poskusite znova.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Poenotena angleška braillova pisava</string>
   <string name="code_user_facing_name_es">španščina</string>
   <string name="code_user_facing_name_ar">arabščina</string>
+  <string name="code_user_facing_name_fr">francoščina</string>
   <string name="title_pref_accumulate_presses">Vključitev vseh pritisnjenih pik</string>
   <string name="summary_pref_accumulate_presses">Vsaka pritisnjena pika je del vnosa, tudi če piko spustite, preden spustite druge pike</string>
   <string name="title_pref_reverse_dots">Obratne pike</string>
   <string name="summary_pref_reverse_dots">Zamenjava položajev pik, tako da se zamenjata na primer mesti pik 1 in 4</string>
-  <string name="typing_echo_list_preference_title">Odziv ob vnašanju (odmev vnosa)</string>
-  <string name="typing_echo_preference_label_characters">Branje vseh črk in besed</string>
-  <string name="typing_echo_preference_label_words">Samo branje besed</string>
   <string name="context_menu_title">Možnosti braillove tipkovnice</string>
   <string name="context_menu_typing_language_selection">Sprememba jezika vnašanja</string>
   <string name="context_menu_typing_language_selection_summary">Trenutno uporabljate: %s</string>

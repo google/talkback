@@ -14,7 +14,8 @@
   <string name="voice_commands_language">ভাষা</string>
   <string name="voice_commands_languages">ভাষা</string>
   <string name="voice_commands_custom_actions">কাষ্টম কৰা কাৰ্য</string>
-  <string name="voice_commands_quick_settings">ক্ষিপ্ৰ ছেটিংসমূহ</string>
+  <string name="voice_commands_action">কার্য</string>
+  <string name="voice_commands_quick_settings">ক্ষিপ্ৰ ছেটিং</string>
   <string name="voice_commands_quick_setting">ক্ষিপ্ৰ ছেটিং</string>
   <string name="voice_commands_dim">পোহৰ কমাওক</string>
   <string name="voice_commands_darken">গাঢ় কৰক</string>
@@ -60,8 +61,8 @@
   <string name="voice_commands_dictate">শ্ৰুতিলিখন</string>
   <string name="voice_commands_write">লিখক</string>
   <string name="voice_commands_Spell">বানান কৰক</string>
-  <string name="voice_commands_talkback_settings">টকবেকৰ ছেটিং</string>
-  <string name="voice_commands_talkback_setting">টকবেকৰ ছেটিং</string>
+  <string name="voice_commands_talkback_settings">TalkBackৰ ছেটিং</string>
+  <string name="voice_commands_talkback_setting">TalkBackৰ ছেটিং</string>
   <string name="voice_commands_screen_search">স্ক্ৰীনৰ সন্ধান</string>
   <string name="voice_commands_search_on_screen">স্ক্ৰীনত সন্ধান কৰক</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">দুঃখিত! এই ডিভাইচটোত এই সুবিধাটো নাই।</string>
   <string name="voice_commands_error">কণ্ঠধ্বনি আদেশ চিনাক্ত কৰোঁতে আসোঁৱাহ হৈছে</string>
   <string name="voice_commands_partial_result">এই নিৰ্দেশটো চিনাক্ত কৰিব পৰা নাই। আটাইবোৰ নিৰ্দেশৰ সূচীৰ বাবে \"%1$s\" বুলি কওক।</string>
+  <string name="voice_commands_timeout">আটাইবোৰ নিৰ্দেশৰ সূচীৰ বাবে \"%1$s\" বুলি কওক।</string>
   <string name="voice_commands_many_requests">অনুগ্ৰহ কৰি কিছুসময়ৰ পাছত আকৌ চেষ্টা কৰক।</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" ছেটিংটো সক্ষম কৰা হোৱা নাই</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" কণ্ঠস্বৰৰ নিৰ্দেশ হিচাপে চিনাক্ত কৰা হোৱা নাই।</string>
   <string name="voice_commands_label_saved">লেবেল ছেভ কৰা হ’ল</string>
   <string name="voice_commands_no_actions_feedback">কোনো কাৰ্য উপলব্ধ নহয়</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">কণ্ঠস্বৰৰ নিৰ্দেশৰ ৰূপৰেখা</string>
   <string name="voice_commands_help_description">কণ্ঠস্বৰৰ নিৰ্দেশ ব্যৱহাৰ কৰিবলৈ প্ৰথমে সোঁফালে তাৰ পাছত ওপৰলৈ ছোৱাইপ কৰক। আটাইবোৰ নিৰ্দেশৰ সূচীৰ বাবে যিকোনো সময়তে \"সহায়\" অথবা \"মই কি ক’ব পাৰোঁ?\" বুলি কওক।</string>
   <string name="voice_commands_help_hint">শ্ৰেষ্ঠ ফলাফলৰ বাবে তলৰ স্ক্ৰীনসমূহত সূচীবদ্ধ কৰি থোৱা শব্দবোৰ ঠিক যেনেকৈ আছে তেনেকৈ কওক।</string>
+  <string name="voice_command_screen_locked_hint">স্ক্ৰীনখন লক হৈ থাকোঁতে কণ্ঠস্বৰৰ নিৰ্দেশ উপলব্ধ নহয়। ইয়াৰ সলনি TalkBackৰ মেনুখন ব্যৱহাৰ কৰিবলৈ, %1$s।</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">বৰ্তমানৰ স্ক্ৰীনখনত আপুনি সমল কেনেকৈ পঢ়ে সেয়া সলনি কৰক</string>
   <string name="voice_commands_help_next">পৰৱৰ্তী [শিৰোনাম]</string>
@@ -132,14 +134,15 @@
   <string name="voice_commands_help_screen_search_description">স্ক্ৰীনখনত সেই পাঠটো বিচাৰিবলৈ সন্ধান কৰা বস্তুটো দিয়ক</string>
   <string name="voice_commands_help_text_editing_description">পাঠ টাইপ, বাছনি আৰু প্ৰতিলিপি কৰক</string>
   <string name="voice_commands_help_type_text">টাইপ কৰক [ঠিক আছে]</string>
-  <string name="voice_commands_help_copy_description">প্ৰতিলিপি কৰাৰ আগতে আপুনি পাঠৰ বাছনি কৰাটো নিশ্চিত কৰক</string>
-  <string name="voice_commands_help_cut_description">কাট কৰাৰ আগতে আপুনি পাঠৰ বাছনি কৰাটো নিশ্চিত কৰক</string>
+  <string name="voice_commands_help_copy_description">প্ৰতিলিপি কৰাৰ আগতে পাঠ বাছনি কৰক</string>
+  <string name="voice_commands_help_cut_description">কাট কৰাৰ আগতে পাঠ বাছনি কৰক</string>
+  <string name="voice_commands_help_delete_description">মচাৰ আগতে পাঠ বাছনি কৰক</string>
   <string name="voice_commands_help_device_navigation_title">ডিভাইচৰ নেভিগেশ্বন</string>
   <string name="voice_commands_help_device_navigation_description">গৃহলৈ যাওক, উভতি যাওক, জাননী দেখুৱাওক আৰু অন্য বহুত কিবাকিবি কৰক</string>
   <string name="voice_commands_help_overview_description">আপোনাৰ শেহতীয়া এপ্‌সমূহ চাওক</string>
   <string name="voice_commands_help_assistant_description">Google Assistant খোলক</string>
   <string name="voice_commands_help_other_commands_title">অন্য নিৰ্দেশ</string>
-  <string name="voice_commands_help_other_commands_description">টকবেকৰ ছেটিঙলৈ যাওক, স্ক্ৰীন লুকুৱাওক, কাৰ্যসমূহ চাওক, কাষ্টম লেবেল যোগ দিয়ক আৰু অন্য বহুত কিবাকিবি কৰক</string>
+  <string name="voice_commands_help_other_commands_description">TalkBackৰ ছেটিঙলৈ যাওক, স্ক্ৰীন লুকুৱাওক, কাৰ্যসমূহ চাওক, কাষ্টম লেবেল যোগ দিয়ক আৰু অন্য বহুত কিবাকিবি কৰক</string>
   <string name="voice_commands_help_label">লেবেল লগাওক [দাখিল কৰক]</string>
   <string name="voice_commands_help_hide_screen_description">ৰাজহুৱা স্থানত আপোনাৰ স্ক্ৰীনখন অন্য লোকে দেখা নাপাবলৈ ডিছপ্লে’ লুকুৱাওক</string>
   <string name="voice_commands_help_show_screen_description">আপোনাৰ স্ক্ৰীনখন লুকুওৱাৰ পাছত ইয়াক সাধাৰণ অৱস্থালৈ আনক</string>

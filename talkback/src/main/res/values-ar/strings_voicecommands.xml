@@ -14,6 +14,7 @@
   <string name="voice_commands_language">اللغة</string>
   <string name="voice_commands_languages">اللغات</string>
   <string name="voice_commands_custom_actions">الإجراءات المخصّصة</string>
+  <string name="voice_commands_action">إجراء</string>
   <string name="voice_commands_quick_settings">الإعدادات السريعة</string>
   <string name="voice_commands_quick_setting">إعداد سريع</string>
   <string name="voice_commands_dim">خفت الإضاءة</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">عذرًا، هذه الميزة غير متاحة على جهازك.</string>
   <string name="voice_commands_error">حدث خطأ في التعرّف على الأمر الصوتي.</string>
   <string name="voice_commands_partial_result">تعذّر التعرّف على هذا الطلب. يُرجى قول \"%1$s\" للاطّلاع على قائمة بكل الطلبات.</string>
+  <string name="voice_commands_timeout">يُرجى قول \"%1$s\" للاطّلاع على قائمة بكل الطلبات.</string>
   <string name="voice_commands_many_requests">يُرجى إعادة المحاولة بعد قليل.</string>
-  <string name="voice_commands_setting_disabled">لم يتم تفعيل الإعداد \"%1$s\".</string>
   <string name="voice_commands_echo_feedback_not_recognized">لم يتم التعرّف على \"%1$s\" كطلب صوتي.</string>
   <string name="voice_commands_label_saved">تم حفظ التصنيف.</string>
   <string name="voice_commands_no_actions_feedback">لا تتوفّر أي إجراءات.</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">نظرة عامة على الطلب الصوتي</string>
   <string name="voice_commands_help_description">لاستخدام الطلبات الصوتية، يُرجى التمرير سريعًا لليسار ثم للأعلى. وما عليك سوى قول \"مساعدة\" أو \"ما الذي يمكنني قوله؟\" في أي وقت للاطّلاع على قائمة الطلبات هذه.</string>
   <string name="voice_commands_help_hint">للحصول على أفضل النتائج، ننصحك بقول العبارات كما ترد بالضبط في الشاشات التالية.</string>
+  <string name="voice_command_screen_locked_hint">‏لا تتوفّر الطلبات الصوتية عندما تكون الشاشة مقفلة. لاستخدام قائمة Talkback بدلاً من ذلك، عليك %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">تغيير كيفية قراءة المحتوى في الشاشة الحالية</string>
   <string name="voice_commands_help_next">[العنوان] التالي</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">إدخال عبارة بحث للعثور عليها على الشاشة</string>
   <string name="voice_commands_help_text_editing_description">كتابة نص وتحديده ونسخه</string>
   <string name="voice_commands_help_type_text">كتابة [حسنًا]</string>
-  <string name="voice_commands_help_copy_description">يجب التأكّد من تحديد النص قبل نسخه.</string>
-  <string name="voice_commands_help_cut_description">يجب التأكّد من تحديد النص قبل قصه.</string>
+  <string name="voice_commands_help_copy_description">يجب تحديد النص قبل نسخه.</string>
+  <string name="voice_commands_help_cut_description">يجب تحديد النص قبل قصه.</string>
+  <string name="voice_commands_help_delete_description">يجب تحديد النص قبل حذفه.</string>
   <string name="voice_commands_help_device_navigation_title">التنقُّل في الجهاز</string>
   <string name="voice_commands_help_device_navigation_description">الانتقال إلى \"الشاشة الرئيسية\" والرجوع وإظهار الإشعارات والمزيد</string>
   <string name="voice_commands_help_overview_description">الاطّلاع على التطبيقات المُستخدَمة مؤخرًا</string>

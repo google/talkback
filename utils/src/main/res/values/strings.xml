@@ -66,6 +66,8 @@
     <string name="granularity_paragraph">Paragraphs</string>
     <!-- Announced when the user changes reading mode to read a single page at a time. -->
     <string name="granularity_page">Pages</string>
+    <!-- Announced when the user changes reading mode to read a single window at a time. [CHAR_LIMIT=NONE] -->
+    <string name="granularity_window">Windows</string>
     <!-- Announced when the user changes reading mode in web content to read a single section at a time. -->
     <string name="granularity_web_landmark">Landmarks</string>
     <!-- Announced when the user changes reading mode in web content to read a single section header at a time. -->

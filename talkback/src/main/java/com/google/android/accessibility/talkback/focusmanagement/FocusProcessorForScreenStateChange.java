@@ -17,9 +17,9 @@
 package com.google.android.accessibility.talkback.focusmanagement;
 
 import android.os.SystemClock;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;

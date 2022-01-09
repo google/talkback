@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Хэл</string>
   <string name="voice_commands_languages">Хэлнүүд</string>
   <string name="voice_commands_custom_actions">захиалгат үйлдлүүд</string>
+  <string name="voice_commands_action">Үйлдэл</string>
   <string name="voice_commands_quick_settings">Шуурхай тохиргоо</string>
   <string name="voice_commands_quick_setting">Шуурхай тохиргоо</string>
   <string name="voice_commands_dim">бүдгэрүүлэх</string>
@@ -97,9 +98,9 @@
   <string name="voice_commands_no_voice_recognition_ability">Уучлаарай! Таны төхөөрөмжид энэ онцлог боломжгүй байна</string>
   <string name="voice_commands_error">Дуун тушаалыг танихад алдаа гарлаа</string>
   <string name="voice_commands_partial_result">Энэ тушаалыг таньж чадсангүй. Бүх тушаалын жагсаалтад \"%1$s\" гэж хэлнэ үү.</string>
+  <string name="voice_commands_timeout">Бүх тушаалын жагсаалтад \"%1$s\" гэж хэлнэ үү.</string>
   <string name="voice_commands_many_requests">Түр хүлээгээд дахин оролдоно уу</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" тохиргоог идэвхжүүлээгүй байна</string>
-  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" дуут тушаалыг таньсангүй.</string>
+  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\"-г дуут тушаалаар таньсангүй.</string>
   <string name="voice_commands_label_saved">Шошгыг хадгалсан</string>
   <string name="voice_commands_no_actions_feedback">Боломжтой үйлдэл байхгүй байна</string>
   <string name="voice_commands_no_next_heading_feedback">Дараагийн гарчиг байхгүй байна</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Дуут тушаалын тойм</string>
   <string name="voice_commands_help_description">Дуут тушаалыг ашиглахын тулд баруун, дараа нь дээш шударна уу. Энэ тушаалын жагсаалтыг харахын тулд хүссэн үедээ \"Тусламж\" эсвэл \"Би юу хэлж болох вэ?\" гэж хэлнэ үү.</string>
   <string name="voice_commands_help_hint">Хамгийн сайн үр дүнд хүрэхийн тулд дараах дэлгэц дээр жагсаасан үгнүүдийг яг байгаагаар нь хэлнэ үү.</string>
+  <string name="voice_command_screen_locked_hint">Дэлгэц түгжээтэй үед дуут тушаалыг ашиглах боломжгүй. Оронд нь TalkBack цэсийг ашиглахын тулд %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Таны одоогийн дэлгэц дээрх контентыг хэрхэн уншихыг өөрчилнө</string>
   <string name="voice_commands_help_next">Дараагийн [heading]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Дэлгэцээс хайж байгаа текстийг олохын тулд хайлтын үгийг оруулна</string>
   <string name="voice_commands_help_text_editing_description">Текст бичиж, сонгож мөн хуулна</string>
   <string name="voice_commands_help_type_text">Бичих [OK]</string>
-  <string name="voice_commands_help_copy_description">Хуулахаас өмнө текст сонгосон эсэхээ шалгана уу</string>
-  <string name="voice_commands_help_cut_description">Таслахаас өмнө текст сонгосон эсэхээ шалгана уу</string>
+  <string name="voice_commands_help_copy_description">Хуулахаасаа өмнө текст сонгоно уу</string>
+  <string name="voice_commands_help_cut_description">Таслахаасаа өмнө текст сонгоно уу</string>
+  <string name="voice_commands_help_delete_description">Устгахаасаа өмнө текст сонгоно уу</string>
   <string name="voice_commands_help_device_navigation_title">Төхөөрөмжийн навигац</string>
   <string name="voice_commands_help_device_navigation_description">Нүүр лүү буцаж, буцаж очиж, мэдэгдэл харуулж, илүү ихийг хийнэ</string>
   <string name="voice_commands_help_overview_description">Саяхны аппуудаа хараарай</string>

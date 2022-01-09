@@ -81,7 +81,7 @@
   <string name="value_double_tap">הקשה כפולה</string>
   <string name="value_single_tap">הקש</string>
   <string name="value_switch_press">יש להקיש על \'בחירת מתג\'</string>
-  <string name="value_press_select">לחץ על \'בחר\'</string>
+  <string name="value_press_select">יש ללחוץ על \'בחירה\'</string>
   <string name="template_hint_clickable">%1$s כדי להפעיל.</string>
   <string name="template_hint_clickable_keyboard">הקש על %1$s כדי להפעיל.</string>
   <string name="template_hint_long_clickable">%1$s והחזק ללחיצה ארוכה.</string>
@@ -181,6 +181,10 @@
   <string name="template_speech_rate_change_slower">איטי יותר</string>
   <string name="template_speech_rate_change_fastest">הכי מהיר</string>
   <string name="template_speech_rate_change_slowest">הכי איטי</string>
+  <string name="template_volume_change_increase">הגברת עוצמת הקול</string>
+  <string name="template_volume_change_decrease">הפחתת עוצמת הקול</string>
+  <string name="template_volume_change_maximum">מקסימום</string>
+  <string name="template_volume_change_minimum">מינימום</string>
   <string name="template_seekbar_range">‎%1$d%%‎‎</string>
   <string name="audio_focus_on">התאמה של עוצמת השמע מופעלת</string>
   <string name="audio_focus_off">התאמה של עוצמת השמע מושבתת</string>

@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Idioma</string>
   <string name="voice_commands_languages">Idiomas</string>
   <string name="voice_commands_custom_actions">accións personalizadas</string>
+  <string name="voice_commands_action">Acción</string>
   <string name="voice_commands_quick_settings">Configuración rápida</string>
   <string name="voice_commands_quick_setting">Configuración rápida</string>
   <string name="voice_commands_dim">atenúa a pantalla</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Esta función non está dispoñible no teu dispositivo</string>
   <string name="voice_commands_error">Produciuse un erro ao recoñecer o comando de voz</string>
   <string name="voice_commands_partial_result">Non se puido recoñecer este comando. Di \"%1$s\" para acceder á lista de todos os comandos.</string>
+  <string name="voice_commands_timeout">Di \"%1$s\" para acceder á lista de todos os comandos.</string>
   <string name="voice_commands_many_requests">Téntao de novo nun momento</string>
-  <string name="voice_commands_setting_disabled">A opción de configuración \"%1$s\" non está activada</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" non recoñeceu o contido como comando de voz.</string>
   <string name="voice_commands_label_saved">Gardouse a etiqueta</string>
   <string name="voice_commands_no_actions_feedback">Non hai ningunha acción dispoñible</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Vista xeral dos comandos de voz</string>
   <string name="voice_commands_help_description">Para utilizar os comandos de voz, pasa o dedo cara á dereita e logo cara arriba. Cando queiras acceder a esta lista de comandos, di \"Axuda\" ou \"Que podo dicir?\".</string>
   <string name="voice_commands_help_hint">Para obter os mellores resultados, di as palabras exactas que aparecen nas seguintes pantallas.</string>
+  <string name="voice_command_screen_locked_hint">Os comandos de voz non están dispoñibles coa pantalla bloqueada. Para usar no seu lugar o menú de TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Cambia o modo de ler contido nesta pantalla</string>
   <string name="voice_commands_help_next">Seguinte [cabeceira]</string>
@@ -123,7 +125,7 @@
   <string name="voice_commands_help_verbosity_description">Cambia a verbosidade a un nivel baixo, alto ou personalizado</string>
   <string name="voice_commands_help_first_description">Desprázate ao primeiro elemento da pantalla na que te atopes</string>
   <string name="voice_commands_help_last_description">Desprázate ao último elemento da pantalla na que te atopes</string>
-  <string name="voice_commands_help_languages_description">Cambia o idioma falado (síntese de voz)</string>
+  <string name="voice_commands_help_languages_description">Cambia o idioma falado (conversión de texto a voz)</string>
   <string name="voice_commands_help_find_items_title">Busca de elementos</string>
   <string name="voice_commands_help_find_items_description">Busca contido específico na pantalla na que te encontres</string>
   <string name="voice_commands_help_find_text">Busca [gardar]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Escribe un termo de busca para procuralo na pantalla</string>
   <string name="voice_commands_help_text_editing_description">Escribe, selecciona e copia texto</string>
   <string name="voice_commands_help_type_text">Escribe [Aceptar]</string>
-  <string name="voice_commands_help_copy_description">Antes de utilizar a función de copiar, asegúrate de ter algún texto seleccionado</string>
-  <string name="voice_commands_help_cut_description">Antes de utilizar a función de cortar, asegúrate de ter algún texto seleccionado</string>
+  <string name="voice_commands_help_copy_description">Selecciona texto antes de copialo</string>
+  <string name="voice_commands_help_cut_description">Selecciona texto antes de cortalo</string>
+  <string name="voice_commands_help_delete_description">Selecciona texto antes de eliminalo</string>
   <string name="voice_commands_help_device_navigation_title">Navegación no dispositivo</string>
   <string name="voice_commands_help_device_navigation_description">Accede á páxina de inicio, á pantalla anterior, ás notificacións e moito máis</string>
   <string name="voice_commands_help_overview_description">Accede ás túas aplicacións recentes</string>

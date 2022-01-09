@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Тіл</string>
   <string name="voice_commands_languages">Тілдер</string>
   <string name="voice_commands_custom_actions">арнаулы әрекеттер</string>
+  <string name="voice_commands_action">Әрекет</string>
   <string name="voice_commands_quick_settings">Жылдам параметрлер</string>
-  <string name="voice_commands_quick_setting">Жылдам реттеу</string>
+  <string name="voice_commands_quick_setting">Жылдам параметр</string>
   <string name="voice_commands_dim">күңгірттеу</string>
   <string name="voice_commands_darken">қараңғылау</string>
   <string name="voice_commands_brighten_screen">экранды жарық қылу</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">Осы мүмкіндікті пайдалану үшін микрофонды қолдануға рұқсат беру қажет.</string>
   <string name="voice_commands_no_voice_recognition_ability">Кешіріңіз, бұл мүмкіндік құрылғыда жоқ.</string>
   <string name="voice_commands_error">Дауыстық пәрменді тану кезінде қате шықты.</string>
-  <string name="voice_commands_partial_result">Бұл пәрменді тану мүмкін емес. Барлық пәрмендер тізімі үшін \"%1$s\" деп айтыңыз.</string>
+  <string name="voice_commands_partial_result">Пәрмен танылмады. Барлық пәрмендер тізімі үшін \"%1$s\" деп айтыңыз.</string>
+  <string name="voice_commands_timeout">Барлық пәрмендер тізімі үшін \"%1$s\" деп айтыңыз.</string>
   <string name="voice_commands_many_requests">Сәлден соң қайталап көріңіз</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" параметрі іске қосылмады.</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" дауыстық пәрмен ретінде танылмады.</string>
   <string name="voice_commands_label_saved">Белгі сақталды</string>
   <string name="voice_commands_no_actions_feedback">Ешқандай әрекет жасалмайды.</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Дауыстық пәрменді шолу</string>
   <string name="voice_commands_help_description">Дауыстық пәрмендерді қолдану үшін оңға және жоғары сырғытыңыз. Пәрмендердің осы тізімін көру үшін \"Көмек керек\" немесе \"Не айтуға болады?\" деңіз.</string>
   <string name="voice_commands_help_hint">Бәрі ойдағылай болуы үшін, мына экрандардағы сөздерді айна-қатесіз айтыңыз.</string>
+  <string name="voice_command_screen_locked_hint">Экран құлыптаулы болғанда, дауыс пәрмендері жұмыс істемейді. TalkBack мәзірін пайдалану үшін %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Ағымдағы экрандағы мазмұнды оқу тәсілін өзгертіңіз.</string>
   <string name="voice_commands_help_next">Келесі [heading]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Тиісті мәтінді экраннан табу үшін іздеу шартын енгізіңіз.</string>
   <string name="voice_commands_help_text_editing_description">Мәтінді теру, бөлектеу және көшіру</string>
   <string name="voice_commands_help_type_text">[OK] деп теріңіз.</string>
-  <string name="voice_commands_help_copy_description">Көшірмес бұрын мәтінді бөлектеуіңіз керек.</string>
-  <string name="voice_commands_help_cut_description">Қиып алмас бұрын мәтінді бөлектеуіңіз керек.</string>
+  <string name="voice_commands_help_copy_description">Көшірмес бұрын мәтінді белгілеңіз.</string>
+  <string name="voice_commands_help_cut_description">Қимас бұрын мәтінді белгілеңіз.</string>
+  <string name="voice_commands_help_delete_description">Жоймас бұрын мәтінді белгілеңіз.</string>
   <string name="voice_commands_help_device_navigation_title">Құрылғы навигациясы</string>
   <string name="voice_commands_help_device_navigation_description">Негізгі бетке өту, артқа қайту, хабарландыруларды көрсету және т.б.</string>
   <string name="voice_commands_help_overview_description">Соңғы қолданбаларды көріңіз.</string>

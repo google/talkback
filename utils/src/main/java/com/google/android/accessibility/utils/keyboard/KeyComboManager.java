@@ -114,6 +114,11 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
   public static final int ACTION_NAVIGATE_NEXT_DEFAULT = 68;
   public static final int ACTION_NAVIGATE_PREVIOUS_DEFAULT = 69;
   public static final int ACTION_LANGUAGE_OPTIONS = 70;
+  public static final int ACTION_PLAY_PAUSE_MEDIA = 71;
+  public static final int ACTION_SCROLL_FORWARD_READING_MENU = 72;
+  public static final int ACTION_SCROLL_BACKWARD_READING_MENU = 73;
+  public static final int ACTION_ADJUST_READING_SETTING_PREVIOUS = 74;
+  public static final int ACTION_ADJUST_READING_SETTING_NEXT = 75;
 
   private static final int KEY_EVENT_MODIFIER_MASK =
       KeyEvent.META_SHIFT_ON | KeyEvent.META_CTRL_ON | KeyEvent.META_ALT_ON | KeyEvent.META_META_ON;
@@ -341,6 +346,30 @@ public class KeyComboManager implements ServiceKeyEventListener, ServiceStateLis
 
     if (key.equals(mContext.getString(R.string.keycombo_shortcut_global_suspend))) {
       return ACTION_SUSPEND_OR_RESUME;
+    }
+
+    if (key.equals(mContext.getString(R.string.keycombo_shortcut_global_play_pause_media))) {
+      return ACTION_PLAY_PAUSE_MEDIA;
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_scroll_forward_reading_menu))) {
+      return ACTION_SCROLL_FORWARD_READING_MENU;
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_scroll_backward_reading_menu))) {
+      return ACTION_SCROLL_BACKWARD_READING_MENU;
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_adjust_reading_settings_previous))) {
+      return ACTION_ADJUST_READING_SETTING_PREVIOUS;
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_adjust_reading_setting_next))) {
+      return ACTION_ADJUST_READING_SETTING_NEXT;
     }
 
     if (key.equals(mContext.getString(R.string.keycombo_shortcut_granularity_increase))) {

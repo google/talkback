@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">Ապաթարց</string>
   <string name="symbol_ampersand">Ամպերսանդ</string>
-  <string name="symbol_angle_bracket_left">Ձախ անկյունային փակագիծ</string>
-  <string name="symbol_angle_bracket_right">Աջ անկյունային փակագիծ</string>
+  <string name="symbol_angle_bracket_left">Փոքրի նշան</string>
+  <string name="symbol_angle_bracket_right">Մեծի նշան</string>
   <string name="symbol_asterisk">Աստղանիշ</string>
   <string name="symbol_at_sign">Ըթ</string>
   <string name="symbol_backslash">Հետադարձ սլեշ</string>
   <string name="symbol_bullet">Պարբերակ</string>
   <string name="symbol_caret">Տանիք</string>
-  <string name="symbol_cent">Ցենտ</string>
+  <string name="symbol_cent">Ցենտի նշան</string>
   <string name="symbol_colon">Միջակետ</string>
   <string name="symbol_comma">Ստորակետ</string>
   <string name="symbol_copyright">Հեղինակային իրավունք</string>
   <string name="symbol_curly_bracket_left">Ձախ ձևավոր փակագիծ</string>
   <string name="symbol_curly_bracket_right">Աջ ձևավոր փակագիծ</string>
-  <string name="symbol_degree">Աստիճան</string>
+  <string name="symbol_degree">Աստիճանի նշան</string>
   <string name="symbol_division">Բաժանարարի նշան</string>
   <string name="symbol_dollar_sign">Դոլարի նշան</string>
   <string name="symbol_ellipsis">Զեղչում</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">Կետ</string>
   <string name="symbol_pi">Պի</string>
   <string name="symbol_pound">Ֆունտ</string>
-  <string name="symbol_pound_sterling">Ֆունտ ստերլինգ</string>
+  <string name="symbol_pound_sterling">Ֆունտ արտարժույթի նշան</string>
   <string name="symbol_question_mark">Հարցական նշան</string>
   <string name="symbol_quotation_mark">Չակերտ</string>
   <string name="symbol_registered_trademark">Գրանցված ապրանքային նշան</string>
@@ -53,8 +53,8 @@
   <string name="symbol_not_sign">Անհամար</string>
   <string name="symbol_broken_bar">Ընդհատվող գիծ</string>
   <string name="symbol_micro_sign">Մյու</string>
-  <string name="symbol_almost_equals">Գրեթե հավասար</string>
-  <string name="symbol_not_equals">Անհավասար</string>
+  <string name="symbol_almost_equals">Մոտավոր հավասարության նշան</string>
+  <string name="symbol_not_equals">Անհավասարության նշան</string>
   <string name="symbol_currency_sign">Փոխարժեքի նշան</string>
   <string name="symbol_section_sign">Բաժնի նշան</string>
   <string name="symbol_upwards_arrow">Դեպի վեր սլաք</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">Սև սիրտ</string>
   <string name="symbol_tilde">Ալիքանշան</string>
   <string name="symbol_equal">Հավասարության նշան</string>
-  <string name="symbol_won">Վոնայի նշան</string>
+  <string name="symbol_won">Վոն արտարժույթի նշան</string>
   <string name="symbol_reference">Հղման նշան</string>
   <string name="symbol_white_star">Սպիտակ աստղ</string>
   <string name="symbol_black_star">Սև աստղ</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">Աջ կրկնակի անկյունավոր փակագիծ</string>
   <string name="symbol_inverted_exclamation_mark">Շրջած բացականչական նշան</string>
   <string name="symbol_inverted_question_mark">Շրջած հարցական նշան</string>
-  <string name="symbol_won_sign">Կորեական վոն տարադրամի նշան</string>
+  <string name="symbol_won_sign">Վոն արտարժույթի նշան</string>
   <string name="symbol_full_width_comma">Լիալայնք ստորակետ</string>
   <string name="symbol_full_width_exclamation_mark">Լիալայնք բացականչական նշան</string>
   <string name="symbol_full_width_ideographic_full_stop">Իդեոգրաֆիկ միջակետ</string>

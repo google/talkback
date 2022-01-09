@@ -31,6 +31,7 @@ import android.os.SystemClock;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.ViewConfiguration;
+import androidx.annotation.IntDef;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;
@@ -43,6 +44,14 @@ import com.google.android.accessibility.utils.output.SpeechController;
 
 /** Event interpreter to handle accessibility focus during touch interaction. */
 public class FocusProcessorForTapAndTouchExploration {
+  /** This specifies TalkBack supported type confirmation */
+  public static final int DOUBLE_TAP = 0;
+
+  public static final int LIFT_TO_TYPE = 1;
+
+  /** Typing method options: either traditional DOUBLE_TAP or LIFT_TO_TYPE. */
+  @IntDef({DOUBLE_TAP, LIFT_TO_TYPE})
+  public @interface TypingMethod {}
 
   /** The timeout after which an event is no longer considered a tap. */
   private static final long TAP_TIMEOUT_MS = ViewConfiguration.getJumpTapTimeout();
@@ -63,8 +72,8 @@ public class FocusProcessorForTapAndTouchExploration {
 
   private boolean isSingleTapEnabled = false;
 
-  /** This feature doesn't need UI option. We enable/disable it by the flag */
-  public static boolean ENABLE_LIFT_TO_TYPE = true;
+  /** Indicates the current input type is Lift-to-type or not. */
+  private boolean enableLiftToType = true;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Boolean values representing states in the state machine.
@@ -120,6 +129,10 @@ public class FocusProcessorForTapAndTouchExploration {
 
   public FocusProcessorForTapAndTouchExploration() {
     postDelayHandler = new PostDelayHandler(this, LIFT_TO_TYPE_LONG_PRESS_DELAY_MS);
+  }
+
+  public boolean isEnableLiftToType() {
+    return enableLiftToType;
   }
 
   public void setInterpretationReceiver(Pipeline.InterpretationReceiver interpretationReceiver) {
@@ -231,7 +244,7 @@ public class FocusProcessorForTapAndTouchExploration {
       return onHoverEnterGeneralNode(touchedFocusableNode, eventId);
     }
 
-    if (ENABLE_LIFT_TO_TYPE && supportsLiftToType(touchedFocusableNode)) {
+    if (enableLiftToType && supportsLiftToType(touchedFocusableNode)) {
       if (touchedFocusableNode.isAccessibilityFocused()) {
         mayBeRefocusAction = false;
         if (AccessibilityNodeInfoUtils.isLongClickable(touchedFocusableNode)) {
@@ -299,7 +312,14 @@ public class FocusProcessorForTapAndTouchExploration {
     long currentTime = SystemClock.uptimeMillis();
 
     boolean result = false;
-    if (isSingleTapEnabled
+    if (enableLiftToType && supportsLiftToType(lastFocusableNodeBeingTouched) && mayBeLiftToType) {
+      // Perform click action for lift-to-type mode.
+      result =
+          interpretationReceiver.input(
+              eventId,
+              /* event= */ null,
+              Interpretation.Touch.create(LIFT, lastFocusableNodeBeingTouched));
+    } else if (isSingleTapEnabled
         && mayBeSingleTap
         && (currentTime - touchInteractionStartTime < TAP_TIMEOUT_MS)) {
       // Perform click for single-tap mode.
@@ -308,15 +328,6 @@ public class FocusProcessorForTapAndTouchExploration {
               eventId,
               /* event= */ null,
               Interpretation.Touch.create(TAP, lastFocusableNodeBeingTouched));
-    } else if (ENABLE_LIFT_TO_TYPE
-        && supportsLiftToType(lastFocusableNodeBeingTouched)
-        && mayBeLiftToType) {
-      // Perform click action for lift-to-type mode.
-      result =
-          interpretationReceiver.input(
-              eventId,
-              /* event= */ null,
-              Interpretation.Touch.create(LIFT, lastFocusableNodeBeingTouched));
     }
 
     reset();
@@ -337,7 +348,7 @@ public class FocusProcessorForTapAndTouchExploration {
             eventId, /* event= */ null, Interpretation.Touch.create(TOUCH_UNFOCUSED_NODE, node));
 
     if (result
-        && ENABLE_LIFT_TO_TYPE
+        && enableLiftToType
         && supportsLiftToType(node)
         && AccessibilityNodeInfoUtils.isLongClickable(node)) {
       postDelayHandler.longPressAfterTimeout();
@@ -400,6 +411,15 @@ public class FocusProcessorForTapAndTouchExploration {
 
     private void cancelRefocusTimeout() {
       removeMessages(MSG_REFOCUS);
+    }
+  }
+
+  public void setTypingMethod(@TypingMethod int type) {
+    reset();
+    if (type == DOUBLE_TAP) {
+      enableLiftToType = false;
+    } else {
+      enableLiftToType = true;
     }
   }
 }

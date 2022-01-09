@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">ଡଟର ଅବସ୍ଥିତି ଅପଡେଟ୍ କରାଯାଉଛି। ପ୍ରଥମେ, ଚାଲନ୍ତୁ ଆପଣଙ୍କ ବାମ ହାତରେ ଥିବା ଡଟଗୁଡ଼ିକୁ ରେକର୍ଡ କରିବା। ଆପଣଙ୍କ ବାମ ହାତର ମଝି 3ଟି ଆଙ୍ଗୁଠିରେ ସ୍କ୍ରିନକୁ ସ୍ପର୍ଶ କରି ଧରି ରଖନ୍ତୁ।</string>
   <string name="calibration_step1_hold_right_finger_announcement">ଡଟର ଅବସ୍ଥିତି ଅପଡେଟ୍ କରାଯାଉଛି। ପ୍ରଥମେ, ଚାଲନ୍ତୁ ଆପଣଙ୍କ ଡାହାଣ ହାତରେ ଥିବା ଡଟଗୁଡ଼ିକୁ ରେକର୍ଡ କରିବା। ଆପଣଙ୍କ ଡାହାଣ ହାତର ମଝି 3ଟି ଆଙ୍ଗୁଠିରେ ସ୍କ୍ରିନକୁ ସ୍ପର୍ଶ କରି ଧରି ରଖନ୍ତୁ।</string>
   <string name="calibration_finish_announcement">ଡଟର ଅବସ୍ଥିତି ଅପଡେଟ୍ କରାଯାଇଛି</string>
+  <string name="remaining_calibration_finish_announcement">ସମସ୍ତ ଡଟର ଅବସ୍ଥିତି ଅପଡେଟ୍ କରାଯାଇଛି</string>
   <string name="calibration_step2_hold_right_finger_announcement">ଡଟ୍ 1, 2 ଏବଂ 3 ପାଇଁ ଅପଡେଟ୍ କରାଯାଇଥିବା ଅବସ୍ଥିତିଗୁଡ଼ିକ। ତା’ପରେ, ଚାଲନ୍ତୁ ଆପଣଙ୍କ ଡାହାଣ ହାତରେ ଥିବା ଡଟଗୁଡ଼ିକୁ ରେକର୍ଡ କରିବା। ଆପଣଙ୍କ ଡାହାଣ ହାତର ମଝି 3ଟି ଆଙ୍ଗୁଠିରେ ସ୍କ୍ରିନକୁ ସ୍ପର୍ଶ କରି ଧରି ରଖନ୍ତୁ।</string>
   <string name="calibration_step2_hold_left_finger_announcement">ଡଟ୍ 1, 2 ଏବଂ 3 ପାଇଁ ଅପଡେଟ୍ କରାଯାଇଥିବା ଅବସ୍ଥିତିଗୁଡ଼ିକ। ତା’ପରେ, ଚାଲନ୍ତୁ ଆପଣଙ୍କ ବାମ ହାତରେ ଥିବା ଡଟଗୁଡ଼ିକୁ ରେକର୍ଡ କରିବା। ଆପଣଙ୍କ ବାମ ହାତର ମଝି 3ଟି ଆଙ୍ଗୁଠିରେ ସ୍କ୍ରିନକୁ ସ୍ପର୍ଶ କରି ଧରି ରଖନ୍ତୁ।</string>
   <string name="calibration_fail_announcement">ଡଟର ଅବସ୍ଥିତି ଅପଡେଟ୍ କରାଯାଇପାରିଲା ନାହିଁ। 6ଟି ଆଙ୍ଗୁଠିରେ ସ୍କ୍ରିନକୁ ସ୍ପର୍ଶ କରି ଧରି ରଖନ୍ତୁ। ତା\'ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">ୟୁନିଫାଏଡ୍ ଇଂରାଜୀ ବ୍ରେଲି</string>
   <string name="code_user_facing_name_es">ସ୍ପେନୀୟ</string>
   <string name="code_user_facing_name_ar">ଆରବୀ</string>
+  <string name="code_user_facing_name_fr">ଫରାସୀ</string>
   <string name="title_pref_accumulate_presses">ସବୁ ପ୍ରେସ୍ ହୋଇଥିବା ଡଟକୁ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
   <string name="summary_pref_accumulate_presses">ଅନ୍ୟ ଡଟଗୁଡ଼ିକ ପୂର୍ବରୁ ଡଟ୍ ରିଲିଜ୍ ହୋଇଥିବା ବେଳେ ମଧ୍ୟ ପ୍ରେସ୍ କରାଯାଇଥିବା ପ୍ରତ୍ୟେକ ଡଟ୍ ଇନପୁଟର ଅଂଶ ଅଟେ</string>
   <string name="title_pref_reverse_dots">ରିଭର୍ସ ଡଟ୍ସ</string>
   <string name="summary_pref_reverse_dots">ଡଟ୍ ସ୍ଥିତିଗୁଡ଼ିକୁ ସ୍ୱାପ୍ କରନ୍ତୁ, ଫଳରେ 1 ଏବଂ 4 ଡଟର ସ୍ଥାନ ଅଦଳବଦଳ ହୋଇଯିବ, ଉଦାହରଣ ସ୍ୱରୂପ</string>
-  <string name="typing_echo_list_preference_title">ମତାମତ ଟାଇପ୍ କରାଯାଉଛି (ଟାଇପିଂ ଇକୋ)</string>
-  <string name="typing_echo_preference_label_characters">ସବୁ ଅକ୍ଷର ଏବଂ ଶବ୍ଦ ପଢ଼ନ୍ତୁ</string>
-  <string name="typing_echo_preference_label_words">କେବଳ ଶବ୍ଦ ପଢ଼ନ୍ତୁ</string>
   <string name="context_menu_title">ବ୍ରେଲି କୀବୋର୍ଡ ବିକଳ୍ପଗୁଡ଼ିକ</string>
   <string name="context_menu_typing_language_selection">ଟାଇପିଂ ଭାଷା ବଦଳାନ୍ତୁ</string>
   <string name="context_menu_typing_language_selection_summary">ବର୍ତ୍ତମାନ %s ବ୍ୟବହାର କରାଯାଉଛି</string>
@@ -48,7 +47,7 @@
   <string name="context_menu_switch_contracted_status_selection">%s ବ୍ରେଲିକୁ ସ୍ୱିଚ୍ କରନ୍ତୁ</string>
   <string name="contracted">କଣ୍ଟ୍ରାକ୍ଟେଡ୍</string>
   <string name="uncontracted">ଅନକଣ୍ଟ୍ରାକ୍ଟେଡ୍</string>
-  <string name="context_menu_see_all_gestures_selection">Review all gestures</string>
+  <string name="context_menu_see_all_gestures_selection">ସମସ୍ତ ଜେଶ୍ଚରର ସମୀକ୍ଷା କରନ୍ତୁ</string>
   <string name="context_menu_tutorial_selection">ଟ୍ୟୁଟୋରିଆଲ୍ ଖୋଲନ୍ତୁ</string>
   <string name="context_menu_tutorial_finish">ଟ୍ୟୁଟୋରିଆଲ୍ ସମାପ୍ତ କରନ୍ତୁ</string>
   <string name="context_menu_settings_selection">ସେଟିଂସ୍</string>

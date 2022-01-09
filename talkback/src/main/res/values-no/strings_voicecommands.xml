@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Språk</string>
   <string name="voice_commands_languages">Språk</string>
   <string name="voice_commands_custom_actions">tilpassede handlinger</string>
+  <string name="voice_commands_action">Handling</string>
   <string name="voice_commands_quick_settings">Hurtiginnstillinger</string>
   <string name="voice_commands_quick_setting">Hurtiginnstilling</string>
   <string name="voice_commands_dim">ton ned</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Beklager, men denne funksjonen er ikke tilgjengelig på enheten din</string>
   <string name="voice_commands_error">Feil ved gjenkjenning av talekommando</string>
   <string name="voice_commands_partial_result">Denne kommandoen gjenkjennes ikke. Si «%1$s» for å åpne listen over alle kommandoer.</string>
+  <string name="voice_commands_timeout">Si «%1$s» for å åpne listen over alle kommandoer.</string>
   <string name="voice_commands_many_requests">Prøv igjen om en liten stund</string>
-  <string name="voice_commands_setting_disabled">«%1$s»-innstillingen er ikke aktivert</string>
   <string name="voice_commands_echo_feedback_not_recognized">«%1$s» gjenkjennes ikke som en talekommando.</string>
   <string name="voice_commands_label_saved">Etiketten er lagret</string>
   <string name="voice_commands_no_actions_feedback">Det finnes ingen tilgjengelige handlinger</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Oversikt over talekommandoer</string>
   <string name="voice_commands_help_description">For å bruke talekommandoer, sveip til høyre og så opp. Si «Hjelp» eller «Hva kan jeg si?» når som helst for å åpne denne listen over kommandoer.</string>
   <string name="voice_commands_help_hint">Du får best resultat ved å si den nøyaktige ordlyden som er oppført på de neste skjermene.</string>
+  <string name="voice_command_screen_locked_hint">Talekommandoer er ikke tilgjengelige når skjermen er låst. For å bruke TalkBack-menyen i stedet, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Endre hvordan du leser innhold på den nåværende skjermen</string>
   <string name="voice_commands_help_next">Neste [overskrift]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Skriv inn en søketerm for å finne den teksten på skjermen</string>
   <string name="voice_commands_help_text_editing_description">Skriv, markér og kopiér tekst</string>
   <string name="voice_commands_help_type_text">Skriv [OK]</string>
-  <string name="voice_commands_help_copy_description">Sørg for at du har markert tekst før du kopierer</string>
-  <string name="voice_commands_help_cut_description">Sørg for at du har markert tekst før du klipper</string>
+  <string name="voice_commands_help_copy_description">Velg tekst før kopiering</string>
+  <string name="voice_commands_help_cut_description">Velg tekst før utklipping</string>
+  <string name="voice_commands_help_delete_description">Velg tekst før sletting</string>
   <string name="voice_commands_help_device_navigation_title">Enhetsnavigering</string>
   <string name="voice_commands_help_device_navigation_description">Gå til startsiden, gå tilbake, vis varsler med mer</string>
   <string name="voice_commands_help_overview_description">Se de nylige appene dine</string>

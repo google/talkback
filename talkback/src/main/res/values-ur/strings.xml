@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">ورژن %1$s</string>
   <string name="label_manager_summary_title">حسب ضرورت لیبلز کا نظم کریں</string>
   <string name="label_manager_package_title">%1$s کیلئے لیبلز کا نظم کریں</string>
+  <string name="manage_label">لیبل کا نظم کریں</string>
   <string name="label_manager_no_packages_message">‏فی الحال کوئی حسب ضرورت لیبل موجود نہیں ہے۔ آپ بغیر لیبل والی ایک تصویر پر نیویگیٹ کر کے ایک لیبل بنا سکتے ہیں اور پھر Talkback مینو سے ایک لیبل شامل کر سکتے ہیں۔</string>
   <string name="label_manager_timestamp_text">آخری بار ترمیم کیا گیا %1$s</string>
   <string name="search_dialog_label">تلاش کریں: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">ٹچ کرکے دریافت کریں</string>
   <string name="title_pref_category_touch_exploration">نیویگیشن</string>
   <string name="title_pref_category_controls">کنٹرولز</string>
-  <string name="title_pref_single_tap">ایک بار تھپتھپا کر فعالیت</string>
+  <string name="title_pref_single_tap">فعال کرنے کیلئے ایک بار تھپتھپائيں</string>
   <string name="title_pref_show_context_menu_as_list">سیاق و سباق کے مینو کو بطور فہرست دکھائیں</string>
-  <string name="summary_pref_single_tap">(تجرباتی) فعال کرنے کیلئے ایک بار فوکس والے آئٹم پر تھپتھپائیں</string>
+  <string name="summary_pref_single_tap">فعال کرنے کیلئے فوکس کیے گئے آئٹم پر ایک بار تھپتھپائیں</string>
   <string name="title_pref_shake_to_read_threshold">مسلسل پڑھنا شروع کرنے کیلئے ہلائیں</string>
   <string name="pref_verbosity_title">طوالت بیانی</string>
   <string name="pref_punctuation_title">رموز اوقاف</string>
+  <string name="title_pref_category_manage_focus_indicator">فوکس انڈیکیٹر کو حسب ضرورت بنائیں</string>
   <string name="title_pref_category_manage_gestures">اشاروں کو حسب ضرورت بنائیں</string>
   <string name="title_pref_manage_labels">حسب ضرورت لیبلز</string>
   <string name="title_pref_manage_customize_menus">مینوز کو حسب ضرورت بنائیں</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">مدد اور تاثرات</string>
   <string name="title_pref_category_tutorial_and_help">ٹیوٹوریل اور مدد</string>
   <string name="title_pref_category_advanced">جدید ترین</string>
+  <string name="title_pref_category_typing">ٹائپنگ اور کی بورڈ</string>
   <string name="title_pref_category_legal_and_privacy">قانونی اور رازداری</string>
   <string name="title_pref_advanced_settings">جدید ترین ترتیبات</string>
   <string name="reset_gesture_settings_title">اشاروں کی ترتیبات ری سیٹ کریں</string>
@@ -135,7 +138,7 @@
   <string name="pref_verbosity_preset_entry_custom">حسب ضرورت</string>
   <string name="pref_verbosity_preset_entry_low">کم</string>
   <string name="pref_verbosity_category_preset_settings_title">طوالت بیانی کی تفصیلات</string>
-  <string name="pref_verbosity_category_misc_settings_title">متفرقات</string>
+  <string name="pref_verbosity_category_misc_settings_title">متفرق</string>
   <string name="pref_verbosity_preset_change">%1$s طوالت بیانی اب فعال ہے۔</string>
   <string name="keycombo_menu_category_select_keymap">کلیدی نقشہ</string>
   <string name="keycombo_menu_select_keymap">ایک کلیدی نقشہ منتخب کریں</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">حالیہ ایپس</string>
   <string name="keycombo_menu_global_notifications">اطلاعات</string>
   <string name="keycombo_menu_global_suspend">‏TalkBack موقوف کریں یا دوبارہ شروع کریں</string>
+  <string name="keycombo_menu_global_play_pause_media">میڈیا چلائیں یا موقوف کریں</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">اگلا ریڈنگ کنٹرول منتخب کریں</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">پچھلا ریڈنگ کنٹرول منتخب کریں</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">ریڈنگ کنٹرول کو اوپر ایڈجسٹ کریں</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">ریڈنگ کنٹرول کو نیچے ایڈجسٹ کریں</string>
   <string name="keycombo_menu_category_granularity">نیویگیشن</string>
   <string name="keycombo_menu_granularity_increase">اگلی نیویگیشن ترتیب</string>
   <string name="keycombo_menu_granularity_decrease">سابقہ نیویگیشن ترتیب</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">کاپی کرنے کیلئے کوئی ٹیکسٹ نہیں ہے، پہلے کچھ ٹیکسٹ منتخب کریں۔</string>
   <string name="cannot_paste_feedback">پیسٹ کرنے کیلئے کوئی متن نہیں ہے۔ پہلے کچھ متن کاپی کریں۔</string>
   <string name="cannot_cut_feedback">کٹ کرنے کیلئے کوئی متن نہیں ہے۔ پہلے کچھ متن منتخب کریں۔</string>
+  <string name="cannot_delete_feedback">حذف کرنے کیلئے کوئی متن نہیں ہے۔ پہلے کچھ متن منتخب کریں۔</string>
   <string name="message_in_reset_keymap_confirm_dialog">کیا آپ واقعی اس کلیدی نقشہ کیلئے اپنی شارٹ کٹ کلیدوں کو ان کی ڈیفالٹ اقدار پر دوبارہ ترتیب دینا چاہتے ہیں؟ براہ کرم نوٹ کریں، یہ کارروائی کالعدم نہیں ہو سکتی۔</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">ری سیٹ کریں</string>
   <string name="override_keycombo">کلید پہلے سے استعمال میں ہے</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">پچ کی تبدیلیوں کا استعمال کریں</string>
   <string name="title_pref_keyboard_echo">کی بورڈ کی صدائے بازگشت</string>
   <string name="pref_node_desc_order_title">عنصر کی وضاحت کی ترتیب</string>
-  <string name="summaryOn_pref_intonation">مدھم آواز میں کی بورڈ کے تاثرات بولیں</string>
+  <string name="summaryOn_pref_intonation">کی بورڈ سے حذف شدہ ٹیکسٹ کو بلند آواز سے پڑھیں</string>
   <string name="summaryOff_pref_intonation">بولتے وقت وائس پچ تبدیل نہ کریں</string>
   <string name="title_pref_brailleime">بریل کی بورڈ</string>
   <string name="title_pref_category_feedback_settings">دیگر تاثرات</string>
@@ -245,7 +254,7 @@
   <string name="title_pref_soundback_volume">صوتی تاثرات کا والیوم</string>
   <string name="title_pref_two_volume_button_long_click">‏Talkback معطل اور دوبارہ شروع کرنے کا شارٹ کٹ</string>
   <string name="title_pref_dim_volume_three_clicks">اسکرین چھپائیں کا شارٹ کٹ</string>
-  <string name="title_pref_category_miscellaneous_settings">متفرقات</string>
+  <string name="title_pref_category_miscellaneous_settings">متفرق</string>
   <string name="title_pref_category_developer_settings">ڈویلپر کی ترتیبات</string>
   <string name="title_activity_dump_a11y_event">لاگ کرنے کیلئے ایونٹس منتخـب کریں</string>
   <string name="title_pref_dump_a11y_event">ایکسیسبیلٹی ایونٹ لاگنگ کو فلٹر کریں</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">نوڈ ٹری ڈیبگ کرنے کو فعال کریں</string>
   <string name="summary_pref_tree_debug_tv">نوڈ ٹری کو پرنٹ کرنے کیلئے تلاش کرنے کے بجائے صوتی تلاش استعمال کریں</string>
   <string name="title_pref_performance_stats">کارکردگی کی شماریات فعال کریں</string>
+  <string name="title_pref_log_overlay">ڈیبگ لاگ اوورلے کو فعال کریں</string>
   <string name="title_pref_resume_talkback">معطل سے دوبارہ شروع کریں</string>
+  <string name="title_pref_typing_confirmation">ٹائپنگ کی ترجیح</string>
   <string name="title_pref_multi_finger_gesture">متعدد انگلیوں کے اشارے فعال کریں</string>
   <string name="screen_dimmed">اسکرین چھپا دی گئی</string>
   <string name="screen_brightness_restored">اسکرین دکھا رہا ہے</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">نیچے اسکرول کریں</string>
   <string name="shortcut_scroll_left">بائیں اسکرول کریں</string>
   <string name="shortcut_scroll_right">دائیں اسکرول کریں</string>
+  <string name="shortcut_next_window">اگلی ونڈو</string>
+  <string name="shortcut_previous_window">گزشتہ ونڈو</string>
   <string name="shortcut_back">پیچھے</string>
   <string name="shortcut_home">ہوم</string>
   <string name="shortcut_overview">مجموعی جائزہ</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">اسکرین دکھائیں یا چھپائیں</string>
   <string name="title_show_screen_search">اسکرین پر تلاش</string>
   <string name="title_show_voice_commands">صوتی کمانڈز</string>
+  <string name="talkback_show_talkback_settings">‏TalkBack کی ترتیبات</string>
   <string name="title_other_web_navigation">دیگر ویب نیویگیشن</string>
   <string name="title_granularity_default">ڈیفالٹ نیویگیشن</string>
   <string name="title_seek_bar_edit">سلائیڈر کی سطح میں ترمیم کریں</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">‏اپنی آواز سے TalkBack کو کنٹرول کریں</string>
   <string name="summary_show_hide_screen">ڈسپلے کو چھپائیں تاکہ آپ کی اسکرین عوامی مقامات پر دوسروں کو نظر نہ آئے۔ اپنی اسکرین کو چھپانے کے بعد، اسے عام حالت میں واپس لے جائیں۔</string>
   <string name="summary_talkback_preferences">‏TalkBack کی ترتیبات کھولیں</string>
-  <string name="summary_system_actions">تمام ایپس، فوری ترتیبات پر جائیں اور اسپلٹ اسکرین استعمال کریں</string>
+  <string name="summary_system_actions">تمام ایپس اور فوری ترتیبات پر جائیں</string>
   <string name="summary_tts_settings">ٹیکسٹ ٹو اسپیچ ترتیبات کھولیں</string>
   <string name="summary_pause_feedback">‏TalkBack کے صوتی تاثرات کو آف کریں</string>
   <string name="not_editable">قابل ترمیم نہیں ہے</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">ایک وقت میں ایک لفظ پڑھیں</string>
   <string name="summary_lines">ایک وقت میں ایک لائن پڑھیں</string>
   <string name="summary_paragraphs">ایک وقت میں ایک پیراگراف پڑھیں</string>
+  <string name="summary_windows">دیگر ونڈوز پر جائیں جیسے والیوم کنٹرولز یا نیویگیشن بار</string>
   <string name="summary_headings">ایک ہیڈنگ سے دوسری ہیڈنگ پر جائیں</string>
   <string name="summary_controls">ان آئٹمز کے درمیان نیویگیٹ کریں جن سے آپ تعامل کرسکتے ہیں، جیسے بٹنز، چیک باکسز اور ٹیکسٹ فیلڈز</string>
   <string name="summary_links">ایک لنک سے دوسرے لنک پر جائیں</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">تبدیل کریں چاہے ٹائپ کی گئی کلیدیں، اشاروں کے استعمال، گرڈ کی معلومات اور دیگر معلومات کو بلند آواز سے پڑھیں</string>
   <string name="summary_selector_menu_punctuation">تبدیل کریں آیا رموز اوقاف اور علامات بلند آواز سے پڑھے جاتے ہیں</string>
   <string name="summary_language">اپنی بول چال کی زبان تبدیل کریں۔ صرف اس وقت ظاہر ہوتا ہے جب آپ کے پاس متعدد ٹیکسٹ ٹو اسپیچ زبانیں انسٹال ہوں۔</string>
-  <string name="summary_sound_feedback">جب آپ کسی کاروائی کی تصدیق کرنے کے لیے بیپ کی طرح نیویگیٹ کرتے ہیں تو آواز کے اثرات سنیں۔</string>
+  <string name="summary_sound_feedback">جب آپ کسی کارروائی کی تصدیق کرنے کے لیے بیپ کی طرح استعمال کرتے ہیں تو آواز کے اثرات سنیں</string>
   <string name="summary_vibration_feedback">کسی آئٹم کو منتخب کرنے جیسی کاروائیوں کے لیے وائبریشنز محسوس کریں۔ ایپس یا سسٹم سے آنے والی وائبریشنز کو متاثر نہیں کرتا ہے۔</string>
   <string name="summary_hide_screen">ڈسپلے کو چھپائیں تاکہ آپ کی اسکرین عوامی مقامات پر دوسروں کو نظر نہ آئے</string>
   <string name="summary_audio_ducking">‏TalkBack کے بولنے کے وقت دیگر آڈیو کو چلانے کے لیے والیومز کو کم کر دیں</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">فارورڈ یا بیک ورڈ اسکرول کریں</string>
+  <string name="summary_support_change_a11y_volume">ایکسیسبیلٹی والیوم کو بڑھائیں یا کم کریں</string>
+  <string name="summary_image_caption">اس تصویر کے لیے خودکار تفصیل حاصل کریں</string>
   <string name="value_direction_up">اوپر</string>
   <string name="value_direction_down">نیچے</string>
   <string name="value_direction_left">بائیں</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">2 انگلیوں سے دو بار تھپتھپائیں اور دبائے رکھیں</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">3 انگلیوں سے دو بار تھپتھپائیں اور دبائے رکھیں</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">4 انگلیوں سے دو بار تھپتھپائیں اور دبائے رکھیں</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">2 انگلیوں سے تین بار تھپتھپائیں اور دبائے رکھیں</string>
+  <string name="seekbar_hint_2gesture">ایڈجسٹ کرنے کے لیے \"%1$s\" یا %2$s</string>
+  <string name="seekbar_hint_1gesture">ایڈجسٹ کرنے کے لیے \"%1$s\"</string>
   <string name="gesture_name_unknown">نامعلوم اشارہ</string>
   <string name="gesture_name_pass_through">بالواسطہ سسٹم کے اشارے</string>
   <string name="gesture_name_touch_explore">ٹچ کے ذریعے دریافت کرنے والے اشارے</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">دو بار تھپتھائیں اور دبائے رکھیں</string>
   <string name="gesture_name_2finger_tap_hold">2 انگلیوں سے تھپتھائیں اور دبائے رکھیں</string>
   <string name="gesture_name_3finger_tap_hold">3 انگلیوں سے تھپتھائیں اور دبائے رکھیں</string>
+  <string name="gesture_name_2finger_3tap_hold">2 انگلیوں سے تین بار تھپتھپائیں اور دبائے رکھیں</string>
   <string name="gesture_name_3finger_3tap_hold">3 انگلیوں سے تین بار تھپتھپائیں اور دبائے رکھیں</string>
   <string name="title_pref_shortcut_fingerprint_up">فنگر پرنٹ سینسر پر اوپر سوائپ کریں</string>
   <string name="title_pref_shortcut_fingerprint_down">فنگر پرنٹ سینسر پر نیچے سوائپ کریں</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">جب اسکرین آن ہوتی ہے</string>
   <string name="value_resume_keyguard">جب لاک سکرین دکھائی جاتی ہے</string>
   <string name="value_resume_manual">صرف اطلاع سے</string>
+  <string name="value_type_confirmation_double_tap">کلید کو منتخب کرنے کیلئے انگلی ہولڈ کریں، پھر دو بار تھپتھپائیں</string>
+  <string name="value_type_confirmation_lift_to_type">کلید کو منتخب کرنے کیلئے انگلی ہولڈ کریں، پھر اٹھائیں</string>
   <string name="value_shake_to_read_disabled">غیر فعال</string>
   <string name="value_shake_to_read_threshold_very_light">بہت کم</string>
   <string name="value_shake_to_read_threshold_light">کم</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">ہمیشہ ٹائپ کی گئی کلیدیں بولیں</string>
   <string name="value_keyboard_echo_softkeys">صرف اسکرین پر موجود کی بورڈ کیلئے</string>
   <string name="value_keyboard_echo_never">کبھی بھی ٹائپ کی گئی کلیدیں نہ بولیں</string>
+  <string name="title_pref_keyboard_echo_on_screen">کی بورڈ کی بازگشت: آن اسکرین کی بورڈ</string>
+  <string name="title_pref_keyboard_echo_physical">کی بورڈ کی بازگشت: فزیکل کی بورڈ</string>
+  <string name="value_keyboard_echo_none">کوئی نہیں</string>
+  <string name="value_keyboard_echo_characters_only">حروف</string>
+  <string name="value_keyboard_echo_words_only">الفاظ</string>
+  <string name="value_keyboard_echo_characters_and_words">حروف اور الفاظ</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">ریاست، نام، قسم</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">قسم، نام، ریاست</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">نام، قسم، ریاست</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">‏کیا آپ واقعی نوڈ ٹری ڈیبگ کرنے کو آن کرنا چاہتے ہیں؟\n\nنوڈ ٹری ڈیبگ کرنا آپ کے آلہ کے لاگز میں آپ کی اسکرین کا مواد دکھاتا ہے، جسے دیگر ایپلیکیشنز کے ذریعے پڑھا جا سکتا ہے۔</string>
   <string name="dialog_title_enable_performance_stats">کارکردگی کی شماریات فعال کریں؟</string>
   <string name="dialog_message_enable_performance_stats">‏کیا آپ کو یقین ہے کہ آپ کارکردگی کی شماریات کو آن کرنا چاہتے ہیں؟\n\nکارکردگی کی شماریات زیادہ میموری اور پاور استعمال کرتی ہے۔</string>
+  <string name="title_request_phone_permission">فون تک رسائی کی اجازت دیں؟</string>
+  <string name="message_request_phone_permission">‏جب آپ کال پر ہوتے ہیں تو یہ TalkBack کو اعلانات کم کرنے میں مدد کرتا ہے</string>
+  <string name="continue_button">جاری رکھیں</string>
   <string name="label_talkback_context_menu">‏TalkBack کے عالمی سیاق و سباق کا مینو</string>
   <string name="permission_talkback_label">‏TalkBack کو کنٹرول کریں</string>
   <string name="permission_talkback_desc">‏TalkBack کو اشارے بھیجنے اور بولے گئے تاثرات کو دوبارہ شروع کرنے کی اجازت۔</string>
-  <string name="permission_labeling_label">‏TalkBack کے حسب ضرورت لیبلز کا نظم کریں</string>
-  <string name="permission_labeling_desc">‏TalkBack کے ذریعے بولے گئے حسب ضرورت لیبلز تک رسائی، ان میں ترمیم اور انہیں حذف کرنے کی اجازت۔</string>
   <string name="links">لنکس</string>
   <string name="end_of_text">اختتام</string>
   <string name="start_of_page">کوئی پچھلا %1$s نہیں</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">رموز اوقاف</string>
   <string name="title_pref_selector_granularity">نیویگیشن</string>
   <string name="title_pref_selector_audio_focus">آڈیو ڈکنگ</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">اسکرول کریں</string>
+  <string name="title_pref_a11y_volume">ایکسیسبیلٹی والیوم</string>
   <string name="title_pref_selector_adjustable_widget_slider">سلائیڈر کو ایڈجسٹ کریں</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">قدر ایڈجسٹ کریں</string>
   <string name="title_pref_speak_passwords_without_headphones">پاس ورڈز بولیں</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">صوتی کمانڈز کا استعمال کریں</string>
   <string name="dialog_title_pass_through_mode">‏سسٹم کے اشاروں کا استعمال کرنے کے لیے TalkBack اشاروں کو نظر انداز کریں</string>
   <string name="dialog_message_pass_through_mode">‏جب آپ کوئی اطلاع کی گھنٹی سنتے ہیں تو آپ TalkBack کے ذریعے غیر تعاون یافتہ سسٹم کے اشارے کا استعمال کر سکتے ہیں۔ اس کو بالواسطہ اشارے کے طور پر جانا جاتا ہے۔</string>
-  <string name="hint_type_search_term">تلاش کی اصطلاح ٹائپ کریں</string>
+  <string name="hint_type_search_term">تلاش کی اصطلاح</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">‏TalkBack کا اطلاعاتی چینل</string>
   <string name="pref_selector_summary">%1$s کسی ترتیب کا انتخاب کرنے کے لئے۔ پھر %2$s ترتیب کو ایڈجسٹ کرنے کے لیے۔</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">‏ٹیکسٹ کٹ کرنے کے لئے، 3 انگلیوں سے دو بار تھپتھائیں اور دبائے رکھیں۔‎\n\nٹیکسٹ کو پیسٹ کرنے کے لئے 3 انگلیوں سے تین بار تھپتھپائیں۔‎\n\nذیل میں موجود ٹیکسٹ باکس میں کوئی لفظ پیسٹ کر کے دیکھیں۔</string>
   <string name="copy_text_pre_r">‏ٹیکسٹ منتخب کرنے کے بعد آپ اسے TalkBack مینو میں کاپی کر سکتے ہیں۔ TalkBack مینو کھولنے کے لئے نیچے پھر دائیں سوائپ کریں۔ ترمیم کے اختیارات پر دو بار تھپتھپائیں اور پھر کاپی کریں۔‎\n\nذیل میں موجود ٹیکسٹ باکس میں کوئی لفظ کاپی کر کے دیکھیں۔</string>
   <string name="cut_paste_text_pre_r">‏ٹیکسٹ کو کٹ یا پیسٹ کرنے کے لئے TalkBack مینو کھولیں اور ترمیم کے اختیارات پر دو بار تھپتھپائیں۔‎\n\nذیل میں موجود ٹیکسٹ باکس میں کوئی لفظ پیسٹ کر کے دیکھیں۔</string>
+  <string name="edit_box_hint_paste_text">یہاں ٹیکسٹ پیسٹ کریں</string>
   <string name="read_by_character_title">حرف، لفظ یا پیراگراف کے ذریعے پڑھیں</string>
   <string name="read_by_character_text">‏کبھی کبھار، ممکن ہے کہ آپ ایک وقت میں ایک حرف کو بلند آواز میں پڑھ کر سننا چاہیں۔‎\n\nایسا کرنے کے لئے، \"%1$s\" کے سنائی دینے تک 3 انگلیوں سے دائیں سوائپ کریں۔ آگے، حرف کے ذریعے نیویگیشن فوکس کو پیچھے کی طرف منتقل کرنے کے لئے اوپر کی طرف سوائپ کریں۔ حرف کے ذریعے نیویگیشن فوکس کو آگے کی طرف منتقل کرنے کے لئے نیچے کی طرف سوائپ کریں۔‎\n\nاسے ابھی آزما کر دیکھیں۔ آپ کے 3 انگلیوں سے دائیں سوائپ کرنے پر، آپ الفاظ یا پیراگرافس کے ذریعے پڑھنے کا انتخاب کر سکتے ہیں۔</string>
   <string name="read_by_character_text_pre_r">‏کبھی کبھار، ممکن ہے کہ آپ ایک وقت میں ایک حرف کو بلند آواز میں پڑھ کر سننا چاہیں۔‎\n\nایسا کرنے کے لئے، \"%1$s\" کے سنائی دینے تک نیچے اور پھر اوپر سوائپ کریں۔ آگے، حرف کے ذریعے نیویگیشن فوکس کو پیچھے کی طرف منتقل کرنے کے لئے اوپر کی طرف سوائپ کریں۔ حرف کے ذریعے نیویگیشن فوکس کو آگے کی طرف منتقل کرنے کے لئے نیچے کی طرف سوائپ کریں۔‎\n\nاسے ابھی آزما کر دیکھیں۔ آپ کے نیچے اور پھر اوپر سوائپ کرنے پر، آپ الفاظ یا پیراگرافس کے ذریعے پڑھنے کا انتخاب کر سکتے ہیں۔</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">%1$s کو فعال کر دیا</string>
   <string name="talkback_inactive_title">‏TalkBack غیر فعال ہے</string>
   <string name="talkback_inactive_message">‏اس ٹیوٹوریل کو TalkBack فعال کرنے کی ضرورت ہے۔ براہ کرم ٹیوٹوریل شروع کرنے سے پہلے TalkBack آن کریں۔</string>
+  <string name="watch_swipe_left_right_text">آئٹمز کے درمیان منتقل کرنے کے لیے دائیں یا بائیں سوائپ کریں</string>
+  <string name="watch_double_tap_text">آئٹم کو فعال کرنے کے لیے دو بار تھپتھپائیں</string>
+  <string name="watch_2_finger_scroll_text">اسکرول کرنے کے لیے 2 انگلیوں سے گھسیٹیں</string>
+  <string name="title_pref_thick_border">موٹے بارڈرز</string>
+  <string name="title_pref_category_border_color">رنگ</string>
+  <string name="title_pref_default_color">ڈیفالٹ</string>
+  <string name="title_pref_red">سرخ</string>
+  <string name="title_pref_orange">اورنج</string>
+  <string name="title_pref_yellow">پیلا</string>
+  <string name="title_pref_green">سبز</string>
+  <string name="title_pref_blue">نیلا</string>
+  <string name="title_pref_grey">سرمئی</string>
   <string name="survey_closed">سروے بند کر دیا گیا</string>
+  <string name="character_recognition_text">ٹیکسٹ: %1$s</string>
+  <string name="title_image_caption">تصویر کی وضاحت کریں</string>
 </resources>

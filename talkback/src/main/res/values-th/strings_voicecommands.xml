@@ -14,6 +14,7 @@
   <string name="voice_commands_language">ภาษา</string>
   <string name="voice_commands_languages">ภาษา</string>
   <string name="voice_commands_custom_actions">การทำงานที่กำหนดเอง</string>
+  <string name="voice_commands_action">การดำเนินการ</string>
   <string name="voice_commands_quick_settings">การตั้งค่าด่วน</string>
   <string name="voice_commands_quick_setting">การตั้งค่าด่วน</string>
   <string name="voice_commands_dim">หรี่แสง</string>
@@ -97,9 +98,9 @@
   <string name="voice_commands_no_voice_recognition_ability">ขออภัย ฟีเจอร์นี้ใช้ไม่ได้ในอุปกรณ์ของคุณ</string>
   <string name="voice_commands_error">เกิดข้อผิดพลาดในการรู้จำคำสั่งเสียง</string>
   <string name="voice_commands_partial_result">จำคำสั่งนี้ไม่ได้ พูดว่า \"%1$s\" เพื่อดูรายการคำสั่งทั้งหมด</string>
+  <string name="voice_commands_timeout">พูดว่า \"%1$s\" เพื่อดูรายการคำสั่งทั้งหมด</string>
   <string name="voice_commands_many_requests">โปรดรอสักครู่แล้วลองอีกครั้ง</string>
-  <string name="voice_commands_setting_disabled">ไม่ได้เปิดใช้การตั้งค่า \"%1$s\"</string>
-  <string name="voice_commands_echo_feedback_not_recognized">ไม่รู้จัก \"%1$s\" ว่าเป็นคำสั่งเสียง</string>
+  <string name="voice_commands_echo_feedback_not_recognized">ไม่รู้จักคำสั่งเสียง \"%1$s\"</string>
   <string name="voice_commands_label_saved">บันทึกป้ายกำกับแล้ว</string>
   <string name="voice_commands_no_actions_feedback">ไม่มีการทำงานที่ใช้ได้</string>
   <string name="voice_commands_no_next_heading_feedback">ไม่มีส่วนหัวถัดไป</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">ภาพรวมคำสั่งเสียง</string>
   <string name="voice_commands_help_description">หากต้องการใช้คำสั่งเสียง ให้เลื่อนไปทางขวาแล้วขึ้น พูดว่า \"ความช่วยเหลือ\" หรือ \"ฉันพูดอะไรได้บ้าง\" ได้ทุกเมื่อสำหรับรายการคำสั่งนี้</string>
   <string name="voice_commands_help_hint">พูดข้อความตามที่ระบุในหน้าจอต่อไปนี้เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด</string>
+  <string name="voice_command_screen_locked_hint">ใช้คำสั่งเสียงขณะหน้าจอล็อกอยู่ไม่ได้ หากต้องการใช้เมนู TalkBack แทน ให้%1$s</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">เปลี่ยนวิธีอ่านเนื้อหาในหน้าจอที่เปิดอยู่</string>
   <string name="voice_commands_help_next">[ส่วนหัว] ถัดไป</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">ป้อนข้อความค้นหาเพื่อหาข้อความนั้นในหน้าจอ</string>
   <string name="voice_commands_help_text_editing_description">พิมพ์ เลือก และคัดลอกข้อความ</string>
   <string name="voice_commands_help_type_text">พิมพ์ [ตกลง]</string>
-  <string name="voice_commands_help_copy_description">ตรวจสอบว่าได้เลือกข้อความแล้วก่อนที่จะคัดลอก</string>
-  <string name="voice_commands_help_cut_description">ตรวจสอบว่าได้เลือกข้อความแล้วก่อนที่จะตัด</string>
+  <string name="voice_commands_help_copy_description">เลือกข้อความก่อนคัดลอก</string>
+  <string name="voice_commands_help_cut_description">เลือกข้อความก่อนตัด</string>
+  <string name="voice_commands_help_delete_description">เลือกข้อความก่อนลบ</string>
   <string name="voice_commands_help_device_navigation_title">การนำทางในอุปกรณ์</string>
   <string name="voice_commands_help_device_navigation_description">ไปที่หน้าแรก ย้อนกลับ แสดงการแจ้งเตือน และอื่นๆ</string>
   <string name="voice_commands_help_overview_description">ดูแอปล่าสุด</string>

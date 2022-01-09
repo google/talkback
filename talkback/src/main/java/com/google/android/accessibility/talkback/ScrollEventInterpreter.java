@@ -16,14 +16,14 @@
 
 package com.google.android.accessibility.talkback;
 
-import static com.google.android.accessibility.utils.AccessibilityEventUtils.DELTA_UNDEFINED;
 
 import android.annotation.TargetApi;
-import androidx.annotation.IntDef;
-import androidx.annotation.VisibleForTesting;
+import android.os.Build.VERSION_CODES;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.annotation.IntDef;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.actor.AutoScrollActor.AutoScrollRecord;
 import com.google.android.accessibility.talkback.interpreters.AutoScrollInterpreter;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
@@ -53,6 +53,7 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
   public static final int ACTION_AUTO_SCROLL = 1;
   public static final int ACTION_SCROLL_SHORTCUT = 2;
   public static final int ACTION_MANUAL_SCROLL = 3;
+  private static final int SCROLL_NOISE_RANGE = 15;
 
   /** Source action types that result in scroll events. */
   @IntDef({ACTION_UNKNOWN, ACTION_AUTO_SCROLL, ACTION_SCROLL_SHORTCUT, ACTION_MANUAL_SCROLL})
@@ -318,30 +319,36 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
     }
   }
 
+  /**
+   * Calculates the scroll direction by current AccessibilityEvent and previous one, also filters
+   * small noises to prevent false alarms.
+   */
   @SearchDirectionOrUnknown
   private int getScrollDirection(NodeIdentifier sourceNodeIdentifier, AccessibilityEvent event) {
-    PositionInfo positionInfo = cachedPositionInfo.get(sourceNodeIdentifier);
-    if (positionInfo == null) {
+    PositionInfo previousPosition = cachedPositionInfo.get(sourceNodeIdentifier);
+    if (previousPosition == null) {
       if (BuildVersionUtils.isAtLeastR()) {
         return getScrollDirectionFromDeltas(event);
       }
       return TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
     }
 
-    // Check scroll of AdapterViews
-    if (event.getFromIndex() > positionInfo.fromIndex
-        || event.getToIndex() > positionInfo.toIndex) {
-      return TraversalStrategy.SEARCH_FOCUS_FORWARD;
-    } else if (event.getFromIndex() < positionInfo.fromIndex
-        || event.getToIndex() < positionInfo.toIndex) {
-      return TraversalStrategy.SEARCH_FOCUS_BACKWARD;
+    // Checks scroll of AdapterViews and doesn't care toIndex because changing of toIndex might be
+    // expanding list-item only.
+    if (event.getFromIndex() != INDEX_UNDEFINED && previousPosition.fromIndex != INDEX_UNDEFINED) {
+      if (event.getFromIndex() > previousPosition.fromIndex) {
+        return TraversalStrategy.SEARCH_FOCUS_FORWARD;
+      } else if (event.getFromIndex() < previousPosition.fromIndex) {
+        return TraversalStrategy.SEARCH_FOCUS_BACKWARD;
+      }
     }
 
-    // Check scroll of ScrollViews.
-    if (event.getScrollX() > positionInfo.scrollX || event.getScrollY() > positionInfo.scrollY) {
+    // Checks scroll of ScrollViews and ignores small noises.
+    if (event.getScrollX() > (previousPosition.scrollX + SCROLL_NOISE_RANGE)
+        || event.getScrollY() > (previousPosition.scrollY + SCROLL_NOISE_RANGE)) {
       return TraversalStrategy.SEARCH_FOCUS_FORWARD;
-    } else if (event.getScrollX() < positionInfo.scrollX
-        || event.getScrollY() < positionInfo.scrollY) {
+    } else if (event.getScrollX() < (previousPosition.scrollX - SCROLL_NOISE_RANGE)
+        || event.getScrollY() < (previousPosition.scrollY - SCROLL_NOISE_RANGE)) {
       return TraversalStrategy.SEARCH_FOCUS_BACKWARD;
     }
 
@@ -352,17 +359,19 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
     return TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
   }
 
-  @TargetApi(BuildVersionUtils.API_R)
+  @TargetApi(VERSION_CODES.R)
   @SearchDirectionOrUnknown
   private int getScrollDirectionFromDeltas(AccessibilityEvent event) {
     int scrollDeltaX = event.getScrollDeltaX();
     int scrollDeltaY = event.getScrollDeltaY();
-    if (scrollDeltaX == DELTA_UNDEFINED && scrollDeltaY == DELTA_UNDEFINED) {
+    if (Math.abs(scrollDeltaX) < SCROLL_NOISE_RANGE
+        && Math.abs(scrollDeltaY) < SCROLL_NOISE_RANGE) {
       return TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
     }
-    if (scrollDeltaX > 0 || scrollDeltaY > 0) {
+    // Gets the scroll delta value but ignores the small noises.
+    if (scrollDeltaX - SCROLL_NOISE_RANGE > 0 || scrollDeltaY - SCROLL_NOISE_RANGE > 0) {
       return TraversalStrategy.SEARCH_FOCUS_FORWARD;
-    } else if (scrollDeltaX < 0 || scrollDeltaY < 0) {
+    } else if (scrollDeltaX + SCROLL_NOISE_RANGE < 0 || scrollDeltaY + SCROLL_NOISE_RANGE < 0) {
       return TraversalStrategy.SEARCH_FOCUS_BACKWARD;
     }
     return TraversalStrategy.SEARCH_FOCUS_UNKNOWN;
@@ -374,21 +383,20 @@ public class ScrollEventInterpreter implements AccessibilityEventListener {
   }
 
   private boolean hasValidIndex(AccessibilityEvent event) {
-    switch (event.getEventType()) {
-      case AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED:
-        return (event.getFromIndex() != INDEX_UNDEFINED)
-            && (event.getToIndex() != INDEX_UNDEFINED)
-            && (event.getItemCount() > 0);
-      case AccessibilityEvent.TYPE_VIEW_SCROLLED:
-        boolean validScrollDelta = AccessibilityEventUtils.hasValidScrollDelta(event);
-        return (event.getFromIndex() != INDEX_UNDEFINED)
-            || (event.getToIndex() != INDEX_UNDEFINED)
-            || (event.getScrollX() != INDEX_UNDEFINED)
-            || (event.getScrollY() != INDEX_UNDEFINED)
-            || validScrollDelta;
-      default:
-        return false;
-    }
+    return hasValidAdapterViewIndex(event)
+        || hasValidScrollViewIndex(event)
+        || AccessibilityEventUtils.hasValidScrollDelta(event);
+  }
+
+  private boolean hasValidAdapterViewIndex(AccessibilityEvent event) {
+    return (event.getFromIndex() != INDEX_UNDEFINED)
+        && (event.getToIndex() != INDEX_UNDEFINED)
+        && (event.getItemCount() > 0);
+  }
+
+  private boolean hasValidScrollViewIndex(AccessibilityEvent event) {
+    return (event.getScrollX() > INDEX_UNDEFINED || event.getScrollY() > INDEX_UNDEFINED)
+        && (event.getMaxScrollX() > 0 || event.getMaxScrollY() > 0);
   }
 
   private void cacheScrollPositionInfo(AccessibilityEvent event) {

@@ -19,17 +19,17 @@ package com.google.android.accessibility.talkback.dialog;
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.RESTORE_ON_NEXT_WINDOW;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline.FeedbackReturner;
 import com.google.android.accessibility.talkback.TalkBackService;
-import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
+import com.google.android.accessibility.talkback.utils.MaterialComponentUtils;
 import com.google.android.accessibility.utils.widget.DialogUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
@@ -153,7 +153,7 @@ public abstract class BaseDialog {
     final DialogInterface.OnDismissListener onDismissListener = dialog -> dismissDialogInternal();
 
     AlertDialog.Builder dialogBuilder =
-        AlertDialogUtils.createBuilder(context)
+        MaterialComponentUtils.alertDialogBuilder(context)
             .setTitle(dialogTitleResId)
             .setNegativeButton(negativeButtonStringRes, onClickListener)
             .setPositiveButton(positiveButtonStringRes, onClickListener)

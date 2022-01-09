@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">მიმდინარეობს წერტილის მდებარეობის განახლება. თავდაპირველად, ჩავიწეროთ წერტილები თქვენი მარცხენა ხელით. ხანგრძლივად შეეხეთ ეკრანს თქვენი მარცხენა ხელის შუა 3 თითით.</string>
   <string name="calibration_step1_hold_right_finger_announcement">მიმდინარეობს წერტილის მდებარეობის განახლება. თავდაპირველად, ჩავიწეროთ წერტილები თქვენი მარჯვენა ხელით. ხანგრძლივად შეეხეთ ეკრანს თქვენი მარჯვენა ხელის შუა 3 თითით.</string>
   <string name="calibration_finish_announcement">წერტილის მდებარეობა განახლდა.</string>
+  <string name="remaining_calibration_finish_announcement">ყველა წერტილის პოზიცია განახლდა</string>
   <string name="calibration_step2_hold_right_finger_announcement">განახლდა მდებარეობა წერტილებისთვის 1, 2 და 3. ახლა კი ჩავიწეროთ წერტილები თქვენი მარჯვენა ხელით. ხანგრძლივად შეეხეთ ეკრანს თქვენი მარჯვენა ხელის შუა 3 თითით.</string>
   <string name="calibration_step2_hold_left_finger_announcement">განახლდა მდებარეობა წერტილებისთვის 1, 2 და 3. ახლა კი ჩავიწეროთ წერტილები თქვენი მარცხენა ხელით. ხანგრძლივად შეეხეთ ეკრანს თქვენი მარცხენა ხელის შუა 3 თითით.</string>
   <string name="calibration_fail_announcement">წერტილის მდებარეობის განახლება ვერ მოხერხდა. ხანგრძლივად შეეხეთ ეკრანს 6 თითით. შემდეგ კი ცადეთ ხელახლა.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">ერთიანი ინგლისური ბრაილი</string>
   <string name="code_user_facing_name_es">ესპანური</string>
   <string name="code_user_facing_name_ar">არაბული</string>
+  <string name="code_user_facing_name_fr">ფრანგული</string>
   <string name="title_pref_accumulate_presses">ყველა დაჭერილი წერტილის შეყვანა</string>
   <string name="summary_pref_accumulate_presses">თითოეული დაჭერილი წერტილი შეტანილი ტექსტის ნაწილია, ისინიც კი, რომლებსაც სხვა წერტილებზე ადრე აუშვით</string>
   <string name="title_pref_reverse_dots">წერტილების შებრუნება</string>
   <string name="summary_pref_reverse_dots">გადაცვალეთ წერტილების პოზიციები, ისე, რომ 1-ლმა და მე-4 წერტილებმა ადგილები გაცვალონ, მაგალითად</string>
-  <string name="typing_echo_list_preference_title">აკრეფის გამოხმაურება (აკრეფის ექო)</string>
-  <string name="typing_echo_preference_label_characters">ყველა ასოსა და სიტყვის წაკითხვა</string>
-  <string name="typing_echo_preference_label_words">მხოლოდ სიტყვების წაკითხვა</string>
   <string name="context_menu_title">ბრაილის კლავიატურის ვარიანტები</string>
   <string name="context_menu_typing_language_selection">აკრეფის ენის შეცვლა</string>
   <string name="context_menu_typing_language_selection_summary">ამჟამად გამოიყენება %s</string>

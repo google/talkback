@@ -3,7 +3,7 @@
   <string name="talkback_service_description">Þegar kveikt er á TalkBack býður það upp á raddsvörun til að þú getir notað tækið án þess að líta á skjáinn. Þetta getur verið gagnlegt fyrir blinda og sjónskerta einstaklinga.\n\nTil að nota TalkBack:\n• Strjúktu til hægri eða vinstri til að fara á milli atriða\n• Ýttu tvisvar til að virkja atriði\n• Dragðu með tveimur fingrum til að fletta\n\nTil að slökkva á TalkBack:\n• Ýttu á rofann. Þú sérð grænar útlínur. Ýttu tvisvar á rofann.\n• Í staðfestingarskilaboðunum skaltu ýta á Í lagi. Ýttu síðan tvisvar á Í lagi.</string>
   <string name="talkback_service_html_description">Þegar kveikt er á TalkBack færðu raddsvörun til að þú getir notað tækið án þess að horfa á skjáinn. TalkBack er gert fyrir aðstæður þegar erfitt er að sjá á skjáinn og fyrir fólk sem á erfitt með það.&lt;br&gt;&lt;br&gt;&lt;b&gt;Notkun Talkback&lt;/b&gt;&lt;br&gt;• Strjúktu til hægri eða vinstri til að fara á milli atriða&lt;br&gt;• Ýttu tvisvar til að virkja atriði&lt;br&gt;• Dragðu 2 fingur til að fletta&lt;br&gt;&lt;br&gt;&lt;b&gt;Slökkt á TalkBack&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Hljóðstyrkstakkar:&lt;/b&gt; Haltu báðum hljóðstyrkstökkunum inni í nokkrar sekúndur.&lt;br&gt;&lt;br&gt;&lt;b&gt;Stillingar&lt;/b&gt;&lt;br&gt;• Ýttu á rofann&lt;b&gt;Nota TalkBack&lt;/b&gt;. Þú sérð græna útlínu. Ýttu tvisvar á rofann.&lt;br&gt;• Í staðfestingarskilaboðunum ýtirðu á „Stopp“. Ýttu svo tvisvar á „Stopp“.</string>
   <string name="talkback_service_summary">Lesa upp atriði á skjánum</string>
-  <string name="talkback_preferences_title">Stillingar TalkBack</string>
+  <string name="talkback_preferences_title">TalkBack stillingar</string>
   <string name="tts_preferences_title">Stillingar talgervils</string>
   <string name="language_options">Tungumál</string>
   <string name="spoken_language">Talað tungumál</string>
@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Útgáfa %1$s</string>
   <string name="label_manager_summary_title">Stjórna sérsniðnum skýringum</string>
   <string name="label_manager_package_title">Stjórna skýringum fyrir %1$s</string>
+  <string name="manage_label">Stjórna merki</string>
   <string name="label_manager_no_packages_message">Engin sérsniðin merki eru til staðar. Þú getur búið til sérsniðið merki með því að opna ómerkta mynd og bæta við merki úr valmynd TalkBack.</string>
   <string name="label_manager_timestamp_text">Síðast breytt %1$s</string>
   <string name="search_dialog_label">Leit: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Snertikönnun</string>
   <string name="title_pref_category_touch_exploration">Fletting</string>
   <string name="title_pref_category_controls">Stýringar</string>
-  <string name="title_pref_single_tap">Virkjað með því að ýta einu sinni</string>
+  <string name="title_pref_single_tap">Ýta einu sinni til að virkja</string>
   <string name="title_pref_show_context_menu_as_list">Sýna efnisvalmynd sem lista</string>
-  <string name="summary_pref_single_tap">(Tilraunaeiginleiki) Ýttu einu sinni á atriði í fókus til að virkja</string>
+  <string name="summary_pref_single_tap">Ýttu einu sinni á atriði í fókus til að virkja</string>
   <string name="title_pref_shake_to_read_threshold">Hrista til að hefja samfelldan upplestur</string>
   <string name="pref_verbosity_title">Nákvæmni</string>
   <string name="pref_punctuation_title">Greinarmerki</string>
+  <string name="title_pref_category_manage_focus_indicator">Sérsníða fókusvísi</string>
   <string name="title_pref_category_manage_gestures">Sérsníða bendingar</string>
   <string name="title_pref_manage_labels">Sérsniðnir flokkar</string>
   <string name="title_pref_manage_customize_menus">Sérsníða valmyndir</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Hjálp og ábendingar</string>
   <string name="title_pref_category_tutorial_and_help">Leiðsögn og hjálp</string>
   <string name="title_pref_category_advanced">Ítarlegt</string>
+  <string name="title_pref_category_typing">Innsláttur og lyklaborð</string>
   <string name="title_pref_category_legal_and_privacy">Skilmálar og persónuvernd</string>
   <string name="title_pref_advanced_settings">Ítarlegar stillingar</string>
   <string name="reset_gesture_settings_title">Endurstilla bendistillingar</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Nýleg forrit</string>
   <string name="keycombo_menu_global_notifications">Tilkynningar</string>
   <string name="keycombo_menu_global_suspend">Gera hlé á eða halda áfram með TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Spila eða gera hlé á efni</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Velja næstu lesstýringu</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Velja fyrri lesstýringu</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Stilla lesstýringu á „upp“</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Stilla lesstýringu á „niður“</string>
   <string name="keycombo_menu_category_granularity">Fletting</string>
   <string name="keycombo_menu_granularity_increase">Stilling fyrir flettingu á næsta</string>
   <string name="keycombo_menu_granularity_decrease">Stilling fyrir flettingu á fyrra</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Enginn texti til að afrita. Byrjaðu á því að velja texta.</string>
   <string name="cannot_paste_feedback">Enginn texti til að líma. Byrjaðu á því að afrita texta.</string>
   <string name="cannot_cut_feedback">Enginn texti til að klippa. Byrjaðu á því að velja texta.</string>
+  <string name="cannot_delete_feedback">Enginn texti til að eyða. Byrjaðu á því að velja texta.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Ertu viss um að þú viljir endurstilla flýtilyklana fyrir þessa lyklaskipan á sjálfgildi? Athugaðu að ekki er hægt að afturkalla þessa aðgerð.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Endurstilla</string>
   <string name="override_keycombo">Flýtilykill þegar í notkun</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Nota breytingar á tónhæð</string>
   <string name="title_pref_keyboard_echo">Upplestur lyklaborðs</string>
   <string name="pref_node_desc_order_title">Lýsingaröð eininga</string>
-  <string name="summaryOn_pref_intonation">Lesa lyklaborðssvörun upp með rödd í lægri tóntegund</string>
+  <string name="summaryOn_pref_intonation">Lesa upp texta sem er eytt með lyklaborðinu með rödd í hærri tón</string>
   <string name="summaryOff_pref_intonation">Ekki breyta raddhæð þegar talað er</string>
   <string name="title_pref_brailleime">Blindraleturslyklaborð</string>
   <string name="title_pref_category_feedback_settings">Önnur svörun</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Kveikja á villuleit í hnútatré</string>
   <string name="summary_pref_tree_debug_tv">Nota raddleitartakka til að prenta hnútatré í stað þess að leita</string>
   <string name="title_pref_performance_stats">Gera frammistöðugögn virk</string>
+  <string name="title_pref_log_overlay">Kveikja á yfirlögn villuleitarannáls</string>
   <string name="title_pref_resume_talkback">Halda áfram eftir lokun</string>
+  <string name="title_pref_typing_confirmation">Kjörstilling fyrir innslátt</string>
   <string name="title_pref_multi_finger_gesture">Kveikja á bendingum með mörgum fingrum</string>
   <string name="screen_dimmed">Skjár falinn</string>
   <string name="screen_brightness_restored">Sýnir skjá</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Fletta niður</string>
   <string name="shortcut_scroll_left">Fletta til vinstri</string>
   <string name="shortcut_scroll_right">Fletta til hægri</string>
+  <string name="shortcut_next_window">Næsti gluggi</string>
+  <string name="shortcut_previous_window">Fyrri gluggi</string>
   <string name="shortcut_back">Til baka</string>
   <string name="shortcut_home">Heim</string>
   <string name="shortcut_overview">Yfirlit</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Fela eða sýna skjá</string>
   <string name="title_show_screen_search">Skjáleit</string>
   <string name="title_show_voice_commands">Raddskipanir</string>
+  <string name="talkback_show_talkback_settings">TalkBack stillingar</string>
   <string name="title_other_web_navigation">Önnur vefskoðun</string>
   <string name="title_granularity_default">Sjálfgefin fletting</string>
   <string name="title_seek_bar_edit">Breyta sleðaflokki</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Stjórnaðu TalkBack með röddinni</string>
   <string name="summary_show_hide_screen">Feldu skjáinn svo hann sé ekki sýnilegur öðrum á almenningsstöðum. Þegar skjárinn hefur verið falinn er hægt að setja hann aftur í venjulega stillingu.</string>
   <string name="summary_talkback_preferences">Opna stillingar TalkBack</string>
-  <string name="summary_system_actions">Opnaðu „Öll forrit“, „Flýtistillingar“ og notaðu skjáskiptingu</string>
+  <string name="summary_system_actions">Opnaðu „Öll forrit“ og „Flýtistillingar“</string>
   <string name="summary_tts_settings">Opna stillingar talgervils</string>
   <string name="summary_pause_feedback">Slökkva á raddsvörun TalkBack</string>
   <string name="not_editable">Ekki hægt að breyta</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Lesa eitt orð í einu</string>
   <string name="summary_lines">Lesa eina línu í einu</string>
   <string name="summary_paragraphs">Lesa eina efnisgrein í einu</string>
+  <string name="summary_windows">Opna aðra glugga, eins og hljóðstyrksstillingar eða yfirlitsstikuna</string>
   <string name="summary_headings">Hoppa á milli fyrirsagna</string>
   <string name="summary_controls">Hoppa á milli atriða sem þú getur notað, svo sem hnappa, gátreita og textareita</string>
   <string name="summary_links">Hoppa á milli tengla</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Breyta því hvort innsláttur, notkunarleiðréttingar, upplýsingar um töflu og aðrar upplýsingar séu lesnar upp</string>
   <string name="summary_selector_menu_punctuation">Breyta því hvort greinarmerki og tákn eru lesin upp eða ekki</string>
   <string name="summary_language">Breyta töluðu tungumáli. Birtist aðeins þegar mörg tungumál eru uppsett fyrir talgervil.</string>
-  <string name="summary_sound_feedback">Heyra hljóðtilkynningar þegar þú flettir, svo sem píp sem staðfestir aðgerð.</string>
+  <string name="summary_sound_feedback">Heyra hljóðtilkynningar þegar þú flettir, svo sem píp sem staðfestir aðgerð</string>
   <string name="summary_vibration_feedback">Finna titring við aðgerðir, svo sem þegar atriði er valið. Hefur ekki áhrif á titring frá forritum eða kerfinu.</string>
   <string name="summary_hide_screen">Feldu skjáinn svo að hann sé ekki sýnilegur öðrum þegar þú ert á almenningsstöðum</string>
   <string name="summary_audio_ducking">Lækka önnur hljóð sem spilast á meðan TalkBack talar</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Fletta áfram eða til baka</string>
+  <string name="summary_support_change_a11y_volume">Hækka eða lækka hljóðstyrk aðgengis</string>
+  <string name="summary_image_caption">Fá sjálfvirka lýsingu fyrir þessa mynd</string>
   <string name="value_direction_up">upp</string>
   <string name="value_direction_down">niður</string>
   <string name="value_direction_left">til vinstri</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Ýta tvisvar og halda inni tveimur fingrum</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Ýta tvisvar og halda inni þremur fingrum</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Ýta tvisvar og halda inni fjórum fingrum</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Ýta þrisvar og halda inni með 2 fingrum</string>
+  <string name="seekbar_hint_2gesture">„%1$s“ eða „%2$s“ til að stilla</string>
+  <string name="seekbar_hint_1gesture">„%1$s“ til að stilla</string>
   <string name="gesture_name_unknown">Óþekkt bending</string>
   <string name="gesture_name_pass_through">Fara yfir í kerfisbendingu</string>
   <string name="gesture_name_touch_explore">Kanna með snertingu</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Ýta tvisvar og halda inni</string>
   <string name="gesture_name_2finger_tap_hold">Halda inni með 2 fingrum</string>
   <string name="gesture_name_3finger_tap_hold">Halda inni með 3 fingrum</string>
+  <string name="gesture_name_2finger_3tap_hold">Ýta þrisvar og halda inni með 2 fingrum</string>
   <string name="gesture_name_3finger_3tap_hold">Ýta þrisvar og halda inni með 3 fingrum</string>
   <string name="title_pref_shortcut_fingerprint_up">Strjúka upp á fingrafaralesara</string>
   <string name="title_pref_shortcut_fingerprint_down">Strjúka niður á fingrafaralesara</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Þegar kviknar á skjánum</string>
   <string name="value_resume_keyguard">Þegar lásskjárinn birtist</string>
   <string name="value_resume_manual">Aðeins úr tilkynningu</string>
+  <string name="value_type_confirmation_double_tap">Haltu lykli inni til að velja hann og ýttu svo tvisvar</string>
+  <string name="value_type_confirmation_lift_to_type">Haltu lykli inni til að velja hann og slepptu svo</string>
   <string name="value_shake_to_read_disabled">Slökkt</string>
   <string name="value_shake_to_read_threshold_very_light">Mjög létt</string>
   <string name="value_shake_to_read_threshold_light">Létt</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Lesa innslátt alltaf upphátt</string>
   <string name="value_keyboard_echo_softkeys">Aðeins fyrir skjályklaborðið</string>
   <string name="value_keyboard_echo_never">Lesa innslátt aldrei upphátt</string>
+  <string name="title_pref_keyboard_echo_on_screen">Upplestur lyklaborðs: Lyklaborð á skjánum</string>
+  <string name="title_pref_keyboard_echo_physical">Upplestur lyklaborðs: Vélbúnaðarlyklaborð</string>
+  <string name="value_keyboard_echo_none">Engin</string>
+  <string name="value_keyboard_echo_characters_only">Stafir</string>
+  <string name="value_keyboard_echo_words_only">Orð</string>
+  <string name="value_keyboard_echo_characters_and_words">Stafir og orð</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Staða, heiti, gerð</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Gerð, heiti, staða</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Heiti, gerð, staða</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Ertu viss um að þú viljir kveikja á villuleit í hnútatré?\n\nVilluleit í hnútatré gerir það sem er á skjánum aðgengilegt annálum tækisins sem önnur forrit gætu lesið.</string>
   <string name="dialog_title_enable_performance_stats">Kveikja á frammistöðugögnum?</string>
   <string name="dialog_message_enable_performance_stats">Viltu örugglega kveikja á frammistöðugögnum?\n\nFrammistöðugögn kunna að nota meira minni og orku.</string>
+  <string name="title_request_phone_permission">Leyfa aðgang að síma?</string>
+  <string name="message_request_phone_permission">Þannig getur TalkBack dregið úr tilkynningum þegar þú hringir símtal</string>
+  <string name="continue_button">Áfram</string>
   <string name="label_talkback_context_menu">Altæk samhengisvalmynd TalkBack</string>
   <string name="permission_talkback_label">Stjórna TalkBack</string>
   <string name="permission_talkback_desc">Leyfi til að senda bendingar til TalkBack og halda raddsvörun áfram.</string>
-  <string name="permission_labeling_label">Stjórna sérsniðnum skýringum TalkBack</string>
-  <string name="permission_labeling_desc">Leyfi til að opna, breyta og eyða sérsniðnum skýringum sem TalkBack les upp.</string>
   <string name="links">Tenglar</string>
   <string name="end_of_text">Lok</string>
   <string name="start_of_page">Engin fyrri %1$s</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Greinarmerki</string>
   <string name="title_pref_selector_granularity">Fletting</string>
   <string name="title_pref_selector_audio_focus">Hljóðlækkun</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Fletta</string>
+  <string name="title_pref_a11y_volume">Hljóðstyrkur aðgengis</string>
   <string name="title_pref_selector_adjustable_widget_slider">Breyta sleða</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Stilla gildi</string>
   <string name="title_pref_speak_passwords_without_headphones">Lesa aðgangsorð upp</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Nota raddskipanir</string>
   <string name="dialog_title_pass_through_mode">Sleppa TalkBack bendingum til að nota kerfisbendingar</string>
   <string name="dialog_message_pass_through_mode">Þegar bjölluhljómur heyrist geturðu notað kerfisbendingu sem TalkBack styður ekki. Þetta kallast ytri bending.</string>
-  <string name="hint_type_search_term">Sláðu inn leitarorð</string>
+  <string name="hint_type_search_term">Leitarfyrirspurn</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Tilkynningarás TalkBack</string>
   <string name="pref_selector_summary">%1$s til að velja stillingu. Svo %2$s til að velja valkosti fyrir stillinguna.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Ýttu tvisvar og haltu inni með 3 fingrum til að klippa texta.\n\nÝttu þrisvar með 3 fingrum til að líma texta.\n\nPrófaðu að líma orð í textareitinn hér fyrir neðan.</string>
   <string name="copy_text_pre_r">Þegar búið er að velja texta er hægt að afrita hann í valmynd TalkBack. Strjúktu niður og til hægri til að opna valmynd TalkBack. Ýttu tvisvar á „breytingavalkostir“ og afritaðu svo.\n\nPrófaðu að afrita orð í textareitnum hér fyrir neðan.</string>
   <string name="cut_paste_text_pre_r">Hægt er að klippa eða líma texta með því að opna valmynd TalkBack og ýta tvisvar á „breytingavalkostir“.\n\nPrófaðu að líma orð í textareitinn hér fyrir neðan.</string>
+  <string name="edit_box_hint_paste_text">Límdu texta hér</string>
   <string name="read_by_character_title">Lesa stafi, orð eða málsgreinar</string>
   <string name="read_by_character_text">Stundum viltu kannski heyra orð lesin upp staf fyrir staf.\n\nGerðu það með því að strjúka til hægri með 3 fingrum þar til þú heyrir „%1$s“. Svo skaltu strjúka upp til að færa flettifókusinn aftur um staf. Strjúktu niður til að færa flettifókusinn áfram um staf.\n\nPrófaðu það núna. Með því að strjúka til hægri með 3 fingrum geturðu líka valið að lesa orð eða setningar.</string>
   <string name="read_by_character_text_pre_r">Stundum viltu kannski heyra orð lesin upp staf fyrir staf.\n\nGerðu það með því að strjúka niður og svo upp þar til þú heyrir „%1$s“. Svo skaltu strjúka upp til að færa flettifókusinn aftur um staf. Strjúktu niður til að færa flettifókusinn áfram um staf.\n\nPrófaðu það núna. Með því að strjúka niður og svo upp geturðu líka valið að lesa orð eða setningar.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">Kveikt %1$s</string>
   <string name="talkback_inactive_title">Slökkt á TalkBack</string>
   <string name="talkback_inactive_message">Þessi leiðsögn krefst þess að TalkBack sé virkt. Kveiktu á TalkBack áður en þú ræsir leiðsögnina.</string>
+  <string name="watch_swipe_left_right_text">Strjúktu til vinstri eða hægri til að fletta á milli atriða</string>
+  <string name="watch_double_tap_text">Ýttu tvisvar til að virkja atriði</string>
+  <string name="watch_2_finger_scroll_text">Dragðu með tveimur fingrum til að fletta</string>
+  <string name="title_pref_thick_border">Þykkir rammar</string>
+  <string name="title_pref_category_border_color">Litur</string>
+  <string name="title_pref_default_color">Sjálfgefið</string>
+  <string name="title_pref_red">Rauður</string>
+  <string name="title_pref_orange">Appelsínugulur</string>
+  <string name="title_pref_yellow">Gulur</string>
+  <string name="title_pref_green">Grænn</string>
+  <string name="title_pref_blue">Blár</string>
+  <string name="title_pref_grey">Grár</string>
   <string name="survey_closed">Könnun lokað</string>
+  <string name="character_recognition_text">Texti: %1$s</string>
+  <string name="title_image_caption">Lýsa mynd</string>
 </resources>

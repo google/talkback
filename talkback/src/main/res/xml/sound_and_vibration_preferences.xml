@@ -2,6 +2,15 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
   <SwitchPreference
+      android:defaultValue="@bool/pref_vibration_default"
+      android:key="@string/pref_vibration_key"
+      android:title="@string/title_pref_vibration" />
+  <SwitchPreference
+      android:defaultValue="@bool/pref_use_audio_focus_default"
+      android:key="@string/pref_use_audio_focus_key"
+      android:title="@string/title_pref_use_audio_focus"
+      android:summary="@string/summary_pref_use_audio_focus" />
+  <SwitchPreference
       android:defaultValue="@bool/pref_soundback_default"
       android:key="@string/pref_soundback_key"
       android:title="@string/title_pref_soundback" />
@@ -14,13 +23,4 @@
       android:key="@string/pref_soundback_volume_key"
       android:summary="%s"
       android:title="@string/title_pref_soundback_volume" />
-  <SwitchPreference
-      android:defaultValue="@bool/pref_use_audio_focus_default"
-      android:key="@string/pref_use_audio_focus_key"
-      android:title="@string/title_pref_use_audio_focus"
-      android:summary="@string/summary_pref_use_audio_focus" />
-  <SwitchPreference
-      android:defaultValue="@bool/pref_vibration_default"
-      android:key="@string/pref_vibration_key"
-      android:title="@string/title_pref_vibration" />
 </PreferenceScreen>

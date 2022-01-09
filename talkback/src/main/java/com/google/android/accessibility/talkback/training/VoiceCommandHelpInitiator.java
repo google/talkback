@@ -18,10 +18,13 @@ package com.google.android.accessibility.talkback.training;
 
 import static com.google.android.accessibility.talkback.training.NavigationButtonBar.DEFAULT_BUTTONS;
 import static com.google.android.accessibility.talkback.training.PageConfig.PageContentPredicate.SUPPORT_SYSTEM_ACTIONS;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_VOICE_COMMAND_HELP;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_VOICE_COMMAND_HELP_FOR_WATCH;
 
 import android.content.Context;
 import android.content.Intent;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.training.PageConfig.PageId;
 import com.google.android.accessibility.utils.FeatureSupport;
 
 /** Starts a {@link TrainingActivity} to show voice command help pages. */
@@ -29,7 +32,9 @@ public class VoiceCommandHelpInitiator {
   public static Intent createVoiceCommandHelpIntent(Context context) {
     return TrainingActivity.createTrainingIntent(
         context,
-        FeatureSupport.isWatch(context) ? VOICE_COMMAND_HELP_FOR_WATCH : VOICE_COMMAND_HELP);
+        FeatureSupport.isWatch(context)
+            ? TRAINING_ID_VOICE_COMMAND_HELP_FOR_WATCH
+            : TRAINING_ID_VOICE_COMMAND_HELP);
   }
 
   private VoiceCommandHelpInitiator() {}
@@ -37,8 +42,8 @@ public class VoiceCommandHelpInitiator {
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Pages
 
-  private static final PageConfig.Builder voiceCommandOverview =
-      PageConfig.builder(R.string.voice_commands_help_title)
+  static final PageConfig.Builder voiceCommandOverview =
+      PageConfig.builder(PageId.PAGE_ID_VOICE_COMMAND_OVERVIEW, R.string.voice_commands_help_title)
           .hidePageNumber()
           .setEndOfSection()
           .addText(R.string.voice_commands_help_description)
@@ -69,8 +74,10 @@ public class VoiceCommandHelpInitiator {
               R.drawable.quantum_gm_ic_more_horiz_googblue_24,
               R.string.voice_commands_help_other_commands_title);
 
-  private static final PageConfig.Builder voiceCommandReadingControls =
-      PageConfig.builder(R.string.voice_commands_help_reading_controls_title)
+  static final PageConfig.Builder voiceCommandReadingControls =
+      PageConfig.builder(
+              PageId.PAGE_ID_VOICE_COMMAND_READING_CONTROLS,
+              R.string.voice_commands_help_reading_controls_title)
           .addTextWithBullet(R.string.shortcut_read_from_current)
           .addTextWithBullet(R.string.title_read_from_top)
           .addTextWithBullet(R.string.voice_commands_help_next)
@@ -88,8 +95,10 @@ public class VoiceCommandHelpInitiator {
           .addTextWithBullet(R.string.voice_commands_languages)
           .addSubText(R.string.voice_commands_help_languages_description);
 
-  private static final PageConfig.Builder voiceCommandFindItems =
-      PageConfig.builder(R.string.voice_commands_help_find_items_title)
+  static final PageConfig.Builder voiceCommandFindItems =
+      PageConfig.builder(
+              PageId.PAGE_ID_VOICE_COMMAND_FIND_ITEMS,
+              R.string.voice_commands_help_find_items_title)
           .addTextWithBullet(R.string.voice_commands_help_find_text)
           .addSubText(R.string.voice_commands_help_find_text_description)
           .addTextWithBullet(R.string.voice_commands_find)
@@ -97,15 +106,18 @@ public class VoiceCommandHelpInitiator {
           .addTextWithBullet(R.string.voice_commands_screen_search)
           .addSubText(R.string.voice_commands_help_screen_search_description);
 
-  private static final PageConfig.Builder voiceCommandFindItemsForWatch =
-      PageConfig.builder(R.string.voice_commands_help_find_items_title)
+  static final PageConfig.Builder voiceCommandFindItemsForWatch =
+      PageConfig.builder(
+              PageId.PAGE_ID_VOICE_COMMAND_FIND_ITEMS_FOR_WATCH,
+              R.string.voice_commands_help_find_items_title)
           .addTextWithBullet(R.string.voice_commands_help_find_text)
           .addSubText(R.string.voice_commands_help_find_text_description)
           .addTextWithBullet(R.string.voice_commands_find)
           .addSubText(R.string.voice_commands_help_find_description);
 
-  private static final PageConfig.Builder voiceCommandTextEditing =
-      PageConfig.builder(R.string.shortcut_title_text_editing)
+  static final PageConfig.Builder voiceCommandTextEditing =
+      PageConfig.builder(
+              PageId.PAGE_ID_VOICE_COMMAND_TEXT_EDITING, R.string.shortcut_title_text_editing)
           .addTextWithBullet(R.string.voice_commands_help_type_text)
           .addTextWithBullet(android.R.string.selectAll)
           .addTextWithBullet(R.string.voice_commands_select)
@@ -119,8 +131,10 @@ public class VoiceCommandHelpInitiator {
           .addTextWithBullet(android.R.string.paste)
           .addTextWithBullet(R.string.voice_commands_edit_options);
 
-  private static final PageConfig.Builder voiceCommandDeviceNavigation =
-      PageConfig.builder(R.string.voice_commands_help_device_navigation_title)
+  static final PageConfig.Builder voiceCommandDeviceNavigation =
+      PageConfig.builder(
+              PageId.PAGE_ID_VOICE_COMMAND_DEVICE_NAVIGATION,
+              R.string.voice_commands_help_device_navigation_title)
           .hidePageNumber()
           .addTextWithBullet(R.string.voice_commands_home)
           .addTextWithBullet(R.string.voice_commands_back)
@@ -132,8 +146,10 @@ public class VoiceCommandHelpInitiator {
           .addTextWithBullet(R.string.voice_commands_assistant)
           .addSubText(R.string.voice_commands_help_assistant_description);
 
-  private static final PageConfig.Builder voiceCommandOtherCommands =
-      PageConfig.builder(R.string.voice_commands_help_other_commands_title)
+  static final PageConfig.Builder voiceCommandOtherCommands =
+      PageConfig.builder(
+              PageId.PAGE_ID_VOICE_COMMAND_OTHER_COMMANDS,
+              R.string.voice_commands_help_other_commands_title)
           .addTextWithBullet(R.string.voice_commands_talkback_settings)
           .addTextWithBullet(R.string.shortcut_enable_dimming)
           .addSubText(R.string.voice_commands_help_hide_screen_description)

@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Тил</string>
   <string name="voice_commands_languages">Тилдер</string>
   <string name="voice_commands_custom_actions">ыңгайлаштырылган аракеттер</string>
+  <string name="voice_commands_action">Аракет</string>
   <string name="voice_commands_quick_settings">Ыкчам жөндөөлөр</string>
   <string name="voice_commands_quick_setting">Ыкчам жөндөө</string>
   <string name="voice_commands_dim">күңүрт</string>
@@ -23,7 +24,7 @@
   <string name="voice_commands_cancel_hide_screen">экранды жашыруудан баш тартуу</string>
   <string name="voice_commands_all_apps">Бардык колдонмолор</string>
   <string name="voice_commands_apps">Колдонмолор</string>
-  <string name="voice_commands_overview">Жалпы маалымат</string>
+  <string name="voice_commands_overview">Назар</string>
   <string name="voice_commands_recent_apps">Акыркы колдонмолор</string>
   <string name="voice_commands_recent">Акыркы</string>
   <string name="voice_commands_recents">Акыркылар</string>
@@ -93,12 +94,12 @@
   <string name="voice_commands_decrease_speech_rate">кеп ылдамдыгын төмөндөтүү</string>
   <string name="voice_commands_possible_options_title">Төмөнкүдөй десеңиз болот:</string>
   <string name="voice_commands_no_action">Үн буйругу менен иштеген кыска жолдор колдоого алынбайт</string>
-  <string name="voice_commands_no_mic_permissions">Бул функцияны колдонуу үчүн, микрофонду пайдаланууга уруксат беришиңиз керек.</string>
+  <string name="voice_commands_no_mic_permissions">Бул функцияны колдонуу үчүн микрофонду пайдаланууга уруксат беришиңиз керек.</string>
   <string name="voice_commands_no_voice_recognition_ability">Кечиресиз! Бул функция түзмөгүңүздө иштебейт</string>
   <string name="voice_commands_error">Үн буйругун таанууда ката кетти</string>
   <string name="voice_commands_partial_result">Бул буйрук таанылган жок. Бардык буйруктардын тизмесин көрүү үчүн \"%1$s\" деп айтыңыз.</string>
+  <string name="voice_commands_timeout">Бардык буйруктардын тизмесин көрүү үчүн \"%1$s\" деп айтыңыз.</string>
   <string name="voice_commands_many_requests">Бир аздан кийин кайталап көрүңүз</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" жөндөөсү иштетилген жок</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" үн буйругу таанылган жок.</string>
   <string name="voice_commands_label_saved">Энбелги сакталды</string>
   <string name="voice_commands_no_actions_feedback">Аракеттер жеткиликсиз</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Үн буйругу жөнүндө жалпы маалымат</string>
   <string name="voice_commands_help_description">Үй буйруктарын колдонуу үчүн экранды оңго жана өйдө сүрүңүз. Үй буйруктарынын тизмесин көрүү үчүн каалаган убакта \"Жардам\" же \"Эмне десем болот?\" деп айтыңыз.</string>
   <string name="voice_commands_help_hint">Туура натыйжаларды алуу үчүн төмөнкү экрандарда тизмеленген сөздөрдү так айтыңыз.</string>
+  <string name="voice_command_screen_locked_hint">Экран кулпуланып турганда үн буйруктары жеткиликсиз. Анын ордуна TalkBack менюсун колдонуу үчүн %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Учурдагы экранда көрсөтүлгөн мазмундун кантип окуларын өзгөртүңүз</string>
   <string name="voice_commands_help_next">Next [аталыш]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Экранда изделе турган текстти киргизесиз</string>
   <string name="voice_commands_help_text_editing_description">Текстти терүү, тандоо жана көчүрүү</string>
   <string name="voice_commands_help_type_text">[Макул] деп терүү</string>
-  <string name="voice_commands_help_copy_description">Көчүрүүдөн мурда текстти тандаңыз</string>
-  <string name="voice_commands_help_cut_description">Кесүүдөн мурда текстти тандаңыз</string>
+  <string name="voice_commands_help_copy_description">Көчүрүлө турган текстти тандоо</string>
+  <string name="voice_commands_help_cut_description">Кесиле турган текстти тандоо</string>
+  <string name="voice_commands_help_delete_description">Өчүрүлө турган текстти тандоо</string>
   <string name="voice_commands_help_device_navigation_title">Түзмөктөгү элементтерге өтүү</string>
   <string name="voice_commands_help_device_navigation_description">Башкы бетке өтүү, артка кайтуу, билдирмелерди көрсөтүү жана башкалар</string>
   <string name="voice_commands_help_overview_description">Акыркы колдонмолорду көрүү</string>

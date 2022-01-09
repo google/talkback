@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Uppfærir staðsetningu punkta. Fyrst skulum við skrá punktana á vinstri hendinni. Haltu miðfingrunum þremur á vinstri hendi á skjánum.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Uppfærir staðsetningu punkta. Fyrst skulum við skrá punktana á hægri hendinni. Haltu miðfingrunum þremur á hægri hendi á skjánum.</string>
   <string name="calibration_finish_announcement">Staðsetning punkta uppfærð</string>
+  <string name="remaining_calibration_finish_announcement">Allar punktastaðsetningar uppfærðar</string>
   <string name="calibration_step2_hold_right_finger_announcement">Uppfærðar staðsetningar fyrir punkta 1, 2 og 3. Næst skulum við skrá punktana á hægri hendinni. Haltu miðfingrunum þremur á hægri hendi á skjánum.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Uppfærðar staðsetningar fyrir punkta 1, 2 og 3. Næst skulum við skrá punktana á vinstri hendinni. Haltu miðfingrunum þremur á vinstri hendi á skjánum.</string>
   <string name="calibration_fail_announcement">Ekki tókst að uppfæra staðsetningu punkta. Haltu 6 fingrum inni á skjánum. Reyndu svo aftur.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Samræmt enskt blindraletur</string>
   <string name="code_user_facing_name_es">Spænska</string>
   <string name="code_user_facing_name_ar">Arabíska</string>
+  <string name="code_user_facing_name_fr">Franska</string>
   <string name="title_pref_accumulate_presses">Taka með alla punkta sem ýtt er á</string>
   <string name="summary_pref_accumulate_presses">Hver punktur sem ýtt er á er hluti af inntakinu, jafnvel þótt punktinum sé sleppt á undan öðrum</string>
   <string name="title_pref_reverse_dots">Punktar í öfugri röð</string>
   <string name="summary_pref_reverse_dots">Víxla staðsetningu punktanna, til dæmis svo punktar 1 og 4 skipta um stað</string>
-  <string name="typing_echo_list_preference_title">Endurgjöf innsláttar (bergmál innsláttar)</string>
-  <string name="typing_echo_preference_label_characters">Lesa alla stafi og orð</string>
-  <string name="typing_echo_preference_label_words">Lesa aðeins orð</string>
   <string name="context_menu_title">Valmöguleikar blindraleturslyklaborðs</string>
   <string name="context_menu_typing_language_selection">Breyta innsláttartungumáli</string>
   <string name="context_menu_typing_language_selection_summary">%s í notkun</string>

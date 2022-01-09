@@ -48,6 +48,8 @@
             android:layout_weight="1"
             android:ellipsize="marquee"
             android:singleLine="true"
+            android:textColor="@color/label_list_item_text_color"
+            android:fontFamily="@string/talkback_font"
             android:textSize="18sp" />
 
         <TextView
@@ -61,6 +63,8 @@
             android:layout_weight="0"
             android:ellipsize="marquee"
             android:singleLine="true"
+            android:textColor="@color/label_list_item_text_color"
+            android:fontFamily="@string/talkback_font"
             android:textSize="22sp" />
 
     </LinearLayout>

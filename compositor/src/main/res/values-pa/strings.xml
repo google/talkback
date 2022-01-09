@@ -111,7 +111,7 @@
   <string name="orientation_landscape">ਲੈਂਡਸਕੇਪ</string>
   <string name="title_action_dismiss">ਖਾਰਜ ਕਰੋ</string>
   <string name="title_action_expand">ਵਿਸਤਾਰ ਕਰੋ</string>
-  <string name="title_action_collapse">ਸੁੰਗੇੜੋ</string>
+  <string name="title_action_collapse">ਸਮੇਟੋ</string>
   <string name="row_index_template">ਰੋ %1$d</string>
   <string name="column_index_template">ਕਾਲਮ %1$d</string>
   <string name="list_index_template">%2$d ਵਿੱਚੋਂ %1$d</string>
@@ -171,6 +171,10 @@
   <string name="template_speech_rate_change_slower">ਬਹੁਤ ਹੌਲੀ</string>
   <string name="template_speech_rate_change_fastest">ਸਭ ਤੋਂ ਤੇਜ਼</string>
   <string name="template_speech_rate_change_slowest">ਸਭ ਤੋਂ ਹੌਲੀ</string>
+  <string name="template_volume_change_increase">ਵਧਾਓ</string>
+  <string name="template_volume_change_decrease">ਘਟਾਓ</string>
+  <string name="template_volume_change_maximum">ਵੱਧੋ-ਵੱਧ</string>
+  <string name="template_volume_change_minimum">ਘੱਟੋ-ਘੱਟ</string>
   <string name="template_seekbar_range">%1$d%%</string>
   <string name="audio_focus_on">ਆਡੀਓ ਡੱਕਿੰਗ ਚਾਲੂ ਹੈ</string>
   <string name="audio_focus_off">ਆਡੀਓ ਡੱਕਿੰਗ ਬੰਦ ਹੈ</string>

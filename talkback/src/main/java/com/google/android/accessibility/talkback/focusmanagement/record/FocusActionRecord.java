@@ -17,6 +17,8 @@
 package com.google.android.accessibility.talkback.focusmanagement.record;
 
 import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import java.util.Collection;
@@ -111,6 +113,43 @@ public class FocusActionRecord {
     }
     return new FocusActionRecord(
         record.focusedNode, record.nodePathDescription, record.extraInfo, record.actionTime);
+  }
+
+  /**
+   * Returns the last focused node in {@code window} if it's still valid on screen, otherwise
+   * returns focusable node with the same position.
+   *
+   * <p><strong>Note:</strong> Caller is responsible for recycling the returned node.
+   */
+  @Nullable
+  public static AccessibilityNodeInfoCompat getFocusableNodeFromFocusRecord(
+      @Nullable AccessibilityNodeInfoCompat root, FocusActionRecord focusActionRecord) {
+    @NonNull AccessibilityNodeInfoCompat lastFocusedNode = focusActionRecord.getFocusedNode();
+    if (lastFocusedNode.refresh() && AccessibilityNodeInfoUtils.shouldFocusNode(lastFocusedNode)) {
+      return lastFocusedNode;
+    }
+
+    @Nullable AccessibilityNodeInfoCompat nodeAtSamePosition = null;
+    try {
+      if (root == null) {
+        return null;
+      }
+
+      nodeAtSamePosition =
+          NodePathDescription.findNode(root, focusActionRecord.getNodePathDescription());
+      if ((nodeAtSamePosition != null)
+          && AccessibilityNodeInfoUtils.shouldFocusNode(nodeAtSamePosition)) {
+        AccessibilityNodeInfoCompat returnNode = nodeAtSamePosition;
+        nodeAtSamePosition = null;
+        return returnNode;
+      }
+
+      return null;
+    } finally {
+      // Recycle nodes if it's not the returned node, the returned node will be recycled by the
+      // caller.
+      AccessibilityNodeInfoUtils.recycleNodes(lastFocusedNode, nodeAtSamePosition);
+    }
   }
 
   /** Recycles a collection of record instances. */

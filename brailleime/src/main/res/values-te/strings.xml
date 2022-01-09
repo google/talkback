@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">డాట్ స్థితిని అప్‌డేట్ చేస్తోంది. మొదట, మీ ఎడమ చేతి వైపు ఉన్న డాట్‌లను రికార్డ్ చేద్దాము. మీ ఎడమ చేతి మధ్య 3 వేళ్లతో స్క్రీన్‌ను నొక్కి, పట్టుకోండి.</string>
   <string name="calibration_step1_hold_right_finger_announcement">డాట్ స్థితిని అప్‌డేట్ చేస్తోంది. మొదట, మీ కుడి చేతి వైపు ఉన్న డాట్‌లను రికార్డ్ చేద్దాము. మీ కుడి చేతి మధ్య 3 వేళ్లతో స్క్రీన్‌ను నొక్కి, పట్టుకోండి.</string>
   <string name="calibration_finish_announcement">డాట్ స్థానం అప్‌డేట్ చేయబడింది</string>
+  <string name="remaining_calibration_finish_announcement">అన్ని డాట్ స్థానాలు అప్‌డేట్ చేయబడ్డాయి</string>
   <string name="calibration_step2_hold_right_finger_announcement">1, 2, 3 డాట్‌ల కోసం అప్‌డేట్ చేయబడిన స్థానాలు. తర్వాత, మీ కుడి చేతి వైపు ఉన్న డాట్‌లను రికార్డ్ చేద్దాము. మీ కుడి చేతి మధ్య 3 వేళ్లతో స్క్రీన్‌ను నొక్కి, పట్టుకోండి.</string>
   <string name="calibration_step2_hold_left_finger_announcement">1, 2, 3 డాట్‌ల కోసం అప్‌డేట్ చేయబడిన స్థానాలు. తర్వాత, మీ ఎడమ చేతి వైపు ఉన్న డాట్‌లను రికార్డ్ చేద్దాము. మీ ఎడమ చేతి మధ్య 3 వేళ్లతో స్క్రీన్‌ను నొక్కి, పట్టుకోండి.</string>
   <string name="calibration_fail_announcement">డాట్ స్థానాన్ని అప్‌డేట్ చేయడం సాధ్యపడలేదు. 6 వేళ్లతో స్క్రీన్‌ను నొక్కి, పట్టుకోండి. ఆపై మళ్లీ ట్రై చేయండి.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">యూనిఫైడ్ ఇంగ్లీష్ బ్రెయిలీ</string>
   <string name="code_user_facing_name_es">స్పానిష్</string>
   <string name="code_user_facing_name_ar">అరబిక్</string>
+  <string name="code_user_facing_name_fr">ఫ్రెంచ్</string>
   <string name="title_pref_accumulate_presses">నొక్కిన చుక్కలన్నిటినీ చేర్చండి</string>
   <string name="summary_pref_accumulate_presses">చుక్కను మిగిలిన చుక్కల కంటే ముందే రిలీజ్ చేసినా, నొక్కిన ప్రతి చుక్కా ఇన్‌పుట్ లో భాగమే</string>
   <string name="title_pref_reverse_dots">రివర్స్ చుక్కలు</string>
   <string name="summary_pref_reverse_dots">చుక్కల స్థానాలను స్వాప్ చేయండి, ఉదాహరణకు 1వ చుక్క, 4వ చుక్క స్థానాలు ఒక దానిలోకి మరొకటి మారేటట్లుగా</string>
-  <string name="typing_echo_list_preference_title">టైపింగ్ ఫీడ్‌బ్యాక్ (టైపింగ్ ఎకో)</string>
-  <string name="typing_echo_preference_label_characters">అన్ని అక్షరాలు, పదాలను చదువు</string>
-  <string name="typing_echo_preference_label_words">పదాలను మాత్రమే చదువు</string>
   <string name="context_menu_title">బ్రెయిలీ కీబోర్డ్ ఆప్షన్‌లు</string>
   <string name="context_menu_typing_language_selection">టైప్ చేసే భాషను మార్చండి</string>
   <string name="context_menu_typing_language_selection_summary">ప్రస్తుతం %sని ఉపయోగిస్తున్నారు</string>

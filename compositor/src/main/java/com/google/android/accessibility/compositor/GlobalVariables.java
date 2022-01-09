@@ -16,6 +16,12 @@
 
 package com.google.android.accessibility.compositor;
 
+import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_KEYBOARD;
+import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_NON_ALPHABETIC_KEYBOARD;
+import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TOUCH;
+import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TV_REMOTE;
+import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_UNKNOWN;
+
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
@@ -95,6 +101,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
   private static final int GLOBAL_SPEAK_PASS_SERVICE_POLICY = 6009;
   private static final int GLOBAL_SPEAK_PASS_FIELD_CONTENT = 6010;
   private static final int GLOBAL_ENABLE_USAGE_HINT = 6011;
+  private static final int GLOBAL_SEEKBAR_HINT = 6012;
 
   private static final int COLLECTION_NAME = 6100;
   private static final int COLLECTION_ROLE = 6101;
@@ -200,11 +207,11 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     collectionHeadingType.put(CollectionState.TYPE_INDETERMINATE, "indeterminate");
 
     Map<Integer, String> inputMode = new HashMap<>();
-    inputMode.put(InputModeManager.INPUT_MODE_UNKNOWN, "unknown");
-    inputMode.put(InputModeManager.INPUT_MODE_TOUCH, "touch");
-    inputMode.put(InputModeManager.INPUT_MODE_KEYBOARD, "keyboard");
-    inputMode.put(InputModeManager.INPUT_MODE_TV_REMOTE, "tv_remote");
-    inputMode.put(InputModeManager.INPUT_MODE_NON_ALPHABETIC_KEYBOARD, "non_alphabetic_keyboard");
+    inputMode.put(INPUT_MODE_UNKNOWN, "unknown");
+    inputMode.put(INPUT_MODE_TOUCH, "touch");
+    inputMode.put(INPUT_MODE_KEYBOARD, "keyboard");
+    inputMode.put(INPUT_MODE_TV_REMOTE, "tv_remote");
+    inputMode.put(INPUT_MODE_NON_ALPHABETIC_KEYBOARD, "non_alphabetic_keyboard");
 
     parseTree.addEnum(ENUM_COLLECTION_HEADING_TYPE, collectionHeadingType);
     parseTree.addEnum(ENUM_INPUT_MODE, inputMode);
@@ -226,6 +233,7 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
     parseTree.addBooleanVariable(
         "global.speakPasswordFieldContent", GLOBAL_SPEAK_PASS_FIELD_CONTENT);
     parseTree.addBooleanVariable("global.enableUsageHint", GLOBAL_ENABLE_USAGE_HINT);
+    parseTree.addStringVariable("global.seekbarHint", GLOBAL_SEEKBAR_HINT);
 
     // Collection
     parseTree.addStringVariable("collection.name", COLLECTION_NAME);
@@ -520,6 +528,15 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
         }
       case GESTURE_STRING_FOR_NODE_ACTIONS:
         {
+          if (mInputModeManager.getInputMode() == INPUT_MODE_KEYBOARD) {
+            @Nullable
+            CharSequence keyCombo =
+                getKeyComboStringRepresentation(
+                    getKeyComboCodeForKey(R.string.keycombo_shortcut_other_talkback_context_menu));
+            if (!TextUtils.isEmpty(keyCombo)) {
+              return keyCombo;
+            }
+          }
           return gestureShortcutProvider != null ? gestureShortcutProvider.nodeMenuShortcut() : "";
         }
       case COLLECTION_LIST_ITEM_POSITION_DESCRIPTION:
@@ -538,6 +555,18 @@ public class GlobalVariables extends TimedFlags implements ParseTree.VariableDel
           }
           return "";
         }
+      case GLOBAL_SEEKBAR_HINT:
+        @Nullable CharSequence result = null;
+        if (gestureShortcutProvider != null) {
+          result = gestureShortcutProvider.nodeSeekBarShortcut();
+        }
+        if (result == null) {
+          result =
+              FeatureSupport.isWatch(mContext)
+                  ? ""
+                  : mContext.getString(R.string.template_hint_seek_control);
+        }
+        return result;
       default:
         return "";
     }

@@ -2,14 +2,14 @@
 <resources>
   <string name="symbol_apostrophe">Apostrof</string>
   <string name="symbol_ampersand">Et-tecken</string>
-  <string name="symbol_angle_bracket_left">Vänster vinkelparentes</string>
-  <string name="symbol_angle_bracket_right">Höger vinkelparentes</string>
+  <string name="symbol_angle_bracket_left">Mindre än-tecken</string>
+  <string name="symbol_angle_bracket_right">Större än-tecken</string>
   <string name="symbol_asterisk">Asterisk</string>
   <string name="symbol_at_sign">Snabel-a</string>
   <string name="symbol_backslash">Omvänt snedstreck</string>
   <string name="symbol_bullet">Punktlista</string>
   <string name="symbol_caret">Cirkumflex</string>
-  <string name="symbol_cent">Cent</string>
+  <string name="symbol_cent">Cent-tecken</string>
   <string name="symbol_colon">Kolon</string>
   <string name="symbol_comma">Komma</string>
   <string name="symbol_copyright">Copyright-symbol</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">Punkt</string>
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Fyrkant</string>
-  <string name="symbol_pound_sterling">Brittiskt pund</string>
+  <string name="symbol_pound_sterling">Valutatecken för pund</string>
   <string name="symbol_question_mark">Frågetecken</string>
   <string name="symbol_quotation_mark">Citattecken</string>
   <string name="symbol_registered_trademark">Registrerat varumärke</string>
@@ -48,7 +48,7 @@
   <string name="symbol_square_root">Kvadratrot</string>
   <string name="symbol_trademark">Varumärke</string>
   <string name="symbol_underscore">Understreck</string>
-  <string name="symbol_vertical_bar">Vertikalt streck</string>
+  <string name="symbol_vertical_bar">Lodrät linje</string>
   <string name="symbol_yen">Yen</string>
   <string name="symbol_not_sign">Inte-tecken</string>
   <string name="symbol_broken_bar">Broken bar</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">Svart hjärta</string>
   <string name="symbol_tilde">Tilde</string>
   <string name="symbol_equal">Lika med-tecken</string>
-  <string name="symbol_won">Won-tecken</string>
+  <string name="symbol_won">Valutatecken för won</string>
   <string name="symbol_reference">Referensmarkering</string>
   <string name="symbol_white_star">Vit stjärna</string>
   <string name="symbol_black_star">Svart stjärna</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">Dubbel vinkelparentes, höger</string>
   <string name="symbol_inverted_exclamation_mark">Upp och nedvänt utropstecken</string>
   <string name="symbol_inverted_question_mark">Upp och nedvänt frågetecken</string>
-  <string name="symbol_won_sign">Won-tecken (koreansk valuta)</string>
+  <string name="symbol_won_sign">Valutatecken för won</string>
   <string name="symbol_full_width_comma">Kommatecken, full bredd</string>
   <string name="symbol_full_width_exclamation_mark">Utropstecken, full bredd</string>
   <string name="symbol_full_width_ideographic_full_stop">Ideografisk punkt</string>

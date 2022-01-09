@@ -71,7 +71,7 @@
   <string name="value_selected">valittu</string>
   <string name="value_checked">valittu</string>
   <string name="value_not_checked">ei valittu</string>
-  <string name="value_on">Käytössä</string>
+  <string name="value_on">Päällä</string>
   <string name="value_off">Ei päällä</string>
   <string name="value_disabled">ei käytössä</string>
   <string name="value_expanded">laajennettu</string>
@@ -171,6 +171,10 @@
   <string name="template_speech_rate_change_slower">Hitaampi</string>
   <string name="template_speech_rate_change_fastest">Nopein</string>
   <string name="template_speech_rate_change_slowest">Hitain</string>
+  <string name="template_volume_change_increase">Lisää</string>
+  <string name="template_volume_change_decrease">Vähennä</string>
+  <string name="template_volume_change_maximum">Enintään</string>
+  <string name="template_volume_change_minimum">Vähintään</string>
   <string name="template_seekbar_range">%1$d %%</string>
   <string name="audio_focus_on">Äänen vaimennus käytössä</string>
   <string name="audio_focus_off">Äänen vaimennus poistettu käytöstä</string>

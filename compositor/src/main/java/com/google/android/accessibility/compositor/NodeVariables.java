@@ -29,13 +29,12 @@ import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.BuildVersionUtils;
+import com.google.android.accessibility.utils.ImageContents;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
-import com.google.android.accessibility.utils.labeling.Label;
-import com.google.android.accessibility.utils.labeling.LabelManager;
 import com.google.android.accessibility.utils.parsetree.ParseTree;
 import com.google.android.accessibility.utils.parsetree.ParseTree.VariableDelegate;
 import com.google.android.accessibility.utils.traversal.ReorderedChildrenIterator;
@@ -110,7 +109,6 @@ class NodeVariables implements ParseTree.VariableDelegate {
   private static final int NODE_ERROR = 7046;
 
   private static final int NODE_PROGRESS_PERCENT = 7047;
-  private static final int NODE_HAS_NATIVE_WEB_CONTENT = 7048;
 
   private static final int NODE_SELF_MENU_ACTION_IS_AVAILABLE = 7049;
   private static final int NODE_SELF_MENU_ACTION_TYPE = 7050;
@@ -119,9 +117,12 @@ class NodeVariables implements ParseTree.VariableDelegate {
   private static final int NODE_STATE_DESCRIPTION = 7053;
   private static final int NODE_IS_WITHIN_ACCESSIBILITY_FOCUS = 7054;
   private static final int NODE_IS_KEYBOARD_WINDOW = 7055;
+  private static final int NODE_CAPTION_TEXT = 7056;
+
+  private static final int NODE_ANNOUNCE_DISABLED = 7057;
 
   private final Context mContext;
-  private final @Nullable LabelManager mLabelManager;
+  private final @Nullable ImageContents imageContents;
   private final ParseTree.VariableDelegate mParentVariables;
   private boolean mOwnsParentVariables; // Should this object cleanup mParentVariables.
   private final AccessibilityNodeInfoCompat mNode; // Recycled by this.cleanup().
@@ -147,13 +148,13 @@ class NodeVariables implements ParseTree.VariableDelegate {
    */
   public NodeVariables(
       Context context,
-      @Nullable LabelManager labelManager,
+      @Nullable ImageContents imageContents,
       @Nullable NodeMenuProvider nodeMenuProvider,
       ParseTree.VariableDelegate parent,
       AccessibilityNodeInfoCompat node,
       @Nullable Locale userPreferredLocale) {
     mContext = context;
-    mLabelManager = labelManager;
+    this.imageContents = imageContents;
     mParentVariables = parent;
     mNode = node;
     mRole = Role.getRole(node);
@@ -169,14 +170,14 @@ class NodeVariables implements ParseTree.VariableDelegate {
 
   private static NodeVariables constructForReferredNode(
       Context context,
-      @Nullable LabelManager labelManager,
+      @Nullable ImageContents imageContents,
       @Nullable NodeMenuProvider nodeMenuProvider,
       ParseTree.VariableDelegate parent,
       AccessibilityNodeInfoCompat node,
       @Nullable Locale userPreferredLocale) {
     NodeVariables instance =
         new NodeVariables(
-            context, labelManager, nodeMenuProvider, parent, node, userPreferredLocale);
+            context, imageContents, nodeMenuProvider, parent, node, userPreferredLocale);
     instance.mIsRoot = true; // This is a new root for node tree recursion.
     instance.mOwnsParentVariables = false; // Not responsible to recycle mParentVariables.
     return instance;
@@ -184,7 +185,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
 
   private static NodeVariables constructForChildNode(
       Context context,
-      @Nullable LabelManager labelManager,
+      @Nullable ImageContents imageContents,
       @Nullable NodeMenuProvider nodeMenuProvider,
       ParseTree.VariableDelegate parent,
       AccessibilityNodeInfoCompat node,
@@ -192,7 +193,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
       @Nullable Locale userPreferredLocale) {
     NodeVariables instance =
         new NodeVariables(
-            context, labelManager, nodeMenuProvider, parent, node, userPreferredLocale);
+            context, imageContents, nodeMenuProvider, parent, node, userPreferredLocale);
     instance.mIsRoot = false; // Not responsible to recycle mVisitedNodes.
     instance.mOwnsParentVariables = false; // Not responsible to recycle mParentVariables.
     instance.setVisitedNodes(visitedNodes);
@@ -327,8 +328,6 @@ class NodeVariables implements ParseTree.VariableDelegate {
         return mNode.getCollectionItemInfo() != null;
       case NODE_IS_CONTENT_INVALID:
         return mNode.isContentInvalid();
-      case NODE_HAS_NATIVE_WEB_CONTENT:
-        return WebInterfaceUtils.hasNativeWebContent(mNode);
       case NODE_IS_WEB_CONTAINER:
         return WebInterfaceUtils.isWebContainer(mNode);
       case NODE_SELF_MENU_ACTION_IS_AVAILABLE:
@@ -337,13 +336,22 @@ class NodeVariables implements ParseTree.VariableDelegate {
               && !nodeMenuProvider.getSelfNodeMenuActionTypes(mNode).isEmpty();
         }
       case NODE_NEEDS_LABEL:
-        return mLabelManager != null && mLabelManager.needsLabel(mNode);
+        return imageContents != null && imageContents.needsLabel(mNode);
       case NODE_IS_WITHIN_ACCESSIBILITY_FOCUS:
         {
           return AccessibilityNodeInfoUtils.isSelfOrAncestorFocused(mNode);
         }
       case NODE_IS_KEYBOARD_WINDOW:
         return isKeyboardEvent(mNode);
+      case NODE_ANNOUNCE_DISABLED:
+        {
+          if (BuildVersionUtils.isAtLeastS()) {
+            return !mNode.isEnabled();
+          }
+          return !mNode.isEnabled()
+              && (WebInterfaceUtils.hasNativeWebContent(mNode)
+                  || AccessibilityNodeInfoUtils.isActionableForAccessibility(mNode));
+        }
       default:
         return mParentVariables.getBoolean(variableId);
     }
@@ -392,17 +400,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
       case NODE_ROLE_DESCRIPTION:
         return mNode.getRoleDescription();
       case NODE_LABEL_TEXT:
-        {
-          if (mLabelManager == null) {
-            return "";
-          }
-          final Label label =
-              mLabelManager.getLabelForViewIdFromCache(mNode.getViewIdResourceName());
-          if (label != null && label.getText() != null) {
-            return label.getText();
-          }
-          return "";
-        }
+        return imageContents == null ? "" : imageContents.getLabel(mNode);
       case NODE_VIEW_ID_TEXT:
         return AccessibilityNodeInfoUtils.getViewIdText(mNode);
       case NODE_SELECTED_PAGE_TITLE:
@@ -418,6 +416,8 @@ class NodeVariables implements ParseTree.VariableDelegate {
         }
       case NODE_STATE_DESCRIPTION:
         return prepareSpans(AccessibilityNodeInfoUtils.getState(mNode));
+      case NODE_CAPTION_TEXT:
+        return imageContents == null ? "" : imageContents.getCaptionResult(mNode);
       default:
         return mParentVariables.getString(variableId);
     }
@@ -426,7 +426,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
   private @Nullable CharSequence prepareSpans(@Nullable CharSequence text) {
     // Cleans up the edit text's text if it has just 1 symbol.
     // Do not double clean up the password.
-    if (Role.getRole(mNode) == Role.ROLE_EDIT_TEXT && !mNode.isPassword()) {
+    if (!mNode.isPassword()) {
       text = SpeechCleanupUtils.collapseRepeatedCharactersAndCleanUp(mContext, text);
     }
     // Wrapping with locale incase of IME input for old versions of GBoard. New version wraps
@@ -492,7 +492,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
           // NodeVariables instance will recycle() obtain()ed copy of mLabelNode.
           return constructForReferredNode(
               mContext,
-              mLabelManager,
+              imageContents,
               nodeMenuProvider,
               mParentVariables,
               AccessibilityNodeInfoUtils.obtain(mLabelNode),
@@ -511,7 +511,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
           // NodeVariables instance will recycle() obtain()ed copy of mParentNode.
           return constructForReferredNode(
               mContext,
-              mLabelManager,
+              imageContents,
               nodeMenuProvider,
               mParentVariables,
               AccessibilityNodeInfoUtils.obtain(mParentNode),
@@ -566,7 +566,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
           // NodeVariables instance will recycle() obtain()ed copy of child node.
           return constructForChildNode(
               mContext,
-              mLabelManager,
+              imageContents,
               nodeMenuProvider,
               mParentVariables,
               AccessibilityNodeInfoUtils.obtain(mChildNodes.get(index)),
@@ -578,7 +578,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
           // NodeVariables instance will recycle() obtain()ed copy of child node.
           return constructForChildNode(
               mContext,
-              mLabelManager,
+              imageContents,
               nodeMenuProvider,
               mParentVariables,
               AccessibilityNodeInfoUtils.obtain(mChildNodesAscending.get(index)),
@@ -729,7 +729,6 @@ class NodeVariables implements ParseTree.VariableDelegate {
     parseTree.addBooleanVariable("node.isCollectionItem", NODE_IS_COLLECTION_ITEM);
     parseTree.addBooleanVariable("node.isContentInvalid", NODE_IS_CONTENT_INVALID);
     parseTree.addNumberVariable("node.progressPercent", NODE_PROGRESS_PERCENT);
-    parseTree.addBooleanVariable("node.hasNativeWebContent", NODE_HAS_NATIVE_WEB_CONTENT);
     parseTree.addBooleanVariable(
         "node.selfMenuActionAvailable", NODE_SELF_MENU_ACTION_IS_AVAILABLE);
     parseTree.addStringVariable("node.selfMenuActions", NODE_SELF_MENU_ACTION_TYPE);
@@ -739,5 +738,7 @@ class NodeVariables implements ParseTree.VariableDelegate {
     parseTree.addBooleanVariable(
         "node.isWithinAccessibilityFocus", NODE_IS_WITHIN_ACCESSIBILITY_FOCUS);
     parseTree.addBooleanVariable("node.isKeyboardWindow", NODE_IS_KEYBOARD_WINDOW);
+    parseTree.addStringVariable("node.captionText", NODE_CAPTION_TEXT);
+    parseTree.addBooleanVariable("node.announceDisabled", NODE_ANNOUNCE_DISABLED);
   }
 }

@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Langue</string>
   <string name="voice_commands_languages">Langues</string>
   <string name="voice_commands_custom_actions">actions personnalisées</string>
+  <string name="voice_commands_action">Action</string>
   <string name="voice_commands_quick_settings">Réglages rapides</string>
   <string name="voice_commands_quick_setting">Réglage rapide</string>
   <string name="voice_commands_dim">diminuer la luminosité</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Cette fonctionnalité n\'est malheureusement pas disponible sur votre appareil</string>
   <string name="voice_commands_error">Erreur lors de la reconnaissance de la commande vocale</string>
   <string name="voice_commands_partial_result">Impossible de reconnaître cette commande. Dites \"%1$s\" pour obtenir la liste des commandes.</string>
+  <string name="voice_commands_timeout">Dites \"%1$s\" pour obtenir la liste des commandes.</string>
   <string name="voice_commands_many_requests">Veuillez réessayer dans quelques instants</string>
-  <string name="voice_commands_setting_disabled">Le paramètre \"%1$s\" n\'est pas activé</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" n\'est pas reconnu en tant que commande vocale.</string>
   <string name="voice_commands_label_saved">Libellé enregistré</string>
   <string name="voice_commands_no_actions_feedback">Aucune action disponible</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Présentation des commandes vocales</string>
   <string name="voice_commands_help_description">Pour utiliser les commandes vocales, balayez l\'écran vers la droite, puis vers le haut. Pour afficher cette liste de commandes, dites \"Aide\" ou \"Que puis-je dire\" à tout moment.</string>
   <string name="voice_commands_help_hint">Pour des résultats optimaux, utilisez la même formulation que sur les écrans suivants.</string>
+  <string name="voice_command_screen_locked_hint">Les commandes vocales ne sont pas disponibles lorsque l\'écran est verrouillé. Pour utiliser le menu TalkBack à la place, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Modifier la manière dont vous lisez le contenu de l\'écran actuel</string>
   <string name="voice_commands_help_next">[Titre] suivant</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Saisir un terme de recherche pour trouver ce texte à l\'écran</string>
   <string name="voice_commands_help_text_editing_description">Saisir, sélectionner et copier du texte</string>
   <string name="voice_commands_help_type_text">Saisir [OK]</string>
-  <string name="voice_commands_help_copy_description">S\'assurer d\'avoir sélectionné du texte avant de dire \"Copier\"</string>
-  <string name="voice_commands_help_cut_description">S\'assurer d\'avoir sélectionné du texte avant de dire \"Coller\"</string>
+  <string name="voice_commands_help_copy_description">Sélectionnez d\'abord du texte à copier</string>
+  <string name="voice_commands_help_cut_description">Sélectionnez d\'abord du texte à couper</string>
+  <string name="voice_commands_help_delete_description">Sélectionnez d\'abord du texte à supprimer</string>
   <string name="voice_commands_help_device_navigation_title">Navigation sur l\'appareil</string>
   <string name="voice_commands_help_device_navigation_description">Retourner à l\'accueil, revenir en arrière, afficher les notifications, etc.</string>
   <string name="voice_commands_help_overview_description">Afficher vos applications récentes</string>

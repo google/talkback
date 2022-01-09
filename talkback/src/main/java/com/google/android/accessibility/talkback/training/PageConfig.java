@@ -43,7 +43,6 @@ import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,7 +58,7 @@ import java.util.function.Predicate;
  * the user swipes up with 4 fingers on the screen, the gesture announcement will be spoken.
  *
  * <pre>{@code
- * Page.builder(R.string.page_name)
+ * Page.builder(PageId.PAGE_ID, R.string.page_name)
  *     .setText(R.string.text)
  *     .setTextWithIcon(R.string.home_gesture_text, R.drawable.swipe_up_4_finger)
  *     .captureGesture(
@@ -68,26 +67,22 @@ import java.util.function.Predicate;
  * }</pre>
  */
 @AutoValue
-public abstract class PageConfig implements Serializable {
-
-  /** A serializable predicate. */
-  public interface SerializablePredicate extends Predicate<Context>, Serializable {}
+public abstract class PageConfig {
 
   /**
    * Defines predicates that are evaluated whether the content needs to be shown on the Page or not.
    */
   public enum PageContentPredicate {
-    GESTURE_CHANGED((context) -> GestureController.isAnyGestureChanged(context)),
+    GESTURE_CHANGED(GestureController::isAnyGestureChanged),
     ACCESSIBILITY_SERVICE_TOGGLE_VIA_SHORTCUT(
         (context) ->
-            !TextUtils.isEmpty(
-                Settings.Secure.getString(
-                    context.getContentResolver(), ACCESSIBILITY_BUTTON_TARGETS))),
-    SUPPORT_SYSTEM_ACTIONS((context) -> FeatureSupport.supportSystemActions());
+            isAccessibilityShortcutOrButtonEnabled(context)
+                && !isAccessibilityFloatingButtonEnabled(context)),
+    SUPPORT_SYSTEM_ACTIONS(FeatureSupport::supportSystemActions);
 
-    private final SerializablePredicate predicate;
+    private final Predicate<Context> predicate;
 
-    PageContentPredicate(SerializablePredicate predicate) {
+    PageContentPredicate(Predicate<Context> predicate) {
       this.predicate = predicate;
     }
 
@@ -96,11 +91,80 @@ public abstract class PageConfig implements Serializable {
     }
   }
 
+  /** Unique identifiers for training pages. */
+  public enum PageId {
+    PAGE_ID_UNKNOWN,
+    PAGE_ID_FINISHED,
+    PAGE_ID_WELCOME_TO_UPDATED_TALKBACK_PRE_R,
+    PAGE_ID_NAVIGATION_AND_SETTING_SELECTOR_PRE_R,
+    PAGE_ID_MORE_NEW_FEATURES_PRE_R,
+    PAGE_ID_WELCOME_TO_UPDATED_TALKBACK,
+    PAGE_ID_NEW_SHORTCUT_GESTURE,
+    PAGE_ID_NAVIGATION_AND_SETTING_SELECTOR,
+    PAGE_ID_MORE_NEW_FEATURES,
+    PAGE_ID_WELCOME_TO_UPDATED_TALKBACK_FOR_MULTIFINGER_GESTURES,
+    PAGE_ID_WELCOME_TO_TALKBACK_WATCH,
+    PAGE_ID_WELCOME_TO_TALKBACK,
+    PAGE_ID_EXPLORE_BY_TOUCH,
+    PAGE_ID_SCROLLING,
+    PAGE_ID_GESTURES_PAGE_FOR_GESTURE_NAVIGATION_USER,
+    PAGE_ID_GESTURES_PAGE_FOR_3_BUTTON_NAVIGATION_USER,
+    PAGE_ID_MENUS,
+    PAGE_ID_MENUS_PRE_R,
+    PAGE_ID_TUTORIAL_FINISHED,
+    PAGE_ID_TUTORIAL_INDEX,
+    PAGE_ID_USING_TEXT_BOXES,
+    PAGE_ID_TYPING_TEXT,
+    PAGE_ID_MOVING_CURSOR,
+    PAGE_ID_SELECTING_TEXT,
+    PAGE_ID_SELECTING_TEXT_PRE_R,
+    PAGE_ID_COPY_CUT_PASTE,
+    PAGE_ID_COPY_CUT_PASTE_PRE_R,
+    PAGE_ID_READ_BY_CHARACTER,
+    PAGE_ID_READ_BY_CHARACTER_PRE_R,
+    PAGE_ID_JUMP_BETWEEN_CONTROLS,
+    PAGE_ID_JUMP_BETWEEN_CONTROLS_PRE_R,
+    PAGE_ID_JUMP_BETWEEN_LINKS,
+    PAGE_ID_JUMP_BETWEEN_LINKS_PRE_R,
+    PAGE_ID_JUMP_BETWEEN_HEADINGS,
+    PAGE_ID_JUMP_BETWEEN_HEADINGS_PRE_R,
+    PAGE_ID_VOICE_COMMANDS,
+    PAGE_ID_PRACTICE_GESTURES,
+    PAGE_ID_PRACTICE_GESTURES_PRE_R,
+    PAGE_ID_VOICE_COMMAND_OVERVIEW,
+    PAGE_ID_VOICE_COMMAND_READING_CONTROLS,
+    PAGE_ID_VOICE_COMMAND_FIND_ITEMS,
+    PAGE_ID_VOICE_COMMAND_FIND_ITEMS_FOR_WATCH,
+    PAGE_ID_VOICE_COMMAND_TEXT_EDITING,
+    PAGE_ID_VOICE_COMMAND_DEVICE_NAVIGATION,
+    PAGE_ID_VOICE_COMMAND_OTHER_COMMANDS,
+  }
+
   /**
    * Setting accessibility services which are toggled via the accessibility button or shortcut
    * gesture. Refers to android.provider.Settings.ACCESSIBILITY_BUTTON_TARGETS.
    */
   public static final String ACCESSIBILITY_BUTTON_TARGETS = "accessibility_button_targets";
+
+  /**
+   * The accessibility button mode. The setting value is 0, if the accessibility button is in
+   * navigation bar; The setting value is 1, if the accessibility button is floating on the display.
+   * Refers to android.provider.Settings.ACCESSIBILITY_BUTTON_MODE.
+   */
+  public static final String ACCESSIBILITY_BUTTON_MODE = "accessibility_button_mode";
+
+  /**
+   * Accessibility button mode value. The accessibility service can be toggled via the button in the
+   * navigation bar. Refers to android.provider.Settings.ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR.
+   */
+  public static final int ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR = 0x0;
+
+  /**
+   * Accessibility button mode value. The accessibility service can be toggled via the button
+   * floating on the display. Refers to
+   * android.provider.Settings.ACCESSIBILITY_BUTTON_MODE_FLOATING_MENU.
+   */
+  public static final int ACCESSIBILITY_BUTTON_MODE_FLOATING_MENU = 0x1;
 
   public static final int UNKNOWN_ANNOUNCEMENT = -1;
 
@@ -109,6 +173,8 @@ public abstract class PageConfig implements Serializable {
    * gesture.
    */
   public static final int ANNOUNCE_REAL_ACTION = 0;
+
+  public abstract PageId getPageId();
 
   @StringRes
   public abstract int getPageName();
@@ -137,6 +203,7 @@ public abstract class PageConfig implements Serializable {
   public abstract boolean isEndOfSection();
 
   private static PageConfig create(
+      PageId pageId,
       @StringRes int pageName,
       ImmutableList<PageContentConfig> contents,
       ImmutableMap<Integer, Integer> gestures,
@@ -144,14 +211,113 @@ public abstract class PageConfig implements Serializable {
       boolean hasNavigationButtonBar,
       boolean showPageNumber,
       boolean isEndOfSection) {
-    return new AutoValue_PageConfig(
-        pageName,
-        contents,
-        gestures,
-        isOnlyOneFocus,
-        hasNavigationButtonBar,
-        showPageNumber,
-        isEndOfSection);
+    PageConfig pageConfig =
+        new AutoValue_PageConfig(
+            pageId,
+            pageName,
+            contents,
+            gestures,
+            isOnlyOneFocus,
+            hasNavigationButtonBar,
+            showPageNumber,
+            isEndOfSection);
+    return pageConfig;
+  }
+
+  @Nullable
+  public static PageConfig getPage(PageId pageId) {
+    switch (pageId) {
+      case PAGE_ID_WELCOME_TO_UPDATED_TALKBACK_PRE_R:
+        return OnboardingInitiator.WELCOME_TO_UPDATED_TALKBACK_PAGE_PRE_R.build();
+      case PAGE_ID_NAVIGATION_AND_SETTING_SELECTOR_PRE_R:
+        return OnboardingInitiator.NAVIGATION_AND_SETTING_SELECTOR_PAGE_PRE_R.build();
+      case PAGE_ID_MORE_NEW_FEATURES_PRE_R:
+        return OnboardingInitiator.MORE_NEW_FEATURES_PAGE_PRE_R.build();
+      case PAGE_ID_WELCOME_TO_UPDATED_TALKBACK:
+        return OnboardingInitiator.WELCOME_TO_UPDATED_TALKBACK_PAGE.build();
+      case PAGE_ID_NEW_SHORTCUT_GESTURE:
+        return OnboardingInitiator.NEW_SHORTCUT_GESTURE_PAGE.build();
+      case PAGE_ID_NAVIGATION_AND_SETTING_SELECTOR:
+        return OnboardingInitiator.NAVIGATION_AND_SETTING_SELECTOR_PAGE.build();
+      case PAGE_ID_MORE_NEW_FEATURES:
+        return OnboardingInitiator.MORE_NEW_FEATURES_PAGE.build();
+      case PAGE_ID_WELCOME_TO_UPDATED_TALKBACK_FOR_MULTIFINGER_GESTURES:
+        return OnboardingInitiator.WELCOME_TO_UPDATED_TALKBACK_FOR_MULTIFINGER_GESTURES.build();
+      case PAGE_ID_WELCOME_TO_TALKBACK_WATCH:
+        return TutorialInitiator.WELCOME_TO_TALKBACK_WATCH_PAGE.build();
+      case PAGE_ID_WELCOME_TO_TALKBACK:
+        return TutorialInitiator.WELCOME_TO_TALKBACK_PAGE.build();
+      case PAGE_ID_EXPLORE_BY_TOUCH:
+        return TutorialInitiator.EXPLORE_BY_TOUCH_PAGE.build();
+      case PAGE_ID_SCROLLING:
+        return TutorialInitiator.SCROLLING_PAGE.build();
+      case PAGE_ID_GESTURES_PAGE_FOR_GESTURE_NAVIGATION_USER:
+        return TutorialInitiator.GESTURES_PAGE_FOR_GESTURE_NAVIGATION_USER.build();
+      case PAGE_ID_GESTURES_PAGE_FOR_3_BUTTON_NAVIGATION_USER:
+        return TutorialInitiator.GESTURES_PAGE_FOR_3_BUTTON_NAVIGATION_USER.build();
+      case PAGE_ID_MENUS:
+        return TutorialInitiator.MENUS_PAGE.build();
+      case PAGE_ID_MENUS_PRE_R:
+        return TutorialInitiator.MENUS_PAGE_PRE_R.build();
+      case PAGE_ID_TUTORIAL_FINISHED:
+        return TutorialInitiator.TUTORIAL_FINISHED_PAGE.build();
+      case PAGE_ID_TUTORIAL_INDEX:
+        return TutorialInitiator.TUTORIAL_INDEX_PAGE.build();
+      case PAGE_ID_USING_TEXT_BOXES:
+        return TutorialInitiator.USING_TEXT_BOXES_PAGE.build();
+      case PAGE_ID_TYPING_TEXT:
+        return TutorialInitiator.TYPING_TEXT_PAGE.build();
+      case PAGE_ID_MOVING_CURSOR:
+        return TutorialInitiator.MOVING_CURSOR_PAGE.build();
+      case PAGE_ID_SELECTING_TEXT:
+        return TutorialInitiator.SELECTING_TEXT_PAGE.build();
+      case PAGE_ID_SELECTING_TEXT_PRE_R:
+        return TutorialInitiator.SELECTING_TEXT_PAGE_PRE_R.build();
+      case PAGE_ID_COPY_CUT_PASTE:
+        return TutorialInitiator.COPY_CUT_PASTE_PAGE.build();
+      case PAGE_ID_COPY_CUT_PASTE_PRE_R:
+        return TutorialInitiator.COPY_CUT_PASTE_PAGE_PRE_R.build();
+      case PAGE_ID_READ_BY_CHARACTER:
+        return TutorialInitiator.READ_BY_CHARACTER.build();
+      case PAGE_ID_READ_BY_CHARACTER_PRE_R:
+        return TutorialInitiator.READ_BY_CHARACTER_PRE_R.build();
+      case PAGE_ID_JUMP_BETWEEN_CONTROLS:
+        return TutorialInitiator.JUMP_BETWEEN_CONTROLS.build();
+      case PAGE_ID_JUMP_BETWEEN_CONTROLS_PRE_R:
+        return TutorialInitiator.JUMP_BETWEEN_CONTROLS_PRE_R.build();
+      case PAGE_ID_JUMP_BETWEEN_LINKS:
+        return TutorialInitiator.JUMP_BETWEEN_LINKS.build();
+      case PAGE_ID_JUMP_BETWEEN_LINKS_PRE_R:
+        return TutorialInitiator.JUMP_BETWEEN_LINKS_PRE_R.build();
+      case PAGE_ID_JUMP_BETWEEN_HEADINGS:
+        return TutorialInitiator.JUMP_BETWEEN_HEADINGS.build();
+      case PAGE_ID_JUMP_BETWEEN_HEADINGS_PRE_R:
+        return TutorialInitiator.JUMP_BETWEEN_HEADINGS_PRE_R.build();
+      case PAGE_ID_VOICE_COMMANDS:
+        return TutorialInitiator.VOICE_COMMANDS.build();
+      case PAGE_ID_PRACTICE_GESTURES:
+        return TutorialInitiator.PRACTICE_GESTURES.build();
+      case PAGE_ID_PRACTICE_GESTURES_PRE_R:
+        return TutorialInitiator.PRACTICE_GESTURES_PRE_R.build();
+      case PAGE_ID_VOICE_COMMAND_OVERVIEW:
+        return VoiceCommandHelpInitiator.voiceCommandOverview.build();
+      case PAGE_ID_VOICE_COMMAND_READING_CONTROLS:
+        return VoiceCommandHelpInitiator.voiceCommandReadingControls.build();
+      case PAGE_ID_VOICE_COMMAND_FIND_ITEMS:
+        return VoiceCommandHelpInitiator.voiceCommandFindItems.build();
+      case PAGE_ID_VOICE_COMMAND_FIND_ITEMS_FOR_WATCH:
+        return VoiceCommandHelpInitiator.voiceCommandFindItemsForWatch.build();
+      case PAGE_ID_VOICE_COMMAND_TEXT_EDITING:
+        return VoiceCommandHelpInitiator.voiceCommandTextEditing.build();
+      case PAGE_ID_VOICE_COMMAND_DEVICE_NAVIGATION:
+        return VoiceCommandHelpInitiator.voiceCommandDeviceNavigation.build();
+      case PAGE_ID_VOICE_COMMAND_OTHER_COMMANDS:
+        return VoiceCommandHelpInitiator.voiceCommandOtherCommands.build();
+      case PAGE_ID_UNKNOWN:
+      case PAGE_ID_FINISHED:
+      default:
+        return null;
+    }
   }
 
   /**
@@ -173,13 +339,14 @@ public abstract class PageConfig implements Serializable {
     return announcement == null ? UNKNOWN_ANNOUNCEMENT : announcement;
   }
 
-  public static Builder builder(@StringRes int pageName) {
-    return new Builder(pageName);
+  public static Builder builder(PageId pageId, @StringRes int pageName) {
+    return new Builder(pageId, pageName);
   }
 
   /** Builder for page. */
   public static class Builder {
 
+    private final PageId pageId;
     @StringRes private final int pageName;
     private final List<PageContentConfig> contents = new ArrayList<>();
     private final Map<Integer, Integer> captureGestureIdToAnnouncements = new HashMap<>();
@@ -188,7 +355,8 @@ public abstract class PageConfig implements Serializable {
     private boolean showPageNumber = true;
     private boolean isEndOfSection = false;
 
-    private Builder(@StringRes int pageName) {
+    private Builder(PageId pageId, @StringRes int pageName) {
+      this.pageId = pageId;
       this.pageName = pageName;
     }
 
@@ -465,6 +633,7 @@ public abstract class PageConfig implements Serializable {
     /** Creates a {@link PageConfig} */
     public PageConfig build() {
       return PageConfig.create(
+          this.pageId,
           this.pageName,
           ImmutableList.copyOf(this.contents),
           ImmutableMap.copyOf(this.captureGestureIdToAnnouncements),
@@ -473,5 +642,20 @@ public abstract class PageConfig implements Serializable {
           showPageNumber,
           isEndOfSection);
     }
+  }
+
+  /** Checks if any accessibility shortcut or button is enabled. */
+  public static boolean isAccessibilityShortcutOrButtonEnabled(Context context) {
+    return !TextUtils.isEmpty(
+        Settings.Secure.getString(context.getContentResolver(), ACCESSIBILITY_BUTTON_TARGETS));
+  }
+
+  /** Checks if any accessibility button is floating on the display. */
+  public static boolean isAccessibilityFloatingButtonEnabled(Context context) {
+    return Settings.Secure.getInt(
+            context.getContentResolver(),
+            ACCESSIBILITY_BUTTON_MODE,
+            /* def= */ ACCESSIBILITY_BUTTON_MODE_NAVIGATION_BAR)
+        == ACCESSIBILITY_BUTTON_MODE_FLOATING_MENU;
   }
 }

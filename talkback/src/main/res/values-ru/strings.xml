@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Версия %1$s</string>
   <string name="label_manager_summary_title">Управление персональными ярлыками</string>
   <string name="label_manager_package_title">Управление ярлыками приложения \"%1$s\"</string>
+  <string name="manage_label">Управление ярлыками</string>
   <string name="label_manager_no_packages_message">У вас пока нет персональных ярлыков. Откройте изображение и создайте ярлык в меню TalkBack.</string>
   <string name="label_manager_timestamp_text">Последнее изменение: %1$s</string>
   <string name="search_dialog_label">Искать \"%1$s\"</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Изучение касанием</string>
   <string name="title_pref_category_touch_exploration">Навигация</string>
   <string name="title_pref_category_controls">Управление</string>
-  <string name="title_pref_single_tap">Активация одним нажатием</string>
+  <string name="title_pref_single_tap">Активировать одним нажатием</string>
   <string name="title_pref_show_context_menu_as_list">Контекстное меню в виде списка</string>
-  <string name="summary_pref_single_tap">Активировать выбранные элементы одним нажатием (экспериментальная функция)</string>
+  <string name="summary_pref_single_tap">Активировать выбранные элементы одним нажатием</string>
   <string name="title_pref_shake_to_read_threshold">Встряхнуть, чтобы начать чтение</string>
   <string name="pref_verbosity_title">Детализация</string>
   <string name="pref_punctuation_title">Знаки пунктуации</string>
+  <string name="title_pref_category_manage_focus_indicator">Настроить индикатор перехода</string>
   <string name="title_pref_category_manage_gestures">Настроить жесты</string>
   <string name="title_pref_manage_labels">Персональные ярлыки</string>
   <string name="title_pref_manage_customize_menus">Настроить меню</string>
@@ -108,7 +110,7 @@
   <string name="pref_category_selector_menu_summary_single_finger">Чтобы использовать элементы управления чтением, проведите вверх, а затем вниз</string>
   <string name="title_pref_manage_keyboard_shortcuts">Быстрые клавиши</string>
   <string name="title_pref_export_custom_labels">Экспортировать персональные ярлыки</string>
-  <string name="title_pref_play_store">Страница TalkBack в Play Маркете</string>
+  <string name="title_pref_play_store">Страница TalkBack в Google Play</string>
   <string name="summary_pref_play_store">Текущая версия TalkBack: %1$s</string>
   <string name="title_pref_help_and_feedback">Справка/отзыв</string>
   <string name="pref_item_licenses">Лицензии открытого ПО</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Справка/отзыв</string>
   <string name="title_pref_category_tutorial_and_help">Справочные и обучающие материалы</string>
   <string name="title_pref_category_advanced">Дополнительно</string>
+  <string name="title_pref_category_typing">Ввод текста и клавиатура</string>
   <string name="title_pref_category_legal_and_privacy">Юридическая информация и конфиденциальность</string>
   <string name="title_pref_advanced_settings">Расширенные настройки</string>
   <string name="reset_gesture_settings_title">Сбросить настройки жестов</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Недавние приложения</string>
   <string name="keycombo_menu_global_notifications">Уведомления</string>
   <string name="keycombo_menu_global_suspend">Остановить/возобновить работу TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Начать или приостановить воспроизведение</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Выделить следующий параметр управления чтением</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Выделить предыдущий параметр управления чтением</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Увеличить значение предыдущего параметра управления чтением</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Уменьшить значение предыдущего параметра управления чтением</string>
   <string name="keycombo_menu_category_granularity">Навигация</string>
   <string name="keycombo_menu_granularity_increase">Следующая настройка навигации</string>
   <string name="keycombo_menu_granularity_decrease">Предыдущая настройка навигации</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Нечего копировать. Сначала выделите текст.</string>
   <string name="cannot_paste_feedback">Нечего вставлять. Сначала скопируйте текст.</string>
   <string name="cannot_cut_feedback">Нечего вырезать. Сначала выделите текст.</string>
+  <string name="cannot_delete_feedback">Нечего удалять. Сначала выделите текст.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Вернуть исходные быстрые клавиши для данной раскладки? Это действие нельзя отменить.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Сбросить</string>
   <string name="override_keycombo">Сочетание клавиш уже используется</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Изменять тон при озвучивании</string>
   <string name="title_pref_keyboard_echo">Озвучивать нажимаемые клавиши</string>
   <string name="pref_node_desc_order_title">Порядок описания элементов</string>
-  <string name="summaryOn_pref_intonation">Понижать тон при озвучивании ввода с клавиатуры</string>
+  <string name="summaryOn_pref_intonation">Повышать тон, когда озвучивается удаление текста с помощью клавиатуры</string>
   <string name="summaryOff_pref_intonation">Не изменять тон голоса</string>
   <string name="title_pref_brailleime">Клавиатура Брайля</string>
   <string name="title_pref_category_feedback_settings">Другие сигналы</string>
@@ -243,7 +252,7 @@
   <string name="title_pref_use_audio_focus">Приглушение звука приложений</string>
   <string name="summary_pref_use_audio_focus">Уменьшать громкость звука других приложений во время работы TalkBack</string>
   <string name="title_pref_soundback_volume">Громкость звук. отклика</string>
-  <string name="title_pref_two_volume_button_long_click">Вкл. и откл. TalkBack одной клавишей</string>
+  <string name="title_pref_two_volume_button_long_click">Вкл. и откл. TalkBack одним нажатием</string>
   <string name="title_pref_dim_volume_three_clicks">Выключать подсветку экрана сочетанием клавиш</string>
   <string name="title_pref_category_miscellaneous_settings">Другое</string>
   <string name="title_pref_category_developer_settings">Для разработчиков</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Включить отладку дерева узлов</string>
   <string name="summary_pref_tree_debug_tv">Использовать клавишу поиска для вывода дерева узлов</string>
   <string name="title_pref_performance_stats">Передавать статистику производ-ти</string>
+  <string name="title_pref_log_overlay">Показывать журнал отладки поверх других окон</string>
   <string name="title_pref_resume_talkback">Возобновить работу</string>
+  <string name="title_pref_typing_confirmation">Предпочтительный способ подтверждения ввода</string>
   <string name="title_pref_multi_finger_gesture">Включить жесты несколькими пальцами</string>
   <string name="screen_dimmed">Подсветка экрана отключена</string>
   <string name="screen_brightness_restored">Подсветка экрана включена</string>
@@ -279,7 +290,9 @@
   <string name="shortcut_scroll_down">Прокрутить вниз</string>
   <string name="shortcut_scroll_left">Прокрутить влево</string>
   <string name="shortcut_scroll_right">Прокрутить вправо</string>
-  <string name="shortcut_back">Назад</string>
+  <string name="shortcut_next_window">Следующее окно</string>
+  <string name="shortcut_previous_window">Предыдущее окно</string>
+  <string name="shortcut_back">Вернуться назад</string>
   <string name="shortcut_home">Главный экран</string>
   <string name="shortcut_overview">Обзор</string>
   <string name="shortcut_notifications">Уведомления</string>
@@ -360,8 +373,9 @@
   <string name="title_show_hide_screen">Отключить или включить экран</string>
   <string name="title_show_screen_search">Поиск по экрану</string>
   <string name="title_show_voice_commands">Голосовые команды</string>
+  <string name="talkback_show_talkback_settings">Настройки TalkBack</string>
   <string name="title_other_web_navigation">Другие настройки веб-навигации</string>
-  <string name="title_granularity_default">Навигация по умолчанию</string>
+  <string name="title_granularity_default">Навиг-я по умолч.</string>
   <string name="title_seek_bar_edit">Изменение значения ползунка</string>
   <string name="value_seek_bar_dialog_instructions">Введите число от 0 до 100.</string>
   <string name="value_seek_bar_dialog_percent">%</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Управление TalkBack с помощью голосовых команд</string>
   <string name="summary_show_hide_screen">Отключение экрана. Окружающим не будет видно, что на нем изображено. Не забудьте вернуть экран в нормальный режим.</string>
   <string name="summary_talkback_preferences">Открыть настройки TalkBack</string>
-  <string name="summary_system_actions">Переход ко всем приложениям и быстрым настройкам. Использование разделения экрана.</string>
+  <string name="summary_system_actions">Переход ко всем приложениям и быстрым настройкам</string>
   <string name="summary_tts_settings">Переход к настройкам озвучивания текста</string>
   <string name="summary_pause_feedback">Отключение озвучивания в TalkBack</string>
   <string name="not_editable">Недоступно для редактирования</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Озвучивание по слову</string>
   <string name="summary_lines">Озвучивание по строке</string>
   <string name="summary_paragraphs">Озвучивание по абзацу</string>
+  <string name="summary_windows">Переключаться на другие окна, например элементы управления громкостью или панель навигации</string>
   <string name="summary_headings">Перемещение между заголовками</string>
   <string name="summary_controls">Перемещение по объектам, с которыми можно взаимодействовать, таким как кнопки, флажки и текстовые поля</string>
   <string name="summary_links">Перемещение между ссылками</string>
@@ -408,7 +423,9 @@
   <string name="summary_vibration_feedback">Использование вибрации при выполнении таких действий, как выбор объекта. Это не влияет на настройки вибрации, заданные в приложении или в системе.</string>
   <string name="summary_hide_screen">Отключение экрана. Окружающим не будет видно, что на нем изображено.</string>
   <string name="summary_audio_ducking">Уменьшение громкости других звуков при озвучивании с помощью TalkBack</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Прокрутка вперед или назад</string>
+  <string name="summary_support_change_a11y_volume">Регулировка громкости подсказок</string>
+  <string name="summary_image_caption">Получить автоматическое описание для этого изображения</string>
   <string name="value_direction_up">вверх</string>
   <string name="value_direction_down">вниз</string>
   <string name="value_direction_left">влево</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Двойное нажатие и удерживание двумя пальцами</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Двойное нажатие и удерживание тремя пальцами</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Двойное нажатие и удерживание четырьмя пальцами</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Тройное нажатие и удерживание двумя пальцами</string>
+  <string name="seekbar_hint_2gesture">Чтобы пролистнуть страницу, нажмите \"%1$s\" или \"%2$s\"</string>
+  <string name="seekbar_hint_1gesture">Чтобы пролистнуть страницу, нажмите \"%1$s\"</string>
   <string name="gesture_name_unknown">Неизвестный жест</string>
   <string name="gesture_name_pass_through">Использовать системный жест</string>
   <string name="gesture_name_touch_explore">Изучить касанием</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Нажать дважды и удерживать</string>
   <string name="gesture_name_2finger_tap_hold">Нажать и удерживать двумя пальцами</string>
   <string name="gesture_name_3finger_tap_hold">Нажать и удерживать тремя пальцами</string>
+  <string name="gesture_name_2finger_3tap_hold">Тройное нажатие и удерживание двумя пальцами</string>
   <string name="gesture_name_3finger_3tap_hold">Нажать трижды и удерживать тремя пальцами</string>
   <string name="title_pref_shortcut_fingerprint_up">Вверх по сканеру отпечатков пальцев</string>
   <string name="title_pref_shortcut_fingerprint_down">Вниз по сканеру отпечатков пальцев</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">При включении экрана</string>
   <string name="value_resume_keyguard">На заблокированном экране</string>
   <string name="value_resume_manual">Только из панели уведомлений</string>
+  <string name="value_type_confirmation_double_tap">Удерживать клавишу и нажать ее дважды</string>
+  <string name="value_type_confirmation_lift_to_type">Удерживать клавишу и отпустить ее</string>
   <string name="value_shake_to_read_disabled">Отключено</string>
   <string name="value_shake_to_read_threshold_very_light">Слегка</string>
   <string name="value_shake_to_read_threshold_light">Слабо</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Всегда</string>
   <string name="value_keyboard_echo_softkeys">Только для экранной клавиатуры</string>
   <string name="value_keyboard_echo_never">Никогда</string>
+  <string name="title_pref_keyboard_echo_on_screen">Звук клавиш: экранная клавиатура</string>
+  <string name="title_pref_keyboard_echo_physical">Звук клавиш: физическая клавиатура</string>
+  <string name="value_keyboard_echo_none">Отключено</string>
+  <string name="value_keyboard_echo_characters_only">Символы</string>
+  <string name="value_keyboard_echo_words_only">Слова</string>
+  <string name="value_keyboard_echo_characters_and_words">Символы и слова</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Состояние, название, тип</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Тип, название, состояние</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Название, тип, состояние</string>
@@ -555,11 +584,12 @@
   <string name="dialog_message_enable_tree_debug">Вы действительно хотите включить отладку дерева узлов?\n\nВ этом случае содержимое экрана может сохраняться в журналах устройства, доступных другим приложениям.</string>
   <string name="dialog_title_enable_performance_stats">Передавать статистику производительности в LogCat?</string>
   <string name="dialog_message_enable_performance_stats">Эта функция может расходовать\n\nпамять устройства и заряд батареи.</string>
+  <string name="title_request_phone_permission">Разрешить доступ к телефону?</string>
+  <string name="message_request_phone_permission">Это позволит TalkBack отключать некоторые подсказки во время звонка.</string>
+  <string name="continue_button">Продолжить</string>
   <string name="label_talkback_context_menu">Общее контекстное меню TalkBack</string>
   <string name="permission_talkback_label">Управление TalkBack</string>
   <string name="permission_talkback_desc">Передача жестов в TalkBack и возобновление озвучивания действий</string>
-  <string name="permission_labeling_label">Управление персональными ярлыками TalkBack</string>
-  <string name="permission_labeling_desc">Использование, изменение и удаление персональных ярлыков TalkBack</string>
   <string name="links">Ссылки</string>
   <string name="end_of_text">Завершить.</string>
   <string name="start_of_page">Предыдущих элементов \"%1$s\" нет</string>
@@ -617,7 +647,8 @@
   <string name="title_pref_selector_punctuation">Знаки пунктуации</string>
   <string name="title_pref_selector_granularity">Навигация</string>
   <string name="title_pref_selector_audio_focus">Приглушение звука приложений</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Прокрутка</string>
+  <string name="title_pref_a11y_volume">Громкость подсказок</string>
   <string name="title_pref_selector_adjustable_widget_slider">Отрегулировать ползунок</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Изменить значение</string>
   <string name="title_pref_speak_passwords_without_headphones">Озвучивание паролей</string>
@@ -654,7 +685,7 @@
   <string name="start_voice_command">Использовать голосовые команды</string>
   <string name="dialog_title_pass_through_mode">Используйте системные жесты вместо жестов TalkBack</string>
   <string name="dialog_message_pass_through_mode">Когда прозвучит сигнал, вы можете использовать системный жест, который не поддерживается в TalkBack. Такой жест называется исходным.</string>
-  <string name="hint_type_search_term">Введите поисковый запрос</string>
+  <string name="hint_type_search_term">Поиск…</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Канал уведомлений TalkBack</string>
   <string name="pref_selector_summary">Для выбора настройки проведите %1$s. Чтобы изменить ее, проведите %2$s.</string>
@@ -777,6 +808,7 @@
   <string name="cut_paste_text">Чтобы вырезать текст, дважды нажмите тремя пальцами и удерживайте.\n\nЧтобы вставить текст, трижды нажмите тремя пальцами.\n\nПопробуйте вставить слово в текстовое поле внизу.</string>
   <string name="copy_text_pre_r">Выделенный текст можно скопировать с помощью меню TalkBack. Чтобы его открыть, проведите по экрану вниз, затем вправо. Дважды нажмите \"Средства редактирования\", а затем \"Копировать\".\n\nПопробуйте скопировать слово в текстовом поле внизу.</string>
   <string name="cut_paste_text_pre_r">Чтобы вырезать или вставить текст, откройте меню TalkBack и дважды нажмите \"Средства редактирования\".\n\nПопробуйте вставить слово в текстовое поле внизу.</string>
+  <string name="edit_box_hint_paste_text">Вставьте текст</string>
   <string name="read_by_character_title">Чтение по символам, словам или абзацам</string>
   <string name="read_by_character_text">Вы можете прослушать текст по символам.\n\nДля этого несколько раз проведите тремя пальцами вправо, пока не услышите слово \"%1$s\". Теперь, чтобы вернуться к предыдущему символу, проведите по экрану вверх. Чтобы перейти к следующему символу, проведите по экрану вниз.\n\nПопробуйте прямо сейчас. Проведя тремя пальцами вправо, вы также можете выбрать озвучивание текста по словам или абзацам.</string>
   <string name="read_by_character_text_pre_r">Вы можете прослушать текст по символам.\n\nДля этого несколько раз проведите вниз, затем вверх, пока не услышите слово \"%1$s\". Теперь, чтобы вернуться к предыдущему символу, проведите по экрану вверх. Чтобы перейти к следующему символу, проведите по экрану вниз.\n\nПопробуйте прямо сейчас. Проведя по экрану вниз, затем вверх, вы также можете выбрать озвучивание текста по словам или абзацам.</string>
@@ -813,5 +845,19 @@
   <string name="activated_view">Вы активировали следующий элемент: %1$s.</string>
   <string name="talkback_inactive_title">Функция TalkBack отключена</string>
   <string name="talkback_inactive_message">Перед запуском руководства включите TalkBack.</string>
+  <string name="watch_swipe_left_right_text">Чтобы перейти от одного объекта к другому, проведите по экрану вправо или влево.</string>
+  <string name="watch_double_tap_text">Чтобы активировать объект, нажмите на него дважды.</string>
+  <string name="watch_2_finger_scroll_text">Чтобы прокрутить экран, проведите по нему двумя пальцами.</string>
+  <string name="title_pref_thick_border">Толстые границы</string>
+  <string name="title_pref_category_border_color">Цвет</string>
+  <string name="title_pref_default_color">По умолчанию</string>
+  <string name="title_pref_red">Красный</string>
+  <string name="title_pref_orange">Оранжевый</string>
+  <string name="title_pref_yellow">Желтый</string>
+  <string name="title_pref_green">Зеленый</string>
+  <string name="title_pref_blue">Синий</string>
+  <string name="title_pref_grey">Серый</string>
   <string name="survey_closed">Опрос закрыт</string>
+  <string name="character_recognition_text">Текст: %1$s</string>
+  <string name="title_image_caption">Описать изображение</string>
 </resources>

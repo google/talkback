@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Language</string>
   <string name="voice_commands_languages">Languages</string>
   <string name="voice_commands_custom_actions">custom actions</string>
-  <string name="voice_commands_quick_settings">Quick settings</string>
-  <string name="voice_commands_quick_setting">Quick setting</string>
+  <string name="voice_commands_action">Action</string>
+  <string name="voice_commands_quick_settings">Quick Settings</string>
+  <string name="voice_commands_quick_setting">Quick Setting</string>
   <string name="voice_commands_dim">dim</string>
   <string name="voice_commands_darken">darken</string>
   <string name="voice_commands_brighten_screen">brighten screen</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Sorry! This feature is not available on your device</string>
   <string name="voice_commands_error">Error recognising voice command</string>
   <string name="voice_commands_partial_result">Can\'t recognise this command. Say \'%1$s\' for the list of all commands.</string>
+  <string name="voice_commands_timeout">Say \'%1$s\' for the list of all commands.</string>
   <string name="voice_commands_many_requests">Please try again in a moment</string>
-  <string name="voice_commands_setting_disabled">\'%1$s\' setting is not enabled</string>
   <string name="voice_commands_echo_feedback_not_recognized">\'%1$s\' not recognised as voice command.</string>
   <string name="voice_commands_label_saved">Label saved</string>
   <string name="voice_commands_no_actions_feedback">No actions available</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Voice command overview</string>
   <string name="voice_commands_help_description">To use voice commands, swipe right then up. Say \'Help\' or \'What can I say?\' at any time for this list of commands.</string>
   <string name="voice_commands_help_hint">For best results, say the exact wording listed on the following screens.</string>
+  <string name="voice_command_screen_locked_hint">Voice commands are not available while the screen is locked. To use the TalkBack menu instead, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Change how you read content on the current screen</string>
   <string name="voice_commands_help_next">Next [heading]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Enter a search term to find that text on the screen</string>
   <string name="voice_commands_help_text_editing_description">Type, select and copy text</string>
   <string name="voice_commands_help_type_text">Type [OK]</string>
-  <string name="voice_commands_help_copy_description">Make sure that you have text selected before copying</string>
-  <string name="voice_commands_help_cut_description">Make sure that you have text selected before cutting</string>
+  <string name="voice_commands_help_copy_description">Select text before copying</string>
+  <string name="voice_commands_help_cut_description">Select text before cutting</string>
+  <string name="voice_commands_help_delete_description">Select text before deleting</string>
   <string name="voice_commands_help_device_navigation_title">Device navigation</string>
   <string name="voice_commands_help_device_navigation_description">Go Home, go back, show notifications and more</string>
   <string name="voice_commands_help_overview_description">See your recent apps</string>

@@ -24,25 +24,43 @@ import com.google.android.accessibility.utils.SharedPreferencesUtils;
 /** This class supports the changing of speech rate. */
 public class SpeechRateActor {
 
+  /** Read-only interface for actor-state data. */
+  public class State {
+    public int getSpeechRatePercentage() {
+      return SpeechRateActor.this.getSpeechRatePercentage();
+    }
+  }
+
   private final Context context;
+  private final SharedPreferences prefs;
+  public final SpeechRateActor.State state = new SpeechRateActor.State();
+  // Speech rate is a multiplier to the TTS_DEFAULT_RATE. Here defines the range from 10% to 600%.
+  // Each step is increase/decrease 10%.
+  private static final float RATE_MINIMUM = 0.1f;
+  private static final float RATE_MAXIMUM = 6.0f;
+  private static final float RATE_STEP = 1.1f;
+  private int speechRatePercent;
 
   public SpeechRateActor(Context context) {
     this.context = context;
+    prefs = SharedPreferencesUtils.getSharedPreferences(context);
+    speechRatePercent =
+        (int)
+            (SharedPreferencesUtils.getFloatFromStringPref(
+                    prefs,
+                    context.getResources(),
+                    R.string.pref_speech_rate_key,
+                    R.string.pref_speech_rate_default)
+                * 100);
   }
 
   /**
    * changeSpeechRate: utility to change speech rate based on current settings.
    *
    * @param isIncrease to specify speech rate increase (true) or decrease (false).
-   * @return false if the speech rate reaches the upper/lower bound; true otherwise.
+   * @return true always.
    */
-  private static final float RATE_MINIMUM = 0.16150558f;
-
-  private static final float RATE_MAXIMUM = 6.191736422f;
-  private static final float RATE_STEP = 1.1f;
-
   public boolean changeSpeechRate(boolean isIncrease) {
-    SharedPreferences prefs = SharedPreferencesUtils.getSharedPreferences(context);
     float currentRate =
         SharedPreferencesUtils.getFloatFromStringPref(
             prefs,
@@ -59,6 +77,12 @@ public class SpeechRateActor {
         .putString(context.getString(R.string.pref_speech_rate_key), Float.toString(newRate))
         .apply();
 
-    return isIncrease ? (newRate < RATE_MAXIMUM) : (newRate > RATE_MINIMUM);
+    speechRatePercent = (int) (newRate * 100);
+
+    return true;
+  }
+
+  public int getSpeechRatePercentage() {
+    return speechRatePercent;
   }
 }

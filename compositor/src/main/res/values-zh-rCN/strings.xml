@@ -71,8 +71,8 @@
   <string name="value_selected">已选中</string>
   <string name="value_checked">已选中</string>
   <string name="value_not_checked">未选中</string>
-  <string name="value_on">开启</string>
-  <string name="value_off">关闭</string>
+  <string name="value_on">已开启</string>
+  <string name="value_off">已关闭</string>
   <string name="value_disabled">已停用</string>
   <string name="value_expanded">已展开</string>
   <string name="value_collapsed">已收起</string>
@@ -86,7 +86,7 @@
   <string name="template_hint_long_clickable_keyboard">按 %1$s 即可长按。</string>
   <string name="template_hint_checkable">%1$s可切换。</string>
   <string name="template_hint_checkable_keyboard">按 %1$s 即可切换。</string>
-  <string name="template_hint_edit_text">%1$s即可修改文字。</string>
+  <string name="template_hint_edit_text">%1$s即可编辑文字。</string>
   <string name="template_hint_edit_text_keyboard">按 %1$s 即可修改文字。</string>
   <string name="template_hint_spinner">%1$s可进行更改。</string>
   <string name="template_hint_spinner_keyboard">按 %1$s 即可更改。</string>
@@ -120,16 +120,16 @@
   <string name="column_heading_template">列标题</string>
   <string name="in_collection_role_description_with_name">您当前位于%1$s“%2$s”中</string>
   <string name="in_collection_role_description">您当前位于%1$s中</string>
-  <string name="in_list_with_name">您当前位于列表“%1$s”中</string>
-  <string name="in_list">您当前位于列表中</string>
+  <string name="in_list_with_name">在“%1$s”列表中</string>
+  <string name="in_list">在列表中</string>
   <string name="out_of_role_description_with_name">您已离开%1$s“%2$s”</string>
   <string name="out_of_role_description">您已离开%1$s</string>
-  <string name="out_of_list_with_name">您已离开列表“%1$s”</string>
-  <string name="out_of_list">您已离开列表</string>
-  <string name="in_grid_with_name">您当前位于网格“%1$s”中</string>
-  <string name="in_grid">您当前位于网格中</string>
-  <string name="out_of_grid_with_name">您已离开网格“%1$s”</string>
-  <string name="out_of_grid">您已离开网格</string>
+  <string name="out_of_list_with_name">在“%1$s”列表外</string>
+  <string name="out_of_list">在列表外</string>
+  <string name="in_grid_with_name">在“%1$s”网格中</string>
+  <string name="in_grid">在网格中</string>
+  <string name="out_of_grid_with_name">在“%1$s”网格外</string>
+  <string name="out_of_grid">在网格外</string>
   <string name="in_pager_with_name">在页面控制项“%1$s”中</string>
   <string name="in_pager">在页面控制项中</string>
   <string name="out_of_pager_with_name">在页面控制项“%1$s”外</string>
@@ -171,6 +171,10 @@
   <string name="template_speech_rate_change_slower">较慢</string>
   <string name="template_speech_rate_change_fastest">最快</string>
   <string name="template_speech_rate_change_slowest">最慢</string>
+  <string name="template_volume_change_increase">调高</string>
+  <string name="template_volume_change_decrease">调低</string>
+  <string name="template_volume_change_maximum">最大</string>
+  <string name="template_volume_change_minimum">最小</string>
   <string name="template_seekbar_range">%1$d%%</string>
   <string name="audio_focus_on">“降低其他应用音量”已开启</string>
   <string name="audio_focus_off">“降低其他应用音量”已关闭</string>
@@ -178,7 +182,7 @@
   <string name="selector_verbosity_output">详细程度</string>
   <string name="selector_granularity_output">导航</string>
   <string name="selector_audio_focus_output">降低其他应用音量</string>
-  <string name="summaryOff_pref_speak_passwords_without_headphones">仅在使用耳机时说出密码</string>
+  <string name="summaryOff_pref_speak_passwords_without_headphones">仅在使用耳机时读出密码</string>
   <string name="template_hint_menu_type_high_verbosity">可执行操作“%1$s”，请使用手势“%2$s”进行查看。</string>
   <string name="template_hint_menu_type_low_verbosity">可执行操作“%1$s”。</string>
 </resources>

@@ -17,6 +17,7 @@
 package com.google.android.accessibility.utils.ocr;
 
 import android.graphics.Rect;
+import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.google.android.gms.vision.text.TextBlock;
 import java.util.List;
@@ -28,7 +29,7 @@ import java.util.List;
 public class OCRInfo {
 
   public final AccessibilityNodeInfoCompat node;
-  public List<TextBlock> textBlocks;
+  @Nullable public List<TextBlock> textBlocks;
 
   /** Caller retains responsibility to recycle the node. */
   public OCRInfo(AccessibilityNodeInfoCompat node) {
@@ -43,10 +44,11 @@ public class OCRInfo {
     node.getBoundsInScreen(bounds);
   }
 
-  public void setTextBlocks(List<TextBlock> textBlocks) {
+  public void setTextBlocks(@Nullable List<TextBlock> textBlocks) {
     this.textBlocks = textBlocks;
   }
 
+  @Nullable
   public List<TextBlock> getTextBlocks() {
     return textBlocks;
   }

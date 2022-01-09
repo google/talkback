@@ -140,8 +140,7 @@ public class TalkBackUpdateHelper {
 
     // TalkBack 9.1 assigns more gestures for selector and reassigns the default values of selector
     // items.
-    // TODO: Updates the version code once TalkBack 9.1 is released.
-    if (previousVersion != -1 && previousVersion < 70000000) {
+    if (previousVersion != -1 && previousVersion < 60111894) {
       SelectorController.resetSelectorPreferences(service);
     }
 
@@ -206,7 +205,10 @@ public class TalkBackUpdateHelper {
 
     // Copy string preferences.
     copyPreferenceString(
-        editor, presetName, R.string.pref_keyboard_echo_key, R.string.pref_keyboard_echo_default);
+        editor,
+        presetName,
+        R.string.pref_keyboard_echo_on_screen_key,
+        R.string.pref_keyboard_echo_default);
 
     // Set preset to custom.
     editor.putString(
@@ -374,7 +376,11 @@ public class TalkBackUpdateHelper {
 
   private Notification buildGestureChangeNotification(Intent clickIntent) {
     final PendingIntent pendingIntent =
-        PendingIntent.getActivity(service, 0, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent.getActivity(
+            service,
+            0,
+            clickIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
     final String ticker = service.getString(R.string.notification_title_talkback_gestures_changed);
     final String contentTitle =

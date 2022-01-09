@@ -41,7 +41,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class TalkbackMenuProcessor {
 
   private static final String TAG = "TalkbackMenuProcessor";
-  
+
   /*
    * Talkback context menu items order
    * Reserves for context_menu.xml to implement
@@ -238,8 +238,7 @@ public class TalkbackMenuProcessor {
 
     // Removes voice command if phone is locked, Setup Wizard doesn't complete or uncheck
     // show item.
-    if (!TalkBackService.ENABLE_VOICE_COMMANDS
-        || ScreenMonitor.isDeviceLocked(service)
+    if (ScreenMonitor.isDeviceLocked(service)
         || !SettingsUtils.allowLinksOutOfSettings(service)
         || !showMenuItem(
             R.string.pref_show_context_menu_voice_commands_setting_key,
@@ -247,8 +246,10 @@ public class TalkbackMenuProcessor {
       menu.removeItem(R.id.voice_commands);
     }
 
-    // Removes talkback settings if phone is locked or uncheck show item.
+    // Removes talkback settings if phone is locked, Setup Wizard does not complete or uncheck show
+    // item.
     if (ScreenMonitor.isDeviceLocked(service)
+        || !SettingsUtils.allowLinksOutOfSettings(service)
         || !showMenuItem(
             R.string.pref_show_context_menu_talkback_settings_setting_key,
             R.bool.pref_show_context_menu_talkback_settings_default)) {
@@ -400,7 +401,7 @@ public class TalkbackMenuProcessor {
     }
 
     // Add Dim Screen items depending on API level and current device lock state.
-    boolean shouldShowDimOrBrightenScreen = DimScreenActor.isSupported(service);
+    boolean shouldShowDimOrBrightenScreen = DimScreenActor.isSupportedbyPlatform(service);
     LogUtils.d(TAG, "Dim or Brighten screen functionality added: " + shouldShowDimOrBrightenScreen);
     if (!shouldShowDimOrBrightenScreen) {
       return;
@@ -430,7 +431,7 @@ public class TalkbackMenuProcessor {
       return;
     }
 
-    if (!FeatureSupport.supportSystemActions()
+    if (!FeatureSupport.supportSystemActions(service)
         || ScreenMonitor.isDeviceLocked(service)
         || !SettingsUtils.allowLinksOutOfSettings(service)) {
       return;

@@ -22,16 +22,16 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
-import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import androidx.annotation.IntDef;
 import androidx.preference.DialogPreference;
 import androidx.preference.PreferenceDialogFragmentCompat;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.actor.GestureReporter;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.common.collect.ImmutableList;
@@ -84,7 +84,7 @@ public final class GestureListPreference extends DialogPreference {
 
   /** Creates the dialog fragment, which contains the list of supported actions. */
   public PreferenceDialogFragmentCompat createDialogFragment() {
-    return GesturePreferenceFragmentCompat.newInstance(this);
+    return GesturePreferenceFragmentCompat.create(this);
   }
 
   /** Returns all supported actions. */
@@ -193,24 +193,22 @@ public final class GestureListPreference extends DialogPreference {
             R.array.shortcut_system_actions,
             R.array.shortcut_value_system_actions);
     Resources resources = getContext().getResources();
-    if (FeatureSupport.supportSystemActions()) {
-      if (!FeatureSupport.isWatch(getContext())) {
-        builder.add(
-            new ActionItem(
-                resources.getString(R.string.shortcut_all_apps),
-                resources.getString(R.string.shortcut_value_all_apps),
-                TYPE_ACTION_ITEM));
-        builder.add(
-            new ActionItem(
-                resources.getString(R.string.shortcut_a11y_button),
-                resources.getString(R.string.shortcut_value_a11y_button),
-                TYPE_ACTION_ITEM));
-        builder.add(
-            new ActionItem(
-                resources.getString(R.string.shortcut_a11y_button_long_press),
-                resources.getString(R.string.shortcut_value_a11y_button_long_press),
-                TYPE_ACTION_ITEM));
-      }
+    if (FeatureSupport.supportSystemActions(getContext())) {
+      builder.add(
+          new ActionItem(
+              resources.getString(R.string.shortcut_all_apps),
+              resources.getString(R.string.shortcut_value_all_apps),
+              TYPE_ACTION_ITEM));
+      builder.add(
+          new ActionItem(
+              resources.getString(R.string.shortcut_a11y_button),
+              resources.getString(R.string.shortcut_value_a11y_button),
+              TYPE_ACTION_ITEM));
+      builder.add(
+          new ActionItem(
+              resources.getString(R.string.shortcut_a11y_button_long_press),
+              resources.getString(R.string.shortcut_value_a11y_button_long_press),
+              TYPE_ACTION_ITEM));
     }
     return builder.build();
   }
@@ -261,13 +259,11 @@ public final class GestureListPreference extends DialogPreference {
               TYPE_ACTION_ITEM));
     }
 
-    if (TalkBackService.ENABLE_VOICE_COMMANDS) {
-      builder.add(
-          new ActionItem(
-              resources.getString(R.string.shortcut_voice_commands),
-              resources.getString(R.string.shortcut_value_voice_commands),
-              TYPE_ACTION_ITEM));
-    }
+    builder.add(
+        new ActionItem(
+            resources.getString(R.string.shortcut_voice_commands),
+            resources.getString(R.string.shortcut_value_voice_commands),
+            TYPE_ACTION_ITEM));
 
     if (!FeatureSupport.isWatch(getContext())) {
       builder.add(
@@ -314,13 +310,15 @@ public final class GestureListPreference extends DialogPreference {
             resources.getString(R.string.shortcut_value_tutorial),
             TYPE_ACTION_ITEM));
 
-    builder.add(
-        new ActionItem(
-            resources.getString(R.string.shortcut_practice_gestures),
-            resources.getString(R.string.shortcut_value_practice_gestures),
-            TYPE_ACTION_ITEM));
+    if (!FeatureSupport.isWatch(getContext())) {
+      builder.add(
+          new ActionItem(
+              resources.getString(R.string.shortcut_practice_gestures),
+              resources.getString(R.string.shortcut_value_practice_gestures),
+              TYPE_ACTION_ITEM));
+    }
 
-    if (GestureReporter.ENABLED) {
+    if (GestureReporter.ENABLED && SettingsUtils.allowLinksOutOfSettings(getContext())) {
       builder.add(
           new ActionItem(
               resources.getString(R.string.shortcut_report_gesture),

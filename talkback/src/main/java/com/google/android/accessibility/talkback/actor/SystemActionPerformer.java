@@ -36,7 +36,6 @@ public final class SystemActionPerformer {
               GLOBAL_ACTION_KEYCODE_HEADSETHOOK, // 10
               GLOBAL_ACTION_ACCESSIBILITY_BUTTON, // 11
               GLOBAL_ACTION_ACCESSIBILITY_BUTTON_CHOOSER, // 12
-              GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS, // 14
               GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS_LEGACY, // 100
               // Available using hardware keys
               AccessibilityService.GLOBAL_ACTION_POWER_DIALOG, // 6
@@ -51,7 +50,7 @@ public final class SystemActionPerformer {
   public boolean performAction(int id) {
     // AccessibilityService.GLOBAL_ACTION_KEYCODE_HEADSETHOOK won't be displayed in the list until S
     // TODO remove this headset check in S
-    if (FeatureSupport.supportSystemActions() && id != GLOBAL_ACTION_KEYCODE_HEADSETHOOK) {
+    if (FeatureSupport.supportSystemActions(service) && id != GLOBAL_ACTION_KEYCODE_HEADSETHOOK) {
       List<AccessibilityAction> actionList = service.getSystemActions();
       // Equality is by id
       if (actionList.contains(new AccessibilityAction(id, null))) {

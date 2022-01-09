@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">การอัปเดตตำแหน่งของจุด ก่อนอื่นให้เริ่มด้วยการบันทึกจุดของมือซ้าย ใช้นิ้วชี้ นิ้วกลาง และนิ้วนางของมือซ้ายแตะหน้าจอค้างไว้</string>
   <string name="calibration_step1_hold_right_finger_announcement">การอัปเดตตำแหน่งของจุด ก่อนอื่นให้เริ่มด้วยการบันทึกจุดของมือขวา ใช้นิ้วชี้ นิ้วกลาง และนิ้วนางของมือขวาแตะหน้าจอค้างไว้</string>
   <string name="calibration_finish_announcement">อัปเดตตำแหน่งของจุดแล้ว</string>
+  <string name="remaining_calibration_finish_announcement">อัปเดตตำแหน่งจุดทั้งหมดแล้ว</string>
   <string name="calibration_step2_hold_right_finger_announcement">อัปเดตตำแหน่งของจุด 1, 2 และ 3 แล้ว จากนั้นให้บันทึกจุดของมือขวา ใช้นิ้วชี้ นิ้วกลาง และนิ้วนางของมือขวาแตะหน้าจอค้างไว้</string>
   <string name="calibration_step2_hold_left_finger_announcement">อัปเดตตำแหน่งของจุด 1, 2 และ 3 แล้ว จากนั้นให้บันทึกจุดของมือซ้าย ใช้นิ้วชี้ นิ้วกลาง และนิ้วนางของมือซ้ายแตะหน้าจอค้างไว้</string>
   <string name="calibration_fail_announcement">อัปเดตตำแหน่งของจุดไม่ได้ ใช้ 6 นิ้วแตะหน้าจอค้างไว้ จากนั้นลองอีกครั้ง</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">ภาษาสเปน</string>
   <string name="code_user_facing_name_ar">อาหรับ</string>
+  <string name="code_user_facing_name_fr">ฝรั่งเศส</string>
   <string name="title_pref_accumulate_presses">รวมจุดที่กดไว้ทั้งหมด</string>
   <string name="summary_pref_accumulate_presses">แต่ละจุดที่กดเป็นส่วนหนึ่งของอินพุต แม้ว่าจะปล่อยจุดนั้นก่อนจุดอื่นๆ</string>
   <string name="title_pref_reverse_dots">จุดแบบย้อนกลับ</string>
   <string name="summary_pref_reverse_dots">สลับตำแหน่งจุด เช่น เพื่อให้จุด 1 และจุด 4 สลับที่กัน</string>
-  <string name="typing_echo_list_preference_title">การอธิบายและอ่านออกเสียงสิ่งที่พิมพ์ (เสียงสะท้อนขณะพิมพ์)</string>
-  <string name="typing_echo_preference_label_characters">อ่านตัวอักษรและคำทั้งหมด</string>
-  <string name="typing_echo_preference_label_words">อ่านคำเท่านั้น</string>
   <string name="context_menu_title">ตัวเลือกแป้นพิมพ์อักษรเบรลล์</string>
   <string name="context_menu_typing_language_selection">เปลี่ยนแปลงภาษาที่พิมพ์</string>
   <string name="context_menu_typing_language_selection_summary">ปัจจุบันใช้ %s</string>

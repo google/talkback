@@ -18,7 +18,9 @@ package com.google.android.accessibility.talkback.focusmanagement.interpreter;
 
 import android.accessibilityservice.AccessibilityService;
 import androidx.annotation.Nullable;
+import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityWindowInfo;
+import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.WindowEventInterpreter.EventInterpretation;
@@ -28,8 +30,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A class works as a detector for {@link ScreenState} changes and notifies {@link
- * ScreenStateChangeListener} of the change.
+ * A class works as a detector for {@link ScreenState} changes from {@link WindowEventHandler} and
+ * notifies {@link ScreenStateChangeListener} of the change.
+ *
+ * <p><strong>Note: </strong>The detector is mainly used to notify {@link ScreenStateChangeListener}
+ * although it also caches the read-only {@code State} for convenience. Be careful to use the cache
+ * data because they might not be able to accurately reflect the latest screen state due to the
+ * delayed interpretations and abusing of {@link AccessibilityEvent#TYPE_WINDOW_STATE_CHANGED}. It
+ * is better to have a fallback plan while using the cache data. For example, {@link
+ * AccessibilityFocusActionHistory} reads {@code State} to cache focus for restoration and there
+ * should be another focus-searching way triggered if the restoration fails. Otherwise using {@link
+ * AccessibilityService#getWindows()} to get the real-time window data.
  *
  * <p><strong>Note: </strong>To make this feature works, the {@link AccessibilityService} has to
  * declare the capability to retrieve window content by setting the {@code
@@ -49,11 +60,27 @@ public class ScreenStateMonitor implements WindowEventHandler {
     boolean onScreenStateChanged(ScreenState screenState, EventId eventId);
   }
 
+  /** Read-only interface for ScreenStateMonitor-state data. */
+  public class State {
+    /** Returns true if the active window or split-windows are stable. */
+    public boolean areMainWindowsStable() {
+      return ScreenStateMonitor.this.areMainWindowsStable;
+    }
+    /** Returns the {@link ScreenState} from the current stable windows. */
+    @Nullable
+    public ScreenState getStableScreenState() {
+      return ScreenStateMonitor.this.stableScreenState;
+    }
+  }
+
+  public final ScreenStateMonitor.State state = new ScreenStateMonitor.State();
+
   private WindowsDelegate windowsDelegate;
   private final AccessibilityService service;
   private final List<ScreenStateChangeListener> listeners =
       new ArrayList<ScreenStateChangeListener>();
-  private ScreenState currentScreenState;
+  private ScreenState stableScreenState;
+  private boolean areMainWindowsStable;
 
   public ScreenStateMonitor(AccessibilityService service) {
     this.service = service;
@@ -63,12 +90,14 @@ public class ScreenStateMonitor implements WindowEventHandler {
   public void handle(
       EventInterpretation interpretation,
       @org.checkerframework.checker.nullness.qual.Nullable EventId eventId) {
+    areMainWindowsStable = !interpretation.getMainWindowsChanged();
     if (interpretation.getMainWindowsChanged() && interpretation.areWindowsStable()) {
+      areMainWindowsStable = true;
       AccessibilityWindowInfo activeWindow =
           AccessibilityServiceCompatUtils.getActiveWidow(service);
-      currentScreenState =
+      stableScreenState =
           new ScreenState(windowsDelegate, activeWindow, interpretation.getEventStartTime());
-      onScreenStateChanged(currentScreenState, eventId);
+      onScreenStateChanged(stableScreenState, eventId);
     }
   }
 
@@ -81,11 +110,6 @@ public class ScreenStateMonitor implements WindowEventHandler {
       throw new IllegalArgumentException("Listener must not be null.");
     }
     listeners.add(listener);
-  }
-
-  @Nullable
-  public ScreenState getCurrentScreenState() {
-    return currentScreenState;
   }
 
   /** Notifies {@link ScreenStateChangeListener} of the {@link ScreenState} changes. */

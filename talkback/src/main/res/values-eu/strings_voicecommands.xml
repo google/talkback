@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Hizkuntza</string>
   <string name="voice_commands_languages">Hizkuntzak</string>
   <string name="voice_commands_custom_actions">ekintza pertsonalizatuak</string>
+  <string name="voice_commands_action">Ekintza</string>
   <string name="voice_commands_quick_settings">Ezarpen bizkorrak</string>
-  <string name="voice_commands_quick_setting">Ezarpen bizkorrak</string>
+  <string name="voice_commands_quick_setting">Ezarpen bizkorra</string>
   <string name="voice_commands_dim">ilundu</string>
   <string name="voice_commands_darken">moteldu argia</string>
   <string name="voice_commands_brighten_screen">argitu pantaila</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Eginbidea ez dago erabilgarri gailu honetan</string>
   <string name="voice_commands_error">Errore bat gertatu da ahozko agindua hautematean</string>
   <string name="voice_commands_partial_result">Ezin da hauteman agindua. Esan \"%1$s\" agindu guztien zerrenda ikusteko.</string>
+  <string name="voice_commands_timeout">Esan \"%1$s\" agindu guztien zerrenda ikusteko.</string>
   <string name="voice_commands_many_requests">Saiatu berriro minutu batzuk barru</string>
-  <string name="voice_commands_setting_disabled">Ez dago gaituta \"%1$s\" ezarpena</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" ez da ezagutzen ahozko agindu gisa.</string>
   <string name="voice_commands_label_saved">Gorde da etiketa</string>
   <string name="voice_commands_no_actions_feedback">Ez dago ekintzarik erabilgarri</string>
@@ -111,8 +112,9 @@
   <string name="voice_commands_help_title">Ahozko aginduei buruzko informazio orokorra</string>
   <string name="voice_commands_help_description">Ahozko aginduak erabiltzeko, pasatu hatza eskuinera eta, gero, gora. Aginduen zerrenda ikusteko, esan \"laguntza\" edo \"zer esan dezaket?\".</string>
   <string name="voice_commands_help_hint">Emaitza hobeak lortzeko, esan hurrengo pantailetan ageri diren hitz zehatzak.</string>
+  <string name="voice_command_screen_locked_hint">Hemendik aurrera, pantaila blokeatuta dagoenean ere erabili ahal izango dituzu ahozko aginduak. Bestela, TalkBack-en menua erabiltzeko, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
-  <string name="voice_commands_help_reading_controls_description">Aldatu uneko pantailako edukia irakurtzeko modua</string>
+  <string name="voice_commands_help_reading_controls_description">Aldatu oraingo pantailako edukia irakurtzeko modua</string>
   <string name="voice_commands_help_next">Hurrengo [goiburua]</string>
   <string name="voice_commands_help_navigation">[Hitz] bidezko nabigazioa</string>
   <string name="voice_commands_help_speech_rate">Hitz egin [bizkorrago]</string>
@@ -121,19 +123,20 @@
   <string name="voice_commands_help_navigation_description">Nabigatu hauen arabera: hitzak, karaktereak, lerroak, paragrafoak, goiburuak, kontrolatzeko aukerak, etab.</string>
   <string name="voice_commands_help_speech_rate_description">\"Hitz egin astiroago\" esan dezakezu ere</string>
   <string name="voice_commands_help_verbosity_description">Aldatu maila txikira, handira edo pertsonalizatura</string>
-  <string name="voice_commands_help_first_description">Joan uneko pantailako lehenengo elementura</string>
-  <string name="voice_commands_help_last_description">Joan uneko pantailako azkeneko elementura</string>
+  <string name="voice_commands_help_first_description">Joan oraingo pantailako lehenengo elementura</string>
+  <string name="voice_commands_help_last_description">Joan oraingo pantailako azkeneko elementura</string>
   <string name="voice_commands_help_languages_description">Aldatu erabili beharreko hizkuntza (testua ahots bihurtzeko eginbidea)</string>
   <string name="voice_commands_help_find_items_title">Bilatu elementuak</string>
-  <string name="voice_commands_help_find_items_description">Bilatu eduki zehatza uneko pantailan</string>
+  <string name="voice_commands_help_find_items_description">Bilatu eduki zehatza oraingo pantailan</string>
   <string name="voice_commands_help_find_text">Bilatu [Gorde]</string>
-  <string name="voice_commands_help_find_text_description">Bilatu uneko pantailan \"gorde\" testua daukan lehenengo elementua</string>
+  <string name="voice_commands_help_find_text_description">Bilatu oraingo pantailan \"gorde\" testua daukan lehenengo elementua</string>
   <string name="voice_commands_help_find_description">Errepikatu \"bilatu\" hitza \"gorde\" testua daukan hurrengo elementura joateko</string>
   <string name="voice_commands_help_screen_search_description">Idatzi bilaketa-hitz bat testu hori pantailan bilatzeko</string>
   <string name="voice_commands_help_text_editing_description">Idatzi, hautatu eta kopiatu testua</string>
   <string name="voice_commands_help_type_text">Idatzi [Ados]</string>
-  <string name="voice_commands_help_copy_description">Ziurtatu testua hautatuta daukazula kopiatu baino lehen</string>
-  <string name="voice_commands_help_cut_description">Ziurtatu testua hautatuta daukazula ebaki baino lehen</string>
+  <string name="voice_commands_help_copy_description">Hautatu testu bat kopiatzen hasi aurretik</string>
+  <string name="voice_commands_help_cut_description">Hautatu testu bat ebakitzen hasi aurretik</string>
+  <string name="voice_commands_help_delete_description">Hautatu testu bat ezabatzen hasi aurretik</string>
   <string name="voice_commands_help_device_navigation_title">Gailuan nabigatzea</string>
   <string name="voice_commands_help_device_navigation_description">Joan hasierako pantailara, egin atzera, erakutsi jakinarazpenak, etab.</string>
   <string name="voice_commands_help_overview_description">Ikusi azken aplikazioak</string>
@@ -143,7 +146,7 @@
   <string name="voice_commands_help_label">[Bidali] izeneko etiketa</string>
   <string name="voice_commands_help_hide_screen_description">Ezkutatu pantaila besteentzat ikusgai egon ez dadin toki publikoetan</string>
   <string name="voice_commands_help_show_screen_description">Pantaila ezkutatu eta gero, itzularaz ezazu egoera normalera</string>
-  <string name="voice_commands_help_actions_description">Erakutsi uneko elementuan egin daitekeena</string>
+  <string name="voice_commands_help_actions_description">Erakutsi oraingo elementuan egin daitekeena</string>
   <string name="voice_commands_help_label_description">Gehitu edo editatu \"bidali\" dioen etiketa pertsonalizatu bat</string>
   <string name="voice_commands_help_stop_description">Gelditu ahozko agindu hau</string>
 </resources>

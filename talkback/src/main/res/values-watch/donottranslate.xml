@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="pref_shortcut_3finger_1tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_2tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_3tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_swipe_up_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_swipe_down_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_swipe_left_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_swipe_right_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_swipe_up_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_swipe_down_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_swipe_left_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_swipe_right_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_1tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_2tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_3tap_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_3finger_2tap_hold_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_2tap_hold_default">@string/shortcut_value_unassigned</string>
+
     <!-- None of the strings here should be translated -->
     <!-- NOTE: When adding a preference here, it must also be added to the initialization in PreferenceDefaultsProxy.java -->
     <!-- Shortcut preference of basic navigation -->
@@ -91,5 +109,29 @@
         <item>@string/shortcut_value_paste</item>
         <item>@string/shortcut_value_editing</item>
     </string-array>
+
+    <bool name="pref_show_context_menu_editing_default">false</bool>
+    <bool name="pref_show_context_menu_labeling_default">false</bool>
+    <bool name="pref_show_context_menu_read_from_top_default">true</bool>
+    <bool name="pref_show_context_menu_read_from_current_default">false</bool>
+    <bool name="pref_show_context_menu_copy_last_spoken_phrase_default">false</bool>
+    <bool name="pref_show_context_menu_find_on_screen_default">false</bool>
+    <bool name="pref_show_context_menu_language_default">false</bool>
+    <bool name="pref_show_context_menu_tts_settings_default">false</bool>
+    <bool name="pref_show_context_menu_voice_commands_default">false</bool>
+    <bool name="pref_show_context_menu_pause_feedback_default">false</bool>
+    <bool name="pref_show_navigation_menu_controls_default">false</bool>
+    <bool name="pref_show_navigation_menu_links_default">false</bool>
+    <bool name="pref_show_navigation_menu_landmarks_default">false</bool>
+    <bool name="pref_show_navigation_menu_special_content_default">false</bool>
+    <bool name="pref_show_navigation_menu_other_web_navigation_default">false</bool>
+    <bool name="pref_show_navigation_menu_window_default">false</bool>
+
+    <bool name="pref_selector_granularity_lines_default">false</bool>
+    <bool name="pref_selector_granularity_paragraphs_default">false</bool>
+    <bool name="pref_selector_granularity_controls_default">false</bool>
+    <bool name="pref_selector_verbosity_default">false</bool>
+    <bool name="pref_selector_granularity_links_default">false</bool>
+    <bool name="pref_selector_granularity_windows_default">false</bool>
 
 </resources>

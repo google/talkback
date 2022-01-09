@@ -21,12 +21,12 @@ import static com.google.android.accessibility.talkback.Feedback.Focus.Action.MU
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.RESTORE_ON_NEXT_WINDOW;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.SAVE_LAST;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Handler;
 import android.os.SystemClock;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.appcompat.app.AlertDialog;
+import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +36,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
@@ -47,7 +48,7 @@ import com.google.android.accessibility.talkback.eventprocessor.EventState;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionRecord;
 import com.google.android.accessibility.talkback.menurules.NodeMenuRuleProcessor;
-import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
+import com.google.android.accessibility.talkback.utils.MaterialComponentUtils;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
@@ -224,7 +225,7 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
       return;
     }
 
-    AlertDialog.Builder builder = AlertDialogUtils.createBuilder(service);
+    AlertDialog.Builder builder = MaterialComponentUtils.alertDialogBuilder(service);
     builder.setTitle(title);
     View customview =
         prepareCustomView(
@@ -312,11 +313,15 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
 
   private View prepareCustomView(CharSequence[] items, AdapterView.OnItemClickListener listener) {
     ListView view = new ListView(service);
+    view.setId(R.id.talkback_menu_listview);
     view.setBackground(null);
     view.setDivider(null);
     ArrayAdapter<CharSequence> adapter =
         new ArrayAdapter<CharSequence>(
-            service, android.R.layout.simple_list_item_1, android.R.id.text1, items) {
+            new ContextThemeWrapper(service, R.style.AlertDialogCustomViewTheme),
+            android.R.layout.simple_list_item_1,
+            android.R.id.text1,
+            items) {
           @Override
           public View getView(int position, @Nullable View convertView, ViewGroup parent) {
             TextView textView = (TextView) super.getView(position, convertView, parent);
@@ -328,6 +333,11 @@ public class ListMenuManager implements WindowEventHandler, AccessibilityEventLi
         };
     view.setAdapter(adapter);
     view.setOnItemClickListener(listener);
+    view.getContext().setTheme(R.style.AlertDialogCustomViewTheme);
+    if (FeatureSupport.isWatch(service)) {
+      // Support Wear rotary input
+      view.requestFocus();
+    }
     return view;
   }
 

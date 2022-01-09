@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">%1$s versiya</string>
   <string name="label_manager_summary_title">Shaxsiy yorliqlarni boshqarish</string>
   <string name="label_manager_package_title">%1$s yorliqlarini boshqarish</string>
+  <string name="manage_label">Yorliqni boshqarish</string>
   <string name="label_manager_no_packages_message">Sizda hozircha o‘zingizga moslashtirilgan yorliqlar yo‘q. Yangi yorliq yaratish uchun kerakli rasmni oching va Talkback menyusidan mos bandni tanlang.</string>
   <string name="label_manager_timestamp_text">So‘nggi o‘zgarish: %1$s</string>
   <string name="search_dialog_label">Qidiruv: %1$s</string>
@@ -55,7 +56,7 @@
   <string name="summaryOff_pref_speak_screenoff">Ekran o‘chiqligida talaffuz qilinmasin</string>
   <string name="title_pref_verbose_scroll_announcement">Ekrandagi elementlar ro‘yxatining raqamini tinglash</string>
   <string name="summaryOff_pref_verbose_scroll_announcement">Faqat ishora bilan aylantirganda tinglash</string>
-  <string name="summaryOn_pref_verbose_scroll_announcement">Doim tinglansin</string>
+  <string name="summaryOn_pref_verbose_scroll_announcement">Doim aytilsin</string>
   <string name="title_pref_cover_proximity_sensor">Nutqni toʻxtatish uchun yaqinlashish sensorini yoping</string>
   <string name="title_pref_proximity">Masofa sezgichi</string>
   <string name="summaryOn_pref_proximity">Masofa sezgichi nutq balandligini boshqaradi</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Teginib o‘rganish</string>
   <string name="title_pref_category_touch_exploration">Navigatsiya</string>
   <string name="title_pref_category_controls">Boshqaruv</string>
-  <string name="title_pref_single_tap">Bir marta bosib faollashtirish</string>
+  <string name="title_pref_single_tap">Faollashtirish uchun bir marta bosing</string>
   <string name="title_pref_show_context_menu_as_list">Ro‘yxat shaklidagi kontekst menyusi</string>
-  <string name="summary_pref_single_tap">Fokusdagi elementni faollashtirish uchun ustiga bir marta bosing (tajribaviy funksiya)</string>
+  <string name="summary_pref_single_tap">Fokusdagi elementni faollashtirish uchun ustiga bir marta bosing</string>
   <string name="title_pref_shake_to_read_threshold">O‘qish uchun silkitish</string>
   <string name="pref_verbosity_title">Tafsilotlar</string>
   <string name="pref_punctuation_title">Punktuatsiya</string>
+  <string name="title_pref_category_manage_focus_indicator">Fokus indikatorini sozlash</string>
   <string name="title_pref_category_manage_gestures">Ishoralarni sozlash</string>
   <string name="title_pref_manage_labels">Maxsus yorliqlar</string>
   <string name="title_pref_manage_customize_menus">Menyularni sozlash</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Yordam/fikr-mulohaza</string>
   <string name="title_pref_category_tutorial_and_help">Darslik va yordam</string>
   <string name="title_pref_category_advanced">Kengaytirilgan</string>
+  <string name="title_pref_category_typing">Yozish va klaviatura</string>
   <string name="title_pref_category_legal_and_privacy">Yuridik va maxfiylik haqidagi axborot</string>
   <string name="title_pref_advanced_settings">Kengaytirilgan sozlamalar</string>
   <string name="reset_gesture_settings_title">Ishora sozlamalarini tiklash</string>
@@ -156,8 +159,8 @@
   <string name="keycombo_menu_navigate_down">Quyidagi obyektga o‘tish</string>
   <string name="keycombo_menu_navigate_first">Birinchi obyektga o‘tish</string>
   <string name="keycombo_menu_navigate_last">Oxirgi obyektga o‘tish</string>
-  <string name="keycombo_menu_navigate_next_window">Keyingi oynaga o‘tish</string>
-  <string name="keycombo_menu_navigate_previous_window">Oldingi oynaga o‘tish</string>
+  <string name="keycombo_menu_navigate_next_window">Keyingi oynaga oʻtish</string>
+  <string name="keycombo_menu_navigate_previous_window">Oldingi oynaga oʻtish</string>
   <string name="keycombo_menu_navigate_next_word">Keyingi so‘zga o‘tish</string>
   <string name="keycombo_menu_navigate_previous_word">Avvalgi so‘zga o‘tish</string>
   <string name="keycombo_menu_navigate_next_character">Keyingi belgiga o‘tish</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Yaqinda ishlatilgan ilovalar</string>
   <string name="keycombo_menu_global_notifications">Bildirishnomalar</string>
   <string name="keycombo_menu_global_suspend">TalkBack’ni to‘xtatib turish yoki yoqish</string>
+  <string name="keycombo_menu_global_play_pause_media">Media ijrosi yoki pauza</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Keyingi oʻqish boshqaruvini tanlash</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Avvalgi oʻqish boshqaruvini tanlash</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Avvalgi oʻqish boshqaruvi qiymatini oshirish</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Avvalgi oʻqish boshqaruvi qiymatini tushirish</string>
   <string name="keycombo_menu_category_granularity">Navigatsiya</string>
   <string name="keycombo_menu_granularity_increase">Keyingi navigatsiya sozlamasi</string>
   <string name="keycombo_menu_granularity_decrease">Avvalgi navigatsiya sozlamasi</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Nusxa olish uchun avval matnni belgilang.</string>
   <string name="cannot_paste_feedback">Joylash uchun avval matndan nusxa oling.</string>
   <string name="cannot_cut_feedback">Qirqish uchun avval matnni belgilang.</string>
+  <string name="cannot_delete_feedback">Oʻchirish uchun avval matnni belgilang.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Bu tugmalar sxemasi uchun tezkor tugmalarni birlamchi qiymatlariga qayta tiklamoqchimisiz? Yodda tuting, bu amalni ortga qaytarib bo‘lmaydi.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Asliga qaytarish</string>
   <string name="override_keycombo">Ushbu tugma allaqachon tayinlangan</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Talaffuzda ohangni o‘zgartirish</string>
   <string name="title_pref_keyboard_echo">Klaviatura aks sadosi</string>
   <string name="pref_node_desc_order_title">Element tavsifi tartibi</string>
-  <string name="summaryOn_pref_intonation">Matn o‘qib eshittirilayotganda ohang pasaytirilsin</string>
+  <string name="summaryOn_pref_intonation">Klaviatura oʻchirib tashlangan matnni baland ovozda aytadi</string>
   <string name="summaryOff_pref_intonation">Ovoz ohangi o‘zgarmasin</string>
   <string name="title_pref_brailleime">Brayl klaviaturasi</string>
   <string name="title_pref_category_feedback_settings">Boshqa signallar</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Tugunlar daraxtini tuzatishni yoqish</string>
   <string name="summary_pref_tree_debug_tv">Qidirish o‘rniga tugunlar daraxtini chop etish uchun ovozli qidiruv tugmasidan foydalanish</string>
   <string name="title_pref_performance_stats">Unumdorlik bo‘yicha statistikani yoqish</string>
+  <string name="title_pref_log_overlay">Ustki tuzatmalar jurnalini yoqish</string>
   <string name="title_pref_resume_talkback">To‘xtagan joyidan davom ettirish</string>
+  <string name="title_pref_typing_confirmation">Yozish parametrlari</string>
   <string name="title_pref_multi_finger_gesture">Koʻp barmoqli ishoralarni yoqish</string>
   <string name="screen_dimmed">Ekran xira</string>
   <string name="screen_brightness_restored">Ekran yorqin</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Pastga varaqlash</string>
   <string name="shortcut_scroll_left">Chapga varaqlash</string>
   <string name="shortcut_scroll_right">Oʻngga varaqlash</string>
+  <string name="shortcut_next_window">Keyingi oyna</string>
+  <string name="shortcut_previous_window">Avvalgi oyna</string>
   <string name="shortcut_back">Orqaga</string>
   <string name="shortcut_home">Boshi</string>
   <string name="shortcut_overview">Umumiy</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Ekranda chiqarish yoki berkitish</string>
   <string name="title_show_screen_search">Ekrandan qidirish</string>
   <string name="title_show_voice_commands">Ovozli buyruqlar</string>
+  <string name="talkback_show_talkback_settings">TalkBack sozlamalari</string>
   <string name="title_other_web_navigation">Boshqa veb navigatsiya</string>
   <string name="title_granularity_default">Standart navigatsiya</string>
   <string name="title_seek_bar_edit">Slayder qiymatini tahrirlash</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Ovozingiz bilan TalkBack funksiyasini boshqaring</string>
   <string name="summary_show_hide_screen">Jamoat joylarida ekrandagi kontent boshqalarga koʻrinmasligi uchun uni berkiting. Ekran berkitilgandan keyin normal holatga qaytaring.</string>
   <string name="summary_talkback_preferences">TalkBack sozlamalarini ochish</string>
-  <string name="summary_system_actions">Barcha ilovalarga, tezkor sozlamalarga oʻtish va ekranni ikkiga ajratishdan foydalanish</string>
+  <string name="summary_system_actions">Barcha ilovalar va tezkor solzamalarga oʻtish</string>
   <string name="summary_tts_settings">Nutq sintezatori sozlamalarini ochish</string>
   <string name="summary_pause_feedback">TalkBack ovozli tavsif funksiyasini faolsizlantirish</string>
   <string name="not_editable">Tahrirlash imkonsiz</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Har bir soʻzni ajratib oʻqish</string>
   <string name="summary_lines">Har bir qatorni ajratib oʻqish</string>
   <string name="summary_paragraphs">Har bir paragrafni ajratib oʻqish</string>
+  <string name="summary_windows">Tovush tugmalari yoki navigatsiya paneli kabi boshqa oynalarga sakrash</string>
   <string name="summary_headings">Sarlavhalarga oʻtish</string>
   <string name="summary_controls">Tugmalar, belgilash katakchalari, matn maydonchalari kabi boshqaruv elementlari boʻylab kezish</string>
   <string name="summary_links">Havolalarga oʻtish</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Bosilgan tugmalar, foydalanish maslahati, shakl va boshqa axborotlar baland oʻqilishini oʻzgartirish</string>
   <string name="summary_selector_menu_punctuation">Punktuatsiya va belgilarni oʻqib eshittirish yoki eshittirmaslikni tanlang</string>
   <string name="summary_language">Audio tilini almashtirish. Faqatgina bir nechta nutq sintezi tillari borligida chiqadi.</string>
-  <string name="summary_sound_feedback">Kezish davomida karnay signali orqali amalni tasdiqlash kabi tovushli effektlarni tinglang.</string>
+  <string name="summary_sound_feedback">Kezish davomida karnay signali orqali amalni tasdiqlash kabi tovushli effektlarni tinglang</string>
   <string name="summary_vibration_feedback">Elementlarni tanlash kabi amallar vaqtida tebranishlarni sezing. Ilovalar yoki tizim tebranishlaridan tashqari.</string>
   <string name="summary_hide_screen">Jamoat joylarida ekrandagi kontent boshqalarga koʻrinmasligi uchun ekranni berkiting.</string>
   <string name="summary_audio_ducking">TalkBack oʻqib beryotganda boshqa tovushlarni pasaytirish</string>
   <string name="summary_support_scroll_seq">Orqaga yoki oldinga varaqlang</string>
+  <string name="summary_support_change_a11y_volume">Maxsus imkoniyatlar tovushini balandlatish va pasaytirish</string>
+  <string name="summary_image_caption">Bu rasm uchun avtomatik tavsifni olish</string>
   <string name="value_direction_up">tepaga</string>
   <string name="value_direction_down">pastga</string>
   <string name="value_direction_left">chapga</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">2 ta barmoq bilan ikki marta teginish va ushlab turish</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">3 ta barmoq bilan ikki marta teginish va ushlab turish</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">4 ta barmoq bilan ikki marta teginish va ushlab turish</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">2 barmoq bilan uch marta bosish va barmoqni uzmay turish</string>
+  <string name="seekbar_hint_2gesture">Sozlash uchun “%1$s” yoki “%2$s”</string>
+  <string name="seekbar_hint_1gesture">Sozlash uchun “%1$s”</string>
   <string name="gesture_name_unknown">Notanish ishora</string>
   <string name="gesture_name_pass_through">Tizim ishorasiga oʻtish</string>
   <string name="gesture_name_touch_explore">Sensorli tanishuv</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Ikki marta bosish va barmoqni uzmay turish</string>
   <string name="gesture_name_2finger_tap_hold">2 barmoq bilan bosish va barmoqni uzmay turish</string>
   <string name="gesture_name_3finger_tap_hold">3 barmoq bilan bosish va barmoqni uzmay turish</string>
+  <string name="gesture_name_2finger_3tap_hold">2 barmoq bilan uch marta bosish va barmoqni uzmay turish</string>
   <string name="gesture_name_3finger_3tap_hold">3 barmoq bilan 3 marta bosish va barmoqni uzmay turish</string>
   <string name="title_pref_shortcut_fingerprint_up">Barmoq izi skanerida tepaga surish</string>
   <string name="title_pref_shortcut_fingerprint_down">Barmoq izi skanerida pastga surish</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Ekran yonganda</string>
   <string name="value_resume_keyguard">Ekran qulflanganda</string>
   <string name="value_resume_manual">Faqat bildirishnomalar panelidan</string>
+  <string name="value_type_confirmation_double_tap">Tanlash uchun barmoq bilan bosib turing va keyin ikki marta bosing</string>
+  <string name="value_type_confirmation_lift_to_type">Tanlash uchun barmoq bilan bosib turing va qoʻyib yuboring</string>
   <string name="value_shake_to_read_disabled">Yoqilmagan</string>
   <string name="value_shake_to_read_threshold_very_light">Juda yengil</string>
   <string name="value_shake_to_read_threshold_light">Yengil</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Har doim</string>
   <string name="value_keyboard_echo_softkeys">Faqat ekrandagi klaviatura uchun</string>
   <string name="value_keyboard_echo_never">Hech qachon</string>
+  <string name="title_pref_keyboard_echo_on_screen">Klaviatura aks sadosi: ekrandagi klaviatura</string>
+  <string name="title_pref_keyboard_echo_physical">Klaviatura aks sadosi: tashqi klaviatura</string>
+  <string name="value_keyboard_echo_none">Hech qanday</string>
+  <string name="value_keyboard_echo_characters_only">Qahramonlar</string>
+  <string name="value_keyboard_echo_words_only">Soʻzlar</string>
+  <string name="value_keyboard_echo_characters_and_words">Belgilar va soʻzlar</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Holati, nomi, turi</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Turi, nomi, holati</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Nomi, turi, holati</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">“Tugunlar daraxtini tuzatish” funksiyasini yoqmoqchimisiz?\n\n“Tugunlar daraxtini tuzatish” funksiyasi ekrandagi kontentni qurilma jurnaliga taqdim etib, keyin uni boshqa ilovalar ham o‘qishi mumkin bo‘ladi.</string>
   <string name="dialog_title_enable_performance_stats">Unumdorlik bo‘yicha statistika yoqilsinmi?</string>
   <string name="dialog_message_enable_performance_stats">Haqiqatan ham unumdorlik bo‘yicha statistikani yoqmoqchimisiz?\n\nUnumdorlik bo‘yicha statistika ko‘proq xotira va quvvat iste’mol qiladi.</string>
+  <string name="title_request_phone_permission">Telefonga kirishga ruxsat berilsinmi?</string>
+  <string name="message_request_phone_permission">Bu TalkBack funksiyasiga chaqiruv vaqtida bildirishnomalar ovozini pasaytirishida yordam beradi</string>
+  <string name="continue_button">Davom etish</string>
   <string name="label_talkback_context_menu">TalkBack umumiy kontekst menyusi</string>
   <string name="permission_talkback_label">TalkBack funksiyasini boshqarish</string>
   <string name="permission_talkback_desc">TalkBack xizmatiga imo-ishoralarni yuborish va harakatlarni ovozli qilish funksiyasini qayta yoqish.</string>
-  <string name="permission_labeling_label">TalkBack moslashtirilgan yorliqlarini boshqarish</string>
-  <string name="permission_labeling_desc">TalkBack funksiyasi tomonidan ishlatiladigan moslashtirilgan yorliqlardan foydalanish, o‘zgartirish va o‘chirish.</string>
   <string name="links">Havolalar</string>
   <string name="end_of_text">Oxiri</string>
   <string name="start_of_page">Bundan oldin boshqa %1$s topilmadi</string>
@@ -614,6 +644,7 @@
   <string name="title_pref_selector_granularity">Navigatsiya</string>
   <string name="title_pref_selector_audio_focus">Ilovalarni ovozsiz qilish</string>
   <string name="title_pref_support_scroll_seq">Varaqlash</string>
+  <string name="title_pref_a11y_volume">Maxsus imkoniyatlarda tovush balandligi</string>
   <string name="title_pref_selector_adjustable_widget_slider">Slayderni sozlash</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Qiymatni sozlash</string>
   <string name="title_pref_speak_passwords_without_headphones">Parollarni talaffuz qilish</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Ovozli buyruqlar ishlatish</string>
   <string name="dialog_title_pass_through_mode">TalkBack ishoralari oʻrniga tizim ishoralaridan foydalanish</string>
   <string name="dialog_message_pass_through_mode">Jiringlash eshitsangiz, TalkBack bilan ishlamaydigan tizim ishorasidan foydalanishingiz mumkin. Bu asl ishora hisoblanadi.</string>
-  <string name="hint_type_search_term">Qidiruv soʻrovini kiriting</string>
+  <string name="hint_type_search_term">Qidiruv soʻrovi</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack bildirishnomalar kanali</string>
   <string name="pref_selector_summary">Sozlama tanlash uchun %1$s. Keyin sozlamani moslash uchun %2$s.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Matnni qirqish uchun 3 ta barmoq bilan ikki marta teginib, biroz uzmay turing.\n\nMatnni joylash uchun 3 ta barmoq bilan uch marta bosing.\n\nBuni quyidagi matn maydonida sinang.</string>
   <string name="copy_text_pre_r">Matn belgilanganidan keyin uni TalkBack menyusi orqali nusxalash mumkin. TalkBack menyusini ochish uchun pastga va oʻngga suring. Tahrirlash parametrlari ustiga ikki marta bosing va keyin nusxalang.\n\nBuni quyidagi matn maydonida sinang.</string>
   <string name="cut_paste_text_pre_r">Matnni qirqish yoki joylash uchun TalkBack menyusini oching va tahrirlash parametrlari ustiga ikki marta bosing.\n\nBuni quyidagi matn maydonida sinang.</string>
+  <string name="edit_box_hint_paste_text">Matnni shu yerga joylang</string>
   <string name="read_by_character_title">Belgi, soʻz yoki paragraflarni oʻqish</string>
   <string name="read_by_character_text">Ayrim vaqtlarda matn belgilarini oʻqish ham mumkin.\n\nBuning uchun “%1$s” eshitmaguncha 3 ta barmoqni oʻngga suring. Keyin navigatsiya fokusini belgilar asosida orqaga varaqlash uchun tepaga suring. Navigatsiya fokusini belgilar asosida oldinga varaqlash uchun pastga suring.\n\nHoziroq sinang. 3 ta barmoqni oʻngga surish orqali ham matnni soʻz yoki paragraf asosida oʻqish mumkin.</string>
   <string name="read_by_character_text_pre_r">Ayrim vaqtlarda matn belgilarini oʻqish ham mumkin.\n\nBuning uchun “%1$s” eshitmaguncha pastga va tepaga suring. Keyin navigatsiya fokusini belgilar asosida orqaga varaqlash uchun tepaga suring. Navigatsiya fokusini belgilar asosida oldinga varaqlash uchun pastga suring.\n\nHoziroq sinang. Pastga va tepaga surish orqali ham matnni soʻz yoki paragraf asosida oʻqish mumkin.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">%1$s faollashtirildi</string>
   <string name="talkback_inactive_title">TalkBack yoqilmagan</string>
   <string name="talkback_inactive_message">Qoʻllanmani ochishdan oldin TalkBack funksiyasini yoqing.</string>
+  <string name="watch_swipe_left_right_text">Elementlarni varaqlash uchun yon tomonlarga suring</string>
+  <string name="watch_double_tap_text">Elementni tanlash uchun ustiga ikki marta bosing</string>
+  <string name="watch_2_finger_scroll_text">Varaqlar uchun 2 ta barmoqni suring</string>
+  <string name="title_pref_thick_border">Qalin chegaralar</string>
+  <string name="title_pref_category_border_color">Rang</string>
+  <string name="title_pref_default_color">Standart</string>
+  <string name="title_pref_red">Qizil</string>
+  <string name="title_pref_orange">Apelsinrang</string>
+  <string name="title_pref_yellow">Sariq</string>
+  <string name="title_pref_green">Yashil</string>
+  <string name="title_pref_blue">Koʻk</string>
+  <string name="title_pref_grey">Kulrang</string>
   <string name="survey_closed">Soʻrovnoma yopildi</string>
+  <string name="character_recognition_text">Matni: %1$s</string>
+  <string name="title_image_caption">Rasmga tavsif berish</string>
 </resources>

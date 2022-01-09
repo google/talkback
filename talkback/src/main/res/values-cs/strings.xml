@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Verze %1$s</string>
   <string name="label_manager_summary_title">Správa vlastních štítků</string>
   <string name="label_manager_package_title">Správa štítků aplikace %1$s</string>
+  <string name="manage_label">Spravovat štítek</string>
   <string name="label_manager_no_packages_message">Aktuálně nemáte žádné vlastní štítky. Můžete je vytvořit tak, že přejdete na obrázek bez štítku a přidáte štítek z nabídky TalkBack.</string>
   <string name="label_manager_timestamp_text">Naposledy upraveno %1$s</string>
   <string name="search_dialog_label">Vyhledat: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Prozkoumání dotykem</string>
   <string name="title_pref_category_touch_exploration">Navigace</string>
   <string name="title_pref_category_controls">Ovládací prvky</string>
-  <string name="title_pref_single_tap">Aktivace jedním klepnutím</string>
+  <string name="title_pref_single_tap">Aktivovat jedním klepnutím</string>
   <string name="title_pref_show_context_menu_as_list">Kontextová nabídka jako seznam</string>
-  <string name="summary_pref_single_tap">(Experimentální) Zaměřenou položku lze aktivovat jedním klepnutím</string>
+  <string name="summary_pref_single_tap">Zaměřenou položku lze aktivovat jedním klepnutím</string>
   <string name="title_pref_shake_to_read_threshold">Zatřesením spustit nepřetržité čtení</string>
   <string name="pref_verbosity_title">Výřečnost</string>
   <string name="pref_punctuation_title">Interpunkce</string>
+  <string name="title_pref_category_manage_focus_indicator">Přizpůsobení indikátoru zaměření</string>
   <string name="title_pref_category_manage_gestures">Přizpůsobit gesta</string>
   <string name="title_pref_manage_labels">Vlastní štítky</string>
   <string name="title_pref_manage_customize_menus">Upravit nabídky</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Nápověda a zpětná vazba</string>
   <string name="title_pref_category_tutorial_and_help">Výuka a nápověda</string>
   <string name="title_pref_category_advanced">Pokročilá</string>
+  <string name="title_pref_category_typing">Psaní na klávesnici</string>
   <string name="title_pref_category_legal_and_privacy">Ochrana soukromí a právní ujednání</string>
   <string name="title_pref_advanced_settings">Rozšířená nastavení</string>
   <string name="reset_gesture_settings_title">Resetovat nastavení gest</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Poslední aplikace</string>
   <string name="keycombo_menu_global_notifications">Oznámení</string>
   <string name="keycombo_menu_global_suspend">Pozastavit nebo obnovit TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Přehrát nebo pozastavit média</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Vybrat další ovládací prvek čtení</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Vybrat předchozí ovládací prvek čtení</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Posunout ovládací prvek nahoru</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Posunout ovládací prvek dolů</string>
   <string name="keycombo_menu_category_granularity">Navigace</string>
   <string name="keycombo_menu_granularity_increase">Následující nastavení navigace</string>
   <string name="keycombo_menu_granularity_decrease">Předchozí nastavení navigace</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Není vybrán žádný text ke zkopírování, nejdříve nějaký vyberte.</string>
   <string name="cannot_paste_feedback">Není k dispozici žádný text k vložení, nejdříve nějaký zkopírujte.</string>
   <string name="cannot_cut_feedback">Není vybrán žádný text k vyjmutí, nejdříve nějaký vyberte.</string>
+  <string name="cannot_delete_feedback">Není vybrán žádný text ke smazání, nejdříve nějaký vyberte.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Opravdu klávesové zkratky v tomto mapování kláves chcete resetovat na výchozí hodnoty? Tuto akci nelze vrátit zpět.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Resetovat</string>
   <string name="override_keycombo">Klávesa je již používána</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Měnit výšku hlasu</string>
   <string name="title_pref_keyboard_echo">Hlasová odezva klávesnice</string>
   <string name="pref_node_desc_order_title">Pořadí popisu prvků</string>
-  <string name="summaryOn_pref_intonation">Opakovat zpětnou vazbu klávesnice hlubším hlasem</string>
+  <string name="summaryOn_pref_intonation">Vyslovovat text smazaný z klávesnice vyšším hlasem</string>
   <string name="summaryOff_pref_intonation">Při mluvení neměnit výšku hlasu</string>
   <string name="title_pref_brailleime">Braillská klávesnice</string>
   <string name="title_pref_category_feedback_settings">Další zpětná vazba</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Zapnout ladění stromu uzlů</string>
   <string name="summary_pref_tree_debug_tv">Použít klávesu hlasového vyhledávání k tisku stromu uzlů namísto k vyhledávání</string>
   <string name="title_pref_performance_stats">Aktivovat statistiky výkonu</string>
+  <string name="title_pref_log_overlay">Aktivovat vrstvu protokolu ladění</string>
   <string name="title_pref_resume_talkback">Obnovit z pozastavení</string>
+  <string name="title_pref_typing_confirmation">Předvolby pro zadávání</string>
   <string name="title_pref_multi_finger_gesture">Povolit gesta několika prsty</string>
   <string name="screen_dimmed">Obrazovka byla skryta</string>
   <string name="screen_brightness_restored">Obrazovka se zobrazuje</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Posunout dolů</string>
   <string name="shortcut_scroll_left">Posunout vlevo</string>
   <string name="shortcut_scroll_right">Posunout vpravo</string>
+  <string name="shortcut_next_window">Další okno</string>
+  <string name="shortcut_previous_window">Předchozí okno</string>
   <string name="shortcut_back">Zpět</string>
   <string name="shortcut_home">Domů</string>
   <string name="shortcut_overview">Přehled</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Skrýt nebo zobrazit obrazovku</string>
   <string name="title_show_screen_search">Přímé vyhledávání</string>
   <string name="title_show_voice_commands">Hlasové příkazy</string>
+  <string name="talkback_show_talkback_settings">Nastavení aplikace TalkBack</string>
   <string name="title_other_web_navigation">Jiná navigace na webu</string>
   <string name="title_granularity_default">Výchozí navigace</string>
   <string name="title_seek_bar_edit">Upravit úroveň posuvníku</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Ovládejte čtečku TalkBack hlasem</string>
   <string name="summary_show_hide_screen">Skryje obrazovku, aby ji na veřejných místech neviděli ostatní lidé. Po skrytí obrazovku vrátí do běžného stavu.</string>
   <string name="summary_talkback_preferences">Otevření nastavení TalkBack</string>
-  <string name="summary_system_actions">Přejít do sekce Všechny aplikace, Rychlé nastavení a použít rozdělenou obrazovku</string>
+  <string name="summary_system_actions">Přejít na všechny aplikace a rychlé nastavení</string>
   <string name="summary_tts_settings">Otevřít nastavení převodu textu na řeč</string>
   <string name="summary_pause_feedback">Vypnout hlasovou odezvu čtečky TalkBack</string>
   <string name="not_editable">Nelze upravit</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Číst po slovech</string>
   <string name="summary_lines">Číst po řádcích</string>
   <string name="summary_paragraphs">Číst po odstavcích</string>
+  <string name="summary_windows">Přeskakujte na jiná okna, např. ovládání hlasitosti nebo navigační panel</string>
   <string name="summary_headings">Přeskakovat mezi nadpisy</string>
   <string name="summary_controls">Přecházet mezi položkami, se kterými lze interagovat, jako jsou tlačítka, zaškrtávací políčka a textová pole</string>
   <string name="summary_links">Přeskakovat mezi odkazy</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Změnit, zda se budou číst nahlas stisknuté klávesy, nápovědy k použití, informace z mřížky a další položky</string>
   <string name="summary_selector_menu_punctuation">Určí, zda se interpunkce a symboly budou nahlas vyslovovat</string>
   <string name="summary_language">Změnit jazyk. Zobrazuje se, pouze když máte pro převod textu na řeč nainstalovaných několik jazyků</string>
-  <string name="summary_sound_feedback">Přehrávat zvukové efekty při navigaci, např. potvrzení akce pípnutím.</string>
+  <string name="summary_sound_feedback">Přehrávat zvukové efekty při navigaci, např. potvrzení akce pípnutím</string>
   <string name="summary_vibration_feedback">Vibrovat u akcí jako výběr položky. Nemá vliv na vibrace pocházející z aplikace nebo systému.</string>
   <string name="summary_hide_screen">Skrýt obrazovku, aby ji na veřejných místech neviděli ostatní lidé</string>
   <string name="summary_audio_ducking">Když mluví čtečka TalkBack, snížit hlasitost ostatních zvuků</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Posunout vpřed nebo zpět</string>
+  <string name="summary_support_change_a11y_volume">Zvýšit nebo snížit hlasitost zvuků pro usnadnění přístupu</string>
+  <string name="summary_image_caption">Načíst automatický popis tohoto obrázku</string>
   <string name="value_direction_up">nahoru</string>
   <string name="value_direction_down">dolů</string>
   <string name="value_direction_left">doleva</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Dvojité klepnutí a podržení dvěma prsty</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Dvojité klepnutí a podržení třemi prsty</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Dvojité klepnutí a podržení čtyřmi prsty</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Třikrát klepnout a podržet dvěma prsty</string>
+  <string name="seekbar_hint_2gesture">Lze upravit gestem „%1$s“ nebo „%2$s“</string>
+  <string name="seekbar_hint_1gesture">Lze upravit gestem „%1$s“</string>
   <string name="gesture_name_unknown">Neznámé gesto</string>
   <string name="gesture_name_pass_through">Přejít na systémové gesto</string>
   <string name="gesture_name_touch_explore">Klepnout na Prozkoumat</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Dvakrát klepnout a podržet</string>
   <string name="gesture_name_2finger_tap_hold">Klepnout a podržet dvěma prsty</string>
   <string name="gesture_name_3finger_tap_hold">Klepnout a podržet třemi prsty</string>
+  <string name="gesture_name_2finger_3tap_hold">Třikrát klepnout a podržet dvěma prsty</string>
   <string name="gesture_name_3finger_3tap_hold">Třikrát klepnout a podržet třemi prsty</string>
   <string name="title_pref_shortcut_fingerprint_up">Přejetí nahoru po snímači otisků prstů</string>
   <string name="title_pref_shortcut_fingerprint_down">Přejetí dolů po snímači otisků prstů</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Při zapnutí obrazovky</string>
   <string name="value_resume_keyguard">Při zobrazení obrazovky uzamčení</string>
   <string name="value_resume_manual">Pouze z oznámení</string>
+  <string name="value_type_confirmation_double_tap">Podržením prstu vyberte klávesu a pak dvakrát klepněte</string>
+  <string name="value_type_confirmation_lift_to_type">Podržením prstu vyberte klávesu, pak prst zvedněte</string>
   <string name="value_shake_to_read_disabled">Vypnuto</string>
   <string name="value_shake_to_read_threshold_very_light">Velmi lehké</string>
   <string name="value_shake_to_read_threshold_light">Lehké</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Vždy vyslovit stisknuté klávesy</string>
   <string name="value_keyboard_echo_softkeys">Pouze pro softwarovou klávesnici</string>
   <string name="value_keyboard_echo_never">Nikdy nevyslovovat stisknuté klávesy</string>
+  <string name="title_pref_keyboard_echo_on_screen">Hlasová odezva klávesnice: Softwarová klávesnice</string>
+  <string name="title_pref_keyboard_echo_physical">Hlasová odezva klávesnice: Fyzická klávesnice</string>
+  <string name="value_keyboard_echo_none">Žádná</string>
+  <string name="value_keyboard_echo_characters_only">Znaky</string>
+  <string name="value_keyboard_echo_words_only">Slova</string>
+  <string name="value_keyboard_echo_characters_and_words">Znaky a slova</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Stav, název, typ</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Typ, název, stav</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Název, typ, stav</string>
@@ -555,11 +584,12 @@
   <string name="dialog_message_enable_tree_debug">Opravdu chcete zapnout ladění stromu uzlů?\n\nLadění stromu uzlů odhalí obsah obrazovky protokolům zařízení, které mohou číst jiné aplikace.</string>
   <string name="dialog_title_enable_performance_stats">Aktivovat statistiky výkonu?</string>
   <string name="dialog_message_enable_performance_stats">Opravdu chcete statistiky výkonu zapnout?\n\nStatistiky výkonu mohou spotřebovávat více paměti a energie.</string>
+  <string name="title_request_phone_permission">Povolit přístup k telefonu?</string>
+  <string name="message_request_phone_permission">Toto oprávnění funkci TalkBack umožňuje snížit množství oznámení během hovorů</string>
+  <string name="continue_button">Pokračovat</string>
   <string name="label_talkback_context_menu">Globální kontextová nabídka aplikace TalkBack</string>
   <string name="permission_talkback_label">Ovládání aplikace TalkBack</string>
   <string name="permission_talkback_desc">Oprávnění odesílat gesta do aplikace TalkBack a získat mluvenou zpětnou vazbu.</string>
-  <string name="permission_labeling_label">Správa vlastních štítků TalkBack</string>
-  <string name="permission_labeling_desc">Oprávnění načítat, upravovat a mazat vlastní štítky vyslovované aplikací TalkBack.</string>
   <string name="links">Odkazy</string>
   <string name="end_of_text">Konec</string>
   <string name="start_of_page">Žádná předchozí položka typu %1$s</string>
@@ -617,7 +647,8 @@
   <string name="title_pref_selector_punctuation">Interpunkce</string>
   <string name="title_pref_selector_granularity">Navigace</string>
   <string name="title_pref_selector_audio_focus">Zeslabení zvuku</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Posunout</string>
+  <string name="title_pref_a11y_volume">Hlasitost zvuků pro usnadnění přístupu</string>
   <string name="title_pref_selector_adjustable_widget_slider">Upravit posuvník</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Upravit hodnotu</string>
   <string name="title_pref_speak_passwords_without_headphones">Vyslovovat hesla</string>
@@ -654,7 +685,7 @@
   <string name="start_voice_command">Hlasové příkazy</string>
   <string name="dialog_title_pass_through_mode">Přeskočte gesta TalkBack a používejte gesta systémová</string>
   <string name="dialog_message_pass_through_mode">Po zaznění zvukového signálu použijte systémové gesto, které aplikace TalkBack nepodporuje. Toto gesto se nazývá „pass-through“.</string>
-  <string name="hint_type_search_term">Zadejte vyhledávací dotaz</string>
+  <string name="hint_type_search_term">Hledaný výraz</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Oznamovací kanál aplikace TalkBack</string>
   <string name="pref_selector_summary">%1$s vyberte nastavení. Poté %2$s nastavení upravte.</string>
@@ -777,6 +808,7 @@
   <string name="cut_paste_text">Vyjmutí textu: Dvakrát klepněte a podržte obrazovku třemi prsty.\n\nVložení textu: Třikrát klepněte třemi prsty.\n\nZkuste vložit nějaké slovo do textového pole níže.</string>
   <string name="copy_text_pre_r">Až vyberete text, můžete ho zkopírovat do nabídky TalkBack. Přejetím prstem dolů a potom doprava otevřete nabídku TalkBack. Dvakrát klepněte na možnosti úprav a potom na kopírování.\n\nZkuste zkopírovat nějaké slovo do textového pole níže.</string>
   <string name="cut_paste_text_pre_r">Oříznutí nebo vložení textu: Otevřete nabídku TalkBack a dvakrát klepněte na možnosti úprav.\n\nZkuste vložit nějaké slovo do textového pole níže.</string>
+  <string name="edit_box_hint_paste_text">Sem vložte text</string>
   <string name="read_by_character_title">Čtení po znacích, slovech nebo odstavcích</string>
   <string name="read_by_character_text">Někdy se vám může hodit nechat si přečíst text po znacích.\n\nProvedete to tak, že třemi prsty přejedete doprava, dokud neuslyšíte zprávu „%1$s“. Potom přejetím prstem nahoru posunete výběr o slovo zpět. Přejetím dolů posunete výběr o slovo dopředu.\n\nZkuste to. Když přejedete třemi prsty doprava, můžete zvolit také čtení po slovech nebo odstavcích.</string>
   <string name="read_by_character_text_pre_r">Někdy se vám může hodit nechat si přečíst text po znacích.\n\nProvedete to tak, že přejedete prstem dolů a potom nahoru, dokud neuslyšíte zprávu „%1$s“. Potom přejetím prstem nahoru posunete výběr o slovo zpět. Přejetím dolů posunete výběr o slovo dopředu.\n\nZkuste to. Když přejedete prstem dolů a pak nahoru, můžete také zvolit čtení po slovech nebo odstavcích.</string>
@@ -813,5 +845,19 @@
   <string name="activated_view">Aktivováno %1$s</string>
   <string name="talkback_inactive_title">Aplikace TalkBack je vypnutá</string>
   <string name="talkback_inactive_message">Tento výukový program vyžaduje aktivaci aplikace TalkBack. Před spuštěním výukového programu aplikaci TalkBack zapněte.</string>
+  <string name="watch_swipe_left_right_text">Přejetím prstem vlevo nebo vpravo lze přecházet mezi položkami.</string>
+  <string name="watch_double_tap_text">Dvojitým klepnutím položku aktivujete.</string>
+  <string name="watch_2_finger_scroll_text">Přetažením dvěma prsty můžete obsah posouvat.</string>
+  <string name="title_pref_thick_border">Tlusté ohraničení</string>
+  <string name="title_pref_category_border_color">Barva</string>
+  <string name="title_pref_default_color">Výchozí</string>
+  <string name="title_pref_red">Červená</string>
+  <string name="title_pref_orange">Oranžová</string>
+  <string name="title_pref_yellow">Žlutá</string>
+  <string name="title_pref_green">Zelená</string>
+  <string name="title_pref_blue">Modrá</string>
+  <string name="title_pref_grey">Šedá</string>
   <string name="survey_closed">Průzkum byl ukončen</string>
+  <string name="character_recognition_text">Text: %1$s</string>
+  <string name="title_image_caption">Popsat obrázek</string>
 </resources>

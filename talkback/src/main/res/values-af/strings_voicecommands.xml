@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Taal</string>
   <string name="voice_commands_languages">Tale</string>
   <string name="voice_commands_custom_actions">gepasmaakte handelinge</string>
+  <string name="voice_commands_action">Handeling</string>
   <string name="voice_commands_quick_settings">Kitsinstellings</string>
   <string name="voice_commands_quick_setting">Kitsinstelling</string>
   <string name="voice_commands_dim">verdof</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Jammer! Hierdie kenmerk is nie op jou toestel beskikbaar nie</string>
   <string name="voice_commands_error">Kon nie stemopdrag herken nie</string>
   <string name="voice_commands_partial_result">Kan nie hierdie opdrag herken nie. Sê \"%1$s\" vir die lys met alle opdragte.</string>
+  <string name="voice_commands_timeout">Sê \"%1$s\" vir die lys met alle opdragte.</string>
   <string name="voice_commands_many_requests">Probeer oor \'n rukkie weer</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\"-instelling is nie geaktiveer nie</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" nie as stemopdrag herken nie.</string>
   <string name="voice_commands_label_saved">Etiket gestoor</string>
   <string name="voice_commands_no_actions_feedback">Geen handelinge beskikbaar nie</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Stemopdragoorsig</string>
   <string name="voice_commands_help_description">Swiep regs en dan op om stemopdragte te gebruik. Sê enige tyd \"Help\" of \"What can I say?\" (wat kan ek sê) vir hierdie lys opdragte.</string>
   <string name="voice_commands_help_hint">Vir die beste resultate moet jy die presiese woorde sê wat op die volgende skerms gelys is.</string>
+  <string name="voice_command_screen_locked_hint">Stemopdragte is nie beskikbaar terwyl die skerm gesluit is nie. %1$s om eerder die TalkBack-kieslys te gebruik.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Verander hoe jy inhoud op die huidige skerm lees</string>
   <string name="voice_commands_help_next">Volgende [opskrif]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Voer \'n soekterm in om daardie teks op die skerm te soek</string>
   <string name="voice_commands_help_text_editing_description">Tik, kies en kopieer teks</string>
   <string name="voice_commands_help_type_text">Tik [OK]</string>
-  <string name="voice_commands_help_copy_description">Maak seker daar is teks gekies voordat jy kopieer</string>
-  <string name="voice_commands_help_cut_description">Maak seker daar is teks gekies voordat jy sny</string>
+  <string name="voice_commands_help_copy_description">Kies teks voordat jy kopieer</string>
+  <string name="voice_commands_help_cut_description">Kies teks voordat jy sny</string>
+  <string name="voice_commands_help_delete_description">Kies teks voordat jy uitvee</string>
   <string name="voice_commands_help_device_navigation_title">Toestelnavigasie</string>
   <string name="voice_commands_help_device_navigation_description">Gaan tuisblad toe, gaan terug, wys kennisgewings, en meer</string>
   <string name="voice_commands_help_overview_description">Sien jou onlangse programme</string>

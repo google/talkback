@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Jezik</string>
   <string name="voice_commands_languages">Jeziki</string>
   <string name="voice_commands_custom_actions">dejanja po meri</string>
+  <string name="voice_commands_action">Action</string>
   <string name="voice_commands_quick_settings">Hitre nastavitve</string>
   <string name="voice_commands_quick_setting">Hitra nastavitev</string>
   <string name="voice_commands_dim">zatemni</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Ta funkcija žal ni na voljo v vaši napravi</string>
   <string name="voice_commands_error">Napaka pri prepoznavanju glasovnega ukaza</string>
   <string name="voice_commands_partial_result">Tega ukaza ni mogoče prepoznati. Za seznam vseh ukazov recite »%1$s«.</string>
+  <string name="voice_commands_timeout">Za seznam vseh ukazov recite »%1$s«.</string>
   <string name="voice_commands_many_requests">Poskusite znova čez nekaj trenutkov</string>
-  <string name="voice_commands_setting_disabled">Nastavitev »%1$s« ni omogočena</string>
   <string name="voice_commands_echo_feedback_not_recognized">»%1$s« ni bilo prepoznano kot glasovni ukaz.</string>
   <string name="voice_commands_label_saved">Oznaka je shranjena</string>
   <string name="voice_commands_no_actions_feedback">Nobeno dejanje ni na voljo</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Pregled glasovnih ukazov</string>
   <string name="voice_commands_help_description">Če želite uporabljati glasovne ukaze, povlecite v desno in nato navzgor. Ta seznam ukazov lahko kadar koli prikažete tako, da izgovorite »Help« (Pomoč) ali »What can I say?« (Kaj lahko rečem?).</string>
   <string name="voice_commands_help_hint">Za najboljše rezultate izgovorite besede točno tako, kot so navedene na naslednjih zaslonih.</string>
+  <string name="voice_command_screen_locked_hint">Glasovni ukazi niso na voljo, ko je zaslon zaklenjen. Če želite namesto tega uporabiti meni funkcije TalkBack, izvedite potezo »%1$s«.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Sprememba načina branja vsebine na trenutnem zaslonu</string>
   <string name="voice_commands_help_next">Naslednji [naslov]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Vnos iskalne poizvedbe za iskanje besedila na zaslonu</string>
   <string name="voice_commands_help_text_editing_description">Vnos, izbira in kopiranje besedila</string>
   <string name="voice_commands_help_type_text">Vnesi [v redu]</string>
-  <string name="voice_commands_help_copy_description">Pred kopiranjem se prepričajte, da je besedilo izbrano</string>
-  <string name="voice_commands_help_cut_description">Pred izrezovanjem se prepričajte, da je besedilo izbrano</string>
+  <string name="voice_commands_help_copy_description">Pred kopiranjem izberite besedilo.</string>
+  <string name="voice_commands_help_cut_description">Pred izrezovanjem izberite besedilo.</string>
+  <string name="voice_commands_help_delete_description">Pred brisanjem izberite besedilo.</string>
   <string name="voice_commands_help_device_navigation_title">Pomikanje po napravi</string>
   <string name="voice_commands_help_device_navigation_description">Vrnitev na začetni zaslon, pomik nazaj, prikaz obvestil in drugo</string>
   <string name="voice_commands_help_overview_description">Ogled nedavnih aplikacij</string>

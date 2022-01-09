@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">Apostrof</string>
   <string name="symbol_ampersand">Ampersand</string>
-  <string name="symbol_angle_bracket_left">Ľavá lomená zátvorka</string>
-  <string name="symbol_angle_bracket_right">Pravá lomená zátvorka</string>
+  <string name="symbol_angle_bracket_left">Znak menej ako</string>
+  <string name="symbol_angle_bracket_right">Znak viac ako</string>
   <string name="symbol_asterisk">Hviezdička</string>
   <string name="symbol_at_sign">Zavináč</string>
   <string name="symbol_backslash">Obrátená lomka</string>
   <string name="symbol_bullet">Odrážka</string>
   <string name="symbol_caret">Strieška</string>
-  <string name="symbol_cent">Cent</string>
+  <string name="symbol_cent">Znak centa</string>
   <string name="symbol_colon">Dvojbodka</string>
   <string name="symbol_comma">Čiarka</string>
   <string name="symbol_copyright">Kopirajt</string>
   <string name="symbol_curly_bracket_left">Ľavá zložená zátvorka</string>
   <string name="symbol_curly_bracket_right">Pravá zložená zátvorka</string>
-  <string name="symbol_degree">Stupeň</string>
+  <string name="symbol_degree">Znak stupňa</string>
   <string name="symbol_division">Znak delenia</string>
   <string name="symbol_dollar_sign">Dolár</string>
   <string name="symbol_ellipsis">Tri bodky</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">Bodka</string>
   <string name="symbol_pi">Pí</string>
   <string name="symbol_pound">Krížik</string>
-  <string name="symbol_pound_sterling">Libra šterlingov</string>
+  <string name="symbol_pound_sterling">Znak meny (libra)</string>
   <string name="symbol_question_mark">Otáznik</string>
   <string name="symbol_quotation_mark">Úvodzovky</string>
   <string name="symbol_registered_trademark">Registrovaná ochranná známka</string>
@@ -53,7 +53,7 @@
   <string name="symbol_not_sign">Znak logického záporu</string>
   <string name="symbol_broken_bar">Prerušená zvislá čiara</string>
   <string name="symbol_micro_sign">Znak mikro</string>
-  <string name="symbol_almost_equals">Takmer sa rovná</string>
+  <string name="symbol_almost_equals">Približne sa rovná</string>
   <string name="symbol_not_equals">Nerovná sa</string>
   <string name="symbol_currency_sign">Znak meny</string>
   <string name="symbol_section_sign">Paragraf</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">Čierne srdce</string>
   <string name="symbol_tilde">Tilda</string>
   <string name="symbol_equal">Rovná sa</string>
-  <string name="symbol_won">Znak wonu</string>
+  <string name="symbol_won">Znak meny (won)</string>
   <string name="symbol_reference">Znak odkazu</string>
   <string name="symbol_white_star">Biela hviezda</string>
   <string name="symbol_black_star">Čierna hviezda</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">Pravá dvojitá lomená zátvorka</string>
   <string name="symbol_inverted_exclamation_mark">Obrátený výkričník</string>
   <string name="symbol_inverted_question_mark">Obrátený otáznik</string>
-  <string name="symbol_won_sign">Znak kórejskej menovej jednotky won</string>
+  <string name="symbol_won_sign">Znak meny (won)</string>
   <string name="symbol_full_width_comma">Čiarka</string>
   <string name="symbol_full_width_exclamation_mark">Výkričník</string>
   <string name="symbol_full_width_ideographic_full_stop">Ideografická bodka</string>

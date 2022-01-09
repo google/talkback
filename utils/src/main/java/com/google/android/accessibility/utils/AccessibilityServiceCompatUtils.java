@@ -18,10 +18,14 @@ package com.google.android.accessibility.utils;
 
 import android.accessibilityservice.AccessibilityButtonController;
 import android.accessibilityservice.AccessibilityService;
+import android.accessibilityservice.AccessibilityServiceInfo;
 import android.accessibilityservice.FingerprintGestureController;
 import android.annotation.TargetApi;
+import android.content.ComponentName;
+import android.content.Context;
 import android.os.Build;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
@@ -32,6 +36,40 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class AccessibilityServiceCompatUtils {
 
   private static final String TAG = "A11yServiceCompatUtils";
+
+  /** Holds constants in support of BrailleIme. */
+  public static class Constants {
+
+    private Constants() {}
+
+    /** The package name for the Messages app. */
+    public static final String ANDROID_MESSAGES_PACKAGE_NAME = "com.google.android.apps.messaging";
+
+    /** The package name for the Gboard app. */
+    public static final String GBOARD_PACKAGE_NAME = "com.google.android.inputmethod.latin";
+
+    /** The package name for the Keep app. */
+    public static final String KEEP_NOTES_PACKAGE_NAME = "com.google.android.keep";
+
+    private static final String ACCESSIBILITY_SUITE_PACKAGE_NAME =
+        PackageManagerUtils.TALBACK_PACKAGE;
+
+    /** The name of the TalkBack Settings Activity. */
+    public static final ComponentName SETTINGS_ACTIVITY =
+        new ComponentName(
+            ACCESSIBILITY_SUITE_PACKAGE_NAME, "com.android.talkback.TalkBackPreferencesActivity");
+
+    /** The name of the TalkBack service. */
+    public static final ComponentName TALKBACK_SERVICE =
+        new ComponentName(
+            ACCESSIBILITY_SUITE_PACKAGE_NAME, PackageManagerUtils.TALKBACK_SERVICE_NAME);
+
+    /** The name of the Braille Ime. */
+    public static final ComponentName BRAILLE_KEYBOARD =
+        new ComponentName(
+            ACCESSIBILITY_SUITE_PACKAGE_NAME,
+            "com.google.android.accessibility.brailleime.BrailleIme");
+  }
 
   /** @return root node of the Application window */
   public static AccessibilityNodeInfoCompat getRootInActiveWindow(AccessibilityService service) {
@@ -176,5 +214,25 @@ public class AccessibilityServiceCompatUtils {
       LogUtils.e(TAG, e.toString());
       return false;
     }
+  }
+
+  /** Returns if accessibility service is enabled. */
+  public static boolean isAccessibilityServiceEnabled(Context context, String packageName) {
+    @Nullable
+    AccessibilityManager manager =
+        (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
+    if (manager == null) {
+      return false;
+    }
+    List<AccessibilityServiceInfo> list =
+        manager.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_ALL_MASK);
+    if (list != null) {
+      for (AccessibilityServiceInfo serviceInfo : list) {
+        if (serviceInfo.getId().contains(packageName)) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }

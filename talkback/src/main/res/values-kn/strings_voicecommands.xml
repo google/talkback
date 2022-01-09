@@ -14,6 +14,7 @@
   <string name="voice_commands_language">ಭಾಷೆ</string>
   <string name="voice_commands_languages">ಭಾಷೆಗಳು</string>
   <string name="voice_commands_custom_actions">ಕಸ್ಟಮ್ ಕ್ರಿಯೆಗಳು</string>
+  <string name="voice_commands_action">ಕ್ರಿಯೆ</string>
   <string name="voice_commands_quick_settings">ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‍ಗಳು</string>
   <string name="voice_commands_quick_setting">ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್</string>
   <string name="voice_commands_dim">ಮಂದ</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">ಕ್ಷಮಿಸಿ! ಈ ವೈಶಿಷ್ಟ್ಯವು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲ</string>
   <string name="voice_commands_error">ಧ್ವನಿ ಆಜ್ಞೆಯನ್ನು ಗುರುತಿಸುವಲ್ಲಿ ದೋಷ</string>
   <string name="voice_commands_partial_result">ಈ ಕಮಾಂಡ್ ಅನ್ನು ಗುರುತಿಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ. ಎಲ್ಲಾ ಕಮಾಂಡ್‌ಗಳ ಪಟ್ಟಿಗಾಗಿ \"%1$s\" ಎಂದು ಹೇಳಿ.</string>
+  <string name="voice_commands_timeout">ಎಲ್ಲಾ ಕಮಾಂಡ್‌ಗಳ ಪಟ್ಟಿಗಾಗಿ \"%1$s\" ಎಂದು ಹೇಳಿ.</string>
   <string name="voice_commands_many_requests">ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿಲ್ಲ</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" ಅನ್ನು ಧ್ವನಿ ಆಜ್ಞೆಯಾಗಿ ಗುರುತಿಸಿಲ್ಲ.</string>
   <string name="voice_commands_label_saved">ಲೇಬಲ್ ಉಳಿಸಲಾಗಿದೆ</string>
   <string name="voice_commands_no_actions_feedback">ಯಾವುದೇ ಕ್ರಿಯೆಗಳು ಲಭ್ಯವಿಲ್ಲ</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">ಧ್ವನಿ ಕಮಾಂಡ್ ಅವಲೋಕನ</string>
   <string name="voice_commands_help_description">ಧ್ವನಿ ಕಮಾಂಡ್‌ಗಳನ್ನು ಬಳಸಲು, ಬಲಕ್ಕೆ, ನಂತರ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ಕಮಾಂಡ್‌ಗಳ ಈ ಪಟ್ಟಿಗಾಗಿ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ \"ಸಹಾಯ\" ಅಥವಾ \"ನಾನು ಏನು ಹೇಳಲಿ?\" ಎಂದು ಹೇಳಿ.</string>
   <string name="voice_commands_help_hint">ಅತ್ಯುತ್ತಮ ಫಲಿತಾಂಶಗಳಿಗಾಗಿ, ಮುಂದಿನ ಸ್ಕ್ರೀನ್‌ಗಳಲ್ಲಿ ಪಟ್ಟಿ ಮಾಡಿರುವ ನಿಖರವಾದ ಪದವನ್ನು ಹೇಳಿ.</string>
+  <string name="voice_command_screen_locked_hint">ಸ್ಕ್ರೀನ್ ಲಾಕ್ ಆಗಿದ್ದಾಗ ಧ್ವನಿ ಆಜ್ಞೆಗಳು ಲಭ್ಯವಿರುವುದಿಲ್ಲ. ಅದರ ಬದಲು TalkBack ಮೆನುವನ್ನು ಬಳಸಲು, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">ಪ್ರಸ್ತುತ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ನೀವು ವಿಷಯವನ್ನು ಹೇಗೆ ಓದುತ್ತೀರಿ ಎಂಬುದನ್ನು ಬದಲಾಯಿಸಿ</string>
   <string name="voice_commands_help_next">ಮುಂದಿನ [ಶಿರೋನಾಮೆ]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">ಸ್ಕ್ರೀನ್‌ನ ಮೇಲೆ ಆ ಪಠ್ಯವನ್ನು ಹುಡುಕಲು ಹುಡುಕಾಟ ಪದವನ್ನು ನಮೂದಿಸಿ</string>
   <string name="voice_commands_help_text_editing_description">ಪಠ್ಯವನ್ನು ಟೈಪ್ ಮಾಡಿ, ಆಯ್ಕೆ ಮಾಡಿ ಮತ್ತು ನಕಲಿಸಿ</string>
   <string name="voice_commands_help_type_text">ಟೈಪ್ ಮಾಡಿ [OK]</string>
-  <string name="voice_commands_help_copy_description">ನಕಲಿಸುವ ಮೊದಲು ನೀವು ಪಠ್ಯವನ್ನು ಆಯ್ಕೆ ಮಾಡಿರುವಿರಾ ಎಂಬುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ</string>
-  <string name="voice_commands_help_cut_description">ಕತ್ತರಿಸುವ ಮೊದಲು ನೀವು ಪಠ್ಯವನ್ನು ಆಯ್ಕೆ ಮಾಡಿರುವಿರಾ ಎಂಬುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ</string>
+  <string name="voice_commands_help_copy_description">ನಕಲಿಸುವ ಮೊದಲು ಪಠ್ಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+  <string name="voice_commands_help_cut_description">ಕತ್ತರಿಸುವ ಮೊದಲು ಪಠ್ಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+  <string name="voice_commands_help_delete_description">ಅಳಿಸುವ ಮೊದಲು ಪಠ್ಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
   <string name="voice_commands_help_device_navigation_title">ಸಾಧನ ನ್ಯಾವಿಗೇಶನ್</string>
   <string name="voice_commands_help_device_navigation_description">ಮುಖಪುಟಕ್ಕೆ ಹೋಗಿ, ಹಿಂದಕ್ಕೆ ಹೋಗಿ, ಅಧಿಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ ಮತ್ತು ಇನ್ನಷ್ಟು</string>
   <string name="voice_commands_help_overview_description">ನಿಮ್ಮ ಇತ್ತೀಚಿನ ಆ್ಯಪ್‌ಗಳನ್ನು ನೋಡಿ</string>

@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Nöqtə vəziyyəti güncəllənir. Əvvəlcə, gəlin sol əlinizdəki nöqtələri yazaq. Sol əlinizin 3 orta barmağı ilə ekrana toxunub saxlayın.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Nöqtə vəziyyəti güncəllənir. Əvvəlcə, gəlin sağ əlinizdəki nöqtələri qeydə alaq. Sağ əlinizin 3 orta barmağı ilə ekrana toxunub saxlayın.</string>
   <string name="calibration_finish_announcement">Nöqtə mövqeyi yeniləndi</string>
+  <string name="remaining_calibration_finish_announcement">Bütün nöqtə mövqeləri güncəllənib</string>
   <string name="calibration_step2_hold_right_finger_announcement">1, 2 və 3 nöqtələri üçün mövqelər yeniləndi. Sonra, gəlin sağ əlinizdəki nöqtələri yazaq. Sağ əlinizin 3 orta barmağı ilə ekrana toxunub saxlayın.</string>
   <string name="calibration_step2_hold_left_finger_announcement">1, 2 və 3 nöqtələri üçün mövqelər yeniləndi. Sonra, gəlin sol əlinizdəki nöqtələri qeydə alaq. Sol əlinizin 3 orta barmağı ilə ekrana toxunub saxlayın.</string>
   <string name="calibration_fail_announcement">Nöqtə mövqeyini yeniləmək alınmadı. 6 barmaq ilə ekrana toxunub saxlayın. Sonra yenidən cəhd edin.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Vahid İngiliscə Brayl</string>
   <string name="code_user_facing_name_es">İspan</string>
   <string name="code_user_facing_name_ar">Ərəb</string>
+  <string name="code_user_facing_name_fr">Fransız</string>
   <string name="title_pref_accumulate_presses">Bütün basılmış nöqtələri daxil edin</string>
   <string name="summary_pref_accumulate_presses">Nöqtə digər nöqtələrdən əvvəl buraxıldıqda belə, hər basılmış nöqtə daxiletmənin bir hissəsidir</string>
   <string name="title_pref_reverse_dots">Nöqtələrin əks düzülüşü</string>
   <string name="summary_pref_reverse_dots">Nöqtələrin mövqeyini dəyişin, məsələn, 1 və 4 nöqtələrinin yerini dəyişin</string>
-  <string name="typing_echo_list_preference_title">Yazı rəyi (yazı exosu)</string>
-  <string name="typing_echo_preference_label_characters">Bütün hərflər və sözlər oxunsun</string>
-  <string name="typing_echo_preference_label_words">Yalnız sözlər oxunsun</string>
   <string name="context_menu_title">Brayl klaviaturası seçimləri</string>
   <string name="context_menu_typing_language_selection">Yazı dilini dəyişin</string>
   <string name="context_menu_typing_language_selection_summary">Hazırda istifadə olunur: %s</string>

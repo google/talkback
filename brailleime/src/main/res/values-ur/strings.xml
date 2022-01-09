@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">ڈاٹ پوزیشن کو اپ ڈیٹ کیا جا رہا ہے۔ پہلے، آئیے اپنے بائیں ہاتھ پر ڈاٹس کو ریکارڈ کریں۔ اپنے بائیں ہاتھ کی درمیانی 3 انگلیوں سے اسکرین ٹچ کریں اور دبائے رکھیں۔</string>
   <string name="calibration_step1_hold_right_finger_announcement">ڈاٹ پوزیشن کو اپ ڈیٹ کیا جا رہا ہے۔ پہلے، اپنے دائیں ہاتھ پر ڈاٹس کو ریکارڈ کریں۔ اپنے دائیں ہاتھ کی درمیانی 3 انگلیوں سے اسکرین ٹچ کریں اور دبائے رکھیں۔</string>
   <string name="calibration_finish_announcement">ڈاٹ پوزیشن اپ ڈيٹ ہو گئی</string>
+  <string name="remaining_calibration_finish_announcement">تمام ڈاٹ پوزیشنز کو اپ ڈیٹ کیا گیا</string>
   <string name="calibration_step2_hold_right_finger_announcement">ڈاٹس 1، 2، اور 3 کیلئے پوزیشنز اپ ڈيٹ ہو گئیں۔ اس کے بعد، اپنے دائیں ہاتھ پر ڈاٹس کو ریکارڈ کریں۔ اپنے دائیں ہاتھ کی درمیانی 3 انگلیوں سے اسکرین ٹچ کریں اور دبائے رکھیں۔</string>
   <string name="calibration_step2_hold_left_finger_announcement">ڈاٹس 1، 2، اور 3 کیلئے پوزیشنز اپ ڈيٹ ہو گئیں۔ اس کے بعد، اپنے بائیں ہاتھ پر ڈاٹس کو ریکارڈ کریں۔ اپنے بائیں ہاتھ کی درمیانی 3 انگلیوں سے اسکرین ٹچ کریں اور دبائے رکھیں۔</string>
   <string name="calibration_fail_announcement">ڈاٹ پوزیشن اپ ڈیٹ نہیں ہو سکی۔ 6 انگلیوں سے اسکرین ٹچ کریں اور دبائے رکھیں۔ پھر دوبارہ کوشش کریں۔</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">یونیفائیڈ انگریزی بریل</string>
   <string name="code_user_facing_name_es">ہسپانوی</string>
   <string name="code_user_facing_name_ar">عربی</string>
+  <string name="code_user_facing_name_fr">فرانسيسی</string>
   <string name="title_pref_accumulate_presses">تمام دبائے ہوئے نقطے شامل کریں</string>
   <string name="summary_pref_accumulate_presses">ہر دبایا ہوا نقطہ ان پٹ کا ایک حصہ ہوتا ہے، اگرچہ نقطہ دیگر نقطوں سے پہلے ہی ریلیز کیا جاتا ہو</string>
   <string name="title_pref_reverse_dots">معکوس نقطے</string>
   <string name="summary_pref_reverse_dots">ڈاٹ پوزیشنوں کو تبدیل کریں، تاکہ ڈاٹس 1 اور 4 ایک دوسرے کی جگہ لے لیں، مثال کے طور پر</string>
-  <string name="typing_echo_list_preference_title">ٹائپنگ کے تاثرات (ٹائپنگ کی بازگشت)</string>
-  <string name="typing_echo_preference_label_characters">تمام خطوط اور الفاظ پڑھیں</string>
-  <string name="typing_echo_preference_label_words">صرف الفاظ پڑھیں</string>
   <string name="context_menu_title">بریل کی بورڈ اختیارات</string>
   <string name="context_menu_typing_language_selection">ٹائپنگ کی زبان تبدیل کریں</string>
   <string name="context_menu_typing_language_selection_summary">فی الحال %s استعمال کیا جا رہا ہے</string>
@@ -48,7 +47,7 @@
   <string name="context_menu_switch_contracted_status_selection">%s بریل پر سوئچ کریں</string>
   <string name="contracted">معاہدہ کردہ</string>
   <string name="uncontracted">غیر معاہدہ کردہ</string>
-  <string name="context_menu_see_all_gestures_selection">Review all gestures</string>
+  <string name="context_menu_see_all_gestures_selection">سبھی اشاروں کا جائزہ لیں</string>
   <string name="context_menu_tutorial_selection">ٹیوٹوریل کھولیں</string>
   <string name="context_menu_tutorial_finish">ٹیوٹوریل مکمل کریں</string>
   <string name="context_menu_settings_selection">ترتیبات</string>

@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">%1$s нұсқасы</string>
   <string name="label_manager_summary_title">Арнаулы белгілерді басқару</string>
   <string name="label_manager_package_title">%1$s үшін белгілерді басқару</string>
+  <string name="manage_label">Белгілерді басқару</string>
   <string name="label_manager_no_packages_message">Қазір арнаулы белгілер жоқ. Оларды белгіленбеген кескінге өтіп, Talkback мәзірінен белгі қосу арқылы жасауға болады.</string>
   <string name="label_manager_timestamp_text">Соңғы өзгерту: %1$s</string>
   <string name="search_dialog_label">Іздеу: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Түртілген элементтерді дыбыстау</string>
   <string name="title_pref_category_touch_exploration">Навигация</string>
   <string name="title_pref_category_controls">Басқару элементтері</string>
-  <string name="title_pref_single_tap">Бір рет түртумен белсендіру</string>
+  <string name="title_pref_single_tap">Белсендіру үшін бір рет түрту</string>
   <string name="title_pref_show_context_menu_as_list">Мазмұн мəзірін тізіммен көрсету</string>
-  <string name="summary_pref_single_tap">Ерекшеленген элементті бір рет түртіп, белсендіріңіз (эксперименттік).</string>
+  <string name="summary_pref_single_tap">Ерекшеленген элементті бір рет түртіп белсендіру</string>
   <string name="title_pref_shake_to_read_threshold">Оқи бастауы үшін шайқау</string>
   <string name="pref_verbosity_title">Сөз мөлшері</string>
   <string name="pref_punctuation_title">Тыныс белгілері</string>
+  <string name="title_pref_category_manage_focus_indicator">Ерекшелеу индикаторын реттеу</string>
   <string name="title_pref_category_manage_gestures">Қимылдарды реттеу</string>
   <string name="title_pref_manage_labels">Арнаулы белгілер</string>
   <string name="title_pref_manage_customize_menus">Мәзірлерді реттеу</string>
@@ -106,7 +108,7 @@
   <string name="pref_category_context_menu_summary_single_finger">TalkBack мәзірін пайдалану үшін алдымен төмен, одан кейін оңға сырғытыңыз.</string>
   <string name="pref_category_selector_menu_summary">Оқуды басқару құралдарын пайдалану үшін 3 саусақпен солға немесе оңға сырғытыңыз. Сондай-ақ 3 саусағыңызбен жоғары не төмен сырғытуыңызға болады.</string>
   <string name="pref_category_selector_menu_summary_single_finger">Оқуды басқару құралдарын пайдалану үшін жоғары, одан кейін төмен сырғытыңыз.</string>
-  <string name="title_pref_manage_keyboard_shortcuts">Пернелер тіркесімдері</string>
+  <string name="title_pref_manage_keyboard_shortcuts">Перне тіркесімдері</string>
   <string name="title_pref_export_custom_labels">Арнаулы белгілерді экспорттау</string>
   <string name="title_pref_play_store">TalkBack қолданбасын Play Store-дан ашу</string>
   <string name="summary_pref_play_store">Ағымдағы TalkBack нұсқасы: %1$s</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Анықтама және пікір</string>
   <string name="title_pref_category_tutorial_and_help">Оқулық және Анықтама</string>
   <string name="title_pref_category_advanced">Озық</string>
+  <string name="title_pref_category_typing">Мәтін теру және пернетақта</string>
   <string name="title_pref_category_legal_and_privacy">Құқықтық мәселелер және құпиялылық</string>
   <string name="title_pref_advanced_settings">Қосымша параметрлер</string>
   <string name="reset_gesture_settings_title">Қимыл параметрлерін бастапқы күйге қайтару</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Соңғы пайдаланылған қолданбалар</string>
   <string name="keycombo_menu_global_notifications">Хабарландырулар</string>
   <string name="keycombo_menu_global_suspend">TalkBack кідірту немесе жалғастыру</string>
+  <string name="keycombo_menu_global_play_pause_media">Медиафайлды ойнату немесе кідірту</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Келесі оқуды басқару параметрін таңдау</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Алдыңғы оқуды басқару параметрін таңдау</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Оқуды басқару параметрін жоғарыға реттеу</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Оқуды басқару параметрін төменге реттеу</string>
   <string name="keycombo_menu_category_granularity">Навигация</string>
   <string name="keycombo_menu_granularity_increase">Келесі навигация параметрі</string>
   <string name="keycombo_menu_granularity_decrease">Алдыңғы навигация параметрі</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Көшіретін мәтін жоқ, алдымен мәтінді белгілеңіз.</string>
   <string name="cannot_paste_feedback">Қоятын мәтін жоқ, алдымен мәтінді көшіріңіз.</string>
   <string name="cannot_cut_feedback">Қиятын мәтін жоқ, алдымен мәтінді белгілеңіз.</string>
+  <string name="cannot_delete_feedback">Көшіретін мәтін жоқ, алдымен мәтінді белгілеңіз.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Осы пернетақта схемасы үшін пернелер тіркесімдерін әдепкі мәндеріне қайтару керек пе? Бұл әрекетті болдырмау мүмкін емес екенін ескеріңіз.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Қалпына келтіру</string>
   <string name="override_keycombo">Перне әлдеқашан пайдаланылуда</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Тембр өзгерістерін пайдалану</string>
   <string name="title_pref_keyboard_echo">Пернетақта жаңғырығы</string>
   <string name="pref_node_desc_order_title">Элемент сипаттамасының реті</string>
-  <string name="summaryOn_pref_intonation">Пернетақтаны тембрі төменірек дауыспен дыбыстау</string>
+  <string name="summaryOn_pref_intonation">Пернетақтамен мәтіннің өшірілуін қаттырақ дыбыстау</string>
   <string name="summaryOff_pref_intonation">Сөйлеу кезінде дауыс тембрін өзгертпеу</string>
   <string name="title_pref_brailleime">Брайль пернетақтасы</string>
   <string name="title_pref_category_feedback_settings">Басқа сигналдар</string>
@@ -244,7 +253,7 @@
   <string name="summary_pref_use_audio_focus">Сөйлеу кезінде басқа аудионың дыбыс деңгейін азайту</string>
   <string name="title_pref_soundback_volume">Сигналдың дыбыс деңгейі</string>
   <string name="title_pref_two_volume_button_long_click">Talkback функциясын уақытша тоқтатып, жалғастыру пернелер тіркесімі</string>
-  <string name="title_pref_dim_volume_three_clicks">Экранды күңгірттеу жылдам әрекеті</string>
+  <string name="title_pref_dim_volume_three_clicks">Экранды күңгірттеу жылдам пәрмені</string>
   <string name="title_pref_category_miscellaneous_settings">Әртүрлі</string>
   <string name="title_pref_category_developer_settings">Әзірлеуші параметрлері</string>
   <string name="title_activity_dump_a11y_event">Оқиғаларды журналға енгізу</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Түйін тармағының күйін келтіруді қосу</string>
   <string name="summary_pref_tree_debug_tv">Іздеудің орнына түйін тармағын басып шығару үшін дауыс арқылы іздеу кодын пайдаланыңыз</string>
   <string name="title_pref_performance_stats">Өнімділік статистикасын қосу</string>
+  <string name="title_pref_log_overlay">Түзету журналын үстінен көрсету</string>
   <string name="title_pref_resume_talkback">Жұмысын жалғастыру</string>
+  <string name="title_pref_typing_confirmation">Мәтін теру параметрі</string>
   <string name="title_pref_multi_finger_gesture">Бірнеше саусақ қимылын іске қосу</string>
   <string name="screen_dimmed">Экран күңгірттелді.</string>
   <string name="screen_brightness_restored">Экран жарықтығы арттырылды.</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Төмен қарай айналдыру</string>
   <string name="shortcut_scroll_left">Солға қарай айналдыру</string>
   <string name="shortcut_scroll_right">Оңға қарай айналдыру</string>
+  <string name="shortcut_next_window">Келесі терезе</string>
+  <string name="shortcut_previous_window">Алдыңғы терезе</string>
   <string name="shortcut_back">Артқа</string>
   <string name="shortcut_home">Негізгі экран</string>
   <string name="shortcut_overview">Шолу</string>
@@ -320,7 +333,7 @@
   <string name="shortcut_perform_screen_search">Экраннан іздеу функциясын ашу</string>
   <string name="label_screen_search_result">Іздеу нәтижесі</string>
   <string name="shortcut_media_control">Медиафайлды ойнату немесе кідірту</string>
-  <string name="shortcut_all_apps">Барлық қолданбалар</string>
+  <string name="shortcut_all_apps">Барлық қолданба</string>
   <string name="shortcut_braille_keyboard">Брайль пернетақтасына өту</string>
   <string name="shortcut_tutorial">Оқулықты ашу</string>
   <string name="shortcut_practice_gestures">Қимылдарды үйрену</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Экранды жасыру немесе көрсету</string>
   <string name="title_show_screen_search">Экраннан іздеу</string>
   <string name="title_show_voice_commands">Дауыстық пәрмендер</string>
+  <string name="talkback_show_talkback_settings">TalkBack параметрлері</string>
   <string name="title_other_web_navigation">Басқа веб-навигация параметрлері</string>
   <string name="title_granularity_default">Әдепкі навигация</string>
   <string name="title_seek_bar_edit">Жүгірткі деңгейін өзгерту</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">TalkBack функциясын дауысыңызбен басқарыңыз.</string>
   <string name="summary_show_hide_screen">Экраныңыз қоғамдық жерлерде басқаларға көрінбеуі үшін, дисплейді жасырыңыз. Содан кейін оны қалыпты күйге қайтарыңыз.</string>
   <string name="summary_talkback_preferences">TalkBack параметрлерін ашу</string>
-  <string name="summary_system_actions">Барлық қолданбаларға, жылдам параметрлерге өту және экранды бөлу құралын пайдалану</string>
+  <string name="summary_system_actions">\"Барлық қолданба &gt; Жылдам параметрлер\" бөліміне өтіңіз.</string>
   <string name="summary_tts_settings">Мәтінді дыбыстау параметрлерін ашу</string>
   <string name="summary_pause_feedback">TalkBack дауыстық пікір қалдыру функциясын өшіру</string>
   <string name="not_editable">Өзгертілмейді.</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Сөздерді бір-бірден оқу</string>
   <string name="summary_lines">Жолдарды бір-бірден оқу</string>
   <string name="summary_paragraphs">Абзацтарды бір-бірден оқу</string>
+  <string name="summary_windows">Дыбыс деңгейін басқару элементтері немесе навигация жолағы сияқты басқа терезелерге ауысыңыз.</string>
   <string name="summary_headings">Тақырыптар арасында ауысу</string>
   <string name="summary_controls">Түймелер, құсбелгі ұяшықтары және мәтін өрістері сияқты элементтер арасында ауысу</string>
   <string name="summary_links">Сілтемелер арасында ауысу</string>
@@ -408,7 +423,9 @@
   <string name="summary_vibration_feedback">Элементті таңдаған кезде, діріл сезіледі. Қолданбадан не жүйеден шығатын дірілдерге әсері жоқ.</string>
   <string name="summary_hide_screen">Экраныңыз қоғамдық жерлерде басқаларға көрінбеуі үшін, дисплейді жасыру</string>
   <string name="summary_audio_ducking">TalkBack сөйлегенде ойнатылып жатқан басқа аудиолардың дыбыс деңгейін азайту</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Алға немесе артқа айналдыру</string>
+  <string name="summary_support_change_a11y_volume">Accessibility-дің дыбыс деңгейін көбейту</string>
+  <string name="summary_image_caption">Осы суреттің автоматты сипаттамасын алу</string>
   <string name="value_direction_up">жоғарыға</string>
   <string name="value_direction_down">төменге</string>
   <string name="value_direction_left">солға</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">2 саусақпен екі рет түртіп, ұстап тұру</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">3 саусақпен екі рет түртіп, ұстап тұру</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">4 саусақпен екі рет түртіп, ұстап тұру</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Үш рет түртіп, 2 саусақпен ұстап тұру</string>
+  <string name="seekbar_hint_2gesture">Реттеу қимылы: \"%1$s\" немесе \"%2$s\"</string>
+  <string name="seekbar_hint_1gesture">Реттеу қимылы: \"%1$s\"</string>
   <string name="gesture_name_unknown">Белгісіз қимыл</string>
   <string name="gesture_name_pass_through">Жүйеге ендірілген қимыл арқылы өту</string>
   <string name="gesture_name_touch_explore">Қимыл арқылы білу</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Екі рет түртіп, ұстап тұру</string>
   <string name="gesture_name_2finger_tap_hold">2 саусақпен түртіп, ұстап тұру</string>
   <string name="gesture_name_3finger_tap_hold">3 саусақпен түртіп, ұстап тұру</string>
+  <string name="gesture_name_2finger_3tap_hold">Үш рет түртіп, 2 саусақпен ұстап тұру</string>
   <string name="gesture_name_3finger_3tap_hold">3 саусақпен екі рет түртіп, ұстап тұру</string>
   <string name="title_pref_shortcut_fingerprint_up">Саусақ ізі сканерінде жоғары сырғыту</string>
   <string name="title_pref_shortcut_fingerprint_down">Саусақ ізі сканерінде төмен сырғыту</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Экран қосылғанда</string>
   <string name="value_resume_keyguard">Құлыпталған экран көрсетілгенде</string>
   <string name="value_resume_manual">Тек хабарландырудан</string>
+  <string name="value_type_confirmation_double_tap">Кілтті таңдау үшін оны саусағыңызбен ұстап тұрыңыз, сосын екі рет түртіңіз.</string>
+  <string name="value_type_confirmation_lift_to_type">Кілтті таңдау үшін оны саусағыңызбен ұстап тұрыңыз, сосын жіберіңіз.</string>
   <string name="value_shake_to_read_disabled">Өшірілген</string>
   <string name="value_shake_to_read_threshold_very_light">Сәл ғана</string>
   <string name="value_shake_to_read_threshold_light">Жеңіл</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Әрдайым терілген пернелерді дыбыстау</string>
   <string name="value_keyboard_echo_softkeys">Тек экрандық пернетақта үшін</string>
   <string name="value_keyboard_echo_never">Терілген пернелерді ешқашан дыбыстамау</string>
+  <string name="title_pref_keyboard_echo_on_screen">Пернетақта жаңғырығы: экрандағы пернетақта</string>
+  <string name="title_pref_keyboard_echo_physical">Пернетақта жаңғырығы: физикалық пернетақта</string>
+  <string name="value_keyboard_echo_none">Жоқ</string>
+  <string name="value_keyboard_echo_characters_only">Таңбалар</string>
+  <string name="value_keyboard_echo_words_only">Сөздер</string>
+  <string name="value_keyboard_echo_characters_and_words">Таңбалар және сөздер</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Күйі, аты, түрі</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Түрі, аты, күйі</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Аты, түрі, күйі</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Түйін тармағының күйін келтіруді қосу керек пе?\n\nТүйін тармағының күйін келтіру экран мазмұнын құрылғы журналдарына ашады, оларды басқа қолданбалар оқуы мүмкін.</string>
   <string name="dialog_title_enable_performance_stats">Өнімділік статистикасын қосу керек пе?</string>
   <string name="dialog_message_enable_performance_stats">Өнімділік статистикасын расымен қосқыңыз келе ме?\n\nӨнімділік статистикасы жадыдан көп орын алуы және қуатты көп мөлшерде қажет етуі мүмкін.</string>
+  <string name="title_request_phone_permission">Телефонды пайдалануға рұқсат етілсін бе?</string>
+  <string name="message_request_phone_permission">Бұл рұқсат қоңырау кезінде TalkBack функциясына хабарландырулардың санын азайтуға көмектеседі.</string>
+  <string name="continue_button">Жалғастыру</string>
   <string name="label_talkback_context_menu">TalkBack жалпы контекстік мәзірі</string>
   <string name="permission_talkback_label">TalkBack қолданбасын басқару</string>
   <string name="permission_talkback_desc">TalkBack қолданбасына қимылдарды жіберу және сөйленген кері байланысты жалғастыру рұқсаты.</string>
-  <string name="permission_labeling_label">Жеке TalkBack белгілерін басқару</string>
-  <string name="permission_labeling_desc">TalkBack сөйлеген теңшелетін белгілерге қол жеткізу, оларды өзгерту және жою рұқсаты.</string>
   <string name="links">Сілтемелер</string>
   <string name="end_of_text">Аяқтау</string>
   <string name="start_of_page">Алдыңғы %1$s жоқ</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Тыныс белгілері</string>
   <string name="title_pref_selector_granularity">Навигация</string>
   <string name="title_pref_selector_audio_focus">Дыбысты бәсеңдету</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Айналдыру</string>
+  <string name="title_pref_a11y_volume">Accessibility-дің дыбыс деңгейі</string>
   <string name="title_pref_selector_adjustable_widget_slider">Жүгірткіні реттеу</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Мәнді реттеу</string>
   <string name="title_pref_speak_passwords_without_headphones">Құпия сөздерді дыбыстау</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Дауыстық пәрмендерді пайдалану</string>
   <string name="dialog_title_pass_through_mode">TalkBack орнына жүйе қимылдарын пайдалану</string>
   <string name="dialog_message_pass_through_mode">Қоңырау дыбысы естілгенде, TalkBack қолдамайтын жүйеге ендірілген қимылды пайдалана аласыз. Бұл жылдам өту қимылы деп аталады.</string>
-  <string name="hint_type_search_term">Іздеу шартын теріңіз</string>
+  <string name="hint_type_search_term">Ізделетін сөз</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack-тің хабарландыру арнасы</string>
   <string name="pref_selector_summary">Параметрді таңдау үшін %1$s. Реттеу үшін %2$s.</string>
@@ -704,9 +735,9 @@
   <string name="new_shortcut_gesture_copy_text_announcement">Мәтін көшірілді. Әдетте ол сіз таңдаған мәтінді көшіреді. Жалғастыру үшін оңға сырғытыңыз.</string>
   <string name="new_shortcut_gesture_paste_text_text">Мәтінді қою үшін 3 саусақпен үш рет түртіңіз.</string>
   <string name="new_shortcut_gesture_paste_text_announcement">Мәтін қойылды. Әдетте ол сіз көшірген мәтінді қояды. Жалғастыру үшін оңға сырғытыңыз.</string>
-  <string name="new_shortcut_gesture_cut_text_text">Мәтінді қиып алу үшін 3 саусақпен екі рет түртіп, ұстап тұрыңыз.</string>
+  <string name="new_shortcut_gesture_cut_text_text">Мәтінді қиып алу үшін 3 саусақпен екі рет басып тұрыңыз.</string>
   <string name="new_shortcut_gesture_cut_text_announcement">Мәтін қиып алынды. Әдетте ол сіз таңдаған мәтінді қиып алады. Жалғастыру үшін оңға сырғытыңыз.</string>
-  <string name="new_shortcut_gesture_selection_mode_text">Мәтінді таңдау режимін бастау немесе аяқтау үшін 2 саусақпен екі рет түртіп, ұстап тұрыңыз.</string>
+  <string name="new_shortcut_gesture_selection_mode_text">Мәтінді таңдау режимін бастау немесе аяқтау үшін 2 саусақпен екі рет басып тұрыңыз.</string>
   <string name="new_shortcut_gesture_selection_mode_on_announcement">Таңдау режимі қосулы не өшірулі. Енгізу өрісінде болғанда, әдетте бұл – мәтін таңдау режимін іске қосады не тоқтатады. Жалғастыру үшін оңға сырғытыңыз.</string>
   <string name="new_shortcut_gesture_selection_mode_off_announcement">Таңдау режимі өшірулі. Әдетте сіз мәтін енгізілетін өрісте тұрғанда, ол таңдау режимін аяқтайды. Жалғастыру үшін оңға сырғытыңыз.</string>
   <string name="new_shortcut_gesture_reading_menu_text">Оқуды басқару құралдарын пайдалану үшін 3 саусақпен солға немесе оңға сырғытыңыз. Сондай-ақ 3 саусағыңызбен жоғары не төмен сырғытуыңызға болады.</string>
@@ -719,7 +750,7 @@
   <string name="report_gesture_description">Мұнда жақында қолданылған қимылдар көрсетілген. Олардың қайсысында қате шыққанын және ол нені білдіруі керек болғанын хабарлаңыз.</string>
   <string name="tutorial_entry_point_title">Оқулық</string>
   <string name="welcome_to_talkback_title">TalkBack-ке қош келдіңіз!</string>
-  <string name="welcome_to_talkback_text">TalkBack – көру қиындап кеткен жағдайларға немесе көру қабілеті нашар адамдарға арналған экранды оқу құралы. Ол сізге дауыс арқылы ақпарат беріп отырады, сөйтіп сіз құрылғыны экранға қарамай-ақ пайдалана аласыз.\n\nЕкі дыбыс деңгейі пернесін бірнеше секунд басып ұстап тұрып, TalkBack-ті қоса не өшіре аласыз.\n\nTalkBack қосулы болғанда, экрандағы ерекшеленген элемент дауыстап оқылады.\n\nОңға сырғытқан кезде, келесі элементке ауысады, ал солға сырғытқан кезде, алдыңғы элементке ауысады.\n\n\"Келесі\" түймесіне өту үшін оңға сырғытыңыз.</string>
+  <string name="welcome_to_talkback_text">TalkBack – көру қиындап кеткен жағдайларға немесе көру қабілеті нашар адамдарға арналған экранды оқу құралы. Ол сізге дауыс арқылы ақпарат беріп отырады, сөйтіп сіз құрылғыны экранға қарамай-ақ пайдалана аласыз.\n\nЕкі дыбыс деңгейі пернесін бірнеше секунд басып тұрып, TalkBack-ті қоса не өшіре аласыз.\n\nTalkBack қосулы болғанда, экрандағы ерекшеленген элемент дауыстап оқылады.\n\nОңға сырғытқан кезде, келесі элементке ауысады, ал солға сырғытқан кезде, алдыңғы элементке ауысады.\n\n\"Келесі\" түймесіне өту үшін оңға сырғытыңыз.</string>
   <string name="explore_by_touch_title">Түртілген элементтерді дыбыстау</string>
   <string name="explore_by_touch_text">Экранның бетімен саусағыңызды жүргізу арқылы қажетті элементке өте аласыз.\n\nҚазір істеп көріңіз: саусағыңызбен экранды түртіп, сол жақ төменгі бұрышқа, \"Келесі\" түймесіне қарай жүргізіңіз.</string>
   <string name="scrolling_title">Айналдыру</string>
@@ -762,15 +793,16 @@
   <string name="moving_cursor_text">Мәтін өрісін ашып, дыбыс деңгейі пернелерін жоғары немесе төмен басу арқылы курсорды әріптер арасында жылжыта аласыз.\n\nТөмендегі мәтін өрісінде осы әрекетті орындап көріңіз.</string>
   <string name="edit_box_text">TalkBack-ке қош келдіңіз!</string>
   <string name="selecting_text_title">Мәтінді белгілеу</string>
-  <string name="selecting_text_text">Мәтін өрісінде курсорды белгілегіңіз келетін мәтіннің басына жылжытыңыз.\n\nБелгілеу режимін қосу үшін 2 саусағыңызбен екі рет түртіп, ұстап тұрыңыз. Сосын курсорды мәтіннің соңына жылжытыңыз. Белгілеу режимінен шығу үшін қайтадан 2 саусағыңызбен екі рет түртіп, ұстап тұрыңыз.\n\nТөмендегі мәтін өрісіндегі \"Қош келдіңіз\" сөзін белгілеп көріңіз.</string>
+  <string name="selecting_text_text">Мәтін өрісінде курсорды белгілегіңіз келетін мәтіннің басына жылжытыңыз.\n\nБелгілеу режимін қосу үшін 2 саусағыңызбен екі рет басып тұрыңыз. Сосын курсорды мәтіннің соңына жылжытыңыз. Белгілеу режимінен шығу үшін қайтадан 2 саусағыңызбен екі рет басып тұрыңыз.\n\nТөмендегі мәтін өрісіндегі \"Қош келдіңіз\" сөзін белгілеп көріңіз.</string>
   <string name="selecting_text_text_pre_r">Мәтін өрісінде курсорды белгілегіңіз келетін мәтіннің басына жылжытыңыз.\n\nTalkBack мәзірін ашу үшін алдымен төмен, одан кейін оңға сырғытыңыз. Өңдеу опцияларын екі рет түртіңіз де, белгілеу режимін қосыңыз. Курсорды мәтіннің соңына жылжытыңыз.\n\nTalkBack мәзірін қайта ашыңыз, одан кейін белгілеу режимінен шығу үшін өңдеу опцияларын екі рет түртіңіз.\n\nТөмендегі мәтін өрісіндегі \"Қош келдіңіз\" сөзін белгілеп көріңіз.</string>
   <string name="selecting_text_with_talkback_menu">TalkBack мәзірін ашып, \"өңдеу опциялары\" параметрін таңдау арқылы мәтінді белгілеу және басқаша өңдеу әрекеттерін таба аласыз. TalkBack мәзірін ашу үшін экранды үш саусақпен түрту керек.</string>
   <string name="selecting_text_with_talkback_menu_pre_r">TalkBack мәзірін ашып, \"өңдеу опциялары\" параметрін таңдау арқылы мәтінді белгілеу және басқаша өңдеу әрекеттерін таба аласыз. TalkBack мәзірі жоғары, сосын оңға сырғыту арқылы ашылады.</string>
   <string name="copy_cut_paste_title">Көшіру, қию және қою</string>
   <string name="copy_text">Мәтінді белгілеген соң, оны 3 саусағыңызбен екі рет түрту арқылы көшіріңіз.\n\nТөмендегі мәтін өрісіндегі сөзді көшіріп көріңіз.</string>
-  <string name="cut_paste_text">Мәтінді қиып алу үшін 3 саусағыңызбен екі рет түртіп, ұстап тұрыңыз.\n\nМәтінді қою үшін 3 саусағыңызбен үш рет түртіңіз.\n\nТөмендегі мәтін өрісіне бір сөз қойып көріңіз.</string>
+  <string name="cut_paste_text">Мәтінді қиып алу үшін 3 саусағыңызбен екі рет басып тұрыңыз.\n\nМәтінді қою үшін 3 саусағыңызбен үш рет түртіңіз.\n\nТөмендегі мәтін өрісіне бір сөз қойып көріңіз.</string>
   <string name="copy_text_pre_r">Мәтінді белгілеген соң, оны TalkBack мәзірі арқылы көшіре аласыз. TalkBack мәзірін ашу үшін алдымен төмен, одан кейін оңға сырғытыңыз. Өңдеу опцияларын екі рет түртіп, көшіріңіз.\n\nТөмендегі мәтін өрісіндегі сөзді көшіріп көріңіз.</string>
   <string name="cut_paste_text_pre_r">Мәтінді қиып алу немесе қою үшін TalkBack мәзірін ашып, өңдеу опцияларын екі рет түртіңіз.\n\nТөмендегі мәтін өрісіндегі сөзді қойып көріңіз.</string>
+  <string name="edit_box_hint_paste_text">Мәтінді осында қойыңыз.</string>
   <string name="read_by_character_title">Таңба, сөз немесе абзац бойынша оқу</string>
   <string name="read_by_character_text">Кейде мәтіннің әр таңбасы дауыстап оқылғанын естігіңіз келуі мүмкін.\n\nОл үшін \"%1$s\" сөзін естігенше 3 саусағыңызбен оңға сырғытыңыз. Одан кейін навигация аумағын таңба бойынша артқа жылжыту үшін жоғары сырғытыңыз. Навигация аумағын таңба бойынша алға жылжыту үшін төмен сырғытыңыз.\n\nОсыны қазір істеп көріңіз. 3 саусағыңызбен оңға сырғыту кезінде сөздер немесе абзацтар бойынша оқу әдісін де таңдауыңызға болады.</string>
   <string name="read_by_character_text_pre_r">Кейде мәтіннің әр таңбасы дауыстап оқылғанын естігіңіз келуі мүмкін.\n\nОл үшін \"%1$s\" сөзін естігенше алдымен төмен, сосын жоғары сырғытыңыз. Одан кейін навигация аумағын таңба бойынша артқа жылжыту үшін жоғары сырғытыңыз. Навигация аумағын таңба бойынша алға жылжыту үшін төмен сырғытыңыз.\n\nОсыны қазір істеп көріңіз. Алдымен төмен, сосын жоғары сырғыту кезінде сөздер немесе абзацтар бойынша оқу әдісін де таңдауыңызға болады.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">%1$s іске қосылды</string>
   <string name="talkback_inactive_title">TalkBack өшірілген</string>
   <string name="talkback_inactive_message">Бұл оқулық үшін TalkBack функциясы қажет. Оқулықты қолдану үшін TalkBack функциясын қосыңыз.</string>
+  <string name="watch_swipe_left_right_text">Элементтер арасында жылжу үшін оңға немесе солға сырғытыңыз.</string>
+  <string name="watch_double_tap_text">Элементті іске қосу үшін екі рет түртіңіз.</string>
+  <string name="watch_2_finger_scroll_text">Айналдыру үшін 2 саусақпен сүйреңіз.</string>
+  <string name="title_pref_thick_border">Қалың жақтаулар</string>
+  <string name="title_pref_category_border_color">Түсі</string>
+  <string name="title_pref_default_color">Әдепкі</string>
+  <string name="title_pref_red">Қызыл</string>
+  <string name="title_pref_orange">Қызыл сары</string>
+  <string name="title_pref_yellow">Сары</string>
+  <string name="title_pref_green">Жасыл</string>
+  <string name="title_pref_blue">Көк</string>
+  <string name="title_pref_grey">Сұр</string>
   <string name="survey_closed">Сауалнама жабық</string>
+  <string name="character_recognition_text">Мәтін: %1$s</string>
+  <string name="title_image_caption">Суретті сипаттау</string>
 </resources>

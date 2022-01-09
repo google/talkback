@@ -11,14 +11,15 @@
   <string name="talkback_preferences_subtitle">%1$s bertsioa</string>
   <string name="label_manager_summary_title">Kudeatu etiketa pertsonalizatuak</string>
   <string name="label_manager_package_title">Kudeatu %1$s aplikazioaren etiketak</string>
+  <string name="manage_label">Kudeatu etiketa</string>
   <string name="label_manager_no_packages_message">Ez dago etiketa pertsonalizaturik. Etiketa horiek sortzeko, joan etiketarik ez duen irudi batera eta gehitu etiketa TalkBack-en menutik.</string>
   <string name="label_manager_timestamp_text">Azken aldatze-data: %1$s</string>
   <string name="search_dialog_label">Bilatu: %1$s</string>
   <string name="search_mode_cancel">Bilaketa bertan behera utzi da.</string>
   <string name="search_mode_hint_no_query">Ez da kontsultarik idatzi.</string>
-  <string name="search_mode_hint_query">Uneko kontsulta: %1$s.</string>
+  <string name="search_mode_hint_query">Oraingo kontsulta: %1$s.</string>
   <string name="search_mode_hint_no_selection">Ez da hautatu elementurik.</string>
-  <string name="search_mode_hint_selection">Uneko hautapena: %1$s.</string>
+  <string name="search_mode_hint_selection">Oraingo hautapena: %1$s.</string>
   <string name="notification_type_missed_call">Dei galdua</string>
   <string name="notification_type_status_mute">Desaktibatu audioa</string>
   <string name="notification_type_status_chat">Txata</string>
@@ -51,8 +52,8 @@
   <string name="title_pref_category_audio">Audioa</string>
   <string name="title_pref_speech_volume">Hizketaren bolumena</string>
   <string name="title_pref_speak_screenoff">Hitz egin pantaila itzalita dagoenean</string>
-  <string name="summaryOn_pref_speak_screenoff">Jakinarazpenak esaten dira pantaila itzalita dagoenean</string>
-  <string name="summaryOff_pref_speak_screenoff">Ez da hizketa hautematen pantaila itzalita dagoenean</string>
+  <string name="summaryOn_pref_speak_screenoff">Jakinarazpenak ozen irakurtzen dira pantaila itzalita dagoenean</string>
+  <string name="summaryOff_pref_speak_screenoff">Ez da ezer esaten ozen pantaila itzalita dagoenean</string>
   <string name="title_pref_verbose_scroll_announcement">Irakurri ozen pantailako zerrendako elementu kopurua</string>
   <string name="summaryOff_pref_verbose_scroll_announcement">Irakurri ozen keinu bidez gora edo behera egitean soilik</string>
   <string name="summaryOn_pref_verbose_scroll_announcement">Irakurri beti ozen</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Arakatu sakatuta</string>
   <string name="title_pref_category_touch_exploration">Nabigazioa</string>
   <string name="title_pref_category_controls">Kontrolatzeko aukerak</string>
-  <string name="title_pref_single_tap">Aktibatu behin bakarrik sakatuta</string>
+  <string name="title_pref_single_tap">Aktibatzeko, sakatu behin</string>
   <string name="title_pref_show_context_menu_as_list">Erakutsi laster-menua zerrenda gisa</string>
-  <string name="summary_pref_single_tap">(Esperimentala) Sakatu behin fokuratutako elementua hura aktibatzeko</string>
+  <string name="summary_pref_single_tap">Fokuratutako elementua aktibatzeko, saka ezazu behin</string>
   <string name="title_pref_shake_to_read_threshold">Astindu gailua guztia ozen irakurtzeko modua aktibatzeko</string>
   <string name="pref_verbosity_title">Adierazgarritasuna</string>
   <string name="pref_punctuation_title">Puntuazioa</string>
+  <string name="title_pref_category_manage_focus_indicator">Pertsonalizatu fokuratze-adierazlea</string>
   <string name="title_pref_category_manage_gestures">Pertsonalizatu keinuak</string>
   <string name="title_pref_manage_labels">Etiketa pertsonalizatuak</string>
   <string name="title_pref_manage_customize_menus">Pertsonalizatu menuak</string>
@@ -109,7 +111,7 @@
   <string name="title_pref_manage_keyboard_shortcuts">Lasterbideak</string>
   <string name="title_pref_export_custom_labels">Esportatu etiketa pertsonalizatuak</string>
   <string name="title_pref_play_store">Ireki TalkBack Play Store dendan</string>
-  <string name="summary_pref_play_store">Uneko TalkBack bertsioa: %1$s</string>
+  <string name="summary_pref_play_store">Oraingo TalkBack bertsioa: %1$s</string>
   <string name="title_pref_help_and_feedback">Laguntza eta iritziak</string>
   <string name="pref_item_licenses">Kode irekiko lizentziak</string>
   <string name="title_pref_help">Laguntza</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Laguntza eta iritziak</string>
   <string name="title_pref_category_tutorial_and_help">Tutoriala eta laguntza</string>
   <string name="title_pref_category_advanced">Aurreratua</string>
+  <string name="title_pref_category_typing">Idazketa eta teklatua</string>
   <string name="title_pref_category_legal_and_privacy">Lege-informazioa eta pribatutasuna</string>
   <string name="title_pref_advanced_settings">Ezarpen aurreratuak</string>
   <string name="reset_gesture_settings_title">Berrezarri keinuen ezarpenak</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Azken aplikazioak</string>
   <string name="keycombo_menu_global_notifications">Jakinarazpenak</string>
   <string name="keycombo_menu_global_suspend">Pausatu TalkBack edo berrekin hari</string>
+  <string name="keycombo_menu_global_play_pause_media">Erreproduzitu edo pausatu multimedia-edukia</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Hautatu irakurketa kontrolatzeko hurrengo aukera</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Hautatu irakurketa kontrolatzeko aurreko aukera</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Doitu irakurketa kontrolatzeko aukera gora</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Doitu irakurketa kontrolatzeko aukera behera</string>
   <string name="keycombo_menu_category_granularity">Nabigazioa</string>
   <string name="keycombo_menu_granularity_increase">Hurrengo nabigazio-ezarpena</string>
   <string name="keycombo_menu_granularity_decrease">Aurreko nabigazio-ezarpena</string>
@@ -189,8 +197,8 @@
   <string name="keycombo_menu_web_navigate_to_previous_control">Joan aurreko aukerara</string>
   <string name="keycombo_menu_web_navigate_to_next_checkbox">Joan hurrengo koadrora</string>
   <string name="keycombo_menu_web_navigate_to_previous_checkbox">Joan aurreko koadrora</string>
-  <string name="keycombo_menu_web_navigate_to_next_aria_landmark">Joan hurrengo ARIA mugarrira</string>
-  <string name="keycombo_menu_web_navigate_to_previous_aria_landmark">Joan aurreko ARIA mugarrira</string>
+  <string name="keycombo_menu_web_navigate_to_next_aria_landmark">Joan ARIA zehaztapenaren hurrengo mugarrira</string>
+  <string name="keycombo_menu_web_navigate_to_previous_aria_landmark">Joan ARIA zehaztapenaren aurreko mugarrira</string>
   <string name="keycombo_menu_web_navigate_to_next_edit_field">Joan hurrengo editatze-eremura</string>
   <string name="keycombo_menu_web_navigate_to_previous_edit_field">Joan aurreko editatze-eremura</string>
   <string name="keycombo_menu_web_navigate_to_next_focusable_item">Joan fokura daitekeen hurrengora</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Ez dago kopiatzeko testurik. Hautatu testu bat kopiatzen hasi aurretik.</string>
   <string name="cannot_paste_feedback">Ez dago itsasteko testurik. Kopiatu testu bat itsasten hasi aurretik.</string>
   <string name="cannot_cut_feedback">Ez dago ebakitzeko testurik. Hautatu testu bat ebakitzen hasi aurretik.</string>
+  <string name="cannot_delete_feedback">Ez dago ezabatzeko testurik. Hautatu testu bat ezabatzen hasi aurretik.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Ziur teklatu-diseinu honetako lasterbideen balio lehenetsiak berrezarri nahi dituzula? Kontuan izan ekintza hori ezin dela desegin.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Berrezarri</string>
   <string name="override_keycombo">Tekla beste nonbait erabiltzen ari da</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Erabili ahots-tonuaren aldaketak</string>
   <string name="title_pref_keyboard_echo">Entzun tekla bakoitza</string>
   <string name="pref_node_desc_order_title">Elementuak azaltzeko ordena</string>
-  <string name="summaryOn_pref_intonation">Eman teklatuaren audio-azalpenak tonu baxuagoan</string>
+  <string name="summaryOn_pref_intonation">Esan teklatuak ezabatutako testua ahots-tonu altuago bat erabilita</string>
   <string name="summaryOff_pref_intonation">Ez aldatu ahotsaren tonua hitz egiterakoan</string>
   <string name="title_pref_brailleime">Braille-teklatua</string>
   <string name="title_pref_category_feedback_settings">Bestelako azalpenak</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Gaitu nodo-zuhaitzak arazteko aukera</string>
   <string name="summary_pref_tree_debug_tv">Bilaketa egin beharrean, erabili ahozko bilaketaren gakoa nodoaren zuhaitza inprimatzeko</string>
   <string name="title_pref_performance_stats">Gaitu errendimenduaren estatistikak</string>
+  <string name="title_pref_log_overlay">Gaitu arazketa-erregistroak gainjartzeko aukera</string>
   <string name="title_pref_resume_talkback">Berrekin behin-behinean itxita egotetik</string>
+  <string name="title_pref_typing_confirmation">Idazteko aukera hobetsia</string>
   <string name="title_pref_multi_finger_gesture">Gaitu hatz anitzeko keinuak</string>
   <string name="screen_dimmed">Pantaila ezkutatu da</string>
   <string name="screen_brightness_restored">Pantaila ikusgai dago</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Egin behera</string>
   <string name="shortcut_scroll_left">Egin ezkerrera</string>
   <string name="shortcut_scroll_right">Egin eskuinera</string>
+  <string name="shortcut_next_window">Hurrengo leihoa</string>
+  <string name="shortcut_previous_window">Aurreko leihoa</string>
   <string name="shortcut_back">Atzera</string>
   <string name="shortcut_home">Hasierako pantaila</string>
   <string name="shortcut_overview">Ikuspegi orokorra</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Ezkutatu edo erakutsi pantaila</string>
   <string name="title_show_screen_search">Bilaketa zuzena</string>
   <string name="title_show_voice_commands">Ahozko aginduak</string>
+  <string name="talkback_show_talkback_settings">TalkBack-en ezarpenak</string>
   <string name="title_other_web_navigation">Sarean nabigatzeko beste aukera batzuk</string>
   <string name="title_granularity_default">Nabigazio lehenetsia</string>
   <string name="title_seek_bar_edit">Editatu graduatzailearen maila</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Kontrolatu TalkBack ahotsarekin</string>
   <string name="summary_show_hide_screen">Ezkutatu pantaila, toki publikoetan gainerakoek ez dezaten ikusi. Pantaila ezkutatu eta gero, bueltatu egoera normalera.</string>
   <string name="summary_talkback_preferences">Ireki TalkBack-en ezarpenak</string>
-  <string name="summary_system_actions">Joan aplikazio guztien aukerara; ondoren, ezarpen bizkorretan, erabili pantaila zatitua</string>
+  <string name="summary_system_actions">Joan aplikazio guztien aukerara, eta, ondoren, Ezarpen bizkorretara</string>
   <string name="summary_tts_settings">Ireki testua ahots bihurtzeko eginbidearen ezarpenak</string>
   <string name="summary_pause_feedback">Desaktibatu TalkBack-en ahozko argibideak</string>
   <string name="not_editable">Ezin da editatu</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Irakurri hitz bat aldiko</string>
   <string name="summary_lines">Irakurri lerro bat aldiko</string>
   <string name="summary_paragraphs">Irakurri paragrafo bat aldiko</string>
+  <string name="summary_windows">Joan beste leiho batzuetara, hala nola bolumena kontrolatzeko aukeretara edo nabigazio-barrara</string>
   <string name="summary_headings">Joan goiburu batetik bestera</string>
   <string name="summary_controls">Joan interakzioan jarduteko erabil dezakezun elementu batetik bestera, hala nola botoiak, koadroak eta testu-eremuak</string>
   <string name="summary_links">Joan esteka batetik bestera</string>
@@ -408,7 +423,9 @@
   <string name="summary_vibration_feedback">Sentitu dardarak elementu bat hautatzen eta antzeko ekintzak egiten dituzunean. Ez du eraginik aplikazioek edo sistemak sortutako dardaretan.</string>
   <string name="summary_hide_screen">Ezkutatu pantaila, toki publikoetan gainerakoek ez dezaten ikusi</string>
   <string name="summary_audio_ducking">Jaitsi erreproduzitzen ari diren beste audio batzuen bolumena TalkBack-ek hitz egiten duenean</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Egin aurrera edo atzera</string>
+  <string name="summary_support_change_a11y_volume">Igo edo jaitsi erabilerraztasun-eginbideen bolumena</string>
+  <string name="summary_image_caption">Lortu irudiaren azalpen automatikoa</string>
   <string name="value_direction_up">gora</string>
   <string name="value_direction_down">behera</string>
   <string name="value_direction_left">ezkerrera</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Sakatu birritan eta eduki sakatuta bi hatzekin</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Sakatu birritan eta eduki sakatuta hiru hatzekin</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Sakatu birritan eta eduki sakatuta lau hatzekin</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Sakatu hiru aldiz eta eduki sakatuta bi hatzekin</string>
+  <string name="seekbar_hint_2gesture">Doitzeko, \"%1$s\" edo %2$s\"</string>
+  <string name="seekbar_hint_1gesture">Doitzeko, \"%1$s\"</string>
   <string name="gesture_name_unknown">Keinu ezezaguna</string>
   <string name="gesture_name_pass_through">Igarotzeko sistemaren keinua</string>
   <string name="gesture_name_touch_explore">Sakatu arakatzeko</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Sakatu birritan eta eduki sakatuta</string>
   <string name="gesture_name_2finger_tap_hold">Eduki sakatuta bi hatzekin</string>
   <string name="gesture_name_3finger_tap_hold">Eduki sakatuta hiru hatzekin</string>
+  <string name="gesture_name_2finger_3tap_hold">Sakatu hiru aldiz eta eduki sakatuta bi hatzekin</string>
   <string name="gesture_name_3finger_3tap_hold">Sakatu hiru aldiz eta eduki sakatuta hiru hatzekin</string>
   <string name="title_pref_shortcut_fingerprint_up">Pasatu hatza gora hatz-marken sentsorean</string>
   <string name="title_pref_shortcut_fingerprint_down">Pasatu hatza behera hatz-marken sentsorean</string>
@@ -479,22 +500,30 @@
   <string name="title_pref_shortcut_fingerprint_right">Pasatu hatza eskuinera hatz-marken sentsorean</string>
   <string name="title_pref_two_part_vertical_gestures">Bi norabidetako keinu bertikalak</string>
   <string name="title_pref_version_code">Bertsioaren kodea</string>
-  <string formatted="false" name="value_volume_100_percent">Bat etorrarazi multimedia-edukiaren bolumenarekin</string>
+  <string formatted="false" name="value_volume_100_percent">Bat etorrarazi multimedia-edukien bolumenarekin</string>
   <string formatted="false" name="value_volume_75_percent">Multimedia-edukien bolumenaren % 75</string>
   <string formatted="false" name="value_volume_50_percent">Multimedia-edukien bolumenaren % 50</string>
   <string formatted="false" name="value_volume_25_percent">Multimedia-edukien bolumenaren % 25</string>
   <string name="value_resume_screen_on">Pantaila pizten denean</string>
   <string name="value_resume_keyguard">Pantaila blokeatua erakusten denean</string>
   <string name="value_resume_manual">Eskuz berrekiten zaionean soilik</string>
+  <string name="value_type_confirmation_double_tap">Tekla bat hautatzeko, eutsi hatzari eta, gero, sakatu tekla birritan</string>
+  <string name="value_type_confirmation_lift_to_type">Tekla bat hautatzeko, eutsi hatzari eta, gero, jaso ezazu</string>
   <string name="value_shake_to_read_disabled">Desgaituta</string>
   <string name="value_shake_to_read_threshold_very_light">Oso arina</string>
   <string name="value_shake_to_read_threshold_light">Arina</string>
   <string name="value_shake_to_read_threshold_medium">Ertaina</string>
   <string name="value_shake_to_read_threshold_hard">Gogorra</string>
   <string name="value_shake_to_read_threshold_very_hard">Oso gogorra</string>
-  <string name="value_keyboard_echo_always">Esan beti sakatutako teklak</string>
+  <string name="value_keyboard_echo_always">Irakurri ozen sakatutako teklak beti</string>
   <string name="value_keyboard_echo_softkeys">Pantailako teklatuan soilik</string>
   <string name="value_keyboard_echo_never">Ez esan inoiz sakatutako teklak</string>
+  <string name="title_pref_keyboard_echo_on_screen">Tekla bakoitza entzuteko aukera: pantailako teklatua</string>
+  <string name="title_pref_keyboard_echo_physical">Tekla bakoitza entzuteko aukera: teklatu fisikoa</string>
+  <string name="value_keyboard_echo_none">Bat ere ez</string>
+  <string name="value_keyboard_echo_characters_only">Karaktereak</string>
+  <string name="value_keyboard_echo_words_only">Hitzak</string>
+  <string name="value_keyboard_echo_characters_and_words">Hitzak eta karaktereak</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Egoera, izena, mota</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Mota, izena, egoera</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Izena, mota, egoera</string>
@@ -547,17 +576,18 @@
   <string name="button_customize_gesture_mappings">Pertsonalizatu keinuak</string>
   <string name="button_disable_all_events">Desgaitu guztiak</string>
   <string name="button_enable_all_events">Gaitu guztiak</string>
-  <string name="dialog_title_disable_exploration">\"Arakatu ukituta\" eginbidea desgaitu nahi duzu?</string>
+  <string name="dialog_title_disable_exploration">\"Arakatu ukituta\" desgaitu?</string>
   <string name="dialog_message_disable_exploration">Ziur \"Arakatu ukituta\" eginbidea desaktibatu nahi duzula?\n\nGailuak ezin izango ditu lasterbide-keinuak erabili edo pantaila ukitzen duzunean elementuak esan.</string>
   <string name="dialog_title_enable_tree_debug">Nodo-zuhaitzak arazteko aukera gaitu nahi duzu?</string>
   <string name="dialog_message_enable_tree_debug">Ziur nodo-zuhaitza arazteko aukera aktibatu nahi duzula?\n\nNodo-zuhaitza arazteko aukerarekin, gailuaren erregistroek pantailako edukia hauteman ahal izango dute, eta beste aplikazioek erregistro hori irakurri ahal izango dute.</string>
   <string name="dialog_title_enable_performance_stats">Errendimenduaren estatistikak gaitu nahi dituzu?</string>
   <string name="dialog_message_enable_performance_stats">Ziur errendimenduaren estatistikak aktibatu nahi dituzula?\n\nBaliteke memoria eta bateria gehiago erabiltzea.</string>
+  <string name="title_request_phone_permission">Telefonoa atzitzeko baimena eman nahi duzu?</string>
+  <string name="message_request_phone_permission">Horrela, TalkBack-ek iragarpenak murriztuko ditu deiak abian dituzunean</string>
+  <string name="continue_button">Egin aurrera</string>
   <string name="label_talkback_context_menu">TalkBack eginbidearen laster-menu orokorra</string>
   <string name="permission_talkback_label">Kontrolatu TalkBack</string>
   <string name="permission_talkback_desc">TalkBack-i keinuak bidaltzeko eta ahozko argibideei berrekiteko baimena.</string>
-  <string name="permission_labeling_label">Kudeatu TalkBack etiketa pertsonalizatuak</string>
-  <string name="permission_labeling_desc">TalkBack-ek esandako etiketa pertsonalizatuak atzitzeko, aldatzeko eta ezabatzeko baimena.</string>
   <string name="links">Estekak</string>
   <string name="end_of_text">Amaitu</string>
   <string name="start_of_page">Hau da lehen %1$s</string>
@@ -567,7 +597,7 @@
   <string name="display_name_heading">goiburua</string>
   <string name="display_name_button">botoia</string>
   <string name="display_name_combobox">koadro konbinatua</string>
-  <string name="display_name_aria_landmark">ARIA mugarria</string>
+  <string name="display_name_aria_landmark">ARIA zehaztapenaren mugarria</string>
   <string name="display_name_edit_field">editatzeko eremua</string>
   <string name="display_name_focusable_item">fokura daitekeen elementua</string>
   <string name="display_name_heading_1">lehen goiburua</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Puntuazioa</string>
   <string name="title_pref_selector_granularity">Nabigazioa</string>
   <string name="title_pref_selector_audio_focus">Atzeko planoko bolumena jaistea</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Egin gora eta behera</string>
+  <string name="title_pref_a11y_volume">Erabilerraztasun-eginbideen bolumena</string>
   <string name="title_pref_selector_adjustable_widget_slider">Doitu graduatzailea</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Doitu balioa</string>
   <string name="title_pref_speak_passwords_without_headphones">Irakurri ozen pasahitzak</string>
@@ -647,8 +678,8 @@
   <string name="dialog_message_voice_commands">Hona hemen eman ditzakezun zenbait agindu:\n\n• Kopiatu.\n• Irakurri hurrengo elementutik aurrera.\n• Bilatu [gorde].\n• Hitz egin [bizkorrago].\n• TalkBack-en ezarpenak.\n\nEsan \"%1$s\" ahozko agindu guztien zerrenda ikusteko.</string>
   <string name="start_voice_command">Erabili ahots-komandoak</string>
   <string name="dialog_title_pass_through_mode">Saltatu TalkBack-en keinuak eta erabili sistemako keinuak</string>
-  <string name="dialog_message_pass_through_mode">Ezkila entzutean, TalkBack-ek onartzen ez dituen sistemaren keinuak erabil ditzakezu. Halakoei \"ordezko keinu\" deritze.</string>
-  <string name="hint_type_search_term">Idatzi bilaketa-hitza</string>
+  <string name="dialog_message_pass_through_mode">Txirrin-hotsa entzutean, TalkBack-ek onartzen ez dituen sistemaren keinuak erabil ditzakezu. Halakoei \"ordezko keinu\" deritze.</string>
+  <string name="hint_type_search_term">Bilaketa-hitza</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack-en jakinarazpenen kanala</string>
   <string name="pref_selector_summary">%1$s ezarpen bat hautatzeko. Ondoren, %2$s ezarpen hori doitzeko.</string>
@@ -696,8 +727,8 @@
   <string name="new_shortcut_gesture_text">Keinu berriak gehitu dira, TalkBack arinagoa eta erabiltzeko errazagoa izan dadin.\n\nPantaila honetan proba ditzakezu keinu berriak.</string>
   <string name="new_shortcut_gesture_pause_or_play_media_text">Bideo- edo musika-aplikazio batean multimedia-edukia pausatzeko edo erreproduzitzeko, sakatu birritan bi hatzekin. Proba ezazu.</string>
   <string name="new_shortcut_gesture_pause_or_play_media_subtext">Baliteke beste aplikazio batzuek beste ekintza batzuk gauzatzeko erabiltzea keinu hau, hala nola telefono-dei bati erantzuteko edo hura amaitzeko. Baliteke aplikazio guztiek keinu hau ez onartzea.</string>
-  <string name="new_shortcut_gesture_pause_media_announcement">Multimedia-edukia pausatu edo erreproduzitu. Normalean, uneko bideoa edo musika pausatu edo erreproduzituko du horrek. Aurrera egiteko, pasatu hatza eskuinera.</string>
-  <string name="new_shortcut_gesture_play_media_announcement">Multimedia-edukia erreproduzitzen ari da. Normalean, uneko bideoa edo musika erreproduzitu egingo da. Aurrera egiteko, pasatu hatza eskuinera.</string>
+  <string name="new_shortcut_gesture_pause_media_announcement">Multimedia-edukia pausatu edo erreproduzitu. Normalean, oraingo bideoa edo musika pausatu edo erreproduzituko du horrek. Aurrera egiteko, pasatu hatza eskuinera.</string>
+  <string name="new_shortcut_gesture_play_media_announcement">Multimedia-edukia erreproduzitzen ari da. Normalean, oraingo bideoa edo musika erreproduzitu egingo da. Aurrera egiteko, pasatu hatza eskuinera.</string>
   <string name="new_shortcut_gesture_stop_speech_text">TalkBack aldi baterako isilarazteko, sakatu bi hatzekin.</string>
   <string name="new_shortcut_gesture_stop_speech_announcement">Gelditu da TalkBack eginbidearen hizketa. Normalean, TalkBack esaten ari den esaldia gelditu egingo da. Aurrera egiteko, pasatu hatza eskuinera.</string>
   <string name="new_shortcut_gesture_copy_text_text">Testua kopiatzeko, sakatu birritan hiru hatzekin.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Testua ebakitzeko, saka ezazu birritan eta eduki ezazu sakatuta hiru hatzekin.\n\nTestua itsasteko, saka ezazu hiru aldiz hiru hatzekin.\n\nItsatsi hitza beheko testu-koadroan.</string>
   <string name="copy_text_pre_r">Testua hautatu ondoren, TalkBack-en menuan kopia dezakezu. Pasatu hatza behera eta, ondoren, eskuinera TalkBack-en menua irekitzeko. Sakatu editatzeko aukera birritan eta kopiatu testua.\n\nKopiatu beheko testu-koadroko hitz bat.</string>
   <string name="cut_paste_text_pre_r">Testua kopiatu eta itsasteko, ireki TalkBack-en menua eta sakatu editatzeko aukerak birritan.\n\nItsatsi hitza beheko testu-koadroan.</string>
+  <string name="edit_box_hint_paste_text">Itsatsi testua hemen</string>
   <string name="read_by_character_title">Irakurri karakterez karaktere, hitzez hitz edo paragrafoz paragrafo</string>
   <string name="read_by_character_text">Batzuetan, karakterez karaktere entzun nahiko duzu testua.\n\nHorretarako, pasatu hiru hatz eskuinera \"%1$s\" entzuten duzun arte. Ondoren, pasatu hatza gora nabigazioa aurreko karakterean fokura dadin. Pasatu hatza behera nabigazioa hurrengo karakterean fokura dadin.\n\nProba ezazu. Hiru hatz eskuinera pasatzen badituzu, hitzez hitz edo paragrafoz paragrafo irakurtzeko aukerak izango dituzu.</string>
   <string name="read_by_character_text_pre_r">Batzuetan, karakterez karaktere entzun nahiko duzu testua.\n\nHorretarako, pasatu hatza behera \"%1$s\" entzuten duzun arte. Ondoren, pasatu hatza gora nabigazioa aurreko karakterean fokura dadin. Pasatu hatza behera nabigazioa hurrengo karakterean fokura dadin.\n\nProba ezazu. Hatza behera eta, ondoren, gora pasatzen baduzu, hitzez hitz edo paragrafoz paragrafo irakurtzeko aukerak izango dituzu.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">Aktibatu da %1$s</string>
   <string name="talkback_inactive_title">Desgaituta dago TalkBack</string>
   <string name="talkback_inactive_message">Tutorial hau erabiltzeko, TalkBack gaitu behar da. Tutoriala abiarazi aurretik, aktibatu TalkBack.</string>
+  <string name="watch_swipe_left_right_text">Pasatu hatza eskuinera edo ezkerrera elementu batetik bestera joateko</string>
+  <string name="watch_double_tap_text">Elementu bat aktibatzeko, saka ezazu birritan</string>
+  <string name="watch_2_finger_scroll_text">Gora eta behera egiteko, arrastatu bi hatz</string>
+  <string name="title_pref_thick_border">Ertz lodiak</string>
+  <string name="title_pref_category_border_color">Kolorea</string>
+  <string name="title_pref_default_color">Lehenetsia</string>
+  <string name="title_pref_red">Gorria</string>
+  <string name="title_pref_orange">Laranja</string>
+  <string name="title_pref_yellow">Horia</string>
+  <string name="title_pref_green">Berdea</string>
+  <string name="title_pref_blue">Urdina</string>
+  <string name="title_pref_grey">Grisa</string>
   <string name="survey_closed">Inkesta itxita dago</string>
+  <string name="character_recognition_text">Testua: %1$s</string>
+  <string name="title_image_caption">Azaldu irudia</string>
 </resources>

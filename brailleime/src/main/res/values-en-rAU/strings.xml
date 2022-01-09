@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Updating dot position. First, let’s record the dots on your left hand. Touch and hold the screen with the middle three fingers of your left hand.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Updating dot position. First, let’s record the dots on your right hand. Touch and hold the screen with the middle three fingers of your right hand.</string>
   <string name="calibration_finish_announcement">Dot position updated</string>
+  <string name="remaining_calibration_finish_announcement">All dot positions updated</string>
   <string name="calibration_step2_hold_right_finger_announcement">Updated positions for dots 1, 2 and 3. Next, let’s record the dots on your right hand. Touch and hold the screen with the middle three fingers of your right hand.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Updated positions for dots 1, 2 and 3. Next, let’s record the dots on your left hand. Touch and hold the screen with the middle three fingers of your left hand.</string>
   <string name="calibration_fail_announcement">Couldn’t update dot position. Touch and hold the screen with six fingers. Then try again.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">Spanish</string>
   <string name="code_user_facing_name_ar">Arabic</string>
+  <string name="code_user_facing_name_fr">French</string>
   <string name="title_pref_accumulate_presses">Include all pressed dots</string>
   <string name="summary_pref_accumulate_presses">Each pressed dot is part of the input, even if the dot is released before other dots</string>
   <string name="title_pref_reverse_dots">Reverse dots</string>
   <string name="summary_pref_reverse_dots">Swap the dot positions, so that dots one and four trade places, for example</string>
-  <string name="typing_echo_list_preference_title">Typing feedback (typing echo)</string>
-  <string name="typing_echo_preference_label_characters">Read all letters and words</string>
-  <string name="typing_echo_preference_label_words">Read words only</string>
   <string name="context_menu_title">Braille keyboard options</string>
   <string name="context_menu_typing_language_selection">Change typing language</string>
   <string name="context_menu_typing_language_selection_summary">Currently using %s</string>

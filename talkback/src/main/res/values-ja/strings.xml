@@ -3,7 +3,7 @@
   <string name="talkback_service_description">TalkBack を ON にすると、音声フィードバックを使用して、画面を見ずにデバイスを操作できます。これは、目の不自由な方や視力の弱い方向けのツールです。\n\nTalkBack を使用してナビゲートするには:\n• 左右にスワイプして、項目間を移動\n• 項目をダブルタップして、有効にする\n• 2 本の指でスクロール\n\nTalkBack を OFF にするには:\n• このスイッチをタップして、緑色の外枠が表示されたら、このスイッチをダブルタップ。\n• 確認メッセージで [OK] をタップしてから、[OK] をダブルタップ。</string>
   <string name="talkback_service_html_description">TalkBack が ON の場合は、画面を見ずにデバイスを使用できるよう音声フィードバックが提供されます。TalkBack は、画面を見ることが難しい状況や目の不自由な方におすすめの機能です。&lt;br&gt;&lt;br&gt;&lt;b&gt;TalkBack の使い方&lt;/b&gt;&lt;br&gt;• 左右にスワイプして項目間を移動します&lt;br&gt;• ダブルタップで項目を有効にします&lt;br&gt;• 2 本の指でドラッグしてスクロールします&lt;br&gt;&lt;br&gt;&lt;b&gt;TalkBack を OFF にする方法&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;音量ボタン:&lt;/b&gt; 音量大と音量小の両方のボタンを数秒ほど長押しします。&lt;br&gt;&lt;br&gt;&lt;b&gt;設定&lt;/b&gt;&lt;br&gt;• [&lt;b&gt;TalkBack を使用&lt;/b&gt;] スイッチをタップします。緑色の枠線が表示されます。スイッチをダブルタップします。&lt;br&gt;• 確認メッセージが表示されたら [停止] をタップします。[停止] をダブルタップします。</string>
   <string name="talkback_service_summary">画面上の項目を読み上げます</string>
-  <string name="talkback_preferences_title">TalkBackの設定</string>
+  <string name="talkback_preferences_title">TalkBack の設定</string>
   <string name="tts_preferences_title">テキスト読み上げの設定</string>
   <string name="language_options">言語</string>
   <string name="spoken_language">音声の言語</string>
@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">バージョン%1$s</string>
   <string name="label_manager_summary_title">カスタムラベルの管理</string>
   <string name="label_manager_package_title">%1$sのラベルの管理</string>
+  <string name="manage_label">ラベルの管理</string>
   <string name="label_manager_no_packages_message">現在、カスタムラベルはありません。カスタムラベルを作成するには、ラベルのない画像に移動して TalkBack メニューからラベルを追加します。</string>
   <string name="label_manager_timestamp_text">最終更新日時: %1$s</string>
   <string name="search_dialog_label">検索: %1$s</string>
@@ -34,7 +35,7 @@
   <string name="template_menu">%1$sのメニュー</string>
   <string name="template_no_text_selected">テキストが選択されていません</string>
   <string name="template_long_clicked">%1$sを押し続けました</string>
-  <string name="template_charging">充電を%1$s、電池残量は%2$sパーセントです。</string>
+  <string name="template_charging">充電を%1$s、バッテリー残量は%2$sパーセントです。</string>
   <string name="template_charging_lite">充電、%1$s</string>
   <string name="template_language_options_menu_item">%1$s（%2$s）</string>
   <string name="value_notification_shade_opened">シェードが開きました</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">タッチガイド</string>
   <string name="title_pref_category_touch_exploration">ナビゲーション</string>
   <string name="title_pref_category_controls">コントロール</string>
-  <string name="title_pref_single_tap">シングルタップで有効</string>
+  <string name="title_pref_single_tap">シングルタップで有効化</string>
   <string name="title_pref_show_context_menu_as_list">コンテキスト メニューをリストとして表示</string>
-  <string name="summary_pref_single_tap">（試験運用版）フォーカスのある項目を 1 回タップすると有効になります</string>
+  <string name="summary_pref_single_tap">フォーカスのある項目を 1 回タップすると有効になります</string>
   <string name="title_pref_shake_to_read_threshold">シェイクして連続読み上げを開始</string>
   <string name="pref_verbosity_title">読み上げの詳細設定</string>
   <string name="pref_punctuation_title">句読点と記号</string>
+  <string name="title_pref_category_manage_focus_indicator">ピント インジケータのカスタマイズ</string>
   <string name="title_pref_category_manage_gestures">ジェスチャーをカスタマイズ</string>
   <string name="title_pref_manage_labels">カスタムラベル</string>
   <string name="title_pref_manage_customize_menus">メニューをカスタマイズ</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">ヘルプとフィードバック</string>
   <string name="title_pref_category_tutorial_and_help">チュートリアルとヘルプ</string>
   <string name="title_pref_category_advanced">詳細設定</string>
+  <string name="title_pref_category_typing">入力とキーボード</string>
   <string name="title_pref_category_legal_and_privacy">法的事項およびプライバシー</string>
   <string name="title_pref_advanced_settings">詳細設定</string>
   <string name="reset_gesture_settings_title">ジェスチャーの設定をリセット</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">最近使ったアプリ</string>
   <string name="keycombo_menu_global_notifications">通知</string>
   <string name="keycombo_menu_global_suspend">TalkBackを一時停止または再開</string>
+  <string name="keycombo_menu_global_play_pause_media">メディアを再生または一時停止する</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">次の読み上げコントロールを選択する</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">前の読み上げコントロールを選択する</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">読み上げコントロールを上に調整する</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">読み上げコントロールを下に調整する</string>
   <string name="keycombo_menu_category_granularity">ナビゲーション</string>
   <string name="keycombo_menu_granularity_increase">次のナビゲーション設定</string>
   <string name="keycombo_menu_granularity_decrease">前のナビゲーション設定</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">コピーするテキストがありません。まずテキストを選択してください。</string>
   <string name="cannot_paste_feedback">貼り付けるテキストがありません。まずテキストをコピーしてください。</string>
   <string name="cannot_cut_feedback">切り取るテキストがありません。まずテキストを選択してください。</string>
+  <string name="cannot_delete_feedback">削除するテキストがありません。まずテキストを選択してください。</string>
   <string name="message_in_reset_keymap_confirm_dialog">このキーマップのショートカット キーを既定値にリセットしてもよろしいですか？この操作は元に戻せないのでご注意ください。</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">リセット</string>
   <string name="override_keycombo">キーは既に使用されています</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">声の高さを変更</string>
   <string name="title_pref_keyboard_echo">キーボード操作の読み上げ</string>
   <string name="pref_node_desc_order_title">説明する要素の順序</string>
-  <string name="summaryOn_pref_intonation">キーボード入力の内容を低い声で読み上げる</string>
+  <string name="summaryOn_pref_intonation">キーボードを使用して削除したテキストを高い声で読み上げます</string>
   <string name="summaryOff_pref_intonation">読み上げの際に声の高さを変更しない</string>
   <string name="title_pref_brailleime">点字キーボード</string>
   <string name="title_pref_category_feedback_settings">その他のフィードバック</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">ノードツリーのデバッグを有効にする</string>
   <string name="summary_pref_tree_debug_tv">音声検索キーを使って検索ではなくノードツリーの印刷を行います</string>
   <string name="title_pref_performance_stats">パフォーマンスの統計情報の有効化</string>
+  <string name="title_pref_log_overlay">デバッグログのオーバーレイを有効にする</string>
   <string name="title_pref_resume_talkback">停止状態から再開</string>
+  <string name="title_pref_typing_confirmation">入力の設定</string>
   <string name="title_pref_multi_finger_gesture">複数の指による操作を有効にする</string>
   <string name="screen_dimmed">画面を非表示にしました</string>
   <string name="screen_brightness_restored">画面を表示しています</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">下にスクロール</string>
   <string name="shortcut_scroll_left">左へスクロール</string>
   <string name="shortcut_scroll_right">右へスクロール</string>
+  <string name="shortcut_next_window">次のウィンドウ</string>
+  <string name="shortcut_previous_window">前のウィンドウ</string>
   <string name="shortcut_back">戻る</string>
   <string name="shortcut_home">ホーム</string>
   <string name="shortcut_overview">概要</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">画面の表示、非表示</string>
   <string name="title_show_screen_search">画面検索</string>
   <string name="title_show_voice_commands">音声コマンド</string>
+  <string name="talkback_show_talkback_settings">TalkBack の設定</string>
   <string name="title_other_web_navigation">その他のウェブ ナビゲーション</string>
   <string name="title_granularity_default">デフォルトのナビゲーション</string>
   <string name="title_seek_bar_edit">スライダー レベルを編集する</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">TalkBack を音声で操作します</string>
   <string name="summary_show_hide_screen">ディスプレイを非表示にし、公共の場で画面を他人に見られないようにします。画面を隠したら、通常の状態に戻ります。</string>
   <string name="summary_talkback_preferences">TalkBack の設定を開きます</string>
-  <string name="summary_system_actions">[すべてのアプリ] &gt; [クイック設定] を選択して、分割画面を使用できます</string>
+  <string name="summary_system_actions">[すべてのアプリ] &gt; [クイック設定] に移動</string>
   <string name="summary_tts_settings">テキスト読み上げの設定が表示されます</string>
   <string name="summary_pause_feedback">TalkBack の音声フィードバックを OFF にします</string>
   <string name="not_editable">編集できません</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">1 単語ずつ読み上げます</string>
   <string name="summary_lines">1 行ずつ読み上げます</string>
   <string name="summary_paragraphs">1 段落ずつ読み上げます</string>
+  <string name="summary_windows">音量調節やナビゲーション バーなどの別のウィンドウに移動します</string>
   <string name="summary_headings">見出し間を移動します</string>
   <string name="summary_controls">ボタン、チェックボックス、テキスト フィールドなど、操作可能な項目間を移動します</string>
   <string name="summary_links">リンク間を移動します</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">入力したキー、使い方に関するヒント、グリッド情報などの情報を読み上げるかどうかを変更します</string>
   <string name="summary_selector_menu_punctuation">句読点と記号の読み上げの有無を切り替えます</string>
   <string name="summary_language">音声の言語を変更します。複数のテキスト読み上げの言語がインストールされている場合のみ表示されます。</string>
-  <string name="summary_sound_feedback">操作を確認するためのビープ音など、操作の際に効果音が鳴ります。</string>
+  <string name="summary_sound_feedback">操作を確認するためのビープ音など、操作の際に効果音が鳴ります</string>
   <string name="summary_vibration_feedback">項目を選択するなどの操作を行うとバイブレーションが発生します。アプリやシステムのバイブレーションには影響しません。</string>
   <string name="summary_hide_screen">ディスプレイを非表示にし、公共の場で画面を他人に見られないようにします</string>
   <string name="summary_audio_ducking">TalkBack で読み上げる際に他の音の音量を下げます</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">前方または後方にスクロール</string>
+  <string name="summary_support_change_a11y_volume">ユーザー補助機能の音量を調整します</string>
+  <string name="summary_image_caption">この画像の説明を自動で行います</string>
   <string name="value_direction_up">上</string>
   <string name="value_direction_down">下</string>
   <string name="value_direction_left">左</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">2 本の指でダブルタップして長押し</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">3 本の指でダブルタップして長押し</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">4 本の指でダブルタップして長押し</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">2 本の指でトリプルタップして長押し</string>
+  <string name="seekbar_hint_2gesture">「%1$s」または「%2$s」を調整</string>
+  <string name="seekbar_hint_1gesture">「%1$s」を調整</string>
   <string name="gesture_name_unknown">不明な操作</string>
   <string name="gesture_name_pass_through">スキップしてシステム ジェスチャーにする</string>
   <string name="gesture_name_touch_explore">タッチガイド</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">ダブルタップして長押し</string>
   <string name="gesture_name_2finger_tap_hold">2 本の指で長押し</string>
   <string name="gesture_name_3finger_tap_hold">3 本の指で長押し</string>
+  <string name="gesture_name_2finger_3tap_hold">2 本の指でトリプルタップして長押し</string>
   <string name="gesture_name_3finger_3tap_hold">3 本の指でトリプルタップして長押し</string>
   <string name="title_pref_shortcut_fingerprint_up">指紋認証センサーを上にスワイプ</string>
   <string name="title_pref_shortcut_fingerprint_down">指紋認証センサーを下にスワイプ</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">画面がONになったとき</string>
   <string name="value_resume_keyguard">ロック画面が表示されているとき</string>
   <string name="value_resume_manual">通知からのみ</string>
+  <string name="value_type_confirmation_double_tap">指でキーを選択してからダブルタップする</string>
+  <string name="value_type_confirmation_lift_to_type">指でキーを選択してから離す</string>
   <string name="value_shake_to_read_disabled">無効</string>
   <string name="value_shake_to_read_threshold_very_light">非常に軽め</string>
   <string name="value_shake_to_read_threshold_light">軽め</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">入力したキーをすべて読み上げる</string>
   <string name="value_keyboard_echo_softkeys">画面キーボードの入力のみ読み上げる</string>
   <string name="value_keyboard_echo_never">入力したキーを読み上げない</string>
+  <string name="title_pref_keyboard_echo_on_screen">キーボード操作の読み上げ: 画面キーボード</string>
+  <string name="title_pref_keyboard_echo_physical">キーボード操作の読み上げ: 物理キーボード</string>
+  <string name="value_keyboard_echo_none">なし</string>
+  <string name="value_keyboard_echo_characters_only">文字</string>
+  <string name="value_keyboard_echo_words_only">単語</string>
+  <string name="value_keyboard_echo_characters_and_words">文字と単語</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">状態、名前、種類</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">種類、名前、状態</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">名前、種類、状態</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">ノードツリーのデバッグをONにしてもよろしいですか？\n\nノードツリーのデバッグを有効にすると、画面の内容がデバイスのログに記録され、他のアプリケーションで読み取られることがあります。</string>
   <string name="dialog_title_enable_performance_stats">パフォーマンスの統計情報の有効化</string>
   <string name="dialog_message_enable_performance_stats">パフォーマンスの統計情報を有効にしてもよろしいですか？\n\nパフォーマンスの統計情報を有効にすると、メモリや電力の使用量が増えることがあります。</string>
+  <string name="title_request_phone_permission">スマートフォンへのアクセスを許可しますか？</string>
+  <string name="message_request_phone_permission">これにより、通話中に TalkBack からの通知が少なくなります。</string>
+  <string name="continue_button">続行</string>
   <string name="label_talkback_context_menu">TalkBackグローバルコンテキストメニュー</string>
   <string name="permission_talkback_label">TalkBackの管理</string>
   <string name="permission_talkback_desc">TalkBackへのジェスチャーの送信と音声応答の再開を許可します。</string>
-  <string name="permission_labeling_label">TalkBackカスタムラベルの管理</string>
-  <string name="permission_labeling_desc">TalkBackによって音声応答されるカスタムラベルに対するアクセス、変更、削除を許可します。</string>
   <string name="links">リンク</string>
   <string name="end_of_text">終了</string>
   <string name="start_of_page">前の%1$sはありません</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">句読点と記号</string>
   <string name="title_pref_selector_granularity">ナビゲーション</string>
   <string name="title_pref_selector_audio_focus">他の音量を下げる</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">スクロール</string>
+  <string name="title_pref_a11y_volume">ユーザー補助機能の音量</string>
   <string name="title_pref_selector_adjustable_widget_slider">スライダーを調整</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">値を変更</string>
   <string name="title_pref_speak_passwords_without_headphones">パスワードの読み上げ</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">音声コマンドを使用する</string>
   <string name="dialog_title_pass_through_mode">TalkBack をスキップしてシステム ジェスチャーを使用</string>
   <string name="dialog_message_pass_through_mode">チャイムが聞こえたら、TalkBack でサポートされていないシステム ジェスチャーを使用できます。これは、パススルー ジェスチャーとも呼ばれています。</string>
-  <string name="hint_type_search_term">検索キーワードを入力</string>
+  <string name="hint_type_search_term">検索キーワード</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack の通知チャンネル</string>
   <string name="pref_selector_summary">%1$sして、設定を選択します。次に、%2$sして、設定を調整します。</string>
@@ -719,7 +750,7 @@
   <string name="report_gesture_description">最近行われた操作は次のとおりです。正しくない操作と本来の操作をお知らせください。</string>
   <string name="tutorial_entry_point_title">チュートリアル</string>
   <string name="welcome_to_talkback_title">TalkBack へようこそ</string>
-  <string name="welcome_to_talkback_text">TalkBack は、画面を見ることが難しい状況や目の不自由な方を対象としたスクリーン リーダーです。画面を見ずにデバイスを使用できるよう音声フィードバックが提供されます。\n\nTalkBack のオン / オフを切り替えるには、音量大と音量小の両方のボタンを数秒ほど長押しします。\n\nTalkBack がオンの場合、画面上のフォーカスのある項目が読み上げられます。\n\n右にスワイプすると次の項目に移動し、左にスワイプすると前の項目に移動します。\n\nでは、右にスワイプして [次へ] ボタンに移動しましょう。</string>
+  <string name="welcome_to_talkback_text">TalkBack は、画面を見ることが難しい状況や目の不自由な方を対象としたスクリーン リーダーです。画面を見ずにデバイスを使用できるよう音声フィードバックが提供されます。\n\nTalkBack の ON / OFF を切り替えるには、音量大と音量小の両方のボタンを数秒ほど長押しします。\n\nTalkBack が ON の場合、画面上のフォーカスのある項目が読み上げられます。\n\n右にスワイプすると次の項目に移動し、左にスワイプすると前の項目に移動します。\n\nでは、右にスワイプして [次へ] ボタンに移動しましょう。</string>
   <string name="explore_by_touch_title">タッチガイド</string>
   <string name="explore_by_touch_text">項目にフォーカスを置くには、画面上で指をスライドします。\n\nでは、画面に指を置き、左下の [次へ] ボタンに向かって指をスライドしてみましょう。</string>
   <string name="scrolling_title">スクロール</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">テキストを切り取るには、3 本の指でダブルタップして長押しします。\n\nテキストを貼り付けるには、3 本の指でトリプルタップします。\n\n下のテキスト ボックスに単語を貼り付けてみましょう。</string>
   <string name="copy_text_pre_r">選択したテキストを TalkBack メニューでコピーすることができます。下にスワイプしてから右にスワイプして、TalkBack メニューを開きます。編集オプションをダブルタップして、コピーします。\n\n下のテキスト ボックスで単語をコピーしてみましょう。</string>
   <string name="cut_paste_text_pre_r">テキストを切り取ったり貼り付けたりするには、TalkBack メニューを開き、編集オプションをダブルタップします。\n\n下のテキスト ボックスに単語を貼り付けてみましょう。</string>
+  <string name="edit_box_hint_paste_text">ここにテキストを貼り付けてください</string>
   <string name="read_by_character_title">文字単位、単語単位、段落単位での読み上げ</string>
   <string name="read_by_character_text">1 文字ずつテキストを読み上げることもできます。\n\n1 文字ずつ読み上げるには、「%1$s」と聞こえるまで 3 本の指で右にスワイプします。次に、文字単位で操作フォーカスを前に戻すには、上にスワイプし、文字単位で操作フォーカスを次に進めるには、下にスワイプします。\n\nでは、やってみましょう。3 本の指で右にスワイプした際に、単語単位または段落単位の読み上げを選択することもできます。</string>
   <string name="read_by_character_text_pre_r">1 文字ずつテキストを読み上げることもできます。\n\n1 文字ずつ読み上げるには、下にスワイプしてから「%1$s」と聞こえるまで上にスワイプします。次に、文字単位で操作フォーカスを前に戻すには、上にスワイプし、文字単位で操作フォーカスを次に進めるには、下にスワイプします。\n\nでは、やってみましょう。下にスワイプしてから上にスワイプした際に、単語単位または段落単位の読み上げを選択することもできます。</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">%1$sが有効になりました</string>
   <string name="talkback_inactive_title">TalkBack が無効です</string>
   <string name="talkback_inactive_message">このチュートリアルでは TalkBack を有効にしておく必要があります。チュートリアルを開始する前に TalkBack を有効にしてください。</string>
+  <string name="watch_swipe_left_right_text">左右にスワイプして項目間を移動します</string>
+  <string name="watch_double_tap_text">ダブルタップで項目を有効にします</string>
+  <string name="watch_2_finger_scroll_text">2 本の指でドラッグしてスクロールします</string>
+  <string name="title_pref_thick_border">太い枠線</string>
+  <string name="title_pref_category_border_color">色</string>
+  <string name="title_pref_default_color">デフォルト</string>
+  <string name="title_pref_red">赤</string>
+  <string name="title_pref_orange">オレンジ</string>
+  <string name="title_pref_yellow">黄</string>
+  <string name="title_pref_green">緑</string>
+  <string name="title_pref_blue">青</string>
+  <string name="title_pref_grey">グレー</string>
   <string name="survey_closed">アンケートの回答受付は終了しました</string>
+  <string name="character_recognition_text">テキスト: %1$s</string>
+  <string name="title_image_caption">画像の説明</string>
 </resources>

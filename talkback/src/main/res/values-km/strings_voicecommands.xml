@@ -14,7 +14,8 @@
   <string name="voice_commands_language">ភាសា</string>
   <string name="voice_commands_languages">ភាសា</string>
   <string name="voice_commands_custom_actions">សកម្មភាព​ផ្ទាល់ខ្លួន</string>
-  <string name="voice_commands_quick_settings">ការកំណត់​រហ័ស</string>
+  <string name="voice_commands_action">សកម្មភាព</string>
+  <string name="voice_commands_quick_settings">ការកំណត់រហ័ស</string>
   <string name="voice_commands_quick_setting">ការកំណត់រហ័ស</string>
   <string name="voice_commands_dim">បន្ថយ​ពន្លឺ</string>
   <string name="voice_commands_darken">ធ្វើឱ្យងងឹត</string>
@@ -60,8 +61,8 @@
   <string name="voice_commands_dictate">សរសេរ​តាម​ការប្រាប់</string>
   <string name="voice_commands_write">សរសេរ</string>
   <string name="voice_commands_Spell">ប្រកប</string>
-  <string name="voice_commands_talkback_settings">ការ​កំណត់មុខងារតបវិញ</string>
-  <string name="voice_commands_talkback_setting">ការ​កំណត់មុខងារតបវិញ</string>
+  <string name="voice_commands_talkback_settings">ការកំណត់​មុខងារតបវិញ</string>
+  <string name="voice_commands_talkback_setting">ការកំណត់​មុខងារតបវិញ</string>
   <string name="voice_commands_screen_search">ស្វែងរកលើអេក្រង់</string>
   <string name="voice_commands_search_on_screen">ស្វែងរកនៅលើ​អេក្រង់</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -97,9 +98,9 @@
   <string name="voice_commands_no_voice_recognition_ability">សូម​អភ័យទោស! មុខងារ​នេះ​មិនមាន​នៅលើ​ឧបករណ៍​របស់អ្នក​ទេ</string>
   <string name="voice_commands_error">មានបញ្ហា​ក្នុងការ​សម្គាល់​ការបញ្ជា​ដោយ​សំឡេង</string>
   <string name="voice_commands_partial_result">មិនស្គាល់ការបញ្ជានេះទេ។ សូមនិយាយថា \"%1$s\" សម្រាប់បញ្ជីនៃការបញ្ជាទាំងអស់។</string>
+  <string name="voice_commands_timeout">សូមនិយាយថា \"%1$s\" សម្រាប់បញ្ជីនៃការបញ្ជាទាំងអស់។</string>
   <string name="voice_commands_many_requests">សូម​ព្យាយាម​ម្ដង​ទៀត​នៅ​ពេល​បន្តិចទៀត</string>
-  <string name="voice_commands_setting_disabled">មិនបានបើក​ការកំណត់ \"%1$s\" ទេ</string>
-  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" មិនត្រូវបានស្គាល់​ថាជា​ការបញ្ជា​ដោយសំឡេង​ទេ។</string>
+  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" មិនត្រូវបានសម្គាល់​ថាជា​ការបញ្ជា​ដោយសំឡេង​ទេ។</string>
   <string name="voice_commands_label_saved">បាន​រក្សាទុក​ស្លាក</string>
   <string name="voice_commands_no_actions_feedback">គ្មានសកម្មភាព​ទេ</string>
   <string name="voice_commands_no_next_heading_feedback">គ្មានចំណងជើងបន្ទាប់ទេ</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">ទិដ្ឋភាព​រួមនៃការបញ្ជាដោយសំឡេង</string>
   <string name="voice_commands_help_description">ដើម្បីប្រើការបញ្ជាដោយសំឡេង សូមអូសទៅស្ដាំ រួចអូសឡើងលើ។ សូមនិយាយថា \"ជួយ\" ឬ \"តើខ្ញុំអាចនិយាយថាម៉េច?\" នៅពេលណាក៏បានដើម្បីឱ្យបង្ហាញបញ្ជីនៃការបញ្ជានេះ។</string>
   <string name="voice_commands_help_hint">ដើម្បីទទួលបានលទ្ធផលល្អបំផុត សូមនិយាយឱ្យដូចគ្នាបេះបិទនឹងពាក្យដែលមាននៅលើអេក្រង់បន្ទាប់។</string>
+  <string name="voice_command_screen_locked_hint">មិនអាចប្រើការបញ្ជាដោយសំឡេងបានទេ នៅពេលអេក្រង់ជាប់សោ។ ដើម្បីប្រើ​ម៉ឺនុយ​មុខងារ TalkBack ជំនួសវិញ សូម%1$s។</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">ប្ដូររបៀបដែលអ្នកអានខ្លឹមសារនៅលើអេក្រង់បច្ចុប្បន្ន</string>
   <string name="voice_commands_help_next">[ចំណងជើង] បន្ទាប់</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">បញ្ចូល​ពាក្យស្វែងរក ដើម្បីរក​ពាក្យនោះនៅលើអេក្រង់</string>
   <string name="voice_commands_help_text_editing_description">វាយបញ្ចូល ជ្រើសរើស និងចម្លងអត្ថបទ</string>
   <string name="voice_commands_help_type_text">វាយបញ្ចូល [យល់ព្រម]</string>
-  <string name="voice_commands_help_copy_description">សូមប្រាកដថា អ្នកបានជ្រើសរើសអត្ថបទ មុនពេលចម្លង</string>
-  <string name="voice_commands_help_cut_description">សូមប្រាកដថា អ្នកបានជ្រើសរើសអត្ថបទ មុនពេលកាត់</string>
+  <string name="voice_commands_help_copy_description">ជ្រើសរើសអត្ថបទ មុនពេលចម្លង</string>
+  <string name="voice_commands_help_cut_description">ជ្រើសរើសអត្ថបទ មុនពេលកាត់</string>
+  <string name="voice_commands_help_delete_description">ជ្រើសរើសអត្ថបទ មុនពេលលុប</string>
   <string name="voice_commands_help_device_navigation_title">ការរុករកឧបករណ៍</string>
   <string name="voice_commands_help_device_navigation_description">ចូលទៅកាន់អេក្រង់ដើម ថយក្រោយ បង្ហាញការជូនដំណឹង និងអ្វីៗជាច្រើនទៀត</string>
   <string name="voice_commands_help_overview_description">មើលកម្មវិធីថ្មីៗរបស់អ្នក</string>

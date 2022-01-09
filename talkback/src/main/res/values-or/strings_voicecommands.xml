@@ -14,8 +14,9 @@
   <string name="voice_commands_language">ଭାଷା</string>
   <string name="voice_commands_languages">ଭାଷାଗୁଡ଼ିକ</string>
   <string name="voice_commands_custom_actions">କଷ୍ଟମ୍ କାର୍ଯ୍ୟଗୁଡ଼ିକ</string>
-  <string name="voice_commands_quick_settings">ଦ୍ରୁତ ସେଟିଂସ୍</string>
-  <string name="voice_commands_quick_setting">ଦ୍ରୁତ ସେଟିଂସ୍</string>
+  <string name="voice_commands_action">କାର୍ଯ୍ୟ</string>
+  <string name="voice_commands_quick_settings">କ୍ୱିକ୍ ସେଟିଂସ୍</string>
+  <string name="voice_commands_quick_setting">କ୍ୱିକ୍ ସେଟିଂସ୍</string>
   <string name="voice_commands_dim">ଡିମ୍ କରନ୍ତୁ</string>
   <string name="voice_commands_darken">ଆଲୋକ କମ୍ କରନ୍ତୁ</string>
   <string name="voice_commands_brighten_screen">ସ୍କ୍ରିନ୍ ଉଜ୍ଜ୍ୱଳ କରନ୍ତୁ</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">ଦୁଃଖିତ! ଏହି ଡିଭାଇସ୍‌ରେ ଏହି ବୈଶିଷ୍ଟ୍ୟ ଉପଲବ୍ଧ ନୁହେଁ</string>
   <string name="voice_commands_error">ସ୍ବର ନିର୍ଦ୍ଦେଶ ଚିହ୍ନଟକରିବାରେ ତ୍ରୁଟି ଆସିଛି</string>
   <string name="voice_commands_partial_result">ଏହି କମାଣ୍ଡ ଚିହ୍ନଟ କରାଯାଇପାରିବ ନାହିଁ। ସମସ୍ତ କମାଣ୍ଡର ତାଲିକା ପାଇଁ \"%1$s\" କୁହନ୍ତୁ।</string>
+  <string name="voice_commands_timeout">ସମସ୍ତ କମାଣ୍ଡର ତାଲିକା ପାଇଁ \"%1$s\" କୁହନ୍ତୁ।</string>
   <string name="voice_commands_many_requests">ଦୟାକରି କିଛି କ୍ଷଣ ମଧ୍ୟରେ ପୁଣି ଥରେ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" ସେଟିଂ ସକ୍ଷମ କରାଯାଇନାହିଁ</string>
   <string name="voice_commands_echo_feedback_not_recognized">ଭଏସ୍ କମାଣ୍ଡ ଭାବେ \"%1$s\"କୁ ଚିହ୍ନଟ କରାଯାଇନାହିଁ।</string>
   <string name="voice_commands_label_saved">ଲେବଲ୍ ସେଭ୍ କରାଯାଇଛି</string>
   <string name="voice_commands_no_actions_feedback">କୌଣସି କାର୍ଯ୍ୟ ଉପଲବ୍ଧ ନାହିଁ</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">ଭଏସ୍ କମାଣ୍ଡ ଓଭରଭିଉ</string>
   <string name="voice_commands_help_description">ଭଏସ୍ କମାଣ୍ଡଗୁଡ଼ିକୁ ବ୍ୟବହାର କରିବା ପାଇଁ, ପ୍ରଥମେ ଡାହାଣକୁ ତା\'ପରେ ଉପରକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ। ଏହି କମାଣ୍ଡଗୁଡ଼ିକର ତାଲିକା ପାଇଁ ଯେ କୌଣସି ସମୟରେ \"ସାହାଯ୍ୟ\" କିମ୍ବା \"ମୁଁ କ’ଣ କହିପାରିବି?\" କୁହନ୍ତୁ।</string>
   <string name="voice_commands_help_hint">ସର୍ବୋତ୍ତମ ଫଳାଫଳଗୁଡ଼ିକ ପାଇଁ ନିମ୍ନ ସ୍କ୍ରିନରେ ତାଲିକାଭୁକ୍ତ ଶବ୍ଦଗୁଡ଼ିକ ସଠିକ୍ ଭାବରେ କୁହନ୍ତୁ।</string>
+  <string name="voice_command_screen_locked_hint">ସ୍କ୍ରିନ୍ ଲକ୍ ଥିବା ସମୟରେ ଭଏସ୍ କମାଣ୍ଡଗୁଡ଼ିକ ଉପଲବ୍ଧ ନଥାଏ। ଏହା ପରିବର୍ତ୍ତେ TalkBack ମେନୁକୁ ବ୍ୟବହାର କରିବା ପାଇଁ, %1$s।</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">ବର୍ତ୍ତମାନର ସ୍କ୍ରିନରେ ଥିବା ବିଷୟବସ୍ତୁକୁ ଆପଣ କିପରି ପଢ଼ିବେ, ତାହା ବଦଳାନ୍ତୁ</string>
   <string name="voice_commands_help_next">ପରବର୍ତ୍ତୀ [ହେଡିଂ]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">ସ୍କ୍ରିନରେ ସେହି ଟେକ୍ସଟକୁ ଖୋଜିବା ପାଇଁ ଏକ ସନ୍ଧାନ ଶବ୍ଦ ଲେଖନ୍ତୁ</string>
   <string name="voice_commands_help_text_editing_description">ଟାଇପ୍, ଚୟନ ଏବଂ ଟେକ୍ସଟ୍ କପି କରନ୍ତୁ</string>
   <string name="voice_commands_help_type_text">ଟାଇପ୍ କରନ୍ତୁ [ଠିକ୍ ଅଛି]</string>
-  <string name="voice_commands_help_copy_description">କପି କରିବା ପୂର୍ବରୁ, ଆପଣ ଟେକ୍ସଟ୍ ଚୟନ କରିଥିବା ସୁନିଶ୍ଚିତ କରନ୍ତୁ</string>
-  <string name="voice_commands_help_cut_description">କଟ୍ କରିବା ପୂର୍ବରୁ, ଆପଣ ଟେକ୍ସଟ୍ ଚୟନ କରିଥିବା ସୁନିଶ୍ଚିତ କରନ୍ତୁ</string>
+  <string name="voice_commands_help_copy_description">କପି କରିବା ପୂର୍ବରୁ ଟେକ୍ସଟ୍ ଚୟନ କରନ୍ତୁ</string>
+  <string name="voice_commands_help_cut_description">କଟ୍ କରିବା ପୂର୍ବରୁ ଟେକ୍ସଟ୍ ଚୟନ କରନ୍ତୁ</string>
+  <string name="voice_commands_help_delete_description">ଡିଲିଟ୍ କରିବା ପୂର୍ବରୁ ଟେକ୍ସଟ୍ ଚୟନ କରନ୍ତୁ</string>
   <string name="voice_commands_help_device_navigation_title">ଡିଭାଇସ୍ ନାଭିଗେସନ୍</string>
   <string name="voice_commands_help_device_navigation_description">ମୂଳପୃଷ୍ଠାକୁ ଯାଆନ୍ତୁ, ପଛକୁ ଫେରନ୍ତୁ, ବିଜ୍ଞପ୍ତି ଦେଖାନ୍ତୁ ଏବଂ ଆହୁରି ଅନେକ କିଛି କରନ୍ତୁ</string>
   <string name="voice_commands_help_overview_description">ଆପଣଙ୍କ ବର୍ତ୍ତମାନର ଆପଗୁଡ଼ିକୁ ଦେଖନ୍ତୁ</string>

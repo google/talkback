@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Мова</string>
   <string name="voice_commands_languages">Мови</string>
   <string name="voice_commands_custom_actions">спеціальні дії</string>
+  <string name="voice_commands_action">Дія</string>
   <string name="voice_commands_quick_settings">Швидкі налаштування</string>
-  <string name="voice_commands_quick_setting">швидке налаштування</string>
+  <string name="voice_commands_quick_setting">Швидке налаштування</string>
   <string name="voice_commands_dim">зменшити яскравість</string>
   <string name="voice_commands_darken">затемнити</string>
   <string name="voice_commands_brighten_screen">збільшити яскравість екрана</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Ця функція недоступна на вашому пристрої</string>
   <string name="voice_commands_error">Помилка розпізнавання голосової команди</string>
   <string name="voice_commands_partial_result">Команду не розпізнано. Промовте \"%1$s\", щоб переглянути список усіх команд.</string>
+  <string name="voice_commands_timeout">Промовте \"%1$s\", щоб переглянути список усіх команд.</string>
   <string name="voice_commands_many_requests">Повторіть спробу за кілька хвилин</string>
-  <string name="voice_commands_setting_disabled">Налаштування \"%1$s\" не ввімкнено</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" не розпізнано як голосову команду.</string>
   <string name="voice_commands_label_saved">Мітку збережено</string>
   <string name="voice_commands_no_actions_feedback">Немає доступних дій</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Огляд голосових команд</string>
   <string name="voice_commands_help_description">Щоб активувати голосові команди, проведіть по екрану праворуч, а потім угору. Щоб переглянути цей список команд, промовте будь-коли \"Допомога\" або \"Що можна сказати\".</string>
   <string name="voice_commands_help_hint">Щоб отримати найкращі результати, промовте точну фразу з наведених на екранах нижче.</string>
+  <string name="voice_command_screen_locked_hint">Голосові команди недоступні, коли екран заблоковано. Щоб скористатися натомість меню TalkBack, виконайте таку дію: %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Змінити спосіб читання контенту на цьому екрані</string>
   <string name="voice_commands_help_next">Наступний [заголовок]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Знайти на екрані текст за пошуковим запитом</string>
   <string name="voice_commands_help_text_editing_description">Ввести, виділити чи копіювати текст</string>
   <string name="voice_commands_help_type_text">Ввести [OK]</string>
-  <string name="voice_commands_help_copy_description">Переконайтеся, що текст, який потрібно скопіювати, виділено</string>
-  <string name="voice_commands_help_cut_description">Переконайтеся, що текст, який потрібно вирізати, виділено</string>
+  <string name="voice_commands_help_copy_description">Виділіть текст, який потрібно скопіювати</string>
+  <string name="voice_commands_help_cut_description">Виділіть текст, який потрібно вирізати</string>
+  <string name="voice_commands_help_delete_description">Виділіть текст, який потрібно видалити</string>
   <string name="voice_commands_help_device_navigation_title">Навігація пристроєм</string>
   <string name="voice_commands_help_device_navigation_description">Перейти на головний екран, повернутися, відкрити сповіщення тощо</string>
   <string name="voice_commands_help_overview_description">Переглянути останні додатки</string>

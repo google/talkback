@@ -25,6 +25,7 @@ import com.google.android.accessibility.talkback.actor.FullScreenReadActor;
 import com.google.android.accessibility.talkback.actor.LanguageActor;
 import com.google.android.accessibility.talkback.actor.NodeActionPerformer;
 import com.google.android.accessibility.talkback.actor.PassThroughModeActor;
+import com.google.android.accessibility.talkback.actor.SpeechRateActor;
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
 import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
 import com.google.android.accessibility.utils.output.SpeechControllerImpl;
@@ -97,6 +98,10 @@ public final class ActorState {
 
   public LanguageActor.State getLanguageState() {
     return writable.languageState;
+  }
+
+  public SpeechRateActor.State getSpeechRateState() {
+    return writable.speechRateState;
   }
 
   public PassThroughModeActor.State getPassThroughModeState() {

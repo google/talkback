@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">ഡോട്ട് സ്ഥാനം അപ്‌ഡേറ്റ് ചെയ്യുന്നു. ആദ്യം, നിങ്ങളുടെ ഇടത് കൈ സ്പർശിക്കുന്ന ഡോട്ടുകൾ നമുക്ക് റെക്കോർഡ് ചെയ്യാം. ഇടത് കൈയ്യിലെ നടുവിലെ 3 വിരലുകൾ ഉപയോഗിച്ച് സ്ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക.</string>
   <string name="calibration_step1_hold_right_finger_announcement">ഡോട്ട് സ്ഥാനം അപ്‌ഡേറ്റ് ചെയ്യുന്നു. ആദ്യം, നിങ്ങളുടെ വലത് കൈ സ്‌പർശിക്കുന്ന ഡോട്ടുകൾ നമുക്ക് റെക്കോർഡ് ചെയ്യാം. വലത് കൈയ്യിലെ നടുവിലെ 3 വിരലുകൾ ഉപയോഗിച്ച് സ്ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക.</string>
   <string name="calibration_finish_announcement">ഡോട്ട് സ്ഥാനം അപ്‌ഡേറ്റ് ചെയ്തു</string>
+  <string name="remaining_calibration_finish_announcement">എല്ലാ ഡോട്ട് സ്ഥാനങ്ങളും അപ്ഡേറ്റ് ചെയ്‌തു</string>
   <string name="calibration_step2_hold_right_finger_announcement">1, 2, 3 എന്നീ ഡോട്ടുകൾക്കുള്ള അപ്ഡേറ്റ് ചെയ്ത സ്ഥാനങ്ങൾ. അടുത്തത്, വലത് കൈ സ്പർശിക്കുന്ന ഡോട്ടുകൾ നമുക്ക് റെക്കോർഡ് ചെയ്യാം. വലത് കൈയ്യിലെ നടുവിലെ 3 വിരലുകൾ ഉപയോഗിച്ച് സ്ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക.</string>
   <string name="calibration_step2_hold_left_finger_announcement">1, 2, 3 എന്നീ ഡോട്ടുകൾക്കുള്ള അപ്ഡേറ്റ് ചെയ്ത സ്ഥാനങ്ങൾ. അടുത്തത്, നിങ്ങളുടെ ഇടത് കൈ സ്‌പർശിക്കുന്ന ഡോട്ടുകൾ നമുക്ക് റെക്കോർഡ് ചെയ്യാം. ഇടത് കൈയ്യിലെ നടുവിലെ 3 വിരലുകൾ ഉപയോഗിച്ച് സ്ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക.</string>
   <string name="calibration_fail_announcement">ഡോട്ട് സ്ഥാനം അപ്ഡേറ്റ് ചെയ്യാനായില്ല. 6 വിരലുകൾ ഉപയോഗിച്ച് സ്ക്രീൻ സ്‌പർശിച്ചുപിടിക്കുക. തുടർന്ന് വീണ്ടും ശ്രമിക്കുക.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">ഏകീകൃത ഇംഗ്ലീഷ് ബ്രെയ്‌ലി</string>
   <string name="code_user_facing_name_es">സ്‌പാനിഷ്</string>
   <string name="code_user_facing_name_ar">അറബിക്</string>
+  <string name="code_user_facing_name_fr">ഫ്രഞ്ച്</string>
   <string name="title_pref_accumulate_presses">പ്രസ് ചെയ്‍ത എല്ലാ ഡോട്ടുകളും ഉൾപ്പെടുത്തുക</string>
   <string name="summary_pref_accumulate_presses">മറ്റ് ഡോട്ടുകൾക്ക് മുമ്പ് ഡോട്ട് റിലീസ് ചെയ്‍താൽ പോലും പ്രസ് ചെയ്‍ത ഓരോ ഡോട്ടും ഇൻപുട്ടിന്റെ ഭാഗമാണ്</string>
   <string name="title_pref_reverse_dots">വിപരീത ഡോട്ടുകൾ</string>
   <string name="summary_pref_reverse_dots">ഡോട്ട് സ്ഥാനങ്ങൾ സ്വാപ്പ് ചെയ്യുക, ഉദാഹരണത്തിന് 1, 4 ഡോട്ടുകൾ തമ്മിൽ സ്ഥാനങ്ങൾ കൈമാറുന്നു</string>
-  <string name="typing_echo_list_preference_title">ടൈപ്പ് ചെയ്യുമ്പോഴുള്ള ഫീഡ്ബാക്ക് (ടൈപ്പിംഗ് എക്കോ)</string>
-  <string name="typing_echo_preference_label_characters">എല്ലാ അക്ഷരങ്ങളും വാക്കുകളും വായിക്കുക</string>
-  <string name="typing_echo_preference_label_words">വാക്കുകൾ മാത്രം വായിക്കുക</string>
   <string name="context_menu_title">ബ്രെയ്‌ലി കീബോർഡ് ഓപ്ഷനുകൾ</string>
   <string name="context_menu_typing_language_selection">ടൈപ്പ് ചെയ്യുന്ന ഭാഷ മാറ്റുക</string>
   <string name="context_menu_typing_language_selection_summary">നിലവിൽ %s എന്ന അക്കൗണ്ട് ഉപയോഗിക്കുന്നു</string>
@@ -48,7 +47,7 @@
   <string name="context_menu_switch_contracted_status_selection">%s ബ്രെയ്‌ലിയിലേക്ക് മാറുക</string>
   <string name="contracted">ചുരുക്കി</string>
   <string name="uncontracted">ചുരുക്കിയത് മാറ്റി</string>
-  <string name="context_menu_see_all_gestures_selection">Review all gestures</string>
+  <string name="context_menu_see_all_gestures_selection">എല്ലാ ജെസ്ച്ചറുകളും അവലോകനം ചെയ്യുക</string>
   <string name="context_menu_tutorial_selection">ട്യൂട്ടോറിയൽ തുറക്കുക</string>
   <string name="context_menu_tutorial_finish">ട്യൂട്ടോറിയൽ പൂർത്തിയാക്കുക</string>
   <string name="context_menu_settings_selection">ക്രമീകരണം</string>

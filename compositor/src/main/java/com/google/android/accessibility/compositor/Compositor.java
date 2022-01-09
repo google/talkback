@@ -22,7 +22,6 @@ import static com.google.android.accessibility.utils.output.SpeechController.QUE
 import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemClock;
-import androidx.annotation.IntDef;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityRecordCompat;
@@ -32,14 +31,15 @@ import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo.RangeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.IntDef;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FailoverTextToSpeech.SpeechParam;
+import com.google.android.accessibility.utils.ImageContents;
 import com.google.android.accessibility.utils.JsonUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.SpeechCleanupUtils;
-import com.google.android.accessibility.utils.labeling.LabelManager;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
@@ -255,11 +255,11 @@ public class Compositor {
   public Compositor(
       Context context,
       @Nullable SpeechController speechController,
-      @Nullable LabelManager labelManager,
+      @Nullable ImageContents imageContents,
       GlobalVariables globalVariables,
       @Flavor int flavor) {
     this.speechController = speechController;
-    mVariablesFactory = new VariablesFactory(context, globalVariables, labelManager);
+    mVariablesFactory = new VariablesFactory(context, globalVariables, imageContents);
     mConstants.mFlavor = flavor;
     mContext = context;
 

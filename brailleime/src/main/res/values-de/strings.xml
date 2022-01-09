@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Punktposition wird aktualisiert. Speichere zuerst die Punkte deiner linken Hand. Halte dazu das Display mit den mittleren drei Fingern der linken Hand gedrückt.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Punktposition wird aktualisiert. Speichere zuerst die Punkte deiner rechten Hand. Halte dazu das Display mit den mittleren drei Fingern der rechten Hand gedrückt.</string>
   <string name="calibration_finish_announcement">Punktposition wurde aktualisiert</string>
+  <string name="remaining_calibration_finish_announcement">Alle Punktpositionen aktualisiert</string>
   <string name="calibration_step2_hold_right_finger_announcement">Punktpositionen 1, 2 und 3 wurden aktualisiert. Speichere jetzt die Punkte deiner rechten Hand. Halte dazu das Display mit den mittleren drei Fingern der rechten Hand gedrückt.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Punktpositionen 1, 2 und 3 wurden aktualisiert. Speichere jetzt die Punkte deiner linken Hand. Halte dazu das Display mit den mittleren drei Fingern der linken Hand gedrückt.</string>
   <string name="calibration_fail_announcement">Punktposition konnte nicht aktualisiert werden. Halte das Display mit sechs Fingern gedrückt. Versuch es dann noch einmal.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">Spanisch</string>
   <string name="code_user_facing_name_ar">Arabisch</string>
+  <string name="code_user_facing_name_fr">Französisch</string>
   <string name="title_pref_accumulate_presses">Alle gedrückten Punkte einschließen</string>
   <string name="summary_pref_accumulate_presses">Jeder gedrückte Punkt gilt als Eingabe, auch wenn er vor anderen Punkten losgelassen wird</string>
   <string name="title_pref_reverse_dots">Punkte vertauschen</string>
   <string name="summary_pref_reverse_dots">Die Punktpositionen werden vertauscht, z. B. Punkt 1 und Punkt 4</string>
-  <string name="typing_echo_list_preference_title">Feedback beim Tippen (Tastatur-Echo)</string>
-  <string name="typing_echo_preference_label_characters">Alle Buchstaben und Wörter lesen</string>
-  <string name="typing_echo_preference_label_words">Nur Wörter lesen</string>
   <string name="context_menu_title">Brailletastatur-Einstellungen</string>
   <string name="context_menu_typing_language_selection">Eingabesprache ändern</string>
   <string name="context_menu_typing_language_selection_summary">Momentan wird %s verwendet</string>
@@ -48,7 +47,7 @@
   <string name="context_menu_switch_contracted_status_selection">Zu Braille%s wechseln</string>
   <string name="contracted">kurzschrift</string>
   <string name="uncontracted">basisschrift</string>
-  <string name="context_menu_see_all_gestures_selection">Review all gestures</string>
+  <string name="context_menu_see_all_gestures_selection">Alle Gesten prüfen</string>
   <string name="context_menu_tutorial_selection">Anleitung öffnen</string>
   <string name="context_menu_tutorial_finish">Anleitung beenden</string>
   <string name="context_menu_settings_selection">Einstellungen</string>

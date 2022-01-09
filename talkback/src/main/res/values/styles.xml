@@ -17,11 +17,32 @@
 <resources>
 
   <!--The basic theme for service-->
-  <style name="BaseTheme" parent="Theme.AppCompat.Light" />
+  <style name="TalkbackBaseTheme" parent="Theme.AppCompat.Light" >
+    <item name="selector_background_color">@color/quick_menu_overlay_background_color</item>
+    <item name="selector_background_stroke_color">@color/quick_menu_overlay_stroke_color</item>
+    <item name="selector_icon_color">@color/quick_menu_overlay_finger_swipe_icon_color</item>
+    <item name="selector_icon_stroke_color">@color/quick_menu_overlay_finger_swipe_icon_stroke_color</item>
+  </style>
 
   <!--The theme is for preference settings-->
   <style name="TalkBackSettings" parent="Theme.MaterialComponents.Light.Bridge">
     <item name="colorAccent">@color/colorAccent</item>
+  </style>
+
+  <!-- Material Components Theme -->
+  <style name="MaterialComponentsTheme" parent="Theme.MaterialComponents" />
+
+  <!-- Label manager -->
+  <style name="LabelManagerTheme" parent="TalkBackSettings">
+    <item name="materialButtonStyle">@style/LabelButtonStyle</item>
+  </style>
+
+  <style name="LabelButtonStyle" parent="Widget.MaterialComponents.Button">
+    <item name="backgroundTint">@color/filled_button_background_color</item>
+    <item name="android:textColor">@color/filled_button_text_color</item>
+    <item name="android:width">@dimen/label_manager_button_width</item>
+    <item name="android:height">@dimen/label_manager_button_height</item>
+    <item name="android:textAllCaps">false</item>
   </style>
 
   <style name="DialogStyle" parent="Theme.AppCompat.Light.Dialog">
@@ -70,10 +91,22 @@
     <item name="android:textAllCaps">true</item>
   </style>
 
+  <!--The theme for alert dialog-->
   <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
     <item name="colorAccent">@color/colorAccent</item>
     <item name="android:background">@color/alert_dialog_bg_color</item>
     <item name="android:textAllCaps">false</item>
+  </style>
+
+  <!--The theme for the view content inside alert dialog-->
+  <style name="AlertDialogCustomViewTheme" parent="Theme.AppCompat.Light.Dialog.Alert" />
+
+  <!--The theme for the text of the content inside alert dialog-->
+  <style name="AlertDialogContentTextStyle">
+    <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    <item name="android:textColor">@color/alert_dialog_content_message_text_color</item>
+    <item name="android:fontFamily">@string/talkback_font</item>
+    <item name="android:textSize">14sp</item>
   </style>
 
   <style name="CheckBoxTheme">
@@ -89,4 +122,5 @@
     <!-- For navigate up arrow. -->
     <item name="colorControlNormal">@color/training_text_color</item>
   </style>
+
 </resources>

@@ -96,6 +96,7 @@ public class TextToSpeechOverlay extends SimpleOverlay {
 
     final long displayTime = Math.max(2000, text.length() * 100);
 
+    // TODO: (b/193547663) Move removeMessages to before show() block
     mHandler.removeMessages(MSG_CLEAR_TEXT);
     mText.setText(text.toString().trim());
     mHandler.sendEmptyMessageDelayed(MSG_CLEAR_TEXT, displayTime);

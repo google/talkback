@@ -6,6 +6,8 @@ apply from: 'shared.gradle'
 
 apply from: 'version.gradle'
 
+final BUILD_TIMESTAMP = new Date().format('yyyy_MM_dd_HHmm')
+
 dependencies {
     implementation project(':talkback')
 }
@@ -32,7 +34,7 @@ android {
     buildToolsVersion '29.0.0'
     defaultConfig {
         applicationId talkbackApplicationId
-        versionName talkbackVersionName
+        versionName talkbackVersionName + "-" + BUILD_TIMESTAMP
         manifestPlaceholders = [talkbackMainPermission:talkbackMainPermission]
         minSdkVersion 26
         targetSdkVersion 30
@@ -47,13 +49,13 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
+    productFlavors {
+        phone {
+            dimension "target"
+        }
+        wear {
+            dimension "target"
+            versionNameSuffix "-wear"
+        }
+    }
 }
-
-task createTranslationTablesZip(type: Zip){
-    archiveName="translationtables.zip"
-    destinationDir = file('braille/src/main/res/raw/')
-    from fileTree('./braille/src/main/tables/')
-    into('liblouis/tables')
-}
-
-preBuild.dependsOn createTranslationTablesZip

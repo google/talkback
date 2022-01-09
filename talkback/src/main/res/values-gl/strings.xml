@@ -4,13 +4,14 @@
   <string name="talkback_service_html_description">Cando está activada a función Talkback, ofréceche comentarios de voz para que poidas usar o dispositivo sen mirar a pantalla. Esta función está deseñada para situacións nas que é difícil mirar a pantalla e para persoas con limitación visual.&lt;br&gt;&lt;br&gt;&lt;b&gt;Como utilizar Talkback?&lt;/b&gt;&lt;br&gt;• Pasa o dedo cara á dereita ou cara á esquerda para ir dun elemento a outro.&lt;br&gt;• Toca dúas veces un elemento para activalo.&lt;br&gt;• Arrastra 2 dedos para desprazarte.&lt;br&gt;&lt;br&gt;&lt;b&gt;Como desactivar Talkback?&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Teclas de volume:&lt;/b&gt; mantén premidas as dúas teclas de volume durante uns segundos.&lt;br&gt;&lt;br&gt;&lt;b&gt;Configuración&lt;/b&gt;&lt;br&gt;• Toca o interruptor &lt;b&gt;Usar Talkback&lt;/b&gt;. Aparecerá unha contorna de cor verde. Toca dúas veces o interruptor.&lt;br&gt;• Na mensaxe de confirmación, toca Deter. A continuación, toca dúas veces Deter.</string>
   <string name="talkback_service_summary">Le os elementos da pantalla</string>
   <string name="talkback_preferences_title">Configuración de TalkBack</string>
-  <string name="tts_preferences_title">Configuración da síntese de voz</string>
+  <string name="tts_preferences_title">Configuración da conversión de texto a voz</string>
   <string name="language_options">Idiomas</string>
   <string name="spoken_language">Idioma falado</string>
   <string name="system_actions">Accións do sistema</string>
   <string name="talkback_preferences_subtitle">Versión %1$s</string>
   <string name="label_manager_summary_title">Xestionar etiquetas personalizadas</string>
   <string name="label_manager_package_title">Xestionar etiquetas para %1$s</string>
+  <string name="manage_label">Xestionar etiqueta</string>
   <string name="label_manager_no_packages_message">Actualmente non hai etiquetas personalizadas. Podes crear unha se accedes a unha imaxe non etiquetada e, a continuación, engades unha etiqueta desde o menú de TalkBack.</string>
   <string name="label_manager_timestamp_text">Última modificación: %1$s</string>
   <string name="search_dialog_label">Busca: %1$s</string>
@@ -27,7 +28,7 @@
   <string name="notification_type_status_sdcard">Tarxeta SD</string>
   <string name="notification_type_status_sdcard_usb">USB de tarxeta SD</string>
   <string name="notification_status_sync">Sincronización</string>
-  <string name="notification_type_status_sync_noanim">Sincronizando</string>
+  <string name="notification_type_status_sync_noanim">Vinculando</string>
   <string name="notification_type_status_voicemail">Correo de voz</string>
   <string name="notification_type_status_started">Comezou</string>
   <string name="notification_type_status_stopped">Detívose</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Exploración táctil</string>
   <string name="title_pref_category_touch_exploration">Navegación</string>
   <string name="title_pref_category_controls">Controis</string>
-  <string name="title_pref_single_tap">Activación mediante un só toque</string>
+  <string name="title_pref_single_tap">Un só toque para activar</string>
   <string name="title_pref_show_context_menu_as_list">Mostrar menú contextual como lista</string>
-  <string name="summary_pref_single_tap">(Experimental) Para activar un elemento resaltado, tócao unha vez</string>
+  <string name="summary_pref_single_tap">Para activar un elemento resaltado, tócao unha vez</string>
   <string name="title_pref_shake_to_read_threshold">Axitar teléfono para iniciar lectura continua</string>
   <string name="pref_verbosity_title">Verbosidade</string>
   <string name="pref_punctuation_title">Puntuación</string>
+  <string name="title_pref_category_manage_focus_indicator">Personalizar indicador de enfoque</string>
   <string name="title_pref_category_manage_gestures">Personalizar xestos</string>
   <string name="title_pref_manage_labels">Etiquetas personalizadas</string>
   <string name="title_pref_manage_customize_menus">Personalizar menús</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Axuda e comentarios</string>
   <string name="title_pref_category_tutorial_and_help">Titorial e axuda</string>
   <string name="title_pref_category_advanced">Configuración avanzada</string>
+  <string name="title_pref_category_typing">Escritura e teclado</string>
   <string name="title_pref_category_legal_and_privacy">Cuestións legais e privacidade</string>
   <string name="title_pref_advanced_settings">Configuración avanzada</string>
   <string name="reset_gesture_settings_title">Restablecer configuración dos xestos</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Aplicacións recentes</string>
   <string name="keycombo_menu_global_notifications">Notificacións</string>
   <string name="keycombo_menu_global_suspend">Deter ou retomar TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Reproducir ou pór en pausa contido multimedia</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Seleccionar seguinte control de lectura</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Seleccionar control de lectura anterior</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Axustar control de lectura cara arriba</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Axustar control de lectura cara abaixo</string>
   <string name="keycombo_menu_category_granularity">Navegación</string>
   <string name="keycombo_menu_granularity_increase">Seguinte configuración de navegación</string>
   <string name="keycombo_menu_granularity_decrease">Configuración de navegación anterior</string>
@@ -226,7 +234,8 @@
   <string name="keycombo_assign_dialog_clear">Atallo para borrar</string>
   <string name="cannot_copy_feedback">Non hai texto que copiar. Primeiro selecciona o que queiras copiar.</string>
   <string name="cannot_paste_feedback">Non hai texto que pegar. Primeiro copia o texto que queiras pegar.</string>
-  <string name="cannot_cut_feedback">Non hai texto que cortar. Primeiro selecciona o texto que queiras cortar.</string>
+  <string name="cannot_cut_feedback">Non hai texto que cortar. Primeiro selecciona o que queiras cortar.</string>
+  <string name="cannot_delete_feedback">Non hai texto que eliminar. Primeiro selecciona o que queiras eliminar.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Seguro que queres restablecer os valores predeterminados das teclas dos atallos deste mapa de teclas? Ten en conta que esta acción non se pode desfacer.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Restablecer</string>
   <string name="override_keycombo">A tecla xa está en uso</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Utilizar cambios no ton</string>
   <string name="title_pref_keyboard_echo">Eco do teclado</string>
   <string name="pref_node_desc_order_title">Orde da descrición de elementos</string>
-  <string name="summaryOn_pref_intonation">Le en voz alta os comentarios sobre o teclado, cun ton máis grave</string>
+  <string name="summaryOn_pref_intonation">Pronuncia o texto eliminado co teclado cunha voz máis aguda</string>
   <string name="summaryOff_pref_intonation">Non cambiar o ton de voz ao falar</string>
   <string name="title_pref_brailleime">Teclado braille</string>
   <string name="title_pref_category_feedback_settings">Outras indicacións</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Activar depuración da árbore de nós</string>
   <string name="summary_pref_tree_debug_tv">Utiliza a tecla da busca por voz para imprimir a árbore de nodos en lugar de realizar a busca</string>
   <string name="title_pref_performance_stats">Activar estatísticas de rendemento</string>
+  <string name="title_pref_log_overlay">Activar superposición dos rexistros de depuración</string>
   <string name="title_pref_resume_talkback">Retomar desde a suspensión</string>
+  <string name="title_pref_typing_confirmation">Preferencia de escritura</string>
   <string name="title_pref_multi_finger_gesture">Activar xestos con varios dedos</string>
   <string name="screen_dimmed">Ocultouse a pantalla</string>
   <string name="screen_brightness_restored">Estase mostrando a pantalla</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Desprazarse abaixo</string>
   <string name="shortcut_scroll_left">Desprazarse á esquerda</string>
   <string name="shortcut_scroll_right">Desprazarse á dereita</string>
+  <string name="shortcut_next_window">Seguinte ventá</string>
+  <string name="shortcut_previous_window">Ventá anterior</string>
   <string name="shortcut_back">Atrás</string>
   <string name="shortcut_home">Inicio</string>
   <string name="shortcut_overview">Visión xeral</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Ocultar ou mostrar pantalla</string>
   <string name="title_show_screen_search">Busca directa</string>
   <string name="title_show_voice_commands">Comandos de voz</string>
+  <string name="talkback_show_talkback_settings">Configuración de TalkBack</string>
   <string name="title_other_web_navigation">Outros tipos de navegación na Web</string>
   <string name="title_granularity_default">Navegación predeterminada</string>
   <string name="title_seek_bar_edit">Editar nivel do control desprazable</string>
@@ -385,14 +399,15 @@
   <string name="summary_voice_commands">Controla TalkBack coa voz</string>
   <string name="summary_show_hide_screen">Oculta a pantalla para que non a poidan ver outras persoas en lugares públicos. Despois de ocultala, devólvea ao seu estado normal</string>
   <string name="summary_talkback_preferences">Abre a configuración de TalkBack</string>
-  <string name="summary_system_actions">Accede a todas as aplicacións, a Configuración rápida e á pantalla dividida</string>
-  <string name="summary_tts_settings">Abre a configuración da síntese de voz</string>
+  <string name="summary_system_actions">Vai a todas as aplicacións e a Configuración rápida</string>
+  <string name="summary_tts_settings">Abre a configuración da conversión de texto a voz</string>
   <string name="summary_pause_feedback">Desactiva os comentarios de voz de TalkBack</string>
   <string name="not_editable">Non editable</string>
   <string name="summary_characters">Le os caracteres un por un</string>
   <string name="summary_words">Le as palabras unha por unha</string>
   <string name="summary_lines">Le as liñas unha por unha</string>
   <string name="summary_paragraphs">Le os parágrafos un por un</string>
+  <string name="summary_windows">Vai a outras ventás, como a de controis de volume ou a barra de navegación</string>
   <string name="summary_headings">Cambia de cabeceira</string>
   <string name="summary_controls">Pasa dun elemento interactivo (botón, caixa de verificación ou campo de texto) a outro</string>
   <string name="summary_links">Cambia de ligazón</string>
@@ -403,12 +418,14 @@
   <string name="summary_speech_rate">Cambia a velocidade de lectura de TalkBack</string>
   <string name="summary_selector_menu_verbosity">Cambia a opción de lectura en voz alta das teclas premidas, das suxestións de uso, da información das grades e doutro contido</string>
   <string name="summary_selector_menu_punctuation">Activa ou desactiva a lectura dos símbolos e da puntuación</string>
-  <string name="summary_language">Cambia o idioma falado. Móstrase só canto tes varios idiomas de síntese de voz instalados</string>
+  <string name="summary_language">Cambia o idioma falado. Móstrase só canto tes varios idiomas de conversión de texto a voz instalados</string>
   <string name="summary_sound_feedback">Produce efectos sonoros mentres navegas (por exemplo, unha alarma sonora para confirmar unha acción)</string>
   <string name="summary_vibration_feedback">Produce vibracións cando realizas determinadas accións (por exemplo, cando seleccionas un elemento). Esta opción non lles afecta ás vibracións procedentes das aplicacións ou do sistema</string>
   <string name="summary_hide_screen">Oculta a pantalla para que non a poidan ver outras persoas en lugares públicos</string>
   <string name="summary_audio_ducking">Baixa o volume doutro audio que se estea reproducindo cando fala TalkBack</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Desprázate cara a diante ou cara atrás</string>
+  <string name="summary_support_change_a11y_volume">Sobe ou baixa o volume de Accesibilidade</string>
+  <string name="summary_image_caption">Obtén unha descrición automática desta imaxe</string>
   <string name="value_direction_up">arriba</string>
   <string name="value_direction_down">abaixo</string>
   <string name="value_direction_left">esquerda</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Tocar dúas veces e manter con 2 dedos</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Tocar dúas veces e manter con 3 dedos</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Tocar dúas veces e manter con 4 dedos</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Tocar tres veces e manter premido con 2 dedos</string>
+  <string name="seekbar_hint_2gesture">Para realizar un axuste, fai un dos seguintes xestos: %1$s ou %2$s</string>
+  <string name="seekbar_hint_1gesture">Para realizar un axuste, fai o seguinte xesto: %1$s</string>
   <string name="gesture_name_unknown">Xesto descoñecido</string>
   <string name="gesture_name_pass_through">Xesto de pasar ao sistema</string>
   <string name="gesture_name_touch_explore">Exploración táctil</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Tocar dúas veces e manter premido</string>
   <string name="gesture_name_2finger_tap_hold">Manter premido con 2 dedos</string>
   <string name="gesture_name_3finger_tap_hold">Manter premido con 3 dedos</string>
+  <string name="gesture_name_2finger_3tap_hold">Tocar tres veces e manter premido con 2 dedos</string>
   <string name="gesture_name_3finger_3tap_hold">Tocar tres veces e manter premido con 3 dedos</string>
   <string name="title_pref_shortcut_fingerprint_up">Dedo cara arriba no sensor dixital</string>
   <string name="title_pref_shortcut_fingerprint_down">Dedo cara abaixo no sensor dixital</string>
@@ -480,12 +501,14 @@
   <string name="title_pref_two_part_vertical_gestures">Xestos verticais de dúas partes</string>
   <string name="title_pref_version_code">Código de versión</string>
   <string formatted="false" name="value_volume_100_percent">Facer coincidir co volume dos ficheiros multimedia</string>
-  <string formatted="false" name="value_volume_75_percent">75% do volume dos recursos multimedia</string>
-  <string formatted="false" name="value_volume_50_percent">50% do volume dos recursos multimedia</string>
-  <string formatted="false" name="value_volume_25_percent">25% do volume dos recursos multimedia</string>
+  <string formatted="false" name="value_volume_75_percent">75 % do volume dos recursos multimedia</string>
+  <string formatted="false" name="value_volume_50_percent">50 % do volume dos recursos multimedia</string>
+  <string formatted="false" name="value_volume_25_percent">25 % do volume dos recursos multimedia</string>
   <string name="value_resume_screen_on">Cando se active a pantalla</string>
   <string name="value_resume_keyguard">Cando se mostre a pantalla de bloqueo</string>
   <string name="value_resume_manual">Só desde unha notificación</string>
+  <string name="value_type_confirmation_double_tap">Mantén premida a pantalla para seleccionar a tecla e, a continuación, tócaa dúas veces</string>
+  <string name="value_type_confirmation_lift_to_type">Mantén premida a pantalla para seleccionar a tecla e, a continuación, levanta o dedo</string>
   <string name="value_shake_to_read_disabled">Desactivado</string>
   <string name="value_shake_to_read_threshold_very_light">Moi suave</string>
   <string name="value_shake_to_read_threshold_light">Suave</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Ler sempre as teclas tocadas</string>
   <string name="value_keyboard_echo_softkeys">Só para o teclado en pantalla</string>
   <string name="value_keyboard_echo_never">Non ler nunca as teclas tocadas</string>
+  <string name="title_pref_keyboard_echo_on_screen">Eco do teclado: teclado en pantalla</string>
+  <string name="title_pref_keyboard_echo_physical">Eco do teclado: teclado físico</string>
+  <string name="value_keyboard_echo_none">Nada</string>
+  <string name="value_keyboard_echo_characters_only">Caracteres</string>
+  <string name="value_keyboard_echo_words_only">Palabras</string>
+  <string name="value_keyboard_echo_characters_and_words">Caracteres e palabras</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Estado, nome e tipo</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Tipo, nome e estado</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Nome, tipo e estado</string>
@@ -512,17 +541,17 @@
   <string name="cannot_add_label">Este elemento non se pode etiquetar.</string>
   <string name="label_dialog_title_add">Engadir etiqueta</string>
   <string name="label_dialog_title_edit">Editar etiqueta</string>
-  <string name="label_dialog_title_remove">Eliminar etiqueta</string>
+  <string name="label_dialog_title_remove">Quitar etiqueta</string>
   <string name="label_dialog_confirm_label_remove">Quitouse a etiqueta</string>
   <string name="label_dialog_text">Introduce o texto que queres utilizar como etiqueta para este elemento\nNome interno de visualización: %1$s</string>
-  <string name="label_remove_dialog_text">Estás seguro de que queres eliminar a etiqueta \"%1$s\"?</string>
-  <string name="label_remove_dialog_text_app_name">Estás seguro de que queres eliminar a etiqueta \"%1$s\" de %2$s?</string>
+  <string name="label_remove_dialog_text">Seguro que queres quitar a etiqueta \"%1$s\"?</string>
+  <string name="label_remove_dialog_text_app_name">Seguro que queres quitar a etiqueta \"%1$s\" de %2$s?</string>
   <string name="label_dialog_edit_hint">Texto da etiqueta</string>
   <string name="label_import">Importar etiquetas personalizadas</string>
   <string name="label_import_dialog_title">Importar etiquetas personalizadas a TalkBack</string>
   <string name="label_import_dialog_message">Selecciona se queres ignorar ou omitir as etiquetas existentes en caso de conflito</string>
   <string name="label_import_dialog_skip">Omitir</string>
-  <string name="label_import_dialog_override">Anular</string>
+  <string name="label_import_dialog_override">Ignorar</string>
   <string name="label_export_empty">Non hai nada para exportar. Non engadiches ningunha etiqueta</string>
   <string name="label_export_failed">Produciuse un erro ao exportar a etiqueta</string>
   <string name="label_import_failed">Produciuse un erro ao importar a etiqueta</string>
@@ -550,14 +579,15 @@
   <string name="dialog_title_disable_exploration">Queres desactivar a exploración táctil?</string>
   <string name="dialog_message_disable_exploration">Seguro que queres desactivar a exploración táctil?\n\nO teu dispositivo deixará de responder aos xestos dos atallos ou de ler en voz alta os elementos cando toques a pantalla.</string>
   <string name="dialog_title_enable_tree_debug">Queres activar a depuración da árbore de nós?</string>
-  <string name="dialog_message_enable_tree_debug">Estás seguro de que queres activar a depuración da árbore de nós?\n\nEsta acción expón o contido da túa pantalla nos rexistros do dispositivo e poden velo outras aplicacións.</string>
+  <string name="dialog_message_enable_tree_debug">Seguro que queres activar a depuración da árbore de nós?\n\nEsta acción expón o contido da túa pantalla nos rexistros do dispositivo e poden velo outras aplicacións.</string>
   <string name="dialog_title_enable_performance_stats">Queres activar as estatísticas de rendemento?</string>
   <string name="dialog_message_enable_performance_stats">Seguro que queres activar as estatísticas de rendemento?\n\nEstas estatísticas poden consumir máis memoria e batería.</string>
+  <string name="title_request_phone_permission">Queres permitir o acceso ao teléfono?</string>
+  <string name="message_request_phone_permission">Este permiso axúdalle a TalkBack a reducir os avisos cando estás nunha chamada</string>
+  <string name="continue_button">Continuar</string>
   <string name="label_talkback_context_menu">Menú contextual global de TalkBack</string>
   <string name="permission_talkback_label">Controlar TalkBack</string>
   <string name="permission_talkback_desc">Permiso para enviar xestos a TalkBack e retomar os comentarios en voz alta.</string>
-  <string name="permission_labeling_label">Xestionar etiquetas personalizadas de TalkBack</string>
-  <string name="permission_labeling_desc">Permiso para acceder, modificar e eliminar etiquetas personalizadas pronunciadas por TalkBack.</string>
   <string name="links">Ligazóns</string>
   <string name="end_of_text">Fin</string>
   <string name="start_of_page">Non hai elementos anteriores de tipo %1$s</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Puntuación</string>
   <string name="title_pref_selector_granularity">Navegación</string>
   <string name="title_pref_selector_audio_focus">Atenuación do audio</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Desprazarse</string>
+  <string name="title_pref_a11y_volume">Volume de accesibilidade</string>
   <string name="title_pref_selector_adjustable_widget_slider">Axustar control desprazable</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Axustar valor</string>
   <string name="title_pref_speak_passwords_without_headphones">Ler contrasinais en voz alta</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Utiliza comandos de voz</string>
   <string name="dialog_title_pass_through_mode">Omitir os xestos de TalkBack para utilizar os do sistema</string>
   <string name="dialog_message_pass_through_mode">Cando escoites un timbre, podes usar un xesto directo; é dicir, un xesto do sistema que non sexa compatible con TalkBack.</string>
-  <string name="hint_type_search_term">Escribe un termo de busca</string>
+  <string name="hint_type_search_term">Termo de busca</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">A canle de notificacións de TalkBack</string>
   <string name="pref_selector_summary">%1$s para seleccionar unha opción de configuración. Despois, %2$s para axustala.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Para cortar un fragmento de texto, toca a pantalla dúas veces con tres dedos e mantena premida.\n\nPara pegar o texto, toca a pantalla tres veces con tres dedos.\n\nProba a pegar unha palabra na caixa de texto que aparece a continuación.</string>
   <string name="copy_text_pre_r">Despois de seleccionar un fragmento de texto, podes copialo a través do menú de TalkBack. Para abrir o menú de TalkBack, pasa o dedo cara abaixo e despois cara á dereita. Toca dúas veces as opcións de edición e, logo, copia o texto.\n\nProba a copiar unha palabra da caixa de texto que aparece a continuación.</string>
   <string name="cut_paste_text_pre_r">Para cortar ou pegar un fragmento de texto, abre o menú de TalkBack e toca dúas veces as opcións de edición.\n\nProba a pegar unha palabra na caixa de texto que aparece a continuación.</string>
+  <string name="edit_box_hint_paste_text">Pega aquí o texto</string>
   <string name="read_by_character_title">Como facer que se deletree o texto ou que se inicie unha lectura por palabras ou por parágrafos?</string>
   <string name="read_by_character_text">Pode que, nalgunha ocasión, queiras que se che deletree o texto en voz alta.\n\nPara que se che lea carácter por carácter, pasa tres dedos cara á dereita ata que escoites \"%1$s\". Logo, pasa o dedo cara arriba para mover o enfoque da navegación cara atrás, carácter por carácter. Pasa o dedo cara abaixo para mover o enfoque da navegación cara adiante, carácter por carácter.\n\nProba a facer estas accións. Se pasas tres dedos cara á dereita, tamén podes escoller se queres iniciar unha lectura por palabras ou por parágrafos.</string>
   <string name="read_by_character_text_pre_r">Pode que, nalgunha ocasión, queiras que se che deletree o texto en voz alta.\n\nPara que se che lea carácter por carácter, pasa o dedo cara abaixo e despois cara arriba ata que escoites \"%1$s\". Logo, pasa o dedo cara arriba para mover o enfoque da navegación cara atrás, carácter por carácter. Pasa o dedo cara abaixo para mover o enfoque da navegación cara adiante, carácter por carácter.\n\nProba a facer estas accións. Se pasas o dedo cara abaixo e despois cara arriba, tamén podes escoller se queres iniciar unha lectura por palabras ou por parágrafos.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">Activouse %1$s</string>
   <string name="talkback_inactive_title">A función TalkBack está desactivada</string>
   <string name="talkback_inactive_message">Este titorial necesita que a función TalkBack estea activada. Antes de inicialo, actívaa.</string>
+  <string name="watch_swipe_left_right_text">Para ir dun elemento a outro, pasa o dedo cara á dereita ou cara á esquerda</string>
+  <string name="watch_double_tap_text">Se queres activar un elemento, tócao dúas veces</string>
+  <string name="watch_2_finger_scroll_text">Para desprazarte, pasa 2 dedos</string>
+  <string name="title_pref_thick_border">Bordos grosos</string>
+  <string name="title_pref_category_border_color">Cor</string>
+  <string name="title_pref_default_color">Predeterminado</string>
+  <string name="title_pref_red">Vermello</string>
+  <string name="title_pref_orange">Laranxa</string>
+  <string name="title_pref_yellow">Amarelo</string>
+  <string name="title_pref_green">Verde</string>
+  <string name="title_pref_blue">Azul</string>
+  <string name="title_pref_grey">Gris</string>
   <string name="survey_closed">A enquisa está pechada</string>
+  <string name="character_recognition_text">Texto: %1$s</string>
+  <string name="title_image_caption">Describir imaxe</string>
 </resources>

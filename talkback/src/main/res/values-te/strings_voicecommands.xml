@@ -14,6 +14,7 @@
   <string name="voice_commands_language">భాష</string>
   <string name="voice_commands_languages">భాషలు</string>
   <string name="voice_commands_custom_actions">అనుకూల చర్యలు</string>
+  <string name="voice_commands_action">చర్య</string>
   <string name="voice_commands_quick_settings">త్వరిత సెట్టింగ్‌లు</string>
   <string name="voice_commands_quick_setting">త్వరిత సెట్టింగ్</string>
   <string name="voice_commands_dim">కాంతిని తగ్గించు</string>
@@ -97,9 +98,9 @@
   <string name="voice_commands_no_voice_recognition_ability">క్షమించండి! మీ పరికరంలో ఈ ఫీచర్ అందుబాటులో లేదు</string>
   <string name="voice_commands_error">వాయిస్ ఆదేశాన్ని గుర్తించడంలో ఎర్రర్ ఏర్పడింది</string>
   <string name="voice_commands_partial_result">ఈ కమాండ్‌ను గుర్తించలేకపోతున్నాను. అన్ని కమాండ్‌ల లిస్ట్ కోసం \"%1$s\" అని చెప్పండి.</string>
+  <string name="voice_commands_timeout">అన్ని కమాండ్‌ల లిస్ట్ కోసం \"%1$s\" అని చెప్పండి.</string>
   <string name="voice_commands_many_requests">దయచేసి కాసేపటి తర్వాత మళ్లీ ప్రయత్నించండి</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" సెట్టింగ్ ఎనేబుల్ చేయబడలేదు</string>
-  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" వాయిస్ ఆదేశం లాగా గుర్తించబడలేదు.</string>
+  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" వాయిస్ కమాండ్ లాగా గుర్తించబడలేదు.</string>
   <string name="voice_commands_label_saved">లేబుల్ సేవ్ చేయబడింది</string>
   <string name="voice_commands_no_actions_feedback">చర్యలు అందుబాటులో లేవు</string>
   <string name="voice_commands_no_next_heading_feedback">తర్వాతి శీర్షిక అందుబాటులో లేదు</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">వాయిస్ కమాండ్ ఓవర్‌వ్యూ</string>
   <string name="voice_commands_help_description">వాయిస్ కమాండ్‌లను ఉపయోగించడానికి, కుడి వైపునకు, ఆపై పైకి స్వైప్ చేయండి. కమాండ్‌ల లిస్ట్ కోసం, ఎప్పుడైనా \"సహాయం\" లేదా \"నేను ఏమి చెప్పగలను?\" అని చెప్పండి.</string>
   <string name="voice_commands_help_hint">ఉత్తమ ఫలితాల కోసం, కింది స్క్రీన్‌లలో లిస్ట్ అయిన ఖచ్చితమైన పదాలను చెప్పండి.</string>
+  <string name="voice_command_screen_locked_hint">స్క్రీన్ లాక్ చేసి ఉన్నప్పుడు వాయిస్ కమాండ్‌లు అందుబాటులో ఉండవు. టాక్‌బ్యాక్ మెనూను ఉపయోగించడానికి బదులుగా %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">ప్రస్తుత స్క్రీన్‌లో ఉన్న కంటెంట్‌ను మీరు చదివే విధానాన్ని మారుస్తుంది</string>
   <string name="voice_commands_help_next">తర్వాత [శీర్షిక]</string>
@@ -132,14 +134,15 @@
   <string name="voice_commands_help_screen_search_description">స్క్రీన్‌లో ఆ టెక్స్ట్‌ను కనుగొనడానికి సెర్చ్ క్వెరీని ఎంటర్ చేయండి</string>
   <string name="voice_commands_help_text_editing_description">టెక్స్ట్‌ను టైప్ చేసి, ఎంచుకొని, కాపీ చేయండి</string>
   <string name="voice_commands_help_type_text">[సరే] అని టైప్ చేయి</string>
-  <string name="voice_commands_help_copy_description">కాపీ చేయడానికి ముందు టెక్స్ట్‌ను ఎంచుకున్నారని నిర్ధారించుకోండి</string>
-  <string name="voice_commands_help_cut_description">కట్ చేయడానికి ముందు టెక్స్ట్‌ను ఎంచుకున్నారని నిర్ధారించుకోండి</string>
+  <string name="voice_commands_help_copy_description">కాపీ చేయడానికి ముందు టెక్స్ట్‌ను ఎంచుకోండి</string>
+  <string name="voice_commands_help_cut_description">కట్ చేయడానికి ముందు టెక్స్ట్‌ను ఎంచుకోండి</string>
+  <string name="voice_commands_help_delete_description">తొలగించడానికి ముందు టెక్స్ట్‌ను ఎంచుకోండి</string>
   <string name="voice_commands_help_device_navigation_title">పరికర నావిగేషన్</string>
   <string name="voice_commands_help_device_navigation_description">మొదటి ట్యాబ్‌కు వెళ్లు, వెనుకకు వెళ్లు, నోటిఫికేషన్‌లను చూపించు, మరిన్ని</string>
   <string name="voice_commands_help_overview_description">మీ ఇటీవలి యాప్‌లను చూడండి</string>
   <string name="voice_commands_help_assistant_description">Google Assistantను తెరుస్తుంది</string>
   <string name="voice_commands_help_other_commands_title">ఇతర కమాండ్‌లు</string>
-  <string name="voice_commands_help_other_commands_description">TalkBack సెట్టింగ్‌లకు వెళ్లు, స్క్రీన్‌ను దాచు, చర్యలను చూడండి, అనుకూల లేబుల్‌లను జోడించు, మరిన్ని</string>
+  <string name="voice_commands_help_other_commands_description">TalkBack సెట్టింగ్‌లకు వెళ్లు, స్క్రీన్‌ను దాచు, చర్యలను చూడండి, అనుకూల లేబుళ్లను జోడించు, మరిన్ని</string>
   <string name="voice_commands_help_label">[సమర్పించు] లేబుల్</string>
   <string name="voice_commands_help_hide_screen_description">డిస్‌ప్లేను దాచండి, తద్వారా మీ స్క్రీన్ పబ్లిక్ ప్రదేశాలలో ఇతరులకు కనిపించదు</string>
   <string name="voice_commands_help_show_screen_description">స్క్రీన్‌ను దాచిన తర్వాత, దాన్ని తిరిగి సాధారణ స్థితికి తీసుకురండి</string>

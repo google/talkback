@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Γλώσσα</string>
   <string name="voice_commands_languages">Γλώσσες</string>
   <string name="voice_commands_custom_actions">προσαρμοσμένες ενέργειες</string>
+  <string name="voice_commands_action">Ενέργεια</string>
   <string name="voice_commands_quick_settings">Γρήγορες ρυθμίσεις</string>
   <string name="voice_commands_quick_setting">Γρήγορη ρύθμιση</string>
   <string name="voice_commands_dim">μείωση φωτεινότητας</string>
@@ -96,10 +97,10 @@
   <string name="voice_commands_no_mic_permissions">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, θα πρέπει να παραχωρήσετε άδεια χρήσης του μικροφώνου.</string>
   <string name="voice_commands_no_voice_recognition_ability">Δυστυχώς, αυτή η λειτουργία δεν είναι διαθέσιμη σε αυτήν τη συσκευή</string>
   <string name="voice_commands_error">Σφάλμα αναγνώρισης της φωνητικής εντολής</string>
-  <string name="voice_commands_partial_result">Δεν είναι δυνατή η αναγνώριση αυτής της εντολής. Πείτε \"%1$s\" για να δείτε τη λίστα με όλες τις εντολές.</string>
+  <string name="voice_commands_partial_result">Δεν είναι δυνατή η αναγνώριση αυτής της εντολής. Πείτε %1$s για να δείτε τη λίστα με όλες τις εντολές.</string>
+  <string name="voice_commands_timeout">Πείτε %1$s για να δείτε τη λίστα με όλες τις εντολές.</string>
   <string name="voice_commands_many_requests">Προσπαθήστε ξανά σε ένα λεπτό</string>
-  <string name="voice_commands_setting_disabled">Η ρύθμιση \"%1$s\" δεν είναι ενεργοποιημένη</string>
-  <string name="voice_commands_echo_feedback_not_recognized">Η φράση \"%1$s\" δεν αναγνωρίστηκε ως φωνητική εντολή.</string>
+  <string name="voice_commands_echo_feedback_not_recognized">Η φράση %1$s δεν αναγνωρίστηκε ως φωνητική εντολή.</string>
   <string name="voice_commands_label_saved">Η ετικέτα αποθηκεύτηκε.</string>
   <string name="voice_commands_no_actions_feedback">Δεν υπάρχουν διαθέσιμες ενέργειες.</string>
   <string name="voice_commands_no_next_heading_feedback">Δεν υπάρχει επόμενη κεφαλίδα.</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Επισκόπηση φωνητικών εντολών</string>
   <string name="voice_commands_help_description">Για να χρησιμοποιήσετε φωνητικές εντολές, σύρετε προς τα δεξιά και έπειτα προς τα πάνω. Πείτε \"Βοήθεια\" ή \"Τι μπορώ να πω\" ανά πάσα στιγμή για να δείτε μια λίστα με τις εντολές.</string>
   <string name="voice_commands_help_hint">Για καλύτερα αποτελέσματα, χρησιμοποιήστε την ακριβή διατύπωση που αναφέρεται στις παρακάτω οθόνες.</string>
+  <string name="voice_command_screen_locked_hint">Οι φωνητικές εντολές δεν είναι διαθέσιμες όταν η οθόνη είναι κλειδωμένη. Για να χρησιμοποιήσετε εναλλακτικά το μενού του TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Αλλάξτε τον τρόπο ανάγνωσης περιεχομένου στην τρέχουσα οθόνη.</string>
   <string name="voice_commands_help_next">Επόμενη [κεφαλίδα]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Καταχωρίστε έναν όρο αναζήτησης για να βρείτε το αντίστοιχο κείμενο στην οθόνη.</string>
   <string name="voice_commands_help_text_editing_description">Πληκτρολογήστε, επιλέξτε και αντιγράψτε κείμενο.</string>
   <string name="voice_commands_help_type_text">Πληκτρολόγηση [OK]</string>
-  <string name="voice_commands_help_copy_description">Βεβαιωθείτε ότι έχετε επιλέξει κείμενο πριν από την αντιγραφή.</string>
-  <string name="voice_commands_help_cut_description">Βεβαιωθείτε ότι έχετε επιλέξει κείμενο πριν από την αποκοπή.</string>
+  <string name="voice_commands_help_copy_description">Για αντιγραφή, επιλέξτε πρώτα κείμενο</string>
+  <string name="voice_commands_help_cut_description">Για αποκοπή, επιλέξτε πρώτα κείμενο</string>
+  <string name="voice_commands_help_delete_description">Για διαγραφή, επιλέξτε πρώτα κείμενο</string>
   <string name="voice_commands_help_device_navigation_title">Πλοήγηση συσκευής</string>
   <string name="voice_commands_help_device_navigation_description">Μεταβείτε στην Αρχική σελίδα, πάτε πίσω, εμφανίστε ειδοποιήσεις και πολλά άλλα.</string>
   <string name="voice_commands_help_overview_description">Δείτε τις πρόσφατες εφαρμογές σας.</string>

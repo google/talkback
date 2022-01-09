@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Ažuriranje položaja točaka. Prvo ćemo snimiti točke lijeve ruke. Dodirnite zaslon sa srednja tri prsta lijeve ruke i zadržite pritisak.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Ažuriranje položaja točaka. Prvo ćemo snimiti točke desne ruke. Dodirnite zaslon sa srednja tri prsta desne ruke i zadržite pritisak.</string>
   <string name="calibration_finish_announcement">Položaj točaka je ažuriran</string>
+  <string name="remaining_calibration_finish_announcement">Ažurirani su svi položaji točaka</string>
   <string name="calibration_step2_hold_right_finger_announcement">Ažurirani su položaji točaka 1, 2 i 3. Zatim ćemo snimiti točke desne ruke. Dodirnite zaslon sa srednja tri prsta desne ruke i zadržite pritisak.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Ažurirani su položaji točaka 1, 2 i 3. Zatim ćemo snimiti točke lijeve ruke. Dodirnite zaslon sa srednja tri prsta lijeve ruke i zadržite pritisak.</string>
   <string name="calibration_fail_announcement">Ažuriranje položaja točaka nije uspjelo. Dodirnite zaslon pomoću šest prstiju i zadržite pritisak. Zatim pokušajte ponovo.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unificirana brajica za engleski jezik</string>
   <string name="code_user_facing_name_es">španjolski</string>
   <string name="code_user_facing_name_ar">arapski</string>
+  <string name="code_user_facing_name_fr">francuski</string>
   <string name="title_pref_accumulate_presses">Uključi sve pritisnute točke</string>
   <string name="summary_pref_accumulate_presses">Svaka pritisnuta točka dio je unosa, čak i ako se otpusti prije drugih točaka</string>
   <string name="title_pref_reverse_dots">Obrni točke</string>
   <string name="summary_pref_reverse_dots">Zamjenjuju se položaji točaka, na primjer točke 1 i 4 zamjenjuju mjesta</string>
-  <string name="typing_echo_list_preference_title">Povratne informacije za tipkanje (jeka tipkanja)</string>
-  <string name="typing_echo_preference_label_characters">Čitaj sva slova i riječi</string>
-  <string name="typing_echo_preference_label_words">Čitaj samo riječi</string>
   <string name="context_menu_title">Opcije brajične tipkovnice</string>
   <string name="context_menu_typing_language_selection">Promjena jezika pisanja</string>
   <string name="context_menu_typing_language_selection_summary">Trenutačno upotrebljavate %s</string>

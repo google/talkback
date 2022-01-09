@@ -28,8 +28,8 @@ public class AccessibilityFocusEventInterpretation extends ReadOnly {
 
   private @Compositor.Event int event;
 
-  private boolean forceFeedbackAudioPlaybackActive = false;
-  private boolean forceFeedbackMicrophoneActive = false;
+  private boolean forceFeedbackAudioPlaybackActive = true;
+  private boolean forceFeedbackMicrophoneActive = true;
   private boolean forceFeedbackSsbActive = false;
   private boolean isInitialFocusAfterScreenStateChange = false;
   private boolean shouldMuteFeedback = false;

@@ -14,7 +14,7 @@
   <string name="notification_type_selection_mode_off">ఎంపిక మోడ్ ఆఫ్‌లో ఉంది</string>
   <string name="notification_type_selection_cleared">ఎంపిక తీసివేయబడింది</string>
   <string name="notification_category_call">కాల్</string>
-  <string name="notification_category_msg">సందేశం</string>
+  <string name="notification_category_msg">మెసేజ్‌</string>
   <string name="notification_category_email">ఇమెయిల్</string>
   <string name="notification_category_event">ఈవెంట్</string>
   <string name="notification_category_promo">ప్రోమో</string>
@@ -43,9 +43,9 @@
   </plurals>
   <string name="template_node_error_with_error_message">Error: %1$s</string>
   <string name="value_gridview">గ్రిడ్</string>
-  <string name="value_listview">జాబితా</string>
+  <string name="value_listview">లిస్ట్‌</string>
   <string name="value_tabwidget">ట్యాబ్ బార్</string>
-  <string name="value_spinner">డ్రాప్ డౌన్ జాబితా</string>
+  <string name="value_spinner">డ్రాప్ డౌన్ లిస్ట్‌</string>
   <string name="value_checkbox">తనిఖీ పెట్టె</string>
   <string name="value_radio_button">రేడియో బటన్</string>
   <string name="value_button">బటన్</string>
@@ -171,6 +171,10 @@
   <string name="template_speech_rate_change_slower">మరింత నెమ్మదిగా ఉంది</string>
   <string name="template_speech_rate_change_fastest">అత్యంత వేగవంతం</string>
   <string name="template_speech_rate_change_slowest">అత్యంత నెమ్మది</string>
+  <string name="template_volume_change_increase">వాల్యూమ్‌ను పెంచండి</string>
+  <string name="template_volume_change_decrease">వాల్యూమ్‌ను తగ్గించండి</string>
+  <string name="template_volume_change_maximum">గరిష్ఠం</string>
+  <string name="template_volume_change_minimum">కనిష్ఠం</string>
   <string name="template_seekbar_range">%1$d%%</string>
   <string name="audio_focus_on">ఆడియోను తగ్గించడం ఆన్‌లో ఉంది</string>
   <string name="audio_focus_off">ఆడియోను తగ్గించడం ఆఫ్‌లో ఉంది</string>

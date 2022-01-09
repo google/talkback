@@ -14,6 +14,7 @@
   <string name="voice_commands_language">语言</string>
   <string name="voice_commands_languages">语言</string>
   <string name="voice_commands_custom_actions">自定义操作</string>
+  <string name="voice_commands_action">操作</string>
   <string name="voice_commands_quick_settings">快捷设置</string>
   <string name="voice_commands_quick_setting">快捷设置</string>
   <string name="voice_commands_dim">调暗屏幕</string>
@@ -57,7 +58,7 @@
   <string name="voice_commands_bottom">将焦点移至最后一项</string>
   <string name="voice_commands_type">输入</string>
   <string name="voice_commands_input">输入</string>
-  <string name="voice_commands_dictate">语音输入</string>
+  <string name="voice_commands_dictate">说出</string>
   <string name="voice_commands_write">写入</string>
   <string name="voice_commands_Spell">拼写</string>
   <string name="voice_commands_talkback_settings">TalkBack 设置</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">抱歉！您的设备不支持此功能</string>
   <string name="voice_commands_error">识别语音指令时发生错误</string>
   <string name="voice_commands_partial_result">无法识别此指令。说“%1$s”即可查看全部指令列表。</string>
+  <string name="voice_commands_timeout">说“%1$s”即可查看全部指令列表。</string>
   <string name="voice_commands_many_requests">请稍后重试</string>
-  <string name="voice_commands_setting_disabled">“%1$s”设置未启用</string>
   <string name="voice_commands_echo_feedback_not_recognized">系统无法识别“%1$s”，这不是有效的语音指令。</string>
   <string name="voice_commands_label_saved">标签已保存</string>
   <string name="voice_commands_no_actions_feedback">没有可用的操作</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">语音指令概览</string>
   <string name="voice_commands_help_description">如要使用语音指令，请先向右再向上滑动。您随时可以说“帮助”或“我可以说什么？”来查看此指令列表。</string>
   <string name="voice_commands_help_hint">为了获得最佳的结果，请准确说出以下屏幕上列出的文字。</string>
+  <string name="voice_command_screen_locked_hint">屏幕处于锁定状态时，无法使用语音指令。如需改用 TalkBack 菜单，请%1$s。</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">更改当前屏幕上的内容朗读方式</string>
   <string name="voice_commands_help_next">下一个 [标题]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">输入搜索字词，即可在屏幕上查找相应文字</string>
   <string name="voice_commands_help_text_editing_description">输入、选择和复制文字</string>
   <string name="voice_commands_help_type_text">输入 [确定]</string>
-  <string name="voice_commands_help_copy_description">请务必先选择文字，再执行复制操作</string>
-  <string name="voice_commands_help_cut_description">请务必先选择文字，再执行剪切操作</string>
+  <string name="voice_commands_help_copy_description">先选择文字，然后才能复制</string>
+  <string name="voice_commands_help_cut_description">先选择文字，然后才能剪切</string>
+  <string name="voice_commands_help_delete_description">先选择文字，然后才能删除</string>
   <string name="voice_commands_help_device_navigation_title">设备导航</string>
   <string name="voice_commands_help_device_navigation_description">转到主屏幕、返回、显示通知等</string>
   <string name="voice_commands_help_overview_description">查看最近用过的应用</string>

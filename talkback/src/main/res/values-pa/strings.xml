@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">ਵਰਜਨ %1$s</string>
   <string name="label_manager_summary_title">ਵਿਉਂਂਤੀ ਲੇਬਲਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ</string>
   <string name="label_manager_package_title">%1$s ਲਈ ਲੇਬਲ ਵਿਵਸਥਿਤ ਕਰੋ</string>
+  <string name="manage_label">ਲੇਬਲ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ</string>
   <string name="label_manager_no_packages_message">ਇਸ ਵੇਲੇ ਕੋਈ ਵਿਉਂਤਿਆ ਲੇਬਲ ਨਹੀਂ ਹੈ। ਤੁਸੀਂ ਕਿਸੇ ਗੈਰ-ਲੇਬਲਬੱਧ ਚਿੱਤਰ \'ਤੇ ਜਾ ਕੇ ਅਤੇ ਫਿਰ TalkBack ਮੀਨੂ ਤੋਂ ਲੇਬਲ ਸ਼ਾਮਲ ਕਰਕੇ ਇੱਕ ਲੇਬਲ ਬਣਾ ਸਕਦੇ ਹੋ।</string>
   <string name="label_manager_timestamp_text">ਪਿਛਲੀ ਵਾਰ ਸੰਸ਼ੋਧਿਤ %1$s</string>
   <string name="search_dialog_label">ਖੋਜ: %1$s</string>
@@ -21,7 +22,7 @@
   <string name="search_mode_hint_selection">ਮੌਜੂਦਾ ਚੋਣ: %1$s।</string>
   <string name="notification_type_missed_call">ਮਿਸਡ ਕਾਲ</string>
   <string name="notification_type_status_mute">ਮਿਊਟ ਕਰੋ</string>
-  <string name="notification_type_status_chat">Chat</string>
+  <string name="notification_type_status_chat">ਚੈਟ</string>
   <string name="notification_type_status_error">ਅਸ਼ੁੱਧੀ</string>
   <string name="notification_type_status_more">ਹੋਰ</string>
   <string name="notification_type_status_sdcard">SD ਕਾਰਡ</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">ਸਪੱਰਸ਼ ਰਾਹੀਂ ਪੜਚੋਲ ਕਰੋ</string>
   <string name="title_pref_category_touch_exploration">ਨੈਵੀਗੇਸ਼ਨ</string>
   <string name="title_pref_category_controls">ਕੰਟਰੋਲ</string>
-  <string name="title_pref_single_tap">ਸਿੰਗਲ-ਟੈਪ ਨਾਲ ਕਿਰਿਆਸ਼ੀਲ ਕਰਨਾ</string>
+  <string name="title_pref_single_tap">ਕਿਰਿਆਸ਼ੀਲ ਕਰਨ ਲਈ ਇੱਕ ਵਾਰ ਟੈਪ ਕਰੋ</string>
   <string name="title_pref_show_context_menu_as_list">ਸੰਦਰਭੀ ਮੀਨੂ ਨੂੰ ਸੂਚੀ ਵਜੋਂ ਦਿਖਾਓ</string>
-  <string name="summary_pref_single_tap">(ਪ੍ਰਯੋਗਮਈ) ਕਿਰਿਆਸ਼ੀਲ ਕਰਨ ਲਈ ਫੋਕਸ ਕੀਤੀ ਆਈਟਮ \'ਤੇ ਇੱਕ ਵਾਰ ਟੈਪ ਕਰੋ</string>
+  <string name="summary_pref_single_tap">ਕਿਰਿਆਸ਼ੀਲ ਕਰਨ ਲਈ ਫੋਕਸ ਕੀਤੀ ਆਈਟਮ \'ਤੇ ਇੱਕ ਵਾਰ ਟੈਪ ਕਰੋ</string>
   <string name="title_pref_shake_to_read_threshold">ਲਗਾਤਾਰ ਪੜ੍ਹਨਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਹਿਲਾਓ</string>
   <string name="pref_verbosity_title">ਸ਼ਬਦ-ਵਰਤੋਂ</string>
   <string name="pref_punctuation_title">ਵਿਰਾਮ ਚਿੰਨ੍ਹ</string>
+  <string name="title_pref_category_manage_focus_indicator">ਫੋਕਸ ਸੂਚਕ ਨੂੰ ਵਿਉਂਤਬੱਧ ਕਰੋ</string>
   <string name="title_pref_category_manage_gestures">ਇਸ਼ਾਰਿਆਂ ਨੂੰ ਵਿਉਂਤਬੱਧ ਕਰੋ</string>
   <string name="title_pref_manage_labels">ਵਿਉਂਤਿਆ ਲੇਬਲ</string>
   <string name="title_pref_manage_customize_menus">ਮੀਨੂਆਂ ਨੂੰ ਵਿਉਂਤਬੱਧ ਕਰੋ</string>
@@ -111,7 +113,7 @@
   <string name="title_pref_play_store">Play Store ਵਿੱਚ TalkBack ਖੋਲ੍ਹੋ</string>
   <string name="summary_pref_play_store">ਮੌਜੂਦਾ TalkBack ਵਰਜਨ: %1$s</string>
   <string name="title_pref_help_and_feedback">ਮਦਦ ਅਤੇ ਵਿਚਾਰ</string>
-  <string name="pref_item_licenses">ਖੁੱਲ੍ਹਾ ਸਰੋਤ ਲਾਇਸੰਸ</string>
+  <string name="pref_item_licenses">ਖੁੱਲ੍ਹੇ ਸਰੋਤ ਲਾਇਸੰਸ</string>
   <string name="title_pref_help">ਮਦਦ</string>
   <string name="title_pref_show_tos">ਸੇਵਾ ਦੇ ਨਿਯਮ</string>
   <string name="title_pref_show_privacy_policy">ਪਰਦੇਦਾਰੀ ਨੀਤੀ</string>
@@ -120,7 +122,8 @@
   <string name="title_pref_category_built_in_gestures">ਬਿਲਟ-ਇਨ ਸੰਕੇਤ</string>
   <string name="title_pref_category_help_and_feedback">ਮਦਦ ਅਤੇ ਵਿਚਾਰ</string>
   <string name="title_pref_category_tutorial_and_help">ਟਿਊਟੋਰੀਅਲ ਅਤੇ ਮਦਦ</string>
-  <string name="title_pref_category_advanced">ਉੱਨਤ</string>
+  <string name="title_pref_category_advanced">ਅਡਵਾਂਸ</string>
+  <string name="title_pref_category_typing">ਟਾਈਪਿੰਗ ਅਤੇ ਕੀ-ਬੋਰਡ</string>
   <string name="title_pref_category_legal_and_privacy">ਕਨੂੰਨੀ ਅਤੇ ਪਰਦੇਦਾਰੀ</string>
   <string name="title_pref_advanced_settings">ਉੱਨਤ ਸੈਟਿੰਗਾਂ</string>
   <string name="reset_gesture_settings_title">ਇਸ਼ਾਰਾ ਸੈਟਿੰਗਾਂ ਨੂੰ ਰੀਸੈੱਟ ਕਰੋ</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">ਹਾਲੀਆ ਐਪਾਂ</string>
   <string name="keycombo_menu_global_notifications">ਸੂਚਨਾਵਾਂ</string>
   <string name="keycombo_menu_global_suspend">TalkBack ਨੂੰ ਰੋਕੋ ਜਾਂ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ</string>
+  <string name="keycombo_menu_global_play_pause_media">ਮੀਡੀਆ ਚਲਾਓ ਜਾਂ ਰੋਕੋ</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">ਅਗਲਾ ਪੜ੍ਹਨ ਸੰਬੰਧੀ ਕੰਟਰੋਲ ਚੁਣੋ</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">ਪਿਛਲਾ ਪੜ੍ਹਨ ਸੰਬੰਧੀ ਕੰਟਰੋਲ ਚੁਣੋ</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">ਪੜ੍ਹਨ ਸੰਬੰਧੀ ਕੰਟਰੋਲ ਨੂੰ ਉੱਪਰ ਵੱਲ ਵਿਵਸਥਿਤ ਕਰੋ</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">ਪੜ੍ਹਨ ਸੰਬੰਧੀ ਕੰਟਰੋਲ ਨੂੰ ਹੇਠਾਂ ਵੱਲ ਵਿਵਸਥਿਤ ਕਰੋ</string>
   <string name="keycombo_menu_category_granularity">ਨੈਵੀਗੇਸ਼ਨ</string>
   <string name="keycombo_menu_granularity_increase">ਅਗਲੀ ਨੈਵੀਗੇਸ਼ਨ ਸੈਟਿੰਗ</string>
   <string name="keycombo_menu_granularity_decrease">ਪਿਛਲੀ ਨੈਵੀਗੇਸ਼ਨ ਸੈਟਿੰਗ</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">ਕਾਪੀ ਕਰਨ ਲਈ ਕੋਈ ਲਿਖਤ ਨਹੀਂ ਹੈ, ਪਹਿਲਾਂ ਕੋਈ ਲਿਖਤ ਚੁਣੋ।</string>
   <string name="cannot_paste_feedback">ਪੇਸਟ ਕਰਨ ਲਈ ਕੋਈ ਲਿਖਤ ਨਹੀਂ ਹੈ, ਪਹਿਲਾਂ ਕੁਝ ਲਿਖਤ ਕਾਪੀ ਕਰੋ।</string>
   <string name="cannot_cut_feedback">ਕੱਟਣ ਲਈ ਕੋਈ ਲਿਖਤ ਨਹੀਂ ਹੈ, ਪਹਿਲਾਂ ਕੁਝ ਲਿਖਤ ਚੁਣੋ।</string>
+  <string name="cannot_delete_feedback">ਮਿਟਾਉਣ ਲਈ ਕੋਈ ਲਿਖਤ ਨਹੀਂ ਹੈ, ਪਹਿਲਾਂ ਕੁਝ ਲਿਖਤ ਚੁਣੋ।</string>
   <string name="message_in_reset_keymap_confirm_dialog">ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਇਸ ਕੀਮੈਪ ਲਈ ਆਪਣੀਆਂ ਸ਼ਾਰਟਕੱਟ ਕੁੰਜੀਆਂ ਨੂੰ ਉਹਨਾਂ ਦੇ ਪੂਰਵ-ਨਿਰਧਾਰਤ ਮੁੱਲਾਂ \'ਤੇ ਰੀਸੈੱਟ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ? ਕਿਰਪਾ ਕਰਕੇ ਨੋਟ ਕਰੋ, ਇਸ ਕਾਰਵਾਈ ਨੂੰ ਅਣਕੀਤਾ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">ਰੀਸੈੱਟ ਕਰੋ</string>
   <string name="override_keycombo">ਕੁੰਜੀ ਪਹਿਲਾਂ ਹੀ ਵਰਤੋਂ ਵਿੱਚ ਹੈ</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">ਪਿਚ ਬਦਲਾਵ ਵਰਤੋ</string>
   <string name="title_pref_keyboard_echo">ਕੀ-ਬੋਰਡ ਈਕੋ</string>
   <string name="pref_node_desc_order_title">ਅੰਸ਼ ਵਰਣਨ ਕ੍ਰਮ</string>
-  <string name="summaryOn_pref_intonation">ਹਲਕੀ ਅਵਾਜ਼ ਵਿੱਚ ਕੀ-ਬੋਰਡ ਵਿਚਾਰ ਬੋਲੋ</string>
+  <string name="summaryOn_pref_intonation">ਕੀ-ਬੋਰਡ ਰਾਹੀਂ ਮਿਟਾਈ ਗਈ ਲਿਖਤ ਨੂੰ ਉੱਚੀ ਸੁਰ ਵਾਲੀ ਅਵਾਜ਼ ਵਿੱਚ ਬੋਲੋ</string>
   <string name="summaryOff_pref_intonation">ਬੋਲਦੇ ਸਮੇਂ ਵੌਇਸ ਪਿਚ ਨਾ ਬਦਲੋ</string>
   <string name="title_pref_brailleime">ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ</string>
   <string name="title_pref_category_feedback_settings">ਹੋਰ ਵਿਚਾਰ</string>
@@ -245,7 +254,7 @@
   <string name="title_pref_soundback_volume">ਧੁਨੀ ਸੰਬੰਧੀ ਵਿਚਾਰ ਦੀ ਅਵਾਜ਼</string>
   <string name="title_pref_two_volume_button_long_click">TalkBack ਨੂੰ ਮੁਅੱਤਲ ਅਤੇ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰਨ ਦਾ ਸ਼ਾਰਟਕੱਟ</string>
   <string name="title_pref_dim_volume_three_clicks">ਸਕ੍ਰੀਨ ਸ਼ਾਰਟਕੱਟ ਨੂੰ ਲੁਕਾਓ</string>
-  <string name="title_pref_category_miscellaneous_settings">ਵਿਵਿਧ</string>
+  <string name="title_pref_category_miscellaneous_settings">ਫੁਟਕਲ</string>
   <string name="title_pref_category_developer_settings">ਵਿਕਾਸਕਾਰ ਸੈਟਿੰਗਾਂ</string>
   <string name="title_activity_dump_a11y_event">ਲੌਗ ਲਈ ਇਵੈਂਟ ਚੁਣੋ</string>
   <string name="title_pref_dump_a11y_event">ਪਹੁੰਚਯੋਗਤਾ ਇਵੈਂਟ ਲੌਗਿੰਗ ਫਿਲਟਰ ਕਰੋ</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">ਨੋਡ ਟ੍ਰੀ ਡੀਬਗਿੰਗ ਨੂੰ ਚਾਲੂ ਕਰੋ</string>
   <string name="summary_pref_tree_debug_tv">ਖੋਜ ਕਰਨ ਦੀ ਬਜਾਏ ਨੋਡ ਟ੍ਰੀ ਨੂੰ ਪ੍ਰਿੰਟ ਕਰਨ ਲਈ ਵੌਇਸ ਖੋਜ ਕੁੰਜੀ ਦੀ ਵਰਤੋਂ ਕਰੋ</string>
   <string name="title_pref_performance_stats">ਪ੍ਰਦਰਸ਼ਨ ਅੰਕੜਿਆਂ ਨੂੰ ਚਾਲੂ ਕਰੋ</string>
+  <string name="title_pref_log_overlay">ਡੀਬੱਗ ਲੌਗ ਓਵਰਲੇ ਨੂੰ ਚਾਲੂ ਕਰੋ</string>
   <string name="title_pref_resume_talkback">ਸਥਗਿਤ ਕੀਤੇ ਤੋਂ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ</string>
+  <string name="title_pref_typing_confirmation">ਟਾਈਪਿੰਗ ਦੀ ਤਰਜੀਹ</string>
   <string name="title_pref_multi_finger_gesture">\'ਇੱਕ ਤੋਂ ਵੱਧ ਉਂਗਲਾਂ ਨਾਲ ਇਸ਼ਾਰੇ\' ਵਾਲੀ ਵਿਸ਼ੇਸ਼ਤਾ ਨੂੰ ਚਾਲੂ ਕਰੋ</string>
   <string name="screen_dimmed">ਸਕ੍ਰੀਨ ਨੂੰ ਲੁਕਾਇਆ ਗਿਆ</string>
   <string name="screen_brightness_restored">ਸਕ੍ਰੀਨ ਦਿਖਾਈ ਜਾ ਰਹੀ ਹੈ</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">ਹੇਠਾਂ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ</string>
   <string name="shortcut_scroll_left">ਖੱਬੇ ਪਾਸੇ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ</string>
   <string name="shortcut_scroll_right">ਸੱਜੇ ਪਾਸੇ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ</string>
+  <string name="shortcut_next_window">ਅਗਲੀ ਵਿੰਡੋ</string>
+  <string name="shortcut_previous_window">ਪਿਛਲੀ ਵਿੰਡੋ</string>
   <string name="shortcut_back">ਪਿੱਛੇ</string>
   <string name="shortcut_home">ਹੋਮ</string>
   <string name="shortcut_overview">ਰੂਪ-ਰੇਖਾ</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">ਸਕ੍ਰੀਨ ਨੂੰ ਲੁਕਾਓ ਜਾਂ ਦਿਖਾਓ</string>
   <string name="title_show_screen_search">ਸਕ੍ਰੀਨ ਖੋਜ</string>
   <string name="title_show_voice_commands">ਅਵਾਜ਼ੀ ਆਦੇਸ਼</string>
+  <string name="talkback_show_talkback_settings">TalkBack ਸੈਟਿੰਗਾਂ</string>
   <string name="title_other_web_navigation">ਹੋਰ ਵੈੱਬ ਨੈਵੀਗੇਸ਼ਨ</string>
   <string name="title_granularity_default">ਪੂਰਵ-ਨਿਰਧਾਰਿਤ ਨੈਵੀਗੇਸ਼ਨ</string>
   <string name="title_seek_bar_edit">ਸਲਾਈਡਰ ਪੱਧਰ ਦਾ ਸੰਪਾਦਨ ਕਰੋ</string>
@@ -374,7 +388,7 @@
   <string name="summary_context_menu_links">ਲਿੰਕਾਂ ਨੂੰ ਫੋਕਸ ਕੀਤੀ ਆਈਟਮ ਦੇ ਅੰਦਰ ਖੋਲ੍ਹੋ</string>
   <string name="summary_viewpager_controls">ਅਗਲੇ ਜਾਂ ਪਿਛਲੇ ਪੰਨੇ \'ਤੇ ਜਾਓ। ਉਦੋਂ ਦਿਸਦਾ ਹੈ, ਜਦੋਂ ਤੁਸੀਂ ਇੱਕ ਤੋਂ ਵੱਧ ਪੰਨਿਆਂ ਤੋਂ ਸਮੱਗਰੀ ਪੜ੍ਹ ਰਹੇ ਹੁੰਦੇ ਹੋ।</string>
   <string name="summary_labeling_controls">ਉਦੋਂ ਦਿਸਦਾ ਹੈ, ਜਦੋਂ ਤੁਸੀਂ ਕੋਈ ਗੈਰ-ਲੇਬਲਬੱਧ ਆਈਟਮ ਚੁਣਦੇ ਹੋ</string>
-  <string name="summary_adjust_slider">ਸਲਾਈਡਰ ਦੀ ਗਿਣਤੀ ਜਾਂ ਪ੍ਰਤੀਸ਼ਤਤਾ ਨੂੰ ਅੱਪਡੇਟ ਕਰੋ</string>
+  <string name="summary_adjust_slider">ਸਲਾਈਡਰ ਦੀ ਗਿਣਤੀ ਜਾਂ ਫ਼ੀਸਦ ਨੂੰ ਅੱਪਡੇਟ ਕਰੋ</string>
   <string name="summary_granularity">ਅੱਖਰ-ਚਿੰਨ੍ਹ, ਸ਼ਬਦ, ਲਾਈਨਾਂ ਅਤੇ ਹੋਰ ਵਿਕਲਪਾਂ ਮੁਤਾਬਕ ਪੜ੍ਹੋ</string>
   <string name="summary_read_from_top">ਸਿਖਰ ਤੋਂ ਸ਼ੁਰੂ ਕਰਕੇ, ਸਕ੍ਰੀਨ \'ਤੇ ਦਿੱਤੀਆਂ ਸਾਰੀਆਂ ਆਈਟਮਾਂ ਨੂੰ ਪੜ੍ਹੋ</string>
   <string name="summary_read_from_current">ਅਗਲੀ ਆਈਟਮ ਤੋਂ ਸ਼ੁਰੂ ਕਰਕੇ, ਸਕ੍ਰੀਨ \'ਤੇ ਦਿੱਤੀਆਂ ਸਾਰੀਆਂ ਆਈਟਮਾਂ ਨੂੰ ਪੜ੍ਹੋ</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">ਆਪਣੀ ਅਵਾਜ਼ ਨਾਲ TalkBack ਨੂੰ ਕੰਟਰੋਲ ਕਰੋ</string>
   <string name="summary_show_hide_screen">ਡਿਸਪਲੇ ਲੁਕਾਓ ਤਾਂ ਜੋ ਜਨਤਕ ਥਾਂਵਾਂ \'ਤੇ ਤੁਹਾਡੀ ਸਕ੍ਰੀਨ ਹੋਰਾਂ ਨੂੰ ਦਿਖਾਈ ਨਾ ਦੇਵੇ। ਸਕ੍ਰੀਨ ਲੁਕਾਉਣ ਦੀ ਲੋੜ ਨਾ ਹੋਣ \'ਤੇ, ਇਸ ਨੂੰ ਆਮ ਸਥਿਤੀ ਵਿੱਚ ਵਾਪਸ ਲਿਆਓ।</string>
   <string name="summary_talkback_preferences">TalkBack ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ</string>
-  <string name="summary_system_actions">ਸਾਰੀਆਂ ਐਪਾਂ, ਤਤਕਾਲ ਸੈਟਿੰਗਾਂ \'ਤੇ ਜਾਓ ਅਤੇ ਸਪਲਿਟ ਸਕ੍ਰੀਨ ਨੂੰ ਵਰਤੋ</string>
+  <string name="summary_system_actions">ਸਾਰੀਆਂ ਐਪਾਂ ਦੀਆਂ ਤਤਕਾਲ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਜਾਓ</string>
   <string name="summary_tts_settings">ਲਿਖਤ-ਤੋਂ-ਬੋਲੀ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ</string>
   <string name="summary_pause_feedback">TalkBack ਅਵਾਜ਼ੀ ਵਿਚਾਰ ਨੂੰ ਬੰਦ ਕਰੋ</string>
   <string name="not_editable">ਸੰਪਾਦਨਯੋਗ ਨਹੀਂ</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">ਇੱਕ ਸਮੇਂ \'ਤੇ ਇੱਕ ਸ਼ਬਦ ਪੜ੍ਹੋ</string>
   <string name="summary_lines">ਇੱਕ ਸਮੇਂ \'ਤੇ ਇੱਕ ਲਾਈਨ ਪੜ੍ਹੋ</string>
   <string name="summary_paragraphs">ਇੱਕ ਸਮੇਂ \'ਤੇ ਇੱਕ ਪੈਰਾ ਪੜ੍ਹੋ</string>
+  <string name="summary_windows">ਅਵਾਜ਼ ਕੰਟਰੋਲ ਜਾਂ ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼ ਪੱਟੀ ਵਰਗੀਆਂ ਹੋਰ ਵਿੰਡੋਆਂ \'ਤੇ ਜਾਓ</string>
   <string name="summary_headings">ਇੱਕ ਤੋਂ ਦੂਜੇ ਸਿਰਲੇਖ \'ਤੇ ਜਾਓ</string>
   <string name="summary_controls">ਉਹਨਾਂ ਆਈਟਮਾਂ ਦੇ ਵਿਚਾਲੇ ਅਦਲਾ ਬਦਲੀ ਕਰੋ, ਜਿਨ੍ਹਾਂ ਨਾਲ ਤੁਸੀਂ ਅੰਤਰਕਿਰਿਆ ਕਰ ਸਕਦੇ ਹੋ ਜਿਵੇਂ ਕਿ ਬਟਨ, ਚੈੱਕ-ਬਾਕਸ ਅਤੇ ਲਿਖਤ ਖੇਤਰ</string>
   <string name="summary_links">ਇੱਕ ਤੋਂ ਦੂਜੇ ਲਿੰਕ \'ਤੇ ਜਾਓ</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">ਟਾਈਪ ਕੀਤੀਆਂ ਕੁੰਜੀਆਂ, ਵਰਤੋਂ ਸੰਕੇਤ, ਗ੍ਰਿਡ ਜਾਣਕਾਰੀ ਅਤੇ ਹੋਰ ਜਾਣਕਾਰੀ ਨੂੰ ਉੱਚੀ ਪੜ੍ਹਨਾ ਹੈ ਜਾਂ ਨਹੀਂ, ਇਸ ਬਾਰੇ ਬਦਲੋ</string>
   <string name="summary_selector_menu_punctuation">ਵਿਰਾਮ ਚਿੰਨ੍ਹ ਅਤੇ ਚਿੰਨ੍ਹ ਉੱਚੀ ਆਵਾਜ਼ ਵਿੱਚ ਬੋਲਣੇ ਹਨ ਜਾਂ ਨਹੀਂ, ਇਸ ਬਾਰੇ ਬਦਲੋ</string>
   <string name="summary_language">ਆਪਣੀ ਬੋਲਚਾਲ ਦੀ ਭਾਸ਼ਾ ਬਦਲੋ। ਸਿਰਫ਼ ਉਦੋਂ ਹੀ ਦਿਸਦਾ ਹੈ ਜਦੋਂ ਤੁਹਾਡੇ ਕੋਲ ਇੱਕ ਤੋਂ ਵੱਧ ਲਿਖਤ-ਤੋਂ-ਬੋਲੀ ਭਾਸ਼ਾਵਾਂ ਸਥਾਪਤ ਕੀਤੀਆਂ ਹੋਈਆਂ ਹੋਣ।</string>
-  <string name="summary_sound_feedback">ਨੈਵੀਗੇਟ ਕਰਨ \'ਤੇ ਧੁਨੀ ਪ੍ਰਭਾਵਾਂ ਨੂੰ ਸੁਣੋ, ਜਿਵੇਂ ਕਿ ਕਿਸੇ ਕਾਰਵਾਈ ਦੀ ਤਸਦੀਕ ਕਰਨ ਲਈ ਬੀਪ।</string>
+  <string name="summary_sound_feedback">ਨੈਵੀਗੇਟ ਕਰਨ \'ਤੇ ਧੁਨੀ ਪ੍ਰਭਾਵਾਂ ਨੂੰ ਸੁਣੋ, ਜਿਵੇਂ ਕਿ ਕਿਸੇ ਕਾਰਵਾਈ ਦੀ ਤਸਦੀਕ ਕਰਨ ਲਈ ਬੀਪ</string>
   <string name="summary_vibration_feedback">ਕਿਸੇ ਆਈਟਮ ਨੂੰ ਚੁਣੇ ਜਾਣ ਵਰਗੀਆਂ ਕਾਰਵਾਈਆਂ ਲਈ ਥਰਥਰਾਹਟਾਂ ਨੂੰ ਮਹਿਸੂਸ ਕਰੋ। ਇਸ ਨਾਲ ਐਪਾਂ ਜਾਂ ਸਿਸਟਮ ਤੋਂ ਆਉਣ ਵਾਲੀਆਂ ਥਰਥਰਾਹਟਾਂ \'ਤੇ ਪ੍ਰਭਾਵ ਨਹੀਂ ਪੈਂਦਾ।</string>
   <string name="summary_hide_screen">ਡਿਸਪਲੇ ਲੁਕਾਓ ਤਾਂ ਜੋ ਜਨਤਕ ਥਾਵਾਂ \'ਤੇ ਤੁਹਾਡੀ ਸਕ੍ਰੀਨ ਹੋਰਾਂ ਨੂੰ ਦਿਖਾਈ ਨਾ ਦੇਵੇ</string>
   <string name="summary_audio_ducking">TalkBack ਦੇ ਬੋਲਣ \'ਤੇ, ਚੱਲ ਰਹੀ ਹੋਰ ਆਡੀਓ ਦੀ ਅਵਾਜ਼ ਨੂੰ ਘੱਟ ਕਰੋ</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">ਅੱਗੇ ਜਾਂ ਪਿੱਛੇ ਵੱਲ ਸਕ੍ਰੋਲ ਕਰੋ</string>
+  <string name="summary_support_change_a11y_volume">ਪਹੁੰਚਯੋਗਤਾ ਅਵਾਜ਼ ਘਟਾਓ ਜਾਂ ਵਧਾਓ</string>
+  <string name="summary_image_caption">ਇਸ ਚਿੱਤਰ ਲਈ ਸਵੈਚਲਿਤ ਤੌਰ \'ਤੇ ਵਰਣਨ ਪ੍ਰਾਪਤ ਕਰੋ</string>
   <string name="value_direction_up">ਉੱਪਰ</string>
   <string name="value_direction_down">ਹੇਠਾਂ</string>
   <string name="value_direction_left">ਖੱਬੇ</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">2 ਉਂਗਲਾਂ ਨਾਲ ਡਬਲ-ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">3 ਉਂਗਲਾਂ ਨਾਲ ਡਬਲ-ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">4 ਉਂਗਲਾਂ ਨਾਲ ਡਬਲ-ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">2 ਉਂਗਲਾਂ ਨਾਲ ਟ੍ਰਿਪਲ ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ</string>
+  <string name="seekbar_hint_2gesture">ਵਿਵਸਥਿਤ ਕਰਨ ਲਈ \"%1$s\" ਜਾਂ %2$s\"</string>
+  <string name="seekbar_hint_1gesture">ਵਿਵਸਥਿਤ ਕਰਨ ਲਈ \"%1$s\"</string>
   <string name="gesture_name_unknown">ਅਗਿਆਤ ਇਸ਼ਾਰਾ</string>
   <string name="gesture_name_pass_through">ਸਿਸਟਮ ਇਸ਼ਾਰੇ ਰਾਹੀਂ ਅੱਗੇ ਲੰਘਾਓ</string>
   <string name="gesture_name_touch_explore">ਪੜਚੋਲ ਕਰਨ ਲਈ ਸਪਰਸ਼ ਕਰੋ</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">ਡਬਲ ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ</string>
   <string name="gesture_name_2finger_tap_hold">2 ਉਂਗਲਾਂ ਨਾਲ ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ</string>
   <string name="gesture_name_3finger_tap_hold">3 ਉਂਗਲਾਂ ਨਾਲ ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ</string>
+  <string name="gesture_name_2finger_3tap_hold">2 ਉਂਗਲਾਂ ਨਾਲ ਟ੍ਰਿਪਲ ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ</string>
   <string name="gesture_name_3finger_3tap_hold">3 ਉਂਗਲਾਂ ਨਾਲ ਟ੍ਰਿਪਲ ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ</string>
   <string name="title_pref_shortcut_fingerprint_up">ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ \'ਤੇ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
   <string name="title_pref_shortcut_fingerprint_down">ਫਿੰਗਰਪ੍ਰਿੰਟ ਸੈਂਸਰ \'ਤੇ ਹੇਠਾਂ ਨੂੰ ਸਵਾਈਪ ਕਰੋ</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">ਜਦੋਂ ਸਕ੍ਰੀਨ ਚਾਲੂ ਹੁੰਦੀ ਹੈ</string>
   <string name="value_resume_keyguard">ਜਦੋਂ  ਲਾਕ  ਸਕ੍ਰੀਨ ਦਿਖਾਈ ਜਾਂਦੀ ਹੈ</string>
   <string name="value_resume_manual">ਕੇਵਲ ਸੂਚਨਾ ਤੋਂ</string>
+  <string name="value_type_confirmation_double_tap">ਕੁੰਜੀ ਨੂੰ ਚੁਣਨ ਲਈ ਉਸਨੂੰ ਦੱਬਕੇ ਰੱਖੋ ਅਤੇ ਫਿਰ ਡਬਲ ਟੈਪ ਕਰੋ</string>
+  <string name="value_type_confirmation_lift_to_type">ਕੁੰਜੀ ਨੂੰ ਚੁਣਨ ਲਈ ਉਸਨੂੰ ਦੱਬਕੇ ਰੱਖੋ ਅਤੇ ਫਿਰ ਉਂਗਲ ਚੁੱਕੋ</string>
   <string name="value_shake_to_read_disabled">ਬੰਦ ਹੈ</string>
   <string name="value_shake_to_read_threshold_very_light">ਬਹੁਤ ਲਾਈਟ</string>
   <string name="value_shake_to_read_threshold_light">ਲਾਈਟ</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">ਹਮੇਸ਼ਾਂ ਟਾਈਪ ਕੀਤੀਆਂ ਕੁੰਜੀਆਂ ਬੋਲੋ</string>
   <string name="value_keyboard_echo_softkeys">ਸਿਰਫ਼ ਆਨ-ਸਕ੍ਰੀਨ ਕੀ-ਬੋਰਡ ਲਈ</string>
   <string name="value_keyboard_echo_never">ਕਦੇ ਵੀ ਟਾਈਪ ਕੀਤੀਆਂ ਕੁੰਜੀਆਂ ਨਾ ਬੋਲੋ</string>
+  <string name="title_pref_keyboard_echo_on_screen">ਕੀ-ਬੋਰਡ ਈਕੋ: ਆਨ-ਸਕ੍ਰੀਨ ਕੀ-ਬੋਰਡ</string>
+  <string name="title_pref_keyboard_echo_physical">ਕੀ-ਬੋਰਡ ਈਕੋ: ਭੌਤਿਕ ਕੀ-ਬੋਰਡ</string>
+  <string name="value_keyboard_echo_none">ਕੋਈ ਨਹੀਂ</string>
+  <string name="value_keyboard_echo_characters_only">ਅੱਖਰ-ਚਿੰਨ੍ਹ</string>
+  <string name="value_keyboard_echo_words_only">ਸ਼ਬਦ</string>
+  <string name="value_keyboard_echo_characters_and_words">ਅੱਖਰ-ਚਿੰਨ੍ਹ ਅਤੇ ਸ਼ਬਦ</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">ਰਾਜ, ਨਾਮ, ਕਿਸਮ</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">ਕਿਸਮ, ਨਾਮ, ਰਾਜ</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">ਨਾਮ, ਕਿਸਮ, ਰਾਜ</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ ਤੇ ਨੋਡ ਟ੍ਰੀ ਡੀਬੱਗਿੰਗ ਚਾਲੂ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?\n\nਨੋਡ ਟ੍ਰੀ ਡੀਬੱਗਿੰਗ ਤੁਹਾਡੀ ਸਕ੍ਰੀਨ ਦੀ ਸਮੱਗਰੀ ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਦੇ ਲੌਗਸ ਨੂੰ ਪ੍ਰਗਟ ਕਰਦੀ ਹੈ, ਜੋ ਹੋਰਾਂ ਐਪਲੀਕੇਸ਼ਨਾਂ ਵੱਲੋਂ ਪੜ੍ਹੀ ਜਾ ਸਕਦੀ ਹੈ।</string>
   <string name="dialog_title_enable_performance_stats">ਕੀ ਪ੍ਰਦਰਸ਼ਨ ਅੰਕੜਿਆਂ ਨੂੰ ਚਾਲੂ ਕਰਨਾ ਹੈ?</string>
   <string name="dialog_message_enable_performance_stats">ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਪ੍ਰਦਰਸ਼ਨ ਅੰਕੜਿਆਂ ਨੂੰ ਚਾਲੂ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?\n\nਪ੍ਰਦਰਸ਼ਨ ਅੰਕੜੇ ਵਧੇਰੇ ਮੈਮਰੀ ਅਤੇ ਪਾਵਰ ਦੀ ਖਪਤ ਕਰ ਸਕਦੇ ਹਨ।</string>
+  <string name="title_request_phone_permission">ਕੀ ਫ਼ੋਨ ਤੱਕ ਪਹੁੰਚ ਕਰਨ ਦੇਣੀ ਹੈ?</string>
+  <string name="message_request_phone_permission">ਤੁਹਾਡੇ ਕਾਲ \'ਤੇ ਹੋਣ ਦੌਰਾਨ, ਇਹ TalkBack ਨੂੰ ਘੋਸ਼ਣਾਵਾਂ ਘਟਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ</string>
+  <string name="continue_button">ਜਾਰੀ ਰੱਖੋ</string>
   <string name="label_talkback_context_menu">TalkBack ਗਲੋਬਲ ਸੰਦਰਭੀ ਮੀਨੂ</string>
   <string name="permission_talkback_label">TalkBack ਤੇ ਨਿਯੰਤਰਣ ਪਾਓ</string>
   <string name="permission_talkback_desc">TalkBack ਨੂੰ ਸੰਕੇਤ ਭੇਜਣ ਅਤੇ ਬੋਲਿਆ ਗਿਆ ਫੀਡਬੈਕ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰਨ ਦੀ ਅਨੁਮਤੀ।</string>
-  <string name="permission_labeling_label">TalkBack ਵਿਉਂਤੀ ਲੇਬਲ ਪ੍ਰਬੰਧਿਤ ਕਰੋ</string>
-  <string name="permission_labeling_desc">TalkBack ਰਾਹੀਂ ਕਸਟਮ ਲੇਬਲਾਂ ਤੱਕ ਪਹੁੰਚ, ਸੰਸ਼ੋਧਿਤ ਕਰਨ ਅਤੇ ਮਿਟਾਉਣ ਦੀ ਇਜਾਜ਼ਤ।</string>
   <string name="links">ਲਿੰਕ</string>
   <string name="end_of_text">ਖ਼ਤਮ</string>
   <string name="start_of_page">ਕੋਈ ਪਿਛਲੀ %1$s ਨਹੀਂ</string>
@@ -589,7 +619,7 @@
   <string name="template_window_switch_application">%1$s</string>
   <string name="template_window_switch_system">%1$s</string>
   <string name="status_bar">ਸਥਿਤੀ ਪੱਟੀ</string>
-  <string name="navigation_bar">ਦਿਸ਼ਾ-ਨਿਰਦੇਸ਼ ਪੱਟੀ</string>
+  <string name="navigation_bar">ਨੈਵੀਗੇਸ਼ਨ ਵਾਲੀ ਪੱਟੀ</string>
   <plurals name="template_dump_event_count">
     <item quantity="one">%1$d ਵਰਤਾਰੇ ਚੁਣੇ ਗਏ</item>
     <item quantity="other">%1$d ਵਰਤਾਰੇ ਚੁਣੇ ਗਏ</item>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">ਵਿਰਾਮ ਚਿੰਨ੍ਹ</string>
   <string name="title_pref_selector_granularity">ਨੈਵੀਗੇਸ਼ਨ</string>
   <string name="title_pref_selector_audio_focus">ਆਡੀਓ ਡੱਕਿੰਗ</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">ਸਕ੍ਰੋਲ ਕਰੋ</string>
+  <string name="title_pref_a11y_volume">ਪਹੁੰਚਯੋਗਤਾ ਅਵਾਜ਼</string>
   <string name="title_pref_selector_adjustable_widget_slider">ਸਲਾਈਡਰ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰੋ</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">ਮੁੱਲ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰੋ</string>
   <string name="title_pref_speak_passwords_without_headphones">ਪਾਸਵਰਡ ਬੋਲੋ</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">ਅਵਾਜ਼ੀ ਆਦੇਸ਼ਾਂ ਦੀ ਵਰਤੋਂ ਕਰੋ</string>
   <string name="dialog_title_pass_through_mode">ਸਿਸਟਮ ਇਸ਼ਾਰਿਆਂ ਨੂੰ ਵਰਤਣ ਲਈ TalkBack ਇਸ਼ਾਰਿਆਂ ਨੂੰ ਛੱਡੋ</string>
   <string name="dialog_message_pass_through_mode">ਜਦੋਂ ਤੁਸੀਂ ਘੰਟੀ ਦੀ ਅਵਾਜ਼ ਸੁਣਦੇ ਹੋ, ਤਾਂ ਤੁਸੀਂ ਉਸ ਸਿਸਟਮ ਇਸ਼ਾਰੇ ਨੂੰ ਵਰਤ ਸਕਦੇ ਹੋ, ਜਿਸ ਦਾ ਸਮਰਥਨ TalkBack ਵੱਲੋਂ ਨਹੀਂ ਕੀਤਾ ਜਾਂਦਾ। ਇਸ ਨੂੰ ਇਸ਼ਾਰੇ ਰਾਹੀਂ ਅੱਗੇ ਲੰਘਾਓਇਸ ਨੂੰ ਪਾਸ-ਥਰੂ ਇਸ਼ਾਰੇ ਵਜੋਂ ਜਾਣਿਆ ਜਾਂਦਾ ਹੈ। ਵਜੋਂ ਜਾਣਿਆ ਜਾਂਦਾ ਹੈ।</string>
-  <string name="hint_type_search_term">ਖੋਜ ਸ਼ਬਦ ਟਾਈਪ ਕਰੋ</string>
+  <string name="hint_type_search_term">ਖੋਜ ਸ਼ਬਦ</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack ਦਾ ਸੂਚਨਾ ਚੈਨਲ</string>
   <string name="pref_selector_summary">ਸੈਟਿੰਗ ਨੂੰ ਚੁਣਨ ਲਈ %1$s। ਫਿਰ ਸੈਟਿੰਗ ਨੂੰ ਵਿਵਸਥਿਤ ਕਰਨ ਲਈ %2$s।</string>
@@ -763,7 +794,7 @@
   <string name="edit_box_text">TalkBack ਵਿੱਚ ਜੀ ਆਇਆਂ ਨੂੰ</string>
   <string name="selecting_text_title">ਲਿਖਤ ਨੂੰ ਚੁਣਨਾ</string>
   <string name="selecting_text_text">ਲਿਖਤ ਬਾਕਸ ਵਿੱਚ, ਕਰਸਰ ਨੂੰ ਉਸ ਲਿਖਤ ਦੇ ਸ਼ੁਰੂ ਵਿੱਚ ਲੈ ਜਾਓ, ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਚੁਣਨਾ ਚਾਹੁੰਦੇ ਹੋ।\n\nਚੋਣ ਮੋਡ ਸ਼ੁਰੂ ਕਰਨ ਲਈ 2 ਉਂਗਲਾਂ ਨਾਲ ਡਬਲ ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ। ਫਿਰ ਕਰਸਰ ਨੂੰ ਲਿਖਤ ਦੇ ਅਖੀਰ ਵਿੱਚ ਲੈ ਜਾਓ। ਚੋਣ ਮੋਡ ਬੰਦ ਕਰਨ ਲਈ ਦੁਬਾਰਾ 2 ਉਂਗਲਾਂ ਨਾਲ ਡਬਲ ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ।\n\nਹੇਠਾਂ ਦਿੱਤੇ ਲਿਖਤ ਬਾਕਸ ਵਿੱਚ \"ਜੀ ਆਇਆਂ ਨੂੰ\" ਸ਼ਬਦ ਨੂੰ ਚੁਣ ਕੇ ਦੇਖੋ।</string>
-  <string name="selecting_text_text_pre_r">ਲਿਖਤ ਬਾਕਸ ਵਿੱਚ, ਕਰਸਰ ਨੂੰ ਉਸ ਲਿਖਤ ਦੇ ਸ਼ੁਰੂ ਵਿੱਚ ਲੈ ਜਾਓ, ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਚੁਣਨਾ ਚਾਹੁੰਦੇ ਹੋ।\n\nTalkback ਮੀਨੂ ਖੋਲ੍ਹਣ ਲਈ, ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰਕੇ ਫਿਰ ਸੱਜੇ ਪਾਸੇ ਵੱਲ ਸਵਾਈਪ ਕਰੋ। ਸੰਪਾਦਨ ਵਿਕਲਪਾਂ \'ਤੇ ਡਬਲ ਟੈਪ ਕਰੋ ਅਤੇ ਫਿਰ ਚੋਣ ਮੋਡ ਸ਼ੁਰੂ ਕਰੋ। ਕਰਸਰ ਨੂੰ ਲਿਖਤ ਦੇ ਅਖੀਰ ਵਿੱਚ ਲੈ ਜਾਓ।\n\nTalkBack ਮੀਨੂ ਨੂੰ ਦੁਬਾਰਾ ਖੋਲ੍ਹੋ, ਫਿਰ ਚੋਣ ਮੋਡ ਬੰਦ ਕਰਨ ਲਈ ਸੰਪਾਦਨ ਵਿਕਲਪਾਂ \'ਤੇ ਡਬਲ ਟੈਪ ਕਰੋ।\n\nਹੇਠਾਂ ਦਿੱਤੇ ਲਿਖਤ ਬਾਕਸ ਵਿੱਚ \"ਜੀ ਆਇਆਂ ਨੂੰ\" ਸ਼ਬਦ ਨੂੰ ਚੁਣ ਕੇ ਦੇਖੋ।</string>
+  <string name="selecting_text_text_pre_r">ਲਿਖਤ ਬਾਕਸ ਵਿੱਚ, ਕਰਸਰ ਨੂੰ ਉਸ ਲਿਖਤ ਦੇ ਸ਼ੁਰੂ ਵਿੱਚ ਲੈ ਜਾਓ, ਜਿਸ ਨੂੰ ਤੁਸੀਂ ਚੁਣਨਾ ਚਾਹੁੰਦੇ ਹੋ।\n\nTalkBack ਮੀਨੂ ਖੋਲ੍ਹਣ ਲਈ, ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰਕੇ ਫਿਰ ਸੱਜੇ ਪਾਸੇ ਵੱਲ ਸਵਾਈਪ ਕਰੋ। ਸੰਪਾਦਨ ਵਿਕਲਪਾਂ \'ਤੇ ਡਬਲ ਟੈਪ ਕਰੋ ਅਤੇ ਫਿਰ ਚੋਣ ਮੋਡ ਸ਼ੁਰੂ ਕਰੋ। ਕਰਸਰ ਨੂੰ ਲਿਖਤ ਦੇ ਅਖੀਰ ਵਿੱਚ ਲੈ ਜਾਓ।\n\nTalkBack ਮੀਨੂ ਨੂੰ ਦੁਬਾਰਾ ਖੋਲ੍ਹੋ, ਫਿਰ ਚੋਣ ਮੋਡ ਬੰਦ ਕਰਨ ਲਈ ਸੰਪਾਦਨ ਵਿਕਲਪਾਂ \'ਤੇ ਡਬਲ ਟੈਪ ਕਰੋ।\n\nਹੇਠਾਂ ਦਿੱਤੇ ਲਿਖਤ ਬਾਕਸ ਵਿੱਚ \"ਜੀ ਆਇਆਂ ਨੂੰ\" ਸ਼ਬਦ ਨੂੰ ਚੁਣ ਕੇ ਦੇਖੋ।</string>
   <string name="selecting_text_with_talkback_menu">ਤੁਸੀਂ TalkBack ਮੀਨੂ ਖੋਲ੍ਹ ਕੇ ਅਤੇ \"ਵਿਕਲਪਾਂ ਦਾ ਸੰਪਾਦਨ ਕਰੋ\" ਦੀ ਚੋਣ ਕਰਕੇ, ਚੋਣ ਅਤੇ ਹੋਰ ਲਿਖਤ ਸੰਪਾਦਨ ਕਾਰਵਾਈਆਂ ਨੂੰ ਲੱਭ ਸਕਦੇ ਹੋ। Talkback ਮੀਨੂ 3-ਉਂਗਲਾਂ ਨਾਲ ਟੈਪ ਕਰਕੇ ਖੁੱਲ੍ਹਦਾ ਹੈ।</string>
   <string name="selecting_text_with_talkback_menu_pre_r">ਤੁਸੀਂ TalkBack ਮੀਨੂ ਖੋਲ੍ਹ ਕੇ ਅਤੇ \"ਵਿਕਲਪਾਂ ਦਾ ਸੰਪਾਦਨ ਕਰੋ\" ਦੀ ਚੋਣ ਕਰਕੇ, ਚੋਣ ਅਤੇ ਹੋਰ ਲਿਖਤ ਸੰਪਾਦਨ ਕਾਰਵਾਈਆਂ ਨੂੰ ਲੱਭ ਸਕਦੇ ਹੋ। TalkBack ਮੀਨੂ ਨੂੰ ਉੱਪਰ ਅਤੇ ਸੱਜੇ ਪਾਸੇ ਵੱਲ ਸਵਾਈਪ ਕਰਕੇ ਖੋਲ੍ਹਿਆ ਜਾਂਦਾ ਹੈ।</string>
   <string name="copy_cut_paste_title">ਕਾਪੀ ਕਰੋ, ਕੱਟੋ ਅਤੇ ਪੇਸਟ ਕਰੋ</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">ਲਿਖਤ ਨੂੰ ਕੱਟਣ ਲਈ, 3 ਉਂਗਲਾਂ ਨਾਲ ਡਬਲ-ਟੈਪ ਕਰੋ ਅਤੇ ਦਬਾਈ ਰੱਖੋ।\n\nਲਿਖਤ ਨੂੰ ਪੇਸਟ ਕਰਨ ਲਈ, 3 ਉਂਗਲਾਂ ਨਾਲ ਟ੍ਰਿਪਲ-ਟੈਪ ਕਰੋ।\n\nਹੇਠਾਂ ਦਿੱਤੇ ਲਿਖਤ ਬਾਕਸ ਵਿੱਚ ਕੋਈ ਸ਼ਬਦ ਪੇਸਟ ਕਰਕੇ ਦੇਖੋ।</string>
   <string name="copy_text_pre_r">ਲਿਖਤ ਦੀ ਚੋਣ ਕਰਨ ਤੋਂ ਬਾਅਦ, ਤੁਸੀਂ ਇਸ ਨੂੰ TalkBack ਮੀਨੂ ਵਿੱਚ ਕਾਪੀ ਕਰ ਸਕਦੇ ਹੋ। TalkBack ਮੀਨੂ ਖੋਲ੍ਹਣ ਲਈ, ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰਕੇ ਫਿਰ ਸੱਜੇ ਪਾਸੇ ਵੱਲ ਸਵਾਈਪ ਕਰੋ। ਸੰਪਾਦਨ ਵਿਕਲਪਾਂ \'ਤੇ ਡਬਲ ਟੈਪ ਕਰੋ ਅਤੇ ਫਿਰ ਕਾਪੀ ਕਰੋ।\n\nਹੇਠਾਂ ਦਿੱਤੇ ਲਿਖਤ ਬਾਕਸ ਵਿੱਚ ਕੋਈ ਸ਼ਬਦ ਕਾਪੀ ਕਰਕੇ ਦੇਖੋ।</string>
   <string name="cut_paste_text_pre_r">ਲਿਖਤ ਨੂੰ ਕੱਟਣ ਜਾਂ ਪੇਸਟ ਕਰਨ ਲਈ, TalkBack ਮੀਨੂ ਨੂੰ ਖੋਲ੍ਹੋ ਅਤੇ ਸੰਪਾਦਨ ਵਿਕਲਪਾਂ \'ਤੇ ਡਬਲ ਟੈਪ ਕਰੋ।\n\nਹੇਠਾਂ ਦਿੱਤੇ ਲਿਖਤ ਬਾਕਸ ਵਿੱਚ ਕੋਈ ਸ਼ਬਦ ਪੇਸਟ ਕਰਕੇ ਦੇਖੋ।</string>
+  <string name="edit_box_hint_paste_text">ਇੱਥੇ ਲਿਖਤ ਪੇਸਟ ਕਰੋ</string>
   <string name="read_by_character_title">ਅੱਖਰ-ਚਿੰਨ੍ਹ, ਸ਼ਬਦ ਜਾਂ ਪੈਰੇ ਮੁਤਾਬਕ ਪੜ੍ਹੋ</string>
   <string name="read_by_character_text">ਕਈ ਵਾਰ, ਸ਼ਾਇਦ ਤੁਸੀਂ ਇੱਕ ਸਮੇਂ ਇੱਕ ਹੀ ਅੱਖਰ-ਚਿੰਨ੍ਹ ਨੂੰ ਉੱਚੀ ਅਵਾਜ਼ ਵਿੱਚ ਪੜ੍ਹਦੇ ਸੁਣਨਾ ਚਾਹੋ।\n\nਅਜਿਹਾ ਕਰਨ ਲਈ, 3 ਉਂਗਲਾਂ ਨਾਲ ਉਦੋਂ ਤੱਕ ਸੱਜੇ ਪਾਸੇ ਵੱਲ ਸਵਾਈਪ ਕਰੋ ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ \"%1$s\" ਨਹੀਂ ਸੁਣਦੇ। ਇਸ ਤੋਂ ਬਾਅਦ, ਨੈਵੀਗੇਸ਼ਨ ਫੋਕਸ ਨੂੰ ਅੱਖਰ-ਚਿੰਨ੍ਹ ਦੇ ਮੁਤਾਬਕ ਪਿੱਛੇ ਲਿਜਾਉਣ ਲਈ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ। ਨੈਵੀਗੇਸ਼ਨ ਫੋਕਸ ਨੂੰ ਅੱਖਰ-ਚਿੰਨ੍ਹ ਦੇ ਮੁਤਾਬਕ ਅੱਗੇ ਲਿਜਾਉਣ ਲਈ ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰੋ।\n\nਇਸਨੂੰ ਹੁਣੇ ਵਰਤ ਕੇ ਦੇਖੋ। ਜਦੋਂ ਤੁਸੀਂ 3 ਉਂਗਲਾਂ ਨਾਲ ਸੱਜੇ ਪਾਸੇ ਵੱਲ ਸਵਾਈਪ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਸੀਂ ਸ਼ਬਦਾਂ ਜਾਂ ਪੈਰੇ ਮੁਤਾਬਕ ਪੜ੍ਹਨਾ ਵੀ ਚੁਣ ਸਕਦੇ ਹੋ।</string>
   <string name="read_by_character_text_pre_r">ਕਈ ਵਾਰ, ਸ਼ਾਇਦ ਤੁਸੀਂ ਇੱਕ ਸਮੇਂ ਇੱਕ ਹੀ ਅੱਖਰ-ਚਿੰਨ੍ਹ ਨੂੰ ਉੱਚੀ ਅਵਾਜ਼ ਵਿੱਚ ਪੜ੍ਹਦੇ ਸੁਣਨਾ ਚਾਹੋ।\n\nਅਜਿਹਾ ਕਰਨ ਲਈ, ਪਹਿਲਾਂ ਹੇਠਾਂ ਫਿਰ ਉੱਪਰ ਵੱਲ ਉਦੋਂ ਤੱਕ ਸਵਾਈਪ ਕਰੋ ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ \"%1$s\" ਨਹੀਂ ਸੁਣਦੇ। ਇਸ ਤੋਂ ਬਾਅਦ, ਨੈਵੀਗੇਸ਼ਨ ਫੋਕਸ ਨੂੰ ਅੱਖਰ-ਚਿੰਨ੍ਹ ਦੇ ਮੁਤਾਬਕ ਪਿੱਛੇ ਲਿਜਾਉਣ ਲਈ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ। ਨੈਵੀਗੇਸ਼ਨ ਫੋਕਸ ਨੂੰ ਅੱਖਰ-ਚਿੰਨ੍ਹ ਦੇ ਮੁਤਾਬਕ ਅੱਗੇ ਲਿਜਾਉਣ ਲਈ ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰੋ।\n\nਇਸਨੂੰ ਹੁਣੇ ਵਰਤ ਕੇ ਦੇਖੋ। ਜਦੋਂ ਤੁਸੀਂ ਪਹਿਲਾਂ ਹੇਠਾਂ ਫਿਰ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰਦੇ ਹੋ, ਤਾਂ ਤੁਸੀਂ ਸ਼ਬਦਾਂ ਜਾਂ ਪੈਰੇ ਮੁਤਾਬਕ ਪੜ੍ਹਨਾ ਵੀ ਚੁਣ ਸਕਦੇ ਹੋ।</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">ਕਿਰਿਆਸ਼ੀਲ ਕੀਤਾ ਗਿਆ %1$s</string>
   <string name="talkback_inactive_title">TalkBack ਨੂੰ ਬੰਦ ਕੀਤਾ ਗਿਆ</string>
   <string name="talkback_inactive_message">ਇਸ ਟਿਊਟੋਰੀਅਲ ਲਈ TalkBack ਨੂੰ ਚਾਲੂ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਟਿਊਟੋਰੀਅਲ ਨੂੰ ਲਾਂਚ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ TalkBack ਨੂੰ ਚਾਲੂ ਕਰੋ।</string>
+  <string name="watch_swipe_left_right_text">ਆਈਟਮਾਂ ਵਿਚਾਲੇ ਇੱਧਰ-ਉੱਧਰ ਜਾਣ ਲਈ ਸੱਜੇ ਜਾਂ ਖੱਬੇ ਪਾਸੇ ਵੱਲ ਸਵਾਈਪ ਕਰੋ</string>
+  <string name="watch_double_tap_text">ਕਿਸੇ ਆਈਟਮ ਨੂੰ ਕਿਰਿਆਸ਼ੀਲ ਕਰਨ ਲਈ ਡਬਲ ਟੈਪ ਕਰੋ</string>
+  <string name="watch_2_finger_scroll_text">ਸਕ੍ਰੋਲ ਕਰਨ ਲਈ 2 ਉਂਗਲਾਂ ਘਸੀਟੋ</string>
+  <string name="title_pref_thick_border">ਮੋਟੇ ਕਿਨਾਰੇ</string>
+  <string name="title_pref_category_border_color">ਰੰਗ</string>
+  <string name="title_pref_default_color">ਪੂਰਵ-ਨਿਰਧਾਰਿਤ</string>
+  <string name="title_pref_red">ਲਾਲ</string>
+  <string name="title_pref_orange">ਸੰਤਰੀ</string>
+  <string name="title_pref_yellow">ਪੀਲਾ</string>
+  <string name="title_pref_green">ਹਰਾ</string>
+  <string name="title_pref_blue">ਨੀਲਾ</string>
+  <string name="title_pref_grey">ਸਲੇਟੀ</string>
   <string name="survey_closed">ਸਰਵੇਖਣ ਬੰਦ ਹੋ ਗਿਆ</string>
+  <string name="character_recognition_text">ਲਿਖਤ: %1$s</string>
+  <string name="title_image_caption">ਚਿੱਤਰ ਦਾ ਵਰਣਨ ਕਰੋ</string>
 </resources>

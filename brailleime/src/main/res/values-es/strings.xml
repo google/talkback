@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Cambio de la posición de los puntos. Primero, vamos a registrar los puntos de la mano izquierda. Mantén pulsada la pantalla con los dedos índice, corazón y anular de la mano izquierda.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Cambio de la posición de los puntos. En primer lugar, vamos a registrar los puntos de la mano derecha. Mantén pulsada la pantalla con los dedos índice, corazón y anular de la mano derecha.</string>
   <string name="calibration_finish_announcement">Posición de los puntos cambiada</string>
+  <string name="remaining_calibration_finish_announcement">Todas las posiciones de los puntos actualizadas</string>
   <string name="calibration_step2_hold_right_finger_announcement">Se ha cambiado la posición de los puntos 1, 2 y 3. Ahora, registremos los puntos de la mano derecha. Mantén pulsada la pantalla con los dedos índice, corazón y anular de la mano derecha.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Se ha cambiado la posición de los puntos 1, 2 y 3. Ahora vamos a registrar los puntos de la mano izquierda. Mantén pulsada la pantalla con los dedos índice, corazón y anular de la mano izquierda.</string>
   <string name="calibration_fail_announcement">No se ha podido cambiar la posición de los puntos. Mantén pulsada la pantalla con seis dedos y vuelve a intentarlo.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Braille inglés unificado</string>
   <string name="code_user_facing_name_es">Español</string>
   <string name="code_user_facing_name_ar">Árabe</string>
+  <string name="code_user_facing_name_fr">Francés</string>
   <string name="title_pref_accumulate_presses">Incluir todos los puntos pulsados</string>
   <string name="summary_pref_accumulate_presses">Se incluyen todos los puntos pulsados, incluso si un punto se suelta antes de presionar otros</string>
   <string name="title_pref_reverse_dots">Invertir puntos</string>
   <string name="summary_pref_reverse_dots">Se invierten las posiciones de los puntos; por ejemplo, los puntos 1 y 4 intercambian su posición</string>
-  <string name="typing_echo_list_preference_title">Leer en voz alta lo que se escribe</string>
-  <string name="typing_echo_preference_label_characters">Leer todas las letras y las palabras</string>
-  <string name="typing_echo_preference_label_words">Leer solo las palabras</string>
   <string name="context_menu_title">Opciones del teclado braille</string>
   <string name="context_menu_typing_language_selection">Cambiar idioma de escritura</string>
   <string name="context_menu_typing_language_selection_summary">Se está usando %s</string>
@@ -63,7 +62,7 @@
   <string name="gesture_next_keyboard">Para pasar al <b>siguiente teclado</b>, desliza tres dedos hacia abajo</string>
   <string name="gesture_submit_text">Para <b>enviar texto</b>, desliza hacia arriba con dos dedos</string>
   <string name="gesture_open_context_menu">Para <b>obtener ayuda y consultar otras opciones</b>, desliza tres dedos hacia arriba</string>
-  <string name="done">Listo</string>
+  <string name="done">Hecho</string>
   <string name="copy_all">Copiar todo</string>
   <string name="cut_all">Cortar todo</string>
   <string name="paste_all">Pegar</string>

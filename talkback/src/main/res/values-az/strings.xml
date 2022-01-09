@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="talkback_service_description">TalkBack aktiv olduqda Sizi səsləndirilmiş rəylər təmin ediləcək, beləliklə ekrana baxmadan cihazdan istifadə edə bilərsiniz. Bu görmə qüsurlu insanlar və ya gözü zəif olanlar üçün faydalı ola bilər.\n\nTalkBack\'dən istifadə etmək üçün:\n• Elementlər arasında hərəkət etmək üçün sağa və ya sola sürüşdürün\n• Elementi aktiv etmək üçün iki dəfə klikləyin\n• Sürüşdürmək üçün iki barmağınızla çəkin\n\nTalkBack\'i aktiv etmək üçün:\n• Dəyişmək üçün klikləyin. Yaşıl dairə görəcəksiniz. Dəyişmək üçün iki dəfə klikləyin.\n• Təsdiq mesajında OK seçimini edin. Daha sonra iki dəfə OK seçiminə klikləyin.</string>
   <string name="talkback_service_html_description">TalkBack aktiv olduqda səsli rəy təmin edilir və beləliklə ekrana baxmadan cihazınızdan istifadə edə bilirsiniz. Talkback ekranı görməkdə çətinlik çəkilən zaman və ya çətinlik çəkən şəxslər üçün nəzərdə tutulub.&lt;br&gt;&lt;br&gt;&lt;b&gt;Talkback\'dən istifadə qaydası&lt;/b&gt;&lt;br&gt;• Elementlər arasında hərəkət etmək üçün sağa və ya sola sürüşdürün&lt;br&gt;• Elementi aktiv etmək üçün iki dəfə toxunun&lt;br&gt;• Sürüşdürmək üçün 2 barmaqla çəkin&lt;br&gt;&lt;br&gt;&lt;b&gt;Talkback\'i deaktiv etmək qaydası&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Səs Düymələri:&lt;/b&gt; Hər iki səs düyməsini bir neçə saniyə basıb saxlayın.&lt;br&gt;&lt;br&gt;&lt;b&gt;Ayarlar&lt;/b&gt;&lt;br&gt;• Talkback\'dən istifadə edin&lt;/b&gt; düyməsinə toxunun. Yaşıl kontur görəcəksiniz. Düyməyə iki dəfə toxunun.&lt;br&gt;• Təsdiq mesajında \"dayandır\" seçiminə toxunun. Sonra \"Dayandırın\" düyməsinə iki dəfə toxunun.</string>
-  <string name="talkback_service_summary">Elementləri ekranda səsləndirin</string>
+  <string name="talkback_service_summary">Elementlər ekranda səslənsin</string>
   <string name="talkback_preferences_title">TalkBack ayarları</string>
   <string name="tts_preferences_title">Mətndən-nitqə ayarları</string>
   <string name="language_options">Dillər</string>
@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Versiya %1$s</string>
   <string name="label_manager_summary_title">Fərdi Etiketləri İdarə Edin</string>
   <string name="label_manager_package_title">%1$s üçün etiketləri idarə edin</string>
+  <string name="manage_label">Etiketi idarə edin</string>
   <string name="label_manager_no_packages_message">Hazırda heç bir fərdi etiket yoxdur. Siz etiketsiz şəklə naviqasiya etməklə, sonra da TalkBack Menyusundan etiket əlavə etməklə, birini yarada bilərsiniz.</string>
   <string name="label_manager_timestamp_text">Son dəyişiklik: %1$s</string>
   <string name="search_dialog_label">Axtarış: %1$s</string>
@@ -53,7 +54,7 @@
   <string name="title_pref_speak_screenoff">Ekran qapalı olan zaman danış</string>
   <string name="summaryOn_pref_speak_screenoff">Ekran sönülü olarkən bildirişlər səsləndirilir</string>
   <string name="summaryOff_pref_speak_screenoff">Ekran sönülü olarkən danışıq olmur</string>
-  <string name="title_pref_verbose_scroll_announcement">Ekrandakı siyahı elementlərinin sayını səsləndirin</string>
+  <string name="title_pref_verbose_scroll_announcement">Ekrandakı siyahı elementlərinin sayı səslənsin</string>
   <string name="summaryOff_pref_verbose_scroll_announcement">Yalnız sürüşdürmə hərəkətləri istifadə edildikdə səsləndirin</string>
   <string name="summaryOn_pref_verbose_scroll_announcement">Həmişə səsləndirin</string>
   <string name="title_pref_cover_proximity_sensor">Nitqi dayandırmaq üçün yaxınlıq sensorunu örtün</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Toxunuşla kəşf</string>
   <string name="title_pref_category_touch_exploration">Naviqasiya</string>
   <string name="title_pref_category_controls">Nizamlayıcılar</string>
-  <string name="title_pref_single_tap">Tək tıklama ilə aktivləşdirmə</string>
+  <string name="title_pref_single_tap">Aktivləşdirmək üçün bir dəfə toxunun</string>
   <string name="title_pref_show_context_menu_as_list">Kontekst menyusunu siyahı kimi göstərin</string>
-  <string name="summary_pref_single_tap">(Eksperimental) Aktivləşdirmək üçün fokuslanmış elementə bir dəfə toxunun</string>
+  <string name="summary_pref_single_tap">Aktivləşdirmək üçün fokuslanmış elementə bir dəfə toxunun</string>
   <string name="title_pref_shake_to_read_threshold">Fasiləsiz oxunuş üçün silkələyin</string>
   <string name="pref_verbosity_title">Söz yığını</string>
   <string name="pref_punctuation_title">Punktuasiya</string>
+  <string name="title_pref_category_manage_focus_indicator">Fokus Göstəricisini fərdiləşdirin</string>
   <string name="title_pref_category_manage_gestures">Jestləri fərdiləşdirin</string>
   <string name="title_pref_manage_labels">Fərdi etiketlər</string>
   <string name="title_pref_manage_customize_menus">Menyuları fərdiləşdirin</string>
@@ -111,7 +113,7 @@
   <string name="title_pref_play_store">Play Store\'da TalkBack açın</string>
   <string name="summary_pref_play_store">Cari TalkBack versiyası: %1$s</string>
   <string name="title_pref_help_and_feedback">Yardım və rəy</string>
-  <string name="pref_item_licenses">Açıq Mənbəli Lisenziyalar</string>
+  <string name="pref_item_licenses">Açıq mənbə lisenziyaları</string>
   <string name="title_pref_help">Yardım</string>
   <string name="title_pref_show_tos">Xidmət şərtləri</string>
   <string name="title_pref_show_privacy_policy">Məxfilik siyasəti</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Yardım və rəy</string>
   <string name="title_pref_category_tutorial_and_help">Təlim materialı və yardım</string>
   <string name="title_pref_category_advanced">Qabaqcıl</string>
+  <string name="title_pref_category_typing">Yazma və klaviatura</string>
   <string name="title_pref_category_legal_and_privacy">Hüquqi məlumat və məxfilik</string>
   <string name="title_pref_advanced_settings">Qabaqcıl ayarlar</string>
   <string name="reset_gesture_settings_title">Jest ayarlarını sıfırlayın</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Son tətbiqlər</string>
   <string name="keycombo_menu_global_notifications">Bildirişlər</string>
   <string name="keycombo_menu_global_suspend">TalkBack-i durdurun və ya yenidən başladın</string>
+  <string name="keycombo_menu_global_play_pause_media">Medianı oxudun və ya durdurun</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Növbəti oxuma kontrolunu seçin</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Əvvəlki oxuma kontrolunu seçin</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Oxuma kontrolunu yuxarı tənzimləyin</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Oxuma kontrolunu aşağı tənzimləyin</string>
   <string name="keycombo_menu_category_granularity">Naviqasiya</string>
   <string name="keycombo_menu_granularity_increase">Növbəti naviqasiya ayarı</string>
   <string name="keycombo_menu_granularity_decrease">Əvvəlki naviqasiya ayarı</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Kopyalamaq üçün mətn yoxdur, əvvəlcə mətn seçin.</string>
   <string name="cannot_paste_feedback">Əlavə etmək üçün mətn yoxdur, əvvəlcə mətni kopyalayın.</string>
   <string name="cannot_cut_feedback">Kəsmək üçün mətn yoxdur, əvvəlcə mətn seçin.</string>
+  <string name="cannot_delete_feedback">Silmək üçün mətn yoxdur, əvvəlcə mətn seçin.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Bu əsas xəritə üçün qısayol düymələrini defolt dəyərlərə sıfırlamaq istədiyinizə əminsiniz. Lütfən, nəzərə alın ki, bu əməliyyat geri qaytarıla bilməz.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Sıfırlayın</string>
   <string name="override_keycombo">Bu klaviş artıq istifadə olunur</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Ton dəyişikliklərindən istifadə edin</string>
   <string name="title_pref_keyboard_echo">Klaviatura exosu</string>
   <string name="pref_node_desc_order_title">Element təsviri sırası</string>
-  <string name="summaryOn_pref_intonation">Klaviaturanın geri əlaqəni aşağı səs tonunda səsləndirin</string>
+  <string name="summaryOn_pref_intonation">Klaviatura ilə silinmiş mətni daha yüksək səslə deyin</string>
   <string name="summaryOff_pref_intonation">Danışarkən səs tonunu dəyişməyin</string>
   <string name="title_pref_brailleime">Brayl klaviaturası</string>
   <string name="title_pref_category_feedback_settings">Digər geri əlaqə</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Data strukturu bağ ləğvinə icazə verin</string>
   <string name="summary_pref_tree_debug_tv">Axtarış əvəzinə data strukturunu çap etmək üçün səsli axtarış açarını istifadə edin</string>
   <string name="title_pref_performance_stats">Performans Statistikasını aktiv edin</string>
+  <string name="title_pref_log_overlay">Sazlama qeydinin üstdə görünməsini aktiv edin</string>
   <string name="title_pref_resume_talkback">Qaldığı yerdən davam edin</string>
+  <string name="title_pref_typing_confirmation">Yazma tərcihi</string>
   <string name="title_pref_multi_finger_gesture">Çox barmaq ilə jestləri aktiv edin</string>
   <string name="screen_dimmed">Ekran gizlədilib</string>
   <string name="screen_brightness_restored">Ekran göstərilir</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Aşağı sürüşdürün</string>
   <string name="shortcut_scroll_left">Sola sürüşdürün</string>
   <string name="shortcut_scroll_right">Sağa sürüşdürün</string>
+  <string name="shortcut_next_window">Növbəti pəncərə</string>
+  <string name="shortcut_previous_window">Əvvəlki pəncərə</string>
   <string name="shortcut_back">Geriyə</string>
   <string name="shortcut_home">Əsas səhifə</string>
   <string name="shortcut_overview">İcmal</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Ekranı gizlədin və ya göstərin</string>
   <string name="title_show_screen_search">Ekranda axtarış</string>
   <string name="title_show_voice_commands">Səs əmrləri</string>
+  <string name="talkback_show_talkback_settings">TalkBack ayarları</string>
   <string name="title_other_web_navigation">Digər veb naviqasiya</string>
   <string name="title_granularity_default">Defolt naviqasiya</string>
   <string name="title_seek_bar_edit">Slayder səviyyəsini düzəldin</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Səsiniz ilə TalkBack\'i idarə edin</string>
   <string name="summary_show_hide_screen">İctimai yerlərdə ekranı başqalarının görməməsi üçün displeyi gizlədin. Ekranı gizlətdikdən sonra normal vəziyyətə qaytarın.</string>
   <string name="summary_talkback_preferences">TalkBack ayarlarını açın</string>
-  <string name="summary_system_actions">Bütün tətbiqlər, Sürətli Ayarlara keçin və ikiyə bölünmüş ekrandan istifadə edin</string>
+  <string name="summary_system_actions">Bütün tətbiqlər və Sürətli Ayarlara keçin</string>
   <string name="summary_tts_settings">Mətndən-nitqə ayarlarını açın</string>
   <string name="summary_pause_feedback">TalkBack səsli rəyini deaktiv edin</string>
   <string name="not_editable">Redaktə etmək mümkün deyil</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Hər dəfə bir söz oxuyun</string>
   <string name="summary_lines">Hər dəfə bir sətir oxuyun</string>
   <string name="summary_paragraphs">Hər dəfə bir paraqraf oxuyun</string>
+  <string name="summary_windows">Səs nizamlayıcıları və ya naviqasiya paneli kimi digər pəncərələrə keçin</string>
   <string name="summary_headings">Başlıqlar arasında keçid edin</string>
   <string name="summary_controls">Düymələr, qeyd xanaları və mətn sahələri kimi təmas etdiyiniz elementlər arasında keçid edin</string>
   <string name="summary_links">Linklər arasında keçid edin</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">YAzılan açarlar, istifadə ipucuları, cədvəl məlumatı və digər məlumatların ucadan oxunub-oxunmamasını dəyişin</string>
   <string name="summary_selector_menu_punctuation">Punktuasiya və simvolların ucadan oxunması qaydasını dəyişin</string>
   <string name="summary_language">Danışıq dilini dəyişin. Yalnız çox sayda mətndən nitqə dilləri quraşdırıldıqda göstərilir.</string>
-  <string name="summary_sound_feedback">Əməliyyatı təsdiq etmək üçün hərəkət etdikcə bip kimi səs effektləri verilsin.</string>
+  <string name="summary_sound_feedback">Əməliyyatı təsdiq etmək üçün hərəkət etdikcə bip kimi səs effektləri verilsin</string>
   <string name="summary_vibration_feedback">Elementin seçilməsi kimi əməliyyatlar üçün vibrasiya hiss edilsin. Tətbiq və ya sistemdən gələn vibrasiyalara təsir göstərmir.</string>
   <string name="summary_hide_screen">İctimai yerlərdə ekranı başqalarının görməməsi üçün displeyi gizlədin</string>
   <string name="summary_audio_ducking">TalkBack danışarkən digər səslərin səviyyəsini azaldın</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">İrəli və ya geri sürüşdürün</string>
+  <string name="summary_support_change_a11y_volume">Əlçatımlılıq səsini artırın və ya azaldın</string>
+  <string name="summary_image_caption">Bu şəkil üçün avtomatik təsvir alın</string>
   <string name="value_direction_up">yuxarı</string>
   <string name="value_direction_down">aşağı</string>
   <string name="value_direction_left">sol</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">2 barmaqla iki dəfə toxunub saxlayın</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">3 barmaqla iki dəfə toxunub saxlayın</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">4 barmaqla iki dəfə toxunub saxlayın</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">2 barmaqla üç dəfə toxunub saxlama</string>
+  <string name="seekbar_hint_2gesture">Tənzimləmək üçün \"%1$s\" və ya %2$s\"</string>
+  <string name="seekbar_hint_1gesture">Tənzimləmək üçün \"%1$s\"</string>
   <string name="gesture_name_unknown">Naməlum jest</string>
   <string name="gesture_name_pass_through">Sistemə keçid jesti</string>
   <string name="gesture_name_touch_explore">Toxunaraq araşdırma</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">İki dəfə toxunub saxlama</string>
   <string name="gesture_name_2finger_tap_hold">2 barmaqla toxunub saxlama</string>
   <string name="gesture_name_3finger_tap_hold">3 barmaqla toxunub saxlama</string>
+  <string name="gesture_name_2finger_3tap_hold">2 barmaqla üç dəfə toxunub saxlama</string>
   <string name="gesture_name_3finger_3tap_hold">3 barmaqla üç dəfə toxunub saxlama</string>
   <string name="title_pref_shortcut_fingerprint_up">Barmaq izi sensorunda yuxarı sürüşdürün</string>
   <string name="title_pref_shortcut_fingerprint_down">Barmaq izi sensorunda aşağı sürüşdürün</string>
@@ -479,13 +500,15 @@
   <string name="title_pref_shortcut_fingerprint_right">Barmaq izi sensorunda sağa sürüşdürün</string>
   <string name="title_pref_two_part_vertical_gestures">İki hissəli vertikal jestlər</string>
   <string name="title_pref_version_code">Versiya Kodu</string>
-  <string formatted="false" name="value_volume_100_percent">Media həcminə uyğunlaşdır</string>
-  <string formatted="false" name="value_volume_75_percent">75% media həcmi</string>
-  <string formatted="false" name="value_volume_50_percent">50% media həcmi</string>
+  <string formatted="false" name="value_volume_100_percent">Media səviyyəsinə uyğunlaşdır</string>
+  <string formatted="false" name="value_volume_75_percent">75% media səviyyəsi</string>
+  <string formatted="false" name="value_volume_50_percent">50% media səviyyəsi</string>
   <string formatted="false" name="value_volume_25_percent">25% media həcmi</string>
   <string name="value_resume_screen_on">Ekran açıq olan zaman</string>
   <string name="value_resume_keyguard">Ekran kilidi göstərilən zaman</string>
   <string name="value_resume_manual">Yalnız bildirişdən</string>
+  <string name="value_type_confirmation_double_tap">Açarı seçmək üçün barmağınızı basıb saxlayın, sonra iki dəfə toxunun</string>
+  <string name="value_type_confirmation_lift_to_type">Açarı seçmək üçün barmağınızı basıb saxlayın, sonra qaldırın</string>
   <string name="value_shake_to_read_disabled">Deaktiv</string>
   <string name="value_shake_to_read_threshold_very_light">Çox yüngül</string>
   <string name="value_shake_to_read_threshold_light">İşıq</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Basılan klavişləri həmişə səsləndir</string>
   <string name="value_keyboard_echo_softkeys">Yalnız ekran klaviaturası üçün</string>
   <string name="value_keyboard_echo_never">Basılan klavişləri heç vaxt səsləndirmə</string>
+  <string name="title_pref_keyboard_echo_on_screen">Klaviatura exosu: Ekran klaviaturası</string>
+  <string name="title_pref_keyboard_echo_physical">Klaviatura exosu: Fiziki klaviatura</string>
+  <string name="value_keyboard_echo_none">Heç biri</string>
+  <string name="value_keyboard_echo_characters_only">Simvollar</string>
+  <string name="value_keyboard_echo_words_only">Sözlər</string>
+  <string name="value_keyboard_echo_characters_and_words">Simvollar və sözlər</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Status, ad, növ</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Növ, ad, status</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Ad, növ, status</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Debaq funksiyasını aktiv etmək istədiyinizə əminsiniz?\n\nDebaq funksiyası ekranınızın kontentini cihazınızın jurnalına yönəldir və digər tətbiqlər də onu oxuyur.</string>
   <string name="dialog_title_enable_performance_stats">Performans Statistikası aktiv edilsin?</string>
   <string name="dialog_message_enable_performance_stats">Performans statistikasını aktiv etmək ist\'diyinizə əminsiniz?\n\nPerformans statistikası daha çox yaddaş və enerji istifadəsinə səbəb ola bilər.</string>
+  <string name="title_request_phone_permission">Telefona girişə icazə verilsin?</string>
+  <string name="message_request_phone_permission">Bu, TalkBack-ə zəng edərkən elanları azaltmağa kömək edir</string>
+  <string name="continue_button">Davam edin</string>
   <string name="label_talkback_context_menu">TalkBack qlobal kontekst menyusu</string>
   <string name="permission_talkback_label">TalkBack idarəetməsi</string>
   <string name="permission_talkback_desc">TalkBack\'ə jestlər göndərmək üçün icazə və deyilmiş Geri əlaqənə davam edin.</string>
-  <string name="permission_labeling_label">TalkBack fərdi etiketlərini idarə edin</string>
-  <string name="permission_labeling_desc">TalkBack tərəfindən deyilən fərdi etiketlərə giriş, dəyişiklik və silmək üçün icazə.</string>
   <string name="links">Linklər</string>
   <string name="end_of_text">Son</string>
   <string name="start_of_page">Əvvəlki %1$s yoxdur</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Punktuasiya</string>
   <string name="title_pref_selector_granularity">Naviqasiya</string>
   <string name="title_pref_selector_audio_focus">Audio effekt</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Sürüşdürün</string>
+  <string name="title_pref_a11y_volume">Əlçatımlılıq səsi</string>
   <string name="title_pref_selector_adjustable_widget_slider">Slayderi tənzimləyin</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Dəyəri tənzimləyin</string>
   <string name="title_pref_speak_passwords_without_headphones">Parolları səsləndirin</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Səs əmrlərindən istifadə edin</string>
   <string name="dialog_title_pass_through_mode">Sistem jestlərini istifadə etmək üçün TalkBack jestlərini buraxın</string>
   <string name="dialog_message_pass_through_mode">Zəng səsi eşidəndə TalkBack tərəfindən dəstəklənməyən sistem jestindən istifadə edə bilərsiniz. Bu, keçid jesti adlanır.</string>
-  <string name="hint_type_search_term">Axtarış sözünü yazın</string>
+  <string name="hint_type_search_term">Axtarış sözü</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack üçün Bildiriş Kanalı</string>
   <string name="pref_selector_summary">Ayar seçmək üçün %1$s. Sonra ayarı tənzimləmək üçün %2$s.</string>
@@ -726,7 +757,7 @@
   <string name="scrolling_text">2 barmaqla çəkərək sürüşdürə bilərsiniz.\n\nSiyahı elementlərinin aşağısına sürüşdürənə qədər 2 barmaqla yuxarı çəkərək indi bunu sınayın.</string>
   <string name="gestures_title">Sistem əməliyyatları</string>
   <string name="gestures_text">Hər hansı sistem əməliyyatını icra etmək üçün sistem jestinə 1 barmaq əlavə edin.\n\nYəni, TalkBack istifadə edərkən 1 barmaq əvəzinə 2 barmaqla yuxarı sürüşdürərək Əsas səhifəyə keçə bilərsiniz.\n\nBu jestləri indi sınasanız, təlim bağlanacaq. Təlimi tamamlayana qədər gözləmək istəyə bilərsiniz.</string>
-  <string name="gestures_home_text">Əsas səhifəyə keçmək üçün ekranın aşağısından 2 barmaqla yuxarı çəkin.</string>
+  <string name="gestures_home_text">Əsas ekrana keçmək üçün iki barmaqla aşağıdan yuxarıya çəkin.</string>
   <string name="gestures_overview_screen_text">Sonuncu tətbiqlərə keçmək üçün 2 barmaq ilə ekranın aşağısından yuxarıya çəkib saxlayın. Sonra buraxın. İcmal ekranına keçəcəksiniz.</string>
   <string name="gestures_back_text">Geri qayıtmaq üçün sol və ya sağ kənardan başlayaraq 2 barmaqla ekranın ortasına doğru çəkin.</string>
   <string name="gestures_open_notifications_text_for_gesture_navigation">Bildirişləri açmaq üçün 2 barmaqla ekranın yuxarısından aşağı çəkin.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Mətni kəsmək üçün 3 barmaq ilə iki dəfə toxunub saxlayın.\n\nMətni əlavə etmək üçün 3 barmaq ilə üç dəfə toxunun.\n\nAşağıda mətn qutusunda bir söz əlavə etməyə çalışın.</string>
   <string name="copy_text_pre_r">Mətni seçdikdən sonra onu TalkBack menyusunda kopyalaya bilərsiniz. TalkBack menyusunu açmaq üçün aşağıya, sonra sağa çəkin. Redaktə seçimlərinə iki dəfə toxunun və sonra kopyalayın.\n\nAşağıda mətn qutusunda bir söz kopyalamağa çalışın.</string>
   <string name="cut_paste_text_pre_r">Mətni kəsmək və ya əlavə etmək üçün TalkBack menyusunu açın və redaktə seçimlərinə iki dəfə toxunun.\n\nAşağıda mətn qutusunda bir söz əlavə etməyə çalışın.</string>
+  <string name="edit_box_hint_paste_text">Mətni buraya daxil edin</string>
   <string name="read_by_character_title">Simvol, söz və ya paraqraf əsasında oxumaq</string>
   <string name="read_by_character_text">Bəzən mətni simvollar ilə eşitmək istəyə bilərsiniz.\n\nBunu etmək üçün \"%1$s\" eşidənə qədər 3 barmaq ilə sağa çəkin. Daha sonra naviqasiyanın fokusunu simvol əsasında geri hərəkət etdirmək üçün yuxarı çəkin. Naviqasiyanın fokusunu simvol əsasında irəli hərəkət etdirmək üçün aşağı çəkin.\n\nBunu indi yoxlayın. 3 barmaq ilə sağa çəkdiyiniz zaman söz və ya paraqraf əsasında oxumağı da seçə bilərsiniz.</string>
   <string name="read_by_character_text_pre_r">Bəzən mətnin eyni anda bir simvol ilə ucadan oxunmasını istəyə bilərsiniz.\n\nBunu etmək üçün \"%1$s\" eşidənə qədər aşağı və sonra yuxarı çəkin. Daha sonra naviqasiya fokusunu simvol ilə geri hərəkət etdirmək üçün yuxarı çəkin. Naviqasiyanın fokusunu simvol əsasında irəli hərəkət etdirmək üçün aşağı çəkin.\n\nBunu indi yoxlayın. Aşağı və sonra yuxarı çəkdiyiniz zaman söz və ya paraqraf ilə oxumağı da seçə bilərsiniz.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">%1$s aktiv edilib</string>
   <string name="talkback_inactive_title">TalkBack Deaktiv edildi</string>
   <string name="talkback_inactive_message">Bu təlim videosu TalkBack\'in aktiv edilməsini tələb edir. Bu təlim videosunu başlatmazdan əvvəl, TalkBack\'i aktiv edin.</string>
+  <string name="watch_swipe_left_right_text">Elementlər arasında hərəkət etmək üçün sağa və ya sola sürüşdürün</string>
+  <string name="watch_double_tap_text">Elementi aktivləşdirmək üçün iki dəfə toxunun</string>
+  <string name="watch_2_finger_scroll_text">Sürüşdürmək üçün 2 barmağınızı çəkin</string>
+  <string name="title_pref_thick_border">Qalın sərhədlər</string>
+  <string name="title_pref_category_border_color">Rəng</string>
+  <string name="title_pref_default_color">Defolt</string>
+  <string name="title_pref_red">Qırmızı</string>
+  <string name="title_pref_orange">Narıncı</string>
+  <string name="title_pref_yellow">Sarı</string>
+  <string name="title_pref_green">Yaşıl</string>
+  <string name="title_pref_blue">Göy</string>
+  <string name="title_pref_grey">Boz</string>
   <string name="survey_closed">Sorğu bağlanıb</string>
+  <string name="character_recognition_text">Mətn: %1$s</string>
+  <string name="title_image_caption">Şəkli təsvir edin</string>
 </resources>

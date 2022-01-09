@@ -70,6 +70,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:singleLine="true"
+        android:fontFamily="@string/talkback_font"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/abc_primary_text_material_dark"
         android:textColorHint="@color/abc_hint_foreground_material_dark"/>

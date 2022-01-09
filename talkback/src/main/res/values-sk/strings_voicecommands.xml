@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Jazyk</string>
   <string name="voice_commands_languages">Jazyky</string>
   <string name="voice_commands_custom_actions">vlastné akcie</string>
+  <string name="voice_commands_action">Akcia</string>
   <string name="voice_commands_quick_settings">Rýchle nastavenia</string>
   <string name="voice_commands_quick_setting">Rýchle nastavenie</string>
   <string name="voice_commands_dim">stlmiť</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Ľutujeme! Táto funkcia nie je v zariadení k dispozícii</string>
   <string name="voice_commands_error">Pri rozpoznávaní hlasového príkazu sa vyskytla chyba</string>
   <string name="voice_commands_partial_result">Tento príkaz sa nedá rozpoznať. Ak chcete zobraziť zoznam všetkých príkazov, povedzte %1$s.</string>
+  <string name="voice_commands_timeout">Ak chcete zobraziť zoznam všetkých príkazov, povedzte %1$s.</string>
   <string name="voice_commands_many_requests">Skúste to znova o chvíľu</string>
-  <string name="voice_commands_setting_disabled">Nastavenie %1$s nie je aktivované</string>
   <string name="voice_commands_echo_feedback_not_recognized">Vstup %1$s nie je rozpoznávaný ako hlasový príkaz.</string>
   <string name="voice_commands_label_saved">Štítok bol uložený</string>
   <string name="voice_commands_no_actions_feedback">Nie sú k dispozícii žiadne akcie</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Prehľad hlasových príkazov</string>
   <string name="voice_commands_help_description">Ak chcete používať hlasové príkazy, potiahnite doprava a nahor. Kedykoľvek si tento zoznam príkazov môžete zobraziť vyslovením „Help“ (Potrebujem pomoc) alebo „What can I say?“ (Čo môžem povedať?).</string>
   <string name="voice_commands_help_hint">Najlepšie výsledky dosiahnete, ak pri vyslovení presne dodržíte formuláciu výrazov uvedených na nasledujúcich obrazovkách.</string>
+  <string name="voice_command_screen_locked_hint">Keď je obrazovka uzamknutá, hlasové príkazy nie sú k dispozícii. Ak chcete namiesto toho použiť ponuku TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Zmeníte spôsob čítania obsahu na aktuálnej obrazovke</string>
   <string name="voice_commands_help_next">Ďalší [nadpis]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Zadaním hľadaného výrazu nájdete príslušný text na obrazovke</string>
   <string name="voice_commands_help_text_editing_description">Môžete napísať, vybrať a skopírovať text</string>
   <string name="voice_commands_help_type_text">Zadanie [OK]</string>
-  <string name="voice_commands_help_copy_description">Pred kopírovaním musíte text najprv vybrať</string>
-  <string name="voice_commands_help_cut_description">Pred vystrihnutím musíte text najprv vybrať</string>
+  <string name="voice_commands_help_copy_description">Pred kopírovaním vyberte text</string>
+  <string name="voice_commands_help_cut_description">Pred vystrihnutím vyberte text</string>
+  <string name="voice_commands_help_delete_description">Pred odstránením vyberte text</string>
   <string name="voice_commands_help_device_navigation_title">Navigácia v zariadení</string>
   <string name="voice_commands_help_device_navigation_description">Môžete prejsť na plochu, späť, zobraziť upozornenia a vykonať ďalšie akcie</string>
   <string name="voice_commands_help_overview_description">Zobrazíte nedávne aplikácie</string>

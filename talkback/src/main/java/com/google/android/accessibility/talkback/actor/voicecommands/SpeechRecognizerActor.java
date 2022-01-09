@@ -16,6 +16,7 @@
 package com.google.android.accessibility.talkback.actor.voicecommands;
 
 import static android.speech.SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS;
+import static android.speech.SpeechRecognizer.ERROR_NO_MATCH;
 import static android.speech.SpeechRecognizer.ERROR_RECOGNIZER_BUSY;
 import static android.speech.SpeechRecognizer.ERROR_SPEECH_TIMEOUT;
 import static com.google.android.accessibility.talkback.Feedback.Speech.Action.SILENCE;
@@ -23,9 +24,13 @@ import static com.google.android.accessibility.talkback.Feedback.Speech.Action.U
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.VOICE_COMMAND_ATTEMPT;
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.VOICE_COMMAND_ENGINE_ERROR;
 import static com.google.android.accessibility.talkback.analytics.TalkBackAnalytics.VOICE_COMMAND_TIMEOUT;
+import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.ACTION_DONE;
+import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.GRANT_RESULTS;
+import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.PERMISSIONS;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 
 import android.Manifest;
+import android.Manifest.permission;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -38,16 +43,17 @@ import android.os.Handler;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
-import androidx.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.analytics.TalkBackAnalytics;
+import com.google.android.accessibility.talkback.permission.PermissionRequestActivity;
 import com.google.android.accessibility.talkback.training.VoiceCommandHelpInitiator;
 import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
 import com.google.android.accessibility.utils.DelayHandler;
@@ -66,8 +72,6 @@ public class SpeechRecognizerActor {
 
   private static final String TAG = "SpeechRecognizerActor";
 
-  public static final String ACTION_DONE = "done";
-  public static final String ACTION_REJECTED = "rejected";
   public String language;
   private final Context talkbackContext;
   private final TalkBackAnalytics analytics;
@@ -101,18 +105,26 @@ public class SpeechRecognizerActor {
         @Override
         public void onReceive(Context context, Intent intent) {
           context.unregisterReceiver(receiver);
-          String action = intent.getAction();
-          // If the user accepted.
-          if (ACTION_DONE.equals(action)) {
-            hasMicPermission = true;
-            startListening(/* checkDialog= */ true);
-          } else {
-            Toast.makeText(
-                    context,
-                    context.getString(R.string.voice_commands_no_mic_permissions),
-                    Toast.LENGTH_LONG)
-                .show();
+          String[] permissions = intent.getStringArrayExtra(PERMISSIONS);
+          int[] grantResults = intent.getIntArrayExtra(GRANT_RESULTS);
+          if (permissions == null || grantResults == null) {
+            return;
           }
+          // If the mic permission request is accepted by the user.
+          for (int i = 0; i < permissions.length; i++) {
+            if (TextUtils.equals(permissions[i], permission.RECORD_AUDIO)
+                && grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+              hasMicPermission = true;
+              startListening(/* checkDialog= */ true);
+              return;
+            }
+          }
+          // If not accepted, show a toast for the user.
+          Toast.makeText(
+                  context,
+                  context.getString(R.string.voice_commands_no_mic_permissions),
+                  Toast.LENGTH_LONG)
+              .show();
         }
       };
   private boolean listening = false;
@@ -153,11 +165,17 @@ public class SpeechRecognizerActor {
             // Backup case: This should not happen.
             speechRecognizer.stopListening();
             speakDelayed(talkbackContext, R.string.voice_commands_many_requests);
+          } else if (error == ERROR_NO_MATCH) {
+            // No recognition result matched.
+            speakDelayed(
+                talkbackContext.getString(
+                    R.string.voice_commands_partial_result,
+                    talkbackContext.getString(R.string.title_pref_help)));
           } else if (error == ERROR_SPEECH_TIMEOUT) {
             // Nothing heard.
             speakDelayed(
                 talkbackContext.getString(
-                    R.string.voice_commands_partial_result,
+                    R.string.voice_commands_timeout,
                     talkbackContext.getString(R.string.title_pref_help)));
           } else {
             speakDelayed(talkbackContext, R.string.voice_commands_error);
@@ -293,6 +311,16 @@ public class SpeechRecognizerActor {
    *     ignore checking dialog display preference, or the dialog would show again.
    */
   public void getSpeechPermissionAndListen(boolean checkDialog) {
+    if (!SpeechRecognizer.isRecognitionAvailable(talkbackContext)) {
+      LogUtils.e(TAG, "Platform does not support voice command.");
+      // TODO: Should send toasts to pipeline.
+      Toast.makeText(
+              talkbackContext,
+              talkbackContext.getString(R.string.voice_commands_no_action),
+              Toast.LENGTH_SHORT)
+          .show();
+      return;
+    }
     if (!hasMicPermission()) {
       if (ContextCompat.checkSelfPermission(talkbackContext, Manifest.permission.RECORD_AUDIO)
           == PackageManager.PERMISSION_GRANTED) {
@@ -408,13 +436,13 @@ public class SpeechRecognizerActor {
   @VisibleForTesting
   /** Calls activity that asks user for mic access for talkback. */
   protected void getMicPermission() {
-    // Creates the intent needed for the mic permission activity.
-    Intent intent = new Intent(talkbackContext, SpeechRecognitionMicActivity.class);
+    // Creates the intent needed for the permission request activity.
+    Intent intent = new Intent(talkbackContext, PermissionRequestActivity.class);
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+    intent.putExtra(PermissionRequestActivity.PERMISSIONS, new String[] {permission.RECORD_AUDIO});
     // Creates an intent filter for broadcast receiver.
     IntentFilter filter = new IntentFilter();
-    filter.addAction(ACTION_REJECTED);
     filter.addAction(ACTION_DONE);
     talkbackContext.registerReceiver(receiver, filter);
     // Start activity.
@@ -446,7 +474,7 @@ public class SpeechRecognizerActor {
       helpDialog = null;
     }
     AlertDialog.Builder builder =
-        AlertDialogUtils.createBuilder(talkbackContext)
+        AlertDialogUtils.builder(talkbackContext)
             .setTitle(talkbackContext.getString(R.string.voice_commands_possible_options_title))
             .setNegativeButton(
                 talkbackContext.getString(R.string.title_cancel_button),

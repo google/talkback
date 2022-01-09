@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">正在更新圓點位置，首先記錄左手的圓點。請用左手的中間 3 指按住螢幕。</string>
   <string name="calibration_step1_hold_right_finger_announcement">正在更新圓點位置，首先記錄右手的圓點。請用右手的中間 3 指按住螢幕。</string>
   <string name="calibration_finish_announcement">圓點位置已更新</string>
+  <string name="remaining_calibration_finish_announcement">所有點的位置已更新完成</string>
   <string name="calibration_step2_hold_right_finger_announcement">1 點、2 點和 3 點的位置已更新。接下來記錄右手的圓點。請用右手的中間 3 指按住螢幕。</string>
   <string name="calibration_step2_hold_left_finger_announcement">1 點、2 點和 3 點的位置已更新。接下來記錄左手的圓點。請用左手的中間 3 指按住螢幕。</string>
   <string name="calibration_fail_announcement">無法更新圓點位置。請使用 6 隻手指按住螢幕，然後再試一次。</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">統一英文點字</string>
   <string name="code_user_facing_name_es">西班牙文</string>
   <string name="code_user_facing_name_ar">阿拉伯文</string>
+  <string name="code_user_facing_name_fr">法文</string>
   <string name="title_pref_accumulate_presses">包括所有已按下的點</string>
   <string name="summary_pref_accumulate_presses">每個你按下的點都是輸入內容的一部分，即使你先放開其中某個點，也不影響拼字</string>
   <string name="title_pref_reverse_dots">調換點的位置</string>
   <string name="summary_pref_reverse_dots">舉例來說，你可以交換點的位置，讓 1 點和 4 點交換位置</string>
-  <string name="typing_echo_list_preference_title">輸入回饋 (輸入語音回應)</string>
-  <string name="typing_echo_preference_label_characters">朗讀所有英文字母和字詞</string>
-  <string name="typing_echo_preference_label_words">僅朗讀字詞</string>
   <string name="context_menu_title">點字鍵盤選項</string>
   <string name="context_menu_typing_language_selection">變更輸入語言</string>
   <string name="context_menu_typing_language_selection_summary">目前使用的是%s</string>

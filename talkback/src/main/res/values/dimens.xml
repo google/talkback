@@ -51,11 +51,17 @@
     <dimen name="quick_menu_overlay_corner_radius">16dp</dimen>
     <dimen name="quick_menu_overlay_border">1dp</dimen>
 
+    <!-- Diagnostic + highlight overlay -->
+    <dimen name="diagnostic_overlay_text_padding">8dp</dimen>
+    <dimen name="diagnostic_overlay_text_bottom_margin">12dp</dimen>
+    <dimen name="highlight_overlay_border">3dp</dimen>
+
     <!-- Training -->
     <dimen name="training_padding_start">24dp</dimen>
     <dimen name="training_padding_end">24dp</dimen>
     <dimen name="training_padding_top">36dp</dimen>
     <dimen name="training_padding_bottom">36dp</dimen>
+    <dimen name="training_button_text_padding_bottom">0dp</dimen>
     <dimen name="training_title_text_size">26sp</dimen>
     <dimen name="training_title_height">32sp</dimen>
     <dimen name="training_text_size">18sp</dimen>
@@ -64,6 +70,10 @@
     <dimen name="training_subtext_height">20sp</dimen>
     <dimen name="training_button_text_size">16sp</dimen>
     <dimen name="training_button_height">64dp</dimen>
+    <dimen name="training_button_width">0dp</dimen>
+    <dimen name="training_button_margin_24dp">24dp</dimen>
+    <dimen name="training_button_margin_8dp">8dp</dimen>
+    <dimen name="training_button_margin_2dp">2dp</dimen>
     <dimen name="training_heading_size">24sp</dimen>
     <dimen name="training_heading_height">38sp</dimen>
     <dimen name="training_note_padding">16dp</dimen>
@@ -92,5 +102,13 @@
     <dimen name="training_edit_text_text_size">18sp</dimen>
     <dimen name="training_edit_text_text_height">26dp</dimen>
     <dimen name="training_button_padding">16dp</dimen>
+
+    <!-- Focus indicator -->
+    <dimen name="accessibility_focus_highlight_stroke_width">4dp</dimen>
+    <dimen name="accessibility_thick_focus_highlight_stroke_width">6dp</dimen>
+
+    <!-- Label manager -->
+    <dimen name="label_manager_button_width">364dp</dimen>
+    <dimen name="label_manager_button_height">56dp</dimen>
 
 </resources>

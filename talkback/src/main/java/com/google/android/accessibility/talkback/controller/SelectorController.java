@@ -30,6 +30,7 @@ import static com.google.android.accessibility.talkback.Feedback.Language.Action
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_ITEM_ACTION_OVERLAY;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER;
 import static com.google.android.accessibility.talkback.actor.TalkBackUIActor.Type.SELECTOR_MENU_ITEM_OVERLAY_SINGLE_FINGER;
+import static com.google.android.accessibility.talkback.controller.SelectorController.Setting.GRANULARITY_WINDOWS;
 import static com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor.NUMBER_PICKER_FILTER_FOR_ADJUST;
 import static com.google.android.accessibility.utils.Performance.EVENT_ID_UNTRACKED;
 import static com.google.android.accessibility.utils.input.InputModeManager.INPUT_MODE_TOUCH;
@@ -41,11 +42,11 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Resources;
-import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.annotation.IntDef;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Feedback.SpeechRate.Action;
@@ -155,6 +156,10 @@ public class SelectorController {
         R.string.pref_selector_granularity_landmarks_key,
         R.string.selector_granularity_landmarks,
         R.bool.pref_selector_granularity_landmarks_default),
+    GRANULARITY_WINDOWS(
+        R.string.pref_selector_granularity_windows_key,
+        R.string.selector_granularity_windows,
+        R.bool.pref_selector_granularity_windows_default),
     GRANULARITY_DEFAULT(
         R.string.pref_selector_granularity_key,
         R.string.granularity_default,
@@ -202,6 +207,7 @@ public class SelectorController {
     LINES(Setting.GRANULARITY_LINES, CursorGranularity.LINE, GRANULARITY_FOR_ALL_NODE),
     LINKS(Setting.GRANULARITY_LINKS, CursorGranularity.LINK, GRANULARITY_FOR_NATIVE_NODE),
     CONTROLS(Setting.GRANULARITY_CONTROLS, CursorGranularity.CONTROL, GRANULARITY_FOR_NATIVE_NODE),
+    WINDOWS(GRANULARITY_WINDOWS, CursorGranularity.WINDOWS, GRANULARITY_FOR_ALL_NODE),
     DEFAULT(Setting.GRANULARITY_DEFAULT, CursorGranularity.DEFAULT, GRANULARITY_FOR_ALL_NODE),
 
     // For WebView.
@@ -298,6 +304,7 @@ public class SelectorController {
           Setting.GRANULARITY_CONTROLS,
           Setting.GRANULARITY_LINKS,
           Setting.GRANULARITY_LANDMARKS,
+          Setting.GRANULARITY_WINDOWS,
           Setting.GRANULARITY_DEFAULT,
           // TODO Supports special content.
           Setting.SPEECH_RATE,
@@ -392,6 +399,7 @@ public class SelectorController {
         case GRANULARITY_LINKS:
         case GRANULARITY_CONTROLS:
         case GRANULARITY_LANDMARKS:
+        case GRANULARITY_WINDOWS:
         case GRANULARITY_DEFAULT:
           updateSettingPref(context, setting);
           return;
@@ -447,6 +455,7 @@ public class SelectorController {
       case GRANULARITY_LINKS:
       case GRANULARITY_CONTROLS:
       case GRANULARITY_LANDMARKS:
+      case GRANULARITY_WINDOWS:
       case GRANULARITY_DEFAULT:
         {
           @Nullable
@@ -733,6 +742,7 @@ public class SelectorController {
           case GRANULARITY_LINKS:
           case GRANULARITY_CONTROLS:
           case GRANULARITY_LANDMARKS:
+          case GRANULARITY_WINDOWS:
           case GRANULARITY_DEFAULT:
             {
               @Nullable
@@ -940,6 +950,7 @@ public class SelectorController {
       case GRANULARITY_LINKS:
       case GRANULARITY_CONTROLS:
       case GRANULARITY_LANDMARKS:
+      case GRANULARITY_WINDOWS:
       case GRANULARITY_DEFAULT:
         {
           List<Granularity> granularities = Granularity.getFromSetting(currentSetting);
@@ -982,11 +993,14 @@ public class SelectorController {
     // Sets granularity and locks navigate within the focused node.
     pipeline.returnFeedback(eventId, Feedback.granularity(granularity.cursorGranularity));
 
+    Setting setting = Granularity.getSettingFromCursorGranularity(granularity.cursorGranularity);
+    boolean setToWindow = setting.equals(GRANULARITY_WINDOWS);
     boolean result =
         pipeline.returnFeedback(
             eventId,
             Feedback.focusDirection(isNext ? SEARCH_FOCUS_FORWARD : SEARCH_FOCUS_BACKWARD)
                 .setInputMode(INPUT_MODE_TOUCH)
+                .setToWindow(setToWindow)
                 .setDefaultToInputFocus(true)
                 .setScroll(true)
                 .setWrap(true));
@@ -996,23 +1010,12 @@ public class SelectorController {
   }
 
   public void changeSpeechRate(EventId eventId, boolean isIncrease) {
-    boolean result =
         pipeline.returnFeedback(
             eventId, Feedback.speechRate(isIncrease ? Action.INCREASE_RATE : Action.DECREASE_RATE));
-    String displayText;
-    if (result) {
-      displayText =
-          context.getString(
-              isIncrease
-                  ? R.string.template_speech_rate_change_faster
-                  : R.string.template_speech_rate_change_slower);
-    } else {
-      displayText =
-          context.getString(
-              isIncrease
-                  ? R.string.template_speech_rate_change_fastest
-                  : R.string.template_speech_rate_change_slowest);
-    }
+    String displayText =
+        context.getString(
+            R.string.template_speech_rate_change,
+            actorState.getSpeechRateState().getSpeechRatePercentage());
     announceSetting(eventId, displayText, getSelectSettingGestures());
     showQuickMenuActionOverlay(eventId, displayText);
   }
@@ -1169,15 +1172,26 @@ public class SelectorController {
 
   /** Perform Accessibility volume change. */
   private void changeAccessibilityVolume(EventId eventId, boolean isNext) {
-    pipeline.returnFeedback(
-        eventId,
-        Feedback.adjustVolume(
-            isNext ? DECREASE_VOLUME : INCREASE_VOLUME, STREAM_TYPE_ACCESSIBILITY));
-    String displayText =
-        context.getString(
-            isNext
-                ? R.string.template_volume_change_decrease
-                : R.string.template_volume_change_increase);
+    boolean result =
+        pipeline.returnFeedback(
+            eventId,
+            Feedback.adjustVolume(
+                isNext ? DECREASE_VOLUME : INCREASE_VOLUME, STREAM_TYPE_ACCESSIBILITY));
+    String displayText;
+    if (result) {
+      displayText =
+          context.getString(
+              isNext
+                  ? R.string.template_volume_change_decrease
+                  : R.string.template_volume_change_increase);
+    } else {
+      displayText =
+          context.getString(
+              isNext
+                  ? R.string.template_volume_change_minimum
+                  : R.string.template_volume_change_maximum);
+    }
+    announceSetting(eventId, displayText, getSelectSettingGestures());
     showQuickMenuActionOverlay(eventId, displayText);
   }
 
@@ -1275,7 +1289,13 @@ public class SelectorController {
         context.getString(R.string.shortcut_value_select_previous_setting);
     String selectNextSetting = context.getString(R.string.shortcut_value_select_next_setting);
 
-    if (FeatureSupport.isMultiFingerGestureSupported()
+    if (FeatureSupport.isWatch(context)) {
+      // Watch never uses multi-finger and won't show surrounding icons.
+      pipeline.returnFeedback(
+          eventId,
+          Feedback.showSelectorUI(
+              SELECTOR_MENU_ITEM_OVERLAY_SINGLE_FINGER, message, /* showIcon= */ false));
+    } else if (FeatureSupport.isMultiFingerGestureSupported()
         && selectPreviousSetting.equals(
             prefs.getString(
                 context.getString(R.string.pref_shortcut_3finger_swipe_left_key),
@@ -1288,7 +1308,7 @@ public class SelectorController {
       pipeline.returnFeedback(
           eventId,
           Feedback.showSelectorUI(
-              SELECTOR_MENU_ITEM_OVERLAY_SINGLE_FINGER, message, /* showIcon= */ true));
+              SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER, message, /* showIcon= */ true));
     } else {
       boolean isSwipeUpDownAndDownUpForSelector =
           selectPreviousSetting.equals(
@@ -1305,7 +1325,9 @@ public class SelectorController {
       pipeline.returnFeedback(
           eventId,
           Feedback.showSelectorUI(
-              SELECTOR_MENU_ITEM_OVERLAY_MULTI_FINGER, message, isSwipeUpDownAndDownUpForSelector));
+              SELECTOR_MENU_ITEM_OVERLAY_SINGLE_FINGER,
+              message,
+              isSwipeUpDownAndDownUpForSelector));
     }
   }
 
@@ -1315,7 +1337,8 @@ public class SelectorController {
     String selectedSettingNextAction =
         context.getString(R.string.shortcut_value_selected_setting_next_action);
     boolean isSwipeUpDownForSelector =
-        selectedSettingPreviousAction.equals(
+        !FeatureSupport.isWatch(context)
+            && selectedSettingPreviousAction.equals(
                 prefs.getString(
                     context.getString(R.string.pref_shortcut_up_key),
                     context.getString(R.string.pref_shortcut_up_default)))

@@ -3,7 +3,7 @@
   <string name="talkback_service_description">Kapag naka-on ang TalkBack, nagbibigay ito ng pasalitang feedback para magamit mo ang iyong device nang hindi tumitingin sa screen. Maaaring maging kapaki-pakinabang ito sa mga taong bulag o malabo ang paningin.\n\nPara mag-navigate gamit ang TalkBack:\n• Mag-swipe pakanan o pakaliwa para magpalipat-lipat sa bawat item\n• Mag-double tap para i-activate ang isang item\n• I-drag ang dalawang daliri para mag-scroll\n\nPara i-off ang TalkBack:\n• I-tap ang switch. Makakakita ka ng berdeng outline. I-double tap ang switch.\n• Sa mensahe ng pagkumpirma, i-tap ang OK. Pagkatapos ay i-double tap ang OK.</string>
   <string name="talkback_service_html_description">Kapag naka-on ang Talkback, nagbibigay ito ng pasalitang feedback para magamit mo ang iyong device nang hindi tumitingin sa screen. Ang Talkback ay para sa mga sitwasyon kung saan mahirap makita ang screen o para sa mga taong nahihirapang makita ang screen.&lt;br&gt;&lt;br&gt;&lt;b&gt;Paano gamitin ang Talkback&lt;/b&gt;&lt;br&gt;• Mag-swipe pakanan o pakaliwa para magpalipat-lipat sa mga item&lt;br&gt;• Mag-double tap para mag-activate ng item&lt;br&gt;• Mag-drag ng 2 daliri para mag-scroll&lt;br&gt;&lt;br&gt;&lt;b&gt;Paano i-off ang Talkback&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Mga Volume Key:&lt;/b&gt; Pindutin nang matagal ang parehong volume key sa loob ng ilang segundo.&lt;br&gt;&lt;br&gt;&lt;b&gt;Mga Setting&lt;/b&gt;&lt;br&gt;• I-tap ang switch na &lt;b&gt;Gamitin ang Talkback&lt;/b&gt;. Makakakita ka ng berdeng outline. I-double tap ang switch.&lt;br&gt;• Sa mensahe ng kumpirmasyon, i-tap ang ihinto. Pagkatapos, i-double tap ang Ihinto.</string>
   <string name="talkback_service_summary">Magbigkas ng mga item sa screen</string>
-  <string name="talkback_preferences_title">Mga Setting ng TalkBack</string>
+  <string name="talkback_preferences_title">Mga setting ng TalkBack</string>
   <string name="tts_preferences_title">Mga setting ng text-to-speech</string>
   <string name="language_options">Mga Wika</string>
   <string name="spoken_language">Sinasalitang wika</string>
@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Bersyon na %1$s</string>
   <string name="label_manager_summary_title">Pamahalaan ang Custom Labels</string>
   <string name="label_manager_package_title">Pamahalaan ang mga Label para sa %1$s</string>
+  <string name="manage_label">Pamahalaan ang label</string>
   <string name="label_manager_no_packages_message">Walang custom na label sa kasalukuyan. Puwede kang gumawa ng custom na label sa pamamagitan ng pag-navigate sa isang larawang walang label at pagkatapos ay pagdaragdag ng label mula sa Menu ng Talkback.</string>
   <string name="label_manager_timestamp_text">Huling binago noong %1$s</string>
   <string name="search_dialog_label">Hanapin: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Explore by touch</string>
   <string name="title_pref_category_touch_exploration">Navigation</string>
   <string name="title_pref_category_controls">Mga Kontrol</string>
-  <string name="title_pref_single_tap">Pag-activate na isang pag-tap lang</string>
+  <string name="title_pref_single_tap">I-tap nang isang beses para i-activate</string>
   <string name="title_pref_show_context_menu_as_list">Ipakita ang menu ng konteksto bilang listahan</string>
-  <string name="summary_pref_single_tap">(Pang-eksperimento) Mag-tap nang isang beses sa naka-focus na item para i-activate</string>
+  <string name="summary_pref_single_tap">Mag-tap nang isang beses sa naka-focus na item para i-activate</string>
   <string name="title_pref_shake_to_read_threshold">Alugin para simulan ang pagbabasa</string>
   <string name="pref_verbosity_title">Verbosity</string>
   <string name="pref_punctuation_title">Bantas</string>
+  <string name="title_pref_category_manage_focus_indicator">I-customize ang Focus Indicator</string>
   <string name="title_pref_category_manage_gestures">I-customize ang mga galaw</string>
   <string name="title_pref_manage_labels">Mga custom na label</string>
   <string name="title_pref_manage_customize_menus">I-customize ang mga menu</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Tulong at feedback</string>
   <string name="title_pref_category_tutorial_and_help">Tutorial at tulong</string>
   <string name="title_pref_category_advanced">Advanced</string>
+  <string name="title_pref_category_typing">Pag-type at keyboard</string>
   <string name="title_pref_category_legal_and_privacy">Legal at privacy</string>
   <string name="title_pref_advanced_settings">Mga advanced na setting</string>
   <string name="reset_gesture_settings_title">I-reset ang mga setting ng galaw</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Mga kamakailang app</string>
   <string name="keycombo_menu_global_notifications">Mga Notification</string>
   <string name="keycombo_menu_global_suspend">I-pause o ipagpatuloy ang TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Mag-play o mag-pause ng media</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Piliin ang susunod na kontrol sa pagbabasa</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Piliin ang nakaraang kontrol sa pagbabasa</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">I-adjust pataas ang kontrol sa pagbabasa</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">I-adjust pababa ang kontrol sa pagbabasa</string>
   <string name="keycombo_menu_category_granularity">Navigation</string>
   <string name="keycombo_menu_granularity_increase">Susunod na setting ng navigation</string>
   <string name="keycombo_menu_granularity_decrease">Nakaraang setting ng navigation</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Walang text na kokopyahin, pumili muna ng ilang text.</string>
   <string name="cannot_paste_feedback">Walang text na ipe-paste, kumopya muna ng text.</string>
   <string name="cannot_cut_feedback">Walang text na ika-cut, pumili muna ng text.</string>
+  <string name="cannot_delete_feedback">Walang text na ide-delete, pumili muna ng text.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Sigurado ka bang gusto mong i-reset ang iyong mga shortcut key para sa keymap na ito sa mga default na value ng mga ito? Pakitandaan, hindi na maa-undo ang pagkilos na ito.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">I-reset</string>
   <string name="override_keycombo">Ginagamit na ang key</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Gumamit ng mga pagbabago sa pitch</string>
   <string name="title_pref_keyboard_echo">Echo ng keyboard</string>
   <string name="pref_node_desc_order_title">Pagkakasunud-sunod ng paglalarawan ng element</string>
-  <string name="summaryOn_pref_intonation">Bigkasin ang feedback ng keyboard gamit ang boses na mas mababa ang pitch</string>
+  <string name="summaryOn_pref_intonation">Bigkasin ang text na na-delete gamit ang keyboard sa boses na may mas mataas na pitch</string>
   <string name="summaryOff_pref_intonation">Huwag baguhin ang pitch ng boses kapag nagsasalita</string>
   <string name="title_pref_brailleime">Braille keyboard</string>
   <string name="title_pref_category_feedback_settings">Iba pang feedback</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">I-enable ang pagde-debug ng node tree</string>
   <string name="summary_pref_tree_debug_tv">Gamitin ang key sa paghahanap gamit ang boses upang mag-print ng node tree sa halip na maghanap</string>
   <string name="title_pref_performance_stats">I-enable ang mga istatistika ng performance</string>
+  <string name="title_pref_log_overlay">I-enable ang overlay ng log ng pag-debug</string>
   <string name="title_pref_resume_talkback">Magpatuloy mula sa pagkakasuspinde</string>
+  <string name="title_pref_typing_confirmation">Kagustuhan sa pag-type</string>
   <string name="title_pref_multi_finger_gesture">I-enable ang mga multi-finger na galaw</string>
   <string name="screen_dimmed">Itinago ang screen</string>
   <string name="screen_brightness_restored">Ipinapakita ang screen</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Mag-scroll pababa</string>
   <string name="shortcut_scroll_left">Mag-scroll pakaliwa</string>
   <string name="shortcut_scroll_right">Mag-scroll pakanan</string>
+  <string name="shortcut_next_window">Susunod na window</string>
+  <string name="shortcut_previous_window">Nakaraang window</string>
   <string name="shortcut_back">Bumalik</string>
   <string name="shortcut_home">Home</string>
   <string name="shortcut_overview">Overview</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Itago o ipakita ang screen</string>
   <string name="title_show_screen_search">Paghahanap sa screen</string>
   <string name="title_show_voice_commands">Mga command gamit ang boses</string>
+  <string name="talkback_show_talkback_settings">Mga setting ng TalkBack</string>
   <string name="title_other_web_navigation">Iba pang pag-navigate sa web</string>
   <string name="title_granularity_default">Default na pag-navigate</string>
   <string name="title_seek_bar_edit">I-edit ang antas ng slider</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Kontrolin ang TalkBack gamit ang iyong boses</string>
   <string name="summary_show_hide_screen">Itago ang display para hindi nakikita ng iba ang iyong screen sa mga pampublikong lugar. Pagkatapos itago ang iyong screen, ibalik ito sa normal na status.</string>
   <string name="summary_talkback_preferences">Buksan ang mga setting ng TalkBack</string>
-  <string name="summary_system_actions">Pumunta sa lahat ng app, Mga Mabilisang Setting, at gamitin ang split screen</string>
+  <string name="summary_system_actions">Pumunta sa lahat ng app at Mga Mabilisang Setting</string>
   <string name="summary_tts_settings">Buksan ang mga setting ng text-to-speech</string>
   <string name="summary_pause_feedback">I-off ang feedback na boses ng TalkBack</string>
   <string name="not_editable">Hindi nae-edit</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Paisa-isang basahin ang mga salita</string>
   <string name="summary_lines">Paisa-isang basahin ang mga linya</string>
   <string name="summary_paragraphs">Paisa-isang basahin ang mga talata</string>
+  <string name="summary_windows">Lumaktaw sa ibang window, tulad ng mga kontrol ng volume o sa navigation bar</string>
   <string name="summary_headings">Magpalipat-lipat sa mga heading</string>
   <string name="summary_controls">Magpalipat-lipat sa mga item na puwede mong makaugnayan, tulad ng mga button, checkbox, at field ng text</string>
   <string name="summary_links">Magpalipat-lipat sa mga link</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Baguhin kung babasahin nang malakas ang mga na-type na key, hint, impormasyon ng grid, at iba pang impormasyon</string>
   <string name="summary_selector_menu_punctuation">Baguhin kung babasahin nang malakas ang bantas at mga simbolo</string>
   <string name="summary_language">Baguhin ang iyong sinasalitang wika. Lumalabas lang kapag may marami kang na-install na wika sa text-to-speech.</string>
-  <string name="summary_sound_feedback">Makarinig ng mga sound effect habang nagna-navigate ka, gaya ng beep para kumpirmahin ang isang pagkilos.</string>
+  <string name="summary_sound_feedback">Makarinig ng mga sound effect habang nagna-navigate ka, gaya ng beep para kumpirmahin ang isang pagkilos</string>
   <string name="summary_vibration_feedback">Makaramdam ng mga pag-vibrate para sa mga pagkilos tulad ng pagpili ng item. Hindi nito maaapektuhan ang mga pag-vibrate mula sa mga app o sa system.</string>
   <string name="summary_hide_screen">Itago ang display para hindi makita ng iba ang iyong screen kapag nasa mga pampublikong lugar</string>
   <string name="summary_audio_ducking">Hinaan ang volume ng iba pang audio na nagpe-play kapag nagsasalita ang TalkBack</string>
   <string name="summary_support_scroll_seq">Mag-scroll paabante o paatras</string>
+  <string name="summary_support_change_a11y_volume">Dagdagan o bawasan ang volume ng Accessibility</string>
+  <string name="summary_image_caption">Makakuha ng awtomatikong paglalarawan para sa larawang ito</string>
   <string name="value_direction_up">pataas</string>
   <string name="value_direction_down">pababa</string>
   <string name="value_direction_left">pakaliwa</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Mag-double tap at mag-hold gamit ang 2 daliri</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Mag-double tap at mag-hold gamit ang 3 daliri</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Mag-double tap at mag-hold gamit ang 4 na daliri</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Mag-triple tap at mag-hold gamit ang 2 daliri</string>
+  <string name="seekbar_hint_2gesture">\"%1$s\" o %2$s\" para isaayos</string>
+  <string name="seekbar_hint_1gesture">\"%1$s\" para isaayos</string>
   <string name="gesture_name_unknown">Hindi alam na galaw</string>
   <string name="gesture_name_pass_through">Galaw para sa i-pass through sa system</string>
   <string name="gesture_name_touch_explore">Mag-touch explore</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Mag-double tap at mag-hold</string>
   <string name="gesture_name_2finger_tap_hold">Mag-tap at mag-hold gamit ang 2 daliri</string>
   <string name="gesture_name_3finger_tap_hold">Mag-tap at mag-hold gamit ang 3 daliri</string>
+  <string name="gesture_name_2finger_3tap_hold">Mag-triple tap at mag-hold gamit ang 2 daliri</string>
   <string name="gesture_name_3finger_3tap_hold">Mag-triple tap at mag-hold gamit ang 3 daliri</string>
   <string name="title_pref_shortcut_fingerprint_up">Mag-swipe pataas sa fingerprint sensor</string>
   <string name="title_pref_shortcut_fingerprint_down">Mag-swipe pababa sa fingerprint sensor</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Kapag nag-on ang screen</string>
   <string name="value_resume_keyguard">Kapag ipinakita ang lock screen</string>
   <string name="value_resume_manual">Mula sa notification lang</string>
+  <string name="value_type_confirmation_double_tap">Pumindot nang matagal para piliin ang key, pagkatapos ay mag-double tap</string>
+  <string name="value_type_confirmation_lift_to_type">Pumindot nang matagal para piliin ang key, pagkatapos ay iangat</string>
   <string name="value_shake_to_read_disabled">Naka-disable</string>
   <string name="value_shake_to_read_threshold_very_light">Napakahina</string>
   <string name="value_shake_to_read_threshold_light">Mahina</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Palaging sabihin ang mga tina-type na key</string>
   <string name="value_keyboard_echo_softkeys">Para lang sa on-screen na keyboard</string>
   <string name="value_keyboard_echo_never">Huwag kailanman sabihin ang mga tina-type na key</string>
+  <string name="title_pref_keyboard_echo_on_screen">Echo ng keyboard: On-screen na keyboard</string>
+  <string name="title_pref_keyboard_echo_physical">Echo ng keyboard: Aktwal na keyboard</string>
+  <string name="value_keyboard_echo_none">Wala</string>
+  <string name="value_keyboard_echo_characters_only">Mga Character</string>
+  <string name="value_keyboard_echo_words_only">Mga Salita</string>
+  <string name="value_keyboard_echo_characters_and_words">Mga character at salita</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Katayuan, pangalan, uri</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Uri, pangalan, katayuan</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Pangalan, uri, katayuan</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Sigurado ka bang gusto mong i-on ang pagde-debug ng node tree?\n\nInilalantad ng pagde-debug ng node tree ang content ng iyong screen sa mga log ng iyong device, na maaaring mabasa ng iba pang mga application.</string>
   <string name="dialog_title_enable_performance_stats">I-enable ang Mga Istatistika ng Performance?</string>
   <string name="dialog_message_enable_performance_stats">Sigurado ka bang gusto mong i-on ang mga istatistika ng performance?\n\nMaaaring makakonsumo ng higit pang memory at power ang mga istatistika ng performance.</string>
+  <string name="title_request_phone_permission">Payagan ang access sa phone?</string>
+  <string name="message_request_phone_permission">Nakakatulong ito sa TalkBack na bawasan ang mga anunsyo habang nasa tawag ka</string>
+  <string name="continue_button">Magpatuloy</string>
   <string name="label_talkback_context_menu">Pangkalahatang menu ng konteksto ng TalkBack</string>
   <string name="permission_talkback_label">Kontrolin ang TalkBack</string>
   <string name="permission_talkback_desc">Pahintulot na magpadala ng mga galaw sa TalkBack at ipagpatuloy ang binibigkas na feedback.</string>
-  <string name="permission_labeling_label">Pamahalaan ang mga custom na label ng TalkBack</string>
-  <string name="permission_labeling_desc">Pahintulot na mag-access, magbago at mag-delete ng mga custom na label na binibigkas ng TalkBack.</string>
   <string name="links">Mga Link</string>
   <string name="end_of_text">Dulo</string>
   <string name="start_of_page">Walang nakaraang %1$s</string>
@@ -614,6 +644,7 @@
   <string name="title_pref_selector_granularity">Navigation</string>
   <string name="title_pref_selector_audio_focus">Pag-duck ng audio</string>
   <string name="title_pref_support_scroll_seq">Mag-scroll</string>
+  <string name="title_pref_a11y_volume">Volume ng Accessibility</string>
   <string name="title_pref_selector_adjustable_widget_slider">I-adjust ang slider</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">I-adjust ang value</string>
   <string name="title_pref_speak_passwords_without_headphones">Bigkasin ang mga password</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Gumamit ng mga command gamit ang boses</string>
   <string name="dialog_title_pass_through_mode">Huwag gamitin ang mga galaw sa TalkBack para magamit ang mga galaw sa system</string>
   <string name="dialog_message_pass_through_mode">Kapag nakarinig ka ng chime, puwede kang gumamit ng galaw sa system na hindi sinusuportahan ng TalkBack. Kilala ito bilang galaw na pag-pass through.</string>
-  <string name="hint_type_search_term">Mag-type ng termino para sa paghahanap</string>
+  <string name="hint_type_search_term">Termino para sa paghahanap</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Ang Channel ng Notification ng TalkBack</string>
   <string name="pref_selector_summary">%1$s para pumili ng setting. Pagkatapos ay %2$s para isaayos ang setting.</string>
@@ -737,7 +768,7 @@
   <string name="menus_talkback_menu_text_pre_r">Kasama sa menu ng TalkBack ang mga setting at kontrol na posibleng madalas mong kailanganin.\n\nBuksan ang menu ng TalkBack ngayon sa pamamagitan ng pag-swipe pababa pagkatapos ay pakanan.</string>
   <string name="menus_selector_text">Matutulungan ka ng mga shortcut na ito na mabilisang baguhin ang mga setting, tulad ng kung gagawin mong mga salita ang iyong navigation mula sa mga character o kung babaguhin mo ang bilis ng pagsasalita ng TalkBack.\n\nPara mabilisang baguhin ang iyong mga kontrol sa pagbabasa, mag-swipe pakaliwa gamit ang 3 daliri o mag-swipe pakanan gamit ang 3 daliri.\n\nPuwede mong i-customize ang menu ng TalkBack at ang iyong mga kontrol sa pagbabasa sa ibang pagkakataon sa mga setting ng TalkBack.</string>
   <string name="menus_selector_text_pre_r">Matutulungan ka ng mga shortcut na ito na mabilisang baguhin ang mga setting, tulad ng kung gagawin mong mga salita ang iyong navigation mula sa mga character o kung babaguhin mo ang bilis ng pagsasalita ng TalkBack.\n\nPara mabilisang baguhin ang iyong mga kontrol sa pagbabasa, mag-swipe pababa at pagkatapos ay pataas ulit.\n\nPuwede mong i-customize ang menu ng TalkBack at ang iyong mga kontrol sa pagbabasa sa ibang pagkakataon sa mga setting ng TalkBack.</string>
-  <string name="all_set_title">Handa na lahat!</string>
+  <string name="all_set_title">Handa na ang lahat!</string>
   <string name="all_set_text">Handa ka nang gamitin ang TalkBack.\n\nMatuto pa tungkol sa ibang paksa ngayon, o suriin ang impormasyong ito anumang oras sa mga setting ng TalkBack.</string>
   <string name="talkback_tutorial_title">Tutorial sa TalkBack</string>
   <string name="talkback_tutorial_text">Mag-swipe pakanan para pumili ng paksa</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Para mag-cut ng text, mag-double tap at mag-hold gamit ang 3 daliri.\n\nPara mag-paste ng text, mag-triple tap gamit ang 3 daliri.\n\nSubukang mag-paste ng salita sa text box sa ibaba.</string>
   <string name="copy_text_pre_r">Pagkatapos mong pumili ng text, puwede mo itong kopyahin sa menu ng TalkBack. Mag-swipe pababa at pagkatapos ay pakanan para buksan ang menu ng TalkBack. I-double tap ang mga opsyon sa pag-edit at pagkatapos ay kopyahin.\n\nSubukang kumopya ng salita sa text box sa ibaba.</string>
   <string name="cut_paste_text_pre_r">Para mag-cut o mag-paste ng text, buksan ang menu ng TalkBack at i-double tap ang mga opsyon sa pag-edit.\n\nSubukang mag-paste ng salita sa text box sa ibaba.</string>
+  <string name="edit_box_hint_paste_text">I-paste dito ang text</string>
   <string name="read_by_character_title">Magbasa nang paisa-isang character, salita, o talata</string>
   <string name="read_by_character_text">Kung minsan, baka gusto mong marinig na basahin nang malakas ang text nang paisa-isang character.\n\nPara gawin ito, mag-swipe pakanan gamit ang 3 daliri hanggang sa marinig mo ang \"%1$s.\" Sunod, mag-swipe pataas para igalaw pabalik nang paisa-isang character ang focus ng navigation. Mag-swipe pababa para igalaw pasulong nang paisa-isang character ang focus ng navigation.\n\nSubukan ito ngayon. Kapag nag-swipe ka pakanan gamit ang 3 daliri, puwede mo ring piliing magbasa nang paisa-isang salita o talata.</string>
   <string name="read_by_character_text_pre_r">Kung minsan, baka gusto mong marinig na basahin nang malakas ang text nang paisa-isang character.\n\nPara gawin ito, mag-swipe pababa hanggang sa marinig mo ang \"%1$s.\" Sunod, mag-swipe pataas para igalaw pabalik nang paisa-isang character ang focus ng navigation. Mag-swipe pababa para igalaw pasulong nang paisa-isang character ang focus ng navigation.\n\nSubukan ito ngayon. Kapag nag-swipe ka pababa at pagkatapos ay pataas, puwede mo ring piliing magbasa nang paisa-isang salita o talata.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">Na-activate ang %1$s</string>
   <string name="talkback_inactive_title">Naka-disable ang TalkBack</string>
   <string name="talkback_inactive_message">Kailangang i-enable ang TalkBack para sa tutorial na ito. Paki-on ang TalkBack bago ilunsad ang tutorial.</string>
+  <string name="watch_swipe_left_right_text">Mag-swipe pakanan o pakaliwa para magpalipat-lipat sa mga item</string>
+  <string name="watch_double_tap_text">Mag-double-tap para mag-activate ng item</string>
+  <string name="watch_2_finger_scroll_text">I-drag ang 2 daliri para mag-scroll</string>
+  <string name="title_pref_thick_border">Makakapal na border</string>
+  <string name="title_pref_category_border_color">Kulay</string>
+  <string name="title_pref_default_color">Default</string>
+  <string name="title_pref_red">Pula</string>
+  <string name="title_pref_orange">Orange</string>
+  <string name="title_pref_yellow">Dilaw</string>
+  <string name="title_pref_green">Berde</string>
+  <string name="title_pref_blue">Asul</string>
+  <string name="title_pref_grey">Gray</string>
   <string name="survey_closed">Sarado na ang survey</string>
+  <string name="character_recognition_text">Text: %1$s</string>
+  <string name="title_image_caption">Ilarawan ang larawan</string>
 </resources>

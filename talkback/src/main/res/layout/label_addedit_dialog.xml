@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/label_dialog_edit_hint"
         android:inputType="text"
+        android:fontFamily="@string/talkback_font"
         android:minHeight="@dimen/edittext_min_height">
     </EditText>
 

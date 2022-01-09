@@ -25,6 +25,7 @@ import com.google.android.accessibility.talkback.actor.FullScreenReadActor;
 import com.google.android.accessibility.talkback.actor.LanguageActor;
 import com.google.android.accessibility.talkback.actor.NodeActionPerformer;
 import com.google.android.accessibility.talkback.actor.PassThroughModeActor;
+import com.google.android.accessibility.talkback.actor.SpeechRateActor;
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
 import com.google.android.accessibility.talkback.labeling.CustomLabelManager;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -95,6 +96,9 @@ public class ActorStateWritable {
   /** Read-only on-demand data-puller for language state data. */
   public final LanguageActor.State languageState;
 
+  /** Read-only on-demand data-puller for speech rate state data. */
+  public final SpeechRateActor.State speechRateState;
+
   /** Read-only on-demand data-puller for pass-through mode state data. */
   public final PassThroughModeActor.State passThroughModeState;
 
@@ -113,6 +117,7 @@ public class ActorStateWritable {
       DirectionNavigationActor.StateReader directionNavigation,
       NodeActionPerformer.StateReader nodeActionState,
       LanguageActor.State languageState,
+      SpeechRateActor.State speechRateState,
       PassThroughModeActor.State passThroughModeState,
       CustomLabelManager.State labelerState) {
     this.dimScreen = dimScreen;
@@ -123,6 +128,7 @@ public class ActorStateWritable {
     this.directionNavigation = directionNavigation;
     this.nodeActionState = nodeActionState;
     this.languageState = languageState;
+    this.speechRateState = speechRateState;
     this.passThroughModeState = passThroughModeState;
     this.labelerState = labelerState;
   }
@@ -189,6 +195,8 @@ public class ActorStateWritable {
         StringBuilderUtils.optionalField(
             "currentGranularity", directionNavigation.getCurrentGranularity()),
         StringBuilderUtils.optionalTag("allowSelectLanguage", languageState.allowSelectLanguage()),
+        StringBuilderUtils.optionalInt(
+            "speechRatePercent", speechRateState.getSpeechRatePercentage(), 100),
         StringBuilderUtils.optionalTag(
             "passThroughModeState", passThroughModeState.isPassThroughModeActive()));
   }

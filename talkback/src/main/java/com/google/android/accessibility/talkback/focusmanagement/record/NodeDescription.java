@@ -16,11 +16,11 @@
 
 package com.google.android.accessibility.talkback.focusmanagement.record;
 
-import androidx.annotation.IntDef;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat;
 import android.text.TextUtils;
+import androidx.annotation.IntDef;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

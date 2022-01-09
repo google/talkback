@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Verzija %1$s</string>
   <string name="label_manager_summary_title">Upravljanje prilagođenim oznakama</string>
   <string name="label_manager_package_title">Upravljaj oznakama za %1$s</string>
+  <string name="manage_label">Upravljanje oznakom</string>
   <string name="label_manager_no_packages_message">Trenutno nema prilagođenih oznaka. Navigirajte na neoznačenu sliku, a zatim dodajte oznaku iz menija TalkBacka da kreirate oznaku.</string>
   <string name="label_manager_timestamp_text">Posljednja izmjena %1$s</string>
   <string name="search_dialog_label">Pretraživanje: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Istraži dodirom</string>
   <string name="title_pref_category_touch_exploration">Navigacija</string>
   <string name="title_pref_category_controls">Kontrole</string>
-  <string name="title_pref_single_tap">Aktivacija jednim dodirom</string>
+  <string name="title_pref_single_tap">Jednom dodirnite da aktivirate</string>
   <string name="title_pref_show_context_menu_as_list">Prikaži kontekstni meni kao listu</string>
-  <string name="summary_pref_single_tap">(Eksperimentalno) Jednom dodirnite fokusiranu stavku da je aktivirate</string>
+  <string name="summary_pref_single_tap">Jednom dodirnite fokusiranu stavku da je aktivirate</string>
   <string name="title_pref_shake_to_read_threshold">Protresite za početak neprekidnog čitanja</string>
   <string name="pref_verbosity_title">Rječitost</string>
   <string name="pref_punctuation_title">Interpunkcija</string>
+  <string name="title_pref_category_manage_focus_indicator">Prilagodite pokazivač fokusa</string>
   <string name="title_pref_category_manage_gestures">Prilagodite pokrete</string>
   <string name="title_pref_manage_labels">Prilagođene oznake</string>
   <string name="title_pref_manage_customize_menus">Prilagodite menije</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Pomoć i povratne informacije</string>
   <string name="title_pref_category_tutorial_and_help">Vodič i pomoć</string>
   <string name="title_pref_category_advanced">Napredno</string>
+  <string name="title_pref_category_typing">Pisanje i tastatura</string>
   <string name="title_pref_category_legal_and_privacy">Pravne informacije i privatnost</string>
   <string name="title_pref_advanced_settings">Napredne postavke</string>
   <string name="reset_gesture_settings_title">Vraćanje postavki pokreta na zadano</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Nedavne aplikacije</string>
   <string name="keycombo_menu_global_notifications">Obavještenja</string>
   <string name="keycombo_menu_global_suspend">Pauziraj ili nastavi TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Reproducirajte ili pauzirajte medijske fajlove</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Odabir sljedeće kontrole za čitanje</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Odabir prethodne kontrole za čitanje</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Podešavanje kontrole za čitanje prema gore</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Podešavanje kontrole za čitanje prema dolje</string>
   <string name="keycombo_menu_category_granularity">Navigacija</string>
   <string name="keycombo_menu_granularity_increase">Sljedeća postavka kretanja</string>
   <string name="keycombo_menu_granularity_decrease">Prethodna postavka kretanja</string>
@@ -226,7 +234,8 @@
   <string name="keycombo_assign_dialog_clear">Obriši prečicu</string>
   <string name="cannot_copy_feedback">Nema teksta koji možete kopirati. Prvo odaberite tekst.</string>
   <string name="cannot_paste_feedback">Nema teksta kojeg možete zalijepiti. Prvo kopirajte neke tekstove.</string>
-  <string name="cannot_cut_feedback">Nema teksta kojeg možete izrezati. Prvo odaberite neke tekstove.</string>
+  <string name="cannot_cut_feedback">Nema teksta koji možete izrezati. Prvo odaberite tekst.</string>
+  <string name="cannot_delete_feedback">Nema teksta koji možete izbrisati. Prvo odaberite tekst.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Jeste li sigurni da želite vratiti tipke za prečice na početne vrijednosti? Imajte na umu da se ova radnja ne može opozvati.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Vrati na zadano</string>
   <string name="override_keycombo">Tipka se već koristi</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Korištenje promjena visine glasa</string>
   <string name="title_pref_keyboard_echo">Eho tastature</string>
   <string name="pref_node_desc_order_title">Redoslijed opisa elemenata</string>
-  <string name="summaryOn_pref_intonation">Govori povratne informacije tastature dubljim glasom.</string>
+  <string name="summaryOn_pref_intonation">Izgovaranje teksta izbrisanog putem tastature u višem tonalitetu</string>
   <string name="summaryOff_pref_intonation">Ne mijenjaj visinu glasa tokom govora</string>
   <string name="title_pref_brailleime">Tastatura s Braillevim pismom</string>
   <string name="title_pref_category_feedback_settings">Ostale povratne informacije</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Uključi ispravljanje grešaka na čvoru stabla</string>
   <string name="summary_pref_tree_debug_tv">Koristite tipku za glasovno pretraživanje za štampanje razgranatog stabla umjesto pretraživanja</string>
   <string name="title_pref_performance_stats">Omogući statistiku rada</string>
+  <string name="title_pref_log_overlay">Omogućite preklapanje zapisnika o otklanjanju grešaka</string>
   <string name="title_pref_resume_talkback">Nastavi nakon obustavljanja</string>
+  <string name="title_pref_typing_confirmation">Preferenca za pisanje</string>
   <string name="title_pref_multi_finger_gesture">Omogući pokrete s više prstiju</string>
   <string name="screen_dimmed">Ekran je sakriven</string>
   <string name="screen_brightness_restored">Prikazivanje ekrana</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Klizanje nadolje</string>
   <string name="shortcut_scroll_left">Klizanje ulijevo</string>
   <string name="shortcut_scroll_right">Klizanje udesno</string>
+  <string name="shortcut_next_window">Sljedeći prozor</string>
+  <string name="shortcut_previous_window">Prethodni prozor</string>
   <string name="shortcut_back">Nazad</string>
   <string name="shortcut_home">Početna stranica</string>
   <string name="shortcut_overview">Pregled</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Sakrivanje ili prikazivanje ekrana</string>
   <string name="title_show_screen_search">Pregled glavnog ekrana</string>
   <string name="title_show_voice_commands">Glasovne komande</string>
+  <string name="talkback_show_talkback_settings">Postavke TalkBacka</string>
   <string name="title_other_web_navigation">Ostala web navigacija</string>
   <string name="title_granularity_default">Zadana navigacija</string>
   <string name="title_seek_bar_edit">Uredite nivo klizača</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Upravljanje TalkBackom pomoću glasa</string>
   <string name="summary_show_hide_screen">Skrivanje ekrana tako da nije vidljiv drugim osobama na javnim mjestima. Nakon skrivanja ekrana, vraća se u normalno stanje.</string>
   <string name="summary_talkback_preferences">Otvaranje postavki TalkBacka</string>
-  <string name="summary_system_actions">Otvaranje odjeljka sa svim aplikacijama, Brzih postavki i korištenje podijeljenog ekrana</string>
+  <string name="summary_system_actions">Idite u sve aplikacije i Brze postavke</string>
   <string name="summary_tts_settings">Otvaranje postavki za pretvaranje teksta u govor</string>
   <string name="summary_pause_feedback">Isključivanje povratnih informacija TalkBacka</string>
   <string name="not_editable">Nije moguće urediti</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Čitanje riječ po riječ</string>
   <string name="summary_lines">Čitanje red po red</string>
   <string name="summary_paragraphs">Čitanje pasus po pasus</string>
+  <string name="summary_windows">Prelazite na druge prozore, naprimjer na kontrole glasnoće ili na traku za navigaciju</string>
   <string name="summary_headings">Prelaz između naslova</string>
   <string name="summary_controls">Prelaz između stavki s kojima možete ostvariti interakciju, kao što su dugmad, polja za potvrdu i polja za tekst</string>
   <string name="summary_links">Prelaz između linkova</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Promjena odabira čitaju li se naglas pritisnute tipke, savjeti za korištenje, informacije o mreži i druge informacije</string>
   <string name="summary_selector_menu_punctuation">Promjena odabira čitaju li se naglas interpunkcija i simboli</string>
   <string name="summary_language">Promjena jezika govora. Prikazuje se samo kada imate instalirano više jezika za pretvaranje teksta u govor.</string>
-  <string name="summary_sound_feedback">Reprodukcija zvučnih efekata tokom navigacije, kao što je pištanje za potvrdu radnje.</string>
+  <string name="summary_sound_feedback">Reprodukcija zvučnih efekata tokom navigacije, kao što je pištanje za potvrdu radnje</string>
   <string name="summary_vibration_feedback">Vibriranje za radnje kao što je odabir stavke. Ne utiče na vibracije koje potiču iz aplikacija ili sistema.</string>
   <string name="summary_hide_screen">Skrivanje ekrana tako da nije vidljiv drugim osobama na javnim mjestima</string>
   <string name="summary_audio_ducking">Smanjivanje jačine drugih zvukova koji se reproduciraju dok TalkBack govori</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Klizanje naprijed ili nazad</string>
+  <string name="summary_support_change_a11y_volume">Pojačavanje ili smanjivanje jačine zvuka za pristupačnost</string>
+  <string name="summary_image_caption">Primite automatski opis za ovu sliku</string>
   <string name="value_direction_up">gore</string>
   <string name="value_direction_down">dolje</string>
   <string name="value_direction_left">lijevo</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Dvostruki dodir i držanje s 2 prsta</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Dvostruki dodir i držanje s 3 prsta</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Dvostruki dodir i držanje s 4 prsta</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Trostruki dodir i držanje s 2 prsta</string>
+  <string name="seekbar_hint_2gesture">\"%1$s\" ili \"%2$s\" da podesite</string>
+  <string name="seekbar_hint_1gesture">\"%1$s\" da podesite</string>
   <string name="gesture_name_unknown">Nepoznat pokret</string>
   <string name="gesture_name_pass_through">Prelazak do sistemskog pokreta</string>
   <string name="gesture_name_touch_explore">Istraživanje dodirom</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Dvostruki dodir i držanje</string>
   <string name="gesture_name_2finger_tap_hold">Dodir i držanje s 2 prsta</string>
   <string name="gesture_name_3finger_tap_hold">Dodir i držanje s 3 prsta</string>
+  <string name="gesture_name_2finger_3tap_hold">Trostruki dodir i držanje s 2 prsta</string>
   <string name="gesture_name_3finger_3tap_hold">Trostruki dodir i držanje s 3 prsta</string>
   <string name="title_pref_shortcut_fingerprint_up">Prevlačenje nagore na senzoru za otisak prsta</string>
   <string name="title_pref_shortcut_fingerprint_down">Prevlačenje nadolje na senzoru za otisak prsta</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Kada se ekran uključi</string>
   <string name="value_resume_keyguard">Kada se prikaže zaključani ekran</string>
   <string name="value_resume_manual">Samo iz obavještenja</string>
+  <string name="value_type_confirmation_double_tap">Držite prstom da izaberete tipku, a onda dvaput dodirnite</string>
+  <string name="value_type_confirmation_lift_to_type">Držite prstom da izaberete tipku, a onda podignite prst</string>
   <string name="value_shake_to_read_disabled">Onemogućeno</string>
   <string name="value_shake_to_read_threshold_very_light">Veoma lagano</string>
   <string name="value_shake_to_read_threshold_light">Lagano</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Uvijek izgovori otkucane tipke</string>
   <string name="value_keyboard_echo_softkeys">Samo za tastaturu na ekranu</string>
   <string name="value_keyboard_echo_never">Nikad ne izgovaraj otkucane tipke</string>
+  <string name="title_pref_keyboard_echo_on_screen">Eho tastature: tastatura na ekranu</string>
+  <string name="title_pref_keyboard_echo_physical">Eho tastature: fizička tastatura</string>
+  <string name="value_keyboard_echo_none">Nema</string>
+  <string name="value_keyboard_echo_characters_only">Znakovi</string>
+  <string name="value_keyboard_echo_words_only">Riječi</string>
+  <string name="value_keyboard_echo_characters_and_words">Znakovi i riječi</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Stanje, ime, vrsta</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Vrsta, ime, stanje</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Ime, vrsta, stanje</string>
@@ -554,11 +583,12 @@
   <string name="dialog_message_enable_tree_debug">Jeste li sigurni da želite uključiti ispravljanje grešaka na čvoru stabla?\n\nIspravljanje grešaka na čvoru stabla izlaže sadržaj ekrana zapisima vašeg uređaja, što druge aplikacije mogu pročitati.</string>
   <string name="dialog_title_enable_performance_stats">Želite li uključiti Statistiku rada?</string>
   <string name="dialog_message_enable_performance_stats">Jeste li sigurni da želite uključiti statistiku rada?\n\nStatistika rada može trošiti više memorije i energije.</string>
+  <string name="title_request_phone_permission">Dozvoliti pristup telefonu?</string>
+  <string name="message_request_phone_permission">To pomaže TalkBacku da smanji broj obavijesti tokom poziva</string>
+  <string name="continue_button">Nastavi</string>
   <string name="label_talkback_context_menu">Globalni kontekstni meni aplikacije TalkBack</string>
   <string name="permission_talkback_label">Kontroliraj TalkBack</string>
   <string name="permission_talkback_desc">Odobrenje za slanje pokreta za TalkBack i nastavak izgovorenih povratnih informacija.</string>
-  <string name="permission_labeling_label">Upravljanje prilagođenim oznakama aplikacije TalkBack</string>
-  <string name="permission_labeling_desc">Odobrenje za pristup, izmjenu i brisanje prilagođenih oznaka koju izgovara TalkBack.</string>
   <string name="links">Linkovi</string>
   <string name="end_of_text">Na kraj</string>
   <string name="start_of_page">Ne postoji prethodni %1$s</string>
@@ -615,7 +645,8 @@
   <string name="title_pref_selector_punctuation">Interpunkcija</string>
   <string name="title_pref_selector_granularity">Navigacija</string>
   <string name="title_pref_selector_audio_focus">Redukcija jačine zvuka tokom govora</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Klizni</string>
+  <string name="title_pref_a11y_volume">Jačina zvuka za pristupačnost</string>
   <string name="title_pref_selector_adjustable_widget_slider">Podesite klizač</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Podesite vrijednost</string>
   <string name="title_pref_speak_passwords_without_headphones">Izgovaranje lozinki</string>
@@ -651,7 +682,7 @@
   <string name="start_voice_command">Koristite glasovne komande</string>
   <string name="dialog_title_pass_through_mode">Preskočite pokrete TalkBacka da koristite pokrete sistema</string>
   <string name="dialog_message_pass_through_mode">Kada čujete zvono, možete koristiti sistemski pokret koji TalkBack ne podržava. Ovo je poznato kao pokret za prelazak.</string>
-  <string name="hint_type_search_term">Unesite termin za pretragu</string>
+  <string name="hint_type_search_term">Pojam pretraživanja</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Kanal obavještenja za TalkBack</string>
   <string name="pref_selector_summary">%1$s da odaberete postavku. Zatim %2$s da podesite postavku.</string>
@@ -774,6 +805,7 @@
   <string name="cut_paste_text">Da izrežete tekst, dodirnite dvaput i zadržite pomoću 3 prsta.\n\nDa zalijepite tekst, dodirnite triput pomoću 3 prsta.\n\nPokušajte zalijepiti riječ u okvir za tekst u nastavku.</string>
   <string name="copy_text_pre_r">Nakon odabira teksta, možete ga kopirati u meniju TalkBacka. Prevucite nadolje, a zatim udesno da otvorite meni TalkBacka. Dodirnite dvaput opcije za uređivanje, a zatim kopirajte.\n\nPokušajte kopirati riječ u okvir za tekst u nastavku.</string>
   <string name="cut_paste_text_pre_r">Da izrežete ili zalijepite tekst, otvorite meni TalkBacka i dodirnite dvaput opcije za uređivanje.\n\nPokušajte zalijepiti riječ u okvir za tekst u nastavku.</string>
+  <string name="edit_box_hint_paste_text">Zalijepite tekst ovdje</string>
   <string name="read_by_character_title">Čitanje pojedinačnih znakova, riječi ili pasusa</string>
   <string name="read_by_character_text">Ponekad ćete htjeti čuti čitanje teksta naglas jedan po jedan znak.\n\nDa to uradite, prevucite udesno pomoću 3 prsta dok ne čujete \"%1$s\". Zatim prevucite nagore da pomjerite fokus navigacije unazad znak po znak. Prevucite nadolje da pomjerite fokus navigacije unaprijed znak po znak.\n\nIsprobajte sada. Kada prevučete udesno pomoću 3 prsta, također možete odabrati čitanje pojedinačnih riječi ili pasusa.</string>
   <string name="read_by_character_text_pre_r">Ponekad ćete htjeti čuti čitanje teksta naglas jedan po jedan znak.\n\nDa to uradite, prevucite nadolje, a zatim nagore dok ne čujete \"%1$s\". Zatim prevucite nagore da pomjerite fokus navigacije unazad znak po znak. Prevucite nadolje da pomjerite fokus navigacije unaprijed znak po znak.\n\nIsprobajte sada. Kada prevučete nadolje, a zatim nagore, također možete odabrati čitanje pojedinačnih riječi ili pasusa.</string>
@@ -810,5 +842,19 @@
   <string name="activated_view">%1$s: aktivirano</string>
   <string name="talkback_inactive_title">TalkBack je onemogućen</string>
   <string name="talkback_inactive_message">Za ovaj vodič potrebno je da TalkBack bude omogućen. Uključite TalkBack prije pokretanja vodiča.</string>
+  <string name="watch_swipe_left_right_text">Prevucite udesno ili ulijevo da se krećete između stavki</string>
+  <string name="watch_double_tap_text">Dodirnite dvaput da aktivirate stavku</string>
+  <string name="watch_2_finger_scroll_text">Prevucite s dva prsta da kližete</string>
+  <string name="title_pref_thick_border">Debele ivice</string>
+  <string name="title_pref_category_border_color">Boja</string>
+  <string name="title_pref_default_color">Zadano</string>
+  <string name="title_pref_red">Crvena</string>
+  <string name="title_pref_orange">Narandžasta</string>
+  <string name="title_pref_yellow">Žuta</string>
+  <string name="title_pref_green">Zelena</string>
+  <string name="title_pref_blue">Plava</string>
+  <string name="title_pref_grey">Siva</string>
   <string name="survey_closed">Anketa je zatvorena</string>
+  <string name="character_recognition_text">Tekst: %1$s</string>
+  <string name="title_image_caption">Opiši sliku</string>
 </resources>

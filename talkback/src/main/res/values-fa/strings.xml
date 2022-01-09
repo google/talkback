@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">نسخه %1$s</string>
   <string name="label_manager_summary_title">مدیریت برچسب‌های سفارشی</string>
   <string name="label_manager_package_title">مدیریت برچسب‌ها برای %1$s</string>
+  <string name="manage_label">مدیریت برچسب</string>
   <string name="label_manager_no_packages_message">‏درحال حاضر برچسب سفارشی وجود ندارد. با پیمایش به تصویر بدون برچسب و سپس افزودن برچسب از «منوی Talkback»، می‌توانید برچسبی ایجاد کنید.</string>
   <string name="label_manager_timestamp_text">تاریخ آخرین تغییر %1$s</string>
   <string name="search_dialog_label">جستجو: %1$s</string>
@@ -92,10 +93,11 @@
   <string name="title_pref_category_controls">کنترل‌ها</string>
   <string name="title_pref_single_tap">فعال کردن تک‌ضربه‌ای</string>
   <string name="title_pref_show_context_menu_as_list">نمایش منوی بافت به‌صورت فهرست</string>
-  <string name="summary_pref_single_tap">(آزمایشی) برای فعال کردن، روی مورد متمرکزشده یک‌بار ضربه بزنید</string>
+  <string name="summary_pref_single_tap">برای فعال کردن، روی مورد متمرکزشده یک‌بار ضربه بزنید</string>
   <string name="title_pref_shake_to_read_threshold">تکان دادن برای شروع خواندن پیوسته</string>
   <string name="pref_verbosity_title">سطح جزئیات</string>
   <string name="pref_punctuation_title">سجاوندی</string>
+  <string name="title_pref_category_manage_focus_indicator">سفارشی ساختن نشانگر فوکوس</string>
   <string name="title_pref_category_manage_gestures">سفارشی کردن اشاره‌ها</string>
   <string name="title_pref_manage_labels">برچسب‌های سفارشی</string>
   <string name="title_pref_manage_customize_menus">سفارشی‌سازی منوها</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">راهنما و بازخورد</string>
   <string name="title_pref_category_tutorial_and_help">آموزش گام‌به‌گام و راهنما</string>
   <string name="title_pref_category_advanced">پیشرفته</string>
+  <string name="title_pref_category_typing">تایپ و صفحه‌کلید</string>
   <string name="title_pref_category_legal_and_privacy">حقوقی و حریم‌خصوصی</string>
   <string name="title_pref_advanced_settings">تنظیمات پیشرفته</string>
   <string name="reset_gesture_settings_title">بازنشانی تنظیمات اشاره</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">برنامه‌های اخیر</string>
   <string name="keycombo_menu_global_notifications">اعلان‌ها</string>
   <string name="keycombo_menu_global_suspend">‏مکث یا ازسرگیری TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">پخش یا توقف موقت رسانه</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">انتخاب کنترل خواندن بعدی</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">انتخاب کنترل خواندن قبلی</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">تنظیم کنترل خواندن بالا</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">تنظیم کنترل خواندن پایین</string>
   <string name="keycombo_menu_category_granularity">پیمایش</string>
   <string name="keycombo_menu_granularity_increase">تنظیم پیمایش بعدی</string>
   <string name="keycombo_menu_granularity_decrease">تنظیم پیمایش قبلی</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">نوشتاری برای کپی کردن وجود ندارد، ابتدا نوشتاری را انتخاب کنید.</string>
   <string name="cannot_paste_feedback">نوشتاری برای جای‌گذاری وجود ندارد، ابتدا نوشتاری را کپی کنید.</string>
   <string name="cannot_cut_feedback">نوشتاری برای بریدن وجود ندارد، ابتدا نوشتاری را انتخاب کنید.</string>
+  <string name="cannot_delete_feedback">نوشتاری برای حذف کردن وجود ندارد، ابتدا نوشتاری را انتخاب کنید.</string>
   <string name="message_in_reset_keymap_confirm_dialog">مطمئنید می‌خواهید کلیدهای میان‌بر این نقشه‌کلید را به مقادیر پیش‌فرضشان بازنشانی کنید؟ لطفاً توجه داشته باشید، این اقدام قابل واگرد نیست.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">بازنشانی</string>
   <string name="override_keycombo">کلید از قبل در حال استفاده است</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">استفاده از تغییرات زیر و بمی صدا</string>
   <string name="title_pref_keyboard_echo">صدای صفحه‌کلید</string>
   <string name="pref_node_desc_order_title">ترتیب شرح عنصر</string>
-  <string name="summaryOn_pref_intonation">بازخورد صفحه‌کلید را با صدای بم بگویید</string>
+  <string name="summaryOn_pref_intonation">نوشتار حذف‌شده صفحه‌کلید با صدای زیرتری خوانده می‌شود</string>
   <string name="summaryOff_pref_intonation">هنگام صحبت زیر و بمی صدا را تغییر ندهید</string>
   <string name="title_pref_brailleime">صفحه‌کلید بریل</string>
   <string name="title_pref_category_feedback_settings">بازخوردهای دیگر</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">فعال کردن اشکال زدایی سر شاخه</string>
   <string name="summary_pref_tree_debug_tv">استفاده از کلید جستجوی گفتاری برای چاپ کردن سرشاخه به‌جای جستجو کردن</string>
   <string name="title_pref_performance_stats">فعال کردن آمار عملکرد</string>
+  <string name="title_pref_log_overlay">فعال کردن همپوشانی گزارش اشکال‌زدایی</string>
   <string name="title_pref_resume_talkback">‏ازسرگیری TalkBack</string>
+  <string name="title_pref_typing_confirmation">اولویت تایپ کردن</string>
   <string name="title_pref_multi_finger_gesture">فعال کردن اشاره‌های چندانگشتی</string>
   <string name="screen_dimmed">صفحه‌نمایش پنهان شده است</string>
   <string name="screen_brightness_restored">صفحه‌نمایش نمایان است</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">پیمایش به پایین</string>
   <string name="shortcut_scroll_left">پیمایش به یک طرف صفحه</string>
   <string name="shortcut_scroll_right">پیمایش به‌طرف دیگر صفحه</string>
+  <string name="shortcut_next_window">پنجره بعدی</string>
+  <string name="shortcut_previous_window">پنجره قبلی</string>
   <string name="shortcut_back">برگشت</string>
   <string name="shortcut_home">صفحه اصلی</string>
   <string name="shortcut_overview">نمای کلی</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">پنهان کردن یا نمایش دادن صفحه‌نمایش</string>
   <string name="title_show_screen_search">جستجوی صفحه</string>
   <string name="title_show_voice_commands">فرمان‌های صوتی</string>
+  <string name="talkback_show_talkback_settings">‏تنظیمات TalkBack</string>
   <string name="title_other_web_navigation">دیگر پیمایش وب</string>
   <string name="title_granularity_default">پیمایش پیش‌فرض</string>
   <string name="title_seek_bar_edit">ویرایش سطح لغزنده</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">‏کنترل TalkBack با صدا</string>
   <string name="summary_show_hide_screen">پنهان کردن نمایشگر تا دیگران نتوانند صفحه‌نمایشتان را در مکان‌های عمومی ببینند. پس‌از پنهان کردن صفحه‌نمایش، آن را به وضعیت عادی برگردانید.</string>
   <string name="summary_talkback_preferences">‏باز کردن تنظیمات TalkBack‏</string>
-  <string name="summary_system_actions">رفتن به همه برنامه‌ها، «تنظیمات فوری»، و استفاده از صفحهٔ دونیمه</string>
+  <string name="summary_system_actions">رفتن به همه برنامه‌ها و «تنظیمات فوری»</string>
   <string name="summary_tts_settings">تنظیمات نوشتار به گفتار را باز کنید</string>
   <string name="summary_pause_feedback">‏بازخورد صوتی TalkBack را خاموش کنید</string>
   <string name="not_editable">قابل‌ویرایش نیست</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">خواندن یک واژه در هربار</string>
   <string name="summary_lines">خواندن یک خط در هربار</string>
   <string name="summary_paragraphs">خواندن یک بند در هربار</string>
+  <string name="summary_windows">پرش به پنجره‌های دیگر، مثل کنترل‌های میزان صدا یا نوار پیمایش.</string>
   <string name="summary_headings">جابه‌جایی بین سرصفحه‌ها</string>
   <string name="summary_controls">جابه‌جایی بین مواردی که می‌توانید با آن‌ها تعامل داشته باشید، مثلاً دکمه‌ها، چارگوش‌های انتخاب، و فیلدهای نوشتاری</string>
   <string name="summary_links">جابه‌جایی بین پیوندها</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">تغییر اینکه کلیدهای تایپ‌شده، خوانایاری‌های استفاده، اطلاعات جدول، و اطلاعات دیگر بلند خوانده شوند یا نه</string>
   <string name="summary_selector_menu_punctuation">تغییر اینکه نمادها و نشانه‌های سجاوندی بلند خوانده شوند یا نه</string>
   <string name="summary_language">تغییر زبان گفتار. فقط زمانی نمایش داده می‌شود که چند زبان برای «نوشتار به گفتار» نصب کرده باشید.</string>
-  <string name="summary_sound_feedback">شنیدن جلوه‌های صوتی درحین پیمایش، مانند صدای بوق برای تأیید کنش‌ها.</string>
+  <string name="summary_sound_feedback">شنیدن جلوه‌های صوتی درحین پیمایش، مثل صدای بوق برای تأیید کنش‌ها.</string>
   <string name="summary_vibration_feedback">حس کردن لرزش برای کنش‌هایی مانند انتخاب موارد. بر لرزش‌های ایجادشده از برنامه‌ها یا سیستم بی‌تأثیر است.</string>
   <string name="summary_hide_screen">پنهان کردن نمایشگر تا وقتی در مکان‌های عمومی هستید دیگران نتوانند صفحه‌نمایشتان را ببینند</string>
   <string name="summary_audio_ducking">‏کم کردن میزان صداهای دیگر وقتی TalkBack صحبت می‌کند</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">پیمایش به‌سمت جلو یا عقب</string>
+  <string name="summary_support_change_a11y_volume">افزایش یا کاهش دادن میزان صدای «دسترس‌پذیری»</string>
+  <string name="summary_image_caption">دریافت شرح خودکار برای این تصویر</string>
   <string name="value_direction_up">بالا</string>
   <string name="value_direction_down">پایین</string>
   <string name="value_direction_left">چپ</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">دوضربه زدن و نگه داشتن با ۲ انگشت</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">دوضربه زدن و نگه داشتن با ۳ انگشت</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">دوضربه زدن و نگه داشتن با ۴ انگشت</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">سه ضربه زدن و نگه داشتن با ۲ انگشت</string>
+  <string name="seekbar_hint_2gesture">برای تنظیم کردن، از «%1$s» یا «%2$s» استفاده کنید</string>
+  <string name="seekbar_hint_1gesture">برای تنظیم کردن، از «%1$s» استفاده کنید</string>
   <string name="gesture_name_unknown">اشاره ناشناس</string>
   <string name="gesture_name_pass_through">رفتن به اشاره سیستم</string>
   <string name="gesture_name_touch_explore">کاوش با لمس</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">دوضربه زدن و نگه داشتن</string>
   <string name="gesture_name_2finger_tap_hold">ضربه زدن و نگه داشتن با ۲ انگشت</string>
   <string name="gesture_name_3finger_tap_hold">ضربه زدن و نگه داشتن با ۳ انگشت</string>
+  <string name="gesture_name_2finger_3tap_hold">سه ضربه زدن و نگه داشتن با ۲ انگشت</string>
   <string name="gesture_name_3finger_3tap_hold">سه ضربه زدن و نگه داشتن با ۳ انگشت</string>
   <string name="title_pref_shortcut_fingerprint_up">تند کشیدن به‌بالا روی حسگر اثرانگشت</string>
   <string name="title_pref_shortcut_fingerprint_down">تند کشیدن به‌پایین روی حسگر اثرانگشت</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">هنگامی که صفحه روشن می‌شود</string>
   <string name="value_resume_keyguard">هنگامی‌که صفحه قفل نشان داده می‌شود</string>
   <string name="value_resume_manual">فقط از اعلان</string>
+  <string name="value_type_confirmation_double_tap">برای انتخاب کلید، انگشت را نگه دارید و سپس دوضربه بزنید</string>
+  <string name="value_type_confirmation_lift_to_type">برای انتخاب کلید، انگشت را نگه دارید و سپس بردارید</string>
   <string name="value_shake_to_read_disabled">غیرفعال</string>
   <string name="value_shake_to_read_threshold_very_light">بسیار آرام</string>
   <string name="value_shake_to_read_threshold_light">آرام</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">هر کلیدی که زده می‌شود همیشه بلند خوانده شود</string>
   <string name="value_keyboard_echo_softkeys">فقط برای صفحه‌کلید مجازی</string>
   <string name="value_keyboard_echo_never">کلید که زده می‌شود هرگز بلند خوانده نشود</string>
+  <string name="title_pref_keyboard_echo_on_screen">بازگویی صفحه‌کلید: صفحه‌کلید مجازی</string>
+  <string name="title_pref_keyboard_echo_physical">بازگویی صفحه‌کلید: صفحه‌کلید فیزیکی</string>
+  <string name="value_keyboard_echo_none">هیچ‌کدام</string>
+  <string name="value_keyboard_echo_characters_only">نویسه‌ها</string>
+  <string name="value_keyboard_echo_words_only">واژه‌ها</string>
+  <string name="value_keyboard_echo_characters_and_words">نویسه‌ها و واژه‌ها</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">حالت، نام، نوع</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">نوع، نام، حالت</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">نام، نوع، حالت</string>
@@ -554,11 +583,12 @@
   <string name="dialog_title_enable_performance_stats">آمار عملکرد فعال شود؟</string>
   <string name="dialog_message_enable_performance_stats">‏مطمئنید می‌خواهید آمار عملکرد را روشن کنید؟
 \n\nممکن است آمار عملکرد، حافظه و توان بیشتری مصرف کند.</string>
+  <string name="title_request_phone_permission">دسترسی به تلفن مجاز شود؟</string>
+  <string name="message_request_phone_permission">‏این کار به TalkBack کمک می‌کند اعلامیه‌ها را زمانی‌که درحین تماس هستید کاهش دهد</string>
+  <string name="continue_button">ادامه</string>
   <string name="label_talkback_context_menu">‏منوی بافت کلی TalkBack</string>
   <string name="permission_talkback_label">‏کنترل TalkBack</string>
   <string name="permission_talkback_desc">‏اجازه ارسال اشاره‌ها به TalkBack و ازسرگیری بازخورد گفتاری.</string>
-  <string name="permission_labeling_label">‏مدیریت برچسب‌های سفارشی TalkBack</string>
-  <string name="permission_labeling_desc">‏اجازه دسترسی، تغییر و حذف برچسب‌های سفارشی که TalkBack گفته است.</string>
   <string name="links">پیوندها</string>
   <string name="end_of_text">پایان</string>
   <string name="start_of_page">%1$s قبل‌تری وجود ندارد</string>
@@ -579,7 +609,7 @@
   <string name="display_name_heading_6">عنوان ۶</string>
   <string name="display_name_link">پیوند</string>
   <string name="display_name_control">کنترل</string>
-  <string name="display_name_graphic">گرافیک</string>
+  <string name="display_name_graphic">ترسیمی</string>
   <string name="display_name_list_item">مورد فهرست</string>
   <string name="display_name_list">فهرست</string>
   <string name="display_name_table">جدول</string>
@@ -614,10 +644,11 @@
   <string name="title_pref_selector_punctuation">سجاوندی</string>
   <string name="title_pref_selector_granularity">پیمایش</string>
   <string name="title_pref_selector_audio_focus">کاهش صدای پس‌زمینه</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">پیمایش</string>
+  <string name="title_pref_a11y_volume">میزان دسترس‌پذیری</string>
   <string name="title_pref_selector_adjustable_widget_slider">تنظیم کردن لغزنده</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">تنظیم مقدار</string>
-  <string name="title_pref_speak_passwords_without_headphones">‏خواندن گذرواژه‎ها</string>
+  <string name="title_pref_speak_passwords_without_headphones">‏خواندن گذرواژه‌‎ها</string>
   <string name="summaryOn_pref_speak_passwords_without_headphones">گذرواژه‌ها همیشه خوانده می‌شود</string>
   <string name="title_pref_sound_and_vibration">صدا و لرزش</string>
   <string name="template_text_copied">کپی شد، %1$s</string>
@@ -649,7 +680,7 @@
   <string name="start_voice_command">استفاده از فرمان‌های صوتی</string>
   <string name="dialog_title_pass_through_mode">‏جا انداختن اشاره‌های TalkBack برای استفاده از اشاره‌های سیستم</string>
   <string name="dialog_message_pass_through_mode">‏وقتی صدای زنگ اخبار را شنیدید، می‌توانید از اشاره سیستمی که TalkBack پشتیبانی نمی‌کند استفاده کنید. این اشاره با نام اشاره عبور شناخته می‌شود.</string>
-  <string name="hint_type_search_term">عبارت جستجو را تایپ کنید</string>
+  <string name="hint_type_search_term">عبارت جستجو</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">‏کانال اعلان TalkBack</string>
   <string name="pref_selector_summary">برای انتخاب تنظیم، %1$s. سپس برای تغییر تنظیم، %2$s.</string>
@@ -772,6 +803,7 @@
   <string name="cut_paste_text">‏برای بریدن نوشتار، با ۳ انگشت دوضربه بزنید و نگه دارید.\n\nبرای جای‌گذاری نوشتار، با ۳ انگشت سه‌ضربه بزنید.\n\nکلمه‌ای را در چارگوش نوشتاری زیر جای‌گذاری کنید.</string>
   <string name="copy_text_pre_r">‏پس‌از انتخاب نوشتار، می‌توانید آن را در منوی TalkBack کپی کنید. برای باز کردن منوی TalkBack، تند به‌سمت پایین و سپس راست بکشید. روی گزینه‌های ویرایش دوضربه بزنید و سپس کپی کنید.\n\nکلمه‌ای را در چارگوش نوشتاری زیر کپی کنید.</string>
   <string name="cut_paste_text_pre_r">‏برای بریدن یا جای‌گذاری نوشتار، منوی TalkBack را باز کنید و روی گزینه‌های ویرایش دوضربه بزنید.\n\nکلمه‌ای را در چارگوش نوشتاری زیر جای‌گذاری کنید.</string>
+  <string name="edit_box_hint_paste_text">نوشتار را اینجا جای‌گذاری کنید</string>
   <string name="read_by_character_title">خواندن براساس نویسه، کلمه، یا بند</string>
   <string name="read_by_character_text">‏گاهی اوقات، ممکن است بخواهید نوشتار به‌صورت نویسه به نویسه برایتان بلند خوانده شود.\n\nبرای انجام این کار، با ۳ انگشت تند به‌سمت راست بکشید تا وقتی که «%1$s» را بشنوید. سپس، برای انتقال تمرکز پیمایش به‌سمت عقب براساس نویسه، تند به‌سمت بالا بکشید. برای انتقال تمرکز پیمایش به‌سمت جلو براساس نویسه، تند به‌سمت پایین بکشید.\n\nاکنون امتحان کنید. وقتی با ۳ انگشت تند به‌سمت راست بکشید، همچنین می‌توانید انتخاب کنید نوشتار براساس کلمه یا بند خوانده شود.</string>
   <string name="read_by_character_text_pre_r">‏گاهی اوقات، ممکن است بخواهید نوشتار به‌صورت نویسه به نویسه برایتان بلند خوانده شود.\n\nبرای انجام این کار، تند به‌سمت پایین و سپس بالا بکشید تا وقتی که «%1$s» را بشنوید. سپس، برای انتقال تمرکز پیمایش به‌سمت عقب براساس نویسه، تند به‌سمت بالا بکشید. برای انتقال تمرکز پیمایش به‌سمت جلو براساس نویسه، تند به‌سمت پایین بکشید.\n\nاکنون امتحان کنید. وقتی تند به‌سمت پایین و سپس بالا بکشید، همچنین می‌توانید انتخاب کنید نوشتار براساس کلمه یا بند خوانده شود.</string>
@@ -808,5 +840,19 @@
   <string name="activated_view">%1$s فعال شد</string>
   <string name="talkback_inactive_title">‏TalkBack غیرفعال شد</string>
   <string name="talkback_inactive_message">‏برای این آموزش گام‌به‌گام، TalkBack باید فعال شود. لطفاً قبلاز راه‌اندازی آموزش گام‌به‌گام، TalkBack را روشن کنید.</string>
+  <string name="watch_swipe_left_right_text">برای جابه‌جا شدن بین موارد، آن‌ها را تند به راست یا چپ بکشید</string>
+  <string name="watch_double_tap_text">برای فعال کردن یکی از موارد، دو ضربه سریع بزنید</string>
+  <string name="watch_2_finger_scroll_text">برای پیمایش، با ۲ انگشت بکشید</string>
+  <string name="title_pref_thick_border">حاشیه ضخیم</string>
+  <string name="title_pref_category_border_color">رنگ</string>
+  <string name="title_pref_default_color">پیش‌فرض</string>
+  <string name="title_pref_red">قرمز</string>
+  <string name="title_pref_orange">نارنجی</string>
+  <string name="title_pref_yellow">زرد</string>
+  <string name="title_pref_green">سبز</string>
+  <string name="title_pref_blue">آبی</string>
+  <string name="title_pref_grey">خاکستری</string>
   <string name="survey_closed">نظرسنجی بسته شد</string>
+  <string name="character_recognition_text">نوشتار: %1$s</string>
+  <string name="title_image_caption">شرح تصویر</string>
 </resources>

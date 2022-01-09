@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Actualizando la posición de los puntos. Primero, grabaremos los puntos de la mano izquierda. Mantén presionada la pantalla con los 3 dedos del medio de la mano izquierda.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Actualizando la posición de los puntos. Primero, grabaremos los puntos de la mano derecha. Mantén presionada la pantalla con los 3 dedos del medio de la mano derecha.</string>
   <string name="calibration_finish_announcement">Se actualizó la posición de los puntos</string>
+  <string name="remaining_calibration_finish_announcement">Se actualizaron todas las posiciones de puntos</string>
   <string name="calibration_step2_hold_right_finger_announcement">Se actualizó la posición de los puntos 1, 2 y 3. Ahora, grabaremos los puntos de la mano derecha. Mantén presionada la pantalla con los 3 dedos del medio de la mano derecha.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Se actualizó la posición de los puntos 1, 2 y 3. Ahora, grabaremos los puntos de la mano izquierda. Mantén presionada la pantalla con los 3 dedos del medio de la mano izquierda.</string>
   <string name="calibration_fail_announcement">No se pudo actualizar la posición de los puntos. Mantén presionada la pantalla con 6 dedos. Luego, vuelve a intentarlo.</string>
@@ -33,13 +34,11 @@
   <string name="code_user_facing_name_ueb">Braille unificado en inglés (UEB)</string>
   <string name="code_user_facing_name_es">Español</string>
   <string name="code_user_facing_name_ar">Árabe</string>
+  <string name="code_user_facing_name_fr">Francés</string>
   <string name="title_pref_accumulate_presses">Incluir todos los puntos presionados</string>
   <string name="summary_pref_accumulate_presses">Cada punto presionado es parte de la entrada, incluso si se suelta antes que los demás</string>
   <string name="title_pref_reverse_dots">Puntos invertidos</string>
   <string name="summary_pref_reverse_dots">Cambia las posiciones de los puntos de manera que el 1 y el 4 intercambien su lugar, por ejemplo</string>
-  <string name="typing_echo_list_preference_title">Comentarios sobre la escritura (eco de escritura)</string>
-  <string name="typing_echo_preference_label_characters">Leer todas las letras y palabras</string>
-  <string name="typing_echo_preference_label_words">Leer solo las palabras</string>
   <string name="context_menu_title">Opciones del teclado braille</string>
   <string name="context_menu_typing_language_selection">Cambiar idioma de escritura</string>
   <string name="context_menu_typing_language_selection_summary">En uso actualmente: %s</string>

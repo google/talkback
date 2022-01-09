@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">ドット位置を更新します。まず、左手でドット位置を記録しましょう。左手の人差し指、中指、薬指の 3 本で画面を長押しします。</string>
   <string name="calibration_step1_hold_right_finger_announcement">ドット位置を更新します。まず、右手でドット位置を記録しましょう。右手の人差し指、中指、薬指の 3 本で画面を長押しします。</string>
   <string name="calibration_finish_announcement">ドット位置を更新しました</string>
+  <string name="remaining_calibration_finish_announcement">すべてのドットの位置を更新しました</string>
   <string name="calibration_step2_hold_right_finger_announcement">ドット 1、2、3 の位置を更新しました。次に、右手でドット位置を記録しましょう。右手の人差し指、中指、薬指の 3 本で画面を長押しします。</string>
   <string name="calibration_step2_hold_left_finger_announcement">ドット 1、2、3 の位置を更新しました。次に、左手でドット位置を記録しましょう。左手の人差し指、中指、薬指の 3 本で画面を長押しします。</string>
   <string name="calibration_fail_announcement">ドット位置を更新できませんでした。6 本の指で画面を長押しして、もう一度お試しください。</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">統一英語点字</string>
   <string name="code_user_facing_name_es">スペイン語</string>
   <string name="code_user_facing_name_ar">アラビア語</string>
+  <string name="code_user_facing_name_fr">フランス語</string>
   <string name="title_pref_accumulate_presses">押されたドットをすべて含める</string>
   <string name="summary_pref_accumulate_presses">押されたドットは、他のドットを押す前に離された場合でも、すべて入力に含まれます</string>
   <string name="title_pref_reverse_dots">ドットを反転させる</string>
   <string name="summary_pref_reverse_dots">ドットの位置を交換します（たとえば、ドット 1 と 4 の位置を交換します）</string>
-  <string name="typing_echo_list_preference_title">入力フィードバック（入力の読み上げ）</string>
-  <string name="typing_echo_preference_label_characters">文字と単語をすべて読み上げる</string>
-  <string name="typing_echo_preference_label_words">単語のみ読み上げる</string>
   <string name="context_menu_title">点字キーボード オプション</string>
   <string name="context_menu_typing_language_selection">入力言語の変更</string>
   <string name="context_menu_typing_language_selection_summary">現在 %s を使用しています</string>

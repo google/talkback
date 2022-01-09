@@ -14,6 +14,7 @@
   <string name="voice_commands_language">ભાષા</string>
   <string name="voice_commands_languages">ભાષાઓ</string>
   <string name="voice_commands_custom_actions">કસ્ટમ ક્રિયાઓ</string>
+  <string name="voice_commands_action">ક્રિયા</string>
   <string name="voice_commands_quick_settings">ઝડપી સેટિંગ</string>
   <string name="voice_commands_quick_setting">ઝડપી સેટિંગ</string>
   <string name="voice_commands_dim">ઝાંખી</string>
@@ -60,8 +61,8 @@
   <string name="voice_commands_dictate">મને કહો</string>
   <string name="voice_commands_write">લખો</string>
   <string name="voice_commands_Spell">જોડણી</string>
-  <string name="voice_commands_talkback_settings">TalkBack સેટિંગ</string>
-  <string name="voice_commands_talkback_setting">TalkBack સેટિંગ</string>
+  <string name="voice_commands_talkback_settings">TalkBackના સેટિંગ</string>
+  <string name="voice_commands_talkback_setting">TalkBackનું સેટિંગ</string>
   <string name="voice_commands_screen_search">સ્ક્રીન પર શોધો</string>
   <string name="voice_commands_search_on_screen">સ્ક્રીન પર શોધો</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">આ સુવિધાનો ઉપયોગ કરવા માટે, તમારે માઇક્રોફોનનો ઉપયોગ કરવાની પરવાનગી આપવી જરૂરી છે.</string>
   <string name="voice_commands_no_voice_recognition_ability">માફ કરશો! આ સુવિધા તમારા ડિવાઇસ પર ઉપલબ્ધ નથી</string>
   <string name="voice_commands_error">વૉઇસ આદેશ ઓળખવામાં ભૂલ</string>
-  <string name="voice_commands_partial_result">આ આદેશ ઓળખી શકતાં નથી. બધા આદેશોની સૂચિ માટે \"%1$s\" કહો.</string>
+  <string name="voice_commands_partial_result">આ આદેશ ઓળખી શકાતો નથી. બધા આદેશોની સૂચિ માટે \"%1$s\" કહો.</string>
+  <string name="voice_commands_timeout">બધા આદેશોની સૂચિ માટે \"%1$s\" કહો.</string>
   <string name="voice_commands_many_requests">કૃપા કરીને થોડીવારમાં ફરી પ્રયાસ કરો</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" સેટિંગ ચાલુ કર્યું નથી</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\"ને વૉઇસ આદેશ તરીકે ઓળખી શકાયો નથી.</string>
   <string name="voice_commands_label_saved">લેબલ સાચવ્યું</string>
   <string name="voice_commands_no_actions_feedback">કોઈ ક્રિયાઓ ઉપલબ્ધ નથી</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">વૉઇસ આદેશનો ઓવરવ્યૂ</string>
   <string name="voice_commands_help_description">વૉઇસ આદેશોનો ઉપયોગ કરવા માટે, જમણે પછી ઉપર સ્વાઇપ કરો. આદેશોની આ સૂચિ માટે, \"સહાય કરો\" અથવા \"હું શું કહી શકું છું?\" એમ કહો.</string>
   <string name="voice_commands_help_hint">શ્રેષ્ઠ પરિણામો માટે, આગલી સ્ક્રીન પર સૂચિબદ્ધ કરવામાં આવેલા બરાબર તે જ શબ્દો કહો.</string>
+  <string name="voice_command_screen_locked_hint">સ્ક્રીન જ્યારે લૉક હોય, ત્યારે વૉઇસ આદેશ ઉપલબ્ધ હોતા નથી. તો તેને બદલે TalkBack મેનૂનો ઉપયોગ કરવા માટે, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">વર્તમાન સ્ક્રીન પર તમારી કન્ટેન્ટ વાંચવાની રીત બદલો</string>
   <string name="voice_commands_help_next">આગલું [મથાળું]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">સ્ક્રીન પર જોઈતી ટેક્સ્ટ શોધવા માટે કોઈ શોધ શબ્દ દાખલ કરો</string>
   <string name="voice_commands_help_text_editing_description">ટેક્સ્ટને ટાઇપ, પસંદ અને કૉપિ કરો</string>
   <string name="voice_commands_help_type_text">ટાઇપ કરો [ઓકે]</string>
-  <string name="voice_commands_help_copy_description">ખાતરી કરો કે તમે કૉપિ કરતા પહેલાં ટેક્સ્ટ પસંદ કરેલી છે</string>
-  <string name="voice_commands_help_cut_description">ખાતરી કરો કે તમે કટ કરતા પહેલાં ટેક્સ્ટ પસંદ કરેલી છે</string>
+  <string name="voice_commands_help_copy_description">કૉપિ કરતા પહેલાં ટેક્સ્ટ પસંદ કરો</string>
+  <string name="voice_commands_help_cut_description">કટ કરતા પહેલાં ટેક્સ્ટ પસંદ કરો</string>
+  <string name="voice_commands_help_delete_description">ડિલીટ કરતા પહેલાં ટેક્સ્ટ પસંદ કરો</string>
   <string name="voice_commands_help_device_navigation_title">ડિવાઇસ નૅવિગેશન</string>
   <string name="voice_commands_help_device_navigation_description">હોમ પર જાઓ, પાછળ જાઓ, નોટિફિકેશન બતાવો, અને બીજું ઘણું બધું</string>
   <string name="voice_commands_help_overview_description">તમારી તાજેતરની ઍપ જુઓ</string>

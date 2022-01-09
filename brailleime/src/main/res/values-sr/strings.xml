@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Ажурира се положај тачака. Хајде да прво снимимо тачке леве руке. Додирните и задржите екран помоћу средња 3 прста леве руке.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Ажурира се положај тачака. Хајде да прво снимимо тачке десне руке. Додирните и задржите екран помоћу средња 3 прста десне руке.</string>
   <string name="calibration_finish_announcement">Положај тачака је ажуриран</string>
+  <string name="remaining_calibration_finish_announcement">Положаји свих тачака су ажурирани</string>
   <string name="calibration_step2_hold_right_finger_announcement">Ажуриран је положај тачака 1, 2 и 3. Хајде да сада снимимо тачке десне руке. Додирните и задржите екран помоћу средња 3 прста десне руке.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Ажуриран је положај тачака 1, 2 и 3. Хајде да сада снимимо тачке леве руке. Додирните и задржите екран помоћу средња 3 прста леве руке.</string>
   <string name="calibration_fail_announcement">Ажурирање положаја тачака није успело. Додирните и задржите екран помоћу 6 прстију. Затим пробајте поново.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Јединствена Брајева азбука за енглески</string>
   <string name="code_user_facing_name_es">шпански</string>
   <string name="code_user_facing_name_ar">арапски</string>
+  <string name="code_user_facing_name_fr">француски</string>
   <string name="title_pref_accumulate_presses">Уврсти све притиснуте тачке</string>
   <string name="summary_pref_accumulate_presses">Свака притиснута тачка је део уноса, чак и ако се тачка отпусти пре других тачака</string>
   <string name="title_pref_reverse_dots">Обрни тачке</string>
   <string name="summary_pref_reverse_dots">Замените положаје тачака, на пример, тако да 1. и 4. тачка замене места</string>
-  <string name="typing_echo_list_preference_title">Повратне информације за унос текста (ехо уноса текста)</string>
-  <string name="typing_echo_preference_label_characters">Читај сва слова и речи</string>
-  <string name="typing_echo_preference_label_words">Читај само речи</string>
   <string name="context_menu_title">Опције тастатуре са Брајевом азбуком</string>
   <string name="context_menu_typing_language_selection">Промените језик за куцање</string>
   <string name="context_menu_typing_language_selection_summary">Тренутно користите %s</string>

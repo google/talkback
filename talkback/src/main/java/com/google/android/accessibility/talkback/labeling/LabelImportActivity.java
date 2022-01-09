@@ -93,7 +93,7 @@ public class LabelImportActivity extends Activity {
           }
         };
 
-    AlertDialogUtils.createBuilder(this)
+    AlertDialogUtils.builder(this)
         .setMessage(R.string.label_import_dialog_message)
         .setTitle(R.string.label_import_dialog_title)
         .setPositiveButton(R.string.label_import_dialog_skip, buttonClickListener)

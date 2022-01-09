@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">الفاصلة العليا</string>
   <string name="symbol_ampersand">علامة العطف</string>
-  <string name="symbol_angle_bracket_left">قوس الزاوية اليسرى</string>
-  <string name="symbol_angle_bracket_right">قوس الزاوية اليمنى</string>
+  <string name="symbol_angle_bracket_left">علامة أقل من</string>
+  <string name="symbol_angle_bracket_right">علامة أكبر من</string>
   <string name="symbol_asterisk">العلامة النجمية</string>
   <string name="symbol_at_sign">‏علامة At</string>
   <string name="symbol_backslash">شرطة مائلة للخلف</string>
   <string name="symbol_bullet">تعداد نقطي</string>
   <string name="symbol_caret">علامة الإقحام</string>
-  <string name="symbol_cent">سنت</string>
+  <string name="symbol_cent">علامة السنت</string>
   <string name="symbol_colon">نقطتان</string>
   <string name="symbol_comma">فاصلة</string>
   <string name="symbol_copyright">حقوق الطبع والنشر</string>
   <string name="symbol_curly_bracket_left">قوس متعرج أيسر</string>
   <string name="symbol_curly_bracket_right">قوس متعرج أيمن</string>
-  <string name="symbol_degree">درجة</string>
+  <string name="symbol_degree">علامة الدرجة</string>
   <string name="symbol_division">علامة القسمة</string>
   <string name="symbol_dollar_sign">علامة الدولار</string>
   <string name="symbol_ellipsis">علامة حذف</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">نقطة</string>
   <string name="symbol_pi">باي</string>
   <string name="symbol_pound">علامة المربّع</string>
-  <string name="symbol_pound_sterling">جنيه إسترليني</string>
+  <string name="symbol_pound_sterling">علامة عملة الجنيه</string>
   <string name="symbol_question_mark">علامة استفهام</string>
   <string name="symbol_quotation_mark">علامة اقتباس</string>
   <string name="symbol_registered_trademark">علامة تجارية مسجلة</string>
@@ -48,13 +48,13 @@
   <string name="symbol_square_root">جذر تربيعي</string>
   <string name="symbol_trademark">علامة تجارية</string>
   <string name="symbol_underscore">شَرْطَة سُفْلِيَّة</string>
-  <string name="symbol_vertical_bar">شريط عمودي</string>
+  <string name="symbol_vertical_bar">خط عمودي</string>
   <string name="symbol_yen">الين</string>
   <string name="symbol_not_sign">علامة النفي</string>
   <string name="symbol_broken_bar">شريط عمودي مقطوع</string>
   <string name="symbol_micro_sign">علامة ميكرو</string>
   <string name="symbol_almost_equals">يساوي تقريبًا</string>
-  <string name="symbol_not_equals">لا تساوي</string>
+  <string name="symbol_not_equals">غير مساوٍ لـ</string>
   <string name="symbol_currency_sign">علامة العملة</string>
   <string name="symbol_section_sign">علامة المادة</string>
   <string name="symbol_upwards_arrow">سهم متّجه للأعلى</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">قلب أسود</string>
   <string name="symbol_tilde">علامة المد (تلدة)</string>
   <string name="symbol_equal">علامة يساوي</string>
-  <string name="symbol_won">علامة الوون</string>
+  <string name="symbol_won">علامة عملة الوون</string>
   <string name="symbol_reference">علامة مرجعية</string>
   <string name="symbol_white_star">نجمة بيضاء</string>
   <string name="symbol_black_star">نجمة سوداء</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">قوس زاوية مزدوجة يمنى</string>
   <string name="symbol_inverted_exclamation_mark">علامة تعجب مقلوبة</string>
   <string name="symbol_inverted_question_mark">علامة استفهام مقلوبة</string>
-  <string name="symbol_won_sign">علامة العملة الكورية الوون</string>
+  <string name="symbol_won_sign">علامة عملة الوون</string>
   <string name="symbol_full_width_comma">فاصلة بالعرض الكامل</string>
   <string name="symbol_full_width_exclamation_mark">علامة تعجب بالعرض الكامل</string>
   <string name="symbol_full_width_ideographic_full_stop">نقطة في الكتابة المصوّرة</string>

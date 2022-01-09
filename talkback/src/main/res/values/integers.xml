@@ -11,6 +11,7 @@
     <item name="viewpager_menu" type="id"/>
     <item name="seekbar_menu" type="id"/>
     <item name="granularity_menu" type="id"/>
+    <item name="talkback_menu_listview" type="id"/>
 
     <integer name="quick_menu_overlay_font_weight">900</integer>
 
@@ -25,4 +26,8 @@
     <!-- For exit buttons in training. -->
     <item name="training_exit_button_0" type="id" />
     <item name="training_exit_button_1" type="id" />
+
+    <!-- For finish buttons in training. -->
+    <item name="training_finish_button_0" type="id" />
+    <item name="training_finish_button_1" type="id" />
 </resources>

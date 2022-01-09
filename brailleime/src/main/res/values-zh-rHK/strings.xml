@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">更新緊圓點位置。首先，記錄左手嘅圓點。請用左手中間 3 隻手指㩒住螢幕。</string>
   <string name="calibration_step1_hold_right_finger_announcement">更新緊圓點位置。首先，記錄右手嘅圓點。請用右手中間 3 隻手指㩒住螢幕。</string>
   <string name="calibration_finish_announcement">更新咗圓點位置</string>
+  <string name="remaining_calibration_finish_announcement">更新咗所有點嘅位置</string>
   <string name="calibration_step2_hold_right_finger_announcement">更新咗點 1、點 2 同點 3 嘅位置。跟住，記錄右手嘅圓點。請用右手中間 3 隻手指㩒住螢幕。</string>
   <string name="calibration_step2_hold_left_finger_announcement">更新咗點 1、點 2 同點 3 嘅位置。跟住，記錄左手嘅圓點。請用左手中間 3 隻手指㩒住螢幕。</string>
   <string name="calibration_fail_announcement">更新唔到圓點位置。請用 6 隻手指㩒住螢幕，然後再試一次。</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">統一英文點字</string>
   <string name="code_user_facing_name_es">西班牙文</string>
   <string name="code_user_facing_name_ar">阿拉伯文</string>
+  <string name="code_user_facing_name_fr">法文</string>
   <string name="title_pref_accumulate_presses">包括所有已按下的點</string>
   <string name="summary_pref_accumulate_presses">即使您先放開其中某個點，每個您按下的點都是輸入內容的一部分，並不影響拼字</string>
   <string name="title_pref_reverse_dots">反轉點</string>
   <string name="summary_pref_reverse_dots">你可以將點嘅位置對掉，例如 1 點同 4 點對掉位置</string>
-  <string name="typing_echo_list_preference_title">輸入回應 (輸入回音)</string>
-  <string name="typing_echo_preference_label_characters">朗讀所有字母和字詞</string>
-  <string name="typing_echo_preference_label_words">僅朗讀字詞</string>
   <string name="context_menu_title">點字鍵盤選項</string>
   <string name="context_menu_typing_language_selection">變更輸入語言</string>
   <string name="context_menu_typing_language_selection_summary">目前使用的是 %s</string>

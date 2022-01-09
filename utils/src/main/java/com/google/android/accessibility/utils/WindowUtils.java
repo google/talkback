@@ -19,15 +19,19 @@ package com.google.android.accessibility.utils;
 import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.Insets;
 import android.graphics.Rect;
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Surface;
+import android.view.WindowInsets;
 import android.view.WindowManager;
+import android.view.WindowMetrics;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /** Utility functions for system-UI windows. */
 public class WindowUtils {
@@ -121,6 +125,23 @@ public class WindowUtils {
         break;
     }
     return false;
+  }
+
+  /**
+   * Gets the global window insets from the window metrics.
+   *
+   * @param windowMetrics Metrics about a Window
+   * @return windowInsets
+   */
+  @NonNull
+  public static Insets getWindowInsets(WindowMetrics windowMetrics) {
+    if (FeatureSupport.supportReportingInsetsByZOrder()) {
+      return windowMetrics
+          .getWindowInsets()
+          .getInsetsIgnoringVisibility(
+              WindowInsets.Type.systemBars() | WindowInsets.Type.displayCutout());
+    }
+    return Insets.NONE;
   }
 
   /**

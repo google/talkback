@@ -16,6 +16,12 @@
 
 package com.google.android.accessibility.utils;
 
+import static com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.FOCUS_FAIL_FAIL_ALL_FOCUS_TESTS;
+import static com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.FOCUS_FAIL_NOT_SPEAKABLE;
+import static com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.FOCUS_FAIL_NOT_VISIBLE;
+import static com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.FOCUS_FAIL_SAME_WINDOW_BOUNDS_CHILDREN;
+import static com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.NONE;
+
 import android.annotation.TargetApi;
 import android.graphics.Rect;
 import android.graphics.RectF;
@@ -40,6 +46,8 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import com.google.android.accessibility.utils.Role.RoleName;
 import com.google.android.accessibility.utils.compat.CompatUtils;
+import com.google.android.accessibility.utils.output.DiagnosticOverlayUtils;
+import com.google.android.accessibility.utils.output.DiagnosticOverlayUtils.DiagnosticType;
 import com.google.android.accessibility.utils.traversal.SpannableTraversalUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.android.libraries.accessibility.utils.url.SpannableUrl;
@@ -51,6 +59,7 @@ import com.google.errorprone.annotations.FormatString;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -82,6 +91,8 @@ public class AccessibilityNodeInfoUtils {
 
   private static final String CLASS_LISTVIEW = ListView.class.getName();
   private static final String CLASS_GRIDVIEW = GridView.class.getName();
+
+  private static final HashMap<Integer, String> actionIdToName = initActionIds();
 
   // TODO: When androidx support library is available, change all node.getText() to use
   // AccessibilityNodeInfoCompat.getText() via this wrapper.
@@ -743,7 +754,8 @@ public class AccessibilityNodeInfoUtils {
     }
 
     if (!isVisible(node)) {
-      logShouldFocusNode(checkChildren, "Don't focus, %s is not visible", printId(node));
+      logShouldFocusNode(
+          checkChildren, FOCUS_FAIL_NOT_VISIBLE, "Don't focus, is not visible: ", node);
       return false;
     }
 
@@ -752,12 +764,17 @@ public class AccessibilityNodeInfoUtils {
       // pic-in-pic window.
       return true;
     } else {
-      // Reject all non-leaf nodes that have the same bounds as the window.
-      if (areBoundsIdenticalToWindow(node) && node.getChildCount() > 0) {
+      // Reject all non-leaf nodes that are neither actionable nor focusable, and have the same
+      // bounds as the window.
+      if (areBoundsIdenticalToWindow(node)
+          && node.getChildCount() > 0
+          && !isFocusableOrClickable(node)) {
         logShouldFocusNode(
             checkChildren,
-            "Don't focus, %s bounds are same as window root node bounds and node has children",
-            printId(node));
+            FOCUS_FAIL_SAME_WINDOW_BOUNDS_CHILDREN,
+            "Don't focus, bounds are same as window root node bounds, node has children and"
+                + " is neither actionable nor focusable: ",
+            node);
         return false;
       }
     }
@@ -792,17 +809,18 @@ public class AccessibilityNodeInfoUtils {
         // won't prevent unlabeled buttons from receiving focus.
         if (!hasVisibleChildren(node)) {
           logShouldFocusNode(
-              checkChildren, "Focus, %s is focusable and has no visible children", printId(node));
+              checkChildren, NONE, "Focus, is focusable and has no visible children: ", node);
           return true;
         } else if (isSpeakingNode(node, speakingNodeCache, visitedNodes)) {
           logShouldFocusNode(
-              checkChildren, "Focus, %s is focusable and has something to speak", printId(node));
+              checkChildren, NONE, "Focus, is focusable and has something to speak: ", node);
           return true;
         } else {
           logShouldFocusNode(
               checkChildren,
-              "Don't focus, %s is focusable but has nothing to speak",
-              printId(node));
+              FOCUS_FAIL_NOT_SPEAKABLE,
+              "Don't focus, is focusable but has nothing to speak: ",
+              node);
           return false;
         }
       }
@@ -822,24 +840,31 @@ public class AccessibilityNodeInfoUtils {
         };
 
     if (!hasMatchingAncestor(node, filter) && (hasText(node) || hasStateDescription(node))) {
-      logShouldFocusNode(
-          checkChildren, "Focus %s has text and no focusable ancestors", printId(node));
+      logShouldFocusNode(checkChildren, NONE, "Focus, has text and no focusable ancestors: ", node);
       return true;
     }
 
     logShouldFocusNode(
-        checkChildren, "Don't focus %s, failed all focusability tests", printId(node));
+        checkChildren,
+        FOCUS_FAIL_FAIL_ALL_FOCUS_TESTS,
+        "Don't focus, failed all focusability tests: ",
+        node);
     return false;
   }
 
-  @FormatMethod
   private static void logShouldFocusNode(
-      boolean checkChildren, @FormatString String format, Object... args) {
+      boolean checkChildren,
+      @Nullable @DiagnosticType Integer diagnosticType,
+      String message,
+      AccessibilityNodeInfoCompat node) {
     // When shouldFocusNode calls itself, the logs get inundated by unnecessary info about the
     // ancestors. So only log when checkChildren is true.
     if (checkChildren) {
+      if (diagnosticType != NONE) {
+        DiagnosticOverlayUtils.appendLog(diagnosticType, node);
+      }
       // Show debug logs for #shouldFocusNode. Verbose logs will show for #isSpeakingNode
-      LogUtils.v(TAG, format, args);
+      LogUtils.v(TAG, "%s %s", message, node);
     }
   }
 
@@ -1516,7 +1541,7 @@ public class AccessibilityNodeInfoUtils {
     return null;
   }
 
-  private static @Nullable AccessibilityNodeInfoCompat getMatchingDescendant(
+  public static @Nullable AccessibilityNodeInfoCompat getMatchingDescendant(
       AccessibilityNodeInfoCompat node, Filter<AccessibilityNodeInfoCompat> filter) {
     final HashSet<AccessibilityNodeInfoCompat> visitedNodes = new HashSet<>();
     try {
@@ -2367,6 +2392,48 @@ public class AccessibilityNodeInfoUtils {
     return hintText;
   }
 
+  /**
+   * To setup a hashmap for AccessibilityAction id and the display string. We only build into the
+   * hash map with identifiers which are supported in the running platform.
+   */
+  private static HashMap<Integer, String> initActionIds() {
+    HashMap<Integer, String> actionIdHashMap = new HashMap<>();
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+      actionIdHashMap.put(
+          AccessibilityAction.ACTION_SHOW_ON_SCREEN.getId(), "ACTION_SHOW_ON_SCREEN");
+      actionIdHashMap.put(
+          AccessibilityAction.ACTION_SCROLL_TO_POSITION.getId(), "ACTION_SCROLL_TO_POSITION");
+      actionIdHashMap.put(AccessibilityAction.ACTION_SCROLL_UP.getId(), "ACTION_SCROLL_UP");
+      actionIdHashMap.put(AccessibilityAction.ACTION_SCROLL_LEFT.getId(), "ACTION_SCROLL_LEFT");
+      actionIdHashMap.put(AccessibilityAction.ACTION_SCROLL_DOWN.getId(), "ACTION_SCROLL_DOWN");
+      actionIdHashMap.put(AccessibilityAction.ACTION_SCROLL_RIGHT.getId(), "ACTION_SCROLL_RIGHT");
+      actionIdHashMap.put(AccessibilityAction.ACTION_CONTEXT_CLICK.getId(), "ACTION_CONTEXT_CLICK");
+    }
+    if (BuildVersionUtils.isAtLeastN()) {
+      actionIdHashMap.put(AccessibilityAction.ACTION_SET_PROGRESS.getId(), "ACTION_SET_PROGRESS");
+    }
+    if (BuildVersionUtils.isAtLeastO()) {
+      actionIdHashMap.put(AccessibilityAction.ACTION_MOVE_WINDOW.getId(), "ACTION_MOVE_WINDOW");
+    }
+    if (BuildVersionUtils.isAtLeastP()) {
+      actionIdHashMap.put(AccessibilityAction.ACTION_SHOW_TOOLTIP.getId(), "ACTION_SHOW_TOOLTIP");
+      actionIdHashMap.put(AccessibilityAction.ACTION_HIDE_TOOLTIP.getId(), "ACTION_HIDE_TOOLTIP");
+    }
+    if (BuildVersionUtils.isAtLeastQ()) {
+      actionIdHashMap.put(AccessibilityAction.ACTION_PAGE_RIGHT.getId(), "ACTION_PAGE_RIGHT");
+      actionIdHashMap.put(AccessibilityAction.ACTION_PAGE_LEFT.getId(), "ACTION_PAGE_LEFT");
+      actionIdHashMap.put(AccessibilityAction.ACTION_PAGE_DOWN.getId(), "ACTION_PAGE_DOWN");
+      actionIdHashMap.put(AccessibilityAction.ACTION_PAGE_UP.getId(), "ACTION_PAGE_UP");
+    }
+    if (BuildVersionUtils.isAtLeastR()) {
+      actionIdHashMap.put(
+          AccessibilityAction.ACTION_PRESS_AND_HOLD.getId(), "ACTION_PRESS_AND_HOLD");
+      actionIdHashMap.put(AccessibilityAction.ACTION_IME_ENTER.getId(), "ACTION_IME_ENTER");
+    }
+    return actionIdHashMap;
+  }
+
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Methods for displaying node data
 
@@ -2417,8 +2484,10 @@ public class AccessibilityNodeInfoUtils {
       case AccessibilityNodeInfoCompat.ACTION_SET_TEXT:
         return "ACTION_SET_TEXT";
       default:
-        return "(unhandled)";
+        break;
     }
+    @Nullable String actionName = actionIdToName.get(action);
+    return actionName == null ? "(unhandled action:" + action + ")" : actionName;
   }
 
   /** Caller keeps ownership of node. */
@@ -2731,6 +2800,21 @@ public class AccessibilityNodeInfoUtils {
     return nodeMatchesAnyClassName(node, CLASS_LISTVIEW, CLASS_GRIDVIEW);
   }
 
+  /** Returns true if the {@code node} is in a collection. */
+  public static boolean isInCollection(AccessibilityNodeInfoCompat node) {
+    return AccessibilityNodeInfoUtils.hasMatchingAncestor(
+        node,
+        new Filter<AccessibilityNodeInfoCompat>() {
+          @Override
+          public boolean accept(AccessibilityNodeInfoCompat ancestor) {
+            @RoleName int role = Role.getRole(ancestor);
+            return role == Role.ROLE_LIST
+                || role == Role.ROLE_GRID
+                || (ancestor != null && ancestor.getCollectionInfo() != null);
+          }
+        });
+  }
+
   private static boolean nodeMatchesAnyClassName(
       @Nullable AccessibilityNodeInfoCompat node, CharSequence... classNames) {
     if (node == null || node.getClassName() == null || classNames == null) {
@@ -2744,6 +2828,48 @@ public class AccessibilityNodeInfoUtils {
     }
 
     return false;
+  }
+
+  /**
+   * Splits a fully-qualified resource identifier name into its package and ID name. For example,
+   * "com.android.deskclock:id/analog_appwidget" which provides by {@link
+   * AccessibilityNodeInfoCompat#getViewIdResourceName()}
+   */
+  @AutoValue
+  public abstract static class ViewResourceName {
+    public abstract String packageName();
+
+    public abstract String viewIdName();
+
+    /**
+     * Creates a ViewResourceName instance by {@link AccessibilityNodeInfoCompat}.
+     *
+     * <p><strong>Note:</strong> Caller is responsible for recycling the node-argument.
+     */
+    @Nullable
+    public static ViewResourceName create(AccessibilityNodeInfoCompat node) {
+      String resourceName = node.getViewIdResourceName();
+      if (TextUtils.isEmpty(resourceName)) {
+        return null;
+      }
+
+      final String[] splitId = RESOURCE_NAME_SPLIT_PATTERN.split(resourceName, 2);
+      if (splitId.length != 2 || TextUtils.isEmpty(splitId[0]) || TextUtils.isEmpty(splitId[1])) {
+        // Invalid view resource name.
+        LogUtils.w(TAG, "Failed to parse resource: %s", resourceName);
+        return null;
+      }
+
+      return new AutoValue_AccessibilityNodeInfoUtils_ViewResourceName(splitId[0], splitId[1]);
+    }
+
+    @Override
+    public final String toString() {
+      return "ViewResourceName= "
+          + StringBuilderUtils.joinFields(
+              StringBuilderUtils.optionalText("packageName", packageName()),
+              StringBuilderUtils.optionalText("viewIdName", viewIdName()));
+    }
   }
 
   /**
@@ -2761,7 +2887,6 @@ public class AccessibilityNodeInfoUtils {
     public abstract ClickableSpan clickableSpan();
 
     // ClickableSpan.onClick is actually fine with a null param.
-    @SuppressWarnings("nullness:argument.type.incompatible")
     public void onClick() {
       clickableSpan().onClick(null);
     }

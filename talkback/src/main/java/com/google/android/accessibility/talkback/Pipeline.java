@@ -26,11 +26,13 @@ import android.content.Context;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.talkback.TalkBackService.ProximitySensorListener;
+import com.google.android.accessibility.talkback.eventprocessor.AccessibilityEventProcessor.AccessibilityEventIdleListener;
+import com.google.android.accessibility.talkback.utils.DiagnosticOverlayControllerImpl;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.Performance.EventId;
@@ -48,7 +50,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Pipeline stages wrapper. See REFERTO */
-public class Pipeline implements AccessibilityEventListener {
+public class Pipeline implements AccessibilityEventListener, AccessibilityEventIdleListener {
 
   public static final String LOG = "Pipeline";
   public static final int GROUP_DIGIT = 10;
@@ -207,6 +209,7 @@ public class Pipeline implements AccessibilityEventListener {
   private final Actors actors;
   private final SpeechObserver speechObserver;
   private final UserInterface userInterface;
+  private final DiagnosticOverlayControllerImpl diagnosticOverlayController;
 
   private CharSequence hintTTSOutput;
   private int hintFlags;
@@ -228,11 +231,13 @@ public class Pipeline implements AccessibilityEventListener {
       Actors actors,
       ProximitySensorListener proximitySensorListener,
       SpeechController speechController,
+      DiagnosticOverlayControllerImpl diagnosticOverlayController,
       UserInterface userInterface) {
     this.context = context;
     this.interpreters = interpreters;
     this.mappers = mappers;
     this.actors = actors;
+    this.diagnosticOverlayController = diagnosticOverlayController;
     this.userInterface = userInterface;
 
     interpreters.setPipelineInterpretationReceiver(interpretationReceiver);
@@ -269,6 +274,11 @@ public class Pipeline implements AccessibilityEventListener {
   @Override
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
     interpreters.onAccessibilityEvent(event, eventId);
+  }
+
+  @Override
+  public void onIdle() {
+    interpreters.onIdle();
   }
 
   /** Provides callback for async feedback-mappers to return feedback for execution in pipeline. */
@@ -343,6 +353,7 @@ public class Pipeline implements AccessibilityEventListener {
       if (part.interruptGentle()) {
         actors.interruptGentle(feedback.eventId());
       }
+      this.diagnosticOverlayController.appendLog(feedback);
 
       boolean success = true;
       if (part.delayMs() <= 0) {

@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">S\'està actualitzant la posició dels punts. Primer, grava els punts a la teva mà esquerra. Mantén premuda la pantalla amb els 3 dits centrals de la mà esquerra.</string>
   <string name="calibration_step1_hold_right_finger_announcement">S\'està actualitzant la posició dels punts. Primer, grava els punts a la teva mà dreta. Mantén premuda la pantalla amb els 3 dits centrals de la mà dreta.</string>
   <string name="calibration_finish_announcement">S\'ha actualitzat la posició dels punts</string>
+  <string name="remaining_calibration_finish_announcement">S\'ha actualitzat la posició de tots els punts</string>
   <string name="calibration_step2_hold_right_finger_announcement">S\'ha actualitzat la posició dels punts 1, 2 i 3. A continuació, grava els punts a la teva mà dreta. Mantén premuda la pantalla amb els 3 dits centrals de la mà dreta.</string>
   <string name="calibration_step2_hold_left_finger_announcement">S\'ha actualitzat la posició dels punts 1, 2 i 3. A continuació, grava els punts a la teva mà esquerra. Mantén premuda la pantalla amb els 3 dits centrals de la mà esquerra.</string>
   <string name="calibration_fail_announcement">No s\'ha pogut actualitzar la posició dels punts. Mantén premuda la pantalla amb 6 dits. Després torna-ho a provar.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Anglès braille unificat</string>
   <string name="code_user_facing_name_es">Espanyol</string>
   <string name="code_user_facing_name_ar">Àrab</string>
+  <string name="code_user_facing_name_fr">Francès</string>
   <string name="title_pref_accumulate_presses">Inclou tots els punts premuts</string>
   <string name="summary_pref_accumulate_presses">Cada punt premut forma part de la introducció, encara que es deixi anar abans que els altres punts</string>
   <string name="title_pref_reverse_dots">Punts inversos</string>
   <string name="summary_pref_reverse_dots">Canvia les posicions dels punts, de manera que, per exemple, els punts 1 i 4 s\'intercanvien el lloc</string>
-  <string name="typing_echo_list_preference_title">Lectura en veu alta (retorn d\'escriptura)</string>
-  <string name="typing_echo_preference_label_characters">Llegeix totes les lletres i paraules</string>
-  <string name="typing_echo_preference_label_words">Llegeix només les paraules</string>
   <string name="context_menu_title">Opcions del teclat braille</string>
   <string name="context_menu_typing_language_selection">Canvia l\'idioma d\'escriptura</string>
   <string name="context_menu_typing_language_selection_summary">S\'està fent servir %s</string>

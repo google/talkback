@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Notiek punktu pozīcijas atjaunināšana. Vispirms reģistrējiet kreisās rokas punktus. Pieskarieties ekrānam ar kreisās rokas trim vidējiem pirkstiem un turiet.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Notiek punktu pozīcijas atjaunināšana. Vispirms reģistrējiet labās rokas punktus. Pieskarieties ekrānam ar labās rokas trim vidējiem pirkstiem un turiet.</string>
   <string name="calibration_finish_announcement">Punktu pozīcija ir atjaunināta</string>
+  <string name="remaining_calibration_finish_announcement">Visas punktu pozīcijas ir atjauninātas</string>
   <string name="calibration_step2_hold_right_finger_announcement">Pirmā, otrā un trešā punkta pozīcija ir atjaunināta. Tagad reģistrējiet labās rokas punktus. Pieskarieties ekrānam ar labās rokas trim vidējiem pirkstiem un turiet.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Pirmā, otrā un trešā punkta pozīcija ir atjaunināta. Tagad reģistrējiet kreisās rokas punktus. Pieskarieties ekrānam ar kreisās rokas trim vidējiem pirkstiem un turiet.</string>
   <string name="calibration_fail_announcement">Nevarēja atjaunināt punktu pozīciju. Pieskarieties ekrānam ar sešiem pirkstiem un turiet. Pēc tam mēģiniet vēlreiz.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Vienotais angļu valodas Braila raksts</string>
   <string name="code_user_facing_name_es">Spāņu</string>
   <string name="code_user_facing_name_ar">Arābu</string>
+  <string name="code_user_facing_name_fr">Franču</string>
   <string name="title_pref_accumulate_presses">Visu nospiesto punktu iekļaušana</string>
   <string name="summary_pref_accumulate_presses">Katrs nospiestais punkts ir ievades daļa, pat ja punkts tiek atlaists pirms citu punktu nospiešanas.</string>
   <string name="title_pref_reverse_dots">Punktu atpakaļvērstais režīms</string>
   <string name="summary_pref_reverse_dots">Mainīt punktu pozīciju, lai, piemēram, 1. punkts un 4. punkts mainītos vietām</string>
-  <string name="typing_echo_list_preference_title">Ievades komentāri (ievades atbalss)</string>
-  <string name="typing_echo_preference_label_characters">Lasīt visus burtus un vārdus</string>
-  <string name="typing_echo_preference_label_words">Lasīt tikai vārdus</string>
   <string name="context_menu_title">Braila tastatūras opcijas</string>
   <string name="context_menu_typing_language_selection">Mainīt rakstīšanas valodu</string>
   <string name="context_menu_typing_language_selection_summary">Pašlaik tiek šāda valoda: %s.</string>

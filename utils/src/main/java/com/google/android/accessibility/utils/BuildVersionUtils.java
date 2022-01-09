@@ -26,8 +26,8 @@ import androidx.core.os.BuildCompat;
  */
 public class BuildVersionUtils {
 
-  // TODO: Use Build.VERSION_CODES.R when available.
-  public static final int API_R = 30;
+  // TODO: Use Build.VERSION_CODES.S when available.
+  public static final int API_S = 31;
 
   public static boolean isM() {
     return Build.VERSION.SDK_INT == Build.VERSION_CODES.M;
@@ -54,10 +54,14 @@ public class BuildVersionUtils {
   }
 
   public static boolean isAtLeastQ() {
-    return BuildCompat.isAtLeastQ() || Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q;
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q;
   }
 
   public static boolean isAtLeastR() {
-    return Build.VERSION.SDK_INT >= API_R || BuildCompat.isAtLeastR();
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R;
+  }
+
+  public static boolean isAtLeastS() {
+    return Build.VERSION.SDK_INT >= API_S || BuildCompat.isAtLeastS();
   }
 }

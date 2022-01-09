@@ -25,8 +25,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,6 +35,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.utils.BasePreferencesActivity;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.accessibility.utils.labeling.LabelProviderClient;
@@ -49,7 +48,7 @@ import java.util.List;
 import java.util.Map;
 
 /** An activity for managing custom labels in TalkBack for a specific package. */
-public class LabelManagerPackageActivity extends AppCompatActivity {
+public class LabelManagerPackageActivity extends BasePreferencesActivity {
 
   private static final String TAG = "LabelManagerPackageAct";
 
@@ -63,7 +62,7 @@ public class LabelManagerPackageActivity extends AppCompatActivity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    setContentView(R.layout.label_manager_labels);
+    super.setContentView(R.layout.label_manager_labels);
 
     final Intent intent = getIntent();
     if (!intent.hasExtra(EXTRA_PACKAGE_NAME)) {
@@ -88,9 +87,7 @@ public class LabelManagerPackageActivity extends AppCompatActivity {
 
     setTitle(getString(R.string.label_manager_package_title, applicationLabel));
 
-    final ActionBar actionBar = getSupportActionBar();
-    actionBar.setIcon(packageIcon);
-    actionBar.setDisplayHomeAsUpEnabled(true);
+    prepareActionBar(packageIcon);
 
     labelList = (ListView) findViewById(R.id.label_list);
     labelProviderClient = new LabelProviderClient(this, LabelProvider.AUTHORITY);

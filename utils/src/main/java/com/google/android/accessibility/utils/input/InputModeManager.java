@@ -16,10 +16,10 @@
 
 package com.google.android.accessibility.utils.input;
 
-import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import android.view.InputDevice;
 import android.view.KeyEvent;
+import androidx.annotation.IntDef;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.ServiceKeyEventListener;
 

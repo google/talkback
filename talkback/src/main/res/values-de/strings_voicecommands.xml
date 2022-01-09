@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Sprache</string>
   <string name="voice_commands_languages">Sprachen</string>
   <string name="voice_commands_custom_actions">benutzerdefinierte Aktionen</string>
+  <string name="voice_commands_action">Aktion</string>
   <string name="voice_commands_quick_settings">Schnelleinstellungen</string>
   <string name="voice_commands_quick_setting">Schnelleinstellung</string>
   <string name="voice_commands_dim">dimmen</string>
@@ -24,7 +25,7 @@
   <string name="voice_commands_all_apps">Alle Apps</string>
   <string name="voice_commands_apps">Apps</string>
   <string name="voice_commands_overview">Überblick</string>
-  <string name="voice_commands_recent_apps">Zuletzt aktive Apps</string>
+  <string name="voice_commands_recent_apps">Kürzlich geöffnete Apps</string>
   <string name="voice_commands_recent">Aktuell</string>
   <string name="voice_commands_recents">Letzte</string>
   <string name="voice_commands_find">Suchen</string>
@@ -97,9 +98,9 @@
   <string name="voice_commands_no_voice_recognition_ability">Diese Funktion ist auf deinem Gerät nicht verfügbar</string>
   <string name="voice_commands_error">Fehler beim Erkennen des Sprachbefehls</string>
   <string name="voice_commands_partial_result">Dieser Befehl wurde nicht erkannt. Sag „%1$s“, um eine Liste mit allen Befehlen aufzurufen.</string>
+  <string name="voice_commands_timeout">Sag „%1$s“, um eine Liste mit allen Befehlen aufzurufen.</string>
   <string name="voice_commands_many_requests">Bitte versuch es in wenigen Augenblicken noch einmal</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\"-Einstellung ist nicht aktiviert</string>
-  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" wurde nicht als Sprachbefehl erkannt.</string>
+  <string name="voice_commands_echo_feedback_not_recognized">„%1$s“ wurde nicht als Sprachbefehl erkannt.</string>
   <string name="voice_commands_label_saved">Label gespeichert</string>
   <string name="voice_commands_no_actions_feedback">Keine Aktionen verfügbar</string>
   <string name="voice_commands_no_next_heading_feedback">Keine nächste Überschrift</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Sprachbefehle – Übersicht</string>
   <string name="voice_commands_help_description">Streiche nach rechts und dann nach oben, um Sprachbefehle zu verwenden. Wenn du die Liste verfügbarer Sprachbefehle aufrufen möchtest, sag „Hilfe“ oder „Was kann ich sagen?“.</string>
   <string name="voice_commands_help_hint">Damit du optimale Ergebnisse erzielst, sag die Worte exakt so, wie sie auf den folgenden Bildschirmen erscheinen.</string>
+  <string name="voice_command_screen_locked_hint">Bei gesperrtem Bildschirm sind Sprachbefehle nicht verfügbar. Wenn du stattdessen das TalkBack-Menü verwenden möchtest, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Ändere, wie du auf dem aktuell angezeigten Bildschirm Inhalte liest</string>
   <string name="voice_commands_help_next">Nächste [Überschrift]</string>
@@ -132,11 +134,12 @@
   <string name="voice_commands_help_screen_search_description">Suchbegriff eingeben, um den entsprechenden Text auf dem Bildschirm zu finden</string>
   <string name="voice_commands_help_text_editing_description">Text eingeben, auswählen und kopieren</string>
   <string name="voice_commands_help_type_text">Gib [OK] ein</string>
-  <string name="voice_commands_help_copy_description">Wähle zuerst Text aus, um ihn zu kopieren</string>
-  <string name="voice_commands_help_cut_description">Wähle zuerst Text aus, um ihn auszuschneiden</string>
+  <string name="voice_commands_help_copy_description">Text vor dem Kopieren auswählen</string>
+  <string name="voice_commands_help_cut_description">Text vor dem Ausschneiden auswählen</string>
+  <string name="voice_commands_help_delete_description">Text vor dem Löschen auswählen</string>
   <string name="voice_commands_help_device_navigation_title">Gerätesteuerung</string>
   <string name="voice_commands_help_device_navigation_description">Startseite aufrufen, zurückgehen, Benachrichtigungen anzeigen und mehr</string>
-  <string name="voice_commands_help_overview_description">Die zuletzt aktiven Apps ansehen</string>
+  <string name="voice_commands_help_overview_description">Kürzlich geöffnete Apps ansehen</string>
   <string name="voice_commands_help_assistant_description">Google Assistant öffnen</string>
   <string name="voice_commands_help_other_commands_title">Weitere Befehle</string>
   <string name="voice_commands_help_other_commands_description">TalkBack-Einstellungen aufrufen, Display ausblenden, Aktionen sehen, benutzerdefinierte Label hinzufügen und mehr</string>

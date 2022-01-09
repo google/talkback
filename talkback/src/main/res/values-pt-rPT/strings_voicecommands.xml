@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Idioma</string>
   <string name="voice_commands_languages">Idiomas</string>
   <string name="voice_commands_custom_actions">ações personalizadas</string>
+  <string name="voice_commands_action">Ação</string>
   <string name="voice_commands_quick_settings">Definições rápidas</string>
   <string name="voice_commands_quick_setting">Definição rápida</string>
   <string name="voice_commands_dim">esbater</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Lamentamos, mas esta funcionalidade não está disponível no seu dispositivo.</string>
   <string name="voice_commands_error">Erro de reconhecimento do comando de voz.</string>
   <string name="voice_commands_partial_result">Não é possível reconhecer este comando. Diga \"%1$s\" para obter a lista de todos os comandos.</string>
+  <string name="voice_commands_timeout">Diga \"%1$s\" para obter a lista de todos os comandos.</string>
   <string name="voice_commands_many_requests">Tente novamente dentro de momentos.</string>
-  <string name="voice_commands_setting_disabled">A definição \"%1$s\" não está ativada.</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" não foi reconhecido como um comando de voz.</string>
   <string name="voice_commands_label_saved">Etiqueta guardada</string>
   <string name="voice_commands_no_actions_feedback">Nenhuma ação disponível</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Vista geral do comando de voz</string>
   <string name="voice_commands_help_description">Para utilizar comandos de voz, deslize rapidamente para a direita e, em seguida, para cima. Diga \"Ajuda\" ou \"O que posso dizer?\" em qualquer altura para obter a lista de comandos.</string>
   <string name="voice_commands_help_hint">Para obter os melhores resultados, diga as palavras exatas indicadas nos seguintes ecrãs.</string>
+  <string name="voice_command_screen_locked_hint">Os comandos de voz não estão disponíveis com o ecrã bloqueado. Para optar por utilizar o menu do TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Altere a forma como lê conteúdo no ecrã atual.</string>
   <string name="voice_commands_help_next">[Título] seguinte</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Introduza um termo de pesquisa para encontrar esse texto no ecrã.</string>
   <string name="voice_commands_help_text_editing_description">Escreva, selecione e copie texto.</string>
   <string name="voice_commands_help_type_text">Escrever [OK]</string>
-  <string name="voice_commands_help_copy_description">Certifique-se de que selecionou texto antes de copiar.</string>
-  <string name="voice_commands_help_cut_description">Certifique-se de que selecionou texto antes de cortar.</string>
+  <string name="voice_commands_help_copy_description">Selecione texto antes de copiar</string>
+  <string name="voice_commands_help_cut_description">Selecione texto antes de cortar</string>
+  <string name="voice_commands_help_delete_description">Selecione texto antes de eliminar</string>
   <string name="voice_commands_help_device_navigation_title">Navegação no dispositivo</string>
   <string name="voice_commands_help_device_navigation_description">Aceda à página inicial, retroceda, mostre notificações e muito mais.</string>
   <string name="voice_commands_help_overview_description">Veja as suas apps recentes.</string>

@@ -2,6 +2,6 @@ apply plugin: 'com.android.library'
 apply from: "../shared.gradle"
 
 dependencies {
-    implementation project(':proguard')  // Only exists in open source repo.
+    implementation project(':proguard')
     implementation project(':utils')
 }

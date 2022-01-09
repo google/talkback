@@ -14,6 +14,7 @@
   <string name="voice_commands_language">ভাষা</string>
   <string name="voice_commands_languages">ভাষা</string>
   <string name="voice_commands_custom_actions">কাস্টম অ্যাকশন</string>
+  <string name="voice_commands_action">অ্যাকশন</string>
   <string name="voice_commands_quick_settings">দ্রুত সেটিংস</string>
   <string name="voice_commands_quick_setting">দ্রুত সেটিংস</string>
   <string name="voice_commands_dim">অনুজ্জ্বল করো</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">এই ফিচারটি ব্যবহার করার জন্য় মাইক্রোফোন ব্যবহারের অনুমতি দিতে হবে।</string>
   <string name="voice_commands_no_voice_recognition_ability">এই ফিচারটি আপনার ডিভাইসে নেই</string>
   <string name="voice_commands_error">ভয়েস কমান্ড শনাক্ত করতে সমস্যা হয়েছে</string>
-  <string name="voice_commands_partial_result">এই কমান্ড বোঝা যাচ্ছে না। সমস্ত কমান্ডের তালিকা পেতে \"%1$s\" বলে দেখুন।</string>
+  <string name="voice_commands_partial_result">এই কমান্ড বোঝা যাচ্ছে না। কমান্ডের সব তালিকা পেতে \"%1$s\" বলে দেখুন।</string>
+  <string name="voice_commands_timeout">কমান্ডের সব তালিকা পেতে \"%1$s\" বলে দেখুন।</string>
   <string name="voice_commands_many_requests">একটু পরে আবার চেষ্টা করুন</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" সেটিং চালু করা হয়নি</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" কথাটি ভয়েস কমান্ড হিসেবে শনাক্ত করা যায়নি।</string>
   <string name="voice_commands_label_saved">লেবেল সেভ করা হয়েছে</string>
   <string name="voice_commands_no_actions_feedback">কোনও অ্যাকশন উপলভ্য নেই</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">এক নজরে ভয়েস কমান্ড</string>
   <string name="voice_commands_help_description">ভয়েস কমান্ড ব্যবহার করতে প্রথমে ডানদিকে ও পরে উপরের দিকে সোয়াইপ করুন। যেকোনও সময়ে \"আমি কী কী বলতে পারি?\" অথবা \"সাহায্য চাই\" বলুন ও কমান্ডের তালিকা দেখুন।</string>
   <string name="voice_commands_help_hint">সবচেয়ে ভাল ফলাফল পেতে, নিচে স্ক্রিনে দেখানো কথাগুলি হুবহু বলুন।</string>
+  <string name="voice_command_screen_locked_hint">স্ক্রিন লক থাকাকালীন \'ভয়েস কমান্ড\' কাজ করে না। এর পরিবর্তে, \'টকব্যাক\' মেনু ব্যবহার করতে, %1$s।</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">বর্তমান স্ক্রিনে দেখানো কন্টেন্ট আপনি কীভাবে পড়বেন তার ধরন পরিবর্তন করুন</string>
   <string name="voice_commands_help_next">পরবর্তী [শিরোনাম]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">যে শব্দ স্ক্রিনে খুঁজতে চান সেটি লিখুন</string>
   <string name="voice_commands_help_text_editing_description">টাইপ করতে, বেছে নিতে ও টেক্সট কপি করতে</string>
   <string name="voice_commands_help_type_text">টাইপ [ঠিক আছে]</string>
-  <string name="voice_commands_help_copy_description">টেক্সট কপি করার আগে তা বেছে নেওয়া আছে কিনা ভাল করে দেখে নিন</string>
-  <string name="voice_commands_help_cut_description">টেক্সট কাট করার আগে তা বেছে নেওয়া আছে কিনা ভাল করে দেখে নিন</string>
+  <string name="voice_commands_help_copy_description">কপি করার আগে টেক্সট বেছে নিন</string>
+  <string name="voice_commands_help_cut_description">কাট করার আগে টেক্সট বেছে নিন</string>
+  <string name="voice_commands_help_delete_description">মুছে ফেলার আগে টেক্সট বেছে নিন</string>
   <string name="voice_commands_help_device_navigation_title">ডিভাইস নেভিগেশন</string>
   <string name="voice_commands_help_device_navigation_description">হোমে যেতে, ফিরে যেতে, বিজ্ঞপ্তি দেখতে ও আরও অনেক কিছু করতে পারেন</string>
   <string name="voice_commands_help_overview_description">আপনার সম্প্রতি ব্যবহৃত অ্যাপ দেখুন</string>

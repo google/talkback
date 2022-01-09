@@ -20,9 +20,9 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import androidx.annotation.IntDef;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
+import androidx.annotation.IntDef;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
 import java.util.ArrayList;
@@ -52,12 +52,11 @@ public class VolumeButtonPatternDetector {
   public static final int SHORT_DOUBLE_PRESS_PARTTERN = 5;
 
   /** Constants denoting different combinations of the volume buttons. */
-  @IntDef({VOLUME_UP, VOLUME_DOWN, VOLUME_MUTE, TWO_BUTTONS, PLAY_PAUSE})
+  @IntDef({VOLUME_UP, VOLUME_DOWN, TWO_BUTTONS, PLAY_PAUSE})
   public @interface ButtonsUsed {}
 
   public static final int VOLUME_UP = KeyEvent.KEYCODE_VOLUME_UP;
   public static final int VOLUME_DOWN = KeyEvent.KEYCODE_VOLUME_DOWN;
-  public static final int VOLUME_MUTE = KeyEvent.KEYCODE_VOLUME_MUTE;
   public static final int PLAY_PAUSE = KeyEvent.KEYCODE_HEADSETHOOK;
   public static final int TWO_BUTTONS = 1;
 
@@ -82,8 +81,6 @@ public class VolumeButtonPatternDetector {
     patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(SHORT_PRESS_PATTERN, VOLUME_UP));
     patternMatchers.add(
         new SingleVolumeButtonPressPatternMatcher(SHORT_PRESS_PATTERN, VOLUME_DOWN));
-    patternMatchers.add(
-        new SingleVolumeButtonPressPatternMatcher(SHORT_PRESS_PATTERN, VOLUME_MUTE));
     patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(SHORT_PRESS_PATTERN, PLAY_PAUSE));
     patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(LONG_PRESS_PATTERN, VOLUME_UP));
     patternMatchers.add(new SingleVolumeButtonPressPatternMatcher(LONG_PRESS_PATTERN, VOLUME_DOWN));
@@ -109,7 +106,6 @@ public class VolumeButtonPatternDetector {
     switch (keyCode) {
       case KeyEvent.KEYCODE_VOLUME_DOWN:
       case KeyEvent.KEYCODE_VOLUME_UP:
-      case KeyEvent.KEYCODE_VOLUME_MUTE:
       case KeyEvent.KEYCODE_HEADSETHOOK:
         return true;
       default:

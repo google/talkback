@@ -32,7 +32,6 @@ import com.google.android.accessibility.talkback.focusmanagement.interpreter.Scr
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionRecord;
-import com.google.android.accessibility.talkback.focusmanagement.record.NodePathDescription;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityWindowInfoUtils;
 import com.google.android.accessibility.utils.Filter;
@@ -130,7 +129,7 @@ public class FocusActorForScreenStateChange {
       if (lastFocusAction == null) {
         return false;
       }
-      nodeToRestoreFocus = getNodeToRestoreFocus(root, lastFocusAction);
+      nodeToRestoreFocus = FocusActionRecord.getFocusableNodeFromFocusRecord(root, lastFocusAction);
 
       return (nodeToRestoreFocus != null)
           && nodeToRestoreFocus.isVisibleToUser()
@@ -151,32 +150,6 @@ public class FocusActorForScreenStateChange {
       AccessibilityNodeInfoUtils.recycleNodes(root, nodeToRestoreFocus);
       primesController.stopTimer(Timer.INITIAL_FOCUS_RESTORE);
     }
-  }
-
-  /**
-   * Returns the last focused node in {@code window} if it's still valid on screen, otherwise
-   * returns focusable node with the same position.
-   *
-   * <p><strong>Note:</strong> Caller is responsible for recycling the returned node.
-   */
-  private static AccessibilityNodeInfoCompat getNodeToRestoreFocus(
-      AccessibilityNodeInfoCompat root, FocusActionRecord focusActionRecord) {
-    AccessibilityNodeInfoCompat lastFocusedNode = focusActionRecord.getFocusedNode();
-    if (lastFocusedNode.refresh()) {
-      return lastFocusedNode;
-    }
-    AccessibilityNodeInfoUtils.recycleNodes(lastFocusedNode);
-    if (root == null) {
-      return null;
-    }
-    AccessibilityNodeInfoCompat nodeAtSamePosition =
-        NodePathDescription.findNode(root, focusActionRecord.getNodePathDescription());
-    if ((nodeAtSamePosition != null)
-        && AccessibilityNodeInfoUtils.shouldFocusNode(nodeAtSamePosition)) {
-      return nodeAtSamePosition;
-    }
-    AccessibilityNodeInfoUtils.recycleNodes(nodeAtSamePosition);
-    return null;
   }
 
   /** Sets accessibility focus to EditText in the active window. */

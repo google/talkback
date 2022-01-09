@@ -14,6 +14,7 @@
   <string name="voice_commands_language">زبان</string>
   <string name="voice_commands_languages">زبان‌ها</string>
   <string name="voice_commands_custom_actions">کنش‌های سفارشی</string>
+  <string name="voice_commands_action">کنش</string>
   <string name="voice_commands_quick_settings">تنظیمات فوری</string>
   <string name="voice_commands_quick_setting">تنظیم فوری</string>
   <string name="voice_commands_dim">کم نور کردن</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">متأسفیم! این ویژگی در دستگاهتان دردسترس نیست</string>
   <string name="voice_commands_error">خطای شناسایی فرمان صوتی</string>
   <string name="voice_commands_partial_result">این فرمان شناسایی نشد. برای دیدن فهرست همه فرمان‌ها، بگویید «%1$s».</string>
+  <string name="voice_commands_timeout">برای دیدن فهرست همه فرمان‌ها، بگویید «%1$s».</string>
   <string name="voice_commands_many_requests">لطفاً چند لحظه دیگر دوباره امتحان کنید</string>
-  <string name="voice_commands_setting_disabled">تنظیم «%1$s» فعال نیست</string>
   <string name="voice_commands_echo_feedback_not_recognized">«%1$s» به‌عنوان فرمان صوتی تشخیص داده نشد.</string>
   <string name="voice_commands_label_saved">برچسب ذخیره شد</string>
   <string name="voice_commands_no_actions_feedback">کنشی دردسترس نیست</string>
@@ -108,9 +109,10 @@
   <string name="voice_commands_no_next_landmark_feedback">نشانگر مکانی دیگری وجود ندارد</string>
   <string name="voice_commands_screen_hidden_feedback">صفحه‌نمایش پنهان است</string>
   <string name="voice_commands_showing_screen_feedback">صفحه‌نمایش نمایان است</string>
-  <string name="voice_commands_help_title">مرور کلی فرمان صوتی</string>
+  <string name="voice_commands_help_title">نمای کلی فرمان صوتی</string>
   <string name="voice_commands_help_description">‏برای استفاده از فرمان‌های صوتی، تند به‌چپ و سپس بالا بکشید. هرزمان خواستید برای این فهرست فرمان‌ها، بگویید «help» (راهنمایی) یا «?what can I say» (چه‌چیزی می‌توانم بگویم؟).</string>
   <string name="voice_commands_help_hint">برای بهترین نتایج، عبارت دقیق فهرست‌شده در صفحه‌های بعدی را بگویید.</string>
+  <string name="voice_command_screen_locked_hint">‏فرمان‌های صوتی هنگام قفل بودن صفحه دردسترس نیستند. درعوض برای استفاده از منوی TalkBack، %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">تغییر نحوه خواندن محتوا در صفحه فعلی</string>
   <string name="voice_commands_help_next">[عنوان] بعدی</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">عبارت جستجویی وارد کنید تا نوشتار مربوط به آن را در صفحه پیدا کنید</string>
   <string name="voice_commands_help_text_editing_description">تایپ، انتخاب، و کپی نوشتار</string>
   <string name="voice_commands_help_type_text">تایپ کردن [تأیید]</string>
-  <string name="voice_commands_help_copy_description">قبل‌از کپی کردن، مطمئن شوید نوشتار را انتخاب کرده‌اید</string>
-  <string name="voice_commands_help_cut_description">قبل‌از برش، مطمئن شوید نوشتار را انتخاب کرده‌اید</string>
+  <string name="voice_commands_help_copy_description">انتخاب نوشتار قبل‌از کپی کردن</string>
+  <string name="voice_commands_help_cut_description">انتخاب نوشتار قبل‌از برش</string>
+  <string name="voice_commands_help_delete_description">انتخاب نوشتار قبل‌از حذف</string>
   <string name="voice_commands_help_device_navigation_title">پیمایش دستگاه</string>
   <string name="voice_commands_help_device_navigation_description">رفتن به «صفحه اصلی»، برگشتن، نمایش اعلان‌ها، و کارهای بیشتر</string>
   <string name="voice_commands_help_overview_description">دیدن برنامه‌های اخیر</string>

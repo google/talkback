@@ -76,7 +76,7 @@
   <string name="value_disabled">deaktiviert</string>
   <string name="value_expanded">Maximiert</string>
   <string name="value_collapsed">Minimiert</string>
-  <string name="value_double_tap">Doppeltippen</string>
+  <string name="value_double_tap">doppeltippen</string>
   <string name="value_single_tap">Tippen</string>
   <string name="value_switch_press">drücke den Schalter \"Auswählen\"</string>
   <string name="value_press_select">Auswahltaste drücken</string>
@@ -171,6 +171,10 @@
   <string name="template_speech_rate_change_slower">Langsamer</string>
   <string name="template_speech_rate_change_fastest">Am schnellsten</string>
   <string name="template_speech_rate_change_slowest">Am langsamsten</string>
+  <string name="template_volume_change_increase">Erhöhen</string>
+  <string name="template_volume_change_decrease">Verringern</string>
+  <string name="template_volume_change_maximum">Maximal</string>
+  <string name="template_volume_change_minimum">Minimal</string>
   <string name="template_seekbar_range">%1$d %%</string>
   <string name="audio_focus_on">Audio-Ducking an</string>
   <string name="audio_focus_off">Audio-Ducking aus</string>

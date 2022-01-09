@@ -23,6 +23,7 @@ import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.talkback.focusmanagement.action.TouchExplorationAction;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
 import com.google.android.accessibility.utils.input.InputModeManager;
@@ -95,10 +96,14 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
         result = handleTouchInteractionStartEvent(eventId);
         break;
       case AccessibilityEvent.TYPE_TOUCH_INTERACTION_END:
-        // REFERTO. In some case, framework sends a Hover_Enter event enter after
-        // User_Interaction_end event. Defer the action for workaround.
-        result = false;
-        postDelayHandler.postDelayTouchEndAction(eventId);
+        if (FeatureSupport.hoverEventOutOfOrder()) {
+          // REFERTO. In some case, framework sends a Hover_Enter event enter after
+          // User_Interaction_end event. Defer the action for workaround.
+          result = false;
+          postDelayHandler.postDelayTouchEndAction(eventId);
+        } else {
+          result = handleTouchInteractionEndEvent(eventId);
+        }
         break;
       default:
         result = handleHoverEnterEvent(event, eventId);
@@ -202,7 +207,7 @@ public class TouchExplorationInterpreter implements AccessibilityEventListener {
   private static final class PostDelayHandler
       extends WeakReferenceHandler<TouchExplorationInterpreter> {
     private static final int EMPTY_TOUCH_AREA_DELAY_MS = 100;
-    private static final int TOUCH_END_DELAY_MS = 50;
+    private static final int TOUCH_END_DELAY_MS = 70;
 
     private static final int MSG_EMPTY_TOUCH_ACTION = 0;
     private static final int MSG_TOUCH_END_ACTION = 1;

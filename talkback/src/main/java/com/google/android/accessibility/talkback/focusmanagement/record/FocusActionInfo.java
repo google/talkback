@@ -78,7 +78,7 @@ public class FocusActionInfo {
     return (sourceAction == TOUCH_EXPLORATION) || (sourceAction == LOGICAL_NAVIGATION);
   }
 
-  private static String sourceActionToString(@SourceAction int sourceAction) {
+  public static String sourceActionToString(@SourceAction int sourceAction) {
     switch (sourceAction) {
       case MANUAL_SCROLL:
         return "MANUAL_SCROLL";

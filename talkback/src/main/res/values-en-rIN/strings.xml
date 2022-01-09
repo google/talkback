@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Version %1$s</string>
   <string name="label_manager_summary_title">Manage Custom Labels</string>
   <string name="label_manager_package_title">Manage Labels for %1$s</string>
+  <string name="manage_label">Manage label</string>
   <string name="label_manager_no_packages_message">There are currently no custom labels. You can create one by navigating to an unlabelled image and then adding a label from the TalkBack menu.</string>
   <string name="label_manager_timestamp_text">Last modified %1$s</string>
   <string name="search_dialog_label">Search: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Explore by Touch</string>
   <string name="title_pref_category_touch_exploration">Navigation</string>
   <string name="title_pref_category_controls">Controls</string>
-  <string name="title_pref_single_tap">Single-tap activation</string>
+  <string name="title_pref_single_tap">Single-tap to activate</string>
   <string name="title_pref_show_context_menu_as_list">Show context menu as list</string>
-  <string name="summary_pref_single_tap">(Experimental) Tap once on a focused item to activate</string>
+  <string name="summary_pref_single_tap">Tap once on a focused item to activate</string>
   <string name="title_pref_shake_to_read_threshold">Shake to start continuous reading</string>
   <string name="pref_verbosity_title">Verbosity</string>
   <string name="pref_punctuation_title">Punctuation</string>
+  <string name="title_pref_category_manage_focus_indicator">Customise focus indicator</string>
   <string name="title_pref_category_manage_gestures">Customise gestures</string>
   <string name="title_pref_manage_labels">Custom labels</string>
   <string name="title_pref_manage_customize_menus">Customise menus</string>
@@ -103,7 +105,7 @@
   <string name="title_pref_category_selector_menu">Customise reading controls</string>
   <string name="title_pref_category_navigation_menu">Edit navigation options</string>
   <string name="pref_category_context_menu_summary">To use the TalkBack menu, tap the screen with three fingers. You can also swipe up then right, or swipe down then right.</string>
-  <string name="pref_category_context_menu_summary_single_finger">To use the TalkBack menu, swipe down, then right.</string>
+  <string name="pref_category_context_menu_summary_single_finger">To use the TalkBack menu, swipe down then right.</string>
   <string name="pref_category_selector_menu_summary">To use the reading controls, swipe left or right with three fingers. You can also swipe up or down with three fingers.</string>
   <string name="pref_category_selector_menu_summary_single_finger">To use the reading controls, swipe up then down.</string>
   <string name="title_pref_manage_keyboard_shortcuts">Keyboard shortcuts</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Help and feedback</string>
   <string name="title_pref_category_tutorial_and_help">Tutorial and help</string>
   <string name="title_pref_category_advanced">Advanced</string>
+  <string name="title_pref_category_typing">Typing and keyboard</string>
   <string name="title_pref_category_legal_and_privacy">Legal and privacy</string>
   <string name="title_pref_advanced_settings">Advanced settings</string>
   <string name="reset_gesture_settings_title">Reset gesture settings</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Recent apps</string>
   <string name="keycombo_menu_global_notifications">Notifications</string>
   <string name="keycombo_menu_global_suspend">Pause or resume TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Play or pause media</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Select next reading control</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Select previous reading control</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Adjust reading control up</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Adjust reading control down</string>
   <string name="keycombo_menu_category_granularity">Navigation</string>
   <string name="keycombo_menu_granularity_increase">Next navigation setting</string>
   <string name="keycombo_menu_granularity_decrease">Previous navigation setting</string>
@@ -226,7 +234,8 @@
   <string name="keycombo_assign_dialog_clear">Clear shortcut</string>
   <string name="cannot_copy_feedback">No text to copy; select some text first.</string>
   <string name="cannot_paste_feedback">No text to paste; copy some texts first.</string>
-  <string name="cannot_cut_feedback">No text to cut; select some texts first.</string>
+  <string name="cannot_cut_feedback">No text to cut; select some text first.</string>
+  <string name="cannot_delete_feedback">No text to delete; select some text first.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Are you sure that you would like to reset your shortcut keys for this keymap to their default values? Please note that this action cannot be undone.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Reset</string>
   <string name="override_keycombo">Key already in use</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Use pitch changes</string>
   <string name="title_pref_keyboard_echo">Keyboard echo</string>
   <string name="pref_node_desc_order_title">Element description order</string>
-  <string name="summaryOn_pref_intonation">Speak keyboard feedback in a lower-pitched voice</string>
+  <string name="summaryOn_pref_intonation">Speak keyboard deleted text in a higher-pitched voice</string>
   <string name="summaryOff_pref_intonation">Don\'t change voice pitch when speaking</string>
   <string name="title_pref_brailleime">Braille keyboard</string>
   <string name="title_pref_category_feedback_settings">Other feedback</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Enable node tree debugging</string>
   <string name="summary_pref_tree_debug_tv">Use voice search key to print node tree instead of searching</string>
   <string name="title_pref_performance_stats">Enable performance statistics</string>
+  <string name="title_pref_log_overlay">Enable debug log overlay</string>
   <string name="title_pref_resume_talkback">Resume from suspend</string>
+  <string name="title_pref_typing_confirmation">Typing preference</string>
   <string name="title_pref_multi_finger_gesture">Enable multi-finger gestures</string>
   <string name="screen_dimmed">Screen hidden</string>
   <string name="screen_brightness_restored">Showing screen</string>
@@ -273,12 +284,14 @@
   <string name="shortcut_2finger_passthrough">Swipe, scroll or drag.</string>
   <string name="shortcut_next">Next item</string>
   <string name="shortcut_previous">Previous item</string>
-  <string name="shortcut_scroll_forward">Scroll forward</string>
+  <string name="shortcut_scroll_forward">Scroll forwards</string>
   <string name="shortcut_scroll_back">Scroll back</string>
   <string name="shortcut_scroll_up">Scroll up</string>
   <string name="shortcut_scroll_down">Scroll down</string>
   <string name="shortcut_scroll_left">Scroll left</string>
   <string name="shortcut_scroll_right">Scroll right</string>
+  <string name="shortcut_next_window">Next window</string>
+  <string name="shortcut_previous_window">Previous window</string>
   <string name="shortcut_back">Back</string>
   <string name="shortcut_home">Home</string>
   <string name="shortcut_overview">Overview</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Hide or show screen</string>
   <string name="title_show_screen_search">Screen search</string>
   <string name="title_show_voice_commands">Voice commands</string>
+  <string name="talkback_show_talkback_settings">TalkBack settings</string>
   <string name="title_other_web_navigation">Other web navigation</string>
   <string name="title_granularity_default">Default navigation</string>
   <string name="title_seek_bar_edit">Edit slider level</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Control TalkBack with your voice</string>
   <string name="summary_show_hide_screen">Hide the display so that your screen is not visible to others in public places. After hiding your screen, return it to a normal state.</string>
   <string name="summary_talkback_preferences">Open TalkBack settings</string>
-  <string name="summary_system_actions">Go to all apps, Quick Settings and use split screen</string>
+  <string name="summary_system_actions">Go to all apps and Quick Settings</string>
   <string name="summary_tts_settings">Open text-to-speech settings</string>
   <string name="summary_pause_feedback">Turn off TalkBack voice feedback</string>
   <string name="not_editable">Not editable</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Read one word at a time</string>
   <string name="summary_lines">Read one line at a time</string>
   <string name="summary_paragraphs">Read one paragraph at a time</string>
+  <string name="summary_windows">Jump to other windows, like volume controls or the navigation bar</string>
   <string name="summary_headings">Jump between headings</string>
   <string name="summary_controls">Jump between items that you can interact with, like buttons, tick boxes and text fields</string>
   <string name="summary_links">Jump between links</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Change whether typed keys, usage hints, grid info and other info is read aloud</string>
   <string name="summary_selector_menu_punctuation">Change whether punctuation and symbols are read aloud</string>
   <string name="summary_language">Change your spoken language. Shows only when you have multiple text-to-speech languages installed.</string>
-  <string name="summary_sound_feedback">Hear sound effects as you navigate, like a beep to confirm an action.</string>
+  <string name="summary_sound_feedback">Hear sound effects as you navigate, like a beep to confirm an action</string>
   <string name="summary_vibration_feedback">Feel vibrations for actions like selecting an item. Does not affect vibrations coming from apps or the system.</string>
   <string name="summary_hide_screen">Hide the display so that your screen is not visible to others when in public places</string>
   <string name="summary_audio_ducking">Lower volume of other audio playing when TalkBack speaks</string>
   <string name="summary_support_scroll_seq">Scroll forwards or backwards</string>
+  <string name="summary_support_change_a11y_volume">Increase or decrease accessibility volume</string>
+  <string name="summary_image_caption">Get an automatic description for this image</string>
   <string name="value_direction_up">up</string>
   <string name="value_direction_down">down</string>
   <string name="value_direction_left">left</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Double-tap and hold with 2 fingers</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Double-tap and hold with 3 fingers</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Double-tap and hold with 4 fingers</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Triple-tap and hold with two fingers</string>
+  <string name="seekbar_hint_2gesture">\'%1$s\' or \'%2$s\' to adjust</string>
+  <string name="seekbar_hint_1gesture">\'%1$s\' to adjust</string>
   <string name="gesture_name_unknown">Unknown gesture</string>
   <string name="gesture_name_pass_through">Pass through to system gesture</string>
   <string name="gesture_name_touch_explore">Touch explore</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Double-tap and hold</string>
   <string name="gesture_name_2finger_tap_hold">Tap and hold with 2 fingers</string>
   <string name="gesture_name_3finger_tap_hold">Tap and hold with 3 fingers</string>
+  <string name="gesture_name_2finger_3tap_hold">Triple-tap and hold with two fingers</string>
   <string name="gesture_name_3finger_3tap_hold">Triple-tap and hold with 3 fingers</string>
   <string name="title_pref_shortcut_fingerprint_up">Swipe up on fingerprint sensor</string>
   <string name="title_pref_shortcut_fingerprint_down">Swipe down on fingerprint sensor</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">When screen turns on</string>
   <string name="value_resume_keyguard">When lock screen is shown</string>
   <string name="value_resume_manual">From notification only</string>
+  <string name="value_type_confirmation_double_tap">Hold finger to select key, then double-tap</string>
+  <string name="value_type_confirmation_lift_to_type">Hold finger to select key, then lift</string>
   <string name="value_shake_to_read_disabled">Disabled</string>
   <string name="value_shake_to_read_threshold_very_light">Very light</string>
   <string name="value_shake_to_read_threshold_light">Light</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Always speak typed keys</string>
   <string name="value_keyboard_echo_softkeys">Only for on-screen keyboard</string>
   <string name="value_keyboard_echo_never">Never speak typed keys</string>
+  <string name="title_pref_keyboard_echo_on_screen">Keyboard echo: On-screen keyboard</string>
+  <string name="title_pref_keyboard_echo_physical">Keyboard echo: Physical keyboard</string>
+  <string name="value_keyboard_echo_none">None</string>
+  <string name="value_keyboard_echo_characters_only">Characters</string>
+  <string name="value_keyboard_echo_words_only">Words</string>
+  <string name="value_keyboard_echo_characters_and_words">Characters and words</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">State, name, type</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Type, name, state</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Name, type, state</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Are you sure that you want to turn on node tree debugging?\n\nNode tree debugging exposes the content of your screen to your device\'s logs, which may be read by other applications.</string>
   <string name="dialog_title_enable_performance_stats">Enable Performance Statistics?</string>
   <string name="dialog_message_enable_performance_stats">Are you sure that you want to turn on performance statistics?\n\nPerformance statistics may consume more memory and power.</string>
+  <string name="title_request_phone_permission">Allow phone access?</string>
+  <string name="message_request_phone_permission">This helps TalkBack reduce announcements when you\'re on a call</string>
+  <string name="continue_button">Continue</string>
   <string name="label_talkback_context_menu">TalkBack global context menu</string>
   <string name="permission_talkback_label">Control TalkBack</string>
   <string name="permission_talkback_desc">Permission to send gestures to TalkBack and resume spoken feedback.</string>
-  <string name="permission_labeling_label">Manage TalkBack customised labels</string>
-  <string name="permission_labeling_desc">Permission to access, modify and delete customised labels spoken by TalkBack.</string>
   <string name="links">Links</string>
   <string name="end_of_text">End</string>
   <string name="start_of_page">No previous %1$s</string>
@@ -614,6 +644,7 @@
   <string name="title_pref_selector_granularity">Navigation</string>
   <string name="title_pref_selector_audio_focus">Audio ducking</string>
   <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_a11y_volume">Accessibility volume</string>
   <string name="title_pref_selector_adjustable_widget_slider">Adjust slider</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Adjust value</string>
   <string name="title_pref_speak_passwords_without_headphones">Speak passwords</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Use voice commands</string>
   <string name="dialog_title_pass_through_mode">Skip TalkBack gestures to use system gestures</string>
   <string name="dialog_message_pass_through_mode">When you hear a chime, you can use a system gesture that isn\'t supported by TalkBack. This is known as a pass-through gesture.</string>
-  <string name="hint_type_search_term">Type search term</string>
+  <string name="hint_type_search_term">Search term</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">The Notification Channel of TalkBack</string>
   <string name="pref_selector_summary">%1$s to select a setting. Then %2$s to adjust the setting.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">To cut text, double-tap and hold with three fingers.\n\nTo paste text, triple-tap with three fingers.\n\nTry to paste a word in the text box below.</string>
   <string name="copy_text_pre_r">After selecting text, you can copy it in the TalkBack menu. Swipe down and then right to open the TalkBack menu. Double-tap editing options and then copy.\n\nTry to copy a word in the text box below.</string>
   <string name="cut_paste_text_pre_r">To cut or paste text, open the TalkBack menu and double-tap editing options.\n\nTry to paste a word in the text box below.</string>
+  <string name="edit_box_hint_paste_text">Paste text here</string>
   <string name="read_by_character_title">Read by character, word or paragraph</string>
   <string name="read_by_character_text">Sometimes, you might want to hear text read out loud one character at a time.\n\nTo do this, swipe right with three fingers until you hear \'%1$s\'. Next, swipe up to move the navigation focus backwards by character. Swipe down to move the navigation focus forwards by character.\n\nTry it now. When you swipe right with three fingers, you can also choose to read by words or paragraphs.</string>
   <string name="read_by_character_text_pre_r">Sometimes, you might want to hear text read out loud one character at a time.\n\nTo do this, swipe down and then up until you hear \'%1$s\'. Next, swipe up to move the navigation focus backward by character. Swipe down to move the navigation focus forward by character.\n\nTry it now. When you swipe down and then up, you can also choose to read by words or paragraphs.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">Activated %1$s</string>
   <string name="talkback_inactive_title">TalkBack disabled</string>
   <string name="talkback_inactive_message">This tutorial requires TalkBack to be enabled. Please turn TalkBack on before launching the tutorial.</string>
+  <string name="watch_swipe_left_right_text">Swipe right or left to move between items</string>
+  <string name="watch_double_tap_text">Double-tap to activate an item</string>
+  <string name="watch_2_finger_scroll_text">Drag two fingers to scroll</string>
+  <string name="title_pref_thick_border">Thick borders</string>
+  <string name="title_pref_category_border_color">Colour</string>
+  <string name="title_pref_default_color">Default</string>
+  <string name="title_pref_red">Red</string>
+  <string name="title_pref_orange">Orange</string>
+  <string name="title_pref_yellow">Yellow</string>
+  <string name="title_pref_green">Green</string>
+  <string name="title_pref_blue">Blue</string>
+  <string name="title_pref_grey">Grey</string>
   <string name="survey_closed">Survey closed</string>
+  <string name="character_recognition_text">Text: %1$s</string>
+  <string name="title_image_caption">Describe image</string>
 </resources>

@@ -3,7 +3,7 @@
   <string name="talkback_service_description">TalkBack-г асаасан үед танд хэлсэн санал өгдөг бөгөөд үүний тусламжтайгаар та төхөөрөмжөө дэлгэцийг нь харалгүйгээр ашиглах боломжтой. Энэ нь хараагүй болон сул хараатай хүмүүст туслах зорилготой юм.\n\nTalkBack-г ашиглан шилжихийн тулд :\n• Зүйлсийн хооронд зөөхийн тулд баруун эсвэл зүүн тийш шударна уу\n• Зүйлийг идэвхжүүлэхийн тулд хоёр товшино уу\n• Гүйлгэхийн тулд хоёр хуруугаа чирнэ үү\n\nTalkBack-г унтраахын тулд:\n• Асаах/унтраах товчлуурыг товшино уу. Та ногоон хүрээ харах бөгөөд асаах/унтраах товчлуурыг хоёр товшино уу.\n•Баталгаажуулах мессежийн ОК сонголтыг товшоод дараа нь тус сонголтыг хоёр товшино уу.</string>
   <string name="talkback_service_html_description">TalkBack асаалттай үед энэ нь яриагаар санал өгөх бөгөөд ингэснээр та төхөөрөмжөө дэлгэц рүү нь харалгүйгээр ашиглах боломжтой. Talkback нь дэлгэц харахад хүндрэлтэй нөхцөл байдалд эсвэл хүмүүст зориулагдсан.&lt;br&gt;&lt;br&gt;&lt;b&gt;Talkback-г хэрхэн ашиглах вэ?&lt;/b&gt;&lt;br&gt;• Зүйлүүдийн хооронд шилжихийн тулд баруун эсвэл зүүн тийш шударна уу&lt;br&gt;• Зүйлийг идэвхжүүлэхийн тулд хоёр товшино уу&lt;br&gt;• Гүйлгэхийн тулд 2 хуруугаа чирнэ үү&lt;br&gt;&lt;br&gt;&lt;b&gt;Talkback-г хэрхэн унтраах вэ?&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Дууны түвшний түлхүүр:&lt;/b&gt; Дууны түвшний хоёр түлхүүрийг хэдэн секундын турш зэрэг дарна уу.&lt;br&gt;&lt;br&gt;&lt;b&gt;Тохиргоо&lt;/b&gt;&lt;br&gt;• &lt;b&gt;Talkback-г ашиглах&lt;/b&gt; сэлгүүрийг товшино уу. Та ногоон өнгөтэй гадна хүрээ харна. Сэлгүүрийг хоёр товшино уу.&lt;br&gt;• Баталгаажуулах зурвас дээрх зогсоохыг товшино уу. Дараа нь Зогсоохыг хоёр товшино уу.</string>
   <string name="talkback_service_summary">Дэлгэц дээрх зүйлийг хэлэх</string>
-  <string name="talkback_preferences_title">TalkBack Тохиргоо</string>
+  <string name="talkback_preferences_title">TalkBack-н тохиргоо</string>
   <string name="tts_preferences_title">Бичвэрийг ярианд хувиргах тохиргоо</string>
   <string name="language_options">Хэл</string>
   <string name="spoken_language">Ярианы хэл</string>
@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Хувилбар %1$s</string>
   <string name="label_manager_summary_title">Тусгай шошгуудыг удирдах</string>
   <string name="label_manager_package_title">%1$s-н шошгыг удирдах</string>
+  <string name="manage_label">Шошгыг удирдах</string>
   <string name="label_manager_no_packages_message">Одоогоор тусгай шошго алга байна. Та шошгогүй зураг руу шилжиж, дараа нь TalkBack цэсээс шошго нэмэх замаар тусгай шошго үүсгэх боломжтой.</string>
   <string name="label_manager_timestamp_text">Сүүлд өөрчилсөн цаг %1$s</string>
   <string name="search_dialog_label">Хайх: %1$s</string>
@@ -49,7 +50,7 @@
   <string name="value_device_unlocked">Төхөөрөмж нээгдсэн.</string>
   <string name="title_pref_category_when_to_speak">Яриа</string>
   <string name="title_pref_category_audio">Аудио</string>
-  <string name="title_pref_speech_volume">Дууны хэмжээ</string>
+  <string name="title_pref_speech_volume">Дууны түвшин</string>
   <string name="title_pref_speak_screenoff">Дэлгэц унтарвал ярина</string>
   <string name="summaryOn_pref_speak_screenoff">Дэлгэц унтарсан үед мэдэгдлүүдийг уншина is off</string>
   <string name="summaryOff_pref_speak_screenoff">Дэлгэц унтарсан үед ярих боломжгүй</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Хүрэлтээр сонсох</string>
   <string name="title_pref_category_touch_exploration">Навигац</string>
   <string name="title_pref_category_controls">Хяналт</string>
-  <string name="title_pref_single_tap">Нэг даралтаар идэвхжүүлэх</string>
+  <string name="title_pref_single_tap">Идэвхжүүлэхийн тулд нэг удаа товшино уу</string>
   <string name="title_pref_show_context_menu_as_list">Хам сэдэв цэсийг жагсаалтаар харуулах</string>
-  <string name="summary_pref_single_tap">(Туршилт) Идэвхжүүлэхийн тулд сонгосон зүйл дээр нэг товшино уу</string>
+  <string name="summary_pref_single_tap">Идэвхжүүлэхийн тулд сонгосон зүйл дээр нэг удаа товшино уу</string>
   <string name="title_pref_shake_to_read_threshold">Тасралтгүй уншихыг эхлүүлэх бол сэгсэрнэ</string>
   <string name="pref_verbosity_title">Нуршилт</string>
   <string name="pref_punctuation_title">Цэг, таслал</string>
+  <string name="title_pref_category_manage_focus_indicator">Фокусын заалтыг өөрчлөх</string>
   <string name="title_pref_category_manage_gestures">Зангааг өөрчлөх</string>
   <string name="title_pref_manage_labels">Захиалгат шошго</string>
   <string name="title_pref_manage_customize_menus">Цэсийг өөрчлөх</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Тусламж, санал хүсэлт</string>
   <string name="title_pref_category_tutorial_and_help">Практик хичээл, тусламж</string>
   <string name="title_pref_category_advanced">Дэвшилтэт</string>
+  <string name="title_pref_category_typing">Бичих болон гар</string>
   <string name="title_pref_category_legal_and_privacy">Хууль эрх зүй болон нууцлал</string>
   <string name="title_pref_advanced_settings">Дэвшилтэт тохиргоо</string>
   <string name="reset_gesture_settings_title">Зангааны тохиргоог шинэчлэх</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Сүүлийн апп</string>
   <string name="keycombo_menu_global_notifications">Мэдэгдэл</string>
   <string name="keycombo_menu_global_suspend">TalkBack-г түр зогсоох, үргэлжлүүлэх</string>
+  <string name="keycombo_menu_global_play_pause_media">Медиаг тоглуулах эсвэл түр зогсоох</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Дараагийн уншилтын хяналтыг сонгох</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Өмнөх уншилтын хяналтыг сонгох</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Уншилтын хяналтыг дээш тохируулах</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Уншилтын хяналтыг доош тохируулах</string>
   <string name="keycombo_menu_category_granularity">Навигац</string>
   <string name="keycombo_menu_granularity_increase">Чиглүүлэгчийн дараагийн тохиргоо</string>
   <string name="keycombo_menu_granularity_decrease">Чиглүүлэгчийн өмнөх тохиргоо</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Хуулах текст байхгүй байна. Эхлээд хэсэг текстийг сонгоно уу.</string>
   <string name="cannot_paste_feedback">Буулгах текст байхгүй байна. Эхлээд хэсэг текстийг хуулна уу.</string>
   <string name="cannot_cut_feedback">Таслах текст байхгүй байна. Эхлээд хэсэг текстийг сонгоно уу.</string>
+  <string name="cannot_delete_feedback">Устгах текст байхгүй байна. Эхлээд хэсэг текстийг сонгоно уу.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Та энэ гарны зураглалд зориулан гарны товчлолуудыг өгөгдмөл утганд дахин тохируулахдаа итгэлтэй байна уу? Энэ үйлдлийг буцаах боломжгүйг анхаарна уу.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Дахин тохируулах</string>
   <string name="override_keycombo">Аль хэдийн ашиглагдаж буй товчлуур</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Хэмжээний өөрчлөлтийг ашиглах</string>
   <string name="title_pref_keyboard_echo">Гарын чимээ</string>
   <string name="pref_node_desc_order_title">Элементийн тайлбарын дараалал</string>
-  <string name="summaryOn_pref_intonation">Гарын өгөгдлийг сул өнгөөр дуудна</string>
+  <string name="summaryOn_pref_intonation">Гарын устгасан текстийг чанга өнгөөо унших</string>
   <string name="summaryOff_pref_intonation">Дууны хэмжээгээ өөрчлөхгүйгээр ярина</string>
   <string name="title_pref_brailleime">Брайл гар</string>
   <string name="title_pref_category_feedback_settings">Бусад өгөгдөл</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Зангилаа модон дебаг-г идэвхжүүлэх</string>
   <string name="summary_pref_tree_debug_tv">Хайлтын оронд гол модыг (өгөгдлийн бүтэц) хэвлэхийн тулд дуут хайлтын түлхүүрийг ашиглах</string>
   <string name="title_pref_performance_stats">Гүйцэтгэлийн статистикийг идэвхжүүлэх</string>
+  <string name="title_pref_log_overlay">Дебаг хийх логийг давхарлахыг идэвхжүүлэх</string>
   <string name="title_pref_resume_talkback">Зогссоныг ажиллуулах</string>
+  <string name="title_pref_typing_confirmation">Бичих сонголт</string>
   <string name="title_pref_multi_finger_gesture">Олон хурууны зангааг идэвхжүүлэх</string>
   <string name="screen_dimmed">Дэлгэцийг нуусан</string>
   <string name="screen_brightness_restored">Дэлгэцийг харуулж байна</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Доош гүйлгэх</string>
   <string name="shortcut_scroll_left">Зүүн тийш гүйлгэх</string>
   <string name="shortcut_scroll_right">Баруун тийш гүйлгэх</string>
+  <string name="shortcut_next_window">Дараагийн цонх</string>
+  <string name="shortcut_previous_window">Өмнөх цонх</string>
   <string name="shortcut_back">Буцах</string>
   <string name="shortcut_home">Нүүр</string>
   <string name="shortcut_overview">Тойм</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Дэлгэцийг нуух эсвэл харуулах</string>
   <string name="title_show_screen_search">Дэлгэцийн хайлт</string>
   <string name="title_show_voice_commands">Дуут тушаал</string>
+  <string name="talkback_show_talkback_settings">TalkBack-н тохиргоо</string>
   <string name="title_other_web_navigation">Бусад вебийн шилжилт</string>
   <string name="title_granularity_default">Өгөгдмөл навигац</string>
   <string name="title_seek_bar_edit">Гулсуулагчийн түвшнийг засах</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">TalkBack-г дуу хоолойгоороо хянаарай</string>
   <string name="summary_show_hide_screen">Дэлгэцийг нууснаар таны дэлгэц олон нийтийн газарт бусдад харагдахаа болино. Дэлгэцээ нуусны дараа үүнийг хэвийн төлөвт буцаана уу.</string>
   <string name="summary_talkback_preferences">TalkBack-н тохиргоог нээнэ үү</string>
-  <string name="summary_system_actions">Бүх апп, Шуурхай тохиргоо руу очиж, дэлгэцийг хуваах горимыг ашиглана уу</string>
+  <string name="summary_system_actions">Бүх апп болон Шуурхай тохиргоонд очих</string>
   <string name="summary_tts_settings">Бичвэрийг ярианд хувиргах тохиргоог нээнэ үү</string>
   <string name="summary_pause_feedback">TalkBack-н дуу хоолойн санал хүсэлтийг унтраана уу</string>
   <string name="not_editable">Засах боломжгүй</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Нэг удаад нэг үг уншина уу</string>
   <string name="summary_lines">Нэг удаад нэг мөр уншина уу</string>
   <string name="summary_paragraphs">Нэг удаад нэг өгүүлбэр уншина уу</string>
+  <string name="summary_windows">Дууны түвшний хяналт эсвэл навигацын самбар зэрэг бусад цонх руу очих</string>
   <string name="summary_headings">Гарчиг хооронд шилжих</string>
   <string name="summary_controls">Товчлуур, шалгах нүд болон текстийн талбар зэрэг харилцах боломжтой зүйлсийн хооронд шилжинэ үү</string>
   <string name="summary_links">Холбоос хооронд шилжих</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Бичсэн түлхүүр, хэрэглээний заавар, хүснэгтийн мэдээлэл болон бусад мэдээллийг чанга унших эсэхийг өөрчилнө үү</string>
   <string name="summary_selector_menu_punctuation">Цэг, таслал болон тэмдгийг чангаар унших эсэхийг өөрчилнө</string>
   <string name="summary_language">Ярианы хэлээ өөрчилнө үү. Таныг зөвхөн бичвэрийг ярианд хувиргах олон хэл суулгасан үед харуулна.</string>
-  <string name="summary_sound_feedback">Шилжих үедээ үйлдлийг зөвшөөрөхийн тулд дохио дуугаргах зэрэг дууны эффектийг сонсоно уу.</string>
+  <string name="summary_sound_feedback">Үйлдлийг зөвшөөрөхийн тулд дохио дуугаргах зэргээр шилжих үедээ дууны эффект сонсоорой.</string>
   <string name="summary_vibration_feedback">Зүйлийг сонгох зэрэг үйлдлийн чичиргээг мэдэрнэ үү. Апп эсвэл системээс гарч буй чичиргээнд нөлөөлдөггүй.</string>
   <string name="summary_hide_screen">Дэлгэцийг нууснаар таны дэлгэц олон нийтийн газар байх үед бусдад харагдахгүй</string>
   <string name="summary_audio_ducking">TalkBack ярих үед тоглуулж буй бусад аудионы дууны түвшнийг багасгана уу</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Урагш эсвэл арагш гүйлгэх</string>
+  <string name="summary_support_change_a11y_volume">Хандалтын дууны түвшнийг өсгөх эсвэл бууруулах</string>
+  <string name="summary_image_caption">Энэ зургийн автомат тайлбарыг авах</string>
   <string name="value_direction_up">дээш</string>
   <string name="value_direction_down">доош</string>
   <string name="value_direction_left">зүүн</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">2 хуруугаар хоёр товшоод удаан дарах</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">3 хуруугаар хоёр товшоод удаан дарах</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">4 хуруугаар хоёр товшоод удаан дарах</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">2 хуруугаараа гурав товшоод удаан дарах</string>
+  <string name="seekbar_hint_2gesture">Тохируулахын тулд \"%1$s\" эсвэл %2$s\"</string>
+  <string name="seekbar_hint_1gesture">Тохируулахын тулд \"%1$s\"</string>
   <string name="gesture_name_unknown">Үл мэдэгдэх зангаа</string>
   <string name="gesture_name_pass_through">Системийн зангаагаар дамжих</string>
   <string name="gesture_name_touch_explore">Хүрч судлах</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Хоёр товшоод удаан дарах</string>
   <string name="gesture_name_2finger_tap_hold">2 хуруугаараа товшоод удаан дарах</string>
   <string name="gesture_name_3finger_tap_hold">3 хуруугаараа товшоод удаан дарах</string>
+  <string name="gesture_name_2finger_3tap_hold">2 хуруугаараа гурав товшоод удаан дарах</string>
   <string name="gesture_name_3finger_3tap_hold">3 хуруугаараа гурав товшоод удаан дарах</string>
   <string name="title_pref_shortcut_fingerprint_up">Хурууны хээ мэдрэгчээр дээш шудрах</string>
   <string name="title_pref_shortcut_fingerprint_down">Хурууны хээ мэдрэгчээр доош шудрах</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Дэлгэц асахад</string>
   <string name="value_resume_keyguard">Дэлгэц түгжигдэх үед</string>
   <string name="value_resume_manual">Зөвхөн мэдэгдлээс</string>
+  <string name="value_type_confirmation_double_tap">Товчлуур сонгохыг удаан дараад дараа нь хоёр товшино уу</string>
+  <string name="value_type_confirmation_lift_to_type">Сонгох товчлуурыг удаан дараад хуруугаа өргөнө үү</string>
   <string name="value_shake_to_read_disabled">Идэвхгүйжүүлсэн</string>
   <string name="value_shake_to_read_threshold_very_light">Маш сул</string>
   <string name="value_shake_to_read_threshold_light">Гэрэл</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Дарагдсан товчийг байнга дуудах</string>
   <string name="value_keyboard_echo_softkeys">Зөвхөн дэлгэцэн дээрх гарны хувьд</string>
   <string name="value_keyboard_echo_never">Дарагдсан товчийг дуудахгүй</string>
+  <string name="title_pref_keyboard_echo_on_screen">Гарын чимээ: Дэлгэц дээрх гар</string>
+  <string name="title_pref_keyboard_echo_physical">Гарын чимээ: Биет гар</string>
+  <string name="value_keyboard_echo_none">Хоосон</string>
+  <string name="value_keyboard_echo_characters_only">Тэмдэгтүүд</string>
+  <string name="value_keyboard_echo_words_only">Үгс</string>
+  <string name="value_keyboard_echo_characters_and_words">Тэмдэгтүүд ба үгс</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Улс, нэр, төрөл</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Төрөл, нэр, улс</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Нэр, төрөл, улс</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Та зангилаа модон дебаг-г идэвхжүүлэхдээ итгэлтэй байна уу?\n\nЗангилаа модон дебаг нь таны дэлгэцийн агуулгыг таны төхөөрөмжийн лог-т нээлттэй болгосноор өөр аппликейшнүүдэд унших боломж олгоно.</string>
   <string name="dialog_title_enable_performance_stats">Гүйцэтгэлийн статистикийг идэвхжүүлэх үү?</string>
   <string name="dialog_message_enable_performance_stats">Гүйцэтгэлийн статистикийг асаах уу?\n\nГүйцэтгэлийн статистик нь санах ой, цэнэг зарцуулалтыг нэмэгдүүлнэ.</string>
+  <string name="title_request_phone_permission">Утасны хандалтыг зөвшөөрөх үү?</string>
+  <string name="message_request_phone_permission">Тaныг утсаар ярьж байх үед энэ нь TalkBack-д мэдэгдлийг багасгахад тусална</string>
+  <string name="continue_button">Үргэлжлүүлэх</string>
   <string name="label_talkback_context_menu">Talkback глобал контекст цэс</string>
   <string name="permission_talkback_label">ТalkBack контрол</string>
   <string name="permission_talkback_desc">Зангалтыг TalkBack руу илгээж, хэлэх хариултыг үргэлжлүүлэх зөвшөөрөл.</string>
-  <string name="permission_labeling_label">TalkBack тохируулсан шошгуудыг удирдах</string>
-  <string name="permission_labeling_desc">TalkBack-р хэлсэн, тохируулсан шошгуудад хандалт хийх, өөрчлөх болон устгах зөвшөөрөл.</string>
   <string name="links">Холбоос</string>
   <string name="end_of_text">Төгсгөл</string>
   <string name="start_of_page">Өмнөх %1$s байхгүй</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Цэг, таслал</string>
   <string name="title_pref_selector_granularity">Навигац</string>
   <string name="title_pref_selector_audio_focus">Аудио багасгах (audio ducking)</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Гүйлгэх</string>
+  <string name="title_pref_a11y_volume">Хандалтын дууны түвшин</string>
   <string name="title_pref_selector_adjustable_widget_slider">Гулсуулагчийг тохируулах</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Утгыг тохируулах</string>
   <string name="title_pref_speak_passwords_without_headphones">Нууц үгийг хэлэх</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Дуут тушаал ашиглах</string>
   <string name="dialog_title_pass_through_mode">Системийн зангааг ашиглахын тулд TalkBack-н зангааг алгасах</string>
   <string name="dialog_message_pass_through_mode">Та хонх сонсох үедээ TalkBack-н дэмждэггүй системийн зангааг ашиглах боломжтой. Үүнийг зангаагаар дамжих гэж нэрлэдэг.</string>
-  <string name="hint_type_search_term">Хайлтын үгээ бичнэ үү</string>
+  <string name="hint_type_search_term">Хайлтын үг</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack сувгийн мэдэгдэл</string>
   <string name="pref_selector_summary">Тохиргоог сонгохын тулд %1$s. Дараа нь тохиргоог тохируулахын тулд %2$s.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Текстийг тайрахын тулд 3 хуруугаараа хоёр товшоод, удаан дарна уу.\n\nТекстийг буулгахын тулд 3 хуруугаараа гурав товшино уу.\n\nДоорх текстийн хайрцгийн үгийг буулгаж үзнэ үү</string>
   <string name="copy_text_pre_r">Та текстийг сонгосныхоо дараа үүнийг TalkBack-н цэсэнд хуулах боломжтой. TalkBack-н цэсийг нээхийн тулд доош, дараа нь баруун тийш шударна уу. Засах сонголтыг хоёр товшоод дараа нь хуулна уу.\n\nДоорх текстийн хайрцгийн үгийг хуулж үзнэ үү.</string>
   <string name="cut_paste_text_pre_r">Текстийг тайрах эсвэл буулгахын тулд TalkBack-н цэсийг нээгээд засах сонголтыг хоёр товшино уу.\n\nДоорх текстийн хайрцгийн үгийг буулгаж үзнэ үү.</string>
+  <string name="edit_box_hint_paste_text">Текстийг энд буулгана уу</string>
   <string name="read_by_character_title">Тэмдэгт, үг эсвэл цогцолбороор унших</string>
   <string name="read_by_character_text">Зарим үед та текстийг нэг тэмдэгтийг нэг удаа чангаар уншихыг сонсохыг хүсэж магадгүй.\n\nИнгэхийн тулд \"%1$s\"-г сонсох хүртлээ 3 хуруугаараа баруун тийш шударна уу. Дараа нь навигацын фокусыг тэмдэгтээр ухраахын тулд дээш шударна уу. Навигацын фокусыг тэмдэгтээр урагшлуулахын тулд доош шударна уу.\n\nОдоо оролдож үзнэ үү. Та 3 хуруугаараа баруун тийш шудрах үедээ мөн үгээр эсвэл догол мөрөөр уншихаар сонгох боломжтой.</string>
   <string name="read_by_character_text_pre_r">Зарим үед та текстийг нэг тэмдэгтийг нэг удаа чангаар уншихыг сонсохыг хүсэж магадгүй.\n\nИнгэхийн тулд \"%1$s\"-г сонсох хүртлээ доош дараа нь дээш шударна уу. Дараа нь навигацын фокусыг тэмдэгтээр ухраахын тулд дээш шударна уу. Навигацын фокусыг тэмдэгтээр урагшлуулахын тулд доош шударна уу.\n\nОдоо оролдож үзнэ үү. Та доош дараа нь дээш шудрах үедээ мөн үгээр эсвэл цогцолбороор уншихаар сонгох боломжтой.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">Идэвхжүүлсэн %1$s</string>
   <string name="talkback_inactive_title">TalkBack-г идэвхгүй болгосон</string>
   <string name="talkback_inactive_message">Энэ практик хичээлд TalkBack-г идэвхжүүлсэн байх шаардлагатай. Практик хичээлийг эхлүүлэхийн өмнө TalkBack-г асаана уу.</string>
+  <string name="watch_swipe_left_right_text">Зүйл хооронд шилжихийн тулд баруун эсвэл зүүн тийш шударна уу</string>
+  <string name="watch_double_tap_text">Зүйл идэвхжүүлэхийн тулд хоёр товшино уу</string>
+  <string name="watch_2_finger_scroll_text">Гүйлгэхийн тулд 2 хуруугаараа чирнэ үү</string>
+  <string name="title_pref_thick_border">Өргөн хүрээ</string>
+  <string name="title_pref_category_border_color">Өнгө</string>
+  <string name="title_pref_default_color">Өгөгдмөл</string>
+  <string name="title_pref_red">Улаан</string>
+  <string name="title_pref_orange">Улбар шар</string>
+  <string name="title_pref_yellow">Шар</string>
+  <string name="title_pref_green">Ногоон</string>
+  <string name="title_pref_blue">Цэнхэр</string>
+  <string name="title_pref_grey">Саарал</string>
   <string name="survey_closed">Судалгааг хаасан</string>
+  <string name="character_recognition_text">Текст: %1$s</string>
+  <string name="title_image_caption">Зургийг тодорхойлох</string>
 </resources>

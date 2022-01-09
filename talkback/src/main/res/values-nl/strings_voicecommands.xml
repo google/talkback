@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Taal</string>
   <string name="voice_commands_languages">Talen</string>
   <string name="voice_commands_custom_actions">aangepaste acties</string>
+  <string name="voice_commands_action">Actie</string>
   <string name="voice_commands_quick_settings">Snelle instellingen</string>
   <string name="voice_commands_quick_setting">Snelle instelling</string>
   <string name="voice_commands_dim">dimmen</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">Je moet toegangsrechten geven tot de microfoon om deze functie te kunnen gebruiken.</string>
   <string name="voice_commands_no_voice_recognition_ability">Deze functie is niet beschikbaar op je apparaat</string>
   <string name="voice_commands_error">Fout bij herkenning spraakopdracht</string>
-  <string name="voice_commands_partial_result">Deze opdracht wordt niet herkend. Zeg \'%1$s\' voor de volledige lijst met opdrachten.</string>
+  <string name="voice_commands_partial_result">Deze opdracht wordt niet herkend. Zeg \'%1$s\' voor de hele lijst met opdrachten.</string>
+  <string name="voice_commands_timeout">Zeg \'%1$s\' voor de hele lijst met opdrachten.</string>
   <string name="voice_commands_many_requests">Probeer het over enkele minuten opnieuw</string>
-  <string name="voice_commands_setting_disabled">De instelling \'%1$s\' is niet ingeschakeld</string>
   <string name="voice_commands_echo_feedback_not_recognized">\'%1$s\' is niet herkend als spraakopdracht.</string>
   <string name="voice_commands_label_saved">Label opgeslagen</string>
   <string name="voice_commands_no_actions_feedback">Geen acties beschikbaar</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Overzicht van spraakopdrachten</string>
   <string name="voice_commands_help_description">Swipe naar rechts en daarna omhoog om spraakopdrachten te gebruiken. Zeg \'Help\' of \'Wat kan ik zeggen?\' om deze lijst met spraakopdrachten te openen.</string>
   <string name="voice_commands_help_hint">Zeg voor de beste resultaten de exacte tekst op de volgende schermen.</string>
+  <string name="voice_command_screen_locked_hint">Spraakopdrachten zijn niet beschikbaar als het scherm vergrendeld is. Als je in plaats daarvan het TalkBack-menu wilt gebruiken, moet je %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Verander hoe je content leest op het huidige scherm</string>
   <string name="voice_commands_help_next">Volgende [kop]</string>
@@ -132,18 +134,19 @@
   <string name="voice_commands_help_screen_search_description">Geef een zoekterm op om die tekst op het scherm te vinden</string>
   <string name="voice_commands_help_text_editing_description">Typ, selecteer en kopieer tekst</string>
   <string name="voice_commands_help_type_text">[OK] typen</string>
-  <string name="voice_commands_help_copy_description">Zorg ervoor dat je tekst selecteert voordat je kopieert</string>
-  <string name="voice_commands_help_cut_description">Zorg ervoor de je tekst selecteert voordat je knipt</string>
+  <string name="voice_commands_help_copy_description">Selecteer tekst voordat je kopieert</string>
+  <string name="voice_commands_help_cut_description">Selecteer tekst voordat je knipt</string>
+  <string name="voice_commands_help_delete_description">Selecteer tekst voordat je verwijdert</string>
   <string name="voice_commands_help_device_navigation_title">Apparaatnavigatie</string>
-  <string name="voice_commands_help_device_navigation_description">Ga naar Home, ga terug, geef meldingen weer en meer</string>
+  <string name="voice_commands_help_device_navigation_description">Ga naar Home, ga terug, toon meldingen en meer</string>
   <string name="voice_commands_help_overview_description">Bekijk je recente apps</string>
   <string name="voice_commands_help_assistant_description">Open de Google Assistent</string>
   <string name="voice_commands_help_other_commands_title">Andere opdrachten</string>
   <string name="voice_commands_help_other_commands_description">Ga naar de TalkBack-instelling, verberg je scherm, bekijk acties, voeg aangepaste labels toe en meer</string>
   <string name="voice_commands_help_label">[Indienen] labelen</string>
-  <string name="voice_commands_help_hide_screen_description">Het scherm verbergen zodat anderen je scherm niet kunnen bekijken in openbare ruimten</string>
+  <string name="voice_commands_help_hide_screen_description">Het scherm verbergen zodat anderen je scherm niet kunnen bekijken in openbare ruimtes</string>
   <string name="voice_commands_help_show_screen_description">Nadat je het scherm hebt verborgen, kun je het terugzetten naar de normale status</string>
-  <string name="voice_commands_help_actions_description">Geef beschikbare acties weer voor het huidige item</string>
+  <string name="voice_commands_help_actions_description">Toon beschikbare acties voor het huidige item</string>
   <string name="voice_commands_help_label_description">Voeg een aangepast label \'indienen\' toe of bewerk het</string>
   <string name="voice_commands_help_stop_description">Stop de huidige spraakopdracht</string>
 </resources>

@@ -14,8 +14,9 @@
   <string name="voice_commands_language">שפה</string>
   <string name="voice_commands_languages">שפות</string>
   <string name="voice_commands_custom_actions">פעולות מותאמות אישית</string>
+  <string name="voice_commands_action">פעולה</string>
   <string name="voice_commands_quick_settings">הגדרות מהירות</string>
-  <string name="voice_commands_quick_setting">הגדרות מהירות</string>
+  <string name="voice_commands_quick_setting">הגדרה מהירה</string>
   <string name="voice_commands_dim">עמעום</string>
   <string name="voice_commands_darken">האפלה</string>
   <string name="voice_commands_brighten_screen">הבהרת המסך</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">מצטערים! התכונה הזו לא נתמכת במכשיר הזה</string>
   <string name="voice_commands_error">שגיאה בזיהוי הפקודה הקולית</string>
   <string name="voice_commands_partial_result">לא ניתן לזהות את הפקודה הזו. יש לומר \"%1$s\" לקבלת הרשימה של כל הפקודות.</string>
+  <string name="voice_commands_timeout">יש לומר \"%1$s\" לקבלת הרשימה של כל הפקודות.</string>
   <string name="voice_commands_many_requests">יש לנסות שוב בעוד רגע</string>
-  <string name="voice_commands_setting_disabled">ההגדרה \"%1$s\" לא הופעלה</string>
   <string name="voice_commands_echo_feedback_not_recognized">הביטוי \"%1$s\" לא זוהה כפקודה קולית.</string>
   <string name="voice_commands_label_saved">התווית נשמרה</string>
   <string name="voice_commands_no_actions_feedback">אין פעולות זמינות</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">סקירה כללית של הפקודות הקוליות</string>
   <string name="voice_commands_help_description">‏כדי להשתמש בפקודות קוליות, יש להחליק שמאלה ואז למעלה. בכל שלב אפשר לומר \"Help\" או \"What can I say?‎\" לקבלת הרשימה של כל הפקודות.</string>
   <string name="voice_commands_help_hint">כדי לקבל את התוצאות הטובות ביותר, יש לומר בדיוק את הניסוח שרשום במסכים הבאים.</string>
+  <string name="voice_command_screen_locked_hint">‏הפקודות הקוליות לא זמינות כשהמסך נעול. כדי להשתמש בתפריט של TalkBack במקום זאת, מבצעים %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">שינוי אופן ההקראה של התוכן במסך הנוכחי</string>
   <string name="voice_commands_help_next">ה[כותרת] הבאה</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">הזנת מונח חיפוש למציאת הטקסט הזה במסך</string>
   <string name="voice_commands_help_text_editing_description">הקלדה, בחירה והעתקה של טקסט</string>
   <string name="voice_commands_help_type_text">הקלדה [אישור]</string>
-  <string name="voice_commands_help_copy_description">יש לוודא שנבחר טקסט לפני העתקה</string>
-  <string name="voice_commands_help_cut_description">יש לוודא שנבחר טקסט לפני חיתוך</string>
+  <string name="voice_commands_help_copy_description">יש לבחור טקסט לפני שמעתיקים</string>
+  <string name="voice_commands_help_cut_description">יש לבחור טקסט לפני שגוזרים</string>
+  <string name="voice_commands_help_delete_description">יש לבחור טקסט לפני שמוחקים</string>
   <string name="voice_commands_help_device_navigation_title">ניווט במכשיר</string>
   <string name="voice_commands_help_device_navigation_description">לדף הבית, חזרה, הצגת התראות ועוד</string>
   <string name="voice_commands_help_overview_description">הצגת האפליקציות האחרונות</string>

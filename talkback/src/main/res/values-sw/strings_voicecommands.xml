@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Lugha</string>
   <string name="voice_commands_languages">Lugha</string>
   <string name="voice_commands_custom_actions">vitendo maalum</string>
-  <string name="voice_commands_quick_settings">Mipangilio ya haraka</string>
-  <string name="voice_commands_quick_setting">Mipangilio ya haraka</string>
+  <string name="voice_commands_action">Kitendo</string>
+  <string name="voice_commands_quick_settings">Mipangilio ya Haraka</string>
+  <string name="voice_commands_quick_setting">Mipangilio ya Haraka</string>
   <string name="voice_commands_dim">punguza mwangaza</string>
   <string name="voice_commands_darken">tia giza</string>
   <string name="voice_commands_brighten_screen">ongeza mwangaza kwenye skrini</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Samahani! Kipengele hiki hakipatikani kwenye kifaa chako</string>
   <string name="voice_commands_error">Hitilafu ya kutambua amri ya sauti</string>
   <string name="voice_commands_partial_result">Imeshindwa kutambua amri hii. Tamka \"%1$s\" ili upate orodha ya amri zote.</string>
+  <string name="voice_commands_timeout">Tamka \"%1$s\" ili upate orodha ya amri zote.</string>
   <string name="voice_commands_many_requests">Tafadhali jaribu tena baada ya muda mfupi</string>
-  <string name="voice_commands_setting_disabled">Mipangilio ya \"%1$s\" imezimwa</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" haijatambuliwa kama amri ya sauti.</string>
   <string name="voice_commands_label_saved">Lebo imehifadhiwa</string>
   <string name="voice_commands_no_actions_feedback">Hakuna vitendo vinavyopatikana</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Muhtasari wa amri ya sauti</string>
   <string name="voice_commands_help_description">Ili utumie amri za sauti, telezesha kidole kulia kisha juu. Tamka \"Usaidizi\" au \"Ninaweza kusema nini?\" wakati wowote ili upate orodha hii ya amri.</string>
   <string name="voice_commands_help_hint">Kwa matokeo bora, tamka maneno kamili yaliyoorodheshwa kwenye skrini zinazofuata.</string>
+  <string name="voice_command_screen_locked_hint">Amri za sauti hazipatikani wakati skrini imefungwa. Ili utumie menyu ya TalkBack badala yake, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Badilisha jinsi unavyosoma maudhui kwenye skrini ya sasa</string>
   <string name="voice_commands_help_next">Inayofuata [heading]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Weka hoja ya utafutaji ili upate maandishi haya kwenye skrini</string>
   <string name="voice_commands_help_text_editing_description">Andika, chagua na unakili maandishi</string>
   <string name="voice_commands_help_type_text">Andika [OK]</string>
-  <string name="voice_commands_help_copy_description">Hakikisha kuwa umechagua maandishi kabla ya kunakili</string>
-  <string name="voice_commands_help_cut_description">Hakikisha kuwa umechagua maandishi kabla ya kukata</string>
+  <string name="voice_commands_help_copy_description">Chagua maandishi kabla ya kunakili</string>
+  <string name="voice_commands_help_cut_description">Chagua maandishi kabla ya kukata</string>
+  <string name="voice_commands_help_delete_description">Chagua maandishi kabla ya kufuta</string>
   <string name="voice_commands_help_device_navigation_title">Usogezaji kwenye kifaa</string>
   <string name="voice_commands_help_device_navigation_description">Nenda kwenye Skrini ya kwanza, rudi nyuma, onyesha arifa na zaidi</string>
   <string name="voice_commands_help_overview_description">Angalia programu zako za hivi majuzi</string>

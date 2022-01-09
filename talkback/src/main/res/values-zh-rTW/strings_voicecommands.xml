@@ -14,6 +14,7 @@
   <string name="voice_commands_language">語言</string>
   <string name="voice_commands_languages">語言</string>
   <string name="voice_commands_custom_actions">自訂操作</string>
+  <string name="voice_commands_action">動作</string>
   <string name="voice_commands_quick_settings">快速設定</string>
   <string name="voice_commands_quick_setting">快速設定</string>
   <string name="voice_commands_dim">調暗</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">如要使用這項功能，你必須授予麥克風使用權限。</string>
   <string name="voice_commands_no_voice_recognition_ability">很抱歉，你的裝置不支援這項功能</string>
   <string name="voice_commands_error">辨識語音指令時發生錯誤</string>
-  <string name="voice_commands_partial_result">無法辨識這項指令。如要瞭解有哪些可用的指令，請說出「%1$s」。</string>
+  <string name="voice_commands_partial_result">系統無法辨識這個指令。如要瞭解有哪些可用的指令，請說出「%1$s」。</string>
+  <string name="voice_commands_timeout">如要瞭解有哪些可用的指令，請說出「%1$s」。</string>
   <string name="voice_commands_many_requests">請稍後再試</string>
-  <string name="voice_commands_setting_disabled">未啟用「%1$s」設定</string>
   <string name="voice_commands_echo_feedback_not_recognized">系統無法辨識「%1$s」這個語音指令。</string>
   <string name="voice_commands_label_saved">標籤儲存完畢</string>
   <string name="voice_commands_no_actions_feedback">沒有可用的操作</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">語音指令總覽</string>
   <string name="voice_commands_help_description">如要使用語音指令，請先向右再向上滑動。想查看這份指令清單時，只要說出「我需要協助」或「我可以使用哪些語音指令」即可。</string>
   <string name="voice_commands_help_hint">為了獲得最佳效果，請確實說出後續畫面列出的文字內容。</string>
+  <string name="voice_command_screen_locked_hint">螢幕鎖定時無法使用語音指令。如要改用 TalkBack 選單，請%1$s。</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">變更目前畫面上的內容朗讀方式</string>
   <string name="voice_commands_help_next">下一個 [標題]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">輸入搜尋字詞，以便在畫面上找出該文字</string>
   <string name="voice_commands_help_text_editing_description">輸入、選取及複製文字</string>
   <string name="voice_commands_help_type_text">輸入 [好]</string>
-  <string name="voice_commands_help_copy_description">請務必先選取文字，再執行複製操作</string>
-  <string name="voice_commands_help_cut_description">請務必先選取文字，再執行剪下操作</string>
+  <string name="voice_commands_help_copy_description">複製前請先選取文字</string>
+  <string name="voice_commands_help_cut_description">剪下前請先選取文字</string>
+  <string name="voice_commands_help_delete_description">刪除前請先選取文字</string>
   <string name="voice_commands_help_device_navigation_title">裝置瀏覽</string>
   <string name="voice_commands_help_device_navigation_description">返回主畫面、回到上一個畫面、顯示通知等</string>
   <string name="voice_commands_help_overview_description">查看最近使用的應用程式</string>

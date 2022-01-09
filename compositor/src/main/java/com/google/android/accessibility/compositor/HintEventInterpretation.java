@@ -16,8 +16,8 @@
 
 package com.google.android.accessibility.compositor;
 
-import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
+import androidx.annotation.IntDef;
 import com.google.android.accessibility.utils.ReadOnly;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import java.lang.annotation.Retention;

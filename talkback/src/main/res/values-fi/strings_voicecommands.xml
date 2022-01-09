@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Kieli</string>
   <string name="voice_commands_languages">Kielet</string>
   <string name="voice_commands_custom_actions">omat toiminnot</string>
+  <string name="voice_commands_action">Tapahtuma</string>
   <string name="voice_commands_quick_settings">Pika-asetukset</string>
   <string name="voice_commands_quick_setting">Pika-asetus</string>
   <string name="voice_commands_dim">himmennä</string>
@@ -43,7 +44,7 @@
   <string name="voice_commands_finish_selection">Lopeta valinta</string>
   <string name="voice_commands_finish_selection_mode">Poistu valintatilasta</string>
   <string name="voice_commands_end_select">Lopeta valitseminen</string>
-  <string name="voice_commands_deselect">Peruuta valinta</string>
+  <string name="voice_commands_deselect">Peru valinta</string>
   <string name="voice_commands_label">Tunniste</string>
   <string name="voice_commands_cannot_label_feedback">Tunnistetta ei voi lisätä</string>
   <string name="voice_commands_assistant">Assistant</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Ominaisuus ei ole käytettävissä tällä laitteella.</string>
   <string name="voice_commands_error">Puhekomennon tunnistusvirhe</string>
   <string name="voice_commands_partial_result">Tuntematon komento. Katso kaikki komennot sanomalla \"%1$s\".</string>
+  <string name="voice_commands_timeout">Katso kaikki komennot sanomalla \"%1$s\".</string>
   <string name="voice_commands_many_requests">Yritä uudelleen hetken kuluttua.</string>
-  <string name="voice_commands_setting_disabled">%1$s-asetus ei ole käytössä</string>
   <string name="voice_commands_echo_feedback_not_recognized">%1$s ei ole kelvollinen äänikomento.</string>
   <string name="voice_commands_label_saved">Tunniste tallennettu</string>
   <string name="voice_commands_no_actions_feedback">Ei toimintoja saatavilla</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Äänikomentojen yleiskatsaus</string>
   <string name="voice_commands_help_description">Jos haluat käyttää äänikomentoja, pyyhkäise oikealle ja sitten ylös. Näet nämä komennot milloin tahansa sanomalla \"Ohje\" tai \"Mitä voin sanoa?\".</string>
   <string name="voice_commands_help_hint">Ominaisuus toimii parhaiten, kun käytät tarkalleen seuraavissa näkymissä olevia sanamuotoja.</string>
+  <string name="voice_command_screen_locked_hint">Äänikomennot eivät ole käytettävissä, kun näyttö on lukittuna. Voit käyttää sen sijaan TalkBack-valikkoa tällä eleellä: %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Vaihda nykyisen näkymän sisällön lukemistapaa</string>
   <string name="voice_commands_help_next">Seuraava [otsikko]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Lisää hakutermi löytääksesi tekstin näytöltä</string>
   <string name="voice_commands_help_text_editing_description">Kirjoita, valitse ja kopioi tekstiä</string>
   <string name="voice_commands_help_type_text">Kirjoita [OK]</string>
-  <string name="voice_commands_help_copy_description">Varmista ennen kopiointia, että olet valinnut tekstiä</string>
-  <string name="voice_commands_help_cut_description">Varmista ennen leikkaamista, että olet valinnut tekstiä</string>
+  <string name="voice_commands_help_copy_description">Valitse teksti ennen kopioimista</string>
+  <string name="voice_commands_help_cut_description">Valitse teksti ennen leikkaamista</string>
+  <string name="voice_commands_help_delete_description">Valitse teksti ennen poistamista</string>
   <string name="voice_commands_help_device_navigation_title">Laitteella navigointi</string>
   <string name="voice_commands_help_device_navigation_description">Siirry aloitusnäytölle, palaa takaisin, näytä ilmoitukset ym.</string>
   <string name="voice_commands_help_overview_description">Katso viimeaikaiset sovelluksesi</string>

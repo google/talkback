@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Цэгийн байрлалыг шинэчилж байна. Эхлээд таны зүүн гар дээрх цэгүүдийг бичицгээе. Зүүн гарынхаа дундах 3 хуруугаар дэлгэцэд хүрээд удаан дарна уу.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Цэгийн байрлалыг шинэчилж байна. Эхлээд таны баруун гар дээрх цэгүүдийг бичицгээе. Баруун гарынхаа дундах 3 хуруугаар дэлгэцэд хүрээд удаан дарна уу.</string>
   <string name="calibration_finish_announcement">Цэгийн байрлалыг шинэчилсэн</string>
+  <string name="remaining_calibration_finish_announcement">Цэгийн бүх байрлалыг шинэчилсэн</string>
   <string name="calibration_step2_hold_right_finger_announcement">1, 2, 3-р цэгийн байрлалыг шинэчилсэн. Дараа нь таны баруун гар дээрх цэгүүдийг бичицгээе. Баруун гарынхаа дундах 3 хуруугаар дэлгэцэд хүрээд удаан дарна уу.</string>
   <string name="calibration_step2_hold_left_finger_announcement">1, 2, 3-р цэгийн байрлалыг шинэчилсэн. Дараа нь таны зүүн гар дээрх цэгүүдийг бичицгээе. Зүүн гарынхаа дундах 3 хуруугаар дэлгэцэд хүрээд удаан дарна уу.</string>
   <string name="calibration_fail_announcement">Цэгийн байрлалыг шинэчилж чадсангүй. Дэлгэц дээр 6 хуруугаараа хүрээд удаан дарна уу. Дараа нь дахин оролдоно уу.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Англи хэлний нэгтгэсэн брайл</string>
   <string name="code_user_facing_name_es">Испани</string>
   <string name="code_user_facing_name_ar">Араб</string>
+  <string name="code_user_facing_name_fr">Франц</string>
   <string name="title_pref_accumulate_presses">Дарсан бүх цэгийг оролцуулах</string>
   <string name="summary_pref_accumulate_presses">Бусад цэгийн өмнө цэгийг дарахаа больсон ч дарсан цэг тус бүр нь оролтын нэг хэсэг юм</string>
   <string name="title_pref_reverse_dots">Цэгүүдийг урвуулах</string>
   <string name="summary_pref_reverse_dots">Жишээлбэл, 1 болон 4 цэгүүд байраа сольж байхаар цэгүүдийн байрлалыг солино уу</string>
-  <string name="typing_echo_list_preference_title">Бичих санал хүсэлт (бичих чимээ)</string>
-  <string name="typing_echo_preference_label_characters">Бүх үсэг, үгийг унших</string>
-  <string name="typing_echo_preference_label_words">Зөвхөн үгийг унших</string>
   <string name="context_menu_title">Брайл гарын сонголт</string>
   <string name="context_menu_typing_language_selection">Бичих хэлийг өөрчлөх</string>
   <string name="context_menu_typing_language_selection_summary">Одоогоор %s-г ашиглаж байна</string>

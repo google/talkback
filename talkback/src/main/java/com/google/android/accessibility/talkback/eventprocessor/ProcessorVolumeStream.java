@@ -31,12 +31,10 @@ import android.os.Bundle;
 import android.os.Message;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.os.SystemClock;
 import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import android.view.KeyEvent;
-import android.view.ViewConfiguration;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.ActorState;
@@ -398,10 +396,6 @@ public class ProcessorVolumeStream
   private void passThroughMediaButtonClick(int button) {
     if (button == VolumeButtonPatternDetector.PLAY_PAUSE) {
       dispatchPlayPauseSingleClick();
-    } else if (button == VolumeButtonPatternDetector.VOLUME_MUTE) {
-      audioManager.adjustVolume(
-          AudioManager.ADJUST_TOGGLE_MUTE,
-          AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);
     } else {
       adjustVolumeFromKeyEvent(button);
     }
@@ -478,11 +472,6 @@ public class ProcessorVolumeStream
   private static final class VolumeStreamHandler
       extends WeakReferenceHandler<ProcessorVolumeStream> {
 
-    // TODO: this rate-limiting solution is temporarily. We should run the
-    // handleMessage() task on a different thread.
-    private static final int PATTERN_MIN_WAIT_MS = ViewConfiguration.getDoubleTapTimeout();
-    private Long lastPatternMatchUptimeMs = SystemClock.uptimeMillis();
-
     public VolumeStreamHandler(ProcessorVolumeStream parent) {
       super(parent);
     }
@@ -496,10 +485,6 @@ public class ProcessorVolumeStream
     }
 
     public void postPatternMatched(int patternCode, int buttonCombination, EventId eventId) {
-      if (SystemClock.uptimeMillis() - lastPatternMatchUptimeMs < PATTERN_MIN_WAIT_MS) {
-        return;
-      }
-      lastPatternMatchUptimeMs = SystemClock.uptimeMillis();
       Message msg =
           obtainMessage(
               /* what= */ 0, /* arg1= */ patternCode, /* arg2= */ buttonCombination, eventId);

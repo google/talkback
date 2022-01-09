@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Język</string>
   <string name="voice_commands_languages">Języki</string>
   <string name="voice_commands_custom_actions">działania niestandardowe</string>
+  <string name="voice_commands_action">Działanie</string>
   <string name="voice_commands_quick_settings">Szybkie ustawienia</string>
   <string name="voice_commands_quick_setting">Szybkie ustawienie</string>
   <string name="voice_commands_dim">przyciemnij</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">Aby korzystać z tej funkcji, musisz zezwolić na używanie mikrofonu.</string>
   <string name="voice_commands_no_voice_recognition_ability">Ta funkcja jest niedostępna na Twoim urządzeniu</string>
   <string name="voice_commands_error">Podczas rozpoznawania polecenia głosowego wystąpił błąd</string>
-  <string name="voice_commands_partial_result">Nie mogę rozpoznać tego polecenia. Powiedz „%1$s”, by zobaczyć listę wszystkich poleceń.</string>
+  <string name="voice_commands_partial_result">Nie udało się rozpoznać tego polecenia. Powiedz „%1$s”, aby zobaczyć listę wszystkich poleceń.</string>
+  <string name="voice_commands_timeout">Powiedz „%1$s”, aby zobaczyć listę wszystkich poleceń.</string>
   <string name="voice_commands_many_requests">Spróbuj ponownie za chwilę</string>
-  <string name="voice_commands_setting_disabled">Nie włączono ustawienia „%1$s”</string>
   <string name="voice_commands_echo_feedback_not_recognized">Polecenie „%1$s” nie zostało rozpoznane jako polecenie głosowe.</string>
   <string name="voice_commands_label_saved">Etykieta została zapisana</string>
   <string name="voice_commands_no_actions_feedback">Brak dostępnych działań</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Przegląd poleceń głosowych</string>
   <string name="voice_commands_help_description">Aby używać poleceń głosowych, przesuń palcem w prawo, a następnie do góry. Lista dostępnych poleceń głosowych zostanie wyświetlona, gdy powiesz „Pomoc” lub „Co mogę powiedzieć?”.</string>
   <string name="voice_commands_help_hint">By uzyskać jak najlepsze rezultaty, powiedz dokładnie to, co zobaczysz na kolejnych ekranach.</string>
+  <string name="voice_command_screen_locked_hint">Polecenia głosowe nie są dostępne, gdy ekran jest zablokowany. Aby zamiast tego używać menu Talk Back, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Zmienianie sposobu wyświetlania treści na ekranie</string>
   <string name="voice_commands_help_next">Następny [nagłówek]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Wpisywanie wyszukiwanego słowa, by znaleźć je w tekście na ekranie</string>
   <string name="voice_commands_help_text_editing_description">Wpisywanie, zaznaczanie i kopiowanie tekstu</string>
   <string name="voice_commands_help_type_text">Wpisz [OK]</string>
-  <string name="voice_commands_help_copy_description">Upewnij się, że tekst do skopiowania został zaznaczony</string>
-  <string name="voice_commands_help_cut_description">Upewnij się, że tekst do wycięcia został zaznaczony</string>
+  <string name="voice_commands_help_copy_description">Przed skopiowaniem zaznacz tekst</string>
+  <string name="voice_commands_help_cut_description">Przed wycięciem zaznacz tekst</string>
+  <string name="voice_commands_help_delete_description">Przed usunięciem zaznacz tekst</string>
   <string name="voice_commands_help_device_navigation_title">Nawigacja na urządzeniu</string>
   <string name="voice_commands_help_device_navigation_description">Przechodzenie na ekran główny, wracanie, pokazywanie powiadomień itp.</string>
   <string name="voice_commands_help_overview_description">Wyświetlanie ostatnich aplikacji</string>

@@ -22,4 +22,22 @@
     <dimen name="quick_menu_overlay_padding_top">6dp</dimen>
     <dimen name="quick_menu_overlay_padding_bottom">6dp</dimen>
 
+    <!-- Training -->
+    <dimen name="training_padding_start">24dp</dimen>
+    <dimen name="training_padding_end">24dp</dimen>
+    <dimen name="training_padding_top">20dp</dimen>
+    <dimen name="training_padding_bottom">18dp</dimen>
+    <!-- This padding is used to avoid the button's text being cut in watch. -->
+    <dimen name="training_button_text_padding_bottom">10dp</dimen>
+    <dimen name="training_title_text_size">13sp</dimen>
+    <dimen name="training_title_height">16sp</dimen>
+    <dimen name="training_text_size">12sp</dimen>
+    <dimen name="training_text_height">12sp</dimen>
+    <dimen name="training_subtext_size">14sp</dimen>
+    <dimen name="training_subtext_height">20sp</dimen>
+    <dimen name="training_button_text_size">12sp</dimen>
+    <dimen name="training_button_height">32dp</dimen>
+    <dimen name="training_heading_size">12sp</dimen>
+    <dimen name="training_heading_height">20sp</dimen>
+
 </resources>

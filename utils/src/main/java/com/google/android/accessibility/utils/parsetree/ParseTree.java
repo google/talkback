@@ -17,10 +17,10 @@
 package com.google.android.accessibility.utils.parsetree;
 
 import android.content.res.Resources;
-import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Pair;
+import androidx.annotation.IntDef;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -773,8 +773,8 @@ public class ParseTree {
    * Build the parse tree. Once this function is called, the parse tree can no longer be modified.
    * The only valid functions to call then are parseEventTo*
    */
-  // TODO: incompatible types in argument.
-  @SuppressWarnings("nullness:argument.type.incompatible")
+  // incompatible types in argument.
+  @SuppressWarnings("nullness:argument")
   public void build() {
     if (mTreeInfo == null) {
       LogUtils.w(TAG, "Parse tree has been built and is immutable");
@@ -1342,8 +1342,8 @@ public class ParseTree {
       throw new IllegalStateException("'if' requires either 'then' or 'else'");
     }
 
-    // TODO: incompatible types in argument.
-    @SuppressWarnings("nullness:argument.type.incompatible")
+    // incompatible types in argument.
+    @SuppressWarnings("nullness:argument")
     ParseTreeNode ifNode =
         createParseTreeFromObject(treeInfo, ifDefinition, new VariableInfo("if...", VARIABLE_BOOL));
     ParseTreeNode onTrue = null;
@@ -1362,8 +1362,8 @@ public class ParseTree {
     return new ParseTreeCommentNode(result, IF_FORMAT, new Object[] {ifString});
   }
 
-  // TODO: incompatible types in argument.
-  @SuppressWarnings("nullness:argument.type.incompatible")
+  // incompatible types in argument.
+  @SuppressWarnings("nullness:argument")
   private static ParseTreeNode createJoinParseTreeFromObject(TreeInfo treeInfo, JSONObject value) {
     Object joinDefinition = value.opt("join");
     String separator = value.optString("separator", ", ");
@@ -1453,8 +1453,8 @@ public class ParseTree {
         throw new IllegalStateException(
             "Enum type " + enumType + " doesn't contain value: " + caseName);
       }
-      // TODO: incompatible types in argument.
-      @SuppressWarnings("nullness:argument.type.incompatible")
+      // incompatible types in argument.
+      @SuppressWarnings("nullness:argument")
       ParseTreeNode node = createParseTreeFromObject(treeInfo, casesDefinition.opt(caseName), hint);
       cases.put(
           enumValue, new ParseTreeCommentNode(node, CASE_FORMAT, new Object[] {caseName}, false));
@@ -1490,8 +1490,8 @@ public class ParseTree {
           "'for_reference' requires a reference: " + forReferenceVariable);
     }
 
-    // TODO: incompatible types in argument.
-    @SuppressWarnings("nullness:argument.type.incompatible")
+    // incompatible types in argument.
+    @SuppressWarnings("nullness:argument")
     ParseTreeNode function = createParseTreeFromObject(treeInfo, value.opt("evaluate"), hint);
     ParseTreeForReferenceNode result =
         new ParseTreeForReferenceNode(

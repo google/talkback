@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Lingua</string>
   <string name="voice_commands_languages">Lingue</string>
   <string name="voice_commands_custom_actions">azioni personalizzate</string>
+  <string name="voice_commands_action">Azione</string>
   <string name="voice_commands_quick_settings">Impostazioni rapide</string>
   <string name="voice_commands_quick_setting">Impostazione rapida</string>
   <string name="voice_commands_dim">attenua</string>
@@ -72,7 +73,7 @@
   <string name="voice_commands_notifications">Notifiche</string>
   <string name="voice_commands_verbosity_parameter">Preferenze di lettura: %s</string>
   <string name="voice_commands_parameter_verbosity">preferenze di lettura: %s</string>
-  <string name="voice_commands_change_verbosity_to_parameter">Vai a preferenze di lettura %s</string>
+  <string name="voice_commands_change_verbosity_to_parameter">Imposta le Preferenze di lettura su %s</string>
   <string name="voice_commands_navigation_by_parameter">Navigazione per %s</string>
   <string name="voice_commands_parameter_navigation">navigazione per %s</string>
   <string name="voice_commands_parameter_granularity">granularità: %s</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Questa funzionalità non è disponibile sul tuo dispositivo</string>
   <string name="voice_commands_error">Errore durante il riconoscimento del comando vocale</string>
   <string name="voice_commands_partial_result">Non è stato possibile riconoscere il comando. Di\' \"%1$s\" per visualizzare l\'elenco di tutti i comandi.</string>
+  <string name="voice_commands_timeout">Di\' \"%1$s\" per visualizzare l\'elenco di tutti i comandi.</string>
   <string name="voice_commands_many_requests">Riprova tra poco</string>
-  <string name="voice_commands_setting_disabled">L\'impostazione \"%1$s\" non è attiva</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" non riconosciuto come comando vocale.</string>
   <string name="voice_commands_label_saved">Etichetta salvata</string>
   <string name="voice_commands_no_actions_feedback">Nessuna azione disponibile</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Panoramica dei comandi vocali</string>
   <string name="voice_commands_help_description">Per usare i comandi vocali, scorri verso destra e verso l\'alto. Per consultare in qualsiasi momento l\'elenco di comandi vocali disponibili, di\' \"Guida\" o \"Cosa posso dire\".</string>
   <string name="voice_commands_help_hint">Per ottenere risultati migliori, di\' le parole esatte elencate nelle schermate seguenti.</string>
+  <string name="voice_command_screen_locked_hint">I comandi vocali non sono disponibili con lo schermo bloccato. Per usare il menu TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Modifica la modalità di lettura dei contenuti sulla schermata corrente</string>
   <string name="voice_commands_help_next">[Intestazione] successiva</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Inserisci un termine di ricerca per trovarlo sullo schermo</string>
   <string name="voice_commands_help_text_editing_description">Digita, seleziona e copia il testo</string>
   <string name="voice_commands_help_type_text">Digita [OK]</string>
-  <string name="voice_commands_help_copy_description">Assicurati di aver selezionato il testo prima di copiarlo</string>
-  <string name="voice_commands_help_cut_description">Assicurati di aver selezionato il testo prima di tagliarlo</string>
+  <string name="voice_commands_help_copy_description">Seleziona il testo prima di copiare</string>
+  <string name="voice_commands_help_cut_description">Seleziona il testo prima di tagliare</string>
+  <string name="voice_commands_help_delete_description">Seleziona il testo prima di eliminare</string>
   <string name="voice_commands_help_device_navigation_title">Navigazione sul dispositivo</string>
   <string name="voice_commands_help_device_navigation_description">Va alla Home page, torna indietro, mostra le notifiche e altro</string>
   <string name="voice_commands_help_overview_description">Visualizza le app utilizzate di recente</string>

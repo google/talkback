@@ -17,10 +17,10 @@
 package com.google.android.accessibility.talkback.focusmanagement.record;
 
 import android.os.SystemClock;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.util.Pair;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.VisibleForTesting;
 import androidx.collection.LruCache;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;

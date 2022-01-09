@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">የነጥብ አቀማመጥን በማዘመን ላይ። መጀመሪያ በግራ እጅዎ በኩል ያሉትን ነጥቦች እንመዝግብ። በግራ እጅዎ ላይ ያሉት የመሃል 3 ጣቶችን በመጠቀም ማያ ገጹን ይንኩ እና ይያዙ።</string>
   <string name="calibration_step1_hold_right_finger_announcement">የነጥብ አቀማመጥን በማዘመን ላይ። መጀመሪያ በቀኝ እጅዎ ላይ ያሉትን ነጥቦች እንመዝግብ። በቀኝ እጅዎ ላይ ያሉት የመሃል 3 ጣቶችን በመጠቀም ማያ ገጹን ይንኩ እና ይያዙ።</string>
   <string name="calibration_finish_announcement">የነጥብ አቀማመጥ ተዘምኗል</string>
+  <string name="remaining_calibration_finish_announcement">ሁሉም የነጥብ ቦታዎች ዘምነዋል</string>
   <string name="calibration_step2_hold_right_finger_announcement">ለነጥቦች 1፣ 2 እና 3 የተዘመኑ አቀማመጦች። በመቀጠል በቀኝ እጅዎ ላይ ያሉትን ነጥቦች እንመዝግብ። በቀኝ እጅዎ ላይ ያሉት የመሃል 3 ጣቶችን በመጠቀም ማያ ገጹን ይንኩ እና ይያዙ።</string>
   <string name="calibration_step2_hold_left_finger_announcement">ለነጥቦች 1፣ 2 እና 3 የተዘመኑ አቀማመጦች። በመቀጠል በግራ እጅዎ ላይ ያሉትን ነጥቦች እንመዝግብ። በግራ እጅዎ ላይ ያሉት የመሃል 3 ጣቶችን በመጠቀም ማያ ገጹን ይንኩ እና ይያዙ።</string>
   <string name="calibration_fail_announcement">የነጥብ አቀማመጥን ማዘመን አልተቻለም። ማያውን በ 6 ጣቶች ይንኩ እና ይያዙት። ከዚያም እንደገና ይሞክሩ።</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">የተዋሃደ እንግሊዝኛ ብሬይል</string>
   <string name="code_user_facing_name_es">ስፓኒሽ</string>
   <string name="code_user_facing_name_ar">አረብኛ</string>
+  <string name="code_user_facing_name_fr">ፈረንሳይኛ</string>
   <string name="title_pref_accumulate_presses">ሁሉንም የተጫኑ ነጥቦችን ያካትቱ</string>
   <string name="summary_pref_accumulate_presses">እያንዳንዱ የተጫነ ነጥብ የግቤቱ አካል ነው፣ ነጥቡ ከሌሎች ነጥቦች በፊት የተለቀቀ ቢሆንም እንኳ</string>
   <string name="title_pref_reverse_dots">የተገለበጡ ነጥቦች</string>
   <string name="summary_pref_reverse_dots">የነጥቦቹን ቦታ ያቀያይሩ፣ በዚህም ለምሳሌ ነጥቦች 1 እና 4 ቦታ ይቀያየራሉ ማለት ነው</string>
-  <string name="typing_echo_list_preference_title">ግብረመልስ በመተየብ ላይ (ገደል ማሚቶ በመተየብ ላይ)</string>
-  <string name="typing_echo_preference_label_characters">ሁሉንም ፊደላት እና ቃላት ያንብቡ</string>
-  <string name="typing_echo_preference_label_words">ቃላት ብቻ ያንብቡ</string>
   <string name="context_menu_title">የብሬይል ቁልፍ ሰሌዳ አማራጮች</string>
   <string name="context_menu_typing_language_selection">የትየባ ቋንቋን ይቀይሩ</string>
   <string name="context_menu_typing_language_selection_summary">በአሁኑ ጊዜ %sን በመጠቀም ላይ</string>

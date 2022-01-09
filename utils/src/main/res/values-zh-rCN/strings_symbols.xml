@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">单引号</string>
   <string name="symbol_ampersand">和符号</string>
-  <string name="symbol_angle_bracket_left">左尖括号</string>
-  <string name="symbol_angle_bracket_right">右尖括号</string>
+  <string name="symbol_angle_bracket_left">小于号</string>
+  <string name="symbol_angle_bracket_right">大于号</string>
   <string name="symbol_asterisk">星号</string>
   <string name="symbol_at_sign">At 符号</string>
   <string name="symbol_backslash">反斜杠</string>
   <string name="symbol_bullet">项目符号</string>
   <string name="symbol_caret">脱字符号</string>
-  <string name="symbol_cent">美分符号</string>
+  <string name="symbol_cent">分币符号</string>
   <string name="symbol_colon">冒号</string>
   <string name="symbol_comma">逗号</string>
   <string name="symbol_copyright">版权符号</string>
   <string name="symbol_curly_bracket_left">左花括号</string>
   <string name="symbol_curly_bracket_right">右花括号</string>
-  <string name="symbol_degree">度</string>
+  <string name="symbol_degree">度符号</string>
   <string name="symbol_division">除号</string>
   <string name="symbol_dollar_sign">美元符号</string>
   <string name="symbol_ellipsis">省略号</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">句点</string>
   <string name="symbol_pi">圆周率符号</string>
   <string name="symbol_pound">井号</string>
-  <string name="symbol_pound_sterling">英镑符号</string>
+  <string name="symbol_pound_sterling">英镑货币符号</string>
   <string name="symbol_question_mark">问号</string>
   <string name="symbol_quotation_mark">引号</string>
   <string name="symbol_registered_trademark">注册商标</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">实心红桃</string>
   <string name="symbol_tilde">波浪号</string>
   <string name="symbol_equal">等号</string>
-  <string name="symbol_won">韩元符号</string>
+  <string name="symbol_won">韩元货币符号</string>
   <string name="symbol_reference">参考符号</string>
   <string name="symbol_white_star">空心星形</string>
   <string name="symbol_black_star">实心星形</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">右双尖括号</string>
   <string name="symbol_inverted_exclamation_mark">倒置的感叹号</string>
   <string name="symbol_inverted_question_mark">倒置的问号</string>
-  <string name="symbol_won_sign">韩元符号</string>
+  <string name="symbol_won_sign">韩元货币符号</string>
   <string name="symbol_full_width_comma">全角逗号</string>
   <string name="symbol_full_width_exclamation_mark">全角感叹号</string>
   <string name="symbol_full_width_ideographic_full_stop">表意文字句号</string>

@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Folyamatban van a pontok helyzetének módosítása. Először is, rögzítse a bal kezénél lévő pontokat. Tartsa lenyomva a képernyőt bal kezének három középső ujjával.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Folyamatban van a pontok helyzetének módosítása. Először is, rögzítse a jobb kezénél lévő pontokat. Tartsa lenyomva a képernyőt jobb kezének három középső ujjával.</string>
   <string name="calibration_finish_announcement">Pontok helyzete módosítva</string>
+  <string name="remaining_calibration_finish_announcement">Az összes pontpozíció frissítve</string>
   <string name="calibration_step2_hold_right_finger_announcement">Az 1., 2. és 3. pont helyzete módosítva. Ezután rögzítse a jobb kezénél lévő pontokat. Tartsa lenyomva a képernyőt jobb kezének három középső ujjával.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Az 1., 2. és 3. pont helyzete módosítva. Ezután rögzítse a bal kezénél lévő pontokat. Tartsa lenyomva a képernyőt bal kezének három középső ujjával.</string>
   <string name="calibration_fail_announcement">Nem sikerült módosítani a pontok helyzetét. Tartsa hat ujját lenyomva a képernyőn. Ezután próbálja újra.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Egységesített angol Braille</string>
   <string name="code_user_facing_name_es">spanyol</string>
   <string name="code_user_facing_name_ar">Arab</string>
+  <string name="code_user_facing_name_fr">francia</string>
   <string name="title_pref_accumulate_presses">Az összes lenyomott pontot tartalmazza</string>
   <string name="summary_pref_accumulate_presses">Az összes lenyomott pont része a bevitelnek, akkor is, ha az adott pontot más pontok előtt felengedi</string>
   <string name="title_pref_reverse_dots">Pontok megfordítása</string>
   <string name="summary_pref_reverse_dots">A pontok pozíciójának megcserélésére, pl. az 1. és a 4. pont cseréjével</string>
-  <string name="typing_echo_list_preference_title">Gépelési visszajelzés (gépelés kimondása)</string>
-  <string name="typing_echo_preference_label_characters">Minden betű és szó felolvasása</string>
-  <string name="typing_echo_preference_label_words">Csak a szavak felolvasása</string>
   <string name="context_menu_title">Braille-billentyűzet beállításai</string>
   <string name="context_menu_typing_language_selection">A gépelés nyelvének megváltoztatása</string>
   <string name="context_menu_typing_language_selection_summary">Jelenleg használt: %s</string>

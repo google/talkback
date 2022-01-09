@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Ажурирање на положбата на точките. Прво, да ги снимиме точките на левата рака. Допрете и задржете го екранот со средните три прста од левата рака.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Ажурирање на положбата на точките. Следно, да ги снимиме точките на десната рака. Допрете и задржете го екранот со средните три прста од десната рака.</string>
   <string name="calibration_finish_announcement">Положбата на точките е ажурирана</string>
+  <string name="remaining_calibration_finish_announcement">Ажурирани се позициите на сите точки</string>
   <string name="calibration_step2_hold_right_finger_announcement">Положбата на точките 1, 2 и 3 е ажурирана. Следно, да ги снимиме точките на десната рака. Допрете и задржете го екранот со средните три прста од десната рака.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Положбата на точките 1, 2 и 3 е ажурирана. Следно, да ги снимиме точките на левата рака. Допрете и задржете го екранот со средните три прста од левата рака.</string>
   <string name="calibration_fail_announcement">Не можеше да се ажурира положбата на точките. Допрете и задржете го екранот со 6 прста. Потоа обидете се повторно.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Унифицирано брајово писмо на англиски</string>
   <string name="code_user_facing_name_es">шпански</string>
   <string name="code_user_facing_name_ar">арапски</string>
+  <string name="code_user_facing_name_fr">француски</string>
   <string name="title_pref_accumulate_presses">Вклучете ги сите притиснати точки</string>
   <string name="summary_pref_accumulate_presses">Секоја притисната точка е дел од записот, дури и ако точката е пуштена пред другите точки</string>
   <string name="title_pref_reverse_dots">Обратни точки</string>
   <string name="summary_pref_reverse_dots">Заменете ја положбата на точките, на пример, точките 1 и 4 да си ги заменат местата</string>
-  <string name="typing_echo_list_preference_title">Повратни информации за пишувањето (ехо на пишувањето)</string>
-  <string name="typing_echo_preference_label_characters">Читај ги сите букви и зборови</string>
-  <string name="typing_echo_preference_label_words">Читај само зборови</string>
   <string name="context_menu_title">Опции за тастатура со брајово писмо</string>
   <string name="context_menu_typing_language_selection">Променете го јазикот за пишување</string>
   <string name="context_menu_typing_language_selection_summary">Во моментов користите %s</string>

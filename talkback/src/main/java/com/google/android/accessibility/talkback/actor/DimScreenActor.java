@@ -289,7 +289,7 @@ public class DimScreenActor implements OrientationMonitor.OnOrientationChangedLi
       dimmingHandler.removeMessages(UPDATE_TIMER_MESSAGE);
     }
     // Not to feedback since this actor is shut down.
-    if (stopFeedback) {
+    if (!stopFeedback) {
       pipeline.returnFeedback(
           EVENT_ID_UNTRACKED,
           Feedback.speech(service.getString(R.string.screen_brightness_restored)));

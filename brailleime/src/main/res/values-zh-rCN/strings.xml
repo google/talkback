@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">正在更新圆点位置。首先，记录左手的圆点位置。请用左手中间的 3 根手指轻触并按住屏幕。</string>
   <string name="calibration_step1_hold_right_finger_announcement">正在更新圆点位置。首先，记录右手的圆点位置。请用右手中间的 3 根手指轻触并按住屏幕。</string>
   <string name="calibration_finish_announcement">圆点位置已更新</string>
+  <string name="remaining_calibration_finish_announcement">已更新所有点的位置</string>
   <string name="calibration_step2_hold_right_finger_announcement">圆点 1、2 和 3 的位置已更新。接下来，记录右手的圆点位置。请用右手中间的 3 根手指轻触并按住屏幕。</string>
   <string name="calibration_step2_hold_left_finger_announcement">圆点 1、2 和 3 的位置已更新。接下来，记录左手的圆点位置。请用左手中间的 3 根手指轻触并按住屏幕。</string>
   <string name="calibration_fail_announcement">无法更新圆点位置。请用 6 根手指轻触并按住屏幕，然后重试。</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">通用英语盲文</string>
   <string name="code_user_facing_name_es">西班牙语</string>
   <string name="code_user_facing_name_ar">阿拉伯语</string>
+  <string name="code_user_facing_name_fr">法语</string>
   <string name="title_pref_accumulate_presses">包含所有按下的点</string>
   <string name="summary_pref_accumulate_presses">每个按下的点都会包含在输入中，即使你先松开其中的一个点，也不影响拼写</string>
   <string name="title_pref_reverse_dots">互换点的位置</string>
   <string name="summary_pref_reverse_dots">互换点的位置，比如将 1 点和 4 点互换位置</string>
-  <string name="typing_echo_list_preference_title">输入反馈（输入语音提示）</string>
-  <string name="typing_echo_preference_label_characters">读出所有字母和字词</string>
-  <string name="typing_echo_preference_label_words">仅读出字词</string>
   <string name="context_menu_title">盲文键盘选项</string>
   <string name="context_menu_typing_language_selection">更改输入语言</string>
   <string name="context_menu_typing_language_selection_summary">当前使用的是%s</string>

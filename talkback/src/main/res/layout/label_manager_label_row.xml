@@ -49,6 +49,8 @@
             android:ellipsize="marquee"
             android:gravity="center_vertical"
             android:singleLine="true"
+            android:textColor="@color/label_list_item_text_color"
+            android:fontFamily="@string/talkback_font"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -60,6 +62,8 @@
             android:ellipsize="marquee"
             android:gravity="center_vertical"
             android:singleLine="true"
+            android:textColor="@color/label_list_item_text_color"
+            android:fontFamily="@string/talkback_font"
             android:textSize="14sp" />
 
     </LinearLayout>

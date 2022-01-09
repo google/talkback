@@ -105,6 +105,12 @@ public class KeyComboModelApp implements KeyComboModel {
     if (!FeatureSupport.hasAccessibilityShortcut(mContext)) {
       addCombo(mContext.getString(R.string.keycombo_shortcut_global_suspend));
     }
+    addCombo(mContext.getString(R.string.keycombo_shortcut_global_play_pause_media));
+    addCombo(mContext.getString(R.string.keycombo_shortcut_global_scroll_forward_reading_menu));
+    addCombo(mContext.getString(R.string.keycombo_shortcut_global_scroll_backward_reading_menu));
+    addCombo(
+        mContext.getString(R.string.keycombo_shortcut_global_adjust_reading_settings_previous));
+    addCombo(mContext.getString(R.string.keycombo_shortcut_global_adjust_reading_setting_next));
     addCombo(mContext.getString(R.string.keycombo_shortcut_granularity_increase));
     addCombo(mContext.getString(R.string.keycombo_shortcut_granularity_decrease));
     addCombo(mContext.getString(R.string.keycombo_shortcut_other_read_from_top));
@@ -185,6 +191,33 @@ public class KeyComboModelApp implements KeyComboModel {
         return KeyComboManager.getKeyComboCode(
             KeyEvent.META_ALT_ON | KeyEvent.META_SHIFT_ON, KeyEvent.KEYCODE_Z);
       }
+    }
+
+    if (key.equals(mContext.getString(R.string.keycombo_shortcut_global_play_pause_media))) {
+      return KeyComboManager.getKeyComboCode(
+          KeyEvent.META_ALT_ON | KeyEvent.META_SHIFT_ON, KeyEvent.KEYCODE_SPACE);
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_scroll_forward_reading_menu))) {
+      return KeyComboManager.getKeyComboCode(
+          KeyEvent.META_SHIFT_ON | KeyEvent.META_CTRL_ON, KeyEvent.KEYCODE_DPAD_DOWN);
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_scroll_backward_reading_menu))) {
+      return KeyComboManager.getKeyComboCode(
+          KeyEvent.META_SHIFT_ON | KeyEvent.META_CTRL_ON, KeyEvent.KEYCODE_DPAD_UP);
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_adjust_reading_settings_previous))) {
+      return KeyComboManager.getKeyComboCode(KeyEvent.META_CTRL_ON, KeyEvent.KEYCODE_DPAD_UP);
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_adjust_reading_setting_next))) {
+      return KeyComboManager.getKeyComboCode(KeyEvent.META_CTRL_ON, KeyEvent.KEYCODE_DPAD_DOWN);
     }
 
     if (key.equals(mContext.getString(R.string.keycombo_shortcut_granularity_increase))) {

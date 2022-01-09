@@ -14,6 +14,7 @@
   <string name="voice_commands_language">言語</string>
   <string name="voice_commands_languages">言語</string>
   <string name="voice_commands_custom_actions">カスタム アクション</string>
+  <string name="voice_commands_action">操作</string>
   <string name="voice_commands_quick_settings">クイック設定</string>
   <string name="voice_commands_quick_setting">クイック設定</string>
   <string name="voice_commands_dim">暗くする</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">この機能はお使いのデバイスではご利用いただけません</string>
   <string name="voice_commands_error">音声コマンドを認識できません</string>
   <string name="voice_commands_partial_result">このコマンドには対応していません。すべてのコマンドのリストを確認するには「%1$s」と言ってください。</string>
+  <string name="voice_commands_timeout">すべてのコマンドのリストを確認するには「%1$s」と言ってください。</string>
   <string name="voice_commands_many_requests">しばらくしてからもう一度お試しください</string>
-  <string name="voice_commands_setting_disabled">「%1$s」の設定は無効になっています</string>
   <string name="voice_commands_echo_feedback_not_recognized">「%1$s」は音声コマンドとして認識されません。</string>
   <string name="voice_commands_label_saved">ラベルを保存しました</string>
   <string name="voice_commands_no_actions_feedback">利用できるアクションはありません</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">音声コマンドの概要</string>
   <string name="voice_commands_help_description">音声コマンドを使用するには、右にスワイプしてから上にスワイプしてください。このコマンドリストは「ヘルプ」または「何と言えばいいですか」と言うことでいつでも確認できます。</string>
   <string name="voice_commands_help_hint">次の画面に表示されるフレーズを正確に言うことをおすすめします。</string>
+  <string name="voice_command_screen_locked_hint">画面がロックされている間は、音声コマンドは利用できません。代わりに TalkBack メニューを使用してください（%1$s）</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">現在の画面上のコンテンツを読み上げる方法を変更します</string>
   <string name="voice_commands_help_next">次の [heading]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">検索キーワードを入力し、画面上でそのテキストを検索できます</string>
   <string name="voice_commands_help_text_editing_description">テキストを入力、選択、コピーします</string>
   <string name="voice_commands_help_type_text">[OK] を入力</string>
-  <string name="voice_commands_help_copy_description">コピーする前にテキストが選択されていることをご確認ください</string>
-  <string name="voice_commands_help_cut_description">切り取る前にテキストが選択されていることをご確認ください</string>
+  <string name="voice_commands_help_copy_description">コピーするテキストを選択してください</string>
+  <string name="voice_commands_help_cut_description">切り取るテキストを選択してください</string>
+  <string name="voice_commands_help_delete_description">削除するテキストを選択してください</string>
   <string name="voice_commands_help_device_navigation_title">デバイスの操作</string>
   <string name="voice_commands_help_device_navigation_description">ホームに移動する、戻る、通知を表示することなどを行えます</string>
   <string name="voice_commands_help_overview_description">最近使ったアプリが表示されます</string>

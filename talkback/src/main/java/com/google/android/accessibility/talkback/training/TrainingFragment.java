@@ -27,11 +27,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.training.PageConfig.PageId;
 import com.google.android.accessibility.talkback.training.content.ClickableContent;
 import com.google.android.accessibility.talkback.training.content.ClickableContent.LinkHandler;
 import com.google.android.accessibility.talkback.training.content.PageContentConfig;
 import com.google.android.accessibility.talkback.training.content.PageNumber;
 import com.google.android.accessibility.talkback.training.content.Title;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.List;
 
@@ -51,14 +53,24 @@ public class TrainingFragment extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
     final View view = inflater.inflate(R.layout.training_fragment_name, container, false);
     pageLayout = view.findViewById(R.id.training_page);
-    page = (PageConfig) getArguments().get(EXTRA_PAGE);
-
-    if (page == null) {
-      LogUtils.e(TAG, "Cannot create view because no page.");
+    @Nullable PageId pageId = (PageId) getArguments().get(EXTRA_PAGE);
+    if (pageId == null) {
+      LogUtils.e(TAG, "Cannot create view because no page ID.");
       return view;
     }
+
+    page = PageConfig.getPage(pageId);
+    if (page == null) {
+      LogUtils.e(TAG, "Cannot create view because unknown PageId. [%s]", pageId.name());
+      return view;
+    }
+
     addView(inflater, container);
     pageLayout.setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_AUTO);
+    if (FeatureSupport.isWatch(getContext())) {
+      // Support rotary input.
+      view.requestFocus();
+    }
     return view;
   }
 

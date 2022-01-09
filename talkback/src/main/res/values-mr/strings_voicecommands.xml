@@ -14,6 +14,7 @@
   <string name="voice_commands_language">भाषा</string>
   <string name="voice_commands_languages">भाषा</string>
   <string name="voice_commands_custom_actions">कस्टम कृती</string>
+  <string name="voice_commands_action">कृती</string>
   <string name="voice_commands_quick_settings">क्विक सेटिंग्ज</string>
   <string name="voice_commands_quick_setting">क्विक सेटिंग</string>
   <string name="voice_commands_dim">मंद करा</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">हे वैशिष्ट्य वापरण्यासाठी तुम्हाला आधी मायक्रोफोन वापरण्याची परवानगी द्यावी लागेल.</string>
   <string name="voice_commands_no_voice_recognition_ability">सॉरी! हे वैशिष्ट्य या डिव्हाइसवर उपलब्ध नाही</string>
   <string name="voice_commands_error">व्हॉइस कमांड ओळखण्यात एरर</string>
-  <string name="voice_commands_partial_result">ही कमांड अनोळखी आहे. सर्व कमांडच्या सूचीसाठी, \"%1$s\" म्हणा.</string>
+  <string name="voice_commands_partial_result">ही कमांड ओळखू शकत नाही. सर्व कमांडच्या सूचीसाठी, \"%1$s\" म्हणा.</string>
+  <string name="voice_commands_timeout">सर्व कमांडच्या सूचीसाठी, \"%1$s\" म्हणा.</string>
   <string name="voice_commands_many_requests">थोड्या वेळाने पुन्हा प्रयत्न करा.</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" सेटिंग सुरू केलेले नाही</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" ही व्हॉइस कमांड म्हणून ओळखली गेली नाही.</string>
   <string name="voice_commands_label_saved">लेबल सेव्ह केले</string>
   <string name="voice_commands_no_actions_feedback">कोणत्‍याही कृती उपलब्‍ध नाहीत</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">व्हॉइस कमांड अवलोकन</string>
   <string name="voice_commands_help_description">व्हॉइस कमांड वापरण्यासाठी, आधी उजवीकडे त्यानंतर वरती स्‍वाइप करा. या कमांडच्या सूचीसाठी, कधीही \"मदत करा\" किंवा \"मी काय म्हणू?\" म्हणा.</string>
   <string name="voice_commands_help_hint">सर्वोत्तम परिणामांसाठी, खालील स्क्रीनवर सूचीबद्ध केलेले शब्द अचूकपणे म्हणा.</string>
+  <string name="voice_command_screen_locked_hint">स्क्रीन लॉक केलेली असताना व्हॉइस कमांड उपलब्ध नसतात. त्याऐवजी, TalkBack मेनू वापरण्यासाठी %1$s हे करा.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">तुम्ही सध्याच्या स्क्रीनवर आशय कसा वाचता ते बदला</string>
   <string name="voice_commands_help_next">पुढील [शीर्षक]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">स्क्रीनवरील मजकूर शोधण्यासाठी, शोध संज्ञा एंटर करा</string>
   <string name="voice_commands_help_text_editing_description">मजकूर टाइप करा, निवडा आणि कॉपी करा</string>
   <string name="voice_commands_help_type_text">[ओके] टाईप करा</string>
-  <string name="voice_commands_help_copy_description">कॉपी करण्यापूर्वी तुम्ही मजकूर निवडला असल्याची खात्री करा</string>
-  <string name="voice_commands_help_cut_description">कट करण्यापूर्वी तुम्ही मजकूर निवडला असल्याची खात्री करा</string>
+  <string name="voice_commands_help_copy_description">कॉपी करण्याआधी मजकूर निवडा</string>
+  <string name="voice_commands_help_cut_description">कट करण्याआधी मजकूर निवडा</string>
+  <string name="voice_commands_help_delete_description">हटवण्याआधी मजकूर निवडा</string>
   <string name="voice_commands_help_device_navigation_title">डिव्हाइस नेव्हिगेशन</string>
   <string name="voice_commands_help_device_navigation_description">होमवर जा, मागे जा, सूचना दाखवा आणि आणखी बरेच काही करा</string>
   <string name="voice_commands_help_overview_description">तुमची अलीकडील ॲप्स पहा</string>

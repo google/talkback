@@ -18,10 +18,10 @@ package com.google.android.accessibility.utils;
 
 import android.annotation.TargetApi;
 import android.os.Build;
-import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityWindowInfoCompat;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.IntDef;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import com.google.errorprone.annotations.FormatMethod;
 import com.google.errorprone.annotations.FormatString;

@@ -9,7 +9,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="@dimen/training_text_with_number_margin_top"
-      android:fontFamily="sans-serif"
+      android:fontFamily="@string/talkback_font"
       android:textColor="@color/training_text_color"
       android:textSize="@dimen/training_text_size"
       android:lineHeight="@dimen/training_text_height"/>

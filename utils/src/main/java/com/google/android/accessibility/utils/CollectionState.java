@@ -17,13 +17,13 @@
 package com.google.android.accessibility.utils;
 
 import android.os.Build;
-import androidx.annotation.IntDef;
-import androidx.annotation.NonNull;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat;
 import android.util.SparseArray;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.HashSet;
@@ -45,9 +45,8 @@ public class CollectionState {
   /** Bitmask used when we need to identify a row transition, column transition, or both. */
   @Retention(RetentionPolicy.SOURCE)
   @IntDef(
-    flag = true,
-    value = {TYPE_NONE, TYPE_ROW, TYPE_COLUMN}
-  )
+      flag = true,
+      value = {TYPE_NONE, TYPE_ROW, TYPE_COLUMN})
   public @interface RowColumnTransition {}
 
   /** The possible heading types for a table heading. */

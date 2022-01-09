@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Kalba</string>
   <string name="voice_commands_languages">Kalbos</string>
   <string name="voice_commands_custom_actions">tinkinti veiksmai</string>
+  <string name="voice_commands_action">Veiksmas</string>
   <string name="voice_commands_quick_settings">Spartieji nustatymai</string>
   <string name="voice_commands_quick_setting">Spartusis nustatymas</string>
   <string name="voice_commands_dim">užtemdyti</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Deja, ši funkcija jūsų įrenginyje nepasiekiama</string>
   <string name="voice_commands_error">Klaida atpažįstant komandą balsu</string>
   <string name="voice_commands_partial_result">Nepavyko atpažinti šios komandos. Pasakykite „%1$s“, kad būtų išvardytos visos komandos.</string>
+  <string name="voice_commands_timeout">Pasakykite „%1$s“, kad būtų išvardytos visos komandos.</string>
   <string name="voice_commands_many_requests">Po kelių minučių pabandykite dar kartą</string>
-  <string name="voice_commands_setting_disabled">Nustatymas „%1$s“ neįgalintas</string>
   <string name="voice_commands_echo_feedback_not_recognized">Įvestis „%1$s“ neatpažinta kaip komanda balsu.</string>
   <string name="voice_commands_label_saved">Etiketė išsaugota</string>
   <string name="voice_commands_no_actions_feedback">Negalimi jokie veiksmai</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Komandos balsu apžvalga</string>
   <string name="voice_commands_help_description">Norėdami naudoti komandas balsu, perbraukite dešinėn, o tada – į viršų. Kad būtų pateiktas šis komandų sąrašas, bet kuriuo metu pasakykite „help“ (pagalba) arba „what can I say“ (ką galiu pasakyti).</string>
   <string name="voice_commands_help_hint">Kad pasiektumėte geriausių rezultatų, tiksliai ištarkite žodžius, išvardytus tolesniuose ekranuose.</string>
+  <string name="voice_command_screen_locked_hint">Komandos balsu nepasiekiamos, kai ekranas užrakintas. Norėdami vietoj to naudoti „TalkBack“ meniu, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Pakeiskite tai, kaip skaitote turinį esamame ekrane</string>
   <string name="voice_commands_help_next">Kita [antraštė]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Įveskite paieškos terminą, kad rastumėte tekstą ekrane</string>
   <string name="voice_commands_help_text_editing_description">Įveskite, pasirinkite ir kopijuokite tekstą</string>
   <string name="voice_commands_help_type_text">Įveskite [gerai]</string>
-  <string name="voice_commands_help_copy_description">Prieš kopijuodami įsitikinkite, kad pasirinkote tekstą</string>
-  <string name="voice_commands_help_cut_description">Prieš iškirpdami įsitikinkite, kad pasirinkote tekstą</string>
+  <string name="voice_commands_help_copy_description">Pasirinkite tekstą prieš kopijuodami</string>
+  <string name="voice_commands_help_cut_description">Pasirinkite tekstą prieš kirpdami</string>
+  <string name="voice_commands_help_delete_description">Pasirinkite tekstą prieš trindami</string>
   <string name="voice_commands_help_device_navigation_title">Įrenginio naršymas</string>
   <string name="voice_commands_help_device_navigation_description">Pereikite į pagrindinį ekraną, įjunkite pranešimų rodymą ir kt.</string>
   <string name="voice_commands_help_overview_description">Peržiūrėkite naujausias programas</string>

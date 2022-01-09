@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="talkback_service_description">‏عند تفعيل خدمة TalkBack، تقدِّم تعليقات وملاحظات منطوقة حتى تتمكن من استخدام جهازك بدون النظر إلى الشاشة. وهذا يمكن أن يساعد المستخدمين المكفوفين أو ضعاف البصر.\n\nللتنقل باستخدام خدمة TalkBack:\n• مرّر سريعًا لليسار أو لليمين للتنقل بين العناصر\n• انقر مرّتين لتفعيل أحد العناصر\n• اسحب بإصبعين للتمرير\n\nلإيقاف خدمة TalkBack:\n• انقر على مفتاح التبديل، وسيظهر لك مخطط أخضر اللون، ثم انقر مرّتين على مفتاح التبديل.\n• وعند ظهور رسالة التأكيد، انقر على \"حسنًا\"، ثم انقر مرّتين على \"حسنًا\".</string>
+  <string name="talkback_service_description">‏عند تفعيل خدمة TalkBack، تقدِّم تعليقات وملاحظات منطوقة حتى تتمكن من استخدام جهازك بدون النظر إلى الشاشة. وهذا يمكن أن يساعد المستخدمين المكفوفين أو ضعاف البصر.\n\nللتنقل باستخدام خدمة TalkBack:\n• مرّر سريعًا لليسار أو لليمين للتنقل بين العناصر\n• انقر مرّتين لتفعيل أحد العناصر\n• اسحب بإصبعين للتمرير\n\nلإيقاف خدمة TalkBack:\n• انقر على مفتاح التحكّم، وسيظهر لك مخطط أخضر اللون، ثم انقر مرّتين على مفتاح التحكّم.\n• وعند ظهور رسالة التأكيد، انقر على \"حسنًا\"، ثم انقر مرّتين على \"حسنًا\".</string>
   <string name="talkback_service_html_description">‏عندما تكون ميزة Talkback مفعّلة، تقدِّم لك وصف شفهي للشاشة بحيث يمكنك استخدام جهازك بدون النظر إلى الشاشة. تم تصميم ميزة Talkback لاستخدامها في المواقف التي يصعب فيها رؤية الشاشة أو مع الأشخاص الذين يجدون صعوبة في ذلك.&lt;br&gt;&lt;br&gt;&lt;b&gt;كيفية استخدام Talkback &lt;/b&gt;&lt;br&gt;• مرِّر سريعًا لليمين أو اليسار للتنقل بين العناصر.&lt;br&gt;• انقر مرتين لتفعيل العنصر.&lt;br&gt;• اسحب إصبعين على الشاشة للتمرير.&lt;br&gt;&lt;br&gt;&lt;b&gt;&gt;كيفية إيقاف Talkback&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;مفتاحا التحكّم في مستوى الصوت:&lt;/b&gt; انقر مع الاستمرار على كلا مفتاحَي التحكّم في مستوى الصوت لبضع ثوانٍ.&lt;br&gt;&lt;br&gt;&lt;b&gt;الإعدادات&lt;/b&gt;&lt;br&gt;• انقر على مفتاح التبديل &lt;b&gt;استخدام Talkback&lt;/b&gt;. سيظهر لك مخطط أخضر. انقر مرتين على مفتاح التبديل.&lt;br&gt;• في رسالة التأكيد، انقر على \"إيقاف\"، ثم انقر على \"إيقاف\".</string>
   <string name="talkback_service_summary">قول اسم العناصر على الشاشة</string>
   <string name="talkback_preferences_title">‏إعدادات TalkBack</string>
@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">الإصدار %1$s</string>
   <string name="label_manager_summary_title">إدارة التصنيفات المخصصة</string>
   <string name="label_manager_package_title">إدارة تصنيفات تطبيق %1$s</string>
+  <string name="manage_label">إدارة التصنيف</string>
   <string name="label_manager_no_packages_message">‏ما مِن تصنيفات مخصّصة حاليًا. يمكنك إنشاء تصنيف من خلال الانتقال إلى صورة بدون تصنيف ثم إضافة تصنيف من قائمة Talkback.</string>
   <string name="label_manager_timestamp_text">آخر تعديل: %1$s</string>
   <string name="search_dialog_label">البحث: %1$s</string>
@@ -72,7 +73,7 @@
   <string name="capital_letters_change_pitch">تغيير طبقة الصوت</string>
   <string name="capital_letters_sound_feedback">تشغيل صوت</string>
   <string name="title_pref_a11y_hints">قول تلميحات الاستخدام</string>
-  <string name="summaryOff_pref_a11y_hints">لن يتم قول تلميحات الاستخدام عند تغيير نقطة التركيز في ميزة \"سهولة الاستخدام\"</string>
+  <string name="summaryOff_pref_a11y_hints">لن يتم قول تلميحات الاستخدام عند تغيير نقطة التركيز في ميزة \"تسهيل الاستخدام\"</string>
   <string name="summaryOn_pref_a11y_hints">يتم قول تلميحات الاستخدام أثناء التنقل، بعد مهلة قصيرة</string>
   <string name="pref_speak_container_element_positions_title">قول معلومات القائمة والشبكة</string>
   <string name="pref_speak_container_element_positions_summaryOn">يتم قول معلومات القائمة والشبكة</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">الاستكشاف باللمس</string>
   <string name="title_pref_category_touch_exploration">التنقل</string>
   <string name="title_pref_category_controls">عناصر التحكّم</string>
-  <string name="title_pref_single_tap">التفعيل بنقرة واحدة</string>
+  <string name="title_pref_single_tap">نقرة واحدة لتفعيل العنصر</string>
   <string name="title_pref_show_context_menu_as_list">عرض السياقات على شكل قائمة</string>
-  <string name="summary_pref_single_tap">(ميزة تجريبية) انقر مرة واحدة على عنصر محلّ التركيز لتفعيله.</string>
+  <string name="summary_pref_single_tap">انقر مرة واحدة على عنصر محلّ التركيز لتفعيله.</string>
   <string name="title_pref_shake_to_read_threshold">هز الجهاز لبدء القراءة المستمرة</string>
   <string name="pref_verbosity_title">الإسهاب</string>
   <string name="pref_punctuation_title">علامات الترقيم</string>
+  <string name="title_pref_category_manage_focus_indicator">تخصيص مؤشر التركيز</string>
   <string name="title_pref_category_manage_gestures">تخصيص الإيماءات</string>
   <string name="title_pref_manage_labels">التصنيفات المخصصة</string>
   <string name="title_pref_manage_customize_menus">تخصيص القوائم</string>
@@ -108,7 +110,7 @@
   <string name="pref_category_selector_menu_summary_single_finger">لاستخدام عناصر التحكّم في القراءة، مرِّر سريعًا للأعلى ثم للأسفل.</string>
   <string name="title_pref_manage_keyboard_shortcuts">اختصارات لوحة المفاتيح</string>
   <string name="title_pref_export_custom_labels">تصدير فئات مخصصة</string>
-  <string name="title_pref_play_store">‏فتح TalkBack في متجر Play</string>
+  <string name="title_pref_play_store">‏فتح TalkBack في \"متجر Play\"</string>
   <string name="summary_pref_play_store">‏إصدار TalkBack الحالي: %1$s</string>
   <string name="title_pref_help_and_feedback">المساعدة والتعليقات</string>
   <string name="pref_item_licenses">تراخيص البرامج مفتوحة المصدر</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">المساعدة والتعليقات</string>
   <string name="title_pref_category_tutorial_and_help">الدليل التوجيهي والمساعدة</string>
   <string name="title_pref_category_advanced">الإعدادات المتقدّمة</string>
+  <string name="title_pref_category_typing">الكتابة ولوحة المفاتيح</string>
   <string name="title_pref_category_legal_and_privacy">البنود القانونية والخصوصية</string>
   <string name="title_pref_advanced_settings">الإعدادات المتقدمة</string>
   <string name="reset_gesture_settings_title">إعادة ضبط إعدادات الإيماءات</string>
@@ -135,7 +138,7 @@
   <string name="pref_verbosity_preset_entry_custom">مخصص</string>
   <string name="pref_verbosity_preset_entry_low">منخفض</string>
   <string name="pref_verbosity_category_preset_settings_title">تفاصيل الإسهاب</string>
-  <string name="pref_verbosity_category_misc_settings_title">متنوع</string>
+  <string name="pref_verbosity_category_misc_settings_title">متنوعة</string>
   <string name="pref_verbosity_preset_change">إسهاب %1$s نشط الآن.</string>
   <string name="keycombo_menu_category_select_keymap">خريطة المفاتيح</string>
   <string name="keycombo_menu_select_keymap">اختيار خريطة مفاتيح</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">التطبيقات المستخدمة مؤخرًا</string>
   <string name="keycombo_menu_global_notifications">الإشعارات</string>
   <string name="keycombo_menu_global_suspend">‏إيقاف TalkBack مؤقتًا أو استئنافه</string>
+  <string name="keycombo_menu_global_play_pause_media">تشغيل الوسائط أو إيقافها مؤقتًا</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">اختيار عنصر التحكّم التالي في القراءة</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">اختيار عنصر التحكّم السابق في القراءة</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">ضبط التحكّم في القراءة للأعلى</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">ضبط التحكّم في القراءة للأسفل</string>
   <string name="keycombo_menu_category_granularity">التنقل</string>
   <string name="keycombo_menu_granularity_increase">إعداد التنقل التالي</string>
   <string name="keycombo_menu_granularity_decrease">إعداد التنقل السابق</string>
@@ -226,7 +234,8 @@
   <string name="keycombo_assign_dialog_clear">اختصار المحو</string>
   <string name="cannot_copy_feedback">ما مِن نص لنسخه، يجب تحديد نص أولاً.</string>
   <string name="cannot_paste_feedback">ما مِن نص للصقه، يجب نسخ بعض النصوص أولاً.</string>
-  <string name="cannot_cut_feedback">ما مِن نص لقصه، يجب تحديد بعض النصوص أولاً.</string>
+  <string name="cannot_cut_feedback">ما مِن نص لقصه، يجب تحديد نص أولاً.</string>
+  <string name="cannot_delete_feedback">ما مِن نص لحذفه، يجب تحديد نص أولاً.</string>
   <string name="message_in_reset_keymap_confirm_dialog">هل فعلاً تريد إعادة ضبط مفاتيح الاختصار لخريطة المفاتيح هذه والرجوع إلى قيمها التلقائية؟ تجدر الإشارة إلى أنه لا يمكن التراجع عن هذا الإجراء.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">إعادة الضبط</string>
   <string name="override_keycombo">المفتاح قيد الاستخدام</string>
@@ -234,15 +243,15 @@
   <string name="title_pref_intonation">استخدام تغييرات درجة الصوت</string>
   <string name="title_pref_keyboard_echo">صدى لوحة المفاتيح</string>
   <string name="pref_node_desc_order_title">ترتيب وصف العناصر</string>
-  <string name="summaryOn_pref_intonation">قول تعليقات لوحة المفاتيح بدرجة صوت منخفضة</string>
+  <string name="summaryOn_pref_intonation">قول النص الذي يتم حذفه في لوحة المفاتيح بطبقة صوت أعلى</string>
   <string name="summaryOff_pref_intonation">عدم تغيير درجة الصوت أثناء التحدث</string>
   <string name="title_pref_brailleime">لوحة مفاتيح برايل</string>
   <string name="title_pref_category_feedback_settings">تعليقات أخرى</string>
-  <string name="title_pref_vibration">تعليقات مع الاهتزاز</string>
-  <string name="title_pref_soundback">التعليقات الصوتية</string>
+  <string name="title_pref_vibration">الاستجابة بالاهتزاز</string>
+  <string name="title_pref_soundback">الملاحظات الصوتية</string>
   <string name="title_pref_use_audio_focus">تجنب التداخل مع أصوات أخرى</string>
   <string name="summary_pref_use_audio_focus">خفض مستوى الصوت الآخر أثناء التحدث</string>
-  <string name="title_pref_soundback_volume">مستوى التعليقات الصوتية</string>
+  <string name="title_pref_soundback_volume">مستوى صوت الملاحظات الصوتية</string>
   <string name="title_pref_two_volume_button_long_click">‏تفعيل مفاتيح الاختصار التي تعلّق ميزة Talkback أو تفعّلها مجددًا</string>
   <string name="title_pref_dim_volume_three_clicks">اختصار إلغاء تعتيم الشاشة</string>
   <string name="title_pref_category_miscellaneous_settings">متنوعة</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">تفعيل تصحيح أخطاء شجرة العقد</string>
   <string name="summary_pref_tree_debug_tv">استخدام مفتاح البحث الصوتي لطباعة شجرة العقد بدلاً من البحث</string>
   <string name="title_pref_performance_stats">تفعيل إحصاءات الأداء</string>
+  <string name="title_pref_log_overlay">تفعيل تراكب سجلّ تصحيح الأخطاء</string>
   <string name="title_pref_resume_talkback">‏إلغاء التعليق وتفعيل TalkBack مجددًا</string>
+  <string name="title_pref_typing_confirmation">الخيار المفضَّل للكتابة</string>
   <string name="title_pref_multi_finger_gesture">تفعيل الإيماءات بأصابع متعددة</string>
   <string name="screen_dimmed">تم تعتيم الشاشة</string>
   <string name="screen_brightness_restored">إلغاء تعتيم الشاشة</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">التمرير للأسفل</string>
   <string name="shortcut_scroll_left">التمرير لليمين</string>
   <string name="shortcut_scroll_right">التمرير لليسار</string>
+  <string name="shortcut_next_window">النافذة التالية</string>
+  <string name="shortcut_previous_window">النافذة السابقة</string>
   <string name="shortcut_back">رجوع</string>
   <string name="shortcut_home">الشاشة الرئيسية</string>
   <string name="shortcut_overview">نظرة عامة</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">تعتيم الشاشة أو إظهارها</string>
   <string name="title_show_screen_search">البحث المباشر</string>
   <string name="title_show_voice_commands">الطلبات الصوتية</string>
+  <string name="talkback_show_talkback_settings">‏إعدادات TalkBack</string>
   <string name="title_other_web_navigation">التنقل على الويب بطرق أخرى</string>
   <string name="title_granularity_default">قائمة التنقّل التلقائية</string>
   <string name="title_seek_bar_edit">تعديل مستوى شريط التمرير</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">‏التحكّم في TalkBack باستخدام صوتك</string>
   <string name="summary_show_hide_screen">يمكنك إخفاء العرض كي تصبح الشاشة غير مرئية للآخرين في الأماكن العامة. بعد تعتيم الشاشة، يمكنك إعادتها إلى حالتها الطبيعية.</string>
   <string name="summary_talkback_preferences">‏فتح إعدادات TalkBack</string>
-  <string name="summary_system_actions">الانتقال إلى \"كل التطبيقات\" ثم إلى \"الإعدادات السريعة\" واستخدام وضع \"تقسيم الشاشة\"</string>
+  <string name="summary_system_actions">الانتقال إلى كل التطبيقات و\"الإعدادات السريعة\"</string>
   <string name="summary_tts_settings">فتح إعدادات تحويل النص إلى كلام</string>
   <string name="summary_pause_feedback">‏إيقاف التعليقات الصوتية من TalkBack</string>
   <string name="not_editable">غير قابل للتعديل</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">قراءة كل كلمة على حدة</string>
   <string name="summary_lines">قراءة كل سطر على حدة</string>
   <string name="summary_paragraphs">قراءة كل فقرة على حدة</string>
+  <string name="summary_windows">الانتقال إلى النوافذ الأخرى، مثلاً عناصر التحكّم في مستوى الصوت أو شريط التنقّل</string>
   <string name="summary_headings">التنقّل بين العناوين</string>
   <string name="summary_controls">التنقّل بين العناصر التي يمكنك التفاعل معها، مثلاً الأزرار ومربّعات الاختيار والحقول النصية</string>
   <string name="summary_links">التنقّل بين الروابط</string>
@@ -408,7 +423,9 @@
   <string name="summary_vibration_feedback">الشعور بالاهتزازات لإجراءات مثل اختيار عنصر: لا يؤثر هذا الإعداد في خيارات الاهتزاز للإشعارات الواردة من التطبيقات أو النظام.</string>
   <string name="summary_hide_screen">إخفاء العرض كي تصبح الشاشة غير مرئية للآخرين في الأماكن العامة</string>
   <string name="summary_audio_ducking">‏خفض مستوى الأصوات الآخرى قيد التشغيل عندما يقرأ TalkBack</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">الانتقال إلى الأمام أو إلى الخلف</string>
+  <string name="summary_support_change_a11y_volume">زيادة أو تقليل مستوى صوت \"تسهيل الاستخدام\"</string>
+  <string name="summary_image_caption">الحصول على وصف تلقائي لهذه الصورة</string>
   <string name="value_direction_up">لأعلى</string>
   <string name="value_direction_down">لأسفل</string>
   <string name="value_direction_left">لليمين</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">النقر مرتين بإصبعين مع تثبيتهما</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">النقر مرتين بثلاث أصابع مع تثبيتها</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">النقر مرتين باستخدام 4 أصابع مع تثبيتها</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">النقر ثلاث مرات بإصبعين مع تثبيتهما</string>
+  <string name="seekbar_hint_2gesture">\"%1$s\" أو %2$s\" للتعديل.</string>
+  <string name="seekbar_hint_1gesture">\"%1$s\" للتعديل.</string>
   <string name="gesture_name_unknown">إيماءة غير معروفة</string>
   <string name="gesture_name_pass_through">التخطي إلى إيماءة نظام التشغيل</string>
   <string name="gesture_name_touch_explore">اللمس للاستكشاف</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">النقر مرتين مع الاستمرار</string>
   <string name="gesture_name_2finger_tap_hold">النقر مرتين مع الاستمرار باستخدام إصبعين</string>
   <string name="gesture_name_3finger_tap_hold">النقر مرتين مع الاستمرار باستخدام 3 أصابع</string>
+  <string name="gesture_name_2finger_3tap_hold">النقر ثلاث مرات بإصبعين مع تثبيتهما</string>
   <string name="gesture_name_3finger_3tap_hold">النقر ثلاث مرات مع الاستمرار باستخدام 3 أصابع</string>
   <string name="title_pref_shortcut_fingerprint_up">التمرير للأعلى على مستشعر بصمات الإصبع</string>
   <string name="title_pref_shortcut_fingerprint_down">التمرير للأسفل على مستشعر بصمات الإصبع</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">عند تشغيل الشاشة</string>
   <string name="value_resume_keyguard">عند عرض شاشة القفل</string>
   <string name="value_resume_manual">من الإشعار فقط</string>
+  <string name="value_type_confirmation_double_tap">اضغط بإصبعك مع الاستمرار لاختيار المفتاح ثم انقر مرتين.</string>
+  <string name="value_type_confirmation_lift_to_type">اضغط بإصبعك مع الاستمرار لاختيار المفتاح ثم ارفعه.</string>
   <string name="value_shake_to_read_disabled">غير مفعّلة</string>
   <string name="value_shake_to_read_threshold_very_light">خفيف جدًا</string>
   <string name="value_shake_to_read_threshold_light">خفيف</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">دائمًا قول المفاتيح التي يُضغط عليها</string>
   <string name="value_keyboard_echo_softkeys">فقط للوحة المفاتيح على الشاشة</string>
   <string name="value_keyboard_echo_never">عدم قول المفاتيح التي يُضغط عليها</string>
+  <string name="title_pref_keyboard_echo_on_screen">صدى لوحة المفاتيح: لوحة المفاتيح على الشاشة</string>
+  <string name="title_pref_keyboard_echo_physical">صدى لوحة المفاتيح: لوحة المفاتيح الفعلية</string>
+  <string name="value_keyboard_echo_none">صامت</string>
+  <string name="value_keyboard_echo_characters_only">الأحرف</string>
+  <string name="value_keyboard_echo_words_only">الكلمات</string>
+  <string name="value_keyboard_echo_characters_and_words">الأحرف والكلمات</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">الحالة، الاسم، النوع</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">النوع، الاسم، الحالة</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">الاسم، النوع، الحالة</string>
@@ -557,11 +586,12 @@
   <string name="dialog_message_enable_tree_debug">‏هل تريد فعلًا تفعيل تصحيح الأخطاء شجرة العقد؟\n\nيؤدي تصحيح أخطاء شجرة العقد إلى كشف محتوى شاشتك لسجلات الجهاز، التي يمكن أن تقرأها التطبيقات الأخرى.</string>
   <string name="dialog_title_enable_performance_stats">هل تريد تفعيل إحصاءات الأداء؟</string>
   <string name="dialog_message_enable_performance_stats">‏هل تريد فعلًا تفعيل إحصاءات الأداء؟\n\nقد تستهلك هذه الإحصاءات مزيدًا من سعة الذاكرة والطاقة.</string>
+  <string name="title_request_phone_permission">هل تريد السماح بالوصول إلى الهاتف؟</string>
+  <string name="message_request_phone_permission">‏يساعد هذا الإذن TalkBack في تقليل الإعلانات عندما تكون في مكالمة.</string>
+  <string name="continue_button">متابعة</string>
   <string name="label_talkback_context_menu">‏قائمة سياقات TalkBack العامة</string>
   <string name="permission_talkback_label">‏التحكم في TalkBack</string>
   <string name="permission_talkback_desc">‏إذن لإرسال إيماءات إلى TalkBack واستئناف التعليقات المنطوقة.</string>
-  <string name="permission_labeling_label">‏إدارة التصنيفات المخصصة في TalkBack</string>
-  <string name="permission_labeling_desc">‏إذن للدخول إلى التصنيفات المخصصة المنطوقة في TalkBack وتعديلها وحذفها.</string>
   <string name="links">الروابط</string>
   <string name="end_of_text">النهاية</string>
   <string name="start_of_page">لا يوجد %1$s سابق</string>
@@ -621,7 +651,8 @@
   <string name="title_pref_selector_punctuation">علامات الترقيم</string>
   <string name="title_pref_selector_granularity">التنقل</string>
   <string name="title_pref_selector_audio_focus">تجنب التداخل مع أصوات أخرى</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">التنقّل</string>
+  <string name="title_pref_a11y_volume">مستوى صوت \"تسهيل الاستخدام\"</string>
   <string name="title_pref_selector_adjustable_widget_slider">تعديل شريط التمرير</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">ضبط القيمة</string>
   <string name="title_pref_speak_passwords_without_headphones">قول كلمات المرور</string>
@@ -660,7 +691,7 @@
   <string name="start_voice_command">استخدام الطلبات الصوتية</string>
   <string name="dialog_title_pass_through_mode">‏تخطي إيماءات TalkBack لاستخدام إيماءات النظام</string>
   <string name="dialog_message_pass_through_mode">‏عند سماع رنين، يمكنك استخدام إيماءة نظام التشغيل غير المتاحة في TalkBack. وتُعرف هذه العملية بإيماءة التخطي.</string>
-  <string name="hint_type_search_term">إدخال عبارة بحث</string>
+  <string name="hint_type_search_term">عبارة البحث</string>
   <string name="talkback_notification_channel_name">Talkback</string>
   <string name="talkback_notification_channel_description">‏قناة إشعارات TalkBack</string>
   <string name="pref_selector_summary">%1$s لاختيار إعداد ثم %2$s لتعديل الإعداد</string>
@@ -669,7 +700,7 @@
   <string name="speech_rate_change">معدل سرعة الكلام %1$d%%</string>
   <string name="punctuation_state">علامات الترقيم %1$s</string>
   <string name="audio_focus_state">تجنب التداخل مع أصوات أخرى %1$s.</string>
-  <string name="sound_feedback_state">الملاحظات والآراء الصوتية: %1$s</string>
+  <string name="sound_feedback_state">الملاحظات الصوتية: %1$s</string>
   <string name="vibration_feedback_state">الاستجابة بالاهتزاز: %1$s</string>
   <string name="gesture_1_or_2">%1$s أو %2$s</string>
   <string name="select_setting_hint">%1$s لاختيار إعداد مختلف</string>
@@ -749,7 +780,7 @@
   <string name="menus_talkback_menu_text_pre_r">‏تشتمل قائمة TalkBack على إعدادات وعناصر تحكّم قد تحتاجها كثيرًا.\n\nافتح قائمة TalkBack الآن عن طريق التمرير سريعًا للأسفل ثم لليسار.</string>
   <string name="menus_selector_text">‏يمكن أن تساعدك هذه الاختصارات في تغيير الإعدادات بسرعة، مثل تبديل مستوى القراءة من الأحرف إلى الكلمات أو تغيير معدّل سرعة الكلام في TalkBack.\n\nلتغيير عناصر التحكّم في القراءة بسرعة، مرِّر سريعًا لليمين باستخدام 3 أصابع أو مرِّر سريعًا لليسار باستخدام 3 أصابع.\n\nيمكنك تخصيص قائمة TalkBack وعناصر التحكّم في القراءة لاحقًا في إعدادات TalkBack.</string>
   <string name="menus_selector_text_pre_r">‏يمكن أن تساعدك هذه الاختصارات في تغيير الإعدادات بسرعة، مثل تبديل مستوى القراءة من الأحرف إلى الكلمات أو تغيير معدّل سرعة الكلام في TalkBack.\n\nلتغيير عناصر التحكّم في القراءة بسرعة، مرِّر سريعًا للأسفل ثم للأعلى.\n\nيمكنك تخصيص قائمة TalkBack وعناصر التحكّم في القراءة لاحقًا في إعدادات TalkBack.</string>
-  <string name="all_set_title">اكتمال الإعداد</string>
+  <string name="all_set_title">اكتملت عملية الإعداد</string>
   <string name="all_set_text">‏يمكنك الآن استخدام TalkBack بحرفية.\n\nتتوفّر أدناه مواضيع أخرى يمكنك الاطّلاع عليها الآن، أو بإمكانك الرجوع إلى هذه المعلومات في أي وقت في إعدادات TalkBack.</string>
   <string name="talkback_tutorial_title">‏الدليل التوجيهي عن TalkBack</string>
   <string name="talkback_tutorial_text">مرِّر سريعًا لليسار لاختيار موضوع.</string>
@@ -783,6 +814,7 @@
   <string name="cut_paste_text">‏لقص النص، انقر مرتين باستخدام 3 أصابع مع تثبيتها.\n\nللصق النص، انقر ثلاث مرات باستخدام 3 أصابع.\n\nجرِّب لصق الكلمة التي نسختها في مربّع النص أدناه.</string>
   <string name="copy_text_pre_r">‏بعد تحديد النص، يمكنك نسخه في قائمة TalkBack. مرِّر سريعًا للأسفل ثم لليسار لفتح قائمة TalkBack. انقر مرتين على خيارات التعديل ثم انسخ النص.\n\nجرِّب نسخ كلمة في مربّع النص أدناه.</string>
   <string name="cut_paste_text_pre_r">‏لقص نص أو لصقه، افتح قائمة TalkBack وانقر مرتين على خيارات التعديل.\n\nجرِّب لصق كلمة في مربّع النص أدناه.</string>
+  <string name="edit_box_hint_paste_text">لصق النص هنا</string>
   <string name="read_by_character_title">القراءة على مستوى الحروف أو الكلمات أو الفقرات</string>
   <string name="read_by_character_text">‏قد ترغب أحيانًا في سماع النص بصوت عالٍ حرفًا تلو آخر.\n\nلتنفيذ ذلك، مرِّر سريعًا لليسار باستخدام 3 أصابع حتى تسمع \"%1$s\". مرِّر سريعًا للأعلى للانتقال إلى الحرف السابق، أو مرِّر سريعًا للأسفل للانتقال إلى الحرف التالي.\n\nجرِّب تنفيذ هذا الإجراء الآن. عندما تمرِّر سريعًا لليسار باستخدام 3 أصابع، يمكنك أيضًا اختيار القراءة على مستوى الكلمات أو الفقرات.</string>
   <string name="read_by_character_text_pre_r">‏قد ترغب أحيانًا في سماع النص بصوت عالٍ حرفًا تلو آخر.\n\nلتنفيذ ذلك، مرِّر سريعًا للأسفل ثم للأعلى حتى تسمع \"%1$s\". مرِّر سريعًا للأعلى للانتقال للحرف السابق، أو مرِّر سريعًا للأسفل للانتقال إلى الحرف التالي.\n\nجرِّب تنفيذ هذا الإجراء الآن. عندما تمرِّر سريعًا للأسفل ثم للأعلى، يمكنك أيضًا اختيار القراءة على مستوى الكلمات أو الفقرات.</string>
@@ -817,7 +849,21 @@
   <string name="button_3">زر 3</string>
   <string name="button_4">زر 4</string>
   <string name="activated_view">تم تفعيل %1$s.</string>
-  <string name="talkback_inactive_title">‏تم إيقاف TalkBack</string>
+  <string name="talkback_inactive_title">‏ميزة TalkBack غير مفعّلة</string>
   <string name="talkback_inactive_message">‏يتطلب هذا الدليل التوجيهي تفعيل TalkBack. يُرجى تفعيل TalkBack قبل بدء الدليل التوجيهي.</string>
+  <string name="watch_swipe_left_right_text">مرِّر سريعًا لليمين أو لليسار للتنقّل بين العناصر.</string>
+  <string name="watch_double_tap_text">انقر مرتين لتفعيل عنصر.</string>
+  <string name="watch_2_finger_scroll_text">اسحب إصبعين للتنقّل.</string>
+  <string name="title_pref_thick_border">حدود سميكة</string>
+  <string name="title_pref_category_border_color">اللون</string>
+  <string name="title_pref_default_color">تلقائي</string>
+  <string name="title_pref_red">أحمر</string>
+  <string name="title_pref_orange">برتقالي</string>
+  <string name="title_pref_yellow">أصفر</string>
+  <string name="title_pref_green">أخضر</string>
+  <string name="title_pref_blue">أزرق</string>
+  <string name="title_pref_grey">رمادي</string>
   <string name="survey_closed">تم إغلاق الاستطلاع.</string>
+  <string name="character_recognition_text">النص: %1$s</string>
+  <string name="title_image_caption">وصف الصورة</string>
 </resources>

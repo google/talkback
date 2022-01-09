@@ -20,9 +20,9 @@ import androidx.annotation.StringRes;
 import com.google.android.accessibility.talkback.training.NavigationButtonBar.ButtonType;
 import com.google.auto.value.AutoValue;
 import com.google.common.collect.ImmutableList;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * A Training consists of {@link PageConfig}s and Buttons. By default, the buttons in the list are
@@ -44,7 +44,67 @@ import java.util.List;
  * }</pre>
  */
 @AutoValue
-public abstract class TrainingConfig implements Serializable {
+public abstract class TrainingConfig {
+
+  /** Unique identifiers for training. */
+  public enum TrainingId {
+    TRAINING_ID_ON_BOARDING_TALKBACK_91_PRE_R,
+    TRAINING_ID_ON_BOARDING_TALKBACK_91,
+    TRAINING_ID_ON_BOARDING_FOR_MULTIFINGER_GESTURES,
+    TRAINING_ID_TUTORIAL_FOR_WATCH,
+    TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER,
+    TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R,
+    TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER,
+    TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R,
+    TRAINING_ID_TUTORIAL_FOR_GESTURE_NAVIGATION_USER,
+    TRAINING_ID_TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R,
+    TRAINING_ID_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER,
+    TRAINING_ID_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R,
+    TRAINING_ID_TUTORIAL_PRACTICE_GESTURE,
+    TRAINING_ID_TUTORIAL_PRACTICE_GESTURE_PRE_R,
+    TRAINING_ID_VOICE_COMMAND_HELP,
+    TRAINING_ID_VOICE_COMMAND_HELP_FOR_WATCH,
+  }
+
+  @Nullable
+  public static TrainingConfig getTraining(TrainingId trainingId) {
+    switch (trainingId) {
+      case TRAINING_ID_ON_BOARDING_TALKBACK_91_PRE_R:
+        return OnboardingInitiator.ON_BOARDING_TALKBACK_91_PRE_R;
+      case TRAINING_ID_ON_BOARDING_TALKBACK_91:
+        return OnboardingInitiator.ON_BOARDING_TALKBACK_91;
+      case TRAINING_ID_ON_BOARDING_FOR_MULTIFINGER_GESTURES:
+        return OnboardingInitiator.ON_BOARDING_FOR_MULTIFINGER_GESTURES;
+      case TRAINING_ID_TUTORIAL_FOR_WATCH:
+        return TutorialInitiator.TUTORIAL_FOR_WATCH;
+      case TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER:
+        return TutorialInitiator.FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER;
+      case TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R:
+        return TutorialInitiator.FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R;
+      case TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER:
+        return TutorialInitiator.FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER;
+      case TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R:
+        return TutorialInitiator.FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R;
+      case TRAINING_ID_TUTORIAL_FOR_GESTURE_NAVIGATION_USER:
+        return TutorialInitiator.TUTORIAL_FOR_GESTURE_NAVIGATION_USER;
+      case TRAINING_ID_TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R:
+        return TutorialInitiator.TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R;
+      case TRAINING_ID_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER:
+        return TutorialInitiator.TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER;
+      case TRAINING_ID_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R:
+        return TutorialInitiator.TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R;
+      case TRAINING_ID_TUTORIAL_PRACTICE_GESTURE:
+        return TutorialInitiator.TUTORIAL_PRACTICE_GESTURE;
+      case TRAINING_ID_TUTORIAL_PRACTICE_GESTURE_PRE_R:
+        return TutorialInitiator.TUTORIAL_PRACTICE_GESTURE_PRE_R;
+      case TRAINING_ID_VOICE_COMMAND_HELP:
+        return VoiceCommandHelpInitiator.VOICE_COMMAND_HELP;
+      case TRAINING_ID_VOICE_COMMAND_HELP_FOR_WATCH:
+        return VoiceCommandHelpInitiator.VOICE_COMMAND_HELP_FOR_WATCH;
+      default:
+        return null;
+    }
+  }
 
   private int totalPageNumber = -1;
 

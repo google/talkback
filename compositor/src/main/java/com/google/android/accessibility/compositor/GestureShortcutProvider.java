@@ -24,4 +24,8 @@ public interface GestureShortcutProvider {
   /** Returns shortcut name for local context menu. */
   @Nullable
   CharSequence nodeMenuShortcut();
+
+  /** Returns shortcut name for SeekBar hint. */
+  @Nullable
+  CharSequence nodeSeekBarShortcut();
 }

@@ -14,6 +14,7 @@
   <string name="voice_commands_language">ቋንቋ</string>
   <string name="voice_commands_languages">ቋንቋዎች</string>
   <string name="voice_commands_custom_actions">ብጁ እርምጃዎች</string>
+  <string name="voice_commands_action">እርምጃ</string>
   <string name="voice_commands_quick_settings">ፈጣን ቅንብሮች</string>
   <string name="voice_commands_quick_setting">ፈጣን ቅንብር</string>
   <string name="voice_commands_dim">ደብዛዛ ብርሃን</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">ይህን ባህሪ ለመጠቀም፣ ማይክራፎኑን ለመጠቀም ፈቃድ መስጠት አለብዎት</string>
   <string name="voice_commands_no_voice_recognition_ability">ይቅርታ! ይህ ባህሪ በእርስዎ መሣሪያ ላይ አይገኝም</string>
   <string name="voice_commands_error">የድምፅ ትዕዛዝን ለይቶ በማወቅ ላይ ስህተት</string>
-  <string name="voice_commands_partial_result">ይህን ትዕዛዝ ለየቶ ማወቅ አልተቻለም። ለሁሉም ትዕዛዞች ዝርዝር «%1$s» ይበሉ።</string>
+  <string name="voice_commands_partial_result">ይህን ትዕዛዝ ማወቅ አልተቻለም። ሁሉንም ትዕዛዞች ለመዘርዘር «%1$s» ይበሉ።</string>
+  <string name="voice_commands_timeout">ሁሉንም ትዕዛዞች ለመዘርዘር «%1$s» ይበሉ።</string>
   <string name="voice_commands_many_requests">እባክዎ ከአፍታ በኋላ እንደገና ይሞክሩ</string>
-  <string name="voice_commands_setting_disabled">የ«%1$s» ቅንብር አልነቃም</string>
   <string name="voice_commands_echo_feedback_not_recognized">«%1$s» እንደ የድምጽ ትዕዛዝ አልታወቀም።</string>
   <string name="voice_commands_label_saved">መሰየሚያ ተቀምጧል</string>
   <string name="voice_commands_no_actions_feedback">ምንም እርምጃዎች አይገኙም</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">የየድምጽ ትዕዛዝ አጠቃላይ እይታ</string>
   <string name="voice_commands_help_description">የድምጽ ትዕዛዞችን ለመጠቀም፣ ወደ ቀኝ ከዚያ ወደ ላይ ያንሸራትቱ። ለዚህ የትዕዛዞች ዝርዝር «እገዛ» ወይም «ምን ማለት እችላለሁ» በማንኛውም ጊዜ ይበሉ።</string>
   <string name="voice_commands_help_hint">ለተሻሉ ውጤቶች በሚቀጥሉት ማያ ገጾች ላይ የተዘረዘሩትን ትክክለኛ ቃላት ይበሉ።</string>
+  <string name="voice_command_screen_locked_hint">ማያ ገጹ በሚቆለፍበት ጊዜ የድምጽ ትዕዛዞች አይገኙም። በምትኩ የTalkBack ምናሌን ለመጠቀም %1$s።</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">አሁን ባለው ማያ ገጽ ላይ ይዘትን እንዴት እንደሚያነቡ ይቀይሩ</string>
   <string name="voice_commands_help_next">ቀጣይ [ርዕስ]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">ይህን ጽሑፍ በማያ ገጹ ላይ ለማግኘት የፍለጋ ቃል ያስገቡ</string>
   <string name="voice_commands_help_text_editing_description">ድሑፍን ይጽፉ፣ ይምረጡት እና ይቅዱ</string>
   <string name="voice_commands_help_type_text">ዓይነት [እሺ]</string>
-  <string name="voice_commands_help_copy_description">ከመገልበጥዎ በፊት የተመረጠ ጽሑፍ እንዳለዎት ያረጋግጡ</string>
-  <string name="voice_commands_help_cut_description">ከመቁረጥዎ በፊት የተመረጠ ጽሑፍ እንዳለዎት ያረጋግጡ</string>
+  <string name="voice_commands_help_copy_description">ከመቅዳትዎ በፊት ጽሑፍን ይምረጡ</string>
+  <string name="voice_commands_help_cut_description">ከመቁረጥዎ በፊት ጽሑፍን ይምረጡ</string>
+  <string name="voice_commands_help_delete_description">ከመሰረዝዎ በፊት ጽሑፍን ይምረጡ</string>
   <string name="voice_commands_help_device_navigation_title">የመሣሪያ ዳሰሳ</string>
   <string name="voice_commands_help_device_navigation_description">ወደ ቤት ሂድ፣ ተመለስ፣ ማሳወቂያዎችን አሳይ እና ሌሎች</string>
   <string name="voice_commands_help_overview_description">የቅርብ ጊዜ መተግበሪያዎችዎን ይመልከቱ</string>

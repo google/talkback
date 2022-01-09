@@ -25,13 +25,25 @@ import static com.google.android.accessibility.talkback.Feedback.Focus.Action.LO
 import static com.google.android.accessibility.talkback.Feedback.Focus.Action.RESTORE;
 
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import android.view.accessibility.AccessibilityNodeInfo.AccessibilityAction;
 import com.google.android.accessibility.talkback.Feedback;
+import com.google.android.accessibility.talkback.Feedback.NodeAction;
 import com.google.android.accessibility.talkback.Mappers;
+import com.google.android.accessibility.talkback.Mappers.Variables;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
+import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
+import com.google.android.accessibility.utils.AccessibilityNode;
+import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
+import com.google.android.accessibility.utils.Filter;
+import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.LogDepth;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.traversal.TraversalStrategy;
+import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirectionOrUnknown;
+import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
 import java.util.ArrayList;
+import java.util.Map;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Feedback-mapper for window & touch events generating focus actions. */
@@ -126,5 +138,56 @@ public class FocusFeedbackMapper {
 
   private static Feedback toFeedback(@Nullable EventId eventId, Feedback.Focus.Builder focus) {
     return Feedback.create(eventId, Feedback.part().setFocus(focus.build()).build());
+  }
+
+  /** Feedback-mapping function. */
+  public static Feedback.Part.Builder onNodeManuallyScrolled(
+      Variables variables, int depth, FocusFinder focusFinder) {
+
+    LogDepth.logFunc(Mappers.LOG_TAG, ++depth, "onNodeManuallyScrolled");
+
+    @SearchDirectionOrUnknown int direction = variables.scrollDirection(depth);
+    @Nullable AccessibilityNodeInfoCompat scrolledNode = variables.source(depth); // Not owner.
+    if (scrolledNode == null) {
+      return null;
+    }
+
+    @Nullable AccessibilityNodeInfoCompat nodeToFocus = null;
+    @Nullable AccessibilityNode nodeToFocusCopy = null;
+    TraversalStrategy traversalStrategy = null;
+    try {
+      // Try to focus on the next/previous focusable node.
+      traversalStrategy =
+          TraversalStrategyUtils.getTraversalStrategy(scrolledNode, focusFinder, direction);
+      final Map<AccessibilityNodeInfoCompat, Boolean> speakingNodeCache =
+          traversalStrategy.getSpeakingNodesCache();
+      Filter.NodeCompat nodeFilter =
+          new Filter.NodeCompat(
+              (node) -> AccessibilityNodeInfoUtils.shouldFocusNode(node, speakingNodeCache));
+      nodeToFocus =
+          TraversalStrategyUtils.findInitialFocusInNodeTree(
+              traversalStrategy, scrolledNode, direction, nodeFilter);
+
+      if (nodeToFocus == null) {
+        return null;
+      }
+
+      FocusActionInfo focusActionInfo =
+          new FocusActionInfo.Builder().setSourceAction(FocusActionInfo.MANUAL_SCROLL).build();
+
+      nodeToFocusCopy = AccessibilityNode.obtainCopy(nodeToFocus);
+      return Feedback.part()
+          .setFocus(Feedback.focus(nodeToFocus, focusActionInfo).build())
+          .setNodeAction(
+              NodeAction.builder()
+                  .setTarget(nodeToFocusCopy)
+                  .setActionId(AccessibilityAction.ACTION_SHOW_ON_SCREEN.getId())
+                  .build());
+
+    } finally {
+      AccessibilityNodeInfoUtils.recycleNodes(nodeToFocus);
+      AccessibilityNode.recycle(/* caller= */ "onNodeManuallyScrolled", nodeToFocusCopy);
+      TraversalStrategyUtils.recycle(traversalStrategy);
+    }
   }
 }

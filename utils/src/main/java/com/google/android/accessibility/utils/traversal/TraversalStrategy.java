@@ -16,8 +16,8 @@
 
 package com.google.android.accessibility.utils.traversal;
 
-import androidx.annotation.IntDef;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Map;

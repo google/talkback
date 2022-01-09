@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Phiên bản %1$s</string>
   <string name="label_manager_summary_title">Quản lý nhãn tùy chỉnh</string>
   <string name="label_manager_package_title">Quản lý nhãn cho %1$s</string>
+  <string name="manage_label">Quản lý nhãn</string>
   <string name="label_manager_no_packages_message">Hiện không có nhãn tùy chỉnh nào. Bạn có thể tạo nhãn tùy chỉnh bằng cách chuyển đến một hình ảnh chưa gắn nhãn, sau đó thêm một nhãn từ Trình đơn Talkback.</string>
   <string name="label_manager_timestamp_text">Sửa đổi lần cuối %1$s</string>
   <string name="search_dialog_label">Tìm kiếm: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Khám phá bằng cách chạm</string>
   <string name="title_pref_category_touch_exploration">Cách di chuyển</string>
   <string name="title_pref_category_controls">Các thành phần điều khiển</string>
-  <string name="title_pref_single_tap">Kích hoạt bằng cách nhấn một lần</string>
+  <string name="title_pref_single_tap">Nhấn một lần để kích hoạt</string>
   <string name="title_pref_show_context_menu_as_list">Hiển thị menu ngữ cảnh dạng danh sách</string>
-  <string name="summary_pref_single_tap">(Thử nghiệm) Hãy nhấn một lần vào mục được đặt tiêu điểm để kích hoạt</string>
+  <string name="summary_pref_single_tap">Nhấn một lần vào mục được đặt tiêu điểm để kích hoạt</string>
   <string name="title_pref_shake_to_read_threshold">Lắc để bắt đầu đọc liên tục</string>
   <string name="pref_verbosity_title">Độ chi tiết</string>
   <string name="pref_punctuation_title">Dấu câu</string>
+  <string name="title_pref_category_manage_focus_indicator">Tùy chỉnh chỉ báo lấy nét</string>
   <string name="title_pref_category_manage_gestures">Tùy chỉnh cử chỉ</string>
   <string name="title_pref_manage_labels">Nhãn tùy chỉnh</string>
   <string name="title_pref_manage_customize_menus">Tùy chỉnh trình đơn</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Trợ giúp và phản hồi</string>
   <string name="title_pref_category_tutorial_and_help">Hướng dẫn và trợ giúp</string>
   <string name="title_pref_category_advanced">Nâng cao</string>
+  <string name="title_pref_category_typing">Phương thức nhập và bàn phím</string>
   <string name="title_pref_category_legal_and_privacy">Vấn đề về pháp lý và quyền riêng tư</string>
   <string name="title_pref_advanced_settings">Cài đặt nâng cao</string>
   <string name="reset_gesture_settings_title">Đặt lại chế độ cài đặt cử chỉ</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Ứng dụng gần đây</string>
   <string name="keycombo_menu_global_notifications">Thông báo</string>
   <string name="keycombo_menu_global_suspend">Tạm dừng hoặc tiếp tục TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Phát hoặc tạm dừng nội dung nghe nhìn</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Chọn chế độ điều khiển chức năng đọc tiếp theo</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Chọn chế độ điều khiển chức năng đọc trước đó</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Điều chỉnh chế độ điều khiển chức năng đọc lên phía trên</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Điều chỉnh chế độ điều khiển chức năng đọc xuống phía dưới</string>
   <string name="keycombo_menu_category_granularity">Cách di chuyển</string>
   <string name="keycombo_menu_granularity_increase">Chế độ cài đặt cách di chuyển tiếp theo</string>
   <string name="keycombo_menu_granularity_decrease">Chế độ cài đặt cách di chuyển trước</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Không có văn bản để sao chép. Trước tiên, hãy chọn một số văn bản.</string>
   <string name="cannot_paste_feedback">Không có văn bản để dán. Trước tiên, hãy sao chép một số văn bản.</string>
   <string name="cannot_cut_feedback">Không có văn bản để cắt. Trước tiên, hãy chọn một số văn bản.</string>
+  <string name="cannot_delete_feedback">Không có văn bản để xóa. Trước tiên, hãy chọn một số văn bản.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Bạn có chắc chắn muốn đặt lại các phím tắt của mình cho sơ đồ bàn phím này về các giá trị mặc định không? Xin lưu ý rằng bạn không thể hoàn tác hành động này.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Đặt lại</string>
   <string name="override_keycombo">Phím đã được sử dụng</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Sử dụng các thay đổi độ cao</string>
   <string name="title_pref_keyboard_echo">Đọc to ký tự bàn phím</string>
   <string name="pref_node_desc_order_title">Thứ tự mô tả thành phần</string>
-  <string name="summaryOn_pref_intonation">Đọc to phản hồi của bàn phím bằng giọng nói có độ cao thấp</string>
+  <string name="summaryOn_pref_intonation">Đọc phản hồi \"đã xóa văn bản\" từ bàn phím bằng giọng có âm vực cao hơn</string>
   <string name="summaryOff_pref_intonation">Không thay đổi độ cao giọng nói khi nói</string>
   <string name="title_pref_brailleime">Bàn phím chữ nổi</string>
   <string name="title_pref_category_feedback_settings">Phản hồi khác</string>
@@ -242,7 +251,7 @@
   <string name="title_pref_soundback">Phản hồi bằng âm thanh</string>
   <string name="title_pref_use_audio_focus">Giảm âm thanh</string>
   <string name="summary_pref_use_audio_focus">Giảm âm lượng của âm thanh khác trong khi nói</string>
-  <string name="title_pref_soundback_volume">Âm lượng phản hồi bằng âm thanh</string>
+  <string name="title_pref_soundback_volume">Âm lượng phản hồi</string>
   <string name="title_pref_two_volume_button_long_click">Phím tắt tạm ngưng và tiếp tục TalkBack</string>
   <string name="title_pref_dim_volume_three_clicks">Phím tắt ẩn màn hình</string>
   <string name="title_pref_category_miscellaneous_settings">Cài đặt khác</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Bật gỡ lỗi cây nút</string>
   <string name="summary_pref_tree_debug_tv">Sử dụng phím tìm kiếm bằng giọng nói để in cây nút thay vì tìm kiếm</string>
   <string name="title_pref_performance_stats">Bật thống kê hiệu suất</string>
+  <string name="title_pref_log_overlay">Bật lớp phủ nhật ký gỡ lỗi</string>
   <string name="title_pref_resume_talkback">Tiếp tục sau khi tạm ngưng</string>
+  <string name="title_pref_typing_confirmation">Lựa chọn kiểu nhập ưu tiên</string>
   <string name="title_pref_multi_finger_gesture">Bật cử chỉ dùng nhiều ngón tay</string>
   <string name="screen_dimmed">Đã làm mờ màn hình</string>
   <string name="screen_brightness_restored">Đang hiện rõ màn hình</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Di chuyển xuống</string>
   <string name="shortcut_scroll_left">Di chuyển sang trái</string>
   <string name="shortcut_scroll_right">Di chuyển sang phải</string>
+  <string name="shortcut_next_window">Cửa sổ tiếp theo</string>
+  <string name="shortcut_previous_window">Cửa sổ trước</string>
   <string name="shortcut_back">Quay lại</string>
   <string name="shortcut_home">Màn hình chính</string>
   <string name="shortcut_overview">Tổng quan</string>
@@ -319,7 +332,7 @@
   <string name="shortcut_selected_setting_previous_action">Đưa tiêu điểm di chuyển về phía sau hoặc điều chỉnh tùy chọn điều khiển đọc lên phía trên</string>
   <string name="shortcut_perform_screen_search">Mở tính năng tìm kiếm trên màn hình</string>
   <string name="label_screen_search_result">Kết quả tìm kiếm</string>
-  <string name="shortcut_media_control">Phát hoặc tạm dừng nội dung nghe nhìn</string>
+  <string name="shortcut_media_control">Phát hoặc tạm dừng nhạc/video</string>
   <string name="shortcut_all_apps">Tất cả ứng dụng</string>
   <string name="shortcut_braille_keyboard">Chuyển sang bàn phím chữ nổi</string>
   <string name="shortcut_tutorial">Mở hướng dẫn</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Ẩn hoặc hiện màn hình</string>
   <string name="title_show_screen_search">Tìm kiếm trên màn hình</string>
   <string name="title_show_voice_commands">Lệnh thoại</string>
+  <string name="talkback_show_talkback_settings">Cài đặt TalkBack</string>
   <string name="title_other_web_navigation">Cách di chuyển khác trên web</string>
   <string name="title_granularity_default">Cách di chuyển mặc định</string>
   <string name="title_seek_bar_edit">Chỉnh sửa mức độ thanh trượt</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Điều khiển TalkBack bằng giọng nói</string>
   <string name="summary_show_hide_screen">Ẩn màn hình để màn hình của bạn không hiển thị với người khác ở nơi công cộng. Sau khi ẩn, hãy đưa màn hình về trạng thái bình thường.</string>
   <string name="summary_talkback_preferences">Mở phần cài đặt TalkBack</string>
-  <string name="summary_system_actions">Chuyển đến phần tất cả ứng dụng, trình đơn Cài đặt nhanh và dùng chế độ chia đôi màn hình</string>
+  <string name="summary_system_actions">Chuyển đến phần tất cả ứng dụng và Cài đặt nhanh</string>
   <string name="summary_tts_settings">Mở phần cài đặt chuyển văn bản sang lời nói</string>
   <string name="summary_pause_feedback">Tắt tính năng phản hồi bằng giọng nói TalkBack</string>
   <string name="not_editable">Không thể chỉnh sửa</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Đọc từng từ một</string>
   <string name="summary_lines">Đọc từng dòng một</string>
   <string name="summary_paragraphs">Đọc từng đoạn một</string>
+  <string name="summary_windows">Chuyển đến các cửa sổ khác, chẳng hạn như các nút điều chỉnh âm lượng hoặc thanh điều hướng</string>
   <string name="summary_headings">Di chuyển giữa các đầu đề</string>
   <string name="summary_controls">Di chuyển giữa các mục mà bạn có thể tương tác, chằng hạn như nút, hộp đánh dấu và trường văn bản</string>
   <string name="summary_links">Di chuyển giữa các đường liên kết</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Chọn xem có đọc to các phím đã nhập, gợi ý sử dụng, thông tin lưới và thông tin khác hay không</string>
   <string name="summary_selector_menu_punctuation">Thay đổi tùy chọn đọc to dấu câu và các ký hiệu</string>
   <string name="summary_language">Thay đổi ngôn ngữ nói. Chỉ hiển thị khi bạn cài đặt nhiều ngôn ngữ cho tính năng chuyển văn bản sang lời nói.</string>
-  <string name="summary_sound_feedback">Nghe thấy hiệu ứng âm thanh khi bạn thao tác, chẳng hạn như tiếng bíp để xác nhận một hành động.</string>
+  <string name="summary_sound_feedback">Nghe thấy hiệu ứng âm thanh khi bạn thao tác, chẳng hạn như tiếng bíp để xác nhận một hành động</string>
   <string name="summary_vibration_feedback">Cảm thấy lực rung khi thực hiện các hành động, chẳng hạn như chọn một mục. Tùy chọn này không ảnh hưởng đến chế độ rung của ứng dụng hoặc hệ thống.</string>
   <string name="summary_hide_screen">Ẩn màn hình để người khác không thấy được màn hình của bạn khi ở nơi công cộng</string>
   <string name="summary_audio_ducking">Giảm âm lượng của âm thanh khác đang phát khi TalkBack nói</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Di chuyển về phía trước hoặc về phía sau</string>
+  <string name="summary_support_change_a11y_volume">Tăng hoặc giảm âm lượng của dịch vụ Hỗ trợ tiếp cận</string>
+  <string name="summary_image_caption">Nhận thông tin mô tả tự động cho hình ảnh này</string>
   <string name="value_direction_up">lên</string>
   <string name="value_direction_down">xuống</string>
   <string name="value_direction_left">trái</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Nhấn đúp và giữ bằng 2 ngón tay</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Nhấn đúp và giữ bằng 3 ngón tay</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Nhấn đúp và giữ bằng 4 ngón tay</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Nhấn 3 lần và giữ bằng 2 ngón tay</string>
+  <string name="seekbar_hint_2gesture">\"%1$s\" hoặc %2$s\" để điều chỉnh</string>
+  <string name="seekbar_hint_1gesture">\"%1$s\" để điều chỉnh</string>
   <string name="gesture_name_unknown">Cử chỉ không xác định</string>
   <string name="gesture_name_pass_through">Cử chỉ gạt qua hệ thống</string>
   <string name="gesture_name_touch_explore">Chạm để khám phá</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Nhấn đúp và giữ</string>
   <string name="gesture_name_2finger_tap_hold">Nhấn và giữ bằng 2 ngón tay</string>
   <string name="gesture_name_3finger_tap_hold">Nhấn và giữ bằng 3 ngón tay</string>
+  <string name="gesture_name_2finger_3tap_hold">Nhấn 3 lần và giữ bằng 2 ngón tay</string>
   <string name="gesture_name_3finger_3tap_hold">Nhấn 3 lần và giữ bằng 3 ngón tay</string>
   <string name="title_pref_shortcut_fingerprint_up">Vuốt lên trên cảm biến vân tay</string>
   <string name="title_pref_shortcut_fingerprint_down">Vuốt xuống trên cảm biến vân tay</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Khi màn hình bật</string>
   <string name="value_resume_keyguard">Khi màn hình khóa được hiển thị</string>
   <string name="value_resume_manual">Chỉ từ thông báo</string>
+  <string name="value_type_confirmation_double_tap">Giữ ngón tay để chọn phím rồi nhấn đúp</string>
+  <string name="value_type_confirmation_lift_to_type">Giữ ngón tay để chọn phím rồi nhấc tay lên</string>
   <string name="value_shake_to_read_disabled">Đã tắt</string>
   <string name="value_shake_to_read_threshold_very_light">Rất nhẹ</string>
   <string name="value_shake_to_read_threshold_light">Nhẹ</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Luôn đọc phím được nhập</string>
   <string name="value_keyboard_echo_softkeys">Chỉ dành cho bàn phím ảo</string>
   <string name="value_keyboard_echo_never">Không bao giờ đọc phím được nhập</string>
+  <string name="title_pref_keyboard_echo_on_screen">Đọc to ký tự bàn phím: Bàn phím ảo</string>
+  <string name="title_pref_keyboard_echo_physical">Đọc to ký tự bàn phím: Bàn phím vật lý</string>
+  <string name="value_keyboard_echo_none">Không</string>
+  <string name="value_keyboard_echo_characters_only">Ký tự</string>
+  <string name="value_keyboard_echo_words_only">Từ</string>
+  <string name="value_keyboard_echo_characters_and_words">Ký tự và từ</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Trạng thái, tên, loại</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Loại, tên, trạng thái</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Tên, loại, trạng thái</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Bạn có chắc chắn muốn bật gỡ lỗi cây nút không?\n\nGỡ lỗi cây nút đưa nội dung trên màn hình vào nhật ký của thiết bị mà các ứng dụng khác có thể đọc được.</string>
   <string name="dialog_title_enable_performance_stats">Bật thống kê hiệu suất?</string>
   <string name="dialog_message_enable_performance_stats">Bạn có chắc chắn muốn bật thống kê hiệu suất không?\n\nThống kê hiệu suất có thể sử dụng nhiều năng lượng và bộ nhớ hơn.</string>
+  <string name="title_request_phone_permission">Cho phép truy cập vào điện thoại?</string>
+  <string name="message_request_phone_permission">Thao tác này giúp TalkBack giảm số lượng thông báo khi bạn đang nghe/gọi điện thoại</string>
+  <string name="continue_button">Tiếp tục</string>
   <string name="label_talkback_context_menu">Menu ngữ cảnh toàn cục TalkBack</string>
   <string name="permission_talkback_label">Điều khiển TalkBack</string>
   <string name="permission_talkback_desc">Quyền gửi cử chỉ tới TalkBack và tiếp tục phản hồi bằng giọng nói.</string>
-  <string name="permission_labeling_label">Quản lý nhãn tùy chỉnh trong TalkBack</string>
-  <string name="permission_labeling_desc">Quyền truy cập, sửa đổi và xóa nhãn tùy chỉnh được nói bởi TalkBack.</string>
   <string name="links">Đường liên kết</string>
   <string name="end_of_text">Kết thúc</string>
   <string name="start_of_page">Không có %1$s trước đó</string>
@@ -613,10 +643,11 @@
   <string name="title_pref_selector_punctuation">Dấu câu</string>
   <string name="title_pref_selector_granularity">Cách di chuyển</string>
   <string name="title_pref_selector_audio_focus">Giảm âm thanh</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Di chuyển</string>
+  <string name="title_pref_a11y_volume">Âm lượng của dịch vụ Hỗ trợ tiếp cận</string>
   <string name="title_pref_selector_adjustable_widget_slider">Điều chỉnh thanh trượt</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Điều chỉnh giá trị</string>
-  <string name="title_pref_speak_passwords_without_headphones">Nói mật khẩu</string>
+  <string name="title_pref_speak_passwords_without_headphones">Đọc mật khẩu</string>
   <string name="summaryOn_pref_speak_passwords_without_headphones">Luôn đọc mật khẩu</string>
   <string name="title_pref_sound_and_vibration">Âm thanh và rung</string>
   <string name="template_text_copied">đã sao chép, %1$s</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Dùng lệnh thoại</string>
   <string name="dialog_title_pass_through_mode">Bỏ qua cử chỉ TalkBack để sử dụng cử chỉ hệ thống</string>
   <string name="dialog_message_pass_through_mode">Khi nghe thấy tiếng chuông, bạn có thể sử dụng cử chỉ hệ thống mà TalkBack không hỗ trợ. Đây là cử chỉ gạt qua.</string>
-  <string name="hint_type_search_term">Nhập cụm từ tìm kiếm</string>
+  <string name="hint_type_search_term">Cụm từ tìm kiếm</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Kênh thông báo của TalkBack</string>
   <string name="pref_selector_summary">%1$s để chọn một tùy chọn cài đặt. Sau đó, %2$s để điều chỉnh tùy chọn cài đặt này.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Để cắt văn bản, hãy nhấn đúp và giữ bằng 3 ngón tay.\n\nĐể dán văn bản, hãy nhấn 3 lần bằng 3 ngón tay.\n\nHãy thử dán một từ vào hộp văn bản bên dưới.</string>
   <string name="copy_text_pre_r">Sau khi chọn văn bản, bạn có thể sao chép văn bản đó trong trình đơn TalkBack. Vuốt xuống rồi vuốt sang phải để mở trình đơn TalkBack. Nhấn đúp vào tùy chọn chỉnh sửa rồi nhấn đúp vào sao chép.\n\nHãy thử sao chép một từ trong hộp văn bản bên dưới.</string>
   <string name="cut_paste_text_pre_r">Để cắt hoặc dán văn bản, hãy mở trình đơn TalkBack rồi nhấn đúp vào tùy chọn chỉnh sửa.\n\nHãy thử dán một từ vào hộp văn bản bên dưới.</string>
+  <string name="edit_box_hint_paste_text">Dán văn bản vào đây</string>
   <string name="read_by_character_title">Đọc theo ký tự, từ hoặc đoạn</string>
   <string name="read_by_character_text">Đôi khi, bạn có thể muốn nghe văn bản được đọc thành tiếng cho từng ký tự một.\n\nĐể thực hiện việc này, hãy vuốt sang phải bằng 3 ngón tay cho đến khi bạn nghe thấy \"%1$s\". Sau đó, hãy vuốt lên để đưa tiêu điểm di chuyển về phía sau từng ký tự. Vuốt xuống để đưa tiêu điểm di chuyển về phía trước từng ký tự.\n\nHãy thử ngay bây giờ. Khi vuốt sang phải bằng 3 ngón tay, bạn cũng có thể chọn đọc theo từ hoặc đoạn.</string>
   <string name="read_by_character_text_pre_r">Đôi khi, bạn có thể muốn nghe văn bản được đọc thành tiếng cho từng ký tự một.\n\nĐể thực hiện việc này, hãy vuốt xuống rồi vuốt lên cho đến khi bạn nghe thấy \"%1$s\". Sau đó, hãy vuốt lên để đưa tiêu điểm di chuyển về phía sau từng ký tự. Vuốt xuống để đưa tiêu điểm di chuyển về phía trước từng ký tự.\n\nHãy thử ngay bây giờ. Khi vuốt xuống rồi vuốt lên, bạn cũng có thể chọn đọc theo từ hoặc đoạn.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">Đã kích hoạt %1$s</string>
   <string name="talkback_inactive_title">TalkBack bị vô hiệu hóa</string>
   <string name="talkback_inactive_message">Hướng dẫn này yêu cầu bật TalkBack. Vui lòng bật TalkBack trước khi khởi chạy hướng dẫn.</string>
+  <string name="watch_swipe_left_right_text">Vuốt sang phải hoặc sang trái để di chuyển giữa các mục</string>
+  <string name="watch_double_tap_text">Nhấn đúp để kích hoạt một mục</string>
+  <string name="watch_2_finger_scroll_text">Kéo 2 ngón tay để di chuyển</string>
+  <string name="title_pref_thick_border">Đường viền dày</string>
+  <string name="title_pref_category_border_color">Màu</string>
+  <string name="title_pref_default_color">Mặc định</string>
+  <string name="title_pref_red">Đỏ</string>
+  <string name="title_pref_orange">Cam</string>
+  <string name="title_pref_yellow">Vàng</string>
+  <string name="title_pref_green">Xanh lục</string>
+  <string name="title_pref_blue">Xanh dương</string>
+  <string name="title_pref_grey">Xám</string>
   <string name="survey_closed">Khảo sát đã bị đóng</string>
+  <string name="character_recognition_text">Nội dung văn bản: %1$s</string>
+  <string name="title_image_caption">Mô tả hình ảnh</string>
 </resources>

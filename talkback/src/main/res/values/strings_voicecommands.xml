@@ -79,12 +79,12 @@
       Source: Possible user requests from voice commands to see quick settings.
       Description: Looks for keyword "Quick settings" to see if user has asked to see quick settings. [CHAR_LIMIT=40]
     -->
-    <string name="voice_commands_quick_settings">Quick settings</string>
+    <string name="voice_commands_quick_settings">Quick Settings</string>
     <!--
       Source: Possible user requests from voice commands to see quick settings.
       Description: Looks for keyword "quick setting" to see if user has asked to see quick settings. [CHAR_LIMIT=40]
     -->
-    <string name="voice_commands_quick_setting">Quick setting</string>
+    <string name="voice_commands_quick_setting">Quick Setting</string>
     <!--
       Source: Possible user requests from voice commands to dim screen.
       Description: Looks for keyword "dim" to see if user has asked to dim the screen. This is a verb for voice commands. [CHAR_LIMIT=30]
@@ -213,9 +213,9 @@
   <!-- Voice-shortcut command word to input text to editable ui. [CHAR_LIMIT=20] -->
   <string name="voice_commands_Spell">Spell</string>
   <!-- Voice-shortcut command to launch TalkBack Settings. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_talkback_settings">TalkBack Settings</string>
+  <string name="voice_commands_talkback_settings">TalkBack settings</string>
   <!-- Voice-shortcut command to launch TalkBack Settings. [CHAR_LIMIT=30] -->
-  <string name="voice_commands_talkback_setting">TalkBack Setting</string>
+  <string name="voice_commands_talkback_setting">TalkBack setting</string>
   <!-- Voice-shortcut command to start screen search UI. [CHAR_LIMIT=30] -->
   <string name="voice_commands_screen_search">Screen search</string>
   <!-- Voice-shortcut command to start screen search UI. [CHAR_LIMIT=30] -->
@@ -289,13 +289,13 @@
     <!-- Dialog message that explains to user the an error occured while using voice commands. [CHAR_LIMIT=100] -->
     <string name="voice_commands_error">Error recognizing voice command</string>
     <!-- Dialog message that explains to user that voice commands only partially understood. [CHAR_LIMIT=300] -->
-    <string name="voice_commands_partial_result">Can\'t recognize this command. Say \"<xliff:g>%1$s</xliff:g>\" for the list of all commands.</string>
+    <string name="voice_commands_partial_result">Can\'t recognize this command. Say \"<xliff:g example="Help" id="command">%1$s</xliff:g>\" for the list of all commands.</string>
+    <!-- Dialog message that explains to user that nothing is spoken within the timeout for voice commands. [CHAR_LIMIT=100] -->
+    <string name="voice_commands_timeout">Say \"<xliff:g example="Help" id="command">%1$s</xliff:g>\" for the list of all commands.</string>
     <!-- Dialog message that explains to the user that they requested speech recognizer too many times, causing an error. [CHAR_LIMIT=90]-->
     <string name="voice_commands_many_requests">Please try again in a moment</string>
-    <!-- Error message that explains to the user the setting is disable. [CHAR_LIMIT=130] -->
-    <string name="voice_commands_setting_disabled">\"<xliff:g>%1$s</xliff:g>\" setting is not enabled</string>
     <!-- Speech feedback message that some voice input from user is not recognized as voice command.  Ex. blah blah not recognized as voice command.[CHAR_LIMIT=300] -->
-    <string name="voice_commands_echo_feedback_not_recognized">\"<xliff:g>%1$s</xliff:g>\" not recognized as voice command.</string>
+    <string name="voice_commands_echo_feedback_not_recognized">\"<xliff:g example="Nothing" id="command">%1$s</xliff:g>\" not recognized as voice command.</string>
     <!-- Speech feedback label voice commands executes successfully.[CHAR_LIMIT=300] -->
     <string name="voice_commands_label_saved">Label saved</string>
     <!-- Speech feedback when no actions available for this accessibility node. [CHAR_LIMIT=300] -->
@@ -319,6 +319,8 @@
   <string name="voice_commands_help_description">To use voice commands, swipe right then up. Say \"Help\" or \"What can I say?\" anytime for this list of commands.</string>
   <!-- The hint of triggering voice command. [CHAR_LIMIT=NONE] -->
   <string name="voice_commands_help_hint">For best results, say the exact wording listed on the following screens.</string>
+  <!-- The hint of triggering voice command in lock screen mode. [CHAR_LIMIT=NONE] -->
+  <string name="voice_command_screen_locked_hint">Voice commands are not available while the screen is locked. To use the TalkBack menu instead, <xliff:g id="gesture" example="Swipe right then up">%1$s</xliff:g>.</string>
 
   <!-- The page title of voice command - reading controls. [CHAR_LIMIT=NONE] -->
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>

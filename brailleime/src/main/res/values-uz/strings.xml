@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Nuqta joylashuvi yangilanmoqda. Avval nuqtalarni chap qoʻlingizda yozib oling. Chap qoʻlingizning oʻrta 3 ta barmogʻi bilan ekranni bosib turing.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Nuqta joylashuvi yangilanmoqda. Avval nuqtalarni oʻng qoʻlingizda yozib oling. Oʻng qoʻlingizning oʻrta 3 ta barmogʻi bilan ekranni bosib turing.</string>
   <string name="calibration_finish_announcement">Nuqta holati yangilandi</string>
+  <string name="remaining_calibration_finish_announcement">Barcha nuqtalar joylashuvi yangilandi</string>
   <string name="calibration_step2_hold_right_finger_announcement">1, 2 va 3 nuqtalar uchun holatlar yangilandi. Keyin oʻng qoʻlingizda nuqtalarni yozib olishingiz mumkin. Oʻng qoʻlingizning oʻrta 3 ta barmogʻi bilan ekranni bosib turing.</string>
   <string name="calibration_step2_hold_left_finger_announcement">1, 2 va 3 nuqtalar uchun holatlar yangilandi. Keyin nuqtalarni chap qoʻlingizda yozib oling. Chap qoʻlingizning oʻrta 3 ta barmogʻi bilan ekranni bosib turing.</string>
   <string name="calibration_fail_announcement">Nuqta holati yangilanmadi. 6 ta barmoq bilan ekranga bosib turing. Keyin qaytadan urining.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Birlashtirilgan Ingliz brayl</string>
   <string name="code_user_facing_name_es">Ispan</string>
   <string name="code_user_facing_name_ar">Arab</string>
+  <string name="code_user_facing_name_fr">Fransuz</string>
   <string name="title_pref_accumulate_presses">Barcha bosilgan nuqtalar bilan</string>
   <string name="summary_pref_accumulate_presses">Barcha bosilgan nuqtalar kiritish qismi hisoblanadi, hatto boshqa nuqtalardan oldin boʻshatilsa ham</string>
   <string name="title_pref_reverse_dots">Teskari nuqtalar</string>
   <string name="summary_pref_reverse_dots">Nuqtalar joyini almashtiring, masalan 1 va 4-nuqtalarning</string>
-  <string name="typing_echo_list_preference_title">Yozib eshittirish (yozuv sadosi)</string>
-  <string name="typing_echo_preference_label_characters">Barcha harf va soʻzlar oʻqilsin</string>
-  <string name="typing_echo_preference_label_words">Faqat soʻzlarni oʻqish</string>
   <string name="context_menu_title">Brayl klaviaturasi sozlamalari</string>
   <string name="context_menu_typing_language_selection">Yozuv tilini oʻzgartirish</string>
   <string name="context_menu_typing_language_selection_summary">Hozir foydalanilmoqda: %s</string>

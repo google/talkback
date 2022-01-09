@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Версія %1$s</string>
   <string name="label_manager_summary_title">Кіраванне карыстальніцкімі меткамі</string>
   <string name="label_manager_package_title">Кіраванне меткамі для %1$s</string>
+  <string name="manage_label">Кіраваць меткай</string>
   <string name="label_manager_no_packages_message">Цяпер няма карыстальніцкіх метак. Адкрыйце відарыс і стварыце метку ў меню TalkBack.</string>
   <string name="label_manager_timestamp_text">Апошняе змяненне: %1$s</string>
   <string name="search_dialog_label">Пошук: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Азнаямленне дотыкам</string>
   <string name="title_pref_category_touch_exploration">Навігацыя</string>
   <string name="title_pref_category_controls">Сродкі кіравання</string>
-  <string name="title_pref_single_tap">Актывацыя адным дотыкам</string>
+  <string name="title_pref_single_tap">Актывізацыя адным дотыкам</string>
   <string name="title_pref_show_context_menu_as_list">Кантэкстнае меню ў выглядзе спіса</string>
-  <string name="summary_pref_single_tap">(Эксперыментальная функцыя) Для актывізацыі пэўнага элемента дакрануцца да яго адзін раз</string>
+  <string name="summary_pref_single_tap">Для актывізацыі пэўнага элемента дакрануцца да яго адзін раз</string>
   <string name="title_pref_shake_to_read_threshold">Страсянуць, каб пачаць чытанне</string>
   <string name="pref_verbosity_title">Дэталізацыя</string>
   <string name="pref_punctuation_title">Знакі пунктуацыі</string>
+  <string name="title_pref_category_manage_focus_indicator">Індыкатар наладжвання фокуса</string>
   <string name="title_pref_category_manage_gestures">Наладзіць жэсты</string>
   <string name="title_pref_manage_labels">Карыстальніцкія меткі</string>
   <string name="title_pref_manage_customize_menus">Наладзіць меню</string>
@@ -108,12 +110,12 @@
   <string name="pref_category_selector_menu_summary_single_finger">Каб выкарыстоўваць элементы кіравання чытаннем, правядзіце па экране ўверх, а потым уніз.</string>
   <string name="title_pref_manage_keyboard_shortcuts">Спалучэнні клавіш</string>
   <string name="title_pref_export_custom_labels">Экспарт карыстальніцкіх метак</string>
-  <string name="title_pref_play_store">Адкрыццё TalkBack у краме Play Store</string>
+  <string name="title_pref_play_store">Старонка TalkBack у краме Play Store</string>
   <string name="summary_pref_play_store">Бягучая версія TalkBack: %1$s</string>
   <string name="title_pref_help_and_feedback">Даведка і водгукі</string>
   <string name="pref_item_licenses">Ліцэнзіі ПЗ з адкрытым зыходным кодам</string>
   <string name="title_pref_help">Даведка</string>
-  <string name="title_pref_show_tos">Умовы абслугоўвання</string>
+  <string name="title_pref_show_tos">Умовы выкарыстання</string>
   <string name="title_pref_show_privacy_policy">Палітыка прыватнасці</string>
   <string name="pref_category_multi_finger_shortcuts">Жэсты некалькімі пальцамі</string>
   <string name="title_pref_category_fingerprint_touch_shortcuts">Жэсты на сканеры адбіткаў пальцаў</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Даведка і водгукі</string>
   <string name="title_pref_category_tutorial_and_help">Дапаможнік і даведка</string>
   <string name="title_pref_category_advanced">Пашыраныя налады</string>
+  <string name="title_pref_category_typing">Увод і клавіятура</string>
   <string name="title_pref_category_legal_and_privacy">Юрыдычная інфармацыя і прыватнасць</string>
   <string name="title_pref_advanced_settings">Пашыраныя налады</string>
   <string name="reset_gesture_settings_title">Скінуць налады жэстаў</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Нядаўнія праграмы</string>
   <string name="keycombo_menu_global_notifications">Апавяшчэнні</string>
   <string name="keycombo_menu_global_suspend">Прыпыненне або ўзнаўленне TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Прайграць або прыпыніць прайграванне медыязмесціва</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Выбраць наступны элемент кіравання чытаннем</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Выбраць папярэдні элемент кіравання чытаннем</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Перамясціць элемент кіравання чытаннем уверх</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Перамясціць элемент кіравання чытаннем уніз</string>
   <string name="keycombo_menu_category_granularity">Навігацыя</string>
   <string name="keycombo_menu_granularity_increase">Наступная налада навігацыі</string>
   <string name="keycombo_menu_granularity_decrease">Папярэдняя налада навігацыі</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Адсутнічае тэкст для капіравання. Спачатку вылучыце які-небудзь тэкст.</string>
   <string name="cannot_paste_feedback">Адсутнічае тэкст для ўстаўкі. Спачатку скапіруйце які-небудзь тэкст.</string>
   <string name="cannot_cut_feedback">Адсутнічае тэкст для выразання. Спачатку вылучыце які-небудзь тэкст.</string>
+  <string name="cannot_delete_feedback">Адсутнічае тэкст для выдалення. Спачатку вылучыце які-небудзь тэкст.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Вы ўпэўненыя, што хочаце скінуць свае спалучэнні клавіш для гэтай раскладкі клавіятуры да стандартных значэнняў? Звярніце ўвагу на тое, што гэта дзеянне нельга будзе адрабіць.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Скінуць</string>
   <string name="override_keycombo">Клавіша ўжо выкарыстоўваецца</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Змяняць танальнасць гуку</string>
   <string name="title_pref_keyboard_echo">Рэха клавіятуры</string>
   <string name="pref_node_desc_order_title">Парадак апісання элемента</string>
-  <string name="summaryOn_pref_intonation">Зваротная сувязь для клавіятуры будзе прагаворвацца нiзкiм голасам</string>
+  <string name="summaryOn_pref_intonation">Агучваць павышаным тонам падказку клавіятуры пра выдаленне тэксту</string>
   <string name="summaryOff_pref_intonation">Не змяняць вышыню голасу падчас гаворкі</string>
   <string name="title_pref_brailleime">Клавіятура Брайля</string>
   <string name="title_pref_category_feedback_settings">Іншая зваротная сувязь</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Уключыць адладку дрэва вузлоў</string>
   <string name="summary_pref_tree_debug_tv">Выкарыстоўвайце ключ галасавога пошуку для друку дрэва вузлоў замест пошуку</string>
   <string name="title_pref_performance_stats">Уключыць статыстыку прадукцыйнасці</string>
+  <string name="title_pref_log_overlay">Дазволіць накладку для журнала адладкі?</string>
   <string name="title_pref_resume_talkback">Узнаўленне пасля прыпынення</string>
+  <string name="title_pref_typing_confirmation">Параметры ўводу</string>
   <string name="title_pref_multi_finger_gesture">Уключыць жэсты некалькімі пальцамі</string>
   <string name="screen_dimmed">Экран зацемнены</string>
   <string name="screen_brightness_restored">Паказваецца экран</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Прагартаць уніз</string>
   <string name="shortcut_scroll_left">Прагартаць улева</string>
   <string name="shortcut_scroll_right">Прагартаць управа</string>
+  <string name="shortcut_next_window">Наступнае акно</string>
+  <string name="shortcut_previous_window">Папярэдняе акно</string>
   <string name="shortcut_back">Назад</string>
   <string name="shortcut_home">Галоўны экран</string>
   <string name="shortcut_overview">Агляд</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Схаваць або паказаць экран</string>
   <string name="title_show_screen_search">Пошук на экране</string>
   <string name="title_show_voice_commands">Галасавыя каманды</string>
+  <string name="talkback_show_talkback_settings">Налады TalkBack</string>
   <string name="title_other_web_navigation">Іншыя спосабы навігацыі па вэб-старонцы</string>
   <string name="title_granularity_default">Стандартная навігацыя</string>
   <string name="title_seek_bar_edit">Змяніць значэнне паўзунка</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Кіруйце TalkBack з дапамогай галасавых каманд</string>
   <string name="summary_show_hide_screen">Выключэнне дысплэя, каб экран стаў нябачным для іншых у грамадскіх месцах. Пасля гэтага вяртанне экрана ў звычайны стан.</string>
   <string name="summary_talkback_preferences">Адкрыць налады TalkBack</string>
-  <string name="summary_system_actions">Пераход да ўсіх праграм, хуткіх налад і выкарыстанне падзеленага экрана</string>
+  <string name="summary_system_actions">Перайсці да ўсіх праграм і Хуткіх налад</string>
   <string name="summary_tts_settings">Адкрыццё налад сінтэзу маўлення</string>
   <string name="summary_pause_feedback">Выключэнне агучвання TalkBack</string>
   <string name="not_editable">Нельга змяніць</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Чытанне па словах</string>
   <string name="summary_lines">Чытанне па радках</string>
   <string name="summary_paragraphs">Чытанне па абзацах</string>
+  <string name="summary_windows">Перайсці ў іншыя вокны, напрыклад да рэгулятараў гучнасці ці панэлі навігацыі</string>
   <string name="summary_headings">Пераключэнне паміж загалоўкамі</string>
   <string name="summary_controls">Пераключэнне паміж элементамі, з якімі вы можаце ўзаемадзейнічаць, напрыклад між кнопкамі, палямі для птушак і тэкставымі палямі</string>
   <string name="summary_links">Пераключэнне паміж спасылкамі</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Змяненне налад агучвання такіх элементаў, як націснутыя клавішы, падказкі па выкарыстанні, даныя табліц і іншыя звесткі</string>
   <string name="summary_selector_menu_punctuation">Змяніць, ці трэба агучваць знакі пунктуацыі і сімвалы</string>
   <string name="summary_language">Змяненне мовы вуснага маўлення. Адлюстроўваецца, толькі калі ўсталявана некалькі моў сінтэзу маўлення.</string>
-  <string name="summary_sound_feedback">Праслухванне гукавых эфектаў падчас навігацыі, напрыклад сігналу пацвярджэння дзеяння.</string>
+  <string name="summary_sound_feedback">Праслухванне гукавых эфектаў падчас навігацыі, напрыклад сігналу пацвярджэння дзеяння</string>
   <string name="summary_vibration_feedback">Уключэнне вібрацыі падчас такіх дзеянняў, як вылучэнне элемента. Гэта не ўплывае на налады вібрацыі ў іншых праграмах ці ў сістэме.</string>
   <string name="summary_hide_screen">Выключэнне дысплэя, каб экран стаў нябачным для іншых у грамадскіх месцах</string>
   <string name="summary_audio_ducking">Зніжэнне гучнасці іншых аўдыя падчас агучвання ў TalkBack</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Прагартаць уперад або назад</string>
+  <string name="summary_support_change_a11y_volume">Рэгуляванне гучнасці для спецыяльных магчымасцей</string>
+  <string name="summary_image_caption">Загрузіць аўтаматычнае апісанне гэтага відарыса</string>
   <string name="value_direction_up">уверх</string>
   <string name="value_direction_down">уніз</string>
   <string name="value_direction_left">улева</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Двойчы націснуць двума пальцамі і ўтрымліваць іх на экране</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Двойчы націснуць трыма пальцамі і ўтрымліваць іх на экране</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Двойчы націснуць чатырма пальцамі і ўтрымліваць іх на экране</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Трайны дотык і ўтрыманне двума пальцамі</string>
+  <string name="seekbar_hint_2gesture">Каб наладзіць, выканайце жэст \"%1$s\" або %2$s\"</string>
+  <string name="seekbar_hint_1gesture">Каб наладзіць, выканайце жэст \"%1$s\"</string>
   <string name="gesture_name_unknown">Невядомы жэст</string>
   <string name="gesture_name_pass_through">Жэст пераходу да сістэмных налад</string>
   <string name="gesture_name_touch_explore">Даследаванне дотыкам</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Двайны дотык і ўтрыманне</string>
   <string name="gesture_name_2finger_tap_hold">Дотык і ўтрыманне двума пальцамі</string>
   <string name="gesture_name_3finger_tap_hold">Дотык і ўтрыманне трыма пальцамі</string>
+  <string name="gesture_name_2finger_3tap_hold">Трайны дотык і ўтрыманне двума пальцамі</string>
   <string name="gesture_name_3finger_3tap_hold">Трайны дотык і ўтрыманне трыма пальцамі</string>
   <string name="title_pref_shortcut_fingerprint_up">Уверх па сканеры адбіткаў пальцаў</string>
   <string name="title_pref_shortcut_fingerprint_down">Уніз па сканеры адбіткаў пальцаў</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Калі ўключаецца экран</string>
   <string name="value_resume_keyguard">Калі паказаны экран блакіроўкі</string>
   <string name="value_resume_manual">Толькі з апавяшчэння</string>
+  <string name="value_type_confirmation_double_tap">Для выбару клавішы затрымаць палец, а потым двойчы націснуць</string>
+  <string name="value_type_confirmation_lift_to_type">Для выбару клавішы затрымаць палец, а потым падняць яго</string>
   <string name="value_shake_to_read_disabled">Адключана</string>
   <string name="value_shake_to_read_threshold_very_light">Вельмi лёгка</string>
   <string name="value_shake_to_read_threshold_light">Лёгка</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Заўсёды прамаўляць нацiснутыя клавiшы</string>
   <string name="value_keyboard_echo_softkeys">Толькі для экраннай клавіятуры</string>
   <string name="value_keyboard_echo_never">Ніколі не прамаўляць нацiснутыя клавiшы</string>
+  <string name="title_pref_keyboard_echo_on_screen">Рэха клавіятуры: экранная клавіятура</string>
+  <string name="title_pref_keyboard_echo_physical">Рэха клавіятуры: фізічная клавіятура</string>
+  <string name="value_keyboard_echo_none">Няма</string>
+  <string name="value_keyboard_echo_characters_only">Сімвалы</string>
+  <string name="value_keyboard_echo_words_only">Словы</string>
+  <string name="value_keyboard_echo_characters_and_words">Сімвалы і словы</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Стан, імя, тып</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Тып, імя, стан</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Імя, тып, стан</string>
@@ -555,11 +584,12 @@
   <string name="dialog_message_enable_tree_debug">Вы ўпэўненыя, што хочаце ўключыць адладку дрэва вузлоў?\n\nПадчас адладкі дрэва вузлоў змесціва вашага экрана пападае ў журналы вашай прылады, якія могуць быць прачытаныя іншымі праграмамі.</string>
   <string name="dialog_title_enable_performance_stats">Уключыць статыстыку прадукцыйнасці?</string>
   <string name="dialog_message_enable_performance_stats">Вы ўпэўнены, што хочаце ўключыць статыстыку прадукцыйнасці?\n\nСтатыстыка прадукцыйнасці можа спажываць больш памяці і зараду акумулятара.</string>
+  <string name="title_request_phone_permission">Дазволіць доступ да тэлефона?</string>
+  <string name="message_request_phone_permission">Гэта дзеянне дапаможа TalkBack паменшыць колькасць апавяшчэнняў, якія будуць перашкаджаць падчас выкліку</string>
+  <string name="continue_button">Далей</string>
   <string name="label_talkback_context_menu">Глабальнае кантэкстнае меню TalkBack</string>
   <string name="permission_talkback_label">Кiраванне TalkBack</string>
   <string name="permission_talkback_desc">Дазвол на адпраўку жэстаў TalkBack і ўзнаўленне вуснай зваротнай сувязі.</string>
-  <string name="permission_labeling_label">Кіраванне карыстальніцкімі меткамі TalkBack</string>
-  <string name="permission_labeling_desc">Дазвол на доступ, змяненне і выдаленне карыстальніцкіх метак, якія прагаворваюцца TalkBack.</string>
   <string name="links">Спасылкі</string>
   <string name="end_of_text">Канец</string>
   <string name="start_of_page">Няма папярэдняга элемента \"%1$s\"</string>
@@ -617,7 +647,8 @@
   <string name="title_pref_selector_punctuation">Знакі пунктуацыі</string>
   <string name="title_pref_selector_granularity">Навігацыя</string>
   <string name="title_pref_selector_audio_focus">Прыглушаць аўдыя</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Прагартаць</string>
+  <string name="title_pref_a11y_volume">Гучнасць для спецыяльных магчымасцей</string>
   <string name="title_pref_selector_adjustable_widget_slider">Наладзіць паўзунок</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Наладзіць значэнне</string>
   <string name="title_pref_speak_passwords_without_headphones">Прагаворваць паролі</string>
@@ -654,7 +685,7 @@
   <string name="start_voice_command">Выкарыстоўваць галасавыя каманды</string>
   <string name="dialog_title_pass_through_mode">Выкарыстоўваць сістэмныя жэсты замест жэстаў TalkBack</string>
   <string name="dialog_message_pass_through_mode">Калі вы чуеце званок, вы можаце выкарыстоўваць сістэмны жэст, які не падтрымліваецца TalkBack. Такі жэст называецца жэстам пераходу.</string>
-  <string name="hint_type_search_term">Увядзіце пошукавы запыт</string>
+  <string name="hint_type_search_term">Пошукавы запыт</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Канал апавяшчэнняў TalkBack</string>
   <string name="pref_selector_summary">Каб выбраць наладу, %1$s. Пасля %2$s, каб адрэгуляваць наладу.</string>
@@ -777,6 +808,7 @@
   <string name="cut_paste_text">Каб выразаць тэкст, двойчы націсніце трыма пальцамі і ўтрымлівайце іх на экране.\n\nКаб уставіць тэкст, тройчы націсніце трыма пальцамі.\n\nПаспрабуйце ўставіць слова ў тэкставае поле ўнізе.</string>
   <string name="copy_text_pre_r">Пасля вылучэння тэксту яго можна скапіраваць праз меню TalkBack. Каб адкрыць меню TalkBack, правядзіце пальцам па экране ўніз, а потым управа. Двойчы націсніце параметры змянення, а потым выберыце \"Скапіраваць\".\n\nПаспрабуйце скапіраваць слова ў тэкставае поле ўнізе.</string>
   <string name="cut_paste_text_pre_r">Каб выразаць ці ўставіць тэкст, адкрыйце меню TalkBack і двойчы націсніце параметры змянення.\n\nПаспрабуйце ўставіць слова ў тэкставае поле ўнізе.</string>
+  <string name="edit_box_hint_paste_text">Устаўце тэкст тут</string>
   <string name="read_by_character_title">Чытанне па сімвалах, словах і абзацах</string>
   <string name="read_by_character_text">Часам вам можа спатрэбіцца праслухаць тэкст па сімвалах.\n\nДля гэтага прагартайце трыма пальцамі ўправа, пакуль не пачуеце \"%1$s\". Пасля правядзіце па экране ўверх, каб перайсці да папярэдняга сімвала. Правядзіце па экране ўніз, каб перайсці да наступнага сімвала.\n\nПаспрабуйце. Правёўшы па экране трыма пальцамі ўправа, вы таксама зможаце чытаць па словах ці абзацах.</string>
   <string name="read_by_character_text_pre_r">Часам вам можа спатрэбіцца праслухаць тэкст па сімвалах.\n\nДля гэтага правядзіце пальцам уніз, а потым уверх, і вы пачуеце \"%1$s\". Пасля правядзіце па экране ўверх, каб перайсці да папярэдняга сімвала. Правядзіце па экране ўніз, каб перайсці да наступнага сімвала.\n\nПаспрабуйце. Правёўшы па экране пальцам уніз, а потым уверх, вы таксама зможаце чытаць па словах ці абзацах.</string>
@@ -813,5 +845,19 @@
   <string name="activated_view">%1$s – актывавана</string>
   <string name="talkback_inactive_title">Функцыя TalkBack выключана</string>
   <string name="talkback_inactive_message">Для выкарыстання гэтага дапаможніка патрабуецца ўключэнне функцыі TalkBack. Уключыце TalkBack перад яго запускам.</string>
+  <string name="watch_swipe_left_right_text">Праводзьце пальцам управа ці ўлева, каб перамяшчацца паміж элементамі</string>
+  <string name="watch_double_tap_text">Дакраніцеся двойчы, каб актываваць элемент</string>
+  <string name="watch_2_finger_scroll_text">Каб прагартаць, перацягніце 2 пальцамі</string>
+  <string name="title_pref_thick_border">Тоўстыя межы</string>
+  <string name="title_pref_category_border_color">Колер</string>
+  <string name="title_pref_default_color">Стандартны</string>
+  <string name="title_pref_red">Чырвоны</string>
+  <string name="title_pref_orange">Аранжавы</string>
+  <string name="title_pref_yellow">Жоўты</string>
+  <string name="title_pref_green">Зялёны</string>
+  <string name="title_pref_blue">Сіні</string>
+  <string name="title_pref_grey">Шэры</string>
   <string name="survey_closed">Апытанне закрыта</string>
+  <string name="character_recognition_text">Тэкст: %1$s</string>
+  <string name="title_image_caption">Апісаць відарыс</string>
 </resources>

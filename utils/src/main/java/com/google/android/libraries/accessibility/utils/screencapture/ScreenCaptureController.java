@@ -243,7 +243,8 @@ public class ScreenCaptureController {
         new CaptureListener() {
 
           @Override
-          public void onScreenCaptureFinished(Bitmap screenCapture, boolean isFormatSupported) {
+          public void onScreenCaptureFinished(
+              @Nullable Bitmap screenCapture, boolean isFormatSupported) {
             clientListener.onScreenCaptureFinished(screenCapture, isFormatSupported);
             deauthorizeCapture();
           }
@@ -412,7 +413,8 @@ public class ScreenCaptureController {
       return croppedBitmap;
     }
 
-    private void deliverResult(final Bitmap screenCapture, final boolean isFormatSupported) {
+    private void deliverResult(
+        @Nullable final Bitmap screenCapture, final boolean isFormatSupported) {
       virtualDisplay.release();
       virtualDisplay = null;
       imageReader.close();
@@ -457,6 +459,6 @@ public class ScreenCaptureController {
      * @param isFormatSupported {@code true} if the screen capture's format is supported {@code
      *     false} otherwise
      */
-    void onScreenCaptureFinished(Bitmap screenCapture, boolean isFormatSupported);
+    void onScreenCaptureFinished(@Nullable Bitmap screenCapture, boolean isFormatSupported);
   }
 }

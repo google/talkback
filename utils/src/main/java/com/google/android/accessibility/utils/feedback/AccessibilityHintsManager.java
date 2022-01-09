@@ -17,7 +17,6 @@
 package com.google.android.accessibility.utils.feedback;
 
 import android.os.Message;
-import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.utils.WeakReferenceHandler;
 import com.google.android.accessibility.utils.output.SpeechController;
 import com.google.android.accessibility.utils.output.SpeechControllerImpl;
@@ -34,7 +33,7 @@ public class AccessibilityHintsManager extends AbstractAccessibilityHintsManager
   private static final String TAG = "AccessibilityHintsManager";
 
   /** Timeout before reading a hint. */
-  @VisibleForTesting public static final long DELAY_HINT = 400; // ms
+  public static final long DELAY_HINT = 400; // ms
 
   private HintEventListener mHintEventListener;
 

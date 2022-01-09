@@ -62,9 +62,12 @@ public class ProcessorMagnification implements AccessibilityEventListener {
     }
     AccessibilityNodeInfoCompat sourceNode = AccessibilityNodeInfoUtils.toCompat(event.getSource());
     try {
-      // Keyboard isn't in the magnifier, so it’s unnecessary to recenter the magnifier if the focus
-      // is on the keyboard.
-      if (sourceNode == null || AccessibilityNodeInfoUtils.isKeyboard(event, sourceNode)) {
+      // It’s unnecessary to recenter the magnifier if the focus is on the keyboard because Keyboard
+      // isn't in the magnifier and when the magnifier is not magnifying.
+      // TODO: recenter magnifier for window magnification
+      if (sourceNode == null
+          || AccessibilityNodeInfoUtils.isKeyboard(event, sourceNode)
+          || magnificationController.getScale() <= 1) {
         return;
       }
       recenterMagnifier(sourceNode);

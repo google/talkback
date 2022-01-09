@@ -14,6 +14,7 @@
   <string name="voice_commands_language">ਭਾਸ਼ਾ</string>
   <string name="voice_commands_languages">ਭਾਸ਼ਾਵਾਂ</string>
   <string name="voice_commands_custom_actions">ਵਿਉਂਤੀਆਂ ਕਾਰਵਾਈਆਂ</string>
+  <string name="voice_commands_action">ਕਾਰਵਾਈ</string>
   <string name="voice_commands_quick_settings">ਤਤਕਾਲ ਸੈਟਿੰਗਾਂ</string>
   <string name="voice_commands_quick_setting">ਤਤਕਾਲ ਸੈਟਿੰਗ</string>
   <string name="voice_commands_dim">ਸਕ੍ਰੀਨ ਦੀ ਚਮਕ ਘਟਾਓ</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">ਮਾਫ਼ ਕਰਨਾ! ਇਹ ਵਿਸ਼ੇਸ਼ਤਾ ਤੁਹਾਡੇ ਡੀਵਾਈਸ \'ਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
   <string name="voice_commands_error">ਅਵਾਜ਼ੀ ਆਦੇਸ਼ ਦੀ ਪਛਾਣ ਕਰਦੇ ਸਮੇਂ ਗੜਬੜ ਹੋਈ</string>
   <string name="voice_commands_partial_result">ਇਸ ਆਦੇਸ਼ ਨੂੰ ਪਛਾਣਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ। ਸਾਰੇ ਆਦੇਸ਼ਾਂ ਦੀ ਸੂਚੀ ਲਈ \"%1$s\" ਬੋਲੋ।</string>
+  <string name="voice_commands_timeout">ਸਾਰੇ ਆਦੇਸ਼ਾਂ ਦੀ ਸੂਚੀ ਲਈ \"%1$s\" ਬੋਲੋ।</string>
   <string name="voice_commands_many_requests">ਕਿਰਪਾ ਕਰਕੇ ਕੁਝ ਸਮੇਂ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" ਸੈਟਿੰਗ ਚਾਲੂ ਨਹੀਂ ਹੈ</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" ਦੀ ਅਵਾਜ਼ੀ ਆਦੇਸ਼ ਵਜੋਂ ਪਛਾਣ ਨਹੀਂ ਹੋਈ।</string>
   <string name="voice_commands_label_saved">ਲੇਬਲ ਨੂੰ ਰੱਖਿਅਤ ਕੀਤਾ ਗਿਆ</string>
   <string name="voice_commands_no_actions_feedback">ਕੋਈ ਕਾਰਵਾਈ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">ਅਵਾਜ਼ੀ ਆਦੇਸ਼ ਦੀ ਰੂਪ-ਰੇਖਾ</string>
   <string name="voice_commands_help_description">ਅਵਾਜ਼ੀ ਆਦੇਸ਼ਾਂ ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਸੱਜੇ ਪਾਸੇ ਫਿਰ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ। ਆਦੇਸ਼ਾਂ ਦੀ ਇਸ ਸੂਚੀ ਲਈ \"ਮਦਦ\" ਜਾਂ \"ਮੈਂ ਕੀ ਕਹਾਂ?\" ਕਹੋ।</string>
   <string name="voice_commands_help_hint">ਬਿਹਤਰ ਨਤੀਜਿਆਂ ਲਈ, ਅੱਗੇ ਦਿੱਤੀਆਂ ਸਕ੍ਰੀਨਾਂ \'ਤੇ ਸੂਚੀਬੱਧ ਸ਼ਬਦ ਨੂੰ ਸਹੀ ਢੰਗ ਨਾਲ ਬੋਲੋ।</string>
+  <string name="voice_command_screen_locked_hint">ਸਕ੍ਰੀਨ ਲਾਕ ਹੋਣ \'ਤੇ ਅਵਾਜ਼ੀ ਆਦੇਸ਼ ਉਪਲਬਧ ਨਹੀਂ ਹੁੰਦੇ ਹਨ। ਇਸਦੀ ਬਜਾਏ, %1$s ਦੀ ਮਦਦ ਨਾਲ TalkBack ਮੀਨੂ ਵਰਤੋ।</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">ਮੌਜੂਦਾ ਸਕ੍ਰੀਨ \'ਤੇ ਸਮੱਗਰੀ ਪੜ੍ਹਨ ਦੇ ਆਪਣੇ ਤਰੀਕੇ ਨੂੰ ਬਦਲੋ</string>
   <string name="voice_commands_help_next">ਅੱਗੇ [ਸਿਰਲੇਖ]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">ਸਕ੍ਰੀਨ \'ਤੇ ਕਿਸੇ ਲਿਖਤ ਨੂੰ ਲੱਭਣ ਲਈ ਖੋਜ ਸ਼ਬਦ ਦਾਖਲ ਕਰੋ</string>
   <string name="voice_commands_help_text_editing_description">ਲਿਖਤ ਨੂੰ ਟਾਈਪ ਕਰੋ, ਚੁਣੋ ਅਤੇ ਕਾਪੀ ਕਰੋ</string>
   <string name="voice_commands_help_type_text">ਟਾਈਪ ਕਰੋ [ਠੀਕ ਹੈ]</string>
-  <string name="voice_commands_help_copy_description">ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਕਾਪੀ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਲਿਖਤ ਨੂੰ ਚੁਣ ਲਿਆ ਹੈ</string>
-  <string name="voice_commands_help_cut_description">ਪੱਕਾ ਕਰੋ ਕਿ ਤੁਸੀਂ ਕੱਟ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਲਿਖਤ ਨੂੰ ਚੁਣ ਲਿਆ ਹੈ</string>
+  <string name="voice_commands_help_copy_description">ਕਾਪੀ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਲਿਖਤ ਚੁਣੋ</string>
+  <string name="voice_commands_help_cut_description">ਕੱਟਣ ਤੋਂ ਪਹਿਲਾਂ ਲਿਖਤ ਚੁਣੋ</string>
+  <string name="voice_commands_help_delete_description">ਮਿਟਾਉਣ ਤੋਂ ਪਹਿਲਾਂ ਲਿਖਤ ਚੁਣੋ</string>
   <string name="voice_commands_help_device_navigation_title">ਡੀਵਾਈਸ ਨੈਵੀਗੇਸ਼ਨ</string>
   <string name="voice_commands_help_device_navigation_description">ਹੋਮ \'ਤੇ ਜਾਓ, ਪਿੱਛੇ ਜਾਓ, ਸੂਚਨਾਵਾਂ ਦਿਖਾਓ ਅਤੇ ਹੋਰ ਵੀ ਬਹੁਤ ਕੁਝ</string>
   <string name="voice_commands_help_overview_description">ਆਪਣੀਆਂ ਹਾਲੀਆ ਐਪਾਂ ਦੇਖੋ</string>

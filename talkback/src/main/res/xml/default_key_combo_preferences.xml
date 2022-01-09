@@ -82,6 +82,21 @@
         <com.google.android.accessibility.talkback.preference.KeyboardShortcutDialogPreference
             android:key="@string/keycombo_shortcut_global_suspend"
             android:title="@string/keycombo_menu_global_suspend" />
+        <com.google.android.accessibility.talkback.preference.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_play_pause_media"
+            android:title="@string/keycombo_menu_global_play_pause_media"/>
+        <com.google.android.accessibility.talkback.preference.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_scroll_forward_reading_menu"
+            android:title="@string/keycombo_menu_global_scroll_forward_reading_menu"/>
+        <com.google.android.accessibility.talkback.preference.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_scroll_backward_reading_menu"
+            android:title="@string/keycombo_menu_global_scroll_backward_reading_menu"/>
+        <com.google.android.accessibility.talkback.preference.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_adjust_reading_settings_previous"
+            android:title="@string/keycombo_menu_global_adjust_reading_settings_previous"/>
+        <com.google.android.accessibility.talkback.preference.KeyboardShortcutDialogPreference
+            android:key="@string/keycombo_shortcut_global_adjust_reading_setting_next"
+            android:title="@string/keycombo_menu_global_adjust_reading_setting_next"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/keycombo_menu_category_other">
         <com.google.android.accessibility.talkback.preference.KeyboardShortcutDialogPreference

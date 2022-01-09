@@ -14,6 +14,7 @@
   <string name="voice_commands_language">ენა</string>
   <string name="voice_commands_languages">ენები</string>
   <string name="voice_commands_custom_actions">მორგებული ქმედებები</string>
+  <string name="voice_commands_action">მოქმედება</string>
   <string name="voice_commands_quick_settings">სწრაფი პარამეტრები</string>
   <string name="voice_commands_quick_setting">სწრაფი პარამეტრი</string>
   <string name="voice_commands_dim">გაბუნდოვნება</string>
@@ -60,8 +61,8 @@
   <string name="voice_commands_dictate">კარნახი</string>
   <string name="voice_commands_write">წერა</string>
   <string name="voice_commands_Spell">შელოცვა</string>
-  <string name="voice_commands_talkback_settings">TalkBack პარამეტრები</string>
-  <string name="voice_commands_talkback_setting">TalkBack პარამეტრი</string>
+  <string name="voice_commands_talkback_settings">TalkBack-ის პარამეტრები</string>
+  <string name="voice_commands_talkback_setting">TalkBack-ის პარამეტრი</string>
   <string name="voice_commands_screen_search">ეკრანზე ძიება</string>
   <string name="voice_commands_search_on_screen">ეკრანზე ძიება</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">სამწუხაროდ, ეს ფუნქცია მიუწვდომელია თქვენს მოწყობილობაზე</string>
   <string name="voice_commands_error">შეცდომა ხმოვანი ბრძანების ამოცნობისას</string>
   <string name="voice_commands_partial_result">ამ ბრძანების ამოცნობა ვერ ხერხდება. თქვით „%1$s“, რათა მიიღოთ წვდომა ყველა ბრძანების სიაზე.</string>
+  <string name="voice_commands_timeout">თქვით „%1$s“, რათა მიიღოთ წვდომა ყველა ბრძანების სიაზე.</string>
   <string name="voice_commands_many_requests">გთხოვთ, ცადოთ ოდნავ მოგვიანებით</string>
-  <string name="voice_commands_setting_disabled">„%1$s“ პარამეტრი არ არის ჩართული</string>
   <string name="voice_commands_echo_feedback_not_recognized">„%1$s“ არ არის ამოცნობილი ხმოვან ბრძანებად.</string>
   <string name="voice_commands_label_saved">ლეიბლი შენახულია</string>
   <string name="voice_commands_no_actions_feedback">ქმედებები მიუწვდომელია</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">ხმოვანი ბრძანების გადახედვა</string>
   <string name="voice_commands_help_description">ხმოვანი ბრძანებების გამოსაყენებლად ჯერ გადაფურცლეთ მარჯვნივ, შემდეგ კი ზევით. თქვით „დამეხმარე“ ან „რისი თქმა შემიძლია“ ნებისმიერ დროს, რათა მიიღოთ ბრძანებათა ეს სია.</string>
   <string name="voice_commands_help_hint">საუკეთესო შედეგების მისაღებად, ზუსტად თქვით ის, რაც მითითებულია მომდევნო ეკრანებზე.</string>
+  <string name="voice_command_screen_locked_hint">ხმოვანი ბრძანებები არ არის ხელმისაწვდომი ჩაკეტილ ეკრანზე. მის ნაცვლად TalkBack მენიუს გამოსაყენებლად %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">შეცვალეთ კონტენტის წაკითხვის წესები მიმდინარე ეკრანზე</string>
   <string name="voice_commands_help_next">შემდეგი [heading]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">შეიყვანეთ საძიებო ტერმინი ტექსტის ეკრანზე მოსაძებნად</string>
   <string name="voice_commands_help_text_editing_description">აკრიფეთ, აირჩიეთ და დააკოპირეთ ტექსტი</string>
   <string name="voice_commands_help_type_text">აკრეფა [OK]</string>
-  <string name="voice_commands_help_copy_description">დარწმუნდით, რომ დაკოპირებამდე უკვე აირჩიეთ ტექსტი</string>
-  <string name="voice_commands_help_cut_description">დარწმუნდით, რომ ამოჭრამდე უკვე აირჩიეთ ტექსტი</string>
+  <string name="voice_commands_help_copy_description">კოპირებამდე ტექსტი მონიშნეთ</string>
+  <string name="voice_commands_help_cut_description">ამოჭრამდე ტექსტი მონიშნეთ</string>
+  <string name="voice_commands_help_delete_description">წაშლამდე ტექსტი მონიშნეთ</string>
   <string name="voice_commands_help_device_navigation_title">მოწყობილობაზე ნავიგაცია</string>
   <string name="voice_commands_help_device_navigation_description">დაუბრუნდით მთავარ გვერდს, გადადით უკან, გამოაჩინეთ შეტყობინებები და მეტი</string>
   <string name="voice_commands_help_overview_description">იხილეთ თქვენი ბოლოდროინდელი აპები</string>

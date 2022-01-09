@@ -18,9 +18,7 @@ package com.google.android.accessibility.talkback;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Build;
-import androidx.annotation.Nullable;
 import android.telephony.TelephonyManager;
 import com.google.android.accessibility.compositor.EventFilter;
 import com.google.android.accessibility.utils.AudioPlaybackMonitor;
@@ -34,7 +32,7 @@ public class VoiceActionMonitor implements EventFilter.VoiceActionDelegate {
   private final TalkBackService service;
   private final MediaRecorderMonitor mediaRecorderMonitor;
   private final AudioPlaybackMonitor audioPlaybackMonitor;
-  @Nullable private final CallStateMonitor callStateMonitor;
+  private final CallStateMonitor callStateMonitor;
 
   private final MediaRecorderMonitor.MicrophoneStateChangedListener microphoneStateChangedListener =
       new MediaRecorderMonitor.MicrophoneStateChangedListener() {
@@ -65,7 +63,7 @@ public class VoiceActionMonitor implements EventFilter.VoiceActionDelegate {
         }
       };
 
-  public VoiceActionMonitor(TalkBackService service) {
+  public VoiceActionMonitor(TalkBackService service, CallStateMonitor callStateMonitor) {
     this.service = service;
 
     mediaRecorderMonitor = new MediaRecorderMonitor(service);
@@ -74,12 +72,8 @@ public class VoiceActionMonitor implements EventFilter.VoiceActionDelegate {
     audioPlaybackMonitor = new AudioPlaybackMonitor(service);
     audioPlaybackMonitor.setAudioPlaybackStateChangedListener(audioPlaybackStateChangedListener);
 
-    if (service.getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY)) {
-      callStateMonitor = new CallStateMonitor(service);
-      callStateMonitor.addCallStateChangedListener(callStateChangedListener);
-    } else {
-      callStateMonitor = null;
-    }
+    this.callStateMonitor = callStateMonitor;
+    callStateMonitor.addCallStateChangedListener(callStateChangedListener);
   }
 
   /** Used for test only. Updates phone call state in instrumentation test. */
@@ -137,18 +131,12 @@ public class VoiceActionMonitor implements EventFilter.VoiceActionDelegate {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
       audioPlaybackMonitor.onResumeInfrastructure();
     }
-    if (callStateMonitor != null) {
-      callStateMonitor.startMonitor();
-    }
   }
 
   public void onSuspendInfrastructure() {
     mediaRecorderMonitor.onSuspendInfrastructure();
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
       audioPlaybackMonitor.onSuspendInfrastructure();
-    }
-    if (callStateMonitor != null) {
-      callStateMonitor.stopMonitor();
     }
   }
 

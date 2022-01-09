@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Keel</string>
   <string name="voice_commands_languages">Keeled</string>
   <string name="voice_commands_custom_actions">kohandatud toimingud</string>
+  <string name="voice_commands_action">Toiming</string>
   <string name="voice_commands_quick_settings">Kiirseaded</string>
   <string name="voice_commands_quick_setting">Kiirseaded</string>
   <string name="voice_commands_dim">hämarda</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Kahjuks pole see funktsioon teie seadmes saadaval</string>
   <string name="voice_commands_error">Viga häälkäskluse tuvastamisel</string>
   <string name="voice_commands_partial_result">Ei suuda seda käsku tuvastada. Öelge „%1$s”, et näha kõikide käskude loendit.</string>
+  <string name="voice_commands_timeout">Öelge „%1$s”, et näha kõikide käskude loendit.</string>
   <string name="voice_commands_many_requests">Proovige hetke pärast uuesti</string>
-  <string name="voice_commands_setting_disabled">Seade „%1$s“ ei ole lubatud</string>
   <string name="voice_commands_echo_feedback_not_recognized">Fraasi „%1$s” ei tuvastatud häälkäsklusena.</string>
   <string name="voice_commands_label_saved">Silt on salvestatud</string>
   <string name="voice_commands_no_actions_feedback">Toiminguid ei ole saadaval</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Häälkäskluste ülevaade</string>
   <string name="voice_commands_help_description">Häälkäskluste kasutamiseks pühkige paremale ja siis üles. Käskluste loendi nägemiseks öelge mis tahes ajal „Abi” või „Mida saan öelda?”.</string>
   <string name="voice_commands_help_hint">Parimate tulemuste saamiseks öelge täpselt see sõna, mis on kirjas järgmistel ekraanikuvadel.</string>
+  <string name="voice_command_screen_locked_hint">Häälkäsklused ei ole saadaval, kui ekraan on lukustatud. Selle asemel TalkBacki menüü kasutamiseks %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Muutke seda, kuidas sisu praegusel ekraanikuval loete</string>
   <string name="voice_commands_help_next">Järgmine [pealkiri]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Otsingutermini sisestamine, et leida tekst ekraanikuvalt</string>
   <string name="voice_commands_help_text_editing_description">Teksti sisestamine, valimine ja kopeerimine</string>
   <string name="voice_commands_help_type_text">Sisesta [OK]</string>
-  <string name="voice_commands_help_copy_description">Veenduge, et enne kopeerimist oleks tekst valitud</string>
-  <string name="voice_commands_help_cut_description">Veenduge, et enne lõikamist oleks tekst valitud</string>
+  <string name="voice_commands_help_copy_description">Valige enne kopeerimist tekst</string>
+  <string name="voice_commands_help_cut_description">Valige enne lõikamist tekst</string>
+  <string name="voice_commands_help_delete_description">Valige enne kustutamist tekst</string>
   <string name="voice_commands_help_device_navigation_title">Seadmes navigeerimine</string>
   <string name="voice_commands_help_device_navigation_description">Avakuvale liikumine, tagasi liikumine, märguannete kuvamine ja muud</string>
   <string name="voice_commands_help_overview_description">Hiljutiste rakenduste nägemine</string>

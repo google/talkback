@@ -38,10 +38,10 @@ import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.preference.TalkbackBaseFragment;
 import com.google.android.accessibility.talkback.speech.SpeakPasswordsManager;
 import com.google.android.accessibility.talkback.training.OnboardingInitiator;
-import com.google.android.accessibility.utils.BasePreferencesActivity;
 import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.PreferenceSettingsUtils;
+import com.google.android.accessibility.utils.PreferencesActivity;
 import com.google.android.accessibility.utils.RemoteIntentUtils;
 import com.google.android.accessibility.utils.SettingsUtils;
 import java.util.List;
@@ -57,7 +57,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  * installed talkback onto a clean device with older bundled talkback.
  * REFERTO
  */
-public class TalkBackPreferencesActivity extends BasePreferencesActivity {
+public class TalkBackPreferencesActivity extends PreferencesActivity {
 
   private static final String TAG = "PreferencesActivity";
 
@@ -65,7 +65,9 @@ public class TalkBackPreferencesActivity extends BasePreferencesActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // Request the HaTS.
-    new HatsSurveyRequester(this).requestSurvey();
+    if (supportHatsSurvey()) {
+      new HatsSurveyRequester(this).requestSurvey();
+    }
   }
 
   @Override
@@ -75,7 +77,9 @@ public class TalkBackPreferencesActivity extends BasePreferencesActivity {
 
   @Override
   protected boolean supportHatsSurvey() {
-    return true;
+    // HaTS requests Theme.AppCompat to display the survey, so disable it if the setting activity is
+    // using the material next theme.
+    return !FeatureSupport.supportSettingsTheme();
   }
 
   /** Fragment that holds the preference user interface controls. */

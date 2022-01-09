@@ -3,7 +3,7 @@
   <string name="talkback_service_description">Ha be van kapcsolva a TalkBack, hangos visszajelzést biztosít, így eszközét anélkül használhatja, hogy rá kellene néznie a kijelzőre. Ez hasznos lehet a vak és gyengénlátó személyek számára.\n\nNavigáció a TalkBack használatával:\n• Az egyes elemek között ujja gyors jobbra, illetve balra csúsztatásával válthat.\n• A kívánt elem aktiválásához koppintson rá duplán.\n• Görgetéshez húzza két ujját a kijelzőn.\n\nA TalkBack kikapcsolása:\n• Koppintson a kapcsolóra, amely körül ekkor zöld körvonal jelenik meg. Ezután koppintson duplán a kapcsolóra.\n• A megerősítő üzenetnél koppintson az OK gombra. Ezután koppintson duplán az OK gombra.</string>
   <string name="talkback_service_html_description">Ha be van kapcsolva a TalkBack, hangos visszajelzést ad, így anélkül használhatja eszközét, hogy a képernyőre kellene néznie. A TalkBack olyan helyzetekre készült, amikor nehezen látható a képernyő, illetve olyan személyeknek, akik nem látják jól a képernyőt.&lt;br&gt;&lt;br&gt;&lt;b&gt;Hogyan használható a TalkBack?&lt;/b&gt;&lt;br&gt;• Jobbra, illetve balra csúsztatással válthat az egyes elemek között.&lt;br&gt;• A kívánt elem aktiválásához koppintson rá duplán.&lt;br&gt;• Görgetéshez húzza két ujját a kijelzőn.&lt;br&gt;&lt;br&gt;&lt;b&gt;Hogyan lehet kikapcsolni a TalkBack szolgáltatást?&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Hangerőgombok:&lt;/b&gt; Tartsa lenyomva mindkét hangerőgombot néhány másodpercig.&lt;br&gt;&lt;br&gt;&lt;b&gt;Beállítások&lt;/b&gt;&lt;br&gt;• Koppintson &lt;b&gt;A Talkback használata&lt;/b&gt; kapcsolóra. Ekkor egy zöld körvonal jelenik meg. Koppintson duplán a kapcsolóra.&lt;br&gt;• A megerősítő üzenetnél koppintson a Leállítás gombra. Ezután koppintson duplán a Leállítás gombra.</string>
   <string name="talkback_service_summary">A képernyő elemeinek felolvasása</string>
-  <string name="talkback_preferences_title">A Talkback beállításai</string>
+  <string name="talkback_preferences_title">A TalkBack beállításai</string>
   <string name="tts_preferences_title">A szövegfelolvasás beállításai</string>
   <string name="language_options">Nyelvek</string>
   <string name="spoken_language">Beszélt nyelv</string>
@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Verzió: %1$s</string>
   <string name="label_manager_summary_title">Egyéni címkék kezelése</string>
   <string name="label_manager_package_title">%1$s-címkék kezelése</string>
+  <string name="manage_label">Címke kezelése</string>
   <string name="label_manager_no_packages_message">Jelenleg nincsenek egyéni címkék. Létrehozhat egyet, ha egy címke nélküli képhez navigál, majd hozzáad egy címkét a TalkBack-menüből.</string>
   <string name="label_manager_timestamp_text">Utolsó módosítás: %1$s</string>
   <string name="search_dialog_label">Keresés: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Felfedezés érintéssel</string>
   <string name="title_pref_category_touch_exploration">Navigáció</string>
   <string name="title_pref_category_controls">Vezérlők</string>
-  <string name="title_pref_single_tap">Egykoppintásos aktiválás</string>
+  <string name="title_pref_single_tap">Koppintson egyszer az aktiváláshoz</string>
   <string name="title_pref_show_context_menu_as_list">Helyi menü megjelenítése listaként</string>
-  <string name="summary_pref_single_tap">Az aktiváláshoz koppintson egyszer az éppen kijelölt elemre (kísérleti funkció)</string>
+  <string name="summary_pref_single_tap">Az aktiváláshoz koppintson egyszer az éppen kijelölt elemre</string>
   <string name="title_pref_shake_to_read_threshold">Folyamatos olvasás indítása rázással</string>
   <string name="pref_verbosity_title">Részletesség</string>
   <string name="pref_punctuation_title">Központozás</string>
+  <string name="title_pref_category_manage_focus_indicator">Fókuszjelző személyre szabása</string>
   <string name="title_pref_category_manage_gestures">Kézmozdulatok testreszabása</string>
   <string name="title_pref_manage_labels">Egyéni címkék</string>
   <string name="title_pref_manage_customize_menus">Menük személyre szabása</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Súgó és visszajelzés</string>
   <string name="title_pref_category_tutorial_and_help">Útmutató és súgó</string>
   <string name="title_pref_category_advanced">Speciális</string>
+  <string name="title_pref_category_typing">Gépelés és billentyűzet</string>
   <string name="title_pref_category_legal_and_privacy">Jogok és adatvédelem</string>
   <string name="title_pref_advanced_settings">Speciális beállítások</string>
   <string name="reset_gesture_settings_title">Kézmozdulatok beállításainak visszaállítása</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Legutóbbi alkalmazások</string>
   <string name="keycombo_menu_global_notifications">Értesítések</string>
   <string name="keycombo_menu_global_suspend">A TalkBack szüneteltetése/folytatása</string>
+  <string name="keycombo_menu_global_play_pause_media">Médiatartalom lejátszása/szüneteltetése</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Következő felolvasásvezérlő kiválasztása</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Előző felolvasásvezérlő kiválasztása</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Felolvasásvezérlés növelése</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Felolvasásvezérlés csökkentése</string>
   <string name="keycombo_menu_category_granularity">Navigáció</string>
   <string name="keycombo_menu_granularity_increase">Következő navigációs beállítás</string>
   <string name="keycombo_menu_granularity_decrease">Előző navigációs beállítás</string>
@@ -226,7 +234,8 @@
   <string name="keycombo_assign_dialog_clear">Gyorsparancs törlése</string>
   <string name="cannot_copy_feedback">Nem található másolható szöveg. Előbb jelölje ki a kívánt szövegrészt.</string>
   <string name="cannot_paste_feedback">Nem található beilleszthető szöveg. Előbb másolja vágólapra a kívánt szövegrészt.</string>
-  <string name="cannot_cut_feedback">Nem található kivágható szöveg. Előbb jelölje ki a kívánt szövegrészt.</string>
+  <string name="cannot_cut_feedback">Nem található kivágandó szöveg. Előbb jelölje ki a kívánt szövegrészt.</string>
+  <string name="cannot_delete_feedback">Nem található törlendő szöveg. Előbb jelölje ki a kívánt szövegrészt.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Biztosan visszaállítja a billentyűzetkiosztás billentyűkódjait az alapértelmezett értékekre? Felhívjuk figyelmét, hogy ezt a műveletet nem lehet visszavonni.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Visszaállítás</string>
   <string name="override_keycombo">A kombináció már használatban van</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Hangmagasság-változtatások használata</string>
   <string name="title_pref_keyboard_echo">Leütött billentyűk kimondása</string>
   <string name="pref_node_desc_order_title">Elemleírás sorrendje</string>
-  <string name="summaryOn_pref_intonation">A szövegbevitel visszajelzése kisebb hangmagassággal történjen</string>
+  <string name="summaryOn_pref_intonation">A billentyűzettel törölt szöveg magasabb hangszínben történő kimondása</string>
   <string name="summaryOff_pref_intonation">Ne módosítsa a hangmagasságot beszéd közben</string>
   <string name="title_pref_brailleime">Braille-billentyűzet</string>
   <string name="title_pref_category_feedback_settings">Egyéb visszajelzés</string>
@@ -244,7 +253,7 @@
   <string name="summary_pref_use_audio_focus">A hangerő csökkentése beszéd közben</string>
   <string name="title_pref_soundback_volume">Visszajelzés hangereje</string>
   <string name="title_pref_two_volume_button_long_click">„TalkBack felfüggesztése és folytatása” gyorsparancs</string>
-  <string name="title_pref_dim_volume_three_clicks">Képernyő billentyűparancsának elrejtése</string>
+  <string name="title_pref_dim_volume_three_clicks">Képernyő elrejtése gyorsparancs</string>
   <string name="title_pref_category_miscellaneous_settings">Egyéb</string>
   <string name="title_pref_category_developer_settings">Fejlesztői beállítások</string>
   <string name="title_activity_dump_a11y_event">Válassza ki a naplózni kívánt eseményeket</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Csomópont-hierarchia hibakeresés engedélyezése</string>
   <string name="summary_pref_tree_debug_tv">A hangalapú keresés gombjának használata a keresés helyett a csomópontfa nyomtatására</string>
   <string name="title_pref_performance_stats">Teljesítménytatisztika engedélyezése</string>
+  <string name="title_pref_log_overlay">Hibakeresési naplózás fedvény engedélyezése</string>
   <string name="title_pref_resume_talkback">Folytatás felfüggesztett állapotból</string>
+  <string name="title_pref_typing_confirmation">Gépeléspreferencia</string>
   <string name="title_pref_multi_finger_gesture">Többujjas kézmozdulatok engedélyezése</string>
   <string name="screen_dimmed">Képernyő elrejtve</string>
   <string name="screen_brightness_restored">Képernyő megjelenítve</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Görgetés lefelé</string>
   <string name="shortcut_scroll_left">Görgetés balra</string>
   <string name="shortcut_scroll_right">Görgetés jobbra</string>
+  <string name="shortcut_next_window">Következő ablak</string>
+  <string name="shortcut_previous_window">Előző ablak</string>
   <string name="shortcut_back">Vissza</string>
   <string name="shortcut_home">Főoldal</string>
   <string name="shortcut_overview">Áttekintés</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Képernyő elrejtése vagy megjelenítése</string>
   <string name="title_show_screen_search">Közvetlen keresés</string>
   <string name="title_show_voice_commands">Hangalapú utasítások</string>
+  <string name="talkback_show_talkback_settings">A TalkBack beállításai</string>
   <string name="title_other_web_navigation">Egyéb lehetőségek a webes navigációhoz</string>
   <string name="title_granularity_default">Alapértelmezett navigáció</string>
   <string name="title_seek_bar_edit">Csúszka szintjének módosítása</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">A hangjával vezérelheti a TalkBack szolgáltatást</string>
   <string name="summary_show_hide_screen">Elrejti a kijelzőt, hogy a képernyőt ne láthassák mások nyilvános helyeken. A kijelző elrejtése után állítsa vissza a normál állapotra.</string>
   <string name="summary_talkback_preferences">A TalkBack beállításainak megnyitása</string>
-  <string name="summary_system_actions">Megnyithatja az összes alkalmazást és a gyorsbeállításokat, illetve osztott képernyőt használhat.</string>
+  <string name="summary_system_actions">Ugrás az összes alkalmazáshoz és a Gyorsbeállításokba</string>
   <string name="summary_tts_settings">Megnyitja a szövegfelolvasáshoz tartozó beállításokat.</string>
   <string name="summary_pause_feedback">Kikapcsolja a TalkBack hangos visszajelzését.</string>
   <string name="not_editable">Nem szerkeszthető</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Egyszerre csak egy szót olvas fel</string>
   <string name="summary_lines">Egyszerre csak egy sort olvas fel</string>
   <string name="summary_paragraphs">Egyszerre csak egy bekezdést olvas fel</string>
+  <string name="summary_windows">Ugrás más ablakokra, például a hangerőszabályzókhoz vagy a navigációs sávra</string>
   <string name="summary_headings">Ugrás a címsorok között</string>
   <string name="summary_controls">Ugrás azon elemek (például gombok, jelölőnégyzetek és szövegmezők) között, amelyekkel műveletek végezhetők</string>
   <string name="summary_links">Ugrás a linkek között</string>
@@ -408,7 +423,9 @@
   <string name="summary_vibration_feedback">Rezgést érezhet a műveleteknél (pl. elem kiválasztásakor). Ez nincs hatással az alkalmazásokból vagy a rendszertől származó rezgésekre.</string>
   <string name="summary_hide_screen">Elrejti a kijelzőt, hogy a képernyőt ne láthassák mások nyilvános helyeken.</string>
   <string name="summary_audio_ducking">Csökkentheti az egyéb hangok hangerejét a TalkBack felolvasása közben.</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Görgetés előre vagy vissza</string>
+  <string name="summary_support_change_a11y_volume">Kisegítő lehetőségek hangerejének növelése vagy csökkentése</string>
+  <string name="summary_image_caption">Automatikus leírás kérése erről a képről</string>
   <string name="value_direction_up">fel</string>
   <string name="value_direction_down">le</string>
   <string name="value_direction_left">balra</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Kétujjas dupla koppintás és nyomva tartás</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Háromujjas dupla koppintás és nyomva tartás</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Négyujjas dupla kopp. és nyomva tartás</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Kétujjas tripla koppintás és lenyomva tartás</string>
+  <string name="seekbar_hint_2gesture">„%1$s” vagy „%2$s” a beállításhoz</string>
+  <string name="seekbar_hint_1gesture">„%1$s” a beállításhoz</string>
   <string name="gesture_name_unknown">Ismeretlen kézmozdulat</string>
   <string name="gesture_name_pass_through">Váltás a rendszerkézmozdulat használatára</string>
   <string name="gesture_name_touch_explore">Felfedezés érintéssel</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Dupla koppintás és lenyomva tartás</string>
   <string name="gesture_name_2finger_tap_hold">Kétujjas koppintás és lenyomva tartás</string>
   <string name="gesture_name_3finger_tap_hold">Háromujjas koppintás és lenyomva tartás</string>
+  <string name="gesture_name_2finger_3tap_hold">Kétujjas tripla koppintás és lenyomva tartás</string>
   <string name="gesture_name_3finger_3tap_hold">Háromujjas tripla koppintás és lenyomva tartás</string>
   <string name="title_pref_shortcut_fingerprint_up">Csúsztatás fel az ujjlenyomat-érzékelőn</string>
   <string name="title_pref_shortcut_fingerprint_down">Csúsztatás le az ujjlenyomat-érzékelőn</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Amikor a képernyő bekapcsol</string>
   <string name="value_resume_keyguard">Amikor a lezárási képernyő látszik</string>
   <string name="value_resume_manual">Csak értesítésből</string>
+  <string name="value_type_confirmation_double_tap">A kiválasztáshoz tartsa ujját a billentyűn, majd koppintson duplán</string>
+  <string name="value_type_confirmation_lift_to_type">A kiválasztáshoz tartsa ujját a billentyűn, majd emelje fel</string>
   <string name="value_shake_to_read_disabled">Letiltva</string>
   <string name="value_shake_to_read_threshold_very_light">Nagyon enyhe</string>
   <string name="value_shake_to_read_threshold_light">Enyhe</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Mindig mondja ki a leütött billentyűket</string>
   <string name="value_keyboard_echo_softkeys">Csak a képernyő-billentyűzetnél</string>
   <string name="value_keyboard_echo_never">Soha ne mondja ki a leütött billentyűket</string>
+  <string name="title_pref_keyboard_echo_on_screen">Leütött billentyűk kimondása: Képernyő-billentyűzet</string>
+  <string name="title_pref_keyboard_echo_physical">Leütött billentyűk kimondása: Fizikai billentyűzet</string>
+  <string name="value_keyboard_echo_none">Nincs</string>
+  <string name="value_keyboard_echo_characters_only">Karakterek</string>
+  <string name="value_keyboard_echo_words_only">Szavak</string>
+  <string name="value_keyboard_echo_characters_and_words">Karakterek és szavak</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Állapot, név, típus</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Típus, név, állapot</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Név, típus, állapot</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Biztosan bekapcsolja a csomópont-hierarchia hibakeresést?\n\nA csomópont-hierarchia hibakeresés feltárja a képernyő tartalmát az eszköz naplóinak, amelyeket más alkalmazások is olvashatnak.</string>
   <string name="dialog_title_enable_performance_stats">Engedélyezi a Teljesítménystatisztika funkciót?</string>
   <string name="dialog_message_enable_performance_stats">Biztos benne, hogy bekapcsolja a Teljesítménystatisztika funkciót?\n\nElőfordulhat, hogy a Teljesítménystatisztika funkció használata nagyobb memória- és áramfogyasztással jár.</string>
+  <string name="title_request_phone_permission">Engedélyezi a telefonhoz való hozzáférést?</string>
+  <string name="message_request_phone_permission">A TalkBack ennek segítségével csökkentheti a hívás közben megjelenő közlemények számát</string>
+  <string name="continue_button">Tovább</string>
   <string name="label_talkback_context_menu">TalkBack globális helyi menü</string>
   <string name="permission_talkback_label">TalkBack irányítása</string>
   <string name="permission_talkback_desc">Engedély a kézmozdulatok TalkBacknek való elküldésére és a hangos visszajelzés folytatására.</string>
-  <string name="permission_labeling_label">Egyéni TalkBack-címkék kezelése</string>
-  <string name="permission_labeling_desc">Engedély a TalkBack által kimondott egyéni címkék eléréséhez, módosításához és törléséhez.</string>
   <string name="links">Linkek</string>
   <string name="end_of_text">Vége</string>
   <string name="start_of_page">Nincs előző %1$s</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Központozás</string>
   <string name="title_pref_selector_granularity">Navigáció</string>
   <string name="title_pref_selector_audio_focus">Hang automatikus halkítása</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Görgetés</string>
+  <string name="title_pref_a11y_volume">Kisegítő lehetőségek hangereje</string>
   <string name="title_pref_selector_adjustable_widget_slider">Csúszka módosítása</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Érték módosítása</string>
   <string name="title_pref_speak_passwords_without_headphones">Jelszavak felolvasása</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Hangalapú utasítások használata</string>
   <string name="dialog_title_pass_through_mode">TalkBack-kézmozdulatok helyett a rendszer kézmozdulatai</string>
   <string name="dialog_message_pass_through_mode">Amikor csengő hangját hallja, használhat olyan rendszerkézmozdulatokat, amelyeket a TalkBack nem támogat. Ezeket nevezik átadott kézmozdulatoknak.</string>
-  <string name="hint_type_search_term">Írja be a keresési kifejezést</string>
+  <string name="hint_type_search_term">Keresési kifejezés</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">A TalkBack értesítési csatornája</string>
   <string name="pref_selector_summary">%1$s a beállítás kiválasztásához. Majd %2$s a beállítás módosításához.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Szöveg kivágásához koppintson duplán három ujjal, és tartsa ujjait a képernyőn.\n\nSzöveg beillesztéséhez koppintson háromszor három ujjával.\n\nIllesszen be valamilyen szót az alábbi szövegmezőbe.</string>
   <string name="copy_text_pre_r">Miután kijelölte a kívánt szöveget, a TalkBack-menüben vágólapra másolhatja. Csúsztasson lefelé, majd jobbra a TalkBack-menü megnyitásához. Koppintson duplán a Szerkesztési beállítások, majd a Másolás lehetőségre.\n\nMásolja vágólapra valamelyik szót az alábbi szövegmezőből.</string>
   <string name="cut_paste_text_pre_r">Szöveg kivágásához vagy beillesztéséhez nyissa meg a TalkBack-menüt, és koppintson duplán a Szerkesztési beállítások lehetőségre.\n\nIllesszen be valamilyen szót az alábbi szövegmezőbe.</string>
+  <string name="edit_box_hint_paste_text">Ide illesszen be szöveget</string>
   <string name="read_by_character_title">Felolvasás karakterenként, szavanként vagy bekezdésenként</string>
   <string name="read_by_character_text">Előfordulhat, hogy karakterenként szeretné meghallgatni az adott szöveget.\n\nEhhez csúsztasson jobbra három ujjával, amíg azt nem hallja, hogy „%1$s”. Ezután csúsztasson felfelé a navigáció fókuszának egy karakterrel hátrébb helyezéséhez. Csúsztasson lefelé a navigáció fókuszának egy karakterrel előrébb helyezéséhez.\n\nPróbálja ki most. Ha jobbra csúsztat három ujjal, a szavankénti vagy a bekezdésenkénti felolvasást is választhatja.</string>
   <string name="read_by_character_text_pre_r">Előfordulhat, hogy karakterenként szeretné meghallgatni az adott szöveget.\n\nEhhez csúsztasson lefelé, majd felfelé, amíg azt nem hallja, hogy „%1$s”. Ezután csúsztasson felfelé a navigáció fókuszának egy karakterrel hátrébb helyezéséhez. Csúsztasson lefelé a navigáció fókuszának egy karakterrel előrébb helyezéséhez.\n\nPróbálja ki most. Ha lefelé, majd felfelé csúsztat, a szavankénti vagy a bekezdésenkénti felolvasást is választhatja.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">%1$s aktiválva</string>
   <string name="talkback_inactive_title">A TalkBack ki van kapcsolva</string>
   <string name="talkback_inactive_message">Az útmutató működéséhez a TalkBack funkció engedélyezése szükséges. Kérjük, az útmutató elindítása előtt kapcsolja be a TalkBack funkciót.</string>
+  <string name="watch_swipe_left_right_text">A képernyők között jobbra és balra csúsztatással válthat.</string>
+  <string name="watch_double_tap_text">Koppintson duplán a kívánt elem aktiválásához</string>
+  <string name="watch_2_finger_scroll_text">Húzza két ujját a görgetéshez</string>
+  <string name="title_pref_thick_border">Vastag szegélyek</string>
+  <string name="title_pref_category_border_color">Szín</string>
+  <string name="title_pref_default_color">Alapértelmezett</string>
+  <string name="title_pref_red">Piros</string>
+  <string name="title_pref_orange">Narancssárga</string>
+  <string name="title_pref_yellow">Sárga</string>
+  <string name="title_pref_green">Zöld</string>
+  <string name="title_pref_blue">Kék</string>
+  <string name="title_pref_grey">Szürke</string>
   <string name="survey_closed">Felmérés lezárva</string>
+  <string name="character_recognition_text">Szöveg: %1$s</string>
+  <string name="title_image_caption">Képleírás</string>
 </resources>

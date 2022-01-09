@@ -20,12 +20,12 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import androidx.preference.PreferenceFragmentCompat;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.BasePreferencesActivity;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.PreferencesActivity;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 
 /** Activity used to set TalkBack sound and vibration preferences. */
-public class TalkBackSoundAndVibrationPreferencesActivity extends BasePreferencesActivity {
+public class TalkBackSoundAndVibrationPreferencesActivity extends PreferencesActivity {
 
   /** Preferences managed by this activity. */
   private SharedPreferences prefs;

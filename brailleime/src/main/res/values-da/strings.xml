@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Opdaterer punkternes placering. Lad os starte med at registrere punkterne på din venstre hånd. Hold de tre midterste fingre på din venstre hånd nede på skærmen.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Opdaterer punkternes placering. Lad os starte med at registrere punkterne på din højre hånd. Hold de tre midterste fingre på din højre hånd nede på skærmen.</string>
   <string name="calibration_finish_announcement">Punkternes placering er opdateret</string>
+  <string name="remaining_calibration_finish_announcement">Alle punktplaceringer er opdateret</string>
   <string name="calibration_step2_hold_right_finger_announcement">Placeringerne for punkt 1, 2 og 3 er opdateret. Lad os nu registrere punkterne på din højre hånd. Hold de tre midterste fingre på din højre hånd nede på skærmen.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Placeringerne for punkt 1, 2 og 3 er opdateret. Lad os nu registrere punkterne på din venstre hånd. Hold de tre midterste fingre på din venstre hånd nede på skærmen.</string>
   <string name="calibration_fail_announcement">Punkternes placering kunne ikke opdateres. Hold 6 fingre nede på skærmen. Prøv derefter igen.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">Spansk</string>
   <string name="code_user_facing_name_ar">Arabisk</string>
+  <string name="code_user_facing_name_fr">Fransk</string>
   <string name="title_pref_accumulate_presses">Medtag alle punkter, der trykkes på</string>
   <string name="summary_pref_accumulate_presses">Hvert punkt, der trykkes på, er en del af inputtet, selv hvis punktet slippes inden andre punkter</string>
   <string name="title_pref_reverse_dots">Omvendte punkter</string>
   <string name="summary_pref_reverse_dots">Byt rundt på punktplaceringer, så punkterne 1 og 4 f.eks. skifter plads</string>
-  <string name="typing_echo_list_preference_title">Indtastningsfeedback (indtastningsekko)</string>
-  <string name="typing_echo_preference_label_characters">Læs alle bogstaver og tal</string>
-  <string name="typing_echo_preference_label_words">Læs kun ord</string>
   <string name="context_menu_title">Indstillinger for braille-tastatur</string>
   <string name="context_menu_typing_language_selection">Skift indtastningssprog</string>
   <string name="context_menu_typing_language_selection_summary">Du bruger i øjeblikket %s</string>

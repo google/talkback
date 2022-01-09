@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Language</string>
   <string name="voice_commands_languages">Languages</string>
   <string name="voice_commands_custom_actions">custom actions</string>
+  <string name="voice_commands_action">Aðgerð</string>
   <string name="voice_commands_quick_settings">Flýtistillingar</string>
-  <string name="voice_commands_quick_setting">Quick setting</string>
+  <string name="voice_commands_quick_setting">Flýtistilling</string>
   <string name="voice_commands_dim">dim</string>
   <string name="voice_commands_darken">darken</string>
   <string name="voice_commands_brighten_screen">brighten screen</string>
@@ -60,8 +61,8 @@
   <string name="voice_commands_dictate">Lesa upp</string>
   <string name="voice_commands_write">Write</string>
   <string name="voice_commands_Spell">Spell</string>
-  <string name="voice_commands_talkback_settings">TalkBack Settings</string>
-  <string name="voice_commands_talkback_setting">TalkBack Setting</string>
+  <string name="voice_commands_talkback_settings">TalkBack stillingar</string>
+  <string name="voice_commands_talkback_setting">TalkBack stilling</string>
   <string name="voice_commands_screen_search">Screen search</string>
   <string name="voice_commands_search_on_screen">Search on screen</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">Þú þarft að veita leyfi fyrir notkun hljóðnemans til að nota þennan eiginleika.</string>
   <string name="voice_commands_no_voice_recognition_ability">Því miður er þessi eiginleiki ekki í boði í tækinu þínu</string>
   <string name="voice_commands_error">Villa kom upp við að greina raddskipun</string>
-  <string name="voice_commands_partial_result">Þessi skipun þekkist ekki. Segðu „%1$s“ til að opna lista yfir allar skipanir.</string>
+  <string name="voice_commands_partial_result">Þessi skipun þekkist ekki. Segðu: „%1$s“ til að opna lista yfir allar skipanir.</string>
+  <string name="voice_commands_timeout">Segðu: „%1$s“ til að opna lista yfir allar skipanir.</string>
   <string name="voice_commands_many_requests">Reyndu aftur eftir smástund</string>
-  <string name="voice_commands_setting_disabled">Stillingin „%1$s“ er ekki virk</string>
   <string name="voice_commands_echo_feedback_not_recognized">„%1$s“ þekkist ekki sem raddskipun.</string>
   <string name="voice_commands_label_saved">Merki vistað</string>
   <string name="voice_commands_no_actions_feedback">Engar aðgerðir í boði</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Yfirlit raddskipana</string>
   <string name="voice_commands_help_description">Strjúktu til hægri og svo upp til að nota raddskipanir. Segðu: „Help“ eða „What can I say?“ hvenær sem er til að opna listann yfir skipanir.</string>
   <string name="voice_commands_help_hint">Til að árangurinn verði sem bestur skaltu segja orðrétt það sem birtist á eftirfarandi skjáum.</string>
+  <string name="voice_command_screen_locked_hint">Ekki er hægt að nota raddskipanir þegar skjárinn er læstur. %1$s til að nota valmynd TalkBack.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Breyttu því hvernig þú lest efni á núverandi skjá</string>
   <string name="voice_commands_help_next">Næsta [fyrirsögn]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Sláðu inn leitarorð til að finna textann á skjánum</string>
   <string name="voice_commands_help_text_editing_description">Sláðu inn, veldu og afritaðu texta</string>
   <string name="voice_commands_help_type_text">Slá inn [Í lagi]</string>
-  <string name="voice_commands_help_copy_description">Vertu viss um að hafa valið texta áður en þú afritar</string>
-  <string name="voice_commands_help_cut_description">Vertu viss um að hafa valið texta áður en þú klippir</string>
+  <string name="voice_commands_help_copy_description">Veldu texta áður en þú afritar</string>
+  <string name="voice_commands_help_cut_description">Veldu texta áður en þú klippir</string>
+  <string name="voice_commands_help_delete_description">Veldu texta áður en þú eyðir</string>
   <string name="voice_commands_help_device_navigation_title">Flett í tæki</string>
   <string name="voice_commands_help_device_navigation_description">Farðu á upphafsskjáinn, til baka, birtu tilkynningar og fleira</string>
   <string name="voice_commands_help_overview_description">Skoða nýleg forrit</string>

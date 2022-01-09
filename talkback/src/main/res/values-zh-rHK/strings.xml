@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">版本：%1$s</string>
   <string name="label_manager_summary_title">管理自訂標籤</string>
   <string name="label_manager_package_title">管理 %1$s 的標籤</string>
+  <string name="manage_label">管理標籤</string>
   <string name="label_manager_no_packages_message">目前沒有任何自訂標籤。要建立自訂標籤，請找出未加標籤的圖片，然後使用 TalkBack 選單新增。</string>
   <string name="label_manager_timestamp_text">上次修改時間：%1$s</string>
   <string name="search_dialog_label">搜尋：%1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">輕觸探索</string>
   <string name="title_pref_category_touch_exploration">導航方式</string>
   <string name="title_pref_category_controls">控制項</string>
-  <string name="title_pref_single_tap">一按啟動</string>
+  <string name="title_pref_single_tap">輕按一下即可啟用</string>
   <string name="title_pref_show_context_menu_as_list">以清單形式顯示內容選單</string>
-  <string name="summary_pref_single_tap">(實驗版) 輕按一下焦點項目即可啟用</string>
+  <string name="summary_pref_single_tap">輕按一下焦點項目即可啟用</string>
   <string name="title_pref_shake_to_read_threshold">搖動即可開始連續閱讀</string>
   <string name="pref_verbosity_title">詳細程度</string>
   <string name="pref_punctuation_title">標點符號</string>
+  <string name="title_pref_category_manage_focus_indicator">自訂對焦指標</string>
   <string name="title_pref_category_manage_gestures">自訂手勢</string>
   <string name="title_pref_manage_labels">自訂標籤</string>
   <string name="title_pref_manage_customize_menus">自訂選單</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">說明和意見反映</string>
   <string name="title_pref_category_tutorial_and_help">教學課程和說明</string>
   <string name="title_pref_category_advanced">進階</string>
+  <string name="title_pref_category_typing">輸入方法和鍵盤</string>
   <string name="title_pref_category_legal_and_privacy">法律和私隱權</string>
   <string name="title_pref_advanced_settings">進階設定</string>
   <string name="reset_gesture_settings_title">重設手勢設定</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">最近使用的應用程式</string>
   <string name="keycombo_menu_global_notifications">通知</string>
   <string name="keycombo_menu_global_suspend">暫停或恢復 TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">播放或暫停媒體</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">選取下一個朗讀控制項</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">選取上一個朗讀控制項</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">調高朗讀控制項</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">調低朗讀控制項</string>
   <string name="keycombo_menu_category_granularity">導航方式</string>
   <string name="keycombo_menu_granularity_increase">下一頁導覽設定</string>
   <string name="keycombo_menu_granularity_decrease">上一頁導覽設定</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">沒有文字可複製，請先選取一些文字。</string>
   <string name="cannot_paste_feedback">沒有文字可貼上，請先複製一些文字。</string>
   <string name="cannot_cut_feedback">沒有文字可剪下，請先選取一些文字。</string>
+  <string name="cannot_delete_feedback">沒有文字可複製，請先選取一些文字。</string>
   <string name="message_in_reset_keymap_confirm_dialog">您確定要將此按鍵配置的快速鍵回復至預設值嗎？請注意，此操作將無法復原。</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">重設</string>
   <string name="override_keycombo">按鍵已經使用</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">使用音調變化</string>
   <string name="title_pref_keyboard_echo">鍵盤語音提示</string>
   <string name="pref_node_desc_order_title">元素說明次序</string>
-  <string name="summaryOn_pref_intonation">以較低沉的音調讀出鍵盤回應</string>
+  <string name="summaryOn_pref_intonation">以較高音調朗讀鍵盤刪除的文字</string>
   <string name="summaryOff_pref_intonation">說話時不要改變音調</string>
   <string name="title_pref_brailleime">點字鍵盤</string>
   <string name="title_pref_category_feedback_settings">其他回應</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">啟用節點樹狀結構偵錯功能</string>
   <string name="summary_pref_tree_debug_tv">使用語音搜尋鍵列印節點樹狀結構，以取代搜尋</string>
   <string name="title_pref_performance_stats">啟用成效統計資料</string>
+  <string name="title_pref_log_overlay">啟用偵錯記錄重疊</string>
   <string name="title_pref_resume_talkback">從停用狀態恢復使用</string>
+  <string name="title_pref_typing_confirmation">輸入偏好設定</string>
   <string name="title_pref_multi_finger_gesture">啟用多指操作手勢</string>
   <string name="screen_dimmed">隱藏咗螢幕</string>
   <string name="screen_brightness_restored">顯示緊螢幕</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">向下捲動</string>
   <string name="shortcut_scroll_left">向左捲動</string>
   <string name="shortcut_scroll_right">向右捲動</string>
+  <string name="shortcut_next_window">下一個視窗</string>
+  <string name="shortcut_previous_window">上一個視窗</string>
   <string name="shortcut_back">返回</string>
   <string name="shortcut_home">主畫面</string>
   <string name="shortcut_overview">概覽</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">隱藏或顯示螢幕</string>
   <string name="title_show_screen_search">螢幕搜尋</string>
   <string name="title_show_voice_commands">語音指令</string>
+  <string name="talkback_show_talkback_settings">TalkBack 設定</string>
   <string name="title_other_web_navigation">其他網頁瀏覽功能</string>
   <string name="title_granularity_default">預設瀏覽</string>
   <string name="title_seek_bar_edit">編輯滑桿水平</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">透過語音控制 TalkBack</string>
   <string name="summary_show_hide_screen">隱藏螢幕，在公共場所時其他人便無法看螢幕畫面。如果已隱藏螢幕，則可將螢幕恢復成正常狀態。</string>
   <string name="summary_talkback_preferences">開啟 TalkBack 設定</string>
-  <string name="summary_system_actions">前往「所有應用程式」、「快速設定」，然後使用分割螢幕</string>
+  <string name="summary_system_actions">前往「所有應用程式」和「快速設定」</string>
   <string name="summary_tts_settings">開啟文字轉語音設定</string>
   <string name="summary_pause_feedback">關閉 TalkBack 語音回應</string>
   <string name="not_editable">無法編輯</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">一次朗讀一個字詞</string>
   <string name="summary_lines">一次朗讀一行</string>
   <string name="summary_paragraphs">一次朗讀一段</string>
+  <string name="summary_windows">跳至其他視窗，例如音量控制項或導覽列</string>
   <string name="summary_headings">在標題之間跳轉</string>
   <string name="summary_controls">在可進行互動的項目之間跳轉，例如按鈕、選框和文字欄位</string>
   <string name="summary_links">在連結之間跳轉</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">變更是否朗讀輸入的鍵、使用提示、網格資料和其他資料</string>
   <string name="summary_selector_menu_punctuation">變更系統是否要朗讀標點和符號</string>
   <string name="summary_language">變更使用的語言。此選單只會在您已安裝多種文字轉語音語言時顯示。</string>
-  <string name="summary_sound_feedback">瀏覽時會聽到音效，例如確認操作時會有嗶聲。</string>
+  <string name="summary_sound_feedback">瀏覽時會聽到音效，例如確認操作時會有嗶聲</string>
   <string name="summary_vibration_feedback">操作時會感受到震動，例如選取項目時會有震動。此操作不會影響應用程式或系統發出的震動。</string>
   <string name="summary_hide_screen">隱藏螢幕，在公共場所時其他人便無法看螢幕畫面</string>
   <string name="summary_audio_ducking">當 TalkBack 朗讀時，將正在播放的其他音訊調低音量</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">向前或向後捲動</string>
+  <string name="summary_support_change_a11y_volume">調高或調低無障礙功能音量</string>
+  <string name="summary_image_caption">自動顯示此圖片的說明</string>
   <string name="value_direction_up">往上</string>
   <string name="value_direction_down">往下</string>
   <string name="value_direction_left">往左</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">用 2 隻手指輕按兩下並按住</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">用 3 隻手指輕按兩下並按住</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">用 4 隻手指輕按兩下並按住</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">用 2 隻手指輕按三下並按住</string>
+  <string name="seekbar_hint_2gesture">「%1$s」或「%2$s」即可調整</string>
+  <string name="seekbar_hint_1gesture">「%1$s」即可調整</string>
   <string name="gesture_name_unknown">不明手勢</string>
   <string name="gesture_name_pass_through">暫時切換回系統手勢</string>
   <string name="gesture_name_touch_explore">輕觸探索</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">輕按兩下並按住</string>
   <string name="gesture_name_2finger_tap_hold">用 2 隻手指輕按並按住</string>
   <string name="gesture_name_3finger_tap_hold">用 3 隻手指輕按並按住</string>
+  <string name="gesture_name_2finger_3tap_hold">用 2 隻手指輕按三下並按住</string>
   <string name="gesture_name_3finger_3tap_hold">用 3 隻手指輕按三下並按住</string>
   <string name="title_pref_shortcut_fingerprint_up">在指紋感應器向上滑動</string>
   <string name="title_pref_shortcut_fingerprint_down">在指紋感應器向下滑動</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">開啟螢幕時</string>
   <string name="value_resume_keyguard">顯示上鎖畫面時</string>
   <string name="value_resume_manual">只限透過通知欄</string>
+  <string name="value_type_confirmation_double_tap">按住要選取的鍵，然後輕按兩下</string>
+  <string name="value_type_confirmation_lift_to_type">按住要選取的鍵，然後放開手指</string>
   <string name="value_shake_to_read_disabled">已停用</string>
   <string name="value_shake_to_read_threshold_very_light">很輕力</string>
   <string name="value_shake_to_read_threshold_light">輕力</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">永遠讀出輸入的按鍵</string>
   <string name="value_keyboard_echo_softkeys">只限螢幕鍵盤</string>
   <string name="value_keyboard_echo_never">永遠不要讀出輸入的按鍵</string>
+  <string name="title_pref_keyboard_echo_on_screen">鍵盤回音：屏幕鍵盤</string>
+  <string name="title_pref_keyboard_echo_physical">鍵盤回音：實體鍵盤</string>
+  <string name="value_keyboard_echo_none">無</string>
+  <string name="value_keyboard_echo_characters_only">字元</string>
+  <string name="value_keyboard_echo_words_only">字詞</string>
+  <string name="value_keyboard_echo_characters_and_words">字元和字詞</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">狀態、名稱、類型</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">類型、名稱、狀態</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">名稱、類型、狀態</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">您確定要啟用節點樹狀結構偵錯功能嗎？\n\n節點樹狀結構偵錯功能會在裝置記錄中顯示您的螢幕內容，而這些內容可能會被其他應用程式讀取。</string>
   <string name="dialog_title_enable_performance_stats">要啟用「成效統計資料」嗎？</string>
   <string name="dialog_message_enable_performance_stats">您要開啟成效統計資料嗎？\n\n成效統計資料可能會耗用較多記憶體和電量。</string>
+  <string name="title_request_phone_permission">要授予電話存取權嗎？</string>
+  <string name="message_request_phone_permission">這可讓 TalkBack 減少通話期間的通知次數</string>
+  <string name="continue_button">繼續</string>
   <string name="label_talkback_context_menu">TalkBack 通用內容選單</string>
   <string name="permission_talkback_label">控制 TalkBack</string>
   <string name="permission_talkback_desc">允許向 TalkBack 傳送手勢並恢復語音回應。</string>
-  <string name="permission_labeling_label">管理 TalkBack 自訂標籤</string>
-  <string name="permission_labeling_desc">允許存取、修改及刪除 TalkBack 讀出的自訂標籤。</string>
   <string name="links">連結</string>
   <string name="end_of_text">結尾</string>
   <string name="start_of_page">冇上一個%1$s</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">標點符號</string>
   <string name="title_pref_selector_granularity">導航方式</string>
   <string name="title_pref_selector_audio_focus">降低其他應用程式音量</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">捲動</string>
+  <string name="title_pref_a11y_volume">無障礙功能音量</string>
   <string name="title_pref_selector_adjustable_widget_slider">調整滑桿</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">調整值</string>
   <string name="title_pref_speak_passwords_without_headphones">讀出密碼</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">使用語音指令</string>
   <string name="dialog_title_pass_through_mode">略過 TalkBack 手勢，使用系統手勢</string>
   <string name="dialog_message_pass_through_mode">聽到鈴聲後，請做出 TalkBack 不支援的系統手勢。此手勢稱為「回到系統手勢」。</string>
-  <string name="hint_type_search_term">輸入搜尋字詞</string>
+  <string name="hint_type_search_term">搜尋字詞</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack 通知渠道</string>
   <string name="pref_selector_summary">%1$s以選取設定，然後%2$s以調整設定。</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">如要剪下文字，請用三指輕按兩下並按住。\n\n如要貼上文字，請用三指輕按三下。\n\n請嘗試在下方文字框中貼上文字。</string>
   <string name="copy_text_pre_r">選取文字後，您可以在 TalkBack 選單中複製所選文字。方法是先向下再向右滑動來開啟 TalkBack 選單，然後輕按兩下編輯選項並複製文字。\n\n請嘗試在下方文字框中複製文字。</string>
   <string name="cut_paste_text_pre_r">如要剪下或貼上文字，請開啟 TalkBack 選單並輕按兩下編輯選項。\n\n請嘗試在下方文字框中貼上文字。</string>
+  <string name="edit_box_hint_paste_text">在這裡貼上文字</string>
   <string name="read_by_character_title">按字元、字詞或段落朗讀</string>
   <string name="read_by_character_text">您有時可能想系統逐個字元朗讀。如要這樣做，請用三指向右滑動，直到聽到「%1$s」為止，然後向上滑動逐字元向後移動瀏覽焦點。向下滑動即可逐字元向前移動瀏覽焦點。\n\n立即試試吧。用三隻手指向右滑動後，您亦可選擇逐字詞或段落朗讀。</string>
   <string name="read_by_character_text_pre_r">您有時可能想系統逐個字元朗讀。如要這樣做，請先向下再向上滑動，直到聽到「%1$s」為止，然後向上滑動逐字元向後移動瀏覽焦點。向下滑動即可逐字元向前移動瀏覽焦點。\n\n立即試試吧。先向下再向上滑動後，您亦可選擇逐字詞或段落朗讀。</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">已啟用 %1$s</string>
   <string name="talkback_inactive_title">TalkBack 已停用</string>
   <string name="talkback_inactive_message">這個教學課程需要啟用 TalkBack。請開啟 TalkBack，然後再啟動教學課程。</string>
+  <string name="watch_swipe_left_right_text">向右或向左滑動以在項目之間移動</string>
+  <string name="watch_double_tap_text">輕按兩下以啟動項目</string>
+  <string name="watch_2_finger_scroll_text">拖曳兩指以捲動畫面</string>
+  <string name="title_pref_thick_border">粗邊框</string>
+  <string name="title_pref_category_border_color">顏色</string>
+  <string name="title_pref_default_color">預設</string>
+  <string name="title_pref_red">紅色</string>
+  <string name="title_pref_orange">橙色</string>
+  <string name="title_pref_yellow">黃色</string>
+  <string name="title_pref_green">綠色</string>
+  <string name="title_pref_blue">藍色</string>
+  <string name="title_pref_grey">灰色</string>
   <string name="survey_closed">閂咗問卷</string>
+  <string name="character_recognition_text">文字：%1$s</string>
+  <string name="title_image_caption">描述圖片</string>
 </resources>

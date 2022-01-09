@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Ngôn ngữ</string>
   <string name="voice_commands_languages">Ngôn ngữ</string>
   <string name="voice_commands_custom_actions">thao tác tùy chỉnh</string>
+  <string name="voice_commands_action">Thao tác</string>
   <string name="voice_commands_quick_settings">Cài đặt nhanh</string>
   <string name="voice_commands_quick_setting">Cài đặt nhanh</string>
   <string name="voice_commands_dim">làm mờ</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">Để sử dụng tính năng này, bạn phải cấp quyền sử dụng micrô.</string>
   <string name="voice_commands_no_voice_recognition_ability">Rất tiếc! Tính năng này không có trên thiết bị của bạn</string>
   <string name="voice_commands_error">Đã xảy ra lỗi khi nhận dạng lệnh thoại</string>
-  <string name="voice_commands_partial_result">Không nhận ra lệnh này. Hãy nói \"%1$s\" để xem danh sách tất cả lệnh.</string>
+  <string name="voice_commands_partial_result">Không thể nhận ra lệnh này. Hãy nói \"%1$s\" để xem danh sách tất cả các lệnh.</string>
+  <string name="voice_commands_timeout">Hãy nói \"%1$s\" để xem danh sách tất cả các lệnh.</string>
   <string name="voice_commands_many_requests">Vui lòng thử lại sau giây lát</string>
-  <string name="voice_commands_setting_disabled">Bạn chưa bật tùy chọn cài đặt \"%1$s\"</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" không được nhận dạng là lệnh thoại.</string>
   <string name="voice_commands_label_saved">Đã lưu nhãn</string>
   <string name="voice_commands_no_actions_feedback">Không có sẵn thao tác nào</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Tổng quan về lệnh thoại</string>
   <string name="voice_commands_help_description">Để dùng các lệnh thoại, hãy vuốt sang phải rồi vuốt lên. Hãy nói \"Trợ giúp\" hoặc \"Tôi có thể nói gì?\" bất cứ lúc nào để xem danh sách các lệnh này.</string>
   <string name="voice_commands_help_hint">Để có kết quả tốt nhất, hãy nói chính xác từ được liệt kê trên các màn hình sau.</string>
+  <string name="voice_command_screen_locked_hint">Bạn không thể dùng các lệnh thoại khi màn hình bị khóa. Để dùng trình đơn TalkBack, hãy %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Thay đổi cách bạn đọc nội dung trên màn hình hiện tại</string>
   <string name="voice_commands_help_next">[Tiêu đề] tiếp theo</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Nhập một cụm từ tìm kiếm để tìm văn bản đó trên màn hình</string>
   <string name="voice_commands_help_text_editing_description">Nhập, chọn và sao chép văn bản</string>
   <string name="voice_commands_help_type_text">Nhập [OK]</string>
-  <string name="voice_commands_help_copy_description">Đảm bảo bạn đã chọn văn bản trước khi sao chép</string>
-  <string name="voice_commands_help_cut_description">Đảm bảo bạn đã chọn văn bản trước khi cắt</string>
+  <string name="voice_commands_help_copy_description">Chọn văn bản trước khi sao chép</string>
+  <string name="voice_commands_help_cut_description">Chọn văn bản trước khi cắt</string>
+  <string name="voice_commands_help_delete_description">Chọn văn bản trước khi xóa</string>
   <string name="voice_commands_help_device_navigation_title">Di chuyển trên thiết bị</string>
   <string name="voice_commands_help_device_navigation_description">Chuyển đến Màn hình chính, quay lại, hiển thị thông báo và các lệnh khác</string>
   <string name="voice_commands_help_overview_description">Xem các ứng dụng gần đây</string>

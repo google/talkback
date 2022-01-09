@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Versija %1$s</string>
   <string name="label_manager_summary_title">Pielāgoto iezīmju pārvaldība</string>
   <string name="label_manager_package_title">Lietojumprogrammas %1$s iezīmju pārvaldība</string>
+  <string name="manage_label">Iezīmju pārvaldība</string>
   <string name="label_manager_no_packages_message">Pašlaik nav nevienas pielāgotas iezīmes. Lai izveidotu pielāgotu iezīmi, atveriet attēlu bez iezīmes un pievienojiet iezīmi no Talkback izvēlnes.</string>
   <string name="label_manager_timestamp_text">Pēdējoreiz mainīta: %1$s</string>
   <string name="search_dialog_label">Meklēt: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Pārlūkot pieskaroties</string>
   <string name="title_pref_category_touch_exploration">Navigācija</string>
   <string name="title_pref_category_controls">Vadīklas</string>
-  <string name="title_pref_single_tap">Aktivizēšana, vienreiz pieskaroties</string>
+  <string name="title_pref_single_tap">Aktivizēt ar vienu pieskārienu</string>
   <string name="title_pref_show_context_menu_as_list">Rādīt kontekstizvēlni kā sarakstu</string>
-  <string name="summary_pref_single_tap">Vienreiz pieskarieties fokusētajam vienumam, lai to aktivizētu (eksperimentāla funkcija)</string>
+  <string name="summary_pref_single_tap">Varat aktivizēt fokusētu vienumu, pieskaroties tam vienreiz</string>
   <string name="title_pref_shake_to_read_threshold">Pakratīt, lai lasītu</string>
   <string name="pref_verbosity_title">Detalizētība</string>
   <string name="pref_punctuation_title">Pieturzīmes</string>
+  <string name="title_pref_category_manage_focus_indicator">Pielāgot fokusa indikatoru</string>
   <string name="title_pref_category_manage_gestures">Pielāgot žestus</string>
   <string name="title_pref_manage_labels">Pielāgotās iezīmes</string>
   <string name="title_pref_manage_customize_menus">Pielāgot izvēlnes</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Palīdzība un atsauksmes</string>
   <string name="title_pref_category_tutorial_and_help">Mācības un palīdzība</string>
   <string name="title_pref_category_advanced">Papildu</string>
+  <string name="title_pref_category_typing">Rakstīšana un tastatūra</string>
   <string name="title_pref_category_legal_and_privacy">Juridiskā informācija un konfidencialitāte</string>
   <string name="title_pref_advanced_settings">Papildu iestatījumi</string>
   <string name="reset_gesture_settings_title">Atiestatīt žestu iestatījumus</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Pēdējās izmantotās lietotnes</string>
   <string name="keycombo_menu_global_notifications">Paziņojumi</string>
   <string name="keycombo_menu_global_suspend">Apturēt vai atsākt TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Atskaņot multivides saturu/apturēt atskaņošanu</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Atlasīt nākamo lasīšanas vadīklu</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Atlasīt iepriekšējo lasīšanas vadīklu</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Palielināt lasīšanas vadīklas vērtību</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Samazināt lasīšanas vadīklas vērtību</string>
   <string name="keycombo_menu_category_granularity">Navigācija</string>
   <string name="keycombo_menu_granularity_increase">Nākamais navigācijas iestatījums</string>
   <string name="keycombo_menu_granularity_decrease">Iepriekšējais navigācijas iestatījums</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Nav kopējama teksta. Vispirms atlasiet tekstu.</string>
   <string name="cannot_paste_feedback">Nav ielīmējama teksta. Vispirms nokopējiet tekstu.</string>
   <string name="cannot_cut_feedback">Nav izgriežama teksta. Vispirms atlasiet tekstu.</string>
+  <string name="cannot_delete_feedback">Nav dzēšama teksta. Vispirms atlasiet tekstu.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Vai tiešām vēlaties atiestatīt šīs taustiņu piesaistes īsinājumtaustiņus uz to noklusējuma vērtībām? Ņemiet vērā, ka šo darbību nevar atsaukt.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Atiestatīt</string>
   <string name="override_keycombo">Taustiņš jau tiek izmantots</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Izmantot balss augstuma maiņu</string>
   <string name="title_pref_keyboard_echo">Tastatūras atbalss</string>
   <string name="pref_node_desc_order_title">Elementu aprakstīšanas secība</string>
-  <string name="summaryOn_pref_intonation">Pazemināt balss toni, runājot tastatūras balss komentārus</string>
+  <string name="summaryOn_pref_intonation">Izrunāt ar tastatūru dzēsto tekstu paaugstinātā balss tonī</string>
   <string name="summaryOff_pref_intonation">Runājot nemainīt balss toni</string>
   <string name="title_pref_brailleime">Braila tastatūra</string>
   <string name="title_pref_category_feedback_settings">Citi balss komentāri</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Mezglu koka atkļūd. iespējošana</string>
   <string name="summary_pref_tree_debug_tv">Izmantot meklēšanas ar balsi taustiņu mezglu koka drukāšanai, nevis meklēšanai</string>
   <string name="title_pref_performance_stats">Veiktspējas statistikas iespējošana</string>
+  <string name="title_pref_log_overlay">Iespējot atkļūdošanas žurnāla pārklājumu</string>
   <string name="title_pref_resume_talkback">Darbības atsākšana</string>
+  <string name="title_pref_typing_confirmation">Ievades preference</string>
   <string name="title_pref_multi_finger_gesture">Iespējot žestus ar vairākiem pirkstiem</string>
   <string name="screen_dimmed">Ekrāns paslēpts</string>
   <string name="screen_brightness_restored">Ekrāns tiek rādīts</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Ritināt lejup</string>
   <string name="shortcut_scroll_left">Ritināt pa kreisi</string>
   <string name="shortcut_scroll_right">Ritināt pa labi</string>
+  <string name="shortcut_next_window">Nākamais logs</string>
+  <string name="shortcut_previous_window">Iepriekšējais logs</string>
   <string name="shortcut_back">Atpakaļ</string>
   <string name="shortcut_home">Sākums</string>
   <string name="shortcut_overview">Pārskats</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Paslēpt vai rādīt ekrānu</string>
   <string name="title_show_screen_search">Meklēšana ekrānā</string>
   <string name="title_show_voice_commands">Balss komandas</string>
+  <string name="talkback_show_talkback_settings">TalkBack iestatījumi</string>
   <string name="title_other_web_navigation">Citas tīmekļa navigācijas iespējas</string>
   <string name="title_granularity_default">Noklusējuma navigācija</string>
   <string name="title_seek_bar_edit">Rediģēt slīdņa līmeni</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Kontrolējiet TalkBack ar balsi</string>
   <string name="summary_show_hide_screen">Paslēpt displeju, lai jūsu ekrāns nebūtu redzams citiem, kad atrodaties publiskās vietās. Pēc ekrāna paslēpšanas atjaunot tā parasto stāvokli.</string>
   <string name="summary_talkback_preferences">Atvērt TalkBack iestatījumus</string>
-  <string name="summary_system_actions">Šeit varat pāriet uz sadaļu Visas lietotnes, atvērt izvēlni Ātrie iestatījumi un sadalīt ekrānu</string>
+  <string name="summary_system_actions">Pārejiet uz sadaļu “Visas lietotnes” un izvēlni “Ātrie iestatījumi”.</string>
   <string name="summary_tts_settings">Atvērt iestatījumus teksta pārvēršanai runā</string>
   <string name="summary_pause_feedback">Izslēgt TalkBack balss komentārus</string>
   <string name="not_editable">Nevar rediģēt</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Lasīt pa vienam vārdam</string>
   <string name="summary_lines">Lasīt pa vienai rindai</string>
   <string name="summary_paragraphs">Lasīt pa vienai rindkopai</string>
+  <string name="summary_windows">Pārejiet uz citiem logiem, piemēram, skaļuma vadīklām vai navigācijas joslu.</string>
   <string name="summary_headings">Pāriet starp virsrakstiem</string>
   <string name="summary_controls">Pāriet starp vienumiem, ar ko var mijiedarboties, piemēram, pogām, izvēles rūtiņām un teksta laukiem</string>
   <string name="summary_links">Pāriet starp saitēm</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Šeit varat mainīt to, vai jāizrunā rakstot nospiestie taustiņi, lietošanas ieteikumi, informācija par režģi un cita informācija</string>
   <string name="summary_selector_menu_punctuation">Mainiet to, vai pieturzīmes un simboli tiek skaļi izrunāti.</string>
   <string name="summary_language">Mainīt runas valodu. Šī izvēlne tiek rādīta tikai tad, ja ir instalētas vairākas valodas teksta pārvēršanai runā.</string>
-  <string name="summary_sound_feedback">Navigācijas laikā dzirdiet skaņas efektus, piemēram, pīkstienu, kas apstiprina darbību.</string>
+  <string name="summary_sound_feedback">Iespējojiet skaņas efektus navigācijas laikā, piemēram, pīkstienu, kas apstiprina darbību.</string>
   <string name="summary_vibration_feedback">Jūtiet vibrācijas, veicot darbības, piemēram, atlasot vienumu. Šis iestatījums neietekmē lietotņu un sistēmas radītās vibrācijas.</string>
   <string name="summary_hide_screen">Paslēpt displeju, lai jūsu ekrāns nebūtu redzams citiem, kad atrodaties publiskās vietās</string>
   <string name="summary_audio_ducking">Samazināt cita atskaņotā audio satura skaļumu, kad tiek lasīts teksts funkcijā TalkBack</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Ritināšana uz priekšu vai atpakaļ</string>
+  <string name="summary_support_change_a11y_volume">Palielināt vai samazināt pieejamības paziņojumu skaļumu</string>
+  <string name="summary_image_caption">Iegūstiet automātisku aprakstu šim attēlam.</string>
   <string name="value_direction_up">uz augšu</string>
   <string name="value_direction_down">lejup</string>
   <string name="value_direction_left">pa kreisi</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Divreiz pieskarties ar 2 pirkstiem un turēt</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Divreiz pieskarties ar 3 pirkstiem un turēt</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Divreiz pieskarties ar 4 pirkstiem un turēt</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Trīsreiz pieskarties ar 2 pirkstiem un turēt</string>
+  <string name="seekbar_hint_2gesture">Izmantojiet žestu “%1$s” vai “%2$s”, lai pielāgotu</string>
+  <string name="seekbar_hint_1gesture">Izmantojiet žestu “%1$s”, lai pielāgotu</string>
   <string name="gesture_name_unknown">Nezināms žests</string>
   <string name="gesture_name_pass_through">Pāriet uz sistēmas žestu</string>
   <string name="gesture_name_touch_explore">Pārlūkošana pieskaroties</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Veikt dubultskārienu un turēt</string>
   <string name="gesture_name_2finger_tap_hold">Pieskarties ar 2 pirkstiem un turēt</string>
   <string name="gesture_name_3finger_tap_hold">Pieskarties ar 3 pirkstiem un turēt</string>
+  <string name="gesture_name_2finger_3tap_hold">Trīsreiz pieskarties ar 2 pirkstiem un turēt</string>
   <string name="gesture_name_3finger_3tap_hold">Trīsreiz pieskarties ar 3 pirkstiem un turēt</string>
   <string name="title_pref_shortcut_fingerprint_up">Vilkt uz augšu pār pirksta nospieduma sensoru</string>
   <string name="title_pref_shortcut_fingerprint_down">Vilkt uz leju pār pirksta nospieduma sensoru</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Kad tiek ieslēgts ekrāns</string>
   <string name="value_resume_keyguard">Kad tiek parādīts bloķēšanas ekrāns</string>
   <string name="value_resume_manual">Tikai no paziņojumu paneļa</string>
+  <string name="value_type_confirmation_double_tap">Turiet pirkstu, lai atlasītu taustiņu, un pēc tam veiciet dubultskārienu</string>
+  <string name="value_type_confirmation_lift_to_type">Turiet pirkstu, lai atlasītu taustiņu, un pēc tam atlaidiet</string>
   <string name="value_shake_to_read_disabled">Izsl.</string>
   <string name="value_shake_to_read_threshold_very_light">Ļoti viegli</string>
   <string name="value_shake_to_read_threshold_light">Viegli</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Vienmēr nosaukt nospiestos taustiņus</string>
   <string name="value_keyboard_echo_softkeys">Tikai ekrāna tastatūrai</string>
   <string name="value_keyboard_echo_never">Nekad nenosaukt nospiestos taustiņus</string>
+  <string name="title_pref_keyboard_echo_on_screen">Tastatūras atbalss: ekrāna tastatūra</string>
+  <string name="title_pref_keyboard_echo_physical">Tastatūras atbalss: fiziskā tastatūra</string>
+  <string name="value_keyboard_echo_none">Nav</string>
+  <string name="value_keyboard_echo_characters_only">Rakstzīmes</string>
+  <string name="value_keyboard_echo_words_only">Vārdi</string>
+  <string name="value_keyboard_echo_characters_and_words">Rakstzīmes un vārdi</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Statuss, nosaukums, veids</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Veids, nosaukums, statuss</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Nosaukums, veids, statuss</string>
@@ -554,11 +583,12 @@
   <string name="dialog_message_enable_tree_debug">Vai tiešām vēlaties ieslēgt mezglu koku atkļūdošanu?\n\nMezglu koku atkļūdošanas laikā jūsu ekrāna saturs ir redzams ierīces žurnālfailos, ko var nolasīt citas lietotnes.</string>
   <string name="dialog_title_enable_performance_stats">Vai iespējot veiktspējas statistiku?</string>
   <string name="dialog_message_enable_performance_stats">Vai tiešām vēlaties ieslēgt veiktspējas statistiku?\n\nVeiktspējas statistikas darbībai var būt nepieciešams vairāk vietas atmiņā un lielāks enerģijas patēriņš.</string>
+  <string name="title_request_phone_permission">Vai atļaut piekļuvi tālrunim?</string>
+  <string name="message_request_phone_permission">Tādējādi funkcija TalkBack var samazināt zvana laikā atskaņoto paziņojumu skaitu</string>
+  <string name="continue_button">Turpināt</string>
   <string name="label_talkback_context_menu">TalkBack vispārējā kontekstizvēlne</string>
   <string name="permission_talkback_label">Vadīt lietotni TalkBack</string>
   <string name="permission_talkback_desc">Atļauja sūtīt žestus lietotnei TalkBack un atsākt balss komentāru atskaņošanu.</string>
-  <string name="permission_labeling_label">TalkBack pielāgoto iezīmju pārvaldība</string>
-  <string name="permission_labeling_desc">Atļauja piekļūt pielāgotajām iezīmēm, kā arī mainīt un dzēst pielāgotās iezīmes, kas tiek atskaņotas lietotnē TalkBack.</string>
   <string name="links">Saites</string>
   <string name="end_of_text">Beigas</string>
   <string name="start_of_page">Iepriekš nav citu šāda veida vienumu: %1$s</string>
@@ -615,7 +645,8 @@
   <string name="title_pref_selector_punctuation">Pieturzīmes</string>
   <string name="title_pref_selector_granularity">Navigācija</string>
   <string name="title_pref_selector_audio_focus">Audio klusināšana</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Ritināšana</string>
+  <string name="title_pref_a11y_volume">Pieejamības paziņojumu skaļums</string>
   <string name="title_pref_selector_adjustable_widget_slider">Pielāgot slīdni</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Pielāgot vērtību</string>
   <string name="title_pref_speak_passwords_without_headphones">Paroļu izrunāšana</string>
@@ -651,7 +682,7 @@
   <string name="start_voice_command">Izmantot balss komandas</string>
   <string name="dialog_title_pass_through_mode">TalkBack žestu izlaišana, lai izmantotu sistēmas žestus</string>
   <string name="dialog_message_pass_through_mode">Kad izdzirdat signālu, varat izmantot sistēmas žestu, kas netiek atbalstīts funkcijā TalkBack. To dēvē par pāriešanas sistēmas žestu.</string>
-  <string name="hint_type_search_term">Ierakstiet meklēšanas vienumu</string>
+  <string name="hint_type_search_term">Meklēšanas vienums</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack paziņojumu kanāls</string>
   <string name="pref_selector_summary">%1$s, lai atlasītu iestatījumu. Pēc tam %2$s, lai pielāgotu iestatījumu.</string>
@@ -774,6 +805,7 @@
   <string name="cut_paste_text">Lai izgrieztu tekstu, ar trim pirkstiem veiciet dubultskārienu un turiet.n\n\Lai ielīmētu tekstu, ar trim pirkstiem trīsreiz pieskarieties.\n\nIzmēģiniet ielīmēt kādu vārdu tālāk redzamajā tekstlodziņā.</string>
   <string name="copy_text_pre_r">Kad teksts ir atlasīts, varat to kopēt TalkBack izvēlnē. Velciet lejup un pēc tam — pa labi, lai atvērtu TalkBack izvēlni. Veiciet dubultskārienu rediģēšanas opcijām un pēc tam nokopējiet tekstu.\n\nIzmēģiniet nokopēt kādu vārdu tālāk redzamajā tekstlodziņā.</string>
   <string name="cut_paste_text_pre_r">Lai izgrieztu vai ielīmētu tekstu, atveriet TalkBack izvēlni un veiciet dubultskārienu rediģēšanas opcijām.\n\nIzmēģiniet ielīmēt kādu vārdu tālāk redzamajā tekstlodziņā.</string>
+  <string name="edit_box_hint_paste_text">Šeit ielīmējiet tekstu</string>
   <string name="read_by_character_title">Lasīšana pa rakstzīmēm, vārdiem vai rindkopām</string>
   <string name="read_by_character_text">Dažkārt var būt nepieciešams dzirdēt tekstu pa vienai rakstzīmei.\n\nLai to izdarītu, ar trim pirkstiem velciet pa labi, līdz dzirdat “%1$s”. Pēc tam velciet augšup, lai navigācijā tiktu izcelta iepriekšējā rakstzīme. Velciet lejup, lai navigācijā tiktu izcelta nākamā rakstzīme.\n\nIzmēģiniet tūlīt! Ar trim pirkstiem velkot pa labi, varat arī izvēlēties lasīt pa vārdiem vai rindkopām.</string>
   <string name="read_by_character_text_pre_r">Dažkārt var būt nepieciešams dzirdēt tekstu pa vienai rakstzīmei.\n\nLai to izdarītu, velciet lejup un pēc tam — augšup, līdz dzirdat “%1$s”. Pēc tam velciet augšup, lai navigācijā tiktu izcelta iepriekšējā rakstzīme. Velciet lejup, lai navigācijā tiktu izcelta nākamā rakstzīme.\n\nIzmēģiniet tūlīt! Velkot lejup un pēc tam — augšup, varat arī izvēlēties lasīt pa vārdiem vai rindkopām.</string>
@@ -810,5 +842,19 @@
   <string name="activated_view">Aktivizēts: %1$s</string>
   <string name="talkback_inactive_title">Funkcija TalkBack ir atspējota</string>
   <string name="talkback_inactive_message">Lai skatītu šo apmācību, ir jāiespējo funkcija TalkBack. Pirms atverat apmācību, ieslēdziet funkciju TalkBack.</string>
+  <string name="watch_swipe_left_right_text">Velciet pa labi vai pa kreisi, lai pārietu starp vienumiem.</string>
+  <string name="watch_double_tap_text">Veiciet dubultskārienu, lai aktivizētu vienumu.</string>
+  <string name="watch_2_finger_scroll_text">Velciet divus pirkstus, lai ritinātu.</string>
+  <string name="title_pref_thick_border">Biezas apmales</string>
+  <string name="title_pref_category_border_color">Krāsa</string>
+  <string name="title_pref_default_color">Noklusējums</string>
+  <string name="title_pref_red">Sarkana</string>
+  <string name="title_pref_orange">Oranža</string>
+  <string name="title_pref_yellow">Dzeltena</string>
+  <string name="title_pref_green">Zaļa</string>
+  <string name="title_pref_blue">Zila</string>
+  <string name="title_pref_grey">Pelēka</string>
   <string name="survey_closed">Aptauja ir slēgta</string>
+  <string name="character_recognition_text">Teksts: %1$s</string>
+  <string name="title_image_caption">Attēla apraksts</string>
 </resources>

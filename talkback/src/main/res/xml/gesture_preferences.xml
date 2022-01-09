@@ -134,6 +134,11 @@
         android:summary="%s"
         android:title="@string/title_pref_shortcut_2finger_3tap"/>
     <com.google.android.accessibility.talkback.preference.GestureListPreference
+        android:defaultValue="@string/pref_shortcut_2finger_3tap_hold_default"
+        android:key="@string/pref_shortcut_2finger_3tap_hold_key"
+        android:summary="%s"
+        android:title="@string/title_pref_shortcut_2finger_3tap_hold"/>
+    <com.google.android.accessibility.talkback.preference.GestureListPreference
         android:defaultValue="@string/pref_shortcut_2finger_swipe_up_default"
         android:key="@string/pref_shortcut_2finger_swipe_up_key"
         android:summary="%s"

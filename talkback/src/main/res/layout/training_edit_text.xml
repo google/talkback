@@ -13,6 +13,7 @@
       android:background="@drawable/training_list_item_background"
       android:gravity="center_vertical"
       android:lineHeight="@dimen/training_edit_text_text_height"
+      android:fontFamily="@string/talkback_font"
       android:textColor="@color/training_edit_text_text_color"
       android:textColorHint="@color/training_edit_text_hint_color"
       android:textSize="@dimen/training_edit_text_text_size"

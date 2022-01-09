@@ -105,6 +105,10 @@ public class RuleGranularity extends NodeMenuRule {
         R.string.pref_show_navigation_menu_other_web_navigation_setting_key,
         R.string.title_other_web_navigation,
         R.bool.pref_show_navigation_menu_other_web_navigation_default),
+    WINDOW(
+        R.string.pref_show_navigation_menu_window_setting_key,
+        R.string.granularity_window,
+        R.bool.pref_show_navigation_menu_window_default),
     DEFAULT_NAVIGATION(
         R.string.pref_show_navigation_menu_granularity_default_setting_key,
         R.string.granularity_default,

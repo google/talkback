@@ -16,15 +16,28 @@
 
 package com.google.android.accessibility.talkback.training;
 
+import static com.google.android.accessibility.talkback.training.NavigationButtonBar.BUTTON_TYPE_EXIT;
 import static com.google.android.accessibility.talkback.training.NavigationButtonBar.DEFAULT_BUTTONS;
 import static com.google.android.accessibility.talkback.training.PageConfig.PageContentPredicate.ACCESSIBILITY_SERVICE_TOGGLE_VIA_SHORTCUT;
-import static com.google.android.accessibility.talkback.training.content.PageContentConfig.UNKNOWN_RESOURCE_ID;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_TUTORIAL_FOR_GESTURE_NAVIGATION_USER;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_TUTORIAL_FOR_WATCH;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_TUTORIAL_PRACTICE_GESTURE;
+import static com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId.TRAINING_ID_TUTORIAL_PRACTICE_GESTURE_PRE_R;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.training.PageConfig.PageId;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.common.collect.ImmutableList;
 
 /** Starts a {@link TrainingActivity} to show tutorial. */
 public class TutorialInitiator {
@@ -33,36 +46,46 @@ public class TutorialInitiator {
 
   /** Returns an intent to start tutorial for the first run users. */
   public static Intent createFirstRunTutorialIntent(Context context) {
-    return TrainingActivity.createTrainingIntent(
-        context,
-        isGestureNavigateEnabled(context)
-            ? (FeatureSupport.isMultiFingerGestureSupported()
-                ? FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER
-                : FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R)
-            : (FeatureSupport.isMultiFingerGestureSupported()
-                ? FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER
-                : FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R));
+    if (FeatureSupport.isWatch(context)) {
+      return TrainingActivity.createTrainingIntent(context, TRAINING_ID_TUTORIAL_FOR_WATCH);
+    } else {
+      return TrainingActivity.createTrainingIntent(
+          context,
+          isGestureNavigateEnabled(context)
+              ? (FeatureSupport.isMultiFingerGestureSupported()
+                  ? TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER
+                  : TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R)
+              : (FeatureSupport.isMultiFingerGestureSupported()
+                  ? TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER
+                  : TRAINING_ID_FIRST_RUN_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R));
+    }
   }
 
   /** Returns an intent to start tutorial. */
   public static Intent createTutorialIntent(Context context) {
-    return TrainingActivity.createTrainingIntent(
-        context,
-        isGestureNavigateEnabled(context)
-            ? (FeatureSupport.isMultiFingerGestureSupported()
-                ? TUTORIAL_FOR_GESTURE_NAVIGATION_USER
-                : TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R)
-            : (FeatureSupport.isMultiFingerGestureSupported()
-                ? TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER
-                : TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R));
+    if (FeatureSupport.isWatch(context)) {
+      return TrainingActivity.createTrainingIntent(context, TRAINING_ID_TUTORIAL_FOR_WATCH);
+    } else if (isGestureNavigateEnabled(context)) {
+      return TrainingActivity.createTrainingIntent(
+          context,
+          FeatureSupport.isMultiFingerGestureSupported()
+              ? TRAINING_ID_TUTORIAL_FOR_GESTURE_NAVIGATION_USER
+              : TRAINING_ID_TUTORIAL_FOR_GESTURE_NAVIGATION_USER_PRE_R);
+    } else {
+      return TrainingActivity.createTrainingIntent(
+          context,
+          FeatureSupport.isMultiFingerGestureSupported()
+              ? TRAINING_ID_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER
+              : TRAINING_ID_TUTORIAL_FOR_3_BUTTON_NAVIGATION_USER_PRE_R);
+    }
   }
 
   public static Intent createPracticeGesturesIntent(Context context) {
     return TrainingActivity.createTrainingIntent(
         context,
         FeatureSupport.isMultiFingerGestureSupported()
-            ? TUTORIAL_PRACTICE_GESTURE
-            : TUTORIAL_PRACTICE_GESTURE_PRE_R);
+            ? TRAINING_ID_TUTORIAL_PRACTICE_GESTURE
+            : TRAINING_ID_TUTORIAL_PRACTICE_GESTURE_PRE_R);
   }
 
   private static boolean isGestureNavigateEnabled(Context context) {
@@ -78,21 +101,31 @@ public class TutorialInitiator {
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Pages
 
-  private static final PageConfig.Builder WELCOME_TO_TALKBACK_PAGE =
-      PageConfig.builder(R.string.welcome_to_talkback_title)
+  static final PageConfig.Builder WELCOME_TO_TALKBACK_WATCH_PAGE =
+      PageConfig.builder(
+              PageId.PAGE_ID_WELCOME_TO_TALKBACK_WATCH, R.string.welcome_to_talkback_title)
+          .addText(R.string.welcome_to_talkback_text)
+          .addTextWithBullet(R.string.watch_swipe_left_right_text)
+          .addTextWithBullet(R.string.watch_double_tap_text)
+          .addTextWithBullet(R.string.watch_2_finger_scroll_text);
+
+  static final PageConfig.Builder WELCOME_TO_TALKBACK_PAGE =
+      PageConfig.builder(PageId.PAGE_ID_WELCOME_TO_TALKBACK, R.string.welcome_to_talkback_title)
           .setOnlyOneFocus(true)
           .addText(R.string.welcome_to_talkback_text);
 
-  private static final PageConfig.Builder EXPLORE_BY_TOUCH_PAGE =
-      PageConfig.builder(R.string.explore_by_touch_title).addText(R.string.explore_by_touch_text);
+  static final PageConfig.Builder EXPLORE_BY_TOUCH_PAGE =
+      PageConfig.builder(PageId.PAGE_ID_EXPLORE_BY_TOUCH, R.string.explore_by_touch_title)
+          .addText(R.string.explore_by_touch_text);
 
-  private static final PageConfig.Builder SCROLLING_PAGE =
-      PageConfig.builder(R.string.scrolling_title)
+  static final PageConfig.Builder SCROLLING_PAGE =
+      PageConfig.builder(PageId.PAGE_ID_SCROLLING, R.string.scrolling_title)
           .addText(R.string.scrolling_text)
           .addList(R.array.tutorial_scrolling_items);
 
-  private static final PageConfig.Builder GESTURES_PAGE_FOR_GESTURE_NAVIGATION_USER =
-      PageConfig.builder(R.string.gestures_title)
+  static final PageConfig.Builder GESTURES_PAGE_FOR_GESTURE_NAVIGATION_USER =
+      PageConfig.builder(
+              PageId.PAGE_ID_GESTURES_PAGE_FOR_GESTURE_NAVIGATION_USER, R.string.gestures_title)
           .addText(R.string.gestures_text)
           .addTextWithIcon(R.string.gestures_home_text, R.drawable.ic_gesture_2fingeredgeup)
           .addTextWithIcon(
@@ -106,28 +139,29 @@ public class TutorialInitiator {
               R.drawable.ic_gesture_3fingeredgeup,
               ACCESSIBILITY_SERVICE_TOGGLE_VIA_SHORTCUT);
 
-  private static final PageConfig.Builder GESTURES_PAGE_FOR_3_BUTTON_NAVIGATION_USER =
-      PageConfig.builder(R.string.gestures_title)
+  static final PageConfig.Builder GESTURES_PAGE_FOR_3_BUTTON_NAVIGATION_USER =
+      PageConfig.builder(
+              PageId.PAGE_ID_GESTURES_PAGE_FOR_3_BUTTON_NAVIGATION_USER, R.string.gestures_title)
           .addTextWithIcon(
               R.string.gestures_open_notifications_text_for_3_button_navigation,
               R.drawable.ic_gesture_2fingeredgedown);
 
-  private static final PageConfig.Builder MENUS_PAGE =
-      PageConfig.builder(R.string.menus_title)
+  static final PageConfig.Builder MENUS_PAGE =
+      PageConfig.builder(PageId.PAGE_ID_MENUS, R.string.menus_title)
           .addHeading(R.string.talkback_menu_title)
           .addText(R.string.menus_talkback_menu_text)
           .addHeading(R.string.setting_selector_heading)
           .addText(R.string.menus_selector_text);
 
-  private static final PageConfig.Builder MENUS_PAGE_PRE_R =
-      PageConfig.builder(R.string.menus_title)
+  static final PageConfig.Builder MENUS_PAGE_PRE_R =
+      PageConfig.builder(PageId.PAGE_ID_MENUS_PRE_R, R.string.menus_title)
           .addHeading(R.string.talkback_menu_title)
           .addText(R.string.menus_talkback_menu_text_pre_r)
           .addHeading(R.string.setting_selector_heading)
           .addText(R.string.menus_selector_text_pre_r);
 
-  private static final PageConfig.Builder TUTORIAL_FINISHED_PAGE =
-      PageConfig.builder(R.string.all_set_title)
+  static final PageConfig.Builder TUTORIAL_FINISHED_PAGE =
+      PageConfig.builder(PageId.PAGE_ID_TUTORIAL_FINISHED, R.string.all_set_title)
           .addText(R.string.all_set_text)
           .addLink(
               R.string.text_editing_link_text,
@@ -150,8 +184,8 @@ public class TutorialInitiator {
               R.drawable.ic_gesture_googblue_24dp,
               R.string.practice_gestures_title);
 
-  private static final PageConfig.Builder TUTORIAL_INDEX_PAGE =
-      PageConfig.builder(R.string.talkback_tutorial_title)
+  static final PageConfig.Builder TUTORIAL_INDEX_PAGE =
+      PageConfig.builder(PageId.PAGE_ID_TUTORIAL_INDEX, R.string.talkback_tutorial_title)
           .addText(R.string.talkback_tutorial_text)
           .addLink(
               R.string.basic_navigation_link_text,
@@ -179,74 +213,75 @@ public class TutorialInitiator {
               R.drawable.ic_gesture_googblue_24dp,
               R.string.practice_gestures_title);
 
-  private static final PageConfig.Builder USING_TEXT_BOXES_PAGE =
-      PageConfig.builder(R.string.using_text_boxes_title)
+  static final PageConfig.Builder USING_TEXT_BOXES_PAGE =
+      PageConfig.builder(PageId.PAGE_ID_USING_TEXT_BOXES, R.string.using_text_boxes_title)
           .addText(R.string.using_text_boxes_text)
           .addEditTextWithHint(R.string.edit_box_hint);
 
-  private static final PageConfig.Builder TYPING_TEXT_PAGE =
-      PageConfig.builder(R.string.typing_text_title)
+  static final PageConfig.Builder TYPING_TEXT_PAGE =
+      PageConfig.builder(PageId.PAGE_ID_TYPING_TEXT, R.string.typing_text_title)
           .addText(R.string.typing_text_text)
           .addEditTextWithHint(R.string.enter_text_here)
           .addText(R.string.typing_text_with_braille_keyboard_text);
 
-  private static final PageConfig.Builder MOVING_CURSOR_PAGE =
-      PageConfig.builder(R.string.moving_cursor_title)
+  static final PageConfig.Builder MOVING_CURSOR_PAGE =
+      PageConfig.builder(PageId.PAGE_ID_MOVING_CURSOR, R.string.moving_cursor_title)
           .addText(R.string.moving_cursor_text)
           .addEditTextWithContent(R.string.edit_box_text);
 
-  private static final PageConfig.Builder SELECTING_TEXT_PAGE =
-      PageConfig.builder(R.string.selecting_text_title)
+  static final PageConfig.Builder SELECTING_TEXT_PAGE =
+      PageConfig.builder(PageId.PAGE_ID_SELECTING_TEXT, R.string.selecting_text_title)
           .addText(R.string.selecting_text_text)
           .addEditTextWithContent(R.string.edit_box_text);
 
-  private static final PageConfig.Builder SELECTING_TEXT_PAGE_PRE_R =
-      PageConfig.builder(R.string.selecting_text_title)
+  static final PageConfig.Builder SELECTING_TEXT_PAGE_PRE_R =
+      PageConfig.builder(PageId.PAGE_ID_SELECTING_TEXT_PRE_R, R.string.selecting_text_title)
           .addText(R.string.selecting_text_text_pre_r)
           .addEditTextWithContent(R.string.edit_box_text);
 
   // TODO Provides a selecting text page for the devices without multiple finger
   // gestures
-  private static final PageConfig.Builder COPY_CUT_PASTE_PAGE =
-      PageConfig.builder(R.string.copy_cut_paste_title)
+  static final PageConfig.Builder COPY_CUT_PASTE_PAGE =
+      PageConfig.builder(PageId.PAGE_ID_COPY_CUT_PASTE, R.string.copy_cut_paste_title)
           .addText(R.string.copy_text)
           .addEditTextWithContent(R.string.edit_box_text)
           .addText(R.string.cut_paste_text)
-          .addEditTextWithContent(UNKNOWN_RESOURCE_ID);
+          .addEditTextWithHint(R.string.edit_box_hint_paste_text);
 
-  private static final PageConfig.Builder COPY_CUT_PASTE_PAGE_PRE_R =
-      PageConfig.builder(R.string.copy_cut_paste_title)
+  static final PageConfig.Builder COPY_CUT_PASTE_PAGE_PRE_R =
+      PageConfig.builder(PageId.PAGE_ID_COPY_CUT_PASTE_PRE_R, R.string.copy_cut_paste_title)
           .addText(R.string.copy_text_pre_r)
           .addEditTextWithContent(R.string.edit_box_text)
           .addText(R.string.cut_paste_text_pre_r)
-          .addEditTextWithContent(UNKNOWN_RESOURCE_ID);
+          .addEditTextWithHint(R.string.edit_box_hint_paste_text);
 
-  private static final PageConfig.Builder READ_BY_CHARACTER =
-      PageConfig.builder(R.string.read_by_character_title)
+  static final PageConfig.Builder READ_BY_CHARACTER =
+      PageConfig.builder(PageId.PAGE_ID_READ_BY_CHARACTER, R.string.read_by_character_title)
           .addText(R.string.read_by_character_text, R.string.granularity_character);
 
-  private static final PageConfig.Builder READ_BY_CHARACTER_PRE_R =
-      PageConfig.builder(R.string.read_by_character_title)
+  static final PageConfig.Builder READ_BY_CHARACTER_PRE_R =
+      PageConfig.builder(PageId.PAGE_ID_READ_BY_CHARACTER_PRE_R, R.string.read_by_character_title)
           .addText(R.string.read_by_character_text_pre_r, R.string.granularity_character);
 
-  private static final PageConfig.Builder JUMP_BETWEEN_CONTROLS =
-      PageConfig.builder(R.string.jump_between_controls_title)
+  static final PageConfig.Builder JUMP_BETWEEN_CONTROLS =
+      PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_CONTROLS, R.string.jump_between_controls_title)
           .addText(R.string.jump_between_controls_text, R.string.granularity_native_control)
           .addButton(R.string.button_1)
           .addButton(R.string.button_2)
           .addButton(R.string.button_3)
           .addButton(R.string.button_4);
 
-  private static final PageConfig.Builder JUMP_BETWEEN_CONTROLS_PRE_R =
-      PageConfig.builder(R.string.jump_between_controls_title)
+  static final PageConfig.Builder JUMP_BETWEEN_CONTROLS_PRE_R =
+      PageConfig.builder(
+              PageId.PAGE_ID_JUMP_BETWEEN_CONTROLS_PRE_R, R.string.jump_between_controls_title)
           .addText(R.string.jump_between_controls_text_pre_r, R.string.granularity_native_control)
           .addButton(R.string.button_1)
           .addButton(R.string.button_2)
           .addButton(R.string.button_3)
           .addButton(R.string.button_4);
 
-  private static final PageConfig.Builder JUMP_BETWEEN_LINKS =
-      PageConfig.builder(R.string.jump_between_links_title)
+  static final PageConfig.Builder JUMP_BETWEEN_LINKS =
+      PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_LINKS, R.string.jump_between_links_title)
           .addText(R.string.jump_between_links_text, R.string.granularity_native_link)
           .addText(R.string.paragraph1_text)
           .addTextWithLink(R.string.link1_text)
@@ -258,9 +293,10 @@ public class TutorialInitiator {
           .addTextWithLink(R.string.link4_text)
           .addTextWithLink(R.string.target_link_text);
 
-  private static final PageConfig.Builder JUMP_BETWEEN_LINKS_PRE_R =
-      PageConfig.builder(R.string.jump_between_links_title)
+  static final PageConfig.Builder JUMP_BETWEEN_LINKS_PRE_R =
+      PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_LINKS_PRE_R, R.string.jump_between_links_title)
           .addText(R.string.jump_between_links_text_pre_r, R.string.granularity_native_link)
+          .addText(R.string.paragraph1_text)
           .addTextWithLink(R.string.link1_text)
           .addText(R.string.paragraph2_text)
           .addTextWithLink(R.string.link2_text)
@@ -270,8 +306,8 @@ public class TutorialInitiator {
           .addTextWithLink(R.string.link4_text)
           .addTextWithLink(R.string.target_link_text);
 
-  private static final PageConfig.Builder JUMP_BETWEEN_HEADINGS =
-      PageConfig.builder(R.string.jump_between_headings_title)
+  static final PageConfig.Builder JUMP_BETWEEN_HEADINGS =
+      PageConfig.builder(PageId.PAGE_ID_JUMP_BETWEEN_HEADINGS, R.string.jump_between_headings_title)
           .addText(R.string.jump_between_headings_text, R.string.granularity_native_heading)
           .addDivider()
           .addHeading(R.string.content_heading)
@@ -280,8 +316,9 @@ public class TutorialInitiator {
           .addHeading(R.string.navigation_heading)
           .addText(R.string.find_finish_button_text);
 
-  private static final PageConfig.Builder JUMP_BETWEEN_HEADINGS_PRE_R =
-      PageConfig.builder(R.string.jump_between_headings_title)
+  static final PageConfig.Builder JUMP_BETWEEN_HEADINGS_PRE_R =
+      PageConfig.builder(
+              PageId.PAGE_ID_JUMP_BETWEEN_HEADINGS_PRE_R, R.string.jump_between_headings_title)
           .addText(R.string.jump_between_headings_text_pre_r, R.string.granularity_native_heading)
           .addDivider()
           .addHeading(R.string.content_heading)
@@ -290,21 +327,28 @@ public class TutorialInitiator {
           .addHeading(R.string.navigation_heading)
           .addText(R.string.find_finish_button_text);
 
-  private static final PageConfig.Builder VOICE_COMMANDS =
-      PageConfig.builder(R.string.voice_commands_title).addText(R.string.voice_commands_text);
+  static final PageConfig.Builder VOICE_COMMANDS =
+      PageConfig.builder(PageId.PAGE_ID_VOICE_COMMANDS, R.string.voice_commands_title)
+          .addText(R.string.voice_commands_text);
 
-  private static final PageConfig.Builder PRACTICE_GESTURES =
-      PageConfig.builder(R.string.practice_gestures_title)
+  static final PageConfig.Builder PRACTICE_GESTURES =
+      PageConfig.builder(PageId.PAGE_ID_PRACTICE_GESTURES, R.string.practice_gestures_title)
           .addText(R.string.practice_gestures_text)
           .captureAllGestures();
 
-  private static final PageConfig.Builder PRACTICE_GESTURES_PRE_R =
-      PageConfig.builder(R.string.practice_gestures_title)
+  static final PageConfig.Builder PRACTICE_GESTURES_PRE_R =
+      PageConfig.builder(PageId.PAGE_ID_PRACTICE_GESTURES_PRE_R, R.string.practice_gestures_title)
           .addText(R.string.practice_gestures_text_pre_r)
           .captureAllGestures();
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // First-run Training
+
+  static final TrainingConfig TUTORIAL_FOR_WATCH =
+      TrainingConfig.builder(R.string.new_feature_talkback_91_title)
+          .addPages(WELCOME_TO_TALKBACK_WATCH_PAGE)
+          .setButtons(ImmutableList.of(BUTTON_TYPE_EXIT))
+          .build();
 
   static final TrainingConfig FIRST_RUN_TUTORIAL_FOR_GESTURE_NAVIGATION_USER =
       TrainingConfig.builder(R.string.new_feature_talkback_91_title)

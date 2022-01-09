@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">Apostrophe</string>
   <string name="symbol_ampersand">Esperluette</string>
-  <string name="symbol_angle_bracket_left">Crochet gauche</string>
-  <string name="symbol_angle_bracket_right">Crochet droit</string>
+  <string name="symbol_angle_bracket_left">Symbole inférieur à</string>
+  <string name="symbol_angle_bracket_right">Symbole supérieur à</string>
   <string name="symbol_asterisk">Astérisque</string>
   <string name="symbol_at_sign">Arobase</string>
   <string name="symbol_backslash">Barre oblique inverse</string>
   <string name="symbol_bullet">Puce</string>
   <string name="symbol_caret">Accent circonflex</string>
-  <string name="symbol_cent">Cent</string>
+  <string name="symbol_cent">Symbole de cent</string>
   <string name="symbol_colon">Deux points</string>
   <string name="symbol_comma">Virgule</string>
   <string name="symbol_copyright">Droits d\'auteur</string>
   <string name="symbol_curly_bracket_left">Accolade gauche</string>
   <string name="symbol_curly_bracket_right">Accolade droite</string>
-  <string name="symbol_degree">Degré</string>
+  <string name="symbol_degree">Symbole de degré</string>
   <string name="symbol_division">Symbole de division</string>
   <string name="symbol_dollar_sign">Symbole du dollar</string>
   <string name="symbol_ellipsis">Ellipse</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">Point</string>
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Livre</string>
-  <string name="symbol_pound_sterling">Livre sterling</string>
+  <string name="symbol_pound_sterling">Symbole monétaire de la livre</string>
   <string name="symbol_question_mark">Point d\'interrogation</string>
   <string name="symbol_quotation_mark">Guillemet</string>
   <string name="symbol_registered_trademark">Marque déposée</string>
@@ -53,8 +53,8 @@
   <string name="symbol_not_sign">Signe non</string>
   <string name="symbol_broken_bar">Barre verticale interrompue</string>
   <string name="symbol_micro_sign">Symbole micro</string>
-  <string name="symbol_almost_equals">Presque égal</string>
-  <string name="symbol_not_equals">N\'est pas égal</string>
+  <string name="symbol_almost_equals">Symbole d\'approximation</string>
+  <string name="symbol_not_equals">Symbole différent de</string>
   <string name="symbol_currency_sign">Symbole monétaire</string>
   <string name="symbol_section_sign">Signe de section</string>
   <string name="symbol_upwards_arrow">Flèche vers le haut</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">Cœur noir</string>
   <string name="symbol_tilde">Tilde</string>
   <string name="symbol_equal">Signe égal à</string>
-  <string name="symbol_won">Symbole won pleine chasse</string>
+  <string name="symbol_won">Symbole monétaire du won sud-coréen</string>
   <string name="symbol_reference">Marque de référence</string>
   <string name="symbol_white_star">Étoile blanche</string>
   <string name="symbol_black_star">Étoile noire</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">Double chevron droit</string>
   <string name="symbol_inverted_exclamation_mark">Point d\'exclamation renversé</string>
   <string name="symbol_inverted_question_mark">Point d\'interrogation renversé</string>
-  <string name="symbol_won_sign">Symbole won</string>
+  <string name="symbol_won_sign">Symbole monétaire du won sud-coréen</string>
   <string name="symbol_full_width_comma">Virgule pleine chasse</string>
   <string name="symbol_full_width_exclamation_mark">Point d\'exclamation pleine chasse</string>
   <string name="symbol_full_width_ideographic_full_stop">Point idéographique</string>

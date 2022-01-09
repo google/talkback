@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">Apostrof</string>
   <string name="symbol_ampersand">Ampersand</string>
-  <string name="symbol_angle_bracket_left">Otvorena izlomljena zagrada</string>
-  <string name="symbol_angle_bracket_right">Zatvorena izlomljena zagrada</string>
+  <string name="symbol_angle_bracket_left">Znak za \"manje od\"</string>
+  <string name="symbol_angle_bracket_right">Znak za \"veće od\"</string>
   <string name="symbol_asterisk">Zvjezdica</string>
   <string name="symbol_at_sign">At</string>
   <string name="symbol_backslash">Obrnuta kosa crta</string>
   <string name="symbol_bullet">Oznaka</string>
   <string name="symbol_caret">Znak za umetanje</string>
-  <string name="symbol_cent">Cent</string>
+  <string name="symbol_cent">znak za cent</string>
   <string name="symbol_colon">Dvotačka</string>
   <string name="symbol_comma">Zarez</string>
   <string name="symbol_copyright">Autorska prava</string>
   <string name="symbol_curly_bracket_left">Otvorena vitičasta zagrada</string>
   <string name="symbol_curly_bracket_right">Zatvorena vitičasta zagrada</string>
-  <string name="symbol_degree">Stepen</string>
+  <string name="symbol_degree">Znak za stepen</string>
   <string name="symbol_division">Znak dijeljenja</string>
   <string name="symbol_dollar_sign">Znak dolara</string>
   <string name="symbol_ellipsis">Elipsa</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">Tačka</string>
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Funta</string>
-  <string name="symbol_pound_sterling">Funta sterling</string>
+  <string name="symbol_pound_sterling">Znak za valutu funta</string>
   <string name="symbol_question_mark">Upitnik</string>
   <string name="symbol_quotation_mark">Navodnik</string>
   <string name="symbol_registered_trademark">Registrirani zaštitni znak</string>
@@ -48,12 +48,12 @@
   <string name="symbol_square_root">Kvadratni korijen</string>
   <string name="symbol_trademark">Zaštitni znak</string>
   <string name="symbol_underscore">Donja crta</string>
-  <string name="symbol_vertical_bar">Vertikalna traka</string>
+  <string name="symbol_vertical_bar">Vertikalna linija</string>
   <string name="symbol_yen">Jen</string>
   <string name="symbol_not_sign">Znak ne</string>
   <string name="symbol_broken_bar">Vertikalna isprekidana crta</string>
   <string name="symbol_micro_sign">Znak za mikro</string>
-  <string name="symbol_almost_equals">Skoro jednako</string>
+  <string name="symbol_almost_equals">Približno jednako</string>
   <string name="symbol_not_equals">Nije jednako</string>
   <string name="symbol_currency_sign">Znak valute</string>
   <string name="symbol_section_sign">Paragraf</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">Crno srce</string>
   <string name="symbol_tilde">Tilda</string>
   <string name="symbol_equal">Znak jednakosti</string>
-  <string name="symbol_won">Znak pobjede</string>
+  <string name="symbol_won">Znak za valutu von</string>
   <string name="symbol_reference">Referentni znak</string>
   <string name="symbol_white_star">Bijela zvijezda</string>
   <string name="symbol_black_star">Crna zvijezda</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">Zatvorena dvostruka uglasta zagrada</string>
   <string name="symbol_inverted_exclamation_mark">Obrnuti uzvičnik</string>
   <string name="symbol_inverted_question_mark">Obrnuti upitnik</string>
-  <string name="symbol_won_sign">Znak za korejsku valutu won</string>
+  <string name="symbol_won_sign">Znak za valutu von</string>
   <string name="symbol_full_width_comma">Zarez pune širine</string>
   <string name="symbol_full_width_exclamation_mark">Uzvičnik pune širine</string>
   <string name="symbol_full_width_ideographic_full_stop">Ideogramska tačka</string>

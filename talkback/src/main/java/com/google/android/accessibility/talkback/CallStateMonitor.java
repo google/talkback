@@ -16,14 +16,26 @@
 
 package com.google.android.accessibility.talkback;
 
+import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.ACTION_DONE;
+import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.GRANT_RESULTS;
+import static com.google.android.accessibility.talkback.permission.PermissionRequestActivity.PERMISSIONS;
+
 import android.Manifest;
+import android.Manifest.permission;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
+import com.google.android.accessibility.talkback.permission.PermissionRequestActivity;
+import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.ScreenMonitor;
+import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,15 +55,39 @@ public class CallStateMonitor extends BroadcastReceiver {
   public static final IntentFilter STATE_CHANGED_FILTER =
       new IntentFilter(TelephonyManager.ACTION_PHONE_STATE_CHANGED);
 
+  @VisibleForTesting
+  public final BroadcastReceiver permissionRequestReceiver =
+      new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+          context.unregisterReceiver(permissionRequestReceiver);
+          String[] permissions = intent.getStringArrayExtra(PERMISSIONS);
+          int[] grantResults = intent.getIntArrayExtra(GRANT_RESULTS);
+          if (permissions == null || grantResults == null) {
+            return;
+          }
+          // If the phone permission request is accepted by the user, start monitoring call state.
+          for (int i = 0; i < permissions.length; i++) {
+            if (TextUtils.equals(permissions[i], permission.READ_PHONE_STATE)
+                && grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+              startMonitoring();
+            }
+          }
+        }
+      };
+
   private final TalkBackService service;
   private final TelephonyManager telephonyManager;
+  private final boolean supportTelephony;
   private final List<CallStateChangedListener> callStateChangedListeners = new ArrayList<>();
 
   private int lastCallState;
-  private boolean isStarted;
+  @VisibleForTesting boolean isStarted;
 
   public CallStateMonitor(TalkBackService context) {
     service = context;
+    supportTelephony =
+        service.getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
     telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
   }
 
@@ -91,7 +127,7 @@ public class CallStateMonitor extends BroadcastReceiver {
 
   /** Registers a callback to be invoked when phone call state changes. */
   public void addCallStateChangedListener(CallStateChangedListener listener) {
-    if (listener != null) {
+    if (listener != null && supportTelephony) {
       callStateChangedListeners.add(listener);
     }
   }
@@ -100,8 +136,8 @@ public class CallStateMonitor extends BroadcastReceiver {
    * Starts monitoring phone call state by registering a broadcast receiver to listen to
    * ACTION_PHONE_STATE_CHANGED intent. This happens only if READ_PHONE_STATE permission is granted.
    */
-  public void startMonitor() {
-    if (isStarted) {
+  public void startMonitoring() {
+    if (isStarted || !supportTelephony) {
       return;
     }
     // Starting from M, permission model has changed, so that TalkBack is not granted with
@@ -109,7 +145,7 @@ public class CallStateMonitor extends BroadcastReceiver {
     // receiver.
     if (isCallStatePermissionGranted()) {
       LogUtils.d(TAG, "Start monitoring call state.");
-      lastCallState = telephonyManager.getCallState();
+      lastCallState = getCallState();
       service.registerReceiver(this, STATE_CHANGED_FILTER);
       isStarted = true;
     } else {
@@ -120,12 +156,45 @@ public class CallStateMonitor extends BroadcastReceiver {
   }
 
   /** Unregisters broadcast receiver and stop monitoring phone call state. */
-  public void stopMonitor() {
-    if (isStarted) {
+  public void stopMonitoring() {
+    if (isStarted && supportTelephony) {
       LogUtils.d(TAG, "Stop monitoring call state.");
       service.unregisterReceiver(this);
       isStarted = false;
     }
+  }
+
+  /**
+   * Requests phone permission for TalkBack. It shows a dialog UI when {@link
+   * TalkBackService#resumeInfrastructure()} is called or TalkBack tutorial is finished at the first
+   * time.
+   *
+   * @param prefs Shared preferences from which to obtain the value
+   */
+  public void requestPhonePermissionIfNeeded(SharedPreferences prefs) {
+    boolean tutorialShown =
+        SharedPreferencesUtils.getBooleanPref(
+            prefs, service.getResources(), R.string.pref_update_talkback91_shown_key, false);
+    if (FeatureSupport.callStateRequiresPermission()
+        && tutorialShown
+        && !isCallStatePermissionGranted()
+        && !ScreenMonitor.isDeviceLocked(service)) {
+      startPhonePermissionRequestActivity();
+    }
+  }
+
+  /**
+   * Starts the phone permission request activity. It will start monitoring the call state once the
+   * permission request is granted by the user.
+   */
+  private void startPhonePermissionRequestActivity() {
+    Intent intent = new Intent(service, PermissionRequestActivity.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+    intent.putExtra(PERMISSIONS, new String[] {permission.READ_PHONE_STATE});
+    IntentFilter filter = new IntentFilter();
+    filter.addAction(ACTION_DONE);
+    service.registerReceiver(permissionRequestReceiver, filter);
+    service.startActivity(intent);
   }
 
   /**
@@ -134,7 +203,7 @@ public class CallStateMonitor extends BroadcastReceiver {
    * @return One of the call state constants from {@link TelephonyManager}.
    */
   public int getCurrentCallState() {
-    return isStarted ? lastCallState : telephonyManager.getCallState();
+    return isStarted ? lastCallState : getCallState();
   }
 
   /**
@@ -161,6 +230,25 @@ public class CallStateMonitor extends BroadcastReceiver {
       default:
         return "(unhandled)";
     }
+  }
+
+  /**
+   * See {@link TelephonyManager#getCallState()}. Requires {@link
+   * Manifest.permission#READ_PHONE_STATE} granted for applications targeting API level 31+
+   */
+  // TODO: Uses the new API since TelephonyManager.getCallState is deprecated in 31
+  private int getCallState() {
+    boolean permissionGranted = isCallStatePermissionGranted();
+    if (!supportTelephony || (FeatureSupport.callStateRequiresPermission() && !permissionGranted)) {
+      LogUtils.w(
+          TAG,
+          "CALL_STATE_IDLE supportTelephony: "
+              + supportTelephony
+              + " callStatePermissionGranted: "
+              + permissionGranted);
+      return TelephonyManager.CALL_STATE_IDLE;
+    }
+    return telephonyManager.getCallState();
   }
 
   /** @return whether the permission READ_PHONE_STATE is granted to TalkBack. */

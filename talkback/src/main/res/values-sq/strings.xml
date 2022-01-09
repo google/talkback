@@ -3,7 +3,7 @@
   <string name="talkback_service_description">Kur TalkBack është aktiv, ai ofron reagime me zë që ta përdorësh pajisjen pa parë në ekran. Kjo mund të jetë e dobishme për përdoruesit e verbër ose me shikim të dobët.\n\nPër të naviguar duke përdorur TalkBack:\n• Rrëshqit djathtas ose majtas për të lëvizur mes artikujve\n• Trokit dy herë për të aktivizuar një artikull\n• Zvarrit dy gishta për të lëvizur\n\nPër të çaktivizuar TalkBack:\n• Trokit çelësin. Do të shohësh një kontur të gjelbër. Trokit dy herë mbi çelës.\n• Mbi mesazhin e konfirmimit, trokit te \"Në rregull\". Më pas trokit dy herë te \"Në rregull\".</string>
   <string name="talkback_service_html_description">Kur Talkback është aktiv, të jep komente me zë në mënyrë që të mund ta përdorësh pajisjen pa parë në ekran. Talkback është planifikuar për situata ose persona që kanë vështirësi të shikojnë ekranin.&lt;br&gt;&lt;br&gt;&lt;b&gt;Përdorimi i Talkback&lt;/b&gt;&lt;br&gt;• Rrëshqit shpejt djathtas ose majtas për të lëvizur mes artikujve&lt;br&gt;• Trokit dy herë për të aktivizuar një artikull&lt;br&gt;• Zvarrit 2 gishtat për të lëvizur&lt;br&gt;&lt;br&gt;&lt;b&gt;Çaktivizimi i Talkback&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Tastet e volumit:&lt;/b&gt; Shtyp dhe mbaj shtypur të dy tastet e volumit për disa sekonda.&lt;br&gt;&lt;br&gt;&lt;b&gt;Cilësimet&lt;/b&gt;&lt;br&gt;• Trokit te çelësi &lt;b&gt;Përdor Talkback&lt;/b&gt;. Do të shohësh një kontur të gjelbër. Trokit dy herë te çelësi.&lt;br&gt;• Në mesazhin e konfirmimit, trokit te \"Ndalo\". Më pas trokit dy herë te \"Ndalo\".</string>
   <string name="talkback_service_summary">Lexo me zë artikujt në ekran</string>
-  <string name="talkback_preferences_title">Cilësimet e TalkBack-ut</string>
+  <string name="talkback_preferences_title">Cilësimet e TalkBack</string>
   <string name="tts_preferences_title">Cilësimet e \"tekstit-në-ligjërim\"</string>
   <string name="language_options">Gjuhët</string>
   <string name="spoken_language">Gjuha e folur</string>
@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Versioni %1$s</string>
   <string name="label_manager_summary_title">Etiketat e personalizuara</string>
   <string name="label_manager_package_title">Menaxho etiketat për %1$s</string>
+  <string name="manage_label">Menaxho etiketën</string>
   <string name="label_manager_no_packages_message">Aktualisht, nuk ka etiketa të personalizuara. Mund ta krijosh një etiketë duke u orientuar te një imazh pa etiketë dhe më pas të shtosh një etiketë nga \"Menyja e TalkBack\".</string>
   <string name="label_manager_timestamp_text">Modifikuar së fundmi më %1$s</string>
   <string name="search_dialog_label">Kërko: %1$s</string>
@@ -71,10 +72,10 @@
   <string name="capital_letters_speak_capital">Thuaj “kapitale”</string>
   <string name="capital_letters_change_pitch">Ndrysho tonalitetin</string>
   <string name="capital_letters_sound_feedback">Luaj tingullin</string>
-  <string name="title_pref_a11y_hints">Shqipto këshillat e përdorimit</string>
+  <string name="title_pref_a11y_hints">Lexo me zë këshillat e përdorimit</string>
   <string name="summaryOff_pref_a11y_hints">Këshillat për përdorimin nuk lexohen me zë kur zhvendoset fokusi i qasshmërisë.</string>
   <string name="summaryOn_pref_a11y_hints">Këshillat për përdorimin lexohen me zë gjatë navigimit pas një vonese të shkurtër</string>
-  <string name="pref_speak_container_element_positions_title">Thuaj informacionin e listës dhe rrjetës</string>
+  <string name="pref_speak_container_element_positions_title">Lexo me zë informacionin e listës dhe të rrjetës</string>
   <string name="pref_speak_container_element_positions_summaryOn">Informacionet e listës dhe të rrjetës lexohen me zë</string>
   <string name="pref_speak_container_element_positions_summaryOff">Informacionet e listës dhe të rrjetës nuk lexohen me zë</string>
   <string name="Reset_gesture_settings_dialog_title">Të rivendosen gjestet?</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Eksploro me prekje</string>
   <string name="title_pref_category_touch_exploration">Navigimi</string>
   <string name="title_pref_category_controls">Kontrollet</string>
-  <string name="title_pref_single_tap">Aktivizimi me një trokitje</string>
+  <string name="title_pref_single_tap">Trokit një herë për ta aktivizuar</string>
   <string name="title_pref_show_context_menu_as_list">Shfaq menynë kontekstuale si listë</string>
-  <string name="summary_pref_single_tap">(Eksperimentale) Trokit një herë në një artikull të fokusuar për ta aktivizuar</string>
-  <string name="title_pref_shake_to_read_threshold">Tundja për të aktivizuar leximin të vazhdojë</string>
+  <string name="summary_pref_single_tap">Trokit një herë në një artikull të fokusuar për ta aktivizuar</string>
+  <string name="title_pref_shake_to_read_threshold">Tundja për të nisur leximin e vazhdueshëm</string>
   <string name="pref_verbosity_title">Detajimi</string>
   <string name="pref_punctuation_title">Shenjat e pikësimit</string>
+  <string name="title_pref_category_manage_focus_indicator">Personalizo treguesin e fokusit</string>
   <string name="title_pref_category_manage_gestures">Personalizo gjestet</string>
   <string name="title_pref_manage_labels">Etiketat e personalizuara</string>
   <string name="title_pref_manage_customize_menus">Personalizo menytë</string>
@@ -108,8 +110,8 @@
   <string name="pref_category_selector_menu_summary_single_finger">Për të përdorur kontrollet e leximit, rrëshqit shpejt lart pastaj poshtë.</string>
   <string name="title_pref_manage_keyboard_shortcuts">Shkurtoret e tastierës</string>
   <string name="title_pref_export_custom_labels">Eksporto etiketat e importuara</string>
-  <string name="title_pref_play_store">Hape TalkBack-un te Dyqani \"Luaj\"</string>
-  <string name="summary_pref_play_store">Versioni aktual i TalkBack-ut: %1$s</string>
+  <string name="title_pref_play_store">Hape TalkBack te \"Dyqani i Play\"</string>
+  <string name="summary_pref_play_store">Versioni aktual i TalkBack: %1$s</string>
   <string name="title_pref_help_and_feedback">Ndihma dhe komentet</string>
   <string name="pref_item_licenses">Licencat me burim të hapur</string>
   <string name="title_pref_help">Ndihma</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Ndihma dhe komentet</string>
   <string name="title_pref_category_tutorial_and_help">Udhëzuesi dhe ndihma</string>
   <string name="title_pref_category_advanced">I përparuar</string>
+  <string name="title_pref_category_typing">Shkrimi dhe tastiera</string>
   <string name="title_pref_category_legal_and_privacy">Informacione ligjore dhe privatësia</string>
   <string name="title_pref_advanced_settings">Cilësimet e përparuara</string>
   <string name="reset_gesture_settings_title">Rivendos cilësimet e gjesteve</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Aplikacionet e fundit</string>
   <string name="keycombo_menu_global_notifications">Njoftimet</string>
   <string name="keycombo_menu_global_suspend">Vendos në pauzë ose rinis \"TalkBack\"</string>
+  <string name="keycombo_menu_global_play_pause_media">Luaj ose vendos në pauzë median</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Zgjidh kontrollin tjetër të leximit</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Zgjidh kontrollin e mëparshëm të leximit</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Rregullo kontrollin e leximit lart</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Rregullo kontrollin e leximit poshtë</string>
   <string name="keycombo_menu_category_granularity">Navigimi</string>
   <string name="keycombo_menu_granularity_increase">Cilësimi i lundrimit të radhës</string>
   <string name="keycombo_menu_granularity_decrease">Cilësimi i lundrimit të mëparshëm</string>
@@ -226,7 +234,8 @@
   <string name="keycombo_assign_dialog_clear">Pastro shkurtoren</string>
   <string name="cannot_copy_feedback">Nuk ka tekst për të kopjuar. Zgjidh një tekst në fillim.</string>
   <string name="cannot_paste_feedback">Nuk ka tekst për të ngjitur, kopjo disa tekste në fillim.</string>
-  <string name="cannot_cut_feedback">Nuk ka tekst për të prerë, zgjidh disa tekste në fillim.</string>
+  <string name="cannot_cut_feedback">Nuk ka tekst për të prerë. Zgjidh një tekst në fillim.</string>
+  <string name="cannot_delete_feedback">Nuk ka tekst për të fshirë. Zgjidh një tekst në fillim.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Je i sigurt që dëshiron të rivendosësh tastet e shkurtoreve për këtë hartë tastesh te vlerat e tyre të parazgjedhura? Ki parasysh se ky veprim nuk mund të zhbëhet.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Rivendos</string>
   <string name="override_keycombo">Tasti tashmë në përdorim</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Përdor ndryshimet e tonit</string>
   <string name="title_pref_keyboard_echo">Jehona e tastierës</string>
   <string name="pref_node_desc_order_title">Rendi i përshkrimit të elementit</string>
-  <string name="summaryOn_pref_intonation">Lexoje komandën e tastierës me një zë me ton më të ulët</string>
+  <string name="summaryOn_pref_intonation">Flit tekstin e fshirë me tastierë me zë më të lartë</string>
   <string name="summaryOff_pref_intonation">Mos e ndrysho tonin e zërit kur flet</string>
   <string name="title_pref_brailleime">Tastiera breil</string>
   <string name="title_pref_category_feedback_settings">Reagime të tjera</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Korrigjimi i pemës së nyjave</string>
   <string name="summary_pref_tree_debug_tv">Përdor tastin e kërkimit me zë për të printuar pemën bazë në vend që të kërkohet</string>
   <string name="title_pref_performance_stats">Aktivizo statistikat e performancës</string>
+  <string name="title_pref_log_overlay">Aktivizo mbivendosjen e regjistrimit të korrigjimit</string>
   <string name="title_pref_resume_talkback">Rifillo prej ku u pezullua</string>
+  <string name="title_pref_typing_confirmation">Preferenca e shkrimit</string>
   <string name="title_pref_multi_finger_gesture">Aktivizo modalitetin me shumë gishta</string>
   <string name="screen_dimmed">Ekrani u fsheh</string>
   <string name="screen_brightness_restored">Po shfaq ekranin</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Lëviz poshtë</string>
   <string name="shortcut_scroll_left">Lëviz majtas</string>
   <string name="shortcut_scroll_right">Lëviz djathtas</string>
+  <string name="shortcut_next_window">Dritarja tjetër</string>
+  <string name="shortcut_previous_window">Dritarja e mëparshme</string>
   <string name="shortcut_back">Pas</string>
   <string name="shortcut_home">Faqja e parë</string>
   <string name="shortcut_overview">Përmbledhja</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Fshih ose shfaq ekranin</string>
   <string name="title_show_screen_search">Kërkimi i ekranit</string>
   <string name="title_show_voice_commands">Komandat zanore</string>
+  <string name="talkback_show_talkback_settings">Cilësimet e TalkBack</string>
   <string name="title_other_web_navigation">Navigim tjetër në ueb</string>
   <string name="title_granularity_default">Orientimi i parazgjedhur</string>
   <string name="title_seek_bar_edit">Modifiko nivelin e rrëshqitësit</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Komandoje TalkBack me anë të zërit</string>
   <string name="summary_show_hide_screen">Fshihe ekranin në mënyrë që ai të mos jetë i dukshëm për të tjerët në vende publike. Pasi ta fshehësh, ktheje atë sërish në gjendjen normale.</string>
   <string name="summary_talkback_preferences">Hap cilësimet e TalkBack</string>
-  <string name="summary_system_actions">Shko te \"Të gjitha aplikacionet\", \"Cilësimet e shpejta\" dhe \"Përdor ekranin e ndarë\"</string>
+  <string name="summary_system_actions">Shko te \"Të gjitha aplikacionet\" dhe \"Cilësimet e shpejta\"</string>
   <string name="summary_tts_settings">Hap cilësimet e \"tekstit-në-ligjërim\"</string>
   <string name="summary_pause_feedback">Çaktivizo reagimin me zë të TalkBack</string>
   <string name="not_editable">Nuk mund të modifikohet</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Lexo fjalë pas fjale</string>
   <string name="summary_lines">Lexo rresht pas rreshti</string>
   <string name="summary_paragraphs">Lexo paragraf pas paragrafi</string>
+  <string name="summary_windows">Kalo te dritaret e tjera, si kontrollet e volumit ose shiriti i navigimit</string>
   <string name="summary_headings">Kalo mes titujve</string>
   <string name="summary_controls">Kalo mes artikujve me të cilët mund të bashkëveprosh, si butonat, kutitë e zgjedhjes, fushat e tekstit etj.</string>
   <string name="summary_links">Kalo mes lidhjeve</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Ndrysho nëse lexohen me zë të lartë tastet e shtypura, sugjerimet e përdorimit, informacionin e rrjetit dhe informacione të tjera</string>
   <string name="summary_selector_menu_punctuation">Ndrysho nëse shenjat e pikësimit dhe simbolet lexohen me zë të lartë</string>
   <string name="summary_language">Ndrysho gjuhën e folur. Shfaqet vetëm kur ke të instaluara shumë gjuhë për \"tekstin-në-ligjërim\".</string>
-  <string name="summary_sound_feedback">Dëgjo efektet zanore ndërsa navigon, si p.sh. një tingull për të konfirmuar një veprim.</string>
+  <string name="summary_sound_feedback">Dëgjo efektet zanore ndërkohë që navigon, si p.sh. një tingull \"bip\" për të konfirmuar një veprim</string>
   <string name="summary_vibration_feedback">Ndiej dridhjet për veprimet si p.sh. zgjedhja e një artikulli. Nuk ndikon te dridhjet që vijnë nga aplikacionet ose sistemi.</string>
   <string name="summary_hide_screen">Fshihe ekranin në mënyrë që ekrani yt të mos jetë i dukshëm për të tjerët kur je në vende publike</string>
   <string name="summary_audio_ducking">Ul volumin e audiove të tjera që luhen kur flet TalkBack</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Lëviz përpara ose prapa</string>
+  <string name="summary_support_change_a11y_volume">Rrit ose ul \"Volumin e qasshmërisë\"</string>
+  <string name="summary_image_caption">Merr një përshkrim automatik për këtë imazh</string>
   <string name="value_direction_up">lart</string>
   <string name="value_direction_down">poshtë</string>
   <string name="value_direction_left">majtas</string>
@@ -429,18 +446,18 @@
   <string name="title_pref_shortcut_down">Rrëshqitja poshtë</string>
   <string name="title_pref_shortcut_left">Rrëshqitja majtas</string>
   <string name="title_pref_shortcut_right">Rrëshqitja djathtas</string>
-  <string name="title_pref_shortcut_up_and_down">Rrëshqit lart dhe më pas poshtë</string>
-  <string name="title_pref_shortcut_down_and_up">Rrëshqit poshtë dhe më pas lart</string>
-  <string name="title_pref_shortcut_left_and_right">Rrëshqit majtas dhe më pas djathtas</string>
-  <string name="title_pref_shortcut_right_and_left">Rrëshqit djathtas dhe më pas majtas</string>
-  <string name="title_pref_shortcut_down_and_left">Rrëshqit poshtë dhe më pas majtas</string>
-  <string name="title_pref_shortcut_down_and_right">Rrëshqit poshtë dhe më pas djathtas</string>
-  <string name="title_pref_shortcut_up_and_left">Rrëshqit lart dhe më pas majtas</string>
-  <string name="title_pref_shortcut_up_and_right">Rrëshqit lart dhe më pas djathtas</string>
-  <string name="title_pref_shortcut_right_and_down">Rrëshqit djathtas dhe më pas poshtë</string>
-  <string name="title_pref_shortcut_right_and_up">Rrëshqit djathtas dhe më pas lart</string>
-  <string name="title_pref_shortcut_left_and_down">Rrëshqit majtas dhe më pas poshtë</string>
-  <string name="title_pref_shortcut_left_and_up">Rrëshqit majtas dhe më pas lart</string>
+  <string name="title_pref_shortcut_up_and_down">Rrëshqitja lart dhe më pas poshtë</string>
+  <string name="title_pref_shortcut_down_and_up">Rrëshqitja poshtë dhe më pas lart</string>
+  <string name="title_pref_shortcut_left_and_right">Rrëshqitja majtas dhe më pas djathtas</string>
+  <string name="title_pref_shortcut_right_and_left">Rrëshqitja djathtas dhe më pas majtas</string>
+  <string name="title_pref_shortcut_down_and_left">Rrëshqitja poshtë dhe më pas majtas</string>
+  <string name="title_pref_shortcut_down_and_right">Rrëshqitja poshtë dhe më pas djathtas</string>
+  <string name="title_pref_shortcut_up_and_left">Rrëshqitja lart dhe më pas majtas</string>
+  <string name="title_pref_shortcut_up_and_right">Rrëshqitja lart dhe më pas djathtas</string>
+  <string name="title_pref_shortcut_right_and_down">Rrëshqitja djathtas dhe më pas poshtë</string>
+  <string name="title_pref_shortcut_right_and_up">Rrëshqitja djathtas dhe më pas lart</string>
+  <string name="title_pref_shortcut_left_and_down">Rrëshqitja majtas dhe më pas poshtë</string>
+  <string name="title_pref_shortcut_left_and_up">Rrëshqitja majtas dhe më pas lart</string>
   <string name="title_pref_shortcut_2finger_1tap">Trokit me 2 gishta</string>
   <string name="title_pref_shortcut_2finger_2tap">Trokit dy herë me 2 gishta</string>
   <string name="title_pref_shortcut_2finger_3tap">Trokit tri herë me 2 gishta</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Trokit dy herë dhe mbaje me 2 gishta</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Trokit dy herë dhe mbaje me 3 gishta</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Trokit dy herë dhe mbaje me 4 gishta</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Trokit tri herë dhe mbaj shtypur me 2 gishta</string>
+  <string name="seekbar_hint_2gesture">\"%1$s\" ose %2$s\" për të rregulluar</string>
+  <string name="seekbar_hint_1gesture">\"%1$s\" për të rregulluar</string>
   <string name="gesture_name_unknown">Gjest i panjohur</string>
   <string name="gesture_name_pass_through">Kalo te gjesti i sistemit</string>
   <string name="gesture_name_touch_explore">Eksploro me prekje</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Trokit dy herë dhe mbaj shtypur</string>
   <string name="gesture_name_2finger_tap_hold">Trokit dhe mbaj shtypur me 2 gishta</string>
   <string name="gesture_name_3finger_tap_hold">Trokit dhe mbaj shtypur me 3 gishta</string>
+  <string name="gesture_name_2finger_3tap_hold">Trokit tri herë dhe mbaj shtypur me 2 gishta</string>
   <string name="gesture_name_3finger_3tap_hold">Trokit tri herë dhe mbaj shtypur me 3 gishta</string>
   <string name="title_pref_shortcut_fingerprint_up">Rrëshqit lart mbi sensorin e gjurmës</string>
   <string name="title_pref_shortcut_fingerprint_down">Rrëshqit poshtë mbi sensorin e gjurmës</string>
@@ -479,13 +500,15 @@
   <string name="title_pref_shortcut_fingerprint_right">Rrëshqit djathtas mbi sensorin e gjurmës</string>
   <string name="title_pref_two_part_vertical_gestures">Gjestet vertikale me dy pjesë</string>
   <string name="title_pref_version_code">Kodi i versionit</string>
-  <string formatted="false" name="value_volume_100_percent">Përshtat volumin e klipit \"media\"</string>
-  <string formatted="false" name="value_volume_75_percent">75% e volumit të klipit \"media\"</string>
-  <string formatted="false" name="value_volume_50_percent">50% e volumit të klipit \"media\"</string>
-  <string formatted="false" name="value_volume_25_percent">25% e volumit të klipit \"media\"</string>
+  <string formatted="false" name="value_volume_100_percent">Përputh me volumin e medias</string>
+  <string formatted="false" name="value_volume_75_percent">75% e volumit të medias</string>
+  <string formatted="false" name="value_volume_50_percent">50% e volumit të medias</string>
+  <string formatted="false" name="value_volume_25_percent">25% e volumit të medias</string>
   <string name="value_resume_screen_on">Kur ekrani ndizet</string>
   <string name="value_resume_keyguard">Kur shfaqet ekrani i kyçjes</string>
   <string name="value_resume_manual">Vetëm nga njoftimi</string>
+  <string name="value_type_confirmation_double_tap">Mbaj gishtin për zgjedhur tastin, pastaj trokit dy herë</string>
+  <string name="value_type_confirmation_lift_to_type">Mbaj gishtin për zgjedhur tastin, pastaj ngrije</string>
   <string name="value_shake_to_read_disabled">Çaktivizuar</string>
   <string name="value_shake_to_read_threshold_very_light">Shumë e lehtë</string>
   <string name="value_shake_to_read_threshold_light">E lehtë</string>
@@ -495,15 +518,21 @@
   <string name="value_keyboard_echo_always">Lexo gjithmonë tastet e shtypura</string>
   <string name="value_keyboard_echo_softkeys">Vetëm për tastierën në ekran</string>
   <string name="value_keyboard_echo_never">Mos i lexo asnjëherë tastet e shtypura</string>
+  <string name="title_pref_keyboard_echo_on_screen">Jehona e tastierës: Tastiera në ekran</string>
+  <string name="title_pref_keyboard_echo_physical">Jehona e tastierës: Tastiera fizike</string>
+  <string name="value_keyboard_echo_none">Asnjë</string>
+  <string name="value_keyboard_echo_characters_only">Karakteret</string>
+  <string name="value_keyboard_echo_words_only">Fjalët</string>
+  <string name="value_keyboard_echo_characters_and_words">Karakteret dhe fjalët</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Gjendja, emri, lloji</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Lloji, emri, gjendja</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Emri, lloji, gjendja</string>
-  <string name="notification_title_talkback_gestures_changed">Gjestet e TalkBack-ut u ndryshuan</string>
+  <string name="notification_title_talkback_gestures_changed">Gjestet e TalkBack u ndryshuan</string>
   <string name="notification_message_talkback_gestures_changed">Trokit për të rishikuar ndryshimet në gjestet e qasshmërisë</string>
-  <string name="notification_title_talkback_suspended">TalkBack-u është pezulluar</string>
+  <string name="notification_title_talkback_suspended">TalkBack është pezulluar</string>
   <string name="notification_message_talkback_suspended">Trokit për të vazhduar</string>
   <string name="notification_tutorial_navigate_to_lession_1">Po përparon automatikisht te mësimi 1.</string>
-  <string name="dialog_title_suspend_talkback">Të pezullohet TalkBack-u?</string>
+  <string name="dialog_title_suspend_talkback">Të pezullohet TalkBack?</string>
   <string name="dialog_message_suspend_talkback">Je i sigurt që dëshiron ta pezullosh TalkBack?\n\nKur TalkBack është i pezulluar, pajisja jote nuk do të ofrojë reagime dhe funksioni \"Eksploro me prekje\" do të çaktivizohet.</string>
   <string name="message_resume_manual">Mund të vazhdosh me TalkBack nga hija e njoftimeve</string>
   <string name="message_resume_screen_on">Mund të vazhdosh me TalkBack nga hija e njoftimeve ose duke aktivizuar ekranin</string>
@@ -534,12 +563,12 @@
   <string name="no_apps_to_export_labels">Nuk u gjetën aplikacione për të eksportuar etiketat.</string>
   <string name="label_choose_app_to_import">Zgjidh aplikacionin për të importuar etiketat:</string>
   <string name="label_choose_app_to_export">Zgjidh një aplikacion për të eksportuar etiketat:</string>
-  <string name="talkback_gesture_change_details">Ky version i TalkBack-ut përfshin ndryshime te gjestet e parazgjedhura të qasshmërisë. Veprimet e lidhura me këto gjeste mund të personalizohen brenda cilësimeve të TalkBack-ut. Kur aktivizohet funksioni \"Eksploro me prekje\", mund të kryesh gjestet e mëposhtme për të kryer veprime të caktuara.\n\n%1$s</string>
+  <string name="talkback_gesture_change_details">Ky version i TalkBack përfshin ndryshime te gjestet e parazgjedhura të qasshmërisë. Veprimet e lidhura me këto gjeste mund të personalizohen brenda cilësimeve të TalkBack. Kur aktivizohet veçoria \"Eksploro me prekje\", mund të kryesh gjestet e mëposhtme për të kryer veprime të caktuara.\n\n%1$s</string>
   <string formatted="false" name="value_long_volume_pressed_suspend_talkback">Shtyp gjatë tastet e ngritjes dhe uljes së volumit</string>
   <string formatted="false" name="value_dim_volume_three_clicks">Shtyp të dy tastet e volumit tre herë me shpejtësi për të fshehur ose shfaqur ekranin</string>
   <string name="dialog_title_dim_screen">Do ta fshehësh ekranin?</string>
   <string name="dialog_message_dim_screen">Kjo çaktivizon ekranin për të përmirësuar privatësinë, në mënyrë që ekrani yt të mos jetë i dukshëm për të tjerët kur je në vende publike</string>
-  <string name="talkback_built_in_gesture_change_details">Ky version i TalkBack-ut përfshin ndryshime në gjestet e parazgjedhura të qasshmërisë.\n\nGjesti lart-poshtë do të të lejojë të lëvizësh tek artikulli i parë në ekran, ndërsa me gjestin poshtë-lart do të lëvizësh tek artikulli i fundit.\n\nShkalla e detajeve të leximit tani mund të ndryshohet duke e fokusuar një artikull dhe duke zgjedhur më pas një shkallë të detajeve nga menyja kontekstuale e TalkBack.\n\nVeprimet e kryera nga këto gjeste mund t\'i ndryshosh te \"Cilësimet e TalkBack-ut\".</string>
+  <string name="talkback_built_in_gesture_change_details">Ky version i TalkBack përfshin ndryshime në gjestet e parazgjedhura të qasshmërisë.\n\nGjesti \"lart e më pas poshtë\" do të të lejojë të lëvizësh tek artikulli i parë në ekran, ndërsa me gjestin \"poshtë e më pas lart\" do të lëvizësh tek artikulli i fundit.\n\nShkalla e detajeve të leximit tani mund të ndryshohet duke e fokusuar një artikull dhe duke zgjedhur më pas një shkallë të detajeve nga menyja kontekstuale e TalkBack.\n\nVeprimet e kryera nga këto gjeste mund t\'i ndryshosh te \"Cilësimet e TalkBack\".</string>
   <string name="talkback_built_in_gesture_change_details_45">Ky version i TalkBack përfshin ndryshime te gjestet e parazgjedhura të qasshmërisë.\n\nGjesti i drejtimit lart tani lëviz te cilësimi i mëparshëm i navigimit dhe gjesti i drejtimit poshtë tani lëviz te cilësimi tjetër i navigimit.</string>
   <string name="side_tap_shortcuts_removed_details">Këto cilësime janë hequr nga TalkBack për shkak të problemeve me qëndrueshmërinë:\n• Trokit te gjestet në anë të pajisjes\n• Tunde për të nisur leximin e vazhdueshëm</string>
   <string name="updown_downup_gestures_change_and_selector_always_on_details">Gjesti \"rrëshqit shpejt lart dhe më pas poshtë\" është ricaktuar për të zgjedhur cilësimin e mëparshëm.\nGjesti \"rrëshqit shpejt poshtë dhe më pas lart\" është ricaktuar për të nisur shkurtoret zanore.\n\nPërzgjedhësi është aktivizuar, rrëshqit shpejt lart dhe më pas poshtë në ekran, rrëshqit shpejt lart ose poshtë në sensorin e gjurmës së gishtit për të zgjedhur një cilësim. Dhe rrëshqit shpejt lart ose poshtë në ekran për të rregulluar cilësimin.</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Je i sigurt që dëshiron ta aktivizosh korrigjimin e pemës së nyjave?\n\nKorrigjimi i pemës së nyjave e ekspozon përmbajtjen e ekranit tënd te regjistrat e pajisjes, të cilat mund të lexohen nga aplikacione të tjera.</string>
   <string name="dialog_title_enable_performance_stats">Të aktivizohen statistikat e performancës?</string>
   <string name="dialog_message_enable_performance_stats">Je i sigurt që dëshiron të aktivizosh statistikat e performancës?\n\nStatistikat e performancës mund të konsumojnë më shumë memorie dhe energji.</string>
-  <string name="label_talkback_context_menu">Menyja kontekstuale globale e TalkBack-ut</string>
-  <string name="permission_talkback_label">Kontrollo TalkBack-un</string>
-  <string name="permission_talkback_desc">Leja për të dërguar gjestet te TalkBack-u dhe për të vazhduar reagimet me të folur.</string>
-  <string name="permission_labeling_label">Menaxho etiketat e personalizuara të TalkBack-ut</string>
-  <string name="permission_labeling_desc">Leja për t\'u qasur, për të modifikuar dhe fshirë etiketat e personalizuara të lexuara nga TalkBack-u.</string>
+  <string name="title_request_phone_permission">Të lejohet qasja në telefon?</string>
+  <string name="message_request_phone_permission">Kjo ndihmon TalkBack të reduktojë njoftimet kur je në telefonatë</string>
+  <string name="continue_button">Vazhdo</string>
+  <string name="label_talkback_context_menu">Menyja kontekstuale globale e TalkBack</string>
+  <string name="permission_talkback_label">Kontrollo TalkBack</string>
+  <string name="permission_talkback_desc">Leja për të dërguar gjestet te TalkBack dhe për të vazhduar reagimet e lexuara me zë.</string>
   <string name="links">Lidhjet</string>
   <string name="end_of_text">Fundi</string>
   <string name="start_of_page">Nuk ka %1$s të mëparshëm</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Shenjat e pikësimit</string>
   <string name="title_pref_selector_granularity">Navigimi</string>
   <string name="title_pref_selector_audio_focus">Ulja e zhurmave në sfond</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Lëviz</string>
+  <string name="title_pref_a11y_volume">Volumi i qasshmërisë</string>
   <string name="title_pref_selector_adjustable_widget_slider">Rregullo rrëshqitësin</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Rregullo vlerën</string>
   <string name="title_pref_speak_passwords_without_headphones">Lexo me zë fjalëkalimet</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Përdor komandat zanore</string>
   <string name="dialog_title_pass_through_mode">Kapërce gjestet e TalkBack për të përdorur gjestet e sistemit</string>
   <string name="dialog_message_pass_through_mode">Kur të dëgjosh një tingëllimë zileje, mund të përdorësh një gjest sistemi që nuk mbështetet nga TalkBack. Ky njihet si gjest kalimi.</string>
-  <string name="hint_type_search_term">Shkruaj termin e kërkimit</string>
+  <string name="hint_type_search_term">Termi i kërkimit</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Kanali i njoftimeve i TalkBack</string>
   <string name="pref_selector_summary">%1$s për të zgjedhur një cilësim. Më pas %2$s për të rregulluar cilësimin.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Për ta prerë tekstin, trokit dy herë dhe mbaj shtypur me 3 gishta.\n\nPër ta ngjitur tekstin, trokit tri herë me 3 gishta.\n\nProvo ta ngjitësh një fjalë në kutinë e tekstit më poshtë.</string>
   <string name="copy_text_pre_r">Pas përzgjedhjes së tekstit, mund ta kopjosh në menynë e TalkBack. Rrëshqit poshtë dhe më pas djathtas për të hapur menynë e TalkBack. Trokit dy herë opsionet e redaktimit dhe më pas kopjoje.\n\nProvo ta kopjosh një fjalë në kutinë e tekstit më poshtë.</string>
   <string name="cut_paste_text_pre_r">Për të prerë ose ngjitur tekst, hap menynë e TalkBack dhe trokit dy herë tek opsione e redaktimit.\n\nProvo të ngjitësh një fjalë në kutinë e tekstit më poshtë.</string>
+  <string name="edit_box_hint_paste_text">Ngjit tekstin këtu</string>
   <string name="read_by_character_title">Lexo sipas karaktereve, fjalëve ose paragrafëve</string>
   <string name="read_by_character_text">Ndonjëherë mund të duash të dëgjosh një tekst të lexuar me zë të lartë karakter pas karakteri.\n\nPër ta bërë këtë, rrëshqit shpejt djathtas disa herë me tre gishta derisa të dëgjosh \"%1$s\". Më pas, rrëshqit shpejt lart për ta zhvendosur fokusin e navigimit prapa sipas karaktereve. Rrëshqit shpejt poshtë për ta zhvendosur fokusin e navigimit përpara sipas karaktereve.\n\nProvoje tani. Kur rrëshqet shpejt djathtas me 3 gishta, mund të zgjedhësh gjithashtu të lexosh sipas fjalëve ose paragrafëve.</string>
   <string name="read_by_character_text_pre_r">Ndonjëherë mund të duash të dëgjosh një tekst të lexuar me zë të lartë karakter pas karakteri.\n\nPër ta bërë këtë, rrëshqit shpejt poshtë dhe më pas lart derisa të dëgjosh \"%1$s\". Më pas, rrëshqit shpejt lart për ta zhvendosur fokusin e navigimit prapa sipas karaktereve. Rrëshqit shpejt poshtë për ta zhvendosur fokusin e navigimit përpara sipas karaktereve.\n\nProvoje tani. Kur rrëshqet shpejt poshtë dhe më pas lart, mund të zgjedhësh gjithashtu të lexosh sipas fjalëve ose paragrafëve.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">U aktivizua: %1$s</string>
   <string name="talkback_inactive_title">TalkBack është çaktivizuar</string>
   <string name="talkback_inactive_message">Ky udhëzues kërkon aktivizimin e veçorisë TalkBack. Aktivizo TalkBack para se të hapësh udhëzuesin.</string>
+  <string name="watch_swipe_left_right_text">Rrëshqit shpejt djathtas ose majtas për të lëvizur mes artikujve</string>
+  <string name="watch_double_tap_text">Trokit dy herë për të aktivizuar një artikull</string>
+  <string name="watch_2_finger_scroll_text">Zvarrit 2 gishta për të lëvizur në ekran</string>
+  <string name="title_pref_thick_border">Bordura të trasha</string>
+  <string name="title_pref_category_border_color">Ngjyra</string>
+  <string name="title_pref_default_color">Parazgjedhja</string>
+  <string name="title_pref_red">E kuqe</string>
+  <string name="title_pref_orange">Portokalli</string>
+  <string name="title_pref_yellow">E verdhë</string>
+  <string name="title_pref_green">E gjelbër</string>
+  <string name="title_pref_blue">Blu</string>
+  <string name="title_pref_grey">Gri</string>
   <string name="survey_closed">Anketa është mbyllur</string>
+  <string name="character_recognition_text">Teksti: %1$s</string>
+  <string name="title_image_caption">Përshkruaj imazhin</string>
 </resources>

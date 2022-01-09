@@ -14,7 +14,8 @@
   <string name="voice_commands_language">Jazyk</string>
   <string name="voice_commands_languages">Jazyky</string>
   <string name="voice_commands_custom_actions">vlastní akce</string>
-  <string name="voice_commands_quick_settings">Rychlá nastavení</string>
+  <string name="voice_commands_action">Akce</string>
+  <string name="voice_commands_quick_settings">Rychlé nastavení</string>
   <string name="voice_commands_quick_setting">Rychlé nastavení</string>
   <string name="voice_commands_dim">ztlumit</string>
   <string name="voice_commands_darken">ztmavit</string>
@@ -61,7 +62,7 @@
   <string name="voice_commands_write">Psát</string>
   <string name="voice_commands_Spell">Hláskovat</string>
   <string name="voice_commands_talkback_settings">Nastavení aplikace TalkBack</string>
-  <string name="voice_commands_talkback_setting">Nastavení TalkBack</string>
+  <string name="voice_commands_talkback_setting">Nastavení aplikace TalkBack</string>
   <string name="voice_commands_screen_search">Přímé vyhledávání</string>
   <string name="voice_commands_search_on_screen">Vyhledat na obrazovce</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">Chcete-li tuto funkci používat, musíte udělit oprávnění k používání mikrofonu.</string>
   <string name="voice_commands_no_voice_recognition_ability">Je nám líto, ale funkce v tomto zařízení není k dispozici</string>
   <string name="voice_commands_error">Při rozpoznávání hlasového příkazu došlo k chybě</string>
-  <string name="voice_commands_partial_result">Příkaz se nepodařilo rozpoznat. Seznam všech příkazů vyvoláte příkazem „%1$s“.</string>
+  <string name="voice_commands_partial_result">Příkaz nebyl rozpoznán. Seznam všech příkazů vyvoláte příkazem „%1$s“.</string>
+  <string name="voice_commands_timeout">Seznam všech příkazů vyvoláte příkazem „%1$s“.</string>
   <string name="voice_commands_many_requests">Zkuste to za chvíli.</string>
-  <string name="voice_commands_setting_disabled">Nastavení %1$s není povoleno</string>
   <string name="voice_commands_echo_feedback_not_recognized">„%1$s“ nebylo rozpoznáno jako hlasový příkaz.</string>
   <string name="voice_commands_label_saved">Štítek byl uložen</string>
   <string name="voice_commands_no_actions_feedback">Nejsou dostupné žádné akce</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Přehled hlasových příkazů</string>
   <string name="voice_commands_help_description">Pokud chcete použít hlasové příkazy, přejeďte prstem doprava a poté nahoru. Tento seznam příkazů kdykoli vyvoláte, když řeknete „nápověda“ nebo „co můžu říct“.</string>
   <string name="voice_commands_help_hint">Nejlepších výsledků dosáhnete, když budete používat příkazy uvedené na následujících obrazovkách.</string>
+  <string name="voice_command_screen_locked_hint">Na zamčené obrazovce nejsou hlasové příkazy k dispozici. Pokud chcete použít nabídku TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Změna způsobu čtení obsahu na aktuální obrazovce</string>
   <string name="voice_commands_help_next">Další [nadpis]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Zadání výrazu, který chcete najít na obrazovce</string>
   <string name="voice_commands_help_text_editing_description">Psaní, výběr a kopírování textu</string>
   <string name="voice_commands_help_type_text">Napiš [OK]</string>
-  <string name="voice_commands_help_copy_description">Před kopírováním se ujistěte, že máte vybraný text</string>
-  <string name="voice_commands_help_cut_description">Před vyjmutím se ujistěte, že máte vybraný text</string>
+  <string name="voice_commands_help_copy_description">Před kopírováním vyberte text</string>
+  <string name="voice_commands_help_cut_description">Před vyjmutím vyberte text</string>
+  <string name="voice_commands_help_delete_description">Před smazáním vyberte text</string>
   <string name="voice_commands_help_device_navigation_title">Navigace v zařízení</string>
   <string name="voice_commands_help_device_navigation_description">Přejít na plochu, vrátit se zpět, zobrazit oznámení a další</string>
   <string name="voice_commands_help_overview_description">Zobrazení nedávných aplikací</string>

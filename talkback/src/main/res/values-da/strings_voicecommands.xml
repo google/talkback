@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Sprog</string>
   <string name="voice_commands_languages">Sprog</string>
   <string name="voice_commands_custom_actions">tilpassede handlinger</string>
+  <string name="voice_commands_action">Handling</string>
   <string name="voice_commands_quick_settings">Kvikmenu</string>
-  <string name="voice_commands_quick_setting">Kvikmenu</string>
+  <string name="voice_commands_quick_setting">Kvikmenuen</string>
   <string name="voice_commands_dim">dæmp</string>
   <string name="voice_commands_darken">nedton</string>
   <string name="voice_commands_brighten_screen">gør skærmen lysere</string>
@@ -35,7 +36,7 @@
   <string name="voice_commands_next_control">Næste styringselement</string>
   <string name="voice_commands_next_link">Næste link</string>
   <string name="voice_commands_next_landmark">Næste pejlemærke</string>
-  <string name="voice_commands_select">Vælg</string>
+  <string name="voice_commands_select">Markér</string>
   <string name="voice_commands_start_select">Start valg</string>
   <string name="voice_commands_start_selection_mode">Start markering</string>
   <string name="voice_commands_start_selection">Start med at vælge</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Denne funktion er desværre ikke tilgængelig på din enhed</string>
   <string name="voice_commands_error">Talekommandoen kunne ikke registreres</string>
   <string name="voice_commands_partial_result">Denne kommando kunne ikke genkendes. Sig \"%1$s\" for at se en liste over alle kommandoer.</string>
+  <string name="voice_commands_timeout">Sig \"%1$s\" for at se en liste over alle kommandoer.</string>
   <string name="voice_commands_many_requests">Prøv igen om et øjeblik</string>
-  <string name="voice_commands_setting_disabled">Indstillingen \"%1$s\" er ikke aktiveret</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" genkendes ikke som en stemmekommando.</string>
   <string name="voice_commands_label_saved">Etiketten blev gemt</string>
   <string name="voice_commands_no_actions_feedback">Der er ingen tilgængelige handlinger</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Oversigt over stemmekommandoer</string>
   <string name="voice_commands_help_description">Du kan bruge stemmekommandoer ved at stryge mod højre og derefter opad. Sig \"Hjælp\" eller \"Hvad kan jeg sige?\" for at se denne liste over kommandoer.</string>
   <string name="voice_commands_help_hint">Du får de bedste resultater ved at bruge de eksakte udtryk, der er angivet på følgende skærme.</string>
+  <string name="voice_command_screen_locked_hint">Stemmekommandoer er ikke tilgængelige, mens skærmen er låst. %1$s for at bruge TalkBack-menuen i stedet.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Juster, hvordan du læser indhold på den aktuelle skærm</string>
   <string name="voice_commands_help_next">Næste [overskrift]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Angiv en søgeterm for at finde den pågældende tekst på skærmen</string>
   <string name="voice_commands_help_text_editing_description">Skriv, vælg og kopiér tekst</string>
   <string name="voice_commands_help_type_text">Angiv [OK]</string>
-  <string name="voice_commands_help_copy_description">Sørg for, at du har valgt et tekststykke, før du kopierer</string>
-  <string name="voice_commands_help_cut_description">Sørg for, at du har valgt et tekststykke, før du klipper</string>
+  <string name="voice_commands_help_copy_description">Markér noget tekst, før du kan kopiere</string>
+  <string name="voice_commands_help_cut_description">Markér noget tekst, før du kan klippe</string>
+  <string name="voice_commands_help_delete_description">Markér noget tekst, før du kan slette</string>
   <string name="voice_commands_help_device_navigation_title">Enhedsnavigation</string>
   <string name="voice_commands_help_device_navigation_description">Gå til Hjem, gå tilbage, vis notifikationer m.m.</string>
   <string name="voice_commands_help_overview_description">Se dine seneste apps</string>

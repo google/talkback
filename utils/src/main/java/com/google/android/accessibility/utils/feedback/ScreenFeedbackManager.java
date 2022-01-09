@@ -287,8 +287,7 @@ public class ScreenFeedbackManager
             new FeedbackPart(inputMethodFeedback)
                 .earcon(true)
                 .forceFeedbackAudioPlaybackActive(true)
-                .forceFeedbackMicrophoneActive(true)
-                .forceFeedbackSsbActive(true));
+                .forceFeedbackMicrophoneActive(true));
       }
 
       // Generate spoken feedback for main window changes.

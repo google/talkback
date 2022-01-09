@@ -18,8 +18,6 @@ package com.google.android.accessibility.compositor;
 
 import android.app.Notification;
 import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.SystemClock;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
@@ -27,6 +25,7 @@ import androidx.core.view.accessibility.AccessibilityRecordCompat;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
+import androidx.annotation.IntDef;
 import com.google.android.accessibility.compositor.TextEventInterpreter.SelectionStateReader;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
@@ -37,6 +36,8 @@ import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.input.InputModeManager;
 import com.google.android.accessibility.utils.input.TextCursorManager;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -77,12 +78,26 @@ public class EventFilter {
    *
    * @array/pref_keyboard_echo_entries in values/donottranslate.xml.
    */
-  private static final int PREF_ECHO_ALWAYS = 0;
+  public static final int PREF_ECHO_NONE = 2;
 
-  private static final int PREF_ECHO_SOFTKEYS = 1;
-  private static final int PREF_ECHO_NEVER = 2;
+  public static final int PREF_ECHO_CHARACTERS = 1;
+  public static final int PREF_ECHO_WORDS = 3;
+  public static final int PREF_ECHO_CHARACTERS_AND_WORDS = 0;
 
-  private int keyboardEcho = PREF_ECHO_ALWAYS;
+  /** The options of keyboard echo type. */
+  @IntDef({PREF_ECHO_NONE, PREF_ECHO_CHARACTERS, PREF_ECHO_WORDS, PREF_ECHO_CHARACTERS_AND_WORDS})
+  @Retention(RetentionPolicy.SOURCE)
+  public @interface KeyboardEchoType {}
+
+  private @KeyboardEchoType int onScreenKeyboardEcho = PREF_ECHO_CHARACTERS_AND_WORDS;
+  private @KeyboardEchoType int physicalKeyboardEcho = PREF_ECHO_CHARACTERS_AND_WORDS;
+
+  private enum KeyboardType {
+    ON_SCREEN,
+    PHYSICAL
+  }
+
+  private static final int PHYSICAL_KEY_TIMEOUT = 100;
 
   ///////////////////////////////////////////////////////////////////////////////////
   // Member variables
@@ -96,6 +111,7 @@ public class EventFilter {
   private final TextEventInterpreter textEventInterpreter;
   private AccessibilityFocusEventInterpreter accessibilityFocusEventInterpreter;
   private final GlobalVariables globalVariables;
+  private long lastKeyEventTime = -1;
 
   /**
    * Time in milliseconds of last non-dropped scroll event, based on system uptime. A negative value
@@ -104,6 +120,8 @@ public class EventFilter {
   private long lastScrollEventTimeInMillis = -1;
 
   private boolean isUserTouchingOnScreen = false;
+
+  @Nullable TextCursorManager textCursorManager;
 
   // /////////////////////////////////////////////////////////////////////////////////
   // Construction
@@ -138,6 +156,7 @@ public class EventFilter {
       GlobalVariables globalVariables) {
     this.compositor = compositor;
     this.context = context;
+    this.textCursorManager = textCursorManager;
     this.textEventHistory = new TextEventHistory(editTextActionHistory);
     this.textEventInterpreter =
         new TextEventInterpreter(
@@ -163,19 +182,41 @@ public class EventFilter {
     accessibilityFocusEventInterpreter = interpreter;
   }
 
-  public void setKeyboardEcho(int value) {
-    keyboardEcho = value;
+  public void setOnScreenKeyboardEcho(@KeyboardEchoType int value) {
+    onScreenKeyboardEcho = value;
+  }
+
+  public void setPhysicalKeyboardEcho(@KeyboardEchoType int value) {
+    physicalKeyboardEcho = value;
+  }
+
+  public void setLastKeyEventTime(long time) {
+    lastKeyEventTime = time;
   }
 
   public void sendEvent(AccessibilityEvent event, @Nullable EventId eventId) {
+    // TODO: Has to move TextCursorManager, together with TextEventInterpreter, to
+    // pipeline. Also need to prepare a copy of TextEventInterpreter for switch-access.
+    if (textCursorManager != null) {
+      // Prevent null check failure:
+      // go/nullness-faq#i-checked-that-a-nullable-field-is-non-null-but-the-checker-is-still-complaining-that-it-could-be-null
+      TextCursorManager textCursorManagerLocal = textCursorManager;
+      if ((textCursorManagerLocal.getEventTypes() & event.getEventType()) != 0) {
+        textCursorManagerLocal.onAccessibilityEvent(event, eventId);
+      }
+    }
+
     // Update persistent state.
     globalVariables.updateStateFromEvent(event);
 
+    KeyboardType keyboardType = getKeyboardType(event.getEventTime());
     // Interpret event more specifically, and extract data from event.
     // TODO: Run more event interpreters, like WindowEventInterpreter.
     // TODO: Move interpretation forward in the pipeline, to AccessibilityEventProcessor.
     EventInterpretation eventInterpreted = new EventInterpretation(event.getEventType());
-    TextEventInterpretation textEventInterpreted = textEventInterpreter.interpret(event);
+    TextEventInterpretation textEventInterpreted =
+        textEventInterpreter.interpret(
+            event, shouldEchoAddedText(keyboardType), shouldEchoInitialWords(keyboardType));
     if (textEventInterpreted != null) {
       // Update GlobalVariables for the latest text event.
       globalVariables.setLastTextEditIsPassword(event.isPassword());
@@ -277,10 +318,6 @@ public class EventFilter {
           textEventHistory.setTextChangesAwaitingSelection(1);
           textEventHistory.setLastTextChangeTime(event.getEventTime());
           textEventHistory.setLastTextChangePackageName(event.getPackageName());
-
-          if (!shouldEchoKeyboard(eventInterpreted.getEvent())) {
-            return;
-          }
           if ((voiceActionDelegate != null) && voiceActionDelegate.isVoiceRecognitionActive()) {
             LogUtils.d(TAG, "Drop TYPE_VIEW_TEXT_CHANGED event: Voice recognition is active.");
             return;
@@ -347,6 +384,7 @@ public class EventFilter {
         /* Do Nothing */
     }
 
+    eventInterpreted.setReadOnly();
     compositor.handleEvent(event, eventId, eventInterpreted);
   }
 
@@ -381,27 +419,34 @@ public class EventFilter {
     return false;
   }
 
-  private boolean shouldEchoKeyboard(int changeType) {
-    // Always echo text removal events.
-    if (changeType == Compositor.EVENT_TYPE_INPUT_TEXT_REMOVE) {
-      return true;
+  private KeyboardType getKeyboardType(long textEventTime) {
+    if (textEventTime - lastKeyEventTime < PHYSICAL_KEY_TIMEOUT) {
+      return KeyboardType.PHYSICAL;
+    } else {
+      return KeyboardType.ON_SCREEN;
     }
+  }
 
-    final Resources res = context.getResources();
-
-    switch (keyboardEcho) {
-      case PREF_ECHO_ALWAYS:
-        return true;
-      case PREF_ECHO_SOFTKEYS:
-        final Configuration config = res.getConfiguration();
-        return (config.keyboard == Configuration.KEYBOARD_NOKEYS)
-            || (config.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_YES);
-      case PREF_ECHO_NEVER:
-        return false;
-      default:
-        LogUtils.e(TAG, "Invalid keyboard echo preference value: %d", keyboardEcho);
-        return false;
+  private boolean shouldEchoAddedText(/* int changeType, */ KeyboardType keyboardType) {
+    if (keyboardType == KeyboardType.PHYSICAL) {
+      return physicalKeyboardEcho == PREF_ECHO_CHARACTERS
+          || physicalKeyboardEcho == PREF_ECHO_CHARACTERS_AND_WORDS;
+    } else if (keyboardType == KeyboardType.ON_SCREEN) {
+      return onScreenKeyboardEcho == PREF_ECHO_CHARACTERS
+          || onScreenKeyboardEcho == PREF_ECHO_CHARACTERS_AND_WORDS;
     }
+    return false;
+  }
+
+  private boolean shouldEchoInitialWords(/* int changeType, */ KeyboardType keyboardType) {
+    if (keyboardType == KeyboardType.PHYSICAL) {
+      return physicalKeyboardEcho == PREF_ECHO_WORDS
+          || physicalKeyboardEcho == PREF_ECHO_CHARACTERS_AND_WORDS;
+    } else if (keyboardType == KeyboardType.ON_SCREEN) {
+      return onScreenKeyboardEcho == PREF_ECHO_WORDS
+          || onScreenKeyboardEcho == PREF_ECHO_CHARACTERS_AND_WORDS;
+    }
+    return false;
   }
 
   private boolean shouldSkipCursorMovementEvent(AccessibilityEvent event) {

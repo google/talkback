@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">ਬਿੰਦੂ ਦੀ ਸਥਿਤੀ ਨੂੰ ਅੱਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ। ਪਹਿਲਾਂ, ਚਲੋ ਤੁਹਾਡੇ ਖੱਬੇ ਹੱਥ ਦੇ ਬਿੰਦੂਆਂ ਨੂੰ ਰਿਕਾਰਡ ਕਰੀਏ। ਸਕ੍ਰੀਨ ਨੂੰ ਆਪਣੇ ਖੱਬੇ ਹੱਥ ਦੀਆਂ ਵਿਚਕਾਰਲੀਆਂ 3 ਉਂਗਲਾਂ ਨਾਲ ਸਪੱਰਸ਼ ਕਰਕੇ ਰੱਖੋ।</string>
   <string name="calibration_step1_hold_right_finger_announcement">ਬਿੰਦੂ ਦੀ ਸਥਿਤੀ ਨੂੰ ਅੱਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ। ਪਹਿਲਾਂ, ਚਲੋ ਤੁਹਾਡੇ ਸੱਜੇ ਹੱਥ ਦੇ ਬਿੰਦੂਆਂ ਨੂੰ ਰਿਕਾਰਡ ਕਰੀਏ। ਸਕ੍ਰੀਨ ਨੂੰ ਆਪਣੇ ਸੱਜੇ ਹੱਥ ਦੀਆਂ ਵਿਚਕਾਰਲੀਆਂ 3 ਉਂਗਲਾਂ ਨਾਲ ਸਪੱਰਸ਼ ਕਰਕੇ ਰੱਖੋ।</string>
   <string name="calibration_finish_announcement">ਬਿੰਦੂ ਦੀ ਸਥਿਤੀ ਅੱਪਡੇਟ ਕੀਤੀ ਗਈ</string>
+  <string name="remaining_calibration_finish_announcement">ਸਾਰੇ ਬਿੰਦੂਆਂ ਦੀ ਸਥਿਤੀ ਅੱਪਡੇਟ ਕੀਤੀ ਗਈ</string>
   <string name="calibration_step2_hold_right_finger_announcement">1, 2, ਅਤੇ 3 ਬਿੰਦੂਆਂ ਲਈ ਅੱਪਡੇਟ ਕੀਤੀਆਂ ਸਥਿਤੀਆਂ। ਅੱਗੇ, ਚਲੋ ਤੁਹਾਡੇ ਸੱਜੇ ਹੱਥ ਦੇ ਬਿੰਦੂਆਂ ਨੂੰ ਰਿਕਾਰਡ ਕਰੀਏ। ਸਕ੍ਰੀਨ ਨੂੰ ਆਪਣੇ ਸੱਜੇ ਹੱਥ ਦੀਆਂ ਵਿਚਕਾਰਲੀਆਂ 3 ਉਂਗਲਾਂ ਨਾਲ ਸਪੱਰਸ਼ ਕਰਕੇ ਰੱਖੋ।</string>
   <string name="calibration_step2_hold_left_finger_announcement">1, 2, ਅਤੇ 3 ਬਿੰਦੂਆਂ ਲਈ ਅੱਪਡੇਟ ਕੀਤੀਆਂ ਸਥਿਤੀਆਂ। ਅੱਗੇ, ਚਲੋ ਤੁਹਾਡੇ ਖੱਬੇ ਹੱਥ ਦੇ ਬਿੰਦੂਆਂ ਨੂੰ ਰਿਕਾਰਡ ਕਰੀਏ। ਸਕ੍ਰੀਨ ਨੂੰ ਆਪਣੇ ਖੱਬੇ ਹੱਥ ਦੀਆਂ ਵਿਚਕਾਰਲੀਆਂ 3 ਉਂਗਲਾਂ ਨਾਲ ਸਪੱਰਸ਼ ਕਰਕੇ ਰੱਖੋ।</string>
   <string name="calibration_fail_announcement">ਬਿੰਦੂ ਦੀ ਸਥਿਤੀ ਨੂੰ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਸਕ੍ਰੀਨ ਨੂੰ 6 ਉਂਗਲਾਂ ਨਾਲ ਸਪਰਸ਼ ਕਰਕੇ ਰੱਖੋ। ਫਿਰ, ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">ਏਕੀਕ੍ਰਿਤ ਅੰਗਰੇਜ਼ੀ ਬਰੇਲ ਲਿਪੀ</string>
   <string name="code_user_facing_name_es">ਸਪੈਨਿਸ਼</string>
   <string name="code_user_facing_name_ar">ਅਰਬੀ</string>
+  <string name="code_user_facing_name_fr">ਫ੍ਰੈਂਚ</string>
   <string name="title_pref_accumulate_presses">ਸਾਰੀਆਂ ਦੱਬੀਆਂ ਹੋਈਆਂ ਬਿੰਦੀਆਂ ਸ਼ਾਮਲ ਕਰੋ</string>
   <string name="summary_pref_accumulate_presses">ਹਰ ਦੱਬੀ ਹੋਈ ਬਿੰਦੀ ਇਨਪੁੱਟ ਦਾ ਹਿੱਸਾ ਹੁੰਦੀ ਹੈ, ਭਾਵੇਂ ਬਿੰਦੀ ਨੂੰ ਹੋਰ ਬਿੰਦੀਆਂ ਤੋਂ ਪਹਿਲਾਂ ਰਿਲੀਜ਼ ਕੀਤਾ ਜਾਵੇ</string>
   <string name="title_pref_reverse_dots">ਉਲਟ ਬਿੰਦੀਆਂ</string>
   <string name="summary_pref_reverse_dots">ਬਿੰਦੀ ਦੀਆਂ ਸਥਿਤੀਆਂ ਦੀ ਅਦਲਾ-ਬਦਲੀ ਕਰੋ, ਤਾਂ ਕਿ ਬਿੰਦੀਆਂ 1 ਤੇ 4 ਆਪਸ ਵਿੱਚ ਜਗ੍ਹਾ ਬਦਲ ਸਕਣ, ਉਦਾਹਰਨ ਦੇ ਤੌਰ \'ਤੇ</string>
-  <string name="typing_echo_list_preference_title">ਟਾਈਪਿੰਗ ਵਿਚਾਰ (ਟਾਈਪਿੰਗ ਈਕੋ)</string>
-  <string name="typing_echo_preference_label_characters">ਸਾਰੇ ਅੱਖਰ ਅਤੇ ਸ਼ਬਦ ਪੜ੍ਹੋ</string>
-  <string name="typing_echo_preference_label_words">ਸਿਰਫ਼ ਸ਼ਬਦ ਪੜ੍ਹੋ</string>
   <string name="context_menu_title">ਬਰੇਲ ਲਿਪੀ ਕੀ-ਬੋਰਡ ਸੈਟਿੰਗਾਂ</string>
   <string name="context_menu_typing_language_selection">ਟਾਈਪ ਕਰਨ ਵਾਲੀ ਭਾਸ਼ਾ ਬਦਲੋ</string>
   <string name="context_menu_typing_language_selection_summary">ਇਸ ਵੇਲੇ %s ਵਰਤੀ ਜਾ ਰਹੀ ਹੈ</string>
@@ -48,7 +47,7 @@
   <string name="context_menu_switch_contracted_status_selection">%s ਬਰੇਲ ਲਿਪੀ \'ਤੇ ਬਦਲੋ</string>
   <string name="contracted">ਸੰਕੁਚਿਤ</string>
   <string name="uncontracted">ਅਸੰਕੁਚਿਤ</string>
-  <string name="context_menu_see_all_gestures_selection">Review all gestures</string>
+  <string name="context_menu_see_all_gestures_selection">ਸਾਰੇ ਇਸ਼ਾਰਿਆਂ ਦੀ ਸਮੀਖਿਆ ਕਰੋ</string>
   <string name="context_menu_tutorial_selection">ਟਿਊਟੋਰੀਅਲ ਖੋਲ੍ਹੋ</string>
   <string name="context_menu_tutorial_finish">ਟਿਊਟੋਰੀਅਲ ਮੁਕੰਮਲ ਕਰੋ</string>
   <string name="context_menu_settings_selection">ਸੈਟਿੰਗਾਂ</string>

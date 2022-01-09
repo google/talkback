@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">Aposztróf</string>
   <string name="symbol_ampersand">És jel</string>
-  <string name="symbol_angle_bracket_left">Bal csúcsos zárójel</string>
-  <string name="symbol_angle_bracket_right">Jobb csúcsos zárójel</string>
+  <string name="symbol_angle_bracket_left">Kisebb, mint jel</string>
+  <string name="symbol_angle_bracket_right">Nagyobb, mint jel</string>
   <string name="symbol_asterisk">Csillag</string>
   <string name="symbol_at_sign">Kukac</string>
   <string name="symbol_backslash">Fordított törtvonal</string>
   <string name="symbol_bullet">Listajel</string>
   <string name="symbol_caret">Kalap</string>
-  <string name="symbol_cent">Cent</string>
+  <string name="symbol_cent">Cent jele</string>
   <string name="symbol_colon">Kettőspont</string>
   <string name="symbol_comma">Vessző</string>
   <string name="symbol_copyright">Szerzői jog</string>
   <string name="symbol_curly_bracket_left">Bal kapcsos zárójel</string>
   <string name="symbol_curly_bracket_right">Jobb kapcsos zárójel</string>
-  <string name="symbol_degree">Fok</string>
+  <string name="symbol_degree">Fokjel</string>
   <string name="symbol_division">Osztásjel</string>
   <string name="symbol_dollar_sign">Dollár jel</string>
   <string name="symbol_ellipsis">Három pont</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">Pont</string>
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Kettős kereszt</string>
-  <string name="symbol_pound_sterling">Font</string>
+  <string name="symbol_pound_sterling">Font pénznem jele</string>
   <string name="symbol_question_mark">Kérdőjel</string>
   <string name="symbol_quotation_mark">Idézőjel</string>
   <string name="symbol_registered_trademark">Bejegyzett védjegy</string>
@@ -53,7 +53,7 @@
   <string name="symbol_not_sign">Tagadás jel</string>
   <string name="symbol_broken_bar">Szaggatott vonal</string>
   <string name="symbol_micro_sign">Mikro jel</string>
-  <string name="symbol_almost_equals">Körülbelül egyenlő</string>
+  <string name="symbol_almost_equals">Majdnem egyenlő</string>
   <string name="symbol_not_equals">Nem egyenlő</string>
   <string name="symbol_currency_sign">Pénznem jel</string>
   <string name="symbol_section_sign">Paragrafus jel</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">Fekete szív</string>
   <string name="symbol_tilde">Hullámvonal</string>
   <string name="symbol_equal">Egyenlőségjel</string>
-  <string name="symbol_won">Wonjel</string>
+  <string name="symbol_won">Won pénznem jele</string>
   <string name="symbol_reference">Referenciajel</string>
   <string name="symbol_white_star">Fehér csillag</string>
   <string name="symbol_black_star">Fekete csillag</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">Jobb oldali dupla csúcsos zárójel</string>
   <string name="symbol_inverted_exclamation_mark">Fordított felkiáltójel</string>
   <string name="symbol_inverted_question_mark">Fordított kérdőjel</string>
-  <string name="symbol_won_sign">A koreai von pénznem jele</string>
+  <string name="symbol_won_sign">Won pénznem jele</string>
   <string name="symbol_full_width_comma">Teljes szélességű vessző</string>
   <string name="symbol_full_width_exclamation_mark">Teljes szélességű felkiáltójel</string>
   <string name="symbol_full_width_ideographic_full_stop">Ideografikus mondatvégi pont</string>

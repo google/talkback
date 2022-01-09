@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Կետերի դիրքի թարմացում։ Նախ գրանցեք ձախ ձեռքի կետերը։ Ձախ ձեռքի մեջտեղի 3 մատով սեղմած պահեք էկրանը։</string>
   <string name="calibration_step1_hold_right_finger_announcement">Կետերի դիրքի թարմացում։ Նախ գրանցեք աջ ձեռքի կետերը։ Աջ ձեռքի մեջտեղի 3 մատով սեղմած պահեք էկրանը։</string>
   <string name="calibration_finish_announcement">Կետերի դիրքը թարմացվել է</string>
+  <string name="remaining_calibration_finish_announcement">Բոլոր կետերի դիրքերը թարմացվեցին</string>
   <string name="calibration_step2_hold_right_finger_announcement">Թարմացված դիրքեր կետ 1, 2 և 3-ի համար։ Հաջորդը գրանցեք աջ ձեռքի կետերը։ Աջ ձեռքի մեջտեղի 3 մատով սեղմած պահեք էկրանը։</string>
   <string name="calibration_step2_hold_left_finger_announcement">Թարմացված դիրքեր կետ 1, 2 և 3-ի համար։ Հաջորդը գրանցեք ձախ ձեռքի կետերը։ Ձախ ձեռքի մեջտեղի 3 մատով սեղմած պահեք էկրանը։</string>
   <string name="calibration_fail_announcement">Չհաջողվեց թարմացնել կետերի դիրքը։ Հպեք էկրանին և պահեք 6 մատով։ Այնուհետև նորից փորձեք։</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">իսպաներեն</string>
   <string name="code_user_facing_name_ar">արաբերեն</string>
+  <string name="code_user_facing_name_fr">ֆրանսերեն</string>
   <string name="title_pref_accumulate_presses">Ներառել սեղմված բոլոր կետերը</string>
   <string name="summary_pref_accumulate_presses">Մուտքագրելիս ներառել սեղմված բոլոր կետերը, նույնիսկ եթե մի կետը բաց է թողնվել մյուսից առաջ։</string>
   <string name="title_pref_reverse_dots">Կետերի հակառակ հերթականություն</string>
   <string name="summary_pref_reverse_dots">Փոխարինել կետերը՝ օրինակ այնպես, որ 1-ն ու 4-ը տեղերով փոխվեն</string>
-  <string name="typing_echo_list_preference_title">Բարձրաձայն կարդալ գրվածը</string>
-  <string name="typing_echo_preference_label_characters">Կարդալ բոլոր տառերը և բառերը</string>
-  <string name="typing_echo_preference_label_words">Կարդալ միայն բառերը</string>
   <string name="context_menu_title">Բրայլյան ստեղնաշարի տարբերակներ</string>
   <string name="context_menu_typing_language_selection">Փոխել տեքստի ներածման լեզուն</string>
   <string name="context_menu_typing_language_selection_summary">Ներկայումս օգտագործում է՝ %s</string>
@@ -99,7 +98,7 @@
   <string name="instruction_swipe_left">Տառը ջնջելու համար մատը սահեցրեք ձախ</string>
   <string name="instruction_swipe_right">Բացատ ավելացնելու համար մատը սահեցրեք աջ</string>
   <string name="instruction_swipe_down_2_fingers">Ստեղնաշարը թաքցնելու համար 2 մատը սահեցրեք ներքև</string>
-  <string name="instruction_swipe_down_3_fingers">Հաջորդ էկրանին անցնելու համար 3 մատը սահեցրեք ներքև</string>
+  <string name="instruction_swipe_down_3_fingers">Հաջորդ էկրան անցնելու համար 3 մատը սահեցրեք ներքև</string>
   <string name="instruction_put_phone_flat">Սեղանի ռեժիմում մուտքագրելու համար հեռախոսը դրեք սեղանին։</string>
   <string name="instruction_swipe_up_3_fingers">Ուղեցույցը փակելու համար 3 մատը սահեցրեք վերև</string>
   <string name="result_swipe_left">ՋՆՋԵԼ</string>
@@ -119,10 +118,10 @@
   <string name="swipe_right_announcement">Բացատ ավելացնելու համար մատը սահեցրեք աջ։ Փորձեք հիմա։</string>
   <string name="swipe_down_2_fingers_announcement">Ստեղնաշարը թաքցնելու համար 2 մատը սահեցրեք ներքև։ Փորձեք հիմա։</string>
   <string name="swipe_down_2_fingers_completed_announcement">Թաքցնել ստեղնաշարը։ Այս գործողությամբ սովորաբար կարելի է փակել ստեղնաշարը։ Այս անգամ բրայլյան ստեղնաշարը բացված կմնա, քանի որ դուք դեռ ուղեցույցում եք։</string>
-  <string name="swipe_down_3_fingers_announcement">Հաջորդ էկրանին անցնելու համար 3 մատը սահեցրեք ներքև։ Փորձեք հիմա։</string>
+  <string name="swipe_down_3_fingers_announcement">Հաջորդ էկրան անցնելու համար 3 մատը սահեցրեք ներքև։ Փորձեք հիմա։</string>
   <string name="swipe_down_3_fingers_completed_announcement">Հաջորդ ստեղնաշարը։ Այս գործողությամբ սովորաբար կարելի է անցնել հաջորդ ստեղնաշարին։ Այս անգամ բրայլյան ստեղնաշարը բացված կմնա, քանի որ դուք դեռ ուղեցույցում եք։</string>
   <string name="swipe_up_3_fingers_announcement">Դուք նաև կարող եք մուտքագրել սեղանի ռեժիմում՝ հեռախոսը դնելով սեղանին։ Ուղեցույցը փակելու համար 3 մատը սահեցրեք վերև և գտեք «Փակել ուղեցույցը» տարբերակը։</string>
-  <string name="open_context_menu_announcement">Կարգավորումների ընտրացանկը բաց է։ Շրջեք հեռախոսն ու բռնեք այն սովորական դիրքով։ Նավարկման համար այժմ կարող եք օգտագործել TalkBack-ի սովորական ժեստերը։ Մատը սահեցրեք աջ՝ ավելի շատ տարբերակներ տեսնելու համար։</string>
+  <string name="open_context_menu_announcement">Կարգավորումների ընտրացանկը բաց է։ Շրջեք հեռախոսն ու բռնեք այն սովորական դիրքով։ Նավիգացիայի համար այժմ կարող եք օգտագործել TalkBack-ի սովորական ժեստերը։ Մատը սահեցրեք աջ՝ ավելի շատ տարբերակներ տեսնելու համար։</string>
   <string name="hold_six_fingers_announcement">%s\nՍարքը դրեք սեղանին։ Յուրաքանչյուր ձեռքի 3 մեջտեղի մատով սեղմած պահեք էկրանը մուտքագրման համար ձեզ հարմար դիրքով։</string>
   <string name="hold_six_fingers_inactive_announcement">Սարքը դրեք սեղանին։ Յուրաքանչյուր ձեռքի 3 մեջտեղի մատով սեղմած պահեք էկրանը մուտքագրման համար ձեզ հարմար դիրքով։</string>
   <string name="six_hold_announcement">Դուք նաև կարող եք մուտքագրել՝ հեռախոսը դնելով սեղանին։ Փորձեք հիմա։ Եթե մոտակայքում սեղան չկա, մատը սահեցրեք ներքև՝ այս քայլը բաց թողնելու համար։</string>

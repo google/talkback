@@ -16,7 +16,12 @@
 
 package com.google.android.accessibility.talkback.training;
 
+import static com.google.android.accessibility.talkback.utils.MaterialComponentUtils.ButtonStyle.DEFAULT_BUTTON;
+import static com.google.android.accessibility.talkback.utils.MaterialComponentUtils.ButtonStyle.FILLED_BUTON;
+import static com.google.android.accessibility.talkback.utils.MaterialComponentUtils.ButtonStyle.OUTLINED_BUTTON;
+
 import android.content.Context;
+import android.text.TextUtils.TruncateAt;
 import android.util.TypedValue;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -26,6 +31,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.talkback.utils.MaterialComponentUtils;
 import com.google.common.collect.ImmutableList;
 import java.util.List;
 
@@ -47,12 +53,13 @@ public class NavigationButtonBar extends LinearLayout {
   }
 
   /** The function of buttons. */
-  @IntDef({BUTTON_TYPE_BACK, BUTTON_TYPE_NEXT, BUTTON_TYPE_EXIT})
+  @IntDef({BUTTON_TYPE_BACK, BUTTON_TYPE_NEXT, BUTTON_TYPE_EXIT, BUTTON_TYPE_FINISH})
   public @interface ButtonType {}
 
   public static final int BUTTON_TYPE_BACK = 0;
   public static final int BUTTON_TYPE_NEXT = 1;
   public static final int BUTTON_TYPE_EXIT = 2;
+  public static final int BUTTON_TYPE_FINISH = 3;
 
   public static final ImmutableList<Integer> DEFAULT_BUTTONS =
       ImmutableList.of(BUTTON_TYPE_BACK, BUTTON_TYPE_NEXT, BUTTON_TYPE_EXIT);
@@ -97,36 +104,53 @@ public class NavigationButtonBar extends LinearLayout {
    * but the order of buttons on the last page is Finish and Back.
    */
   private void createButtons() {
-    if (isLastPage) {
-      if (hasButton(BUTTON_TYPE_EXIT)) {
-        addButton(BUTTON_TYPE_EXIT);
-      }
+    int buttonCount = getButtonsCount();
+    if (isLastPage && hasButton(BUTTON_TYPE_EXIT)) {
+      addButton(BUTTON_TYPE_FINISH, buttonCount);
     }
 
     // Add Next button if the current page is not the last page.
-    if (!isLastPage) {
-      if (hasButton(BUTTON_TYPE_NEXT)) {
-        addButton(BUTTON_TYPE_NEXT);
-      }
+    if (!isLastPage && hasButton(BUTTON_TYPE_NEXT)) {
+      addButton(BUTTON_TYPE_NEXT, buttonCount);
     }
 
     // Add back button if the current page is not the first page.
-    if (!isFirstPage) {
-      if (hasButton(BUTTON_TYPE_BACK)) {
-        addButton(BUTTON_TYPE_BACK);
-      }
+    if (!isFirstPage && hasButton(BUTTON_TYPE_BACK)) {
+      addButton(BUTTON_TYPE_BACK, buttonCount);
     }
 
     // If isExitButtonOnlyShowOnLastPage flag is true, exit button only shows on the last page.
-    if (!isLastPage && !isExitButtonOnlyShowOnLastPage) {
-      if (hasButton(BUTTON_TYPE_EXIT)) {
-        addButton(BUTTON_TYPE_EXIT);
-      }
+    if (!isLastPage && !isExitButtonOnlyShowOnLastPage && hasButton(BUTTON_TYPE_EXIT)) {
+      addButton(BUTTON_TYPE_EXIT, buttonCount);
     }
   }
 
+  private int getButtonsCount() {
+    int count = 0;
+    if (isLastPage && hasButton(BUTTON_TYPE_EXIT)) {
+      count++;
+    }
+
+    // Add Next button if the current page is not the last page.
+    if (!isLastPage && hasButton(BUTTON_TYPE_NEXT)) {
+      count++;
+    }
+
+    // Add back button if the current page is not the first page.
+    if (!isFirstPage && hasButton(BUTTON_TYPE_BACK)) {
+      count++;
+    }
+
+    // If isExitButtonOnlyShowOnLastPage flag is true, exit button only shows on the last page.
+    if (!isLastPage && !isExitButtonOnlyShowOnLastPage && hasButton(BUTTON_TYPE_EXIT)) {
+      count++;
+    }
+
+    return count;
+  }
+
   /** Creates a navigation button, the ID of which depends on page number. */
-  private void addButton(@ButtonType int buttonType) {
+  private void addButton(@ButtonType int buttonType, int buttonCount) {
     switch (buttonType) {
       case BUTTON_TYPE_BACK:
         Button backButton =
@@ -134,7 +158,8 @@ public class NavigationButtonBar extends LinearLayout {
                 getContext(),
                 getButtonId(buttonType),
                 R.string.training_back_button,
-                view -> navigationListener.onBack());
+                view -> navigationListener.onBack(),
+                buttonCount);
         navigationBarLayout.addView(backButton);
         return;
       case BUTTON_TYPE_NEXT:
@@ -143,7 +168,8 @@ public class NavigationButtonBar extends LinearLayout {
                 getContext(),
                 getButtonId(buttonType),
                 R.string.training_next_button,
-                view -> navigationListener.onNext());
+                view -> navigationListener.onNext(),
+                buttonCount);
         navigationBarLayout.addView(nextButton);
         return;
       case BUTTON_TYPE_EXIT:
@@ -152,8 +178,19 @@ public class NavigationButtonBar extends LinearLayout {
                 getContext(),
                 getButtonId(buttonType),
                 isLastPage ? R.string.training_finish_button : R.string.training_close_button,
-                view -> navigationListener.onExit());
+                view -> navigationListener.onExit(),
+                buttonCount);
         navigationBarLayout.addView(exitButton);
+        return;
+      case BUTTON_TYPE_FINISH:
+        Button finishButton =
+            createButton(
+                getContext(),
+                getButtonId(buttonType),
+                R.string.training_finish_button,
+                view -> navigationListener.onExit(),
+                buttonCount);
+        navigationBarLayout.addView(finishButton);
         return;
       default:
         throw new IllegalArgumentException("Unsupported button type.");
@@ -161,25 +198,94 @@ public class NavigationButtonBar extends LinearLayout {
   }
 
   private static Button createButton(
-      Context context, int id, @StringRes int text, OnClickListener clickListener) {
-    Button button = new Button(context);
+      Context context,
+      int id,
+      @StringRes int text,
+      OnClickListener clickListener,
+      int buttonCount) {
+    Button button;
+    LayoutParams layoutParams = createLayoutParams(context, id, buttonCount);
+
+    if (MaterialComponentUtils.supportMaterialComponent()) {
+      if ((id == R.id.training_next_button_0)
+          || (id == R.id.training_next_button_1)
+          || (id == R.id.training_finish_button_0)
+          || (id == R.id.training_finish_button_1)) {
+        button = MaterialComponentUtils.createButton(context, FILLED_BUTON);
+      } else if ((id == R.id.training_exit_button_0)
+          || (id == R.id.training_exit_button_1)
+          || (id == R.id.training_back_button_0)
+          || (id == R.id.training_back_button_1)) {
+        button = MaterialComponentUtils.createButton(context, OUTLINED_BUTTON);
+      } else {
+        button = MaterialComponentUtils.createButton(context, DEFAULT_BUTTON);
+      }
+    } else {
+      button = new Button(context);
+      button.setBackgroundColor(
+          context
+              .getResources()
+              .getColor(
+                  R.color.training_navigation_button_bar_background_color, /* theme= */ null));
+      button.setTextColor(
+          context.getResources().getColor(R.color.training_button_text_color, /* theme= */ null));
+    }
     button.setId(id);
-    LayoutParams layoutParams =
-        new LayoutParams(
-            0, (int) (context.getResources().getDimension(R.dimen.training_button_height)), 1);
     button.setLayoutParams(layoutParams);
-    button.setBackgroundColor(
-        context
-            .getResources()
-            .getColor(R.color.training_navigation_button_bar_background_color, null));
     button.setText(text);
-    button.setTextColor(context.getResources().getColor(R.color.training_button_text_color, null));
     button.setTextSize(
         TypedValue.COMPLEX_UNIT_PX,
         context.getResources().getDimensionPixelSize(R.dimen.training_button_text_size));
+    button.setPaddingRelative(
+        0,
+        0,
+        0,
+        context.getResources().getDimensionPixelSize(R.dimen.training_button_text_padding_bottom));
     button.setAllCaps(false);
+    button.setEllipsize(TruncateAt.END);
+    button.setLines(1);
     button.setOnClickListener(clickListener);
     return button;
+  }
+
+  private static LayoutParams createLayoutParams(Context context, int id, int buttonCount) {
+    LayoutParams layoutParams =
+        new LayoutParams(
+            /* width= */ 0,
+            (int) context.getResources().getDimension(R.dimen.training_button_height),
+            /* weight= */ 1);
+
+    if (MaterialComponentUtils.supportMaterialComponent()) {
+      // Default 3-button layout
+      int leftMarginDimRes = R.dimen.training_button_margin_2dp;
+      int rightMarginDimRes = R.dimen.training_button_margin_2dp;
+
+      if (buttonCount == 2) {
+        if ((id == R.id.training_next_button_0)
+            || (id == R.id.training_next_button_1)
+            || (id == R.id.training_finish_button_0)
+            || (id == R.id.training_finish_button_1)) {
+          // Sets left button layout
+          leftMarginDimRes = R.dimen.training_button_margin_24dp;
+          rightMarginDimRes = R.dimen.training_button_margin_8dp;
+        } else if ((id == R.id.training_exit_button_0)
+            || (id == R.id.training_exit_button_1)
+            || (id == R.id.training_back_button_0)
+            || (id == R.id.training_back_button_1)) {
+          // Sets right button layout
+          leftMarginDimRes = R.dimen.training_button_margin_8dp;
+          rightMarginDimRes = R.dimen.training_button_margin_24dp;
+        }
+      } else if (buttonCount == 1) {
+        // Sets 1 button layout
+        leftMarginDimRes = R.dimen.training_button_margin_24dp;
+        rightMarginDimRes = R.dimen.training_button_margin_24dp;
+      }
+      layoutParams.leftMargin = (int) context.getResources().getDimension(leftMarginDimRes);
+      layoutParams.rightMargin = (int) context.getResources().getDimension(rightMarginDimRes);
+    }
+
+    return layoutParams;
   }
 
   /**
@@ -200,6 +306,10 @@ public class NavigationButtonBar extends LinearLayout {
         return (currentPageNumber % 2 == 0)
             ? R.id.training_exit_button_0
             : R.id.training_exit_button_1;
+      case BUTTON_TYPE_FINISH:
+        return (currentPageNumber % 2 == 0)
+            ? R.id.training_finish_button_0
+            : R.id.training_finish_button_1;
       default:
         throw new IllegalArgumentException("Unsupported button type.");
     }

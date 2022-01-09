@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Actualizando posición dos puntos. En primeiro lugar, vamos rexistrar os puntos da man esquerda. Mantén premida a pantalla cos dedos índice, maior e anular da man esquerda.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Actualizando posición dos puntos. Agora vamos rexistrar os puntos da man dereita. Mantén premida a pantalla cos dedos índice, maior e anular da man dereita.</string>
   <string name="calibration_finish_announcement">Actualizouse a posición dos puntos</string>
+  <string name="remaining_calibration_finish_announcement">Actualizáronse as posicións de todos os puntos</string>
   <string name="calibration_step2_hold_right_finger_announcement">Actualizáronse as posicións dos puntos 1, 2 e 3. Agora vamos rexistrar os puntos da man dereita. Mantén premida a pantalla cos dedos índice, maior e anular da man dereita.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Actualizáronse as posicións dos puntos 1, 2 e 3. Agora vamos rexistrar os puntos da man esquerda. Mantén premida a pantalla cos dedos índice, maior e anular da man esquerda.</string>
   <string name="calibration_fail_announcement">Non se puido actualizar a posición dos puntos. Mantén premida a pantalla con 6 dedos. Despois, téntao de novo.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">Español</string>
   <string name="code_user_facing_name_ar">Árabe</string>
+  <string name="code_user_facing_name_fr">Francés</string>
   <string name="title_pref_accumulate_presses">Incluír todos os puntos premidos</string>
   <string name="summary_pref_accumulate_presses">Cada punto premido forma parte da entrada, aínda que se solte antes doutros puntos</string>
   <string name="title_pref_reverse_dots">Inverter puntos</string>
   <string name="summary_pref_reverse_dots">Cambia a posición dos puntos de modo que os puntos 1 e 4 cambien de posición, por exemplo</string>
-  <string name="typing_echo_list_preference_title">Lectura do que se escribe</string>
-  <string name="typing_echo_preference_label_characters">Ler todas as letras e palabras</string>
-  <string name="typing_echo_preference_label_words">Ler palabras soamente</string>
   <string name="context_menu_title">Opcións do teclado braille</string>
   <string name="context_menu_typing_language_selection">Cambiar idioma de escritura</string>
   <string name="context_menu_typing_language_selection_summary">Estase utilizando: %s</string>

@@ -19,6 +19,7 @@ package com.google.android.accessibility.utils;
 import static android.content.Context.SENSOR_SERVICE;
 import static android.content.Context.VIBRATOR_SERVICE;
 
+import android.Manifest;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.app.UiModeManager;
 import android.content.Context;
@@ -143,16 +144,37 @@ public final class FeatureSupport {
   }
 
   /** Returns {@code true} if the device supports system actions. */
-  public static boolean supportSystemActions() {
-    return BuildVersionUtils.isAtLeastR();
+  public static boolean supportSystemActions(Context context) {
+    return BuildVersionUtils.isAtLeastR() && !isWatch(context);
   }
 
   public static boolean supportMediaControls() {
     return BuildVersionUtils.isAtLeastR();
   }
 
+  /** Returns {@code true} if the device supports brightness float. */
+  public static boolean supportBrightnessFloat() {
+    return BuildVersionUtils.isAtLeastR();
+  }
+
+  /**
+   * Returns {@code true} if the device supports {@link
+   * AccessibilityService#MagnificationController}.
+   */
   public static boolean supportMagnificationController() {
     return BuildVersionUtils.isAtLeastN();
+  }
+
+  /**
+   * Returns {@code true} if the device should announce magnification state when
+   * onMagnificationChanged() is called. In S, window magnification is available but the
+   * onMagnificationChanged listener doesn't support this yet. To prevent user confusing, this is
+   * blocked after S.
+   */
+  // TODO: framework support onMagnificationChanged() for Window magnification at next
+  // Android.
+  public static boolean supportAnnounceMagnificationChanged() {
+    return BuildVersionUtils.isAtLeastN() && Build.VERSION.SDK_INT != BuildVersionUtils.API_S;
   }
 
   public static boolean isBoundsScaledUpByMagnifier() {
@@ -163,8 +185,51 @@ public final class FeatureSupport {
     return BuildVersionUtils.isAtLeastR();
   }
 
+  /**
+   * Returns {@code true} if the device requires the phone permission granted to access the call
+   * state. {@link Manifest.permission#READ_PHONE_STATE}
+   */
+  public static boolean callStateRequiresPermission() {
+    return BuildVersionUtils.isAtLeastS();
+  }
+
+  /**
+   * Returns {@code true} if all the insets will be reported to the window regarding the z-order.
+   * {@link android.view.WindowManager.LayoutParams#receiveInsetsIgnoringZOrder}
+   */
+  public static boolean supportReportingInsetsByZOrder() {
+    return BuildVersionUtils.isAtLeastS();
+  }
+
+  /** Returns {@code true} if the device supports customizing focus indicator. */
+  public static boolean supportCustomizingFocusIndicator() {
+    return BuildVersionUtils.isAtLeastS();
+  }
+
+  /**
+   * Provides a function to check if support the dark theme. This feature is supported from Q (API
+   * 29).
+   *
+   * @return {@code true} if the device supports dark theme.
+   */
+  public static boolean supportDarkTheme() {
+    return BuildVersionUtils.isAtLeastQ();
+  }
+
+  /**
+   * Returns {@code true} if the device supports closing shades when starting an activity. See
+   * {@link Intent#ACTION_CLOSE_SYSTEM_DIALOGS}.
+   */
+  public static boolean startActivityClosesShades() {
+    return BuildVersionUtils.isAtLeastS();
+  }
+
   public static boolean supportPassthrough() {
     return BuildVersionUtils.isAtLeastR();
+  }
+
+  public static boolean supportSettingsTheme() {
+    return BuildVersionUtils.isAtLeastS();
   }
 
   /**
@@ -198,6 +263,17 @@ public final class FeatureSupport {
   public static boolean isMultiFingerGestureSupported() {
     return BuildVersionUtils.isAtLeastR()
         && AccessibilityServiceInfo.flagToString(FLAG_REQUEST_2_FINGER_PASSTHROUGH) != null;
+  }
+
+  /**
+   * From Android S and forward, platform extends the multi-finger gestures with
+   * GESTURE_2_FINGER_TRIPLE_TAP_AND_HOLD(43) GESTURE_3_FINGER_SINGLE_TAP_AND_HOLD(44)
+   * GESTURE_3_FINGER_TRIPLE_TAP_AND_HOLD(45)
+   *
+   * @return {@code true} if the device supports multi-finger gesture
+   */
+  public static boolean multiFingerTapAndHold() {
+    return BuildVersionUtils.isAtLeastS();
   }
 
   /** Returns {@code true} if the device supports customizing bullet radius. */
@@ -238,5 +314,20 @@ public final class FeatureSupport {
     return ((SensorManager) context.getSystemService(SENSOR_SERVICE))
             .getDefaultSensor(Sensor.TYPE_PROXIMITY)
         != null;
+  }
+
+  /**
+   * Returns {@code true} if the order of receiving touch interaction event and hover event is NOT
+   * guaranteed.
+   *
+   * <p>Related event type:
+   *
+   * <ul>
+   *   <li>TYPE_TOUCH_INTERACTION_END,
+   *   <li>TYPE_VIEW_HOVER_ENTER
+   * </ul>
+   */
+  public static boolean hoverEventOutOfOrder() {
+    return !BuildVersionUtils.isAtLeastR();
   }
 }

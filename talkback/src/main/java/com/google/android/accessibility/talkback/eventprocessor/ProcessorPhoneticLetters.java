@@ -44,6 +44,7 @@ import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.PackageManagerUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
+import com.google.android.accessibility.utils.Role;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController;
@@ -76,6 +77,7 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
       ~(AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED
           | AccessibilityEvent.TYPE_NOTIFICATION_STATE_CHANGED
           | AccessibilityEvent.TYPE_VIEW_LONG_CLICKED
+          | AccessibilityEvent.TYPE_VIEW_HOVER_ENTER
           | AccessibilityEvent.TYPE_ANNOUNCEMENT
           |
           // Do not cancel phonetic letter feedback for TYPE_WINDOWS_CHANGED event.
@@ -211,7 +213,12 @@ public class ProcessorPhoneticLetters implements AccessibilityEventListener {
 
   /** Handle an event that indicates a text is being traversed at character granularity. */
   private void processTraversalEvent(AccessibilityEvent event, EventId eventId) {
-    final CharSequence text = AccessibilityEventUtils.getEventTextOrDescription(event);
+    final CharSequence text;
+    if (Role.getSourceRole(event) == Role.ROLE_EDIT_TEXT) {
+      text = AccessibilityEventUtils.getEventAggregateText(event);
+    } else {
+      text = AccessibilityEventUtils.getEventTextOrDescription(event);
+    }
     if (TextUtils.isEmpty(text)) {
       return;
     }

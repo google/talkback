@@ -29,6 +29,7 @@ import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.input.CursorGranularity;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy.SearchDirection;
+import com.google.android.accessibility.utils.traversal.TraversalStrategyUtils;
 import com.google.auto.value.AutoValue;
 import java.util.Objects;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -50,6 +51,8 @@ public abstract class Interpretation {
       PASS_THROUGH_INTERACTION_START,
       PASS_THROUGH_INTERACTION_END,
       ACCESSIBILITY_FOCUSED,
+      SUBTREE_CHANGED,
+      ACCESSIBILITY_EVENT_IDLE,
     }
 
     public final Value value;
@@ -172,7 +175,7 @@ public abstract class Interpretation {
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
       return String.format("%d=%s", id(), text());
     }
   }
@@ -199,7 +202,7 @@ public abstract class Interpretation {
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
       return StringBuilderUtils.joinFields(
           StringBuilderUtils.optionalInt("direction", direction(), SEARCH_FOCUS_UNKNOWN),
           ((destination() == null) ? null : "destination=" + toStringShort(destination())));
@@ -264,7 +267,7 @@ public abstract class Interpretation {
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
       return StringBuilderUtils.joinFields(
           StringBuilderUtils.optionalField("command", command()),
           ((targetNode() == null) ? null : "targetNode=" + toStringShort(targetNode())),
@@ -317,32 +320,24 @@ public abstract class Interpretation {
     }
   }
 
-  /** Interpretation sub-type for scroll. */
-  public static final class Scroll extends Interpretation {
+  /** Interpretation sub-type for manual scroll. */
+  @AutoValue
+  public abstract static class ManualScroll extends Interpretation {
 
-    public final @TraversalStrategy.SearchDirection int direction;
+    public abstract @TraversalStrategy.SearchDirection int direction();
 
-    public Scroll(@TraversalStrategy.SearchDirection int direction) {
-      this.direction = direction;
+    public abstract @Nullable ScreenState screenState();
+
+    public static ManualScroll create(int direction, @Nullable ScreenState screenState) {
+      return new AutoValue_Interpretation_ManualScroll(direction, screenState);
     }
 
     @Override
-    public boolean equals(Object otherObject) {
-      if (otherObject == null || !(otherObject instanceof Scroll)) {
-        return false;
-      }
-      Scroll other = (Scroll) otherObject;
-      return (this.direction == other.direction);
-    }
-
-    @Override
-    public int hashCode() {
-      return direction;
-    }
-
-    @Override
-    public String toString() {
-      return StringBuilderUtils.optionalInt("direction", direction, SEARCH_FOCUS_UNKNOWN);
+    public final String toString() {
+      return StringBuilderUtils.joinFields(
+          StringBuilderUtils.optionalField(
+              "direction", TraversalStrategyUtils.directionToString(direction())),
+          StringBuilderUtils.optionalSubObj("screenState", screenState()));
     }
   }
 
@@ -395,10 +390,27 @@ public abstract class Interpretation {
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
       return StringBuilderUtils.joinFields(
           StringBuilderUtils.optionalField("action", action()),
           ((target() == null) ? null : "target=" + toStringShort(target())));
+    }
+  }
+
+  /** Interpretation sub-type for accessibility focused event. */
+  @AutoValue
+  public abstract static class AccessibilityFocused extends Interpretation {
+
+    public abstract boolean needsCaption();
+
+    public static AccessibilityFocused create(boolean needsCaption) {
+      return new AutoValue_Interpretation_AccessibilityFocused(needsCaption);
+    }
+
+    @Override
+    public final String toString() {
+      return StringBuilderUtils.joinFields(
+          StringBuilderUtils.optionalTag("needsCaption", needsCaption()));
     }
   }
 }

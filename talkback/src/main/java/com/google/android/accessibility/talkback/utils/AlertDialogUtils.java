@@ -27,7 +27,8 @@ public class AlertDialogUtils {
    * dialog buttons can adapt the color of foreground text, when the input focus changed, to comply
    * the contrast criteria.
    */
-  public static AlertDialog.Builder createBuilder(Context context) {
-    return new AlertDialogAdaptiveContrast(context, R.style.AlertDialogTheme);
+  public static AlertDialog.Builder builder(Context context) {
+    return AlertDialogAdaptiveContrastUtil.appAlertDialogAdaptiveContrastBuilder(
+        context, R.style.AlertDialogTheme);
   }
 }

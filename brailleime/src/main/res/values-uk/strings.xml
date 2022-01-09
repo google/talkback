@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Оновлюється положення крапок. Спершу запишімо крапки ліворуч. Натисніть і втримуйте екран безіменним, середнім та вказівним пальцями лівої руки.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Оновлюється положення крапок. Спершу запишімо крапки праворуч. Натисніть і втримуйте екран безіменним, середнім та вказівним пальцями правої руки.</string>
   <string name="calibration_finish_announcement">Положення крапок оновлено</string>
+  <string name="remaining_calibration_finish_announcement">Положення всіх точок оновлено</string>
   <string name="calibration_step2_hold_right_finger_announcement">Оновлено положення крапок 1, 2 та 3. Тепер запишімо крапки праворуч. Натисніть і втримуйте екран безіменним, середнім та вказівним пальцями правої руки.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Оновлено положення крапок 1, 2 та 3. Тепер запишімо крапки ліворуч. Натисніть і втримуйте екран безіменним, середнім та вказівним пальцями лівої руки.</string>
   <string name="calibration_fail_announcement">Не вдалось оновити положення крапок. Натисніть і утримуйте екран 6 пальцями, а потім повторіть спробу.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Об\'єднаний англійський шрифт Брайля</string>
   <string name="code_user_facing_name_es">Іспанська</string>
   <string name="code_user_facing_name_ar">Арабська</string>
+  <string name="code_user_facing_name_fr">Французька</string>
   <string name="title_pref_accumulate_presses">Включати всі натиснуті крапки</string>
   <string name="summary_pref_accumulate_presses">Кожна натиснута крапка є частиною вводу, навіть якщо її відпустили перед іншими крапками</string>
   <string name="title_pref_reverse_dots">Зворотній порядок крапок</string>
   <string name="summary_pref_reverse_dots">Змінити положення крапок, наприклад, поміняти крапки 1 і 4 місцями</string>
-  <string name="typing_echo_list_preference_title">Відгук введення (луна введення)</string>
-  <string name="typing_echo_preference_label_characters">Читати все літери й слова</string>
-  <string name="typing_echo_preference_label_words">Читати лише слова</string>
   <string name="context_menu_title">Параметри брайлівської клавіатури</string>
   <string name="context_menu_typing_language_selection">Змінити мову введення</string>
   <string name="context_menu_typing_language_selection_summary">Зараз використовується %s</string>

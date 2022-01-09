@@ -14,7 +14,8 @@
   <string name="voice_commands_language">භාෂාව</string>
   <string name="voice_commands_languages">භාෂා</string>
   <string name="voice_commands_custom_actions">අභිරුචි ක්‍රියා</string>
-  <string name="voice_commands_quick_settings">ක්ෂණික සැකසීම්</string>
+  <string name="voice_commands_action">ක්‍රියාව</string>
+  <string name="voice_commands_quick_settings">ඉක්මන් සැකසීම්</string>
   <string name="voice_commands_quick_setting">ඉක්මන් සැකසීම</string>
   <string name="voice_commands_dim">අඳුරු කරන්න</string>
   <string name="voice_commands_darken">අඳුරු කරන්න</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">කනගාටුයි! ඔබගේ උපාංගයේ මෙම විශේෂාංගය ලබා ගත නොහැකිය</string>
   <string name="voice_commands_error">හඬ විධානය හඳුනා ගැනීමේ දෝෂයකි</string>
   <string name="voice_commands_partial_result">මෙම විධානය හඳුනා ගත නොහැකිය. සියලු විධාන ලැයිස්තුව සඳහා \"%1$s\" යැයි කියන්න.</string>
+  <string name="voice_commands_timeout">සියලු විධාන ලැයිස්තුව සඳහා \"%1$s\" යැයි කියන්න.</string>
   <string name="voice_commands_many_requests">කරුණාකර මොහොතකින් නැවත උත්සාහ කරන්න</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" සැකසීම සබල කර නැත</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" හඬ විධානයක් ලෙස හඳුනා නොගන්නා ලදි.</string>
   <string name="voice_commands_label_saved">ලේබලය සුරැකිණි</string>
   <string name="voice_commands_no_actions_feedback">ක්‍රියා කිසිවක් නොමැත</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">කටහඬ විධාන දළ විශ්ලේෂණය</string>
   <string name="voice_commands_help_description">කටහඬ විධාන භාවිත කිරීමට, දකුණට අනතුරුව ඉහළට ස්වයිප් කරන්න. ඕනෑම අවස්ථාවක මෙම විධාන ලැයිස්තුව සඳහා \"Help\" හෝ \"What can I say?\" කියන්න.</string>
   <string name="voice_commands_help_hint">හොඳම ප්‍රතිඵල සඳහා, පහත දැක්වෙන තිරවල ලැයිස්තුගත කර ඇති නිශ්චිත වචන කියන්න</string>
+  <string name="voice_command_screen_locked_hint">තිරය අගුලු දමා ඇති අතරතුර කටහඬ විධාන ලබා ගත නොහැකිය. ඒ වෙනුවට TalkBack මෙනුව භාවිත කිරීමට, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">වත්මන් තිරයේ අන්තර්ගතය කියවන ආකාරය වෙනස් කරන්න</string>
   <string name="voice_commands_help_next">ඊළඟ [ශීර්ෂය]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">තිරයෙහි එම පෙළ සොයා ගැනීමට සෙවීම් පදයක් ඇතුළු කරන්න</string>
   <string name="voice_commands_help_text_editing_description">පෙළ ටයිප් කරන්න, තෝරන්න සහ පිටපත් කරන්න</string>
   <string name="voice_commands_help_type_text">ටයිප් කරන්න [හරි]</string>
-  <string name="voice_commands_help_copy_description">පිටපත් කිරීමට පෙර පෙළ තෝරාගෙන ඇති බවට වග බලා ගන්න</string>
-  <string name="voice_commands_help_cut_description">කැපීමට පෙර පෙළ තෝරාගෙන ඇති බවට වග බලා ගන්න</string>
+  <string name="voice_commands_help_copy_description">පිටපත් කිරීමට පෙර පෙළ තෝරන්න</string>
+  <string name="voice_commands_help_cut_description">කැපීමට පෙර පෙළ තෝරන්න</string>
+  <string name="voice_commands_help_delete_description">මැකීමට පෙර පෙළ තෝරන්න</string>
   <string name="voice_commands_help_device_navigation_title">උපාංග සංචාලනය</string>
   <string name="voice_commands_help_device_navigation_description">මුල් පිටුවට යන්න, ආපසු යන්න, දැනුම්දීම් පෙන්වන්න සහ තවත් දේ</string>
   <string name="voice_commands_help_overview_description">ඔබගේ මෑත යෙදුම් බලන්න</string>

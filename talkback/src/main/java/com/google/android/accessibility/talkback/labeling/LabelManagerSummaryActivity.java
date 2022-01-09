@@ -27,14 +27,13 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import androidx.core.content.FileProvider;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -43,6 +42,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.accessibility.talkback.BuildConfig;
 import com.google.android.accessibility.talkback.R;
+import com.google.android.accessibility.utils.BasePreferencesActivity;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.labeling.LabelProviderClient;
 import com.google.android.accessibility.utils.labeling.PackageLabelInfo;
@@ -51,7 +51,8 @@ import java.io.File;
 import java.util.List;
 
 /** An activity for displaying a summary of custom labels in TalkBack. */
-public class LabelManagerSummaryActivity extends AppCompatActivity implements OnClickListener {
+public class LabelManagerSummaryActivity extends BasePreferencesActivity
+    implements OnClickListener {
 
   private static final String TAG = "LabelManagerSummaryAct";
 
@@ -71,12 +72,9 @@ public class LabelManagerSummaryActivity extends AppCompatActivity implements On
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    setContentView(R.layout.label_manager_packages);
+    super.setContentView(R.layout.label_manager_packages);
 
-    final ActionBar actionBar = getSupportActionBar();
-    if (actionBar != null) {
-      actionBar.setDisplayHomeAsUpEnabled(true);
-    }
+    prepareActionBar(/* icon= */ null);
 
     packageList = (ListView) findViewById(R.id.package_list);
     noPackagesMessage = (TextView) findViewById(R.id.no_packages_message);
@@ -334,6 +332,13 @@ public class LabelManagerSummaryActivity extends AppCompatActivity implements On
         packageList.setAdapter(
             new PackageLabelInfoAdapter(
                 LabelManagerSummaryActivity.this, R.layout.label_manager_package_row, result));
+        // ListView inside a ScrollView will be limited to one row heigh, so give it at least half
+        // screen high to ensure the list items are visible to users.
+        // TODO: Relayout this page to avoid the nested scrollable view problem on
+        // ScrollView.
+        LayoutParams params = packageList.getLayoutParams();
+        params.height = getResources().getDisplayMetrics().heightPixels / 2;
+        packageList.setLayoutParams(params);
         packageList.setVisibility(View.VISIBLE);
         noPackagesMessage.setVisibility(View.GONE);
       } else {

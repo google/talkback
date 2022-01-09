@@ -99,7 +99,7 @@ public class GestureChangeNotificationActivity extends Activity {
           }
         };
 
-    AlertDialogUtils.createBuilder(this)
+    AlertDialogUtils.builder(this)
         .setTitle(dialogTitle)
         .setMessage(dialogMessage)
         .setCancelable(false)

@@ -15,7 +15,6 @@
  */
 package com.google.android.accessibility.utils;
 
-import androidx.annotation.IntDef;
 import androidx.core.view.accessibility.AccessibilityEventCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.AccessibilityActionCompat;
@@ -25,6 +24,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
+import androidx.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.checkerframework.checker.nullness.qual.Nullable;

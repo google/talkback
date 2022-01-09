@@ -66,6 +66,7 @@ import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.LocaleUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
+import com.google.android.accessibility.utils.SettingsUtils;
 import com.google.android.accessibility.utils.SpeechCleanupUtils;
 import com.google.android.accessibility.utils.WebInterfaceUtils;
 import com.google.android.accessibility.utils.input.CursorGranularity;
@@ -195,6 +196,7 @@ public class VoiceCommandProcessor {
     R.string.granularity_web_heading, // headings
     R.string.granularity_web_control, // controls
     R.string.granularity_web_landmark, // landmarks
+    R.string.granularity_window,
     R.string.granularity_default
   };
 
@@ -618,7 +620,7 @@ public class VoiceCommandProcessor {
     // start talkback setting voice command
     // command format: * talkback setting *, * talkback settings *
     int talkbackSettingCommand = contains(command, talkbackSettingCommandResArray);
-    if (talkbackSettingCommand >= 0) {
+    if (talkbackSettingCommand >= 0 && SettingsUtils.allowLinksOutOfSettings(service)) {
       Intent intent = new Intent(service, TalkBackPreferencesActivity.class);
       intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
       service.startActivity(intent);
@@ -731,7 +733,7 @@ public class VoiceCommandProcessor {
     // all apps command
     // command format: * apps *
     if (containsWord(command, R.string.voice_commands_apps)
-        && FeatureSupport.supportSystemActions()
+        && FeatureSupport.supportSystemActions(service)
         && !containsWord(command, R.string.voice_commands_recent)
         && !containsWord(command, R.string.voice_commands_recents)) {
       boolean result = sendInterpretation(VOICE_COMMAND_ALL_APPS, eventId);

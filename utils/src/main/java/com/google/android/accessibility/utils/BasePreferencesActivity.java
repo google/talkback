@@ -1,113 +1,76 @@
+/*
+ * Copyright (C) 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.google.android.accessibility.utils;
 
-import android.os.Bundle;
+import android.graphics.drawable.Drawable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.MenuItem;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.TwoStatePreference;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
-/** Provides interfaces and common methods for a11y preference activity used. */
+/**
+ * Preference activity used. This base class is separate from PreferencesActivity to allow partner
+ * code (for open-source) to inherit from AppCompatActivity.
+ */
 public abstract class BasePreferencesActivity extends AppCompatActivity {
+  private static final int DEFAULT_CONTAINER_ID = android.R.id.content;
 
-  private PreferenceFragmentCompat preferenceFragment;
-
-  @Override
-  protected void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
+  /** Disables action bar */
+  protected void disableActionBar() {
     ActionBar actionBar = getSupportActionBar();
     if (actionBar != null) {
+      actionBar.hide();
+    }
+  }
+
+  /**
+   * Prepares action bar
+   *
+   * @param icon Icon shows on action bar.
+   */
+  protected void prepareActionBar(@Nullable Drawable icon) {
+    ActionBar actionBar = getSupportActionBar();
+    if (actionBar != null) {
+      if (icon != null) {
+        actionBar.setIcon(icon);
+      }
       actionBar.setDisplayHomeAsUpEnabled(true);
     }
-
-    int preferenceContentId = android.R.id.content;
-    if (supportHatsSurvey()) {
-      setContentView(R.layout.preference_with_survey);
-      preferenceContentId = R.id.preference_root;
-    }
-
-    // Create UI for the preferenceFragment created by the child class of BasePreferencesActivity.
-    preferenceFragment = createPreferenceFragment();
-    if (preferenceFragment != null) {
-      getSupportFragmentManager()
-          .beginTransaction()
-          .replace(preferenceContentId, preferenceFragment)
-          .commit();
-    }
   }
 
-  @Override
-  protected void onStart() {
-    super.onStart();
-    if (preferenceFragment != null) {
-      // To avoid texts showing outside of the watch face, set a padding value if the preference
-      // fragment is shown on watch. Square screen and round screen have different values.
-      if (FeatureSupport.isWatch(getApplicationContext())
-          && preferenceFragment.getListView() != null) {
-        int padding =
-            (int)
-                getResources()
-                    .getDimension(R.dimen.full_screen_preference_fragment_padding_on_watch);
-        preferenceFragment.getListView().setPadding(0, padding, 0, padding);
-      }
-    }
-  }
-
-  /** If action-bar "navigate up" button is pressed, end this sub-activity. */
-  @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case android.R.id.home:
-        finish();
-        return true;
-      default:
-        return super.onOptionsItemSelected(item);
-    }
-  }
+  /** Disables to expand action bar */
+  protected void disableExpandActionBar() {}
 
   /**
-   * Finds preference from createPreferenceFragment() called only in onCreate(). gets non-updated
-   * preferences, because base class stores only 1 createPreferenceFragment() call.
-   */
-  public Preference findPreference(String key) {
-    return preferenceFragment.findPreference(key);
-    // TODO: Replace with PreferenceSettingsUtils.findPreference(), because some sub-classes
-    // call replace(android.R.id.content, newFragment) from static fragment classes that cannot
-    // update preferenceFragment member.
-  }
-
-  /**
-   * Creates a PreferenceFragmentCompat when {@link BasePreferencesActivity#onCreate} is called.
+   * Sets the title of the action bar
    *
-   * @return {@link PreferenceFragmentCompat} for BasePreferencesActivity to create UI
+   * @param title The title of the action bar which likes to set.
    */
-  protected abstract PreferenceFragmentCompat createPreferenceFragment();
-
-  /** The implementation of the activity should supports HaTS survey layout or not. */
-  protected boolean supportHatsSurvey() {
-    return false;
+  protected void setActionBarTitle(String title) {
+    ActionBar actionBar = getSupportActionBar();
+    if (actionBar != null) {
+      actionBar.setSubtitle(title);
+    }
   }
 
   /**
-   * Updates the status of preference to on or off after the selector or context menu change the
-   * state while the activity is visible.
+   * Gets Identifier of the container whose fragment(s) at the activity should use.
+   *
+   * @return The fragments container in the activity.
    */
-  protected void updateTwoStatePreferenceStatus(
-      int preferenceKeyResId, int preferenceDefaultKeyResId) {
-    @Nullable Preference preference = findPreference(getString(preferenceKeyResId));
-    if (preference != null && preference instanceof TwoStatePreference) {
-      // Make sure that we have the latest value of preference before continuing.
-      boolean enabledState =
-          SharedPreferencesUtils.getBooleanPref(
-              SharedPreferencesUtils.getSharedPreferences(getApplicationContext()),
-              getResources(),
-              preferenceKeyResId,
-              preferenceDefaultKeyResId);
-
-      ((TwoStatePreference) preference).setChecked(enabledState);
-    }
+  protected final int getContainerId() {
+    return DEFAULT_CONTAINER_ID;
   }
 }

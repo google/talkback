@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Språk</string>
   <string name="voice_commands_languages">Språk</string>
   <string name="voice_commands_custom_actions">anpassade åtgärder</string>
+  <string name="voice_commands_action">Åtgärd</string>
   <string name="voice_commands_quick_settings">Snabbinställningar</string>
   <string name="voice_commands_quick_setting">Snabbinställning</string>
   <string name="voice_commands_dim">tona ned</string>
@@ -96,10 +97,10 @@
   <string name="voice_commands_no_mic_permissions">Du måste ge funktionen behörighet att använda mikrofonen innan du kan använda den.</string>
   <string name="voice_commands_no_voice_recognition_ability">Funktionen är tyvärr inte tillgänglig än på din enhet</string>
   <string name="voice_commands_error">Det gick inte att identifiera röstkommandot</string>
-  <string name="voice_commands_partial_result">Kommandot känns inte igen. Säg %1$s för att se en lista över alla kommandon.</string>
+  <string name="voice_commands_partial_result">Kommandot känns inte igen. Säg ”%1$s” om du vill se en lista med alla kommandon.</string>
+  <string name="voice_commands_timeout">Säg ”%1$s” om du vill se en lista med alla kommandon.</string>
   <string name="voice_commands_many_requests">Försök igen om en liten stund</string>
-  <string name="voice_commands_setting_disabled">Inställningen %1$s är inte aktiverad</string>
-  <string name="voice_commands_echo_feedback_not_recognized">%1$s kunde inte identifieras som ett röstkommando.</string>
+  <string name="voice_commands_echo_feedback_not_recognized">”%1$s” kändes inte igen som ett röstkommando.</string>
   <string name="voice_commands_label_saved">Etikett sparad</string>
   <string name="voice_commands_no_actions_feedback">Inga åtgärder är tillgängliga</string>
   <string name="voice_commands_no_next_heading_feedback">Det finns inga fler rubriker</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Översikt över röstkommandon</string>
   <string name="voice_commands_help_description">Svep till höger och sen uppåt för att använda röstkommandon. Du kan när som helst säga ”Hjälp” eller ”Vad kan jag säga?” för att se den här listan över kommandon.</string>
   <string name="voice_commands_help_hint">Säg exakt som det står på följande skärmar för bästa resultat.</string>
+  <string name="voice_command_screen_locked_hint">Röstkommandon är inte tillgängliga när skärmen är låst. %1$s om du vill använda TalkBack-menyn i stället.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Ändra hur du läser innehåll på den aktuella skärmen</string>
   <string name="voice_commands_help_next">Nästa [rubrik]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Ange det som du vill söka efter på skärmen</string>
   <string name="voice_commands_help_text_editing_description">Skriv, markera och kopiera text</string>
   <string name="voice_commands_help_type_text">Skriv [OK]</string>
-  <string name="voice_commands_help_copy_description">Se till att du har markerat text innan du kopierar</string>
-  <string name="voice_commands_help_cut_description">Se till att du har markerat text innan du klipper</string>
+  <string name="voice_commands_help_copy_description">Markera text innan du kopierar</string>
+  <string name="voice_commands_help_cut_description">Markera text innan du klipper ut</string>
+  <string name="voice_commands_help_delete_description">Markera text innan du raderar</string>
   <string name="voice_commands_help_device_navigation_title">Enhetsnavigering</string>
   <string name="voice_commands_help_device_navigation_description">Öppna startskärmen, gå tillbaka, visa aviseringar med mera</string>
   <string name="voice_commands_help_overview_description">Se dina senaste appar</string>

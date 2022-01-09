@@ -141,10 +141,8 @@ public class ContextMenuItemClickProcessor {
     } else if (itemId == R.id.screen_search) {
       service.getUniversalSearchManager().toggleSearch(eventId);
     } else if (itemId == R.id.voice_commands) {
-      if (TalkBackService.ENABLE_VOICE_COMMANDS) {
         pipeline.returnFeedback(
             eventId, Feedback.voiceRecognition(START_LISTENING, /* checkDialog= */ true));
-      }
     } else if (itemId == R.id.pause_feedback) {
       // Toggle talkback suspended state.
       service.requestSuspendTalkBack(eventId);

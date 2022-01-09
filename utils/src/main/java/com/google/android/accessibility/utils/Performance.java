@@ -18,11 +18,12 @@ package com.google.android.accessibility.utils;
 
 import android.content.res.Configuration;
 import android.os.SystemClock;
-import androidx.annotation.IntDef;
-import androidx.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -752,7 +753,8 @@ public class Performance {
      * @param type Event object type.
      * @param subtype Event object subtype from AccessibilityEvent.getEventType() or gesture id.
      */
-    protected EventId(long time, @EventTypeId int type, int subtype) {
+    @VisibleForTesting(otherwise = VisibleForTesting.PROTECTED)
+    public EventId(long time, @EventTypeId int type, int subtype) {
       mEventTimeMs = time; // Event creation times use system uptime.
       mEventType = type;
       mEventSubtype = subtype;

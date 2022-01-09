@@ -33,9 +33,9 @@ import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.graphics.Rect;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
@@ -50,6 +50,7 @@ import com.google.android.accessibility.talkback.focusmanagement.interpreter.Scr
 import com.google.android.accessibility.talkback.focusmanagement.record.AccessibilityFocusActionHistory;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionRecord;
+import com.google.android.accessibility.talkback.utils.DiagnosticOverlayControllerImpl;
 import com.google.android.accessibility.utils.AccessibilityNode;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
@@ -96,7 +97,8 @@ public class FocusProcessorForLogicalNavigation {
               });
 
   /** Filters target window when performing window navigation with keyboard shortcuts. */
-  private static final Filter<AccessibilityWindowInfo> FILTER_WINDOW_FOR_WINDOW_NAVIGATION =
+  @VisibleForTesting
+  public static final Filter<AccessibilityWindowInfo> FILTER_WINDOW_FOR_WINDOW_NAVIGATION =
       new Filter<AccessibilityWindowInfo>() {
         @Override
         public boolean accept(AccessibilityWindowInfo window) {
@@ -105,6 +107,7 @@ public class FocusProcessorForLogicalNavigation {
           }
           int type = window.getType();
           return (type == AccessibilityWindowInfo.TYPE_APPLICATION)
+              || (type == AccessibilityWindowInfo.TYPE_INPUT_METHOD)
               || (type == AccessibilityWindowInfo.TYPE_SYSTEM);
         }
       };
@@ -115,7 +118,7 @@ public class FocusProcessorForLogicalNavigation {
   private final AccessibilityService service;
   private final FocusFinder focusFinder;
   private ActorState actorState;
-  private final ScreenStateMonitor screenStateMonitor;
+  private final ScreenStateMonitor.State screenState;
   private Pipeline.FeedbackReturner pipeline;
   private final boolean isWindowNavigationSupported;
 
@@ -138,11 +141,11 @@ public class FocusProcessorForLogicalNavigation {
       AccessibilityService service,
       FocusFinder focusFinder,
       AccessibilityFocusMonitor accessibilityFocusMonitor,
-      ScreenStateMonitor screenStateMonitor) {
+      ScreenStateMonitor.State screenState) {
     this.service = service;
     this.focusFinder = focusFinder;
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
-    this.screenStateMonitor = screenStateMonitor;
+    this.screenState = screenState;
     isWindowNavigationSupported = !FeatureSupport.isTv(service);
   }
 
@@ -587,7 +590,7 @@ public class FocusProcessorForLogicalNavigation {
       boolean isScreenRtl = WindowUtils.isScreenLayoutRTL(service);
       target =
           searchTargetInNextOrPreviousWindow(
-              screenStateMonitor.getCurrentScreenState(),
+              screenState.getStableScreenState(),
               windowTraversal,
               isScreenRtl,
               currentWindow,
@@ -681,25 +684,6 @@ public class FocusProcessorForLogicalNavigation {
         return true;
       }
 
-      // If current focus is in a linear navigating container, it may not handle directional
-      // scrolling actions, attempt linear scrolling if on an edge node
-      // TODO: remove this logic when RecyclerView handles directional navigation.
-      linearScrollingContainer = getLinearScrollingAncestor(pivot, navigationAction);
-
-      if (linearScrollingContainer != null) {
-        linearTraversalStrategy =
-            TraversalStrategyUtils.getTraversalStrategy(
-                linearScrollingContainer, focusFinder, logicalDirection);
-        NavigationAction linearNavigationAction =
-            NavigationAction.Builder.copy(navigationAction).setDirection(logicalDirection).build();
-
-        if (TraversalStrategyUtils.isAutoScrollEdgeListItem(
-                pivot, ignoreDescendantsOfPivot, logicalDirection, linearTraversalStrategy)
-            && tryAutoScroll(pivot, linearNavigationAction, eventId)) {
-          return true;
-        }
-      }
-
       // Search for target node within current window.
       Filter<AccessibilityNodeInfoCompat> nodeFilter =
           NavigationTarget.createNodeFilter(
@@ -714,9 +698,14 @@ public class FocusProcessorForLogicalNavigation {
               }
             }.and(nodeFilter);
       }
+      // Begin and end node collection for Diagnostic Overlay Controller before and
+      // after call to searchFocus, so that only nodes traversed, but not focused
+      // (as result of gesture swipe) are collected.
+      DiagnosticOverlayControllerImpl.setNodeCollectionEnabled(true);
       target =
           TraversalStrategyUtils.searchFocus(
               traversalStrategy, pivot, navigationAction.searchDirection, nodeFilter);
+      DiagnosticOverlayControllerImpl.setNodeCollectionEnabled(false);
 
       // If the target is a web view, avoid focusing on it when the direction is backward.
       // Consider the following linear order when navigating between web
@@ -789,7 +778,7 @@ public class FocusProcessorForLogicalNavigation {
           Map<AccessibilityNodeInfoCompat, Boolean> speakingNodeCache = new HashMap<>();
           target =
               searchTargetInNextOrPreviousWindow(
-                  screenStateMonitor.getCurrentScreenState(),
+                  screenState.getStableScreenState(),
                   windowTraversal,
                   isScreenRtl,
                   currentWindow,
@@ -1182,30 +1171,6 @@ public class FocusProcessorForLogicalNavigation {
         pivot, ignoreDescendantsOfPivot, navigationAction.searchDirection, traversalStrategy);
   }
 
-  /*
-   * Returns the first scrolling ancestor that does not handle directional scrolling but handles
-   * forward/backward scrolling. Returns null otherwise.
-   */
-  @Nullable
-  private static AccessibilityNodeInfoCompat getLinearScrollingAncestor(
-      AccessibilityNodeInfoCompat currentFocus, NavigationAction navigationAction) {
-    AccessibilityNodeInfoCompat firstScrollingAncestor =
-        AccessibilityNodeInfoUtils.getMatchingAncestor(currentFocus, FILTER_AUTO_SCROLL);
-
-    Filter<AccessibilityNodeInfoCompat> linearFilter =
-        new NodeActionFilter(ACTION_SCROLL_FORWARD.getId())
-            .or(new NodeActionFilter(ACTION_SCROLL_BACKWARD.getId()));
-    int directionalAction =
-        TraversalStrategyUtils.convertSearchDirectionToScrollAction(
-            navigationAction.searchDirection);
-    if (firstScrollingAncestor != null
-        && linearFilter.accept(firstScrollingAncestor)
-        && !AccessibilityNodeInfoUtils.supportsAction(firstScrollingAncestor, directionalAction)) {
-      return firstScrollingAncestor;
-    }
-    return null;
-  }
-
   /**
    * Returns scrollable node filter for given {@link NavigationAction}.
    *
@@ -1324,25 +1289,6 @@ public class FocusProcessorForLogicalNavigation {
     } finally {
       AccessibilityNodeInfoUtils.recycleNodes(scrollableNode);
     }
-  }
-
-  private boolean tryAutoScroll(
-      AccessibilityNodeInfoCompat currentFocus,
-      AccessibilityNodeInfoCompat scrollableNode,
-      NavigationAction navigationAction,
-      EventId eventId) {
-    int scrollAction =
-        TraversalStrategyUtils.convertSearchDirectionToScrollAction(
-            navigationAction.searchDirection);
-
-    return (scrollableNode != null)
-        && performScrollActionInternal(
-            ScrollEventInterpreter.ACTION_AUTO_SCROLL,
-            scrollableNode,
-            currentFocus,
-            scrollAction,
-            navigationAction,
-            eventId);
   }
 
   /**

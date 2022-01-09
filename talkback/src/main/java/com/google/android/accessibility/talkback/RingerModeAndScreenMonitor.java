@@ -73,7 +73,7 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
   private final TelevisionNavigationController televisionNavigationController;
   private final AudioManager audioManager;
   private final ListMenuManager menuManager;
-  private final TelephonyManager telephonyManager;
+  private final CallStateMonitor callStateMonitor;
   private final Set<DialogInterface> openDialogs = new HashSet<>();
   private final boolean isWatch;
 
@@ -90,6 +90,7 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
       ListMenuManager menuManager,
       Pipeline.FeedbackReturner pipeline,
       ProximitySensorListener proximitySensorListener,
+      CallStateMonitor callStateMonitor,
       TalkBackService service) {
     if (menuManager == null) {
       throw new IllegalStateException();
@@ -105,10 +106,10 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
     this.menuManager = menuManager;
     this.pipeline = pipeline;
     this.proximitySensorListener = proximitySensorListener;
+    this.callStateMonitor = callStateMonitor;
     televisionNavigationController = service.getTelevisionNavigationController();
 
     audioManager = (AudioManager) service.getSystemService(Service.AUDIO_SERVICE);
-    telephonyManager = (TelephonyManager) service.getSystemService(Service.TELEPHONY_SERVICE);
     // noinspection deprecation
     isScreenOn = ((PowerManager) service.getSystemService(Context.POWER_SERVICE)).isInteractive();
     isWatch = FeatureSupport.isWatch(service);
@@ -305,8 +306,8 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
    * @return true when phone is idle
    */
   private boolean isIdle() {
-    return telephonyManager != null
-        && telephonyManager.getCallState() == TelephonyManager.CALL_STATE_IDLE;
+    return callStateMonitor != null
+        && callStateMonitor.getCurrentCallState() == TelephonyManager.CALL_STATE_IDLE;
   }
 
   /** Handles when the ringer mode (ex. volume) changes. Announces the current ringer state. */
@@ -339,7 +340,7 @@ public class RingerModeAndScreenMonitor extends BroadcastReceiver {
    * @param builder The string to append to.
    */
   private void appendRingerStateAnnouncement(SpannableStringBuilder builder) {
-    if (telephonyManager == null) {
+    if (callStateMonitor == null) {
       return;
     }
 

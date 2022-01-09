@@ -14,6 +14,7 @@
   <string name="voice_commands_language">ພາສາ</string>
   <string name="voice_commands_languages">ພາສາ</string>
   <string name="voice_commands_custom_actions">ຄຳສັ່ງແບບກຳນົດເອງ</string>
+  <string name="voice_commands_action">ຄຳສັ່ງ</string>
   <string name="voice_commands_quick_settings">ການຕັ້ງຄ່າດ່ວນ</string>
   <string name="voice_commands_quick_setting">ການຕັ້ງຄ່າດ່ວນ</string>
   <string name="voice_commands_dim">ຫຼຸດແສງ</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">ຂໍອະໄພ! ບໍ່ສາມາດໃຊ້ຄຸນສົມບັດນີ້ຢູ່ອຸປະກອນຂອງທ່ານໄດ້</string>
   <string name="voice_commands_error">ເກີດຄວາມຜິດພາດໃນການຈຳແນກຄຳສັ່ງສຽງ</string>
   <string name="voice_commands_partial_result">ບໍ່ຮູ້ຈັກຄຳສັ່ງນີ້. ໃຫ້ເວົ້າ \"%1$s\" ເພື່ອເບິ່ງລາຍຊື່ຄຳສັ່ງທັງໝົດ.</string>
+  <string name="voice_commands_timeout">ໃຫ້ເວົ້າ \"%1$s\" ເພື່ອເບິ່ງລາຍຊື່ຄຳສັ່ງທັງໝົດ.</string>
   <string name="voice_commands_many_requests">ກະລຸນາລອງໃໝ່ໃນອີກຈັກໜ້ອຍໜຶ່ງ</string>
-  <string name="voice_commands_setting_disabled">ບໍ່ໄດ້ເປີດນຳໃຊ້ການຕັ້ງຄ່າ \"%1$s\"</string>
   <string name="voice_commands_echo_feedback_not_recognized">ບໍ່ຮູ້ຈັກ \"%1$s\" ວ່າເປັນຄຳສັ່ງສຽງ.</string>
   <string name="voice_commands_label_saved">ບັນທຶກປ້າຍກຳກັບແລ້ວ</string>
   <string name="voice_commands_no_actions_feedback">ບໍ່ມີຄຳສັ່ງທີ່ສາມາດໃຊ້ໄດ້</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">ພາບຮວມຄຳສັ່ງສຽງ</string>
   <string name="voice_commands_help_description">ເພື່ອໃຊ້ຄຳສັ່ງສຽງ, ໃຫ້ປັດຂວາແລ້ວປັດຂຶ້ນ. ໃຫ້ເວົ້າວ່າ \"ຊ່ວຍເຫຼືອ\" ຫຼື \"ຂ້ອຍເວົ້າຫຍັງໄດ້ແດ່?\" ຕອນໃດກໍໄດ້ເພື່ອເບິ່ງລາຍຊື່ຄຳສັ່ງຕ່າງໆ.</string>
   <string name="voice_commands_help_hint">ເພື່ອໃຫ້ໄດ້ຜົນດີທີ່ສຸດ, ໃຫ້ເວົ້າຄຳສັບກົງກັບທີ່ມີໃນລາຍຊື່ຢູ່ໜ້າຈໍຕໍ່ໄປນີ້.</string>
+  <string name="voice_command_screen_locked_hint">ບໍ່ສາມາດໃຊ້ຄຳສັ່ງສຽງໄດ້ໃນເວລາທີ່ລັອກໜ້າຈໍໄວ້ຢູ່. ເພື່ອໃຊ້ເມນູ TalkBack ແທນ, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">ປ່ຽນວິທີທີ່ທ່ານອ່ານເນື້ອຫາຢູ່ໜ້າຈໍປັດຈຸບັນ</string>
   <string name="voice_commands_help_next">[heading] ຕໍ່ໄປ</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">ລະບຸຄຳຊອກຫາເພື່ອຊອກຂໍ້ຄວາມນັ້ນຢູ່ໜ້າຈໍ</string>
   <string name="voice_commands_help_text_editing_description">ພິມ, ເລືອກ ແລະ ສຳເນົາຂໍ້ຄວາມ</string>
   <string name="voice_commands_help_type_text">ພິມ [OK]</string>
-  <string name="voice_commands_help_copy_description">ກວດສອບວ່າທ່ານເລືອກຂໍ້ຄວາມແລ້ວກ່ອນຈະສຳເນົາ</string>
-  <string name="voice_commands_help_cut_description">ກວດສອບວ່າທ່ານເລືອກຂໍ້ຄວາມແລ້ວກ່ອນຈະຕັດ</string>
+  <string name="voice_commands_help_copy_description">ເລືອກຂໍ້ຄວາມກ່ອນການສຳເນົາ</string>
+  <string name="voice_commands_help_cut_description">ເລືອກຂໍ້ຄວາມກ່ອນການຕັດ</string>
+  <string name="voice_commands_help_delete_description">ເລືອກຂໍ້ຄວາມກ່ອນການລຶບ</string>
   <string name="voice_commands_help_device_navigation_title">ການນຳທາງອຸປະກອນ</string>
   <string name="voice_commands_help_device_navigation_description">ໄປໜ້າຫຼັກ, ກັບຄືນ, ສະແດງການແຈ້ງເຕືອນ ແລະ ອື່ນໆ</string>
   <string name="voice_commands_help_overview_description">ເບິ່ງແອັບຫຼ້າສຸດຂອງທ່ານ</string>

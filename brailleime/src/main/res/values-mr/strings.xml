@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">बिंदूचे स्थान अपडेट करत आहे. सर्वप्रथम, तुमच्या डाव्या हाताचे बिंदू रेकॉर्ड करू या. तुमच्या डाव्या हाताच्या मधल्या तीन बोटांनी स्क्रीनला स्‍पर्श करा आणि धरून ठेवा.</string>
   <string name="calibration_step1_hold_right_finger_announcement">बिंदूचे स्थान अपडेट करत आहे. सर्वप्रथम, तुमच्या उजव्या हाताचे बिंदू रेकॉर्ड करू या. तुमच्या उजव्या हाताच्या मधल्या तीन बोटांनी स्क्रीनला स्‍पर्श करा आणि धरून ठेवा.</string>
   <string name="calibration_finish_announcement">बिंदूचे स्थान अपडेट केले</string>
+  <string name="remaining_calibration_finish_announcement">सर्व बिंदूंची स्थाने अपडेट केली</string>
   <string name="calibration_step2_hold_right_finger_announcement">बिंदू एक, दोन आणि तीनसाठी स्थाने अपडेट केली. पुढे, तुमच्या उजव्या हाताचे बिंदू रेकॉर्ड करूया. तुमच्या उजव्या हाताच्या मधल्या तीन बोटांनी स्क्रीनला स्‍पर्श करा आणि धरून ठेवा.</string>
   <string name="calibration_step2_hold_left_finger_announcement">बिंदू एक, दोन आणि तीनसाठी स्थाने अपडेट केली. पुढे, तुमच्या डाव्या हाताचे बिंदू रेकॉर्ड करू या. तुमच्या डाव्या हाताच्या मधल्या तीन बोटांनी स्क्रीनला स्‍पर्श करा आणि धरून ठेवा.</string>
   <string name="calibration_fail_announcement">बिंदूचे स्थान अपडेट करता आले नाही. सहा बोटांनी स्क्रीनला स्‍पर्श करा आणि धरून ठेवा. त्यानंतर पुन्हा प्रयत्न करा.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">युनिफाइड इंग्रजी ब्रेल</string>
   <string name="code_user_facing_name_es">स्पॅनिश</string>
   <string name="code_user_facing_name_ar">अरबी</string>
+  <string name="code_user_facing_name_fr">फ्रेंच</string>
   <string name="title_pref_accumulate_presses">सर्व दाबलेले बिंदू समाविष्ट करा</string>
   <string name="summary_pref_accumulate_presses">बिंदू इतर बिंदूंच्या आधी रिलीझ केला गेला तरीही, प्रत्येक दाबलेला बिंदू इनपुटचा भाग असतो</string>
   <string name="title_pref_reverse_dots">बिंदू उलट करा</string>
   <string name="summary_pref_reverse_dots">बिंदू १ आणि ४ जागांची अदलाबदल करतील अशा प्रकारे बिंदूंच्या जागा स्वॅप करा, उदाहरणार्थ</string>
-  <string name="typing_echo_list_preference_title">टायपिंग फीडबॅक (टायपिंग इको)</string>
-  <string name="typing_echo_preference_label_characters">सर्व अक्षरे आणि शब्द वाचा</string>
-  <string name="typing_echo_preference_label_words">फक्त शब्द वाचा</string>
   <string name="context_menu_title">ब्रेल कीबोर्ड पर्याय</string>
   <string name="context_menu_typing_language_selection">टाइप करण्याची भाषा बदला</string>
   <string name="context_menu_typing_language_selection_summary">सध्या %s चा वापर करत आहे</string>
@@ -48,9 +47,9 @@
   <string name="context_menu_switch_contracted_status_selection">%s ब्रेलवर स्विच करा</string>
   <string name="contracted">संक्षिप्त</string>
   <string name="uncontracted">विस्तारित</string>
-  <string name="context_menu_see_all_gestures_selection">Review all gestures</string>
-  <string name="context_menu_tutorial_selection">ट्युटोरियल उघडा</string>
-  <string name="context_menu_tutorial_finish">ट्युटोरियल संपवा</string>
+  <string name="context_menu_see_all_gestures_selection">सर्व जेश्चरचे परीक्षण करा</string>
+  <string name="context_menu_tutorial_selection">ट्यूटोरियल उघडा</string>
+  <string name="context_menu_tutorial_finish">ट्यूटोरियल संपवा</string>
   <string name="context_menu_settings_selection">सेटिंग्ज</string>
   <string name="context_menu_edit_options_selection">पर्याय संपादित करा</string>
   <string name="context_menu_layout_selection">लेआउट</string>
@@ -84,7 +83,7 @@
   <string name="talkback_suspend_dialog_title">ब्रेल कीबोर्ड वापरण्यासाठी TalkBack पुन्‍हा सुरू करा</string>
   <string name="talkback_off_or_suspend_dialog_message">TalkBack सुरू असेल तेव्हा ब्रेल चिन्हे एंटर करण्यासाठी तुम्ही तुमच्या स्क्रीनवर टॅप करू शकता.</string>
   <string name="next_keyboard">पुढील कीबोर्ड</string>
-  <string name="braille_tutorial_title">ब्रेल कीबोर्ड ट्युटोरियल</string>
+  <string name="braille_tutorial_title">ब्रेल कीबोर्ड ट्यूटोरियल</string>
   <string name="tutorial_intro_description">ब्रेल कीबोर्डसोबत, तुम्ही सहा बिंदू ब्रेल एंटर करण्यासाठी तुमच्या स्क्रीनवर टॅप करू शकता.\n\nतुम्ही युनिफाइड इंग्रजी ब्रेल वापरत आहात. तुमची टाइप करण्याची भाषा स्विच करण्यासाठी, TalkBack सेटिंग्ज वर जा.\n\nब्रेल टाइप करण्यासाठी, तुम्हाला तुमचा फोन वेगळ्या प्रकारे धरावा आणि वापरावा लागेल.</string>
   <string name="next_step">पुढील</string>
   <string name="leave_keyboard">ब्रेल कीबोर्ड सोडा</string>
@@ -101,7 +100,7 @@
   <string name="instruction_swipe_down_2_fingers">कीबोर्ड लपवण्यासाठी, दोन बोटांनी खाली स्वाइप करा</string>
   <string name="instruction_swipe_down_3_fingers">तुमच्या दुसर्‍या कीबोर्डवर स्विच करण्यासाठी, तीन बोटांनी खाली स्वाइप करा</string>
   <string name="instruction_put_phone_flat">टेबलटॉप मोडमध्ये टाइप करण्यासाठी, तुमचा फोन टेबलवर सपाट ठेवा</string>
-  <string name="instruction_swipe_up_3_fingers">ट्युटोरियल संपवण्यासाठी, तीन बोटांनी वर स्वाइप करा</string>
+  <string name="instruction_swipe_up_3_fingers">ट्यूटोरियल संपवण्यासाठी, तीन बोटांनी वर स्वाइप करा</string>
   <string name="result_swipe_left">हटवा</string>
   <string name="result_swipe_right">स्पेस</string>
   <string name="result_swipe_down_2_fingers">कीबोर्ड लपवा</string>
@@ -121,7 +120,7 @@
   <string name="swipe_down_2_fingers_completed_announcement">कीबोर्ड लपवा. सहसा, हे कीबोर्ड लपवेल. तुम्ही अजून ट्युटोरियलमध्ये असल्यामुळे ब्रेल कीबोर्ड उघडा राहील.</string>
   <string name="swipe_down_3_fingers_announcement">तुमच्या दुसर्‍या कीबोर्डवर स्वाइप करण्यासाठी, तीन बोटांनी खाली स्वाइप करा. आता ते करून पहा.</string>
   <string name="swipe_down_3_fingers_completed_announcement">पुढील कीबोर्ड. सहसा, हे पुढील कीबोर्डवर स्विच करेल. या वेळी, तुम्ही अजून ट्युटोरियलमध्ये असल्यामुळे ब्रेल कीबोर्डवर राहिला आहात.</string>
-  <string name="swipe_up_3_fingers_announcement">तुम्ही तुमचा फोन टेबलवर सपाट ठेवूनदेखील टेबलटॉप मोडमध्ये टाइप करू शकता. ट्युटोरियल संपवण्यासाठी तीन बोटांनी वर स्वाइप करा आणि ट्युटोरियल संपवा पर्याय शोधा</string>
+  <string name="swipe_up_3_fingers_announcement">तुम्ही तुमचा फोन टेबलवर सपाट ठेवूनदेखील टेबलटॉप मोडमध्ये टाइप करू शकता. ट्यूटोरियल संपवण्यासाठी तीन बोटांनी वर स्वाइप करा आणि ट्यूटोरियल संपवा पर्याय शोधा</string>
   <string name="open_context_menu_announcement">पर्याय मेनू खुला आहे. तुमचा फोन तुमच्याकडे फिरवा आणि तो नेहमीप्रमाणे धरा. नेव्हिगेट करण्यासाठी तुम्ही आता नेहमीची TalkBack जेश्चर वापरू शकता. अधिक पर्याय पाहण्यासाठी उजवीकडे स्वाइप करा.</string>
   <string name="hold_six_fingers_announcement">%s\nतुमचे डिव्हाइस टेबलवर सपाट ठेवा. त्यानंतर, तुम्हाला टाइप करणे सोईचे होईल अशा स्थितीमध्ये प्रत्येक हाताच्या मधल्या तीन बोटांनी स्क्रीनवर स्‍पर्श करा आणि धरून ठेवा.</string>
   <string name="hold_six_fingers_inactive_announcement">तुमचे डिव्हाइस टेबलवर सपाट ठेवा. त्यानंतर, तुम्हाला टाइप करणे सोईचे होईल अशा स्थितीमध्ये प्रत्येक हाताच्या मधल्या तीन बोटांनी स्क्रीनवर स्‍पर्श करा आणि धरून ठेवा.</string>
@@ -134,5 +133,5 @@
   <string name="perform_add_new_line_announcement">नवीन ओळ जोडली</string>
   <string name="perform_delete_letter_announcement">अक्षर हटवले</string>
   <string name="perform_delete_word_announcement">शब्द हटवला</string>
-  <string name="continue_tutorial_announcement">आपण ट्युटोरियल सुरू ठेवू या. %1$s</string>
+  <string name="continue_tutorial_announcement">आपण ट्यूटोरियल सुरू ठेवू या. %1$s</string>
 </resources>

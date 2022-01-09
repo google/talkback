@@ -20,7 +20,7 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
-import com.google.android.accessibility.utils.labeling.LabelManager;
+import com.google.android.accessibility.utils.ImageContents;
 import com.google.android.accessibility.utils.parsetree.ParseTree;
 import com.google.android.accessibility.utils.parsetree.ParseTree.VariableDelegate;
 import java.util.Locale;
@@ -29,16 +29,16 @@ import java.util.Locale;
 class VariablesFactory {
   private final Context mContext;
   private final GlobalVariables mGlobalVariables;
-  @Nullable private final LabelManager mLabelManager;
+  @Nullable private final ImageContents imageContents;
   @Nullable private NodeMenuProvider nodeMenuProvider;
   // Stores the user preferred locale changed using language switcher.
   private @Nullable Locale mUserPreferredLocale;
 
   VariablesFactory(
-      Context context, GlobalVariables globalVariables, @Nullable LabelManager labelManager) {
+      Context context, GlobalVariables globalVariables, @Nullable ImageContents imageContents) {
     mContext = context;
     mGlobalVariables = globalVariables;
-    mLabelManager = labelManager;
+    this.imageContents = imageContents;
     mUserPreferredLocale = null;
   }
 
@@ -83,7 +83,7 @@ class VariablesFactory {
       delegate =
           new NodeVariables(
               mContext,
-              mLabelManager,
+              imageContents,
               nodeMenuProvider,
               delegate,
               AccessibilityNodeInfoCompat.obtain(node),

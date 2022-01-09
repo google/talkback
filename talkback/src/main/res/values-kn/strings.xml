@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">ಆವೃತ್ತಿ %1$s</string>
   <string name="label_manager_summary_title">ಕಸ್ಟಮ್ ಲೇಬಲ್‍ಗಳನ್ನು ನಿರ್ವಹಿಸು</string>
   <string name="label_manager_package_title">%1$s ಗೆ ಲೇಬಲ್‍ಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
+  <string name="manage_label">ಲೇಬಲ್ ನಿರ್ವಹಿಸಿ</string>
   <string name="label_manager_no_packages_message">ಪ್ರಸ್ತುತ ಯಾವುದೇ ಕಸ್ಟಮ್ ಲೇಬಲ್‌ಗಳಿಲ್ಲ. ಲೇಬಲ್ ಮಾಡಿರದ ಚಿತ್ರವೊಂದಕ್ಕೆ ನ್ಯಾವಿಗೇಟ್ ಮಾಡಿ, ನಂತರ TalkBack ಮೆನುವಿನಿಂದ ಲೇಬಲ್ ಅನ್ನು ಸೇರಿಸುವ ಮೂಲಕ ನೀವು ಕಸ್ಟಮ್ ಲೇಬಲ್ ಒಂದನ್ನು ರಚಿಸಬಹುದು.</string>
   <string name="label_manager_timestamp_text">ಅಂತಿಮ ಮಾರ್ಪಾಟು %1$s</string>
   <string name="search_dialog_label">ಹುಡುಕಿ: %1$s</string>
@@ -21,7 +22,7 @@
   <string name="search_mode_hint_selection">ಪ್ರಸ್ತುತ ಆಯ್ಕೆ: %1$s.</string>
   <string name="notification_type_missed_call">ಮಿಸ್ಡ್‌ ಕಾಲ್‌</string>
   <string name="notification_type_status_mute">ಮ್ಯೂಟ್</string>
-  <string name="notification_type_status_chat">Chat</string>
+  <string name="notification_type_status_chat">ಚಾಟ್</string>
   <string name="notification_type_status_error">ದೋಷ</string>
   <string name="notification_type_status_more">ಇನ್ನಷ್ಟು</string>
   <string name="notification_type_status_sdcard">SD ಕಾರ್ಡ್</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">ಸ್ಪರ್ಶದ ಮೂಲಕ ಎಕ್ಸ್‌ಪ್ಲೋರ್ ಮಾಡಿ</string>
   <string name="title_pref_category_touch_exploration">ನ್ಯಾವಿಗೇಶನ್</string>
   <string name="title_pref_category_controls">ನಿಯಂತ್ರಣಗಳು</string>
-  <string name="title_pref_single_tap">ಸಿಂಗಲ್-ಟ್ಯಾಪ್ ಸಕ್ರಿಯಗೊಳಿಸುವಿಕೆ</string>
+  <string name="title_pref_single_tap">ಸಕ್ರಿಯಗೊಳಿಸಲು ಸಿಂಗಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ</string>
   <string name="title_pref_show_context_menu_as_list">ಸಂದರ್ಭ ಮೆನುವನ್ನು ಪಟ್ಟಿಯಂತೆ ತೋರಿಸಿ</string>
-  <string name="summary_pref_single_tap">(ಪ್ರಾಯೋಗಿಕ) ಸಕ್ರಿಯಗೊಳಿಸಲು ಫೋಕಸ್ ಮಾಡಲಾದ ಐಟಂನ ಮೇಲೆ ಒಂದು ಬಾರಿ ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+  <string name="summary_pref_single_tap">ಸಕ್ರಿಯಗೊಳಿಸಲು ಫೋಕಸ್ ಮಾಡಲಾದ ಐಟಂನ ಮೇಲೆ ಒಂದು ಬಾರಿ ಟ್ಯಾಪ್ ಮಾಡಿ</string>
   <string name="title_pref_shake_to_read_threshold">ನಿರಂತರವಾಗಿ ಓದುತ್ತಾ ಹೋಗಲು ಫೋನ್ ಅನ್ನು ಅಲುಗಾಡಿಸಿ</string>
   <string name="pref_verbosity_title">ಶಬ್ದ ಬಾಹುಳ್ಯ</string>
   <string name="pref_punctuation_title">ವಿರಾಮಚಿಹ್ನೆಗಳು</string>
+  <string name="title_pref_category_manage_focus_indicator">ಫೋಕಸ್ ಸೂಚಕವನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ</string>
   <string name="title_pref_category_manage_gestures">ಸೂಚನೆಗಳನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ</string>
   <string name="title_pref_manage_labels">ಕಸ್ಟಮ್ ಲೇಬಲ್‌ಗಳು</string>
   <string name="title_pref_manage_customize_menus">ಮೆನುಗಳನ್ನು ಕಸ್ಟಮೈಸ್ ಮಾಡಿ</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">ಸಹಾಯ ಮತ್ತು ಪ್ರತಿಕ್ರಿಯೆ</string>
   <string name="title_pref_category_tutorial_and_help">ಟುಟೋರಿಯಲ್ ಮತ್ತು ಸಹಾಯ</string>
   <string name="title_pref_category_advanced">ಸುಧಾರಿತ</string>
+  <string name="title_pref_category_typing">ಟೈಪಿಂಗ್ ಮತ್ತು ಕೀಬೋರ್ಡ್</string>
   <string name="title_pref_category_legal_and_privacy">ಕಾನೂನು ಮತ್ತು ಗೌಪ್ಯತೆ</string>
   <string name="title_pref_advanced_settings">ಸುಧಾರಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
   <string name="reset_gesture_settings_title">ಗೆಸ್ಚರ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಮರುಹೊಂದಿಸಿ</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">ಇತ್ತೀಚಿನ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು</string>
   <string name="keycombo_menu_global_notifications">ಅಧಿಸೂಚನೆಗಳು</string>
   <string name="keycombo_menu_global_suspend">TalkBack ಅನ್ನು ವಿರಾಮಗೊಳಿಸಿ ಅಥವಾ ಪುನರಾರಂಭಿಸಿ</string>
+  <string name="keycombo_menu_global_play_pause_media">ಮಾಧ್ಯಮವನ್ನು ಪ್ಲೇ ಮಾಡಿ ಅಥವಾ ವಿರಾಮಗೊಳಿಸಿ</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">ಮುಂದಿನ ಓದುವಿಕೆ ನಿಯಂತ್ರಣವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">ಹಿಂದಿನ ಓದುವಿಕೆ ನಿಯಂತ್ರಣವನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">ಓದುವಿಕೆಯ ನಿಯಂತ್ರಣವನ್ನು ಮೇಲಕ್ಕೆ ಹೊಂದಿಸಿ</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">ಓದುವಿಕೆಯ ನಿಯಂತ್ರಣವನ್ನು ಕೆಳಕ್ಕೆ ಹೊಂದಿಸಿ</string>
   <string name="keycombo_menu_category_granularity">ನ್ಯಾವಿಗೇಶನ್</string>
   <string name="keycombo_menu_granularity_increase">ಮುಂದಿನ ನ್ಯಾವಿಗೇಷನ್ ಸೆಟ್ಟಿಂಗ್</string>
   <string name="keycombo_menu_granularity_decrease">ಹಿಂದಿನ ನ್ಯಾವಿಗೇಷನ್ ಸೆಟ್ಟಿಂಗ್</string>
@@ -226,7 +234,8 @@
   <string name="keycombo_assign_dialog_clear">ಶಾರ್ಟ್‌ಕಟ್ ತೆರವುಗೊಳಿಸು</string>
   <string name="cannot_copy_feedback">ನಕಲಿಸಲು ಯಾವುದೇ ಪಠ್ಯವಿಲ್ಲ, ಮೊದಲೇ ಕೆಲವು ಪಠ್ಯವನ್ನು ಆರಿಸಿ.</string>
   <string name="cannot_paste_feedback">ಅಂಟಿಸಲು ಯಾವುದೇ ಪಠ್ಯವಿಲ್ಲ, ಮೊದಲು ಕೆಲವು ಪಠ್ಯಗಳನ್ನು ನಕಲಿಸಿ.</string>
-  <string name="cannot_cut_feedback">ಕತ್ತರಿಸಲು ಯಾವುದೇ ಪಠ್ಯವಿಲ್ಲ, ಮೊದಲು ಕೆಲವು ಪಠ್ಯಗಳನ್ನು ಆರಿಸಿ.</string>
+  <string name="cannot_cut_feedback">ಕತ್ತರಿಸಲು ಯಾವುದೇ ಪಠ್ಯವಿಲ್ಲ, ಮೊದಲೇ ಕೆಲವು ಪಠ್ಯವನ್ನು ಆರಿಸಿ.</string>
+  <string name="cannot_delete_feedback">ಅಳಿಸಲು ಯಾವುದೇ ಪಠ್ಯವಿಲ್ಲ, ಮೊದಲೇ ಕೆಲವು ಪಠ್ಯವನ್ನು ಆರಿಸಿ.</string>
   <string name="message_in_reset_keymap_confirm_dialog">ಈ ಕೀಮ್ಯಾಪ್‌ನ ಶಾರ್ಟ್‌ಕಟ್ ಕೀಲಿಗಳನ್ನು ಅವುಗಳ ಡಿಫಾಲ್ಟ್ ಮೌಲ್ಯಗಳಿಗೆ ಮರುಹೊಂದಿಸಲು ನೀವು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ? ಈ ಕ್ರಿಯೆಯನ್ನು ರದ್ದು ಮಾಡಲಾಗುವುದಿಲ್ಲ ಎಂಬುದನ್ನು ದಯವಿಟ್ಟು ಗಮನಿಸಿ.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">ಮರುಹೊಂದಿಸಿ</string>
   <string name="override_keycombo">ಕೀ ಈಗಾಗಲೇ ಬಳಕೆಯಲ್ಲಿದೆ</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">ಪಿಚ್ ಬದಲಾವಣೆಗಳನ್ನು ಬಳಸಿ</string>
   <string name="title_pref_keyboard_echo">ಕೀಬೋರ್ಡ್ ಪ್ರತಿಧ್ವನಿ</string>
   <string name="pref_node_desc_order_title">ಅಂಶ ವಿವರಣೆ ಆರ್ಡರ್</string>
-  <string name="summaryOn_pref_intonation">ಕೆಳಮಟ್ಟದ ಧ್ವನಿಯಲ್ಲಿ ಕೀಬೋರ್ಡ್ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಮಾತನಾಡಿ</string>
+  <string name="summaryOn_pref_intonation">ಕೀಬೋರ್ಡ್ ಅಳಿಸಿದ ಪಠ್ಯವನ್ನು ಗಟ್ಟಿಯಾದ ಧ್ವನಿಯಲ್ಲಿ ಹೇಳಿ</string>
   <string name="summaryOff_pref_intonation">ಮಾತನಾಡುವಾಗ ಧ್ವನಿಯ ಏರಿಳಿತವನ್ನು ಬದಲಿಸಬೇಡಿ</string>
   <string name="title_pref_brailleime">ಬ್ರೈಲ್ ಕೀಬೋರ್ಡ್</string>
   <string name="title_pref_category_feedback_settings">ಇತರ ಪ್ರತಿಕ್ರಿಯೆ</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">ನೋಡ್ ಟ್ರೀ ಡೀಬಗ್ ಸಕ್ರಿಯ</string>
   <string name="summary_pref_tree_debug_tv">ಹುಡುಕುವ ಬದಲಿಗೆ ನೋಡ್ ಟ್ರೀ ಮುದ್ರಿಸಲು ಧ್ವನಿ ಹುಡುಕಾಟ ಕೀ ಬಳಸಿ</string>
   <string name="title_pref_performance_stats">ಕಾರ್ಯನಿರ್ವಹಣೆಯ ಅಂಕಿಅಂಶಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
+  <string name="title_pref_log_overlay">ಡೀಬಗ್ ಲಾಗ್ ಓವರ್‌ಲೇ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
   <string name="title_pref_resume_talkback">ಸ್ಥಗಿತಗೊಂಡಲ್ಲಿಂದ ಪುನಾರಾರಂಭಿಸಿ</string>
+  <string name="title_pref_typing_confirmation">ಟೈಪಿಂಗ್ ಆದ್ಯತೆ</string>
   <string name="title_pref_multi_finger_gesture">ಹಲವು-ಬೆರಳುಗಳ ಗೆಸ್ಚರ್‌ಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
   <string name="screen_dimmed">ಸ್ಕ್ರೀನ್ ಮರೆಮಾಡಲಾಗಿದೆ</string>
   <string name="screen_brightness_restored">ಸ್ಕ್ರೀನ್ ತೋರಿಸಲಾಗುತ್ತಿದೆ</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">ಕೆಳಗೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ</string>
   <string name="shortcut_scroll_left">ಎಡಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ</string>
   <string name="shortcut_scroll_right">ಬಲಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ</string>
+  <string name="shortcut_next_window">ಮುಂದಿನ ವಿಂಡೊ</string>
+  <string name="shortcut_previous_window">ಹಿಂದಿನ ವಿಂಡೋ</string>
   <string name="shortcut_back">ಹಿಂದಕ್ಕೆ</string>
   <string name="shortcut_home">ಮುಖಪುಟ</string>
   <string name="shortcut_overview">ಅವಲೋಕನ</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">ಸ್ಕ್ರೀನ್ ಅನ್ನು ಮರೆಮಾಡಿ ಅಥವಾ ತೋರಿಸಿ</string>
   <string name="title_show_screen_search">ಸ್ಕ್ರೀನ್ ಹುಡುಕಾಟ</string>
   <string name="title_show_voice_commands">ಧ್ವನಿ ಆದೇಶಗಳು</string>
+  <string name="talkback_show_talkback_settings">TalkBack ಸೆಟ್ಟಿಂಗ್‍ಗಳು</string>
   <string name="title_other_web_navigation">ಇತರ ವೆಬ್ ನ್ಯಾವಿಗೇಶನ್</string>
   <string name="title_granularity_default">ಡೀಫಾಲ್ಟ್ ನ್ಯಾವಿಗೇಷನ್</string>
   <string name="title_seek_bar_edit">ಸ್ಲೈಡರ್ ಹಂತವನ್ನು ಎಡಿಟ್ ಮಾಡಿ</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">ನಿಮ್ಮ ಧ್ವನಿಯೊಂದಿಗೆ TalkBack ಅನ್ನು ನಿಯಂತ್ರಿಸಿ</string>
   <string name="summary_show_hide_screen">ಡಿಸ್‌ಪ್ಲೇ ಅನ್ನು ಮರೆಮಾಡಿ, ಇದರಿಂದ ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ ಸಾರ್ವಜನಿಕ ಸ್ಥಳಗಳಲ್ಲಿ ಇತರರಿಗೆ ಗೋಚರಿಸುವುದಿಲ್ಲ. ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ ಅನ್ನು ಮರೆಮಾಡಿದ ನಂತರ, ಅದನ್ನು ಸಾಮಾನ್ಯ ಸ್ಥಿತಿಗೆ ಹಿಂತಿರುಗಿಸಿ.</string>
   <string name="summary_talkback_preferences">TalkBack ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ</string>
-  <string name="summary_system_actions">ಎಲ್ಲಾ ಆ್ಯಪ್‌ಗಳು, ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ ಮತ್ತು \"ಪರದೆ ಬೇರ್ಪಡಿಸಿ\" ಅನ್ನು ಬಳಸಿ</string>
+  <string name="summary_system_actions">ಎಲ್ಲಾ ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ</string>
   <string name="summary_tts_settings">ಪಠ್ಯದಿಂದ ಧ್ವನಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ</string>
   <string name="summary_pause_feedback">TalkBack ಧ್ವನಿ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಆಫ್ ಮಾಡಿ</string>
   <string name="not_editable">ಎಡಿಟ್ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">ಒಂದು ಬಾರಿಗೆ ಒಂದು ಪದವನ್ನು ಓದಿ</string>
   <string name="summary_lines">ಒಂದು ಬಾರಿಗೆ ಒಂದು ಸಾಲನ್ನು ಓದಿ</string>
   <string name="summary_paragraphs">ಒಂದು ಬಾರಿಗೆ ಒಂದು ಪ್ಯಾರಾಗ್ರಾಫ್ ಅನ್ನು ಓದಿ</string>
+  <string name="summary_windows">ವಾಲ್ಯೂಮ್ ನಿಯಂತ್ರಣಗಳು ಅಥವಾ ನ್ಯಾವಿಗೇಷನ್ ಬಾರ್‌ನಂತಹ ಇತರ ವಿಂಡೋಗಳಿಗೆ ಹೋಗಿ</string>
   <string name="summary_headings">ಒಂದು ಶೀರ್ಷಿಕೆಯಿಂದ ಮತ್ತೊಂದಕ್ಕೆ ಹೋಗಿ</string>
   <string name="summary_controls">ನೀವು ಸಂವಹನ ಮಾಡಬಹುದಾದ ಒಂದು ಐಟಂನಿಂದ ಮತ್ತೊಂದಕ್ಕೆ ಹೋಗಿ, ಉದಾ. ಬಟನ್‌ಗಳು, ಚೆಕ್‌ಬಾಕ್ಸ್‌ಗಳು, ಪಠ್ಯ ಫೀಲ್ಡ್‌ಗಳು</string>
   <string name="summary_links">ಒಂದು ಲಿಂಕ್‌ನಿಂದ ಮತ್ತೊಂದಕ್ಕೆ ಹೋಗಿ</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">ಟೈಪ್ ಮಾಡಿದ ಕೀಗಳು, ಬಳಕೆಯ ಸುಳಿವುಗಳು, ಗ್ರಿಡ್ ಮಾಹಿತಿ ಮತ್ತು ಇತರ ಮಾಹಿತಿಯನ್ನು ಗಟ್ಟಿಯಾಗಿ ಓದಲಾಗಿದೆಯೇ ಎಂದು ಬದಲಾಯಿಸಿ</string>
   <string name="summary_selector_menu_punctuation">ವಿರಾಮ ಚಿಹ್ನೆಗಳು ಮತ್ತು ಸಂಕೇತಗಳನ್ನು ಜೋರಾಗಿ ಓದಬೇಕೇ ಎಂಬುದನ್ನು ಬದಲಾಯಿಸಿ</string>
   <string name="summary_language">ನಿಮ್ಮ ಮಾತನಾಡುವ ಭಾಷೆಯನ್ನು ಬದಲಾಯಿಸಿ. ಅನೇಕ ಪಠ್ಯದಿಂದ-ಧ್ವನಿ ಭಾಷೆಗಳನ್ನು ನೀವು ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿದಾಗ ಮಾತ್ರ ಗೋಚರಿಸುತ್ತದೆ.</string>
-  <string name="summary_sound_feedback">ನೀವು ನ್ಯಾವಿಗೇಟ್ ಮಾಡುವಾಗ, ಕ್ರಿಯೆಯನ್ನು ದೃಢೀಕರಿಸಲು ಬೀಪ್‌ನಂತಹ ಧ್ವನಿ ಎಫೆಕ್ಟ್‌ಗಳನ್ನು ಕೇಳಿ.</string>
+  <string name="summary_sound_feedback">ನೀವು ನ್ಯಾವಿಗೇಟ್ ಮಾಡುವಾಗ, ಕ್ರಿಯೆಯನ್ನು ದೃಢೀಕರಿಸಲು ಬೀಪ್‌ನಂತಹ ಧ್ವನಿ ಎಫೆಕ್ಟ್‌ಗಳನ್ನು ಕೇಳುತ್ತೀರಿ</string>
   <string name="summary_vibration_feedback">ಐಟಂ ಅನ್ನು ಆಯ್ಕೆಮಾಡುವಂತಹ ಕ್ರಿಯೆಗಳಿಗೆ ವೈಬ್ರೇಷನ್‌ಗಳನ್ನು ಅನುಭವಿಸಿ. ಆ್ಯಪ್‌ಗಳು ಅಥವಾ ಸಿಸ್ಟಮ್‌ನಿಂದ ಬರುವ ವೈಬ್ರೇಷನ್‌ಗಳ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವುದಿಲ್ಲ.</string>
   <string name="summary_hide_screen">ಡಿಸ್‌ಪ್ಲೇ ಅನ್ನು ಮರೆಮಾಡಿ, ಇದರಿಂದ ನಿಮ್ಮ ಸ್ಕ್ರೀನ್ ಸಾರ್ವಜನಿಕ ಸ್ಥಳಗಳಲ್ಲಿ ಇತರರಿಗೆ ಗೋಚರಿಸುವುದಿಲ್ಲ</string>
   <string name="summary_audio_ducking">TalkBack ಮಾತನಾಡುವಾಗ ಪ್ಲೇ ಆಗುತ್ತಿರುವ ಇತರ ಆಡಿಯೊ ವಾಲ್ಯೂಮ್ ಅನ್ನು ಕಡಿಮೆ ಮಾಡಿ</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">ಮುಂದಕ್ಕೆ ಅಥವಾ ಹಿಂದಕ್ಕೆ ಸ್ಕ್ರಾಲ್ ಮಾಡಿ</string>
+  <string name="summary_support_change_a11y_volume">ಅಕ್ಸೆಸಿಬಿಲಿಟಿ ವಾಲ್ಯೂಮ್ ಅನ್ನು ಹೆಚ್ಚಿಸಿ ಅಥವಾ ಕಡಿಮೆ ಮಾಡಿ</string>
+  <string name="summary_image_caption">ಈ ಚಿತ್ರಕ್ಕಾಗಿ ಸ್ವಯಂಚಾಲಿತ ವಿವರಣೆಯನ್ನು ಪಡೆಯಿರಿ</string>
   <string name="value_direction_up">ಮೇಲೆ</string>
   <string name="value_direction_down">ಕೆಳಗೆ</string>
   <string name="value_direction_left">ಎಡಕ್ಕೆ</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">2 ಬೆರಳುಗಳಿಂದ ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ ಹಿಡಿದುಕೊಳ್ಳಿ</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">3 ಬೆರಳುಗಳಿಂದ ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ ಹಿಡಿದುಕೊಳ್ಳಿ</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">4 ಬೆರಳುಗಳಿಂದ ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ ಹಿಡಿದುಕೊಳ್ಳಿ</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">2 ಬೆರಳುಗಳಿಂದ ಟ್ರಿಪಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ ಹಾಗೂ ಒತ್ತಿಹಿಡಿಯಿರಿ</string>
+  <string name="seekbar_hint_2gesture">ಹೊಂದಿಸಲು \"%1$s\" ಅಥವಾ %2$s\" ಮಾಡಿ</string>
+  <string name="seekbar_hint_1gesture">ಹೊಂದಿಸಲು \"%1$s\" ಮಾಡಿ</string>
   <string name="gesture_name_unknown">ಅಪರಿಚಿತ ಗೆಸ್ಚರ್</string>
   <string name="gesture_name_pass_through">ಸಿಸ್ಟಮ್ ಗೆಸ್ಚರ್ ಮೂಲಕ ಹಾದುಹೋಗಿರಿ</string>
   <string name="gesture_name_touch_explore">ಸ್ಪರ್ಶಿಸಿ ಮತ್ತು ಎಕ್ಸ್‌ಪ್ಲೋರ್ ಮಾಡಿ</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">ಡಬಲ್-ಟ್ಯಾಪ್ ಮತ್ತು ಹೋಲ್ಡ್</string>
   <string name="gesture_name_2finger_tap_hold">2 ಬೆರಳುಗಳಿಂದ ಟ್ಯಾಪ್ ಮಾಡಿ ಮತ್ತು ಹಿಡಿದುಕೊಳ್ಳಿ</string>
   <string name="gesture_name_3finger_tap_hold">3 ಬೆರಳುಗಳಿಂದ ಟ್ಯಾಪ್ ಮಾಡಿ ಮತ್ತು ಹಿಡಿದುಕೊಳ್ಳಿ</string>
+  <string name="gesture_name_2finger_3tap_hold">2 ಬೆರಳುಗಳಿಂದ ಟ್ರಿಪಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ ಹಾಗೂ ಒತ್ತಿಹಿಡಿಯಿರಿ</string>
   <string name="gesture_name_3finger_3tap_hold">3 ಬೆರಳುಗಳಿಂದ ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ ಹಿಡಿದುಕೊಳ್ಳಿ</string>
   <string name="title_pref_shortcut_fingerprint_up">ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಸೆನ್ಸರ್‌ನಲ್ಲಿ ಮೇಲೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
   <string name="title_pref_shortcut_fingerprint_down">ಫಿಂಗರ್‌ಪ್ರಿಂಟ್ ಸೆನ್ಸರ್‌ನಲ್ಲಿ ಕೆಳಗೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">ಪರದೆಯನ್ನು ಆನ್ ಮಾಡಿದಾಗ</string>
   <string name="value_resume_keyguard">ಲಾಕ್ ಪರದೆಯನ್ನು ತೋರಿಸಿದಾಗ</string>
   <string name="value_resume_manual">ಅಧಿಸೂಚನೆಯಿಂದ ಮಾತ್ರ</string>
+  <string name="value_type_confirmation_double_tap">ಕೀ ಅನ್ನು ಆರಿಸಲು ಬೆರಳನ್ನು ಒತ್ತಿಹಿಡಿಯಿರಿ ನಂತರ ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+  <string name="value_type_confirmation_lift_to_type">ಕೀ ಅನ್ನು ಆರಿಸಲು ಬೆರಳನ್ನು ಒತ್ತಿಹಿಡಿಯಿರಿ ನಂತರ ಬೆರಳನ್ನು ಎತ್ತಿ</string>
   <string name="value_shake_to_read_disabled">ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ</string>
   <string name="value_shake_to_read_threshold_very_light">ತುಂಬಾ ಹಗುರ</string>
   <string name="value_shake_to_read_threshold_light">ಹಗುರ</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">ಯಾವಾಗಲೂ ಟೈಪ್ ಮಾಡಲಾದ ಕೀಗಳನ್ನು ಮಾತನಾಡಿ</string>
   <string name="value_keyboard_echo_softkeys">ಪರದೆ ಮೇಲಿನ ಕೀಬೋರ್ಡ್‌ಗಾಗಿ ಮಾತ್ರ</string>
   <string name="value_keyboard_echo_never">ಟೈಪ್ ಮಾಡಲಾದ ಕೀಗಳನ್ನು ಎಂದಿಗೂ ಮಾತನಾಡಬೇಡಿ</string>
+  <string name="title_pref_keyboard_echo_on_screen">ಕೀಬೋರ್ಡ್ ಪ್ರತಿಧ್ವನಿ: ಆನ್-ಸ್ಕ್ರೀನ್ ಕೀಬೋರ್ಡ್</string>
+  <string name="title_pref_keyboard_echo_physical">ಕೀಬೋರ್ಡ್ ಪ್ರತಿಧ್ವನಿ: ಭೌತಿಕ ಕೀಬೋರ್ಡ್</string>
+  <string name="value_keyboard_echo_none">ಯಾವುದೂ ಅಲ್ಲ</string>
+  <string name="value_keyboard_echo_characters_only">ಅಕ್ಷರಗಳು</string>
+  <string name="value_keyboard_echo_words_only">ಪದಗಳು</string>
+  <string name="value_keyboard_echo_characters_and_words">ಅಕ್ಷರಗಳು ಮತ್ತು ಪದಗಳು</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">ರಾಜ್ಯ, ಹೆಸರು, ಪ್ರಕಾರ</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">ಪ್ರಕಾರ, ಹೆಸರು, ರಾಜ್ಯ</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">ಹೆಸರು, ಪ್ರಕಾರ, ರಾಜ್ಯ</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">ನೀವು ನೋಡ್ ಟ್ರೀ ಡೀಬಗ್ ಮಾಡುವುದನ್ನು ಆನ್ ಮಾಡಲು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?\n\nನೋಡ್ ಟ್ರೀ ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಇತರ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಓದಬಹುದಾದ ನಿಮ್ಮ ಪರದೆಯ ವಿಷಯಗಳಿಂದ ನಿಮ್ಮ ಸಾಧನದ ಲಾಗ್‌ಗಳನ್ನು ತೆರೆದಿಡುತ್ತದೆ.</string>
   <string name="dialog_title_enable_performance_stats">ಕಾರ್ಯನಿರ್ವಹಣೆಯ ಅಂಕಿಅಂಶಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸುವುದೇ?</string>
   <string name="dialog_message_enable_performance_stats">ನೀವು ಕಾರ್ಯನಿರ್ವಹಣೆಯ ಅಂಕಿಅಂಶಗಳನ್ನು ಆನ್ ಮಾಡಲು ಬಯಸುವಿರಾ?\n\nಕಾರ್ಯನಿರ್ವಹಣೆಯ ಅಂಕಿಅಂಶಗಳು ಹೆಚ್ಚಿನ ಮೆಮೋರಿ ಮತ್ತು ಪವರ್‌ ಬಳಸಬಹುದು.</string>
+  <string name="title_request_phone_permission">ಫೋನ್ ಪ್ರವೇಶವನ್ನು ಅನುಮತಿಸಬೇಕೆ?</string>
+  <string name="message_request_phone_permission">ನೀವು ಕರೆಯಲ್ಲಿ ನಿರತರಾಗಿದ್ದಾಗ ಪ್ರಕಟಣೆಗಳನ್ನು ಕಡಿಮೆಗೊಳಿಸಲು ಇದು TalkBack ಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ</string>
+  <string name="continue_button">ಮುಂದುವರಿಸಿ</string>
   <string name="label_talkback_context_menu">TalkBack ಜಾಗತಿಕ ಸಂದರ್ಭ ಮೆನು</string>
   <string name="permission_talkback_label">TalkBack ನಿಯಂತ್ರಿಸು</string>
   <string name="permission_talkback_desc">TalkBack ಗೆ ಸೂಚನೆಗಳನ್ನು ಕಳುಹಿಸಲು ಮತ್ತು ಮಾತನಾಡುವ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಪುನರಾರಂಭಿಸಲು ಅನುಮತಿ.</string>
-  <string name="permission_labeling_label">TalkBack ಕಸ್ಟಮ್ ಲೇಬಲ್‍ಗಳನ್ನು ನಿರ್ವಹಿಸು</string>
-  <string name="permission_labeling_desc">TalkBack ನಿಂದ ಮಾತನಾಡುವ ಕಸ್ಟಮ್ ಲೇಬಲ್‍‍ಗಳನ್ನು ಪ್ರವೇಶಿಸಲು, ಮಾರ್ಪಡಿಸಲು ಮತ್ತು ಅಳಿಸಲು ಅನುಮತಿ.</string>
   <string name="links">ಲಿಂಕ್‌ಗಳು</string>
   <string name="end_of_text">ಅಂತ್ಯಗೊಳಿಸು</string>
   <string name="start_of_page">ಯಾವುದೇ ಹಿಂದಿನ %1$s ಇಲ್ಲ</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">ವಿರಾಮಚಿಹ್ನೆಗಳು</string>
   <string name="title_pref_selector_granularity">ನ್ಯಾವಿಗೇಶನ್</string>
   <string name="title_pref_selector_audio_focus">ಆಡಿಯೊ ಡಕಿಂಗ್</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">ಸ್ಕ್ರಾಲ್</string>
+  <string name="title_pref_a11y_volume">ಪ್ರವೇಶಿಸುವಿಕೆ ವಾಲ್ಯೂಮ್‌</string>
   <string name="title_pref_selector_adjustable_widget_slider">ಸ್ಲೈಡರ್ ಅನ್ನು ಹೊಂದಿಸಿ</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">ಮೌಲ್ಯವನ್ನು ಹೊಂದಿಸಿ</string>
   <string name="title_pref_speak_passwords_without_headphones">ಪಾಸ್‌ವರ್ಡ್‌ಗಳನ್ನು ಹೇಳು</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">ಧ್ವನಿ ಆಜ್ಞೆಗಳನ್ನು ಬಳಸಿ</string>
   <string name="dialog_title_pass_through_mode">ಸಿಸ್ಟಮ್ ಗೆಸ್ಚರ್‌ಗಳನ್ನು ಬಳಸಲು TalkBack ಗೆಸ್ಚರ್‌ಗಳನ್ನು ಸ್ಕಿಪ್ ಮಾಡಿ</string>
   <string name="dialog_message_pass_through_mode">ನೀವು ಚೈಮ್ ಅನ್ನು ಕೇಳಿದಾಗ, TalkBack ನಿಂದ ಬೆಂಬಲಿತವಾಗಿರದ ಸಿಸ್ಟಮ್ ಗೆಸ್ಚರ್ ಅನ್ನು ಬಳಸಬಹುದು. ಇದನ್ನು ಪಾಸ್‌ಥ್ರೂ ಗೆಸ್ಚರ್ ಎಂದು ಕರೆಯಲಾಗುತ್ತದೆ.</string>
-  <string name="hint_type_search_term">ಹುಡುಕಾಟದ ಪದ ಟೈಪ್ ಮಾಡಿ</string>
+  <string name="hint_type_search_term">ಹುಡುಕಾಟ ಪದ</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack ನ ಅಧಸೂಚನೆ ಚಾನಲ್‌</string>
   <string name="pref_selector_summary">ಸೆಟ್ಟಿಂಗ್ ಆಯ್ಕೆ ಮಾಡಲು %1$s. ನಂತರ ಸೆಟ್ಟಿಂಗ್‌ ಅನ್ನು ಅಡ್ಜಸ್ಟ್ ಮಾಡಲು %2$s.</string>
@@ -772,6 +803,7 @@
   <string name="cut_paste_text">ಪಠ್ಯವನ್ನು ಕತ್ತರಿಸಲು, 3 ಬೆರಳುಗಳಿಂದ ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ ಮತ್ತು ಒತ್ತಿಹಿಡಿದುಕೊಳ್ಳಿ.\n\nಪಠ್ಯವನ್ನು ಅಂಟಿಸಲು, 3 ಬೆರಳುಗಳಿಂದ ಟ್ರಿಪಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ.\n\n ಕೆಳಗಿನ ಪಠ್ಯ ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಪದ ಒಂದನ್ನು ಅಂಟಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
   <string name="copy_text_pre_r">ಪಠ್ಯವನ್ನು ಆಯ್ಕೆ ಮಾಡಿದ ನಂತರ, ನೀವು ಅದನ್ನು TalkBack ಮೆನುವಿನಲ್ಲಿ ನಕಲಿಸಬಹುದು. TalkBack ಮೆನು ತೆರೆಯಲು ಕೆಳಕ್ಕೆ ನಂತರ ಬಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ಎಡಿಟಿಂಗ್‌ ಆಯ್ಕೆಗಳನ್ನು ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ ನಂತರ ನಕಲಿಸಿ.\n\nಕೆಳಗಿನ ಪಠ್ಯ ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಪದ ಒಂದನ್ನು ನಕಲಿಸಿ ನೋಡಿ.</string>
   <string name="cut_paste_text_pre_r">ಪಠ್ಯವನ್ನು ಕತ್ತರಿಸಲು ಅಥವಾ ಅಂಟಿಸಲು, TalkBack ಮೆನು ತೆರೆಯಿರಿ ಮತ್ತು ಎಡಿಟಿಂಗ್ ಆಯ್ಕೆಗಳನ್ನು ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ.\n\nಕೆಳಗಿನ ಪಠ್ಯ ಬಾಕ್ಸ್‌ನಲ್ಲಿ ಪದ ಒಂದನ್ನು ಅಂಟಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
+  <string name="edit_box_hint_paste_text">ಪಠ್ಯವನ್ನು ಇಲ್ಲಿ ಅಂಟಿಸಿ</string>
   <string name="read_by_character_title">ಅಕ್ಷರ, ಪದ, ಅಥವಾ ಪ್ಯಾರಾಗ್ರಾಫ್ ಪ್ರಕಾರ ಓದಿ</string>
   <string name="read_by_character_text">ಕೆಲವೊಮ್ಮೆ, ಒಂದು ಬಾರಿಗೆ ಒಂದು ಅಕ್ಷರದಂತೆ ಪಠ್ಯವನ್ನು ಗಟ್ಟಿಯಾಗಿ ಓದುವುದನ್ನು ನೀವು ಆಲಿಸಲು ಬಯಸಬಹುದು.\n\nಇದನ್ನು ಮಾಡಲು, ನೀವು \"%1$s\" ಅನ್ನು ಕೇಳುವವರೆಗೆ 3 ಬೆರಳುಗಳಿಂದ ಬಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ಮುಂದೆ, ನ್ಯಾವಿಗೇಷನ್ ಫೋಕಸ್ ಅನ್ನು ಅಕ್ಷರಗಳ ಪ್ರಕಾರ ಹಿಂದಕ್ಕೆ ಸರಿಸಲು ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ನ್ಯಾವಿಗೇಷನ್ ಫೋಕಸ್ ಅನ್ನು ಅಕ್ಷರಗಳ ಪ್ರಕಾರ ಮುಂದಕ್ಕೆ ಸರಿಸಲು ಕೆಳಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ.\n\nಈಗಲೇ ಬಳಸಿ ನೋಡಿ. ನೀವು 3 ಬೆರಳುಗಳಿಂದ ಬಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿದಾಗ, ನೀವು ಪದಗಳು ಅಥವಾ ಪ್ಯಾರಾಗಳ ಪ್ರಕಾರ ಓದಲು ಸಹ ಆಯ್ಕೆ ಮಾಡಬಹುದು.</string>
   <string name="read_by_character_text_pre_r">ಕೆಲವೊಮ್ಮೆ, ಒಂದು ಬಾರಿಗೆ ಒಂದು ಅಕ್ಷರದಂತೆ ಪಠ್ಯವನ್ನು ಗಟ್ಟಿಯಾಗಿ ಓದುವುದನ್ನು ನೀವು ಆಲಿಸಲು ಬಯಸಬಹುದು.\n\nಇದನ್ನು ಮಾಡಲು, ನೀವು \"%1$s\" ಅನ್ನು ಕೇಳುವವರೆಗೆ ಕೆಳಕ್ಕೆ ನಂತರ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ಮುಂದೆ, ನ್ಯಾವಿಗೇಷನ್ ಫೋಕಸ್ ಅನ್ನು ಅಕ್ಷರಗಳ ಪ್ರಕಾರ ಹಿಂದಕ್ಕೆ ಸರಿಸಲು ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ನ್ಯಾವಿಗೇಷನ್ ಫೋಕಸ್ ಅನ್ನು ಅಕ್ಷರಗಳ ಪ್ರಕಾರ ಮುಂದಕ್ಕೆ ಸರಿಸಲು ಕೆಳಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ.\n\nಈಗಲೇ ಬಳಸಿ ನೋಡಿ. ನೀವು ಕೆಳಕ್ಕೆ ಮತ್ತು ನಂತರ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿದಾಗ, ನೀವು ಪದಗಳು ಅಥವಾ ಪ್ಯಾರಾಗಳ ಪ್ರಕಾರ ಓದಲು ಸಹ ಆಯ್ಕೆ ಮಾಡಬಹುದು.</string>
@@ -810,5 +842,19 @@
   <string name="activated_view">%1$s ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ</string>
   <string name="talkback_inactive_title">TalkBack ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ</string>
   <string name="talkback_inactive_message">ಈ ಟುಟೋರಿಯಲ್‌ಗೆ TalkBack ಸಕ್ರಿಯಗೊಳಿಸುವ ಅಗತ್ಯವಿದೆ. ಟುಟೋರಿಯಲ್ ಪ್ರಾರಂಭವಾಗುವ ಮೊದಲು TalkBack ಆನ್ ಮಾಡಿ.</string>
+  <string name="watch_swipe_left_right_text">ಐಟಂಗಳ ನಡುವೆ ಚಲಿಸಲು ಬಲಕ್ಕೆ ಅಥವಾ ಎಡಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
+  <string name="watch_double_tap_text">ಐಟಂ ಒಂದನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+  <string name="watch_2_finger_scroll_text">ಸ್ಕ್ರಾಲ್ ಮಾಡಲು 2 ಬೆರಳುಗಳನ್ನು ಡ್ರ್ಯಾಗ್ ಮಾಡಿ</string>
+  <string name="title_pref_thick_border">ದಪ್ಪನೆಯ ಅಂಚುಗಳು</string>
+  <string name="title_pref_category_border_color">ಬಣ್ಣ</string>
+  <string name="title_pref_default_color">ಡೀಫಾಲ್ಟ್</string>
+  <string name="title_pref_red">ಕೆಂಪು</string>
+  <string name="title_pref_orange">ಕಿತ್ತಳೆ</string>
+  <string name="title_pref_yellow">ಹಳದಿ</string>
+  <string name="title_pref_green">ಹಸಿರು</string>
+  <string name="title_pref_blue">ನೀಲಿ</string>
+  <string name="title_pref_grey">ಬೂದು</string>
   <string name="survey_closed">ಸಮೀಕ್ಷೆ ಅಂತ್ಯಗೊಂಡಿದೆ</string>
+  <string name="character_recognition_text">ಪಠ್ಯ: %1$s</string>
+  <string name="title_image_caption">ಚಿತ್ರವನ್ನು ವಿವರಿಸಿ</string>
 </resources>

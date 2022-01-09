@@ -19,15 +19,15 @@ package com.google.android.accessibility.utils.input;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-import com.google.android.accessibility.utils.AccessibilityEventListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Performance.EventId;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * This class consumes AccessibilityEvents to track the current state of the text cursor, and
  * provides an interface to query it.
  */
-public class TextCursorManager implements AccessibilityEventListener {
+public class TextCursorManager {
 
   public static final int NO_POSITION = -1;
 
@@ -39,13 +39,11 @@ public class TextCursorManager implements AccessibilityEventListener {
   private int mCurrentCursorPosition = NO_POSITION;
   private int mPreviousCursorPosition = NO_POSITION;
 
-  @Override
   public int getEventTypes() {
     return MASK_EVENTS_HANDLED_BY_TEXT_CURSOR_MANAGER;
   }
 
-  @Override
-  public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
+  public void onAccessibilityEvent(AccessibilityEvent event, @Nullable EventId eventId) {
     if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED) {
       processTextSelectionChange(event);
     } else if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_FOCUSED) {

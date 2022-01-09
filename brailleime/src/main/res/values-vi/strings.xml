@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Đang cập nhật vị trí dấu chấm. Trước tiên, hãy ghi lại các dấu chấm trên tay trái. Chạm và giữ màn hình bằng 3 ngón giữa của tay trái.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Đang cập nhật vị trí dấu chấm. Trước tiên, hãy ghi lại các dấu chấm trên tay phải. Chạm và giữ màn hình bằng 3 ngón giữa của tay phải.</string>
   <string name="calibration_finish_announcement">Đã cập nhật vị trí dấu chấm</string>
+  <string name="remaining_calibration_finish_announcement">Đã cập nhật tất cả các vị trí dấu chấm</string>
   <string name="calibration_step2_hold_right_finger_announcement">Đã cập nhật vị trí của dấu chấm 1, 2 và 3. Tiếp theo, hãy ghi lại các dấu chấm trên tay phải. Chạm và giữ màn hình bằng 3 ngón giữa của tay phải.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Đã cập nhật vị trí của dấu chấm 1, 2 và 3. Tiếp theo, hãy ghi lại các dấu chấm trên tay trái. Chạm và giữ màn hình bằng 3 ngón giữa của tay trái.</string>
   <string name="calibration_fail_announcement">Không thể cập nhật vị trí dấu chấm. Hãy chạm và giữ màn hình bằng 6 ngón tay. Sau đó thử lại.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Chữ nổi tiếng Anh hợp nhất</string>
   <string name="code_user_facing_name_es">Tiếng Tây Ban Nha</string>
   <string name="code_user_facing_name_ar">Tiếng Ả Rập</string>
+  <string name="code_user_facing_name_fr">Tiếng Pháp</string>
   <string name="title_pref_accumulate_presses">Bao gồm tất cả các dấu chấm được nhấn</string>
   <string name="summary_pref_accumulate_presses">Mỗi dấu chấm bạn nhấn sẽ cấu thành nội dung nhập, cả khi bạn nhả dấu chấm đó trước các dấu chấm khác</string>
   <string name="title_pref_reverse_dots">Dấu chấm ngược</string>
   <string name="summary_pref_reverse_dots">Hoán đổi vị trí dấu chấm, chẳng hạn như đổi vị trí của dấu chấm 1 cho dấu chấm 4</string>
-  <string name="typing_echo_list_preference_title">Phản hồi khi nhập (tiếng vang khi nhập)</string>
-  <string name="typing_echo_preference_label_characters">Đọc tất cả chữ cái và từ</string>
-  <string name="typing_echo_preference_label_words">Chỉ đọc từ</string>
   <string name="context_menu_title">Các tùy chọn trên bàn phím chữ nổi</string>
   <string name="context_menu_typing_language_selection">Thay đổi ngôn ngữ nhập</string>
   <string name="context_menu_typing_language_selection_summary">Hiện đang sử dụng %s</string>

@@ -24,7 +24,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.preference.PreferenceFragment;
 import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 import androidx.annotation.XmlRes;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
@@ -168,17 +168,29 @@ public final class PreferenceSettingsUtils {
     return infos != null && !infos.isEmpty();
   }
 
-  /** Checks if the preference is existed. */
-  public static boolean isPreferencePresent(AppCompatActivity activity, int prefKeyId) {
-    return findPreference(activity, prefKeyId) != null;
+  /**
+   * Finds the preference by the key Id.
+   *
+   * @param activity FragmentActivity which contain Fragments.
+   * @param prefKeyId key Id of Preference which likes to find
+   * @return Preference by search key.
+   */
+  public static @Nullable Preference findPreference(FragmentActivity activity, int prefKeyId) {
+    return findPreference(activity, activity.getString(prefKeyId));
   }
 
-  /** Finds the preference by the key ID. */
-  public static @Nullable Preference findPreference(AppCompatActivity activity, int prefKeyId) {
+  /**
+   * Finds the preference by the key string.
+   *
+   * @param activity FragmentActivity which contain Fragments.
+   * @param key key string of Preference which likes to find
+   * @return Preference by search key.
+   */
+  public static @Nullable Preference findPreference(FragmentActivity activity, String key) {
     List<Fragment> fragments = activity.getSupportFragmentManager().getFragments();
     for (Fragment fragment : fragments) {
       PreferenceFragmentCompat preferenceFragment = (PreferenceFragmentCompat) fragment;
-      Preference preference = preferenceFragment.findPreference(activity.getString(prefKeyId));
+      Preference preference = preferenceFragment.findPreference(key);
       if (preference != null) {
         return preference;
       }

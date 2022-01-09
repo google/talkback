@@ -54,7 +54,7 @@
   <string name="value_radio_button">زر اختيار</string>
   <string name="value_button">زر</string>
   <string name="value_seek_bar">شريط التمرير</string>
-  <string name="value_switch">مفتاح تحويل</string>
+  <string name="value_switch">مفتاح تحكّم</string>
   <string name="value_edit_box">مربع تعديل</string>
   <string name="value_edit_box_editing">جارٍ التعديل</string>
   <string name="value_image">صورة</string>
@@ -82,7 +82,7 @@
   <string name="value_collapsed">تم التصغير</string>
   <string name="value_double_tap">النقر مرّتين</string>
   <string name="value_single_tap">النقر</string>
-  <string name="value_switch_press">اضغط على مفتاح التبديل المُختار</string>
+  <string name="value_switch_press">اضغط على مفتاح التحكّم المُختار</string>
   <string name="value_press_select">اضغط على تحديد</string>
   <string name="template_hint_clickable">%1$s للتفعيل.</string>
   <string name="template_hint_clickable_keyboard">اضغط على %1$s للتفعيل.</string>
@@ -104,7 +104,7 @@
   <string name="template_custom_hint_for_long_clickable_actions">%1$s مع الاستمرار لـ %2$s.</string>
   <string name="template_sa_custom_hint_scrollable">%1$s للتمرير.</string>
   <string name="template_sa_custom_hint_for_multiple_actions">%1$s للاطّلاع على الإجراءات المتوفرة.</string>
-  <string name="template_sa_hint_seek_control">اضغط على \"اختيار مفتاح التبديل\" لضبطه.</string>
+  <string name="template_sa_hint_seek_control">اضغط على \"اختيار مفتاح التحكّم\" لضبطه.</string>
   <string name="value_caps_lock_on">‏تم تفعيل Caps Lock.</string>
   <string name="value_caps_lock_off">‏تم إيقاف Caps Lock.</string>
   <string name="value_num_lock_on">‏تم تفعيل Num.</string>
@@ -191,6 +191,10 @@
   <string name="template_speech_rate_change_slower">أبطأ</string>
   <string name="template_speech_rate_change_fastest">الأسرع</string>
   <string name="template_speech_rate_change_slowest">الأبطأ</string>
+  <string name="template_volume_change_increase">زيادة</string>
+  <string name="template_volume_change_decrease">تقليل</string>
+  <string name="template_volume_change_maximum">الحد الأقصى</string>
+  <string name="template_volume_change_minimum">الحد الأدنى</string>
   <string name="template_seekbar_range">%1$d%%</string>
   <string name="audio_focus_on">ميزة تجنب التداخل مع أصوات أخرى مفعّلة</string>
   <string name="audio_focus_off">إيقاف تجنب التداخل مع أصوات أخرى</string>

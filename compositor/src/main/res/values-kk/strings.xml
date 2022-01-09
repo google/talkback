@@ -18,7 +18,7 @@
   <string name="notification_category_email">Электрондық пошта</string>
   <string name="notification_category_event">Іс-шара</string>
   <string name="notification_category_promo">Жарнама</string>
-  <string name="notification_category_alarm">Дабыл</string>
+  <string name="notification_category_alarm">Оятқыш</string>
   <string name="notification_category_progress">Орындалуда</string>
   <string name="notification_category_social">Әлеуметтік</string>
   <string name="notification_category_err">Қате</string>
@@ -171,6 +171,10 @@
   <string name="template_speech_rate_change_slower">Баяуырақ</string>
   <string name="template_speech_rate_change_fastest">Ең жылдам</string>
   <string name="template_speech_rate_change_slowest">Ең баяу</string>
+  <string name="template_volume_change_increase">Арттыру</string>
+  <string name="template_volume_change_decrease">Азайту</string>
+  <string name="template_volume_change_maximum">Максималды деңгей</string>
+  <string name="template_volume_change_minimum">Минималды деңгей</string>
   <string name="template_seekbar_range">%1$d%%</string>
   <string name="audio_focus_on">Дыбысты бәсеңдету қосулы</string>
   <string name="audio_focus_off">Дыбысты бәсеңдету өшірулі</string>

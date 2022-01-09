@@ -24,10 +24,10 @@ import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.text.TextUtils;
 import android.util.SparseArray;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.utils.Filter;
 import com.google.android.accessibility.utils.RectUtils;
 import com.google.android.gms.vision.Detector;
@@ -141,7 +141,9 @@ public class OCRController {
                     // If the user selected only one node, and the node has non-null ocrTextBlocks,
                     // then filter the textblocks down to only textBlocks that instersect with
                     // selectionBounds
-                    if (ocrInfos.size() == 1 && ocrInfos.get(0).getTextBlocks() != null) {
+                    if (selectionBounds != null
+                        && ocrInfos.size() == 1
+                        && ocrInfos.get(0).getTextBlocks() != null) {
                       filterTextBlocks(ocrInfos.get(0), selectionBounds);
                     }
 
@@ -183,7 +185,8 @@ public class OCRController {
    * @param textBlocks The TextBlocks that contain the resulting text from OCR.
    * @return A string containing the combined text from all the TextBlocks.
    */
-  public static String getTextFromBlocks(List<TextBlock> textBlocks) {
+  @Nullable
+  public static String getTextFromBlocks(@Nullable List<TextBlock> textBlocks) {
     if (textBlocks == null || textBlocks.isEmpty()) {
       return null;
     }

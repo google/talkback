@@ -138,6 +138,7 @@
     "TYPE_VIEW_ACCESSIBILITY_FOCUSED": {
       "ttsOutput": {
         "join": [
+          "%window_transition",
           {
             "if": "equals(%get_description_for_tree, @string/value_unlabelled)",
             "then": {
@@ -175,8 +176,7 @@
           {
             "if": "#VERBOSITY_SPEAK_COLLECTION_INFO",
             "then": "%collection_transition"
-          },
-          "%window_transition"
+          }
         ]
       },
       "ttsQueueMode": {
@@ -359,13 +359,21 @@
                 "if": "$node.isWithinAccessibilityFocus",
                 "then": {
                   "fallback": [
-                  {
-                    "if": "$node.role == 'seek_control'",
-                    "then": "%get_description_for_node"
-                  },
-                  // The changed part of state-description is in the event text.
-                  "%event_aggregate_text",
-                  "$node.stateDescription"
+                    {
+                      "if": "$node.role == 'seek_control'",
+                      "then": "%get_description_for_node"
+                    },
+                    // The changed part of state-description is in the event text.
+                    "%event_aggregate_text",
+                    "$node.stateDescription",
+                    {
+                      "_comment": "Android widget Progressbar used to send TYPE_VIEW_SELECTED event when ",
+                      "_comment": "progress changes. It then adopted StateDescription. However, if a new ",
+                      "_comment": "widget wants to provide the RangeInfo data only without state ",
+                      "_comment": "description, we can use state change event to announce state changes",
+                      "if": "$node.role == 'progress_bar'",
+                      "then": "%seek_bar_percent"
+                    }
                   ]
                 }
               },
@@ -936,7 +944,7 @@
       "else": "%append_description_for_tree"
     },
     "notify_disabled": {
-      "if": "($node.hasNativeWebContent || $node.isActionable) && !$node.isEnabled",
+      "if": "$node.announceDisabled",
       "then": "@string/value_disabled"
     },
     "notify_selected": {
@@ -1150,6 +1158,12 @@
         "prependCapital($node.labelText)"
       ]
     },
+    "get_node_text_and_caption": {
+      "join": [
+        "%node_text_or_label_or_id",
+        "$node.captionText"
+      ]
+    },
     // SpeechRules
     "rule_default": {
       "switch": "#VERBOSITY_DESCRIPTION_ORDER",
@@ -1213,9 +1227,9 @@
     "rule_non_text_views": {
       "switch": "#VERBOSITY_DESCRIPTION_ORDER",
       "cases": {
-        "RoleNameStatePosition": "dedupJoin(%get_non_text_view_role, %node_text_or_label_or_id, %get_non_text_view_state)",
-        "StateNameRolePosition": "dedupJoin(%get_non_text_view_state, %node_text_or_label_or_id, %get_non_text_view_role)",
-        "NameRoleStatePosition": "dedupJoin(%node_text_or_label_or_id, %get_non_text_view_role, %get_non_text_view_state)"
+        "RoleNameStatePosition": "dedupJoin(%get_non_text_view_role, %get_node_text_and_caption, %get_non_text_view_state)",
+        "StateNameRolePosition": "dedupJoin(%get_non_text_view_state, %get_node_text_and_caption, %get_non_text_view_role)",
+        "NameRoleStatePosition": "dedupJoin(%get_node_text_and_caption, %get_non_text_view_role, %get_non_text_view_state)"
       }
     },
     // Utils for speech rules.
@@ -1277,20 +1291,19 @@
     "get_seek_bar_state": {
       "fallback" : [
         "$node.stateDescription",
-        // In R, we will set the default stateDescription for progress bar. So
-        // the below block can be removed if we only support R+.
-        {
-          "switch": "$node.rangeInfoType",
-          "cases": {
-            "percent": "@string/template_percent(roundForProgressPercent($node.rangeCurrentValue))",
-            "undefined": {
-              "if": "$event.itemCount > 0",
-              "then": "@string/template_percent(roundForProgressPercent($event.progressPercent))"
-            }
-          },
-          "default": "@string/template_percent(roundForProgressPercent($node.progressPercent))"
-        }
+        "%seek_bar_percent"
       ]
+    },
+    "seek_bar_percent" : {
+      "switch": "$node.rangeInfoType",
+      "cases": {
+        "percent": "@string/template_percent(roundForProgressPercent($node.rangeCurrentValue))",
+        "undefined": {
+          "if": "$event.itemCount > 0",
+          "then": "@string/template_percent(roundForProgressPercent($event.progressPercent))"
+        }
+      },
+      "default": "@string/template_percent(roundForProgressPercent($node.progressPercent))"
     },
     "_comment": "TODO: Move value_unlabeled out of get_non_text_view_state to rule_non_text_views, ",
     "_comment": "TODO: Refers to the comment in cl/298559232 for more detail.",
@@ -1309,8 +1322,12 @@
         "fallback": [
           "$node.roleDescription",
           {
-            "if": "!($node.role == 'image' && $node.supportsActionSelect)",
-            "then": "%node_role"
+            "if": "$node.role == 'image' && $node.supportsActionSelect",
+            "then": {
+              "if": "$node.isAccessibilityFocused",
+              "then": "@string/value_image"
+            },
+            "else": "%node_role"
           }
         ]
       }
@@ -1335,8 +1352,8 @@
          // Text of switch widget is "on"/"off" state.
          {
             "if": "$node.isChecked",
-            "then": "@string/value_checked",
-            "else": "@string/value_not_checked"
+            "then": "@string/value_on",
+            "else": "@string/value_off"
          }
       ]
     },
@@ -1439,7 +1456,7 @@
     },
     "hint_rule_seek_bar": {
       "if": "$node.supportsActionScrollForward || $node.supportsActionScrollBackward",
-      "then": "@string/template_hint_seek_control",
+      "then": "$global.seekbarHint",
       "else": "%hint_rule_default"
     },
     "hint_rule_default": {
@@ -1533,9 +1550,12 @@
               "else": {
                 "if": "$node.role != 'text_entry_key'",
                 "then":{
-                  "if": "$global.useSingleTap",
-                  "then": "@string/template_hint_checkable(@string/value_single_tap)",
-                  "else": "@string/template_hint_checkable(@string/value_double_tap)"
+                  "if": "$node.isClickable",
+                  "then": {
+                    "if": "$global.useSingleTap",
+                    "then": "@string/template_hint_checkable(@string/value_single_tap)",
+                    "else": "@string/template_hint_checkable(@string/value_double_tap)"
+                  }
                 }
               }
             }

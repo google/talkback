@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">เครื่องหมายอะพอสทรอฟี</string>
   <string name="symbol_ampersand">แอมเพอร์แซนด์</string>
-  <string name="symbol_angle_bracket_left">วงเล็บมุมเปิด</string>
-  <string name="symbol_angle_bracket_right">วงเล็บมุมปิด</string>
+  <string name="symbol_angle_bracket_left">เครื่องหมายน้อยกว่า</string>
+  <string name="symbol_angle_bracket_right">เครื่องหมายมากกว่า</string>
   <string name="symbol_asterisk">ดอกจัน</string>
   <string name="symbol_at_sign">แอท</string>
   <string name="symbol_backslash">ทับย้อนกลับ</string>
   <string name="symbol_bullet">สัญลักษณ์หัวข้อย่อย</string>
   <string name="symbol_caret">แคเร็ต</string>
-  <string name="symbol_cent">เซนต์</string>
+  <string name="symbol_cent">สัญลักษณ์เซ็นต์</string>
   <string name="symbol_colon">ทวิภาค</string>
   <string name="symbol_comma">จุลภาค</string>
   <string name="symbol_copyright">ลิขสิทธิ์</string>
   <string name="symbol_curly_bracket_left">วงเล็บปีกกาเปิด</string>
   <string name="symbol_curly_bracket_right">วงเล็บปีกกาปิด</string>
-  <string name="symbol_degree">องศา</string>
+  <string name="symbol_degree">เครื่องหมายองศา</string>
   <string name="symbol_division">เครื่องหมายหาร</string>
   <string name="symbol_dollar_sign">สัญลักษณ์ดอลลาร์</string>
   <string name="symbol_ellipsis">จุดไข่ปลา</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">มหัพภาค</string>
   <string name="symbol_pi">พาย</string>
   <string name="symbol_pound">ปอนด์</string>
-  <string name="symbol_pound_sterling">ปอนด์สเตอร์ลิง</string>
+  <string name="symbol_pound_sterling">สัญลักษณ์สกุลเงินปอนด์</string>
   <string name="symbol_question_mark">เครื่องหมายคำถาม</string>
   <string name="symbol_quotation_mark">อัญประกาศ</string>
   <string name="symbol_registered_trademark">เครื่องหมายการค้าจดทะเบียน</string>
@@ -48,7 +48,7 @@
   <string name="symbol_square_root">รากที่ 2</string>
   <string name="symbol_trademark">เครื่องหมายการค้า</string>
   <string name="symbol_underscore">ขีดล่าง</string>
-  <string name="symbol_vertical_bar">แถบแนวตั้ง</string>
+  <string name="symbol_vertical_bar">ไปป์</string>
   <string name="symbol_yen">เยน</string>
   <string name="symbol_not_sign">สัญลักษณ์ห้าม</string>
   <string name="symbol_broken_bar">เส้นตั้งที่มีช่องตรงกลาง</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">หัวใจสีดำ</string>
   <string name="symbol_tilde">ทิลด์</string>
   <string name="symbol_equal">เครื่องหมายเท่ากับ</string>
-  <string name="symbol_won">สัญลักษณ์เงินวอน</string>
+  <string name="symbol_won">สัญลักษณ์สกุลเงินวอน</string>
   <string name="symbol_reference">เครื่องหมายอ้างอิง</string>
   <string name="symbol_white_star">ดาวสีขาว</string>
   <string name="symbol_black_star">ดาวสีดำ</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">วงเล็บมุมซ้อนปิด</string>
   <string name="symbol_inverted_exclamation_mark">เครื่องหมายตกใจคว่ำ</string>
   <string name="symbol_inverted_question_mark">เครื่องหมายคำถามคว่ำ</string>
-  <string name="symbol_won_sign">สัญลักษณ์สกุลเงินวอนเกาหลี</string>
+  <string name="symbol_won_sign">สัญลักษณ์สกุลเงินวอน</string>
   <string name="symbol_full_width_comma">คอมมาความกว้างเต็ม</string>
   <string name="symbol_full_width_exclamation_mark">เครื่องหมายตกใจความกว้างเต็ม</string>
   <string name="symbol_full_width_ideographic_full_stop">จุดแบบภาพแสดงความหมาย</string>

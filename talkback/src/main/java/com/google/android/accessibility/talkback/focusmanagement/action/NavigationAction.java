@@ -103,7 +103,7 @@ public class NavigationAction {
     return sb.toString();
   }
 
-  private static String actionTypeToString(@ActionType int actionType) {
+  public static String actionTypeToString(@ActionType int actionType) {
     switch (actionType) {
       case DIRECTIONAL_NAVIGATION:
         return "DIRECTIONAL_NAVIGATION";

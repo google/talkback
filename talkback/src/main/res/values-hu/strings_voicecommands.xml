@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Nyelv</string>
   <string name="voice_commands_languages">Nyelvek</string>
   <string name="voice_commands_custom_actions">egyéni műveletek</string>
+  <string name="voice_commands_action">Művelet</string>
   <string name="voice_commands_quick_settings">Gyorsbeállítások</string>
   <string name="voice_commands_quick_setting">Gyorsbeállítás</string>
   <string name="voice_commands_dim">halványítás</string>
@@ -61,7 +62,7 @@
   <string name="voice_commands_write">Írás</string>
   <string name="voice_commands_Spell">Betűzés</string>
   <string name="voice_commands_talkback_settings">A TalkBack beállításai</string>
-  <string name="voice_commands_talkback_setting">TalkBack-beállítások</string>
+  <string name="voice_commands_talkback_setting">TalkBack-beállítás</string>
   <string name="voice_commands_screen_search">Közvetlen keresés</string>
   <string name="voice_commands_search_on_screen">Keresés a képernyőn</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Sajnos ez a funkció nem áll rendelkezésre az eszközön</string>
   <string name="voice_commands_error">Hiba történt a hangalapú utasítás felismerése során</string>
   <string name="voice_commands_partial_result">Ismeretlen parancs. Az összes parancs felsorolásához mondja azt, hogy „%1$s”.</string>
+  <string name="voice_commands_timeout">Az összes parancs felsorolásához mondja azt, hogy „%1$s”.</string>
   <string name="voice_commands_many_requests">Várjon egy kicsit, és próbálkozzon újra</string>
-  <string name="voice_commands_setting_disabled">A(z) „%1$s” beállítás nincs engedélyezve</string>
   <string name="voice_commands_echo_feedback_not_recognized">Nem sikerült hangalapú utasításként felismerni a következőt: „%1$s”.</string>
   <string name="voice_commands_label_saved">Címke mentve</string>
   <string name="voice_commands_no_actions_feedback">Nincsenek rendelkezésre álló műveletek</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Hangalapú utasítások áttekintése</string>
   <string name="voice_commands_help_description">Hangalapú utasítások használatához csúsztasson jobbra, majd felfelé. Mondja azt bármikor, hogy „Help” (Súgó) vagy „What can I say?” (Miket mondhatok?) a parancsok listájának meghallgatásához.</string>
   <string name="voice_commands_help_hint">A legjobb eredmények érdekében pontosan a következő képernyőkön látható megfogalmazásokat használja.</string>
+  <string name="voice_command_screen_locked_hint">A hangalapú utasítások nem állnak rendelkezése, ha a képernyő zárolva van. Ha helyette a TalkBack menüt használná, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Az aktuális képernyőn lévő tartalmak felolvasási módjának módosítása.</string>
   <string name="voice_commands_help_next">Következő [címsor]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Keresési kifejezés megadásával megtalálhatja az adott szöveget a képernyőn.</string>
   <string name="voice_commands_help_text_editing_description">Szöveg gépelése, kijelölése és másolása.</string>
   <string name="voice_commands_help_type_text">[OK] beírása</string>
-  <string name="voice_commands_help_copy_description">Másolás előtt ki kell jelölnie a kívánt szöveget.</string>
-  <string name="voice_commands_help_cut_description">Kivágás előtt ki kell jelölnie a kívánt szöveget.</string>
+  <string name="voice_commands_help_copy_description">Másolás előtt jelölje ki a szövegrészt</string>
+  <string name="voice_commands_help_cut_description">Kivágás előtt jelölje ki a szövegrészt</string>
+  <string name="voice_commands_help_delete_description">Törlés előtt jelölje ki a szövegrészt</string>
   <string name="voice_commands_help_device_navigation_title">Navigáció az eszközön</string>
   <string name="voice_commands_help_device_navigation_description">Ugrás a kezdőképernyőre, visszalépés, értesítések megjelenítése stb.</string>
   <string name="voice_commands_help_overview_description">Legutóbbi alkalmazások megtekintése.</string>

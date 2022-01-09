@@ -687,6 +687,16 @@
     Description: This is spoken to the user. [CHAR_LIMIT=NONE]
   -->
   <string name="template_volume_change_decrease">Decrease</string>
+  <!--
+    Source: String for notifying the user the stream volume is at the highest level.
+    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="template_volume_change_maximum">Maximum</string>
+  <!--
+    Source: String for notifying the user the stream volume is at the lowest level.
+    Description: This is spoken to the user. [CHAR_LIMIT=NONE]
+  -->
+  <string name="template_volume_change_minimum">Minimum</string>
 
   <!--
     Source: A notification for the failure of attempting to change seek bar value.

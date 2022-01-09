@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">កំពុង​ធ្វើបច្ចុប្បន្នភាព​ទីតាំងចំណុច​។ ដំបូង សូមថតចំណុច​នៅលើដៃឆ្វេង​របស់អ្នក។ ចុចអេក្រង់​ឱ្យជាប់ដោយប្រើម្រាមដៃកណ្ដាល 3 នៃដៃឆ្វេងរបស់អ្នក។</string>
   <string name="calibration_step1_hold_right_finger_announcement">កំពុង​ធ្វើបច្ចុប្បន្នភាព​ទីតាំងចំណុច​។ ដំបូង សូមថតចំណុចនៅលើដៃស្ដាំរបស់អ្នក។ ចុចអេក្រង់​ឱ្យជាប់ដោយប្រើម្រាមដៃកណ្ដាល 3 នៃដៃស្ដាំរបស់អ្នក។</string>
   <string name="calibration_finish_announcement">បានធ្វើបច្ចុប្បន្នភាព​ទីតាំងចំណុច</string>
+  <string name="remaining_calibration_finish_announcement">បានធ្វើបច្ចុប្បន្នភាព​ទីតាំងចំណុចទាំងអស់</string>
   <string name="calibration_step2_hold_right_finger_announcement">ទីតាំងដែលបានធ្វើបច្ចុប្បន្នភាពសម្រាប់ចំណុច 1, 2 និង 3។ បន្ទាប់មក សូមថតចំណុចនៅលើដៃស្ដាំរបស់អ្នក។ ចុចអេក្រង់​ឱ្យជាប់ដោយប្រើម្រាមដៃកណ្ដាល 3 នៃដៃស្ដាំរបស់អ្នក។</string>
   <string name="calibration_step2_hold_left_finger_announcement">ទីតាំងដែលបានធ្វើបច្ចុប្បន្នភាពសម្រាប់ចំណុច 1, 2 និង 3។ បន្ទាប់មក សូមថតចំណុចនៅលើដៃឆ្វេងរបស់អ្នក។ ចុចអេក្រង់​ឱ្យជាប់ដោយប្រើម្រាមដៃកណ្ដាល 3 នៃដៃឆ្វេងរបស់អ្នក។</string>
   <string name="calibration_fail_announcement">មិនអាចធ្វើបច្ចុប្បន្នភាព​ទីតាំងចំណុចបានទេ។ សូមចុច​អេក្រង់ឱ្យជាប់​ដោយប្រើ​ម្រាមដៃ 6។ បន្ទាប់មក ព្យាយាម​ម្ដង​ទៀត។</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">អក្សរស្ទាប​សម្រាប់ភាសា​អង់គ្លេស​ទូទៅ</string>
   <string name="code_user_facing_name_es">អេស្ប៉ាញ</string>
   <string name="code_user_facing_name_ar">អារ៉ាប់</string>
+  <string name="code_user_facing_name_fr">បារាំង</string>
   <string name="title_pref_accumulate_presses">រួមបញ្ចូល​ចំណុច​ទាំងអស់​ដែល​បានចុច</string>
   <string name="summary_pref_accumulate_presses">ចំណុចនីមួយៗដែលបានចុចគឺជាផ្នែកនៃការបញ្ចូល ទោះបីជាចំណុចនោះត្រូវបានលែង​មុនចំណុចផ្សេងទៀតក៏ដោយ</string>
   <string name="title_pref_reverse_dots">បញ្ច្រាសចំណុច</string>
   <string name="summary_pref_reverse_dots">ឧទាហរណ៍ ផ្លាស់ប្ដូរ​ទីតាំង​ចំណុច ដើម្បីឱ្យ​ចំណុចទី 1 និង 4 ប្ដូរ​ទីតាំងគ្នា</string>
-  <string name="typing_echo_list_preference_title">ការអាន​តាមការវាយបញ្ចូល (ការបញ្ចេញ​សំឡេង​តាមការវាយបញ្ចូល)</string>
-  <string name="typing_echo_preference_label_characters">អានអក្សរ និង​ពាក្យទាំងអស់</string>
-  <string name="typing_echo_preference_label_words">អានតែ​ពាក្យប៉ុណ្ណោះ</string>
   <string name="context_menu_title">ជម្រើស​ក្ដារចុច​អក្សរស្ទាប</string>
   <string name="context_menu_typing_language_selection">ផ្លាស់ប្ដូរ​ភាសាវាយបញ្ចូល</string>
   <string name="context_menu_typing_language_selection_summary">បច្ចុប្បន្ន​កំពុងប្រើ %s</string>

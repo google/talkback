@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">புள்ளியின் நிலையைப் புதுப்பிக்கிறது. முதலில் உங்கள் இடது கையிலுள்ள புள்ளிகளைப் பதிவு செய்வோம். இடது கையில் நடுவிலுள்ள 3 விரல்களால் திரையைத் தொட்டுப் பிடித்திருக்கவும்.</string>
   <string name="calibration_step1_hold_right_finger_announcement">புள்ளியின் நிலையைப் புதுப்பிக்கிறது. முதலில் உங்கள் வலது கையிலுள்ள புள்ளிகளைப் பதிவு செய்வோம். வலது கையில் நடுவிலுள்ள 3 விரல்களால் திரையைத் தொட்டுப் பிடித்திருக்கவும்.</string>
   <string name="calibration_finish_announcement">புள்ளிகளின் நிலை புதுப்பிக்கப்பட்டது</string>
+  <string name="remaining_calibration_finish_announcement">அனைத்துப் புள்ளிகளின் இடங்களும் புதுப்பிக்கப்பட்டன</string>
   <string name="calibration_step2_hold_right_finger_announcement">புள்ளிகள் 1, 2, 3 ஆகியவற்றுக்கான நிலைகள் புதுப்பிக்கப்பட்டன. அடுத்து உங்கள் வலது கையிலுள்ள புள்ளிகளைப் பதிவு செய்வோம். வலது கையில் நடுவிலுள்ள 3 விரல்களால் திரையைத் தொட்டுப் பிடித்திருக்கவும்.</string>
   <string name="calibration_step2_hold_left_finger_announcement">புள்ளிகள் 1, 2, 3 ஆகியவற்றுக்கான நிலைகள் புதுப்பிக்கப்பட்டன. அடுத்து உங்கள் இடது கையிலுள்ள புள்ளிகளைப் பதிவு செய்வோம். இடது கையில் நடுவிலுள்ள 3 விரல்களால் திரையைத் தொட்டுப் பிடித்திருக்கவும்.</string>
   <string name="calibration_fail_announcement">புள்ளியின் நிலையைப் புதுப்பிக்க முடியவில்லை. 6 விரல்களால் திரையைத் தொட்டுப் பிடித்திருக்கவும். பிறகு, மீண்டும் முயலவும்.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">ஒருங்கிணைக்கப்பட்ட ஆங்கில பிரெய்ல்</string>
   <string name="code_user_facing_name_es">ஸ்பானிஷ்</string>
   <string name="code_user_facing_name_ar">அரபிக்</string>
+  <string name="code_user_facing_name_fr">ஃபிரெஞ்சு</string>
   <string name="title_pref_accumulate_presses">அழுத்தப்பட்ட எல்லாப் புள்ளிகளையும் சேர்த்தல்</string>
   <string name="summary_pref_accumulate_presses">மற்றவற்றிற்கு முன் விடுவிக்கப்பட்டாலும் அழுத்தப்பட்ட ஒவ்வொரு புள்ளியும் உள்ளீட்டின் ஒரு பகுதியாகும்</string>
   <string name="title_pref_reverse_dots">ரிவர்ஸ் புள்ளிகள்</string>
   <string name="summary_pref_reverse_dots">புள்ளிகளின் இடங்களை மாற்றும், உதாரணமாக 4ன் இடத்தில் 1 ஐயும், 1ன் இடத்தில் 4 ஐயும் இடமாற்றும்</string>
-  <string name="typing_echo_list_preference_title">உள்ளீட்டை வாசித்தல் (உள்ளீட்டு எதிரொலி)</string>
-  <string name="typing_echo_preference_label_characters">அனைத்து எழுத்துக்களையும் சொற்களையும் வாசி</string>
-  <string name="typing_echo_preference_label_words">சொற்களை மட்டும் வாசி</string>
   <string name="context_menu_title">பிரெய்ல் கீபோர்டு விருப்பங்கள்</string>
   <string name="context_menu_typing_language_selection">உள்ளிடும் மொழியை மாற்று</string>
   <string name="context_menu_typing_language_selection_summary">தற்போது பயன்படுத்துவது: %s</string>

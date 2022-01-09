@@ -45,7 +45,8 @@ public enum CursorGranularity {
   HEADING(R.string.granularity_native_heading, 10, 0),
   CONTROL(R.string.granularity_native_control, 11, 0),
   LINK(R.string.granularity_native_link, 12, 0),
-  WEB_LANDMARK(R.string.granularity_web_landmark, 13, 0);
+  WEB_LANDMARK(R.string.granularity_web_landmark, 13, 0),
+  WINDOWS(R.string.granularity_window, 14, 0);
 
   /** Used to represent a granularity with no framework value. */
   private static final int NO_VALUE = 0;
@@ -147,6 +148,7 @@ public enum CursorGranularity {
       result.add(CONTROL);
       result.add(LINK);
     }
+    result.add(WINDOWS);
     result.add(DEFAULT);
   }
 

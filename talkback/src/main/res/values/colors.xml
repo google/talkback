@@ -21,6 +21,10 @@
     <color name="title_color">#ff33b5e5</color>
     <color name="accessibility_touch_guard">#66000000</color>
 
+    <!-- For Diagnostic Overlay -->
+    <color name="diagnostic_overlay_background">#AA000000</color>
+    <!-- End Diagnostic Overlay -->
+
     <color name="light_gray">#DDDDDD</color>
     <!-- For Screen Search -->
     <color name="overlay_background">#D000</color>
@@ -31,7 +35,15 @@
     <color name="colorAccent">@color/google_blue600</color>
     <color name="colorAccentFocused">@color/google_blue900</color>
     <color name="alert_dialog_bg_color">@color/google_white</color>
+    <color name="alert_dialog_button_color">@color/colorAccent</color>
+    <color name="alert_dialog_button_focused_color">@color/colorAccentFocused</color>
+    <color name="alert_dialog_content_message_text_color">@color/google_black</color>
+    <!-- Selector controller (Quick menu) color-->
+    <color name="quick_menu_overlay_finger_swipe_icon_color">#bdc1c6</color>
+    <color name="quick_menu_overlay_finger_swipe_icon_stroke_color">#00000000</color>
     <color name="quick_menu_overlay_text_color">@color/google_white</color>
+    <color name="quick_menu_overlay_background_color">@color/google_black</color>
+    <color name="quick_menu_overlay_stroke_color">@color/google_grey100</color>
 
     <!-- Attribute for wear color customization. -->
     <color name="text_color">@color/google_grey200</color>
@@ -41,6 +53,7 @@
     <color name="training_text_color">#e8eaed</color>
     <color name="training_subtext_color">#bdc1c6</color>
     <color name="training_icon_color">@color/google_blue300</color>
+    <color name="training_home_key_icon_color">@color/google_grey200</color>
     <color name="training_button_text_color">#8ab5f7</color>
     <color name="training_heading_color">#bdc1c6</color>
     <color name="training_note_border_color">#8ab5f7</color>
@@ -52,4 +65,23 @@
     <color name="training_edit_text_hint_color">@color/google_grey500</color>
     <color name="training_link_text_color">#8ab5f7</color>
     <color name="training_divider_color">@color/google_grey700</color>
+
+    <color name="colorTalkBackIcon">#683CB7</color>
+
+    <!-- Focus indicator -->
+    <color name="accessibility_focus_highlight_color">#bf39b500</color>
+
+    <!-- The color of the category for gesture customization dialog -->
+    <color name="gesture_dialog_category_color">@color/colorAccent</color>
+
+    <!-- Common component color-->
+    <color name="button_text_color">@color/google_black</color>
+    <color name="button_background_color">@color/google_grey200</color>
+    <color name="button_stroke_color">@color/google_grey200</color>
+    <color name="icon_foreground_color">@color/google_black</color>
+
+    <!-- Label manager text color-->
+    <color name="label_text_color">@color/google_black</color>
+    <color name="label_list_item_text_color">@color/google_black</color>
+
 </resources>

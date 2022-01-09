@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Язык</string>
   <string name="voice_commands_languages">Языки</string>
   <string name="voice_commands_custom_actions">Специальные действия</string>
+  <string name="voice_commands_action">Действие</string>
   <string name="voice_commands_quick_settings">Быстрые настройки</string>
-  <string name="voice_commands_quick_setting">Быстрые настройки</string>
+  <string name="voice_commands_quick_setting">Быстрая настройка</string>
   <string name="voice_commands_dim">Уменьшить яркость</string>
   <string name="voice_commands_darken">Затемнить</string>
   <string name="voice_commands_brighten_screen">Увеличить яркость</string>
@@ -80,7 +81,7 @@
   <string name="voice_commands_back">Назад</string>
   <string name="voice_commands_go_back">Вернуться назад</string>
   <string name="voice_commands_home">Главный экран</string>
-  <string name="voice_commands_desktop">Компьютер</string>
+  <string name="voice_commands_desktop">Рабочий стол</string>
   <string name="voice_commands_stop">Стоп</string>
   <string name="voice_commands_quit">Выйти</string>
   <string name="voice_commands_quiet">Тихо</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Эта функция недоступна для вашего устройства.</string>
   <string name="voice_commands_error">При распознавании голосовой команды произошла ошибка.</string>
   <string name="voice_commands_partial_result">Неизвестная команда. Скажите \"%1$s\", чтобы открыть список команд.</string>
+  <string name="voice_commands_timeout">Скажите \"%1$s\", чтобы открыть список команд.</string>
   <string name="voice_commands_many_requests">Повторите попытку позже.</string>
-  <string name="voice_commands_setting_disabled">Параметр \"%1$s\" не включен.</string>
   <string name="voice_commands_echo_feedback_not_recognized">Голосовая команда \"%1$s\" не распознана.</string>
   <string name="voice_commands_label_saved">Ярлык сохранен</string>
   <string name="voice_commands_no_actions_feedback">Доступных действий нет</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Обзор голосовых команд</string>
   <string name="voice_commands_help_description">Чтобы использовать голосовые команды, смахните вправо и вверх. Для доступа к списку команд скажите \"Справка\" или \"Что я могу сказать?\".</string>
   <string name="voice_commands_help_hint">Чтобы команды работали, произносите их так, как указано на последующих экранах.</string>
+  <string name="voice_command_screen_locked_hint">Когда экран заблокирован, голосовые команды недоступны. Чтобы использовать меню TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Настройка параметров чтения на текущем экране.</string>
   <string name="voice_commands_help_next">Следующий [заголовок]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Ввод поискового запроса для поиска нужного текста на экране.</string>
   <string name="voice_commands_help_text_editing_description">Ввод, выбор и копирование текста.</string>
   <string name="voice_commands_help_type_text">Ввести [ОК]</string>
-  <string name="voice_commands_help_copy_description">Перед копированием убедитесь, что вы выделили нужный текст.</string>
-  <string name="voice_commands_help_cut_description">Прежде чем вырезать текст, убедитесь, что вы его выбрали.</string>
+  <string name="voice_commands_help_copy_description">Чтобы скопировать текст, сначала выделите его</string>
+  <string name="voice_commands_help_cut_description">Чтобы вырезать текст, сначала выделите его</string>
+  <string name="voice_commands_help_delete_description">Чтобы удалить текст, сначала выделите его</string>
   <string name="voice_commands_help_device_navigation_title">Навигация по устройству</string>
   <string name="voice_commands_help_device_navigation_description">Переход на главный экран, возврат на предыдущий экран, просмотр уведомлений и многое другое.</string>
   <string name="voice_commands_help_overview_description">Просмотр недавно открытых приложений.</string>

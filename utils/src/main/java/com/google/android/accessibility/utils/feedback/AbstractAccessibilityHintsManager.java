@@ -89,6 +89,29 @@ public abstract class AbstractAccessibilityHintsManager {
    * keeps ownership of node.
    */
   public void postHintForNode(AccessibilityEvent event, AccessibilityNodeInfoCompat node) {
+    postHintForNode(
+        event,
+        node,
+        /* forceFeedbackWhenAudioPlaybackActive= */ false,
+        /* forceFeedbackWhenMicrophoneActive= */ false);
+  }
+
+  /**
+   * Posts a hint about node with customized flag {@link
+   * HintInfo#isNodeHintForcedFeedbackMicrophoneActive} and {@link
+   * HintInfo#isNodeHintForcedFeedbackAudioPlaybackActive}. The hint will be spoken after the next
+   * utterance is completed. Caller keeps ownership of node.
+   *
+   * @param event accessibility event
+   * @param node AccessibilityNodeInfoCompat which keeps the hint information
+   * @param forceFeedbackWhenAudioPlaybackActive force to speak the hint when audio playback actives
+   * @param forceFeedbackWhenMicrophoneActive force to speak the hint when micro phone actives
+   */
+  public void postHintForNode(
+      AccessibilityEvent event,
+      AccessibilityNodeInfoCompat node,
+      boolean forceFeedbackWhenAudioPlaybackActive,
+      boolean forceFeedbackWhenMicrophoneActive) {
     cancelHintDelay();
     hintInfo.clear();
 
@@ -101,6 +124,8 @@ public abstract class AbstractAccessibilityHintsManager {
             ? event.getEventType()
             : AccessibilityEventCompat.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
     hintInfo.setPendingHintEventType(eventType);
+    hintInfo.setNodeHintForcedFeedbackAudioPlaybackActive(forceFeedbackWhenAudioPlaybackActive);
+    hintInfo.setNodeHintForcedFeedbackMicrophoneActive(forceFeedbackWhenMicrophoneActive);
 
     startHintDelay();
   }

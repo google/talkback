@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">Apóstrofo</string>
   <string name="symbol_ampersand">Et</string>
-  <string name="symbol_angle_bracket_left">Corchete angular de apertura</string>
-  <string name="symbol_angle_bracket_right">Corchete angular de cierre</string>
+  <string name="symbol_angle_bracket_left">Signo menor que</string>
+  <string name="symbol_angle_bracket_right">Signo mayor que</string>
   <string name="symbol_asterisk">Asterisco</string>
   <string name="symbol_at_sign">Arroba</string>
   <string name="symbol_backslash">Barra inversa</string>
   <string name="symbol_bullet">Viñeta</string>
   <string name="symbol_caret">Signo de intercalación</string>
-  <string name="symbol_cent">Centavo</string>
+  <string name="symbol_cent">Signo de centavos</string>
   <string name="symbol_colon">Dos puntos</string>
   <string name="symbol_comma">Coma</string>
   <string name="symbol_copyright">Copyright</string>
   <string name="symbol_curly_bracket_left">Llave de apertura</string>
   <string name="symbol_curly_bracket_right">Llave de cierre</string>
-  <string name="symbol_degree">Grado</string>
+  <string name="symbol_degree">Signo de grados</string>
   <string name="symbol_division">Signo de división</string>
   <string name="symbol_dollar_sign">Signo de dólar</string>
   <string name="symbol_ellipsis">Elipsis</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">Punto</string>
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Numeral</string>
-  <string name="symbol_pound_sterling">Libra esterlina</string>
+  <string name="symbol_pound_sterling">Símbolo de libra esterlina</string>
   <string name="symbol_question_mark">Signo de interrogación</string>
   <string name="symbol_quotation_mark">Comillas</string>
   <string name="symbol_registered_trademark">Marca registrada</string>
@@ -53,8 +53,8 @@
   <string name="symbol_not_sign">Signo de negación</string>
   <string name="symbol_broken_bar">Barra partida</string>
   <string name="symbol_micro_sign">Signo de micro</string>
-  <string name="symbol_almost_equals">Casi iguales</string>
-  <string name="symbol_not_equals">Diferente de</string>
+  <string name="symbol_almost_equals">Casi igual a</string>
+  <string name="symbol_not_equals">No igual a</string>
   <string name="symbol_currency_sign">Signo de moneda</string>
   <string name="symbol_section_sign">Signo de sección</string>
   <string name="symbol_upwards_arrow">Flecha hacia arriba</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">Corazón negro</string>
   <string name="symbol_tilde">Tilde</string>
   <string name="symbol_equal">Signo de igual</string>
-  <string name="symbol_won">Signo de won</string>
+  <string name="symbol_won">Símbolo de la divisa won</string>
   <string name="symbol_reference">Marca de referencia</string>
   <string name="symbol_white_star">Estrella blanca</string>
   <string name="symbol_black_star">Estrella negra</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">Paréntesis angular doble de cierre</string>
   <string name="symbol_inverted_exclamation_mark">Exclamación de apertura</string>
   <string name="symbol_inverted_question_mark">Interrogación de apertura</string>
-  <string name="symbol_won_sign">Signo de won de la moneda coreana</string>
+  <string name="symbol_won_sign">Símbolo de la divisa won</string>
   <string name="symbol_full_width_comma">Coma de ancho total</string>
   <string name="symbol_full_width_exclamation_mark">Signo de exclamación de ancho total</string>
   <string name="symbol_full_width_ideographic_full_stop">Punto final ideográfico</string>

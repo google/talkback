@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Ενημέρωση θέσης των κουκκίδων. Αρχικά, ας καταγράψουμε τις κουκκίδες στο αριστερό σας χέρι. Αγγίξτε παρατεταμένα στην οθόνη με τα τρία μεσαία δάχτυλα του αριστερού χεριού σας.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Ενημέρωση θέσης των κουκκίδων. Αρχικά, ας καταγράψουμε τις κουκκίδες στο δεξί σας χέρι. Αγγίξτε παρατεταμένα στην οθόνη με τα τρία μεσαία δάχτυλα του δεξιού χεριού σας.</string>
   <string name="calibration_finish_announcement">Η θέση των κουκκίδων ενημερώθηκε.</string>
+  <string name="remaining_calibration_finish_announcement">Όλες οι θέσεις κουκκίδων ενημερώθηκαν</string>
   <string name="calibration_step2_hold_right_finger_announcement">Ενημερώθηκαν οι θέσεις των κουκκίδων 1, 2 και 3. Στη συνέχεια, ας καταγράψουμε τις κουκκίδες στο δεξί σας χέρι. Αγγίξτε παρατεταμένα στην οθόνη με τα τρία μεσαία δάχτυλα του δεξιού χεριού σας.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Ενημερώθηκαν οι θέσεις των κουκκίδων 1, 2 και 3. Στη συνέχεια, ας καταγράψουμε τις κουκκίδες στο αριστερό σας χέρι. Αγγίξτε παρατεταμένα στην οθόνη με τα τρία μεσαία δάχτυλα του αριστερού χεριού σας.</string>
   <string name="calibration_fail_announcement">Δεν ήταν δυνατή η ενημέρωση της θέσης των κουκκίδων. Αγγίξτε παρατεταμένα την οθόνη με έξι δάχτυλα. Έπειτα δοκιμάστε ξανά.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Μπράιγ ενοποιημένων αγγλικών</string>
   <string name="code_user_facing_name_es">Ισπανικά</string>
   <string name="code_user_facing_name_ar">Αραβικά</string>
+  <string name="code_user_facing_name_fr">Γαλλικά</string>
   <string name="title_pref_accumulate_presses">Συμπερίληψη όλων των πατημένων κουκκίδων</string>
   <string name="summary_pref_accumulate_presses">Κάθε πατημένη κουκκίδα αποτελεί μέρος της εισαγ., ακόμη και αν η κουκ. απελευθ. πριν από άλλες κουκ.</string>
   <string name="title_pref_reverse_dots">Αντιστροφή κουκκίδων</string>
   <string name="summary_pref_reverse_dots">Κάντε εναλλαγή των θέσεων των κουκκίδων, π.χ. έτσι ώστε οι κουκκίδες 1 και 4 να αλλάξουν θέση</string>
-  <string name="typing_echo_list_preference_title">Ανατροφοδότηση πληκτρολόγησης (ηχώ πληκτρολόγησης)</string>
-  <string name="typing_echo_preference_label_characters">Ανάγνωση όλων των γραμμάτων και των λέξεων</string>
-  <string name="typing_echo_preference_label_words">Ανάγνωση μόνο των λέξεων</string>
   <string name="context_menu_title">Επιλογές πληκτρολογίου μπράιγ</string>
   <string name="context_menu_typing_language_selection">Αλλαγή γλώσσας πληκτρολόγησης</string>
   <string name="context_menu_typing_language_selection_summary">Προς το παρόν, χρησιμοποιείτε τη διεύθυνση %s</string>

@@ -17,7 +17,6 @@
 package com.google.android.accessibility.talkback.interpreters;
 
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
-import static com.google.android.accessibility.talkback.Interpretation.ID.Value.ACCESSIBILITY_FOCUSED;
 
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
@@ -26,26 +25,25 @@ import com.google.android.accessibility.compositor.AccessibilityFocusEventInterp
 import com.google.android.accessibility.talkback.ActorState;
 import com.google.android.accessibility.talkback.Interpretation;
 import com.google.android.accessibility.talkback.Pipeline;
-import com.google.android.accessibility.talkback.PrimesController;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollEventHandler;
-import com.google.android.accessibility.talkback.ScrollEventInterpreter.ScrollEventInterpretation;
+import com.google.android.accessibility.talkback.actor.ImageCaptioner;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForScreenStateChange;
 import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration;
+import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration.TypingMethod;
 import com.google.android.accessibility.talkback.focusmanagement.action.TouchExplorationAction;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor.ScreenStateChangeListener;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.TouchExplorationInterpreter.TouchExplorationActionListener;
 import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
-import com.google.android.accessibility.talkback.focusmanagement.record.NodePathDescription;
+import com.google.android.accessibility.talkback.interpreters.InputFocusInterpreter.TargetViewChangeListener;
+import com.google.android.accessibility.talkback.interpreters.ManualScrollInterpreter.ManualScrollInterpretation;
+import com.google.android.accessibility.talkback.interpreters.ManualScrollInterpreter.ScrolledViewChangeListener;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.BuildVersionUtils;
-import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
-import com.google.android.accessibility.utils.traversal.TraversalStrategy;
+import com.google.android.accessibility.utils.caption.ImageCaptionUtils;
+import com.google.android.accessibility.utils.labeling.Label;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
@@ -56,8 +54,9 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 public class AccessibilityFocusInterpreter
     implements AccessibilityFocusEventInterpreter,
         ScreenStateChangeListener,
-        ScrollEventHandler,
-        TouchExplorationActionListener {
+        ScrolledViewChangeListener,
+        TouchExplorationActionListener,
+        TargetViewChangeListener {
   public static final String TAG = "A11yFocusInterp";
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -65,20 +64,19 @@ public class AccessibilityFocusInterpreter
 
   private final FocusProcessorForTapAndTouchExploration focusProcessorForTapAndTouchExploration;
   private final FocusProcessorForScreenStateChange focusProcessorForScreenStateChange;
+  private final AccessibilityFocusMonitor accessibilityFocusMonitor;
+  private final ScreenStateMonitor.State screenState;
+
   private Pipeline.InterpretationReceiver pipelineInterpretations;
   private ActorState actorState;
-  private final AccessibilityFocusMonitor accessibilityFocusMonitor;
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Construction methods
 
   public AccessibilityFocusInterpreter(
-      FocusFinder focusFinder,
-      AccessibilityFocusMonitor accessibilityFocusMonitor,
-      PrimesController primesController) {
-
+      AccessibilityFocusMonitor accessibilityFocusMonitor, ScreenStateMonitor.State screenState) {
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
-
+    this.screenState = screenState;
     focusProcessorForTapAndTouchExploration = new FocusProcessorForTapAndTouchExploration();
     focusProcessorForScreenStateChange =
         new FocusProcessorForScreenStateChange(accessibilityFocusMonitor);
@@ -116,22 +114,19 @@ public class AccessibilityFocusInterpreter
     return focusProcessorForScreenStateChange.onScreenStateChanged(screenState, eventId);
   }
 
-  /** Event-interpreter function, called by ScrollEventInterpreter. */
+  /** Event-interpreter function, called by {@link ManualScrollInterpreter}. */
   @Override
-  public void onScrollEvent(
-      AccessibilityEvent event, ScrollEventInterpretation interpretation, EventId eventId) {
+  public void onManualScroll(ManualScrollInterpretation interpretation) {
+    if (!screenState.areMainWindowsStable()) {
+      LogUtils.w(
+          TAG,
+          "onScrollEvent return due to windows are not stable and the focus will"
+              + " be handled by onScreenStateChanged after main windows are stable.");
+      return;
+    }
 
-    LogUtils.d(TAG, "On scroll: Interpretation=%s; Event=%s", interpretation, event);
-    if ((interpretation.userAction != ScrollEventInterpreter.ACTION_MANUAL_SCROLL)
-        || (interpretation.scrollDirection == TraversalStrategy.SEARCH_FOCUS_UNKNOWN)) {
-      return;
-    }
     AccessibilityNodeInfoCompat currentA11yFocusedNode = null;
-    AccessibilityNodeInfoCompat scrolledNode =
-        AccessibilityNodeInfoUtils.toCompat(event.getSource());
-    if (scrolledNode == null) {
-      return;
-    }
+
     try {
 
       currentA11yFocusedNode =
@@ -140,26 +135,31 @@ public class AccessibilityFocusInterpreter
         return;
       }
 
-      NodePathDescription lastFocusNodePathDescription =
-          actorState.getFocusHistory().getLastFocusNodePathDescription();
-      if (lastFocusNodePathDescription == null) {
-        return;
-      }
-
-      // Match ancestor node.  Before android-OMR1, need refresh to get viewIdResourceName.
-      if (!BuildVersionUtils.isAtLeastOMR1()) {
-        scrolledNode.refresh();
-      }
-      if (!lastFocusNodePathDescription.containsNodeByHashAndIdentity(scrolledNode)) {
-        return;
-      }
-
       pipelineInterpretations.input(
-          eventId, event, new Interpretation.Scroll(interpretation.scrollDirection));
+          interpretation.eventId(),
+          interpretation.event(),
+          Interpretation.ManualScroll.create(
+              interpretation.direction(), screenState.getStableScreenState()));
 
     } finally {
-      AccessibilityNodeInfoUtils.recycleNodes(scrolledNode, currentA11yFocusedNode);
+      AccessibilityNodeInfoUtils.recycleNodes(currentA11yFocusedNode);
     }
+  }
+
+  /** Event-interpreter function, called by {@link InputFocusInterpreter}. */
+  @Override
+  public void onViewTargeted(
+      @Nullable EventId eventId,
+      AccessibilityEvent event,
+      AccessibilityNodeInfoCompat targetedNode) {
+    if (!screenState.areMainWindowsStable()) {
+      LogUtils.w(
+          TAG,
+          "onViewTargeted return due to windows are not stable and the focus "
+              + "will be handled by onScreenStateChanged after main windows are stable.");
+      return;
+    }
+    pipelineInterpretations.input(eventId, event, new Interpretation.InputFocus(targetedNode));
   }
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -169,12 +169,20 @@ public class AccessibilityFocusInterpreter
   @Nullable
   @Override
   public AccessibilityFocusEventInterpretation interpret(AccessibilityEvent event) {
-    // For user interface interaction (such as quick menu to handle slider/number-picker).
+    // For user interface interaction (such as quick menu to handle slider/number-picker) and image
+    // caption.
     if (event.getEventType() == TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
+      AccessibilityNodeInfoCompat node = AccessibilityNodeInfoUtils.toCompat(event.getSource());
+      // Skips caption if the view has already been labeled.
+      boolean needsCaption =
+          ImageCaptioner.supportsImageCaption()
+              && ImageCaptionUtils.needImageCaption(event, node)
+              && actorState.getCustomLabel().getLabelIdForViewId(node) == Label.NO_ID;
       pipelineInterpretations.input(
           Performance.getInstance().onEventReceived(event),
           event,
-          new Interpretation.ID(ACCESSIBILITY_FOCUSED));
+          Interpretation.AccessibilityFocused.create(needsCaption),
+          node);
     }
     FocusActionInfo info = actorState.getFocusHistory().getFocusActionInfoFromEvent(event);
     if (info == null) {
@@ -212,4 +220,12 @@ public class AccessibilityFocusInterpreter
     return focusProcessorForTapAndTouchExploration.getSingleTapEnabled();
   }
 
+  /**
+   * Sets type confirmation method
+   *
+   * @param type keyboard confirmation type
+   */
+  public void setTypingMethod(@TypingMethod int type) {
+    focusProcessorForTapAndTouchExploration.setTypingMethod(type);
+  }
 }

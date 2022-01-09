@@ -4,7 +4,7 @@
   <string name="switch_to_screen_away_announcement">Modus Scherm weg</string>
   <string name="switch_to_tabletop_announcement">Tafelbladmodus. Leg je apparaat neer met de oplaadpoort naar links. Plaats 6 vingers om de positie van de stippen te updaten.</string>
   <string name="braille_ime_hidden_announcement">Brailletoetsenbord verborgen</string>
-  <string name="bring_ime_settings_page">Er is geen ander toetsenbord ingeschakeld. Ga naar de toetsenbordinstellingen.</string>
+  <string name="bring_ime_settings_page">Er staat geen ander toetsenbord aan. Ga naar de toetsenbordinstellingen.</string>
   <string name="reminder_announcement">Swipe met 3 vingers omhoog voor meer opties</string>
   <string name="switched_to_contracted_announcement">Overgeschakeld naar braille (kortschrift)</string>
   <string name="switched_to_uncontracted_announcement">Overgeschakeld naar braille (volledig)</string>
@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">We updaten de positie van de stippen. Laten we eerst de stippen van je linkerhand opnemen. Tik op het scherm en houd dit vast met de middelste 3 vingers van je linkerhand.</string>
   <string name="calibration_step1_hold_right_finger_announcement">We updaten de positie van de stippen. Laten we eerst de stippen van je rechterhand opnemen. Tik op het scherm en houd dit vast met de middelste 3 vingers van je rechterhand.</string>
   <string name="calibration_finish_announcement">Positie van stippen geüpdatet</string>
+  <string name="remaining_calibration_finish_announcement">Alle puntposities zijn geüpdated</string>
   <string name="calibration_step2_hold_right_finger_announcement">De positie van stippen 1, 2 en 3 is geüpdatet. Laten we nu de stippen van je rechterhand opnemen. Tik op het scherm en houd dit vast met de middelste 3 vingers van je rechterhand.</string>
   <string name="calibration_step2_hold_left_finger_announcement">De positie van stippen 1, 2 en 3 is geüpdatet. Laten we nu de stippen van je linkerhand opnemen. Tik op het scherm en houd dit vast met de middelste 3 vingers van je linkerhand.</string>
   <string name="calibration_fail_announcement">De positie van de stippen kan niet worden geüpdatet. Tik met 6 vingers op het scherm en houd vast. Probeer het opnieuw.</string>
@@ -26,21 +27,19 @@
   <string name="use_brailleime_pref_summary">Tik om in te stellen</string>
   <string name="use_brailleime_pref_dialog_case_ime_enabled">Als je het brailletoetsenbord wilt gebruiken, open je je gebruikelijke toetsenbord en tik je op \'Toetsenbord kiezen\' %1$s (meestal rechtsonder). Selecteer \'%2$s\'.
   &lt;br&gt;&lt;br&gt;Als je geen schakeloptie ziet, installeer je het Google-toetsenbord %3$s.</string>
-  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Brailletoetsenbord inschakelen&lt;/b&gt;: Tik onderaan op \'Instellingen\'. Schakel op het volgende scherm \'%1$s\' in.
-    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Brailletoetsenbord gebruiken&lt;/b&gt;: Open je gebruikelijke toetsenbord en tik op \'Toetsenbord kiezen\' %2$s (meestal rechtsonder). Selecteer \'%1$s\'.
+  <string name="use_brailleime_pref_dialog_case_ime_disabled">1. &lt;b&gt;Brailletoetsenbord aanzetten&lt;/b&gt;: Tik onderaan op Instellingen. Zet op het volgende scherm %1$s aan.
+    &lt;br&gt;&lt;br&gt;2. &lt;b&gt;Brailletoetsenbord gebruiken&lt;/b&gt;: Open je gebruikelijke toetsenbord en tik op Toetsenbord kiezen %2$s (meestal rechtsonder). Selecteer %1$s.
     &lt;br&gt;&lt;br&gt;Als je geen schakeloptie ziet, installeer je het Google-toetsenbord %3$s.</string>
   <string name="use_brailleime_pref_button_case_ime_disabled">Instellingen</string>
   <string name="language_list_preference_title">Talen voor typen</string>
   <string name="code_user_facing_name_ueb">UEB (Unified English Braille)</string>
   <string name="code_user_facing_name_es">Spaans</string>
   <string name="code_user_facing_name_ar">Arabisch</string>
+  <string name="code_user_facing_name_fr">Frans</string>
   <string name="title_pref_accumulate_presses">Alle ingedrukte punten opnemen</string>
   <string name="summary_pref_accumulate_presses">Elke ingedrukte punt is onderdeel van de invoer, ook als de punt vóór andere punten is losgelaten</string>
   <string name="title_pref_reverse_dots">Punten omkeren</string>
   <string name="summary_pref_reverse_dots">Wissel de puntposities, zodat bijvoorbeeld punt 1 en 4 van plaats wisselen</string>
-  <string name="typing_echo_list_preference_title">Typfeedback (typ-echo)</string>
-  <string name="typing_echo_preference_label_characters">Alle letters en woorden voorlezen</string>
-  <string name="typing_echo_preference_label_words">Alleen woorden voorlezen</string>
   <string name="context_menu_title">Opties brailletoetsenbord</string>
   <string name="context_menu_typing_language_selection">Taal voor typen wijzigen</string>
   <string name="context_menu_typing_language_selection_summary">Momenteel wordt %s gebruikt</string>
@@ -79,10 +78,10 @@
     <item quantity="one">punt %s</item>
     <item quantity="other">punten %s</item>
   </plurals>
-  <string name="talkback_off_dialog_title">Schakel TalkBack in om een brailletoetsenbord te gebruiken</string>
-  <string name="talkback_off_dialog_positive_button">Inschakelen via instellingen voor toegankelijkheid</string>
+  <string name="talkback_off_dialog_title">Zet TalkBack aan om een brailletoetsenbord te gebruiken</string>
+  <string name="talkback_off_dialog_positive_button">Aanzetten via instellingen voor toegankelijkheid</string>
   <string name="talkback_suspend_dialog_title">TalkBack hervatten om het brailletoetsenbord te gebruiken</string>
-  <string name="talkback_off_or_suspend_dialog_message">Als TalkBack is ingeschakeld, kun je op je scherm tikken om brailletekens in te voeren.</string>
+  <string name="talkback_off_or_suspend_dialog_message">Als TalkBack aanstaat, kun je op je scherm tikken om brailletekens in te voeren.</string>
   <string name="next_keyboard">Volgend toetsenbord</string>
   <string name="braille_tutorial_title">Tutorial brailletoetsenbord</string>
   <string name="tutorial_intro_description">Met het brailletoetsenbord kun je op je scherm tikken om zespunts braille op te geven.\n\nJe gebruikt UEB (Unified English Braille). Als je in een andere taal wilt typen, ga je naar de TalkBack-instellingen.\n\nAls je braille wilt typen, moet je je telefoon op een andere manier vasthouden en gebruiken.</string>
@@ -120,13 +119,13 @@
   <string name="swipe_down_2_fingers_announcement">Swipe met 2 vingers omlaag om het toetsenbord te verbergen. Probeer het nu.</string>
   <string name="swipe_down_2_fingers_completed_announcement">Toetsenbord verbergen. Hiermee wordt doorgaans het toetsenbord verborgen. Het brailletoetsenbord blijft geopend omdat de tutorial nog actief is.</string>
   <string name="swipe_down_3_fingers_announcement">Swipe met 3 vingers omlaag om over te schakelen naar je andere toetsenbord. Probeer het nu.</string>
-  <string name="swipe_down_3_fingers_completed_announcement">Volgend toetsenbord. Hiermee ga je doorgaans naar het volgende toetsenbord. Het brailletoetsenbord blijft nu ingeschakeld omdat de tutorial nog actief is.</string>
+  <string name="swipe_down_3_fingers_completed_announcement">Volgend toetsenbord. Hiermee ga je doorgaans naar het volgende toetsenbord. Het brailletoetsenbord blijft nu aan omdat de tutorial nog actief is.</string>
   <string name="swipe_up_3_fingers_announcement">Je kunt ook in de tafelbladmodus typen door de telefoon plat op een tafel te leggen. Als je de tutorial wilt voltooien, swipe je met 3 vingers omhoog en zoek je de optie om de tutorial te voltooien.</string>
   <string name="open_context_menu_announcement">Het menu Opties is geopend. Draai de telefoon weer naar je toe en houd hem normaal vast. Je kunt nu gewone TalkBack-gebaren gebruiken voor navigatie. Swipe naar rechts voor meer opties.</string>
   <string name="hold_six_fingers_announcement">%s\nLeg het apparaat plat op een tafel. Tik daarna op het scherm en houd dit vast met de middelste 3 vingers van elke hand. Houd de vingers in een positie waarin je prettig kunt typen.</string>
   <string name="hold_six_fingers_inactive_announcement">Leg het apparaat plat op een tafel. Tik daarna op het scherm en houd dit vast met de middelste 3 vingers van elke hand. Houd de vingers in een positie waarin je prettig kunt typen.</string>
   <string name="six_hold_announcement">Je kunt ook typen door de telefoon plat op een tafel te leggen. Probeer het nu. Als er geen tafel in de buurt is, kun je dit overslaan door omlaag te swipen.</string>
-  <string name="finish_tutorial_announcement">Brailletoetsenbord wordt weergegeven. Draai je telefoon zodat het scherm van je af is gericht. Draai de telefoon horizontaal naar de liggende apparaatstand. Begin dan te typen.</string>
+  <string name="finish_tutorial_announcement">Brailletoetsenbord wordt getoond. Draai je telefoon zodat het scherm van je af is gericht. Draai de telefoon horizontaal naar de liggende apparaatstand. Begin dan te typen.</string>
   <string name="perform_hide_keyboard_announcement">Toetsenbord verbergen</string>
   <string name="perform_switch_keyboard_announcement">Toetsenbord schakelen</string>
   <string name="perform_submit_text_announcement">Tekst sturen</string>

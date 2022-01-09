@@ -20,9 +20,11 @@ import static com.google.android.accessibility.compositor.Compositor.EVENT_SPEAK
 import static com.google.android.accessibility.compositor.Compositor.EVENT_UNKNOWN;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.INTERRUPT;
 import static com.google.android.accessibility.talkback.Feedback.ContinuousRead.Action.READ_FOCUSED_CONTENT;
+import static com.google.android.accessibility.talkback.Feedback.Focus.Action.ENSURE_ACCESSIBILITY_FOCUS_ON_SCREEN;
 import static com.google.android.accessibility.talkback.Feedback.PassThroughMode.Action.DISABLE_PASSTHROUGH;
 import static com.google.android.accessibility.talkback.Feedback.PassThroughMode.Action.STOP_TIMER;
 import static com.google.android.accessibility.talkback.Interpretation.VoiceCommand.Action.VOICE_COMMAND_UNKNOWN;
+import static com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration.LIFT_TO_TYPE;
 import static com.google.android.accessibility.utils.keyboard.KeyComboManager.ACTION_UNKNOWN;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCED_FEEDBACK_AUDIO_PLAYBACK_ACTIVE;
 import static com.google.android.accessibility.utils.output.FeedbackItem.FLAG_FORCED_FEEDBACK_MICROPHONE_ACTIVE;
@@ -38,15 +40,16 @@ import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.compositor.Compositor;
 import com.google.android.accessibility.compositor.EventInterpretation;
 import com.google.android.accessibility.compositor.HintEventInterpretation;
+import com.google.android.accessibility.talkback.Feedback.Focus;
 import com.google.android.accessibility.talkback.Feedback.Speech;
 import com.google.android.accessibility.talkback.Interpretation.CompositorID;
 import com.google.android.accessibility.talkback.Interpretation.VoiceCommand;
 import com.google.android.accessibility.talkback.actor.DirectionNavigationMapper;
 import com.google.android.accessibility.talkback.actor.voicecommands.VoiceCommandMapper;
-import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusManager;
 import com.google.android.accessibility.talkback.focusmanagement.FocusFeedbackMapper;
-import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration;
+import com.google.android.accessibility.talkback.focusmanagement.FocusProcessorForTapAndTouchExploration.TypingMethod;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
+import com.google.android.accessibility.talkback.focusmanagement.record.FocusActionInfo;
 import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.FeatureSupport;
@@ -139,6 +142,15 @@ public final class Mappers {
                   eventId, Feedback.passThroughMode(DISABLE_PASSTHROUGH).build());
             case ACCESSIBILITY_FOCUSED:
               // do nothing
+              break;
+            case SUBTREE_CHANGED:
+            case ACCESSIBILITY_EVENT_IDLE:
+              return Feedback.create(
+                  eventId,
+                  Feedback.part()
+                      .setFocus(
+                          Focus.builder().setAction(ENSURE_ACCESSIBILITY_FOCUS_ON_SCREEN).build())
+                      .build());
           }
         }
       } else if (interpretation instanceof Interpretation.CompositorID) {
@@ -203,18 +215,25 @@ public final class Mappers {
                         .build())
                 .build());
       } else if (interpretation instanceof Interpretation.InputFocus) {
-        Feedback.Part.Builder focusBuilder =
-            AccessibilityFocusManager.onViewTargeted(eventId, variables, depth);
-        if (focusBuilder == null) {
+        @Nullable AccessibilityNodeInfoCompat targetedNode = variables.inputFocusTarget(depth);
+        if (targetedNode == null || !targetedNode.refresh()) {
           LogDepth.log(LOG_TAG, depth, "target is null or fails to refresh");
           return null;
         }
-        return Feedback.create(eventId, focusBuilder.build());
-      } else if (interpretation instanceof Interpretation.Scroll) {
+        FocusActionInfo focusActionInfo =
+            FocusActionInfo.builder()
+                .setSourceAction(FocusActionInfo.FOCUS_SYNCHRONIZATION)
+                .build();
+        return Feedback.create(
+            eventId,
+            Feedback.part()
+                .setFocus(Feedback.focus(targetedNode, focusActionInfo).build())
+                .build());
+      } else if (interpretation instanceof Interpretation.ManualScroll) {
         Feedback.Part.Builder focusBuilder =
-            AccessibilityFocusManager.onScrollEvent(eventId, variables, depth, focusFinder);
+            FocusFeedbackMapper.onNodeManuallyScrolled(variables, depth, focusFinder);
         if (focusBuilder == null) {
-          LogDepth.log(LOG_TAG, depth, "Scroll event cannot map to a feedback");
+          LogDepth.log(LOG_TAG, depth, "Manual scroll event cannot map to a feedback");
           return null;
         }
         return Feedback.create(eventId, focusBuilder.build());
@@ -222,6 +241,10 @@ public final class Mappers {
         return FocusFeedbackMapper.mapWindowChangeToFocusAction(eventId, variables, depth);
       } else if (interpretation instanceof Interpretation.Touch) {
         return FocusFeedbackMapper.mapTouchToFocusAction(eventId, variables, depth);
+      } else if (interpretation instanceof Interpretation.AccessibilityFocused) {
+        if (variables.needsCaption(depth) && eventSourceNode != null) {
+          return Feedback.create(eventId, Feedback.performImageCaptions(eventSourceNode).build());
+        }
       }
     } finally {
       if (interpretation != null) {
@@ -272,8 +295,8 @@ public final class Mappers {
     public @SearchDirection int scrollDirection(int depth) {
       @SearchDirectionOrUnknown
       int directionID =
-          (interpretation instanceof Interpretation.Scroll)
-              ? ((Interpretation.Scroll) interpretation).direction
+          (interpretation instanceof Interpretation.ManualScroll)
+              ? ((Interpretation.ManualScroll) interpretation).direction()
               : SEARCH_FOCUS_UNKNOWN;
       LogDepth.logVar(
           LOG_TAG,
@@ -377,19 +400,26 @@ public final class Mappers {
     }
 
     public @Nullable ScreenState screenState(int depth) {
-      @Nullable
-      ScreenState state =
-          (interpretation instanceof Interpretation.WindowChange)
-              ? ((Interpretation.WindowChange) interpretation).screenState()
-              : null;
+      @Nullable ScreenState state = null;
+      if (interpretation instanceof Interpretation.WindowChange) {
+        state = ((Interpretation.WindowChange) interpretation).screenState();
+      } else if (interpretation instanceof Interpretation.ManualScroll) {
+        state = ((Interpretation.ManualScroll) interpretation).screenState();
+      }
       LogDepth.logVar(LOG_TAG, ++depth, "screenState", state);
       return state;
     }
 
     public boolean liftToType(int depth) {
-      boolean enabled = FocusProcessorForTapAndTouchExploration.ENABLE_LIFT_TO_TYPE;
-      LogDepth.logVar(LOG_TAG, ++depth, "liftToType", enabled);
-      return enabled;
+      @TypingMethod
+      int typingMethod =
+          SharedPreferencesUtils.getIntFromStringPref(
+              prefs,
+              context.getResources(),
+              R.string.pref_typing_confirmation_key,
+              R.string.pref_typing_confirmation_default);
+      LogDepth.logVar(LOG_TAG, ++depth, "liftToType", typingMethod);
+      return typingMethod == LIFT_TO_TYPE;
     }
 
     public boolean singleTap(int depth) {
@@ -417,6 +447,14 @@ public final class Mappers {
       return (interpretation instanceof Interpretation.Touch)
           ? ((Interpretation.Touch) interpretation).target()
           : null;
+    }
+
+    public boolean needsCaption(int depth) {
+      boolean result =
+          (interpretation instanceof Interpretation.AccessibilityFocused)
+              && ((Interpretation.AccessibilityFocused) interpretation).needsCaption();
+      LogDepth.logVar(LOG_TAG, ++depth, "needsCaption", result);
+      return result;
     }
 
     @Override

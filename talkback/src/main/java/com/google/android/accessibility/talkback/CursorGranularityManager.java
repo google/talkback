@@ -57,6 +57,9 @@ public class CursorGranularityManager {
   /** Movement within a granularity was successful */
   public static final int SUCCESS = 1;
 
+  /** Movement within a granularity reached the edge of possible movement for earcon */
+  public static final int PRE_HIT_EDGE = 2;
+
   /** Represents an increase in granularity */
   public static final int CHANGE_GRANULARITY_HIGHER = 1;
 
@@ -302,10 +305,16 @@ public class CursorGranularityManager {
 
     // Try to automatically perform micro-granularity movement.
     if (direction == SEARCH_FOCUS_FORWARD) {
-      navigate(AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY, eventId);
+      navigate(
+          AccessibilityNodeInfoCompat.ACTION_NEXT_AT_MOVEMENT_GRANULARITY,
+          eventId,
+          /* isEditing= */ false);
     } else if (direction == SEARCH_FOCUS_BACKWARD) {
       startFromLastNode();
-      navigate(AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY, eventId);
+      navigate(
+          AccessibilityNodeInfoCompat.ACTION_PREVIOUS_AT_MOVEMENT_GRANULARITY,
+          eventId,
+          /* isEditing= */ false);
     }
   }
 
@@ -321,7 +330,7 @@ public class CursorGranularityManager {
    * @return The result of navigation, which is always {@link #NOT_SUPPORTED} if there is no locked
    *     node or if the requested granularity is {@link CursorGranularity#DEFAULT}.
    */
-  public int navigate(int action, EventId eventId) {
+  public int navigate(int action, EventId eventId, boolean isEditing) {
     LogUtils.d(TAG, "Navigate with action: " + AccessibilityNodeInfoUtils.actionToString(action));
     if (lockedNode == null) {
       return NOT_SUPPORTED;
@@ -361,7 +370,17 @@ public class CursorGranularityManager {
         return NOT_SUPPORTED;
     }
 
-    while ((currentNodeIndex >= 0) && (currentNodeIndex < count)) {
+    // increase coverage to check edge and play earcon.
+    while ((currentNodeIndex >= -1) && (currentNodeIndex <= count)) {
+      if (currentNodeIndex == -1 || currentNodeIndex == count) {
+        if (isEditing) {
+          return HIT_EDGE;
+        } else {
+          currentNodeIndex += increment;
+          return PRE_HIT_EDGE;
+        }
+      }
+
       if (isSelectionModeActive()) {
         arguments.putBoolean(
             AccessibilityNodeInfoCompat.ACTION_ARGUMENT_EXTEND_SELECTION_BOOLEAN, true);
@@ -391,7 +410,9 @@ public class CursorGranularityManager {
       currentNodeIndex += increment;
     }
 
-    return HIT_EDGE;
+    // Microgranularity traversal can't navigate out of a focused editable node. For non-editable
+    // nodes, allow traversal out of the focused node.
+    return isEditing ? HIT_EDGE : NOT_SUPPORTED;
   }
 
   /**

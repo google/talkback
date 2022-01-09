@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Valoda</string>
   <string name="voice_commands_languages">Valodas</string>
   <string name="voice_commands_custom_actions">pielāgotās darbības</string>
+  <string name="voice_commands_action">Darbība</string>
   <string name="voice_commands_quick_settings">Ātrie iestatījumi</string>
-  <string name="voice_commands_quick_setting">Ātrie iestatījumi</string>
+  <string name="voice_commands_quick_setting">Ātrais iestatījums</string>
   <string name="voice_commands_dim">aptumšot</string>
   <string name="voice_commands_darken">aptumšot</string>
   <string name="voice_commands_brighten_screen">palielināt ekrāna spilgtumu</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Diemžēl šī funkcija jūsu ierīcē nav pieejama.</string>
   <string name="voice_commands_error">Mēģinot atpazīt balss komandu, radās kļūda</string>
   <string name="voice_commands_partial_result">Nevar atpazīt šo komandu. Sakiet “%1$s”, lai iegūtu visu komandu sarakstu.</string>
+  <string name="voice_commands_timeout">Sakiet “%1$s”, lai iegūtu visu komandu sarakstu.</string>
   <string name="voice_commands_many_requests">Lūdzu, pēc brīža mēģiniet vēlreiz</string>
-  <string name="voice_commands_setting_disabled">Iestatījums “%1$s” nav iespējots.</string>
   <string name="voice_commands_echo_feedback_not_recognized">Frāze “%1$s” nav atpazīta kā balss komanda.</string>
   <string name="voice_commands_label_saved">Iezīme ir saglabāta</string>
   <string name="voice_commands_no_actions_feedback">Nav pieejama neviena darbība</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Balss komandu kopsavilkums</string>
   <string name="voice_commands_help_description">Lai izmantotu balss komandas, velciet pa labi un pēc tam — augšup. Lai iegūtu šo komandu sarakstu, jebkurā laikā sakiet “Palīdzība” vai “Ko varu pateikt?”.</string>
   <string name="voice_commands_help_hint">Lai gūtu vislabākos rezultātus, izrunājiet precīzas komandas, kas norādītas nākamajos ekrānos.</string>
+  <string name="voice_command_screen_locked_hint">Kad ekrāns ir bloķēts, balss komandas nav pieejamas. Lai to vietā izmantotu TalkBack izvēlni, lietojiet šādu žestu: %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Mainiet satura lasīšanas veidu pašreizējā ekrānā.</string>
   <string name="voice_commands_help_next">Nākamais [virsraksts]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Ievadiet meklēšanas vienumu, lai ekrānā meklētu attiecīgo tekstu.</string>
   <string name="voice_commands_help_text_editing_description">Ievadiet, atlasiet un kopējiet tekstu.</string>
   <string name="voice_commands_help_type_text">Ievadīt vienumu [Labi]</string>
-  <string name="voice_commands_help_copy_description">Pirms kopēšanas noteikti atlasiet tekstu.</string>
-  <string name="voice_commands_help_cut_description">Pirms izgriešanas noteikti atlasiet tekstu.</string>
+  <string name="voice_commands_help_copy_description">Pirms kopēšanas atlasiet tekstu.</string>
+  <string name="voice_commands_help_cut_description">Pirms izgriešanas atlasiet tekstu.</string>
+  <string name="voice_commands_help_delete_description">Pirms dzēšanas atlasiet tekstu.</string>
   <string name="voice_commands_help_device_navigation_title">Ierīces navigācija</string>
   <string name="voice_commands_help_device_navigation_description">Pārejiet uz sākumu vai atpakaļ, rādiet paziņojumus un veiciet citas darbības.</string>
   <string name="voice_commands_help_overview_description">Skatiet pēdējās izmantotās lietotnes.</string>

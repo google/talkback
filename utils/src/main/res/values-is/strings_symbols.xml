@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">Úrfellingarkomma</string>
   <string name="symbol_ampersand">Og-merki</string>
-  <string name="symbol_angle_bracket_left">Minna en</string>
-  <string name="symbol_angle_bracket_right">Stærra en</string>
+  <string name="symbol_angle_bracket_left">Minna en-merki</string>
+  <string name="symbol_angle_bracket_right">Meira en-merki</string>
   <string name="symbol_asterisk">Stjarna</string>
   <string name="symbol_at_sign">Att-merki</string>
   <string name="symbol_backslash">Öfugt skástrik</string>
   <string name="symbol_bullet">Áherslumerki</string>
   <string name="symbol_caret">Innskotsmerki</string>
-  <string name="symbol_cent">Sent</string>
+  <string name="symbol_cent">Sent-merki</string>
   <string name="symbol_colon">Tvípunktur</string>
   <string name="symbol_comma">Komma</string>
   <string name="symbol_copyright">Höfundarréttur</string>
   <string name="symbol_curly_bracket_left">Vinstri slaufusvigi</string>
   <string name="symbol_curly_bracket_right">Hægri slaufusvigi</string>
-  <string name="symbol_degree">Gráða</string>
+  <string name="symbol_degree">Gráðumerki</string>
   <string name="symbol_division">Deilingarmerki</string>
   <string name="symbol_dollar_sign">Dollaramerki</string>
   <string name="symbol_ellipsis">Þrípunktur</string>
@@ -35,7 +35,7 @@
   <string name="symbol_period">Punktur</string>
   <string name="symbol_pi">Pí</string>
   <string name="symbol_pound">Myllumerki</string>
-  <string name="symbol_pound_sterling">Sterlingspund</string>
+  <string name="symbol_pound_sterling">Gjaldmiðilsmerki sterlingspunds</string>
   <string name="symbol_question_mark">Spurningarmerki</string>
   <string name="symbol_quotation_mark">Gæsalappir</string>
   <string name="symbol_registered_trademark">Skráð vörumerki</string>
@@ -48,12 +48,12 @@
   <string name="symbol_square_root">Kvaðratrót</string>
   <string name="symbol_trademark">Vörumerki</string>
   <string name="symbol_underscore">Undirstrik</string>
-  <string name="symbol_vertical_bar">Lóðrétt lína</string>
+  <string name="symbol_vertical_bar">Lóðrétt strik</string>
   <string name="symbol_yen">Yen</string>
   <string name="symbol_not_sign">Ekki-merki</string>
   <string name="symbol_broken_bar">Brotin pípa</string>
   <string name="symbol_micro_sign">Míkrómerki</string>
-  <string name="symbol_almost_equals">Næstum jafnt og</string>
+  <string name="symbol_almost_equals">Um það bil</string>
   <string name="symbol_not_equals">Ekki jafnt og</string>
   <string name="symbol_currency_sign">Gjaldmiðilsmerki</string>
   <string name="symbol_section_sign">Kaflamerki</string>
@@ -63,7 +63,7 @@
   <string name="symbol_black_heart">Fyllt hjarta</string>
   <string name="symbol_tilde">Tilda</string>
   <string name="symbol_equal">Samasemmerki</string>
-  <string name="symbol_won">Vonnmerki</string>
+  <string name="symbol_won">Gjaldmiðilsmerki Won</string>
   <string name="symbol_reference">Tilvísunarmerki</string>
   <string name="symbol_white_star">Ófyllt stjarna</string>
   <string name="symbol_black_star">Fyllt stjarna</string>
@@ -114,7 +114,7 @@
   <string name="symbol_right_angle_bracket">Tvöfaldur hægri oddklofi</string>
   <string name="symbol_inverted_exclamation_mark">Öfugt upphrópunarmerki</string>
   <string name="symbol_inverted_question_mark">Öfugt spurningarmerki</string>
-  <string name="symbol_won_sign">Tákn kóreska gjaldmiðilsins vonn</string>
+  <string name="symbol_won_sign">Gjaldmiðilsmerki Won</string>
   <string name="symbol_full_width_comma">Komma í fullri breidd</string>
   <string name="symbol_full_width_exclamation_mark">Upphrópunarmerki í fullri breidd</string>
   <string name="symbol_full_width_ideographic_full_stop">Myndleturstáknspunktur</string>

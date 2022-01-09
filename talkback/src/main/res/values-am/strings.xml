@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">የ%1$s ስሪት</string>
   <string name="label_manager_summary_title">ብጁ መለያዎችን ያቀናብሩ</string>
   <string name="label_manager_package_title">የ%1$s መለያዎችን ያቀናብሩ</string>
+  <string name="manage_label">መሰየሚያን ያቀናብሩ</string>
   <string name="label_manager_no_packages_message">በአሁኑ ወቅት ምንም ብጁ መሰየሚያዎች የሉም። መሰየሚያ ወዳልተሰጠው ምስል በማሰስ እና ከዚያም ከTalkBack ምናሌው ውስጥ አንድ መሰየሚያ በማከል አንድ መፍጠር ይችላሉ።</string>
   <string name="label_manager_timestamp_text">ለመጨረሻ ጊዜ የተቀየረው በ%1$s</string>
   <string name="search_dialog_label">ፈልግ፦ %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">በመንካት አስስ</string>
   <string name="title_pref_category_touch_exploration">አሰሳ</string>
   <string name="title_pref_category_controls">መቆጣጠሪያዎች</string>
-  <string name="title_pref_single_tap">ነጠላ መታ በማድረግ ማግበር</string>
+  <string name="title_pref_single_tap">ለማግበር አንዴ መታ ያድርጉ</string>
   <string name="title_pref_show_context_menu_as_list">የአውድ ምናሌን እንደ ዝርዝር አሳይ</string>
-  <string name="summary_pref_single_tap">(የሙከራ) ለማግበር በተተኮረበት ንጥል ላይ አንድ ጊዜ መታ ያድርጉ</string>
+  <string name="summary_pref_single_tap">አንድ የተተኮረበትን ንጥል ለማግበር አንድ ጊዜ መታ ያድርጉት</string>
   <string name="title_pref_shake_to_read_threshold">ቀጣይነት ያለው ንባብን ለመጀመር ይነቅንቁት</string>
   <string name="pref_verbosity_title">ብዙ ቃላት</string>
   <string name="pref_punctuation_title">ሥርዓተ ነጥብ</string>
+  <string name="title_pref_category_manage_focus_indicator">የትኩረት አመልካችን ያብጁ</string>
   <string name="title_pref_category_manage_gestures">ምልክቶችን አብጅ</string>
   <string name="title_pref_manage_labels">ብጁ መሰየሚያዎች</string>
   <string name="title_pref_manage_customize_menus">ምናሌዎችን አብጅ</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">እገዛ እና ግብረመልስ</string>
   <string name="title_pref_category_tutorial_and_help">አጋዥ ሥልጠና እና እገዛ</string>
   <string name="title_pref_category_advanced">የላቀ</string>
+  <string name="title_pref_category_typing">መተየብ እና የቁልፍ ሰሌዳ</string>
   <string name="title_pref_category_legal_and_privacy">ሕጋዊ እና ግላዊነት</string>
   <string name="title_pref_advanced_settings">የላቁ ቅንብሮች</string>
   <string name="reset_gesture_settings_title">የእጅ ምልክት ቅንብሮችን ዳግም አስጀምር</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">የቅርብ ጊዜ መተግበሪያዎች</string>
   <string name="keycombo_menu_global_notifications">ማሳወቂያዎች</string>
   <string name="keycombo_menu_global_suspend">TalkBackን ለአፍታ ያቁሙ ወይም ከቆመበት ያስቀጥሉት</string>
+  <string name="keycombo_menu_global_play_pause_media">ሚዲያን ያጫውቱ ወይም ባለበት ያቁሙ</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">የሚቀጥለውን የንባብ መቆጣጠሪያ ይምረጡ</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">ቀዳሚ የንባብ መቆጣጠሪያን ይምረጡ</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">የንባብ መቆጣጠሪያን ወደ ላይ ያስተካክሉ</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">የንባብ መቆጣጠሪያን ወደታች ያስተካክሉ</string>
   <string name="keycombo_menu_category_granularity">አሰሳ</string>
   <string name="keycombo_menu_granularity_increase">ቀጣይ የዳሰሳ ቅንብር</string>
   <string name="keycombo_menu_granularity_decrease">ቀዳሚው የዳሰሳ ቅንብር</string>
@@ -226,7 +234,8 @@
   <string name="keycombo_assign_dialog_clear">አቋራጭን አጽዳ</string>
   <string name="cannot_copy_feedback">ምንም የሚቀዳ ጽሑፍ የለም፣ በመጀመሪያ የተወሰነ ጽሁፍን ይምረጡ።</string>
   <string name="cannot_paste_feedback">ምንም የሚለጠፍ ጽሑፍ የለም፣ በመጀመሪያ የተወሰኑ ጽሑፎችን ይቅዱ።</string>
-  <string name="cannot_cut_feedback">ምንም የሚቆረጥ ጽሑፍ የለም፣ በመጀመሪያ የተወሰኑ ጽሑፎችን ይምረጡ።</string>
+  <string name="cannot_cut_feedback">ምንም የሚቆረጥ ጽሑፍ የለም፣ በመጀመሪያ የተወሰነ ጽሑፍን ይምረጡ።</string>
+  <string name="cannot_delete_feedback">ምንም የሚሰረዝ ጽሑፍ የለም፣ በመጀመሪያ የተወሰነ ጽሑፍን ይምረጡ።</string>
   <string name="message_in_reset_keymap_confirm_dialog">እርግጠኛ ነዎት የዚህ የቁልፍ ካርታ አቋራጭ ቁልፎችዎን ወደ ነባሪ እሴቶቻቸው ዳግም ማስጀመር ይፈልጋሉ?ይህ እርምጃ ሊቀለበስ የማይችል መሆኑን እባክዎ ልብ ይበሉ።</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">ዳግም አስጀምር</string>
   <string name="override_keycombo">ቁልፍ አስቀድሞ ጥቅም ላይ ውሏል</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">የድምጽ ቅጥነት ለውጦች ተጠቀም</string>
   <string name="title_pref_keyboard_echo">የቁልፍ ሰሌዳ ማሚቶ</string>
   <string name="pref_node_desc_order_title">የአባለ ነገር መግለጫ ቅደም-ተከተል</string>
-  <string name="summaryOn_pref_intonation">የቁልፍ ሰሌዳ ግብረመልስ ወፈር ባለ ድምጽ ተናገር</string>
+  <string name="summaryOn_pref_intonation">ቀጠን ባለ ድምጽ በቁልፍ ሰሌዳ የተሰረዘ ጽሑፍን ተናገር</string>
   <string name="summaryOff_pref_intonation">ስናገር የድምጽ ውፍረት አትቀይር</string>
   <string name="title_pref_brailleime">የብሬይል ቁልፍ ሰሌዳ</string>
   <string name="title_pref_category_feedback_settings">ሌላ ግብረመልስ</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">የአንጓ ዛፍ ማረምን አንቃ</string>
   <string name="summary_pref_tree_debug_tv">ከመፈለግ ይልቅ የአንጓ ዛፉን ለማተም የድምጽ ፍለጋ ቁልፉን ይጠቀሙ</string>
   <string name="title_pref_performance_stats">የአፈጻጸም ስታቲስቲክስን ያንቁ</string>
+  <string name="title_pref_log_overlay">የስህተት ማረም ምዝግብ ማስታወሻ ተደራቢን ያንቁ</string>
   <string name="title_pref_resume_talkback">ከተንጠለጠለበት ቀጥል</string>
+  <string name="title_pref_typing_confirmation">የመተየብ ምርጫ</string>
   <string name="title_pref_multi_finger_gesture">ባለብዙ ጣት ምልክቶችን ያንቁ</string>
   <string name="screen_dimmed">የተደበቀ ማያ ገጽ</string>
   <string name="screen_brightness_restored">ማያ ገጽ በማሳየት ላይ</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">ወደ ታች የሸብልሉ</string>
   <string name="shortcut_scroll_left">ወደ ግራ ይሸብልሉ</string>
   <string name="shortcut_scroll_right">ወደ ቀኝ ይሸብልሉ</string>
+  <string name="shortcut_next_window">ቀጣይ መስኮት</string>
+  <string name="shortcut_previous_window">ቀዳሚ መስኮት</string>
   <string name="shortcut_back">ተመለስ</string>
   <string name="shortcut_home">ቤት</string>
   <string name="shortcut_overview">ማጠቃለያ</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">ማያ ገጽን ደብቅ ወይም አሳይ</string>
   <string name="title_show_screen_search">የማያ ገጽ ፍለጋ</string>
   <string name="title_show_voice_commands">የድምፅ ትዕዛዞች</string>
+  <string name="talkback_show_talkback_settings">የTalkBack ቅንብሮች</string>
   <string name="title_other_web_navigation">ሌላ የድር ዳሰሳ</string>
   <string name="title_granularity_default">ነባሪ ዳሰሳ</string>
   <string name="title_seek_bar_edit">የተንሸራታች ደረጃን ያርትዑ</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">TalkBackን በድምጽዎ ይቆጣጠሩ</string>
   <string name="summary_show_hide_screen">በይፋዊ ቦታዎች ላይ ማያ ገጽዎን ለሌሎች እንዳይታይ ለማድረግ ማሳያውን ይደብቁ። ማያ ገጽዎን ከደበቁት በኋላ ወደ መደበኛ ሁኔታ ይመልሱት።</string>
   <string name="summary_talkback_preferences">የTalkBack ቅንብሮችን ይክፈቱ</string>
-  <string name="summary_system_actions">ወደ ሁሉም መተግበሪያዎች፣ ፈጣን ቅንብሮች ይሂዱ እና የተከፈለ ማያ ገጽን ይጠቀሙ</string>
+  <string name="summary_system_actions">ወደ ሁሉም መተግበሪያዎች እና ፈጣን ቅንብሮች ይሂዱ</string>
   <string name="summary_tts_settings">የጽሑፍ-ወደ-ንግግር ቅንብሮችን ይክፈቱ</string>
   <string name="summary_pause_feedback">የTalkBack Voice ግብረመልስን ያጥፉ</string>
   <string name="not_editable">አርትዖት ሊደረግበት አይችልም</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">በአንድ ጊዜ አንድ ቃል ያንብቡ</string>
   <string name="summary_lines">በአንድ ጊዜ አንድ መስመር ያንብቡ</string>
   <string name="summary_paragraphs">በአንድ ጊዜ አንድ አንቀጽ ያንብቡ</string>
+  <string name="summary_windows">ወደ ሌሎች መስኮቶች ዘልለው ይሂዱ፣ ለምሳሌ የድምጽ መቆጣጠሪያ ወይም የአሰሳ አሞሌ</string>
   <string name="summary_headings">በአርዕስቶች መካከል ዝለል</string>
   <string name="summary_controls">እንደ አዝራሮች፣ አመልካች ሳጥኖች እና የጽሑፍ መስኮች ባሉ መስተጋብር ሊፈጥሩባቸው በሚችሏቸው ነገሮች መካከል ይዝለሉ</string>
   <string name="summary_links">በአገናኞች መካከል ዝለል</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">የተተየቡ ቁልፎች፣ የአጠቃቀም ፍንጮች፣ የፍርግርግ መረጃ እና ሌላ መረጃ ጮክ ተብሎ ይነበብ እንደሆነ ይለውጡ</string>
   <string name="summary_selector_menu_punctuation">ስርዓተ-ነጥብ እና ምልክቶች ጮክ ብለው የሚነበቡ መሆናቸውን ይቀይሩ</string>
   <string name="summary_language">የንግግር ቋንቋዎን ይቀይሩ። በርካታ የተጫኑ ከጽሑፍ-ወደ-ንግግር ቋንቋዎች ከጫኑ ብቻ ያሳያል።</string>
-  <string name="summary_sound_feedback">እርስዎ ዳሰሳ እያደረጉ እንደ እርምጃን ለማረጋገጥ ጥዝ የሚል ድምጽ ያሉ ድምጾችን ያዳምጡ።</string>
+  <string name="summary_sound_feedback">እርስዎ ዳሰሳ እያደረጉ እንደ እርምጃን ለማረጋገጥ ቢፕ የሚል ድምጽ ያሉ ድምጾችን ያዳምጡ</string>
   <string name="summary_vibration_feedback">እንደ ንጥልን መምረጥ ላሉ እርምጃዎች ንዝረቶች ይሰማዎት። ከመተግበሪያዎች ወይም ከሥርዓቱ በሚመጡ ንዝረቶች ላይ ተጽዕኖ አይኖረውም።</string>
   <string name="summary_hide_screen">በይፋዊ ቦታዎች ላይ ማያ ገጽዎን ለሌሎች እንዳይታይ ለማድረግ ማሳያውን ይደብቁ</string>
   <string name="summary_audio_ducking">TalkBack ሲናገር ሌሎች የሚጫወቱ የኦዲዮዎች ድምጽ መጠንን ይቀንሱ</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">ወደ ፊት ወይም ወደኋላ ይሸብልሉ</string>
+  <string name="summary_support_change_a11y_volume">የተደራሽነት መጠንን ይጨምሩ ወይም ይቀንሱ</string>
+  <string name="summary_image_caption">ለዚህ ምስል ራስ-ሰር መግለጫ ያግኙ</string>
   <string name="value_direction_up">ላይ</string>
   <string name="value_direction_down">ታች</string>
   <string name="value_direction_left">ግራ</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">ሁለቴ መታ ያድርጉ እና በ2 ጣቶች ይያዙ</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">ሁለቴ መታ ያድርጉ እና በ3 ጣቶች ይያዙ</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">ሁለቴ መታ ያድርጉ እና በ4 ጣቶች ይያዙ</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">ሶስቴ መታ ያድርጉ እና በ2 ጣቶች ይያዙ</string>
+  <string name="seekbar_hint_2gesture">ለማስተካከል «%1$s» ወይም «%2$s»</string>
+  <string name="seekbar_hint_1gesture">ለማስተካከል «%1$s»</string>
   <string name="gesture_name_unknown">ያልታወቀ ምልክት</string>
   <string name="gesture_name_pass_through">ወደ የስርዓት ምልክቱ ይለፉ</string>
   <string name="gesture_name_touch_explore">በንክኪ ያስሱ</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">ሁለቴ መታ ያድርጉ እና ይያዙ</string>
   <string name="gesture_name_2finger_tap_hold">መታ ያድርጉ እና በ2 ጣቶች ይያዙ</string>
   <string name="gesture_name_3finger_tap_hold">መታ ያድርጉ እና በ3 ጣቶች ይያዙ</string>
+  <string name="gesture_name_2finger_3tap_hold">ሶስቴ መታ ያድርጉ እና በ2 ጣቶች ይያዙ</string>
   <string name="gesture_name_3finger_3tap_hold">ሶስቴ መታ ያድርጉ እና በ3 ጣቶች ይያዙ</string>
   <string name="title_pref_shortcut_fingerprint_up">በጣት አሻራ ዳሳሹ ላይ ወደ ላይ ያንሸራትቱ</string>
   <string name="title_pref_shortcut_fingerprint_down">በጣት አሻራ ዳሳሹ ላይ ወደ ታች ያንሸራትቱ</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">ማያ ገጹ ሲበራ</string>
   <string name="value_resume_keyguard">የቁልፍ ማያ ገጹ ሲታይ</string>
   <string name="value_resume_manual">ከማሳወቂያ ብቻ</string>
+  <string name="value_type_confirmation_double_tap">ቁልፍን ለመምረጥ ጣቱ ባለበት ይያዙ፣ ከዚያ ሁለቴ መታ ያድርጉ</string>
+  <string name="value_type_confirmation_lift_to_type">ቁልፍን ለመምረጥ ጣቱ ባለበት ይያዙ፣ ከዚያ ያንሱ</string>
   <string name="value_shake_to_read_disabled">ተሰናክሏል</string>
   <string name="value_shake_to_read_threshold_very_light">በጣም ቀላል</string>
   <string name="value_shake_to_read_threshold_light">ቀላል</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">የተተየቡ ቁልፎችን ሁልጊዜ ተናገር</string>
   <string name="value_keyboard_echo_softkeys">ለየማያ ገጽ ላይ ቁልፍ ሰሌዳ ብቻ</string>
   <string name="value_keyboard_echo_never">የተተየቡ ቃላትን በጭራሽ አትናገር</string>
+  <string name="title_pref_keyboard_echo_on_screen">የቁልፍ ሰሌዳ ማሚቶ፦ ታይታ የቁልፍ ሰሌዳ</string>
+  <string name="title_pref_keyboard_echo_physical">የቁልፍ ሰሌዳ ማሚቶ፦ አካላዊ የቁልፍ ሰሌዳ</string>
+  <string name="value_keyboard_echo_none">ምንም</string>
+  <string name="value_keyboard_echo_characters_only">ቁምፊዎች</string>
+  <string name="value_keyboard_echo_words_only">ቃላት</string>
+  <string name="value_keyboard_echo_characters_and_words">ቁምፊዎች እና ቃላት</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">ሁኔታ፣ ስም፣ ዓይነት</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">ዓይነት፣ ስም፣ ሁኔታ</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">ሁኔታ፣ ስም፣ ዓይነት</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">እርግጠኛ ነዎት የአንጓ ዛፉን ማረም ማብራት ይፈልጋሉ?\n\nየአንጓ ዛፍ ማረም የማያ ገጽ ይዘትዎን ለመሣሪያዎ ምዝግብ ማስታወሻዎች ያጋልጣቸዋል፣ እና ሌሎች መተግበሪያዎች ሊያነብቡት ይችላሉ።</string>
   <string name="dialog_title_enable_performance_stats">የአፈጻጸም ስታቲስቲክስ ይንቃ?</string>
   <string name="dialog_message_enable_performance_stats">እርግጠኛ ነዎት የአፈጻጸም ስታቲስቲክስን ማብራት ይፈልጋሉ?\n\nየአፈጻጸም ስታቲስቲክስ ተጨማሪ ማህደረ መረጃን እና ኃይልን ሊፈጅ ይችላል።</string>
+  <string name="title_request_phone_permission">የስልክ መዳረሻ ይፈቀድ?</string>
+  <string name="message_request_phone_permission">ይህ ጥሪ ላይ በሚሆኑበት ጊዜ TalkBack ማስታወቂያዎችን እንዲቀንስ ይረዳዋል</string>
+  <string name="continue_button">ቀጥል</string>
   <string name="label_talkback_context_menu">የTalkBack ሁለንተናዊ አውድ ምናሌ</string>
   <string name="permission_talkback_label">TalkBackን ይቆጣጠራል</string>
   <string name="permission_talkback_desc">የእጅ ምልክቶችን ለTalkBack የመላክ እና የሚነገሩ ግብረመልስ ከቆሙበት የማስቀጠል ፍቃድ።</string>
-  <string name="permission_labeling_label">ብጁ የTalkBack መሰየሚያዎችን ያቀናብራል</string>
-  <string name="permission_labeling_desc">በTalkBack የሚነገሩ ብጁ መሰየሚያዎችን የመድረስ፣ የመቀየር እና የመሰረዝ ፍቃድ።</string>
   <string name="links">አገናኞች</string>
   <string name="end_of_text">መጨረሻ</string>
   <string name="start_of_page">ቀዳሚ %1$s የለም</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">ሥርዓተ ነጥብ</string>
   <string name="title_pref_selector_granularity">አሰሳ</string>
   <string name="title_pref_selector_audio_focus">ኦዲዮን ማፈን</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">ሸብልል</string>
+  <string name="title_pref_a11y_volume">የተደራሽነት መጠን</string>
   <string name="title_pref_selector_adjustable_widget_slider">ተንሸራታቹን አስተካክል</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">እሴትን አስተካክል</string>
   <string name="title_pref_speak_passwords_without_headphones">የይለፍ ቃላትን ተናገር</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">የድምፅ ትዕዛዞችን ይጠቀሙ</string>
   <string name="dialog_title_pass_through_mode">የሥርዓቱን ምልክቶች ለመጠቀም የTalkBack ምልክቶችን ይዝለሉ</string>
   <string name="dialog_message_pass_through_mode">ቃጭል ሲሰሙ በTalkBack የማይደገፍ የስርዓት ምልክትን መጠቀም ይችላሉ። ይህ በምልክት ማለፍ በመባል ይታወቃል።</string>
-  <string name="hint_type_search_term">የፍለጋ ቃል ይተይቡ</string>
+  <string name="hint_type_search_term">የፍለጋ ቃል</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">የTalkBack የማሳወቂያ ሰርጥ</string>
   <string name="pref_selector_summary">%1$s ቅንብሩን ለመምረጥ ከዚያ %2$s ቅንብሩን ለማስተካከል።</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">ጽሑፍን ለመቁረጥ፣ በ3 ጣቶች ሁለቴ መታ ያድርጉ እና ይያዙ።\n\nጽሑፍ ለመለጠፍ፣ በ3 ጣቶች ሦስቴ መታ ያድርጉ።\n\nአንድ ቃል ከዚህ በታች ባለው የጽሑፍ ሣጥን ውስጥ ለመቅዳት ይሞክሩ።</string>
   <string name="copy_text_pre_r">ጽሑፍን ከመረጡ በኋላ በTalkBack ምናሌ ውስጥ ሊቀዱት ይችላሉ። ወደ ታች ያንሸራትቱ እና TalkBack ምናሌን ለመክፈት ወደ ቀኝ ያንሸራትቱ። የአርትዖት አማራጮችን ሁለቴ መታ ያድርጉ እና ከዚያ ይቅዱ።\n\nአንድ ቃል ከዚህ በታች ባለው የጽሑፍ ሣጥን ውስጥ ለመቅዳት ይሞክሩ።</string>
   <string name="cut_paste_text_pre_r">ጽሑፍን ለመቁረጥ ወይም ለመለጠፍ የTalkBack ምናሌን ይክፈቱ እና የአርትዖት አማራጮች ላይ ሁለቴ መታ ያድርጉ።\n\nአንድ ቃል ከዚህ በታች ባለው የጽሑፍ ሣጥን ውስጥ ለመቅዳት ይሞክሩ።</string>
+  <string name="edit_box_hint_paste_text">ጽሑፍ እዚህ ይለጥፉ</string>
   <string name="read_by_character_title">በቁምፊ፣ በቃል ወይም በአንቀጽ ያንብቡ</string>
   <string name="read_by_character_text">አንዳንድ ጊዜ አንድ ቁምፊ በአንድ ጊዜ ጽሑፍ ጮክ ተብሎ ሲነበብ ማዳመጥ ይፈልጉ ይሆናል።\n\nይህን ለማድረግ «%1$s» የሚል እስከሚሰሙ ድረስ በ3 ጣቶች ወደ ቀኝ ያንሸራትቱ። ከዚያ በቁምፊ የዳሰሳ ትኩረት የኋሊት ለማንቀሳቀስ ወደ ላይ ያንሸራትቱ። የዳሰሳ ትኩረቱን ወደፊት በቁምፊ ለመውሰድ ወደ ታች ያንሸራትቱ።\n\nአሁኑኑ ይሞክሩት። በ3 ጣቶች ወደ ቀኝ ሲያንሸራትቱ በቃላት ወይም በአንቀጾች እንዲነበብ በተጨማሪ መምረጥ ይችላሉ።</string>
   <string name="read_by_character_text_pre_r">አንዳንድ ጊዜ አንድ ቁምፊ በአንድ ጊዜ ጽሑፍ ጮክ ተብሎ ሲነበብ ማዳመጥ ይፈልጉ ይሆናል።\n\nይህን ለማድረግ «%1$s» የሚል እስከሚሰሙ ድረስ ወደ ታች ከዚያ ወደ ላይ ያንሸራትቱ። ከዚያ በቁምፊ የዳሰሳ ትኩረት የኋሊት ለማንቀሳቀስ ወደ ላይ ያንሸራትቱ። የዳሰሳ ትኩረቱን ወደፊት በቁምፊ ለመውሰድ ወደ ታች ያንሸራትቱ።\n\nአሁኑኑ ይሞክሩት። ወደ ታች እና ከዚያ ወደ ላይ ሲያንሸራትቱ በቃላት ወይም በአንቀጾች እንዲነበብ በተጨማሪ መምረጥ ይችላሉ።</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">ገባሪ ሆኗል %1$s</string>
   <string name="talkback_inactive_title">TalkBack ተሰናክሏል</string>
   <string name="talkback_inactive_message">ይሄ አጋዥ ስልጠና የTalkBack መንቃት ያስፈልገዋል። እባክዎ አጋዥ ስልጠናውን ከማስጀመርዎ በፊት TalkBackን ያብሩ።</string>
+  <string name="watch_swipe_left_right_text">በንጥሎች መካከል ለመንቀሳቀስ ወደ ቀኝ ወይም ወደ ግራ ያንሸራትቱ</string>
+  <string name="watch_double_tap_text">አንድ ንጥልን ለማግበር ሁለቴ መታ ያድርጉ</string>
+  <string name="watch_2_finger_scroll_text">ለማሸብለል 2 ጣቶችን ይጎትቱ</string>
+  <string name="title_pref_thick_border">ወፍራም ክፈፎች</string>
+  <string name="title_pref_category_border_color">ቀለም</string>
+  <string name="title_pref_default_color">ነባሪ</string>
+  <string name="title_pref_red">ቀይ</string>
+  <string name="title_pref_orange">ብርቱካናማ</string>
+  <string name="title_pref_yellow">ቢጫ</string>
+  <string name="title_pref_green">አረንጓዴ</string>
+  <string name="title_pref_blue">ሰማያዊ</string>
+  <string name="title_pref_grey">ግራጫ</string>
   <string name="survey_closed">የዳሰሳ ጥናቱ ተዘግቷል</string>
+  <string name="character_recognition_text">ጽሑፍ፦ %1$s</string>
+  <string name="title_image_caption">ምስሉን ይገለጹት</string>
 </resources>

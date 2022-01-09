@@ -2,20 +2,20 @@
 <resources>
   <string name="symbol_apostrophe">Apostrophe</string>
   <string name="symbol_ampersand">Ampersand</string>
-  <string name="symbol_angle_bracket_left">Left-angle bracket</string>
-  <string name="symbol_angle_bracket_right">Right-angle bracket</string>
+  <string name="symbol_angle_bracket_left">Less than sign</string>
+  <string name="symbol_angle_bracket_right">Greater than sign</string>
   <string name="symbol_asterisk">Asterisk</string>
   <string name="symbol_at_sign">At</string>
   <string name="symbol_backslash">Back slash</string>
   <string name="symbol_bullet">Bullet</string>
   <string name="symbol_caret">Caret/chevron</string>
-  <string name="symbol_cent">Cent</string>
+  <string name="symbol_cent">Cent sign</string>
   <string name="symbol_colon">Colon</string>
   <string name="symbol_comma">Comma</string>
   <string name="symbol_copyright">Copyright</string>
   <string name="symbol_curly_bracket_left">Left curly bracket</string>
   <string name="symbol_curly_bracket_right">Right curly bracket</string>
-  <string name="symbol_degree">Degree</string>
+  <string name="symbol_degree">Degree sign</string>
   <string name="symbol_division">Division sign</string>
   <string name="symbol_dollar_sign">Dollar sign</string>
   <string name="symbol_ellipsis">Ellipsis</string>
@@ -36,7 +36,7 @@
   <string name="symbol_pi">Pi</string>
   <string name="symbol_pound">Hash
 </string>
-  <string name="symbol_pound_sterling">Pound sterling</string>
+  <string name="symbol_pound_sterling">Pound currency sign</string>
   <string name="symbol_question_mark">Question mark</string>
   <string name="symbol_quotation_mark">Quote</string>
   <string name="symbol_registered_trademark">Registered trademark</string>
@@ -49,13 +49,13 @@
   <string name="symbol_square_root">Square root</string>
   <string name="symbol_trademark">Trademark</string>
   <string name="symbol_underscore">Underscore</string>
-  <string name="symbol_vertical_bar">Vertical bar</string>
+  <string name="symbol_vertical_bar">Vertical line</string>
   <string name="symbol_yen">Yen</string>
   <string name="symbol_not_sign">Not sign</string>
   <string name="symbol_broken_bar">Broken bar</string>
   <string name="symbol_micro_sign">Micro sign</string>
-  <string name="symbol_almost_equals">Almost equals</string>
-  <string name="symbol_not_equals">Not equals</string>
+  <string name="symbol_almost_equals">Almost equal to</string>
+  <string name="symbol_not_equals">Not equal to</string>
   <string name="symbol_currency_sign">Currency sign</string>
   <string name="symbol_section_sign">Section sign</string>
   <string name="symbol_upwards_arrow">Upwards arrow</string>
@@ -64,7 +64,7 @@
   <string name="symbol_black_heart">Black Heart</string>
   <string name="symbol_tilde">tilde</string>
   <string name="symbol_equal">Equal sign</string>
-  <string name="symbol_won">Won sign</string>
+  <string name="symbol_won">Won currency sign</string>
   <string name="symbol_reference">Reference Mark</string>
   <string name="symbol_white_star">White star</string>
   <string name="symbol_black_star">Black star</string>
@@ -115,7 +115,7 @@
   <string name="symbol_right_angle_bracket">Right double angle bracket</string>
   <string name="symbol_inverted_exclamation_mark">Inverted exclamation mark</string>
   <string name="symbol_inverted_question_mark">Inverted question mark</string>
-  <string name="symbol_won_sign">Korean currency Won sign</string>
+  <string name="symbol_won_sign">Won currency sign</string>
   <string name="symbol_full_width_comma">Full-width comma</string>
   <string name="symbol_full_width_exclamation_mark">Full-width exclamation mark</string>
   <string name="symbol_full_width_ideographic_full_stop">Ideographic full stop</string>

@@ -14,6 +14,7 @@
   <string name="voice_commands_language">ဘာသာစကား</string>
   <string name="voice_commands_languages">ဘာသာစကားများ</string>
   <string name="voice_commands_custom_actions">စိတ်ကြိုက် လုပ်ဆောင်ချက်များ</string>
+  <string name="voice_commands_action">လုပ်ဆောင်ချက်</string>
   <string name="voice_commands_quick_settings">အမြန် ဆက်တင်များ</string>
   <string name="voice_commands_quick_setting">အမြန် ဆက်တင်</string>
   <string name="voice_commands_dim">မှိန်ပါ</string>
@@ -97,9 +98,9 @@
   <string name="voice_commands_no_voice_recognition_ability">ဝမ်းနည်းပါသည်၊ ဤဝန်ဆောင်မှုကို သင့်စက်တွင် အသုံးပြု၍မရပါ</string>
   <string name="voice_commands_error">အသံကွန်မန်း မှတ်သားရာတွင် အမှားရှိနေသည်</string>
   <string name="voice_commands_partial_result">ဤကွန်မန်းကို မမှတ်မိပါ။ ကွန်မန်းအားလုံး၏ စာရင်းအတွက် \"%1$s\" ဟု ပြောပါ။</string>
+  <string name="voice_commands_timeout">ကွန်မန်းအားလုံး၏ စာရင်းအတွက် \"%1$s\" ဟု ပြောပါ။</string>
   <string name="voice_commands_many_requests">ခဏအကြာတွင် ထပ်စမ်းကြည့်ပါ</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" ဆက်တင်ကို ဖွင့်မထားပါ</string>
-  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" အသံကွန်မန်းအဖြစ် အသိအမှတ်ပြုမထားပါ။</string>
+  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" ကို အသံကွန်မန်းအဖြစ် အသိအမှတ်ပြုမထားပါ။</string>
   <string name="voice_commands_label_saved">အညွှန်းကို သိမ်းပြီးပါပြီ</string>
   <string name="voice_commands_no_actions_feedback">မည်သည့် လုပ်ဆောင်ချက်မျှ မရနိုင်ပါ</string>
   <string name="voice_commands_no_next_heading_feedback">နောက်ခေါင်းစီး မရှိပါ</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">အသံကွန်မန်း အနှစ်ချုပ်</string>
   <string name="voice_commands_help_description">အသံကွန်မန်းများ အသုံးပြုရန် ညာဘက်သို့ ပွတ်ဆွဲပြီးနောက် အပေါ်သို့ ပွတ်ဆွဲပါ။ ဤကွန်မန်းများ၏ စာရင်းအတွက် \"Help\" သို့မဟုတ် \"What can I say။\" ကို အချိန်မရွေး ပြောပါ။</string>
   <string name="voice_commands_help_hint">အကောင်းဆုံးရလဒ်များအတွက် အောက်ပါဖန်သားပြင်များတွင် ဖော်ပြထားသော အသုံးအနှုန်းကို အတိအကျ ပြောပါ။</string>
+  <string name="voice_command_screen_locked_hint">ဖန်သားပြင်လော့ခ်ချထားစဉ် အသံကွန်မန်းများကို မရနိုင်ပါ။ TalkBack မီနူးကို အစားထိုးသုံးရန် %1$s။</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">လက်ရှိဖန်သားပြင်တွင် အကြောင်းအရာများကို သင်၏ဖတ်ရှုပုံ ပြောင်းလဲပါ</string>
   <string name="voice_commands_help_next">နောက် [ခေါင်းစီး]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">ဖန်သားပြင်တွင် ထိုစာသားကိုရှာရန် ရှာဖွေသည့်စာလုံးကို ထည့်ပါ</string>
   <string name="voice_commands_help_text_editing_description">စာသားကို ရိုက်ပြီးနောက် ရွေးချယ်ကာ မိတ္တူကူးပါ</string>
   <string name="voice_commands_help_type_text">[OK] ကို ရိုက်ပါ</string>
-  <string name="voice_commands_help_copy_description">မိတ္တူမကူးမီ စာသားကို ရွေးချယ်ထားကြောင်း သေချာပါစေ</string>
-  <string name="voice_commands_help_cut_description">ဖြတ်မယူမီ စာသားကို ရွေးချယ်ထားကြောင်း သေချာပါစေ</string>
+  <string name="voice_commands_help_copy_description">မိတ္တူမကူးမီ စာသားကို ရွေးချယ်ပါ</string>
+  <string name="voice_commands_help_cut_description">မဖြတ်ယူမီ စာသားကို ရွေးချယ်ပါ</string>
+  <string name="voice_commands_help_delete_description">မဖျက်မီ စာသားကို ရွေးချယ်ပါ</string>
   <string name="voice_commands_help_device_navigation_title">စက်ပစ္စည်းတွင်း လမ်းညွှန်ခြင်း</string>
   <string name="voice_commands_help_device_navigation_description">Home သို့သွားပါ၊ ပြန်သွားပါ၊ အကြောင်းကြားချက်များ ပြပါ စသည်</string>
   <string name="voice_commands_help_overview_description">လတ်တလော အက်ပ်များကို ကြည့်ပါ</string>

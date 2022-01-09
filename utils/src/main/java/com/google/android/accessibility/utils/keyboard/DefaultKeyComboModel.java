@@ -145,6 +145,15 @@ public class DefaultKeyComboModel implements KeyComboModel {
       addKeyCombo(mContext.getString(R.string.keycombo_shortcut_global_home));
       addKeyCombo(mContext.getString(R.string.keycombo_shortcut_global_recents));
       addKeyCombo(mContext.getString(R.string.keycombo_shortcut_global_notifications));
+      addKeyCombo(mContext.getString(R.string.keycombo_shortcut_global_play_pause_media));
+      addKeyCombo(
+          mContext.getString(R.string.keycombo_shortcut_global_scroll_forward_reading_menu));
+      addKeyCombo(
+          mContext.getString(R.string.keycombo_shortcut_global_scroll_backward_reading_menu));
+      addKeyCombo(
+          mContext.getString(R.string.keycombo_shortcut_global_adjust_reading_settings_previous));
+      addKeyCombo(
+          mContext.getString(R.string.keycombo_shortcut_global_adjust_reading_setting_next));
     }
   }
 
@@ -288,6 +297,32 @@ public class DefaultKeyComboModel implements KeyComboModel {
 
     if (key.equals(mContext.getString(R.string.keycombo_shortcut_global_notifications))) {
       return KeyComboManager.getKeyComboCode(KeyEvent.META_CTRL_ON, KeyEvent.KEYCODE_N);
+    }
+
+    if (key.equals(mContext.getString(R.string.keycombo_shortcut_global_play_pause_media))) {
+      return KeyComboManager.getKeyComboCode(KeyEvent.META_SHIFT_ON, KeyEvent.KEYCODE_SPACE);
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_scroll_forward_reading_menu))) {
+      return KeyComboManager.getKeyComboCode(
+          KeyEvent.META_CTRL_ON | KeyEvent.META_SHIFT_ON, KeyEvent.KEYCODE_DPAD_DOWN);
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_scroll_backward_reading_menu))) {
+      return KeyComboManager.getKeyComboCode(
+          KeyEvent.META_CTRL_ON | KeyEvent.META_SHIFT_ON, KeyEvent.KEYCODE_DPAD_UP);
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_adjust_reading_settings_previous))) {
+      return KeyComboManager.getKeyComboCode(KeyEvent.META_SHIFT_ON, KeyEvent.KEYCODE_DPAD_UP);
+    }
+
+    if (key.equals(
+        mContext.getString(R.string.keycombo_shortcut_global_adjust_reading_setting_next))) {
+      return KeyComboManager.getKeyComboCode(KeyEvent.META_SHIFT_ON, KeyEvent.KEYCODE_DPAD_DOWN);
     }
 
     if (key.equals(mContext.getString(R.string.keycombo_shortcut_navigate_next_default))) {

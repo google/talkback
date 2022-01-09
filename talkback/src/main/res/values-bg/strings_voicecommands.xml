@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Език</string>
   <string name="voice_commands_languages">Езици</string>
   <string name="voice_commands_custom_actions">персонализирани действия</string>
+  <string name="voice_commands_action">Действие</string>
   <string name="voice_commands_quick_settings">Бързи настройки</string>
   <string name="voice_commands_quick_setting">Бърза настройка</string>
   <string name="voice_commands_dim">затъмняване</string>
@@ -61,7 +62,7 @@
   <string name="voice_commands_write">Писане</string>
   <string name="voice_commands_Spell">Изписване</string>
   <string name="voice_commands_talkback_settings">Настройки на TalkBack</string>
-  <string name="voice_commands_talkback_setting">Настройване на TalkBack</string>
+  <string name="voice_commands_talkback_setting">Настройка на TalkBack</string>
   <string name="voice_commands_screen_search">Търсене в екрана</string>
   <string name="voice_commands_search_on_screen">Търсене на екрана</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">За съжаление, тази функция не е налице на устройството ви</string>
   <string name="voice_commands_error">При разпознаването на гласовата команда възникна грешка</string>
   <string name="voice_commands_partial_result">Командата не е разпозната. Кажете „%1$s“, за да видите списъка с всички команди.</string>
+  <string name="voice_commands_timeout">Кажете „%1$s“, за да видите списъка с всички команди.</string>
   <string name="voice_commands_many_requests">Моля, опитайте отново след малко</string>
-  <string name="voice_commands_setting_disabled">Настройката „%1$s“ не е активирана</string>
   <string name="voice_commands_echo_feedback_not_recognized">„%1$s“ не е разпознато като гласова команда.</string>
   <string name="voice_commands_label_saved">Етикетът е запазен</string>
   <string name="voice_commands_no_actions_feedback">Няма налични действия</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Общ преглед на гласовите команди</string>
   <string name="voice_commands_help_description">За да използвате гласови команди, прекарайте пръст надясно и след това нагоре. Кажете „Help“ или „What can I say?“ по всяко време, за да видите този списък с команди.</string>
   <string name="voice_commands_help_hint">За най-добри резултати произнасяйте командите точно както са посочени на следващите екрани.</string>
+  <string name="voice_command_screen_locked_hint">Гласовите команди не са налице, докато екранът е заключен. За да използвате менюто на TalkBack вместо това, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Промяна на начина, по който се чете съдържанието на текущия екран</string>
   <string name="voice_commands_help_next">Следв. [heading]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Въведете дума за търсене, за да намерите съответния текст на екрана</string>
   <string name="voice_commands_help_text_editing_description">Въвеждане, избиране и копиране на текст</string>
   <string name="voice_commands_help_type_text">Въвеждане на [OK]</string>
-  <string name="voice_commands_help_copy_description">Трябва да изберете текста, преди да го копирате</string>
-  <string name="voice_commands_help_cut_description">Трябва да изберете текста, преди да го изрежете</string>
+  <string name="voice_commands_help_copy_description">Изберете текст, преди да копирате</string>
+  <string name="voice_commands_help_cut_description">Изберете текст, преди да изрежете</string>
+  <string name="voice_commands_help_delete_description">Изберете текст, преди да изтриете</string>
   <string name="voice_commands_help_device_navigation_title">Навигиране на устройството</string>
   <string name="voice_commands_help_device_navigation_description">Придвижване до началния екран, връщане назад, показване на известията и др.</string>
   <string name="voice_commands_help_overview_description">Преглед на скорошните ви приложения</string>

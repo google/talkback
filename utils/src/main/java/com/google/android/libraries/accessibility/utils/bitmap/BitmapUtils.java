@@ -23,7 +23,8 @@ public final class BitmapUtils {
    *     does not intersect the bitmap's region (e.g. the cropRegion is of size 0, or it is
    *     completely outside of the Bitmap).
    */
-  public static @Nullable Bitmap cropBitmap(Bitmap bitmap, Rect cropRegion) {
+  @Nullable
+  public static Bitmap cropBitmap(Bitmap bitmap, Rect cropRegion) {
     Rect bitmapRegion = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
 
     // Just in case cropRegion extends past the bitmap, fit bitmapRegion down to cropRegion size.
@@ -50,8 +51,8 @@ public final class BitmapUtils {
    * @return A new bitmap of the cropped area, or {@code null} if the crop parameters were out of
    *     bounds.
    */
-  public static @Nullable Bitmap cropBitmap(
-      Bitmap bitmap, int left, int top, int width, int height) {
+  @Nullable
+  public static Bitmap cropBitmap(Bitmap bitmap, int left, int top, int width, int height) {
     try {
       return Bitmap.createBitmap(bitmap, left, top, width, height);
     } catch (IllegalArgumentException ex) {

@@ -3,7 +3,7 @@
   <string name="talkback_service_description">នៅពេល​កម្មវិធី​តបវិញ​បើក វា​ផ្ដល់​ការអាន​អេក្រង់ ដើម្បី​ឱ្យ​អ្នក​អាច​ប្រើ​ឧបករណ៍​របស់អ្នក​ដោយមិន​ចាំបាច់​មើល​អេក្រង់។ កម្មវិធីនេះអាច​មាន​ប្រយោជន៍សម្រាប់ជនពិការ​ភ្នែក ឬអ្នក​ខ្សោយភ្នែក។\n\nដើម្បីរុករក​ដោយប្រើ​កម្មវិធី​តបវិញ៖\n• អូស​ទៅ​ស្ដាំ ឬឆ្វេង ដើម្បី​ផ្លាស់ទី​រវាង​ធាតុ\n• ចុចពីរដង ដើម្បី​បើកដំណើរការ​ធាតុ\n• អូសម្រាមដៃ​ពីរ​អូស ដើម្បី​រំកិល\n\nដើម្បី​បិទ​កម្មវិធី​តបវិញ៖\n• ចុច​ប៊ូតុង​បិទបើក អ្នកនឹង​ឃើញ​ឆ្នូត​ពណ៌​បៃតង។ ​ចុច​ប៊ូតុង​បិទ​បើក​ពីរដង។\n• នៅលើ​សារ​បញ្ជាក់ សូម​ចុច​យល់ព្រម។ បន្ទាប់មក ចុច​យល់ព្រម​ពីរដង។</string>
   <string name="talkback_service_html_description">នៅពេលបើក​មុខងារ​តបវិញ មុខងារនេះ​ផ្ដល់​ការអានអេក្រង់ ដើម្បីឱ្យអ្នក​អាចប្រើ​ឧបករណ៍​របស់អ្នក ដោយមិន​ចាំបាច់​មើលអេក្រង់។ មុខងារ​តបវិញគឺ​សម្រាប់ប្រើ​នៅក្នុងស្ថានភាព ឬ​សម្រាប់មនុស្ស​ដែលមាន​ការពិបាក​ក្នុងការ​មើលអេក្រង់។&lt;br&gt;&lt;br&gt;&lt;b&gt;របៀប​ប្រើប្រាស់​មុខងារ​តបវិញ&lt;/b&gt;&lt;br&gt;• អូសទៅឆ្វេង ឬស្ដាំ ដើម្បី​ផ្លាស់ទីរវាង​ធាតុនានា&lt;br&gt;• ចុចពីរដង ដើម្បី​បើកដំណើរការ​ធាតុ&lt;br&gt;• អូសម្រាមដៃ 2 ដើម្បីរំកិល&lt;br&gt;&lt;br&gt;&lt;b&gt;របៀបបិទ​មុខងារ​តបវិញ&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;គ្រាប់ចុច​កម្រិតសំឡេង៖&lt;/b&gt; ចុច​គ្រាប់ចុច​កម្រិតសំឡេង​ទាំងពីរ​ឱ្យជាប់​រយៈពេលពីរបីវិនាទី។&lt;br&gt;&lt;br&gt;&lt;b&gt;ការកំណត់&lt;/b&gt;&lt;br&gt;• ចុច​ប៊ូតុងបិទបើក​&lt;b&gt;ប្រើ​មុខងារ​តបវិញ&lt;/b&gt;។ អ្នកនឹងឃើញ​បន្ទាត់​ពណ៌បៃតង។ ចុច​ប៊ូតុង​បិទបើក​ពីរដង។&lt;br&gt;• ចុច \"បញ្ឈប់\" នៅលើ​សារបញ្ជាក់។ បន្ទាប់មក ចុច \"បញ្ឈប់\" ពីរដង។</string>
   <string name="talkback_service_summary">អានធាតុនៅលើអេក្រង់</string>
-  <string name="talkback_preferences_title">ការ​កំណត់មុខងារតបវិញ</string>
+  <string name="talkback_preferences_title">ការកំណត់​មុខងារតបវិញ</string>
   <string name="tts_preferences_title">ការកំណត់​ការបំប្លែងអត្ថបទទៅជាការនិយាយ</string>
   <string name="language_options">ភាសា</string>
   <string name="spoken_language">ភាសានិយាយ</string>
@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">កំណែ %1$s</string>
   <string name="label_manager_summary_title">គ្រប់គ្រង​ស្លាក​ផ្ទាល់​ខ្លួន</string>
   <string name="label_manager_package_title">គ្រប់គ្រង​ស្លាក​សម្រាប់ %1$s</string>
+  <string name="manage_label">គ្រប់គ្រង​ស្លាក</string>
   <string name="label_manager_no_packages_message">បច្ចុប្បន្ន​គ្មាន​ស្លាក​ផ្ទាល់​ខ្លួនទេ​។ អ្នក​អាច​បង្កើត​​ស្លាកដោយ​​ចូលទៅកាន់​​​​​រូបភាព​ដែល​មិន​បាន​ដាក់​ស្លាក រួចបញ្ចូលស្លាក​ណាមួយពី​ម៉ឺនុយមុខងារតបវិញ។</string>
   <string name="label_manager_timestamp_text">បាន​កែប្រែ​ចុងក្រោយ %1$s</string>
   <string name="search_dialog_label">ស្វែងរក៖ %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">រក​មើល​ដោយ​ការ​ប៉ះ</string>
   <string name="title_pref_category_touch_exploration">ការរុករក</string>
   <string name="title_pref_category_controls">ការបញ្ជា</string>
-  <string name="title_pref_single_tap">ការបើកដំណើរការដោយចុចម្តង</string>
+  <string name="title_pref_single_tap">ចុចតែម្តង ដើម្បី​បើកដំណើរការ</string>
   <string name="title_pref_show_context_menu_as_list">បង្ហាញម៉ឺនុយបរិបទជាបញ្ជី</string>
-  <string name="summary_pref_single_tap">(ការពិសោធ) ចុចម្ដង​នៅលើ​ធាតុដែលបានផ្ដោត ដើម្បី​បើកដំណើរការ</string>
+  <string name="summary_pref_single_tap">ចុចម្ដង​នៅលើ​ធាតុដែលបានផ្ដោត ដើម្បី​បើកដំណើរការ</string>
   <string name="title_pref_shake_to_read_threshold">រលាក់ ដើម្បី​​ចាប់ផ្ដើម​ការ​អានឥតឈប់</string>
   <string name="pref_verbosity_title">មុខងារ​បរិយាយ</string>
   <string name="pref_punctuation_title">​សញ្ញាវណ្ណយុត្ត</string>
+  <string name="title_pref_category_manage_focus_indicator">ប្ដូរ​សូចនាករ \"ផ្ដោត\" តាមបំណង</string>
   <string name="title_pref_category_manage_gestures">ប្ដូរ​ចលនាតាមបំណង</string>
   <string name="title_pref_manage_labels">ស្លាក​ផ្ទាល់ខ្លួន</string>
   <string name="title_pref_manage_customize_menus">ប្ដូរម៉ឺនុយ​តាមបំណង</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">ជំនួយ និងមតិកែលម្អ</string>
   <string name="title_pref_category_tutorial_and_help">មេរៀន និងជំនួយ</string>
   <string name="title_pref_category_advanced">កម្រិតខ្ពស់</string>
+  <string name="title_pref_category_typing">ការវាយបញ្ចូល និងក្ដារចុច</string>
   <string name="title_pref_category_legal_and_privacy">ច្បាប់ និងឯកជនភាព</string>
   <string name="title_pref_advanced_settings">ការកំណត់​កម្រិតខ្ពស់</string>
   <string name="reset_gesture_settings_title">កំណត់​ការកំណត់ចលនា​ឡើងវិញ</string>
@@ -132,7 +135,7 @@
   <string name="four_finger_gestures_title">ម្រាមដៃ 4</string>
   <string name="pref_verbosity_preset_title">ជ្រើសរើស​ការ​កំណត់​ជាមុន</string>
   <string name="pref_verbosity_preset_entry_high">ខ្ពស់</string>
-  <string name="pref_verbosity_preset_entry_custom">ផ្ទាល់ខ្លួន</string>
+  <string name="pref_verbosity_preset_entry_custom">តាម​បំណង</string>
   <string name="pref_verbosity_preset_entry_low">ទាប</string>
   <string name="pref_verbosity_category_preset_settings_title">ព័ត៌មាន​លម្អិត​អំពីមុខងារ​បរិយាយ</string>
   <string name="pref_verbosity_category_misc_settings_title">ផ្សេងៗ</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">កម្មវិធីថ្មីៗ</string>
   <string name="keycombo_menu_global_notifications">ការជូនដំណឹង</string>
   <string name="keycombo_menu_global_suspend">ផ្អាក ឬបន្ត TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">ចាក់ ឬផ្អាក​មេឌៀ</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">ជ្រើសរើសការគ្រប់គ្រងការអានបន្ទាប់</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">ជ្រើសរើសការគ្រប់គ្រងការអានមុន</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">កែតម្រូវការគ្រប់គ្រងការអានឡើងលើ</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">កែតម្រូវការគ្រប់គ្រងការអានចុះក្រោម</string>
   <string name="keycombo_menu_category_granularity">ការរុករក</string>
   <string name="keycombo_menu_granularity_increase">ការកំណត់ការរុករកបន្ទាប់</string>
   <string name="keycombo_menu_granularity_decrease">ការកំណត់ការរុករកពីមុន</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">គ្មានអត្ថបទ​សម្រាប់ចម្លងទេ សូមជ្រើសរើស​អត្ថបទមួយចំនួន​ជាមុនសិន។</string>
   <string name="cannot_paste_feedback">គ្មានអត្ថបទ​សម្រាប់ដាក់ចូលទេ សូមចម្លងអត្ថបទ​មួយចំនួន​ជាមុនសិន។</string>
   <string name="cannot_cut_feedback">គ្មានអត្ថបទ​សម្រាប់កាត់ទេ សូមជ្រើសរើស​អត្ថបទមួយចំនួន​ជាមុនសិន។</string>
+  <string name="cannot_delete_feedback">គ្មានអត្ថបទ​សម្រាប់លុបទេ សូមជ្រើសរើស​អត្ថបទមួយចំនួន​ជាមុនសិន។</string>
   <string name="message_in_reset_keymap_confirm_dialog">តើអ្នកប្រាកដថាចង់កំណត់គ្រាប់ចុចផ្លូវកាត់របស់អ្នកសម្រាប់ផែនទីគ្រាប់ចុចនេះទៅតម្លៃលំនាំដើមរបស់ពួកវាឡើងវិញឬទេ? សូមកត់សម្គាល់ថា សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">កំណត់ឡើងវិញ</string>
   <string name="override_keycombo">គ្រាប់ចុចបានប្រើរួចហើយ</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">ប្រើការ​ប្ដូរ​សំឡេង</string>
   <string name="title_pref_keyboard_echo">ក្ដារចុចនិយាយ</string>
   <string name="pref_node_desc_order_title">លំដាប់នៃការ​ពិពណ៌នា​ធាតុ</string>
-  <string name="summaryOn_pref_intonation">អាន​មតិ​ត្រឡប់​ក្ដារចុច​នៅ​ក្នុង​កម្រិត​​សំឡេង​​តិចៗ</string>
+  <string name="summaryOn_pref_intonation">អានក្ដារចុច​ដែលបានលុបពាក្យឬឃ្លា​នៅក្នុងកម្រិតសំឡេងខ្ពស់</string>
   <string name="summaryOff_pref_intonation">កុំ​ប្ដូរ​​កម្រិត​សំឡេង​ពេល​និយាយ</string>
   <string name="title_pref_brailleime">ក្ដារចុច​អក្សរស្ទាប</string>
   <string name="title_pref_category_feedback_settings">ប្រតិកម្ម​ផ្សេងៗ</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">បើក​ការ​បំបាត់​កំហុស​មែកធាង​ថ្នាំង</string>
   <string name="summary_pref_tree_debug_tv">ប្រើពាក្យគន្លឹះស្វែងរកដោយសំឡេងដើម្បីបោះពុម្ពមែកធាងណូតជំនួសឲ្យការស្វែងរក</string>
   <string name="title_pref_performance_stats">បើកស្ថិតិប្រតិបត្តិការ</string>
+  <string name="title_pref_log_overlay">បើក​ការត្រួតគ្នា​នៃកំណត់ហេតុ​ជួសជុល</string>
   <string name="title_pref_resume_talkback">បន្ត​ពី​ការ​ផ្អាក</string>
+  <string name="title_pref_typing_confirmation">ចំណូលចិត្ត​នៃការវាយបញ្ចូល</string>
   <string name="title_pref_multi_finger_gesture">បើក​ចលនា​ម្រាមដៃ​ច្រើន</string>
   <string name="screen_dimmed">បានលាក់អេក្រង់</string>
   <string name="screen_brightness_restored">កំពុងបង្ហាញ​អេក្រង់</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">រំកិលចុះក្រោម</string>
   <string name="shortcut_scroll_left">រំកិលទៅឆ្វេង</string>
   <string name="shortcut_scroll_right">រំកិលទៅស្តាំ</string>
+  <string name="shortcut_next_window">វិនដូ​បន្ទាប់</string>
+  <string name="shortcut_previous_window">វិនដូ​មុន</string>
   <string name="shortcut_back">ថយក្រោយ</string>
   <string name="shortcut_home">ប៊ូតុងដើម</string>
   <string name="shortcut_overview">ទិដ្ឋភាពរួម</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">លាក់ ឬបង្ហាញអេក្រង់</string>
   <string name="title_show_screen_search">ស្វែងរកលើអេក្រង់</string>
   <string name="title_show_voice_commands">ការបញ្ជាដោយសំឡេង</string>
+  <string name="talkback_show_talkback_settings">ការកំណត់​មុខងារតបវិញ</string>
   <string name="title_other_web_navigation">ការរុករកបណ្ដាញផ្សេងទៀត</string>
   <string name="title_granularity_default">ការរុករក​លំនាំដើម</string>
   <string name="title_seek_bar_edit">កែ​កម្រិត​របាររំកិល</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">គ្រប់គ្រង​មុខងារ​តបវិញ​ដោយប្រើ​សំឡេង​របស់អ្នក</string>
   <string name="summary_show_hide_screen">លាក់ផ្ទាំងអេក្រង់ ដើម្បីកុំឱ្យអ្នកដទៃ​មើលឃើញអេក្រង់​របស់អ្នកនៅតាម​ទីសាធារណៈ។ បន្ទាប់ពីលាក់​អេក្រង់របស់អ្នក សូមត្រឡប់វាទៅ​ស្ថានភាពធម្មតាវិញ។</string>
   <string name="summary_talkback_preferences">បើកការកំណត់​មុខងារតបវិញ</string>
-  <string name="summary_system_actions">ចូលទៅកាន់​កម្មវិធីទាំងអស់ &gt; ការកំណត់រហ័ស រួចប្រើមុខងារ​បំបែកអេក្រង់</string>
+  <string name="summary_system_actions">ចូលទៅកាន់​ការកំណត់រហ័ស និងកម្មវិធីទាំងអស់</string>
   <string name="summary_tts_settings">បើកការកំណត់​ការបំប្លែងអត្ថបទទៅជាការនិយាយ</string>
   <string name="summary_pause_feedback">បិទសំឡេងរបស់មុខងារ​តបវិញ</string>
   <string name="not_editable">មិន​អាច​កែ​បានទេ</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">អានមួយពាក្យ​ម្ដង</string>
   <string name="summary_lines">អានមួយជួរ​ម្ដង</string>
   <string name="summary_paragraphs">អានមួយកថាខណ្ឌ​ម្ដង</string>
+  <string name="summary_windows">រំលងទៅវិនដូផ្សេងទៀតដូចជា ផ្ទាំងគ្រប់គ្រងកម្រិតសំឡេង ឬរបាររុករកជាដើម</string>
   <string name="summary_headings">រំលង​រវាងចំណងជើង</string>
   <string name="summary_controls">រំលងរវាងធាតុ​ដែលអ្នកអាចធ្វើ​អន្តរកម្មជាមួយដូចជា ប៊ូតុង ប្រអប់ធីក និងកន្លែងបញ្ចូល​អត្ថបទជាដើម</string>
   <string name="summary_links">រំលង​រវាងតំណ</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">ប្ដូរថាតើត្រូវអានគ្រាប់ចុចដែល​បាន​វាយបញ្ចូល គន្លឹះនៃការប្រើប្រាស់ ព័ត៌មាន​អំពីក្រឡា និងព័ត៌មានផ្សេងទៀតឱ្យ​​​​ឮឬអត់</string>
   <string name="summary_selector_menu_punctuation">ប្ដូរថាតើអានសញ្ញាវណ្ណយុត្ត និងនិមិត្តសញ្ញាផ្សេងៗឱ្យ​ឮឬអត់</string>
   <string name="summary_language">ប្ដូរភាសានិយាយ​របស់អ្នក។ បង្ហាញតែនៅពេល​អ្នកបានដំឡើង​ភាសាច្រើនដែល​បំប្លែងអត្ថបទទៅ​ជាការនិយាយប៉ុណ្ណោះ។</string>
-  <string name="summary_sound_feedback">ស្ដាប់ឮឥទ្ធិពល​សំឡេង​ដូចជាសំឡេង​ពីប នៅពេលអ្នករុករក ដើម្បីបញ្ជាក់សកម្មភាព។</string>
+  <string name="summary_sound_feedback">ស្ដាប់ឮឥទ្ធិពល​សំឡេង​ដូចជាសំឡេង​ពីប នៅពេលអ្នករុករក ដើម្បីបញ្ជាក់សកម្មភាព</string>
   <string name="summary_vibration_feedback">ញ័រនៅពេលធ្វើសកម្មភាពផ្សេងៗ ដូចជាពេលជ្រើសរើសធាតុជាដើម។ មិនប៉ះពាល់ដល់ការ​ញ័រ ដែលចេញមកពីកម្មវិធី ឬប្រព័ន្ធទេ។</string>
   <string name="summary_hide_screen">លាក់ផ្ទាំងអេក្រង់ ដើម្បីកុំឱ្យអ្នកដទៃ​មើលឃើញអេក្រង់​របស់អ្នក ពេលនៅ​ទីសាធារណៈ</string>
   <string name="summary_audio_ducking">បន្ថយកម្រិតសំឡេងនៃការចាក់សំឡេងផ្សេងទៀត នៅពេលមុខងារតបវិញនិយាយ</string>
   <string name="summary_support_scroll_seq">រំកិល​ទៅមុខ ឬ​ទៅក្រោយ</string>
+  <string name="summary_support_change_a11y_volume">បង្កើន ឬបន្ថយកម្រិតសំឡេងភាពងាយស្រួល</string>
+  <string name="summary_image_caption">ទទួលបានការពណ៌នាស្វ័យប្រវត្តិសម្រាប់រូបភាពនេះ</string>
   <string name="value_direction_up">ឡើង</string>
   <string name="value_direction_down">ចុះ</string>
   <string name="value_direction_left">ឆ្វេង</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">ចុចពីរដង​ឱ្យជាប់​ដោយប្រើម្រាមដៃ 2</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">ចុចពីរដង​ឱ្យជាប់​ដោយប្រើម្រាមដៃ 3</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">ចុចពីរដង​ឱ្យជាប់​ដោយប្រើម្រាមដៃ 4</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">ចុចបីដង​ឱ្យជាប់​ដោយប្រើម្រាមដៃ 2</string>
+  <string name="seekbar_hint_2gesture">\"%1$s\" ឬ %2$s\" ដើម្បីកែតម្រូវ</string>
+  <string name="seekbar_hint_1gesture">\"%1$s\" ដើម្បីកែតម្រូវ</string>
   <string name="gesture_name_unknown">មិនស្គាល់​ចលនាទេ</string>
   <string name="gesture_name_pass_through">ឆ្លងកាត់​ចលនាប្រព័ន្ធ</string>
   <string name="gesture_name_touch_explore">រុករកដោយ​ការចុច</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">ចុចពីរដងឱ្យជាប់</string>
   <string name="gesture_name_2finger_tap_hold">ចុចឱ្យជាប់​ដោយប្រើម្រាមដៃ 2</string>
   <string name="gesture_name_3finger_tap_hold">ចុចឱ្យជាប់​ដោយប្រើម្រាមដៃ 3</string>
+  <string name="gesture_name_2finger_3tap_hold">ចុចបីដង​ឱ្យជាប់​ដោយប្រើម្រាមដៃ 2</string>
   <string name="gesture_name_3finger_3tap_hold">ចុចបីដង​ឱ្យជាប់​ដោយប្រើម្រាមដៃ 3</string>
   <string name="title_pref_shortcut_fingerprint_up">អូស​ឡើងលើ​នៅលើ​ឧបករណ៍​ចាប់ស្នាម​ម្រាមដៃ</string>
   <string name="title_pref_shortcut_fingerprint_down">អូស​ចុះក្រោម​នៅលើ​ឧបករណ៍​ចាប់ស្នាម​ម្រាមដៃ</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">ពេល​បើក​អេក្រង់</string>
   <string name="value_resume_keyguard">ពេល​បង្ហាញ​ការ​ចាក់សោ​អេក្រង់</string>
   <string name="value_resume_manual">ពី​ការ​ជូនដំណឹង​តែ​ប៉ុណ្ណោះ</string>
+  <string name="value_type_confirmation_double_tap">សង្កត់ម្រាមដៃឱ្យជាប់ ដើម្បីជ្រើសរើស​គ្រាប់ចុច រួច​ចុចពីរដង</string>
+  <string name="value_type_confirmation_lift_to_type">សង្កត់ម្រាមដៃឱ្យជាប់ ដើម្បីជ្រើសរើស​គ្រាប់ចុច រួច​ដកម្រាមដៃចេញ</string>
   <string name="value_shake_to_read_disabled">បាន​បិទ</string>
   <string name="value_shake_to_read_threshold_very_light">ភ្លឺ​​ណាស់</string>
   <string name="value_shake_to_read_threshold_light">ភ្លឺ</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">អានគ្រាប់ចុចដែល​បាន​វាយបញ្ចូល​ជា​និច្ច</string>
   <string name="value_keyboard_echo_softkeys">សម្រាប់​តែ​ក្ដារចុច​លើ​អេក្រង់</string>
   <string name="value_keyboard_echo_never">កុំ​អានគ្រាប់ចុចដែល​បានវាយ​បញ្ចូល</string>
+  <string name="title_pref_keyboard_echo_on_screen">ក្ដារចុចនិយាយ៖ ក្ដារ​ចុច​លើ​អេក្រង់</string>
+  <string name="title_pref_keyboard_echo_physical">ក្ដារចុចនិយាយ៖ ក្ដារ​ចុចរូបវន្ត</string>
+  <string name="value_keyboard_echo_none">គ្មាន</string>
+  <string name="value_keyboard_echo_characters_only">តួ​អក្សរ​</string>
+  <string name="value_keyboard_echo_words_only">ពាក្យ</string>
+  <string name="value_keyboard_echo_characters_and_words">តួ​អក្សរ​ និងពាក្យ</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">រដ្ឋ ឈ្មោះ ប្រភេទ</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">ប្រភេទ ឈ្មោះ រដ្ឋ</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">ឈ្មោះ ប្រភេទ រដ្ឋ</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">តើ​អ្នក​ប្រាកដ​ជា​ចង់​បើក​ការ​បំបាត់​កំហុស​ដើម​ថ្នាំង​?\n\nបំបាត់​កំហុស​ដើម​ថ្នាំង​បង្ហាញ​មាតិកា​នៃ​អេក្រង់​របស់​អ្នក​ទៅ​កាន់​កំណត់​ហេតុ​ឧបករណ៍​របស់​អ្នក​ ដែល​អ្នក​​អាច​អាន​តាម​​កម្មវិធី​ផ្សេង​ទៀត​។</string>
   <string name="dialog_title_enable_performance_stats">បើកដំណើរការស្ថិតិប្រតិបត្តិការដែរទេ?</string>
   <string name="dialog_message_enable_performance_stats">តើអ្នកប្រាកដថាចង់បើកស្ថិតិប្រតិបត្តិការដែរទេ?\n\nស្ថិតិប្រតិបត្តិការអាចនឹងប្រើអង្គចងចាំ និងថ្មច្រើនជាងមុន។</string>
+  <string name="title_request_phone_permission">អនុញ្ញាត​ឱ្យចូលប្រើទូរសព្ទដែរទេ?</string>
+  <string name="message_request_phone_permission">ការធ្វើបែប​នេះជួយ TalkBack ក្នុងការកាត់បន្ថយ​ការប្រកាស នៅពេលអ្នក​កំពុងនិយាយទូរសព្ទ</string>
+  <string name="continue_button">បន្ត</string>
   <string name="label_talkback_context_menu">ម៉ឺនុយ​បរិបទ​សកល​របស់ TalkBack</string>
   <string name="permission_talkback_label">ពិនិត្យ TalkBack</string>
   <string name="permission_talkback_desc">សិទ្ធិ​ក្នុង​ការ​ផ្ញើ​កាយវិការ​ទៅកាន់​ TalkBack និង​បន្ត​មតិយោបល់​ដែល​បាន​និយាយ។</string>
-  <string name="permission_labeling_label">គ្រប់គ្រង​ស្លាក​ផ្ទាល់ខ្លួន​របស់ TalkBack</string>
-  <string name="permission_labeling_desc">សិទ្ធិ​ចូល​ដំណើរការ​, កែប្រែ ​និង​លុប​ស្លាក​ផ្ទាល់​​ខ្លួន​ដែល​បាន​អាន​​ដោយ​ TalkBack ។</string>
   <string name="links">តំណ</string>
   <string name="end_of_text">បញ្ចប់</string>
   <string name="start_of_page">គ្មាន %1$s ពីមុនទេ</string>
@@ -614,6 +644,7 @@
   <string name="title_pref_selector_granularity">ការរុករក</string>
   <string name="title_pref_selector_audio_focus">ការធ្វើឱ្យស្ងាត់​សំឡេង</string>
   <string name="title_pref_support_scroll_seq">រំកិល</string>
+  <string name="title_pref_a11y_volume">កម្រិតសំឡេងភាពងាយស្រួល</string>
   <string name="title_pref_selector_adjustable_widget_slider">កែតម្រូវ​របាររំកិល</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">កែតម្រូវតម្លៃ</string>
   <string name="title_pref_speak_passwords_without_headphones">អានពាក្យសម្ងាត់</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">ប្រើ​ការបញ្ជាដោយ​សំឡេង</string>
   <string name="dialog_title_pass_through_mode">រំលងចលនារបស់មុខងារតបវិញ ដើម្បីប្រើចលនារបស់ប្រព័ន្ធ</string>
   <string name="dialog_message_pass_through_mode">នៅពេលអ្នក​ឮកណ្ដឹង អ្នកអាចប្រើ​ចលនាប្រព័ន្ធដែលមិនអាចប្រើ​ជាមួយមុខងារតបវិញ​បាន។ ការធ្វើបែបនេះ​ត្រូវបានគេស្គាល់ថា​ជាចលនារំលង។</string>
-  <string name="hint_type_search_term">វាយបញ្ចូលពាក្យស្វែងរក</string>
+  <string name="hint_type_search_term">ពាក្យស្វែងរក</string>
   <string name="talkback_notification_channel_name">កម្មវិធី​តបវិញ</string>
   <string name="talkback_notification_channel_description">បណ្ដាញ​ជូនដំណឹង​នៃកម្មវិធី​តបវិញ</string>
   <string name="pref_selector_summary">%1$s ដើម្បី​ជ្រើសរើស​ការកំណត់។ បន្ទាប់មក %2$s ដើម្បី​កែតម្រូវ​ការកំណត់។</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">ដើម្បីកាត់​អត្ថបទ សូមចុចពីរដងឱ្យជាប់​ដោយប្រើម្រាមដៃ 3។\n\nដើម្បី​ដាក់ចូល​អត្ថបទ សូមចុចបីដង​ដោយប្រើម្រាមដៃ 3។\n\nសាកល្បង​ដាក់ចូល​ពាក្យណាមួយ​នៅក្នុង​ប្រអប់អត្ថបទ​ខាងក្រោម។</string>
   <string name="copy_text_pre_r">បន្ទាប់ពី​ជ្រើសរើស​អត្ថបទ​ហើយ អ្នកអាច​ចម្លងវា​នៅក្នុង​ម៉ឺនុយ​មុខងារតបវិញ​។ អូស​ចុះក្រោម រួចទៅស្ដាំ ដើម្បី​បើក​ម៉ឺនុយ​មុខងារតបវិញ​។ ចុចពីរដង​លើជម្រើសកែ រួច​ចម្លង។\n\nសាកល្បង​ចម្លងពាក្យណាមួយ​នៅក្នុង​ប្រអប់អត្ថបទ​ខាងក្រោម​។</string>
   <string name="cut_paste_text_pre_r">ដើម្បីកាត់ ឬដាក់ចូល​អត្ថបទ សូមបើក​ម៉ឺនុយមុខងារតបវិញ រួចចុចពីរដង​លើជម្រើសកែ។\n\nសាកល្បង​ដាក់ចូល​ពាក្យណាមួយ​នៅក្នុង​ប្រអប់អត្ថបទ​ខាងក្រោម។</string>
+  <string name="edit_box_hint_paste_text">ដាក់អត្ថបទចូលទីនេះ</string>
   <string name="read_by_character_title">អានតាម​តួអក្សរ ពាក្យ ឬ​កថាខណ្ឌ</string>
   <string name="read_by_character_text">ជួនកាល អ្នក​ប្រហែលជា​ចង់ស្ដាប់​ការអាន​ឮៗ​ម្ដងមួយតួអក្សរ​។\n\nដើម្បី​ធ្វើបែបនេះបាន សូមអូសទៅស្ដាំ​ដោយប្រើម្រាមដៃ 3 រហូតទាល់តែ​អ្នកឮសំឡេងថា \"%1$s\"។ បន្ទាប់មក​អូសឡើងលើ ដើម្បី​ផ្លាស់ទី​ការផ្ដោត​ការរុករក​ថយក្រោយ​តាមតួអក្សរ​។ អូស​ចុះក្រោម ដើម្បី​ផ្លាស់ទី​ការផ្ដោត​ការរុករក​ទៅមុខ​តាមតួអក្សរ។\n\nសាកល្បង​ធ្វើ​ឥឡូវនេះ​។ នៅពេល​អ្នកអូស​ទៅស្ដាំ​ដោយប្រើម្រាមដៃ 3 អ្នកក៏អាច​ជ្រើសរើស​អាន​តាមពាក្យ ឬ​កថាខណ្ឌ​បានផងដែរ​។</string>
   <string name="read_by_character_text_pre_r">ជួនកាល អ្នក​ប្រហែលជា​ចង់ស្ដាប់​ការអាន​ឮៗ​ម្ដងមួយតួអក្សរ​។\n\nដើម្បី​ធ្វើបែបនេះបាន សូមអូស​ចុះក្រោម រួចឡើងលើ​រហូតទាល់តែ​អ្នកឮសំឡេងថា \"%1$s\"។ បន្ទាប់មក​អូសឡើងលើ ដើម្បី​ផ្លាស់ទី​ការផ្ដោត​ការរុករក​ថយក្រោយ​តាមតួអក្សរ​។ អូស​ចុះក្រោម ដើម្បី​ផ្លាស់ទី​ការផ្ដោត​ការរុករក​ទៅមុខ​តាមតួអក្សរ។\n\nសាកល្បង​ធ្វើ​ឥឡូវនេះ​។ នៅពេល​អ្នក​អូសចុះក្រោម រួចឡើងលើ អ្នកក៏អាច​ជ្រើសរើស​អាន​តាមពាក្យ ឬ​កថាខណ្ឌ​បានផងដែរ​។</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">បានបើក​ដំណើរការ %1$s</string>
   <string name="talkback_inactive_title">មុខងារតបវិញគឺបិទ</string>
   <string name="talkback_inactive_message">មេរៀននេះ​តម្រូវឱ្យបើក​មុខងារតបវិញ។ សូមបើក​មុខងារតបវិញ មុនពេល​បើកដំណើរការ​មេរៀន។</string>
+  <string name="watch_swipe_left_right_text">អូសទៅស្ដាំ ឬទៅឆ្វេង ដើម្បីផ្លាស់ទីរវាងធាតុ</string>
+  <string name="watch_double_tap_text">ប៉ះពីរដង ដើម្បីបើកដំណើរការធាតុ</string>
+  <string name="watch_2_finger_scroll_text">អូសដោយប្រើម្រាមដៃ 2 ដើម្បីរំកិល</string>
+  <string name="title_pref_thick_border">ស៊ុម​ក្រាស់</string>
+  <string name="title_pref_category_border_color">ពណ៌</string>
+  <string name="title_pref_default_color">លំនាំដើម</string>
+  <string name="title_pref_red">ក្រហម</string>
+  <string name="title_pref_orange">ទឹកក្រូច</string>
+  <string name="title_pref_yellow">លឿង</string>
+  <string name="title_pref_green">បៃតង</string>
+  <string name="title_pref_blue">ខៀវ</string>
+  <string name="title_pref_grey">ប្រផេះ</string>
   <string name="survey_closed">បានបិទការស្ទង់មតិ</string>
+  <string name="character_recognition_text">អត្ថបទ៖ %1$s</string>
+  <string name="title_image_caption">ពណ៌នា​រូបភាព</string>
 </resources>

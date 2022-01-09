@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Toleo la %1$s</string>
   <string name="label_manager_summary_title">Dhibiti Lebo Maalum</string>
   <string name="label_manager_package_title">Simamia Lebo za %1$s</string>
+  <string name="manage_label">Dhibiti lebo</string>
   <string name="label_manager_no_packages_message">Hakuna lebo maalum kwa sasa. Unaweza kuunda lebo kwa kwenda kwenye picha isiyo na lebo na kuweka lebo katika Menyu ya TalkBack</string>
   <string name="label_manager_timestamp_text">Mara ya mwisho ilirekebishwa %1$s</string>
   <string name="search_dialog_label">Tafuta: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Chunguza kwa kugusa</string>
   <string name="title_pref_category_touch_exploration">Usogezaji</string>
   <string name="title_pref_category_controls">Vidhibiti</string>
-  <string name="title_pref_single_tap">Kuwasha kwa kugusa mara moja</string>
+  <string name="title_pref_single_tap">Gusa mara moja ili uanze kutumia</string>
   <string name="title_pref_show_context_menu_as_list">Onyesha menyu kama orodha</string>
-  <string name="summary_pref_single_tap">(Jaribio) Gusa mara moja kwenye kipengee kinacholengwa ili ukiwashe</string>
+  <string name="summary_pref_single_tap">Gusa mara moja kipengee kinacholengwa ili ukiwashe</string>
   <string name="title_pref_shake_to_read_threshold">Tikisa ili uanze kusoma mfululizo</string>
   <string name="pref_verbosity_title">Maneno mengi</string>
   <string name="pref_punctuation_title">Uakifishaji</string>
+  <string name="title_pref_category_manage_focus_indicator">Weka Mapendeleo ya Kiashirio cha Kulenga</string>
   <string name="title_pref_category_manage_gestures">Badilisha ishara ziwe utakavyo</string>
   <string name="title_pref_manage_labels">Lebo maalum</string>
   <string name="title_pref_manage_customize_menus">Badilisha menyu upendavyo</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Usaidizi na maoni</string>
   <string name="title_pref_category_tutorial_and_help">Mafunzo na usaidizi</string>
   <string name="title_pref_category_advanced">Mipangilio ya kina</string>
+  <string name="title_pref_category_typing">Kuandika na kibodi</string>
   <string name="title_pref_category_legal_and_privacy">Sheria na faragha</string>
   <string name="title_pref_advanced_settings">Mipangilio ya kina</string>
   <string name="reset_gesture_settings_title">Badilisha mipangilio ya ishara</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Programu za hivi majuzi</string>
   <string name="keycombo_menu_global_notifications">Arifa</string>
   <string name="keycombo_menu_global_suspend">Sitisha au uendelee kutumia TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Cheza au usimamishe maudhui</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Chagua kidhibiti kinachofuata cha kusoma</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Chagua kidhibiti kilichotangulia cha kusoma</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Sogeza kidhibiti cha kusoma juu</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Sogeza kidhibiti cha kusoma chini</string>
   <string name="keycombo_menu_category_granularity">Usogezaji</string>
   <string name="keycombo_menu_granularity_increase">Mipangilio ya maelekezo inayofuata</string>
   <string name="keycombo_menu_granularity_decrease">Mipangilio ya maelekezo iliyotangulia</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Hakuna maandishi ya kunakili, chagua maandishi kwanza.</string>
   <string name="cannot_paste_feedback">Hakuna maandishi ya kubandika, nakili maandishi kwanza.</string>
   <string name="cannot_cut_feedback">Hakuna maandishi ya kukata, chagua maandishi kwanza.</string>
+  <string name="cannot_delete_feedback">Hakuna maandishi ya kufuta, chagua maandishi kwanza.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Una uhakika kuwa ungependa kuweka upya vitufe vya njia ya mkato vya maana ya kundi hili la vitufe kuwa katika thamani chaguomsingi? Kumbuka kuwa kitendo hiki hakiwezi kutenduliwa.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Weka upya</string>
   <string name="override_keycombo">Kitufe kinatumika tayari</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Tumia mabadiliko ya sauti</string>
   <string name="title_pref_keyboard_echo">Mwangwi wa kibodi</string>
   <string name="pref_node_desc_order_title">Mpangilio wa ufafanuzi wa vipengele</string>
-  <string name="summaryOn_pref_intonation">Tamka majibu ya kibodi kwa sauti ya chini</string>
+  <string name="summaryOn_pref_intonation">Tamka \'kibodi imefuta maandishi kwa sauti kali zaidi\'</string>
   <string name="summaryOff_pref_intonation">Usibadilishe sauti unapozungumza</string>
   <string name="title_pref_brailleime">Kibodi ya nukta nundu</string>
   <string name="title_pref_category_feedback_settings">Majibu mengine</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Washa Utatuzi wa Mpangilio wa nguzo</string>
   <string name="summary_pref_tree_debug_tv">Tumia kitufe cha kutafuta kwa kutamka ili uchapishe utambuzi wa nguzo badala ya kutafuta</string>
   <string name="title_pref_performance_stats">Ungependa kuwasha takwimu za utendaji?</string>
+  <string name="title_pref_log_overlay">Ruhusu uwekeleaji juu wa kumbukumbu ya utatuzi</string>
   <string name="title_pref_resume_talkback">Rudi kufanya kazi</string>
+  <string name="title_pref_typing_confirmation">Mapendeleo ya kuandika</string>
   <string name="title_pref_multi_finger_gesture">Ruhusu ishara za vidole vingi</string>
   <string name="screen_dimmed">Skrini imefichwa</string>
   <string name="screen_brightness_restored">Inaonyesha skrini</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Nenda chini</string>
   <string name="shortcut_scroll_left">Nenda kushoto</string>
   <string name="shortcut_scroll_right">Nenda kulia</string>
+  <string name="shortcut_next_window">Dirisha linalofuata</string>
+  <string name="shortcut_previous_window">Dirisha lililotangulia</string>
   <string name="shortcut_back">Nyuma</string>
   <string name="shortcut_home">Mwanzo</string>
   <string name="shortcut_overview">Muhtasari</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Ficha au uonyeshe skrini</string>
   <string name="title_show_screen_search">Utafutaji kwenye skrini</string>
   <string name="title_show_voice_commands">Amri za sauti</string>
+  <string name="talkback_show_talkback_settings">Mipangilio ya TalkBack</string>
   <string name="title_other_web_navigation">Usogezaji mwingine kwenye wavuti</string>
   <string name="title_granularity_default">Usogezaji chaguomsingi</string>
   <string name="title_seek_bar_edit">Badilisha kiwango cha kitelezi</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Dhibiti TalkBack ukitumia sauti yako</string>
   <string name="summary_show_hide_screen">Ficha skrini yako ili isionekane kwa wengine ukiwa katika maeneo ya umma. Baada ya kuficha skrini yako, irejeshe katika hali ya kawaida.</string>
   <string name="summary_talkback_preferences">Fungua mipangilio ya TalkBack</string>
-  <string name="summary_system_actions">Nenda kwenye programu zote, Mipangilio ya Haraka na utumie skrini iliyogawanywa</string>
+  <string name="summary_system_actions">Nenda kwenye Mipangilio ya Haraka na programu zote</string>
   <string name="summary_tts_settings">Fungua mipangilio ya kusoma maandishi kwa sauti</string>
   <string name="summary_pause_feedback">Zima maoni yanayotamkwa ya TalkBack</string>
   <string name="not_editable">Huwezi kubadilisha</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Soma neno moja moja</string>
   <string name="summary_lines">Soma mstari mmoja mmoja</string>
   <string name="summary_paragraphs">Soma aya moja moja</string>
+  <string name="summary_windows">Nenda kwenye madirisha mengine, kama vile vidhibiti vya sauti au sehemu ya viungo muhimu</string>
   <string name="summary_headings">Ruka kati ya vichwa</string>
   <string name="summary_controls">Ruka kati ya vipengee unavyoweza kutumia kama vile vitufe, visanduku vya kuteua na sehemu za maandishi</string>
   <string name="summary_links">Ruka kati ya viungo</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Chagua iwapo vitufe vinavyobonyezwa, vidokezo vya matumizi, maelezo ya gridi na maelezo mengine yanasomwa kwa sauti</string>
   <string name="summary_selector_menu_punctuation">Chagua iwapo uakifishaji na ishara zinasomwa kwa sauti</string>
   <string name="summary_language">Badilisha lugha inayotamkwa. Huonekana tu wakati umeweka lugha nyingi za kusoma maandishi kwa sauti.</string>
-  <string name="summary_sound_feedback">Sikia madoido ya sauti unaposogeza, kama vile mlio wa kuthibitisha kitendo.</string>
+  <string name="summary_sound_feedback">Sikia madoido ya sauti unaposogeza, kama vile mlio wa kuthibitisha kitendo</string>
   <string name="summary_vibration_feedback">Hisi mitetemo ya vitendo kama vile kuchagua kipengee. Haiathiri mitetemo inayotoka kwenye programu au mfumo.</string>
   <string name="summary_hide_screen">Ficha skrini yako ili isionekane kwa wengine unapokuwa katika maeneo ya umma</string>
   <string name="summary_audio_ducking">Punguza kiwango cha sauti zingine zinazocheza wakati Talkback inazungumza</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Sogeza mbele au nyuma</string>
+  <string name="summary_support_change_a11y_volume">Ongeza au upunguze kiwango cha sauti ya Zana za ufikivu</string>
+  <string name="summary_image_caption">Pata maelezo otomatiki ya picha hii</string>
   <string name="value_direction_up">juu</string>
   <string name="value_direction_down">chini</string>
   <string name="value_direction_left">kushoto</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Gusa mara mbili na ushikilie ukitumia vidole viwili</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Gusa mara mbili na ushikilie ukitumia vidole vitatu</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Gusa mara mbili na ushikilie ukitumia vidole vinne</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Gusa mara tatu na ushikilie kwa vidole viwili</string>
+  <string name="seekbar_hint_2gesture">\"%1$s\" au %2$s\" ili urekebishe</string>
+  <string name="seekbar_hint_1gesture">\"%1$s\" ili urekebishe</string>
   <string name="gesture_name_unknown">Ishara isiyojulikana</string>
   <string name="gesture_name_pass_through">Tumia ishara za mfumo</string>
   <string name="gesture_name_touch_explore">Gusa gundua</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Gusa mara mbili na ushikilie</string>
   <string name="gesture_name_2finger_tap_hold">Gusa na ushikilie ukitumia vidole viwili</string>
   <string name="gesture_name_3finger_tap_hold">Gusa na ushikilie ukitumia vidole vitatu</string>
+  <string name="gesture_name_2finger_3tap_hold">Gusa mara tatu na ushikilie kwa vidole viwili</string>
   <string name="gesture_name_3finger_3tap_hold">Gusa mara tatu na ushikilie ukitumia vidole vitatu</string>
   <string name="title_pref_shortcut_fingerprint_up">Telezesha juu kwenye kitambua kidole</string>
   <string name="title_pref_shortcut_fingerprint_down">Telezesha chini kwenye kitambua kidole</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Skrini ikiwashwa</string>
   <string name="value_resume_keyguard">Wakati skrini iliyofungwa inaonyeshwa</string>
   <string name="value_resume_manual">Kutoka arifa pekee</string>
+  <string name="value_type_confirmation_double_tap">Shikilia kidole ili uchague kitufe, kisha uguse mara mbili</string>
+  <string name="value_type_confirmation_lift_to_type">Shikilia ili uchague kitufe, kisha uinue</string>
   <string name="value_shake_to_read_disabled">Kimezimwa</string>
   <string name="value_shake_to_read_threshold_very_light">Nguvu kidogo sana</string>
   <string name="value_shake_to_read_threshold_light">Mtikiso Mdogo</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Tamka vitufe kila wakati vinapocharazwa</string>
   <string name="value_keyboard_echo_softkeys">Kwa kibodi ya skrini pekee</string>
   <string name="value_keyboard_echo_never">Kamwe usitamke vitufe vinapocharazwa</string>
+  <string name="title_pref_keyboard_echo_on_screen">Mwangwi wa kibodi: Kibodi ya skrini</string>
+  <string name="title_pref_keyboard_echo_physical">Mwangwi wa kibodi: Kibodi halisi</string>
+  <string name="value_keyboard_echo_none">Hamna</string>
+  <string name="value_keyboard_echo_characters_only">Herufi</string>
+  <string name="value_keyboard_echo_words_only">Maneno</string>
+  <string name="value_keyboard_echo_characters_and_words">Herufi na maneno</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Jimbo, jina, aina</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Aina, jina, jimbo</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Jina, aina, jimbo</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Je, una uhakika unataka kuwasha utatuzi wa mpangilio wa nguzo?\n\nUtatuzi wa mpangilio wa nguzo huonyesha maudhui ya skrini yako kwa kumbukumbu za kifaa chako, ambayo yanaweza kufikiwa na programu nyingine.</string>
   <string name="dialog_title_enable_performance_stats">Ungependa Kuwasha Takwimu za Utendaji?</string>
   <string name="dialog_message_enable_performance_stats">Una uhakika unataka kuwasha takwimu za utendaji?\n\nHuenda takwimu za utendaji zikatumia hifadhi na nishati zaidi.</string>
+  <string name="title_request_phone_permission">Ungependa kuruhusu ufikiaji wa simu?</string>
+  <string name="message_request_phone_permission">Hatu hii husaidida TalkBack kupunguza matangazo unapowasiliana kwenye simu</string>
+  <string name="continue_button">Endelea</string>
   <string name="label_talkback_context_menu">Menyu ya maudhui yote ya TalkBack</string>
   <string name="permission_talkback_label">Dhibiti TalkBack</string>
   <string name="permission_talkback_desc">Ruhusa ya kutuma ishara kwa TalkBack na kuendelea na majibu yanayotamkwa.</string>
-  <string name="permission_labeling_label">Dhibiti lebo maalum za TalkBack</string>
-  <string name="permission_labeling_desc">Ruhusa ya kufikia, kurekebisha, na kufuta lebo maalum zinazotamkwa na TalkBack.</string>
   <string name="links">Viungo</string>
   <string name="end_of_text">Mwisho</string>
   <string name="start_of_page">Hakuna %1$s iliyotangulia</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Uakifishaji</string>
   <string name="title_pref_selector_granularity">Usogezaji</string>
   <string name="title_pref_selector_audio_focus">Upunguzaji wa sauti</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Kusogeza</string>
+  <string name="title_pref_a11y_volume">Sauti ya zana za ufikivu</string>
   <string name="title_pref_selector_adjustable_widget_slider">Rekebisha kitelezi</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Rekebisha kiasi</string>
   <string name="title_pref_speak_passwords_without_headphones">Tamka manenosiri</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Tumia amri za sauti</string>
   <string name="dialog_title_pass_through_mode">Ruka ishara za TalkBack ili utumie ishara za mfumo</string>
   <string name="dialog_message_pass_through_mode">Ukisikia sauti ya kengele, unaweza kutumia ishara ya mfumo isiyotumika kwenye TalkBack. Hii inajulikana kama ishara ya mfumo.</string>
-  <string name="hint_type_search_term">Andika hoja ya utafutaji</string>
+  <string name="hint_type_search_term">Hoja ya utafutaji</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Kituo cha Arifa cha TalkBack</string>
   <string name="pref_selector_summary">%1$s ili uchague mipangilio. Kisha %2$s ili ubadilishe mipangilio.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Ili ukate maandishi, gusa mara mbili na ushikilie kwa vidole vitatu.\n\nIli ubandike maandishi, gusa mara tatu kwa vidole vitatu.\n\nJaribu kubandika neno katika kisanduku cha maandishi kilicho hapa chini.</string>
   <string name="copy_text_pre_r">Baada ya kuchagua maandishi, unaweza kuyanakili katika menyu ya TalkBack. Telezesha kidole chini kisha kulia ili ufungue menyu ya TalkBack. Gusa mara mbili kwenye chaguo za kubadilisha kisha unakili.\n\nJaribu kunakili neno katika kisanduku cha maandishi kilicho hapa chini.</string>
   <string name="cut_paste_text_pre_r">Ili ukate au ubandike maandishi, fungua menyu ya TalkBack na uguse mara mbili kwenye chaguo za kubadilisha.\n\nJaribu kubandika neno katika kisanduku cha maandishi kilicho hapa chini.</string>
+  <string name="edit_box_hint_paste_text">Bandika maandishi hapa</string>
   <string name="read_by_character_title">Soma kulingana na herufi, neno au aya</string>
   <string name="read_by_character_text">Wakati mwingine, unaweza kutaka kusikia maandishi yakisomwa kwa sauti, herufi moja baada ya nyingine.\n\Ili ufanye hivi, telezesha vidole vitatu kulia hadi utakaposikia \"%1$s\". Kisha, telezesha kidole juu ili usogeze ulengaji nyuma kulingana na herufi. Telezesha kidole chini ili usogeze ulengaji mbele kulingana na herufi.\n\nIjaribu sasa. Ukitelezesha vidole vitatu kulia, unaweza pia kuchagua kusoma kulingana na maneno au aya.</string>
   <string name="read_by_character_text_pre_r">Wakati mwingine, unaweza kutaka kusikia maandishi yakisomwa kwa sauti, herufi moja baada ya nyingine.\n\Ili ufanye hivi, telezesha kidole chini kisha juu hadi utakaposikia \"%1$s\". Kisha, telezesha kidole juu ili uhamishie ulengaji wa kusogeza nyuma kulingana na herufi. Telezesha kidole chini ili uhamishie ulengaji wa kusogeza mbele kulingana na herufi.\n\nIjaribu sasa. Ukitelezesha kidole chini kisha juu, unaweza pia kuchagua kusoma kulingana na maneno au aya.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">Umewasha %1$s</string>
   <string name="talkback_inactive_title">TalkBack Imezimwa</string>
   <string name="talkback_inactive_message">Unahitaji kuwasha TalkBack ili upate mafunzo haya. Tafadhali washa TalkBack kabla ya kuanzisha mafunzo haya.</string>
+  <string name="watch_swipe_left_right_text">Telezesha kidole kulia au kushoto ili usogeze kati ya vipengee</string>
+  <string name="watch_double_tap_text">Gusa mara mbili ili uwashe kipengee</string>
+  <string name="watch_2_finger_scroll_text">Buruta vidole viwili ili usogeze</string>
+  <string name="title_pref_thick_border">Mipaka minene</string>
+  <string name="title_pref_category_border_color">Rangi</string>
+  <string name="title_pref_default_color">Chaguomsingi</string>
+  <string name="title_pref_red">Nyekundu</string>
+  <string name="title_pref_orange">Rangi ya machungwa</string>
+  <string name="title_pref_yellow">Manjano</string>
+  <string name="title_pref_green">Kijani</string>
+  <string name="title_pref_blue">Samawati</string>
+  <string name="title_pref_grey">Kijivu</string>
   <string name="survey_closed">Utafiti umefungwa</string>
+  <string name="character_recognition_text">Maandishi: %1$s</string>
+  <string name="title_image_caption">Toa maelezo kuhusu picha</string>
 </resources>

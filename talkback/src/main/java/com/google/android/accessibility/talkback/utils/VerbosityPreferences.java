@@ -95,11 +95,12 @@ public class VerbosityPreferences {
   }
 
   private static String getPresetValueHighFromListPreference(String key, Resources resources) {
-    if (key.equals(resources.getString(R.string.pref_keyboard_echo_key))) {
+    if (key.equals(resources.getString(R.string.pref_keyboard_echo_on_screen_key))
+        || key.equals(resources.getString(R.string.pref_keyboard_echo_physical_key))) {
       String[] keyboardEchoValues = resources.getStringArray(R.array.pref_keyboard_echo_values);
       return (keyboardEchoValues == null || keyboardEchoValues.length == 0)
           ? null
-          : keyboardEchoValues[0];
+          : keyboardEchoValues[keyboardEchoValues.length - 1];
     } else if (key.equals(resources.getString(R.string.pref_capital_letters_key))) {
       String[] capitalLetterValues = resources.getStringArray(R.array.pref_capital_letters_values);
       return (capitalLetterValues == null || capitalLetterValues.length == 0)
@@ -112,11 +113,12 @@ public class VerbosityPreferences {
   }
 
   private static String getPresetValueLowFromListPreference(String key, Resources resources) {
-    if (key.equals(resources.getString(R.string.pref_keyboard_echo_key))) {
+    if (key.equals(resources.getString(R.string.pref_keyboard_echo_on_screen_key))
+        || key.equals(resources.getString(R.string.pref_keyboard_echo_physical_key))) {
       String[] keyboardEchoValues = resources.getStringArray(R.array.pref_keyboard_echo_values);
       return (keyboardEchoValues == null || keyboardEchoValues.length == 0)
           ? null
-          : keyboardEchoValues[keyboardEchoValues.length - 1];
+          : keyboardEchoValues[0];
     } else if (key.equals(resources.getString(R.string.pref_capital_letters_key))) {
       String[] capitalLetterValues = resources.getStringArray(R.array.pref_capital_letters_values);
       return (capitalLetterValues == null || capitalLetterValues.length == 0)

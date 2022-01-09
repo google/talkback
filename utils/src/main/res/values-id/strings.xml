@@ -23,6 +23,7 @@
   <string name="granularity_line">Baris</string>
   <string name="granularity_paragraph">Paragraf</string>
   <string name="granularity_page">Halaman</string>
+  <string name="granularity_window">Jendela</string>
   <string name="granularity_web_landmark">Penanda</string>
   <string name="granularity_web_heading">Judul</string>
   <string name="granularity_web_list">Daftar</string>
@@ -44,6 +45,6 @@
   <string name="exit_scrim">Keluar</string>
   <string name="show_keyboard_window">Menampilkan %1$s</string>
   <string name="hide_keyboard_window">keyboard disembunyikan</string>
-  <string name="function_on">Masukan lisan aktif</string>
-  <string name="function_off">Masukan lisan nonaktif</string>
+  <string name="function_on">Respons lisan aktif</string>
+  <string name="function_off">Respons lisan nonaktif</string>
 </resources>

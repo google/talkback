@@ -82,7 +82,8 @@ public class TextEventInterpreter {
   // Methods to interpret event based on event content and event history
 
   /** Extract a text event interpretation data from event. May return null. */
-  public @Nullable TextEventInterpretation interpret(AccessibilityEvent event) {
+  public @Nullable TextEventInterpretation interpret(
+      AccessibilityEvent event, boolean shouldEchoAddedText, boolean shouldEchoInitialWords) {
     // Interpret more specific event type.
     @Compositor.Event int eventType = event.getEventType();
     TextEventInterpretation interpretation;
@@ -98,6 +99,27 @@ public class TextEventInterpreter {
 
       default:
         return null;
+    }
+
+    switch (interpretation.getEvent()) {
+      case AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED:
+      case Compositor.EVENT_TYPE_INPUT_TEXT_CLEAR:
+      case Compositor.EVENT_TYPE_INPUT_TEXT_ADD:
+      case Compositor.EVENT_TYPE_INPUT_TEXT_REPLACE:
+      case Compositor.EVENT_TYPE_INPUT_TEXT_PASSWORD_ADD:
+      case Compositor.EVENT_TYPE_INPUT_TEXT_PASSWORD_REMOVE:
+      case Compositor.EVENT_TYPE_INPUT_TEXT_PASSWORD_REPLACE:
+        if (!shouldEchoAddedText) {
+          interpretation.setAddedText("");
+        }
+        if (!shouldEchoInitialWords) {
+          interpretation.setInitialWord("");
+        }
+        break;
+      case Compositor.EVENT_TYPE_INPUT_TEXT_REMOVE:
+        // Always echo the Text Remove event
+      default:
+        break;
     }
 
     // Display interpretation, seal interpretation.

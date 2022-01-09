@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">ဒေါ့(တ်)တည်နေရာကို အပ်ဒိတ်လုပ်နေသည်။ ပထမဦးစွာ သင့်ဘယ်ဘက်လက်ရှိ ဒေါ့(တ်)များကို မှတ်တမ်းတင်ပါမည်။ ဖန်သားပြင်ကို ဘယ်ဘက်လက်၏ အလယ်လက်ချောင်း ၃ ချောင်းဖြင့် တို့ထိ၍ဖိထားပါ။</string>
   <string name="calibration_step1_hold_right_finger_announcement">ဒေါ့(တ်)တည်နေရာကို အပ်ဒိတ်လုပ်နေသည်။ ပထမဦးစွာ သင့်ညာဘက်လက်ရှိ ဒေါ့(တ်)များကို မှတ်တမ်းတင်ပါမည်။ ဖန်သားပြင်ကို ညာဘက်လက်၏ အလယ်လက်ချောင်း ၃ ချောင်းဖြင့် တို့ထိ၍ဖိထားပါ။</string>
   <string name="calibration_finish_announcement">ဒေါ့(တ်)တည်နေရာကို ပြောင်းပြီးပါပြီ</string>
+  <string name="remaining_calibration_finish_announcement">ဒေါ့(တ်)တည်နေရာအားလုံးကို အပ်ဒိတ်လုပ်ထားသည်</string>
   <string name="calibration_step2_hold_right_finger_announcement">ဒေါ့(တ်) ၁၊ ၂ နှင့် ၃ အတွက် အပ်ဒိတ်လုပ်ထားသော တည်နေရာများ။ နောက်တစ်ဆင့်တွင် သင့်ညာဘက်လက်ရှိ ဒေါ့(တ်)များကို မှတ်တမ်းတင်ပါမည်။ ဖန်သားပြင်ကို ညာဘက်လက်၏ အလယ်လက်ချောင်း ၃ ချောင်းဖြင့် တို့ထိ၍ဖိထားပါ။</string>
   <string name="calibration_step2_hold_left_finger_announcement">ဒေါ့(တ်) ၁၊ ၂ နှင့် ၃ အတွက် အပ်ဒိတ်လုပ်ထားသော တည်နေရာများ။ နောက်တစ်ဆင့်တွင် သင့်ဘယ်ဘက်လက်ရှိ ဒေါ့(တ်)များကို မှတ်တမ်းတင်ပါမည်။ ဖန်သားပြင်ကို ဘယ်ဘက်လက်၏ အလယ်လက်ချောင်း ၃ ချောင်းဖြင့် တို့ထိ၍ဖိထားပါ။</string>
   <string name="calibration_fail_announcement">ဒေါ့(တ်)တည်နေရာကို အပ်ဒိတ်လုပ်၍မရပါ။ ဖန်သားပြင်ကို လက်ချောင်း ၆ ချောင်းဖြင့် တို့ထိ၍ဖိထားပါ။ ထို့နောက် ထပ်စမ်းကြည့်ပါ။</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">စပိန်</string>
   <string name="code_user_facing_name_ar">အာရဗီ</string>
+  <string name="code_user_facing_name_fr">ပြင်သစ်</string>
   <string name="title_pref_accumulate_presses">နှိပ်ထားသော အစက်များ အားလုံးပါဝင်သည်</string>
   <string name="summary_pref_accumulate_presses">နှိပ်ထားသော အစက်တစ်ခုချင်းစီက အခြားအစက် မတိုင်မီ ပြန်လွှတ်လိုက်သည့်တိုင် ထည့်သွင်းမှုတွင် ပါဝင်သည်</string>
   <string name="title_pref_reverse_dots">ပြောင်းပြန် အစက်များ</string>
   <string name="summary_pref_reverse_dots">အစက်များ၏ နေရာကို ပြောင်းခြင်းဖြင့် အစက် ၁ နှင့် ၄ ကို နေရာလဲလှယ်နိုင်သည်၊ ဥပမာ</string>
-  <string name="typing_echo_list_preference_title">စာရိုက်မှု တုံ့ပြန်ချက် (စာရိုက်မှု အသံထွက်)</string>
-  <string name="typing_echo_preference_label_characters">အက္ခရာနှင့် စကားလုံးအားလုံး ဖတ်ရန်</string>
-  <string name="typing_echo_preference_label_words">စကားလုံးများသာ ဖတ်ရန်</string>
   <string name="context_menu_title">မျက်မမြင်စာရေးစနစ် လက်ကွက် ရွေးချယ်မှုများ</string>
   <string name="context_menu_typing_language_selection">စာရိုက်ရန်ဘာသာစကားကို ပြောင်းရန်</string>
   <string name="context_menu_typing_language_selection_summary">%s ကို လောလောဆယ် သုံးနေသည်</string>

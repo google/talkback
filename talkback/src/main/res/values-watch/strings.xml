@@ -6,4 +6,10 @@
       This is the same as main_description on the Phone/Tablets. [BACKUP_MESSAGE_ID: 2978752407739962831]
     -->
     <string name="talkback_service_description">TalkBack is a screen reader primarily for people with blindness and low vision. It allows interaction with the device using spoken feedback.</string>
+
+    <!--
+    Srouce: The text of introducing TalkBack.
+    Description: In RTL language, "right" and "left" should be translated reverse. [CHAR_LIMIT=NONE]
+    -->
+    <string name="welcome_to_talkback_text">Get spoken feedback so you can use your watch without looking at the screen.</string>
 </resources>

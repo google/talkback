@@ -2,7 +2,7 @@
 <resources>
   <string name="braille_ime_service_name">TalkBack ब्रेल किबोर्ड</string>
   <string name="switch_to_screen_away_announcement">\'स्क्रिन अवे\' मोड</string>
-  <string name="switch_to_tabletop_announcement">टेबलटप मोड। यन्त्रको चार्जिङ पोर्टको भाग बायाँतिर राख्नुहोस्। डटको स्थिति क्यालिब्रेट गर्न ६ वटा औँलाले थिचिराख्नुहोस्।</string>
+  <string name="switch_to_tabletop_announcement">टेबलटप मोड। डिभाइसको चार्जिङ पोर्टको भाग बायाँतिर राख्नुहोस्। डटको स्थिति क्यालिब्रेट गर्न ६ वटा औँलाले थिचिराख्नुहोस्।</string>
   <string name="braille_ime_hidden_announcement">ब्रेल किबोर्ड लुकाइयो</string>
   <string name="bring_ime_settings_page">अर्को कुनै पनि किबोर्ड सक्षम पारिएको छैन, किबोर्डका सेटिङमा जानुहोस्</string>
   <string name="reminder_announcement">थप विकल्पहरू प्राप्त गर्न ३ वटा औँलाले माथितिर स्वाइप गर्नुहोस्</string>
@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">डटको स्थिति क्यालीब्रेट गरिँदै छ। सर्वप्रथम, आफ्नो देब्रे हात प्रयोग गरी डटको स्थिति क्लालिब्रेट गरौँ। आफ्नो देब्रे हातका बिचका ३ वटा औँलाले स्क्रिनमा छोइराख्नुहोस्।</string>
   <string name="calibration_step1_hold_right_finger_announcement">डटको स्थिति क्यालीब्रेट गरिँदै छ। सर्वप्रथम, आफ्नो दाहिने हात प्रयोग गरी डटको स्थिति क्यालिब्रेट गरौँ। आफ्नो दाहिने हातका बिचका ३ वटा औँलाले स्क्रिनमा छोइराख्नुहोस्।</string>
   <string name="calibration_finish_announcement">डटको स्थिति क्यालिब्रेट गरियो</string>
+  <string name="remaining_calibration_finish_announcement">सबै डट क्यालिब्रेट गरिएका छन्</string>
   <string name="calibration_step2_hold_right_finger_announcement">१, २ र ३ डटहरूको स्थिति क्यालिब्रेट गरियो। अब, दाहिने हात प्रयोग गरी डटहरू क्यालिब्रेट गरौँ। आफ्नो दाहिने हातका बिचका ३ वटा औँलाले स्क्रिनमा छोइराख्नुहोस्।</string>
   <string name="calibration_step2_hold_left_finger_announcement">१, २ र ३ डटहरूको स्थिति क्यालिब्रेट गरियो। अब, आफ्नो देब्रे हात प्रयोग गरी डटको स्थिति क्यालिब्रेट गरौँ। आफ्नो देब्रे हातका बिचका ३ वटा औँलाले स्क्रिनमा छोइराख्नुहोस्।</string>
   <string name="calibration_fail_announcement">डटको स्थिति क्यालिब्रेट गर्न सकिएन। ६ वटा औँलाले स्क्रिनमा टच एण्ड होल्ड गर्नुहोस्। त्यसपछि फेरि प्रयास गर्नुहोस्।</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">एकीकृत अङ्ग्रेजी ब्रेल</string>
   <string name="code_user_facing_name_es">स्प्यानिस</string>
   <string name="code_user_facing_name_ar">अरबी</string>
+  <string name="code_user_facing_name_fr">फ्रान्सेली</string>
   <string name="title_pref_accumulate_presses">थिचिएका सबै डटहरू समावेश गर्नुहोस्</string>
   <string name="summary_pref_accumulate_presses">अन्य डटहरूभन्दा अघि नै छोडिए पनि थिचिएको हरेक डटले इनपुट सृजना गर्छ</string>
   <string name="title_pref_reverse_dots">डटहरू उल्ट्याउनुहोस्</string>
   <string name="summary_pref_reverse_dots">उदाहरणका लागि १ र ४ डटले स्थान साटासाट गरून् भन्नाका खातिर डटको स्थिति परिवर्तन गर्नुहोस्</string>
-  <string name="typing_echo_list_preference_title">टाइपिङसम्बन्धी प्रतिक्रिया (टाइपिङ इको)</string>
-  <string name="typing_echo_preference_label_characters">सबै अक्षर र शब्दहरू पढियोस्</string>
-  <string name="typing_echo_preference_label_words">शब्दहरू मात्र पढियोस्</string>
   <string name="context_menu_title">ब्रेल किबोर्डका विकल्पहरू</string>
   <string name="context_menu_typing_language_selection">टाइप गर्ने भाषा परिवर्तन गर्नुहोस्</string>
   <string name="context_menu_typing_language_selection_summary">हाल %s प्रयोग गरिँदै छ</string>
@@ -48,7 +47,7 @@
   <string name="context_menu_switch_contracted_status_selection">बदलेर %s ब्रेल पार्नुहोस्</string>
   <string name="contracted">सङ्कुचन गरिएको</string>
   <string name="uncontracted">सङ्कुचन नगरिएको</string>
-  <string name="context_menu_see_all_gestures_selection">Review all gestures</string>
+  <string name="context_menu_see_all_gestures_selection">सबै इसाराहरू हेर्नुहोस्</string>
   <string name="context_menu_tutorial_selection">ट्युटोरियल खोल्नुहोस्</string>
   <string name="context_menu_tutorial_finish">ट्युटोरियल बन्द गर्नुहोस्</string>
   <string name="context_menu_settings_selection">सेटिङहरू</string>
@@ -68,12 +67,12 @@
   <string name="cut_all">सबै पाठ कट गर्नुहोस्‌</string>
   <string name="paste_all">पेस्ट गर्नुहोस्</string>
   <string name="screen_away">\'स्क्रिन अवे\' मोड</string>
-  <string name="screen_away_detail">आफ्नो विपरीत दिशातिर स्क्रिन पर्ने गरी यन्त्र समात्नुहोस् (\'स्क्रिन अवे\' मोड)</string>
+  <string name="screen_away_detail">आफ्नो विपरीत दिशातिर स्क्रिन पर्ने गरी डिभाइस समात्नुहोस् (\'स्क्रिन अवे\' मोड)</string>
   <string name="tabletop">टेबलटप मोड</string>
   <string name="tabletop_detail">यन्त्रलाई टेबुलमा सुताएर राख्नुहोस् (टेबलटप मोड)</string>
   <string name="auto_detect">तपाईंले यन्त्र समात्ने तरिकाअनुसार समायोजन गर्नु…</string>
   <string name="not_enough_touch_points_dialog_title">यस यन्त्रमा ब्रेल किबोर्ड चल्दैन</string>
-  <string name="not_enough_touch_points_dialog_message">तपाईंको यन्त्रमा पर्याप्त स्पर्श विन्दुहरू क्रियाशील छैनन्। थप जानकारीका लागि आफ्ना यन्त्रका उत्पादकसँग सम्पर्क गर्नुहोस्।</string>
+  <string name="not_enough_touch_points_dialog_message">तपाईंको डिभाइसमा पर्याप्त स्पर्श विन्दुहरू क्रियाशील छैनन्। थप जानकारीका लागि आफ्ना डिभाइसका उत्पादकसँग सम्पर्क गर्नुहोस्।</string>
   <string name="read_out_deleted">%s मेटाइयो</string>
   <plurals name="braille_dots">
     <item quantity="one">डट %s</item>

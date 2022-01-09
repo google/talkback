@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">تعديل موضع النقاط: لنبدأ أولاً بتسجيل موضع النقاط لأصابع يدك اليسرى. انقر مع الاستمرار على الشاشة بالأصابع الثلاثة الوسطى من يدك اليسرى.</string>
   <string name="calibration_step1_hold_right_finger_announcement">تعديل موضع النقاط: لنبدأ أولاً بتسجيل موضع النقاط لأصابع يدك اليمنى. انقر مع الاستمرار على الشاشة بالأصابع الثلاثة الوسطى من يدك اليمنى.</string>
   <string name="calibration_finish_announcement">تم تعديل موضع النقاط.</string>
+  <string name="remaining_calibration_finish_announcement">تم تعديل كل مواضع النقاط.</string>
   <string name="calibration_step2_hold_right_finger_announcement">المواضع المُعدَّلة للنقاط 1 و2 و3: لنسجّل بعد ذلك موضع النقاط لأصابع يدك اليمنى. انقر مع الاستمرار على الشاشة بالأصابع الثلاثة الوسطى من يدك اليمنى.</string>
   <string name="calibration_step2_hold_left_finger_announcement">المواضع المُعدَّلة للنقاط 1 و2 و3: لنسجّل بعد ذلك موضع النقاط لأصابع يدك اليسرى. انقر مع الاستمرار على الشاشة بالأصابع الثلاثة الوسطى من يدك اليسرى.</string>
   <string name="calibration_fail_announcement">تعذّر تعديل موضع النقاط. انقر مع الاستمرار على الشاشة باستخدام 6 أصابع ثم أعِد المحاولة.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">لغة برايل الإنجليزية الموحدة</string>
   <string name="code_user_facing_name_es">الإسبانية</string>
   <string name="code_user_facing_name_ar">العربية</string>
+  <string name="code_user_facing_name_fr">الفرنسية</string>
   <string name="title_pref_accumulate_presses">تضمين كل النقاط التي تم الضغط عليها</string>
   <string name="summary_pref_accumulate_presses">كل نقطة يتم الضغط عليها هي جزء من الإدخال حتى إذا تم تحريرها قبل النقاط الأخرى.</string>
   <string name="title_pref_reverse_dots">عكس النقاط</string>
   <string name="summary_pref_reverse_dots">تبديل مواضع النقاط: مثلاً يتم تبديل النقطة رقم \"1\" مع النقطة رقم \"4\".</string>
-  <string name="typing_echo_list_preference_title">تعليقات الكتابة (صدى الكتابة)</string>
-  <string name="typing_echo_preference_label_characters">قراءة كل الحروف والكلمات</string>
-  <string name="typing_echo_preference_label_words">قراءة الكلمات فقط</string>
   <string name="context_menu_title">خيارات لوحة مفاتيح برايل</string>
   <string name="context_menu_typing_language_selection">تغيير لغة الكتابة</string>
   <string name="context_menu_typing_language_selection_summary">يتم حاليًا استخدام %s.</string>

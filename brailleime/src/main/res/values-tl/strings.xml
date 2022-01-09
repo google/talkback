@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Ina-update ang posisyon ng dot. Una, i-record natin ang mga dot sa iyong kaliwang kamay. Pindutin nang matagal ang screen gamit ang gitnang 3 daliri ng iyong kaliwang kamay.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Ina-update ang posisyon ng dot. Una, i-record natin ang mga dot sa iyong kanang kamay. Pindutin nang matagal ang screen gamit ang gitnang 3 daliri ng iyong kanang kamay.</string>
   <string name="calibration_finish_announcement">Na-update ang posisyon ng dot</string>
+  <string name="remaining_calibration_finish_announcement">Na-update na ang lahat ng posisyon ng dot</string>
   <string name="calibration_step2_hold_right_finger_announcement">Na-update ang mga posisyon para sa dot 1, 2, at 3. Pagkatapos, i-record natin ang mga dot sa iyong kanang kamay. Pindutin nang matagal ang screen gamit ang gitnang 3 daliri ng iyong kanang kamay.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Na-update ang mga posisyon para sa dot 1, 2, at 3. Pagkatapos, i-record natin ang mga dot sa iyong kaliwang kamay. Pindutin nang matagal ang screen gamit ang gitnang 3 daliri ng iyong kaliwang kamay.</string>
   <string name="calibration_fail_announcement">Hindi ma-update ang posisyon ng dot. Pindutin nang matagal ang screen gamit ang 6 na daliri. Pagkatapos ay subukan ulit.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">Spanish</string>
   <string name="code_user_facing_name_ar">Arabic</string>
+  <string name="code_user_facing_name_fr">French</string>
   <string name="title_pref_accumulate_presses">Isama ang lahat ng pressed dot</string>
   <string name="summary_pref_accumulate_presses">Bahagi ng input ang lahat ng pressed dot, kahit na binitawan ang dot bago ang iba pang dot</string>
   <string name="title_pref_reverse_dots">Mga reverse dot</string>
   <string name="summary_pref_reverse_dots">Pagpalitin ang mga posisyon ng dot, halimbawa, para magpalitan ng pwesto ang dot 1 at dot 4</string>
-  <string name="typing_echo_list_preference_title">Feedback sa pag-type (echo sa pag-type)</string>
-  <string name="typing_echo_preference_label_characters">Basahin ang lahat ng titik at salita</string>
-  <string name="typing_echo_preference_label_words">Ang mga salita lang ang basahin</string>
   <string name="context_menu_title">Mga opsyon ng braille keyboard</string>
   <string name="context_menu_typing_language_selection">Palitan ang wika sa pag-type</string>
   <string name="context_menu_typing_language_selection_summary">Kasalukuyang %s ang ginagamit</string>

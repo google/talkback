@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">තිත් පිහිටීම යාවත්කාලීන කරමින්. පළමුව, ඔබගේ වම් අතෙහි තිත් සටහන් කරමු. ඔබේ වම් අතේ මැද ඇඟිලි 3 සමඟ තිරය ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
   <string name="calibration_step1_hold_right_finger_announcement">තිත් පිහිටීම යාවත්කාලීන කරමින්. පළමුව, ඔබගේ දකුණු අතෙහි තිත් සටහන් කරමු. ඔබේ දකුණු අතේ මැද ඇඟිලි 3 සමඟ තිරය ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
   <string name="calibration_finish_announcement">තිත පිහිටීම යාවත්කාලීන කරන ලදි</string>
+  <string name="remaining_calibration_finish_announcement">සියලු තිත් ස්ථාන යාවත්කාලීන කරන ලදි</string>
   <string name="calibration_step2_hold_right_finger_announcement">1, 2 සහ 3 තිත් සඳහා පිහිටීම් යාවත්කාලීන කරන ලදි. ඊළඟට, ඔබගේ දකුණු අතෙහි තිත් සටහන් කරමු. ඔබේ දකුණු අතේ මැද ඇඟිලි 3 සමඟ තිරය ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
   <string name="calibration_step2_hold_left_finger_announcement">1, 2 සහ 3 තිත් සඳහා පිහිටීම් යාවත්කාලීන කරන ලදි. ඊළඟට, ඔබගේ වම් අතෙහි තිත් සටහන් කරමු. ඔබේ වම් අතේ මැද ඇඟිලි 3 සමඟ තිරය ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
   <string name="calibration_fail_announcement">තිත පිහිටීම යාවත්කාලීන කළ නොහැකි විය. ඇඟිලි 6කින් තිරය ස්පර්ශ කර අල්ලාගෙන සිටින්න. අනතුරුව නැවත උත්සාහ කරන්න.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">ඒකීකෘත ඉංග්‍රීසි බ්රේල්</string>
   <string name="code_user_facing_name_es">ස්පාඤ්ඤ</string>
   <string name="code_user_facing_name_ar">අරාබි</string>
+  <string name="code_user_facing_name_fr">ප්‍රංශ</string>
   <string name="title_pref_accumulate_presses">සියලු එබූ තිත් ඇතුළත්ය</string>
   <string name="summary_pref_accumulate_presses">තිත අනෙක් තිත්වලට පෙර නිකුත් කර ඇති විට පවා, එක් එක් එබූ තිතක් ආදානයක කොටසකි</string>
   <string name="title_pref_reverse_dots">ප්‍රතිවර්ත තිත්</string>
   <string name="summary_pref_reverse_dots">තිත් ස්ථාන මාරු කරන්න, තිත් 1 සහ 4 ස්ථාන මාරු වන ලෙස, උදාහරණ වශයෙන්</string>
-  <string name="typing_echo_list_preference_title">ටයිප් කිරීමේ ප්‍රතිපෝෂණය (ටයිප් කිරීමේ දෝංකාරය)</string>
-  <string name="typing_echo_preference_label_characters">සියලු අකුරු සහ වචන කියවන්න</string>
-  <string name="typing_echo_preference_label_words">වවන පමණක් ලියන්න</string>
   <string name="context_menu_title">බ්රේල් යතුරු පුවරු ස්ථාන</string>
   <string name="context_menu_typing_language_selection">ටයිප් කිරීමේ භාෂාව වෙනස් කරන්න</string>
   <string name="context_menu_typing_language_selection_summary">දැනට %s භාවිත කරමින්</string>

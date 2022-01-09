@@ -15,6 +15,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  */
 public final class UrlDialogAdapter extends ArrayAdapter<SpannableUrl> {
 
+  private int urlMinHeightPx = 0;
+
   /**
    * @param context The context associated with this adapter.
    * @param spannableUrls A list of {@link SpannableUrl} to be displayed in a single row via the
@@ -31,6 +33,8 @@ public final class UrlDialogAdapter extends ArrayAdapter<SpannableUrl> {
     if (spannableUrl == null) {
       return view;
     }
+    view.setPadding(0, 0, 0, 0);
+    view.setMinimumHeight(urlMinHeightPx);
     TextView urlTextView = view.findViewById(R.id.dialog_url_view);
     if (spannableUrl.isTextAndPathEquivalent()) {
       urlTextView.setText(spannableUrl.path());
@@ -42,5 +46,10 @@ public final class UrlDialogAdapter extends ArrayAdapter<SpannableUrl> {
     }
 
     return view;
+  }
+
+  /** Sets the minimum height for each URL item in the dialog list. */
+  public void setUrlMinHeightPx(int minHeightPx) {
+    urlMinHeightPx = minHeightPx;
   }
 }

@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Jezik</string>
   <string name="voice_commands_languages">Jezici</string>
   <string name="voice_commands_custom_actions">prilagođene radnje</string>
+  <string name="voice_commands_action">Radnja</string>
   <string name="voice_commands_quick_settings">Brze postavke</string>
   <string name="voice_commands_quick_setting">Brza postavka</string>
   <string name="voice_commands_dim">zatamni</string>
@@ -35,7 +36,7 @@
   <string name="voice_commands_next_control">Sljedeća kontrola</string>
   <string name="voice_commands_next_link">Sljedeći link</string>
   <string name="voice_commands_next_landmark">Sljedeće obilježje</string>
-  <string name="voice_commands_select">Odaberi</string>
+  <string name="voice_commands_select">Odabir</string>
   <string name="voice_commands_start_select">Pokreni odabir</string>
   <string name="voice_commands_start_selection_mode">Pokreni način rada odabira</string>
   <string name="voice_commands_start_selection">Pokreni odabir</string>
@@ -96,9 +97,9 @@
   <string name="voice_commands_no_mic_permissions">Da biste koristili ovu funkciju morate odobriti korištenje mikrofona.</string>
   <string name="voice_commands_no_voice_recognition_ability">Žao mi je! Ova funkcija nije dostupna na vašem uređaju</string>
   <string name="voice_commands_error">Greška pri prepoznavanju glasovne komande</string>
-  <string name="voice_commands_partial_result">Nije moguće prepoznati ovu komandu. Recite \"%1$s\" za listu svih komandi.</string>
+  <string name="voice_commands_partial_result">Nije moguće prepoznati ovu komandu. Recite \"%1$s\" da dobijete listu svih komandi.</string>
+  <string name="voice_commands_timeout">Recite \"%1$s\" da dobijete listu svih komandi.</string>
   <string name="voice_commands_many_requests">Pokušajte ponovo za koji trenutak</string>
-  <string name="voice_commands_setting_disabled">Postavka \"%1$s\" nije omogućena</string>
   <string name="voice_commands_echo_feedback_not_recognized">Govorni unos \"%1$s\" nije prepoznat kao glasovna komanda.</string>
   <string name="voice_commands_label_saved">Oznaka je sačuvana</string>
   <string name="voice_commands_no_actions_feedback">Nema dostupnih radnji</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Pregled glasovnе komande</string>
   <string name="voice_commands_help_description">Da koristite glasovne komande, prevucite udesno, a zatim nagore. Recite \"Pomoć\" ili \"Šta mogu reći?\" bilo kada da dobijete listu komandi.</string>
   <string name="voice_commands_help_hint">Da dobijete najbolje rezultate, izgovorite tekst kako je tačno naveden na sljedećim ekranima.</string>
+  <string name="voice_command_screen_locked_hint">Glasovne komande nisu dostupne kada je ekran zaključan. Da umjesto njih koristite meni TalkBacka, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Promjena načina čitanja sadržaja na trenutnom ekranu</string>
   <string name="voice_commands_help_next">Sljedeće [naslov]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Unos termina za pretraživanje radi pronalaska tog teksta na ekranu</string>
   <string name="voice_commands_help_text_editing_description">Unos, odabir i kopiranje teksta</string>
   <string name="voice_commands_help_type_text">Unesi [Uredu]</string>
-  <string name="voice_commands_help_copy_description">Provjerite je li tekst odabran prije kopiranja</string>
-  <string name="voice_commands_help_cut_description">Provjerite je li tekst odabran prije rezanja</string>
+  <string name="voice_commands_help_copy_description">Odaberite tekst prije kopiranja</string>
+  <string name="voice_commands_help_cut_description">Odaberite tekst prije izrezivanja</string>
+  <string name="voice_commands_help_delete_description">Odaberite tekst prije brisanja</string>
   <string name="voice_commands_help_device_navigation_title">Navigacija uređajem</string>
   <string name="voice_commands_help_device_navigation_description">Odlazak na početni ekran, vraćanje, prikaz obavještenja i ostalo</string>
   <string name="voice_commands_help_overview_description">Prikaz nedavnih aplikacija</string>

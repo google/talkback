@@ -14,6 +14,7 @@
   <string name="voice_commands_language">மொழி</string>
   <string name="voice_commands_languages">மொழிகள்</string>
   <string name="voice_commands_custom_actions">பிரத்தியேகச் செயல்கள்</string>
+  <string name="voice_commands_action">செயல்</string>
   <string name="voice_commands_quick_settings">விரைவு அமைப்புகள்</string>
   <string name="voice_commands_quick_setting">விரைவு அமைப்பு</string>
   <string name="voice_commands_dim">வெளிச்சத்தைக் குறை</string>
@@ -97,9 +98,9 @@
   <string name="voice_commands_no_voice_recognition_ability">உங்கள் சாதனத்தில் இந்த அம்சம் இல்லை</string>
   <string name="voice_commands_error">குரல் கட்டளையை அறிவதில் பிழை</string>
   <string name="voice_commands_partial_result">இந்தக் கட்டளை புரியவில்லை. அனைத்துக் கட்டளைகளுக்குமான பட்டியலுக்கு \"%1$s\" எனச் சொல்லவும்.</string>
+  <string name="voice_commands_timeout">அனைத்துக் கட்டளைகளுக்குமான பட்டியலுக்கு \"%1$s\" எனச் சொல்லவும்.</string>
   <string name="voice_commands_many_requests">சிறிது நேரம் கழித்து முயலவும்</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" அமைப்பு இயக்கப்படவில்லை</string>
-  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" குரல் கட்டளையாக அங்கீகரிக்கப்படவில்லை.</string>
+  <string name="voice_commands_echo_feedback_not_recognized">குரல் கட்டளையாக \"%1$s\" அங்கீகரிக்கப்படவில்லை.</string>
   <string name="voice_commands_label_saved">லேபிள் சேமிக்கப்பட்டது</string>
   <string name="voice_commands_no_actions_feedback">செயல்கள் இல்லை</string>
   <string name="voice_commands_no_next_heading_feedback">அடுத்த தலைப்பு இல்லை</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">குரல் கட்டளைக்கான மேலோட்டப் பார்வை</string>
   <string name="voice_commands_help_description">குரல் கட்டளைகளைப் பயன்படுத்த, வலதுபுறமாக ஸ்வைப் செய்து பிறகு மேல் நோக்கி ஸ்வைப் செய்யவும். எப்போது வேண்டுமானாலும் கட்டளைகளின் பட்டியலைக் காண, \"உதவி\" என்றோ \"நான் என்ன சொல்வது?\" என்றோ சொல்லவும்.</string>
   <string name="voice_commands_help_hint">மிகச் சரியான பதில்களுக்கு, பின்வரும் திரைகளில் பட்டியலிடப்பட்டுள்ள வார்த்தைகளைச் சொல்லுங்கள்.</string>
+  <string name="voice_command_screen_locked_hint">திரை பூட்டப்பட்டிருக்கும்போது குரல் கட்டளைகளைப் பயன்படுத்த முடியாது. அதற்குப் பதிலாக TalkBack மெனுவைப் பயன்படுத்த %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">தற்போதுள்ள திரையில் எப்படி உள்ளடக்கத்தை வாசிப்பீர்கள் என்பதை மாற்றும்</string>
   <string name="voice_commands_help_next">அடுத்த [தலைப்பிற்குச்] செல்லும்</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">திரையில் உரையைத் தேட, ஒரு தேடல் வார்த்தையை உள்ளிடவும்</string>
   <string name="voice_commands_help_text_editing_description">உரையை உள்ளிடும், தேர்ந்தெடுக்கும், நகலெடுக்கும்</string>
   <string name="voice_commands_help_type_text">[சரி] என உள்ளிடும்</string>
-  <string name="voice_commands_help_copy_description">நகலெடுப்பதற்கு முன்பாக உரையைத் தேர்வு செய்துள்ளீர்களா என்று உறுதிசெய்து கொள்ளவும்</string>
-  <string name="voice_commands_help_cut_description">வெட்டுவதற்கு முன்பாக உரையைத் தேர்வு செய்துள்ளீர்களா என்று உறுதிசெய்து கொள்ளவும்</string>
+  <string name="voice_commands_help_copy_description">நகலெடுப்பதற்கு முன் உரையைத் தேர்ந்தெடுக்கும்</string>
+  <string name="voice_commands_help_cut_description">வெட்டுவதற்கு முன் உரையைத் தேர்ந்தெடுக்கும்</string>
+  <string name="voice_commands_help_delete_description">நீக்குவதற்கு முன் உரையைத் தேர்ந்தெடுக்கும்</string>
   <string name="voice_commands_help_device_navigation_title">சாதன வழிசெலுத்தல்</string>
   <string name="voice_commands_help_device_navigation_description">முகப்புக்குச் செல்லும், பின் செல்லும், அறிவிப்புகளைக் காட்டும் மற்றும் பலவற்றைச் செய்யும்</string>
   <string name="voice_commands_help_overview_description">உங்கள் சமீபத்திய ஆப்ஸைக் காட்டும்</string>

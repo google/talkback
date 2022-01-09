@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Bahasa</string>
   <string name="voice_commands_languages">Bahasa</string>
   <string name="voice_commands_custom_actions">tindakan tersuai</string>
-  <string name="voice_commands_quick_settings">Tetapan pantas</string>
-  <string name="voice_commands_quick_setting">Tetapan pantas</string>
+  <string name="voice_commands_action">Tindakan</string>
+  <string name="voice_commands_quick_settings">Tetapan Pantas</string>
+  <string name="voice_commands_quick_setting">Tetapan Pantas</string>
   <string name="voice_commands_dim">malap</string>
   <string name="voice_commands_darken">menggelapkan</string>
   <string name="voice_commands_brighten_screen">cerahkan skrin</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Maaf! Ciri ini tidak tersedia pada peranti anda</string>
   <string name="voice_commands_error">Ralat semasa mengecam perintah suara</string>
   <string name="voice_commands_partial_result">Tidak mengenali perintah ini. Cakap \"%1$s\" untuk senarai semua perintah.</string>
+  <string name="voice_commands_timeout">Cakap \"%1$s\" untuk senarai semua perintah.</string>
   <string name="voice_commands_many_requests">Sila cuba sebentar lagi</string>
-  <string name="voice_commands_setting_disabled">Tetapan \"%1$s\" tidak didayakan</string>
   <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" tidak dikenali sebagai perintah suara.</string>
   <string name="voice_commands_label_saved">Label disimpan</string>
   <string name="voice_commands_no_actions_feedback">Tiada tindakan tersedia</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Ikhtisar perintah suara</string>
   <string name="voice_commands_help_description">Untuk menggunakan perintah suara, leret ke kanan kemudian ke atas. Sebut \"Bantuan\" atau \"Apakah yang boleh saya katakan?\" pada bila-bila masa untuk senarai perintah ini.</string>
   <string name="voice_commands_help_hint">Untuk mendapatkan hasil terbaik, sebut ayat yang sama yang tersenarai pada skrin berikut.</string>
+  <string name="voice_command_screen_locked_hint">Perintah suara tidak tersedia semasa skrin dikunci. Untuk menggunakan menu TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Tukar cara anda membaca kandungan pada skrin semasa</string>
   <string name="voice_commands_help_next">Seterusnya [tajuk]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Masukkan istilah carian untuk mencari teks tersebut pada skrin</string>
   <string name="voice_commands_help_text_editing_description">Taip, pilih dan salin teks</string>
   <string name="voice_commands_help_type_text">Taip [OK]</string>
-  <string name="voice_commands_help_copy_description">Pastikan anda telah memilih teks sebelum menyalin</string>
-  <string name="voice_commands_help_cut_description">Pastikan anda telah memilih teks sebelum memotong</string>
+  <string name="voice_commands_help_copy_description">Pilih teks sebelum menyalin</string>
+  <string name="voice_commands_help_cut_description">Pilih teks sebelum memotong</string>
+  <string name="voice_commands_help_delete_description">Pilih teks sebelum memadam</string>
   <string name="voice_commands_help_device_navigation_title">Navigasi peranti</string>
   <string name="voice_commands_help_device_navigation_description">Pergi ke Skrin Utama, kembali, tunjukkan pemberitahuan dan banyak lagi</string>
   <string name="voice_commands_help_overview_description">Lihat apl terbaharu anda</string>

@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Aggiornamento della posizione dei punti. Innanzitutto registra i punti della mano sinistra. Tocca e tieni premuto lo schermo con le 3 dita centrali della mano sinistra.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Aggiornamento della posizione dei punti. Innanzitutto registra i punti della mano destra. Tocca e tieni premuto lo schermo con le 3 dita centrali della mano destra.</string>
   <string name="calibration_finish_announcement">Posizione dei punti aggiornata</string>
+  <string name="remaining_calibration_finish_announcement">Tutte le posizioni dei punti sono state aggiornate</string>
   <string name="calibration_step2_hold_right_finger_announcement">Sono state aggiornate le posizioni dei punti 1, 2 e 3. Ora registra i punti della mano destra. Tocca e tieni premuto lo schermo con le 3 dita centrali della mano destra.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Sono state aggiornate le posizioni dei punti 1, 2 e 3. Ora registra i punti della mano sinistra. Tocca e tieni premuto lo schermo con le 3 dita centrali della mano sinistra.</string>
   <string name="calibration_fail_announcement">Impossibile aggiornare la posizione dei punti. Tocca e tieni premuto lo schermo con 6 dita, quindi riprova.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">Spagnolo</string>
   <string name="code_user_facing_name_ar">Arabo</string>
+  <string name="code_user_facing_name_fr">Francese</string>
   <string name="title_pref_accumulate_presses">Includi tutti i punti premuti</string>
   <string name="summary_pref_accumulate_presses">Ogni punto premuto fa parte dell\'input, anche se viene rilasciato prima degli altri punti</string>
   <string name="title_pref_reverse_dots">Punti inversi</string>
   <string name="summary_pref_reverse_dots">Inverti la posizione dei punti, in modo tale che i punti 1 e 4, ad esempio, si scambino di posto</string>
-  <string name="typing_echo_list_preference_title">Feedback digitazione (eco digitazione)</string>
-  <string name="typing_echo_preference_label_characters">Leggi tutte le lettere e le parole</string>
-  <string name="typing_echo_preference_label_words">Leggi solo le parole</string>
   <string name="context_menu_title">Opzioni tastiera braille</string>
   <string name="context_menu_typing_language_selection">Cambia lingua di digitazione</string>
   <string name="context_menu_typing_language_selection_summary">Attualmente in uso: %s</string>

@@ -155,6 +155,18 @@ public class AccessibilityEventProcessor {
   // Use bit mask to note what types of accessibility events should dump.
   private int dumpEventMask = 0;
 
+  /**
+   * Callback interface for the idle state when {@link AccessibilityEventProcessor} doesn't receive
+   * {@link AccessibilityEvent} for a while.
+   */
+  public interface AccessibilityEventIdleListener {
+    /** The time threshold of idle state for not receiving any {@link AccessibilityEvent}. */
+    int ACCESSIBILITY_EVENT_IDLE_STATE_MS = 3000;
+
+    /** Callback method for the idle state. */
+    void onIdle();
+  }
+
   public AccessibilityEventProcessor(TalkBackService service) {
     accessibilityManager =
         (AccessibilityManager) service.getSystemService(Context.ACCESSIBILITY_SERVICE);
@@ -190,6 +202,10 @@ public class AccessibilityEventProcessor {
 
   public void setRingerModeAndScreenMonitor(RingerModeAndScreenMonitor ringerModeAndScreenMonitor) {
     this.ringerModeAndScreenMonitor = ringerModeAndScreenMonitor;
+  }
+
+  public void setAccessibilityEventIdleListener(AccessibilityEventIdleListener listener) {
+    handler.setAccessibilityEventIdleListener(listener);
   }
 
   public void onAccessibilityEvent(AccessibilityEvent event, EventId eventId) {
@@ -238,6 +254,8 @@ public class AccessibilityEventProcessor {
     if (testingListener != null) {
       testingListener.afterAccessibilityEvent(event);
     }
+
+    handler.refreshIdleMessage();
   }
 
   /**
@@ -560,18 +578,31 @@ public class AccessibilityEventProcessor {
   private class DelayedEventHandler extends Handler {
 
     public static final int MESSAGE_WHAT_PROCESS_EVENT = 1;
+    public static final int MESSAGE_WHAT_PROCESSOR_IDLE = 2;
+
+    private AccessibilityEventIdleListener accessibilityEventIdleListener;
 
     @Override
     public void handleMessage(Message message) {
-      if (message.what != MESSAGE_WHAT_PROCESS_EVENT || message.obj == null) {
-        return;
-      }
+      switch (message.what) {
+        case MESSAGE_WHAT_PROCESS_EVENT:
+          if (message.obj == null) {
+            return;
+          }
+          @SuppressWarnings("unchecked")
+          EventIdAnd<AccessibilityEvent> eventAndId = (EventIdAnd<AccessibilityEvent>) message.obj;
+          AccessibilityEvent event = eventAndId.object;
+          processEvent(event, eventAndId.eventId);
+          event.recycle();
+          break;
 
-      @SuppressWarnings("unchecked")
-      EventIdAnd<AccessibilityEvent> eventAndId = (EventIdAnd<AccessibilityEvent>) message.obj;
-      AccessibilityEvent event = eventAndId.object;
-      processEvent(event, eventAndId.eventId);
-      event.recycle();
+        case MESSAGE_WHAT_PROCESSOR_IDLE:
+          if (accessibilityEventIdleListener != null) {
+            LogUtils.d(TAG, "Processor idle state.");
+            accessibilityEventIdleListener.onIdle();
+          }
+          break;
+      }
     }
 
     public void postProcessEvent(AccessibilityEvent event, EventId eventId) {
@@ -580,6 +611,17 @@ public class AccessibilityEventProcessor {
           new EventIdAnd<AccessibilityEvent>(eventCopy, eventId);
       Message msg = obtainMessage(MESSAGE_WHAT_PROCESS_EVENT, eventAndId);
       sendMessageDelayed(msg, EVENT_PROCESSING_DELAY);
+    }
+
+    public void refreshIdleMessage() {
+      removeMessages(MESSAGE_WHAT_PROCESSOR_IDLE);
+      sendEmptyMessageDelayed(
+          MESSAGE_WHAT_PROCESSOR_IDLE,
+          AccessibilityEventIdleListener.ACCESSIBILITY_EVENT_IDLE_STATE_MS);
+    }
+
+    public void setAccessibilityEventIdleListener(AccessibilityEventIdleListener listener) {
+      accessibilityEventIdleListener = listener;
     }
   }
 }

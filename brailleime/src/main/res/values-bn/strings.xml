@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">ডটের অবস্থান আপডেট করা হচ্ছে। প্রথমে, বাঁ হাতের সাহায্যে ডটের পজিশন ক্যালিব্রেট করতে থাকুন। আপনার বাঁ হাতের মাঝের ৩টি আঙুল দিয়ে স্ক্রিন প্রেস করে ধরে রাখুন।</string>
   <string name="calibration_step1_hold_right_finger_announcement">ডটের অবস্থান আপডেট করা হচ্ছে। প্রথমে, ডান হাতের সাহায্যে ডটের পজিশন ক্যালিব্রেট করতে থাকুন। আপনার ডান হাতের মাঝের ৩টি আঙুল দিয়ে স্ক্রিন প্রেস করে ধরে রাখুন।</string>
   <string name="calibration_finish_announcement">ডটের অবস্থান আপডেট করা হয়েছে</string>
+  <string name="remaining_calibration_finish_announcement">সব dot পজিশন আপডেট করা হয়েছে</string>
   <string name="calibration_step2_hold_right_finger_announcement">ডট ১, ২ এবং ৩ এর জন্য আপডেট করা অবস্থান। এখন, ডান হাতের সাহায্যে ডটের পজিশন ক্যালিব্রেট করতে থাকুন। আপনার ডান হাতের মাঝের ৩টি আঙুল দিয়ে স্ক্রিন প্রেস করে ধরে রাখুন।</string>
   <string name="calibration_step2_hold_left_finger_announcement">ডট ১, ২ এবং ৩ এর জন্য আপডেট করা অবস্থান। এখন, বাঁ হাতের সাহায্যে ডটের পজিশন ক্যালিব্রেট করতে থাকুন। আপনার বাঁ হাতের মাঝের ৩টি আঙুল দিয়ে স্ক্রিন প্রেস করে ধরে রাখুন।</string>
   <string name="calibration_fail_announcement">ডটের অবস্থান আপডেট করা যায়নি। ৬টি আঙুল দিয়ে স্ক্রিনটি ধরে রেখে রাখুন। তারপর আবার চেষ্টা করুন।</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">ইউনিফায়েড ইংলিশ ব্রেইল</string>
   <string name="code_user_facing_name_es">স্প্যানিশ</string>
   <string name="code_user_facing_name_ar">আরবি</string>
+  <string name="code_user_facing_name_fr">ফরাসি</string>
   <string name="title_pref_accumulate_presses">সমস্ত প্রেস করা ডট অন্তর্ভুক্ত করুন</string>
   <string name="summary_pref_accumulate_presses">এমনকি অন্যান্য ডটের আগে ডটটি প্রকাশ করা হলেও, প্রতিটি প্রেস করা ডট হল ইনপুটের অংশ</string>
   <string name="title_pref_reverse_dots">বিপরীত ডট</string>
   <string name="summary_pref_reverse_dots">যেমন, ডটের অবস্থানগুলি অদল বদল করুন, যাতে ডট ১ ও ৪-এর স্থান অদল বদল হয়ে যায়</string>
-  <string name="typing_echo_list_preference_title">টাইপিং সংক্রান্ত মতামত (টাইপিং প্রতিধ্বনি)</string>
-  <string name="typing_echo_preference_label_characters">সমস্ত অক্ষর এবং শব্দ পড়ুন</string>
-  <string name="typing_echo_preference_label_words">শুধুমাত্র শব্দ পড়ুন</string>
   <string name="context_menu_title">ব্রেইল কীবোর্ডের বিকল্প</string>
   <string name="context_menu_typing_language_selection">টাইপ করার ভাষা পরিবর্তন করুন</string>
   <string name="context_menu_typing_language_selection_summary">বর্তমানে %s ব্যবহার করা হচ্ছে</string>

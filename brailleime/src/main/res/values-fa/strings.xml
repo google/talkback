@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">درحال به‌روزرسانی موقعیت نقطه. ابتدا، بیایید نقطه‌ها را برای دست چپتان ثبت کنیم. با ۳ انگشت میانی دست چپتان، صفحه‌نمایش را لمس کنید و نگه دارید.</string>
   <string name="calibration_step1_hold_right_finger_announcement">درحال به‌روزرسانی موقعیت نقطه. ابتدا، بیایید نقطه‌ها را برای دست راستتان ثبت کنیم. با ۳ انگشت میانی دست راستتان، صفحه‌نمایش را لمس کنید و نگه دارید.</string>
   <string name="calibration_finish_announcement">موقعیت نقطه به‌روزرسانی شد</string>
+  <string name="remaining_calibration_finish_announcement">موقعیت همه نقطه‌ها به‌روزرسانی شد</string>
   <string name="calibration_step2_hold_right_finger_announcement">موقعیت نقطه‌های ۱، ۲، و ۳ به‌روزرسانی شد. سپس، بیایید نقطه‌ها را برای دست راستتان ثبت کنیم. با ۳ انگشت میانی دست راستتان، صفحه‌نمایش را لمس کنید و نگه دارید.</string>
   <string name="calibration_step2_hold_left_finger_announcement">موقعیت نقطه‌های ۱، ۲، و ۳ به‌روزرسانی شد. سپس، بیایید نقطه‌ها را برای دست چپتان ثبت کنیم. با ۳ انگشت میانی دست چپتان، صفحه‌نمایش را لمس کنید و نگه دارید.</string>
   <string name="calibration_fail_announcement">موقعیت نقطه به‌روزرسانی نشد. صفحه‌نمایش را با ۶ انگشت لمس کنید و نگه دارید. سپس دوباره امتحان کنید.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">بریل انگلیسی یکپارچه</string>
   <string name="code_user_facing_name_es">اسپانیایی</string>
   <string name="code_user_facing_name_ar">عربی</string>
+  <string name="code_user_facing_name_fr">فرانسوی</string>
   <string name="title_pref_accumulate_presses">همه نقاط فشرده‌شده در نظر گرفته شود</string>
   <string name="summary_pref_accumulate_presses">هر نقطه فشرده‌شده بخشی از ورودی است، حتی اگر قبل از نقاط دیگر رها شده باشد</string>
   <string name="title_pref_reverse_dots">نقاط وارونه شود</string>
   <string name="summary_pref_reverse_dots">موقعیت نقاط جابه‌جا می‌شود تا مثلاً جای نقاط ۱ و ۴ با هم عوض شود</string>
-  <string name="typing_echo_list_preference_title">بازخورد تایپ (صدای تایپ)</string>
-  <string name="typing_echo_preference_label_characters">خواندن همه حروف و کلمه‌ها</string>
-  <string name="typing_echo_preference_label_words">خواندن فقط کلمه‌ها</string>
   <string name="context_menu_title">گزینه‌های صفحه‌کلید بریل</string>
   <string name="context_menu_typing_language_selection">تغییر زبان تایپ</string>
   <string name="context_menu_typing_language_selection_summary">در حال حاضر از %s استفاده می‌شود</string>

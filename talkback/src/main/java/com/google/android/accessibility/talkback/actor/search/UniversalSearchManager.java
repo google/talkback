@@ -22,9 +22,9 @@ import static android.content.pm.ActivityInfo.CONFIG_LAYOUT_DIRECTION;
 import static com.google.android.accessibility.talkback.Feedback.HINT;
 
 import android.content.res.Configuration;
-import androidx.annotation.VisibleForTesting;
 import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.Feedback;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.R;

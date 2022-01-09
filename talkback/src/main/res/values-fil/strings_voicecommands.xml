@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Wika</string>
   <string name="voice_commands_languages">Mga Wika</string>
   <string name="voice_commands_custom_actions">mga custom na pagkilos</string>
-  <string name="voice_commands_quick_settings">Mga mabilisang setting</string>
-  <string name="voice_commands_quick_setting">Mabilisang setting</string>
+  <string name="voice_commands_action">Pagkilos</string>
+  <string name="voice_commands_quick_settings">Mga Mabilisang Setting</string>
+  <string name="voice_commands_quick_setting">Mabilisang Setting</string>
   <string name="voice_commands_dim">i-dim</string>
   <string name="voice_commands_darken">padilimin</string>
   <string name="voice_commands_brighten_screen">paliwanagin ang screen</string>
@@ -60,7 +61,7 @@
   <string name="voice_commands_dictate">Mag-dictate</string>
   <string name="voice_commands_write">Magsulat</string>
   <string name="voice_commands_Spell">Spell</string>
-  <string name="voice_commands_talkback_settings">Mga Setting ng TalkBack</string>
+  <string name="voice_commands_talkback_settings">Mga setting ng TalkBack</string>
   <string name="voice_commands_talkback_setting">Setting ng TalkBack</string>
   <string name="voice_commands_screen_search">Paghahanap sa screen</string>
   <string name="voice_commands_search_on_screen">Maghanap sa screen</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Paumahin! Hindi available ang feature na ito sa iyong device</string>
   <string name="voice_commands_error">Nagka-error sa pagkilala ng command gamit ang boses</string>
   <string name="voice_commands_partial_result">Hindi makilala ang command na ito. Sabihin ang \"%1$s\" para sa listahan ng lahat ng command.</string>
+  <string name="voice_commands_timeout">Sabihin ang \"%1$s\" para sa listahan ng lahat ng command.</string>
   <string name="voice_commands_many_requests">Pakisubukan ulit sa ilang sandali</string>
-  <string name="voice_commands_setting_disabled">Hindi naka-enable ang setting na \"%1$s\"</string>
   <string name="voice_commands_echo_feedback_not_recognized">Hindi nakikilala ang \"%1$s\" bilang command gamit ang boses.</string>
   <string name="voice_commands_label_saved">Na-save ang label</string>
   <string name="voice_commands_no_actions_feedback">Walang available na pagkilos</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Pangkalahatang-ideya ng command gamit ang boses</string>
   <string name="voice_commands_help_description">Para gamitin ang mga command gamit ang boses, mag-swipe pakanan at pagkatapos ay pataas. Sabihin ang \"Tulong\" o \"Ano ang puwede kong sabihin?\" anumang oras para sa listahan ng mga command na ito.</string>
   <string name="voice_commands_help_hint">Para sa pinakamahuhusay na resulta, sabihin ang eksaktong salitang nakalista sa mga sumusunod na screen.</string>
+  <string name="voice_command_screen_locked_hint">Hindi available ang mga command gamit ang boses habang naka-lock ang screen. Para menu ng TalkBack na lang ang gamitin, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Baguhin kung paano mo binabasa ang content sa kasalukuyang screen</string>
   <string name="voice_commands_help_next">Susunod na [heading]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Maglagay ng termino para sa paghahanap para makita ang text na iyon sa screen</string>
   <string name="voice_commands_help_text_editing_description">Mag-type, pumili, at kumopya ng text</string>
   <string name="voice_commands_help_type_text">I-type ang [OK]</string>
-  <string name="voice_commands_help_copy_description">Tiyaking may pinili kang text bago kopyahin</string>
-  <string name="voice_commands_help_cut_description">Tiyaking may pinili kang text bago mag-cut</string>
+  <string name="voice_commands_help_copy_description">Pumili ng text bago kumopya</string>
+  <string name="voice_commands_help_cut_description">Pumili ng text bago mag-cut</string>
+  <string name="voice_commands_help_delete_description">Pumili ng text bago mag-delete</string>
   <string name="voice_commands_help_device_navigation_title">Pag-navigate ng device</string>
   <string name="voice_commands_help_device_navigation_description">Pumunta sa Home, bumalik, ipakita ang mga notification, at higit pa</string>
   <string name="voice_commands_help_overview_description">Tingnan ang iyong mga kamakailang app</string>

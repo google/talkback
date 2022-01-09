@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Puntuen kokapena eguneratzen. Hasteko, ezkerreko eskuko puntuak erregistratuko ditugu. Eduki sakatuta pantaila ezkerreko eskuko erdiko hiru hatzekin.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Puntuen kokapena eguneratzen. Hasteko, eskuineko eskuko puntuak erregistratuko ditugu. Eduki sakatuta pantaila eskuineko eskuko erdiko hiru hatzekin.</string>
   <string name="calibration_finish_announcement">Eguneratu da puntuen kokapena</string>
+  <string name="remaining_calibration_finish_announcement">Puntuen posizio guztiak eguneratu dira</string>
   <string name="calibration_step2_hold_right_finger_announcement">Eguneratu da lehen, bigarren eta hirugarren puntuen kokapena. Orain, eskuineko eskuko puntuak erregistratuko ditugu. Eduki sakatuta pantaila eskuineko eskuko erdiko hiru hatzekin.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Eguneratu da lehen, bigarren eta hirugarren puntuen kokapena. Orain, ezkerreko eskuko puntuak erregistratuko ditugu. Eduki sakatuta pantaila ezkerreko eskuko erdiko hiru hatzekin.</string>
   <string name="calibration_fail_announcement">Ezin izan da eguneratu puntuen kokapena. Eduki pantaila sakatuta sei hatzekin. Ondoren, saiatu berriro.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">Gaztelania</string>
   <string name="code_user_facing_name_ar">Arabiera</string>
+  <string name="code_user_facing_name_fr">Frantsesa</string>
   <string name="title_pref_accumulate_presses">Sartu sakatutako puntu guztiak</string>
   <string name="summary_pref_accumulate_presses">Sakatutako puntu guztiak dira idatzitako testuaren parte, baita lehenago jaregiten badira ere</string>
   <string name="title_pref_reverse_dots">Alderantzikatu puntuak</string>
   <string name="summary_pref_reverse_dots">Aldatu puntuen posizioak; adibidez, trukatu 1. eta 4. puntuen tokiak</string>
-  <string name="typing_echo_list_preference_title">Idazketaren erantzuna (idazketaren oihartzuna)</string>
-  <string name="typing_echo_preference_label_characters">Irakurri hizki eta hitz guztiak</string>
-  <string name="typing_echo_preference_label_words">Irakurri hitzak soilik</string>
   <string name="context_menu_title">Braille-teklatuaren aukerak</string>
   <string name="context_menu_typing_language_selection">Aldatu idazteko hizkuntza</string>
   <string name="context_menu_typing_language_selection_summary">%s ari zara erabiltzen</string>

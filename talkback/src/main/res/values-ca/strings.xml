@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Versió %1$s</string>
   <string name="label_manager_summary_title">Gestiona etiquetes personalitzades</string>
   <string name="label_manager_package_title">Gestiona les etiquetes per a %1$s</string>
+  <string name="manage_label">Gestiona l\'etiqueta</string>
   <string name="label_manager_no_packages_message">Actualment no hi ha cap etiqueta personalitzada. Per crear-ne una, accedeix a una imatge sense etiquetes i, a continuació, afegeix una etiqueta des del menú de Talkback.</string>
   <string name="label_manager_timestamp_text">Darrera modificació: %1$s</string>
   <string name="search_dialog_label">Cerca: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Exploració tàctil</string>
   <string name="title_pref_category_touch_exploration">Navegació</string>
   <string name="title_pref_category_controls">Controls</string>
-  <string name="title_pref_single_tap">Activació amb un sol toc</string>
+  <string name="title_pref_single_tap">Fes un toc per activar</string>
   <string name="title_pref_show_context_menu_as_list">Mostra el menú contextual com a llista</string>
-  <string name="summary_pref_single_tap">(Experimental) Toca una vegada un element on s\'hagi posat el focus per activar-lo</string>
+  <string name="summary_pref_single_tap">Toca una vegada un element on s\'hagi posat el focus per activar-lo</string>
   <string name="title_pref_shake_to_read_threshold">Sacseja per iniciar la lectura contínua</string>
   <string name="pref_verbosity_title">Verbositat</string>
   <string name="pref_punctuation_title">Puntuació</string>
+  <string name="title_pref_category_manage_focus_indicator">Personalitza l\'indicador de focus</string>
   <string name="title_pref_category_manage_gestures">Personalitza els gestos</string>
   <string name="title_pref_manage_labels">Etiquetes personalitzades</string>
   <string name="title_pref_manage_customize_menus">Personalitza els menús</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Ajuda i suggeriments</string>
   <string name="title_pref_category_tutorial_and_help">Tutorial i ajuda</string>
   <string name="title_pref_category_advanced">Configuració avançada</string>
+  <string name="title_pref_category_typing">Escriptura i teclat</string>
   <string name="title_pref_category_legal_and_privacy">Qüestions legals i privadesa</string>
   <string name="title_pref_advanced_settings">Configuració avançada</string>
   <string name="reset_gesture_settings_title">Restableix la configuració de gestos</string>
@@ -132,7 +135,7 @@
   <string name="four_finger_gestures_title">4 dits</string>
   <string name="pref_verbosity_preset_title">Tria un valor predefinit</string>
   <string name="pref_verbosity_preset_entry_high">Alta</string>
-  <string name="pref_verbosity_preset_entry_custom">Personalitzat</string>
+  <string name="pref_verbosity_preset_entry_custom">Personalitzada</string>
   <string name="pref_verbosity_preset_entry_low">Baixa</string>
   <string name="pref_verbosity_category_preset_settings_title">Grau d\'exhaustivitat</string>
   <string name="pref_verbosity_category_misc_settings_title">Altres</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Aplicacions recents</string>
   <string name="keycombo_menu_global_notifications">Notificacions</string>
   <string name="keycombo_menu_global_suspend">Posa en pausa o reprèn Talkback</string>
+  <string name="keycombo_menu_global_play_pause_media">Reprodueix o posa en pausa el contingut multimèdia</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Selecciona el control de lectura següent</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Selecciona el control de lectura anterior</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Ajusta el control de lectura cap amunt</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Ajusta el control de lectura cap avall</string>
   <string name="keycombo_menu_category_granularity">Navegació</string>
   <string name="keycombo_menu_granularity_increase">Opció de navegació següent</string>
   <string name="keycombo_menu_granularity_decrease">Opció de navegació anterior</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">No hi ha cap text per copiar; primer selecciona\'n algun.</string>
   <string name="cannot_paste_feedback">No hi ha cap text per enganxar; primer copia\'n algun.</string>
   <string name="cannot_cut_feedback">No hi ha cap text per retallar; primer selecciona\'n algun.</string>
+  <string name="cannot_delete_feedback">No hi ha cap text per suprimir; primer selecciona\'n algun.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Confirmes que vols restablir la configuració predeterminada de les tecles de drecera d\'aquest mapa de teclat? Tingues present que aquesta acció no es pot desfer.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Restableix</string>
   <string name="override_keycombo">Ja s\'utilitza aquesta tecla</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Utilitza canvis de to</string>
   <string name="title_pref_keyboard_echo">Eco del teclat</string>
   <string name="pref_node_desc_order_title">Ordre de descripció dels elements</string>
-  <string name="summaryOn_pref_intonation">Enuncia la tecla premuda en un to més baix</string>
+  <string name="summaryOn_pref_intonation">Enuncia el text esborrat amb el teclat amb una veu més aguda</string>
   <string name="summaryOff_pref_intonation">No canviïs el to de la veu durant l\'enunciació</string>
   <string name="title_pref_brailleime">Teclat braille</string>
   <string name="title_pref_category_feedback_settings">Altres avisos</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Depuració de l\'arbre de nodes</string>
   <string name="summary_pref_tree_debug_tv">Fes servir la tecla de cerca per veu per imprimir l\'arbre de nodes en lloc de cercar</string>
   <string name="title_pref_performance_stats">Activa les estadístiques de rendiment</string>
+  <string name="title_pref_log_overlay">Activa la superposició del registre de depuració</string>
   <string name="title_pref_resume_talkback">Reprèn des de suspensió</string>
+  <string name="title_pref_typing_confirmation">Preferència d\'escriptura</string>
   <string name="title_pref_multi_finger_gesture">Activa els gestos amb diversos dits</string>
   <string name="screen_dimmed">S\'ha amagat la pantalla</string>
   <string name="screen_brightness_restored">Es mostra la pantalla</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Desplaça cap avall</string>
   <string name="shortcut_scroll_left">Desplaça a l\'esquerra</string>
   <string name="shortcut_scroll_right">Desplaça a la dreta</string>
+  <string name="shortcut_next_window">Finestra següent</string>
+  <string name="shortcut_previous_window">Finestra anterior</string>
   <string name="shortcut_back">Enrere</string>
   <string name="shortcut_home">Inici</string>
   <string name="shortcut_overview">Aplicacions recents</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Mostra o amaga la pantalla</string>
   <string name="title_show_screen_search">Cerca directa</string>
   <string name="title_show_voice_commands">Ordres de veu</string>
+  <string name="talkback_show_talkback_settings">Configuració de TalkBack</string>
   <string name="title_other_web_navigation">Altres tipus de navegació web</string>
   <string name="title_granularity_default">Navegació predeterminada</string>
   <string name="title_seek_bar_edit">Edita el nivell del control lliscant</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Controla TalkBack amb la veu</string>
   <string name="summary_show_hide_screen">Amaga la pantalla perquè altres persones no puguin veure-la quan siguis en llocs públics. Després, pots fer que torni al seu estat normal.</string>
   <string name="summary_talkback_preferences">Obre la configuració de TalkBack</string>
-  <string name="summary_system_actions">Ves a totes les aplicacions, a la configuració ràpida i utilitza la pantalla dividida</string>
+  <string name="summary_system_actions">Ves a totes les aplicacions i a la configuració ràpida</string>
   <string name="summary_tts_settings">Obre la configuració de text a parla</string>
   <string name="summary_pause_feedback">Desactiva els comentaris de veu de TalkBack</string>
   <string name="not_editable">No es pot editar</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Llegeix les paraules d\'una en una</string>
   <string name="summary_lines">Llegeix les línies d\'una en una</string>
   <string name="summary_paragraphs">Llegeix els paràgrafs d\'un en un</string>
+  <string name="summary_windows">Ves a altres finestres, com la dels controls de volum o la barra de navegació</string>
   <string name="summary_headings">Ves d\'un títol a un altre</string>
   <string name="summary_controls">Ves d\'un element amb què pots interaccionar (com ara botons, caselles de selecció i camps de text) a un altre</string>
   <string name="summary_links">Ves d\'un enllaç a un altre</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Decideix si vols que es llegeixin en veu alta les tecles premudes, els consells d\'ús, la informació de quadrícules i altres dades</string>
   <string name="summary_selector_menu_punctuation">Decideix si vols que es llegeixin en veu alta la puntuació i els símbols</string>
   <string name="summary_language">Canvia l\'idioma parlat. Només es mostra quan tens instal·lats diversos idiomes de text a parla.</string>
-  <string name="summary_sound_feedback">Escolta efectes de so mentre navegues, com ara un xiulet per confirmar una acció.</string>
+  <string name="summary_sound_feedback">Escolta efectes de so mentre navegues, com ara un xiulet per confirmar una acció</string>
   <string name="summary_vibration_feedback">Defineix que el dispositiu vibri per a accions com ara seleccionar un element. No afecta les vibracions que provenen de les aplicacions o del sistema.</string>
   <string name="summary_hide_screen">Amaga la pantalla perquè altres persones no puguin veure-la quan siguis en llocs públics</string>
   <string name="summary_audio_ducking">Abaixa el volum d\'altres fonts d\'àudio que s\'estiguin reproduint quan TalkBack parli</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Desplaça cap endavant o cap enrere</string>
+  <string name="summary_support_change_a11y_volume">Apuja o abaixa el volum d\'accessibilitat</string>
+  <string name="summary_image_caption">Obtén una descripció automàtica d\'aquesta imatge</string>
   <string name="value_direction_up">amunt</string>
   <string name="value_direction_down">avall</string>
   <string name="value_direction_left">a l\'esquerra</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Fes doble toc amb 2 dits i mantén premut</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Fes doble toc amb 3 dits i mantén premut</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Fes doble toc amb 4 dits i mantén premut</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Triple toc i mantén premut amb 2 dits</string>
+  <string name="seekbar_hint_2gesture">%1$s o %2$s per ajustar</string>
+  <string name="seekbar_hint_1gesture">%1$s per ajustar</string>
   <string name="gesture_name_unknown">Gest desconegut</string>
   <string name="gesture_name_pass_through">Passa al gest del sistema</string>
   <string name="gesture_name_touch_explore">Toc per explorar</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Doble toc i mantén premut</string>
   <string name="gesture_name_2finger_tap_hold">Toc amb 2 dits i mantén premut</string>
   <string name="gesture_name_3finger_tap_hold">Toc amb 3 dits i mantén premut</string>
+  <string name="gesture_name_2finger_3tap_hold">Triple toc i mantén premut amb 2 dits</string>
   <string name="gesture_name_3finger_3tap_hold">Triple toc amb 3 dits i mantén premut</string>
   <string name="title_pref_shortcut_fingerprint_up">Llisca cap amunt al sensor d\'empremtes</string>
   <string name="title_pref_shortcut_fingerprint_down">Llisca cap avall al sensor d\'empremtes</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Quan s\'activi la pantalla</string>
   <string name="value_resume_keyguard">Quan es mostri la pantalla de bloqueig</string>
   <string name="value_resume_manual">Només des de notificacions</string>
+  <string name="value_type_confirmation_double_tap">Mantén la tecla premuda per seleccionar-la i, a continuació, fes doble toc</string>
+  <string name="value_type_confirmation_lift_to_type">Mantén la tecla premuda per seleccionar-la i, a continuació, aixeca el dit</string>
   <string name="value_shake_to_read_disabled">Desactivat</string>
   <string name="value_shake_to_read_threshold_very_light">Molt fluix</string>
   <string name="value_shake_to_read_threshold_light">Fluix</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Enuncia sempre les tecles premudes</string>
   <string name="value_keyboard_echo_softkeys">Només per al teclat en pantalla</string>
   <string name="value_keyboard_echo_never">No enunciïs mai les tecles premudes</string>
+  <string name="title_pref_keyboard_echo_on_screen">Eco del teclat: teclat en pantalla</string>
+  <string name="title_pref_keyboard_echo_physical">Eco del teclat: teclat físic</string>
+  <string name="value_keyboard_echo_none">Cap</string>
+  <string name="value_keyboard_echo_characters_only">Caràcters</string>
+  <string name="value_keyboard_echo_words_only">Paraules</string>
+  <string name="value_keyboard_echo_characters_and_words">Caràcters i paraules</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Estat, nom i tipus</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Tipus, nom i estat</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Nom, tipus i estat</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Confirmes que vols activar la depuració de l\'arbre de nodes?\n\nAquesta acció exposa el contingut de la pantalla als registres del dispositiu, i altres aplicacions el poden llegir.</string>
   <string name="dialog_title_enable_performance_stats">Vols activar les estadístiques de rendiment?</string>
   <string name="dialog_message_enable_performance_stats">Segur que vols activar les estadístiques de rendiment?\n\nÉs possible que consumeixin més memòria i bateria.</string>
+  <string name="title_request_phone_permission">Vols permetre l\'accés al telèfon?</string>
+  <string name="message_request_phone_permission">Això ajuda TalkBack a reduir els avisos durant una trucada</string>
+  <string name="continue_button">Continua</string>
   <string name="label_talkback_context_menu">Menú contextual global de TalkBack</string>
   <string name="permission_talkback_label">Controla TalkBack</string>
   <string name="permission_talkback_desc">Permís per enviar gestos a TalkBack i per reprendre els comentaris en veu alta.</string>
-  <string name="permission_labeling_label">Gestiona etiquetes personalitzades de TalkBack</string>
-  <string name="permission_labeling_desc">Permís per accedir a les etiquetes personalitzades que TalkBack diu en veu alta, per modificar-les i per suprimir-les.</string>
   <string name="links">Enllaços</string>
   <string name="end_of_text">Fi</string>
   <string name="start_of_page">No hi ha cap element del tipus %1$s anterior</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Puntuació</string>
   <string name="title_pref_selector_granularity">Navegació</string>
   <string name="title_pref_selector_audio_focus">Atenuació d\'àudio</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Desplaça</string>
+  <string name="title_pref_a11y_volume">Volum d\'accessibilitat</string>
   <string name="title_pref_selector_adjustable_widget_slider">Ajusta el control lliscant</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Ajusta el valor</string>
   <string name="title_pref_speak_passwords_without_headphones">Enuncia les contrasenyes</string>
@@ -647,8 +678,8 @@
   <string name="dialog_message_voice_commands">A continuació, t\'indiquem algunes ordres que pots donar:\n\n• Copia.\n• Llegeix a partir de l\'element següent.\n• Cerca (Desa).\n• Parla (més ràpid).\n• Configuració de TalkBack.\n\nDigues \"%1$s\" per consultar una llista de totes les ordres de veu.</string>
   <string name="start_voice_command">Utilitza ordres de veu</string>
   <string name="dialog_title_pass_through_mode">Omet els gestos de TalkBack per utilitzar els del sistema</string>
-  <string name="dialog_message_pass_through_mode">Quan sentis un so, podràs utilitzar un gest del sistema que no sigui compatible amb TalkBack. Això es coneix com a \"gest de pas\".</string>
-  <string name="hint_type_search_term">Escriu el terme de cerca</string>
+  <string name="dialog_message_pass_through_mode">Quan sentis un so, podràs utilitzar un gest del sistema, que no és compatible amb TalkBack. Això es coneix com a \"gest de pas\".</string>
+  <string name="hint_type_search_term">Terme de cerca</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Canal de notificacions de TalkBack</string>
   <string name="pref_selector_summary">%1$s per seleccionar una opció de configuració. A continuació, %2$s per ajustar l\'opció.</string>
@@ -688,7 +719,7 @@
   <string name="customize_setting_selector_text_pre_r">També pots invertir qualsevol d\'aquests gestos.\n\nLlisca cap amunt i cap avall per seleccionar el control de lectura anterior.\n\nLlisca cap amunt per moure el focus de navegació o ajustar un control de lectura cap amunt.\n\nPots personalitzar els controls de lectura a la configuració de TalkBack.</string>
   <string name="more_new_feature_title">Més funcions noves</string>
   <string name="more_new_feature_context_menu_text_pre_r">Els menús contextuals global i local, que s\'utilitzaven per ajudar-te a trobar opcions de configuració i controls, ara s\'han unit en un únic menú de TalkBack.\n\nEls gestos actuals, com ara lliscar cap avall i després cap a la dreta, et portaran al menú nou.</string>
-  <string name="more_new_feature_context_menu_text">Els menús contextuals global i local, que s\'utilitzaven per ajudar-te a trobar opcions de configuració i controls, ara s\'han unit en un únic menú de TalkBack. Pots obrir-lo tocant la pantalla amb tres dits. Prova-ho ara.\n\nEls gestos actuals et portaran al menú nou: llisca cap avall i després cap a la dreta.</string>
+  <string name="more_new_feature_context_menu_text">Els menús contextuals global i local, que s\'utilitzaven per ajudar-te a trobar opcions de configuració i controls, ara s\'han unit en un únic menú de TalkBack. Pots obrir-lo tocant la pantalla amb tres dits. Prova-ho ara.\n\nEls gestos actuals et portaran al menú nou: llisca cap avall i després a la dreta.</string>
   <string name="more_new_feature_voice_command_text_with_actual_gesture">Ara pots utilitzar la teva veu per controlar TalkBack ràpidament. Per provar-ho, %1$s.</string>
   <string name="more_new_feature_voice_command_default_text">Ara pots utilitzar la teva veu per controlar TalkBack ràpidament. Ves a la configuració de TalkBack per definir un gest per a una ordre de veu.</string>
   <string name="more_new_feature_braille_keyboard_text">TalkBack ara inclou un teclat braille perquè puguis escriure més ràpidament en braille. Per provar-lo, ves a la configuració de TalkBack.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Per retallar text, fes-hi doble toc amb tres dits i mantén premut.\n\nPer enganxar text, fes-hi triple toc amb 3 dits.\n\nProva d\'enganxar una paraula al quadre de text següent.</string>
   <string name="copy_text_pre_r">Un cop has seleccionat el text, pots copiar-lo al menú de TalkBack. Llisca cap avall i després cap a la dreta per obrir el menú de TalkBack. Fes doble toc a les opcions d\'edició i copia.\n\nProva de copiar una paraula al quadre de text següent.</string>
   <string name="cut_paste_text_pre_r">Per copiar o enganxar text, obre el menú de TalkBack i fes doble toc a les opcions d\'edició.\n\nProva d\'enganxar una paraula al quadre de text següent.</string>
+  <string name="edit_box_hint_paste_text">Enganxa text aquí</string>
   <string name="read_by_character_title">Llegeix per caràcter, paraula o paràgraf</string>
   <string name="read_by_character_text">A vegades pot ser que vulguis escoltar en veu alta cada caràcter per separat.\n\nPer fer-ho, llisca cap a la dreta amb 3 dits fins que sentis \"%1$s\". A continuació, llisca cap amunt per moure el focus de navegació enrere caràcter per caràcter. Per moure\'l endavant, llisca cap avall.\n\nProva-ho ara. Quan llisques cap a la dreta amb 3 dits, també pots triar la lectura per paraules o per paràgrafs.</string>
   <string name="read_by_character_text_pre_r">A vegades pot ser que vulguis escoltar en veu alta cada caràcter per separat.\n\nPer fer-ho, llisca cap avall i després cap amunt fins que sentis \"%1$s\". A continuació, llisca cap amunt per moure el focus de navegació enrere caràcter per caràcter. Per moure\'l endavant, llisca cap avall.\n\nProva-ho ara. Quan llisques cap avall i després cap amunt, pots triar la lectura per paraules o paràgrafs.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">%1$s activat</string>
   <string name="talkback_inactive_title">TalkBack està desactivat</string>
   <string name="talkback_inactive_message">Aquest tutorial requereix que TalkBack estigui activat. Activa\'l abans d\'iniciar el tutorial.</string>
+  <string name="watch_swipe_left_right_text">Llisca cap a la dreta o cap a l\'esquerra per moure\'t pels elements</string>
+  <string name="watch_double_tap_text">Fes doble toc per activar un element</string>
+  <string name="watch_2_finger_scroll_text">Arrossega 2 dits per desplaçar-te</string>
+  <string name="title_pref_thick_border">Vores gruixudes</string>
+  <string name="title_pref_category_border_color">Color</string>
+  <string name="title_pref_default_color">Predeterminat</string>
+  <string name="title_pref_red">Vermell</string>
+  <string name="title_pref_orange">Taronja</string>
+  <string name="title_pref_yellow">Groc</string>
+  <string name="title_pref_green">Verd</string>
+  <string name="title_pref_blue">Blau</string>
+  <string name="title_pref_grey">Gris</string>
   <string name="survey_closed">S\'ha tancat l\'enquesta</string>
+  <string name="character_recognition_text">Text: %1$s</string>
+  <string name="title_image_caption">Descriu la imatge</string>
 </resources>

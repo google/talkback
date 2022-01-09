@@ -18,20 +18,15 @@ package com.google.android.accessibility.talkback;
 
 import static android.view.accessibility.AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED;
 
-import android.content.Context;
 import android.view.accessibility.AccessibilityEvent;
-import com.google.android.accessibility.talkback.Interpretation.ID.Value;
-import com.google.android.accessibility.talkback.Mappers.Variables;
 import com.google.android.accessibility.talkback.controller.SelectorController;
 import com.google.android.accessibility.utils.Performance.EventId;
 
 /** A wrapper class for all user interfaces which need to response some input events. */
 public class UserInterface {
   private final SelectorController selectorController;
-  private final Context context;
 
-  public UserInterface(Context context, SelectorController selectorController) {
-    this.context = context;
+  public UserInterface(SelectorController selectorController) {
     this.selectorController = selectorController;
   }
 
@@ -55,16 +50,9 @@ public class UserInterface {
         || event.getEventType() != TYPE_VIEW_ACCESSIBILITY_FOCUSED) {
       return;
     }
-    if (eventInterpretation instanceof Interpretation.ID) {
-      final Variables variables = new Variables(context, event, eventInterpretation);
-      try {
-        if (variables.interpretationID(0) == Value.ACCESSIBILITY_FOCUSED) {
-          // Support the Quick Settings the immediate value adjusting.
-          selectorController.newItemFocused(event.getSource());
-        }
-      } finally {
-        variables.recycle();
-      }
+    if (eventInterpretation instanceof Interpretation.AccessibilityFocused) {
+      // Support the Quick Settings the immediate value adjusting.
+      selectorController.newItemFocused(event.getSource());
     }
   }
 }

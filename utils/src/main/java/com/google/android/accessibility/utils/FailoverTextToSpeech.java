@@ -519,6 +519,7 @@ public class FailoverTextToSpeech {
 
     // Always try to stop the current engine before switching.
     TextToSpeechUtils.attemptTtsShutdown(mTts);
+    TextToSpeechUtils.attemptTtsShutdown(mTempTts);
 
     if (mTempTts == null || mTempTts.getLanguage() == null) {
       // The TTS instance is not existing or not responding, the service has likely stopped, so

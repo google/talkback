@@ -62,6 +62,12 @@
         android:summary="@string/summary_other_web_navigation"
         android:title="@string/title_other_web_navigation" />
     <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_navigation_menu_window_default"
+        android:key="@string/pref_show_navigation_menu_window_setting_key"
+        android:layout="@layout/listitem_2texts"
+        android:summary="@string/summary_windows"
+        android:title="@string/granularity_window" />
+    <CheckBoxPreference
         android:defaultValue="@bool/pref_show_navigation_menu_granularity_default"
         android:key="@string/pref_show_navigation_menu_granularity_default_setting_key"
         android:layout="@layout/listitem_2texts"

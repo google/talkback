@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import androidx.annotation.Nullable;
 import android.widget.Button;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceDialogFragmentCompat;
@@ -28,12 +29,12 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.training.TutorialInitiator;
 import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
-import com.google.android.accessibility.utils.BasePreferencesActivity;
 import com.google.android.accessibility.utils.FeatureSupport;
+import com.google.android.accessibility.utils.PreferencesActivity;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 
 /** Activity used to set TalkBack's gesture preferences. */
-public class TalkBackShortcutPreferencesActivity extends BasePreferencesActivity {
+public class TalkBackShortcutPreferencesActivity extends PreferencesActivity {
 
   @Override
   protected PreferenceFragmentCompat createPreferenceFragment() {
@@ -43,7 +44,7 @@ public class TalkBackShortcutPreferencesActivity extends BasePreferencesActivity
   private void restartFragment() {
     getSupportFragmentManager()
         .beginTransaction()
-        .replace(android.R.id.content, new ShortcutPrefFragment())
+        .replace(getContainerId(), new ShortcutPrefFragment())
         .commit();
   }
 
@@ -76,9 +77,13 @@ public class TalkBackShortcutPreferencesActivity extends BasePreferencesActivity
       prefs = SharedPreferencesUtils.getSharedPreferences(context);
 
       // Launches Practice gestures page.
+      @Nullable
       Preference practiceGesturesPreference =
           findPreference(getString(R.string.pref_practice_gestures_entry_point_key));
-      practiceGesturesPreference.setIntent(TutorialInitiator.createPracticeGesturesIntent(context));
+      if (practiceGesturesPreference != null) {
+        practiceGesturesPreference.setIntent(
+            TutorialInitiator.createPracticeGesturesIntent(context));
+      }
 
       Preference resetGesturePreferenceScreen =
           (Preference) findPreference(getString(R.string.pref_reset_gesture_settings_key));
@@ -144,7 +149,7 @@ public class TalkBackShortcutPreferencesActivity extends BasePreferencesActivity
           public boolean onPreferenceClick(Preference preference) {
             // Show confirm dialog.
             AlertDialog alertDialog =
-                AlertDialogUtils.createBuilder(getActivity())
+                AlertDialogUtils.builder(getActivity())
                     .setTitle(getString(R.string.Reset_gesture_settings_dialog_title))
                     .setMessage(getString(R.string.message_reset_gesture_settings_confirm_dialog))
                     .setPositiveButton(

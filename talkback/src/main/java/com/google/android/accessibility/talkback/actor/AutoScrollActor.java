@@ -21,9 +21,9 @@ import static androidx.core.view.accessibility.AccessibilityNodeInfoCompat.Acces
 import android.os.SystemClock;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.annotation.VisibleForTesting;
 import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.Pipeline.SyntheticEvent;
 import com.google.android.accessibility.talkback.ScrollEventInterpreter;

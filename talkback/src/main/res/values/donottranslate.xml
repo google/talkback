@@ -9,6 +9,7 @@
     <string name="pref_speech_pitch_key">pref_pitch_volume</string>
     <string name="pref_speech_volume_key">pref_speech_volume</string>
     <string name="pref_brailleime_key">pref_brailleime</string>
+    <string name="pref_brailledisplay_key">pref_brailledisplay</string>
     <string name="pref_vibration_key">pref_vibration</string>
     <string name="pref_soundback_key">pref_soundback</string>
     <string name="pref_use_audio_focus_key">pref_use_audio_focus</string>
@@ -20,6 +21,8 @@
     <string name="pref_dim_volume_three_clicks_key">pref_dim_volume_three_clicks</string>
     <string name="pref_intonation_key">pref_intonation</string>
     <string name="pref_keyboard_echo_key">pref_keyboard_echo</string>
+    <string name="pref_keyboard_echo_on_screen_key" translatable="false">pref_keyboard_echo_on_screen</string>
+    <string name="pref_keyboard_echo_physical_key" translatable="false">pref_keyboard_echo_physical</string>
     <string name="pref_node_desc_order_key">pref_node_desc_order_key</string>
     <string name="pref_speak_element_ids_key">pref_element_ids_key</string>
     <string name="pref_tts_overlay_key">pref_tts_overlay</string>
@@ -29,12 +32,17 @@
     <string name="pref_tree_debug_reflect_key">pref_tree_debug_reflect</string>
     <string name="pref_performance_stats_key">pref_performance_stats</string>
     <string name="pref_performance_stats_reflect_key">pref_performance_stats_reflect</string>
+    <string name="pref_log_overlay_key" translatable="false">pref_log_overlay_reflect</string>
     <string name="pref_web_scripts_key">pref_web_scripts</string>
     <!-- Deprecated. Use pref_dump_event_mask_key instead. -->
     <string name="pref_dump_event_key_prefix">pref_dump_event_<xliff:g example="1" id="eventType">%1$d</xliff:g></string>
     <string name="pref_dump_event_mask_key">pref_dump_event_mask</string>
     <string name="pref_dump_a11y_event_key">pref_dump_a11y_event</string>
+    <!-- Using for showing version information. [CHAR_LIMIT=NONE] -->
+    <string name="pref_developer_version_code_key">pref_developer_version_code</string>
     <string name="pref_resume_talkback_key">pref_resume_talkback</string>
+    <string name="pref_typing_confirmation_key" translatable="false">pref_typing_confirmation</string>
+    <string name="pref_typing_tap_and_hold_duration_key" translatable="false">pref_type_and_hold_duration</string>
     <string name="pref_phonetic_letters_key">pref_phonetic_letters</string>
     <string name="pref_punctuation_key" translatable="false">pref_punctuation</string>
     <string name="pref_capital_letters_key">pref_capital_letters</string>
@@ -59,11 +67,15 @@
     <string name="pref_speak_passwords_without_headphones">pref_speak_passwords_without_headphones</string>
     <string name="pref_new_feature_talkback91_entry_point_key" translatable="false">pref_new_feature_talkback91_entry_point_key</string>
     <string name="pref_category_help_and_feedback_key" translatable="false">pref_category_help_and_feedback_key</string>
+    <string name="pref_category_typing_key" translatable="false">pref_category_typing_key</string>
     <string name="pref_category_advanced_key" translatable="false">pref_category_advanced_key</string>
     <string name="pref_category_legal_and_privacy_key" translatable="false">pref_category_legal_and_privacy_key</string>
     <string name="pref_tutorial_entry_point_key" translatable="false">pref_tutorial_entry_point_key</string>
     <string name="pref_practice_gestures_entry_point_key" translatable="false">pref_practice_gestures_entry_point_key</string>
     <string name="pref_version_code_key" translatable="false">pref_version_code_key</string>
+    <string name="pref_thick_border_key" translatable="false">pref_thick_border_key</string>
+    <string name="pref_border_color_category_key" translatable="false">pref_border_color_category_key</string>
+    <string name="pref_border_color_key" translatable="false">pref_border_color_key</string>
 
   <!-- Selector preferences -->
     <string name="pref_current_selector_setting_key">pref_current_selector_setting_key</string>
@@ -91,6 +103,7 @@
     <string name="pref_selector_granularity_paragraphs_key">pref_selector_granularity_paragraphs_key</string>
     <string name="pref_selector_granularity_characters_key">pref_selector_granularity_characters_key</string>
     <string name="pref_selector_granularity_lines_key">pref_selector_granularity_lines_key</string>
+    <string name="pref_selector_granularity_windows_key">pref_selector_granularity_windows_key</string>
     <string name="pref_selector_granularity_links_key">pref_selector_granularity_links_key</string>
     <string name="pref_selector_granularity_controls_key">pref_selector_granularity_controls_key</string>
     <string name="pref_selector_granularity_landmarks_key">pref_selector_granularity_landmarks_key</string>
@@ -124,9 +137,11 @@
 
     <!-- Verbosity preferences, preset options -->
     <string name="pref_verbosity_category_preset_settings_key">pref_verbosity_category_preset_settings_key</string>
+    <string name="pref_verbosity_category_misc_settings_key" translatable="false">pref_verbosity_category_misc_settings_key</string>
 
     <!-- Preference sub-activity links -->
     <string name="pref_verbosity_key">pref_verbosity_key</string>
+    <string name="pref_category_manage_focus_indicator_key">pref_category_manage_focus_indicator_key</string>
     <string name="pref_category_manage_gestures_key">pref_category_manage_gestures</string>
     <string name="pref_category_manage_keyboard_shortcut_key">pref_category_manage_keyboard_shortcut_key</string>
     <string name="pref_category_export_custom_labels_key">pref_category_export_custom_labels_key</string>
@@ -198,6 +213,7 @@
     <string name="pref_shortcut_2finger_2tap_hold_key">pref_shortcut_two_finger_double_tap_and_hold</string>
     <string name="pref_shortcut_3finger_2tap_hold_key">pref_shortcut_three_finger_double_tap_and_hold</string>
     <string name="pref_shortcut_4finger_2tap_hold_key">pref_shortcut_four_finger_double_tap_and_hold</string>
+    <string name="pref_shortcut_2finger_3tap_hold_key" translatable="false">pref_shortcut_two_finger_triple_tap_and_hold</string>
 
     <!-- Fingerprint gesture shortcut keys -->
     <string name="pref_shortcut_fingerprint_up_key">pref_shortcut_fingerprint_up</string>
@@ -206,7 +222,7 @@
     <string name="pref_shortcut_fingerprint_right_key">pref_shortcut_fingerprint_right</string>
 
     <!-- Array of gesture shortcut keys -->
-    <string-array name="pref_shortcut_keys">
+    <string-array name="pref_shortcut_keys" translatable="false">
       <item>@string/pref_shortcut_up_key</item>
       <item>@string/pref_shortcut_left_key</item>
       <item>@string/pref_shortcut_down_key</item>
@@ -251,6 +267,8 @@
       <item>@string/pref_shortcut_3finger_2tap_hold_key</item>
       <item>@string/pref_shortcut_4finger_2tap_hold_key</item>
 
+      <item>@string/pref_shortcut_2finger_3tap_hold_key</item>
+
       <!-- Fingerprint gestures-->
       <item>@string/pref_shortcut_fingerprint_up_key</item>
       <item>@string/pref_shortcut_fingerprint_down_key</item>
@@ -283,12 +301,14 @@
 
     <string name="pref_show_suspension_confirmation_dialog">pref_show_suspension_confirmation_dialog</string>
     <string name="pref_show_dim_screen_confirmation_dialog">pref_show_dim_screen_confirmation_dialog</string>
+    <string name="pref_show_phone_permission_confirmation_dialog">pref_show_phone_permission_confirmation_dialog</string>
     <string name="pref_vendor_overrides_processed">pref_vendor_overrides_processed</string>
     <string name="pref_suspended">pref_suspended</string>
 
     <string name="pref_show_continuous_reading_mode_dialog">pref_show_continuous_reading_mode_dialog</string>
     <string name="pref_show_voice_command_dialog">pref_show_voice_command_dialog</string>
     <string name="pref_show_pass_through_mode_dialog" translatable="false">pref_show_pass_through_mode_dialog</string>
+    <string name="pref_show_phone_permission_dialog">pref_show_phone_permission_dialog</string>
 
     <string-array name="pref_select_keymap_entries">
         <item>@string/value_classic_keymap</item>
@@ -312,16 +332,18 @@
 
     <!-- Keyboard echo preference entries. Must be synchronized with TextFormatters.java. -->
     <string-array name="pref_keyboard_echo_entries">
-        <item>@string/value_keyboard_echo_always</item>
-        <item>@string/value_keyboard_echo_softkeys</item>
-        <item>@string/value_keyboard_echo_never</item>
+        <item>@string/value_keyboard_echo_none</item>
+        <item>@string/value_keyboard_echo_characters_only</item>
+        <item>@string/value_keyboard_echo_words_only</item>
+        <item>@string/value_keyboard_echo_characters_and_words</item>
     </string-array>
 
-    <!-- Keyboard echo preference values. Must be synchronized with TextFormatters.java. -->
+    <!-- Keyboard echo preference values. Must be synchronized with TextFormatters.java. [CHAR_LIMIT=NONE] -->
     <string-array name="pref_keyboard_echo_values">
-        <item>0</item>
-        <item>1</item>
         <item>2</item>
+        <item>1</item>
+        <item>3</item>
+        <item>0</item>
     </string-array>
 
     <!-- Node description order preferences. Matches Compositor.DescriptionOrder -->
@@ -435,7 +457,22 @@
         <item>25</item>
     </string-array>
 
-    <!-- Shortcut preference of basic navigation -->
+    <!-- Typing method preference entries -->
+    <string-array name="pref_typing_types_talkback_entries">
+      <item>@string/value_type_confirmation_double_tap</item>
+      <item>@string/value_type_confirmation_lift_to_type</item>
+    </string-array>
+
+    <string name="typing_type_lift_to_type" translatable="false">1</string>
+
+    <!-- Typing type preference values -->
+    <!-- We depend on the order of these strings -->
+    <string-array name="pref_typing_types_talkback_values" translatable="false">
+      <item>0</item>
+      <item>1</item>
+    </string-array>
+
+  <!-- Shortcut preference of basic navigation -->
     <string-array name="shortcut_basic_navigation">
         <item>@string/shortcut_perform_click_action</item>
         <item>@string/shortcut_perform_long_click_action</item>
@@ -443,6 +480,8 @@
         <item>@string/shortcut_next</item>
         <item>@string/shortcut_first_in_screen</item>
         <item>@string/shortcut_last_in_screen</item>
+        <item>@string/shortcut_previous_window</item>
+        <item>@string/shortcut_next_window</item>
         <item>@string/shortcut_scroll_back</item>
         <item>@string/shortcut_scroll_forward</item>
     </string-array>
@@ -455,6 +494,8 @@
         <item>@string/shortcut_value_next</item>
         <item>@string/shortcut_value_first_in_screen</item>
         <item>@string/shortcut_value_last_in_screen</item>
+        <item>@string/shortcut_value_previous_window</item>
+        <item>@string/shortcut_value_next_window</item>
         <item>@string/shortcut_value_scroll_back</item>
         <item>@string/shortcut_value_scroll_forward</item>
     </string-array>
@@ -537,6 +578,7 @@
         <item>@string/granularity_word</item>
         <item>@string/granularity_line</item>
         <item>@string/granularity_paragraph</item>
+        <item>@string/granularity_window</item>
         <item>@string/granularity_web_heading</item>
         <item>@string/granularity_web_control</item>
         <item>@string/granularity_web_link</item>
@@ -557,6 +599,8 @@
     <string name="shortcut_value_last_in_screen">LAST_IN_SCREEN</string>
     <string name="shortcut_value_next_granularity">NEXT_GRANULARITY</string>
     <string name="shortcut_value_previous_granularity">PREVIOUS_GRANULARITY</string>
+    <string name="shortcut_value_previous_window">PREVIOUS_WINDOW</string>
+    <string name="shortcut_value_next_window">NEXT_WINDOW</string>
     <string name="shortcut_value_scroll_back">SCROLL_BACK</string>
     <string name="shortcut_value_scroll_forward">SCROLL_FORWARD</string>
     <string name="shortcut_value_scroll_up">SCROLL_UP</string>
@@ -663,7 +707,7 @@
     <string name="pref_log_level_default">6</string>
     <string name="pref_soundback_volume_default">50</string>
     <bool name="pref_intonation_default">true</bool>
-    <string name="pref_keyboard_echo_default">0</string>
+    <string name="pref_keyboard_echo_default" translatable="false">0</string>
     <string name="pref_capital_letters_default">1</string>
     <bool name="pref_punctuation_default">false</bool>
     <string name="pref_node_desc_order_default">pref_node_desc_order_value_state_name_role_pos</string>
@@ -673,8 +717,10 @@
     <bool name="pref_reduce_window_delay_default">false</bool>
     <bool name="pref_tree_debug_default">false</bool>
     <bool name="pref_performance_stats_default">false</bool>
+    <bool name="pref_log_overlay_default">false</bool>
     <bool name="pref_web_scripts_default">true</bool>
     <string name="pref_resume_talkback_default">@string/resume_screen_keyguard</string>
+    <string name="pref_typing_confirmation_default">@string/typing_type_lift_to_type</string>
     <bool name="pref_phonetic_letters_default">true</bool>
     <bool name="pref_a11y_hints_default">true</bool>
     <bool name="pref_speak_container_element_positions_default">true</bool>
@@ -706,6 +752,7 @@
     <bool name="pref_selector_granularity_paragraphs_default">true</bool>
     <bool name="pref_selector_granularity_characters_default">true</bool>
     <bool name="pref_selector_granularity_lines_default">true</bool>
+    <bool name="pref_selector_granularity_windows_default">true</bool>
     <bool name="pref_selector_granularity_links_default">true</bool>
     <bool name="pref_selector_granularity_controls_default">true</bool>
     <bool name="pref_selector_granularity_landmarks_default">false</bool>
@@ -746,6 +793,7 @@
     <bool name="pref_show_navigation_menu_special_content_default">true</bool>
     <bool name="pref_show_navigation_menu_other_web_navigation_default">true</bool>
     <bool name="pref_show_navigation_menu_granularity_default">false</bool>
+    <bool name="pref_show_navigation_menu_window_default">true</bool>
 
     <string name="pref_shortcut_up_default">@string/shortcut_value_selected_setting_previous_action</string>
     <string name="pref_shortcut_left_default">@string/shortcut_value_previous</string>
@@ -778,8 +826,8 @@
     <string name="pref_shortcut_3finger_swipe_down_default">@string/shortcut_value_select_next_setting</string>
     <string name="pref_shortcut_3finger_swipe_left_default">@string/shortcut_value_select_previous_setting</string>
     <string name="pref_shortcut_3finger_swipe_right_default">@string/shortcut_value_select_next_setting</string>
-    <string name="pref_shortcut_4finger_swipe_up_default">@string/shortcut_value_unassigned</string>
-    <string name="pref_shortcut_4finger_swipe_down_default">@string/shortcut_value_unassigned</string>
+    <string name="pref_shortcut_4finger_swipe_up_default">@string/shortcut_value_previous_window</string>
+    <string name="pref_shortcut_4finger_swipe_down_default">@string/shortcut_value_next_window</string>
     <string name="pref_shortcut_4finger_swipe_left_default">@string/shortcut_value_unassigned</string>
     <string name="pref_shortcut_4finger_swipe_right_default">@string/shortcut_value_unassigned</string>
     <string name="pref_shortcut_4finger_1tap_default">@string/shortcut_value_practice_gestures</string>
@@ -788,7 +836,7 @@
     <string name="pref_shortcut_2finger_2tap_hold_default">@string/shortcut_value_start_selection_mode</string>
     <string name="pref_shortcut_3finger_2tap_hold_default">@string/shortcut_value_cut</string>
     <string name="pref_shortcut_4finger_2tap_hold_default">@string/shortcut_value_pass_through_next_gesture</string>
-
+    <string name="pref_shortcut_2finger_3tap_hold_default">@string/shortcut_value_unassigned</string>
 
     <!-- Fingerprint gesture shortcut default values -->
     <string name="pref_shortcut_fingerprint_up_default">@string/shortcut_value_select_previous_setting</string>
@@ -899,6 +947,7 @@
     <string name="pref_show_navigation_menu_special_content_setting_key" translatable="false">pref_special content_navigation_menu_setting_key</string>
     <string name="pref_show_navigation_menu_other_web_navigation_setting_key" translatable="false">pref_other_web_navigation_navigation_menu_setting_key</string>
     <string name="pref_show_navigation_menu_granularity_default_setting_key" translatable="false">pref_show_navigation_menu_granularity_default_setting_key</string>
+    <string name="pref_show_navigation_menu_window_setting_key" translatable="false">pref_window_navigation_menu_setting_key</string>
 
     <!-- Selector settings -->
     <string name="selector_verbosity">VERBOSITY</string>
@@ -915,6 +964,7 @@
     <string name="selector_granularity_paragraphs">GRANULARITY_PARAGRAPHS</string>
     <string name="selector_granularity_characters">GRANULARITY_CHARACTERS</string>
     <string name="selector_granularity_lines">GRANULARITY_LINES</string>
+    <string name="selector_granularity_windows">GRANULARITY_WINDOWS</string>
     <string name="selector_granularity_links">GRANULARITY_LINKS</string>
     <string name="selector_granularity_controls">GRANULARITY_CONTROLS</string>
     <string name="selector_granularity_landmarks">GRANULARITY_LANDMARKS</string>

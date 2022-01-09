@@ -52,6 +52,11 @@ public class LanguageActor {
     public String getCurrentLanguageString() {
       return LanguageActor.this.getCurrentLanguageString();
     }
+
+    @Nullable
+    public Locale getCurrentLanguage() {
+      return LanguageActor.this.getCurrentLanguage();
+    }
   }
 
   private static final String TAG = "LanguageActor";
@@ -170,6 +175,16 @@ public class LanguageActor {
       return installLanguages;
     }
     return null;
+  }
+
+  /**
+   * Gets the current speech language.
+   *
+   * @return returns null, if users haven't set their preferred language.
+   */
+  @Nullable
+  public Locale getCurrentLanguage() {
+    return speechLanguage.getCurrentLanguage();
   }
 
   /** Gets a string of current speech language, including language and country. */

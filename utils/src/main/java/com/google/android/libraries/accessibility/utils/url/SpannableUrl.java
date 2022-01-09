@@ -43,7 +43,7 @@ public abstract class SpannableUrl {
   }
 
   // URLSpan.onClick is fine with a null parameter when called from an AccessibilityService.
-  @SuppressWarnings("nullness:argument.type.incompatible")
+  @SuppressWarnings("nullness:argument")
   public void onClick(Context context) {
     if (Strings.isNullOrEmpty(path())) {
       // If the path is null or empty, use the onClick listener.

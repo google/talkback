@@ -21,6 +21,7 @@ import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.talkback.Pipeline.SyntheticEvent;
 import com.google.android.accessibility.talkback.actor.voicecommands.VoiceCommandProcessor;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorAccessibilityHints;
+import com.google.android.accessibility.talkback.interpreters.AccessibilityEventIdleInterpreter;
 import com.google.android.accessibility.talkback.interpreters.AccessibilityFocusInterpreter;
 import com.google.android.accessibility.talkback.interpreters.AutoScrollInterpreter;
 import com.google.android.accessibility.talkback.interpreters.DirectionNavigationInterpreter;
@@ -29,6 +30,7 @@ import com.google.android.accessibility.talkback.interpreters.InputFocusInterpre
 import com.google.android.accessibility.talkback.interpreters.PassThroughModeInterpreter;
 import com.google.android.accessibility.talkback.interpreters.ScrollPositionInterpreter;
 import com.google.android.accessibility.talkback.interpreters.StateChangeEventInterpreter;
+import com.google.android.accessibility.talkback.interpreters.SubtreeChangeEventInterpreter;
 import com.google.android.accessibility.utils.Performance.EventId;
 
 /** Wrapper around all event-interpreters, for use in Pipeline. */
@@ -49,6 +51,8 @@ public class Interpreters {
   private final ProcessorAccessibilityHints processorAccessibilityHints;
   private final VoiceCommandProcessor voiceCommandProcessor;
   @Nullable private final PassThroughModeInterpreter passThroughModeInterpreter;
+  private final SubtreeChangeEventInterpreter subtreeChangeEventInterpreter;
+  private final AccessibilityEventIdleInterpreter accessibilityEventIdleInterpreter;
 
   private final int eventTypeMask; // Union of all sub-interpreter masks
 
@@ -65,7 +69,9 @@ public class Interpreters {
       DirectionNavigationInterpreter directionNavigationInterpreter,
       ProcessorAccessibilityHints processorAccessibilityHints,
       VoiceCommandProcessor voiceCommandProcessor,
-      PassThroughModeInterpreter passThroughModeInterpreter) {
+      PassThroughModeInterpreter passThroughModeInterpreter,
+      SubtreeChangeEventInterpreter subtreeChangeEventInterpreter,
+      AccessibilityEventIdleInterpreter accessibilityEventIdleInterpreter) {
 
     this.inputFocusInterpreter = inputFocusInterpreter;
     this.autoScrollInterpreter = autoScrollInterpreter;
@@ -77,11 +83,14 @@ public class Interpreters {
     this.processorAccessibilityHints = processorAccessibilityHints;
     this.voiceCommandProcessor = voiceCommandProcessor;
     this.passThroughModeInterpreter = passThroughModeInterpreter;
+    this.subtreeChangeEventInterpreter = subtreeChangeEventInterpreter;
+    this.accessibilityEventIdleInterpreter = accessibilityEventIdleInterpreter;
 
     eventTypeMask =
         inputFocusInterpreter.getEventTypes()
             | continuousReadInterpreter.getEventTypes()
             | stateChangeEventInterpreter.getEventTypes()
+            | subtreeChangeEventInterpreter.getEventTypes()
             | ((passThroughModeInterpreter != null)
                 ? passThroughModeInterpreter.getEventTypes()
                 : 0);
@@ -100,7 +109,6 @@ public class Interpreters {
   }
 
   public void setPipelineInterpretationReceiver(Pipeline.InterpretationReceiver pipeline) {
-    inputFocusInterpreter.setPipeline(pipeline);
     autoScrollInterpreter.setPipelineInterpretationReceiver(pipeline);
     scrollPositionInterpreter.setPipeline(pipeline);
     accessibilityFocusInterpreter.setPipeline(pipeline);
@@ -112,10 +120,13 @@ public class Interpreters {
     if (passThroughModeInterpreter != null) {
       passThroughModeInterpreter.setPipeline(pipeline);
     }
+    subtreeChangeEventInterpreter.setPipeline(pipeline);
+    accessibilityEventIdleInterpreter.setPipeline(pipeline);
   }
 
   //////////////////////////////////////////////////////////////////////////////////
   // Methods
+  // TODO: Ensure the flow of interpreting events goes with one-way.
 
   public int getEventTypes() {
     return eventTypeMask;
@@ -125,9 +136,14 @@ public class Interpreters {
     inputFocusInterpreter.onAccessibilityEvent(event, eventId);
     continuousReadInterpreter.onAccessibilityEvent(event, eventId);
     stateChangeEventInterpreter.onAccessibilityEvent(event, eventId);
+    subtreeChangeEventInterpreter.onAccessibilityEvent(event, eventId);
     if (passThroughModeInterpreter != null) {
       passThroughModeInterpreter.onAccessibilityEvent(event, eventId);
     }
+  }
+
+  public void onIdle() {
+    accessibilityEventIdleInterpreter.onIdle();
   }
 
   /** Handles internally-generated events, asynchronously sends interpretations to pipeline. */

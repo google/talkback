@@ -17,10 +17,10 @@ package com.google.android.accessibility.talkback.preference;
 
 import androidx.preference.PreferenceFragmentCompat;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.utils.BasePreferencesActivity;
+import com.google.android.accessibility.utils.PreferencesActivity;
 
 /** Activity used to set quick menu preferences. */
-public class TalkBackSelectorMenuPreferencesActivity extends BasePreferencesActivity {
+public class TalkBackSelectorMenuPreferencesActivity extends PreferencesActivity {
 
   @Override
   protected PreferenceFragmentCompat createPreferenceFragment() {

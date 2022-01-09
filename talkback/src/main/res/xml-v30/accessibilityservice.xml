@@ -8,6 +8,7 @@
     android:canControlMagnification="true"
     android:canRetrieveWindowContent="true"
     android:canRequestFingerprintGestures="true"
+    android:canTakeScreenshot="true"
     android:summary="@string/talkback_service_summary"
     android:notificationTimeout="0"
     android:interactiveUiTimeout="10000"

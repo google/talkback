@@ -31,21 +31,21 @@ import com.google.android.accessibility.utils.output.SpeechController;
 public class BatteryMonitor extends BroadcastReceiver {
   private Pipeline.FeedbackReturner pipeline;
 
-  private TelephonyManager telephonyManager;
+  private final CallStateMonitor callStateMonitor;
 
   private Context context;
 
   private int batteryLevel = -1;
 
   public BatteryMonitor(
-      Context context, Pipeline.FeedbackReturner pipeline, TelephonyManager telephonyManager) {
+      Context context, Pipeline.FeedbackReturner pipeline, CallStateMonitor callStateMonitor) {
     if (pipeline == null) {
       throw new IllegalStateException();
     }
 
     this.context = context;
     this.pipeline = pipeline;
-    this.telephonyManager = telephonyManager;
+    this.callStateMonitor = callStateMonitor;
   }
 
   public IntentFilter getFilter() {
@@ -58,8 +58,8 @@ public class BatteryMonitor extends BroadcastReceiver {
 
   @Override
   public void onReceive(Context context, Intent intent) {
-    if ((telephonyManager != null)
-        && (telephonyManager.getCallState() != TelephonyManager.CALL_STATE_IDLE)) {
+    if ((callStateMonitor != null)
+        && (callStateMonitor.getCurrentCallState() != TelephonyManager.CALL_STATE_IDLE)) {
       return;
     }
     final String action = intent.getAction();

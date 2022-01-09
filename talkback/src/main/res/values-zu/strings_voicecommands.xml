@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Ulimi</string>
   <string name="voice_commands_languages">Izilimi</string>
   <string name="voice_commands_custom_actions">izenzo ezingokwezifiso</string>
-  <string name="voice_commands_quick_settings">Izilungiselelo ezisheshayo</string>
-  <string name="voice_commands_quick_setting">Isethingi esheshayo</string>
+  <string name="voice_commands_action">Isenzo</string>
+  <string name="voice_commands_quick_settings">Amasethingi Asheshayo</string>
+  <string name="voice_commands_quick_setting">Isethingi elisheshayo</string>
   <string name="voice_commands_dim">fiphalisa</string>
   <string name="voice_commands_darken">yenza kube mnyama</string>
   <string name="voice_commands_brighten_screen">khanyisa isikrini</string>
@@ -61,7 +62,7 @@
   <string name="voice_commands_write">Bhala</string>
   <string name="voice_commands_Spell">I-Spell</string>
   <string name="voice_commands_talkback_settings">Amasethingi we-TalkBack</string>
-  <string name="voice_commands_talkback_setting">Isethingi ye-TalkBack</string>
+  <string name="voice_commands_talkback_setting">Isethingi le-TalkBack</string>
   <string name="voice_commands_screen_search">Usesho lwesikrini</string>
   <string name="voice_commands_search_on_screen">Sesha kusikrini</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Uxolo! Lesi sici asitholakali kudivayisi yakho</string>
   <string name="voice_commands_error">Iphutha lokubona umyalo wakho wezwi</string>
   <string name="voice_commands_partial_result">Awazi lo myalo. Ithi \"%1$s\" ukuthola uhlu lwayo yonke imiyalo.</string>
+  <string name="voice_commands_timeout">Ithi \"%1$s\" ukuthola uhlu lwayo yonke imiyalo.</string>
   <string name="voice_commands_many_requests">Sicela uzame futhi emva kwesikhashana</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" isilungiselelo asinikiwe amandla</string>
   <string name="voice_commands_echo_feedback_not_recognized">I-\"%1$s\" ayaziwa njengomyalo wezwi.</string>
   <string name="voice_commands_label_saved">Ilebula ilondoloziwe</string>
   <string name="voice_commands_no_actions_feedback">Azikho izenzo ezitholakalayo</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Ukubuka konke komyalo wezwi</string>
   <string name="voice_commands_help_description">Ukuze usebenzise imiyalo yezwi, swayiphela ngakwesokudla bese phezulu. Ithi \"Usizo\" noma \"Ngingathini?\" noma nini ukuthola uhlu lwemiyalo.</string>
   <string name="voice_commands_help_hint">Ukuze uthole imiphumela engcono kakhulu, isho igama langempela eliboniswe kwizikrini ezilandelayo.</string>
+  <string name="voice_command_screen_locked_hint">Imiyalo yezwi ayitholakali ngenkathi isikrini sikhiyiwe. Ukuze usebenzise imenyu ye-TalkBack kunalokho, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Shintsha indlela ofunda ngayo okuqukethwe kwisikrini esilandelayo</string>
   <string name="voice_commands_help_next">[Isihloko] esilandelayo</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Faka itemu lokusesha ukuze uthole lowo mbhalo esikrinini</string>
   <string name="voice_commands_help_text_editing_description">Thayipha, khetha, bese ukopisha umbhalo</string>
   <string name="voice_commands_help_type_text">Thayipha [Kulungile]</string>
-  <string name="voice_commands_help_copy_description">Qiniseka ukuthi unombhalo okhethiwe ngaphambi kokukopisha</string>
-  <string name="voice_commands_help_cut_description">Qiniseka ukuthi unombhalo okhethiwe ngaphambi kokukhetha</string>
+  <string name="voice_commands_help_copy_description">Khetha umbhalo ngaphambi kokukopisha</string>
+  <string name="voice_commands_help_cut_description">Khetha umbhalo ngaphambi kokusika</string>
+  <string name="voice_commands_help_delete_description">Khetha umbhalo ngaphambi kokusula</string>
   <string name="voice_commands_help_device_navigation_title">Ukuzulazula kwedivayisi</string>
   <string name="voice_commands_help_device_navigation_description">Iya Ekhaya, buyela emuva, bonisa izaziso, nokuningi</string>
   <string name="voice_commands_help_overview_description">Bona izinhlelo zakho zokusebenza zamanje</string>

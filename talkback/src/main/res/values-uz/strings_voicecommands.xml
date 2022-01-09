@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Til</string>
   <string name="voice_commands_languages">Tillar</string>
   <string name="voice_commands_custom_actions">maxsus amallar</string>
+  <string name="voice_commands_action">Amal</string>
   <string name="voice_commands_quick_settings">Tezkor sozlamalar</string>
-  <string name="voice_commands_quick_setting">Tezkor sozlamalar</string>
+  <string name="voice_commands_quick_setting">Tezkor sozlama</string>
   <string name="voice_commands_dim">xiralashtirish</string>
   <string name="voice_commands_darken">qoraytirish</string>
   <string name="voice_commands_brighten_screen">yorqinlikni oshirish</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Bu funksiya qurilmangizda ishlamaydi</string>
   <string name="voice_commands_error">Ovozli buyruqni tanishda xatolik yuz berdi</string>
   <string name="voice_commands_partial_result">Bu buyruq aniqlanmadi. Barcha buyruqlar roʻyxatini ochish uchun “%1$s” deng.</string>
+  <string name="voice_commands_timeout">Barcha buyruqlar roʻyxatini ochish uchun “%1$s” deng.</string>
   <string name="voice_commands_many_requests">Birozdan keyin qaytadan urining</string>
-  <string name="voice_commands_setting_disabled">“%1$s” sozlamasi yoqilmadi</string>
   <string name="voice_commands_echo_feedback_not_recognized">“%1$s” ovozli buyruq sifatida tanilmadi.</string>
   <string name="voice_commands_label_saved">Yorliq saqlandi</string>
   <string name="voice_commands_no_actions_feedback">Hech qanday amal mavjud emas</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Ovozli buyruqlar bilan tanishish</string>
   <string name="voice_commands_help_description">Ovozli buyruqlardan foydalanish uchun avval oʻngga, keyin tepaga suring. Buyruqlar roʻyxatini istalgan vaqtida ochish uchun “Yordam“ yoki “Nima deyishim mumkin?” deng</string>
   <string name="voice_commands_help_hint">Buyruqlar bajarilish uchun quyidagi ekranda koʻrsatilganidek talaffuz qiling.</string>
+  <string name="voice_command_screen_locked_hint">Ovozli buyruqlar qulflangan ekranda ishlamaydi. Oʻrniga TalkBack menyusidan foydalanish uchun %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Joriy ekranda kontentni oʻqish parametrlarini sozlash</string>
   <string name="voice_commands_help_next">Keyingi [sarlavha]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Ekrandagi matnni topish uchun qidiruv soʻrovini kiriting</string>
   <string name="voice_commands_help_text_editing_description">Yozing, matnni tanlang va nusxa oling</string>
   <string name="voice_commands_help_type_text">[OK] deb yozish</string>
-  <string name="voice_commands_help_copy_description">Nusxa olishdan oldin matnni belgilash lozim</string>
-  <string name="voice_commands_help_cut_description">Kesishdan oldin matnni belgilash lozim</string>
+  <string name="voice_commands_help_copy_description">Nusxa olish uchun avval matnni belgilang</string>
+  <string name="voice_commands_help_cut_description">Qirqish uchun avval matnni belgilang</string>
+  <string name="voice_commands_help_delete_description">Oʻchirishdan oldin matnni belgilang</string>
   <string name="voice_commands_help_device_navigation_title">Qurilma navigatsiyasi</string>
   <string name="voice_commands_help_device_navigation_description">Bosh ekranga oʻtish, orqaga qaytish va bildirishnomalarni chiqarish</string>
   <string name="voice_commands_help_overview_description">Oxirgi ochilgan ilovalarni koʻrish</string>

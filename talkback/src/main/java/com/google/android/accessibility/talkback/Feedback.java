@@ -490,6 +490,16 @@ public abstract class Feedback {
     return Part.builder().setGesture(Gesture.create(Gesture.Action.REPORT));
   }
 
+  /** Copies node at {@link ImageCaption.Builder}, caller retains ownership. */
+  public static Part.Builder performImageCaptions(AccessibilityNodeInfoCompat node) {
+    return Part.builder()
+        .setImageCaption(
+            ImageCaption.builder()
+                .setAction(ImageCaption.Action.PERFORM_CAPTIONS)
+                .setTarget(node)
+                .build());
+  }
+
   //////////////////////////////////////////////////////////////////////////////////
   // Data access methods
 
@@ -566,6 +576,8 @@ public abstract class Feedback {
     public abstract @Nullable TalkBackUI talkBackUI();
 
     public abstract @Nullable Gesture gesture();
+
+    public abstract @Nullable ImageCaption imageCaption();
 
     public static Builder builder() {
       return new AutoValue_Feedback_Part.Builder()
@@ -671,6 +683,8 @@ public abstract class Feedback {
 
       public abstract Builder setGesture(Gesture gesture);
 
+      public abstract Builder setImageCaption(ImageCaption imageCaption);
+
       public abstract Part build();
     }
 
@@ -710,6 +724,11 @@ public abstract class Feedback {
       if (direction != null) {
         direction.recycle();
       }
+
+      ImageCaption imageCaption = imageCaption();
+      if (imageCaption != null) {
+        imageCaption.recycle();
+      }
     }
 
     @Override
@@ -743,6 +762,7 @@ public abstract class Feedback {
               StringBuilderUtils.optionalSubObj("passThroughMode", passThroughMode()),
               StringBuilderUtils.optionalSubObj("talkBackUI", talkBackUI()),
               StringBuilderUtils.optionalSubObj("gesture", gesture()),
+              StringBuilderUtils.optionalSubObj("imageCaption", imageCaption()),
               StringBuilderUtils.optionalSubObj("speechRate", speechRate()),
               StringBuilderUtils.optionalSubObj("adjustValue", adjustValue()),
               StringBuilderUtils.optionalSubObj("adjustVolume", adjustVolume()));
@@ -1285,7 +1305,8 @@ public abstract class Feedback {
       LONG_CLICK_CURRENT,
       CLICK_ANCESTOR,
       SEARCH_FROM_TOP, // Requires searchKeyword.
-      SEARCH_AGAIN;
+      SEARCH_AGAIN,
+      ENSURE_ACCESSIBILITY_FOCUS_ON_SCREEN;
     }
 
     public abstract @Nullable AccessibilityNodeInfoCompat start();
@@ -1672,6 +1693,49 @@ public abstract class Feedback {
 
     public static Gesture create(Gesture.Action action, AccessibilityGestureEvent currentGesture) {
       return new AutoValue_Feedback_Gesture(action, currentGesture);
+    }
+  }
+
+  /** Inner data-structure for image caption. */
+  @AutoValue
+  public abstract static class ImageCaption {
+
+    /** Types of exclusive image caption actions. */
+    public enum Action {
+      /** Creates and performs caption requests for the focused node. */
+      PERFORM_CAPTIONS,
+    }
+
+    public abstract ImageCaption.Action action();
+
+    /** Owned node, AccessibilityNodeInfoCompat must recycle. */
+    public abstract AccessibilityNodeInfoCompat target();
+
+    public static Builder builder() {
+      return new AutoValue_Feedback_ImageCaption.Builder();
+    }
+
+    /** Builder for ImageCaption feedback data. */
+    @AutoValue.Builder
+    public abstract static class Builder {
+
+      public abstract Builder setAction(ImageCaption.Action action);
+
+      /** Copies node at{@link ImageCaption.Builder}, caller retains ownership. */
+      public abstract Builder setTarget(AccessibilityNodeInfoCompat target);
+
+      abstract AccessibilityNodeInfoCompat target();
+
+      abstract ImageCaption autoBuild();
+
+      public ImageCaption build() {
+        setTarget(AccessibilityNodeInfoUtils.obtain(target()));
+        return autoBuild();
+      }
+    }
+
+    public void recycle() {
+      AccessibilityNodeInfoUtils.recycleNodes(target());
     }
   }
 

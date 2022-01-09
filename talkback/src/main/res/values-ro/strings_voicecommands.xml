@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Limba</string>
   <string name="voice_commands_languages">Limbi</string>
   <string name="voice_commands_custom_actions">Acțiuni personalizate</string>
+  <string name="voice_commands_action">Acțiune</string>
   <string name="voice_commands_quick_settings">Setări rapide</string>
   <string name="voice_commands_quick_setting">Setare rapidă</string>
   <string name="voice_commands_dim">Redu luminozitatea</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Această funcție nu este disponibilă pe dispozitivul dvs.</string>
   <string name="voice_commands_error">Eroare la recunoașterea comenzii vocale</string>
   <string name="voice_commands_partial_result">Comanda nu a fost recunoscută. Rostiți „%1$s” pentru lista tuturor comenzilor.</string>
+  <string name="voice_commands_timeout">Rostiți „%1$s” pentru lista tuturor comenzilor.</string>
   <string name="voice_commands_many_requests">Încercați din nou peste câteva momente.</string>
-  <string name="voice_commands_setting_disabled">Setarea „%1$s” nu este activată</string>
   <string name="voice_commands_echo_feedback_not_recognized">„%1$s” nu a fost recunoscută drept comandă vocală.</string>
   <string name="voice_commands_label_saved">Eticheta a fost salvată</string>
   <string name="voice_commands_no_actions_feedback">Nicio acțiune disponibilă</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Prezentare generală a comenzilor vocale</string>
   <string name="voice_commands_help_description">Pentru a folosi comenzi vocale, glisați spre dreapta, apoi în sus. Rostiți oricând „Ajutor” sau „Ce pot spune?” pentru lista comenzilor.</string>
   <string name="voice_commands_help_hint">Pentru rezultate optime, folosiți exact cuvintele de pe ecranele următoare.</string>
+  <string name="voice_command_screen_locked_hint">Comenzile vocale nu sunt disponibile când ecranul este blocat. Pentru a folosi meniul TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Schimbați modul în care citiți conținutul de pe ecranul actual</string>
   <string name="voice_commands_help_next">Elementul [titlu] următor</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Introduceți un termen de căutare ca să găsiți textul respectiv pe ecran</string>
   <string name="voice_commands_help_text_editing_description">Introduceți, selectați și copiați text</string>
   <string name="voice_commands_help_type_text">Introdu textul [OK]</string>
-  <string name="voice_commands_help_copy_description">Asigurați-vă că ați selectat textul înainte de a-l copia</string>
-  <string name="voice_commands_help_cut_description">Asigurați-vă că ați selectat textul înainte de a-l decupa</string>
+  <string name="voice_commands_help_copy_description">Selectați textul înainte de a copia</string>
+  <string name="voice_commands_help_cut_description">Selectați textul înainte de a decupa</string>
+  <string name="voice_commands_help_delete_description">Selectați textul înainte de a șterge</string>
   <string name="voice_commands_help_device_navigation_title">Navigarea pe dispozitiv</string>
   <string name="voice_commands_help_device_navigation_description">Accesați ecranul de pornire, reveniți, afișați notificări și altele</string>
   <string name="voice_commands_help_overview_description">Vedeți aplicațiile recente</string>

@@ -74,7 +74,7 @@ public class SimpleOverlay {
    *     AccessibilityEvent}s.
    */
   // WindowManager is guaranteed to be not null but getSystemService() can return null in general.
-  @SuppressWarnings("nullness:assignment.type.incompatible")
+  @SuppressWarnings("nullness:assignment")
   public SimpleOverlay(Context context, int id, final boolean sendsAccessibilityEvents) {
     this.context = context;
     windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);

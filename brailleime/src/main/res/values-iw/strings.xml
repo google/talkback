@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">מתבצע עדכון של מיקום הנקודות. תחילה עליך לתעד את הנקודות של יד שמאל. יש ללחוץ לחיצה ארוכה על המסך באמצעות 3 האצבעות האמצעיות של יד שמאל.</string>
   <string name="calibration_step1_hold_right_finger_announcement">מתבצע עדכון של מיקום הנקודות. תחילה עליך לתעד את הנקודות של יד ימין. יש ללחוץ לחיצה ארוכה על המסך באמצעות 3 האצבעות האמצעיות של יד ימין.</string>
   <string name="calibration_finish_announcement">מיקום הנקודות עודכן</string>
+  <string name="remaining_calibration_finish_announcement">כל מיקומי הנקודות עודכנו</string>
   <string name="calibration_step2_hold_right_finger_announcement">המיקום של נקודות 1, 2 ו-3 עודכן. עכשיו עליך לתעד את הנקודות של יד ימין. יש ללחוץ לחיצה ארוכה על המסך באמצעות 3 האצבעות האמצעיות של יד ימין.</string>
   <string name="calibration_step2_hold_left_finger_announcement">המיקום של נקודות 1, 2 ו-3 עודכן. עכשיו עליך לתעד את הנקודות של יד שמאל. יש ללחוץ לחיצה ארוכה על המסך באמצעות 3 האצבעות האמצעיות של יד שמאל.</string>
   <string name="calibration_fail_announcement">עדכון מיקום הנקודות נכשל. יש ללחוץ לחיצה ארוכה על המסך עם 6 אצבעות. לאחר מכן יש לנסות שוב.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">אנגלית אחידה לברייל</string>
   <string name="code_user_facing_name_es">ספרדית</string>
   <string name="code_user_facing_name_ar">ערבית</string>
+  <string name="code_user_facing_name_fr">צרפתית</string>
   <string name="title_pref_accumulate_presses">הכללת כל הנקודות שנלחצו</string>
   <string name="summary_pref_accumulate_presses">כל נקודה שנלחצה היא חלק מהקלט, גם אם מרפים מנקודה מסוימת לפני שמרפים משאר הנקודות</string>
   <string name="title_pref_reverse_dots">נקודות הפוכות</string>
   <string name="summary_pref_reverse_dots">יש להחליף בין מיקומי הנקודות (למשל: החלפה בין נקודות 1 ו-4)</string>
-  <string name="typing_echo_list_preference_title">משוב להקלדה (הד ההקלדה)</string>
-  <string name="typing_echo_preference_label_characters">הקראת כל האותיות והמילים</string>
-  <string name="typing_echo_preference_label_words">הקראת המילים בלבד</string>
   <string name="context_menu_title">אפשרויות למקלדת ברייל</string>
   <string name="context_menu_typing_language_selection">שינוי שפת ההקלדה</string>
   <string name="context_menu_typing_language_selection_summary">בשימוש כרגע: %s</string>

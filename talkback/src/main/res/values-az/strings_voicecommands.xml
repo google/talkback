@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Dil</string>
   <string name="voice_commands_languages">Dillər</string>
   <string name="voice_commands_custom_actions">fərdi əməliyyatlar</string>
-  <string name="voice_commands_quick_settings">Sürətli ayarlar</string>
-  <string name="voice_commands_quick_setting">Sürətli ayar</string>
+  <string name="voice_commands_action">Əməliyyat</string>
+  <string name="voice_commands_quick_settings">Sürətli Ayarlar</string>
+  <string name="voice_commands_quick_setting">Sürətli Ayar</string>
   <string name="voice_commands_dim">qaraldın</string>
   <string name="voice_commands_darken">qaranlıq edin</string>
   <string name="voice_commands_brighten_screen">ekranı işıqlandırın</string>
@@ -60,8 +61,8 @@
   <string name="voice_commands_dictate">Diktə edin</string>
   <string name="voice_commands_write">Yazın</string>
   <string name="voice_commands_Spell">Yazılış</string>
-  <string name="voice_commands_talkback_settings">TalkBack Ayarları</string>
-  <string name="voice_commands_talkback_setting">TalkBack Ayarı</string>
+  <string name="voice_commands_talkback_settings">TalkBack ayarları</string>
+  <string name="voice_commands_talkback_setting">TalkBack ayarı</string>
   <string name="voice_commands_screen_search">Ekranda axtarış</string>
   <string name="voice_commands_search_on_screen">Ekranda axtarın</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -97,9 +98,9 @@
   <string name="voice_commands_no_voice_recognition_ability">Təəssüf edirik! Bu funksiya cihazınızda dəstəklənmir</string>
   <string name="voice_commands_error">Səs əmrini tanımaq alınmadı</string>
   <string name="voice_commands_partial_result">Bu əmri tanımaq olmur. Bütün əmrlərin siyahısı üçün \"%1$s\" deyin.</string>
+  <string name="voice_commands_timeout">Bütün əmrlərin siyahısı üçün \"%1$s\" deyin.</string>
   <string name="voice_commands_many_requests">Az sonra yenidən cəhd edin</string>
-  <string name="voice_commands_setting_disabled">\"%1$s\" ayarı aktiv deyil</string>
-  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" səs əmri kimi tanınmır.</string>
+  <string name="voice_commands_echo_feedback_not_recognized">\"%1$s\" səs əmri kimi tanınmadı.</string>
   <string name="voice_commands_label_saved">Etiket yadda saxlanılıb</string>
   <string name="voice_commands_no_actions_feedback">Əlçatan əməliyyat yoxdur</string>
   <string name="voice_commands_no_next_heading_feedback">Növbəti başlıq yoxdur</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Səs əmri icmalı</string>
   <string name="voice_commands_help_description">Səs əmrlərindən istifadə etmək üçün sağa, sonra yuxarı sürüşdürün. Bu əmrlərin siyahısı üçün istənilən vaxt \"Yardım\" və ya \"Nə deyə bilərəm?\" deyin.</string>
   <string name="voice_commands_help_hint">Nəticələrin yaxşı olması üçün aşağıdakı ekranlarda verilmiş sözləri dəqiqliklə deyin.</string>
+  <string name="voice_command_screen_locked_hint">Ekran kilidli olduqda səsli əmrlər əlçatan olmur. TalkBack menyusunu istifadə etmək üçün %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Cari ekranda məzmunu oxunma qaydasını dəyişin</string>
   <string name="voice_commands_help_next">Növbəti [başlıq]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Bu mətni ekranda tapmaq üçün axtarış sözü daxil edin</string>
   <string name="voice_commands_help_text_editing_description">Mətni yazın, seçin və kopyalayın</string>
   <string name="voice_commands_help_type_text">[OK] yazın</string>
-  <string name="voice_commands_help_copy_description">Kopyalamazdan əvvəl mətni seçdiyinizə əmin olun</string>
-  <string name="voice_commands_help_cut_description">Kəsməzdən əvvəl mətni seçdiyinizə əmin olun</string>
+  <string name="voice_commands_help_copy_description">Kopyalamadan əvvəl mətn seçin</string>
+  <string name="voice_commands_help_cut_description">Kəsmədən əvvəl mətn seçin</string>
+  <string name="voice_commands_help_delete_description">Silmədən əvvəl mətn seçin</string>
   <string name="voice_commands_help_device_navigation_title">Cihaz naviqasiyası</string>
   <string name="voice_commands_help_device_navigation_description">Əsas səhifəyə keçin, geri qayıdın, bildirişləri göstərin və daha çoxu</string>
   <string name="voice_commands_help_overview_description">Son tətbiqlərə baxın</string>

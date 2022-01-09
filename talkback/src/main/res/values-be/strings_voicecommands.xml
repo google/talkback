@@ -14,8 +14,9 @@
   <string name="voice_commands_language">Мова</string>
   <string name="voice_commands_languages">Мовы</string>
   <string name="voice_commands_custom_actions">спецыяльныя дзеянні</string>
+  <string name="voice_commands_action">Дзеянне</string>
   <string name="voice_commands_quick_settings">Хуткія налады</string>
-  <string name="voice_commands_quick_setting">Хуткія налады</string>
+  <string name="voice_commands_quick_setting">Хуткая налада</string>
   <string name="voice_commands_dim">зацямненне</string>
   <string name="voice_commands_darken">зацямніць</string>
   <string name="voice_commands_brighten_screen">павялічыць яркасць экрана</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">На жаль, гэта функцыя недаступная на гэтай прыладзе</string>
   <string name="voice_commands_error">Памылка распазнавання галасавой каманды</string>
   <string name="voice_commands_partial_result">Не ўдалося распазнаць гэту каманду. Скажыце \"%1$s\", каб убачыць спіс усіх каманд.</string>
+  <string name="voice_commands_timeout">Скажыце \"%1$s\", каб убачыць спіс усіх каманд.</string>
   <string name="voice_commands_many_requests">Паўтарыце спробу яшчэ раз</string>
-  <string name="voice_commands_setting_disabled">Налада \"%1$s\" не ўключана</string>
   <string name="voice_commands_echo_feedback_not_recognized">Галасавы ўвод \"%1$s\" не распазнаны як галасавая каманда.</string>
   <string name="voice_commands_label_saved">Метка захавана</string>
   <string name="voice_commands_no_actions_feedback">Няма даступных дзеянняў</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Агляд галасавой каманды</string>
   <string name="voice_commands_help_description">Каб выкарыстоўваць галасавыя каманды, правядзіце пальцам управа, затым уверх. Для паказу гэтага спіса каманд скажыце \"Даведка\" ці \"Што сказаць?\".</string>
   <string name="voice_commands_help_hint">Каб дасягнуць найлепшых вынікаў, вымаўляйце словы так, як паказана на наступных экранах.</string>
+  <string name="voice_command_screen_locked_hint">Пры заблакіраваным экране галасавыя каманды недаступныя. Каб замест іх скарыстайць меню TalkBack, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Змяніць чытанне змесціва на цяперашнім экране</string>
   <string name="voice_commands_help_next">Наступны [загаловак]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Увод пошукавага запыту для пошуку гэтага тэксту на экране</string>
   <string name="voice_commands_help_text_editing_description">Увод, вылучэнне і капіраванне тэксту</string>
   <string name="voice_commands_help_type_text">Увядзі [ОК]</string>
-  <string name="voice_commands_help_copy_description">Перад капіраваннем пераканайцеся, што вы вылучылі тэкст</string>
-  <string name="voice_commands_help_cut_description">Перад выразаннем пераканайцеся, што вы вылучылі тэкст</string>
+  <string name="voice_commands_help_copy_description">Вылучыце тэкст перад капіраваннем</string>
+  <string name="voice_commands_help_cut_description">Вылучыце тэкст перад выразаннем</string>
+  <string name="voice_commands_help_delete_description">Вылучыце тэкст перад выдаленнем</string>
   <string name="voice_commands_help_device_navigation_title">Навігацыя па прыладзе</string>
   <string name="voice_commands_help_device_navigation_description">Пераход на Галоўную старонку, пераход назад, паказ апавяшчэнняў і многае іншае</string>
   <string name="voice_commands_help_overview_description">Праглядайце нядаўнія праграмы</string>

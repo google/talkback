@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Чекиттердин ордун өзгөртүү. Алгач, сол колуңуздун чекиттери кайсы жерде болорун белгилеп алалы. Экранды сол колуңуздун 3 орто манжасы менен коё бербей басып туруңуз.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Чекиттердин ордун өзгөртүү. Адегенде, оң колуңуздун чекиттери кайсы жерде болорун белгилеп алалы. Экранды оң колуңуздун 3 орто манжасы менен кое бербей басып туруңуз.</string>
   <string name="calibration_finish_announcement">Чекиттердин орду жаңыртылды</string>
+  <string name="remaining_calibration_finish_announcement">Бардык чекиттердин абалы жаңыртылды</string>
   <string name="calibration_step2_hold_right_finger_announcement">1, 2 жана 3 чекиттеринин экрандагы орундары өзгөрдү. Эми оң колуңуздун чекиттери кайсы жерде болорун белгилеп алалы. Экранды оң колуңуздун 3 орто манжасы менен кое бербей басып туруңуз.</string>
   <string name="calibration_step2_hold_left_finger_announcement">1, 2 жана 3 чекиттеринин экрандагы орундары өзгөрдү. Эми сол колуңуздун чекиттери кайсы жерде болорун белгилеп алалы. Экранды сол колуңуздун 3 орто манжасы менен коё бербей басып туруңуз.</string>
   <string name="calibration_fail_announcement">Чекиттердин орду өзгөргөн жок. Экранды 6 манжаңыз менен коё бербей басып туруңуз. Андан кийин кайталап көрүңүз.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Унификацияланган англис тилиндеги Брайль</string>
   <string name="code_user_facing_name_es">Испанча</string>
   <string name="code_user_facing_name_ar">Арабча</string>
+  <string name="code_user_facing_name_fr">Французча</string>
   <string name="title_pref_accumulate_presses">Бардык басылган чекиттер камтылсын</string>
   <string name="summary_pref_accumulate_presses">Башка чекиттерге чейин бошотулса да, ар бир басылган чекит киргизүүнүн бөлүгү болот</string>
   <string name="title_pref_reverse_dots">Тескери чекиттер</string>
   <string name="summary_pref_reverse_dots">1–4 чейинки чекиттердин ордун артка алмашытырыңыз, мисалы</string>
-  <string name="typing_echo_list_preference_title">Басылган баскычтарды айтып туруу</string>
-  <string name="typing_echo_preference_label_characters">Бардык тамгалар менен сөздөр окулсун</string>
-  <string name="typing_echo_preference_label_words">Сөздөр гана окулсун</string>
   <string name="context_menu_title">Брайль баскычтобунун параметрлери</string>
   <string name="context_menu_typing_language_selection">Терүү тилин өзгөртүү</string>
   <string name="context_menu_typing_language_selection_summary">Учурда %s колдонулууда</string>

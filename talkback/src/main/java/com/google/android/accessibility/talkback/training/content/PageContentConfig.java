@@ -22,11 +22,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.google.android.accessibility.talkback.training.PageConfig.PageContentPredicate;
-import java.io.Serializable;
 
 // TODO Creates Contents and set text/condition by builder.
 /** Pages are composed of contents. */
-public abstract class PageContentConfig implements Serializable {
+public abstract class PageContentConfig {
 
   public static final int UNKNOWN_RESOURCE_ID = -1;
 

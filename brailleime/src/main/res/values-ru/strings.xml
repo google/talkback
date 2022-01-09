@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Обновление положения точек. Сначала зафиксируйте точки для левой руки. Нажмите и удерживайте экран указательным, средним и безымянным пальцами левой руки.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Обновление положения точек. Сначала зафиксируйте точки для правой руки. Нажмите и удерживайте экран указательным, средним и безымянным пальцами правой руки.</string>
   <string name="calibration_finish_announcement">Положение точек обновлено</string>
+  <string name="remaining_calibration_finish_announcement">Положение всех точек обновлено</string>
   <string name="calibration_step2_hold_right_finger_announcement">Положение точек 1, 2 и 3 обновлено. Теперь зафиксируйте точки для правой руки. Нажмите и удерживайте экран указательным, средним и безымянным пальцами правой руки.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Положение точек 1, 2 и 3 обновлено. Теперь зафиксируйте точки для левой руки. Нажмите и удерживайте экран указательным, средним и безымянным пальцами левой руки.</string>
   <string name="calibration_fail_announcement">Не удалось обновить положение точек. Нажмите и удерживайте экран шестью пальцами, а затем повторите попытку.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Объединенный английский шрифт Брайля</string>
   <string name="code_user_facing_name_es">Испанский</string>
   <string name="code_user_facing_name_ar">арабский</string>
+  <string name="code_user_facing_name_fr">Французский</string>
   <string name="title_pref_accumulate_presses">Учитывать все нажатые точки</string>
   <string name="summary_pref_accumulate_presses">При вводе учитывать каждую нажатую точку, даже если ее отпустили раньше других</string>
   <string name="title_pref_reverse_dots">Обратный порядок точек</string>
   <string name="summary_pref_reverse_dots">Переставить точки, например поменять местами точки 1 и 4</string>
-  <string name="typing_echo_list_preference_title">Озвучивание при печати</string>
-  <string name="typing_echo_preference_label_characters">Читать все слова и буквы</string>
-  <string name="typing_echo_preference_label_words">Читать только слова</string>
   <string name="context_menu_title">Параметры клавиатуры Брайля</string>
   <string name="context_menu_typing_language_selection">Изменить язык ввода</string>
   <string name="context_menu_typing_language_selection_summary">Используется %s</string>

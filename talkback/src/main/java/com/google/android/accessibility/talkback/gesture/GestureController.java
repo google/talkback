@@ -73,12 +73,12 @@ import com.google.android.accessibility.talkback.controller.SelectorController;
 import com.google.android.accessibility.talkback.eventprocessor.ProcessorVolumeStream;
 import com.google.android.accessibility.talkback.focusmanagement.AccessibilityFocusMonitor;
 import com.google.android.accessibility.talkback.training.TrainingActivity;
-import com.google.android.accessibility.talkback.training.TrainingActivity.TrainingState;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
 import com.google.android.accessibility.utils.Performance;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
+import com.google.android.accessibility.utils.ScreenMonitor;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.accessibility.utils.StringBuilderUtils;
 import com.google.android.accessibility.utils.TreeDebug;
@@ -87,7 +87,11 @@ import com.google.android.accessibility.utils.keyboard.KeyboardUtils;
 import com.google.android.accessibility.utils.output.FeedbackItem;
 import com.google.android.accessibility.utils.output.SpeechController.SpeakOptions;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
+import com.google.common.collect.ImmutableMap;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -112,6 +116,8 @@ public class GestureController {
   private final TalkBackAnalytics analytics;
   /** Records whether should echo not recognized text speech */
   private boolean echoNotRecognizedTextEnabled;
+
+  @NonNull private final Map<Integer, Integer> captureGestureIdToAnnouncements = new HashMap<>();
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Constructor methods
@@ -241,13 +247,17 @@ public class GestureController {
       result =
           pipeline.returnFeedback(
               eventId, Feedback.systemAction(AccessibilityService.GLOBAL_ACTION_HOME));
-    } else if (TalkBackService.ENABLE_VOICE_COMMANDS
-        && action.equals(service.getString(R.string.shortcut_value_voice_commands))) {
-      // TODO: Maybe disable when device is locked
-      // (KeyguardManager.isDeviceLocked()).
-      result =
-          pipeline.returnFeedback(
-              eventId, Feedback.voiceRecognition(START_LISTENING, /* checkDialog= */ true));
+    } else if (action.equals(service.getString(R.string.shortcut_value_voice_commands))) {
+      if (ScreenMonitor.isDeviceLocked(service)) {
+        speak(
+            service.getString(
+                R.string.voice_command_screen_locked_hint,
+                gestureShortcutMapping.getGestureFromActionKey(action)));
+      } else {
+        result =
+            pipeline.returnFeedback(
+                eventId, Feedback.voiceRecognition(START_LISTENING, /* checkDialog= */ true));
+      }
     } else if (action.equals(service.getString(R.string.shortcut_value_overview))) {
       result =
           pipeline.returnFeedback(
@@ -278,6 +288,14 @@ public class GestureController {
       result = pipeline.returnFeedback(eventId, Feedback.focusDirection(PREVIOUS_GRANULARITY));
     } else if (action.equals(service.getString(R.string.shortcut_value_next_granularity))) {
       result = pipeline.returnFeedback(eventId, Feedback.focusDirection(NEXT_GRANULARITY));
+    } else if (action.equals(service.getString(R.string.shortcut_value_previous_window))) {
+      result =
+          pipeline.returnFeedback(
+              eventId, Feedback.previousWindow(INPUT_MODE_TOUCH).setDefaultToInputFocus(true));
+    } else if (action.equals(service.getString(R.string.shortcut_value_next_window))) {
+      result =
+          pipeline.returnFeedback(
+              eventId, Feedback.nextWindow(INPUT_MODE_TOUCH).setDefaultToInputFocus(true));
     } else if (action.equals(service.getString(R.string.shortcut_value_read_from_top))) {
       result = pipeline.returnFeedback(eventId, Feedback.continuousRead(START_AT_TOP));
     } else if (action.equals(service.getString(R.string.shortcut_value_read_from_current))) {
@@ -399,12 +417,11 @@ public class GestureController {
 
   public void onGesture(int gestureId, EventId eventId) {
     // TalkBack can ignore the gesture, which is handled by OnGestureListener.onCaptureGesture(), if
-    // gesture listener exists and the current window is training.
-    TrainingState trainingState = TrainingActivity.getTrainingState();
-    if (trainingState != null && trainingState.getCurrentPage() != null && isOnTrainingPage()) {
-      int feedbackResId = trainingState.getCurrentPage().intercepts(gestureId);
-      String feedbackString;
-      if (feedbackResId != UNKNOWN_ANNOUNCEMENT) {
+    // captured gesture list exists and the current window is training.
+    if (isOnTrainingPage()) {
+      @Nullable Integer feedbackResId = captureGestureIdToAnnouncements.get(gestureId);
+      if (feedbackResId != null && feedbackResId != UNKNOWN_ANNOUNCEMENT) {
+        String feedbackString;
         if (feedbackResId == ANNOUNCE_REAL_ACTION) {
           SpannableStringBuilder gestureAndAction = new SpannableStringBuilder();
           StringBuilderUtils.appendWithSeparator(
@@ -433,6 +450,16 @@ public class GestureController {
         GestureShortcutMapping.getGestureString(service, gestureId),
         action);
     performAction(action, eventId);
+  }
+
+  public void setCaptureGestureIdToAnnouncements(
+      @NonNull ImmutableMap<Integer, Integer> captureGestureIdToAnnouncements) {
+    this.captureGestureIdToAnnouncements.clear();
+    if (captureGestureIdToAnnouncements.isEmpty()) {
+      return;
+    }
+
+    this.captureGestureIdToAnnouncements.putAll(captureGestureIdToAnnouncements);
   }
 
   /** Returns true if the active window is training activity. */

@@ -15,47 +15,61 @@
      limitations under the License.
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:theme="@style/LabelManagerTheme"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/import_labels"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="@string/label_import"/>
-    <!--@string/pref_category_export_custom_labels_key-->
-
-    <Button
-        android:id="@+id/export_labels"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="@string/title_pref_export_custom_labels" />
-
-    <Button
-        android:id="@+id/revert_import"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="@string/revert_imported_labels"/>
-
-    <ListView
-        android:id="@+id/package_list"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
-
-    <TextView
-        android:id="@+id/no_packages_message"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        android:padding="16dp"
-        android:text="@string/label_manager_no_packages_message"
-        android:textSize="18sp"
-        android:visibility="gone" />
+        android:orientation="vertical">
 
-</LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/import_labels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/label_import"/>
+        <!--@string/pref_category_export_custom_labels_key-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/export_labels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/title_pref_export_custom_labels" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/revert_import"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/revert_imported_labels"/>
+
+        <ListView
+            android:id="@+id/package_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:nestedScrollingEnabled="true"/>
+
+        <TextView
+            android:id="@+id/no_packages_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:padding="16dp"
+            android:fontFamily="@string/talkback_font"
+            android:text="@string/label_manager_no_packages_message"
+            android:textSize="18sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

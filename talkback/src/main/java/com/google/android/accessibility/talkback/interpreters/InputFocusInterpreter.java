@@ -19,22 +19,14 @@ package com.google.android.accessibility.talkback.interpreters;
 import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_ACCESSIBILITY;
 import static android.view.accessibility.AccessibilityNodeInfo.FOCUS_INPUT;
 
-import android.accessibilityservice.AccessibilityService;
-import android.os.SystemClock;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
 import com.google.android.accessibility.compositor.GlobalVariables;
 import com.google.android.accessibility.talkback.ActorState;
-import com.google.android.accessibility.talkback.Interpretation;
-import com.google.android.accessibility.talkback.Pipeline;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenState;
 import com.google.android.accessibility.talkback.focusmanagement.interpreter.ScreenStateMonitor.ScreenStateChangeListener;
 import com.google.android.accessibility.utils.AccessibilityEventListener;
-import com.google.android.accessibility.utils.AccessibilityEventUtils;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
-import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.accessibility.utils.FocusFinder;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role;
@@ -54,16 +46,14 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *       events.
  * </ul>
  *
- * <p>This class parses input focused events and view selected events, and sends target-change
- * event-interpretations to the pipeline.
+ * <p>This class parses input focused events and view selected events, and sends target-focus-change
+ * event-interpretations to the {@code InputFocusChangeListener} to process.
  */
 public class InputFocusInterpreter
     implements AccessibilityEventListener, ScreenStateChangeListener {
   private static final String TAG = "InputFocusInterpreter";
   private static final int EVENT_MASK =
-      AccessibilityEvent.TYPE_VIEW_FOCUSED
-          | AccessibilityEvent.TYPE_VIEW_SELECTED
-          | AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED;
+      AccessibilityEvent.TYPE_VIEW_FOCUSED | AccessibilityEvent.TYPE_VIEW_SELECTED;
 
   /**
    * Timeout to determine whether an input focus event could be resulted from the last input focus
@@ -71,49 +61,44 @@ public class InputFocusInterpreter
    */
   private static final int INPUT_FOCUS_ACTION_TIMEOUT = 1000;
 
-  /** Tracks the first TYPE_VIEW_FOCUSED event when a window is opened. */
-  // TODO: Use WindowEventInterpreter to also handle TYPE_WINDOW_STATE_CHANGED.
-  private static final int MISS_FOCUS_DELAY_NORMAL = 300;
+  /** Listens to target view changes. */
+  public interface TargetViewChangeListener {
 
-  // TODO: Revisit the delay due to TV transitions if REFERTO changes.
-  private static final int MISS_FOCUS_DELAY_TV = 1200; // Longer transitions on TV.
-  private static final String SOFT_INPUT_WINDOW = "android.inputmethodservice.SoftInputWindow";
+    /** Callback when the target view is changed. */
+    void onViewTargeted(
+        @Nullable EventId eventId,
+        AccessibilityEvent event,
+        AccessibilityNodeInfoCompat targetedNode);
+  }
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Member variables
 
-  private final AccessibilityService service;
   private final FocusFinder focusFinder;
   private final GlobalVariables globalVariables;
   private ActorState actorState;
-  private Pipeline.InterpretationReceiver pipeline;
+  private TargetViewChangeListener targetViewChangeListener;
 
   /**
    * Time of last handled focus-action. Allows interpreter to handle focus-action 1 time only,
    * without writing to actor-state.
    */
   private long lastFocusActionHandleUptimeMs = 0;
-  private long lastWindowStateChangeEventTime;
-  private int lastWindowId;
-  private long lastWindowIdFromEventUptimeMs = 0;
-  private boolean isFirstFocusInWindow;
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
   // Methods for construction
 
   public InputFocusInterpreter(
-      AccessibilityService service, FocusFinder focusFinder, GlobalVariables globalVariables) {
-    this.service = service;
+      TargetViewChangeListener targetViewChangeListener,
+      FocusFinder focusFinder,
+      GlobalVariables globalVariables) {
     this.focusFinder = focusFinder;
     this.globalVariables = globalVariables;
+    this.targetViewChangeListener = targetViewChangeListener;
   }
 
   public void setActorState(ActorState actorState) {
     this.actorState = actorState;
-  }
-
-  public void setPipeline(Pipeline.InterpretationReceiver pipeline) {
-    this.pipeline = pipeline;
   }
 
   ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -136,9 +121,6 @@ public class InputFocusInterpreter
         break;
       case AccessibilityEvent.TYPE_VIEW_SELECTED:
         handleViewSelectedEvent(event, eventId);
-        break;
-      case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
-        registerWindowStateChangeEvent(event);
         break;
       default:
         break;
@@ -193,11 +175,6 @@ public class InputFocusInterpreter
 
       updateInputFocusedNodeInGlobalVariables(sourceNode);
 
-      if (!shouldProcessFocusEvent(event)) {
-        LogUtils.d(TAG, "Dropping the first window focus.");
-        return;
-      }
-
       if (isFromSavedFocusAction(event)) {
         clearFocusActionRecord();
       } else if (!conflictWithFocusActionRecord(event)) {
@@ -210,7 +187,7 @@ public class InputFocusInterpreter
         // inputFocusActionRecord.
         a11yFocusableNode = getA11yFocusableNodeFromInputFocusedNode(sourceNode, focusFinder);
         if (a11yFocusableNode != null) {
-          pipeline.input(eventId, event, new Interpretation.InputFocus(a11yFocusableNode));
+          targetViewChangeListener.onViewTargeted(eventId, event, a11yFocusableNode);
         }
       }
     } finally {
@@ -285,7 +262,7 @@ public class InputFocusInterpreter
   private void handleViewSelectedEvent(AccessibilityEvent event, EventId eventId) {
     AccessibilityNodeInfoCompat selectedNode = getTargetChildFromAdapterView(event);
     if (selectedNode != null && AccessibilityNodeInfoUtils.shouldFocusNode(selectedNode)) {
-      pipeline.input(eventId, event, new Interpretation.InputFocus(selectedNode));
+      targetViewChangeListener.onViewTargeted(eventId, event, selectedNode);
     }
     AccessibilityNodeInfoUtils.recycleNodes(selectedNode);
   }
@@ -374,56 +351,4 @@ public class InputFocusInterpreter
     // Some on-screen keyboard keys take input focus when tapped, but we still want the last
     // text-edit to remain the same.
   }
-
-  private void registerWindowStateChangeEvent(AccessibilityEvent event) {
-      lastWindowStateChangeEventTime = event.getEventTime();
-    if (getLastWindowId() != event.getWindowId() && !shouldIgnoreWindowStateChangeEvent(event)) {
-        setLastWindowIdFromEvent(event.getWindowId());
-        isFirstFocusInWindow = true;
-      }
-    }
-
-  /**
-   * Decides whether to ignore an event for purposes of registering the first-focus window change;
-   * returns true events that only for announcements from inactive windows such as IMEs.
-   */
-  private boolean shouldIgnoreWindowStateChangeEvent(AccessibilityEvent event) {
-    // The specific SoftInputWindow check seems to be necessary for Android TV.
-    return (event.getWindowId() < 0)
-        || TextUtils.equals(SOFT_INPUT_WINDOW, event.getClassName())
-        || AccessibilityEventUtils.isIMEorVolumeWindow(event);
-    }
-
-  @VisibleForTesting
-  boolean shouldProcessFocusEvent(AccessibilityEvent event) {
-      boolean isFirstFocus = isFirstFocusInWindow;
-      isFirstFocusInWindow = false;
-
-      if (getLastWindowId() != event.getWindowId()) {
-        setLastWindowIdFromEvent(event.getWindowId());
-        return false;
-      }
-
-    int focusDelay = FeatureSupport.isTv(service) ? MISS_FOCUS_DELAY_TV : MISS_FOCUS_DELAY_NORMAL;
-
-      return !isFirstFocus || event.getEventTime() - lastWindowStateChangeEventTime > focusDelay;
-    }
-
-    private void setLastWindowIdFromEvent(int windowId) {
-      lastWindowId = windowId;
-      lastWindowIdFromEventUptimeMs = SystemClock.uptimeMillis();
-    }
-
-    @VisibleForTesting
-    int getLastWindowId() {
-    return (lastWindowIdFromEventUptimeMs < actorState.getLastWindowIdUptimeMs())
-        ? actorState.getLastWindowId()
-        : this.lastWindowId;
-    }
-
-    @VisibleForTesting
-    boolean isFirstFocusInWindow() {
-      return isFirstFocusInWindow;
-    }
-
 }

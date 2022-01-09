@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Pozicioni i pikës po përditësohet. Fillimisht, le të regjistrojmë pikat në dorën tënde të majtë. Prek dhe mbaj shtypur ekranin me 3 gishtat e mesit të dorës së majtë.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Pozicioni i pikës po përditësohet. Fillimisht, le të regjistrojmë pikat në dorën tënde të djathtë. Prek dhe mbaj shtypur ekranin me 3 gishtat e mesit të dorës së djathtë.</string>
   <string name="calibration_finish_announcement">Pozicioni i pikës u përditësua</string>
+  <string name="remaining_calibration_finish_announcement">Të gjitha pozicionet e pikave u përditësuan</string>
   <string name="calibration_step2_hold_right_finger_announcement">Pozicionet e përditësuara për pikat 1, 2 dhe 3. Më pas, le të regjistrojmë pikat në dorën tënde të djathtë. Prek dhe mbaj shtypur ekranin me 3 gishtat e mesit të dorës së djathtë.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Pozicionet e përditësuara për pikat 1, 2 dhe 3. Më pas, le të regjistrojmë pikat në dorën tënde të majtë. Prek dhe mbaj shtypur ekranin me 3 gishtat e mesit të dorës së majtë.</string>
   <string name="calibration_fail_announcement">Pozicioni i pikës nuk mund të përditësohej. Prek dhe mbaj prekur ekranin me 6 gishta. Më pas provo sërish.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">Spanjisht</string>
   <string name="code_user_facing_name_ar">Arabisht</string>
+  <string name="code_user_facing_name_fr">Frëngjisht</string>
   <string name="title_pref_accumulate_presses">Përfshi të gjitha pikat e shtypura</string>
   <string name="summary_pref_accumulate_presses">Çdo pikë e shtypur është pjesë e hyrjes, edhe nëse pika lëshohet përpara pikave të tjera</string>
   <string name="title_pref_reverse_dots">Pikat në të kundërt</string>
   <string name="summary_pref_reverse_dots">Ndërro pozicionet e pikave në mënyrë që p.sh. pikat 1 dhe 4 të ndërrojnë vendet</string>
-  <string name="typing_echo_list_preference_title">Reagimi i shkrimit (jehona e shkrimit)</string>
-  <string name="typing_echo_preference_label_characters">Lexo të gjitha shkronjat dhe fjalët</string>
-  <string name="typing_echo_preference_label_words">Lexo vetëm fjalët</string>
   <string name="context_menu_title">Opsionet e tastierës breil</string>
   <string name="context_menu_typing_language_selection">Ndrysho gjuhën e të shkruarit</string>
   <string name="context_menu_typing_language_selection_summary">Aktualisht po përdor %s</string>
@@ -48,7 +47,7 @@
   <string name="context_menu_switch_contracted_status_selection">Kalo te modaliteti %s i gjuhës breil</string>
   <string name="contracted">i shkurtuar</string>
   <string name="uncontracted">i pashkurtuar</string>
-  <string name="context_menu_see_all_gestures_selection">Review all gestures</string>
+  <string name="context_menu_see_all_gestures_selection">Rishiko të gjitha gjestet</string>
   <string name="context_menu_tutorial_selection">Hap udhëzuesin</string>
   <string name="context_menu_tutorial_finish">Përfundo udhëzuesin</string>
   <string name="context_menu_settings_selection">Cilësimet</string>

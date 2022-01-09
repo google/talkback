@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Ibuyekeza indawo yechashazi. Okokuqala, ake sirekhode amachashazi asesandleni sakho esingakwesokunxele. Thinta uphinde ubambe isikrini ngeminwe engaphakathi emi-3 yesandla sakho esingakwesokunxele.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Ibuyekeza indawo yechashazi. Okokuqala, asirekhode amachashazi asesandleni sakho esingakwesokudla. Thinta uphinde ubambe isikrini ngeminwe engaphakathi emi-3 yesandla sakho esingakwesokudla.</string>
   <string name="calibration_finish_announcement">Ukuma kwechashazi kubuyekeziwe</string>
+  <string name="remaining_calibration_finish_announcement">Zonke izindawo zamachashazi zibuyekeziwe</string>
   <string name="calibration_step2_hold_right_finger_announcement">Ukuma okubuyekeziwe kwamachashazi 1, 2, no-3. Okulandelayo, asirekhode amachashazi asesandleni sakho esingakwesokudla. Thinta uphinde ubambe isikrini ngeminwe engaphakathi emi-3 yesandla sakho esingakwesokudla.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Ukuma okubuyekeziwe kwamachashazi 1, 2, no-3. Okulandelayo, asirekhode amachashazi asesandleni sakho esingakwesokunxele. Thinta uphinde ubambe isikrini ngeminwe engaphakathi emi-3 yesandla sakho esingakwesokunxele.</string>
   <string name="calibration_fail_announcement">Ayikwazanga ukubuyekeza ukuma kwechashazi. Thinta uphinde ubambe isikrini ngeminwe eyisi-6. Bese uzame futhi.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">I-Braille Ehlanganisiwe ye-English</string>
   <string name="code_user_facing_name_es">Isi-Spanish</string>
   <string name="code_user_facing_name_ar">Isi-Arabic</string>
+  <string name="code_user_facing_name_fr">Isi-French</string>
   <string name="title_pref_accumulate_presses">Faka phakathi wonke amachashazi acindezelwe</string>
   <string name="summary_pref_accumulate_presses">Ichashazi ngalinye elicindezelwe liyingxenye yokokufaka, ngisho noma ichashazi likhishwe ngaphambi kwamanye amachashazi</string>
   <string name="title_pref_reverse_dots">Buyisela emuva amachashazi</string>
   <string name="summary_pref_reverse_dots">Ngokwesibonelo, shintsha izindawo zechashazi, ukuze amachashazi 1 no-4 ashintshe izindawo</string>
-  <string name="typing_echo_list_preference_title">Ithayipha impendulo (ukunkenteza kokuthayipha)</string>
-  <string name="typing_echo_preference_label_characters">Funda zonke izinhlamvu namagama</string>
-  <string name="typing_echo_preference_label_words">Funda amagama kuphela</string>
   <string name="context_menu_title">Izinketho zekhibhodi ye-braille</string>
   <string name="context_menu_typing_language_selection">Shintsha ulimi lokuthayipha</string>
   <string name="context_menu_typing_language_selection_summary">Okwamanje isebenzisa i-%s</string>

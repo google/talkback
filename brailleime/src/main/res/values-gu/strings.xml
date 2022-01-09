@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">ડોટની સ્થિતિ અપડેટ કરી રહ્યાં છીએ. પહેલા, તમારા ડાબા હાથના ડોટને રેકોર્ડ કરીએ. સ્ક્રીનને તમારા ડાબા હાથની વચલી 3 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો.</string>
   <string name="calibration_step1_hold_right_finger_announcement">ડોટની સ્થિતિ અપડેટ કરી રહ્યાં છીએ. પહેલા, તમારા જમણા હાથના ડોટને રેકોર્ડ કરીએ. સ્ક્રીનને તમારા જમણા હાથની વચલી 3 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો.</string>
   <string name="calibration_finish_announcement">ડોટની સ્થિતિ અપડેટ કરી</string>
+  <string name="remaining_calibration_finish_announcement">બધા ડોટની સ્થિતિ અપડેટ કરી</string>
   <string name="calibration_step2_hold_right_finger_announcement">ડોટ 1, 2 અને 3 માટે સ્થિતિ અપડેટ કરી. હવે, તમારા જમણા હાથના ડોટને રેકોર્ડ કરીએ. સ્ક્રીનને તમારા જમણા હાથની વચલી 3 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો.</string>
   <string name="calibration_step2_hold_left_finger_announcement">ડોટ 1, 2 અને 3 માટે સ્થિતિ અપડેટ કરી. હવે, તમારા ડાબા હાથના ડોટને રેકોર્ડ કરીએ. સ્ક્રીનને તમારા ડાબા હાથની વચલી 3 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો.</string>
   <string name="calibration_fail_announcement">ડોટની સ્થિતિ અપડેટ કરી શકાઈ નહીં. સ્ક્રીનને 6 આંગળી વડે ટચ કરીને થોડીવાર દબાવી રાખો. પછી ફરીથી પ્રયાસ કરો.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">યુનિફાઇડ ઇંગ્લીશ બ્રેઇલ</string>
   <string name="code_user_facing_name_es">સ્પેનિશ</string>
   <string name="code_user_facing_name_ar">અરબી</string>
+  <string name="code_user_facing_name_fr">ફ્રેન્ચ</string>
   <string name="title_pref_accumulate_presses">બધા દબાવેલા ડોટને શામેલ કરો</string>
   <string name="summary_pref_accumulate_presses">દરેક દબાવેલો ડોટ એ ઇનપુટનો ભાગ છે, પછીથી ભલેને ડોટ, અન્ય ડોટની પહેલાં છોડી દેવામાં આવ્યો હોય</string>
   <string name="title_pref_reverse_dots">ડોટ ઉલટાવો</string>
   <string name="summary_pref_reverse_dots">ડોટની જગ્યાની અદલાબદલી કરે છે, જેથી કરીને ડોટ 1 અને 4 સ્થાનની અદલાબદલી કરે, ઉદાહરણ તરીકે</string>
-  <string name="typing_echo_list_preference_title">ટાઇપિંગ પ્રતિસાદ (ટાઇપિંગ ઇકો)</string>
-  <string name="typing_echo_preference_label_characters">બધા અક્ષરો અને શબ્દો વાંચો</string>
-  <string name="typing_echo_preference_label_words">માત્ર શબ્દો વાંચો</string>
   <string name="context_menu_title">બ્રેઇલ કીબોર્ડના વિકલ્પો</string>
   <string name="context_menu_typing_language_selection">ટાઇપ કરવાની ભાષા બદલો</string>
   <string name="context_menu_typing_language_selection_summary">હાલમાં %sનો ઉપયોગ રહ્યાં છીએ</string>

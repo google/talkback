@@ -21,16 +21,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceScreen;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.TalkBackService;
-import com.google.android.accessibility.utils.BasePreferencesActivity;
-import com.google.android.accessibility.utils.FeatureSupport;
-import com.google.android.accessibility.utils.PreferenceSettingsUtils;
+import com.google.android.accessibility.utils.PreferencesActivity;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 
 /** Activity used to set TalkBack context menu preferences. */
-public class TalkBackContextMenuPreferencesActivity extends BasePreferencesActivity {
+public class TalkBackContextMenuPreferencesActivity extends PreferencesActivity {
 
   @Override
   protected PreferenceFragmentCompat createPreferenceFragment() {
@@ -53,36 +49,8 @@ public class TalkBackContextMenuPreferencesActivity extends BasePreferencesActiv
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
       super.onCreatePreferences(savedInstanceState, rootKey);
 
-      PreferenceScreen preferenceScreen = getPreferenceScreen();
       Context context = getActivity().getApplicationContext();
       SharedPreferences prefs = getPreferenceManager().getSharedPreferences();
-
-      if (FeatureSupport.hasAccessibilityShortcut(context)) {
-        PreferenceSettingsUtils.hidePreference(
-            context, preferenceScreen, R.string.pref_show_context_menu_pause_feedback_setting_key);
-      }
-
-      if (FeatureSupport.isWatch(context)) {
-        PreferenceSettingsUtils.hidePreference(
-            context, preferenceScreen, R.string.pref_show_context_menu_find_on_screen_setting_key);
-      }
-
-      if (!TalkBackService.ENABLE_VOICE_COMMANDS) {
-        PreferenceSettingsUtils.hidePreference(
-            context, preferenceScreen, R.string.pref_show_context_menu_voice_commands_setting_key);
-      }
-
-      if (!FeatureSupport.isVibratorSupported(context)) {
-        PreferenceSettingsUtils.hidePreference(
-            context,
-            preferenceScreen,
-            R.string.pref_show_context_menu_vibration_feedback_setting_key);
-      }
-
-      if (!FeatureSupport.supportSystemActions()) {
-        PreferenceSettingsUtils.hidePreference(
-            context, preferenceScreen, R.string.pref_show_context_menu_system_action_setting_key);
-      }
 
       Preference preferenceGranularityDetail =
           findPreference(

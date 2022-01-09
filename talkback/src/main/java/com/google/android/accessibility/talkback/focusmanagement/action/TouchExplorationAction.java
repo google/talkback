@@ -16,9 +16,9 @@
 
 package com.google.android.accessibility.talkback.focusmanagement.action;
 
-import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 

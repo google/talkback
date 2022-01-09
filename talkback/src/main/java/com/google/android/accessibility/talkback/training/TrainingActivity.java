@@ -16,6 +16,9 @@
 
 package com.google.android.accessibility.talkback.training;
 
+import static com.google.android.accessibility.talkback.TalkBackService.PERMISSION_TALKBACK;
+import static com.google.android.accessibility.talkback.training.PageConfig.PageId.PAGE_ID_FINISHED;
+import static com.google.android.accessibility.utils.AccessibilityServiceCompatUtils.Constants.TALKBACK_SERVICE;
 import static com.google.android.accessibility.utils.PackageManagerUtils.TALBACK_PACKAGE;
 
 import android.content.Context;
@@ -27,13 +30,18 @@ import androidx.core.view.ViewCompat;
 import android.util.Pair;
 import android.widget.LinearLayout;
 import android.widget.Toolbar;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
+import com.google.android.accessibility.talkback.BuildConfig;
 import com.google.android.accessibility.talkback.R;
-import com.google.android.accessibility.talkback.TalkBackService;
 import com.google.android.accessibility.talkback.training.NavigationButtonBar.NavigationListener;
+import com.google.android.accessibility.talkback.training.PageConfig.PageId;
 import com.google.android.accessibility.talkback.training.PageController.OnPageChangeCallback;
+import com.google.android.accessibility.talkback.training.TrainingConfig.TrainingId;
 import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
+import com.google.android.accessibility.utils.AccessibilityServiceCompatUtils;
+import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /**
  * An activity is for showing a TalkBack training that can be parsed from {@link #EXTRA_TRAINING}
@@ -41,14 +49,12 @@ import com.google.android.accessibility.talkback.utils.AlertDialogUtils;
  */
 public class TrainingActivity extends FragmentActivity implements OnPageChangeCallback {
 
-  /** Interface to get current training state. */
-  public interface TrainingState {
-    PageConfig getCurrentPage();
-  }
-
+  private static final String TAG = "TrainingActivity";
   public static final String EXTRA_TRAINING = "training";
   public static final int ROOT_RES_ID = R.id.training_root;
-  private static TrainingState trainingState;
+  public static final String ACTION_TRAINING_PAGE_SWITCHED =
+      "com.google.android.marvin.talkback.action.TRAINING_PAGE_SWITCHED";
+  public static final String EXTRA_TRAINING_PAGE_ID = "training_page_id";
 
   @Nullable private TrainingConfig training;
   @Nullable private NavigationButtonBar navigationButtonBar;
@@ -106,12 +112,17 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
 
     // Announces page title to notify the page is changed.
     setWindowTitle(getString(targetPage.getPageName()));
+
+    // Passes a page ID to TalkBackService.
+    passPageId(this, targetPage.getPageId());
   }
 
   private TrainingFragment createFragment(
       PageConfig targetPage, @Nullable Pair<Integer, Integer> shownPageNumber) {
     Bundle args = new Bundle();
-    args.putSerializable(TrainingFragment.EXTRA_PAGE, targetPage);
+
+    // Passes a PageId which is an enum instead of a PageConfig to avoid the serialization problem.
+    args.putSerializable(TrainingFragment.EXTRA_PAGE, targetPage.getPageId());
     if (shownPageNumber != null) {
       args.putInt(TrainingFragment.EXTRA_PAGE_NUMBER, shownPageNumber.first);
       args.putInt(TrainingFragment.EXTRA_TOTAL_NUMBER, shownPageNumber.second);
@@ -139,8 +150,12 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
   protected void onStart() {
     super.onStart();
     // Shows a warning dialog if TalkBack is off.
-    if (TalkBackService.getInstance() == null || !TalkBackService.isServiceActive()) {
-      AlertDialogUtils.createBuilder(this)
+    if (!isTalkBackEnabled(this)) {
+      // We don't use TalkBackService.getInstance here because 1. It's bad to expose TalkBack
+      // service itself through a global method. 2. When the TrainingActivity is running on a
+      // separate process,it's not applicable to access TalkBack's identifiers which is running on
+      // another process.
+      AlertDialogUtils.builder(this)
           .setTitle(R.string.talkback_inactive_title)
           .setMessage(R.string.talkback_inactive_message)
           .setCancelable(true)
@@ -148,21 +163,13 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
           .setPositiveButton(R.string.training_close_button, (dialog, which) -> finish())
           .create()
           .show();
-      return;
     }
   }
 
   @Override
-  protected void onResume() {
-    super.onResume();
-    // Sets TrainingState to capture gestures.
-    setTrainingState(this::getCurrentPage);
-  }
-
-  @Override
-  protected void onPause() {
-    super.onPause();
-    setTrainingState(null);
+  public void finish() {
+    passPageId(this, PAGE_ID_FINISHED);
+    super.finish();
   }
 
   @Override
@@ -174,22 +181,15 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
   }
 
   /** Returns an intent to show the given training on {@link TrainingActivity}. */
-  public static Intent createTrainingIntent(Context context, TrainingConfig training) {
+  public static Intent createTrainingIntent(Context context, TrainingId training) {
     Intent intent = new Intent(context, TrainingActivity.class);
     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    // Passes a TrainingId which is an enum instead of a TrainingConfig to avoid the serialization
+    // problem.
     intent.putExtra(TrainingActivity.EXTRA_TRAINING, training);
     intent.setPackage(TALBACK_PACKAGE);
     return intent;
-  }
-
-  /**
-   * Returns a copied training state if training state is not null to prevent the state is changed
-   * by other classes. Otherwise, returns null.
-   */
-  @Nullable
-  public static TrainingState getTrainingState() {
-    return trainingState == null ? null : () -> trainingState.getCurrentPage();
   }
 
   @VisibleForTesting
@@ -198,32 +198,85 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
     return training == null ? null : training.getPages().get(pageController.getCurrentPageNumber());
   }
 
+  private static boolean isTalkBackEnabled(Context context) {
+    return AccessibilityServiceCompatUtils.isAccessibilityServiceEnabled(
+        context, TALKBACK_SERVICE.flattenToShortString());
+  }
+
+  /**
+   * Notifies TalkBackService that which page is shown on the screen. The data isn't sent to
+   * TalkBackService if it is disabled.
+   *
+   * <p>This method has responsibility for checking the service state.
+   */
+  private static void passPageId(Context context, PageId pageId) {
+    // Do not send the data to TalkBackService if it is not enabled.
+    if (!isTalkBackEnabled(context)) {
+      return;
+    }
+
+    Intent intent = new Intent(ACTION_TRAINING_PAGE_SWITCHED);
+    intent.putExtra(EXTRA_TRAINING_PAGE_ID, pageId);
+    context.sendBroadcast(intent, PERMISSION_TALKBACK);
+  }
+
   /** Initializes activity. */
   private void initialize(Intent intent) {
-    setContentView(R.layout.training_activity);
-
-    training = (TrainingConfig) intent.getSerializableExtra(EXTRA_TRAINING);
+    @Nullable TrainingConfig training = getTrainingFromIntent(intent);
     if (training == null) {
       finish();
       return;
     }
+    setupTrainingView(training);
+  }
 
+  @Nullable
+  private TrainingConfig getTrainingFromIntent(Intent intent) {
+
+    @Nullable TrainingId trainingId = (TrainingId) intent.getSerializableExtra(EXTRA_TRAINING);
+    if (trainingId == null) {
+      return null;
+    }
+
+    return TrainingConfig.getTraining(trainingId);
+  }
+
+  /** Sets up the action bar and the page controller. */
+  @VisibleForTesting
+  void setupTrainingView(@NonNull TrainingConfig training) {
+    setContentView(R.layout.training_activity);
+
+    this.training = training;
     pageController = new PageController(training, /* onPageChangeCallback= */ this);
 
     Toolbar toolbar = findViewById(R.id.training_toolbar);
     if (training.isSupportNavigateUpArrow()) {
-      // Shows navigate up arrow.
-      setActionBar(toolbar);
-      toolbar.setNavigationIcon(R.drawable.ic_arrow_back_gm_grey_24dp);
-      toolbar.setNavigationContentDescription(R.string.training_navigate_up);
-      toolbar.setNavigationOnClickListener(
-          view -> {
-            if (pageController.backToLinkIndexPage()) {
-              return;
-            }
-            finish();
-          });
-      getActionBar().setDisplayShowTitleEnabled(false);
+      try {
+        // Shows navigate up arrow.
+        setActionBar(toolbar);
+
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_gm_grey_24dp);
+        toolbar.setNavigationContentDescription(R.string.training_navigate_up);
+        toolbar.setNavigationOnClickListener(
+            view -> {
+              if (pageController.backToLinkIndexPage()) {
+                return;
+              }
+              finish();
+            });
+        getActionBar().setDisplayShowTitleEnabled(false);
+      } catch (NullPointerException e) {
+        // The exception can be thrown on non-release builds.
+        if (BuildConfig.DEBUG) {
+          throw e;
+        }
+        // REFERTO: Skips the action bar to avoid tutorial process crashes when setting
+        // REFERTO: the action bar on LG devices.
+        LogUtils.e(TAG, "TrainingActivity crashed when setting action bar. %s", e.getMessage());
+        LinearLayout layout = findViewById(R.id.training_toolbar_layout);
+        layout.removeView(toolbar);
+      }
+
     } else {
       // Removes action bar.
       LinearLayout layout = findViewById(R.id.training_toolbar_layout);
@@ -243,12 +296,8 @@ public class TrainingActivity extends FragmentActivity implements OnPageChangeCa
     ViewCompat.setAccessibilityPaneTitle(findViewById(R.id.training_root), pageTitle);
   }
 
-  private synchronized void setTrainingState(TrainingState trainingState) {
-    TrainingActivity.trainingState = trainingState;
-  }
-
   private void showExitDialog() {
-    AlertDialogUtils.createBuilder(this)
+    AlertDialogUtils.builder(this)
         .setTitle(R.string.exit_tutorial_title)
         .setMessage(R.string.exit_tutorial_content)
         .setCancelable(true)

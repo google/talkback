@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">डॉट की पोज़िशन को कैलिब्रेट किया जा रहा है. सबसे पहले, आपके बाएं हाथ का इस्तेमाल करके डॉट की पोज़िशन को कैलिब्रेट करते हैं. इसके लिए, बाएं हाथ की बीच की तीन उंगलियों से स्क्रीन को दबाकर रखें.</string>
   <string name="calibration_step1_hold_right_finger_announcement">डॉट की पोज़िशन को कैलिब्रेट किया जा रहा है. सबसे पहले, आपके दाएं हाथ का इस्तेमाल करके डॉट की पोज़िशन को कैलिब्रेट करते हैं. इसके लिए, दाएं हाथ की बीच की तीन उंगलियों से स्क्रीन को दबाकर रखें.</string>
   <string name="calibration_finish_announcement">डॉट की पोज़िशन कैलिब्रेट हो गई है</string>
+  <string name="remaining_calibration_finish_announcement">सभी बिंदुओं की जगह अपडेट कर दी गई है</string>
   <string name="calibration_step2_hold_right_finger_announcement">डॉट 1, 2, और 3 की पोज़िशन कैलिब्रेट हो गई है. अब आपके दाएं हाथ का इस्तेमाल करके डॉट की पोज़िशन को कैलिब्रेट करते हैं. इसके लिए, दाएं हाथ की बीच की तीन उंगलियों से स्क्रीन को दबाकर रखें.</string>
   <string name="calibration_step2_hold_left_finger_announcement">डॉट 1, 2, और 3 की पोज़िशन कैलिब्रेट हो गई है. अब आपके बाएं हाथ का इस्तेमाल करके डॉट की पोज़िशन को कैलिब्रेट करते हैं. इसके लिए, बाएं हाथ की बीच की तीन उंगलियों से स्क्रीन को दबाकर रखें.</string>
   <string name="calibration_fail_announcement">डॉट की पोज़िशन कैलिब्रेट नहीं हो पाई. छह उंगलियों से स्क्रीन को दबाकर रखें. इसके बाद, फिर से कोशिश करें.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">यूनिफ़ाइड इंग्लिश ब्रेल</string>
   <string name="code_user_facing_name_es">स्पैनिश</string>
   <string name="code_user_facing_name_ar">अरेबिक</string>
+  <string name="code_user_facing_name_fr">फ़्रेंच</string>
   <string name="title_pref_accumulate_presses">दबाए गए सभी बिंदुओं को शामिल करने वाला माेड</string>
   <string name="summary_pref_accumulate_presses">दबाया गया हर बिंदु इनपुट का हिस्सा है. भले ही, एक बिंदु काे दूसरे बिंदुओं से पहले छाेड़ दिया गया हो</string>
   <string name="title_pref_reverse_dots">बिंदुओं की जगह बदलने वाला माेड</string>
   <string name="summary_pref_reverse_dots">इससे बिंदुओं की जगह बदल जाती है. उदाहरण के लिए, बिंदु 1 की जगह बिंदु 4 ले लेता है</string>
-  <string name="typing_echo_list_preference_title">टाइपिंग से जुड़े सुझाव (टाइपिंग एको)</string>
-  <string name="typing_echo_preference_label_characters">सभी अक्षर और शब्द पढ़ें</string>
-  <string name="typing_echo_preference_label_words">सिर्फ़ शब्द पढ़ें</string>
   <string name="context_menu_title">ब्रेल कीबोर्ड के विकल्प</string>
   <string name="context_menu_typing_language_selection">टाइपिंग के लिए इस्तेमाल की जाने वाली भाषा बदलें</string>
   <string name="context_menu_typing_language_selection_summary">फ़िलहाल, %s का इस्तेमाल कर रहा है</string>

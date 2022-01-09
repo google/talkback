@@ -14,6 +14,7 @@
   <string name="voice_commands_language">Jezik</string>
   <string name="voice_commands_languages">Jezici</string>
   <string name="voice_commands_custom_actions">prilagođene radnje</string>
+  <string name="voice_commands_action">Radnja</string>
   <string name="voice_commands_quick_settings">Brza podešavanja</string>
   <string name="voice_commands_quick_setting">Brzo podešavanje</string>
   <string name="voice_commands_dim">zatamni</string>
@@ -60,8 +61,8 @@
   <string name="voice_commands_dictate">Diktiranje</string>
   <string name="voice_commands_write">Piši</string>
   <string name="voice_commands_Spell">Napiši</string>
-  <string name="voice_commands_talkback_settings">TalkBack podešavanja</string>
-  <string name="voice_commands_talkback_setting">TalkBack podešavanje</string>
+  <string name="voice_commands_talkback_settings">Podešavanja TalkBack-a</string>
+  <string name="voice_commands_talkback_setting">Podešavanje TalkBack-a</string>
   <string name="voice_commands_screen_search">Pretraga ekrana</string>
   <string name="voice_commands_search_on_screen">Pretraži na ekranu</string>
   <string name="voice_commands_copy">@android:string/copy</string>
@@ -97,8 +98,8 @@
   <string name="voice_commands_no_voice_recognition_ability">Žao nam je! Ova funkcija nije dostupna na uređaju</string>
   <string name="voice_commands_error">Greška pri prepoznavanju glasovne komande</string>
   <string name="voice_commands_partial_result">Prepoznavanje ove komande nije uspelo. Izgovorite „%1$s“ za listu svih komandi.</string>
+  <string name="voice_commands_timeout">Izgovorite „%1$s“ za listu svih komandi.</string>
   <string name="voice_commands_many_requests">Probajte ponovo za nekoliko trenutaka</string>
-  <string name="voice_commands_setting_disabled">Podešavanje %1$s nije omogućeno</string>
   <string name="voice_commands_echo_feedback_not_recognized">Unos „%1$s“ nije prepoznat kao glasovna komanda.</string>
   <string name="voice_commands_label_saved">Oznaka je sačuvana</string>
   <string name="voice_commands_no_actions_feedback">Nema dostupnih radnji</string>
@@ -111,6 +112,7 @@
   <string name="voice_commands_help_title">Pregled glasovnih komandi</string>
   <string name="voice_commands_help_description">Da biste koristili glasovne komande, prevucite udesno, pa nagore. Recite „Pomoć“ ili „Šta mogu da kažem“ u bilo kom trenutku da biste videli ovu listu komandi.</string>
   <string name="voice_commands_help_hint">Za najbolje rezultate tačno izgovorite reči prikazane na sledećim ekranima.</string>
+  <string name="voice_command_screen_locked_hint">Glasovne komande nisu dostupne dok je ekran zaključan. Da biste koristili TalkBack meni, %1$s.</string>
   <string name="voice_commands_help_reading_controls_title">@string/shortcut_title_reading_control</string>
   <string name="voice_commands_help_reading_controls_description">Promenite način na koji čitate sadržaj na trenutnom ekranu</string>
   <string name="voice_commands_help_next">Sledeće [naslov]</string>
@@ -132,8 +134,9 @@
   <string name="voice_commands_help_screen_search_description">Omogućava vam da unesete termin za pretragu da biste pronašli taj tekst na ekranu</string>
   <string name="voice_commands_help_text_editing_description">Unosite, birajte i kopirajte tekst</string>
   <string name="voice_commands_help_type_text">Unesi [u redu]</string>
-  <string name="voice_commands_help_copy_description">Proverite da li ste izabrali tekst pre kopiranja</string>
-  <string name="voice_commands_help_cut_description">Proverite da li ste izabrali tekst pre sečenja</string>
+  <string name="voice_commands_help_copy_description">Izaberite tekst pre kopiranja</string>
+  <string name="voice_commands_help_cut_description">Izaberite tekst pre sečenja</string>
+  <string name="voice_commands_help_delete_description">Izaberite tekst pre brisanja</string>
   <string name="voice_commands_help_device_navigation_title">Navigacija na uređaju</string>
   <string name="voice_commands_help_device_navigation_description">Idite na početni ekran, vratite se, pregledajte obaveštenja i drugo</string>
   <string name="voice_commands_help_overview_description">Pogledajte nedavne aplikacije</string>

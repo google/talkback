@@ -15,11 +15,33 @@
         android:key="@string/pref_single_tap_key"
         android:summary="@string/summary_pref_single_tap"
         android:title="@string/title_pref_single_tap" />
-    <Preference
-        android:key="@string/pref_category_manage_keyboard_shortcut_key"
-        android:title="@string/title_pref_manage_keyboard_shortcuts" >
-      <intent android:action=".TalkBackKeyboardShortcutPreferencesActivity" />
-    </Preference>
+    <!-- Description order -->
+    <ListPreference
+        android:defaultValue="@string/pref_node_desc_order_default"
+        android:dialogTitle="@string/pref_node_desc_order_title"
+        android:entries="@array/pref_node_desc_order_entries"
+        android:entryValues="@array/pref_node_desc_order_values"
+        android:key="@string/pref_node_desc_order_key"
+        android:summary="%s"
+        android:title="@string/pref_node_desc_order_title" />
+    <PreferenceCategory
+        android:key="@string/pref_category_typing_key"
+        android:title="@string/title_pref_category_typing"
+        app:allowDividerAbove="true" >
+      <ListPreference
+          android:defaultValue="@string/pref_typing_confirmation_default"
+          android:dialogTitle="@string/title_pref_typing_confirmation"
+          android:entries="@array/pref_typing_types_talkback_entries"
+          android:entryValues="@array/pref_typing_types_talkback_values"
+          android:key="@string/pref_typing_confirmation_key"
+          android:summary="%s"
+          android:title="@string/title_pref_typing_confirmation" />
+      <Preference
+          android:key="@string/pref_category_manage_keyboard_shortcut_key"
+          android:title="@string/title_pref_manage_keyboard_shortcuts" >
+        <intent android:action=".TalkBackKeyboardShortcutPreferencesActivity" />
+      </Preference>
+    </PreferenceCategory>
     <SwitchPreference
         android:defaultValue="@bool/pref_resume_volume_buttons_long_click_default"
         android:key="@string/pref_two_volume_long_press_key"

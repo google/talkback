@@ -22,6 +22,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat.CollectionItemInfoCompat;
 import android.view.accessibility.AccessibilityNodeInfo;
+import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils.ViewResourceName;
 import com.google.android.accessibility.utils.Performance.EventId;
 import com.google.android.accessibility.utils.Role.RoleName;
 import com.google.android.accessibility.utils.traversal.TraversalStrategy;
@@ -574,6 +575,18 @@ public class AccessibilityNode {
   }
 
   ///////////////////////////////////////////////////////////////////////////////////////
+  // ImageNode methods
+
+  @Nullable
+  public ViewResourceName getPackageNameAndViewId() {
+    return ViewResourceName.create(getCompat());
+  }
+
+  public boolean isInCollection() {
+    return AccessibilityNodeInfoUtils.isInCollection(getCompat());
+  }
+
+  ///////////////////////////////////////////////////////////////////////////////////////
   // Error methods
 
   @FormatMethod
@@ -585,7 +598,9 @@ public class AccessibilityNode {
     }
   }
 
-  private void logOrThrow(IllegalStateException exception, String format, Object... parameters) {
+  @FormatMethod
+  private void logOrThrow(
+      IllegalStateException exception, @FormatString String format, Object... parameters) {
     if (isDebug()) {
       throw exception;
     } else {
@@ -611,4 +626,3 @@ public class AccessibilityNode {
     return AccessibilityNodeInfoUtils.toStringShort(getCompat());
   }
 }
-

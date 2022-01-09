@@ -19,18 +19,13 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import com.google.android.accessibility.talkback.HelpAndFeedbackUtils;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.training.TutorialInitiator;
-import com.google.android.accessibility.utils.BasePreferencesActivity;
-import com.google.android.accessibility.utils.PreferenceSettingsUtils;
+import com.google.android.accessibility.utils.PreferencesActivity;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /** Activity for TalkBack tutorial and help contents. */
-public class TalkBackHelpPreferencesActivity extends BasePreferencesActivity {
-
-  private static final String HELP_URL =
-      "https://support.google.com/accessibility/" + "android/answer/6283677";
+public class TalkBackHelpPreferencesActivity extends PreferencesActivity {
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,7 +56,7 @@ public class TalkBackHelpPreferencesActivity extends BasePreferencesActivity {
 
       assignTutorialIntent();
       assignPracticeGesturesIntent();
-      assignFeedbackIntentToPreference();
+      PreferencesActivityUtils.assignFeedbackIntentToPreference(this);
     }
 
     private void assignTutorialIntent() {
@@ -84,26 +79,6 @@ public class TalkBackHelpPreferencesActivity extends BasePreferencesActivity {
       }
 
       prefPracticeGestures.setIntent(TutorialInitiator.createPracticeGesturesIntent(getActivity()));
-    }
-
-    private void assignFeedbackIntentToPreference() {
-      final Preference pref = findPreference(getString(R.string.pref_help_and_feedback_key));
-
-      if (pref == null) {
-        return;
-      }
-
-      if (HelpAndFeedbackUtils.supportsHelpAndFeedback(getContext())) {
-        pref.setTitle(R.string.title_pref_help_and_feedback);
-        pref.setOnPreferenceClickListener(
-            preference -> {
-              HelpAndFeedbackUtils.launchHelpAndFeedback(getActivity());
-              return true;
-            });
-      } else {
-        pref.setTitle(R.string.title_pref_help);
-        PreferenceSettingsUtils.assignWebIntentToPreference(this, pref, HELP_URL);
-      }
     }
   }
 }

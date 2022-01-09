@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Weergawe %1$s</string>
   <string name="label_manager_summary_title">Bestuur gepasmaakte etikette</string>
   <string name="label_manager_package_title">Bestuur etikette vir %1$s</string>
+  <string name="manage_label">Bestuur etiket</string>
   <string name="label_manager_no_packages_message">Daar is tans geen gepasmaakte etikette nie. Jy kan een skep deur na \'n prent sonder \'n etiket te navigeer en dan \'n etiket uit die TalkBack-kieslys by te voeg.</string>
   <string name="label_manager_timestamp_text">Laas gewysig op %1$s</string>
   <string name="search_dialog_label">Soek vir: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Verken-met-aanraking</string>
   <string name="title_pref_category_touch_exploration">Navigasie</string>
   <string name="title_pref_category_controls">Kontroles</string>
-  <string name="title_pref_single_tap">Enkeltik-aktivering</string>
+  <string name="title_pref_single_tap">Enkeltik om te aktiveer</string>
   <string name="title_pref_show_context_menu_as_list">Wys kontekskieslys as lys</string>
-  <string name="summary_pref_single_tap">(Eksperimenteel) Tik een keer op \'n gefokusde item om te aktiveer</string>
+  <string name="summary_pref_single_tap">Tik een keer op \'n gefokusde item om te aktiveer</string>
   <string name="title_pref_shake_to_read_threshold">Skud om deurlopende lees te begin</string>
   <string name="pref_verbosity_title">Breedsprakigheid</string>
   <string name="pref_punctuation_title">Leestekens</string>
+  <string name="title_pref_category_manage_focus_indicator">Pasmaak fokusaanduier</string>
   <string name="title_pref_category_manage_gestures">Pasmaak gebare</string>
   <string name="title_pref_manage_labels">Gepasmaakte etikette</string>
   <string name="title_pref_manage_customize_menus">Pasmaak kieslyste</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Hulp en terugvoer</string>
   <string name="title_pref_category_tutorial_and_help">Tutoriaal en hulp</string>
   <string name="title_pref_category_advanced">Gevorderd</string>
+  <string name="title_pref_category_typing">Tik en sleutelbord</string>
   <string name="title_pref_category_legal_and_privacy">Wette en privaatheid</string>
   <string name="title_pref_advanced_settings">Gevorderde instellings</string>
   <string name="reset_gesture_settings_title">Stel gebaarinstellings terug</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Onlangse programme</string>
   <string name="keycombo_menu_global_notifications">Kennisgewings</string>
   <string name="keycombo_menu_global_suspend">Laat wag of hervat TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Speel of onderbreek media</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Kies volgende leesbeheer</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Kies vorige leesbeheer</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Verstel leesbeheer op</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Verstel leesbeheer af</string>
   <string name="keycombo_menu_category_granularity">Navigasie</string>
   <string name="keycombo_menu_granularity_increase">Volgende navigasie-instelling</string>
   <string name="keycombo_menu_granularity_decrease">Vorige navigasie-instelling</string>
@@ -226,7 +234,8 @@
   <string name="keycombo_assign_dialog_clear">Vee kortpad uit</string>
   <string name="cannot_copy_feedback">Geen teks om te kopieer nie; kies eers teks.</string>
   <string name="cannot_paste_feedback">Geen teks om te plak nie; kopieer eers \'n paar tekste.</string>
-  <string name="cannot_cut_feedback">Geen teks om te sny nie; kies eers \'n paar tekste.</string>
+  <string name="cannot_cut_feedback">Geen teks om te sny nie. Kies eers teks.</string>
+  <string name="cannot_delete_feedback">Geen teks om uit te vee nie. Kies eers teks.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Is jy seker jy wil jou kortpadsleutels vir hierdie sleutelkaart na hul verstekwaardes terugstel? Let wel, hierdie handeling kan nie ontdoen word nie.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Stel terug</string>
   <string name="override_keycombo">Sleutel word reeds gebruik</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Gebruik toonhoogteveranderings</string>
   <string name="title_pref_keyboard_echo">Sleutelbord-eggo</string>
   <string name="pref_node_desc_order_title">Volgorde van elementbeskrywing</string>
-  <string name="summaryOn_pref_intonation">Gee sleutelbord-terugvoer in \'n laer stemtoon</string>
+  <string name="summaryOn_pref_intonation">Sê teks wat op die sleutelbord uitgevee word in \'n hoër stemtoon</string>
   <string name="summaryOff_pref_intonation">Moenie stemtoon verander wanneer jy praat nie</string>
   <string name="title_pref_brailleime">Braille-sleutelbord</string>
   <string name="title_pref_category_feedback_settings">Ander terugvoer</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Aktiveer nodusboomontfouting</string>
   <string name="summary_pref_tree_debug_tv">Gebruik stemsoektogsleutel om nodusboom uit te druk eerder as om te soek</string>
   <string name="title_pref_performance_stats">Aktiveer werkverrigtingstatistieke</string>
+  <string name="title_pref_log_overlay">Aktiveer ontfoutingloglêeroorlegger</string>
   <string name="title_pref_resume_talkback">Hervat vanaf opskorting</string>
+  <string name="title_pref_typing_confirmation">Tikvoorkeur</string>
   <string name="title_pref_multi_finger_gesture">Aktiveer multivingergebare</string>
   <string name="screen_dimmed">Skerm word versteek</string>
   <string name="screen_brightness_restored">Wys tans skerm</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Rollees af</string>
   <string name="shortcut_scroll_left">Rollees na links</string>
   <string name="shortcut_scroll_right">Rollees na regs</string>
+  <string name="shortcut_next_window">Volgende venster</string>
+  <string name="shortcut_previous_window">Vorige venster</string>
   <string name="shortcut_back">Terug</string>
   <string name="shortcut_home">Tuis</string>
   <string name="shortcut_overview">Oorsig</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Versteek of wys skerm</string>
   <string name="title_show_screen_search">Skermsoektog</string>
   <string name="title_show_voice_commands">Stemopdragte</string>
+  <string name="talkback_show_talkback_settings">TalkBack-instellings</string>
   <string name="title_other_web_navigation">Ander webnavigasie</string>
   <string name="title_granularity_default">Versteknavigasie</string>
   <string name="title_seek_bar_edit">Wysig glyervlak</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Beheer TalkBack met jou stem</string>
   <string name="summary_show_hide_screen">Versteek die skerm sodat dit nie op openbare plekke vir ander mense sigbaar is nie. Stel skerm terug na normale toestand.</string>
   <string name="summary_talkback_preferences">Maak TalkBack-instellings oop</string>
-  <string name="summary_system_actions">Gaan na alle programme, Kitsinstellings, en gebruik verdeelde skerm</string>
+  <string name="summary_system_actions">Gaan na alle programme en Kitsinstellings</string>
   <string name="summary_tts_settings">Maak teks-na-spraak-instellings oop</string>
   <string name="summary_pause_feedback">Skakel TalkBack-stemterugvoer af</string>
   <string name="not_editable">Nie wysigbaar nie</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Lees een woord op \'n slag</string>
   <string name="summary_lines">Lees een reël op \'n slag</string>
   <string name="summary_paragraphs">Lees een paragraaf op \'n slag</string>
+  <string name="summary_windows">Spring na ander vensters, soos volumekontroles of die navigasiebalk</string>
   <string name="summary_headings">Spring tussen opskrifte</string>
   <string name="summary_controls">Spring tussen interaktiewe kontroles waarmee jy interaksie kan hê, soos knoppies, merkblokkies en teksvelde</string>
   <string name="summary_links">Spring tussen skakels</string>
@@ -408,7 +423,9 @@
   <string name="summary_vibration_feedback">Voel vibrasies vir handelinge, soos wanneer jy \'n item kies. Dit beïnvloed nie vibrasies wat van programme of die stelsel af kom nie.</string>
   <string name="summary_hide_screen">Versteek die skerm sodat dit nie op openbare plekke vir ander mense sigbaar is nie</string>
   <string name="summary_audio_ducking">Verlaag volume van ander oudio wat speel wanneer TalkBack praat</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Rollees vorentoe of agtertoe</string>
+  <string name="summary_support_change_a11y_volume">Verhoog of verlaag toeganklikheidsvolume</string>
+  <string name="summary_image_caption">Kry \'n outomatiese beskrywing vir hierdie prent</string>
   <string name="value_direction_up">op</string>
   <string name="value_direction_down">af</string>
   <string name="value_direction_left">links</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Dubbeltik en hou met 2 vingers</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Dubbeltik en hou met 3 vingers</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Dubbeltik en hou met 4 vingers</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Tripeltik en hou met 2 vingers</string>
+  <string name="seekbar_hint_2gesture">\"%1$s\" of \"%2$s\" om te verstel</string>
+  <string name="seekbar_hint_1gesture">\"%1$s\" om te verstel</string>
   <string name="gesture_name_unknown">Onbekende gebaar</string>
   <string name="gesture_name_pass_through">Slaan Oor Na Stelsel-gebaar</string>
   <string name="gesture_name_touch_explore">Raak Verken.</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Dubbeltik en hou</string>
   <string name="gesture_name_2finger_tap_hold">Tik en hou met 2 vingers</string>
   <string name="gesture_name_3finger_tap_hold">Tik en hou met 3 vingers</string>
+  <string name="gesture_name_2finger_3tap_hold">Tripeltik en hou met 2 vingers</string>
   <string name="gesture_name_3finger_3tap_hold">Dubbeltik en hou met 3 vingers</string>
   <string name="title_pref_shortcut_fingerprint_up">Swiep na bo op vingerafdruksensor</string>
   <string name="title_pref_shortcut_fingerprint_down">Swiep na onder op vingerafdruksensor</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Wanneer skerm aanskakel</string>
   <string name="value_resume_keyguard">Wanneer sluitskerm gewys word</string>
   <string name="value_resume_manual">Net vanaf kennisgewing</string>
+  <string name="value_type_confirmation_double_tap">Hou vinger om sleutel te kies en dubbeltik dan</string>
+  <string name="value_type_confirmation_lift_to_type">Hou vinger om sleutel te kies en lig dan</string>
   <string name="value_shake_to_read_disabled">Gedeaktiveer</string>
   <string name="value_shake_to_read_threshold_very_light">Baie liggies</string>
   <string name="value_shake_to_read_threshold_light">Liggies</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Sê altyd getikte sleutels hardop</string>
   <string name="value_keyboard_echo_softkeys">Net vir op-skerm-sleutelbord</string>
   <string name="value_keyboard_echo_never">Moet nooit getikte sleutels hardop sê nie</string>
+  <string name="title_pref_keyboard_echo_on_screen">Sleutelbord-eggo: skermsleutelbord</string>
+  <string name="title_pref_keyboard_echo_physical">Sleutelbord-eggo: fisiese sleutelbord</string>
+  <string name="value_keyboard_echo_none">Geen</string>
+  <string name="value_keyboard_echo_characters_only">Karakters</string>
+  <string name="value_keyboard_echo_words_only">Woorde</string>
+  <string name="value_keyboard_echo_characters_and_words">Karakters en woorde</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Toestand, naam, soort</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Soort, naam, toestand</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Naam, soort, toestand</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Is jy seker jy wil nodusboomontfouting aanskakel?\n\nNodusboomontfouting ontbloot die inhoud van jou skerm aan jou toestel se loglêers, wat dalk deur ander programme gelees kan word.</string>
   <string name="dialog_title_enable_performance_stats">Aktiveer werkverrigtingstatistieke?</string>
   <string name="dialog_message_enable_performance_stats">Is jy seker jy wil werkverrigtingstatistieke aanskakel?\n\nWerkverrigtingstatistieke sal dalk meer berging en krag verbruik.</string>
+  <string name="title_request_phone_permission">Gee foontoegang?</string>
+  <string name="message_request_phone_permission">Dit help TalkBack om aankondigings te verminder wanneer jy besig is met \'n oproep</string>
+  <string name="continue_button">Gaan voort</string>
   <string name="label_talkback_context_menu">TalkBack se globale kontekskieslys</string>
   <string name="permission_talkback_label">Beheer TalkBack</string>
   <string name="permission_talkback_desc">Toestemming om gebare na TalkBack te stuur en gesproke terugvoering te hervat.</string>
-  <string name="permission_labeling_label">Bestuur TalkBack se gepasmaakte etikette</string>
-  <string name="permission_labeling_desc">Toestemming om toegang tot gepasmaakte etikette uitgespreek deur TalkBack te verkry, dit te wysig en dit uit te vee.</string>
   <string name="links">Skakels</string>
   <string name="end_of_text">Einde</string>
   <string name="start_of_page">Geen vorige %1$s nie</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Leestekens</string>
   <string name="title_pref_selector_granularity">Navigasie</string>
   <string name="title_pref_selector_audio_focus">Oudiodemping</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Rollees</string>
+  <string name="title_pref_a11y_volume">Toeganklikheidsvolume</string>
   <string name="title_pref_selector_adjustable_widget_slider">Verstel glyer</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Verstel waarde</string>
   <string name="title_pref_speak_passwords_without_headphones">Sê wagwoorde hardop</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Gebruik stemopdragte</string>
   <string name="dialog_title_pass_through_mode">Slaan TalkBack-gebare oor om stelselgebare te gebruik</string>
   <string name="dialog_message_pass_through_mode">Wanneer jy \'n klokkie hoor, kan jy \'n stelselgebaar gebruik wat nie deur TalkBack gesteun word nie. Dit staan bekend as \'n Slaan Oor-gebaar.</string>
-  <string name="hint_type_search_term">Voer soekterm in</string>
+  <string name="hint_type_search_term">Soekterm</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Die kennisgewingkanaal van Talkback</string>
   <string name="pref_selector_summary">%1$s om \'n instelling te kies. %2$s dan om die instelling te verstel.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Dubbeltik en hou met 3 vingers om teks te sny.\n\nTripeltik met 3 vingers om teks te plak.\n\nProbeer om \'n woord in die tekskassie hieronder te plak.</string>
   <string name="copy_text_pre_r">Nadat jy teks gekies het, kan jy dit in die TalkBack-kieslys kopieer. Swiep af en dan regs om die TalkBack-kieslys oop te maak. Dubbeltik redigeeropsies en kopieer dan.\n\nProbeer om \'n woord in die tekskassie hieronder te kopieer.</string>
   <string name="cut_paste_text_pre_r">Om teks te sny of plak, moet jy die TalkBack-kieslys oopmaak en redigeeropsies dubbeltik.\n\nProbeer om \'n woord in die tekskassie hieronder te plak.</string>
+  <string name="edit_box_hint_paste_text">Plak teks hier</string>
   <string name="read_by_character_title">Lees per karakter, woord of paragraaf</string>
   <string name="read_by_character_text">Soms wil jy dalk teks hardop gelees hoor, een karakter op \'n slag.\n\nOm dit te doen, moet jy regs swiep met 3 vingers totdat jy \"%1$s\" hoor. Swiep dan op om die navigasiefokus per karakter agtertoe te beweeg. Swiep af om die navigasiefokus per karakter vorentoe te beweeg.\n\nProbeer dit nou. Wanneer jy met 3 vingers regs swiep, kan jy ook kies om per woord of paragraaf te lees.</string>
   <string name="read_by_character_text_pre_r">Soms wil jy dalk teks hardop gelees hoor, een karakter op \'n slag.\n\nOm dit te doen, moet jy met 3 vingers regs swiep totdat jy \"%1$s\" hoor. Swiep dan op om die navigasiefokus per karakter agtertoe te beweeg. Swiep af om die navigasiefokus per karakter vorentoe te beweeg.\n\nProbeer dit nou. Wanneer jy af en dan op swiep, kan jy ook kies om per woord of paragraaf te lees.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">Het %1$s geaktiveer</string>
   <string name="talkback_inactive_title">TalkBack is gedeaktiveer</string>
   <string name="talkback_inactive_message">Hierdie tutoriaal vereis dat TalkBack geaktiveer moet wees. Aktiveer asseblief TalkBack voordat jy die tutoriaal begin.</string>
+  <string name="watch_swipe_left_right_text">Swiep regs of links om tussen items te beweeg</string>
+  <string name="watch_double_tap_text">Dubbeltik om \'n item te aktiveer</string>
+  <string name="watch_2_finger_scroll_text">Sleep 2 vingers om te rollees</string>
+  <string name="title_pref_thick_border">Dik rande</string>
+  <string name="title_pref_category_border_color">Kleur</string>
+  <string name="title_pref_default_color">Verstek</string>
+  <string name="title_pref_red">Rooi</string>
+  <string name="title_pref_orange">Oranje</string>
+  <string name="title_pref_yellow">Geel</string>
+  <string name="title_pref_green">Groen</string>
+  <string name="title_pref_blue">Blou</string>
+  <string name="title_pref_grey">Grys</string>
   <string name="survey_closed">Opname is toegemaak</string>
+  <string name="character_recognition_text">Teks: %1$s</string>
+  <string name="title_image_caption">Beskryf prent</string>
 </resources>

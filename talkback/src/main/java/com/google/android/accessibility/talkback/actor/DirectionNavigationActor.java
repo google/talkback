@@ -111,7 +111,7 @@ public class DirectionNavigationActor {
       FocusFinder focusFinder,
       ProcessorPhoneticLetters processorPhoneticLetters,
       AccessibilityFocusMonitor accessibilityFocusMonitor,
-      ScreenStateMonitor screenStateMonitor) {
+      ScreenStateMonitor.State screenState) {
     this.service = service;
     this.inputModeManager = inputModeManager;
     this.analytics = analytics;
@@ -123,7 +123,7 @@ public class DirectionNavigationActor {
 
     focusProcessorForLogicalNavigation =
         new FocusProcessorForLogicalNavigation(
-            service, focusFinder, accessibilityFocusMonitor, screenStateMonitor);
+            service, focusFinder, accessibilityFocusMonitor, screenState);
   }
 
   public void setPipeline(Pipeline.FeedbackReturner pipeline) {
@@ -234,13 +234,16 @@ public class DirectionNavigationActor {
     CursorGranularity granularity = cursorGranularityManager.getCurrentGranularity();
     // Navigate with character, word, line or paragraph granularity.
     if (isNavigatingWithMicroGranularity()) {
-      final int result = navigateWithMicroGranularity(direction, eventId);
+      final int result =
+          navigateWithMicroGranularity(
+              direction, eventId, isEditingFocusedNode(useInputFocusAsPivotIfEmpty));
       if (result == CursorGranularityManager.SUCCESS) {
         inputModeManager.setInputMode(inputMode);
         analytics.onMoveWithGranularity(granularity);
         return true;
-      } else if ((result == CursorGranularityManager.HIT_EDGE)
-          && isEditingFocusedNode(useInputFocusAsPivotIfEmpty)) {
+      } else if (result == CursorGranularityManager.HIT_EDGE) {
+        return false;
+      } else if (result == CursorGranularityManager.PRE_HIT_EDGE) {
         return false;
       }
     }
@@ -304,7 +307,8 @@ public class DirectionNavigationActor {
    *
    * @return the result code of granularity navigation.
    */
-  private int navigateWithMicroGranularity(final int direction, EventId eventId) {
+  private int navigateWithMicroGranularity(
+      final int direction, EventId eventId, boolean isEditing) {
     // Convert 2-D up/down/left/right direction to linear forward/backward direction.
     @SearchDirection
     int linearDirection =
@@ -313,7 +317,7 @@ public class DirectionNavigationActor {
 
     int granularityNavigationAction = logicalDirectionToNavigationAction(linearDirection);
 
-    return cursorGranularityManager.navigate(granularityNavigationAction, eventId);
+    return cursorGranularityManager.navigate(granularityNavigationAction, eventId, isEditing);
   }
 
   private boolean navigateWithMacroOrDefaultGranularity(
@@ -607,6 +611,7 @@ public class DirectionNavigationActor {
         // accessibility focus on screen to switch between them.
         if (currentGranularity.isNativeMacroGranularity()
             || currentGranularity == CursorGranularity.DEFAULT
+            || currentGranularity == CursorGranularity.WINDOWS
             || currentNode != null) {
           granularityUpdatedAnnouncement(
               service.getString(currentGranularity.resourceId), /* isFromUser= */ true, eventId);

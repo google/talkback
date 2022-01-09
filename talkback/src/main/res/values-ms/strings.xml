@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Versi %1$s</string>
   <string name="label_manager_summary_title">Urus Label Peribadi</string>
   <string name="label_manager_package_title">Urus Label untuk %1$s</string>
+  <string name="manage_label">Urus label</string>
   <string name="label_manager_no_packages_message">Tiada label tersuai pada masa ini. Anda boleh mencipta label dengan menavigasi ke imej tidak berlabel dan kemudian tambahkan label daripada Menu Talkback.</string>
   <string name="label_manager_timestamp_text">Terakhir diubah suai %1$s</string>
   <string name="search_dialog_label">Carian: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Teroka melalui sentuhan</string>
   <string name="title_pref_category_touch_exploration">Navigasi</string>
   <string name="title_pref_category_controls">Kawalan</string>
-  <string name="title_pref_single_tap">Pengaktifan satu ketikan</string>
+  <string name="title_pref_single_tap">Satu ketikan untuk mengaktifkan</string>
   <string name="title_pref_show_context_menu_as_list">Tunjukkan menu konteks sebagai senarai</string>
-  <string name="summary_pref_single_tap">(Percubaan) Ketik sekali pada item yang difokuskan untuk pengaktifan</string>
+  <string name="summary_pref_single_tap">Ketik sekali pada item yang difokuskan untuk pengaktifan</string>
   <string name="title_pref_shake_to_read_threshold">Goncang untuk memulakan pembacaan berterusan</string>
   <string name="pref_verbosity_title">Maklumat berjela</string>
   <string name="pref_punctuation_title">Tanda baca</string>
+  <string name="title_pref_category_manage_focus_indicator">Sesuaikan Penunjuk Fokus</string>
   <string name="title_pref_category_manage_gestures">Peribadikan gerak isyarat</string>
   <string name="title_pref_manage_labels">Label tersuai</string>
   <string name="title_pref_manage_customize_menus">Sesuaikan menu</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">Bantuan dan maklum balas</string>
   <string name="title_pref_category_tutorial_and_help">Tutorial dan bantuan</string>
   <string name="title_pref_category_advanced">Lanjutan</string>
+  <string name="title_pref_category_typing">Penaipan dan papan kekunci</string>
   <string name="title_pref_category_legal_and_privacy">Undang-undang dan privasi</string>
   <string name="title_pref_advanced_settings">Tetapan terperinci</string>
   <string name="reset_gesture_settings_title">Tetapkan semula tetapan gerak isyarat</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Apl terbaharu</string>
   <string name="keycombo_menu_global_notifications">Pemberitahuan</string>
   <string name="keycombo_menu_global_suspend">Jeda atau sambung semula TalkBack</string>
+  <string name="keycombo_menu_global_play_pause_media">Main atau jeda media</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Pilih kawalan bacaan seterusnya</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Pilih kawalan bacaan sebelumnya</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Laraskan kawalan bacaan ke atas</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Laraskan kawalan bacaan ke bawah</string>
   <string name="keycombo_menu_category_granularity">Navigasi</string>
   <string name="keycombo_menu_granularity_increase">Tetapan navigasi seterusnya</string>
   <string name="keycombo_menu_granularity_decrease">Tetapan navigasi sebelumnya</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Tiada teks untuk disalin, pilih beberapa teks terlebih dahulu.</string>
   <string name="cannot_paste_feedback">Tiada teks untuk ditampal, salin beberapa teks terlebih dahulu.</string>
   <string name="cannot_cut_feedback">Tiada teks untuk dipotong, pilih beberapa teks terlebih dahulu.</string>
+  <string name="cannot_delete_feedback">Tiada teks untuk dipadamkan, pilih beberapa teks terlebih dahulu.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Adakah anda pasti ingin menetapkan semula kekunci pintasan untuk peta kekunci ini kepada nilai asalnya? Sila ambil perhatian bahawa tindakan ini tidak boleh dibuat asal.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Tetapkan semula</string>
   <string name="override_keycombo">Kekunci sudah digunakan</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Gunakan perubahan nada</string>
   <string name="title_pref_keyboard_echo">Gema papan kekunci</string>
   <string name="pref_node_desc_order_title">Susunan perihalan unsur</string>
-  <string name="summaryOn_pref_intonation">Sebutkan masukan papan kekunci dalam nada suara yang lebih rendah</string>
+  <string name="summaryOn_pref_intonation">Tuturkan teks yang dipadam papan kekunci dengan nada suara yang lebih tinggi</string>
   <string name="summaryOff_pref_intonation">Jangan ubah nada suara apabila bercakap</string>
   <string name="title_pref_brailleime">Papan kekunci Braille</string>
   <string name="title_pref_category_feedback_settings">Maklum balas lain</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Dayakan penyahpijatan pohon nod</string>
   <string name="summary_pref_tree_debug_tv">Gunakan kunci carian suara untuk mencetak pohon nod dan bukannya mencari</string>
   <string name="title_pref_performance_stats">Dayakan statistik prestasi</string>
+  <string name="title_pref_log_overlay">Dayakan tindanan log nyahpepijat</string>
   <string name="title_pref_resume_talkback">Disambung daripada penangguhan</string>
+  <string name="title_pref_typing_confirmation">Pilihan penaipan</string>
   <string name="title_pref_multi_finger_gesture">Dayakan gerak isyarat berbilang jari</string>
   <string name="screen_dimmed">Skrin disembunyikan</string>
   <string name="screen_brightness_restored">Menunjukkan skrin</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Tatal ke bawah</string>
   <string name="shortcut_scroll_left">Tatal ke kiri</string>
   <string name="shortcut_scroll_right">Tatal ke kanan</string>
+  <string name="shortcut_next_window">Tetingkap seterusnya</string>
+  <string name="shortcut_previous_window">Tetingkap sebelumnya</string>
   <string name="shortcut_back">Kembali</string>
   <string name="shortcut_home">Skrin Utama</string>
   <string name="shortcut_overview">Ikhtisar</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Sembunyikan atau tunjukkan skrin</string>
   <string name="title_show_screen_search">Carian skrin</string>
   <string name="title_show_voice_commands">Perintah suara</string>
+  <string name="talkback_show_talkback_settings">Tetapan TalkBack</string>
   <string name="title_other_web_navigation">Navigasi web lain</string>
   <string name="title_granularity_default">Navigasi lalai</string>
   <string name="title_seek_bar_edit">Edit tahap peluncur</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">Kawal TalkBack dengan suara anda</string>
   <string name="summary_show_hide_screen">Sembunyikan paparan agar skrin tidak dapat dilihat oleh orang lain di tempat awam. Setelah disembunyikan, kembalikan skrin kepada keadaan biasa.</string>
   <string name="summary_talkback_preferences">Buka tetapan TalkBack</string>
-  <string name="summary_system_actions">Pergi ke semua apl, Tetapan Pantas dan gunakan skrin pisah</string>
+  <string name="summary_system_actions">Pergi ke semua apl dan Tetapan Pantas</string>
   <string name="summary_tts_settings">Buka tetapan teks ke pertuturan</string>
   <string name="summary_pause_feedback">Matikan maklum balas suara TalkBack</string>
   <string name="not_editable">Tidak boleh diedit</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Baca perkataan satu demi satu</string>
   <string name="summary_lines">Baca baris satu demi satu</string>
   <string name="summary_paragraphs">Baca perenggan satu demi satu</string>
+  <string name="summary_windows">Langkau ke tetingkap lain, seperti kawalan kelantangan atau bar navigasi</string>
   <string name="summary_headings">Langkau antara tajuk</string>
   <string name="summary_controls">Langkau antara item yang anda boleh berinteraksi, seperti butang, kotak pilihan dan medan teks</string>
   <string name="summary_links">Langkau antara pautan</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">Tukar sama ada kekunci yang ditaip, petunjuk penggunaan, maklumat grid, dan maklumat lain dibaca dengan kuat</string>
   <string name="summary_selector_menu_punctuation">Tukar sama ada tanda baca dan simbol dibaca dengan kuat atau tidak</string>
   <string name="summary_language">Tukar bahasa pertuturan anda. Ditunjukkan hanya apabila anda telah memasang berbilang bahasa teks kepada pertuturan.</string>
-  <string name="summary_sound_feedback">Dengarkan kesan bunyi semasa anda menavigasi, seperti bunyi bip untuk mengesahkan tindakan.</string>
+  <string name="summary_sound_feedback">Dengarkan kesan bunyi semasa anda menavigasi, seperti bunyi bip untuk mengesahkan tindakan</string>
   <string name="summary_vibration_feedback">Rasa getaran untuk tindakan seperti memilih item. Tidak mempengaruhi getaran yang berasal daripada apl atau sistem.</string>
   <string name="summary_hide_screen">Sembunyikan paparan supaya skrin anda tidak dapat dilihat oleh orang lain ketika berada di tempat awam</string>
   <string name="summary_audio_ducking">Kurangkan kelantangan audio lain yang dimainkan semasa TalkBack bertutur</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">Tatal ke depan atau ke belakang</string>
+  <string name="summary_support_change_a11y_volume">Tinggikan atau kurangkan kelantangan Kebolehaksesan</string>
+  <string name="summary_image_caption">Dapatkan penerangan automatik untuk imej ini</string>
   <string name="value_direction_up">ke atas</string>
   <string name="value_direction_down">ke bawah</string>
   <string name="value_direction_left">ke kiri</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">Ketik dua kali dan tahan dengan 2 jari</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">Ketik dua kali dan tahan dengan 3 jari</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">Ketik dua kali dan tahan dengan 4 jari</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">Ketik tiga kali dan tahan dengan 2 jari</string>
+  <string name="seekbar_hint_2gesture">\"%1$s\" atau %2$s\" untuk pelarasan</string>
+  <string name="seekbar_hint_1gesture">\"%1$s\" untuk pelarasan</string>
   <string name="gesture_name_unknown">Gerak isyarat tidak diketahui</string>
   <string name="gesture_name_pass_through">Masuk lalu ke gerak isyarat sistem</string>
   <string name="gesture_name_touch_explore">Sentuh teroka</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">Ketik dua kali dan tahan</string>
   <string name="gesture_name_2finger_tap_hold">Ketik dan tahan dengan 2 jari</string>
   <string name="gesture_name_3finger_tap_hold">Ketik dan tahan dengan 3 jari</string>
+  <string name="gesture_name_2finger_3tap_hold">Ketik tiga kali dan tahan dengan 2 jari</string>
   <string name="gesture_name_3finger_3tap_hold">Ketik tiga kali dan tahan dengan 3 jari</string>
   <string name="title_pref_shortcut_fingerprint_up">Leret ke atas pada penderia cap jari</string>
   <string name="title_pref_shortcut_fingerprint_down">Leret ke bawah pada penderia cap jari</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Apabila skrin dihidupkan</string>
   <string name="value_resume_keyguard">Apabila skrin kunci ditunjukkan</string>
   <string name="value_resume_manual">Dari pemberitahuan sahaja</string>
+  <string name="value_type_confirmation_double_tap">Tahan jari untuk memilih kekunci, kemudian ketik dua kali</string>
+  <string name="value_type_confirmation_lift_to_type">Tahan jari untuk memilih kekunci, kemudian angkat jari</string>
   <string name="value_shake_to_read_disabled">Dilumpuhkan</string>
   <string name="value_shake_to_read_threshold_very_light">Sangat perlahan</string>
   <string name="value_shake_to_read_threshold_light">Perlahan</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Sentiasa sebut kekunci yang ditaip</string>
   <string name="value_keyboard_echo_softkeys">Hanya untuk papan kekunci pada skrin</string>
   <string name="value_keyboard_echo_never">Jangan sekali-kali sebut kekunci yang ditaip</string>
+  <string name="title_pref_keyboard_echo_on_screen">Gema papan kekunci: Papan kekunci pada skrin</string>
+  <string name="title_pref_keyboard_echo_physical">Gema papan kekunci: Papan kekunci fizikal</string>
+  <string name="value_keyboard_echo_none">Tiada</string>
+  <string name="value_keyboard_echo_characters_only">Aksara</string>
+  <string name="value_keyboard_echo_words_only">Perkataan</string>
+  <string name="value_keyboard_echo_characters_and_words">Aksara dan perkataan</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Status, nama, jenis</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Jenis, nama, status</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Nama, jenis, status</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Adakah anda pasti anda ingin menghidupkan penyahpijatan pohon nod?\n\nPenyahpijatan pohon nod mendedahkan kandungan skrin anda kepada log peranti anda, yang mungkin boleh dibaca oleh aplikasi lain.</string>
   <string name="dialog_title_enable_performance_stats">Dayakan Statistik Prestasi?</string>
   <string name="dialog_message_enable_performance_stats">Adakah anda pasti mahu menghidupkan statistik prestasi?\n\nStatistik prestasi mungkin menggunakan lebih banyak memori dan kuasa.</string>
+  <string name="title_request_phone_permission">Benarkan akses telefon?</string>
+  <string name="message_request_phone_permission">Tindakan ini membantu TalkBack mengurangkan pengumuman semasa anda membuat panggilan</string>
+  <string name="continue_button">Teruskan</string>
   <string name="label_talkback_context_menu">Menu kandungan global TalkBack</string>
   <string name="permission_talkback_label">Kawal TalkBack</string>
   <string name="permission_talkback_desc">Kebenaran untuk menghantar gerak isyarat kepada TalkBack dan menyambung semula maklum balas yang disebut.</string>
-  <string name="permission_labeling_label">Urus label peribadi TalkBack</string>
-  <string name="permission_labeling_desc">Kebenaran untuk mengakses, mengubah suai dan memadam label peribadi yang disebut oleh TalkBack.</string>
   <string name="links">Pautan</string>
   <string name="end_of_text">Tamat</string>
   <string name="start_of_page">Tiada %1$s sebelumnya</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Tanda baca</string>
   <string name="title_pref_selector_granularity">Navigasi</string>
   <string name="title_pref_selector_audio_focus">Merendahkan audio</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Tatal</string>
+  <string name="title_pref_a11y_volume">Kelantangan kebolehaksesan</string>
   <string name="title_pref_selector_adjustable_widget_slider">Laraskan peluncur</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Laraskan nilai</string>
   <string name="title_pref_speak_passwords_without_headphones">Tuturkan kata laluan</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Gunakan perintah suara</string>
   <string name="dialog_title_pass_through_mode">Langkau isyarat TalkBack untuk menggunakan gerak isyarat sistem</string>
   <string name="dialog_message_pass_through_mode">Apabila anda mendengar bunyi loceng, anda boleh menggunakan gerak isyarat sistem yang tidak disokong oleh TalkBack. Cara ini dikenali sebagai gerak isyarat masuk lalu.</string>
-  <string name="hint_type_search_term">Taip istilah carian</string>
+  <string name="hint_type_search_term">Istilah carian</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">Saluran Pemberitahuan TalkBack</string>
   <string name="pref_selector_summary">%1$s untuk memilih tetapan. Kemudian %2$s untuk melaraskan tetapan.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Untuk memotong teks, ketik dua kali dan tahan menggunakan 3 jari.\n\nUntuk tampal teks, ketik tiga kali menggunakan 3 jari.\n\nCuba tampal satu perkataan dalam kotak teks di bawah.</string>
   <string name="copy_text_pre_r">Selepas memilih teks, anda boleh menyalin teks dalam menu TalkBack. Leret ke bawah kemudian ke kanan untuk membuka menu TalkBack. Ketik dua kali pada pilihan pengeditan kemudian salin.\n\nCuba salin satu perkataan dalam kotak teks di bawah.</string>
   <string name="cut_paste_text_pre_r">Untuk memotong atau menampal teks, buka menu TalkBack dan ketik dua kali pada pilihan pengeditan.\n\nCuba tampal satu perkataan dalam kotak teks di bawah.</string>
+  <string name="edit_box_hint_paste_text">Tampal teks di sini</string>
   <string name="read_by_character_title">Baca mengikut aksara, perkataan atau perenggan</string>
   <string name="read_by_character_text">Kadang-kadang, anda mungkin ingin mendengar teks dibaca dengan lantang satu aksara demi satu aksara.\n\nUntuk melakukan perkara ini, leret ke kanan menggunakan 3 jari sehingga anda mendengar \"%1$s\". Seterusnya, leret ke atas untuk menggerakkan fokus navigasi ke belakang mengikut aksara. Leret ke bawah untuk menggerakkan fokus navigasi ke hadapan mengikut aksara.\n\nCuba sekarang. Apabila anda leret ke kanan menggunakan 3 jari, anda juga boleh memilih untuk membaca mengikut perkataan atau perenggan.</string>
   <string name="read_by_character_text_pre_r">Kadang-kadang, anda mungkin ingin mendengar teks dibaca dengan lantang satu aksara demi satu aksara.\n\nUntuk melakukan perkara ini, leret ke bawah kemudian ke atas sehingga anda mendengar \"%1$s\". Seterusnya, leret ke atas untuk menggerakkan fokus navigasi ke belakang mengikut aksara. Leret ke bawah untuk menggerakkan fokus navigasi ke hadapan mengikut aksara.\n\nCuba sekarang. Apabila anda leret ke bawah kemudian ke atas, anda juga boleh memilih untuk membaca mengikut perkataan atau perenggan.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">%1$s diaktifkan</string>
   <string name="talkback_inactive_title">TalkBack Dilumpuhkan</string>
   <string name="talkback_inactive_message">TalkBack perlu didayakan untuk tutorial ini. Sila hidupkan TalkBack sebelum melancarkan tutorial.</string>
+  <string name="watch_swipe_left_right_text">Leret ke kanan atau ke kiri untuk beralih antara item.</string>
+  <string name="watch_double_tap_text">Ketik dua kali untuk mengaktifkan item</string>
+  <string name="watch_2_finger_scroll_text">Seret 2 jari untuk menatal</string>
+  <string name="title_pref_thick_border">Sempadan tebal</string>
+  <string name="title_pref_category_border_color">Warna</string>
+  <string name="title_pref_default_color">Lalai</string>
+  <string name="title_pref_red">Merah</string>
+  <string name="title_pref_orange">Orange</string>
+  <string name="title_pref_yellow">Kuning</string>
+  <string name="title_pref_green">Hijau</string>
+  <string name="title_pref_blue">Biru</string>
+  <string name="title_pref_grey">Kelabu</string>
   <string name="survey_closed">Tinjauan ditutup</string>
+  <string name="character_recognition_text">Teks: %1$s</string>
+  <string name="title_image_caption">Huraikan imej</string>
 </resources>

@@ -20,6 +20,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentFactory;
 import android.text.TextUtils;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -28,11 +30,11 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.SwitchPreference;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.utils.VerbosityPreferences;
-import com.google.android.accessibility.utils.BasePreferencesActivity;
-import com.google.android.accessibility.utils.PreferenceSettingsUtils;
+import com.google.android.accessibility.utils.PreferencesActivity;
 import com.google.android.accessibility.utils.SharedPreferencesUtils;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 import java.util.ArrayList;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -40,22 +42,66 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * <p>Allow flexibility for multiple customizable presets, in the future.
  */
-public class TalkBackVerbosityPreferencesActivity extends BasePreferencesActivity {
+public class TalkBackVerbosityPreferencesActivity extends PreferencesActivity {
 
   private static final String TAG = "TBVerbosityPrefActivity";
 
   @Override
+  public void onCreate(Bundle savedInstanceState) {
+    // Sets FragmentFactory when VerbosityPrefFragment uses a non-default constructor to get
+    // ContainerId. This results framework sometimes restores VerbosityPrefFragment by default
+    // constructor only.
+    getSupportFragmentManager()
+        .setFragmentFactory(new TalkBackVerbosityFragmentFactory(getContainerId()));
+    super.onCreate(savedInstanceState);
+  }
+
+  @Override
   protected PreferenceFragmentCompat createPreferenceFragment() {
-    return new VerbosityPrefFragment();
+    return new VerbosityPrefFragment(getContainerId());
+  }
+
+  /**
+   * A {@code FragmentFactory} which creates TalkBackVerbosityPreferencesActivity uses a non-default
+   * constructor to ensure that this constructor is called when the fragment is re-instantiated.
+   */
+  private static final class TalkBackVerbosityFragmentFactory extends FragmentFactory {
+    private final int containerId;
+
+    public TalkBackVerbosityFragmentFactory(int containerId) {
+      super();
+      this.containerId = containerId;
+    }
+
+    @NonNull
+    @Override
+    public Fragment instantiate(@NonNull ClassLoader classLoader, @NonNull String className) {
+      Class<? extends Fragment> clazz = loadFragmentClass(classLoader, className);
+      if (clazz == VerbosityPrefFragment.class) {
+        return new VerbosityPrefFragment(containerId);
+      } else {
+        return super.instantiate(classLoader, className);
+      }
+    }
   }
 
   /** Panel holding a set of verbosity preferences. Recreated when preset value changes. */
-  public static class VerbosityPrefFragment extends PreferenceFragmentCompat {
+  public static class VerbosityPrefFragment extends TalkbackBaseFragment {
 
     // Member data
     private SharedPreferences preferences;
     private String presetValue; // String identifier for selected preset.
     private Context context;
+    private int containerId;
+
+    public VerbosityPrefFragment() {
+      super(R.xml.verbosity_preferences);
+    }
+
+    VerbosityPrefFragment(int containerId) {
+      super(R.xml.verbosity_preferences);
+      this.containerId = containerId;
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -65,6 +111,7 @@ public class TalkBackVerbosityPreferencesActivity extends BasePreferencesActivit
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+      super.onCreatePreferences(savedInstanceState, rootKey);
 
       preferences = SharedPreferencesUtils.getSharedPreferences(context);
       presetValue =
@@ -73,9 +120,6 @@ public class TalkBackVerbosityPreferencesActivity extends BasePreferencesActivit
               getResources(),
               R.string.pref_verbosity_preset_key,
               R.string.pref_verbosity_preset_value_default);
-
-      // Create the preferences screen.
-      PreferenceSettingsUtils.addPreferencesFromResource(this, R.xml.verbosity_preferences);
 
       ArrayList<Preference> detailedPrefs = collectDetailedPreferences();
       copyPresetsToUi(detailedPrefs); // Cheap, just reading preferences.
@@ -240,8 +284,8 @@ public class TalkBackVerbosityPreferencesActivity extends BasePreferencesActivit
       if (TextUtils.equals(presetValue, newValueString)) {
         return;
       }
-      VerbosityPrefFragment newFragment = new VerbosityPrefFragment();
-      getFragmentManager().beginTransaction().replace(android.R.id.content, newFragment).commit();
+      VerbosityPrefFragment newFragment = new VerbosityPrefFragment(containerId);
+      getFragmentManager().beginTransaction().replace(containerId, newFragment).commit();
     }
 
     private Preference findPreference(int keyId) {

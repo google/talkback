@@ -57,14 +57,14 @@ public class FocusActor {
   public FocusActor(
       AccessibilityService service,
       FocusFinder focusFinder,
-      ScreenStateMonitor screenStateMonitor,
+      ScreenStateMonitor.State screenState,
       AccessibilityFocusActionHistory accessibilityFocusActionHistory,
       AccessibilityFocusMonitor accessibilityFocusMonitor) {
     this.history = accessibilityFocusActionHistory;
     this.accessibilityFocusMonitor = accessibilityFocusMonitor;
     focusManagerInternal =
         new FocusManagerInternal(
-            service, focusFinder, screenStateMonitor, history, accessibilityFocusMonitor);
+            service, focusFinder, screenState, history, accessibilityFocusMonitor);
     webActor =
         new WebActor(
             service, (start, focusActionInfo) -> updateFocusHistory(start, focusActionInfo));
@@ -223,6 +223,14 @@ public class FocusActor {
   /** At next {@link ScreenState} change, precisely restores focus when context menu closes. */
   public void overrideNextFocusRestorationForContextMenu() {
     actorState.setOverrideFocusRestore();
+  }
+
+  /**
+   * Checks the accessibility focused node on the current screen, and requests an initial focus if
+   * no focused node is found.
+   */
+  public boolean ensureAccessibilityFocusOnScreen(EventId eventId) {
+    return focusManagerInternal.ensureAccessibilityFocusOnScreen(eventId);
   }
 
   private boolean performActionOnCurrentFocus(int action, EventId eventId) {

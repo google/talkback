@@ -25,11 +25,12 @@ import static com.google.android.accessibility.utils.input.CursorGranularity.WEB
 import static com.google.android.accessibility.utils.input.CursorGranularity.WEB_LANDMARK;
 import static com.google.android.accessibility.utils.input.CursorGranularity.WEB_LINK;
 import static com.google.android.accessibility.utils.input.CursorGranularity.WEB_LIST;
+import static com.google.android.accessibility.utils.input.CursorGranularity.WINDOWS;
 
 import android.content.Context;
-import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.annotation.IntDef;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.utils.AccessibilityNodeInfoUtils;
 import com.google.android.accessibility.utils.Filter;
@@ -374,6 +375,8 @@ public final class NavigationTarget {
         return CONTROL;
       case TARGET_LINK:
         return LINK;
+      case TARGET_WINDOW:
+        return WINDOWS;
       case TARGET_HTML_ELEMENT_LINK:
         return WEB_LINK;
       case TARGET_HTML_ELEMENT_LIST:
@@ -399,7 +402,6 @@ public final class NavigationTarget {
       case TARGET_HTML_ELEMENT_GRAPHIC:
       case TARGET_HTML_ELEMENT_TABLE:
       case TARGET_HTML_ELEMENT_COMBOBOX:
-      case TARGET_WINDOW:
       default:
         return DEFAULT;
     }

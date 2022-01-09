@@ -87,11 +87,17 @@ public class ScrollPositionInterpreter implements ScrollEventHandler {
     if (!interpretation.hasValidIndex || interpretation.isDuplicateEvent) {
       return;
     }
+
+    // If verbose mode is off, it only generates feedback for scrolling by talkback shortcuts or
+    // scrolling manually from ViewPager (b/174631424). Always announce for ViewPager, because user
+    // needs to know about page-changes for 2-finger pass-through scrolling.
     if (!isVerbose
         && (interpretation.userAction != ScrollEventInterpreter.ACTION_SCROLL_SHORTCUT)
-        && (interpretation.userAction != ScrollEventInterpreter.ACTION_MANUAL_SCROLL)) {
+        && (Role.getSourceRole(event) != Role.ROLE_PAGER
+            || interpretation.userAction != ScrollEventInterpreter.ACTION_MANUAL_SCROLL)) {
       return;
     }
+
     // Scrolling a ViewPager2 also scrolls its tabs. Suppress the tab scroll announcement if the
     // scheduled announcement originates from a page scroll, so the pager announcement isn't
     // stopped. There's only a small possibility that this suppressed event comes from a

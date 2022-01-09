@@ -23,7 +23,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 import androidx.core.view.ViewCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -34,9 +33,11 @@ import android.widget.BaseAdapter;
 import android.widget.CheckedTextView;
 import android.widget.ListView;
 import android.widget.TextView;
+import androidx.annotation.VisibleForTesting;
 import androidx.preference.PreferenceDialogFragmentCompat;
 import com.google.android.accessibility.talkback.R;
 import com.google.android.accessibility.talkback.preference.GestureListPreference.ActionItem;
+import com.google.android.accessibility.utils.FeatureSupport;
 import com.google.android.libraries.accessibility.utils.log.LogUtils;
 
 /** A dialog fragment contains a customized list view for TalkBack supported actions. */
@@ -45,7 +46,7 @@ public class GesturePreferenceFragmentCompat extends PreferenceDialogFragmentCom
   private static final String ARG_ACTIONS = "actions";
 
   /** Creates the fragment from given {@link GestureListPreference}. */
-  public static GesturePreferenceFragmentCompat newInstance(GestureListPreference preference) {
+  public static GesturePreferenceFragmentCompat create(GestureListPreference preference) {
     GesturePreferenceFragmentCompat fragment = new GesturePreferenceFragmentCompat();
     Bundle args = new Bundle(2);
     args.putString(PreferenceDialogFragmentCompat.ARG_KEY, preference.getKey());
@@ -77,7 +78,10 @@ public class GesturePreferenceFragmentCompat extends PreferenceDialogFragmentCom
         }
       }
     }
-
+    if (FeatureSupport.isWatch(context)) {
+      // Support rotary input
+      listView.requestFocus();
+    }
     return listView;
   }
 

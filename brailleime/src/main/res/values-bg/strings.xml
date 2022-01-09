@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Позициите на точките се актуализират. Първо, трябва да запишете точките за лявата си ръка. Докоснете и задръжте екрана с трите средни пръста на лявата си ръка.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Позициите на точките се актуализират. Първо, трябва да запишете точките за дясната си ръка. Докоснете и задръжте екрана с трите средни пръста на дясната си ръка.</string>
   <string name="calibration_finish_announcement">Позицията на точките е актуализирана</string>
+  <string name="remaining_calibration_finish_announcement">Всички позиции на точките са актуализирани</string>
   <string name="calibration_step2_hold_right_finger_announcement">Позицията на точки 1, 2 и 3 е актуализирана. Сега запишете точките за дясната си ръка. Докоснете и задръжте екрана с трите средни пръста на дясната си ръка.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Позицията на точки 1, 2 и 3 е актуализирана. Сега запишете точките за лявата си ръка. Докоснете и задръжте екрана с трите средни пръста на лявата си ръка.</string>
   <string name="calibration_fail_announcement">Позицията на точките не бе актуализирана. Докоснете и задръжте екрана с 6 пръста. След това опитайте отново.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Унифицирано английско брайлово писмо</string>
   <string name="code_user_facing_name_es">испански</string>
   <string name="code_user_facing_name_ar">арабски</string>
+  <string name="code_user_facing_name_fr">френски</string>
   <string name="title_pref_accumulate_presses">Включване на всички натиснати точки</string>
   <string name="summary_pref_accumulate_presses">Всяка натисната точка се въвежда дори ако е освободена преди другите</string>
   <string name="title_pref_reverse_dots">Обръщане на точките</string>
   <string name="summary_pref_reverse_dots">Размяна на позициите на точките, например точка 1 и 4 да си сменят местата</string>
-  <string name="typing_echo_list_preference_title">Обратна връзка при въвеждане (ехо от въвеждането)</string>
-  <string name="typing_echo_preference_label_characters">Четене на всички букви и думи</string>
-  <string name="typing_echo_preference_label_words">Четене само на думите</string>
   <string name="context_menu_title">Опции за брайловата клавиатура</string>
   <string name="context_menu_typing_language_selection">Промяна на езика за въвеждане</string>
   <string name="context_menu_typing_language_selection_summary">Понастоящем използвате %s</string>

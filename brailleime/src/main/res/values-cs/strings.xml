@@ -17,6 +17,7 @@
   <string name="calibration_step1_hold_left_finger_announcement">Změna pozice bodů. Nejdřív zaznamenáme body levé ruky. Podržte obrazovku třemi prostředními prsty levé ruky.</string>
   <string name="calibration_step1_hold_right_finger_announcement">Změna pozice bodů. Nejdřív zaznamenáme body pravé ruky. Podržte obrazovku třemi prostředními prsty pravé ruky.</string>
   <string name="calibration_finish_announcement">Pozice bodů byla změněna</string>
+  <string name="remaining_calibration_finish_announcement">Pozice všech bodů byly aktualizovány</string>
   <string name="calibration_step2_hold_right_finger_announcement">Byly změněny pozice bodů 1, 2 a 3. Teď zaznamenáme body pravé ruky. Podržte obrazovku třemi prostředními prsty pravé ruky.</string>
   <string name="calibration_step2_hold_left_finger_announcement">Byly změněny pozice bodů 1, 2 a 3. Teď zaznamenáme body levé ruky. Podržte obrazovku třemi prostředními prsty levé ruky.</string>
   <string name="calibration_fail_announcement">Pozici bodů se nepodařilo změnit. Podržte obrazovku šesti prsty. Poté to zkuste znovu.</string>
@@ -34,13 +35,11 @@
   <string name="code_user_facing_name_ueb">Unified English Braille</string>
   <string name="code_user_facing_name_es">španělština</string>
   <string name="code_user_facing_name_ar">Arabština</string>
+  <string name="code_user_facing_name_fr">francouzština</string>
   <string name="title_pref_accumulate_presses">Zahrnout všechny stisknuté body</string>
   <string name="summary_pref_accumulate_presses">Každý stisknutý bod je součástí vstupu i v případě, že byl před stisknutím dalších bodů uvolněn</string>
   <string name="title_pref_reverse_dots">Otočit body</string>
   <string name="summary_pref_reverse_dots">Zaměnit pozice bodů (tj. např. body 1 a 4 si vymění místa)</string>
-  <string name="typing_echo_list_preference_title">Zvuková zpětná vazba při zadávání</string>
-  <string name="typing_echo_preference_label_characters">Číst všechna písmena a slova</string>
-  <string name="typing_echo_preference_label_words">Číst pouze slova</string>
   <string name="context_menu_title">Možnost braillské klávesnice</string>
   <string name="context_menu_typing_language_selection">Změnit jazyk psaní</string>
   <string name="context_menu_typing_language_selection_summary">Aktuálně používáte jazyk %s</string>

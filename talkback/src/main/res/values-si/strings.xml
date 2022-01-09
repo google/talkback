@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">අනුවාදය %1$s</string>
   <string name="label_manager_summary_title">අභිරුචි ලේබල් කළමනාකරණය කරන්න</string>
   <string name="label_manager_package_title">%1$s සඳහා ලේබල් කළමනාකරණය කරන්න</string>
+  <string name="manage_label">ලේබලය කළමනාකරණය කරන්න</string>
   <string name="label_manager_no_packages_message">දැනට එහි අභිරුචි ලේබල නැත. ඔබට ලේබල නොකරන ලද රූපය වෙත සංචාලනය කිරීමෙන් සහ අනතුරුව TalkBack මෙනුව වෙතින් ලේබලයක් එක් කිරීමෙන් එකක් තැනිය හැකිය.</string>
   <string name="label_manager_timestamp_text">අවසාන වෙනස් කිරීම %1$s</string>
   <string name="search_dialog_label">සොයන්න: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">ස්පර්ශය මගින් ගවේෂණය කරන්න</string>
   <string name="title_pref_category_touch_exploration">සංචාලනය</string>
   <string name="title_pref_category_controls">පාලන</string>
-  <string name="title_pref_single_tap">තනි-තට්ටු කිරීමෙන් සක්‍රිය කිරීම</string>
+  <string name="title_pref_single_tap">සක්‍රිය කිරීමට එක් වරක් තට්ටු කරන්න</string>
   <string name="title_pref_show_context_menu_as_list">ලැයිස්තුවක් ලෙස ප්‍රකරණ මෙනුව පෙන්වන්න</string>
-  <string name="summary_pref_single_tap">(පරීක්ෂණාත්මක) සක්‍රිය කිරීමට නාභිගත අයිතමයක් මත එක් වරක් තට්ටු කරන්න</string>
+  <string name="summary_pref_single_tap">සක්‍රිය කිරීමට නාභිගත අයිතමයක් මත එක් වරක් තට්ටු කරන්න</string>
   <string name="title_pref_shake_to_read_threshold">අඛණ්ඩ කියවීම ආරම්භ කිරීමට සොලවන්න</string>
   <string name="pref_verbosity_title">වාචිකතාව</string>
   <string name="pref_punctuation_title">විරාම ලකුණු</string>
+  <string name="title_pref_category_manage_focus_indicator">නාභිගත කිරීමේ දර්ශකය අභිරුචිකරණය කරන්න</string>
   <string name="title_pref_category_manage_gestures">ඉංගිත අභිරුචි කරන්න</string>
   <string name="title_pref_manage_labels">අභිරුචි ලේබල</string>
   <string name="title_pref_manage_customize_menus">මෙනු අභිරුචිකරණය කරන්න</string>
@@ -121,6 +123,7 @@
   <string name="title_pref_category_help_and_feedback">උදව් සහ ප්‍රතිපෝෂණ</string>
   <string name="title_pref_category_tutorial_and_help">නිබන්ධනය සහ උදවු</string>
   <string name="title_pref_category_advanced">උසස්</string>
+  <string name="title_pref_category_typing">ටයිප් කිරීම සහ යතුරු පුවරුව</string>
   <string name="title_pref_category_legal_and_privacy">නෛතික සහ පෞද්ගලිකත්වය</string>
   <string name="title_pref_advanced_settings">උසස් සැකසීම්</string>
   <string name="reset_gesture_settings_title">ඉංගිත සැකසීම් යළි සකසන්න</string>
@@ -156,8 +159,8 @@
   <string name="keycombo_menu_navigate_down">පහත අයිතමය වෙත සංචලනය කරන්න</string>
   <string name="keycombo_menu_navigate_first">පළමු අයිතමය වෙත සංචාලනය කරන්න</string>
   <string name="keycombo_menu_navigate_last">අවසන් අයිතමය වෙත සංචාලනය කරන්න</string>
-  <string name="keycombo_menu_navigate_next_window">ඊළඟ කවුළුව වෙත සංචලනය කරන්න</string>
-  <string name="keycombo_menu_navigate_previous_window">පෙර කවුළුව වෙත සංචලනය කරන්න</string>
+  <string name="keycombo_menu_navigate_next_window">ඊළඟ කවුළුව වෙත සංචාලනය කරන්න</string>
+  <string name="keycombo_menu_navigate_previous_window">පෙර කවුළුව වෙත සංචාලනය කරන්න</string>
   <string name="keycombo_menu_navigate_next_word">ඊළඟ වචනය වෙත සංචලනය කරන්න</string>
   <string name="keycombo_menu_navigate_previous_word">පෙර වචනය වෙත සංචලනය කරන්න</string>
   <string name="keycombo_menu_navigate_next_character">ඊළඟ අනුලකුණ වෙත සංචලනය කරන්න</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">මෑත යෙදුම්</string>
   <string name="keycombo_menu_global_notifications">දැනුම්දීම්</string>
   <string name="keycombo_menu_global_suspend">TalkBack විරාමයක් තබන්න හෝ නැවත පටන්ගන්න</string>
+  <string name="keycombo_menu_global_play_pause_media">මාධ්‍ය ධාවනය කරන්න හෝ විරාම කරන්න</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">ඊළඟ කියවීම් පාලනය තෝරන්න</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">පෙර කියවීම් පාලනය තෝරන්න</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">කියවීම් පාලනය ඉහළට සීරුමාරු කරන්න</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">කියවීම් පාලනය පහළට සීරුමාරු කරන්න</string>
   <string name="keycombo_menu_category_granularity">සංචාලනය</string>
   <string name="keycombo_menu_granularity_increase">ඊළඟ සංචාලන සැකසීම</string>
   <string name="keycombo_menu_granularity_decrease">පෙර සංචාලන සැකසීම</string>
@@ -226,7 +234,8 @@
   <string name="keycombo_assign_dialog_clear">කෙටිමග හිස් කරන්න</string>
   <string name="cannot_copy_feedback">පිටපත් කිරීමට පෙළක් නැත, පළමුව පෙළ කිහිපයක් තෝරන්න.</string>
   <string name="cannot_paste_feedback">ඇලවීමට පෙළක් නැත, පළමුව පෙළ කිහිපයක් පිටපත් කරන්න.</string>
-  <string name="cannot_cut_feedback">කැපීමට පෙළක් නැත, පළමුව පෙළ කිහිපයක් තෝරන්න.</string>
+  <string name="cannot_cut_feedback">පිටපත් කිරීමට පෙළක් නැත, පළමුව පෙළ කිහිපයක් තෝරන්න.</string>
+  <string name="cannot_delete_feedback">පිටපත් කිරීමට පෙළක් නැත, පළමුව පෙළ කිහිපයක් තෝරන්න.</string>
   <string name="message_in_reset_keymap_confirm_dialog">ඔබ මෙම යතුරු සිතියම සඳහා ඔබේ කෙටි මං යතුරු යළි සැකසීමට කැමති බව විශ්වාසද? මෙම ක්‍රියාව පසුගමනය කළ නොහැකි බව කරුණාකර සටහන් කර ගන්න.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">යළි පිහිටුවන්න</string>
   <string name="override_keycombo">දැනටමත් යතුර භාවිතයේ ඇත</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">තාරතා වෙනස්වීම් භාවිතා කරන්න</string>
   <string name="title_pref_keyboard_echo">යතුරුපුවරු දෝංකාරය</string>
   <string name="pref_node_desc_order_title">මූලාංග විස්තර අනුපිළිවෙළ</string>
-  <string name="summaryOn_pref_intonation">අඩු-තාරතා හඬක් තුළ යතුරුපුවරු ප්‍රතිපෝෂණ කථා කරන්න</string>
+  <string name="summaryOn_pref_intonation">ඉහළ තාරතාවක කටහඬකින් ඇති පෙළ කථන යතුරු පුවරුව විසින් මකන ලදි</string>
   <string name="summaryOff_pref_intonation">කථා කරන විට හඬ තාරතාව වෙනස් නොකරන්න</string>
   <string name="title_pref_brailleime">බ්රේල් යතුරු පුවරුව</string>
   <string name="title_pref_category_feedback_settings">වෙනත් ප්‍රතිපෝෂණ</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">නෝඩු රුක නිදොස් කිරීම සබල කරන්න</string>
   <string name="summary_pref_tree_debug_tv">නෝඩු රුක මුද්‍රණය කිරීමට සෙවීම වෙනුවට හඬ සෙවීම් යතුර භාවිත කරන්න</string>
   <string name="title_pref_performance_stats">කාර්ය සාධන සංඛ්‍යාලේඛන සබල කරන්න</string>
+  <string name="title_pref_log_overlay">නිදොස් කිරීමේ ලොග් උඩැතිරිය සබල කරන්න</string>
   <string name="title_pref_resume_talkback">අත්හිටුවීම වෙතින් නැවත පටන් ගන්න</string>
+  <string name="title_pref_typing_confirmation">ටයිප් කිරීමේ මනාපය</string>
   <string name="title_pref_multi_finger_gesture">බහු-ඇඟිලි ඉංගිත සබල කරන්න</string>
   <string name="screen_dimmed">තිරය සඟවා ඇත</string>
   <string name="screen_brightness_restored">තිරය පෙන්වමින්</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">පහළට අනුචලනය කරන්න</string>
   <string name="shortcut_scroll_left">වමට අනුචලනය කරන්න</string>
   <string name="shortcut_scroll_right">දකුණට අනුචලනය කරන්න</string>
+  <string name="shortcut_next_window">ඊළඟ කවුළුව</string>
+  <string name="shortcut_previous_window">පෙර කවුළුව</string>
   <string name="shortcut_back">ආපසු</string>
   <string name="shortcut_home">මුල් පිටුව</string>
   <string name="shortcut_overview">දළ විශ්ලේෂණය</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">තිරය සඟවන්න හෝ පෙන්වන්න</string>
   <string name="title_show_screen_search">තිර සෙවීම</string>
   <string name="title_show_voice_commands">හඬ විධාන</string>
+  <string name="talkback_show_talkback_settings">TalkBack සැකසීම්</string>
   <string name="title_other_web_navigation">වෙනත් වෙබ් සංචාලනය</string>
   <string name="title_granularity_default">පෙරනිමි සංචාලනය</string>
   <string name="title_seek_bar_edit">ස්ලයිඩර මට්ටම සංස්කරණය කරන්න</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">ඔබේ කටහඬ සමග TalkBack පාලනය කරන්න</string>
   <string name="summary_show_hide_screen">පොදු ස්ථානවල සිටින විට ඔබේ තිරය වෙනත් අයට දෘශ්‍යමාන නොවීමට සඟවන්න. ඔබගේ තිරය සැඟවීමෙන් පසු සාමාන්‍ය තත්ත්වයට ආපසු යන්න.</string>
   <string name="summary_talkback_preferences">TalkBack සැකසීම් විවෘත කරන්න</string>
-  <string name="summary_system_actions">සියලු යෙදුම්, ඉක්මන් සැකසීම් වෙත ගොස් බෙදුම් තිරය භාවිත කරන්න</string>
+  <string name="summary_system_actions">සියලු යෙදුම් සහ ඉක්මන් සැකසීම් වෙත යන්න</string>
   <string name="summary_tts_settings">පෙළ-සිට-කථනයට සැකසීම් විවෘත කරන්න</string>
   <string name="summary_pause_feedback">TalkBack හඬ ප්‍රතිපෝෂණය ක්‍රියාවිරහිත කරන්න</string>
   <string name="not_editable">සංස්කරණය කළ නොහැකිය</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">වරකට එක් වචනයක් කියවන්න</string>
   <string name="summary_lines">වරකට එක් පේළියක් කියවන්න</string>
   <string name="summary_paragraphs">වරකට එක් ඡේදයක් කියවන්න</string>
+  <string name="summary_windows">හඬ පරිමා පාලන හෝ සංචාලන තීරුව වැනි වෙනත් කවුළු වෙත යන්න</string>
   <string name="summary_headings">ශීර්ෂක අතර පනින්න</string>
   <string name="summary_controls">බොත්තම්, තේරීම් කොටු සහ පෙළ ක්ෂේත්‍ර වැනි ඔබට අන්තර්ක්‍රියා කළ හැකි අයිතම අතර පනින්න</string>
   <string name="summary_links">සබැඳි අතර පනින්න</string>
@@ -404,11 +419,13 @@
   <string name="summary_selector_menu_verbosity">ටයිප් කළ යතුරු, භාවිත ඉඟි, ජාලක තොරතුරු සහ වෙනත් තොරතුරු ශබ්ද නඟා කියවන්නේද යන්න වෙනස් කරන්න</string>
   <string name="summary_selector_menu_punctuation">විරාම ලකුණු සහ සංකේත හඬ නගා කියවන්නේද යන්න වෙනස් කරන්න</string>
   <string name="summary_language">ඔබේ කථන භාෂාව වෙනස් කරන්න. ඔබ පෙළ-සිට-කථනයට භාෂා කිහිපයක් ස්ථාපනය කර ඇති විට පමණක් දිස් වේ.</string>
-  <string name="summary_sound_feedback">ක්‍රියාවක් තහවුරු කිරීම සඳහා බීප් වැනි ඔබ සංචාලනය කරන විට ශබ්ද ප්‍රයෝගවලට සවන් දෙන්න.</string>
+  <string name="summary_sound_feedback">ක්‍රියාවක් තහවුරු කිරීම සඳහා බීප් වැනි ඔබ සංචාලනය කරන විට ශබ්ද ප්‍රයෝගවලට සවන් දෙන්න</string>
   <string name="summary_vibration_feedback">අයිතමයක් තෝරා ගැනීම වැනි ක්‍රියා සඳහා කම්පනවල හැඟීම ලබා ගන්න. යෙදුම්වලින් හෝ පද්ධතියෙන් එන කම්පනවලට බලපාන්නේ නැත.</string>
   <string name="summary_hide_screen">පොදු ස්ථානවල සිටින විට ඔබේ තිරය වෙනත් අයට දෘශ්‍යමාන නොවීමට සඟවන්න</string>
   <string name="summary_audio_ducking">TalkBack කථා කරන විට වාදනය වන වෙනත් ඕඩියෝවල හඬ පරිමාව අඩු කරන්න</string>
   <string name="summary_support_scroll_seq">ඉදිරියට හෝ ආපස්සට අනුචලනය කරන්න</string>
+  <string name="summary_support_change_a11y_volume">ප්‍රවේශ්‍යතා හඬ පරිමාව වැඩි හෝ අඩු කරන්න</string>
+  <string name="summary_image_caption">මෙම රූපය සඳහා ස්වයංක්‍රිය විස්තරයක් ලබා ගන්න</string>
   <string name="value_direction_up">ඉහළට</string>
   <string name="value_direction_down">පහළ</string>
   <string name="value_direction_left">වම</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">ඇඟිලි 2කින් දෙවරක් තට්ටු කර අල්ලා ගෙන සිටින්න</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">ඇඟිලි 3කින් දෙවරක් තට්ටු කර අල්ලා ගෙන සිටින්න</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">ඇඟිලි 4කින් දෙවරක් තට්ටු කර අල්ලා ගෙන සිටින්න</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">ඇඟිලි 2කින් තෙවරක් තට්ටු කර අල්ලා ගෙන සිටින්න</string>
+  <string name="seekbar_hint_2gesture">සීරුමාරු කිරීමට \"%1$s\" හෝ %2$s\"</string>
+  <string name="seekbar_hint_1gesture">සීරුමාරු කිරීමට \"%1$s\"</string>
   <string name="gesture_name_unknown">නොදන්නා ඉංගිතයකි</string>
   <string name="gesture_name_pass_through">පද්ධති ඉංගිතයට හරහා යාම</string>
   <string name="gesture_name_touch_explore">ස්පර්ශ ගවේෂණය</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">දෙවරක් තට්ටු කර අල්ලා ගෙන සිටින්න</string>
   <string name="gesture_name_2finger_tap_hold">ඇඟිලි 2කින් දෙවරක් තට්ටු කර අල්ලා ගෙන සිටින්න</string>
   <string name="gesture_name_3finger_tap_hold">ඇඟිලි 3කින් දෙවරක් තට්ටු කර අල්ලා ගෙන සිටින්න</string>
+  <string name="gesture_name_2finger_3tap_hold">ඇඟිලි 2කින් තෙවරක් තට්ටු කර අල්ලා ගෙන සිටින්න</string>
   <string name="gesture_name_3finger_3tap_hold">ඇඟිලි 3කින් තෙවරක් තට්ටු කර අල්ලා ගෙන සිටින්න</string>
   <string name="title_pref_shortcut_fingerprint_up">ඇඟිලි සලකුණු සංවේදකය මත ඉහළට ස්වයිප් කර.</string>
   <string name="title_pref_shortcut_fingerprint_down">ඇඟිලි සලකුණු සංවේදකය මත පහළට ස්වයිප් කර.</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">තිරය ක්‍රියාත්මක කළ විටදී</string>
   <string name="value_resume_keyguard">අගුළු තිරය දැක්වුණ විටදී</string>
   <string name="value_resume_manual">දැනුම්දීම් වෙතින් පමණි</string>
+  <string name="value_type_confirmation_double_tap">යතුර තේරීමට ඇඟිල්ල අල්ලාගෙන, අනතුරුව දෙවරක් තට්ටු කරන්න</string>
+  <string name="value_type_confirmation_lift_to_type">යතුර තේරීමට ඇඟිල්ල අල්ලාගෙන, පසුව ඔසවන්න</string>
   <string name="value_shake_to_read_disabled">අබලයි</string>
   <string name="value_shake_to_read_threshold_very_light">ඉතා සැහැල්ලු</string>
   <string name="value_shake_to_read_threshold_light">එළිය</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">සෑම විටම ටයිප් කළ යතුරු කියවයි</string>
   <string name="value_keyboard_echo_softkeys">තිරමත යතුරු පුවරුව පමණි</string>
   <string name="value_keyboard_echo_never">කිසිවිටෙක ටයිප් කළ යතුරු නොකියවයි</string>
+  <string name="title_pref_keyboard_echo_on_screen">යතුරු පුවරු දෝංකාරය: තිරය-මත යතුරු පුවරුව</string>
+  <string name="title_pref_keyboard_echo_physical">යතුරු පුවරු දෝංකාරය: භෞතික යතුරු පුවරුව</string>
+  <string name="value_keyboard_echo_none">කිසිවක් නැත</string>
+  <string name="value_keyboard_echo_characters_only">අනුලකුණු</string>
+  <string name="value_keyboard_echo_words_only">වචන</string>
+  <string name="value_keyboard_echo_characters_and_words">අනුලකුණු සහ වචන</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">තත්ත්වය, නම, වර්ගය</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">වර්ගය, නම, තත්ත්වය</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">නව, වර්ගය. තත්ත්වය</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">ඔබට විශ්වාසද ඔබට නෝඩු රුක නිදොස් කිරීම සක්‍රිය කිරීමට අවශ්‍යද?\n\nනෝඩු රුක නිදොස් කිරීම ඔබගේ තීරයේ අන්තර්ගත වල සිට ඔබගේ උපංගයේ ලොග් දක්වා අනාවරණය කරයි, එය ඇතැම් විට වෙනත් යෙදුමකින් කියවනු ලැබේ.</string>
   <string name="dialog_title_enable_performance_stats">කාර්ය සාධන සංඛ්‍යාලේඛන සබල කරන්නද?</string>
   <string name="dialog_message_enable_performance_stats">ඔබට කාර්ය සාධන සංඛ්‍යාලේඛන ක්‍රියාත්මක කිරීමට අවශ්‍ය බව සහතිකද?\n\nකාර්ය සාධන සංඛ්‍යාලේඛන වැඩිපුර මතකය සහ බලය පාරිභෝජනය කළ හැකිය.</string>
+  <string name="title_request_phone_permission">දුරකථන ප්‍රවේශය ඉඩ දෙන්නද?</string>
+  <string name="message_request_phone_permission">ඔබ ඇමතුමක සිටින විට නිවේදන අඩු කිරීමට මෙය TalkBack හට උදවු වේ</string>
+  <string name="continue_button">ඉදිරියට යන්න</string>
   <string name="label_talkback_context_menu">TalkBack ගෝලීය සන්දර්භ මෙනුව</string>
   <string name="permission_talkback_label">TalkBack පාලනය කරන්න</string>
   <string name="permission_talkback_desc">TalkBack වෙත ඉඟි යැවීමට අවසරය සහ කථන ප්‍රතිපෝෂණය යළි ඇරඹීම</string>
-  <string name="permission_labeling_label">TalkBack අභිමත ලේබල් කළමනාකරණය කරන්න</string>
-  <string name="permission_labeling_desc">TalkBack විසින් කථනය කරන අභිමත ලේබල වෙත ප්‍රවේශ වීමට, වෙනස් කිරීමට සහ මැකීමට අවසරය.</string>
   <string name="links">සබැඳි</string>
   <string name="end_of_text">අවසානයි</string>
   <string name="start_of_page">පෙර %1$s නැත</string>
@@ -614,6 +644,7 @@
   <string name="title_pref_selector_granularity">සංචාලනය</string>
   <string name="title_pref_selector_audio_focus">ශ්‍රව්‍ය මැඩපැවැත්වීම</string>
   <string name="title_pref_support_scroll_seq">අනුචලනය කරන්න</string>
+  <string name="title_pref_a11y_volume">ප්‍රවේශ්‍යතා හඬ පරිමාව</string>
   <string name="title_pref_selector_adjustable_widget_slider">ස්ලයිඩරය සීරුමාරු කරන්න</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">අගය සීරුමාරු කරන්න</string>
   <string name="title_pref_speak_passwords_without_headphones">මුරපද කියවන්න</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">හඬ විධාන භාවිත කරන්න</string>
   <string name="dialog_title_pass_through_mode">පද්ධති ඉංගිත භාවිත කිරීමට TalkBack ඉංගිත මග හරින්න</string>
   <string name="dialog_message_pass_through_mode">ඔබට නාදයක් ඇසෙන විට, ඔබට TalkBack මගින් සහාය නොදක්වන පද්ධති ඉංගිතයක් භාවිත කළ හැකිය. මෙය හරහා යාමේ ඉංගිතයක් ලෙස හැඳින්වේ.</string>
-  <string name="hint_type_search_term">සෙවුම් පදය ටයිප් කරන්න</string>
+  <string name="hint_type_search_term">සෙවීම් පදය</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack හි දැනුම්දීමේ නාලිකාව</string>
   <string name="pref_selector_summary">සැකසීමක් තේරීමට %1$s. අනතුරුව සැකසීම සීරුමාරු කිරීමට %2$s.</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">පෙළ කැපීමට, ඇඟිලි 3කින් දෙවරක් තට්ටු කර අල්ලාගෙන සිටින්න.\n\nපෙළ ඇලවීම සඳහා, ඇඟිලි 3කින් තුන් වරක් තට්ටු කරන්න.\n\nපහත පෙළ කොටුව තුළ වචනයක් ඇලවීමට උත්සාහ කරන්න.</string>
   <string name="copy_text_pre_r">පෙළ තේරීමෙන් පසු, ඔබට එය TalkBack මෙනුවේ පිටපත් කළ හැකිය. TalkBack මෙනුව විවෘත කිරීමට පහළට අනතුරුව දකුණට ස්වයිප් කරන්න. සංස්කරණ විකල්ප දෙවරක් තට්ටු කර අනතුරුව පිටපත් කරන්න.\n\nපහත පෙළ කොටුවේ වචනයක් පිටපත් කිරීමට උත්සාහ කරන්න.</string>
   <string name="cut_paste_text_pre_r">පෙළ කැපීමට හෝ ඇලවීමට, TalkBack මෙනුව විවෘත කර සංස්කරණ විකල්ප දෙවරක් තට්ටු කරන්න.\n\nපහත පෙළ කොටුව තුළ වචනයක් ඇලවීමට උත්සාහ කරන්න.</string>
+  <string name="edit_box_hint_paste_text">මෙහි පෙළ අලවන්න</string>
   <string name="read_by_character_title">අනුලකුණ, වචනය හෝ ඡේදය අනුව කියවන්න</string>
   <string name="read_by_character_text">සමහර අවස්ථාවල, වරකට එක් අනුලකුණක් ශබ්ද නඟා කියවීමට ඔබට අවශ්‍ය විය හැකිය.\n\nමෙය කිරීමට, ඔබට \"%1$s\" ඇසෙන තෙක් ඇඟිලි 3කින් දකුණට ස්වයිප් කරන්න. ඊළඟට, සංචාලන නාභිගත කිරීම අනුලකුණකින් පසුපසට ගෙන යාමට ඉහළට ස්වයිප් කරන්න. සංචාලන නාභිගත කිරීම අනුලකුණකින් ඉදිරියට ගෙන යාමට පහළට ස්වයිප් කරන්න.\n\nඑය දැන් උත්සාහ කරන්න. ඔබ ඇඟිලි 3කින් දකුණට ස්වයිප් කරන විට, ඔබට වචන හෝ ඡේද අනුව කියවීමටද තේරීමට හැකිය.</string>
   <string name="read_by_character_text_pre_r">සමහර අවස්ථාවල, වරකට එක් අනුලකුණක් ශබ්ද නඟා කියවීමට ඔබට අවශ්‍ය විය හැකිය.\n\nමෙය කිරීමට, ඔබට \"%1$s\" ඇසෙන තෙක් පහළට අනතුරුව ඉහළට ස්වයිප් කරන්න. ඊළඟට, සංචාලන නාභිගත කිරීම අනුලකුණකින් පසුපසට ගෙන යාමට ඉහළට ස්වයිප් කරන්න. සංචාලන නාභිගත කිරීම අනුලකුණකින් ඉදිරියට ගෙන යාමට පහළට ස්වයිප් කරන්න.\n\nඑය දැන් උත්සාහ කරන්න. ඔබ පහළට අනතුරුව ඉහළට ස්වයිප් කරන විට, ඔබට වචන හෝ ඡේද අනුව කියවීමටද තේරීමට හැකිය.</string>
@@ -807,5 +839,19 @@
   <string name="activated_view">%1$s සක්‍රිය කරන ලදි</string>
   <string name="talkback_inactive_title">TalkBack අබලයි</string>
   <string name="talkback_inactive_message">මෙම නිබන්ධනයට TalkBack සබල කිරීම අවශ්‍යයි. කරුණාකර නිබන්ධනය දියත් කිරීමට පෙර TalkBack ක්‍රියාත්මක කරන්න.</string>
+  <string name="watch_swipe_left_right_text">අයිතම අතර ගෙන යාමට දකුණට හෝ වමට ස්වයිප් කරන්න</string>
+  <string name="watch_double_tap_text">අයිතමයක් සක්‍රිය කිරීමට දෙවරක් තට්ටු කරන්න</string>
+  <string name="watch_2_finger_scroll_text">අනුචලනය කිරීමට ඇඟිලි 2ක් අදින්න</string>
+  <string name="title_pref_thick_border">ඝන බෝඩර</string>
+  <string name="title_pref_category_border_color">වර්ණය</string>
+  <string name="title_pref_default_color">පෙරනිමි</string>
+  <string name="title_pref_red">රතු</string>
+  <string name="title_pref_orange">තැඹිලි</string>
+  <string name="title_pref_yellow">කහ</string>
+  <string name="title_pref_green">කොළ</string>
+  <string name="title_pref_blue">නිල්</string>
+  <string name="title_pref_grey">අළු</string>
   <string name="survey_closed">සමීක්ෂණය වසා ඇත</string>
+  <string name="character_recognition_text">පෙළ: %1$s</string>
+  <string name="title_image_caption">රූපය විස්තර කරන්න</string>
 </resources>

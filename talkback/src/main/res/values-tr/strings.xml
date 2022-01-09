@@ -3,7 +3,7 @@
   <string name="talkback_service_description">TalkBack açık olduğunda, cihazınızı ekrana bakmadan kullanabilmeniz için size sesli geri bildirimler sağlar. Bu özellik, görme engelli veya gözleri az gören kullanıcılar için yararlı olabilir.\n\nTalkBack\'i kullanarak gezinirken:\n• Öğeler arasında hareket etmek için sağa veya sola kaydırın\n• Bir öğeyi etkinleştirmek için iki kez dokunun\n• Kaydırmak için iki parmağınızı sürükleyin\n\nTalkBack\'i kapatmak için:\n• Anahtara dokunun. Yeşil dış çizgi görürsünüz. Anahtara iki kez dokunun.\n• Onay mesajında Tamam\'a dokunun. Ardından, Tamam\'a iki kez dokunun.</string>
   <string name="talkback_service_html_description">TalkBack açık olduğunda, cihazınızı ekrana bakmadan kullanabilmeniz için sözlü geri bildirim sağlar. TalkBack, ekranı görmenin zor olduğu durumlar veya ekranı görmekte zorluk yaşayan kişiler için tasarlanmıştır.&lt;br&gt;&lt;br&gt;&lt;b&gt;TalkBack\'in kullanımı&lt;/b&gt;&lt;br&gt;• Öğeler arasında hareket etmek için sağa veya sola kaydırın&lt;br&gt;• Bir öğeyi etkinleştirmek için iki kez dokunun&lt;br&gt;• Kaydırmak için 2 parmağınızı sürükleyin&lt;br&gt;&lt;br&gt;&lt;b&gt;TalkBack nasıl kapatılır?&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Ses Seviyesi Tuşları:&lt;/b&gt; Ses seviyesi tuşlarının ikisini birden birkaç saniyeliğine basılı tutun.&lt;br&gt;&lt;br&gt;&lt;b&gt;Ayarlar&lt;/b&gt;&lt;br&gt;• &lt;b&gt;TalkBack\'i Kullan&lt;/b&gt; anahtarına dokunun. Yeşil dış çizgi görürsünüz. Anahtara iki kez dokunun.&lt;br&gt;• Onay mesajında Durdur\'a dokunun. Ardından Durdur\'a iki kez dokunun.</string>
   <string name="talkback_service_summary">Ekrandaki öğeler sesli okunur</string>
-  <string name="talkback_preferences_title">TalkBack Ayarları</string>
+  <string name="talkback_preferences_title">TalkBack ayarları</string>
   <string name="tts_preferences_title">Metin okuma ayarları</string>
   <string name="language_options">Diller</string>
   <string name="spoken_language">Konuşma dili</string>
@@ -11,6 +11,7 @@
   <string name="talkback_preferences_subtitle">Sürüm %1$s</string>
   <string name="label_manager_summary_title">Özel Etiketleri Yönetin</string>
   <string name="label_manager_package_title">%1$s için Etiketleri Yönetin</string>
+  <string name="manage_label">Etiketi yönet</string>
   <string name="label_manager_no_packages_message">Şu anda özel etiket yok. Etiketsiz bir resme gidip TalkBack Menüsünden bir etiket ekleyerek özel etiket oluşturabilirsiniz.</string>
   <string name="label_manager_timestamp_text">Son değiştirildiği tarih: %1$s</string>
   <string name="search_dialog_label">Ara: %1$s</string>
@@ -90,12 +91,13 @@
   <string name="title_pref_explore_by_touch">Dokunarak keşfet</string>
   <string name="title_pref_category_touch_exploration">Gezinme</string>
   <string name="title_pref_category_controls">Denetimler</string>
-  <string name="title_pref_single_tap">Bir kez dokunarak etkinleştir</string>
+  <string name="title_pref_single_tap">Etkinleştirmek için bir kez dokunun</string>
   <string name="title_pref_show_context_menu_as_list">İçerik menüsünü liste olarak göster</string>
-  <string name="summary_pref_single_tap">(Deneysel) Etkinleştirmek için odaklanılan öğeye bir kez dokunun</string>
+  <string name="summary_pref_single_tap">Etkinleştirmek için, odaklanılan öğeye bir kez dokunun</string>
   <string name="title_pref_shake_to_read_threshold">Kesintisiz okumaya başlamak için salla</string>
   <string name="pref_verbosity_title">Ayrıntı düzeyi</string>
   <string name="pref_punctuation_title">Noktalama İşaretleri</string>
+  <string name="title_pref_category_manage_focus_indicator">Odak Göstergesi\'ni özelleştir</string>
   <string name="title_pref_category_manage_gestures">Hareketleri özelleştir</string>
   <string name="title_pref_manage_labels">Özel etiketler</string>
   <string name="title_pref_manage_customize_menus">Menüleri özelleştir</string>
@@ -119,8 +121,9 @@
   <string name="title_pref_category_fingerprint_touch_shortcuts">Parmak izi hareketleri</string>
   <string name="title_pref_category_built_in_gestures">Yerleşik hareketler</string>
   <string name="title_pref_category_help_and_feedback">Yardım ve geri bildirim</string>
-  <string name="title_pref_category_tutorial_and_help">Eğitici ve yardım</string>
+  <string name="title_pref_category_tutorial_and_help">Eğitim ve yardım</string>
   <string name="title_pref_category_advanced">Gelişmiş</string>
+  <string name="title_pref_category_typing">Yazma ve klavye</string>
   <string name="title_pref_category_legal_and_privacy">Yasal ve gizlilik</string>
   <string name="title_pref_advanced_settings">Gelişmiş ayarlar</string>
   <string name="reset_gesture_settings_title">Hareket ayarlarını sıfırlama</string>
@@ -170,6 +173,11 @@
   <string name="keycombo_menu_global_recent">Son uygulamalar</string>
   <string name="keycombo_menu_global_notifications">Bildirimler</string>
   <string name="keycombo_menu_global_suspend">TalkBack\'i duraklat veya devam ettir</string>
+  <string name="keycombo_menu_global_play_pause_media">Medyayı oynat veya duraklat</string>
+  <string name="keycombo_menu_global_scroll_forward_reading_menu">Sonraki okuma kontrolünü seç</string>
+  <string name="keycombo_menu_global_scroll_backward_reading_menu">Önceki okuma kontrolünü seç</string>
+  <string name="keycombo_menu_global_adjust_reading_settings_previous">Okuma kontrolünü yukarı olarak ayarla</string>
+  <string name="keycombo_menu_global_adjust_reading_setting_next">Okuma kontrolünü aşağı olarak ayarla</string>
   <string name="keycombo_menu_category_granularity">Gezinme</string>
   <string name="keycombo_menu_granularity_increase">Sonraki gezinme ayarı</string>
   <string name="keycombo_menu_granularity_decrease">Önceki gezinme ayarı</string>
@@ -227,6 +235,7 @@
   <string name="cannot_copy_feedback">Kopyalanacak metin yok, önce metin seçin.</string>
   <string name="cannot_paste_feedback">Yapıştırılacak metin yok, önce metin seçin.</string>
   <string name="cannot_cut_feedback">Kesilecek metin yok, önce metin seçin.</string>
+  <string name="cannot_delete_feedback">Silinecek metin yok, önce metin seçin.</string>
   <string name="message_in_reset_keymap_confirm_dialog">Bu tuş eşleme için kısayol tuşlarını varsayılan değerlerine sıfırlamak istediğinizden emin misiniz? Bu işlemin geri alınamayacağını lütfen unutmayın.</string>
   <string name="reset_button_in_reset_keymap_confirm_dialog">Sıfırla</string>
   <string name="override_keycombo">Tuş zaten kullanılıyor</string>
@@ -234,7 +243,7 @@
   <string name="title_pref_intonation">Ses tonu değişikliklerini kullan</string>
   <string name="title_pref_keyboard_echo">Klavye yankısı</string>
   <string name="pref_node_desc_order_title">Öğe açıklaması sırası</string>
-  <string name="summaryOn_pref_intonation">Klavye geri bildirimini daha kalın tonla söyle</string>
+  <string name="summaryOn_pref_intonation">Klavyenin sildiği metinler daha ince bir sesle söylenir</string>
   <string name="summaryOff_pref_intonation">Konuşurken ses kalınlığını değiştirme</string>
   <string name="title_pref_brailleime">Braille klavye</string>
   <string name="title_pref_category_feedback_settings">Diğer geri bildirim</string>
@@ -256,7 +265,9 @@
   <string name="title_pref_tree_debug">Düğüm ağacı hata ayıkl. etkinleştir</string>
   <string name="summary_pref_tree_debug_tv">Aramak yerine düğüm ağacını yazdırmak için sesli arama tuşunu kullanın</string>
   <string name="title_pref_performance_stats">Performans istatistiklerini etkinleştir</string>
+  <string name="title_pref_log_overlay">Hata ayıklama günlüğü yer paylaşımını etkinleştir</string>
   <string name="title_pref_resume_talkback">Askıya alma durumundan devam ettir</string>
+  <string name="title_pref_typing_confirmation">Yazma tercihi</string>
   <string name="title_pref_multi_finger_gesture">Birden fazla parmakla yapılan hareketleri etkinleştirin</string>
   <string name="screen_dimmed">Ekran gizlendi</string>
   <string name="screen_brightness_restored">Ekran gösteriliyor</string>
@@ -279,6 +290,8 @@
   <string name="shortcut_scroll_down">Aşağı kaydır</string>
   <string name="shortcut_scroll_left">Sola kaydır</string>
   <string name="shortcut_scroll_right">Sağa kaydır</string>
+  <string name="shortcut_next_window">Sonraki pencere</string>
+  <string name="shortcut_previous_window">Önceki pencere</string>
   <string name="shortcut_back">Geri</string>
   <string name="shortcut_home">Ana ekran</string>
   <string name="shortcut_overview">Genel Bakış</string>
@@ -322,7 +335,7 @@
   <string name="shortcut_media_control">Medyayı oynat veya duraklat</string>
   <string name="shortcut_all_apps">Tüm uygulamalar</string>
   <string name="shortcut_braille_keyboard">Braille klavyesine geç</string>
-  <string name="shortcut_tutorial">Eğiticiyi aç</string>
+  <string name="shortcut_tutorial">Eğitimi aç</string>
   <string name="shortcut_practice_gestures">Hareketler için alıştırma yap</string>
   <string name="shortcut_report_gesture">Hareket sorunu bildir</string>
   <string name="title_local_breakout_no_items">Menü öğesi yok.</string>
@@ -360,6 +373,7 @@
   <string name="title_show_hide_screen">Ekranı saklama veya gösterme</string>
   <string name="title_show_screen_search">Ekranda ara</string>
   <string name="title_show_voice_commands">Sesli komutlar</string>
+  <string name="talkback_show_talkback_settings">TalkBack ayarları</string>
   <string name="title_other_web_navigation">Diğer web\'de gezinme yolları</string>
   <string name="title_granularity_default">Varsayılan gezinme</string>
   <string name="title_seek_bar_edit">Kaydırma çubuğu seviyesini düzenleyin</string>
@@ -385,7 +399,7 @@
   <string name="summary_voice_commands">TalkBack\'i sesinizle kontrol edin</string>
   <string name="summary_show_hide_screen">Herkese açık yerlerde başkalarının ekranınızı görememesi için ekranı gizler. Ekranınızı gizledikten sonra normal durumuna döndürür.</string>
   <string name="summary_talkback_preferences">TalkBack ayarlarını açar</string>
-  <string name="summary_system_actions">Tüm uygulamalara, Hızlı Ayarlara gider ve bölünmüş ekran kullanır</string>
+  <string name="summary_system_actions">Tüm uygulamalara ve Hızlı Ayarlar\'a gidin</string>
   <string name="summary_tts_settings">Metin okuma ayarlarını açar</string>
   <string name="summary_pause_feedback">TalkBack sesli geri bildirimi kapatır</string>
   <string name="not_editable">Düzenlenemez</string>
@@ -393,6 +407,7 @@
   <string name="summary_words">Bir seferde tek kelime okur</string>
   <string name="summary_lines">Bir seferde tek satır okur</string>
   <string name="summary_paragraphs">Bir seferde tek paragraf okur</string>
+  <string name="summary_windows">Ses kontrolleri veya gezinme çubuğu gibi diğer pencerelere geç</string>
   <string name="summary_headings">Başlıklar arasında geçiş yapar</string>
   <string name="summary_controls">Düğmeler, onay kutuları ve metin alanları gibi etkileşimde bulunabildiğiniz öğeler arasında geçiş yapar</string>
   <string name="summary_links">Bağlantılar arasında geçiş yapar</string>
@@ -408,7 +423,9 @@
   <string name="summary_vibration_feedback">Öğe seçmek gibi işlemler için titreşimleri hissetmenizi sağlar. Uygulama veya sistem kaynaklı titreşimleri etkilemez.</string>
   <string name="summary_hide_screen">Herkese açık yerlerde başkalarının ekranınızı görememesi için ekranı gizler</string>
   <string name="summary_audio_ducking">TalkBack konuştuğunda çalan diğer seslerin seviyesini kısar</string>
-  <string name="summary_support_scroll_seq">Scroll forward or backward</string>
+  <string name="summary_support_scroll_seq">İleri veya geri kaydırın</string>
+  <string name="summary_support_change_a11y_volume">Erişilebilirlik ses düzeyini artır veya azalt</string>
+  <string name="summary_image_caption">Bu resim için otomatik açıklama alın</string>
   <string name="value_direction_up">yukarı</string>
   <string name="value_direction_down">aşağı</string>
   <string name="value_direction_left">sola</string>
@@ -465,6 +482,9 @@
   <string name="title_pref_shortcut_2finger_2tap_hold">2 parmakla dokunma ve basılı tutma</string>
   <string name="title_pref_shortcut_3finger_2tap_hold">3 parmakla dokunma ve basılı tutma</string>
   <string name="title_pref_shortcut_4finger_2tap_hold">4 parmakla dokunma ve basılı tutma</string>
+  <string name="title_pref_shortcut_2finger_3tap_hold">2 parmakla üç kez dokunma ve basılı tutma</string>
+  <string name="seekbar_hint_2gesture">Düzenlemek için \"%1$s\" veya \"%2$s\"</string>
+  <string name="seekbar_hint_1gesture">Düzenlemek için \"%1$s\"</string>
   <string name="gesture_name_unknown">Bilinmeyen hareket</string>
   <string name="gesture_name_pass_through">Sistem hareketine geç</string>
   <string name="gesture_name_touch_explore">Dokunarak keşfetme</string>
@@ -472,6 +492,7 @@
   <string name="gesture_name_double_tap_and_hold">İki kez dokunma ve basılı tutma</string>
   <string name="gesture_name_2finger_tap_hold">2 parmakla dokunma ve basılı tutma</string>
   <string name="gesture_name_3finger_tap_hold">3 parmakla dokunma ve basılı tutma</string>
+  <string name="gesture_name_2finger_3tap_hold">2 parmakla üç kez dokunma ve basılı tutma</string>
   <string name="gesture_name_3finger_3tap_hold">3 parmakla üç kez dokunma ve basılı tutma</string>
   <string name="title_pref_shortcut_fingerprint_up">Parmak izi sensöründe yukarı kaydırma</string>
   <string name="title_pref_shortcut_fingerprint_down">Parmak izi sensöründe aşağı kaydırma</string>
@@ -486,6 +507,8 @@
   <string name="value_resume_screen_on">Ekran açıldığında</string>
   <string name="value_resume_keyguard">Kilit ekranı gösteriliyorken</string>
   <string name="value_resume_manual">Yalnızca bildirimden</string>
+  <string name="value_type_confirmation_double_tap">Tuşu seçmek için parmağınızla basılı tuttuktan sonra iki kez dokunun</string>
+  <string name="value_type_confirmation_lift_to_type">Tuşu seçmek için önce basılı tutup sonra parmağınızı kaldırın</string>
   <string name="value_shake_to_read_disabled">Devre dışı</string>
   <string name="value_shake_to_read_threshold_very_light">Çok hafif</string>
   <string name="value_shake_to_read_threshold_light">Hafif</string>
@@ -495,6 +518,12 @@
   <string name="value_keyboard_echo_always">Basılan tuşları her zaman sesli oku</string>
   <string name="value_keyboard_echo_softkeys">Sadece ekran klavyesi için</string>
   <string name="value_keyboard_echo_never">Basılan tuşları hiçbir zaman sesli okuma</string>
+  <string name="title_pref_keyboard_echo_on_screen">Klavye yankısı: Dokunmatik klavye</string>
+  <string name="title_pref_keyboard_echo_physical">Klavye yankısı: Fiziksel klavye</string>
+  <string name="value_keyboard_echo_none">Yok</string>
+  <string name="value_keyboard_echo_characters_only">Karakterler</string>
+  <string name="value_keyboard_echo_words_only">Kelimeler</string>
+  <string name="value_keyboard_echo_characters_and_words">Karakterler ve kelimeler</string>
   <string name="pref_node_desc_order_entry_state_name_role_pos">Durum, ad, tür</string>
   <string name="pref_node_desc_order_entry_role_name_state_pos">Tür, ad, durum</string>
   <string name="pref_node_desc_order_entry_name_role_state_pos">Ad, tür, durum</string>
@@ -553,11 +582,12 @@
   <string name="dialog_message_enable_tree_debug">Düğüm ağacı hata ayıklamasını açmak istediğinizden emin misiniz?\n\nDüğüm ağacı hata ayıklaması, ekranınızın içeriğini cihazınızın günlüklerine açar ve bu bilgiler diğer uygulamalar tarafından okunabilir.</string>
   <string name="dialog_title_enable_performance_stats">Performans İstatistikleri etkinleştirilsin mi?</string>
   <string name="dialog_message_enable_performance_stats">Performans istatistiklerini açmak istediğinizden emin misiniz?\n\nPerformans istatistikleri daha fazla bellek ve güç tüketebilir.</string>
+  <string name="title_request_phone_permission">Telefon erişimine izin verilsin mi?</string>
+  <string name="message_request_phone_permission">Bu izin, TalkBack\'in telefon görüşmeleriniz esnasında duyuruları azaltmasına yardımcı olur</string>
+  <string name="continue_button">Devam</string>
   <string name="label_talkback_context_menu">TalkBack genel bağlam menüsü</string>
   <string name="permission_talkback_label">TalkBack\'i denetle</string>
   <string name="permission_talkback_desc">Hareketleri TalkBack\'e gönderme ve sesli söylenen geri bildirimi devam ettirme izni.</string>
-  <string name="permission_labeling_label">TalkBack özel etiketlerini yönet</string>
-  <string name="permission_labeling_desc">TalkBack tarafından sesli söylenen özel etiketlere erişme, bunları değiştirme ve silme izni.</string>
   <string name="links">Bağlantılar</string>
   <string name="end_of_text">Son</string>
   <string name="start_of_page">Öncesinde başka %1$s yok</string>
@@ -613,7 +643,8 @@
   <string name="title_pref_selector_punctuation">Noktalama İşaretleri</string>
   <string name="title_pref_selector_granularity">Gezinme</string>
   <string name="title_pref_selector_audio_focus">Sesi kısma</string>
-  <string name="title_pref_support_scroll_seq">Scroll</string>
+  <string name="title_pref_support_scroll_seq">Kaydır</string>
+  <string name="title_pref_a11y_volume">Erişilebilirlik ses düzeyi</string>
   <string name="title_pref_selector_adjustable_widget_slider">Kaydırma çubuğunu ayarla</string>
   <string name="title_pref_selector_adjustable_widget_number_picker">Değeri ayarla</string>
   <string name="title_pref_speak_passwords_without_headphones">Şifreleri sesli olarak oku</string>
@@ -648,7 +679,7 @@
   <string name="start_voice_command">Sesli komutları kullan</string>
   <string name="dialog_title_pass_through_mode">Sistem hareketlerini kullanmak için TalkBack hareketlerini atlayın</string>
   <string name="dialog_message_pass_through_mode">Zil sesi duyduğunuzda TalkBack tarafından desteklenmeyen sistem hareketini kullanabilirsiniz. Bu, geçiş hareketi olarak bilinir.</string>
-  <string name="hint_type_search_term">Arama terimini yazın</string>
+  <string name="hint_type_search_term">Arama terimi</string>
   <string name="talkback_notification_channel_name">TalkBack</string>
   <string name="talkback_notification_channel_description">TalkBack\'in Bildirim Kanalı</string>
   <string name="pref_selector_summary">Ayar seçmek için %1$s hareketini yapın. Ardından ayarı düzenlemek için %2$s hareketini yapın.</string>
@@ -672,9 +703,9 @@
   <string name="training_finish_button">Son</string>
   <string name="training_navigate_up">Yukarı git</string>
   <string name="new_feature_talkback_91_title">TalkBack\'teki yeni özellikler</string>
-  <string name="exit_tutorial_title">Eğitici kapatılsın mı?</string>
+  <string name="exit_tutorial_title">Eğitim kapatılsın mı?</string>
   <string name="exit_tutorial_content">İstediğiniz zaman TalkBack ayarlarından geri dönebilirsiniz.</string>
-  <string name="stay_in_tutorial_button">Eğiticide kal</string>
+  <string name="stay_in_tutorial_button">Eğitimde kal</string>
   <string name="welcome_to_updated_talkback_title">Güncellenen TalkBack\'e hoş geldiniz</string>
   <string name="welcome_to_updated_talkback_text_pre_r">Daha basit menüler, sesle kontrol ve daha fazla özelliğe sahip olacaksınız.\n\nSonraki birkaç ekranda önemli güncelleme ve değişiklikleri öğreneceksiniz. Bu işlem yaklaşık 3 dakika sürer. \n\nBu bilgileri istediğiniz zaman TalkBack ayarlarında inceleyebilirsiniz.</string>
   <string name="welcome_to_updated_talkback_text">Yeni, daha basit hareketler, daha basit menüler, sesle kontrol ve daha fazla özelliğe sahip olacaksınız.\n\nSonraki birkaç ekranda önemli güncelleme ve değişiklikleri öğreneceksiniz. Bu işlem yaklaşık 5 dakika sürer.\n\nBu bilgileri istediğiniz zaman TalkBack ayarlarında inceleyebilirsiniz.</string>
@@ -717,7 +748,7 @@
   <string name="new_gesture_notification_content">Yeni hareketlerle TalkBack\'i nasıl daha hızlı kullanabileceğinizi öğrenmek için .dokununun</string>
   <string name="dump_node_tree_description">Düğüm ağacı günlüklere yazdırıldı.</string>
   <string name="report_gesture_description">Son gerçekleştirilen hareketler aşağıda verilmiştir. Lütfen hangi hareketin yanlış olduğunu ve hareketten ne beklendiğini bildirin.</string>
-  <string name="tutorial_entry_point_title">Eğitici</string>
+  <string name="tutorial_entry_point_title">Eğitim</string>
   <string name="welcome_to_talkback_title">TalkBack\'e hoş geldiniz</string>
   <string name="welcome_to_talkback_text">TalkBack, ekranın zor görüldüğü durumlar veya ekranı görmekte zorluk yaşayan kullanıcılar için tasarlanmış bir ekran okuyucudur. Ekrana bakmadan cihazınızı kullanabilmeniz için sözlü geri bildirim sağlar.\n\nSes seviyesi tuşlarının ikisini birden birkaç saniyeliğine basılı tutarak TalkBack\'i açabilir veya kapatabilirsiniz.\n\nTalkBack açıkken Ekranda odaklanılan öğe sesli olarak söylenir.\n\nSağa kaydırmak bir sonraki öğeye, sola kaydırmak önceki öğeye gitmenizi sağlar.\n\nSonraki düğmeyi bulmak için şimdi sağa kaydırın.</string>
   <string name="explore_by_touch_title">Dokunarak Keşfet</string>
@@ -725,7 +756,7 @@
   <string name="scrolling_title">Kaydırma</string>
   <string name="scrolling_text">Gezinmek için 2 parmağınızla kaydırabilirsiniz.\n\nListe öğelerinin alt kısmına gidene kadar 2 parmağınızla yukarıya kaydırarak bu hareketi şimdi deneyin.</string>
   <string name="gestures_title">Sistem işlemleri</string>
-  <string name="gestures_text">Herhangi bir sistem işlemi gerçekleştirmek için sistem hareketine 1 parmak ekleyin.\n\nYani, TalkBack\'i kullanırken 1 yerine 2 parmağınızla yukarıya kaydırarak Ana ekrana gidebilirsiniz.\n\nBu hareketleri şimdi denemek eğiticiyi kapatır. Dolayısıyla, eğiticiyi tamamlayana kadar beklemeniz önerilir.</string>
+  <string name="gestures_text">Herhangi bir sistem işlemi gerçekleştirmek için sistem hareketine 1 parmak ekleyin.\n\nYani, TalkBack\'i kullanırken 1 yerine 2 parmağınızla yukarıya kaydırarak Ana ekrana gidebilirsiniz.\n\nBu hareketleri şimdi denemek eğitimi kapatır. Dolayısıyla, eğitimi tamamlayana kadar beklemeniz önerilir.</string>
   <string name="gestures_home_text">Ana ekrana gitmek için 2 parmağınızla ekranınızın alt kısmından yukarıya kaydırın.</string>
   <string name="gestures_overview_screen_text">En son kullandığınız uygulamalara gitmek için 2 parmağınızla ekranınızın alt kısmından yukarıya kaydırıp basılı tutun. Sonra bırakın. Bu, sizi genel bakış ekranına götürür.</string>
   <string name="gestures_back_text">Geri gitmek için 2 parmağınızla ekranınızın sol veya sağ kenarından başlayıp ortaya kaydırın.</string>
@@ -739,7 +770,7 @@
   <string name="menus_selector_text_pre_r">Bu kısayollar, gezinme tercihinizi karakter yerine kelime bazında yapmak veya TalkBack\'in konuşma hızını değiştirmek gibi ayarları hızlıca değiştirmenize yardımcı olabilir.\n\nOkuma kontrollerinizi hızlıca değiştirmek için aşağıya, sonra tekrar yukarıya kaydırın.\n\nTalkBack menüsünü ve okuma kontrollerinizi daha sonra TalkBack ayarlarında özelleştirebilirsiniz.</string>
   <string name="all_set_title">Hepsi bu kadar.</string>
   <string name="all_set_text">TalkBack\'i kullanmaya hazırsınız.\n\nDiğer konularla ilgili bilgi almaya devam edebilir veya bu bilgileri TalkBack ayarlarında istediğiniz zaman inceleyebilirsiniz.</string>
-  <string name="talkback_tutorial_title">TalkBack eğiticisi</string>
+  <string name="talkback_tutorial_title">TalkBack eğitimi</string>
   <string name="talkback_tutorial_text">Konu seçmek için sağa kaydırın</string>
   <string name="basic_navigation_link_text">Temel gezinme</string>
   <string name="basic_navigation_link_subtext">Öğeler arasında geçiş yapın, kaydırın, menüleri kullanın ve daha fazlasını yapın</string>
@@ -771,6 +802,7 @@
   <string name="cut_paste_text">Metni kesmek için 3 parmakla iki kez dokunup basılı tutun.\n\nMetni yapıştırmak için 3 parmakla üç kez dokunun.\n\nAşağıdaki metin kutusuna bir kelimeyi yapıştırmayı deneyin.</string>
   <string name="copy_text_pre_r">Metni seçtikten sonra TalkBack menüsünde kopyalayabilirsiniz. TalkBack menüsünü açmak için parmağınızı aşağı, ardından sağa kaydırın. Düzenleme seçeneklerine iki kez dokunun, ardından kopyalayın.\n\nAşağıdaki metin kutusuna bir kelime kopyalamayı deneyin.</string>
   <string name="cut_paste_text_pre_r">Metni kesmek veya yapıştırmak için TalkBack menüsünü açıp düzenleme seçeneklerine iki kez dokunun.\n\nAşağıdaki metin kutusuna bir kelime yapıştırmayı deneyin.</string>
+  <string name="edit_box_hint_paste_text">Metni buraya yapıştırın</string>
   <string name="read_by_character_title">Karakter, kelime veya paragrafa göre okuma</string>
   <string name="read_by_character_text">Bazen metindeki karakterlerin tek tek sesli okunmasını isteyebilirsiniz.\n\nBunu yapmak için \"%1$s\" sözcüğünü duyana kadar 3 parmakla sağa kaydırın. Ardından, gezinme odağını karakter bazında geri taşımak için parmağınızı yukarı kaydırın. Gezinme odağını karakter bazında ileri taşımak için parmağınızı aşağı kaydırın.\n\nŞimdi deneyin. 3 parmakla sağa kaydırdığınızda kelime veya paragraf bazında okumayı da seçebilirsiniz.</string>
   <string name="read_by_character_text_pre_r">Bazen metindeki karakterlerin tek tek sesli okunmasını isteyebilirsiniz.\n\nBunu yapmak için \"%1$s\" sözcüğünü duyana kadar parmağınızı aşağı, sonra yukarı kaydırın. Ardından, gezinme odağını karakter bazında geri taşımak için parmağınızı yukarı kaydırın. Gezinme odağını karakter bazında ileri taşımak için parmağınızı aşağı kaydırın.\n\nŞimdi deneyin. Parmağınızı aşağı, sonra yukarı kaydırdığınızda kelime veya paragraf bazında okumayı da seçebilirsiniz.</string>
@@ -778,8 +810,8 @@
   <string name="jump_between_controls_text">Kontroller; düğmeler, onay kutuları ve metin kutuları gibi etkileşimde bulunabileceğiniz öğelerdir.\n\nBazı sayfalarda sonraki düğmesi gibi bir işlemi hızlıca bulmak için kontroller arasında geçiş yapmak isteyebilirsiniz.\n\nBunu yapmak için \"%1$s\" sözcüğünü duyana kadar 3 parmakla sağa kaydırın. Ardından, bir sayfada önceki kontrole gitmek için yukarı kaydırın. Bir sayfada sonraki kontrole gitmek için aşağı kaydırın.\n\nŞimdi deneyin. Kontrollere geçin ve sonraki düğmesini bulun.</string>
   <string name="jump_between_controls_text_pre_r">Kontroller; düğmeler, onay kutuları ve metin kutuları gibi etkileşimde bulunabileceğiniz öğelerdir.\n\nBazı sayfalarda sonraki düğmesi gibi bir işlemi hızlıca bulmak için kontroller arasında geçiş yapmak isteyebilirsiniz.\n\nBunu yapmak için \"%1$s\" sözcüğünü duyana kadar aşağı, sonra yukarı kaydırın. Ardından, bir sayfada önceki kontrole gitmek için yukarı kaydırın. Bir sayfada sonraki kontrole gitmek için aşağı kaydırın.\n\nŞimdi deneyin. Kontrollere geçin ve sonraki düğmesini bulun.</string>
   <string name="jump_between_links_title">Bağlantılar arasında geçiş yapma</string>
-  <string name="jump_between_links_text">Sayfadaki bağlantılar arasında da geçiş yapabilirsiniz.\n\nŞimdi denemek için \"%1$s\" sözcüğünü duyana kadar 3 parmakla sağa kaydırın. Ardından, \"devam\" olarak adlandırılan bağlantıyı bulmak için aşağı kaydırın. Eğiticide bu bağlantıya iki kez dokununca herhangi bir işlem gerçekleşmez.\n\nSonraki düğmesini bulmak için parmağınızı sağa kaydırıp sonraki sayfaya gidin.</string>
-  <string name="jump_between_links_text_pre_r">Sayfadaki bağlantılar arasında da geçiş yapabilirsiniz.\n\nŞimdi denemek için \"%1$s\" sözcüğünü duyana kadar parmağınızı aşağı, sonra yukarı kaydırın. Ardından, \"devam\" olarak adlandırılan bağlantıyı bulmak için aşağı kaydırın. Eğiticide bu bağlantıya iki kez dokununca herhangi bir işlem gerçekleşmez.\n\nSonraki düğmesini bulmak için parmağınızı sağa kaydırıp sonraki sayfaya gidin.</string>
+  <string name="jump_between_links_text">Sayfadaki bağlantılar arasında da geçiş yapabilirsiniz.\n\nŞimdi denemek için \"%1$s\" sözcüğünü duyana kadar 3 parmakla sağa kaydırın. Ardından, \"devam\" olarak adlandırılan bağlantıyı bulmak için aşağı kaydırın. Eğitimde bu bağlantıya iki kez dokununca herhangi bir işlem gerçekleşmez.\n\nSonraki düğmesini bulmak için parmağınızı sağa kaydırıp sonraki sayfaya gidin.</string>
+  <string name="jump_between_links_text_pre_r">Sayfadaki bağlantılar arasında da geçiş yapabilirsiniz.\n\nŞimdi denemek için \"%1$s\" sözcüğünü duyana kadar parmağınızı aşağı, sonra yukarı kaydırın. Ardından, \"devam\" olarak adlandırılan bağlantıyı bulmak için aşağı kaydırın. Eğitimde bu bağlantıya iki kez dokununca herhangi bir işlem gerçekleşmez.\n\nSonraki düğmesini bulmak için parmağınızı sağa kaydırıp sonraki sayfaya gidin.</string>
   <string name="paragraph1_text">Paragraf 1.</string>
   <string name="paragraph2_text">Paragraf 2.</string>
   <string name="paragraph3_text">Paragraf 3.</string>
@@ -790,7 +822,7 @@
   <string name="link4_text">Bağlantı 4</string>
   <string name="target_link_text">Devam</string>
   <string name="jump_between_headings_title">Başlıklar arasında geçiş yapma</string>
-  <string name="jump_between_headings_text">Sayfadaki başlıklar arasında da geçiş yapabilirsiniz.\n\nŞimdi denemek için \"%1$s\" sözcüğünü duyana kadar 3 parmakla sağa kaydırın. Ardından, \"gezinme\" başlığını bulmak için aşağı kaydırın.\n\nEğiticiyi bitirmek için parmağınızı sağa kaydırıp bitir düğmesini bulun.</string>
+  <string name="jump_between_headings_text">Sayfadaki başlıklar arasında da geçiş yapabilirsiniz.\n\nŞimdi denemek için \"%1$s\" sözcüğünü duyana kadar 3 parmakla sağa kaydırın. Ardından, \"gezinme\" başlığını bulmak için aşağı kaydırın.\n\nEğitimi bitirmek için parmağınızı sağa kaydırıp bitir düğmesini bulun.</string>
   <string name="jump_between_headings_text_pre_r">Sayfadaki başlıklar arasında da geçiş yapabilirsiniz.\n\nŞimdi denemek için \"%1$s\" sözcüğünü duyana kadar parmağınızı aşağı, sonra yukarı kaydırın. Ardından, \"gezinme\" başlığını bulmak için aşağı kaydırın.\n\nEğitiyici bitirmek için parmağınızı sağa kaydırıp bitir düğmesini bulun.</string>
   <string name="content_heading">İçerik</string>
   <string name="content_text">Sonraki başlığa gidin.</string>
@@ -806,6 +838,20 @@
   <string name="button_4">Düğme 4</string>
   <string name="activated_view">%1$s etkinleştirildi</string>
   <string name="talkback_inactive_title">TalkBack Devre Dışı</string>
-  <string name="talkback_inactive_message">Bu eğitici TalkBack\'in etkinleştirilmesini gerektirir. Lütfen eğiticiyi başlatmadan önce TalkBack\'i açın.</string>
+  <string name="talkback_inactive_message">Bu eğitim, TalkBack\'in etkinleştirilmesini gerektirir. Lütfen eğitimi başlatmadan önce TalkBack\'i açın.</string>
+  <string name="watch_swipe_left_right_text">Öğeler arasında geçiş yapmak için ekranı sağa veya sola kaydırın</string>
+  <string name="watch_double_tap_text">Bir öğeyi etkinleştirmek için iki kez dokunun</string>
+  <string name="watch_2_finger_scroll_text">Kaydırmak için 2 parmağınızla sürükleyin</string>
+  <string name="title_pref_thick_border">Kalın kenarlıklar</string>
+  <string name="title_pref_category_border_color">Renk</string>
+  <string name="title_pref_default_color">Varsayılan</string>
+  <string name="title_pref_red">Kırmızı</string>
+  <string name="title_pref_orange">Turuncu</string>
+  <string name="title_pref_yellow">Sarı</string>
+  <string name="title_pref_green">Yeşil</string>
+  <string name="title_pref_blue">Mavi</string>
+  <string name="title_pref_grey">Gri</string>
   <string name="survey_closed">Anket kapalı</string>
+  <string name="character_recognition_text">Metin: %1$s</string>
+  <string name="title_image_caption">Resmi tanımla</string>
 </resources>
